@@ -1,0 +1,59 @@
+=== Hyperbolic Math Functions Corner Cases Test ===
+Test 1: $sinh - Hyperbolic sine
+  PASS: $sinh(0) = 0.000000
+  PASS: $sinh(1) = 1.175201
+  PASS: $sinh(-1) = -1.175201
+Test 2: $sinh - Large values
+  $sinh(10) = 11013.232875 (large positive)
+  PASS: $sinh(10) > 0 = 11013.232875 (> 0)
+  $sinh(-10) = -11013.232875 (large negative)
+  PASS: $sinh(-10) < 0
+Test 3: $cosh - Hyperbolic cosine
+  PASS: $cosh(0) = 1.000000
+  PASS: $cosh(1) = 1.543081
+  PASS: $cosh(-1) = 1.543081
+Test 4: $cosh - Always >= 1
+  PASS: $cosh(0) >= 1 = 1.000000 (> 0)
+  PASS: $cosh(5) >= 1 = 74.209949 (> 0)
+  PASS: $cosh(-5) >= 1 = 74.209949 (> 0)
+Test 5: $tanh - Hyperbolic tangent
+  PASS: $tanh(0) = 0.000000
+  PASS: $tanh(1) = 0.761594 (in [0.760000, 0.770000])
+  PASS: $tanh(-1) = -0.761594 (in [-0.770000, -0.760000])
+Test 6: $tanh - Asymptotic behavior (approaches ±1)
+  PASS: $tanh(10) = 1.000000 (in [0.999900, 1.000100])
+  PASS: $tanh(-10) = -1.000000 (in [-1.000100, -0.999900])
+  PASS: $tanh(100) = 1.000000 (in [0.999900, 1.000100])
+Test 7: $asinh - Inverse hyperbolic sine
+  PASS: $asinh(0) = 0.000000
+  PASS: $asinh(1) = 0.881374 (in [0.880000, 0.890000])
+  PASS: $asinh(-1) = -0.881374 (in [-0.890000, -0.880000])
+Test 8: $asinh - Large values
+  $asinh(1000) = 7.600903
+  PASS: $asinh(1000) > 0 = 7.600903 (> 0)
+  PASS: $asinh(-1000) = -7.600903 < 0
+Test 9: $acosh - Inverse hyperbolic cosine (domain: x >= 1)
+  PASS: $acosh(1) = 0.000000
+  PASS: $acosh(2) = 1.316958 (in [1.310000, 1.330000])
+Test 10: $acosh - Large values
+  $acosh(100) = 5.298292
+  PASS: $acosh(100) > 0 = 5.298292 (> 0)
+Test 11: $atanh - Inverse hyperbolic tangent (domain: -1 < x < 1)
+  PASS: $atanh(0) = 0.000000
+  PASS: $atanh(0.5) = 0.549306 (in [0.540000, 0.560000])
+  PASS: $atanh(-0.5) = -0.549306 (in [-0.560000, -0.540000])
+Test 12: $atanh - Near boundary values
+  PASS: $atanh(0.9) = 1.472219 (in [1.470000, 1.480000])
+  PASS: $atanh(0.99) = 2.646652 (in [2.640000, 2.660000])
+Test 13: Identity: sinh(asinh(x)) = x
+  PASS: sinh(asinh(2.5)) = 2.500000
+Test 14: Identity: cosh(acosh(x)) = x (for x >= 1)
+  PASS: cosh(acosh(3.0)) = 3.000000
+Test 15: Identity: tanh(atanh(x)) = x (for |x| < 1)
+  PASS: tanh(atanh(0.7)) = 0.700000
+Test 16: Identity: cosh^2(x) - sinh^2(x) = 1
+  PASS: cosh^2(1.5) - sinh^2(1.5) = 1.000000
+========================================
+TEST RESULTS: 34/34 PASSED
+TEST PASSED
+========================================

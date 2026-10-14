@@ -1,0 +1,8 @@
+PASS: Test 1 - Buffer 1 drives bus, Buffer 2 reads
+PASS: Test 2 - Buffer 2 drives bus, Buffer 1 reads
+PASS: Test 3 - Both disabled, bus is high-Z
+PASS: Test 4 - Transceiver A->B direction
+PASS: Test 5 - Transceiver B->A direction
+=== Inout Port Test Summary ===
+PASS: 5, FAIL: 0
+ALL TESTS PASSED

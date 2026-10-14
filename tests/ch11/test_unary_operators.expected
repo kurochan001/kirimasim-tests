@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Unary Operators Tests ===
+Test 1: Unary plus
+Test 1 PASS: +42 = 42
+Test 2: Unary minus
+Test 2 PASS: -42 = -42
+Test 3: Bitwise NOT
+Test 3 PASS: ~0x0F = f0
+Test 4: Logical NOT
+Test 4 PASS: !0 is true
+Test 5: Reduction AND
+Test 5 PASS: &0xFF = 1
+Test 6: Reduction OR
+Test 6 PASS: |0x01 = 1
+Test 7: Reduction XOR
+Test 7 PASS: ^0b1010 = 0 (even parity)
+Test 8: Reduction XNOR
+Test 8 PASS: ~^0b1010 = 1
+=== Summary: 8/8 tests passed ===
+TEST PASSED

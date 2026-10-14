@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Typedef Tests ===
+Test 1: Int typedef
+Test 1 PASS
+Test 2: Byte typedef
+Test 2 PASS
+Test 3: Word typedef
+Test 3 PASS
+Test 4: Array typedef
+Test 4 PASS
+Test 5: String typedef
+Test 5 PASS
+Test 6: Operations
+Test 6 PASS
+Test 7: Byte ops
+Test 7 PASS
+Test 8: Word ops
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

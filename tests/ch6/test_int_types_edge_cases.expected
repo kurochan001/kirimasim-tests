@@ -1,0 +1,13 @@
+TEST: Integer types edge cases
+  [PASS] Byte max positive
+  [PASS] Byte min negative
+  [PASS] Shortint max
+  [PASS] Shortint min
+  [PASS] Int max
+  [PASS] Int min
+  [PASS] Longint positive: 1000000000000
+  [PASS] Longint negative: -1000000000000
+  [PASS] Type promotion byte to int
+  [PASS] Type truncation int to byte
+Results: 10 passed, 0 failed
+TEST PASSED

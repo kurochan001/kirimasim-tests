@@ -1,0 +1,6 @@
+Test 1 PASS: Counter created with value 10
+Test 2 PASS: set_value(50) -> value = 50
+Test 3 PASS: increment() and increment(5) -> value = 56
+Test 4 PASS: get_doubled() = 112
+Test 5 PASS: compute_expression(2,3,4) = 20
+PASS: All class method tests passed

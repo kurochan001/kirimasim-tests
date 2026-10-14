@@ -1,0 +1,10 @@
+PASS: $signed(8'hFF) = -1
+PASS: $unsigned(-5) = 0xfb
+PASS: $itor(42) = 42.000000
+PASS: $rtoi(3.7) = 3 (truncated)
+PASS: $rtoi(-2.9) = -2 (truncated toward zero)
+PASS: int'(5.9) = 6 (rounded)
+=== Conversion Functions Test Results ===
+PASS: 6
+FAIL: 0
+TEST PASSED

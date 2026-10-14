@@ -1,0 +1,9 @@
+Test 1 PASS: $size(arr1d) = 10
+Test 2 PASS: $size(arr2d) = 5, $size(arr2d,1) = 5
+Test 3 PASS: $size(arr2d, 2) = 8
+Test 4 PASS: 3D array: dim1=3, dim2=4, dim3=5
+Test 5 PASS: $size(dyn_arr) = 15
+Test 6 PASS: $size(queue_arr) = 7
+Test 7 PASS: $size(packed_arr) = 4
+Test 8 PASS: $size(desc_arr[7:0]) = 8
+PASS: sysfunc_size (8/8)

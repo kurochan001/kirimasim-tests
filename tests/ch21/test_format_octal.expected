@@ -1,0 +1,15 @@
+PASS: basic %o
+PASS: %O format
+PASS: single octal digit
+PASS: 12-bit octal
+PASS: 24-bit octal
+PASS: zero octal
+PASS: all ones octal
+PASS: x in octal
+PASS: z in octal
+PASS: partial x in octal
+PASS: int slice as octal
+PASS: bit type octal
+PASS: octal 0-7
+PASS: %0o
+PASS: format_octal (14/14)

@@ -1,0 +1,19 @@
+Test 1: int to real
+  real'(42) = 42.000000
+  PASS
+Test 2: real to shortreal
+  shortreal'(pi) = 3.141593
+Test 3: shortreal to real
+  real'(2.5 shortreal) = 2.500000
+  PASS
+Test 4: Negative real to int
+  int'(-3.7) = -4
+Test 5: Large real
+  Large real: 1.000000e+10
+Test 6: Small real
+  Small real: 1.000000e-10
+Test 7: Bit pattern ($realtobits)
+  $realtobits(1.0) = 0x3ff0000000000000
+  $bitstoreal back = 1.000000
+  PASS
+TEST PASSED: 7/7 tests passed

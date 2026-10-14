@@ -1,0 +1,19 @@
+Test 1: Integer addition
+  PASS: 100 + 200 = 300
+Test 2: Integer subtraction
+  PASS: 200 - 100 = 100
+Test 3: Integer multiplication
+  PASS: 12 * 13 = 156
+Test 4: Integer division
+  PASS: 100 / 7 = 14
+Test 5: Integer modulo
+  PASS: 100 % 7 = 2
+Test 6: Real arithmetic
+  3.500000 + 2.000000 = 5.500000
+  3.500000 * 2.000000 = 7.000000
+  3.500000 / 2.000000 = 1.750000
+Test 7: Negative numbers
+  PASS: -10 * 3 = -30
+Test 8: Power operator
+  PASS: 2 ** 10 = 1024
+TEST PASSED: 8/8 tests passed

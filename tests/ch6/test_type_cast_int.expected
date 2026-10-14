@@ -1,0 +1,17 @@
+Test 1: int to byte cast
+  PASS: byte'(298) = 42
+Test 2: byte to int cast
+  int'(-1 as byte) = -1
+Test 3: unsigned to signed
+  PASS: signed'(0xFFFFFFFF) = -1
+Test 4: signed to unsigned
+  unsigned'(-1) = 0xffffffff
+  PASS
+Test 5: real to int cast
+  int'(3.7) = 4
+  PASS: rounded to nearest
+Test 6: int to shortint
+  shortint'(70000) = 4464
+Test 7: longint cast
+  longint'(0xDEADBEEF) = 0xdeadbeef
+TEST PASSED: 7/7 tests passed

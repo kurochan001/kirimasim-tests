@@ -1,0 +1,23 @@
+Test 1 PASS: wire = 1
+Test 2 PASS: wire[7:0] = ab
+Test 3 PASS: wand(1,1) = 1
+Test 4 PASS: wand(1,0) = 0
+Test 5 PASS: wor(0,0) = 0
+Test 6 PASS: wor(0,1) = 1
+Test 7 PASS: wand[3:0] = 1010
+Test 8 PASS: wor[3:0] = 1010
+Test 9 PASS: tri driven = 1
+Test 10 PASS: tri[7:0] = 55
+Test 11 PASS: tri0 = 0 (pull-down)
+Test 12 PASS: tri0 driven high = 1
+Test 13 PASS: tri1 = 1 (pull-up)
+Test 14 PASS: tri1 driven = 0
+Test 15 PASS: Wire toggle
+Test 16 PASS: wand all ones = 1111
+Test 17 PASS: wor all zeros = 0000
+Test 18 PASS: Wire pattern = aa
+Test 19 PASS: wand mixed = 1000
+Test 20 PASS: wor mixed = 1111
+=== Net Types Edge Cases ===
+Passed: 20/20
+TEST PASSED

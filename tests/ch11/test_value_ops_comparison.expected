@@ -1,0 +1,17 @@
+Test 1: Integer equality
+  PASS: 42 == 42
+Test 2: Integer inequality
+  PASS: 42 != 43
+Test 3: Less than
+  PASS: 42 < 43
+Test 4: Greater than
+  PASS: 43 > 42
+Test 5: Less or equal
+  PASS: 42 <= 42
+Test 6: Greater or equal
+  PASS: 42 >= 42
+Test 7: Case equality
+  PASS: case equality with x
+Test 8: Wildcard equality
+  PASS: wildcard equality
+TEST PASSED: 8/8 tests passed

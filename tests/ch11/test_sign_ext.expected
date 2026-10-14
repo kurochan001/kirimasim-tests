@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Sign Extension Tests ===
+Test 1: Positive extend
+Test 1 PASS
+Test 2: Negative extend
+Test 2 PASS
+Test 3: Neg 128 extend
+Test 3 PASS
+Test 4: Unsigned zero ext
+Test 4 PASS
+Test 5: Signed to int
+Test 5 PASS
+Test 6: Unsigned to int
+Test 6 PASS
+Test 7: Small neg
+Test 7 PASS
+Test 8: Zero extend
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

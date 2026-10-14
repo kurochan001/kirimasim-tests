@@ -1,0 +1,43 @@
+=== Real/Bits Conversion Corner Cases Test ===
+Test 1: $realtobits - Basic conversions
+  PASS: $realtobits(0.0) = 0x0000000000000000
+  PASS: $realtobits(1.0) = 0x3ff0000000000000
+  PASS: $realtobits(-1.0) = 0xbff0000000000000
+  PASS: $realtobits(2.0) = 0x4000000000000000
+Test 2: $bitstoreal - Basic conversions
+  PASS: $bitstoreal(0x0) = 0
+  PASS: $bitstoreal(0x3FF...) = 1
+  PASS: $bitstoreal(0xBFF...) = -1
+Test 3: Round-trip conversion
+  PASS: Round-trip 3.14159... = 3.14159
+  PASS: Round-trip -123.456789 = -123.457
+Test 4: Small numbers
+  $realtobits(1e-100) = 0x2b2bff2ee48e0530
+  Round-trip: 1.000000e-100
+Test 5: Large numbers
+  $realtobits(1e100) = 0x54b249ad2594c37d
+  PASS: Round-trip 1e100 = 1e+100
+Test 6: $shortrealtobits - Basic conversions
+  PASS: $shortrealtobits(0.0) = 0x00000000
+  PASS: $shortrealtobits(1.0) = 0x3f800000
+  PASS: $shortrealtobits(-1.0) = 0xbf800000
+Test 7: $bitstoshortreal - Basic conversions
+  $bitstoshortreal(0x0) = 0.000000
+  PASS: Correct
+  $bitstoshortreal(0x3F800000) = 1.000000
+  PASS: Correct
+Test 8: Shortreal round-trip
+  Original: 3.141590, Recovered: 3.141590
+  PASS: Round-trip within tolerance
+Test 9: Precision difference
+  1.0 as double: 0x3ff0000000000000
+  1.0 as single: 0x3f800000
+Test 10: Large value representation
+  $realtobits(1e308) = 0x7fe1ccf385ebc8a0
+  Round-trip: 1.000000e+308
+Test 11: Negative zero bit pattern
+  PASS: $realtobits($bitstoreal(0x8000...)) = 0x8000000000000000
+========================================
+TEST RESULTS: 20/20 PASSED
+TEST PASSED
+========================================

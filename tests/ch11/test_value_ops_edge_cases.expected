@@ -1,0 +1,37 @@
+=== Value Ops Edge Cases Test ===
+--- X/Z Value Handling ---
+PASS: X value case equality
+PASS: Z value case equality
+--- Signed/Unsigned Conversion ---
+PASS: signed to unsigned conversion
+PASS: sign extension
+--- Zero Extension ---
+PASS: zero extension
+--- Truncation ---
+PASS: truncation
+--- Bitwise with X/Z ---
+PASS: AND with X
+PASS: OR with X
+--- Reduction Operators ---
+PASS: reduction AND
+PASS: reduction OR
+PASS: reduction XOR
+--- Part Select Edge Cases ---
+PASS: LSB part select
+PASS: MSB part select
+PASS: variable part select
+--- Shift Operations ---
+PASS: left shift max
+PASS: left shift overflow
+PASS: right shift max
+PASS: arithmetic right shift
+PASS: right shift in unsigned comparison context
+--- Concatenation Edge Cases ---
+PASS: basic concatenation
+PASS: triple concatenation
+PASS: replication
+--- Size Functions ---
+PASS: $bits byte
+PASS: $bits word
+=== Summary: 24 passed, 0 failed ===
+TEST PASSED

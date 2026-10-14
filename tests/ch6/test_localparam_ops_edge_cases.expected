@@ -1,0 +1,13 @@
+TEST: Localparam operations edge cases
+  [PASS] Integer localparam
+  [PASS] Derived localparam
+  [PASS] Division localparam
+  [PASS] Logic localparam
+  [PASS] Real localparam
+  [PASS] String localparam
+  [PASS] Use in array size
+  [PASS] Use in loop
+  [PASS] Use in expression
+  [PASS] Use in assignment
+Results: 10 passed, 0 failed
+TEST PASSED

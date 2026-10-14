@@ -1,0 +1,12 @@
+TEST: Local scope edge cases
+  [PASS] Local shadows global
+  [PASS] Nested scopes
+  [PASS] Loop variable scope
+  [PASS] Block 1 local
+  [PASS] Block 2 local
+  [PASS] Sequential local scopes
+  [PASS] Local initialization
+  [PASS] Multiple locals
+  [PASS] Local assignment
+Results: 9 passed, 0 failed
+TEST PASSED

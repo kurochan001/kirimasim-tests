@@ -1,0 +1,7 @@
+PASS: Test 1 - Basic typedefs (b=ab, hw=cdef, w=12345678)
+PASS: Test 2 - Signed typedef (sb=-100)
+PASS: Test 3 - Enum typedef (state=01)
+PASS: Test 4 - Struct typedef (tag=ff, data=abcdef)
+PASS: Test 5 - Union typedef (word=deadbeef, byte0=ef, byte3=de)
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,34 @@
+=== IEEE 1800-2023 Signed and Unsigned Test ===
+Test 1: Unsigned interpretation
+  8'hFF as unsigned = 255
+Test 1 PASS
+Test 2: Signed interpretation
+  8'shFF as signed = -1
+Test 2 PASS
+Test 3: Positive signed
+  8'sh7F as signed = 127
+Test 3 PASS
+Test 4: $signed system function
+  $signed(8'hF0) = -16
+Test 4 PASS
+Test 5: $unsigned system function
+  $unsigned(-16) = 240
+Test 5 PASS
+Test 6: Signed comparison
+  -1 < 0 is true
+Test 6 PASS
+Test 7: Signed arithmetic
+  -10 * 2 = -20
+Test 7 PASS
+Test 8: Mixed signed/unsigned
+  -5 + 10 = 5
+Test 8 PASS
+Test 9: Signed shift
+  -16 >>> 2 = -4 (arithmetic)
+Test 9 PASS
+Test 10: Boundary values
+  8'sh80 = -128
+  8'sh7F = 127
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

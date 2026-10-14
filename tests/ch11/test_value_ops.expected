@@ -1,0 +1,9 @@
+Test 1: Bitwise AND PASS
+Test 2: Bitwise OR PASS
+Test 3: Bitwise XOR PASS
+Test 4: Shift left PASS
+Test 5: Shift right PASS
+Test 6: Arithmetic shift PASS
+Test 7: Concatenation PASS
+Test 8: Replication PASS
+TEST PASSED: 8/8 tests passed

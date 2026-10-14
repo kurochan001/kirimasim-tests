@@ -1,0 +1,18 @@
+PASS: $countones all ones = 8
+PASS: $countones all zeros = 0
+PASS: $countones mixed = 4
+PASS: $countbits mixed, 1 = 4
+PASS: $countbits mixed, 0 = 4
+PASS: $onehot one bit = 1
+PASS: $onehot four bits = 0
+PASS: $onehot all zeros = 0
+PASS: $onehot0 zero bits = 1
+PASS: $onehot0 one bit = 1
+PASS: $onehot0 two bits = 0
+PASS: $onehot0 all ones = 0
+PASS: $isunknown with X = 1
+PASS: $isunknown with Z = 1
+PASS: $isunknown no unknown = 0
+=== Test Summary ===
+Tests: 15, Passed: 15, Failed: 0
+PASS: All bitop system tasks tests passed

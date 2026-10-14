@@ -1,0 +1,21 @@
+Test 1 PASS: Default = xxxxxxxx
+Test 2 PASS: Assign = 12345678
+Test 3 PASS: Negative = -1000000
+Test 4 PASS: Max = 2147483647
+Test 5 PASS: Min = -2147483648
+Test 6 PASS: Sum = 3000000
+Test 7 PASS: Diff = 3000000
+Test 8 PASS: Prod = 2000000
+Test 9 PASS: Quot = 1000
+Test 10 PASS: Mod = 567
+Test 11 PASS: AND = 0fff0000
+Test 12 PASS: OR = ffff0000
+Test 13 PASS: Shl = 65536
+Test 14 PASS: AShr = -2
+Test 15 PASS: i1 < i2
+Test 16 PASS: Inc = 1000000
+Test 17 PASS: Dec = 999999
+Test 18 PASS: NegDiv = -33
+=== Integer Edge Cases ===
+Passed: 18/18
+TEST PASSED

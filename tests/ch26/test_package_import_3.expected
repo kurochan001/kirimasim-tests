@@ -1,0 +1,8 @@
+PASS: Import parameter constant
+PASS: Import typedef byte_t
+PASS: Import struct typedef pair_t
+PASS: Import enum typedef state_e
+PASS: Import function add
+PASS: Import function multiply
+Package import test: 6 PASS, 0 FAIL
+PASS: All package import tests passed

@@ -1,0 +1,7 @@
+PASS: Struct member write: field_a=0xAA, field_b=0xBB
+PASS: Struct member read concatenation = 0xAABB
+PASS: Class member obj.value = 42
+PASS: Class string member obj.name = "test"
+PASS: Class method obj.get_value() = 42
+Member access operators: 5 PASS, 0 FAIL
+PASS: All member access operator tests passed

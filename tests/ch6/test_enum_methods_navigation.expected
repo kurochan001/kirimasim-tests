@@ -1,0 +1,6 @@
+  Enum[0] = RED
+  Enum[1] = GREEN
+  Enum[2] = BLUE
+  Enum[3] = YELLOW
+  Enum[4] = ORANGE
+PASS: Enum navigation methods

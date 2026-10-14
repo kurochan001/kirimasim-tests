@@ -1,0 +1,15 @@
+PASS: $itor(42) = 42.000000
+PASS: $itor(-100) = -100.000000
+PASS: $rtoi(3.7) = 3
+PASS: $rtoi(-2.8) = -2
+PASS: $rtoi(2.5) = 2
+PASS: $bitstoreal($realtobits(3.14159)) = 3.141590
+PASS: $realtobits(0.0) = 0x0000000000000000
+PASS: $realtobits(1.0) = 0x3ff0000000000000
+PASS: $bitstoshortreal($shortrealtobits(2.5)) = 2.500000
+PASS: $shortrealtobits(1.0) = 0x3f800000
+PASS: $itor(0) = 0.000000
+PASS: $rtoi(0.4) = 0
+=== Type Conversion Functions Test Summary ===
+Tests: 12, Passed: 12
+PASS: All type conversion function tests passed

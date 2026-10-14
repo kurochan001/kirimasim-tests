@@ -1,0 +1,15 @@
+PASS: enum literal assignment
+PASS: enum to int
+PASS: int to enum (valid)
+PASS: enum with explicit value
+PASS: enum negative value
+PASS: enum to bit vector
+PASS: bit to enum
+PASS: enum comparison
+PASS: enum in case
+PASS: enum.first()
+PASS: enum.last()
+PASS: enum.next()
+PASS: enum.prev()
+PASS: enum.num()
+PASS: cast_enum (14/14)

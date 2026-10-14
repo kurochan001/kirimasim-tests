@@ -1,0 +1,5 @@
+PASS: $bitstoshortreal(0x3F800000) = 1.000000
+PASS: $bitstoshortreal(0xBF800000) = -1.000000
+PASS: $bitstoshortreal(0x00000000) = 0.000000
+PASS: $bitstoshortreal(0x40000000) = 2.000000
+PASS: $bitstoshortreal(0x3F000000) = 0.500000

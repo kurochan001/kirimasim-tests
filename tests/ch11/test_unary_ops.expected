@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Unary Operators Tests ===
+Test 1: Negation
+Test 1 PASS: -10
+Test 2: Plus
+Test 2 PASS: 20
+Test 3: NOT
+Test 3 PASS: 1
+Test 4: NOT true
+Test 4 PASS: 0
+Test 5: Bitwise NOT
+Test 5 PASS: ff
+Test 6: NOT AA
+Test 6 PASS: 55
+Test 7: Double neg
+Test 7 PASS: 30
+Test 8: Combined
+Test 8 PASS: 1
+=== Summary: 8/8 tests passed ===
+TEST PASSED

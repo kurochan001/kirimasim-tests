@@ -1,0 +1,15 @@
+PASS: basic %b
+PASS: %B format
+PASS: nibble binary
+PASS: 16-bit binary
+PASS: zero binary
+PASS: all ones binary
+PASS: x in binary
+PASS: z in binary
+PASS: mixed x/z
+PASS: %0b
+PASS: int slice as binary
+PASS: single bit
+PASS: alternating pattern
+PASS: bit type binary
+PASS: format_binary (14/14)

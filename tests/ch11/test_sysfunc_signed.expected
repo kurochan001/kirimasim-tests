@@ -1,0 +1,5 @@
+Test 1 PASS: signed(7F) = 127
+Test 2 PASS: signed(FF) = -1
+Test 3 PASS: signed(00) = 0
+Passed: 3/3
+PASS

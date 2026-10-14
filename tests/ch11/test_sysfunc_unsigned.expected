@@ -1,0 +1,5 @@
+Test 1 PASS: unsigned(100) = 100
+Test 2 PASS: unsigned(-1) = ffffffff
+Test 3 PASS: unsigned(0) = 0
+Passed: 3/3
+PASS

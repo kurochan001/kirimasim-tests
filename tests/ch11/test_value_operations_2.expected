@@ -1,0 +1,23 @@
+PASS: Addition
+PASS: Subtraction
+PASS: Multiplication
+PASS: Division
+PASS: Modulo
+PASS: Bitwise AND
+PASS: Bitwise OR
+PASS: Bitwise XOR
+PASS: Bitwise NOT
+PASS: Left shift
+PASS: Right shift
+PASS: Less than
+PASS: Less than or equal
+PASS: Greater than
+PASS: Greater than or equal
+PASS: Equality
+PASS: Case equality
+PASS: Logical AND/NOT
+PASS: Logical OR
+PASS: Reduction AND
+PASS: Reduction OR
+PASS: Reduction XOR
+TEST PASSED: value operations completed

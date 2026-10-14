@@ -1,0 +1,17 @@
+PASS: basic %f: 3.141590
+PASS: %f integer: 42.000000
+PASS: %f negative: -123.456000
+PASS: %e scientific: 1.234568e+06
+PASS: %E uppercase: 1.230000E-04
+PASS: %g general: 123.456
+PASS: %G uppercase: 1E+10
+PASS: zero %f: 0.000000
+PASS: very small %e: 1.000000e-09
+PASS: very large %e: 1.000000e+100
+PASS: shortreal %f: 2.500000
+PASS: precision %f: 3.141593
+PASS: negative exp %e: 1.234500e-06
+PASS: multiple floats: 1.500000 + 2.500000 = 4.000000
+PASS: %g small: 0.0001
+PASS: sqrt(2) %f: 1.414214
+PASS: format_float (16/16)

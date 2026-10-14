@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Signed Arithmetic Tests ===
+Test 1: Pos add
+Test 1 PASS
+Test 2: Neg add
+Test 2 PASS
+Test 3: Mixed add
+Test 3 PASS
+Test 4: Neg sub
+Test 4 PASS
+Test 5: Neg mult
+Test 5 PASS
+Test 6: Neg neg mult
+Test 6 PASS
+Test 7: Neg div
+Test 7 PASS
+Test 8: Neg mod
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

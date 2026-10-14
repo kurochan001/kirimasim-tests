@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Shift Operators Tests ===
+Test 1: Left shift
+Test 1 PASS: 10
+Test 2: Right shift
+Test 2 PASS: 08
+Test 3: Left by 1
+Test 3 PASS: aa
+Test 4: Right by 1
+Test 4 PASS: 55
+Test 5: Left by 0
+Test 5 PASS: ab
+Test 6: Right by 0
+Test 6 PASS: ab
+Test 7: All out
+Test 7 PASS: 00
+Test 8: Shift 2
+Test 8 PASS: 3c
+=== Summary: 8/8 tests passed ===
+TEST PASSED

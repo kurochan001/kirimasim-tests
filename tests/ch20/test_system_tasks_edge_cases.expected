@@ -1,0 +1,13 @@
+TEST: System tasks edge cases
+  [PASS] $display with integer: 42
+  [PASS] $display with hex: ab
+  [PASS] $display with binary: 1010
+  [PASS] $sformat
+  [PASS] $sscanf
+  [PASS] $time returns: 0
+  [PASS] $bits returns 32
+  [PASS] $size returns 10
+  [PASS] $clog2(16) = 4
+  [PASS] $countones = 4
+Results: 10 passed, 0 failed
+TEST PASSED

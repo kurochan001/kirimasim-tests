@@ -1,0 +1,18 @@
+Test 1 PASS: Default = 0
+Test 2 PASS: Assign = 123456789
+Test 3 PASS: Large = 0000000100000000
+Test 4 PASS: Negative = -1000000
+Test 5 PASS: Sum = 0000000100000000
+Test 6 PASS: Diff = 00000000ffffffff
+Test 7 PASS: Prod = 1000000000
+Test 8 PASS: Quot = 1000
+Test 9 PASS: AND = 0000ffff00000000
+Test 10 PASS: OR = ffff00000000ffff
+Test 11 PASS: Shl = 0000000100000000
+Test 12 PASS: Shr = 1
+Test 13 PASS: l1 < l2
+Test 14 PASS: l1 == l2
+Test 15 PASS: Inc = 0000000100000000
+=== Longint Edge Cases ===
+Passed: 15/15
+TEST PASSED

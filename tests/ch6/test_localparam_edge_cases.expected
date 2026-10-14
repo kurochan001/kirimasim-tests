@@ -1,0 +1,13 @@
+TEST: Localparam edge cases
+  [PASS] Basic localparam
+  [PASS] Second localparam
+  [PASS] Computed localparam
+  [PASS] Division localparam
+  [PASS] String localparam
+  [PASS] Logic localparam
+  [PASS] Localparam in expression
+  [PASS] Comparison with localparam
+  [PASS] Localparam chain
+  [PASS] Multiple in condition
+Results: 10 passed, 0 failed
+TEST PASSED

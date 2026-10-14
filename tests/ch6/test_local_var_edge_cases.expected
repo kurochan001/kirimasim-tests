@@ -1,0 +1,15 @@
+Test 1 PASS: global_var = 100
+Test 2 PASS: block_local = 200
+Test 3 PASS: nested sum = 30
+Test 4 PASS: function result = 60
+Test 5 PASS: for sum = 10
+Test 6 PASS: shadowed = 999
+Test 7 PASS: Original restored = 100
+Test 8 PASS: Multi decl sum = 6
+Test 9 PASS: local array sum = 10
+Test 10 PASS: local logic = ab
+Test 11 PASS: local string = test
+Test 12 PASS: local real = 3.140000
+=== Local Var Edge Cases ===
+Passed: 12/12
+TEST PASSED

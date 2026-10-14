@@ -1,0 +1,17 @@
+Test 1: Bitwise AND
+  PASS: 11110000 & 10101010 = 10100000
+Test 2: Bitwise OR
+  PASS: 11110000 | 10101010 = 11111010
+Test 3: Bitwise XOR
+  PASS: 11110000 ^ 10101010 = 01011010
+Test 4: Bitwise NOT
+  PASS: ~11110000 = 00001111
+Test 5: Bitwise XNOR
+  PASS: 11110000 ~^ 10101010 = 10100101
+Test 6: Left shift
+  PASS: 00000001 << 4 = 00010000
+Test 7: Right shift
+  PASS: 10000000 >> 4 = 00001000
+Test 8: Arithmetic right shift
+  $signed(10000000) >>> 2 = 11100000
+TEST PASSED: 8/8 tests passed

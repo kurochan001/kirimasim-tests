@@ -1,0 +1,13 @@
+TEST: System functions edge cases
+  [PASS] clog2(16)
+  [PASS] clog2(17)
+  [PASS] clog2(1)
+  [PASS] countones(0)
+  [PASS] countones(FF)
+  [PASS] countones(AA)
+  [PASS] onehot true
+  [PASS] onehot false
+  [PASS] onehot0 zero
+  [PASS] isunknown no X
+Results: 10 passed, 0 failed
+TEST PASSED

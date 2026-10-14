@@ -1,0 +1,13 @@
+TEST: Local variable edge cases
+  [PASS] Simple local var
+  [PASS] Module var access
+  [PASS] Local different from module
+  [PASS] Local var modification
+  [PASS] Multiple local vars
+  [PASS] Nested scope
+  [PASS] Loop variable
+  [PASS] Local array
+  [PASS] Local var in conditional
+  [PASS] Initialized local vars
+Results: 10 passed, 0 failed
+TEST PASSED

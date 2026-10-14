@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced Type Casting Tests ===
+Test 1: Byte to int (sign extension)
+Test 1 PASS: int'(-50 byte)=-50
+Test 2: Int to byte (truncation)
+Test 2 PASS: byte'(300)=44
+Test 3: Unsigned to signed
+Test 3 PASS: byte'(8'hFF)=-1
+Test 4: Shortint to longint
+Test 4 PASS: longint'(-1000 shortint)=-1000
+Test 5: Logic to int
+Test 5 PASS: int'(DEADBEEF)=-559038737
+Test 6: Narrowing cast (64->32)
+Test 6 PASS: lower 32 bits=9abcdef0
+Test 7: Widening cast (8->32)
+Test 7 PASS: widened=000000ab
+Test 8: Cast in expression
+Test 8 PASS: int'(100)+int'(200)=300
+=== Summary: 8/8 tests passed ===
+TEST PASSED

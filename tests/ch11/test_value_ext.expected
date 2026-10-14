@@ -1,0 +1,9 @@
+Test 1: Unsigned cmp PASS
+Test 2: Signed cmp PASS
+Test 3: Arith shift PASS
+Test 4: Logic shift PASS
+Test 5: Wide concat PASS
+Test 6: Reduction XNOR PASS c=1
+Test 7: Case equality PASS
+Test 8: Power PASS
+TEST PASSED: 8/8 tests passed

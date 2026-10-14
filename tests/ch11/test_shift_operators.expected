@@ -1,0 +1,42 @@
+=== IEEE 1800-2023 Shift Operators Test ===
+Test 1: Left shift <<
+  8'h01 << 4 = 10
+Test 1 PASS
+Test 2: Right shift >>
+  8'h80 >> 4 = 08
+Test 2 PASS
+Test 3: Arithmetic left shift <<<
+  -16 <<< 2 = c0
+Test 3 PASS
+Test 4: Arithmetic right shift >>> negative
+  -16 >>> 2 = fc (sign extended)
+Test 4 PASS
+Test 5: Arithmetic right shift >>> positive
+  64 >>> 2 = 10
+Test 5 PASS
+Test 6: Shift by 0
+  8'hAB << 0 = ab
+  8'hAB >> 0 = ab
+Test 6 PASS
+Test 7: Shift entire value out
+  8'hFF << 8 = 00
+  8'hFF >> 8 = 00
+Test 7 PASS
+Test 8: Progressive shifts
+  1 << 0 = 01
+  1 << 1 = 02
+  1 << 2 = 04
+  1 << 3 = 08
+  1 << 4 = 10
+  1 << 5 = 20
+  1 << 6 = 40
+  1 << 7 = 80
+Test 8 PASS
+Test 9: Combined shifts
+  (8'hAB << 2) >> 2 = 2b
+Test 9 PASS
+Test 10: Shift in expressions
+  (1 << 4) | (1 << 0) = 11
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

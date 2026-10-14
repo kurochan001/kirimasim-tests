@@ -1,0 +1,6 @@
+Test 1: Wire read PASS
+Test 2: Reg assignment PASS
+Test 3: Logic assignment PASS
+Test 4: Single bit wire PASS
+Test 5: Logic modify PASS
+TEST PASSED: 5/5 tests passed

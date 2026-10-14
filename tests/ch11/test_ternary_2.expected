@@ -1,0 +1,6 @@
+Test 1: Ternary true PASS
+Test 2: Ternary false PASS
+Test 3: Ternary expression PASS
+Test 4: Nested ternary PASS
+Test 5: Ternary in assignment PASS
+TEST PASSED: 5/5 tests passed

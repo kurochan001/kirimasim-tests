@@ -1,0 +1,37 @@
+=== IEEE 1800-2023 Ternary Operator Test ===
+Test 1: Condition true
+  1 ? AA : BB = aa
+Test 1 PASS
+Test 2: Condition false
+  0 ? AA : BB = bb
+Test 2 PASS
+Test 3: Nested ternary
+  (5>10)?1:(5>3)?2:3 = 2
+Test 3 PASS
+Test 4: Ternary with expressions
+  (16<32)?(16+32):(16-32) = 30
+Test 4 PASS
+Test 5: Multiple selections
+  i=0: result=00
+  i=1: result=ff
+  i=2: result=00
+  i=3: result=ff
+Test 5 PASS
+Test 6: Ternary with literals
+  1 ? 55 : AA = 55
+Test 6 PASS
+Test 7: Ternary in assignment
+  max(30, 40) = 40
+  min(30, 40) = 30
+Test 7 PASS
+Test 8: Boolean result
+  (50 > 40) ? 1 : 0 = 1
+Test 8 PASS
+Test 9: Complex condition
+  ((25>20)&&(35<40))?CC:DD = cc
+Test 9 PASS
+Test 10: Chain of ternary
+  value for 10 = 2
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

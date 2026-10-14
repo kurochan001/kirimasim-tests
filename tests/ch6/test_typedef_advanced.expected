@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced Typedef Tests ===
+Test 1: Simple typedef byte_t
+Test 1 PASS: byte_t=ab
+Test 2: Half-word typedef
+Test 2 PASS: hword_t=1234
+Test 3: Word typedef
+Test 3 PASS: word_t=deadbeef
+Test 4: Struct typedef members
+Test 4 PASS: rgba_t r=ff g=00 b=00 a=ff
+Test 5: Struct as packed value
+Test 5 PASS: packed rgba=00ff00ff
+Test 6: Array typedef
+Test 6 PASS: arr[0]=11 arr[3]=44
+Test 7: Nested struct typedef
+Test 7 PASS: point x=0100 y=0200
+Test 8: Typedef in expression
+Test 8 PASS: {byte,byte}=1010
+=== Summary: 8/8 tests passed ===
+TEST PASSED

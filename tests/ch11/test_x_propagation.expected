@@ -1,0 +1,14 @@
+PASS: Test 1 (result=xxxxxxxx)
+PASS: Test 2 (result=x0x00000)
+PASS: Test 3 (result=xxxx1111)
+PASS: Test 4 (result=xxxx1111)
+PASS: Test 5 (result=xxxxxxxx)
+PASS: Test 6 (a=xxxx0000)
+PASS: Test 7 (result=xxxxxxxx)
+PASS: Test 8 (result=xxxx0100)
+PASS: Test 9 (result=xxxxxxxx)
+PASS: Test 10 (nibble=xxxx)
+PASS: Test 11 (wide_result=0000000000000000xxxx000000001111)
+PASS: Test 12 (single_bit=x)
+x_propagation: 12/12
+TEST PASSED

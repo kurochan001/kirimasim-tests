@@ -1,0 +1,6 @@
+Enum has 4 members:
+  [0] IDLE = 0
+  [1] ACTIVE = 1
+  [2] WAIT = 2
+  [3] ERROR = 10
+PASS: Enum name() and num() methods

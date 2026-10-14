@@ -1,0 +1,28 @@
+=== Logarithm Functions Test ===
+Note: e = $exp(1.0) = 2.7182818285
+Test 1: Natural logarithm ($ln)
+  PASS: $ln(1.0) = 0 (actual=0.000000, expected=0.000000)
+  PASS: $ln(e) = 1 (actual=1.000000, expected=1.000000)
+  PASS: $ln(e^2) = 2 (actual=2.000000, expected=2.000000)
+  PASS: $ln(10) ≈ 2.3026 (actual=2.302585, expected=2.302585)
+Test 2: Common logarithm ($log10)
+  PASS: $log10(1.0) = 0 (actual=0.000000, expected=0.000000)
+  PASS: $log10(10) = 1 (actual=1.000000, expected=1.000000)
+  PASS: $log10(100) = 2 (actual=2.000000, expected=2.000000)
+  PASS: $log10(1000) = 3 (actual=3.000000, expected=3.000000)
+  PASS: $log10(2) ≈ 0.3010 (actual=0.301030, expected=0.301030)
+Test 3: Exponential function ($exp)
+  PASS: $exp(0) = 1 (actual=1.000000, expected=1.000000)
+  PASS: $exp(1) = e ≈ 2.7183 (actual=2.718282, expected=2.718280)
+  PASS: $exp(2) ≈ 7.389 (actual=7.389056, expected=7.389060)
+  PASS: $exp(-1) ≈ 0.3679 (actual=0.367879, expected=0.367880)
+Test 4: Identity relationships
+  PASS: $exp($ln(5)) = 5 (actual=5.000000, expected=5.000000)
+  PASS: $ln($exp(3)) = 3 (actual=3.000000, expected=3.000000)
+Test 5: Small and large values
+  PASS: $ln(0.5) ≈ -0.693 (actual=-0.693147, expected=-0.693150)
+  PASS: $exp(10) ≈ 22026 (actual=22026.465795, expected=22026.470000)
+========================================
+TEST RESULTS: 17/17 PASSED
+TEST PASSED
+========================================

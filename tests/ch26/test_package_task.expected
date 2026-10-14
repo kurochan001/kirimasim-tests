@@ -1,0 +1,7 @@
+PASS: Test 1 - Simple task increment (counter=3)
+PASS: Test 2 - Task with input (data=42)
+PASS: Test 3 - Task with output (got=3)
+PASS: Test 4 - Task with inout (doubled=20)
+PASS: Test 5 - Multiple arguments (sum=130, diff=70)
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed
