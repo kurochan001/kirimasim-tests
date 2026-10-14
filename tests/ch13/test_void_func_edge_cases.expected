@@ -1,0 +1,13 @@
+Test 1 PASS: Increment = 1
+Test 2 PASS: Add value = 5
+Test 3 PASS: Multi call = 3
+Test 4 PASS: Array set [0]=100 [1]=200
+Test 5 PASS: Clear all
+Test 6 PASS: Early exit = 99
+Test 7 PASS: Normal = 42
+Test 8 PASS: Nested = 12
+Test 9 PASS: Bounds guard
+Test 10 PASS: Sequence = 10
+=== Void Function Edge Cases ===
+Passed: 10/10
+TEST PASSED

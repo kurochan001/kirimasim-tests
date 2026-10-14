@@ -1,0 +1,13 @@
+TEST: Task call edge cases
+  [PASS] Multi output basic
+  [PASS] Multi output with zero
+  [PASS] Multi output with negative
+  [PASS] Add-sub task basic
+  [PASS] Add-sub with zeros
+  [PASS] Sequential multi output
+  [PASS] Output sum check
+  [PASS] Large values
+  [PASS] Expression input
+  [PASS] Variable input
+Results: 10 passed, 0 failed
+TEST PASSED

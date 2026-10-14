@@ -1,0 +1,13 @@
+TEST: Hierarchy edge cases
+  [PASS] Single instance
+  [PASS] Second instance
+  [PASS] Instance update
+  [PASS] Multiple inputs
+  [PASS] Zero propagation
+  [PASS] Max value
+  [PASS] Overflow handling
+  [PASS] Adder zero
+  [PASS] Sequential updates
+  [PASS] Parallel instances
+Results: 10 passed, 0 failed
+TEST PASSED

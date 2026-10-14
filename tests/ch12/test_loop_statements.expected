@@ -1,0 +1,9 @@
+Test 1: for loop sum = 15 PASS
+Test 2: while loop sum = 15 PASS
+Test 3: do-while loop sum = 15 PASS
+Test 4: repeat loop sum = 5 PASS
+Test 5: forever with break = 10 PASS
+Test 6: foreach loop sum = 15 PASS
+Test 7: nested loops sum = 9 PASS
+Test 8: continue - odd count = 5 PASS
+TEST PASSED: 8/8 tests passed

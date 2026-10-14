@@ -1,0 +1,7 @@
+=== Implicit Event Control @* Test (IEEE 1800-2023 §9.4.2.2) ===
+PASS: Initial y_comb = 0
+PASS: After a=1, y_comb = 0
+PASS: After b=1, y_comb = 1
+PASS: After c=1, y_comb = 1
+=== Results: 4 passed, 0 failed ===
+TEST PASSED

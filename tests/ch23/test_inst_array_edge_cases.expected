@@ -1,0 +1,10 @@
+Test 1 PASS: Initial q = xxxx
+Test 2 PASS: After clk q = a
+Test 3 PASS: Changed q = 5
+Test 4 PASS: All ones q = f
+Test 5 PASS: All zeros q = 0
+Test 6 PASS: Individual q = 1000
+Test 7 PASS: Toggle done
+=== Instance Array Edge Cases ===
+Passed: 7/7
+TEST PASSED

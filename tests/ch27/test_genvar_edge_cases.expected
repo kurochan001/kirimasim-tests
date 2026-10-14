@@ -1,0 +1,10 @@
+Test 1 PASS: AND zeros = 0
+Test 2 PASS: AND ones = f
+Test 3 PASS: A&C = 8
+Test 4 PASS: 5&A = 0
+Test 5 PASS: 9&9 = 9
+Test 6 PASS: 1&1 = 1
+Test 7 PASS: 8&8 = 8
+=== Genvar Edge Cases ===
+Passed: 7/7
+TEST PASSED

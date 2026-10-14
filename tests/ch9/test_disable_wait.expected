@@ -1,0 +1,9 @@
+PASS: disable named block - counter = 5
+PASS: nested disable - counter = 3
+PASS: wait with immediate true - passed immediately
+PASS: multiple block disables - counter = 3
+PASS: disable as continue - counter = 4
+=== Disable/Wait Statements Test Results ===
+PASS: 5
+FAIL: 0
+TEST PASSED

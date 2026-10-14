@@ -1,0 +1,13 @@
+Test 1 PASS: Force sig = 1
+Test 2 PASS: Override sig = 1
+Test 3 PASS: Released sig = 1
+Test 4 PASS: Force bus = aa
+Test 5 PASS: New force = 55
+Test 6 PASS: Released bus = 55
+Test 7 PASS: Force wire = 1
+Test 8 PASS: Released wire = 0
+Test 9 PASS: Multi force/release
+Test 10 PASS: Final sig=1 bus=ff
+=== Force Edge Cases ===
+Passed: 10/10
+TEST PASSED

@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Queue Basic Tests ===
+Test 1: Push back
+Test 1 PASS
+Test 2: Multiple push
+Test 2 PASS: size=3
+Test 3: Pop front
+Test 3 PASS
+Test 4: Size
+Test 4 PASS: size=2
+Test 5: Push front
+Test 5 PASS: [0]=5
+Test 6: Pop back
+Test 6 PASS
+Test 7: Delete
+Test 7 PASS
+Test 8: Refill
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

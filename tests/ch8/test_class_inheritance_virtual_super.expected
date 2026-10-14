@@ -1,0 +1,10 @@
+=== Direct calls ===
+Transaction[1]: addr=0x00001000, data=0xdeadbeef
+Transaction[2]: addr=0x00002000, data=0xcafebabe
+  Burst: length=8, type=2
+=== Polymorphic calls ===
+Type: BurstTransaction
+Transaction[2]: addr=0x00002000, data=0xcafebabe
+  Burst: length=8, type=2
+Test passed
+PASS

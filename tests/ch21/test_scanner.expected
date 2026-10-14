@@ -1,0 +1,6 @@
+Test 1: sscanf int PASS
+Test 2: sscanf hex PASS
+Test 3: sscanf binary PASS
+Test 4: sscanf octal PASS
+Test 5: sscanf real PASS rval=3.140000
+TEST PASSED: 5/5 tests passed

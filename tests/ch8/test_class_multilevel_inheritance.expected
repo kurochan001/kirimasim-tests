@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 this/super Keywords Tests ===
+Test 1: Base class
+Test 1 PASS: value=10
+Test 2: Base compute
+Test 2 PASS: compute=20
+Test 3: Derived constructor
+Test 3 PASS: value=20 extra=5
+Test 4: Derived get_total
+Test 4 PASS: total=25
+Test 5: Inherited method
+Test 5 PASS: value=20
+Test 6: Inherited compute
+Test 6 PASS: compute=40
+Test 7: Triple inheritance
+Test 7 PASS: sum=60
+Test 8: Triple access inherited
+Test 8 PASS: total=30 compute=20
+=== Summary: 8/8 tests passed ===
+TEST PASSED

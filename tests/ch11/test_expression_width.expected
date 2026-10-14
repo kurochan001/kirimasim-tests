@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Expression Width Tests ===
+Test 1: Width extension in assignment
+Test 1 PASS: 4->8 bit extension=0f
+Test 2: Arithmetic width extension
+Test 2 PASS: FF+1=0100 (extended)
+Test 3: Multiplication width
+Test 3 PASS: 10*10=0100
+Test 4: Signed extension
+Test 4 PASS: signed -5 extended=    -5
+Test 5: Concatenation width
+Test 5 PASS: concat {AB,AB}=abab
+Test 6: Shift width
+Test 6 PASS: 01<<4=10
+Test 7: Wide literal
+Test 7 PASS: 32-bit literal=deadbeef
+Test 8: Truncation
+Test 8 PASS: truncate 1234->34
+=== Summary: 8/8 tests passed ===
+TEST PASSED

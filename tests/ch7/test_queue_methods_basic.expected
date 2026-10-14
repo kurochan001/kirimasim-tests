@@ -1,0 +1,6 @@
+Test 1: push_back PASS
+Test 2: push_front PASS
+Test 3: pop_back PASS
+Test 4: pop_front PASS
+Test 5: insert PASS
+TEST PASSED: 5/5 tests passed

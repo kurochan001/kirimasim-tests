@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced Scanf Tests ===
+Test 1: Basic integer sscanf
+Test 1 PASS
+Test 2: Multiple integers
+Test 2 PASS
+Test 3: Hexadecimal format
+Test 3 PASS
+Test 4: Real number
+Test 4 PASS
+Test 5: String format
+Test 5 PASS
+Test 6: Mixed int and hex
+Test 6 PASS
+Test 7: Format with literal text
+Test 7 PASS
+Test 8: Negative number
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

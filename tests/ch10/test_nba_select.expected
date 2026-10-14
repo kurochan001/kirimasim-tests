@@ -1,0 +1,12 @@
+Test 1: Bit select NBA
+PASS: sig1 = 0x81
+Test 2: Part select NBA
+PASS: sig2 = 0xcdab
+Test 3: Indexed part select (+:) NBA
+PASS: sig3 = 0x44332211
+Test 4: Multiple NBA to same signal
+PASS: sig1 = 0x5a
+Test 5: NBA timing verification
+PASS: NBA not visible immediately
+PASS: NBA visible after delay
+TEST PASSED: All NBA select tests passed!

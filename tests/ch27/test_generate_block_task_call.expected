@@ -1,0 +1,4 @@
+T1: PASS - gen task results: 1, 101, 201, 301
+T2: PASS - [0]=5 [3]=305
+pass_count = 2
+PASS: test_generate_block_task_call

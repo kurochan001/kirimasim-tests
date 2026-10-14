@@ -1,0 +1,9 @@
+Test 1: $onehot(8'b00000001) = 1 PASS
+Test 2: $onehot(8'b00000000) = 0 PASS
+Test 3: $onehot(8'b00000011) = 0 PASS
+Test 4: $onehot(8'b10000000) = 1 PASS
+Test 5: $onehot0(8'b00000000) = 1 PASS
+Test 6: $onehot0(8'b00000100) = 1 PASS
+Test 7: $onehot0(8'b00000101) = 0 PASS
+Test 8: $onehot(32) = 1 PASS
+TEST PASSED: 8/8 tests passed

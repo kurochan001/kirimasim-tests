@@ -1,0 +1,13 @@
+Test 1 PASS: First count = 1
+Test 2 PASS: Second count = 2
+Test 3 PASS: Multi count = 5
+Test 4 PASS: Accum = 10
+Test 5 PASS: Multi accum = 18
+Test 6 PASS: Last init = -1
+Test 7 PASS: Last prev = 100
+Test 8 PASS: Chain last = 200
+Test 9 PASS: Multi static = 5
+Test 10 PASS: Static again = 20
+=== Static Func Edge Cases ===
+Passed: 10/10
+TEST PASSED

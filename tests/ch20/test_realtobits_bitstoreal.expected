@@ -1,0 +1,17 @@
+T1: PASS - $realtobits(1.0) = 3ff0000000000000
+T2: PASS - $bitstoreal(3FF0...) = 1.000000
+T3: PASS - $realtobits(0.0) = 0000000000000000
+T4: PASS - $bitstoreal(0) = 0.000000
+T5: PASS - $realtobits(-1.0) = bff0000000000000
+T6: PASS - round-trip 3.14 = 3.140000
+T7: PASS - $shortrealtobits(1.0) = 3f800000
+T8: PASS - $bitstoshortreal(3F800000) = 1.000000
+T9: PASS - $shortrealtobits(0.0) = 00000000
+T10: PASS - $bitstoshortreal(0) = 0.000000
+T11: PASS - $shortrealtobits(-1.0) = bf800000
+T12: PASS - shortreal round-trip 2.5 = 2.500000
+T13: PASS - $realtobits(1.0e100) = 54b249ad2594c37d
+T14: PASS - $bitstoreal(NaN pattern) is NaN
+T15: PASS - $itor(42)=42.000000, $rtoi(42.7)=42
+15/15 tests passed
+PASS

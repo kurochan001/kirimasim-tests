@@ -1,0 +1,9 @@
+Test 1: push_back PASS
+Test 2: push_front PASS
+Test 3: pop_back PASS val=30
+Test 4: pop_front PASS val=5
+Test 5: insert PASS
+Test 6: delete PASS size=2
+Test 7: size PASS
+Test 8: delete all PASS
+TEST PASSED: 8/8 tests passed

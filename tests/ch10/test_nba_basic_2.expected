@@ -1,0 +1,8 @@
+PASS: NBA value not yet visible (a = 0x00)
+PASS: NBA value now visible (a = 0xaa)
+PASS: Last NBA wins (b = 0x33)
+PASS: NBA swap works (a=0xaa, b=0x55)
+=== NBA Basic Test Results ===
+PASS: 4
+FAIL: 0
+TEST PASSED

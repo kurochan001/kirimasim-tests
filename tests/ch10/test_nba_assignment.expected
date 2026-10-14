@@ -1,0 +1,11 @@
+=== Non-Blocking Assignment Test ===
+PASS: Simple NBA reg_a <= 8'hAA
+PASS: Multiple NBA - last value wins
+PASS: Pipeline stage 0
+PASS: Pipeline stage 1 propagation
+PASS: NBA with bit select
+PASS: NBA with expression RHS
+=== Non-Blocking Assignment Test Summary ===
+PASS: 6
+FAIL: 0
+ALL TESTS PASSED

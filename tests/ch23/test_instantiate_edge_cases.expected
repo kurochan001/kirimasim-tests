@@ -1,0 +1,13 @@
+Test 1 PASS: Modules instantiated
+Test 2 PASS: Adder sum = 30
+Test 3 PASS: Register = aa
+Test 4 PASS: Wide = 1234
+Test 5 PASS: Zero sum = 00
+Test 6 PASS: Overflow = 00
+Test 7 PASS: Chain = aa
+Test 8 PASS: Multi cycle
+Test 9 PASS: Wide FF = ffff
+Test 10 PASS: Rapid changes
+=== Instantiate Edge Cases ===
+Passed: 10/10
+TEST PASSED

@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Increment Decrement Tests ===
+Test 1: Pre-inc
+Test 1 PASS
+Test 2: Post-inc
+Test 2 PASS
+Test 3: Pre-dec
+Test 3 PASS
+Test 4: Post-dec
+Test 4 PASS
+Test 5: Multi inc
+Test 5 PASS
+Test 6: Inc neg
+Test 6 PASS
+Test 7: Dec to neg
+Test 7 PASS
+Test 8: Zero inc
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

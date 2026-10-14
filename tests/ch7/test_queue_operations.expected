@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Queue Operations Tests ===
+Test 1: Push back
+Test 1 PASS: size=3 after push_back
+Test 2: Pop front
+Test 2 PASS: popped=10, size=2
+Test 3: Pop back
+Test 3 PASS: popped=30, size=1
+Test 4: Push front
+Test 4 PASS: front=5
+Test 5: Index access
+Test 5 PASS: q1[0]=5, q1[1]=20
+Test 6: Delete all
+Test 6 PASS: queue empty after delete
+Test 7: Multiple push/pop
+Test 7 PASS: remaining=3
+Test 8: Queue iteration
+Test 8 PASS: sum=600
+=== Summary: 8/8 tests passed ===
+TEST PASSED

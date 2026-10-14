@@ -7,9 +7,9 @@ simulator, but they are meant to be usable with any simulator. Every test
 records where its expected result comes from and which clauses of the
 standard it checks.
 
-> **Status: early.** The suite has 617 tests. Each one was checked
+> **Status: early.** The suite has 714 tests. Each one was checked
 > against IEEE 1800-2023 by reading the cited clauses, and its expected output
-> matches Icarus Verilog 13.0, except for 2 tests where Icarus Verilog does not
+> matches Icarus Verilog 13.0, except for 3 tests where Icarus Verilog does not
 > follow the standard (see below).
 
 ## Layout

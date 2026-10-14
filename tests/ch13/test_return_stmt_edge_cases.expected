@@ -1,0 +1,13 @@
+TEST: Return statement edge cases
+  [PASS] Simple return
+  [PASS] Abs positive
+  [PASS] Abs negative
+  [PASS] Max first
+  [PASS] Max second
+  [PASS] Double value
+  [PASS] Sign positive
+  [PASS] Sign negative
+  [PASS] Sign zero
+  [PASS] Chained function
+Results: 10 passed, 0 failed
+TEST PASSED

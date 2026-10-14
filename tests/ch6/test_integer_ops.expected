@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Integer Operations Tests ===
+Test 1: Int add
+Test 1 PASS
+Test 2: Int sub
+Test 2 PASS
+Test 3: Shortint
+Test 3 PASS
+Test 4: Longint
+Test 4 PASS
+Test 5: Byte
+Test 5 PASS
+Test 6: Neg byte
+Test 6 PASS
+Test 7: Mult
+Test 7 PASS
+Test 8: Div
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

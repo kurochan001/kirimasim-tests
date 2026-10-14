@@ -1,0 +1,23 @@
+=== IEEE 1800-2023 Scanf Comprehensive Test ===
+Test 1: Multiple integers
+Test 1 PASS: 10 20 30 (count=3)
+Test 2: Hex value
+Test 2 PASS: l_val=deadbeef (count=1)
+Test 3: Octal value
+Test 3 PASS: i_val=511 (octal 777=511, count=1)
+Test 4: Binary value
+Test 4 PASS: l_val=00000000000000000000000010101010 (count=1)
+Test 5: Real value
+Test 5 PASS: r_val=3.141590 (count=1)
+Test 6: String value
+Test 6 PASS: s_val=hello_world (count=1)
+Test 7: Mixed formats
+Test 7 PASS: 42 3.140000 text (count=3)
+Test 8: Character format
+Test 8 PASS: ABC (count=3)
+Test 9: Exponential notation
+Test 9 PASS: r_val=1.230000e-04 (count=1)
+Test 10: Width specifier
+Test 10 PASS: 1234 5678 (count=2)
+=== Summary: 10/10 tests passed ===
+TEST PASSED

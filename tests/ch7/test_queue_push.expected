@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Queue Push/Pop Tests ===
+Test 1: Push back
+Test 1 PASS
+Test 2: Push front
+Test 2 PASS
+Test 3: Pop front
+Test 3 PASS
+Test 4: Pop back
+Test 4 PASS
+Test 5: Multiple
+Test 5 PASS
+Test 6: Order
+Test 6 PASS
+Test 7: Delete
+Test 7 PASS
+Test 8: Re-add
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

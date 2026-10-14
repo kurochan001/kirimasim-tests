@@ -1,0 +1,9 @@
+PASS: Test 1 - Simple bit select NBA
+PASS: Test 2 - Simple part select NBA
+PASS: Test 3 - Member access NBA
+PASS: Test 4 - Complex LHS (member + bit select) NBA
+PASS: Test 5 - Multiple NBA to same signal
+=== Test Summary ===
+Passed: 5
+Failed: 0
+TEST PASSED

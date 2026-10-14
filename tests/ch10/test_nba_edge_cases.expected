@@ -1,0 +1,11 @@
+Test 1 PASS: NBA reg_a = aa
+Test 2 PASS: Both = 11,22
+Test 3 PASS: Sequential NBA
+Test 4 PASS: Same value = 55
+Test 5 PASS: Zero NBA
+Test 6 PASS: Max NBA = ff
+Test 7 PASS: Alternate = 55
+Test 8 PASS: Multi cycle = 12
+=== NBA Edge Cases ===
+Passed: 8/8
+TEST PASSED

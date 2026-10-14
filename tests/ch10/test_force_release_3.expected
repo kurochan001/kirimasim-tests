@@ -1,0 +1,7 @@
+=== Force/Release Test (IEEE 1800-2023 §10.6) ===
+PASS: Initial sig = 0xaa
+PASS: Forced sig = 0x55
+PASS: Assign to forced signal ignored, sig = 0x55
+PASS: After release, sig = 0xbb
+=== Results: 4 passed, 0 failed ===
+TEST PASSED

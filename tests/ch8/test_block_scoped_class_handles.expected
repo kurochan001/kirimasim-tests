@@ -1,0 +1,8 @@
+T1: PASS - block c.get() = 3
+T2: PASS - module c.get() = 100
+T3: PASS - a=15 b=30
+T4a: PASS - obj=75
+T4b: PASS - obj=1234
+T5: PASS - chained: 4
+pass_count = 5
+PASS: test_block_scoped_class_handles

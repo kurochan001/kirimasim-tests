@@ -1,0 +1,13 @@
+TEST: Recursive function edge cases
+  [PASS] Factorial of 5
+  [PASS] Factorial of 0
+  [PASS] Factorial of 1
+  [PASS] Fibonacci 6
+  [PASS] Fibonacci 0
+  [PASS] Sum to 10
+  [PASS] Power 2^5
+  [PASS] Power base 0
+  [PASS] GCD
+  [PASS] GCD with prime
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,19 @@
+T1: PASS - sinh: 0.000000 1.175201 -1.175201
+T2: PASS - cosh: 1.000000 1.543081
+T3: PASS - tanh: 0.000000 1.000000 -1.000000
+T4: PASS - asinh: 0.000000 0.881374
+T5: PASS - acosh: 0.000000 1.316958
+T6: PASS - atanh: 0.000000 0.549306
+T7: PASS - acosh(0.5) NaN
+T8: PASS - atanh(1.0) large/inf
+T9: PASS - atanh(2.0) NaN
+T10: PASS - ln(-1) NaN
+T11: PASS - sinh(asinh(2.5))=2.500000 diff=0.000000
+T12: PASS - cosh(acosh(3.0))=3.000000 diff=0.000000
+T13: PASS - tanh(atanh(0.75))=0.750000 diff=0.000000
+T14: PASS - log10(10^3)=3.000000 diff=0.000000
+T15: PASS - sinh(1000) overflow
+T16: PASS - tanh saturation: 1.000000 -1.000000
+T17: PASS - exp(1000) overflow
+17/17 tests passed
+PASS

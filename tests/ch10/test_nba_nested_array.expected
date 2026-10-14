@@ -1,0 +1,19 @@
+PASS: arr2d[0][0] = 170 (expected 170)
+PASS: arr2d[1][2] = 187 (expected 187)
+PASS: arr2d[3][3] = 204 (expected 204)
+PASS: arr3d[0][0][0] = 17 (expected 17)
+PASS: arr3d[0][1][0] = 34 (expected 34)
+PASS: arr3d[1][0][1] = 51 (expected 51)
+PASS: arr3d[1][1][1] = 68 (expected 68)
+PASS: packed_arr[0] = 222 (expected 222)
+PASS: packed_arr[1] = 44288 (expected 44288)
+PASS: packed_arr[2] = 190 (expected 190)
+PASS: packed_arr[3] = 61184 (expected 61184)
+PASS: arr2d[0][0] var = 0 (expected 0)
+PASS: arr2d[1][1] var = 5 (expected 5)
+PASS: arr2d[2][3] var = 11 (expected 11)
+PASS: arr2d[3][3] var = 15 (expected 15)
+========================================
+Test Results: 15/15 passed
+ALL TESTS PASSED
+========================================

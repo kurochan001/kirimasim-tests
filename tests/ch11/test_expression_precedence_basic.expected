@@ -1,0 +1,6 @@
+Test 1: Simple add PASS
+Test 2: Chained add PASS
+Test 3: Nested parens PASS
+Test 4: Ternary PASS
+Test 5: Complex expr PASS
+TEST PASSED: 5/5 tests passed

@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Increment/Decrement Tests ===
+Test 1: Simple ++
+Test 1 PASS: a=6
+Test 2: Simple --
+Test 2 PASS: a=4
+Test 3: Multiple ++
+Test 3 PASS: a=3
+Test 4: Multiple --
+Test 4 PASS: a=7
+Test 5: Decrement to negative
+Test 5 PASS: a=-1
+Test 6: In for loop
+Test 6 PASS: a=5
+Test 7: Countdown
+Test 7 PASS: a=5
+Test 8: Alternate
+Test 8 PASS: a=2
+=== Summary: 8/8 tests passed ===
+TEST PASSED

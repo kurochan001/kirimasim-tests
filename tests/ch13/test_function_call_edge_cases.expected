@@ -1,0 +1,13 @@
+TEST: Function call edge cases
+  [PASS] Simple function call
+  [PASS] Function with zero
+  [PASS] Function with negative
+  [PASS] Multiply function
+  [PASS] Max function
+  [PASS] Abs function
+  [PASS] Function in expression
+  [PASS] Square function
+  [PASS] Chained function calls
+  [PASS] Function with variable args
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,17 @@
+T1: PASS - wor=0111
+T2: PASS - wand=1000
+T3: PASS - tri0=0
+T4: PASS - tri1=1
+T5: PASS - triand=0101
+T6: PASS - trior=1111
+T7: PASS - supply0=0 supply1=1
+T8: PASS - pullup=1
+T9: PASS - pulldown=0
+T10: PASS - strong override=1
+T11: PASS - X resolution=x
+T12: PASS - wor single driver=1000
+T13: PASS - conditional assign
+T14: PASS - wor8=ff
+T15: PASS - wand all 1s=1111
+pass_count = 15 / 15
+PASS: test_net_resolution_multi

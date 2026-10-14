@@ -1,0 +1,10 @@
+PASS: factorial(5) = 120
+PASS: factorial(0) = 1
+PASS: fibonacci(10) = 55
+PASS: fibonacci(0) = 0
+PASS: gcd(48, 18) = 6
+PASS: gcd(17, 13) = 1 (coprime)
+=== Recursion Test Results ===
+PASS: 6
+FAIL: 0
+TEST PASSED

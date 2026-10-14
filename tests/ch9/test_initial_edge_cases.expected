@@ -1,0 +1,12 @@
+Test 1 PASS: All initials ran a=10 b=20 c=30
+Test 2 PASS: Delay data = aa
+Test 3 PASS: Multi assign a = 3
+Test 4 PASS: Local in initial = 100
+Test 5 PASS: Loop sum = 10
+Test 6 PASS: Conditional = 1
+Test 7 PASS: Array init
+Test 8 PASS: Nested = 3
+Test 9 PASS: Zero delay
+=== Initial Edge Cases ===
+Passed: 9/9
+TEST PASSED

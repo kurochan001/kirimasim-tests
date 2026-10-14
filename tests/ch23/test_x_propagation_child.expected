@@ -1,0 +1,3 @@
+[PARENT] open input:     data_out = zz
+[PARENT] explicit input: data_out = xx
+TEST PASSED: open input Z and explicit X propagated through child module

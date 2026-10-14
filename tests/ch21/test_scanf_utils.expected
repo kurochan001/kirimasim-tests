@@ -1,0 +1,9 @@
+Test 1: Parse '42' = 42 PASS
+Test 2: Parse '10 20 30' = 10 20 30 PASS
+Test 3: Parse 'FF' hex = 255 PASS
+Test 4: Parse '1010' binary = 10 PASS
+Test 5: Parse '77' octal = 63 PASS
+Test 6: Parse 'hello' = 'hello' PASS
+Test 7: Parse '100 hello' = 100 'hello' PASS
+Test 8: Parse '-123' = -123 PASS
+TEST PASSED: 8/8 tests passed
