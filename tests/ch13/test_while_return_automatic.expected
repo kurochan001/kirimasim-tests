@@ -1,36 +1,36 @@
 === Test 1: find_power_of_two(64) ===
   [FUNC] find_power_of_two(64) called
   [FUNC] Initial: power=0, value=1
-  [FUNC] Loop iter 0: value=1 < n=64 is  TRUE
+  [FUNC] Loop iter 0: value=1 < n=64 is 1
   [FUNC] After update: value=2, power=1
-  [FUNC] Loop iter 1: value=2 < n=64 is  TRUE
+  [FUNC] Loop iter 1: value=2 < n=64 is 1
   [FUNC] After update: value=4, power=2
-  [FUNC] Loop iter 2: value=4 < n=64 is  TRUE
+  [FUNC] Loop iter 2: value=4 < n=64 is 1
   [FUNC] After update: value=8, power=3
-  [FUNC] Loop iter 3: value=8 < n=64 is  TRUE
+  [FUNC] Loop iter 3: value=8 < n=64 is 1
   [FUNC] After update: value=16, power=4
-  [FUNC] Loop iter 4: value=16 < n=64 is  TRUE
+  [FUNC] Loop iter 4: value=16 < n=64 is 1
   [FUNC] After update: value=32, power=5
-  [FUNC] Loop iter 5: value=32 < n=64 is  TRUE
+  [FUNC] Loop iter 5: value=32 < n=64 is 1
   [FUNC] After update: value=64, power=6
   [FUNC] Loop exit: value=64 >= n=64, power=6
 Result: 6 (expected 6)
 === Test 2: find_power_of_two(100) ===
   [FUNC] find_power_of_two(100) called
   [FUNC] Initial: power=0, value=1
-  [FUNC] Loop iter 0: value=1 < n=100 is  TRUE
+  [FUNC] Loop iter 0: value=1 < n=100 is 1
   [FUNC] After update: value=2, power=1
-  [FUNC] Loop iter 1: value=2 < n=100 is  TRUE
+  [FUNC] Loop iter 1: value=2 < n=100 is 1
   [FUNC] After update: value=4, power=2
-  [FUNC] Loop iter 2: value=4 < n=100 is  TRUE
+  [FUNC] Loop iter 2: value=4 < n=100 is 1
   [FUNC] After update: value=8, power=3
-  [FUNC] Loop iter 3: value=8 < n=100 is  TRUE
+  [FUNC] Loop iter 3: value=8 < n=100 is 1
   [FUNC] After update: value=16, power=4
-  [FUNC] Loop iter 4: value=16 < n=100 is  TRUE
+  [FUNC] Loop iter 4: value=16 < n=100 is 1
   [FUNC] After update: value=32, power=5
-  [FUNC] Loop iter 5: value=32 < n=100 is  TRUE
+  [FUNC] Loop iter 5: value=32 < n=100 is 1
   [FUNC] After update: value=64, power=6
-  [FUNC] Loop iter 6: value=64 < n=100 is  TRUE
+  [FUNC] Loop iter 6: value=64 < n=100 is 1
   [FUNC] After update: value=128, power=7
   [FUNC] Loop exit: value=128 >= n=100, power=7
 Result: 7 (expected 7)

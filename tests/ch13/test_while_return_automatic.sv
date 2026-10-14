@@ -17,8 +17,8 @@ module test_while_return_automatic;
         $display("  [FUNC] find_power_of_two(%0d) called", n);
         $display("  [FUNC] Initial: power=%0d, value=%0d", power, value);
         while (value < n) begin
-            $display("  [FUNC] Loop iter %0d: value=%0d < n=%0d is %s",
-                     power, value, n, (value < n) ? "TRUE" : "FALSE");
+            $display("  [FUNC] Loop iter %0d: value=%0d < n=%0d is %0d",
+                     power, value, n, value < n);
             value = value * 2;
             power++;
             $display("  [FUNC] After update: value=%0d, power=%0d", value, power);
