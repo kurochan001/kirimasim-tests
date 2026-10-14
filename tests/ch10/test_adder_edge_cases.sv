@@ -102,13 +102,6 @@ module test_adder_edge_cases;
             $display("Test 7 FAIL: unexpected sum=%0d", sum);
         end
 
-        // Test 8-20: Additional adder tests
-        for (int i = 8; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Adder test", i);
-        end
-
         $display("=== Adder Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);
         if (pass_count == test_count) begin

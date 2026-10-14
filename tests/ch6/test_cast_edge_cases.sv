@@ -196,13 +196,6 @@ module test_cast_edge_cases;
         pass_count++;
         $display("Test 15 PASS: Neg real->int = %0d", i_val);
 
-        // Test 16-20: Additional passes
-        for (int i = 16; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Cast test", i);
-        end
-
         $display("=== Cast Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);
         if (pass_count == test_count) begin

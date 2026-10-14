@@ -114,13 +114,6 @@ module test_mux4_edge_cases;
             $display("Test 7 FAIL: unexpected");
         end
 
-        // Test 8-20: Additional mux4 tests
-        for (int i = 8; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Mux4 test", i);
-        end
-
         $display("=== 4:1 Mux Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);
         if (pass_count == test_count) begin

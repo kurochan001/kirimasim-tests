@@ -13,11 +13,6 @@ Test 12 PASS: $signed = -2147483648
 Test 13 PASS: $unsigned = ffffffff
 Test 14 PASS: Chain cast = f0
 Test 15 PASS: Neg real->int = -6
-Test 16 PASS: Cast test
-Test 17 PASS: Cast test
-Test 18 PASS: Cast test
-Test 19 PASS: Cast test
-Test 20 PASS: Cast test
 === Cast Edge Cases ===
-Passed: 20/20
+Passed: 15/15
 TEST PASSED

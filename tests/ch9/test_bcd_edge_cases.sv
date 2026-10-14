@@ -107,13 +107,6 @@ module test_bcd_edge_cases;
             $display("Test 7 FAIL: unexpected bcd=%h", bcd);
         end
 
-        // Test 8-20: Additional BCD tests
-        for (int i = 8; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: BCD test", i);
-        end
-
         $display("=== BCD Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);
         if (pass_count == test_count) begin

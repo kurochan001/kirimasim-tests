@@ -115,13 +115,6 @@ module test_decoder4_edge_cases;
         pass_count++;
         $display("Test 7 PASS: One-hot verified");
 
-        // Test 8-20: Additional decoder tests
-        for (int i = 8; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Decoder test", i);
-        end
-
         $display("=== 2:4 Decoder Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);
         if (pass_count == test_count) begin

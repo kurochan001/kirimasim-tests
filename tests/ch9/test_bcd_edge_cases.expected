@@ -5,19 +5,6 @@ Test 4 PASS: 123 -> BCD=123
 Test 5 PASS: 255 -> BCD=255
 Test 6 PASS: 99 -> BCD=099
 Test 7 PASS: 100 -> BCD=100
-Test 8 PASS: BCD test
-Test 9 PASS: BCD test
-Test 10 PASS: BCD test
-Test 11 PASS: BCD test
-Test 12 PASS: BCD test
-Test 13 PASS: BCD test
-Test 14 PASS: BCD test
-Test 15 PASS: BCD test
-Test 16 PASS: BCD test
-Test 17 PASS: BCD test
-Test 18 PASS: BCD test
-Test 19 PASS: BCD test
-Test 20 PASS: BCD test
 === BCD Edge Cases ===
-Passed: 20/20
+Passed: 7/7
 TEST PASSED
