@@ -50,7 +50,10 @@ module test_always_star_for_loop_ieee;
         $display("IEEE 1800-2023 §9.4.2.2 Test: For Loop Sensitivity Exclusion");
         $display("");
 
-        // Initialize inputs
+        // Initialize inputs at time 1: at time 0 the always @(*) blocks may
+        // not be waiting yet, since the order of the processes is not
+        // defined (4.7).
+        #1;
         data_in[0] = 8'hAA;
         data_in[1] = 8'hBB;
         data_in[2] = 8'hCC;
