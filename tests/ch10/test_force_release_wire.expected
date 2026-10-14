@@ -1,0 +1,6 @@
+Test 1 PASS: wire follows driver=55
+Test 2 PASS: wire forced=aa
+Test 3 PASS: re-force works, w=bb
+Test 4 PASS: release returns to driver=00
+Passed: 4/4
+PASS

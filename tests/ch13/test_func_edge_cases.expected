@@ -1,0 +1,15 @@
+Test 1 PASS: add_func = 30
+Test 2 PASS: multiply = 56
+Test 3 PASS: reverse = 01010101
+Test 4 PASS: factorial(5) = 120
+Test 5 PASS: max = 30
+Test 6 PASS: Expr = 20
+Test 7 PASS: Nested = 26
+Test 8 PASS: Zero = 0
+Test 9 PASS: Negative = -50
+Test 10 PASS: Loop sum = 153
+Test 11 PASS: factorial(0) = 1
+Test 12 PASS: Reverse zero = 00
+=== Function Edge Cases ===
+Passed: 12/12
+TEST PASSED

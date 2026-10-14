@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Packed Array Basic Tests ===
+Test 1: Assign
+Test 1 PASS
+Test 2: Slice low
+Test 2 PASS: 78
+Test 3: Slice mid
+Test 3 PASS: 56
+Test 4: Slice high
+Test 4 PASS: 12
+Test 5: Modify
+Test 5 PASS: 123456aa
+Test 6: Zero
+Test 6 PASS
+Test 7: All ones
+Test 7 PASS
+Test 8: Single bit
+Test 8 PASS: 00008000
+=== Summary: 8/8 tests passed ===
+TEST PASSED

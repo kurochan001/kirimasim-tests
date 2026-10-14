@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 NBA Evaluation Tests ===
+Test 1: Simple NBA
+Test 1 PASS
+Test 2: Swap with NBA
+Test 2 PASS
+Test 3: Chain NBA
+Test 3 PASS
+Test 4: NBA value read
+Test 4 PASS
+Test 5: Multiple NBA same reg
+Test 5 PASS
+Test 6: Mixed assign
+Test 6 PASS
+Test 7: Expression NBA
+Test 7 PASS
+Test 8: Const NBA
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

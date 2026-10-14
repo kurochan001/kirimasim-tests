@@ -1,0 +1,8 @@
+Test 1 PASS: Fast path = 0a
+Test 2 PASS: Shift = 80
+Test 3 PASS: Zero = 00
+Test 4 PASS: Max shift = fe
+Test 5 PASS: Wide generate active
+=== Generate If Edge Cases ===
+Passed: 5/5
+TEST PASSED

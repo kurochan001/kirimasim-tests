@@ -1,0 +1,8 @@
+Test 1 PASS: Invert 0 = 1111
+Test 2 PASS: Invert 1 = 0000
+Test 3 PASS: Mixed = 0101
+Test 4 PASS: Single = 1110
+Test 5 PASS: Sequential test
+=== Generate For Edge Cases ===
+Passed: 5/5
+TEST PASSED

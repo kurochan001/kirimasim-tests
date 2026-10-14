@@ -1,0 +1,7 @@
+PASS: send_data = 0xaa
+PASS: recv_data = 0x55
+PASS: valid = 1
+PASS: ready = 0
+=== Modport Basic Test Summary ===
+Tests: 4/4 passed
+ALL TESTS PASSED

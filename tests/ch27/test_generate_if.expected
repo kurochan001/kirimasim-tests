@@ -1,0 +1,7 @@
+PASS: Combinational sum = 30
+PASS: Pipelined sum = 30
+PASS: Combinational updated sum = 150
+=== Generate If Test Results ===
+PASS: 3
+FAIL: 0
+TEST PASSED

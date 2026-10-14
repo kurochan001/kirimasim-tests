@@ -1,0 +1,10 @@
+Test 1 PASS: tran a->b = 0
+Test 2 PASS: tran a=1, b=1
+Test 3 PASS: tranif1 off = z
+Test 4 PASS: tranif1 on, d=1
+Test 5 PASS: tranif1 off = z
+Test 6 PASS: tran toggle = 0
+Test 7 PASS: multi toggle = 1
+=== Tran Edge Cases ===
+Passed: 7/7
+TEST PASSED

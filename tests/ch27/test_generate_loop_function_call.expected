@@ -1,0 +1,12 @@
+Instance[0]: compute_value(0) = 5
+Instance[1]: compute_value(1) = 15
+Instance[2]: compute_value(2) = 25
+Instance[3]: compute_value(3) = 35
+PASS: results[0] = 5
+PASS: results[1] = 15
+PASS: results[2] = 25
+PASS: results[3] = 35
+PASS: All 4 instances produce correct results
+=== Generate Function Call Test Summary ===
+Tests: 5, Passed: 5
+PASS: All generate function call tests passed

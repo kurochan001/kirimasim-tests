@@ -1,0 +1,6 @@
+Test 1: Simple if PASS
+Test 2: If-else chain PASS
+Test 3: Nested if PASS
+Test 4: Logical operators PASS
+Test 5: Single statement if PASS
+TEST PASSED: 5/5 tests passed

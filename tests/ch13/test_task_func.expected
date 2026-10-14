@@ -1,0 +1,6 @@
+Test 1: Simple function PASS
+Test 2: Function composition PASS
+Test 3: Task with output PASS
+Test 4: Void task PASS
+Test 5: Nested calls PASS
+TEST PASSED: 5/5 tests passed

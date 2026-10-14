@@ -1,0 +1,9 @@
+Test 1: Struct write PASS
+Test 2: Struct read PASS
+Test 3: Array write PASS
+Test 4: Array read PASS
+Test 5: Variable index PASS
+Test 6: Struct bits PASS
+Test 7: Member copy PASS
+Test 8: Array size PASS
+TEST PASSED: 8/8 tests passed

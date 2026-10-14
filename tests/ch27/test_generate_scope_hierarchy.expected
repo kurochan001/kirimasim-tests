@@ -1,0 +1,14 @@
+Nested generate: results[0] = 0
+Nested generate: results[1] = 1
+Nested generate: results[2] = 2
+Nested generate: results[3] = 10
+Nested generate: results[4] = 11
+Nested generate: results[5] = 12
+PASS: results[0] = 0
+PASS: results[1] = 1
+PASS: results[3] = 10
+PASS: results[5] = 12
+PASS: level1[1].level2[2].COMPUTED = 12
+=== Generate Scope Hierarchy Test Summary ===
+Tests: 5, Passed: 5
+PASS: All generate scope hierarchy tests passed

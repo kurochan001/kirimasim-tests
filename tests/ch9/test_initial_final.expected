@@ -1,0 +1,20 @@
+=== IEEE 1800-2023 Initial/Final Block Tests ===
+Test 1: Initial blocks executed
+Test 1 PASS: 2 initial blocks executed
+Test 2: Data initialized
+Test 2 PASS: data=aa
+Test 3: Ready initialized
+Test 3 PASS: ready=1
+Test 4: Multiple initial blocks
+Test 4 PASS: order_check=11
+Test 5: Modify data in initial
+Test 5 PASS: data=bb after modification
+Test 6: Modify ready in initial
+Test 6 PASS: ready=0 after modification
+Test 7: Increment counter
+Test 7 PASS: init_count=3
+Test 8: Complex expression
+Test 8 PASS: 12+34=46
+=== Summary: 8/8 tests passed ===
+TEST PASSED
+[FINAL] Simulation completed

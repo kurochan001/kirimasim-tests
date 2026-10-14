@@ -1,0 +1,27 @@
+=== IEEE 1800-2023 Module Instantiation Test ===
+Test 1: Basic module instantiation
+  data_in=ab, enable=1, data_out=ab
+Test 1 PASS
+Test 2: Module with enable=0
+  data_out=00 (should be INIT_VAL=0)
+Test 2 PASS
+Test 3: Toggle enable
+  iter 0: enable=0, out=00
+  iter 1: enable=1, out=10
+  iter 2: enable=0, out=00
+  iter 3: enable=1, out=30
+Test 3 PASS
+Test 4: Adder 8-bit
+  10 + 20 = 30
+Test 4 PASS
+Test 5: Adder 16-bit
+  1000 + 2000 = 3000
+Test 5 PASS
+Test 6: Multiple adder operations
+  0 + 0 = 0
+  10 + 5 = 15
+  20 + 10 = 30
+  30 + 15 = 45
+Test 6 PASS
+=== Summary: 6/6 tests passed ===
+TEST PASSED

@@ -1,0 +1,5 @@
+Test 1 PASS: immediate release works, a=bb
+Test 2 PASS: last force wins, a=33
+Test 3 PASS: force after assign
+Passed: 3/3
+PASS

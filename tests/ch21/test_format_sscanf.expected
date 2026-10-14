@@ -1,0 +1,5 @@
+Test 1 PASS: sscanf single
+Test 2 PASS: sscanf two
+Test 3 PASS: sscanf hex
+Passed: 3/3
+PASS

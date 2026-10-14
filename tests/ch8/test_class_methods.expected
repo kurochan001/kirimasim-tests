@@ -1,0 +1,9 @@
+PASS: Object creation with new
+PASS: get_value() = 10
+PASS: set_value() worked
+PASS: get_name() = first
+PASS: double_value() = 10
+PASS: Default constructor
+PASS: Derived class get_total() = 150
+PASS: Inherited get_value() = 100
+TEST PASSED: class methods completed

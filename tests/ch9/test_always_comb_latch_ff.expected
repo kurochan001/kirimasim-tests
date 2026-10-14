@@ -1,0 +1,9 @@
+Test 1: Reset counter_ff=0 PASS
+Test 2: Count counter_ff=5 PASS
+Test 3: MUX sel=00 mux_out=aa PASS
+Test 4: MUX sel=01 mux_out=bb PASS
+Test 5: MUX sel=10 mux_out=cc PASS
+Test 6: MUX sel=11 mux_out=dd PASS
+Test 7: Latch en=1 latch_out=55 PASS
+Test 8: Latch en=0 latch_out=55 PASS
+TEST PASSED: 8/8 tests passed

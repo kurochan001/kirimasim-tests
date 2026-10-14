@@ -1,0 +1,5 @@
+Test 1 PASS: sformatf int
+Test 2 PASS: sformatf hex
+Test 3 PASS: sformatf octal
+Passed: 3/3
+PASS

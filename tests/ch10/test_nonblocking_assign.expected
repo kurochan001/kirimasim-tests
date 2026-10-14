@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Non-blocking Assignment Tests ===
+Test 1: Simple NBA
+Test 1 PASS: reg_a=aa
+Test 2: Multiple NBA same cycle
+Test 2 PASS: a=11, b=22, c=33
+Test 3: NBA chain
+Test 3 PASS: reg_b=ff
+Test 4: NBA with expression
+Test 4 PASS: reg_a=15
+Test 5: Counter with NBA
+Test 5 PASS: counter=3
+Test 6: NBA vs blocking order
+Test 6 PASS: blocking immediate
+Test 7: NBA takes effect after cycle
+Test 7 PASS: reg_b=55
+Test 8: NBA in loop
+Test 8 PASS: reg_a=04
+=== Summary: 8/8 tests passed ===
+TEST PASSED

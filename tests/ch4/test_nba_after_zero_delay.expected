@@ -1,0 +1,6 @@
+=== NBA After Zero Delay Test ===
+After blocking: blocking_val = aa
+After NBA schedule: nonblocking_val = xx (should be old value)
+After #0 delay: nonblocking_val = xx (NBA not applied yet)
+Final: blocking=11, nonblocking=11
+PASS: LRM ordering correct

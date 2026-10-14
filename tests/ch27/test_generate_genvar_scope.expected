@@ -1,0 +1,19 @@
+Outer[0] = 0
+Inner[0][0] = 0
+Inner[0][1] = 1
+Outer[1] = 10
+Inner[1][0] = 10
+Inner[1][1] = 11
+Outer[2] = 20
+Inner[2][0] = 20
+Inner[2][1] = 21
+Outer[3] = 30
+Inner[3][0] = 30
+Inner[3][1] = 31
+PASS: Outer genvar values correct
+PASS: Inner genvar with outer access correct
+PASS: All outer loop values verified
+PASS: All inner loop values verified
+=== Genvar Scope Test Summary ===
+Tests: 4, Passed: 4
+PASS: All genvar scope tests passed

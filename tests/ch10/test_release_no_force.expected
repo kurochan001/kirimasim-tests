@@ -1,0 +1,5 @@
+Test 1 PASS: release no-op, sig=ab
+Test 2 PASS: assign works, sig=cd
+Test 3 PASS: double release ok, sig=12
+Passed: 3/3
+PASS

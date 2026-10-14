@@ -1,0 +1,6 @@
+Test 1 PASS: force X value
+Test 2 PASS: force Z value
+Test 3 PASS: force mixed value
+Test 4 PASS: normal value after XZ release, sig=ab
+Passed: 4/4
+PASS

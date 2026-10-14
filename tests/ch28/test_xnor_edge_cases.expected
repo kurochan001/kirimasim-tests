@@ -1,0 +1,11 @@
+Test 1 PASS: 0~^0 = 1
+Test 2 PASS: 0~^1 = 0
+Test 3 PASS: 1~^0 = 0
+Test 4 PASS: 1~^1 = 1
+Test 5 PASS: 0~^0~^0 = 1
+Test 6 PASS: 1~^0~^0 = 0
+Test 7 PASS: 1~^1~^0 = 1
+Test 8 PASS: 1~^1~^1 = 0
+=== XNOR Edge Cases ===
+Passed: 8/8
+TEST PASSED

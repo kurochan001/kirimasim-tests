@@ -1,0 +1,6 @@
+Starting immediate assertion test
+PASS: Basic equality assertion
+PASS: Comparison assertion
+PASS: Arithmetic assertion
+FAILURE_COUNT=0
+SUCCESS: All immediate assertions passed

@@ -1,0 +1,6 @@
+Test 1: Enum assignment PASS
+Test 2: Enum comparison PASS
+Test 3: Enum next PASS
+Test 4: Enum explicit value PASS
+Test 5: Enum first PASS
+TEST PASSED: 5/5 tests passed

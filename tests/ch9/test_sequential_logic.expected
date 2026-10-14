@@ -1,0 +1,6 @@
+Test 1: Reset counter PASS
+Test 2: Counter incremented PASS
+Test 3: Counter after 3 cycles PASS
+Test 4: Data pipeline PASS
+Test 5: Different data PASS
+TEST PASSED: 5/5 tests passed

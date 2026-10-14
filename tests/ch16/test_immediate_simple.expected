@@ -1,0 +1,3 @@
+=== Immediate Assertion Test ===
+Expected failure: a > b
+PASS: 4/5 assertions passed (1 expected failure)

@@ -1,0 +1,21 @@
+=== IEEE 1800-2023 Format String Functions Tests ===
+Test 1: Basic $swrite
+  Result: 'Value: 42' (len=9)
+Test 1 PASS
+Test 2: $sformat with hex
+  Result: 'Hex: 0000cafe'
+Test 2 PASS
+Test 3: $sformatf return value
+  Result: 'Number is 100'
+Test 3 PASS
+Test 4: Width specification
+  Result: '|    7|'
+Test 4 PASS
+Test 5: Real number formatting
+  Result: '3.142'
+Test 5 PASS
+Test 6: Multiple format values
+  Result: 'i=10 h=000000ab s=test'
+Test 6 PASS
+=== Summary: 6/6 tests passed ===
+TEST PASSED

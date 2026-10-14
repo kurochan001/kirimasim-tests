@@ -1,0 +1,5 @@
+Test 1 PASS: sformatf basic
+Test 2 PASS: sformatf binary
+Test 3 PASS: sformatf string
+Passed: 3/3
+PASS

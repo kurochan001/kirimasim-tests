@@ -1,0 +1,46 @@
+=== IEEE 1800-2023 Packed Array Test ===
+Test 1: Byte access
+  byte_val=ab
+Test 1 PASS
+Test 2: Bit slice access
+  word_val=cafe
+  word_val[15:8]=ca
+  word_val[7:0]=fe
+Test 2 PASS
+Test 3: Single bit access
+  byte_val[7]=1
+  byte_val[0]=0
+Test 3 PASS
+Test 4: Packed array element access
+  packed_array=deadbeef
+  packed_array[3]=de
+  packed_array[2]=ad
+  packed_array[1]=be
+  packed_array[0]=ef
+Test 4 PASS
+Test 5: Packed struct access
+  pkt.header=01
+  pkt.data=2345
+  pkt.footer=67
+Test 5 PASS
+Test 6: Packed struct as vector
+  pkt as vector=01234567
+Test 6 PASS
+Test 7: Bit modification
+  byte_val after bit set=81
+Test 7 PASS
+Test 8: Part select modification
+  dword_val=aa0000bb
+Test 8 PASS
+Test 9: Packed array iteration
+  packed_array[0]=78
+  packed_array[1]=56
+  packed_array[2]=34
+  packed_array[3]=12
+Test 9 PASS
+Test 10: Complex slice
+  dword_val[23:16]=dc
+  dword_val[19:12]=cb
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

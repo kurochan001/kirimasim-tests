@@ -1,0 +1,11 @@
+Test 1 PASS: Pullup = 1
+Test 2 PASS: Pullup2 = 1
+Test 3 PASS: Driven low = 0
+Test 4 PASS: Released = 1
+Test 5 PASS: Both high
+Test 6 PASS: w2 driven = 0
+Test 7 PASS: Both low
+Test 8 PASS: Both released
+=== Pullup Edge Cases ===
+Passed: 8/8
+TEST PASSED

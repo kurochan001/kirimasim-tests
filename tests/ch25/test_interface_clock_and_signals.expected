@@ -1,0 +1,13 @@
+=== Interface Clock and Signals Test ===
+Test 1: Interface instantiation
+Test 1 PASS: Interface data initialized to 0
+Test 2: Write to interface signal
+Test 2 PASS: Data written correctly (0xab)
+Test 3: Clock toggle
+Test 3 PASS: Clock toggled to high
+Test 4: Multiple signal writes
+Test 4 PASS: All signals written correctly
+Test 5: Reset signal toggle
+Test 5 PASS: Reset signal high
+=== Summary: 5/5 tests passed ===
+TEST PASSED

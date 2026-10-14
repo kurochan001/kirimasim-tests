@@ -1,0 +1,13 @@
+TEST: Generate edge cases
+  [PASS] Generate for index 0
+  [PASS] Generate for index 2
+  [PASS] Generate for last index
+  [PASS] Generate if enabled
+  [PASS] Generate case mode=2
+  [PASS] Parameter arithmetic
+  [PASS] Localparam value
+  [PASS] Generated array size
+  [PASS] Mode parameter
+  [PASS] Feature enable parameter
+Results: 10 passed, 0 failed
+TEST PASSED

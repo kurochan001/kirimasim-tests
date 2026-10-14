@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Enum Operations Tests ===
+Test 1: Enum assignment
+Test 1 PASS: c1=RED
+Test 2: Enum value
+Test 2 PASS: RED == 0
+Test 3: Enum comparison
+Test 3 PASS: GREEN != BLUE
+Test 4: Enum as index
+Test 4 PASS: GREEN index = 1
+Test 5: Non-sequential enum
+Test 5 PASS: WHITE == 7
+Test 6: State enum
+Test 6 PASS: s1=RUN=1
+Test 7: Enum in case
+Test 7 PASS: BLUE case matched
+Test 8: Assign different value
+Test 8 PASS: final c1=BLUE
+=== Summary: 8/8 tests passed ===
+TEST PASSED

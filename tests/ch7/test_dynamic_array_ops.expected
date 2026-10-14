@@ -1,0 +1,13 @@
+Test 1: Create dynamic array
+  PASS: size = 5
+Test 2: Initialize elements
+  PASS: darr = {10,...,50}
+Test 3: Resize larger
+  PASS: resized to 8, preserved values
+Test 4: Resize smaller
+  PASS: resized to 3
+Test 5: Delete array
+  PASS: deleted, size = 0
+Test 6: Create with literal
+  PASS: literal init, darr[1] = 200
+TEST PASSED: 6/6 tests passed

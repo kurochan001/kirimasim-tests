@@ -1,0 +1,13 @@
+PASS: Uninitialized obj1 == null
+PASS: Constructed obj1 != null
+PASS: obj1.value = 42
+PASS: obj2 == null
+PASS: obj2 = obj1 copies reference
+PASS: After obj1 = null, obj1 == null
+PASS: obj2 still references original object
+PASS: obj3 created with value 100
+PASS: Multiple null assignments work
+=== Class Null Comparison Test Results ===
+PASS: 9
+FAIL: 0
+TEST PASSED

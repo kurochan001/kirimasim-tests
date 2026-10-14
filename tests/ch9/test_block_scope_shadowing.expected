@@ -1,0 +1,13 @@
+T1a: x = 10
+T1b: x = 20
+T2: PASS - inner val = 200
+T2b: PASS - outer val = 100
+T3: PASS - for loop sum = 10
+T4: PASS - sums: 3, 6
+T5: PASS - foreach sum = 100
+T6a: PASS - data sum = 6
+T6b: PASS - data sum = 60
+T7: PASS - queue: size=3 [0]=5 [2]=15
+T8: PASS - string: hello len=5
+pass_count = 9
+PASS: test_block_scope_shadowing

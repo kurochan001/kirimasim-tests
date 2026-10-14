@@ -1,0 +1,9 @@
+Test 1: Function call PASS
+Test 2: Nested function PASS
+Test 3: Task output PASS
+Test 4: Local scope PASS
+Test 5: Multiple scopes PASS
+Test 6: Expr in arg PASS
+Test 7: Cond in expr PASS
+Test 8: Chained calls PASS
+TEST PASSED: 8/8 tests passed

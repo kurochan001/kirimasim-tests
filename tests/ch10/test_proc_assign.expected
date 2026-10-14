@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Procedural Assignment Tests ===
+Test 1: Simple assign
+Test 1 PASS
+Test 2: Expression assign
+Test 2 PASS
+Test 3: Chain assign
+Test 3 PASS
+Test 4: Logic assign
+Test 4 PASS
+Test 5: Compound add
+Test 5 PASS
+Test 6: Compound mult
+Test 6 PASS
+Test 7: Ternary assign
+Test 7 PASS
+Test 8: Multi expr
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED
