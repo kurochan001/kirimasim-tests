@@ -9,7 +9,7 @@
 :nondeterministic: no
 :expected_stdout: @test_generate_loop_if_case.expected
 */
-// IEEE 1800-2023 Section 27 - Generate coverage test
+// IEEE 1800-2023 Section 27 - Generate loops, if and case
 // Tests: generate for, generate if, generate case
 module test_generate_loop_if_case;
     int passed = 0;

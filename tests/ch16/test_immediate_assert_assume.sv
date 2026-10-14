@@ -9,7 +9,7 @@
 :nondeterministic: no
 :expected_stdout: @test_immediate_assert_assume.expected
 */
-// IEEE 1800-2023 Section 16.3 - Immediate assertion coverage test
+// IEEE 1800-2023 Section 16.3 - Immediate assertions and assumptions
 // Tests: immediate assertions, deferred assertions
 module test_immediate_assert_assume;
     int passed = 0;

@@ -1,17 +1,17 @@
 /*
-:name: test_bit_operations_coverage
-:description: Bit operations coverage test
+:name: test_bit_operations_2
+:description: Bitwise, reduction and shift operations
 :tags: ch11
 :type: simulation
 :lrm: 1800-2023 11.4.8 11.4.9 11.4.10 11.5.1
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no
-:expected_stdout: @test_bit_operations_coverage.expected
+:expected_stdout: @test_bit_operations_2.expected
 */
-// IEEE 1800-2023 Section 11.4 - Bit operations coverage test
+// IEEE 1800-2023 Section 11.4 - Bitwise, reduction and shift operations
 // Tests: bitwise, reduction, shift operations
-module test_bit_operations_coverage;
+module test_bit_operations_2;
     int passed = 0;
     int failed = 0;
 

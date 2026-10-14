@@ -1,17 +1,17 @@
 /*
-:name: test_enum_coverage
-:description: Enum coverage test
+:name: test_enum_values_methods
+:description: Enum values and enum methods
 :tags: ch6
 :type: simulation
 :lrm: 1800-2023 6.19
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no
-:expected_stdout: @test_enum_coverage.expected
+:expected_stdout: @test_enum_values_methods.expected
 */
-// IEEE 1800-2023 Section 6.19 - Enum coverage test
+// IEEE 1800-2023 Section 6.19 - Enum values and enum methods
 // Tests: enum declaration, methods, iteration
-module test_enum_coverage;
+module test_enum_values_methods;
     int passed = 0;
     int failed = 0;
 

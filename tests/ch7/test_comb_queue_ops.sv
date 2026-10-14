@@ -10,7 +10,7 @@
 :expected_stdout: @test_comb_queue_ops.expected
 */
 // IEEE 1800-2023 §7.10: Queue operations
-// Test coverage: push_back, push_front, pop_back, pop_front, size, delete, insert, foreach
+// Checks: push_back, push_front, pop_back, pop_front, size, delete, insert, foreach
 module test_comb_queue_ops;
     int pass = 0, fail = 0;
     int q[$];

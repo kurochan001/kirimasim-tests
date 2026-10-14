@@ -1,17 +1,17 @@
 /*
-:name: test_assignment_coverage
-:description: Assignment coverage test
+:name: test_assignment_forms
+:description: Blocking, nonblocking and compound assignments
 :tags: ch10
 :type: simulation
 :lrm: 1800-2023 10.3 10.4
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no
-:expected_stdout: @test_assignment_coverage.expected
+:expected_stdout: @test_assignment_forms.expected
 */
-// IEEE 1800-2023 Section 10 - Assignment coverage test
+// IEEE 1800-2023 Section 10 - Blocking, nonblocking and compound assignments
 // Tests: blocking, non-blocking, continuous
-module test_assignment_coverage;
+module test_assignment_forms;
     int passed = 0;
     int failed = 0;
 

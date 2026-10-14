@@ -1,6 +1,6 @@
 /*
 :name: test_queue_methods_sequence
-:description: Queue methods coverage test
+:description: A sequence of queue method calls
 :tags: ch7
 :type: simulation
 :lrm: 1800-2023 7.10 7.10.2
@@ -9,7 +9,7 @@
 :nondeterministic: no
 :expected_stdout: @test_queue_methods_sequence.expected
 */
-// IEEE 1800-2023 Section 7.10 - Queue methods coverage test
+// IEEE 1800-2023 Section 7.10 - A sequence of queue method calls
 // Tests: push, pop, insert, delete, size
 module test_queue_methods_sequence;
     int passed = 0;
