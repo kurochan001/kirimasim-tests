@@ -288,7 +288,9 @@ module test_ieee1800_2023_operator_edge;
         begin
             static logic [7:0] a = 8'hAB;
             static logic [7:0] b = 8'hCD;
-            static logic [15:0] result = {a, b};
+            static logic [15:0] result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = {a, b};
             if (result == 16'hABCD) begin
                 $display("PASS: Test 22 - Basic concatenation");
                 pass_count++;
