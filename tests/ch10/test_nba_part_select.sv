@@ -1,20 +1,19 @@
 /*
-:name: test_nba_typecast_select
-:description: test_nba_typecast_select.sv
+:name: test_nba_part_select
+:description: Nonblocking assignments to part-selects of a vector and of an array element (IEEE 1800-2023 Section 10.4.2)
 :tags: ch10
 :type: simulation
 :lrm: 1800-2023 10.4.2
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no
-:expected_stdout: @test_nba_typecast_select.expected
+:expected_stdout: @test_nba_part_select.expected
 */
-// test_nba_typecast_select.sv
 // IEEE 1800-2023 §10.4.2: nonblocking assignments to part-selects of a
 // vector and of an array element, including several part-selects of one
 // variable in the same time step.
 
-module test_nba_typecast_select;
+module test_nba_part_select;
     int pass_count = 0;
     int fail_count = 0;
 
