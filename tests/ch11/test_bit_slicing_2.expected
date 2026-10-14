@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Bit Slicing Tests ===
+Test 1: Constant part select
+Test 1 PASS: data32[15:8]=56
+Test 2: Single bit select
+Test 2 PASS: data32[31]=1
+Test 3: Indexed part select +:
+Test 3 PASS: data32[8+:8]=be
+Test 4: Indexed part select -:
+Test 4 PASS: data32[23-:8]=fe
+Test 5: Upper bits extraction
+Test 5 PASS: data32[31:24]=ab
+Test 6: Lower bits extraction
+Test 6 PASS: data32[7:0]=01
+Test 7: 64-bit value slicing
+Test 7 PASS: data64[47:32]=4567
+Test 8: Variable index bit select
+Test 8 PASS: data32[0]=1
+=== Summary: 8/8 tests passed ===
+TEST PASSED

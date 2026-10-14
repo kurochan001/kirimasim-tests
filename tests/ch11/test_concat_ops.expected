@@ -1,0 +1,6 @@
+Test 1: Simple concatenation PASS
+Test 2: Replication PASS
+Test 3: Nested concatenation PASS
+Test 4: Mixed sizes PASS
+Test 5: Single bit concat PASS
+TEST PASSED: 5/5 tests passed

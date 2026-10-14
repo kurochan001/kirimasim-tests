@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Bit/Part Select Tests ===
+Test 1: Bit read
+Test 1 PASS
+Test 2: Bit low
+Test 2 PASS
+Test 3: Part select
+Test 3 PASS: cd
+Test 4: Part high
+Test 4 PASS: ab
+Test 5: Bit write
+Test 5 PASS: 08
+Test 6: Part write
+Test 6 PASS: 00ff
+Test 7: Multiple bits
+Test 7 PASS
+Test 8: Nibble
+Test 8 PASS: 2
+=== Summary: 8/8 tests passed ===
+TEST PASSED

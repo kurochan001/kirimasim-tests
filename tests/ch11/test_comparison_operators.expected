@@ -1,0 +1,38 @@
+=== IEEE 1800-2023 Comparison Operators Test ===
+Test 1: Equal ==
+  8'h55 == 8'h55 = 1
+  8'h55 == 8'hAA = 0
+Test 1 PASS
+Test 2: Not equal !=
+  8'h55 != 8'hAA = 1
+Test 2 PASS
+Test 3: Case equal ===
+  8'h55 === 8'h55 = 1
+Test 3 PASS
+Test 4: Case not equal !==
+  8'h55 !== 8'hAA = 1
+Test 4 PASS
+Test 5: Less than <
+  8'h10 < 8'h20 = 1
+  8'h20 < 8'h10 = 0
+Test 5 PASS
+Test 6: Greater than >
+  8'h30 > 8'h20 = 1
+Test 6 PASS
+Test 7: Less than or equal <=
+  8'h10 <= 8'h10 = 1
+  8'h05 <= 8'h10 = 1
+Test 7 PASS
+Test 8: Greater than or equal >=
+  8'h20 >= 8'h20 = 1
+  8'h30 >= 8'h20 = 1
+Test 8 PASS
+Test 9: Comparison chain
+  10 < 15 < 20 = 1
+Test 9 PASS
+Test 10: Zero comparison
+  0 == 0 = 1
+  0 > 0 = 0
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

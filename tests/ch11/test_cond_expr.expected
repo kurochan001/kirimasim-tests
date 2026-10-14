@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Conditional Expression Tests ===
+Test 1: True
+Test 1 PASS: 100
+Test 2: False
+Test 2 PASS: 200
+Test 3: Variable
+Test 3 PASS: 50
+Test 4: Expr true
+Test 4 PASS: 10
+Test 5: Expr false
+Test 5 PASS: 8
+Test 6: Nested true
+Test 6 PASS: 111
+Test 7: Nested false
+Test 7 PASS: 222
+Test 8: Chain
+Test 8 PASS: 50
+=== Summary: 8/8 tests passed ===
+TEST PASSED

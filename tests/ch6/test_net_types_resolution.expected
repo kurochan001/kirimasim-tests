@@ -1,0 +1,14 @@
+T1: PASS - wor 0|1 = 1
+T2: PASS - wor single 0 = 0
+T3: PASS - wand 1&0 = 0
+T4: PASS - wand 1&1 = 1
+T5: PASS - tri = 1
+T6: PASS - tri conflict = 0
+T7: PASS - triand 1&1 = 1
+T8: PASS - trior 0|1 = 1
+T9: PASS - wor multi 1111
+T10: PASS - supply wire = 1
+T11: PASS - basic wire = ab
+T12: PASS - computed wire = 1
+pass_count = 12 / 12
+PASS: test_net_types_resolution

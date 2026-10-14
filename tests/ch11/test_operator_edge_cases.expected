@@ -1,0 +1,13 @@
+Test 1 PASS: shift by 0 preserves value
+Test 2 PASS: shift by width produces 0
+Test 3 PASS: division by 1
+Test 4 PASS: modulo by 1 is 0
+Test 5 PASS: signed negative division
+Test 6 PASS: bitwise NOT of zeros
+Test 7 PASS: reduction on single bit
+Test 8 PASS: ternary with same values
+Test 9 PASS: concatenation of zeros
+Test 10 PASS: replication of zeros
+=== Operator Edge Cases Test Results ===
+Passed: 10/10
+TEST PASSED

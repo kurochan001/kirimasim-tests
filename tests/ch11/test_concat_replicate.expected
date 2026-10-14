@@ -1,0 +1,11 @@
+Test 1: {0xAB, 0xCD} = 0xabcd PASS
+Test 2: {4{4'hF}} = 0xffff PASS
+Test 3: mixed = 0xaaaa5555 PASS
+Test 4: nested = 0x2222 PASS
+Test 5: {8{4'hA}} = 0xaaaaaaaa PASS
+Test 6: concat in expr PASS
+Test 7: bit select concat = 0xdeef PASS
+Test 8: zero replication skipped PASS
+Test 9: concat assign a=0xca b=0xfe PASS
+Test 10: sign extend = 0xffff PASS
+TEST PASSED: 10/10 tests passed

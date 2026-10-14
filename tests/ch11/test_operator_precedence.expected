@@ -1,0 +1,19 @@
+=== Operator Precedence Test ===
+PASS: * before + (2+3*4=14)
+PASS: Parentheses override ((2+3)*4=20)
+PASS: Shift precedence (1<<2+1=8)
+PASS: Compare before logical (1<2 && 2<3)
+PASS: Bitwise before comparison
+PASS: Conditional precedence (true branch)
+PASS: Conditional false branch (20+5=25)
+PASS: Unary before binary (-3*2=-6)
+PASS: && before || (0||1&&1=1)
+PASS: Parentheses force OR first
+PASS: Reduction before comparison
+PASS: Concatenation before addition
+PASS: Case equality matches X
+PASS: Complex expression (2+3*4-10/2+1=10)
+PASS: Left-to-right associativity (20/4/2=2)
+=== Summary ===
+Passed: 15, Failed: 0
+TEST PASSED

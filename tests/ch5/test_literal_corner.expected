@@ -1,0 +1,26 @@
+=== Literal Value Corner Cases Test ===
+PASS: Binary literal 8'b10101010 = 0xAA
+PASS: Binary literal with underscore
+PASS: Hex literal with underscore
+PASS: Lowercase hex literal
+PASS: Octal literal 9'o777
+PASS: Decimal literal 8'd255
+PASS: Decimal literal 8'd100
+PASS: Unsized hex literal 'hFF
+PASS: Unsized decimal literal
+PASS: Signed literal wraps correctly
+PASS: Negative signed literal
+PASS: X literal creates unknown
+PASS: Z literal creates high-Z
+PASS: Mixed case base specifier
+PASS: Capital B binary
+PASS: Real literal 3.14159
+PASS: Scientific notation 1.0e-3
+PASS: String literal
+PASS: String with escape
+PASS: Literal truncated to fit width
+PASS: 8'b0 = 0
+PASS: 8'd0 = 0
+=== Summary ===
+Passed: 22, Failed: 0
+TEST PASSED

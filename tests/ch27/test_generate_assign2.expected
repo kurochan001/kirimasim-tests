@@ -1,0 +1,7 @@
+data[0][0] = 0 (expected 0)
+data[0][1] = 1 (expected 1)
+data[1][0] = 10 (expected 10)
+data[1][1] = 11 (expected 11)
+data[2][0] = 20 (expected 20)
+data[2][1] = 21 (expected 21)
+PASS: 2D array continuous assign works

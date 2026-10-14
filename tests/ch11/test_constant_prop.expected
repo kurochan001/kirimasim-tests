@@ -1,0 +1,6 @@
+Test 1: Simple constant PASS
+Test 2: Constant addition PASS
+Test 3: Constant multiplication PASS
+Test 4: Expression with constants PASS
+Test 5: Constant conditional PASS
+TEST PASSED: 5/5 tests passed

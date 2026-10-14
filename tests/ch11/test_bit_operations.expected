@@ -1,0 +1,10 @@
+PASS: Bit select a[0] = 0
+PASS: Bit select a[7] = 1
+PASS: Part select a[7:0] = aa
+PASS: Bit write a[3]=1, a=08
+PASS: Part select write = 00ff
+PASS: $countones = 4
+PASS: $countbits(a,1) = 4
+PASS: $onehot(00010000) = 1
+PASS: $isunknown(0xFF) = 0
+TEST PASSED: bit operations completed

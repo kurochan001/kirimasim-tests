@@ -1,0 +1,33 @@
+=== IEEE 1800-2023 Concatenation Test ===
+Test 1: Basic concatenation
+  {4'hA, 4'hB} = ab
+Test 1 PASS
+Test 2: Three-way concatenation
+  {4'hA, 8'hAB, 4'hB} = aabb
+Test 2 PASS
+Test 3: Replication
+  {4{2'b10}} = 10101010
+Test 3 PASS
+Test 4: Replication with value
+  {2{8'hAB}} = abab
+Test 4 PASS
+Test 5: Nested concatenation
+  {{2{8'hAA}}, {2{8'hBB}}} = aaaabbbb
+Test 5 PASS
+Test 6: Concatenation with literals
+  {4'b1111, 4'b0000} = 11110000
+Test 6 PASS
+Test 7: Single bit concatenation
+  {1,0,1,0} = 1010
+Test 7 PASS
+Test 8: Mixed replication and concat
+  {{4{1}}, {4{0}}} = 11110000
+Test 8 PASS
+Test 9: Concat in assignment
+  After {a,b}=8'hCD: a=c, b=d
+Test 9 PASS
+Test 10: Zero extension via concat
+  {4'b0, 4'hF} = 0f
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

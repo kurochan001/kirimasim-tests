@@ -1,0 +1,8 @@
+Test 1 PASS: zero delay (#0) works
+Test 2 PASS: consecutive zero delays
+Test 3 PASS: delay with expression
+Test 4 PASS: intra-assignment delay
+Test 5 PASS: event control timing
+=== Timing Edge Cases Test Results ===
+Passed: 5/5
+TEST PASSED

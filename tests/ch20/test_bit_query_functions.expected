@@ -1,0 +1,6 @@
+Test 1: $countones PASS
+Test 2: $onehot PASS
+Test 3: $onehot0 PASS
+Test 4: $isunknown PASS
+Test 5: $clog2 PASS
+TEST PASSED: 5/5 tests passed

@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Concat/Replication Tests ===
+Test 1: Simple concat
+Test 1 PASS: abcd
+Test 2: Reverse
+Test 2 PASS: cdab
+Test 3: Repl x2
+Test 3 PASS: aaaa
+Test 4: Zero
+Test 4 PASS: 0000
+Test 5: FF pattern
+Test 5 PASS: ffff
+Test 6: 55 pattern
+Test 6 PASS: 5555
+Test 7: Self concat
+Test 7 PASS: 1212
+Test 8: Different
+Test 8 PASS: 1122
+=== Summary: 8/8 tests passed ===
+TEST PASSED

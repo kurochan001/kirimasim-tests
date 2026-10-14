@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Bitwise Operators Tests ===
+Test 1: AND
+Test 1 PASS: 00
+Test 2: OR
+Test 2 PASS: ff
+Test 3: XOR
+Test 3 PASS: ff
+Test 4: NOT
+Test 4 PASS: 55
+Test 5: AND same
+Test 5 PASS: ff
+Test 6: OR zero
+Test 6 PASS: ff
+Test 7: XOR same
+Test 7 PASS: 00
+Test 8: Complex
+Test 8 PASS: 36
+=== Summary: 8/8 tests passed ===
+TEST PASSED

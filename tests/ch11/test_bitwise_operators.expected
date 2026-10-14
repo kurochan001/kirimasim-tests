@@ -1,0 +1,36 @@
+=== IEEE 1800-2023 Bitwise Operators Test ===
+Test 1: Bitwise AND
+  F0 & 0F = 00
+  FF & AA = aa
+Test 1 PASS
+Test 2: Bitwise OR
+  F0 | 0F = ff
+Test 2 PASS
+Test 3: Bitwise XOR
+  FF ^ AA = 55
+Test 3 PASS
+Test 4: Bitwise NOT
+  ~AA = 55
+  ~00 = ff
+Test 4 PASS
+Test 5: Combined operations
+  (F0 | 0F) & FF = ff
+Test 5 PASS
+Test 6: XOR self
+  AB ^ AB = 00
+Test 6 PASS
+Test 7: Mask operation
+  CD & 0F = 0d
+  CD & F0 = c0
+Test 7 PASS
+Test 8: Set bits
+  00 | 81 = 81
+Test 8 PASS
+Test 9: Toggle bits
+  AA ^ FF = 55
+Test 9 PASS
+Test 10: Complex expression
+  (~12 & 34) | (12 & ~34) = 26
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

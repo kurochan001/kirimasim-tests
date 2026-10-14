@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced Concatenation Tests ===
+Test 1: Simple concatenation
+Test 1 PASS: {A,B}=ab
+Test 2: Multiple concatenation
+Test 2 PASS: {1,2,3,4}=1234
+Test 3: Replication
+Test 3 PASS: {4{F}}=ffff
+Test 4: Nested replication
+Test 4 PASS: {2{{A,B}}}=0000abab
+Test 5: Concatenation in expression
+Test 5 PASS: {5,3}==0x53 is true
+Test 6: Larger concatenation
+Test 6 PASS: lower byte=56
+Test 7: Bit concatenation
+Test 7 PASS: {1010,0101}=10100101
+Test 8: Concatenation with zeros
+Test 8 PASS: {0,F}=0f
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,8 @@
+Test 1: Equal PASS
+Test 2: Not equal PASS
+Test 3: Greater than PASS
+Test 4: Less than PASS
+Test 5: Greater or equal PASS
+Test 6: Less or equal PASS
+Test 7: Case equality PASS
+TEST PASSED: 7/7 tests passed

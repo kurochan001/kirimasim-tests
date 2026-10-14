@@ -1,0 +1,10 @@
+NEG = -10 (expected -10)
+ZERO = 0 (expected 0)
+POS = 10 (expected 10)
+first() = -10 (expected -10)
+last() = 10 (expected 10)
+num() = 3 (expected 3)
+NEG.next() = 0 (expected 0)
+ZERO.next() = 10 (expected 10)
+POS.prev() = 0 (expected 0)
+PASS: Signed enum methods

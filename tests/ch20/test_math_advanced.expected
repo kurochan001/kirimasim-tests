@@ -1,0 +1,18 @@
+T1: PASS - $sinh(1.0) = 1.175201
+T2: PASS - $cosh(1.0) = 1.543081
+T3: PASS - $tanh(0.5) = 0.462117
+T4: PASS - $asinh(1.0) = 0.881374
+T5: PASS - $acosh(2.0) = 1.316958
+T6: PASS - $atanh(0.5) = 0.549306
+T7: PASS - $hypot(3,4) = 5.000000
+T8: PASS - $ceil(2.3) = 3.000000
+T9: PASS - $floor(2.7) = 2.000000
+T10: PASS - $ln($exp(1.0)) = 1.000000
+T11: PASS - $pow(2,10) = 1024.000000
+T12: PASS - sqrt(2)*sqrt(2) = 2.000000
+T13: PASS - $log10(1000) = 3.000000
+T14: PASS - $atan2(1,1) = 0.785398
+T15: PASS - $sqrt(-1) is NaN
+T16: PASS - $ln(0) is very negative
+16/16 tests passed
+PASS

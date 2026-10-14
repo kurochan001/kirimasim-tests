@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Concatenation Expression Tests ===
+Test 1: Two bytes
+Test 1 PASS
+Test 2: Four bytes
+Test 2 PASS
+Test 3: Mixed sizes
+Test 3 PASS
+Test 4: Zeros
+Test 4 PASS
+Test 5: All ones
+Test 5 PASS
+Test 6: High byte
+Test 6 PASS
+Test 7: Extract concat
+Test 7 PASS
+Test 8: Nested
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

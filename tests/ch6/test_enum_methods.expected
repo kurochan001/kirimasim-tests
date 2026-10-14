@@ -1,0 +1,7 @@
+PASS: first() = RED
+PASS: last() = YELLOW
+PASS: next(GREEN) = BLUE
+PASS: prev(BLUE) = GREEN
+PASS: next(YELLOW) wraps to RED
+PASS: prev(RED) wraps to YELLOW
+All enum method tests passed!

@@ -1,0 +1,9 @@
+Test 1: true ? 10 : 20 = 10 PASS
+Test 2: false ? 10 : 20 = 20 PASS
+Test 3: nested ternary = 50 PASS
+Test 4: expr ternary = 15 PASS
+Test 5: vector ternary = 0xaa PASS
+Test 6: min(10,20) = 10 PASS
+Test 7: chained ternary = 300 PASS
+Test 8: ternary with expr = 10 PASS
+TEST PASSED: 8/8 tests passed
