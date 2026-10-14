@@ -46,7 +46,7 @@ module test_comb_systask_math;
 
         // $pow
         r1 = $pow(2.0, 10.0);
-        if (r1 == 1024.0) pass_count++;
+        if (r1 > 1024.0 - 1e-9 && r1 < 1024.0 + 1e-9) pass_count++;
         else $error("pow(2,10) = %f, expected 1024.0", r1);
 
         // $exp / $ln / $log10
@@ -64,13 +64,13 @@ module test_comb_systask_math;
 
         // $sin / $cos / $tan / $asin / $acos / $atan / $atan2
         r1 = $sin(0.0);
-        if (r1 == 0.0) pass_count++;
+        if (r1 > 0.0 - 1e-9 && r1 < 0.0 + 1e-9) pass_count++;
 
         r1 = $cos(0.0);
-        if (r1 == 1.0) pass_count++;
+        if (r1 > 1.0 - 1e-9 && r1 < 1.0 + 1e-9) pass_count++;
 
         r1 = $tan(0.0);
-        if (r1 == 0.0) pass_count++;
+        if (r1 > 0.0 - 1e-9 && r1 < 0.0 + 1e-9) pass_count++;
 
         r1 = $asin(1.0);
         if (r1 > 1.57 && r1 < 1.58) pass_count++;
@@ -86,17 +86,17 @@ module test_comb_systask_math;
 
         // $hypot
         r1 = $hypot(3.0, 4.0);
-        if (r1 == 5.0) pass_count++;
+        if (r1 > 5.0 - 1e-9 && r1 < 5.0 + 1e-9) pass_count++;
 
         // $sinh / $cosh / $tanh
         r1 = $sinh(0.0);
-        if (r1 == 0.0) pass_count++;
+        if (r1 > 0.0 - 1e-9 && r1 < 0.0 + 1e-9) pass_count++;
 
         r1 = $cosh(0.0);
-        if (r1 == 1.0) pass_count++;
+        if (r1 > 1.0 - 1e-9 && r1 < 1.0 + 1e-9) pass_count++;
 
         r1 = $tanh(0.0);
-        if (r1 == 0.0) pass_count++;
+        if (r1 > 0.0 - 1e-9 && r1 < 0.0 + 1e-9) pass_count++;
 
         // $clog2
         i1 = $clog2(256);

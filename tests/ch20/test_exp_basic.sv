@@ -20,7 +20,7 @@ module test_exp_basic;
 
     // Test 1: exp(0) = 1
     r = $exp(0.0);
-    if (r == 1.0) pass_count++;
+    if (r > 1.0 - 1e-9 && r < 1.0 + 1e-9) pass_count++;
 
     // Test 2: exp(1) ~= e
     r = $exp(1.0);

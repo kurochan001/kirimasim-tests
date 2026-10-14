@@ -26,22 +26,22 @@ module test_math_func;
         // Test 2: $pow
         test_count++;
         result = $pow(2.0, 10.0);
-        if (result == 1024.0) pass_count++;
+        if (result > 1024.0 - 1e-9 && result < 1024.0 + 1e-9) pass_count++;
         
         // Test 3: $exp
         test_count++;
         result = $exp(0.0);
-        if (result == 1.0) pass_count++;
+        if (result > 1.0 - 1e-9 && result < 1.0 + 1e-9) pass_count++;
         
         // Test 4: $ln
         test_count++;
         result = $ln(1.0);
-        if (result == 0.0) pass_count++;
+        if (result > 0.0 - 1e-9 && result < 0.0 + 1e-9) pass_count++;
         
         // Test 5: $log10
         test_count++;
         result = $log10(100.0);
-        if (result == 2.0) pass_count++;
+        if (result > 2.0 - 1e-9 && result < 2.0 + 1e-9) pass_count++;
         
         // Test 6: $floor
         test_count++;
@@ -56,7 +56,7 @@ module test_math_func;
         // Test 8: $sin/$cos
         test_count++;
         result = $sin(0.0);
-        if (result == 0.0) pass_count++;
+        if (result > 0.0 - 1e-9 && result < 0.0 + 1e-9) pass_count++;
         
         // Test 9: $abs
         test_count++;

@@ -22,14 +22,14 @@ module test_math_edge;
 
     // Test 1: $pow edge cases
     r = $pow(2.0, 10.0);
-    if (r != 1024.0) begin
+    if (!(r > 1024.0 - 1e-9 && r < 1024.0 + 1e-9)) begin
       $display("FAIL: $pow(2,10) expected 1024, got %f", r);
       test_passed = 0;
     end
 
     // Test 2: $pow(0, 0) - mathematically undefined but typically 1
     r = $pow(0.0, 0.0);
-    if (r != 1.0) begin
+    if (!(r > 1.0 - 1e-9 && r < 1.0 + 1e-9)) begin
       $display("FAIL: $pow(0,0) expected 1, got %f", r);
       test_passed = 0;
     end

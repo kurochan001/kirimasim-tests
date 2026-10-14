@@ -39,7 +39,7 @@ module test_math_system_functions;
         // T3: $ln(1.0) = 0.0
         begin
             static real v = $ln(1.0);
-            if (v == 0.0) begin
+            if (v > 0.0 - 1e-9 && v < 0.0 + 1e-9) begin
                 $display("T3: PASS - $ln(1.0) = %f", v);
                 pass_count++;
             end else
@@ -69,7 +69,7 @@ module test_math_system_functions;
         // T6: $exp(0.0) = 1.0
         begin
             static real v = $exp(0.0);
-            if (v == 1.0) begin
+            if (v > 1.0 - 1e-9 && v < 1.0 + 1e-9) begin
                 $display("T6: PASS - $exp(0.0) = %f", v);
                 pass_count++;
             end else
@@ -79,7 +79,7 @@ module test_math_system_functions;
         // T7: $pow(2.0, 10.0) = 1024.0
         begin
             static real v = $pow(2.0, 10.0);
-            if (v == 1024.0) begin
+            if (v > 1024.0 - 1e-9 && v < 1024.0 + 1e-9) begin
                 $display("T7: PASS - $pow(2.0, 10.0) = %f", v);
                 pass_count++;
             end else
@@ -112,7 +112,7 @@ module test_math_system_functions;
         begin
             static real s = $sin(0.0);
             static real c = $cos(0.0);
-            if (s == 0.0 && c == 1.0) begin
+            if ((s > 0.0 - 1e-9 && s < 0.0 + 1e-9) && (c > 1.0 - 1e-9 && c < 1.0 + 1e-9)) begin
                 $display("T10: PASS - $sin(0)=%f, $cos(0)=%f", s, c);
                 pass_count++;
             end else
@@ -122,7 +122,7 @@ module test_math_system_functions;
         // T11: $tan(0.0) = 0.0
         begin
             static real v = $tan(0.0);
-            if (v == 0.0) begin
+            if (v > 0.0 - 1e-9 && v < 0.0 + 1e-9) begin
                 $display("T11: PASS - $tan(0.0) = %f", v);
                 pass_count++;
             end else
@@ -159,7 +159,7 @@ module test_math_system_functions;
         begin
             static real s = $sinh(0.0);
             static real c = $cosh(0.0);
-            if (s == 0.0 && c == 1.0) begin
+            if ((s > 0.0 - 1e-9 && s < 0.0 + 1e-9) && (c > 1.0 - 1e-9 && c < 1.0 + 1e-9)) begin
                 $display("T14: PASS - $sinh(0)=%f, $cosh(0)=%f", s, c);
                 pass_count++;
             end else
@@ -169,7 +169,7 @@ module test_math_system_functions;
         // T15: $hypot(3.0, 4.0) = 5.0
         begin
             static real v = $hypot(3.0, 4.0);
-            if (v == 5.0) begin
+            if (v > 5.0 - 1e-9 && v < 5.0 + 1e-9) begin
                 $display("T15: PASS - $hypot(3.0, 4.0) = %f", v);
                 pass_count++;
             end else

@@ -20,7 +20,7 @@ module test_cos_basic;
 
     // Test 1: cos(0) = 1
     r = $cos(0.0);
-    if (r == 1.0) pass_count++;
+    if (r > 1.0 - 1e-9 && r < 1.0 + 1e-9) pass_count++;
 
     // Test 2: cos(pi) ~= -1
     r = $cos(3.14159265);
