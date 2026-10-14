@@ -37,7 +37,7 @@ extra fields.
 | `:type:` | `simulation` for tests that are run |
 | `:lrm:` | IEEE 1800-2023 clauses the test checks, for example `1800-2023 11.4.3` |
 | `:oracle:` | Where the expected output comes from: `spec` (a person checked it against the standard), `iverilog@13.0` (Icarus Verilog 13.0 produced it) |
-| `:fourstate:` | Whether the test uses x or z values (`yes` / `no`) |
+| `:fourstate:` | Whether the result depends on x or z values (`yes` / `no`): the test has x or z literals, `$isunknown`, `casex`/`casez`, tri-state or strength constructs, or x or z in its expected output |
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
 | `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test |
 

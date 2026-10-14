@@ -5,7 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 9.4.2.2
 :oracle: spec iverilog@13.0
-:fourstate: yes
+:fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_always_star_for_loop_ieee.expected
 */

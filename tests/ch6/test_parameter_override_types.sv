@@ -5,7 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 6.20.2 6.20.3 23.10
 :oracle: spec iverilog@13.0
-:fourstate: yes
+:fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_parameter_override_types.expected
 */

@@ -5,7 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 6.19
 :oracle: spec iverilog@13.0
-:fourstate: yes
+:fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_enum_basic_edge_cases.expected
 */

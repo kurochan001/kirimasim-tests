@@ -5,7 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 4.6 10.4.2
 :oracle: spec iverilog@13.0
-:fourstate: yes
+:fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_array_element_noop_nba_keeps_override_order.expected
 */

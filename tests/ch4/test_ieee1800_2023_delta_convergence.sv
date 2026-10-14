@@ -5,7 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 4.5 4.4.2.3 10.3
 :oracle: spec iverilog@13.0
-:fourstate: yes
+:fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_ieee1800_2023_delta_convergence.expected
 */

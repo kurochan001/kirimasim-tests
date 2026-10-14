@@ -5,7 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 9.2.2.2 11.4.3
 :oracle: spec iverilog@13.0
-:fourstate: yes
+:fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_bcd_edge_cases.expected
 */

@@ -5,7 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.12 7.5 7.10
 :oracle: spec iverilog@13.0
-:fourstate: yes
+:fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_array_predicates.expected
 */

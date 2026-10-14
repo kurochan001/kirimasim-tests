@@ -5,7 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.2 7.3 7.4 9.2.2.4 10.4.2 10.6.2 11.4.12 11.5.1
 :oracle: spec iverilog@13.0
-:fourstate: yes
+:fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_assignment_forms.expected
 */

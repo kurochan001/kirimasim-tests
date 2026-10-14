@@ -5,7 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 10.4.2
 :oracle: spec iverilog@13.0
-:fourstate: yes
+:fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_nba_typecast_select.expected
 */
