@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced Generate Tests ===
+Test 1: Generate-for created wires
+Test 1 PASS: gen_wires=1010
+Test 2: All zeros
+Test 2 PASS: gen_wires=0000
+Test 3: All ones
+Test 3 PASS: gen_wires=1111
+Test 4: Generate-if conditional
+Test 4 PASS: wide_mode generated (WIDTH=4)
+Test 5: Generate-case mode selection
+Test 5 PASS: mode_default generated (MODE=2)
+Test 6: Nested generate structure
+Test 6 PASS: nested generate blocks created
+Test 7: Pattern test
+Test 7 PASS: pattern=0101
+Test 8: Walking ones
+Test 8 PASS: LSB set, gen_wires=0001
+=== Summary: 8/8 tests passed ===
+TEST PASSED

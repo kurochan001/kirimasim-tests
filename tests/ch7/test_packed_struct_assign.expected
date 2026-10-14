@@ -1,0 +1,11 @@
+PASS: Assign word to packed struct
+PASS: Read packed struct as word
+PASS: Struct literal assignment
+PASS: Multi-field struct assignment
+PASS: Single field modification
+PASS: Struct comparison with word
+PASS: Struct in arithmetic expression
+=== Packed Struct Assignment Test Results ===
+PASS: 7
+FAIL: 0
+TEST PASSED

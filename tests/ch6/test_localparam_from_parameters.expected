@@ -1,0 +1,9 @@
+=== Localparams computed from parameters ===
+PASS: Default COMPUTED = 10 * 2 = 20
+PASS: Custom COMPUTED = 8 * 4 = 32
+PASS: Wide COMPUTED = 16 * 1 = 16
+PASS: Default HALF = 10 / 2 = 5
+PASS: Custom PLUS_ONE = 8 + 1 = 9
+PASS: Wide HALF = 16 / 2 = 8
+=== Results: 6 PASS, 0 FAIL ===
+TEST PASSED

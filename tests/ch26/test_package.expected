@@ -1,0 +1,5 @@
+Test 1: Package typedef PASS
+Test 2: Package constant PASS
+Test 3: Package function PASS
+Test 4: Use typedef variable PASS
+TEST PASSED: 4/4 tests passed

@@ -1,0 +1,6 @@
+Test 1: Chain propagation PASS
+Test 2: Update propagation PASS
+Test 3: Multiple updates PASS
+Test 4: Max value PASS
+Test 5: Overflow PASS
+TEST PASSED: 5/5 tests passed

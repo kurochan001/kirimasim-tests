@@ -1,0 +1,38 @@
+=== $clog2 Test ===
+Test 1: Powers of 2
+  $clog2(1) = 0 (expected 0)
+  PASS: $clog2(1) = 0
+  $clog2(2) = 1 (expected 1)
+  PASS: $clog2(2) = 1
+  $clog2(4) = 2 (expected 2)
+  PASS: $clog2(4) = 2
+  $clog2(8) = 3 (expected 3)
+  PASS: $clog2(8) = 3
+  $clog2(16) = 4 (expected 4)
+  PASS: $clog2(16) = 4
+Test 2: Non-powers of 2 (ceiling behavior)
+  $clog2(3) = 2 (expected 2)
+  PASS: $clog2(3) = 2
+  $clog2(5) = 3 (expected 3)
+  PASS: $clog2(5) = 3
+  $clog2(7) = 3 (expected 3)
+  PASS: $clog2(7) = 3
+  $clog2(9) = 4 (expected 4)
+  PASS: $clog2(9) = 4
+Test 3: Edge cases
+  $clog2(0) = 0 (expected 0)
+  PASS: $clog2(0) = 0
+Test 4: Larger values
+  $clog2(256) = 8 (expected 8)
+  PASS: $clog2(256) = 8
+  $clog2(1024) = 10 (expected 10)
+  PASS: $clog2(1024) = 10
+  $clog2(1000) = 10 (expected 10)
+  PASS: $clog2(1000) = 10
+Test 5: Typical usage - address width calculation
+  For memory depth 256, $clog2 = 8
+  PASS: Address width for 256 depth = 8
+========================================
+TEST RESULTS: 14/14 PASSED
+TEST PASSED
+========================================

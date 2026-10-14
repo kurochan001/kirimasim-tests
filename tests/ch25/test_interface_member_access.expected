@@ -1,0 +1,21 @@
+=== IEEE 1800-2023 Interface and Modport Test ===
+Test 1: Interface signal access
+  data=ab, valid=1, ready=0
+Test 1 PASS
+Test 2: Interface signal modification
+  modified data=cd
+Test 2 PASS
+Test 3: Multiple assignments
+  iter 0: data=00
+  iter 1: data=10
+  iter 2: data=20
+  iter 3: data=30
+Test 3 PASS
+Test 4: Valid/ready handshake
+  Handshake completed
+Test 4 PASS
+Test 5: Interface reset
+  After reset: data=00
+Test 5 PASS
+=== Summary: 5/5 tests passed ===
+TEST PASSED

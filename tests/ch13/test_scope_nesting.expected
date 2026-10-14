@@ -1,0 +1,6 @@
+Test 1: Nested scope PASS result=60
+Test 2: Task scope PASS result=11
+Test 3: Class scope PASS result=50
+Test 4: Deep nesting PASS result=150
+Test 5: Multiple tasks PASS
+TEST PASSED: 5/5 tests passed

@@ -1,0 +1,13 @@
+=== Delta Cycle Test ===
+Time 0: After #0 delay
+After delta cycles:
+  a=10 (should be 10)
+  b=00 (should be 00)
+  c=00 (should be 00)
+  w1=11 (should be 11)
+  w2=12 (should be 12)
+After #1:
+  a=10 (should be 10)
+  b=10 (should be 10)
+  c=00 (should be 00)
+PASS: Delta cycles working correctly

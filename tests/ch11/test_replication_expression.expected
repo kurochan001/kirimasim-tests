@@ -1,0 +1,18 @@
+T1: PASS - {4{1'b1}} = 1111
+T2: PASS - {2{4'hA}} = aa
+T3: PASS - {3{2'b01}} = 010101
+T4: PASS - {1{8'hFF}} = ff
+T5: PASS - {8{1'b0}} = 00
+T6: PASS - {2{8'hAB}} = abab
+T7: PASS - {4{4'b1010}} = aaaa
+T8: PASS - nested {2{{2{4'hF}}}} = ffff
+T9: PASS - repl+concat = aa55
+T10: PASS - repl assign x = cccc
+T11: PASS - repl comparison
+T12: PASS - repl func arg = 5555
+T13: PASS - {1{8'hAA}} = aa
+T14: PASS - {16{1'b1}} = ffff
+T15: PASS - repl part-select = 55
+T16: PASS - repl 32bit = dededede
+16/16 tests passed
+PASS

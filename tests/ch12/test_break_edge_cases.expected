@@ -1,0 +1,23 @@
+Test 1 PASS: For break = 5
+Test 2 PASS: While break = 7
+Test 3 PASS: Nested inner = 6
+Test 4 PASS: Immediate = 0
+Test 5 PASS: Cond break = 6
+Test 6 PASS: Continue+break = 4
+Test 7 PASS: Do-while break = 4
+Test 8 PASS: Repeat break = 8
+Test 9 PASS: Preserve i = 3
+Test 10 PASS: First break = 2
+Test 11 PASS: Break test
+Test 12 PASS: Break test
+Test 13 PASS: Break test
+Test 14 PASS: Break test
+Test 15 PASS: Break test
+Test 16 PASS: Break test
+Test 17 PASS: Break test
+Test 18 PASS: Break test
+Test 19 PASS: Break test
+Test 20 PASS: Break test
+=== Break Edge Cases ===
+Passed: 20/20
+TEST PASSED

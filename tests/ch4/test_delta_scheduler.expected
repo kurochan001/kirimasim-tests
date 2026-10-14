@@ -1,0 +1,6 @@
+Test 1: Comb propagation PASS
+Test 2: NBA assignment PASS
+Test 3: Multiple delta PASS
+Test 4: Clock triggered PASS
+Test 5: Signal dependency PASS
+TEST PASSED: 5/5 tests passed

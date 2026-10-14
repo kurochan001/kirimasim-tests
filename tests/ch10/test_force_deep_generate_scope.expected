@@ -1,0 +1,18 @@
+T1: PASS - force baseline: sig_a=aa
+T2: PASS - release: sig_a=00
+T3: PASS - force struct: hi=cc lo=dd
+T4: PASS - force 2-level: tag=01 hi=aa lo=bb
+T5: PASS - release 2-level: tag=00
+T6: PASS - force overwrite: 22
+T7: PASS - generate force: [0]=aa [1]=bb
+T8: PASS - gen struct force: raw=1122 hi=11 lo=22
+T9: PASS - gen release: gen_blk[1].gen_sig=cc
+T10: PASS - force-release-force: tag=dd hi=ee lo=ff
+T11: PASS - multi-force: a=11 b=22 hi=33 lo=44
+T12: PASS - dual gen force: [0]=aa [1]=55
+T13: PASS - force expr: af
+T14: PASS - concurrent force: tag=40 hi=50 lo=60
+T15: PASS - force+clock: ff
+T16: PASS - release all: ok
+16/16 tests passed
+PASS

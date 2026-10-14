@@ -1,0 +1,14 @@
+PASS: Simple macro DATA_WIDTH = 8
+PASS: Macro with arguments MAX=100, MIN=50
+PASS: ifdef ENABLE_DEBUG worked
+PASS: ifndef DISABLE_FEATURE worked
+PASS: Nested ifdef worked, DEBUG_DATA_WIDTH=8
+PASS: elsif chain - default MODE=0
+PASS: Timescale 1ns working
+PASS: Macro in expression
+PASS: Clock period macro (10ns)
+PASS: undef and redefine DATA_WIDTH=16
+=================================
+Compiler Directives Tests: 10 passed, 0 failed
+=================================
+TEST PASSED

@@ -1,0 +1,5 @@
+PASS: true ? a : b = a
+PASS: false ? a : b = b
+PASS: nested ternary
+INFO: x-condition result = 0xXX (may contain X)
+TEST PASSED: ternary tests completed

@@ -1,0 +1,23 @@
+Test 1 PASS: Default = 0
+Test 2 PASS: Assign = 100
+Test 3 PASS: Negative = -50
+Test 4 PASS: Max = 127
+Test 5 PASS: Min = -128
+Test 6 PASS: Sum = 80
+Test 7 PASS: Diff = 70
+Test 8 PASS: Prod = 50
+Test 9 PASS: Quot = 10
+Test 10 PASS: Mod = 7
+Test 11 PASS: AND = 00
+Test 12 PASS: OR = ff
+Test 13 PASS: XOR = 55
+Test 14 PASS: b1 < b2
+Test 15 PASS: Inc = 100
+Test 16 PASS: Dec = 99
+Test 17 PASS: Unsigned = 255
+Test 18 PASS: Cast = -1
+Test 19 PASS: Byte test
+Test 20 PASS: Byte test
+=== Byte Edge Cases ===
+Passed: 20/20
+TEST PASSED

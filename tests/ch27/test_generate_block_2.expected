@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Generate Block Tests ===
+Test 1: All zeros
+Test 1 PASS
+Test 2: All ones
+Test 2 PASS
+Test 3: Alternate
+Test 3 PASS
+Test 4: Rev alt
+Test 4 PASS
+Test 5: One hot L
+Test 5 PASS
+Test 6: One hot H
+Test 6 PASS
+Test 7: Half
+Test 7 PASS
+Test 8: Other half
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,13 @@
+TEST: Integer literal edge cases
+  [PASS] Decimal literal
+  [PASS] Hex literal
+  [PASS] Binary literal
+  [PASS] Octal literal
+  [PASS] Zero value
+  [PASS] Negative value
+  [PASS] Size prefix
+  [PASS] Underscore separator
+  [PASS] Large value
+  [PASS] Mixed base comparison
+Results: 10 passed, 0 failed
+TEST PASSED

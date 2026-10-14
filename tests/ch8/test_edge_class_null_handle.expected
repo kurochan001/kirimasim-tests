@@ -1,0 +1,3 @@
+PASS: Uninitialized class handle is null
+PASS: Initialized class handle is not null
+PASS: Class member has correct initial value

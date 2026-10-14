@@ -1,0 +1,18 @@
+T0: PASS - data[7:0] == 0xef
+T1: PASS - data[0+:8] == 0xef
+T2: PASS - data[24+:8] == 0xde
+T3: PASS - data[28+:8] partially OOB: lower=0xf, upper has X
+T4: PASS - data[32+:8] fully OOB: 0xxx ($isunknown=1)
+T5: PASS - data[x+:8] == X (isunknown=1)
+T6: PASS - data[7-:8] == 0xef
+T7: PASS - data[z-:8] == X (isunknown=1)
+T8: PASS - data[signed(-1)+:4] OOB handled: 111x ($isunknown=1)
+T9: PASS - data[0+:32] == 0xcafebabe
+T10: PASS - data[0+:1] == 0 (same as data[0])
+T11: PASS - d[16+:8] == 0x22
+T12: PASS - RHS part-select data[8+:8] == 0xcc
+T13: PASS - always_comb data[16+:8] == 0x88
+T14: PASS - NBA data[8+:8] <= FF → data == 0x0000ff00
+T15: PASS - arr[2][8+:8] == 0x77
+T16: PASS - data[31-:8] == 0xde
+TEST PASSED (17/17)

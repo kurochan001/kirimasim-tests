@@ -1,0 +1,5 @@
+PASS: Test 1 - foreach uses block-local array (sum=6)
+PASS: Test 2 - foreach uses outer array (sum=600)
+PASS: Test 3 - foreach on block-local dynamic array (sum=150)
+=== foreach block scope tests: 3 passed, 0 failed ===
+ALL TESTS PASSED

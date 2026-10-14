@@ -1,0 +1,6 @@
+Test 1: a->b propagation PASS
+Test 2: a->b->c->d->e propagation PASS
+Test 3: Arithmetic chain z=22 PASS
+Test 4: Toggle propagation PASS
+Test 5: Overflow z=0 PASS
+TEST PASSED: 5/5 tests passed

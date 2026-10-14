@@ -1,0 +1,13 @@
+TEST: Math functions edge cases
+  [PASS] $clog2 powers of 2 work
+  [PASS] $clog2 non-powers of 2 work
+  [PASS] $clog2(0) = 0
+  [PASS] $countones basic patterns work
+  [PASS] $countones single bit works
+  [PASS] $onehot single-bit patterns work
+  [PASS] $onehot non-onehot patterns return 0
+  [PASS] $onehot0 patterns work
+  [PASS] $isunknown detects X values
+  [PASS] $isunknown detects Z values
+Results: 10 passed, 0 failed
+TEST PASSED

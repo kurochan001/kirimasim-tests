@@ -1,0 +1,23 @@
+Test 1 PASS: CONST_VAL = 100
+Test 2 PASS: CONST_BYTE = ab
+Test 3 PASS: CONST_STR = hello
+Test 4 PASS: CONST_ARR[0]=1 [3]=4
+Test 5 PASS: CONST_VAL * 2 = 200
+Test 6 PASS: x == CONST_VAL
+Test 7 PASS: LOCAL_CONST = 50
+Test 8 PASS: array sum = 10
+Test 9 PASS: CONST_STR.len() = 5
+Test 10 PASS: CONST_BYTE & F0 = a0
+Test 11 PASS: conditional const
+Test 12 PASS: multi const = 272
+Test 13 PASS: Const test
+Test 14 PASS: Const test
+Test 15 PASS: Const test
+Test 16 PASS: Const test
+Test 17 PASS: Const test
+Test 18 PASS: Const test
+Test 19 PASS: Const test
+Test 20 PASS: Const test
+=== Const Edge Cases ===
+Passed: 20/20
+TEST PASSED

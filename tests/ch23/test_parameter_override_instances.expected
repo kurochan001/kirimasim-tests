@@ -1,0 +1,8 @@
+=== Parameter Override ===
+PASS: Default parameters WIDTH=8, DEPTH=4
+PASS: Width override WIDTH=16
+PASS: Multiple override WIDTH=32, DEPTH=8
+PASS: Named params WIDTH=4, DEPTH=16
+PASS: Default DEPTH preserved when WIDTH overridden
+=== Results: 5 PASS, 0 FAIL ===
+TEST PASSED

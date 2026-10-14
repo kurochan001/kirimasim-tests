@@ -1,0 +1,19 @@
+T1: PASS - realtobits/bitstoreal round-trip: 3.141593 -> 400921fb54442d11 -> 3.141593
+T2: PASS - shortrealtobits/bitstoshortreal: 2.500000 -> 40200000 -> 2.500000
+T3: PASS - realtobits(0.0) = 0
+T4: PASS - realtobits(-1.0) sign bit set: bff0000000000000
+T5: PASS - sgn(2.0) = 1
+T6: PASS - sgn(0.0) = 0
+T7: PASS - ln(-1.0) is NaN
+T8: PASS - log10(-1.0) is NaN
+T9: PASS - sqrt(-4.0) is NaN
+T10: PASS - asin(1.5) is NaN
+T11: PASS - acos(-1.5) is NaN
+T12: PASS - pow(0,0)=1.000000
+T13: PASS - pow(-1, 0.5) is NaN
+T14: PASS - exp(1000) is infinity
+T15: PASS - clog2: 0->0 1->0 2->1 3->2 1024->10
+T16: PASS - itor(-42)=-42.000000 rtoi(-3.7)=-3
+T17: PASS - abs(-1.0) = 1.000000
+17/17 tests passed
+PASS

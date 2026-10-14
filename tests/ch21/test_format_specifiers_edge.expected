@@ -1,0 +1,18 @@
+T1: PASS - %0d: '42'
+T2: PASS - %10d: '        42' len=10
+T3: PASS - %h: '000000ff'
+T4: PASS - %b: '10101010'
+T5: PASS - %o: '377'
+T6: PASS - %s: '[hello]'
+T7: PASS - %f: '3.140000'
+T8: PASS - %e: '1.234500e+03'
+T9: PASS - %c: 'Hi!'
+T10: PASS - %m is not empty
+T11: PASS - mixed: 'd=10 h=a b=1010 s=ok'
+T12: PASS - escaped %%: '100%'
+T13: PASS - no args: 'no args'
+T14: PASS - 64-bit hex: 'ffffffffffffffff'
+T15: PASS - negative: '-1'
+T16: PASS - sequential: 1 2 3
+16/16 tests passed
+PASS

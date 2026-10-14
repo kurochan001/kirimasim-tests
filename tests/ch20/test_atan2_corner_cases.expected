@@ -1,0 +1,46 @@
+=== $atan2 Corner Cases Test ===
+Test 1: Quadrant I (x > 0, y > 0) - Angles 0 to PI/2
+  PASS: $atan2(0, 1) = 0.000000
+  PASS: $atan2(1, 1) = 0.785398 (in [0.780000, 0.790000])
+  PASS: $atan2(1, 0) = 1.570796 (in [1.570000, 1.580000])
+Test 2: Quadrant II (x < 0, y > 0) - Angles PI/2 to PI
+  PASS: $atan2(1, -1) = 2.356194 (in [2.350000, 2.360000])
+  PASS: $atan2(0, -1) = 3.141593 (in [3.140000, 3.150000])
+Test 3: Quadrant III (x < 0, y < 0) - Angles -PI to -PI/2
+  PASS: $atan2(-1, -1) = -2.356194 (in [-2.360000, -2.350000])
+Test 4: Quadrant IV (x > 0, y < 0) - Angles -PI/2 to 0
+  PASS: $atan2(-1, 1) = -0.785398 (in [-0.790000, -0.780000])
+  PASS: $atan2(-1, 0) = -1.570796 (in [-1.580000, -1.570000])
+Test 5: Origin (x = 0, y = 0)
+  $atan2(0, 0) not checked
+Test 6: Positive Y-axis (x = 0, y > 0)
+  PASS: $atan2(1, 0) = 1.570796 (in [1.570795, 1.570797])
+  PASS: $atan2(100, 0) = 1.570796 (in [1.570795, 1.570797])
+Test 7: Negative Y-axis (x = 0, y < 0)
+  PASS: $atan2(-1, 0) = -1.570796 (in [-1.570797, -1.570795])
+  PASS: $atan2(-100, 0) = -1.570796 (in [-1.570797, -1.570795])
+Test 8: Positive X-axis (x > 0, y = 0)
+  PASS: $atan2(0, 1) = 0.000000
+  PASS: $atan2(0, 100) = 0.000000
+Test 9: Negative X-axis (x < 0, y = 0)
+  PASS: $atan2(0, -1) = 3.141593 (in [3.141592, 3.141594])
+Test 10: Scaling independence - atan2(ky, kx) = atan2(y, x)
+  PASS: $atan2(3,4) vs $atan2(30,40) = 0.000000 (in [-0.000001, 0.000001])
+  PASS: $atan2(3,4) vs $atan2(0.003,0.004) = 0.000000 (in [-0.000001, 0.000001])
+Test 11: Very small angles
+  PASS: $atan2(0.001, 1) = 0.001000 (in [0.000900, 0.001100])
+  PASS: $atan2(-0.001, 1) = -0.001000 (in [-0.001100, -0.000900])
+Test 12: Angles near PI (180 degrees)
+  PASS: $atan2(0.001, -1) = 3.140593 (in [3.131593, 3.151593])
+  PASS: $atan2(-0.001, -1) = -3.140593 (in [-3.151593, -3.131593])
+Test 13: Large values
+  PASS: $atan2(1e10, 1e10) = 0.785398 (in [0.780000, 0.790000])
+  PASS: $atan2(1e-10, 1e-10) = 0.785398 (in [0.780000, 0.790000])
+Test 14: Relationship with $atan in first quadrant
+  PASS: $atan2(1,2) vs $atan(0.5) = -0.000000 (in [-0.000001, 0.000001])
+Test 15: Symmetry: atan2(-y, x) = -atan2(y, x)
+  PASS: Symmetry check = 0.000000 (in [-0.000001, 0.000001])
+========================================
+TEST RESULTS: 26/26 PASSED
+TEST PASSED
+========================================

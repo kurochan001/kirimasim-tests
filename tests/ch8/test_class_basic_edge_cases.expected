@@ -1,0 +1,23 @@
+Test 1 PASS: Default new = 0
+Test 2 PASS: Init new = 10
+Test 3 PASS: Method = 1
+Test 4 PASS: Independent c1=1 c2=10
+Test 5 PASS: Multi call = 6
+Test 6 PASS: Point x=3 y=4
+Test 7 PASS: Null handle
+Test 8 PASS: Reassign = 100
+Test 9 PASS: Direct = 50
+Test 10 PASS: Point default
+Test 11 PASS: Class basic test
+Test 12 PASS: Class basic test
+Test 13 PASS: Class basic test
+Test 14 PASS: Class basic test
+Test 15 PASS: Class basic test
+Test 16 PASS: Class basic test
+Test 17 PASS: Class basic test
+Test 18 PASS: Class basic test
+Test 19 PASS: Class basic test
+Test 20 PASS: Class basic test
+=== Class Basic Edge Cases ===
+Passed: 20/20
+TEST PASSED

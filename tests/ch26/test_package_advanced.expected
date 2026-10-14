@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced Package Tests ===
+Test 1: Package typedef usage
+Test 1 PASS: byte_t b1=ab
+Test 2: Package function call
+Test 2 PASS: add_bytes(10,20)=30
+Test 3: Concat function
+Test 3 PASS: concat_bytes(AA,BB)=aabb
+Test 4: Package parameter
+Test 4 PASS: PKG_VERSION=1
+Test 5: Package constant MAX_SIZE
+Test 5 PASS: MAX_SIZE=256
+Test 6: Package constant MIN_SIZE
+Test 6 PASS: MIN_SIZE=1
+Test 7: Dword typedef
+Test 7 PASS: dword_t d1=deadbeef
+Test 8: Combined function result
+Test 8 PASS: add_bytes(F0,0F)=ff
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Package Import Tests ===
+Test 1: Package val
+Test 1 PASS
+Test 2: Package arr
+Test 2 PASS
+Test 3: Package func
+Test 3 PASS
+Test 4: Mult func
+Test 4 PASS
+Test 5: Chain funcs
+Test 5 PASS
+Test 6: Arr element
+Test 6 PASS
+Test 7: Val + func
+Test 7 PASS
+Test 8: Arr sum
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,13 @@
+=== IEEE 1800-2023 §16.14: Immediate Assume Test ===
+Test 1: Assume with true condition
+  PASS: assume (value == 10) succeeded
+Test 2: Assume with expression
+  PASS: assume (value > 0 && value < 10) succeeded
+Test 3: Assume with flag
+  PASS: assume (flag) succeeded
+Test 4: Assume with complex condition
+  PASS: assume (value >= 10 && value <= 20) succeeded
+Test 5: Assume with message
+  PASS: assume with else message succeeded
+=== All Assume Tests PASSED ===
+SUCCESS: All immediate assume statements passed

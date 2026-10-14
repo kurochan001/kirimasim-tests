@@ -1,0 +1,17 @@
+PASS [1] 4-level full member assign: 0xcc
+PASS [2] 4-level part-select [3:0]: 0xf
+PASS [3] 4-level part-select [7:4]: 0xa0
+PASS [4] 4-level bit-select [0]: 0x1
+PASS [5] 4-level bit-select [7]: 0x80
+PASS [6] 4-level part-select preserves upper: 0xf0
+PASS [7] 4-level part-select preserves lower: 0xf
+PASS [8] 2-level part-select [3:0]: 0xb
+PASS [9] 2-level bit-select [5]: 0x20
+PASS [10] 3-level part-select x.data[3:0]: 0xc
+PASS [11] 3-level part-select y.data[7:4]: 0xd0
+PASS [12] 3-level bit-select x.data[3]: 0x8
+PASS [13] 4-level sequential part-selects: 0xa5
+PASS [14] 4-level struct overall after part-select: 0xf
+PASS [15] 4-level multiple bit-selects: 0x55
+=== Results: 15/15 passed ===
+ALL TESTS PASSED

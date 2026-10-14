@@ -1,0 +1,14 @@
+TEST 1 PASS: First instance has id 0
+TEST 2 PASS: Second instance has id 1
+TEST 3 PASS: Third instance has id 2
+TEST 4 PASS: Static count accessible via all instances (count=3)
+TEST 5 PASS: Static member modification shared across instances
+TEST 6 PASS: Static member value persists (count=10)
+TEST 7 PASS: Config static members initialized correctly
+TEST 8 PASS: Second Config instance sees shared static state
+========================================
+Static Members Test Summary:
+  PASS: 8
+  FAIL: 0
+========================================
+All tests PASSED!

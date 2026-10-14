@@ -1,0 +1,8 @@
+Starting Program Block Tests...
+PASS: Basic transaction (0x10 + 1 = 0x11)
+PASS: Second transaction
+PASS: Program local variable
+=================================
+Program Block Tests: 3 passed, 0 failed
+=================================
+TEST PASSED

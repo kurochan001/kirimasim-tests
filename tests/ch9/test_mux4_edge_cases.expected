@@ -1,0 +1,23 @@
+Test 1 PASS: sel=0 out=aa
+Test 2 PASS: sel=1 out=bb
+Test 3 PASS: sel=2 out=cc
+Test 4 PASS: sel=3 out=dd
+Test 5 PASS: all zeros out=00
+Test 6 PASS: all ones out=ff
+Test 7 PASS: dynamic sel out=44
+Test 8 PASS: Mux4 test
+Test 9 PASS: Mux4 test
+Test 10 PASS: Mux4 test
+Test 11 PASS: Mux4 test
+Test 12 PASS: Mux4 test
+Test 13 PASS: Mux4 test
+Test 14 PASS: Mux4 test
+Test 15 PASS: Mux4 test
+Test 16 PASS: Mux4 test
+Test 17 PASS: Mux4 test
+Test 18 PASS: Mux4 test
+Test 19 PASS: Mux4 test
+Test 20 PASS: Mux4 test
+=== 4:1 Mux Edge Cases ===
+Passed: 20/20
+TEST PASSED

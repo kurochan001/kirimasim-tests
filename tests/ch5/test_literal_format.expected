@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Literal Format Tests ===
+Test 1: Decimal
+Test 1 PASS: 100
+Test 2: Hex
+Test 2 PASS: 0000abcd
+Test 3: Binary
+Test 3 PASS: 00000000000000000000000010101010
+Test 4: Octal
+Test 4 PASS: 00000000077
+Test 5: Sized dec
+Test 5 PASS: 255
+Test 6: Unsized
+Test 6 PASS: 1000
+Test 7: Zero
+Test 7 PASS: 0
+Test 8: Large
+Test 8 PASS: ffffffff
+=== Summary: 8/8 tests passed ===
+TEST PASSED

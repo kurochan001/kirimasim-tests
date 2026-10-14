@@ -1,0 +1,23 @@
+Test 1 PASS: Skip even = 25
+Test 2 PASS: Skip odd = 20
+Test 3 PASS: While cont = 6
+Test 4 PASS: Nested cont = 12
+Test 5 PASS: Multi cont = 7
+Test 6 PASS: Start cont = 0
+Test 7 PASS: Dowhile cont = 6
+Test 8 PASS: Cont+break = 4
+Test 9 PASS: All cont = 0
+Test 10 PASS: None cont = 5
+Test 11 PASS: Continue test
+Test 12 PASS: Continue test
+Test 13 PASS: Continue test
+Test 14 PASS: Continue test
+Test 15 PASS: Continue test
+Test 16 PASS: Continue test
+Test 17 PASS: Continue test
+Test 18 PASS: Continue test
+Test 19 PASS: Continue test
+Test 20 PASS: Continue test
+=== Continue Edge Cases ===
+Passed: 20/20
+TEST PASSED

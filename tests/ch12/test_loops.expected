@@ -1,0 +1,11 @@
+PASS: for loop sum = 10
+PASS: while loop sum = 10
+PASS: do-while loop sum = 10
+PASS: foreach loop sum = 150
+PASS: repeat loop sum = 50
+PASS: break works, sum = 10
+PASS: continue works, sum = 8
+=== Loops Test Results ===
+PASS: 7
+FAIL: 0
+TEST PASSED

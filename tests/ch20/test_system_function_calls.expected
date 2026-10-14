@@ -1,0 +1,20 @@
+PASS: $clog2(8)
+PASS: $clog2(1)
+PASS: $ln
+PASS: $sqrt
+PASS: $pow
+PASS: $floor
+PASS: $ceil
+PASS: $countones
+PASS: $onehot true
+PASS: $onehot false
+PASS: $onehot0 zero
+PASS: $isunknown with x
+PASS: $signed
+PASS: $itor/$rtoi
+PASS: $bits
+PASS: $left/$right
+PASS: $size on packed
+PASS: $sformat
+PASS: $realtime
+ALL TESTS PASSED (19 tests)

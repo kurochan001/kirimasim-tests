@@ -1,0 +1,13 @@
+TEST: Assignment delay edge cases
+  [PASS] Intra-assignment delay
+  [PASS] Blocking with delay
+  [PASS] Sequential delays
+  [PASS] Zero delay
+  [PASS] Delay in loop
+  [PASS] Wait for clock
+  [PASS] Multiple clock waits
+  [PASS] Event delay
+  [PASS] Combined delays
+  [PASS] Repeat delay
+Results: 10 passed, 0 failed
+TEST PASSED

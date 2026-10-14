@@ -1,0 +1,8 @@
+In outer_block, x = 42
+In inner_block, y = 100
+Accessing outer_block.x = 42
+Accessing inner_block.y = 100
+PASS: Named block scope in initial block works
+PASS: Named block scope in task works
+PASS: Named block scope in function works
+TEST PASSED

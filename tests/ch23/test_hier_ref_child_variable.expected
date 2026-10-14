@@ -1,0 +1,5 @@
+Test 1: Parent property PASS
+Test 2: Child property PASS
+Test 3: Hierarchical function PASS
+Test 4: Modify child property PASS
+TEST PASSED: 4/4 tests passed

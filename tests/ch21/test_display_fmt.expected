@@ -1,0 +1,27 @@
+=== IEEE 1800-2023 $display Format Tests ===
+Test 1: Simple int
+Value: 100
+Test 1 PASS
+Test 2: Multiple values
+a=10 b=20 sum=30
+Test 2 PASS
+Test 3: Hex format
+Hex: abcd
+Test 3 PASS
+Test 4: Binary format
+Binary: 1010101010101010
+Test 4 PASS
+Test 5: String
+String: test_string
+Test 5 PASS
+Test 6: Mixed types
+The answer is 42
+Test 6 PASS
+Test 7: No args
+No arguments
+Test 7 PASS
+Test 8: Expression
+5*5=25
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

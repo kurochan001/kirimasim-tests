@@ -1,0 +1,23 @@
+Test 1 PASS: Default bit = 0
+Test 2 PASS: Assign = 1
+Test 3 PASS: Vector = aa
+Test 4 PASS: Word = 1234
+Test 5 PASS: Signed = -10
+Test 6 PASS: AND = 00
+Test 7 PASS: OR = ff
+Test 8 PASS: XOR = 55
+Test 9 PASS: Shift = 10
+Test 10 PASS: Reduction = 1
+Test 11 PASS: Bit type test
+Test 12 PASS: Bit type test
+Test 13 PASS: Bit type test
+Test 14 PASS: Bit type test
+Test 15 PASS: Bit type test
+Test 16 PASS: Bit type test
+Test 17 PASS: Bit type test
+Test 18 PASS: Bit type test
+Test 19 PASS: Bit type test
+Test 20 PASS: Bit type test
+=== Bit Type Edge Cases ===
+Passed: 20/20
+TEST PASSED

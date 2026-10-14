@@ -1,0 +1,8 @@
+PASS: basic concat LHS
+PASS: three-way concat
+PASS: concat with part-select
+PASS: mixed width concat
+PASS: nested concat
+PASS: concat LHS NBA
+PASS: single bit concat
+ALL TESTS PASSED (7 tests)

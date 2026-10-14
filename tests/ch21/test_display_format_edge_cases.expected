@@ -1,0 +1,23 @@
+Test 1 PASS: Basic display
+Test 2 PASS: %d =          42
+Test 3 PASS: %h = deadbeef
+Test 4 PASS: %b = 10101010
+Test 5 PASS: %o = 077
+Test 6 PASS: %s = hello
+Test 7 PASS: %f = 3.141590
+Test 8 PASS: %e = 1.230000e-10
+Test 9 PASS: %t =                    0
+Test 10 PASS: %0d = 5
+Test 11 PASS: %10d = [        42]
+Test 12 PASS: $sformat = Value: 123
+Test 13 PASS: $sformatf = Hex: 0000cafe
+Test 14 PASS: a=1 b=2 c=3
+Test 15 PASS: Negative = -100
+Test 16 PASS: Zero = 0
+Test 17 PASS: Max int = 2147483647
+Test 18 PASS: Empty string = []
+Test 19 PASS: Special chars handled
+Test 20 PASS: h=000000ab d=171 b=10101011
+=== Display/Format Edge Cases ===
+Passed: 20/20
+TEST PASSED

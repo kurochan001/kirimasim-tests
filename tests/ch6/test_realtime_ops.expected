@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Realtime Operations Tests ===
+Test 1: Real assignment
+Test 1 PASS: r1=3.141590
+Test 2: Real addition
+Test 2 PASS: 1.5 + 2.5 = 4.000000
+Test 3: Real multiplication
+Test 3 PASS: 2.5 * 4.0 = 10.000000
+Test 4: Real division
+Test 4 PASS: 10.0 / 4.0 = 2.500000
+Test 5: Real to int
+Test 5 PASS: int(7.9) = 8
+Test 6: Int to real
+Test 6 PASS: real(42) = 42.000000
+Test 7: Real comparison
+Test 7 PASS: 5.5 == 5.5
+Test 8: Real negative
+Test 8 PASS: -3.5 + 1.5 = -2.000000
+=== Summary: 8/8 tests passed ===
+TEST PASSED

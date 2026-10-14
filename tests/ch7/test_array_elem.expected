@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Array Element Access Tests ===
+Test 1: First element
+Test 1 PASS
+Test 2: Last element
+Test 2 PASS
+Test 3: Variable index
+Test 3 PASS
+Test 4: Modify element
+Test 4 PASS
+Test 5: Logic array
+Test 5 PASS
+Test 6: Expression index
+Test 6 PASS
+Test 7: Modify via index
+Test 7 PASS
+Test 8: Sum elements
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,35 @@
+=== IEEE 1800-2023 Bit Select Test ===
+Test 1: Single bit select
+Test 1 PASS: data[0] = 1
+Test 2: Part select
+Test 2 PASS: data[7:0] = ef
+Test 3: Upper part select
+Test 3 PASS: data[31:24] = de
+Test 4: Indexed part select +:
+Test 4 PASS: data[8+:8] = be
+Test 5: Indexed part select -:
+Test 5 PASS: data[23-:8] = ad
+Test 6: Variable bit select
+  data[0] = 1
+  data[1] = 1
+  data[2] = 1
+  data[3] = 1
+Test 6 PASS
+Test 7: Half word select
+Test 7 PASS: data[15:0] = beef
+Test 8: Bit assignment
+Test 8 PASS: data = deadbeee
+Test 9: Part select assignment
+Test 9 PASS: data = deadbe00
+Test 10: Indexed part select assignment
+Test 10 PASS: data = deffbe00
+Test 11: Multiple byte extraction
+  byte[0] = 00
+  byte[1] = be
+  byte[2] = ff
+  byte[3] = de
+Test 11 PASS
+Test 12: Concatenation with bit select
+Test 12 PASS: swapped = ffde00be
+=== Summary: 12/12 tests passed ===
+TEST PASSED

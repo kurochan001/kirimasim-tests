@@ -1,0 +1,8 @@
+PASS: early return neg
+PASS: early return zero
+PASS: normal return
+PASS: conditional return
+PASS: loop return
+PASS: void return skip
+PASS: void return exec
+TEST PASSED: return statement tests completed

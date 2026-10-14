@@ -1,0 +1,23 @@
+Test 1 PASS: ~(0|0) = 1
+Test 2 PASS: ~(0|1) = 0
+Test 3 PASS: ~(1|0) = 0
+Test 4 PASS: ~(1|1) = 0
+Test 5 PASS: ~(0|0|0) = 1
+Test 6 PASS: ~(1|0|0) = 0
+Test 7 PASS: ~(1|1|1) = 0
+Test 8 PASS: Toggle = 1
+Test 9 PASS: NOR test
+Test 10 PASS: NOR test
+Test 11 PASS: NOR test
+Test 12 PASS: NOR test
+Test 13 PASS: NOR test
+Test 14 PASS: NOR test
+Test 15 PASS: NOR test
+Test 16 PASS: NOR test
+Test 17 PASS: NOR test
+Test 18 PASS: NOR test
+Test 19 PASS: NOR test
+Test 20 PASS: NOR test
+=== NOR Edge Cases ===
+Passed: 20/20
+TEST PASSED
