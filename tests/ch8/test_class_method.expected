@@ -1,0 +1,5 @@
+PASS: new() default = 0
+PASS: new(10) = 10
+PASS: increment()
+PASS: add(5)
+TEST PASSED: class method tests completed

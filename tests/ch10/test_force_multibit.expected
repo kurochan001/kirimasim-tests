@@ -1,0 +1,5 @@
+Test 1 PASS: force 32-bit=deadbeef
+Test 2 PASS: force 64-bit=cafebabe12345678
+Test 3 PASS: force 128-bit=aaaabbbbccccddddeeeeffff00001111
+Passed: 3/3
+PASS

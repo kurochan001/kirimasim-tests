@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Function Return Tests ===
+Test 1: Double
+Test 1 PASS: 10
+Test 2: Max a>b
+Test 2 PASS: 10
+Test 3: Max b>a
+Test 3 PASS: 8
+Test 4: Abs pos
+Test 4 PASS: 42
+Test 5: Abs neg
+Test 5 PASS: 25
+Test 6: Square
+Test 6 PASS: 49
+Test 7: Nested
+Test 7 PASS: 10
+Test 8: Complex
+Test 8 PASS: 16
+=== Summary: 8/8 tests passed ===
+TEST PASSED

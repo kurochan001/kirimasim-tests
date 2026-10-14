@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Local Variable Tests ===
+Test 1: Simple local
+Test 1 PASS
+Test 2: Global unchanged
+Test 2 PASS
+Test 3: Use global
+Test 3 PASS
+Test 4: Modify global
+Test 4 PASS
+Test 5: Block local
+Test 5 PASS
+Test 6: Nested blocks
+Test 6 PASS
+Test 7: Loop local
+Test 7 PASS
+Test 8: Multiple calls
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

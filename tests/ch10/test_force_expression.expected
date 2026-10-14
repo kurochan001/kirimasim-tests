@@ -1,0 +1,6 @@
+Test 1 PASS: force expr=35
+Test 2 PASS: force a+b=30
+Test 3 PASS: force a|b=30
+Test 4 PASS: force a<<2=40
+Passed: 4/4
+PASS

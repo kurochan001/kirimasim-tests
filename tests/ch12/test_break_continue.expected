@@ -1,0 +1,5 @@
+PASS: break in for
+PASS: continue in for
+PASS: break in while
+PASS: continue in while
+TEST PASSED: break/continue tests completed

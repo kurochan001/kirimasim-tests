@@ -1,0 +1,8 @@
+PASS: PKG_CONST = 100
+PASS: Package typedefs work
+PASS: add(10, 20) = 30
+PASS: multiply(5, 6) = 30
+=== Package Test Results ===
+PASS: 4
+FAIL: 0
+TEST PASSED

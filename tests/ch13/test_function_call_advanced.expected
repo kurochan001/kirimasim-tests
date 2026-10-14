@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced Function Call Tests ===
+Test 1: Factorial function
+Test 1 PASS: factorial(5)=120
+Test 2: Fibonacci function
+Test 2 PASS: fibonacci(10)=55
+Test 3: Max of three
+Test 3 PASS: max3(5,9,3)=9
+Test 4: Sum range function
+Test 4 PASS: sum_range(1,10)=55
+Test 5: Signed difference
+Test 5 PASS: signed_diff(10,25)=-15
+Test 6: Rotate left
+Test 6 PASS: rotate_left=00000003
+Test 7: Function chain
+Test 7 PASS: quad_it(5)=20
+Test 8: Function in expression
+Test 8 PASS: factorial(3)+fibonacci(5)=11
+=== Summary: 8/8 tests passed ===
+TEST PASSED

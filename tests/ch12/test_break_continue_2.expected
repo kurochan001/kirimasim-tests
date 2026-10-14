@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Break Continue Tests ===
+Test 1: Break in for
+Test 1 PASS
+Test 2: Continue in for
+Test 2 PASS
+Test 3: Break in while
+Test 3 PASS
+Test 4: Continue in while
+Test 4 PASS
+Test 5: Early break
+Test 5 PASS
+Test 6: Skip evens
+Test 6 PASS
+Test 7: First match
+Test 7 PASS
+Test 8: Mixed
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

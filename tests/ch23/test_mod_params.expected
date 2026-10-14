@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Module Parameter Tests ===
+Test 1: Default params
+Test 1 PASS
+Test 2: Wide params
+Test 2 PASS
+Test 3: Custom depth
+Test 3 PASS
+Test 4: Out1 width
+Test 4 PASS
+Test 5: Out2 width
+Test 5 PASS
+Test 6: Instance check
+Test 6 PASS
+Test 7: Out1 vs out3
+Test 7 PASS
+Test 8: All different
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

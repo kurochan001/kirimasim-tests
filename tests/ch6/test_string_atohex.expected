@@ -1,0 +1,7 @@
+PASS: atohex('1A') = 0x1a
+PASS: atohex('ff') = 0xff
+PASS: atohex('AbCd') = 0xabcd
+PASS: atohex('0') = 0x0
+PASS: atohex('DEADBEEF') = 0xdeadbeef
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string atohex tests passed

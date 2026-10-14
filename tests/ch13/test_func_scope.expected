@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Function Scope Tests ===
+Test 1: Local sum
+Test 1 PASS
+Test 2: Use global
+Test 2 PASS
+Test 3: Arg modify
+Test 3 PASS
+Test 4: Nested call
+Test 4 PASS
+Test 5: Multiple calls
+Test 5 PASS
+Test 6: Global unchanged
+Test 6 PASS
+Test 7: Zero args
+Test 7 PASS
+Test 8: Negative args
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

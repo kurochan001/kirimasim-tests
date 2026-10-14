@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Dynamic Array Method Tests ===
+Test 1: Empty size
+Test 1 PASS
+Test 2: New array
+Test 2 PASS
+Test 3: Fill array
+Test 3 PASS
+Test 4: Resize larger
+Test 4 PASS
+Test 5: Fill new
+Test 5 PASS
+Test 6: Delete
+Test 6 PASS
+Test 7: Recreate
+Test 7 PASS
+Test 8: Final size
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

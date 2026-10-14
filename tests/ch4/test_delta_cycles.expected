@@ -1,0 +1,10 @@
+=== Delta Cycles ===
+Initial $time = 0
+After #0: $time = 0
+PASS: #0 does not advance time
+PASS: Multiple #0 still at time 0
+PASS: Time accumulates: 5+5 = 10
+PASS: Mixed delays: 10+3+7 = 20
+PASS: Fractional delays work, time = 210
+=== Results: 5 PASS, 0 FAIL ===
+TEST PASSED

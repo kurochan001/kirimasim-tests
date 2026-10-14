@@ -1,0 +1,8 @@
+=== IEEE 1800-2023 §4.4.2: NBA Ordering ===
+PASS: NBA not applied in same time slot
+PASS: NBA applied after clock edge
+PASS: Last NBA wins, b = 33
+PASS: NBA updated a to 10
+PASS: NBA reads blocking result, b = ff
+=== Results: 5 PASS, 0 FAIL ===
+TEST PASSED

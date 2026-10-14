@@ -1,0 +1,19 @@
+Test 1: Precision specifier with %f
+  %.2f: 3.14
+  %.4f: 3.1416
+  %.0f: 3
+  PASS: 3.14 = 3.14
+Test 2: Scientific notation with %e
+  %.2e: 1.23e+05
+  %.2e of small: 1.23e-06
+Test 3: Width and precision combined
+  %10.4f:     3.1416
+  %15.6f:   123456.789000
+Test 4: Left alignment with precision
+  %-10.2f: 3.14      |
+  %10.2f:        3.14|
+Test 5: Zero precision
+  PASS: 3 = 3
+Test 6: Large precision
+  %.10f: 3.1415926536
+TEST PASSED: 6/6 tests passed

@@ -1,0 +1,10 @@
+=== IEEE 1800-2023 §22.5.1: Macro Concatenation ===
+PASS: WIDTH macro equals 8
+PASS: DECLARE_SIGNAL created 8-bit signal
+PASS: Multiple DECLARE_SIGNAL macros work
+STRINGIFY test: hello_world
+PASS: STRINGIFY macro executed
+PASS: DOUBLE_WIDTH = 16
+PASS: Nested macro OUTER = 15
+=== Results: 6 PASS, 0 FAIL ===
+TEST PASSED

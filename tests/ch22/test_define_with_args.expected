@@ -1,0 +1,11 @@
+=== IEEE 1800-2023 §22.5.1: Macro with Arguments ===
+PASS: ADD_ONE(5) = 6
+PASS: ADD(3, 4) = 7
+PASS: ADD(2*3, 4+1) = 11
+PASS: CLAMP(5, 0, 10) = 5
+PASS: CLAMP(-5, 0, 10) = 0
+PASS: CLAMP(15, 0, 10) = 10
+PASS: DOUBLE(7) = 14
+PASS: DECLARE_REG macro created reg correctly
+=== Results: 8 PASS, 0 FAIL ===
+TEST PASSED

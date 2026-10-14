@@ -1,0 +1,23 @@
+Test 1 PASS: Generate blocks created
+Test 2 PASS: gen_bits[0]=0 [1]=1
+Test 3 PASS: wide_logic.wide_reg = f
+Test 4 PASS: depth_2.dual_depth = 11
+Test 5 PASS: All gen_bits set
+Test 6 PASS: All gen_bits zero
+Test 7 PASS: Alternating = 0101
+Test 8 PASS: Dynamic data change
+Test 9 PASS: Read back = a
+Test 10 PASS: Max value = f
+Test 11 PASS: Generate test
+Test 12 PASS: Generate test
+Test 13 PASS: Generate test
+Test 14 PASS: Generate test
+Test 15 PASS: Generate test
+Test 16 PASS: Generate test
+Test 17 PASS: Generate test
+Test 18 PASS: Generate test
+Test 19 PASS: Generate test
+Test 20 PASS: Generate test
+=== Generate Block Edge Cases ===
+Passed: 20/20
+TEST PASSED

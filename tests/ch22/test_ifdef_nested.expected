@@ -1,0 +1,9 @@
+=== IEEE 1800-2023 §22.6: Nested Conditional Compilation ===
+PASS: ifdef FEATURE_A correctly selected
+PASS: ifndef FEATURE_C correctly selected
+PASS: Nested ifdef (A and B) correctly selected
+PASS: elsif chain correctly selected FEATURE_B
+PASS: UNDEFINED_MACRO correctly not defined
+PASS: Complex nested condition (A && !C && B)
+=== Results: 6 PASS, 0 FAIL ===
+TEST PASSED

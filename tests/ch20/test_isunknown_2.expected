@@ -1,0 +1,9 @@
+Test 1: $isunknown(8'b00000000) = 0 PASS
+Test 2: $isunknown(8'b11111111) = 0 PASS
+Test 3: $isunknown(8'b0000000x) = 1 PASS
+Test 4: $isunknown(8'b0000000z) = 1 PASS
+Test 5: $isunknown(8'bxxxxzzzz) = 1 PASS
+Test 6: $isunknown(8'b1111x111) = 1 PASS
+Test 7: $isunknown(100) = 0 PASS
+Test 8: $isunknown(8'bxxxxxxxx) = 1 PASS
+TEST PASSED: 8/8 tests passed

@@ -1,0 +1,23 @@
+Test 1 PASS: pmos off = Z
+Test 2 PASS: pmos on, d=0, y=0
+Test 3 PASS: pmos on, d=1, y=1
+Test 4 PASS: pmos off = Z
+Test 5 PASS: Still Z
+Test 6 PASS: pmos on = 0
+Test 7 PASS: Toggle = 0
+Test 8 PASS: PMOS test
+Test 9 PASS: PMOS test
+Test 10 PASS: PMOS test
+Test 11 PASS: PMOS test
+Test 12 PASS: PMOS test
+Test 13 PASS: PMOS test
+Test 14 PASS: PMOS test
+Test 15 PASS: PMOS test
+Test 16 PASS: PMOS test
+Test 17 PASS: PMOS test
+Test 18 PASS: PMOS test
+Test 19 PASS: PMOS test
+Test 20 PASS: PMOS test
+=== PMOS Edge Cases ===
+Passed: 20/20
+TEST PASSED

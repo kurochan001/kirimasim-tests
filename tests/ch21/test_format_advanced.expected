@@ -1,0 +1,50 @@
+=== IEEE 1800-2023 Advanced Format Specifiers Tests ===
+Test 1: Scientific notation (%e)
+  r_val = 1.234568e+04
+  small = 1.230000e-04
+  large = 1.500000e+10
+Test 1 PASS
+Test 2: Uppercase scientific (%E)
+  r_val = 9.876543E+03
+Test 2 PASS
+Test 3: Shortest representation (%g)
+  123.0 = 123
+  0.000001 = 1e-06
+  1234567.89 = 1.23457e+06
+Test 3 PASS
+Test 4: Uppercase shortest (%G)
+  r_val = 1.23E-06
+Test 4 PASS
+Test 5: Hierarchical name (%m)
+  Module path: test_format_advanced
+Test 5 PASS
+Test 6: Width specifiers
+  |   42| right aligned
+Test 6 PASS
+Test 7: Precision for real numbers
+  %.2f = 3.14
+  %.4f = 3.1416
+  %.8f = 3.14159265
+Test 7 PASS
+Test 8: String formatting
+  |     Hello| right aligned
+Test 8 PASS
+Test 9: Hex formatting
+  %x = 000000ff
+  %X = 000000ff
+  %h = 000000ff
+  %H = 000000ff
+Test 9 PASS
+Test 10: Binary and octal
+  %b = 00000000000000000000000001010101
+  %o = 00000000125
+Test 10 PASS
+Test 11: Character format
+  %c = A
+  %c = Z
+Test 11 PASS
+Test 12: Multiple format specifiers
+  int=        100, real=3.14, str=test
+Test 12 PASS
+=== Summary: 12/12 tests passed ===
+TEST PASSED

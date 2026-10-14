@@ -1,0 +1,5 @@
+Test 1 PASS: force bit=ab
+Test 2 PASS: force int=12345678
+Test 3 PASS: force byte=99
+Passed: 3/3
+PASS

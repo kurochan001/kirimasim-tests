@@ -1,0 +1,9 @@
+=== IEEE 1800-2023 §25.5.4: Interface Methods ===
+PASS: init() works, count=0, max=10
+PASS: increment() returns 1
+PASS: Multiple increments, count = 4
+PASS: at_max() = 0 when not at max
+PASS: at_max() = 1 when at max
+PASS: reset() works
+=== Results: 6 PASS, 0 FAIL ===
+TEST PASSED

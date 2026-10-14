@@ -1,0 +1,27 @@
+=== IEEE 1800-2023 Package and Import Test ===
+Test 1: Package function - add
+  add(10, 20) = 30
+Test 1 PASS
+Test 2: Package function - multiply
+  multiply(5, 7) = 35
+Test 2 PASS
+Test 3: Package parameter
+  PI_INT = 3
+  MAX_VALUE = 255
+Test 3 PASS
+Test 4: Selective import - clamp
+  clamp(150, 0, 100) = 100
+  clamp(-10, 0, 100) = 0
+Test 4 PASS
+Test 5: abs_val function
+  abs_val(-42) = 42
+  abs_val(42) = 42
+Test 5 PASS
+Test 6: Combined package operations
+  add(multiply(3,4), multiply(2,5)) = 22
+Test 6 PASS
+Test 7: Clamp with MAX_VALUE
+  clamp(300, 0, MAX_VALUE) = 255
+Test 7 PASS
+=== Summary: 7/7 tests passed ===
+TEST PASSED

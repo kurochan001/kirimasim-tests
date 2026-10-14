@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Display Operations Tests ===
+Test 1: Integer
+Test 1 PASS
+Test 2: Hex
+Test 2 PASS
+Test 3: Binary
+Test 3 PASS
+Test 4: String
+Test 4 PASS
+Test 5: Multi args
+Test 5 PASS
+Test 6: Negative
+Test 6 PASS
+Test 7: Zero
+Test 7 PASS
+Test 8: Large
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

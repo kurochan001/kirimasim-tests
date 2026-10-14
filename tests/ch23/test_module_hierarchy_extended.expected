@@ -1,0 +1,5 @@
+Test 1: sub_module output = 0x11 PASS
+Test 2: Hierarchical path PASS
+Test 3: Overflow = 0x00 PASS
+Test 4: Zero+1 = 0x01 PASS
+TEST PASSED: 4/4 tests passed

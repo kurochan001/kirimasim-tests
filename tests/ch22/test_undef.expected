@@ -1,0 +1,10 @@
+=== IEEE 1800-2023 §22.5.2: undef Directive ===
+PASS: TEMP_MACRO is defined initially
+PASS: TEMP_MACRO value is 42
+PASS: TEMP_MACRO is correctly undefined after undef
+PASS: ANOTHER_MACRO is still defined
+PASS: ANOTHER_MACRO value is 100
+PASS: TEMP_MACRO is redefined
+PASS: Redefined TEMP_MACRO value is 99
+=== Results: 7 PASS, 0 FAIL ===
+TEST PASSED

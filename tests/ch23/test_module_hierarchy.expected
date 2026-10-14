@@ -1,0 +1,6 @@
+Test 1: Basic hierarchy PASS
+Test 2: Chained modules PASS
+Test 3: Value propagation PASS
+Test 4: Zero input PASS
+Test 5: Max value PASS
+TEST PASSED: 5/5 tests passed

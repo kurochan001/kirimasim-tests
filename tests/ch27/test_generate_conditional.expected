@@ -1,0 +1,9 @@
+Test 1 PASS: generate-if MODE=2 XOR result=ff
+Test 2 PASS: generate-if XOR F0
+Test 3 PASS: generate-case WIDTH=8
+Test 4 PASS: conditional generate instance
+Test 5 PASS: generate block naming
+Test 6 PASS: XOR of zeros
+=== Generate Conditional Test Results ===
+Passed: 6/6
+TEST PASSED

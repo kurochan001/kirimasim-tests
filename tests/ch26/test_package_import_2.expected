@@ -1,0 +1,11 @@
+Test 1 PASS: wildcard import function add()
+Test 2 PASS: wildcard import function multiply()
+Test 3 PASS: wildcard import typedef
+Test 4 PASS: wildcard import parameter
+Test 5 PASS: selective import struct typedef
+Test 6 PASS: selective import enum typedef
+Test 7 PASS: explicit scope resolution for struct
+Test 8 PASS: mixed import and explicit scope
+=== Package Import Test Results ===
+Passed: 8/8
+TEST PASSED

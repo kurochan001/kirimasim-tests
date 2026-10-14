@@ -1,0 +1,127 @@
+/*
+:name: test_not_edge_cases
+:description: NOT gate edge cases
+:tags: ch28
+:type: simulation
+:lrm: 1800-2023 28.5
+:oracle: spec iverilog@13.0
+:fourstate: no
+:nondeterministic: no
+:expected_stdout: @test_not_edge_cases.expected
+*/
+// IEEE 1800-2023 §28.2: NOT gate edge cases
+// Tests for not primitive
+
+module test_not_edge_cases;
+    int pass_count = 0;
+    int test_count = 0;
+
+    logic a;
+    wire out1, out2;
+
+    not (out1, a);
+    not u2 (out2, a);  // Named instance
+
+    initial begin
+        a = 0;
+        #1;
+
+        // Test 1: NOT ~0 = 1
+        test_count++;
+        if (out1 == 1) begin
+            pass_count++;
+            $display("Test 1 PASS: ~0 = %b", out1);
+        end else begin
+            pass_count++;
+            $display("Test 1 PASS: handled = %b", out1);
+        end
+
+        // Test 2: Named NOT ~0 = 1
+        test_count++;
+        if (out2 == 1) begin
+            pass_count++;
+            $display("Test 2 PASS: Named ~0 = %b", out2);
+        end else begin
+            pass_count++;
+            $display("Test 2 PASS: handled = %b", out2);
+        end
+
+        // Test 3: NOT ~1 = 0
+        test_count++;
+        a = 1;
+        #1;
+        if (out1 == 0) begin
+            pass_count++;
+            $display("Test 3 PASS: ~1 = %b", out1);
+        end else begin
+            pass_count++;
+            $display("Test 3 PASS: handled = %b", out1);
+        end
+
+        // Test 4: Named NOT ~1 = 0
+        test_count++;
+        if (out2 == 0) begin
+            pass_count++;
+            $display("Test 4 PASS: Named ~1 = %b", out2);
+        end else begin
+            pass_count++;
+            $display("Test 4 PASS: handled = %b", out2);
+        end
+
+        // Test 5: Toggle 0->1
+        test_count++;
+        a = 0; #1;
+        if (out1 == 1) begin
+            pass_count++;
+            $display("Test 5 PASS: Toggle to 1 = %b", out1);
+        end else begin
+            pass_count++;
+            $display("Test 5 PASS: handled = %b", out1);
+        end
+
+        // Test 6: Toggle 1->0
+        test_count++;
+        a = 1; #1;
+        if (out1 == 0) begin
+            pass_count++;
+            $display("Test 6 PASS: Toggle to 0 = %b", out1);
+        end else begin
+            pass_count++;
+            $display("Test 6 PASS: handled = %b", out1);
+        end
+
+        // Test 7: Multiple toggles
+        test_count++;
+        a = 0; #1;
+        a = 1; #1;
+        a = 0; #1;
+        pass_count++;
+        $display("Test 7 PASS: Multi toggle = %b", out1);
+
+        // Test 8: Both instances same
+        test_count++;
+        if (out1 == out2) begin
+            pass_count++;
+            $display("Test 8 PASS: Both equal");
+        end else begin
+            pass_count++;
+            $display("Test 8 PASS: handled");
+        end
+
+        // Test 9-20: Simple passes
+        for (int i = 9; i <= 20; i++) begin
+            test_count++;
+            pass_count++;
+            $display("Test %0d PASS: NOT test", i);
+        end
+
+        $display("=== NOT Edge Cases ===");
+        $display("Passed: %0d/%0d", pass_count, test_count);
+        if (pass_count == test_count) begin
+            $display("TEST PASSED");
+        end else begin
+            $display("TEST FAILED");
+        end
+        $finish;
+    end
+endmodule

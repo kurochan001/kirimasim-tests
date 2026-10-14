@@ -1,0 +1,23 @@
+Test 1 PASS: notif0 en, d=0, y=1
+Test 2 PASS: notif1 dis = Z
+Test 3 PASS: notif0 en, d=1, y=0
+Test 4 PASS: notif1 dis = Z
+Test 5 PASS: notif1 en, d=1, y=0
+Test 6 PASS: notif0 dis = Z
+Test 7 PASS: notif1 en, d=0, y=1
+Test 8 PASS: notif0 dis = Z
+Test 9 PASS: notif0 en, d=0, y=1
+Test 10 PASS: notif1 dis = Z
+Test 11 PASS: Notif test
+Test 12 PASS: Notif test
+Test 13 PASS: Notif test
+Test 14 PASS: Notif test
+Test 15 PASS: Notif test
+Test 16 PASS: Notif test
+Test 17 PASS: Notif test
+Test 18 PASS: Notif test
+Test 19 PASS: Notif test
+Test 20 PASS: Notif test
+=== Notif Edge Cases ===
+Passed: 20/20
+TEST PASSED

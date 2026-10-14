@@ -1,0 +1,13 @@
+TEST: Immediate assertion edge cases
+  [PASS] Assert constant true
+  [PASS] Assert variable condition
+  [PASS] Assert equality
+  [PASS] Assert inequality
+  [PASS] Assert comparison
+  [PASS] Assert logical AND
+  [PASS] Assert logical OR
+  [PASS] Assert negation
+  [PASS] Assert complex expression
+  [PASS] Assert bit operations
+Results: 10 passed, 0 failed
+TEST PASSED

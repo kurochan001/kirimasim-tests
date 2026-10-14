@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Generate Case Tests ===
+Test 1: MODE value
+Test 1 PASS
+Test 2: Result
+Test 2 PASS
+Test 3: Not mode0
+Test 3 PASS
+Test 4: Not mode1
+Test 4 PASS
+Test 5: Not default
+Test 5 PASS
+Test 6: High nibble
+Test 6 PASS
+Test 7: Low nibble
+Test 7 PASS
+Test 8: Full match
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

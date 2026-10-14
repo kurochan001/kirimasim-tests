@@ -1,0 +1,10 @@
+Test 1: Global var = 100 PASS
+Test 2: Array element = 3 PASS
+Local scope var = 50 PASS
+Test 3: Task scope PASS
+Test 4: Nested scope = 11 PASS
+Test 5: Object context = 42 PASS
+Test 6: Modified global = 200 PASS
+Test 7: Modified array = 10 PASS
+Test 8: Modified object = 100 PASS
+TEST PASSED: 8/8 tests passed

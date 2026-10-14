@@ -1,0 +1,9 @@
+Test 1 PASS: BUFIF0 outputs Z when disabled (ctrl=1)
+Test 2 PASS: BUFIF1 outputs Z when disabled (ctrl=0)
+Test 3 PASS: NOTIF0 outputs Z when disabled (ctrl=1)
+Test 4 PASS: NOTIF1 outputs Z when disabled (ctrl=0)
+Test 5 PASS: NMOS outputs Z when gate=0
+Test 6 PASS: PMOS outputs Z when gate=1
+=== Tri-State Z Value Test Results ===
+Passed: 6/6
+TEST PASSED

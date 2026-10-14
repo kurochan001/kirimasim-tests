@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Format Hex Tests ===
+Test 1: 8-bit hex
+Test 1 PASS
+Test 2: 16-bit hex
+Test 2 PASS
+Test 3: Zero
+Test 3 PASS
+Test 4: All ones
+Test 4 PASS
+Test 5: Hex arithmetic
+Test 5 PASS
+Test 6: Hex compare
+Test 6 PASS
+Test 7: Nibble
+Test 7 PASS
+Test 8: Hex assign
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,6 @@
+Test 1 PASS: force applied, sig=ab
+Test 2 PASS: force changed, sig=cd
+Test 3 PASS: release allows assignment, sig=ef
+Test 4 PASS: multiple cycles work
+Passed: 4/4
+PASS

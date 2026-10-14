@@ -1,0 +1,9 @@
+=== IEEE 1800-2023 §25.3: Parameterized Interfaces ===
+PASS: Default interface data = 0xFF
+PASS: Default valid/ready work
+PASS: Wide interface data = 0xABCD
+PASS: Custom interface data = 0x12345678
+PASS: Custom interface addr = 0xAA
+PASS: Interfaces are independent
+=== Results: 6 PASS, 0 FAIL ===
+TEST PASSED

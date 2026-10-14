@@ -1,0 +1,43 @@
+=== IEEE 1800-2023 Enum Methods Test ===
+Test 1: Enum first()
+  state.first() = IDLE
+Test 1 PASS
+Test 2: Enum last()
+  state.last() = ERROR_STATE
+Test 2 PASS
+Test 3: Enum next()
+  IDLE.next() = START
+Test 3 PASS
+Test 4: Enum prev()
+  DONE.prev() = WAIT_STATE
+Test 4 PASS
+Test 5: Enum num()
+  state_e.num() = 6
+Test 5 PASS
+Test 6: Enum name()
+  PROCESS.name() = PROCESS
+Test 6 PASS
+Test 7: Iterate through enum
+  [0] IDLE = 0
+  [1] START = 1
+  [2] PROCESS = 2
+  [3] WAIT_STATE = 3
+  [4] DONE = 4
+  [5] ERROR_STATE = 5
+Test 7 PASS
+Test 8: Color enum with values
+  RED = 0
+  GREEN = 2
+  BLUE = 4
+Test 8 PASS
+Test 9: Color enum iteration
+  RED = 0
+  GREEN = 2
+  BLUE = 4
+  YELLOW = 6
+Test 9 PASS
+Test 10: Wrap around behavior
+  ERROR_STATE.next() wraps to = IDLE
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

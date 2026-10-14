@@ -1,0 +1,44 @@
+=== IEEE 1800-2023 Generate Statements Test ===
+Test 1: Generate for loop
+  gen_data[0] = 10
+  gen_data[1] = 11
+  gen_data[2] = 12
+  gen_data[3] = 13
+Test 1 PASS
+Test 2: Generate if (WIDTH > 4)
+  data_in = 05, data_out = 0a
+Test 2 PASS
+Test 3: Parameter-based generate
+  WIDTH = 8
+  MODE = 2
+Test 3 PASS
+Test 4: Iterate generated array
+  gen_data[0] = 20
+  gen_data[1] = 21
+  gen_data[2] = 22
+  gen_data[3] = 23
+Test 4 PASS
+Test 5: Different input values
+  data_in=00 -> data_out=00
+  data_in=10 -> data_out=20
+  data_in=20 -> data_out=40
+  data_in=30 -> data_out=60
+Test 5 PASS
+Test 6: Edge values
+  min: data_out = 00
+  max: data_out = fe
+Test 6 PASS
+Test 7: Generated instance access
+  Accessing gen_loop instances
+Test 7 PASS
+Test 8: Generate block hierarchy
+  Active: wide_mode (WIDTH=8 > 4)
+Test 8 PASS
+Test 9: Generate case (MODE=2)
+  Active: mode2
+Test 9 PASS
+Test 10: Combined generate behavior
+  Final test: data_out = 56
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

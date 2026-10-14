@@ -1,0 +1,6 @@
+Test 1: Object creation PASS
+Test 2: Member access PASS
+Test 3: Method call PASS
+Test 4: Setter method PASS
+Test 5: String member PASS
+TEST PASSED: 5/5 tests passed

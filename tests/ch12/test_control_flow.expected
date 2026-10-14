@@ -1,0 +1,11 @@
+PASS: For loop sum = 15
+PASS: While loop sum = 15
+PASS: Repeat loop count = 5
+PASS: Do-while loop = 10
+PASS: Foreach sum = 15
+PASS: If-else chain result = 2
+PASS: Case statement result = 30
+PASS: Casex result = 2
+PASS: Casez result = 2
+PASS: Continue in loop sum = 25
+TEST PASSED: control flow completed

@@ -1,0 +1,13 @@
+TEST: Real literal edge cases
+  [PASS] Simple real
+  [PASS] Scientific notation
+  [PASS] Negative exponent
+  [PASS] Zero real
+  [PASS] Negative real
+  [PASS] Integer to real
+  [PASS] Real addition
+  [PASS] Real multiplication
+  [PASS] Real comparison
+  [PASS] Large real
+Results: 10 passed, 0 failed
+TEST PASSED

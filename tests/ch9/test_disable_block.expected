@@ -1,0 +1,6 @@
+Test 1: Disable named block PASS
+Test 2: Disable nested block PASS
+Test 3: Disable loop PASS
+Test 4: Conditional disable PASS
+Test 5: No disable control PASS
+TEST PASSED: 5/5 tests passed
