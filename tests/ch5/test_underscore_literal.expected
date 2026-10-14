@@ -1,0 +1,12 @@
+=== Binary Literal Underscore Test ===
+with_underscore    = 64716 (0x00fccc)
+without_underscore = 64716 (0x00fccc)
+PASS: Binary literals match
+hex_with_underscore    = 0x12345678
+hex_without_underscore = 0x12345678
+PASS: Hex literals match
+dec_with_underscore    = 1000000
+dec_without_underscore = 1000000
+PASS: Decimal literals match
+=== Summary: 3 PASS, 0 FAIL ===
+TEST PASSED

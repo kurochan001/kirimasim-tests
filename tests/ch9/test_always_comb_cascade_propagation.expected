@@ -1,0 +1,4 @@
+PASS: Initial cascade propagation (d=03)
+PASS: Cascade chain a=10 b=11 c=12 d=13
+PASS: Overflow cascade a=ff b=00 c=01 d=02
+ALL TESTS PASSED (3 tests)

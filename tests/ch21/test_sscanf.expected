@@ -1,0 +1,4 @@
+PASS: sscanf basic
+PASS: sscanf multi
+PASS: sscanf hex
+TEST PASSED: sscanf tests completed

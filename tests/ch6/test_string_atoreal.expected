@@ -1,0 +1,7 @@
+PASS: atoreal('3.14') = 3.140000
+PASS: atoreal('42') = 42.000000
+PASS: atoreal('-123.456') = -123.456000
+PASS: atoreal('0.0') = 0.000000
+PASS: atoreal('1.5e3') = 1500.000000
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string atoreal tests passed

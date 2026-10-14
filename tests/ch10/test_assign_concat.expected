@@ -1,0 +1,5 @@
+Test 1 PASS: concat to wide = abcd
+Test 2 PASS: pack = 1122
+Test 3 PASS: replicate = aaaa
+Passed: 3/3
+PASS

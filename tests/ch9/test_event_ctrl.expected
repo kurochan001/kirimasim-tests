@@ -1,0 +1,5 @@
+PASS: posedge wait
+PASS: negedge wait
+PASS: any edge wait
+PASS: repeat edge
+TEST PASSED: event control tests completed

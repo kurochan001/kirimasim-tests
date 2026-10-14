@@ -1,0 +1,7 @@
+PASS: simple blocking
+PASS: sequential blocking
+PASS: bit select assign
+PASS: part select assign
+PASS: +=
+PASS: subtraction
+TEST PASSED: blocking assignment tests completed

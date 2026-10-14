@@ -1,0 +1,6 @@
+PASS: Test 1 - arr[0] port: 0x10 + 1 = 0x11
+PASS: Test 2 - arr[2] port: 0x30 + 1 = 0x31
+PASS: Test 3 - Part-select port: ~4'hD = 4'h2
+=== Port Complex Expression Test Summary ===
+PASS: 3, FAIL: 0
+ALL TESTS PASSED

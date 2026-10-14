@@ -1,0 +1,5 @@
+PASS: $countones
+PASS: $countones all
+PASS: $countones zero
+PASS: $countbits
+TEST PASSED: countbits tests completed

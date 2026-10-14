@@ -1,0 +1,27 @@
+=== IEEE 1800-2023 Conditional Compilation Test ===
+Test 1: Defined macro WIDTH
+  WIDTH=8, data=ab
+Test 1 PASS
+Test 2: ifdef ENABLE_FEATURE1
+  ENABLE_FEATURE1 is defined
+Test 2 PASS
+Test 3: ifndef UNDEFINED_MACRO
+  UNDEFINED_MACRO is not defined (correct)
+Test 3 PASS
+Test 4: Version macro
+  VERSION=2
+Test 4 PASS
+Test 5: Nested ifdef
+  Both ENABLE_FEATURE1 and WIDTH are defined
+Test 5 PASS
+Test 6: Data with macro width
+  data with all 1s=ff
+Test 6 PASS
+Test 7: Multiple value assignments
+  iter 0: data=00
+  iter 1: data=10
+  iter 2: data=20
+  iter 3: data=30
+Test 7 PASS
+=== Summary: 7/7 tests passed ===
+TEST PASSED

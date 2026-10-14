@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Case Statement Tests ===
+Test 1: Simple case
+Test 1 PASS
+Test 2: Default
+Test 2 PASS
+Test 3: Multi values
+Test 3 PASS
+Test 4: Zero case
+Test 4 PASS
+Test 5: Negative
+Test 5 PASS
+Test 6: Block
+Test 6 PASS
+Test 7: First match
+Test 7 PASS
+Test 8: Large value
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

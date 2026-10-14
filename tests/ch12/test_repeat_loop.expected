@@ -1,0 +1,5 @@
+PASS: basic repeat
+PASS: repeat var
+PASS: repeat zero
+PASS: nested repeat
+TEST PASSED: repeat loop tests completed

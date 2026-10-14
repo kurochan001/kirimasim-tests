@@ -1,0 +1,9 @@
+Test 1: Simple assign PASS
+Test 2: Part select PASS
+Test 3: Bit select PASS
+Test 4: Array element PASS
+Test 5: Compound += PASS
+Test 6: Compound -= PASS
+Test 7: Increment PASS
+Test 8: Decrement PASS
+TEST PASSED: 8/8 tests passed

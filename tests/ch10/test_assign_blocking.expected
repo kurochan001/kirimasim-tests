@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Blocking Assignment Tests ===
+Test 1: Simple
+Test 1 PASS: 10
+Test 2: Chain
+Test 2 PASS: 5
+Test 3: Expression
+Test 3 PASS: 30
+Test 4: Self assign
+Test 4 PASS: 15
+Test 5: Multiple
+Test 5 PASS
+Test 6: Negative
+Test 6 PASS: -50
+Test 7: Zero
+Test 7 PASS: 0
+Test 8: Complex
+Test 8 PASS: 27
+=== Summary: 8/8 tests passed ===
+TEST PASSED

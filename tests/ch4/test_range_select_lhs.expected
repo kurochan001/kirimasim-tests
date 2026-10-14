@@ -1,0 +1,7 @@
+PASS: Test 1 - Basic part-select data[7:0] = 8'hAB
+PASS: Test 2 - Part-select data[15:8] = 8'hCD
+PASS: Test 3 - Multiple part-selects = 32'hDDCCBBAA
+PASS: Test 4 - Indexed part-select data[3+:8] = 8'hFF
+=== Range Select LHS Test Summary ===
+PASS: 4, FAIL: 0
+ALL TESTS PASSED

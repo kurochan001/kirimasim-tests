@@ -1,0 +1,6 @@
+Test 1 PASSED: Signal with keep attribute
+Test 2 PASSED: Signal with multiple attributes (dont_touch, optimize)
+Test 3 PASSED: FSM state with encoding attribute
+Test 4 PASSED: Memory with ram_style attribute
+Test 5 PASSED: Case selector with synthesis attributes
+PASS: All attrib signal tests passed (5/5)

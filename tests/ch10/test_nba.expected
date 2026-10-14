@@ -1,0 +1,5 @@
+PASS: NBA swap
+PASS: multiple NBA
+PASS: NBA applied
+PASS: NBA pending in same cycle
+TEST PASSED: non-blocking assignment tests completed

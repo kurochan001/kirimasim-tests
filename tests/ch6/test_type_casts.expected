@@ -1,0 +1,6 @@
+PASS: int to real cast
+PASS: real to int cast (rounding)
+PASS: bit width reduction
+PASS: bit width extension
+PASS: signed to unsigned
+TEST PASSED: type cast tests completed

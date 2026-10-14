@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Case Expression Tests ===
+Test 1: Case 0
+Test 1 PASS
+Test 2: Case 1
+Test 2 PASS
+Test 3: Case 2
+Test 3 PASS
+Test 4: Case 3
+Test 4 PASS
+Test 5: Default
+Test 5 PASS
+Test 6: Negative default
+Test 6 PASS
+Test 7: Large default
+Test 7 PASS
+Test 8: Compare cases
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

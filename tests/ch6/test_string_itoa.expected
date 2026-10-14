@@ -1,0 +1,7 @@
+PASS: itoa(12345) = '12345'
+PASS: itoa(0) = '0'
+PASS: itoa(-9876) = '-9876'
+PASS: itoa(7) = '7'
+PASS: itoa(2147483647) = '2147483647'
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string itoa tests passed

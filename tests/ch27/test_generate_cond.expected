@@ -1,0 +1,5 @@
+PASS: test1_if_generate - Fast implementation selected
+PASS: test2_if_no_else - Wide mode activated
+PASS: test3_nested_if - Correct path selected
+PASS: test4_case_generate - Case 2 selected
+PASS: test5_complex_cond - Medium config selected

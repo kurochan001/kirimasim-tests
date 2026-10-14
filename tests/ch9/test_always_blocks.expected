@@ -1,0 +1,5 @@
+PASS: Initial state counter=0
+PASS: Reset worked
+PASS: Counter after 5 cycles=5
+PASS: Combinational output=55
+TEST PASSED: always blocks completed

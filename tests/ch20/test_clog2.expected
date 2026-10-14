@@ -1,0 +1,6 @@
+PASS: clog2(1) = 0
+PASS: clog2(2) = 1
+PASS: clog2(8) = 3
+PASS: clog2(9) = 4
+PASS: clog2(256) = 8
+TEST PASSED: clog2 tests completed

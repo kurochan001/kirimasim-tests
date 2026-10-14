@@ -1,0 +1,9 @@
+CYC[4] reg_a=0 reg_b=0
+CYC[5] reg_a=1 reg_b=2
+CYC[6] reg_a=2 reg_b=4
+CYC[7] reg_a=3 reg_b=6
+CYC[8] reg_a=4 reg_b=8
+PASS: A1 - reg_a incremented to 6
+PASS: A2 - reg_b = 12 (= 2 * reg_a)
+=== Results: 2 passed, 0 failed ===
+TEST PASSED

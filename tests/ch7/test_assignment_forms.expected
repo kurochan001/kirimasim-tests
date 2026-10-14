@@ -1,0 +1,28 @@
+PASS: Test 1 - NBA simple variable
+PASS: Test 2 - NBA array element
+PASS: Test 3 - NBA struct member
+PASS: Test 4 - Bit-select assignment
+PASS: Test 5 - Part-select assignment
+PASS: Test 6 - Indexed part-select +: assignment
+PASS: Test 7 - Indexed part-select -: assignment
+PASS: Test 8 - force signal
+PASS: Test 9 - release signal accepts new value
+PASS: Test 10 - force overrides normal assign
+PASS: Test 11 - Variable index bit-select
+PASS: Test 12 - Multiple NBA last wins
+PASS: Test 13 - LHS concatenation {a,b} = 8'hA5
+PASS: Test 14 - Packed struct field assignment
+PASS: Test 15 - Packed union field assignment
+PASS: Test 16 - 2D array access
+PASS: Test 17 - NBA in always_ff
+PASS: Test 18 - NBA computed index
+PASS: Test 19 - Full width assignment
+PASS: Test 20 - Release + reassign
+PASS: Test 21 - Part-select lower bits
+PASS: Test 22 - Part-select upper bits
+PASS: Test 23 - Nested struct assignment
+PASS: Test 24 - LHS concat different widths
+PASS: Test 25 - Multiple bit-select assignments
+=== Assignment Forms Summary ===
+Tests passed: 25/25
+ALL TESTS PASSED

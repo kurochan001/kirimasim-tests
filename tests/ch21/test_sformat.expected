@@ -1,0 +1,4 @@
+PASS: sformatf basic
+PASS: sformatf
+PASS: sformatf multi
+TEST PASSED: sformat tests completed

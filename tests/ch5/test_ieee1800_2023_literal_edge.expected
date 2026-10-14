@@ -1,0 +1,23 @@
+PASS: Test 1 - Max 32-bit unsigned
+PASS: Test 2 - Min 32-bit signed (INT_MIN)
+PASS: Test 3 - Zero in all bases
+PASS: Test 4 - Underscore separator
+PASS: Test 5 - Unsized literal zero-extended
+PASS: Test 6 - Signed literal sign-extended
+PASS: Test 7 - All X literal
+PASS: Test 8 - All Z literal
+PASS: Test 9 - Mixed X and values
+PASS: Test 10 - X in hex literal
+PASS: Test 11 - Very small real (subnormal)
+PASS: Test 12 - Very large real
+PASS: Test 13 - Negative zero equals zero
+PASS: Test 14 - Scientific notation
+PASS: Test 15 - Empty string
+PASS: Test 16 - Escape sequences in string
+PASS: Test 17 - String with embedded null (len=10)
+PASS: Test 18 - Truncation to smaller width
+PASS: Test 19 - Zero extension to larger width
+PASS: Test 20 - Single bit literal
+=== Literal Edge Cases Summary ===
+Tests passed: 20/20
+ALL TESTS PASSED

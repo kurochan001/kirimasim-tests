@@ -1,0 +1,16 @@
+CYC[1] in_valid=0 in_ready=0 xfer=0 state=0 trigger=0
+CYC[2] in_valid=0 in_ready=0 xfer=0 state=0 trigger=0
+CYC[3] in_valid=0 in_ready=0 xfer=0 state=0 trigger=0
+CYC[4] in_valid=1 in_ready=0 xfer=0 state=0 trigger=0
+CYC[5] in_valid=1 in_ready=1 xfer=1 state=1 trigger=0
+CYC[6] in_valid=0 in_ready=0 xfer=0 state=0 trigger=1
+CYC[7] in_valid=0 in_ready=0 xfer=0 state=0 trigger=0
+CYC[8] in_valid=0 in_ready=0 xfer=0 state=0 trigger=0
+CYC[9] in_valid=0 in_ready=0 xfer=0 state=0 trigger=0
+CYC[10] in_valid=0 in_ready=0 xfer=0 state=0 trigger=0
+CYC[11] in_valid=0 in_ready=0 xfer=0 state=0 trigger=0
+CYC[12] in_valid=0 in_ready=0 xfer=0 state=0 trigger=0
+=== Cross-Module NBA Test ===
+PASS: A1 - state returned to 0 (handshake completed)
+=== Results: 1 passed, 0 failed ===
+TEST PASSED

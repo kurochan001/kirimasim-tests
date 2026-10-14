@@ -1,0 +1,6 @@
+PASS: $bits byte
+PASS: $bits word
+PASS: $size array
+PASS: $left
+PASS: $right
+TEST PASSED: bit query tests completed

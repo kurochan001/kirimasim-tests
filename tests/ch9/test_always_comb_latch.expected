@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Always_comb/latch/ff Tests ===
+Test 1: always_comb initial
+Test 1 PASS: sum_comb=00 (0+0)
+Test 2: always_comb update
+Test 2 PASS: sum_comb=30 (10+20)
+Test 3: always_ff reset
+Test 3 PASS: ff_out=00 (reset)
+Test 4: always_ff after reset release
+Test 4 PASS: ff_out=aa
+Test 5: always_latch disabled
+Test 5 PASS: latch_out=xx (enable=0)
+Test 6: always_latch enabled
+Test 6 PASS: latch_out=bb
+Test 7: always_comb another update
+Test 7 PASS: sum_comb=00 (FF+01 overflow)
+Test 8: always_ff second update
+Test 8 PASS: ff_out=cc
+=== Summary: 8/8 tests passed ===
+TEST PASSED

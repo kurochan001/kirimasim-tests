@@ -1,0 +1,28 @@
+PASS: Test 1 - $onehot(8'h01) = 1
+PASS: Test 2 - $onehot(8'h00) = 0
+PASS: Test 3 - $onehot(8'h03) = 0 (two bits set)
+PASS: Test 4 - $onehot0(8'h00) = 1 (zero OK)
+PASS: Test 5 - $onehot0(8'h01) = 1
+PASS: Test 6 - $onehot0(8'h03) = 0 (two bits set)
+PASS: Test 7 - $isunknown(known) = 0
+PASS: Test 8 - $isunknown(X) = 1
+PASS: Test 9 - $isunknown(Z) = 1
+PASS: Test 10 - $countones(FF) = 8
+PASS: Test 11 - $countones(00) = 0
+PASS: Test 12 - $countones(AAAA) = 8
+PASS: Test 13 - $countbits(AA, 1) = 4
+PASS: Test 14 - $countbits(AA, 0) = 4
+PASS: Test 15 - $sqrt(4.0) = 2.0
+PASS: Test 16 - $sqrt(-1.0) = NaN
+PASS: Test 17 - $ln(1.0) = 0.0
+PASS: Test 18 - $exp(0.0) = 1.0
+PASS: Test 19 - $ln(0.0) = -inf
+PASS: Test 20 - $floor(3.8) = 3.0
+PASS: Test 21 - $ceil(3.2) = 4.0
+PASS: Test 22 - $sin(0.0) = 0.0
+PASS: Test 23 - $atan2(1,1) = pi/4
+PASS: Test 24 - $hypot(3,4) = 5.0
+PASS: Test 25 - $pow(2,10) = 1024.0
+=== System Functions Edge Cases Summary ===
+Tests passed: 25/25
+ALL TESTS PASSED

@@ -1,0 +1,33 @@
+PASS: Test 1 - ==? X wildcard match
+PASS: Test 2 - ==? Z wildcard match
+PASS: Test 3 - ==? mismatch
+PASS: Test 4 - !=? basic mismatch
+PASS: Test 5 - ==? all X wildcards
+PASS: Test 6 - arith right shift positive
+PASS: Test 7 - arith right shift negative (sign extend)
+PASS: Test 8 - left shift fills zeros
+PASS: Test 9 - shift amount > width -> 0
+PASS: Test 10 - shift by 0 unchanged
+PASS: Test 11 - conditional sel=1
+PASS: Test 12 - conditional sel=0
+PASS: Test 13 - conditional sel=X, same branches -> FF
+PASS: Test 14 - conditional sel=X, diff branches -> X
+PASS: Test 15 - conditional sel=X partial merge lower OK
+PASS: Test 16 - case equality === with X/Z
+PASS: Test 17 - case inequality !== X vs Z
+PASS: Test 18 - logical == with X -> X
+PASS: Test 19 - logical == known equal
+PASS: Test 20 - reduction OR with X (has 1) -> 1
+PASS: Test 21 - reduction AND with X (has 0) -> 0
+PASS: Test 22 - reduction OR all X -> X
+PASS: Test 23 - reduction AND all X -> X
+PASS: Test 24 - addition with X -> X
+PASS: Test 25 - multiply with X -> X
+PASS: Test 26 - bitwise AND with X (0&anything=0)
+PASS: Test 27 - bitwise OR with X (1|anything=1)
+PASS: Test 28 - signed INT_MIN < INT_MAX
+PASS: Test 29 - signed -1 > -2
+PASS: Test 30 - unsigned max > 1
+=== X/Z Propagation Edge Cases Summary ===
+Tests passed: 30/30
+ALL TESTS PASSED

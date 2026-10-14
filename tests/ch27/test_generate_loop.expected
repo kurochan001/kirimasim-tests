@@ -1,0 +1,5 @@
+PASS: test1_generate_for - All outputs set to 1
+PASS: test2_array_init - Arrays initialized correctly
+PASS: test3_nested_loops - Matrix initialized correctly
+PASS: test4_local_params - Local parameters work
+PASS: test5_loop_variable - Loop variable access works

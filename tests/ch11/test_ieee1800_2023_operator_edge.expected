@@ -1,0 +1,28 @@
+PASS: Test 1 - Integer division by zero returns X
+PASS: Test 2 - Modulo by zero returns X
+PASS: Test 3 - INT_MIN / -1 handled (result=-2147483648)
+PASS: Test 4 - Negative modulo (-7 % 3 = -1)
+PASS: Test 5 - 5**0 = 1
+PASS: Test 6 - 2**(-1) = 0 for integer
+PASS: Test 7 - 0**0 = 1
+PASS: Test 8 - 0**5 = 0
+PASS: Test 9 - Left shift by width = 0
+PASS: Test 10 - Right shift by more than width = 0
+PASS: Test 11 - Arithmetic right shift preserves sign
+PASS: Test 12 - Equality with X returns X
+PASS: Test 13 - Case equality x === x is true
+PASS: Test 14 - Wildcard equality works
+PASS: Test 15 - x && 0 = 0
+PASS: Test 16 - x || 1 = 1
+PASS: Test 17 - !x = x
+PASS: Test 18 - Reduction AND with zero bit = 0
+PASS: Test 19 - Reduction OR of all zeros = 0
+PASS: Test 20 - Reduction XOR (odd parity) = 1
+PASS: Test 21 - Reduction AND with X = X
+PASS: Test 22 - Basic concatenation
+PASS: Test 23 - Replication {1{x}} = x
+PASS: Test 24 - Conditional with X condition (result=xxxx)
+PASS: Test 25 - Nested conditional
+=== Operator Edge Cases Summary ===
+Tests passed: 25/25
+ALL TESTS PASSED

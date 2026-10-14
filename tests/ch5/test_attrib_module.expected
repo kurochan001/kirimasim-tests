@@ -1,0 +1,6 @@
+Test 1 PASSED: Module with basic attribute
+Test 2 PASSED: Module with value attribute
+Test 3 PASSED: Module with string attribute
+Test 4 PASSED: Module with multiple attributes
+Test 5 PASSED: Submodule with attributes exists
+PASS: All attrib module tests passed (5/5)

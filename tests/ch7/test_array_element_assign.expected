@@ -1,0 +1,6 @@
+Test 1: 1D array element PASS
+Test 2: 2D array element PASS
+Test 3: Packed range select PASS
+Test 4: Byte array PASS
+Test 5: Variable index PASS
+TEST PASSED: 5/5 tests passed

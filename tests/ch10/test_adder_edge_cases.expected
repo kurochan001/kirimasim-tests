@@ -1,0 +1,23 @@
+Test 1 PASS: 0+0+0=0 cout=0
+Test 2 PASS: FF+01=00 cout=1
+Test 3 PASS: 0+0+1=1
+Test 4 PASS: 55+AA=ff
+Test 5 PASS: FF+FF+1=ff cout=1
+Test 6 PASS: 80+80=00 cout=1
+Test 7 PASS: 1+2=3
+Test 8 PASS: Adder test
+Test 9 PASS: Adder test
+Test 10 PASS: Adder test
+Test 11 PASS: Adder test
+Test 12 PASS: Adder test
+Test 13 PASS: Adder test
+Test 14 PASS: Adder test
+Test 15 PASS: Adder test
+Test 16 PASS: Adder test
+Test 17 PASS: Adder test
+Test 18 PASS: Adder test
+Test 19 PASS: Adder test
+Test 20 PASS: Adder test
+=== Adder Edge Cases ===
+Passed: 20/20
+TEST PASSED

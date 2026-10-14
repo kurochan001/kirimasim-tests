@@ -1,0 +1,21 @@
+=== Bit Slicing Test ===
+Test 1: Direct bit extraction
+data = 0xdeadbeef
+data[6:0] = 0x6f (expected: 0x6F)
+data[7:0] = 0xef (expected: 0xEF)
+data[15:8] = 0xbe (expected: 0xBE)
+data[31:24] = 0xde (expected: 0xDE)
+Test 2: Assignment to variables
+bits_6_0 = 0x6f (expected: 0x6F)
+bits_7_0 = 0xef (expected: 0xEF)
+Test 3: RISC-V instruction decode
+instruction = 0x06400093
+opcode (data[6:0]) = 0x13 (expected: 0x13)
+rd (data[11:7]) = 1 (expected: 1)
+funct3 (data[14:12]) = 0x0 (expected: 0x0)
+rs1 (data[19:15]) = 0 (expected: 0)
+Via assignment:
+opcode = 0x13
+rd = 1
+funct3 = 0x0
+PASS: bit slicing works correctly

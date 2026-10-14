@@ -1,0 +1,8 @@
+PASS: X & 0 = 0
+PASS: X | 1 = 1
+PASS: 4'bxx10 & 4'b1001 = 4'bx000
+PASS: 4'bxx01 | 4'b0110 = 4'bx111
+=== Test Summary ===
+Passed: 4
+Failed: 0
+ALL TESTS PASSED

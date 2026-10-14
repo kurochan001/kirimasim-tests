@@ -1,0 +1,6 @@
+PASS: simple begin-end
+PASS: named begin-end
+PASS: nested begin-end
+PASS: begin-end with decl
+PASS: empty begin-end
+TEST PASSED: begin-end tests completed

@@ -1,0 +1,33 @@
+PASS: Test 1 - ==? basic wildcard match
+PASS: Test 2 - ==? LHS X returns X
+PASS: Test 3 - ==? mismatch returns 0
+PASS: Test 4 - !=? basic not equal
+PASS: Test 5 - ==? RHS Z wildcards match any
+PASS: Test 6 - === exact match including X/Z
+PASS: Test 7 - === X vs 0 not equal
+PASS: Test 8 - !== basic not equal
+PASS: Test 9 - 0**0 = 1
+PASS: Test 10 - 1**100 = 1
+PASS: Test 11 - 2.0**3 = 8.0
+PASS: Test 12 - 2**10 = 1024
+PASS: Test 13 - left shift beyond width = 0
+PASS: Test 14 - right shift beyond width = 0
+PASS: Test 15 - >>> signed preserves sign bit
+PASS: Test 16 - >>> X sign bit propagates
+PASS: Test 17 - modulo by zero = X
+PASS: Test 18 - (-7) % 3 = -1
+PASS: Test 19 - 7 % (-3) = 1
+PASS: Test 20 - X && 0 = 0 (0 dominates)
+PASS: Test 21 - X && X = X
+PASS: Test 22 - X || 1 = 1 (1 dominates)
+PASS: Test 23 - X || X = X
+PASS: Test 24 - !X = X
+PASS: Test 25 - String == and != comparison
+PASS: Test 26 - Real == and != comparison
+PASS: Test 27 - int+real = 4.5
+PASS: Test 28 - 5-10 = -5 signed
+PASS: Test 29 - 200*2 truncated to 8-bit = 144
+PASS: Test 30 - 1.0/0.0 = infinity
+=== Value Operations Summary ===
+Tests passed: 30/30
+ALL TESTS PASSED

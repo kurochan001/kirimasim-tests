@@ -1,0 +1,6 @@
+PASS: {a, b} = 0xABCD
+PASS: nested concat
+PASS: {4{a}} = 0xABABABAB
+PASS: mixed concat/replication
+PASS: bit replication
+TEST PASSED: concatenation tests completed

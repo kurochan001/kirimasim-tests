@@ -1,0 +1,8 @@
+PASS: word[0] = 1
+PASS: word[31] = 1
+PASS: word[7:0] = 0xEF
+PASS: word[31:24] = 0xDE
+PASS: word[idx=4] = 0
+PASS: word[8 +: 8] = 0xBE
+PASS: word[23 -: 8] = 0xAD
+TEST PASSED: bit select tests completed

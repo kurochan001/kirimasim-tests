@@ -1,0 +1,5 @@
+PASS: simple task
+PASS: task with args
+PASS: recursive task
+PASS: task output
+TEST PASSED: task call tests completed

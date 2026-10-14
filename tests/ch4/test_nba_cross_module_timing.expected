@@ -1,0 +1,12 @@
+CYC[1] flag=0 dut.out_state=0 child_state=0
+CYC[2] flag=0 dut.out_state=0 child_state=0
+CYC[3] flag=1 dut.out_state=0 child_state=0
+CYC[4] flag=1 dut.out_state=1 child_state=1
+CYC[5] flag=0 dut.out_state=2 child_state=2
+CYC[6] flag=0 dut.out_state=2 child_state=2
+CYC[7] flag=0 dut.out_state=2 child_state=2
+CYC[8] flag=0 dut.out_state=2 child_state=2
+=== Cross-Module NBA Timing ===
+PASS: A6 - out_state=2 (expected 2)
+=== Results: 6 passed, 0 failed ===
+TEST PASSED

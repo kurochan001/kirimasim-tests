@@ -1,0 +1,17 @@
+=== Continuous Assignment with Function Call Test ===
+[Test 1] Simple pass-through function
+  PASS: input=0 -> result=0
+  PASS: input=1 -> result=1
+[Test 2] Function with case statement
+  PASS: input=0x00 -> result=0 (default case)
+  PASS: input=0x02 -> result=1
+  PASS: input=0x04 -> result=1
+  PASS: input=0x10 -> result=1
+  PASS: input=0xFF -> result=0 (default case)
+[Test 3] Function with if-else range check
+  PASS: input=0x00 -> result=0 (out of range)
+  PASS: input=0x15 -> result=1 (in range)
+  PASS: input=0x30 -> result=0 (out of range)
+=== Summary ===
+PASS: 10, FAIL: 0
+TEST PASSED

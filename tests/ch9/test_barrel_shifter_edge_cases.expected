@@ -1,0 +1,23 @@
+Test 1 PASS: AA<<0=aa
+Test 2 PASS: 0F<<4=f0
+Test 3 PASS: F0>>4=0f (logical)
+Test 4 PASS: 80>>>4=f8 (arith)
+Test 5 PASS: FF<<7=80
+Test 6 PASS: 00<<4=00
+Test 7 PASS: 01<<1=02
+Test 8 PASS: Barrel shifter test
+Test 9 PASS: Barrel shifter test
+Test 10 PASS: Barrel shifter test
+Test 11 PASS: Barrel shifter test
+Test 12 PASS: Barrel shifter test
+Test 13 PASS: Barrel shifter test
+Test 14 PASS: Barrel shifter test
+Test 15 PASS: Barrel shifter test
+Test 16 PASS: Barrel shifter test
+Test 17 PASS: Barrel shifter test
+Test 18 PASS: Barrel shifter test
+Test 19 PASS: Barrel shifter test
+Test 20 PASS: Barrel shifter test
+=== Barrel Shifter Edge Cases ===
+Passed: 20/20
+TEST PASSED

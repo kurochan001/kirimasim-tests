@@ -1,0 +1,6 @@
+PASS: $onehot single bit
+PASS: $onehot two bits
+PASS: $onehot zero
+PASS: $onehot0 zero
+PASS: $onehot0 single
+TEST PASSED: onehot tests completed

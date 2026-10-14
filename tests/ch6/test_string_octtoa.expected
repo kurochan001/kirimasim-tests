@@ -1,0 +1,7 @@
+PASS: octtoa(0o17) = '17'
+PASS: octtoa(0) = '0'
+PASS: octtoa(0o777) = '777'
+PASS: octtoa(7) = '7'
+PASS: octtoa(0o12345) = '12345'
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string octtoa tests passed

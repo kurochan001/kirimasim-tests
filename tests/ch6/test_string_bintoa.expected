@@ -1,0 +1,7 @@
+PASS: bintoa(0b1010) = '1010'
+PASS: bintoa(0) = '0'
+PASS: bintoa(0b11111111) = '11111111'
+PASS: bintoa(1) = '1'
+PASS: bintoa(0b10110101) = '10110101'
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string bintoa tests passed

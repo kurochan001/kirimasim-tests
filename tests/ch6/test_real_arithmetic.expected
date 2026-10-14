@@ -1,0 +1,7 @@
+=== Real Arithmetic Test ===
+[PASS] Addition: 1.500000 + 2.300000 = 3.800000
+[PASS] Multiplication: 2.500000 * 3.000000 = 7.500000
+[PASS] Division: 10.000000 / 4.000000 = 2.500000
+[PASS] Mixed: 1.500000 + 2.000000 * 3.000000 = 7.500000
+[PASS] Real to int: 3.700000 -> 4
+=== Summary: 5/5 tests passed ===

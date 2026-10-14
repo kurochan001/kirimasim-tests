@@ -1,0 +1,7 @@
+PASS: $countones(0xB4) = 4
+PASS: $onehot(0x08) = 1
+PASS: $onehot(0x0C) = 0
+PASS: $clog2(16) = 4
+PASS: $clog2(17) = 5
+PASS: $bits = 8
+TEST PASSED: system function tests completed

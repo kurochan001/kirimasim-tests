@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Array Methods Tests ===
+Test 1: Dynamic array size
+Test 1 PASS: size=5
+Test 2: Dynamic array initialization
+Test 2 PASS: arr[0]=10 arr[4]=50
+Test 3: Dynamic array resize
+Test 3 PASS: new size=10
+Test 4: Queue push_back
+Test 4 PASS: queue size=3
+Test 5: Queue pop_front
+Test 5 PASS: popped=100 remaining=2
+Test 6: Queue push_front
+Test 6 PASS: front=50
+Test 7: Queue pop_back
+Test 7 PASS: popped=300
+Test 8: Delete dynamic array
+Test 8 PASS: size after delete=0
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,7 @@
+PASS: substr(0, 4) = 'Hello'
+PASS: substr(6, 10) = 'World'
+PASS: substr(2, 2) = 'C'
+PASS: substr(3, 5) = '123'
+PASS: substr(0, 3) = 'test' (entire string)
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string substr tests passed

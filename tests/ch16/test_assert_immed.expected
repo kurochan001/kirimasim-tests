@@ -1,0 +1,5 @@
+PASS: assert pass
+PASS: assert else
+PASS: assert message
+PASS: assert equal
+TEST PASSED: immediate assertion tests completed

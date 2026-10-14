@@ -1,0 +1,19 @@
+T1: PASS - &8'hFF = 1
+T2: PASS - &8'h0F = 0
+T3: PASS - |8'h00 = 0
+T4: PASS - |8'h01 = 1
+T5: PASS - ^8'hA5 = 0 (even parity)
+T6: PASS - ~&8'hFF = 0
+T7: PASS - ~|8'h00 = 1
+T8: PASS - ~^8'hFF = 1
+T9: PASS - &4'b1x1x = x
+T10: PASS - |4'b0x00 = x
+T11: PASS - ^4'bx010 = x
+T12: PASS - &4'b1z11 = x
+T13: PASS - ternary x cond result=000xxxx0 (bitwise merge)
+T14: PASS - ternary z cond result=000xxxx0 (bitwise merge)
+T15: PASS - ternary x same val result=5
+T16: PASS - |32'h0 = 0
+T17: PASS - ^1'b1 = 1
+17/17 tests passed
+PASS

@@ -1,0 +1,4 @@
+PASS: always_comb and
+PASS: always_comb update
+PASS: always_comb add
+TEST PASSED: always_comb tests completed

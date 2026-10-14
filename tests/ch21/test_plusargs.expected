@@ -1,0 +1,9 @@
+INFO: +testname was not provided
+PASS: $test$plusargs executed
+INFO: timeout plusarg not found
+PASS: $value$plusargs integer executed
+INFO: testname plusarg not found
+PASS: $value$plusargs string executed
+INFO: addr plusarg not found
+PASS: $value$plusargs hex executed
+TEST PASSED: plusargs tests completed

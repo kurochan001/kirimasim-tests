@@ -1,0 +1,5 @@
+PASS: basic for loop
+PASS: decrement for
+PASS: nested for
+PASS: for with step
+TEST PASSED: for loop tests completed

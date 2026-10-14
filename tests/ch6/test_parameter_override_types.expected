@@ -1,0 +1,6 @@
+PASS: default parameter module
+PASS: type parameter override
+PASS: localparam expression
+PASS: localparam $clog2
+PASS: generate with parameter expressions
+ALL TESTS PASSED (5 tests)

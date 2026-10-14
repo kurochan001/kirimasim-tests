@@ -1,0 +1,5 @@
+Test 1 PASS: += result = 15
+Test 2 PASS: += large = 150
+Test 3 PASS: += 0 = 42
+Passed: 3/3
+PASS
