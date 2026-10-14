@@ -52,6 +52,11 @@ python3 tools/run_icarus.py
 python3 tools/run_icarus.py --iverilog-bin /path/to/icarus-13.0/bin
 ```
 
+Where Icarus Verilog 13.0 does not follow the standard, the expected output
+follows the standard and `:oracle:` is `spec` without `iverilog@13.0`.
+`tools/run_icarus.py` reports such a test as a known difference and does not
+count it as a failure.
+
 ## Contributing
 
 Changes that modify, remove, or relax an existing expected result must say

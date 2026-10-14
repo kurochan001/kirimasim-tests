@@ -8,6 +8,11 @@ Usage:
 With no TEST arguments, runs every tests/**/*.sv. Exits with 1 if any test
 does not match. The expected outputs were recorded with Icarus Verilog 13.0
 (`:oracle:` lists iverilog@13.0), so other versions may differ.
+
+A test whose `:oracle:` does not list iverilog@13.0 has an expected output
+that Icarus Verilog 13.0 does not produce, because Icarus Verilog does not
+follow the standard there. Such a test is reported as a known difference and
+does not make the run fail.
 """
 
 import argparse
@@ -21,15 +26,18 @@ ROOT = Path(__file__).resolve().parent.parent
 NORMALIZE = ROOT / "tools" / "normalize_output.py"
 
 
-def expected_output(test: Path) -> str | None:
-    text = test.read_text(encoding="utf-8")
-    header = re.search(r"/\*(.*?)\*/", text, re.DOTALL)
+def header_field(test: Path, name: str) -> str | None:
+    header = re.search(r"/\*(.*?)\*/", test.read_text(encoding="utf-8"), re.DOTALL)
     if not header:
         return None
-    m = re.search(r"^:expected_stdout:\s*(.*)$", header.group(1), re.MULTILINE)
-    if not m:
+    m = re.search(rf"^:{name}:\s*(.*)$", header.group(1), re.MULTILINE)
+    return m.group(1).strip() if m else None
+
+
+def expected_output(test: Path) -> str | None:
+    value = header_field(test, "expected_stdout")
+    if value is None:
         return None
-    value = m.group(1).strip()
     if value.startswith("@"):
         return (test.parent / value[1:]).read_text(encoding="utf-8")
     return value + "\n"
@@ -62,13 +70,20 @@ def main() -> int:
     args = ap.parse_args()
 
     tests = args.tests or sorted((ROOT / "tests").rglob("*.sv"))
-    failed = 0
+    failed = known = 0
     for t in tests:
         ok, why = run(t, args.iverilog_bin)
-        if not ok:
+        name = t.relative_to(ROOT) if t.is_absolute() else t
+        icarus_oracle = "iverilog@13.0" in (header_field(t, "oracle") or "").split()
+        if not icarus_oracle:
+            known += 1
+            print(f"{'KNOWN' if not ok else 'NOW MATCHES'} {name}: "
+                  f"the expected output is not from Icarus Verilog 13.0")
+        elif not ok:
             failed += 1
-            print(f"FAIL {t.relative_to(ROOT) if t.is_absolute() else t}: {why}")
-    print(f"{len(tests) - failed}/{len(tests)} tests match")
+            print(f"FAIL {name}: {why}")
+    print(f"{len(tests) - known - failed}/{len(tests) - known} tests match"
+          + (f"; {known} known differences not counted" if known else ""))
     return 1 if failed else 0
 
 
