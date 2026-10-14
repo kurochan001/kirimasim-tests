@@ -1,0 +1,10 @@
+=== Packed Nested Member Write Test (IEEE 1800-2023 §7.2-7.3) ===
+PASS: data.word = 0xdeadbeef
+PASS: data.halves = (0xdead, 0xbeef)
+PASS: data.word = 0xdead1234 after halves.low write
+PASS: data.word = 0x56781234 after halves.high write
+PASS: data.word = 0xaa781234 after bytes.byte3 write
+PASS: data.word = 0x11223344 after all bytes write
+PASS: data.halves = (0x1122, 0x3344) after bytes write
+=== Results: 7 passed, 0 failed ===
+TEST PASSED

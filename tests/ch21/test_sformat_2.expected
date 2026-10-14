@@ -1,0 +1,11 @@
+PASS: $sformatf with integer
+PASS: $sformatf with hex
+PASS: $sformatf with binary format
+PASS: $sformatf with multiple values
+PASS: $sformatf with string
+PASS: $sformat with output argument
+PASS: $sformatf with width specifier
+=== $sformat/$sformatf Test Results ===
+PASS: 7
+FAIL: 0
+TEST PASSED

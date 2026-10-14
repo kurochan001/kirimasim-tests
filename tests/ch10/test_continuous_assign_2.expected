@@ -1,0 +1,13 @@
+PASS: Continuous add
+PASS: Continuous subtract
+PASS: Continuous wide multiply
+PASS: Continuous mux sel=0
+PASS: Continuous mux sel=1
+PASS: Continuous conditional max
+PASS: Continuous bitwise ops
+PASS: Cascaded continuous assigns
+PASS: Continuous assign propagation
+PASS: Delayed assign before
+PASS: Delayed assign after
+PASS: Reduction operator assign
+PASS: continuous_assign (12/12)

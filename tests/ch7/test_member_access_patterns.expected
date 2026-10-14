@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Member Access Patterns Tests ===
+Test 1: Simple struct member access
+Test 1 PASS: data.d=ab
+Test 2: Nested struct member access
+Test 2 PASS: inner.a=11, inner.b=22
+Test 3: Array element access
+Test 3 PASS: arr[2]=30
+Test 4: Bit select
+Test 4 PASS: packed_arr[7:0]=be
+Test 5: Queue element access
+Test 5 PASS: queue_data[1]=200
+Test 6: String method access
+Test 6 PASS: str.len()=5
+Test 7: Queue size method
+Test 7 PASS: queue_data.size()=3
+Test 8: Variable index access
+Test 8 PASS: arr[idx]=30
+=== Summary: 8/8 tests passed ===
+TEST PASSED

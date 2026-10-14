@@ -1,0 +1,13 @@
+TEST: Packed array edge cases
+  [PASS] 2D packed array initialization
+  [PASS] Packed array element access [0]
+  [PASS] Packed array high element [3]
+  [PASS] Packed array element assignment
+  [PASS] Bit selection from packed array
+  [PASS] Part select [15:8]
+  [PASS] Wide packed array elements
+  [PASS] Packed array concatenation
+  [PASS] Packed array slice access
+  [PASS] $bits on packed array = 32
+Results: 10 passed, 0 failed
+TEST PASSED

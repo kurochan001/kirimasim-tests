@@ -1,0 +1,13 @@
+TEST: Bit widths edge cases
+  [PASS] 1-bit width
+  [PASS] 4-bit width
+  [PASS] 8-bit width
+  [PASS] 16-bit width
+  [PASS] 32-bit width
+  [PASS] 64-bit width
+  [PASS] $bits check
+  [PASS] Width truncation
+  [PASS] Width extension
+  [PASS] Max values
+Results: 10 passed, 0 failed
+TEST PASSED

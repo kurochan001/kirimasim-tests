@@ -1,0 +1,13 @@
+Test 1 PASS: Empty size = 0
+Test 2 PASS: Push back = 10
+Test 3 PASS: Multi push size = 3
+Test 4 PASS: Push front = 5
+Test 5 PASS: Pop back = 30
+Test 6 PASS: Pop front = 5
+Test 7 PASS: Index q[0]=10 q[1]=20
+Test 8 PASS: Insert = 15
+Test 9 PASS: After delete q[1] = 20
+Test 10 PASS: Clear size = 0
+=== Queue Basic Edge Cases ===
+Passed: 10/10
+TEST PASSED

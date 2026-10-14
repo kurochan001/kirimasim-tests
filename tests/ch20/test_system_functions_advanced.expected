@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced System Functions Tests ===
+Test 1: $bits on basic types
+Test 1 PASS: $bits(l8)=8, $bits(l16)=16, $bits(l32)=32
+Test 2: $bits on struct
+Test 2 PASS: $bits(struct24_t)=24
+Test 3: $countones
+Test 3 PASS: $countones(8'b10101010)=4
+Test 4: $countones with all ones
+Test 4 PASS: $countones(8'hFF)=8
+Test 5: $onehot
+Test 5 PASS: $onehot(8'b00010000)=1
+Test 6: $onehot with multiple bits
+Test 6 PASS: $onehot(8'b00010001)=0
+Test 7: $onehot0
+Test 7 PASS: $onehot0(8'b00000000)=1
+Test 8: $clog2
+Test 8 PASS: $clog2(8)=3, $clog2(16)=4, $clog2(1)=0
+=== Summary: 8/8 tests passed ===
+TEST PASSED

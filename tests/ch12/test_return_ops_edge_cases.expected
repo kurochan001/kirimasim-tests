@@ -1,0 +1,13 @@
+TEST: Return statement edge cases
+  [PASS] Simple return
+  [PASS] Conditional return positive
+  [PASS] Conditional return zero
+  [PASS] Early return negative
+  [PASS] Early return zero
+  [PASS] Early return positive
+  [PASS] Loop return
+  [PASS] Recursive return
+  [PASS] Sum function
+  [PASS] Return in expression
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,11 @@
+Test 1 PASS: Strong low = 0
+Test 2 PASS: Strong high = 1
+Test 3 PASS: Weak low = 0
+Test 4 PASS: Weak high = 1
+Test 5 PASS: Toggle strong = 0
+Test 6 PASS: Toggle weak = 0
+Test 7 PASS: Both low
+Test 8 PASS: Both high
+=== Strength Edge Cases ===
+Passed: 8/8
+TEST PASSED

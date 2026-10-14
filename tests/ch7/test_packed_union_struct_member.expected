@@ -1,0 +1,8 @@
+=== Packed Union Basic Member Access Test (IEEE 1800-2023 §7.3) ===
+PASS: data.word = 0xdeadbeef
+PASS: data.halves.high = 0xdead
+PASS: data.halves.low = 0xbeef
+PASS: data.word = 0x12345678 after second assignment
+PASS: data.halves = (0x1234, 0x5678) after word update
+=== Results: 5 passed, 0 failed ===
+TEST PASSED

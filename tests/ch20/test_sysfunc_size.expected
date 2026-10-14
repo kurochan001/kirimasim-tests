@@ -1,0 +1,5 @@
+Test 1 PASS: size(arr) = 4
+Test 2 PASS: size(arr2) = 8
+Test 3 PASS: size(darr) = 5
+Passed: 3/3
+PASS

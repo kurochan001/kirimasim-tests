@@ -1,0 +1,39 @@
+=== IEEE 1800-2023 Reduction Operators Test ===
+Test 1: AND reduction - all 1s
+  &(8'hFF) = 1
+Test 1 PASS
+Test 2: AND reduction - not all 1s
+  &(8'hFE) = 0
+Test 2 PASS
+Test 3: OR reduction - any 1
+  |(8'h01) = 1
+Test 3 PASS
+Test 4: OR reduction - all 0s
+  |(8'h00) = 0
+Test 4 PASS
+Test 5: XOR reduction - even parity
+  ^(8'b10101010) = 0
+Test 5 PASS
+Test 6: XOR reduction - odd parity
+  ^(8'b10101011) = 1
+Test 6 PASS
+Test 7: NAND reduction
+  ~&(8'hFF) = 0
+  ~&(8'hFE) = 1
+Test 7 PASS
+Test 8: NOR reduction
+  ~|(8'h00) = 1
+  ~|(8'h01) = 0
+Test 8 PASS
+Test 9: XNOR reduction
+  ~^(8'b10101010) = 1
+  ~^(8'b10101011) = 0
+Test 9 PASS
+Test 10: Various patterns
+  data=00: &=0 |=0 ^=0
+  data=40: &=0 |=1 ^=1
+  data=80: &=0 |=1 ^=1
+  data=c0: &=0 |=1 ^=0
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

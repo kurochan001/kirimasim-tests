@@ -1,0 +1,10 @@
+PASS: Struct field assignment works
+PASS: Struct as packed value = 0xaabbccdd
+PASS: Packed struct is 32 bits
+PASS: Union word = 0x12345678
+PASS: Union halves.high = 0x1234
+PASS: Union halves.low = 0x5678
+=== Struct/Union Test Results ===
+PASS: 6
+FAIL: 0
+TEST PASSED

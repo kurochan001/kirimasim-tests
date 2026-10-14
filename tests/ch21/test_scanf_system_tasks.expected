@@ -1,0 +1,12 @@
+PASS: $sscanf integer = 123
+PASS: $sscanf negative integer = -456
+PASS: $sscanf hex = 0xCAFE
+PASS: $sscanf binary = 0b10101010
+PASS: $sscanf octal = 0o755
+PASS: $sscanf real = 3.14159
+PASS: $sscanf string = hello
+PASS: $sscanf multiple = 42, 3.14
+PASS: $sscanf with whitespace = 999
+=== Test Summary ===
+Tests: 9, Passed: 9, Failed: 0
+PASS: All scanf system tasks tests passed

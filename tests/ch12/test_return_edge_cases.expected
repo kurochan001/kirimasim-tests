@@ -1,0 +1,13 @@
+Test 1 PASS: Simple = 10
+Test 2 PASS: Early neg = -1
+Test 3 PASS: Early zero = 0
+Test 4 PASS: Normal = 15
+Test 5 PASS: Deep = 100
+Test 6 PASS: Shallow = 50
+Test 7 PASS: Loop found = 5
+Test 8 PASS: Not found = -1
+Test 9 PASS: Recursive = 15
+Test 10 PASS: Nested call = 8
+=== Return Edge Cases ===
+Passed: 10/10
+TEST PASSED

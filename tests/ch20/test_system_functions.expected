@@ -1,0 +1,9 @@
+PASS: $clog2(16) = 4
+PASS: $clog2(17) = 5
+PASS: $bits(logic[31:0]) = 32
+PASS: $signed = -1
+PASS: $unsigned = ffffffff
+PASS: $ceil(3.2) = 4.000000
+PASS: $floor(3.8) = 3.000000
+PASS: $sqrt(16) = 4.000000
+TEST PASSED: system functions completed

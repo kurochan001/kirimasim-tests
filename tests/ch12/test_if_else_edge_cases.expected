@@ -1,0 +1,13 @@
+TEST: If-else statement edge cases
+  [PASS] If true
+  [PASS] If false
+  [PASS] If-else true
+  [PASS] If-else false
+  [PASS] Else-if first
+  [PASS] Else-if second
+  [PASS] Else-if default
+  [PASS] Nested if
+  [PASS] Complex condition
+  [PASS] Zero condition
+Results: 10 passed, 0 failed
+TEST PASSED

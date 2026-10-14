@@ -1,0 +1,15 @@
+PASS: $sinh(0) = 0.000000
+PASS: $cosh(0) = 1.000000
+PASS: $tanh(0) = 0.000000
+PASS: $sinh(1) = 1.175201
+PASS: $cosh(1) = 1.543081
+PASS: $tanh(1) = 0.761594
+PASS: $asinh(0) = 0.000000
+PASS: $acosh(1) = 0.000000
+PASS: $atanh(0) = 0.000000
+PASS: cosh^2(1) - sinh^2(1) = 1.000000
+PASS: $tanh(10) approaches 1: 1.000000
+PASS: $asinh($sinh(0.5)) = 0.500000
+=== Hyperbolic Functions Test Summary ===
+Tests: 12, Passed: 12
+PASS: All hyperbolic function tests passed

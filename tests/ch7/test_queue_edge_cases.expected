@@ -1,0 +1,13 @@
+TEST: Queue edge cases
+  [PASS] Empty queue size is 0
+  [PASS] Bounded queue accepts up to bound elements
+  [PASS] Queue assignment creates deep copy
+  [PASS] q[$] returns last element
+  [PASS] String queue works correctly
+  [PASS] Logic vector queue works
+  [PASS] pop_front on single element works
+  [PASS] pop_back on single element works
+  [PASS] insert at index 0 works
+  [PASS] insert at end works
+Results: 10 passed, 0 failed
+TEST PASSED

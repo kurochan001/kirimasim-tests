@@ -1,0 +1,18 @@
+PASS: $sin(0) = 0.000000
+PASS: $sin(pi/2) = 1.000000
+PASS: $cos(0) = 1.000000
+PASS: $cos(pi) = -1.000000
+PASS: $tan(0) = 0.000000
+PASS: $tan(pi/4) = 1.000000
+PASS: $asin(0) = 0.000000
+PASS: $asin(1) = 1.570796
+PASS: $acos(1) = 0.000000
+PASS: $acos(0) = 1.570796
+PASS: $atan(0) = 0.000000
+PASS: $atan(1) = 0.785398
+PASS: $atan2(1, 1) = 0.785398
+PASS: $atan2(0, 1) = 0.000000
+PASS: sin^2(1) + cos^2(1) = 1.000000
+=== Trigonometric Functions Test Summary ===
+Tests: 15, Passed: 15
+PASS: All trigonometric function tests passed

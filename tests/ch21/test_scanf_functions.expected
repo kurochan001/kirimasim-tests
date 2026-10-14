@@ -1,0 +1,14 @@
+=== $sscanf System Function Test ===
+PASS: $sscanf("12345", "%d") = 12345, matched=1
+PASS: Multiple integers: 10, 20, 30
+PASS: $sscanf hex: 0xdeadbeef
+PASS: $sscanf hex with prefix: 0x000xcafe
+PASS: $sscanf binary: 00000000000000000000000010101010 = 0x000000aa
+PASS: $sscanf string: "Hello"
+PASS: $sscanf negative: -9876
+PASS: $sscanf octal: 00000000777 = 511
+PASS: $sscanf mixed format: 42
+=== $sscanf System Function Test Summary ===
+PASS: 9
+FAIL: 0
+ALL TESTS PASSED

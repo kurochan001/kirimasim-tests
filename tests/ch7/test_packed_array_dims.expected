@@ -1,0 +1,21 @@
+=== IEEE 1800-2023 §7.4 Packed Array Dimension Index Access Tests ===
+--- Test 1: Read packed array elements ---
+PASS: data.bytes[0] = 000000ef (expected 000000ef)
+PASS: data.bytes[1] = 000000be (expected 000000be)
+PASS: data.bytes[2] = 000000ad (expected 000000ad)
+PASS: data.bytes[3] = 000000de (expected 000000de)
+--- Test 2: Write to packed array elements ---
+PASS: data.word after bytes[0]=AA = 000000aa (expected 000000aa)
+PASS: data.word after bytes[1]=BB = 0000bbaa (expected 0000bbaa)
+PASS: data.word after bytes[2]=CC = 00ccbbaa (expected 00ccbbaa)
+PASS: data.word after bytes[3]=DD = ddccbbaa (expected ddccbbaa)
+--- Test 3: Overwrite specific byte ---
+PASS: data.word after bytes[0]=00 = deadbe00 (expected deadbe00)
+--- Test 4: Read back after write ---
+PASS: data.bytes[0] unchanged = 00000078 (expected 00000078)
+PASS: data.bytes[1] unchanged = 00000056 (expected 00000056)
+PASS: data.bytes[2] modified = 000000ff (expected 000000ff)
+PASS: data.bytes[3] unchanged = 00000012 (expected 00000012)
+=== Test Summary ===
+Passed: 13 / 13
+TEST PASSED

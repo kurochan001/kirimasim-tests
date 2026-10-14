@@ -1,0 +1,13 @@
+TEST: Loops edge cases
+  [PASS] For loop sum 0-4 = 10
+  [PASS] Foreach loop sum
+  [PASS] While loop count
+  [PASS] Repeat 7 times
+  [PASS] Nested for loops 3x3
+  [PASS] Break at i=5
+  [PASS] Continue skips even
+  [PASS] For loop decrement
+  [PASS] Loop variable scope
+  [PASS] Zero iteration loop
+Results: 10 passed, 0 failed
+TEST PASSED

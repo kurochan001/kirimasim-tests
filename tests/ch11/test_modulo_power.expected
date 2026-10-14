@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Modulo/Power Tests ===
+Test 1: Basic modulo
+Test 1 PASS: 17 % 5 = 2
+Test 2: Modulo zero remainder
+Test 2 PASS: 20 % 4 = 0
+Test 3: Modulo negative dividend
+Test 3 PASS: -17 % 5 = -2
+Test 4: Power operator
+Test 4 PASS: 2 ** 10 = 1024
+Test 5: Power base 3
+Test 5 PASS: 3 ** 4 = 81
+Test 6: Power of 0
+Test 6 PASS: 5 ** 0 = 1
+Test 7: Modulo small
+Test 7 PASS: 7 % 3 = 1
+Test 8: Power exponent 1
+Test 8 PASS: 42 ** 1 = 42
+=== Summary: 8/8 tests passed ===
+TEST PASSED

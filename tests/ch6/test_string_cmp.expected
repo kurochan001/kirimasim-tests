@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 String Compare Tests ===
+Test 1: Equal
+Test 1 PASS
+Test 2: Not equal
+Test 2 PASS
+Test 3: Empty
+Test 3 PASS
+Test 4: Concat
+Test 4 PASS
+Test 5: Length
+Test 5 PASS
+Test 6: Empty len
+Test 6 PASS
+Test 7: Assign
+Test 7 PASS
+Test 8: Case diff
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

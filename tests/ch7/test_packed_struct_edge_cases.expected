@@ -1,0 +1,13 @@
+TEST: Packed struct edge cases
+  [PASS] Packed struct assignment
+  [PASS] Packed struct to raw
+  [PASS] Raw to packed struct
+  [PASS] Packed struct zero
+  [PASS] Packed struct ones
+  [PASS] Dual word struct
+  [PASS] Struct comparison
+  [PASS] Struct inequality
+  [PASS] Packed struct bit select
+  [PASS] Packed struct copy
+Results: 10 passed, 0 failed
+TEST PASSED

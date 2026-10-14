@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Reg Wire Types Tests ===
+Test 1: reg assignment
+Test 1 PASS: r1=aa
+Test 2: wire propagation
+Test 2 PASS: w1=aa
+Test 3: logic type
+Test 3 PASS: l1=bb
+Test 4: integer type
+Test 4 PASS: i1=-100
+Test 5: bit type (2-state)
+Test 5 PASS: b1=cc
+Test 6: byte type
+Test 6 PASS: b2=-50
+Test 7: shortint type
+Test 7 PASS: si=32767
+Test 8: longint type
+Test 8 PASS: li=123456789abcdef0
+=== Summary: 8/8 tests passed ===
+TEST PASSED

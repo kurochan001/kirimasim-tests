@@ -1,0 +1,13 @@
+Test 1 PASS: If true = 1
+Test 2 PASS: If false = 0
+Test 3 PASS: Else-if = 20
+Test 4 PASS: Nested = 100
+Test 5 PASS: AND cond = 200
+Test 6 PASS: OR cond = 300
+Test 7 PASS: No else = 400
+Test 8 PASS: Zero cond = 600
+Test 9 PASS: Nonzero = 700
+Test 10 PASS: Negation = 800
+=== If Edge Cases ===
+Passed: 10/10
+TEST PASSED

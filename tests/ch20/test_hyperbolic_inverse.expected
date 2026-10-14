@@ -1,0 +1,20 @@
+========== Inverse Hyperbolic Functions Tests ==========
+PASS: $asinh(0) = 0.000000 (expected 0)
+PASS: $asinh(1) = 0.881374 (expected 0.881374)
+PASS: $asinh(-1) = -0.881374 (expected -0.881374)
+PASS: $asinh(2) = 1.443635 (expected 1.443635)
+PASS: $acosh(1) = 0.000000 (expected 0)
+PASS: $acosh(2) = 1.316958 (expected 1.316958)
+PASS: $acosh(3) = 1.762747 (expected 1.762747)
+PASS: $acosh(10) = 2.993223 (expected 2.993223)
+PASS: $atanh(0) = 0.000000 (expected 0)
+PASS: $atanh(0.5) = 0.549306 (expected 0.549306)
+PASS: $atanh(-0.5) = -0.549306 (expected -0.549306)
+PASS: $atanh(0.9) = 1.472219 (expected 1.472219)
+========================================
+Inverse Hyperbolic Functions Test Summary:
+  Passed: 12
+  Failed: 0
+  Total:  12
+========================================
+ALL TESTS PASSED

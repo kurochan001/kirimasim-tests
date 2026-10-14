@@ -1,0 +1,9 @@
+Test 1: int to real PASS
+Test 2: real to int PASS ival=4
+Test 3: signed to unsigned PASS
+Test 4: unsigned to signed PASS
+Test 5: size cast PASS
+Test 6: extend cast PASS li=-1
+Test 7: shortint cast PASS
+Test 8: negative real PASS ival=-6
+TEST PASSED: 8/8 tests passed

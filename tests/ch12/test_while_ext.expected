@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 While Loop Extended Tests ===
+Test 1: Basic while
+Test 1 PASS
+Test 2: No execute
+Test 2 PASS
+Test 3: Sum loop
+Test 3 PASS
+Test 4: Countdown
+Test 4 PASS
+Test 5: Compound cond
+Test 5 PASS
+Test 6: Single iteration
+Test 6 PASS
+Test 7: Break in while
+Test 7 PASS
+Test 8: Final value
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

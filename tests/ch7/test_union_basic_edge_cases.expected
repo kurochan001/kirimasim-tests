@@ -1,0 +1,13 @@
+Test 1 PASS: Word = 12345678
+Test 2 PASS: Bytes b0=78 b3=12
+Test 3 PASS: Halves low=5678 high=1234
+Test 4 PASS: Nibbles high=a low=b
+Test 5 PASS: Byte from nibbles = cd
+Test 6 PASS: Byte mod = ff
+Test 7 PASS: Word low byte = ff
+Test 8 PASS: Zeroed union
+Test 9 PASS: Max halves
+Test 10 PASS: Pattern check
+=== Union Basic Edge Cases ===
+Passed: 10/10
+TEST PASSED

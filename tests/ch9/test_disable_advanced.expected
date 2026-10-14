@@ -1,0 +1,11 @@
+Test 1 PASS: disable named block at i=10
+Test 2 PASS: disable nested block at [2][3]
+Test 3 PASS: disable in task, result=6
+Test 4 PASS: disable inner loop only, sum=9
+Test 5 PASS: disable while loop at count=7
+Test 6 PASS: do-while break at count=5
+Test 7 PASS: disable repeat at count=8
+Test 8 PASS: multiple nested disable, level=13
+=== Disable Advanced Test Results ===
+Passed: 8/8
+TEST PASSED

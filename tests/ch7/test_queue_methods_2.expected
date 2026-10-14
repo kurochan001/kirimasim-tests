@@ -1,0 +1,11 @@
+=== Queue Methods Test ===
+PASS: Initial size is 0
+PASS: After push_back x3, size is 3
+PASS: push_front works, queue[0] = 5
+PASS: pop_front returned 5, size is now 3
+PASS: pop_back returned 30, size is now 2
+PASS: insert(1, 15) works, queue[1] = 15
+PASS: delete(1) works, size is now 2
+PASS: delete() clears queue, size is 0
+=== Results: 8 passed, 0 failed ===
+TEST PASSED

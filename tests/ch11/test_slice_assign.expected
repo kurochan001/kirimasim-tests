@@ -1,0 +1,16 @@
+PASS: Simple constant part-select
+PASS: Upper bits part-select
+PASS: Middle part-select
+PASS: Part-select preserves other bits
+PASS: Single bit assignment
+PASS: Indexed +: part-select
+PASS: Indexed -: part-select
+PASS: Variable +: at boundary
+PASS: 64-bit slice
+PASS: Overlapping writes
+PASS: Zero-width (single bit)
+PASS: Word slice from expression
+PASS: Chain of slices
+PASS: Slice with X/Z values
+PASS: Slice from slice
+PASS: slice_assign (15/15)

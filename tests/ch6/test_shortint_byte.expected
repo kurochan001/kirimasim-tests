@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Shortint/Byte Tests ===
+Test 1: Byte assignment
+Test 1 PASS: b1=100
+Test 2: Byte negative
+Test 2 PASS: b1=-50
+Test 3: Byte overflow
+Test 3 PASS: 127+1=-128
+Test 4: Shortint assignment
+Test 4 PASS: s1=30000
+Test 5: Shortint negative
+Test 5 PASS: s1=-10000
+Test 6: Byte arithmetic
+Test 6 PASS: 50+25=75
+Test 7: Shortint arithmetic
+Test 7 PASS: 1000*500=500000
+Test 8: Byte to int
+Test 8 PASS: int(byte -10)=-10
+=== Summary: 8/8 tests passed ===
+TEST PASSED

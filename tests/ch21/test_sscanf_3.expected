@@ -1,0 +1,11 @@
+PASS: $sscanf parsed 3 integers correctly
+PASS: $sscanf parsed hex values correctly
+PASS: $sscanf parsed binary correctly
+PASS: $sscanf parsed octal correctly
+PASS: $sscanf parsed string correctly
+PASS: $sscanf parsed mixed format correctly
+PASS: $sscanf returned 0 for no matches
+=== $sscanf Test Results ===
+PASS: 7
+FAIL: 0
+TEST PASSED

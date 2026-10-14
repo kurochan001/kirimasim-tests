@@ -1,0 +1,5 @@
+Test 1 PASS: onehot(08) = 1
+Test 2 PASS: onehot(18) = 0
+Test 3 PASS: onehot(00) = 0
+Passed: 3/3
+PASS

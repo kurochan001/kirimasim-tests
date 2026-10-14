@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Reduction Operators Tests ===
+Test 1: AND all 1s
+Test 1 PASS
+Test 2: AND zero
+Test 2 PASS
+Test 3: OR zeros
+Test 3 PASS
+Test 4: OR one
+Test 4 PASS
+Test 5: XOR even
+Test 5 PASS
+Test 6: XOR odd
+Test 6 PASS
+Test 7: NAND all 1s
+Test 7 PASS
+Test 8: NOR zeros
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

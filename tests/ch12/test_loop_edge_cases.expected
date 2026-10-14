@@ -1,0 +1,15 @@
+Test 1 PASS: for loop counter = 5
+Test 2 PASS: while counter = 10
+Test 3 PASS: do-while = 5
+Test 4 PASS: foreach sum = 20
+Test 5 PASS: nested 3x4 = 12
+Test 6 PASS: for break = 7
+Test 7 PASS: while break = 8
+Test 8 PASS: decrement for = 10
+Test 9 PASS: step 2 = 5
+Test 10 PASS: Empty body completed
+Test 11 PASS: Zero iters = 100
+Test 12 PASS: forever = 3
+=== Loop Edge Cases ===
+Passed: 12/12
+TEST PASSED

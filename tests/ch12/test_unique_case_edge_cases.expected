@@ -1,0 +1,13 @@
+TEST: Unique/priority case edge cases
+  [PASS] Unique case first
+  [PASS] Unique case middle
+  [PASS] Unique case last
+  [PASS] Unique case default
+  [PASS] Priority case first
+  [PASS] Priority case second
+  [PASS] Priority default
+  [PASS] Case with expr
+  [PASS] Negative selector
+  [PASS] Zero selector
+Results: 10 passed, 0 failed
+TEST PASSED

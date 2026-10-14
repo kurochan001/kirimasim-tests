@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Size Casting Tests ===
+Test 1: Wide to narrow
+Test 1 PASS: 78
+Test 2: Narrow to wide
+Test 2 PASS: 000000ab
+Test 3: Mid extract
+Test 3 PASS: bbcc
+Test 4: Truncation
+Test 4 PASS: ff
+Test 5: Zero extend
+Test 5 PASS: 00000080
+Test 6: Full width
+Test 6 PASS
+Test 7: Upper byte
+Test 7 PASS: ab
+Test 8: Combine
+Test 8 PASS: 1144
+=== Summary: 8/8 tests passed ===
+TEST PASSED

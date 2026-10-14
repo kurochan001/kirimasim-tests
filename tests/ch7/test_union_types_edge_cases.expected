@@ -1,0 +1,13 @@
+TEST: Union types edge cases
+  [PASS] Union word write
+  [PASS] Union halves access
+  [PASS] Union bytes access
+  [PASS] Union halves write
+  [PASS] Union bytes write
+  [PASS] Nested struct read
+  [PASS] Nested struct write
+  [PASS] Union bits
+  [PASS] Union as vector
+  [PASS] Vector to union
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,18 @@
+Test 1 PASS: $ln(e) = 1.000000
+Test 2 PASS: $log10(100) = 2.000000
+Test 3 PASS: $exp(1) = 2.718282
+Test 4 PASS: $sqrt(16) = 4.000000
+Test 5 PASS: $pow(2,10) = 1024.000000
+Test 6 PASS: $floor(3.7) = 3.000000
+Test 7 PASS: $ceil(3.2) = 4.000000
+Test 8 PASS: $sin(0) = 0.000000
+Test 9 PASS: $cos(0) = 1.000000
+Test 10 PASS: $tan(0) = 0.000000
+Test 11 PASS: $asin(0) = 0.000000
+Test 12 PASS: $acos(1) = 0.000000
+Test 13 PASS: $atan(0) = 0.000000
+Test 14 PASS: $atan2(0,1) = 0.000000
+Test 15 PASS: $hypot(3,4) = 5.000000
+=== Math Funcs Edge Cases ===
+Passed: 15/15
+TEST PASSED
