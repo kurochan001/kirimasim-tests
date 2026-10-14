@@ -1,0 +1,9 @@
+Test 1: $ln(e)=1.000000 PASS
+Test 2: $log10=2.000000 PASS
+Test 3: $exp=2.718282 PASS
+Test 4: $sqrt PASS
+Test 5: $pow PASS
+Test 6: $floor PASS
+Test 7: $ceil PASS
+Test 8: $sin(0) PASS
+TEST PASSED: 8/8 tests passed

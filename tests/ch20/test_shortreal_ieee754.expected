@@ -1,0 +1,37 @@
+=== IEEE 1800-2023 §20.5: Shortreal Conversion Test ===
+Test 1: 1.5 conversion
+  Input: 1.500000
+  Bits:  0x3fc00000 (expected 0x3fc00000)
+  Roundtrip: 1.500000
+  PASS
+Test 2: -2.5 conversion
+  Input: -2.500000
+  Bits:  0xc0200000 (expected 0xc0200000)
+  Roundtrip: -2.500000
+  PASS
+Test 3: 0.0 conversion
+  Input: 0.000000
+  Bits:  0x00000000 (expected 0x00000000)
+  Roundtrip: 0.000000
+  PASS
+Test 4: 0.5 conversion
+  Input: 0.500000
+  Bits:  0x3f000000 (expected 0x3f000000)
+  Roundtrip: 0.500000
+  PASS
+Test 5: -1.0 conversion
+  Input: -1.000000
+  Bits:  0xbf800000 (expected 0xbf800000)
+  Roundtrip: -1.000000
+  PASS
+Test 6: 1.0 conversion
+  Input: 1.000000
+  Bits:  0x3f800000 (expected 0x3f800000)
+  Roundtrip: 1.000000
+  PASS
+Test 7: 100.0 conversion
+  Input: 100.000000
+  Bits:  0x42c80000 (expected 0x42c80000)
+  Roundtrip: 100.000000
+  PASS
+=== All Tests PASSED ===

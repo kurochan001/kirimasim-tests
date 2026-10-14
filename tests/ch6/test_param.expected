@@ -1,0 +1,6 @@
+Test 1: Parameter width PASS
+Test 2: Parameter depth PASS
+Test 3: Localparam calculation PASS
+Test 4: Parameter in declaration PASS
+Test 5: String parameter PASS
+TEST PASSED: 5/5 tests passed

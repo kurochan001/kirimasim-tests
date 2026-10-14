@@ -1,0 +1,37 @@
+=== $sscanf Test ===
+Test 1: Parse integer
+  $sscanf("42", "%d") -> int_val = 42, returned 1
+  PASS: Integer parsed correctly
+  $sscanf("-123", "%d") -> int_val = -123
+  PASS: Negative integer parsed
+Test 2: Parse multiple integers
+  $sscanf("10 20", "%d %d") -> 10, 20 (returned 2)
+  PASS: Two integers parsed
+Test 3: Parse hexadecimal
+  $sscanf("ff", "%x") -> hex_val = 0xff
+  PASS: Hex value parsed
+  $sscanf("DEADBEEF", "%x") -> hex_val = 0xdeadbeef
+  PASS: Large hex value parsed
+Test 4: Parse binary
+  $sscanf("1010", "%b") -> bin_val = 10 (0xa)
+  PASS: Binary value parsed
+Test 5: Parse real number
+  $sscanf("3.14159", "%f") -> real_val = 3.14159
+  PASS: Real number parsed
+  $sscanf("-2.5e3", "%f") -> real_val = -2500.0
+  PASS: Scientific notation parsed
+Test 6: Parse string
+  $sscanf("hello world", "%s") -> str_val = "hello"
+  PASS: String parsed (first word)
+Test 7: Mixed format parsing
+  $sscanf("value=100", "value=%d") -> int_val = 100
+  PASS: Mixed format parsed
+Test 8: Return value
+  $sscanf("1 2 3", "%d %d %d") returned 3
+  PASS: Returns count of matched items
+  $sscanf("abc", "%d") returned 0 (no match)
+  PASS: Returns 0 on no match
+========================================
+TEST RESULTS: 12/12 PASSED
+TEST PASSED
+========================================

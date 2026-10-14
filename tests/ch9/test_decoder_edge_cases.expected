@@ -1,0 +1,10 @@
+Test 1 PASS: sel=00 out=0001
+Test 2 PASS: sel=01 out=0010
+Test 3 PASS: sel=10 out=0100
+Test 4 PASS: sel=11 out=1000
+Test 5 PASS: One-hot count=1
+Test 6 PASS: Cycle complete
+Test 7 PASS: Back to 00
+=== Decoder Edge Cases ===
+Passed: 7/7
+TEST PASSED

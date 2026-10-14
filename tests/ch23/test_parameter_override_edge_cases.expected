@@ -1,0 +1,11 @@
+Test 1 PASS: Default WIDTH = 8
+Test 2 PASS: Default INIT = ff
+Test 3 PASS: Override WIDTH = 16
+Test 4 PASS: Override INIT = aa
+Test 5 PASS: Pos WIDTH = 4
+Test 6 PASS: Pos INIT = 5
+Test 7 PASS: Partial WIDTH = 8
+Test 8 PASS: Partial INIT = 12
+=== Parameter Override Edge Cases ===
+Passed: 8/8
+TEST PASSED

@@ -1,0 +1,14 @@
+Testing format specifiers...
+Decimal:          42
+Hex: ab
+Binary: 10101011
+Octal: 253
+Real: 3.141590
+String: hello
+Width 8: [      42]
+Width 4 hex: [00ab]
+PASS: All format specifiers executed without error
+=== Display Format Test Results ===
+PASS: 1
+FAIL: 0
+TEST PASSED

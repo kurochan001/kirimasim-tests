@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Repeat Statement Tests ===
+Test 1: Basic repeat
+Test 1 PASS
+Test 2: Zero repeat
+Test 2 PASS
+Test 3: One repeat
+Test 3 PASS
+Test 4: Sum
+Test 4 PASS
+Test 5: Large count
+Test 5 PASS
+Test 6: Multiply
+Test 6 PASS
+Test 7: Decrement
+Test 7 PASS
+Test 8: Add diff
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

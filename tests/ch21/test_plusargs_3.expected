@@ -1,0 +1,17 @@
+=== IEEE 1800-2023 $plusargs Tests ===
+Test 1: $test$plusargs basic
+Test 1: TEST_MODE not found (expected if no +TEST_MODE)
+Test 2: $test$plusargs non-existent
+Test 2 PASS: Non-existent arg correctly not found
+Test 3: $value$plusargs string format
+Test 3: STR_ARG not found, using default
+Test 4: $value$plusargs integer format
+Test 4: INT_ARG not found, using default
+Test 5: $value$plusargs hex format
+Test 5: HEX_ARG not found, using default
+Test 6: $value$plusargs real format
+Test 6: REAL_ARG not found, using default
+Test 7: $test$plusargs partial match
+Test 7: PARTIAL prefix not found
+=== Summary: 7/7 tests passed ===
+TEST PASSED

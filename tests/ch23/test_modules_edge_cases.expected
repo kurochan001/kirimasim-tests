@@ -1,0 +1,13 @@
+TEST: Module edge cases
+  [PASS] Parameter override to 16-bit
+  [PASS] Default parameter (8-bit)
+  [PASS] Named port connections
+  [PASS] Multiple instances independent
+  [PASS] Zero input handling
+  [PASS] Overflow wraps to zero
+  [PASS] Rapid value changes
+  [PASS] 16-bit overflow handling
+  [PASS] Simultaneous multi-instance updates
+  [PASS] Instance hierarchy access
+Results: 10 passed, 0 failed
+TEST PASSED

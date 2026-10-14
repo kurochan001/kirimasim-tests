@@ -1,0 +1,5 @@
+cube[0][0][0] = 0 (expected 0)
+cube[0][2][3] = 23 (expected 23)
+cube[1][0][0] = 100 (expected 100)
+cube[1][2][3] = 123 (expected 123)
+PASS: Multi-dimensional unpacked arrays

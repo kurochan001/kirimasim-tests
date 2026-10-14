@@ -1,0 +1,8 @@
+=== EVENT CONTROL TEST START ===
+Time 0: counter = 0
+Time 1: After first posedge - counter = 1, data = 10
+Time 3: After second posedge - counter = 2, data = 20
+Time 5: After third posedge - counter = 3, data = 30
+=== EVENT CONTROL TEST END ===
+Final: counter = 3 (expected 3)
+SUCCESS: Event control @(posedge clk) works correctly!

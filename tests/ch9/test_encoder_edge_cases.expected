@@ -1,0 +1,10 @@
+Test 1 PASS: No input, valid=0
+Test 2 PASS: in=0001 out=00
+Test 3 PASS: in=0010 out=01
+Test 4 PASS: in=0100 out=10
+Test 5 PASS: in=1000 out=11
+Test 6 PASS: in=1111 out=11 (high wins)
+Test 7 PASS: in=0101 out=10
+=== Encoder Edge Cases ===
+Passed: 7/7
+TEST PASSED

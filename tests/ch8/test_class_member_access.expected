@@ -1,0 +1,15 @@
+=== Class Member Access Test ===
+PASS: base_obj.base_value = 100
+PASS: base_obj.base_name = "base"
+PASS: base_obj.base_value modified to 150
+PASS: base_obj.get_base_value() = 150
+PASS: derived_obj.derived_value = 200
+PASS: derived_obj.derived_name = "derived"
+PASS: derived_obj.base_value (inherited) = 100
+PASS: derived_obj.base_name (inherited) = "base"
+PASS: derived_obj.get_derived_value() = 200
+PASS: derived_obj.get_base_value() (inherited) = 100
+=== Class Member Access Test Summary ===
+PASS: 10
+FAIL: 0
+ALL TESTS PASSED

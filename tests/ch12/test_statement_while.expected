@@ -1,0 +1,12 @@
+Test 1: Simple while
+  PASS: counter = 5
+Test 2: While with break
+  PASS: break at 3
+Test 3: While with continue
+  Sum of odd numbers 1-9 = 25
+  PASS
+Test 4: While false condition
+  PASS: while(0) not executed
+Test 5: Nested while
+  PASS: nested while sum = 9
+TEST PASSED: 5/5 tests passed

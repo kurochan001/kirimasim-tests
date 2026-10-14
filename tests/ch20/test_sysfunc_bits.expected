@@ -1,0 +1,5 @@
+Test 1 PASS: bits(byte) = 8
+Test 2 PASS: bits(word) = 32
+Test 3 PASS: bits(int) = 32
+Passed: 3/3
+PASS

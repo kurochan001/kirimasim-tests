@@ -1,0 +1,17 @@
+PASS: $monitor set up
+Monitor: time=0, counter=0
+Monitor: time=5000, counter=1
+Monitor: time=15000, counter=2
+PASS: Monitor triggered on counter changes
+PASS: $monitoroff called
+Monitor: time=45000, counter=20
+Monitor: time=55000, counter=30
+PASS: $monitoron called
+PASS: $strobe scheduled
+Strobe: counter=101 (at end of time step)
+PASS: $strobe at a later time
+Strobe: t=75000
+=== Monitor/Strobe Test Results ===
+PASS: 6
+FAIL: 0
+TEST PASSED

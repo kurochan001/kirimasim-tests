@@ -1,0 +1,12 @@
+TEST: Plusargs edge cases
+  [PASS] Non-existent plusarg returns 0
+  [PASS] $value$plusargs returns 0 for non-existent
+  [PASS] String format specifier %s
+  [PASS] Hex format specifier %h
+  [PASS] Binary format specifier %b
+  [PASS] Octal format specifier %o
+  [PASS] Case sensitivity handling
+  [PASS] Prefix matching (no match)
+  [PASS] Real format specifier %f
+Results: 9 passed, 0 failed
+TEST PASSED

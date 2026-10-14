@@ -1,0 +1,16 @@
+=== X and Z Propagation Test ===
+PASS: X propagates in addition
+PASS: X comparison handled (result=x)
+PASS: X logical optimization works
+PASS: Z value preserved in assignment
+PASS: Case equality (===) matches X and Z exactly
+PASS: Case inequality (!==) works
+PASS: $isunknown works correctly
+PASS: casez handles X as wildcard match
+PASS: MUX with X select handled (result=XX)
+PASS: Reduction with X uses known bits
+PASS: X conditional handled (result=0)
+PASS: Z comparison with === works
+=== Summary ===
+Passed: 12, Failed: 0
+TEST PASSED

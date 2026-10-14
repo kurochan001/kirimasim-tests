@@ -1,0 +1,26 @@
+=== IEEE 1800-2023 $write Format Tests ===
+Test 1: Simple write
+Value: 123
+Test 1 PASS
+Test 2: No newline chain
+ABC
+Test 2 PASS
+Test 3: Mixed with display
+Start End
+Test 3 PASS
+Test 4: Counter
+0 1 2 3 4 
+Test 4 PASS
+Test 5: String write
+hello world
+Test 5 PASS
+Test 6: Hex write
+Hex: 000000ff
+Test 6 PASS
+Test 7: Empty write
+Test 7 PASS
+Test 8: Multiple values
+1 2 3
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 System Display Tests ===
+Test 1: Integer
+Test 1 PASS
+Test 2: Negative
+Test 2 PASS
+Test 3: Zero
+Test 3 PASS
+Test 4: Large
+Test 4 PASS
+Test 5: String
+Test 5 PASS
+Test 6: Expression
+Test 6 PASS
+Test 7: Multiple
+Test 7 PASS
+Test 8: Binary format
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

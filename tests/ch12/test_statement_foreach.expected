@@ -1,0 +1,11 @@
+Test 1: Simple foreach
+  PASS: sum = 150
+Test 2: Foreach with index
+  PASS: index sum = 10
+Test 3: 2D array foreach
+  PASS: arr2d[2][3] = 11
+Test 4: Queue foreach
+  PASS: queue sum = 600
+Test 5: Foreach with modification
+  PASS: modified arr[0]=20, arr[4]=100
+TEST PASSED: 5/5 tests passed

@@ -1,0 +1,5 @@
+Test 1 PASS: countones(00) = 0
+Test 2 PASS: countones(AA) = 4
+Test 3 PASS: countones(FF) = 8
+Passed: 3/3
+PASS

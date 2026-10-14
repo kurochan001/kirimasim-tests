@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Logic Operations Tests ===
+Test 1: Bitwise AND
+Test 1 PASS: F0 & 0F = 00
+Test 2: Bitwise OR
+Test 2 PASS: F0 | 0F = ff
+Test 3: Bitwise XOR
+Test 3 PASS: AA ^ 55 = ff
+Test 4: Bitwise NOT
+Test 4 PASS: ~F0 = 0f
+Test 5: Reduction AND
+Test 5 PASS: &F = 1
+Test 6: Reduction OR
+Test 6 PASS: |1 = 1
+Test 7: Reduction XOR
+Test 7 PASS: ^1010 = 0
+Test 8: NAND/NOR/XNOR
+Test 8 PASS: ~(FF & FF) = 00
+=== Summary: 8/8 tests passed ===
+TEST PASSED

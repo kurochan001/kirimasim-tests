@@ -1,0 +1,7 @@
+PASS: 8-bit element array
+PASS: 16-bit element array
+PASS: 32-bit element array
+PASS: 4-bit element array
+PASS: 16-bit read-modify-write
+Test Summary: 5 PASS, 0 FAIL
+TEST PASSED

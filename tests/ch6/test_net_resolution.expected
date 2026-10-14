@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Net Resolution Tests ===
+Test 1: Simple wire
+Test 1 PASS: wire w1=1
+Test 2: Wand with both 1
+Test 2 PASS: wand 1&1=1
+Test 3: Wand with 1 and 0
+Test 3 PASS: wand 1&0=0
+Test 4: Wor with both 0
+Test 4 PASS: wor 0|0=0
+Test 5: Wor with 0 and 1
+Test 5 PASS: wor 0|1=1
+Test 6: Simple wire value
+Test 6 PASS: simple_wire=1
+Test 7: Tri-state wire
+Test 7 PASS: tri_wire=z (high-Z)
+Test 8: Wire comparison
+Test 8 PASS: w1==simple_wire
+=== Summary: 8/8 tests passed ===
+TEST PASSED

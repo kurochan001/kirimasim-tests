@@ -1,0 +1,13 @@
+Test 1 PASS: AND gate y = 1
+Test 2 PASS: Output y = 0
+Test 3 PASS: Inout driven z = 1
+Test 4 PASS: Inout high-z z = z
+Test 5 PASS: Multi-bit in/out = 56
+Test 6 PASS: Valid = 1
+Test 7 PASS: Zero data valid = 0
+Test 8 PASS: Overflow dout = 00
+Test 9 PASS: Input toggle
+Test 10 PASS: Sequence test
+=== Port Edge Cases ===
+Passed: 10/10
+TEST PASSED

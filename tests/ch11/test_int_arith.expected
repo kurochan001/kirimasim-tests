@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Integer Arithmetic Tests ===
+Test 1: Add
+Test 1 PASS: 150
+Test 2: Sub
+Test 2 PASS: 50
+Test 3: Mult
+Test 3 PASS: 42
+Test 4: Div
+Test 4 PASS: 20
+Test 5: Mod
+Test 5 PASS: 2
+Test 6: Neg add
+Test 6 PASS: 20
+Test 7: Zero mult
+Test 7 PASS: 0
+Test 8: Complex
+Test 8 PASS: 65
+=== Summary: 8/8 tests passed ===
+TEST PASSED

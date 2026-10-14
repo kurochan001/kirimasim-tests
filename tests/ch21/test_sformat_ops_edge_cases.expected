@@ -1,0 +1,13 @@
+TEST: $sformat operations edge cases
+  [PASS] Basic integer format
+  [PASS] Hex format
+  [PASS] Binary format
+  [PASS] Multiple args
+  [PASS] String literal
+  [PASS] Negative number
+  [PASS] Zero value
+  [PASS] Large number
+  [PASS] Width specifier
+  [PASS] Octal format
+Results: 10 passed, 0 failed
+TEST PASSED

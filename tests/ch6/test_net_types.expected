@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Net Types Tests ===
+Test 1: Basic wire
+Test 1 PASS
+Test 2: Wire bus
+Test 2 PASS
+Test 3: Wand both high
+Test 3 PASS
+Test 4: Wand one low
+Test 4 PASS
+Test 5: Wor both low
+Test 5 PASS
+Test 6: Wor one high
+Test 6 PASS
+Test 7: Supply0 net
+Test 7 PASS
+Test 8: Wire toggle
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

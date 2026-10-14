@@ -1,0 +1,14 @@
+=== Queue Methods Test ===
+PASS: empty q.size() = 0
+PASS: push_back() - q = {10, 20, 30}
+PASS: push_front(5) - q[0] = 5
+PASS: pop_front() = 5, size = 3
+PASS: pop_back() = 30, size = 2
+PASS: insert(1, 150) - q = {100, 150, 200, 300}
+PASS: delete(1) - q = {100, 200, 300}
+PASS: delete() cleared queue, size = 0
+PASS: multiple push_back - size = 5
+=== Queue Methods Test Summary ===
+PASS: 9
+FAIL: 0
+ALL TESTS PASSED

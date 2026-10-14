@@ -1,0 +1,25 @@
+=== $write Format Specifier Test (IEEE 1800-2023 §21.2.1) ===
+--- Test 1: Decimal format ---
+x=         42
+x=42 (minimum width)
+--- Test 2: Hexadecimal format ---
+y=000000ff
+y=000000ff (lowercase)
+--- Test 3: Binary format ---
+vec=10101010
+--- Test 4: Octal format ---
+x=00000000052
+--- Test 5: String format ---
+s=hello
+--- Test 6: Multiple format specifiers ---
+x=42, y=000000ff, s=hello
+--- Test 7: No newline verification ---
+ABCDEFGHI
+--- Test 8: Width specifier ---
+|      42|
+--- Test 9: Negative numbers ---
+neg=-10
+=== Test Summary ===
+Passed: 9
+Failed: 0
+PASS: All $write format tests passed

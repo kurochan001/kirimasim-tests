@@ -1,0 +1,11 @@
+Test 1: Simple case
+  PASS: case(2) = two
+Test 2: Default case
+  PASS: case(99) = default
+Test 3: Multiple values per case
+  PASS: case(5) = odd
+Test 4: Nested case
+  PASS: nested = a=1,b=2
+Test 5: Case with expression
+  PASS: case(10+5) = fifteen
+TEST PASSED: 5/5 tests passed

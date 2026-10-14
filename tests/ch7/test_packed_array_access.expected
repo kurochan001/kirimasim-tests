@@ -1,0 +1,9 @@
+=== Packed Array Bit/Slice Access Test (IEEE 1800-2023 §7.4) ===
+PASS: byte_val[0] = 0
+PASS: byte_val[7] = 1
+PASS: byte_val[3:0] = 4'b1010
+PASS: byte_val[7:4] = 4'b1010
+PASS: byte_val after [0]=1 is 8'b10101011
+PASS: byte_val[3:0]=4'b1111 gives 8'b00001111
+=== Results: 6 passed, 0 failed ===
+TEST PASSED

@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Parameter Passing Tests ===
+Test 1: Add
+Test 1 PASS: 30
+Test 2: Multiply
+Test 2 PASS: 42
+Test 3: Expression
+Test 3 PASS: 25
+Test 4: Max first
+Test 4 PASS: 100
+Test 5: Max second
+Test 5 PASS: 80
+Test 6: Nested
+Test 6 PASS: 26
+Test 7: Negative
+Test 7 PASS: 20
+Test 8: Zero
+Test 8 PASS: 0
+=== Summary: 8/8 tests passed ===
+TEST PASSED

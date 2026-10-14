@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Parameter Types Tests ===
+Test 1: Integer parameter
+Test 1 PASS: WIDTH=8
+Test 2: Logic parameter
+Test 2 PASS: INIT_VAL=ab
+Test 3: Size parameter
+Test 3 PASS: SIZE=4
+Test 4: Localparam double width
+Test 4 PASS: DOUBLE_WIDTH=16
+Test 5: Localparam squared
+Test 5 PASS: SQUARED=64
+Test 6: Localparam array size
+Test 6 PASS: ARRAY_SIZE=8
+Test 7: Parameter in declaration
+Test 7 PASS: data_a=ff
+Test 8: Double-width parameter
+Test 8 PASS: data_b=cafe
+=== Summary: 8/8 tests passed ===
+TEST PASSED

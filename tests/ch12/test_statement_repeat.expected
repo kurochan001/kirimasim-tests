@@ -1,0 +1,9 @@
+Test 1: Simple repeat
+  PASS: counter = 5
+Test 2: Nested repeat
+  PASS: nested counter = 12
+Test 3: Repeat with variable
+  PASS: variable repeat = 7
+Test 4: Repeat with zero
+  PASS: zero repeat unchanged
+TEST PASSED: 4/4 tests passed

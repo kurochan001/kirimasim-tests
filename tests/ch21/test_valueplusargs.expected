@@ -1,0 +1,9 @@
+Test 1: INT_VAL not found (expected in this run)
+Test 2: REAL_VAL not found (expected)
+Test 3: STR_VAL not found (expected)
+Test 4: HEX_VAL not found (expected)
+Test 5: OCT_VAL not found (expected)
+Test 6: BIN_VAL not found (expected)
+Test 7: VERBOSE not found (expected)
+Test 8: DEBUG prefix not found (expected)
+TEST PASSED: 8/8 tests passed

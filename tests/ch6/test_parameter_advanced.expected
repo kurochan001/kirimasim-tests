@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced Parameter Tests ===
+Test 1: Parameter value
+Test 1 PASS: DATA_WIDTH=16
+Test 2: Localparam expression
+Test 2 PASS: TOTAL_BITS=24
+Test 3: Localparam division
+Test 3 PASS: HALF_WIDTH=8
+Test 4: Parameterized module (8-bit)
+Test 4 PASS: 8-bit adder sum=030
+Test 5: Parameterized module (16-bit)
+Test 5 PASS: 16-bit adder sum=03000
+Test 6: Overflow handling
+Test 6 PASS: overflow sum=100
+Test 7: Zero addition
+Test 7 PASS: zero sum=000
+Test 8: Address width parameter
+Test 8 PASS: ADDR_WIDTH=8
+=== Summary: 8/8 tests passed ===
+TEST PASSED
