@@ -1,0 +1,5 @@
+Test 1 PASS: unsigned to signed = -1
+Test 2 PASS: signed to unsigned = ff
+Test 3 PASS: positive stays same = 100
+Passed: 3/3
+PASS

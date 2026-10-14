@@ -1,0 +1,5 @@
+Test 1 PASS: upper byte = ab00
+Test 2 PASS: lower byte = abcd
+Test 3 PASS: single bit = 0100
+Passed: 3/3
+PASS

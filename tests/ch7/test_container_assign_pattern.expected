@@ -1,0 +1,6 @@
+T1: PASS - queue assign then push: size=4 last=4
+T2: PASS - re-assign: size=3
+T3: PASS - copy independence: a=3 b=4
+T4: PASS - dynarray: size=3 vals=10,20,30
+pass_count = 4
+PASS: test_container_assign_pattern

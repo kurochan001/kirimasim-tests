@@ -1,0 +1,7 @@
+PASS: &0xFF = 1
+PASS: &0xFE = 0
+PASS: |0x00 = 0
+PASS: |0x01 = 1
+PASS: ^0xAA = 0 (even parity)
+PASS: ^0xAB = 1 (odd parity)
+TEST PASSED: reduction tests completed

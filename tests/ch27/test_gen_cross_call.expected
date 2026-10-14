@@ -1,0 +1,6 @@
+T1: PASS - compute: 5,110,215,320
+T2: PASS - WEIGHT: 1,2,3,4
+T3: PASS - OFFSET: 0,100,200,300
+T4: PASS - zero: 0,100,200,300
+pass_count = 4
+PASS: test_gen_cross_call

@@ -1,0 +1,5 @@
+Test 1 PASS: int to real = 42.000000
+Test 2 PASS: neg int to real = -100.000000
+Test 3 PASS: zero to real = 0.000000
+Passed: 3/3
+PASS

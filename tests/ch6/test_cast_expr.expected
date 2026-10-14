@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Cast Expression Tests ===
+Test 1: Real to int
+Test 1 PASS
+Test 2: Int to real
+Test 2 PASS
+Test 3: Signed to unsigned
+Test 3 PASS
+Test 4: Width cast
+Test 4 PASS
+Test 5: Truncation
+Test 5 PASS
+Test 6: Bit cast
+Test 6 PASS
+Test 7: Zero cast
+Test 7 PASS
+Test 8: Sign ext
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

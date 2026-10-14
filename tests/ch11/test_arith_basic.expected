@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Basic Arithmetic Tests ===
+Test 1: Add
+Test 1 PASS
+Test 2: Subtract
+Test 2 PASS
+Test 3: Multiply
+Test 3 PASS
+Test 4: Divide
+Test 4 PASS
+Test 5: Modulo
+Test 5 PASS
+Test 6: Power
+Test 6 PASS
+Test 7: Negative
+Test 7 PASS
+Test 8: Complex
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Compound Assignment Tests ===
+Test 1: += operator
+Test 1 PASS: a=15
+Test 2: Simple subtraction
+Test 2 PASS: a=7
+Test 3: Multiplication
+Test 3 PASS: a=42
+Test 4: Simple division
+Test 4 PASS: a=25
+Test 5: Simple modulo
+Test 5 PASS: a=2
+Test 6: Bitwise AND
+Test 6 PASS: a=15
+Test 7: |= operator
+Test 7 PASS: a=255
+Test 8: Left shift
+Test 8 PASS: a=16
+=== Summary: 8/8 tests passed ===
+TEST PASSED

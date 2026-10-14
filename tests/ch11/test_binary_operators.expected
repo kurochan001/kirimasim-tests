@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Binary Operators Tests ===
+Test 1: Addition
+Test 1 PASS: 15 + 7 = 22
+Test 2: Subtraction
+Test 2 PASS: 15 - 7 = 8
+Test 3: Multiplication
+Test 3 PASS: 15 * 7 = 105
+Test 4: Division
+Test 4 PASS: 15 / 7 = 2
+Test 5: Modulo
+Test 5 PASS: 15 % 7 = 1
+Test 6: Left shift
+Test 6 PASS: 0x01 << 4 = 10
+Test 7: Right shift
+Test 7 PASS: 0x80 >> 4 = 08
+Test 8: Relational operators
+Test 8 PASS: all relational ops correct
+=== Summary: 8/8 tests passed ===
+TEST PASSED

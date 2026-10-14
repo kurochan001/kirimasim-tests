@@ -1,0 +1,10 @@
+PASS: Simple assignment a=100
+PASS: Add result=15
+PASS: Subtract result=12
+PASS: Multiply result=15
+PASS: Divide result=5
+PASS: Bitwise AND result=0f
+PASS: Bitwise OR result=ff
+PASS: Increment a++=6
+PASS: Decrement a--=5
+TEST PASSED: assignment operations completed

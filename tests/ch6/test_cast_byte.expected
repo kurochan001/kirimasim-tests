@@ -1,0 +1,5 @@
+Test 1 PASS: int to byte = 100
+Test 2 PASS: truncate = 44
+Test 3 PASS: negative = -50
+Passed: 3/3
+PASS

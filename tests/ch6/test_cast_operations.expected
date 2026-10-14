@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Cast Operations Tests ===
+Test 1: int to real
+Test 1 PASS: r_val=42.000000
+Test 2: real to int
+Test 2 PASS: i_val=4
+Test 3: unsigned to signed
+Test 3 PASS: s_val=-1
+Test 4: signed to unsigned
+Test 4 PASS: l_val=ffffffff
+Test 5: Size casting truncation
+Test 5 PASS: b_val=78
+Test 6: Size casting extension
+Test 6 PASS: i_val=000000ab
+Test 7: shortint cast
+Test 7 PASS: si_val=1000
+Test 8: longint cast
+Test 8 PASS: li_val=123456
+=== Summary: 8/8 tests passed ===
+TEST PASSED

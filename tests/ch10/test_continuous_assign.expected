@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Continuous Assignment Tests ===
+Test 1: Sum
+Test 1 PASS: sum=15
+Test 2: Difference
+Test 2 PASS: diff=5
+Test 3: Bitwise AND
+Test 3 PASS: and=00
+Test 4: Bitwise OR
+Test 4 PASS: or=ff
+Test 5: Reduction OR
+Test 5 PASS: |a=1
+Test 6: Mux select 0
+Test 6 PASS: mux=200 (b)
+Test 7: Mux select 1
+Test 7 PASS: mux=100 (a)
+Test 8: Dynamic update
+Test 8 PASS: sum=75, diff=25
+=== Summary: 8/8 tests passed ===
+TEST PASSED

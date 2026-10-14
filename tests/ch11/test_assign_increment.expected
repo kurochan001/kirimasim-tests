@@ -1,0 +1,5 @@
+Test 1 PASS: post++ = 11
+Test 2 PASS: post-- = 9
+Test 3 PASS: ++pre = 6
+Passed: 3/3
+PASS

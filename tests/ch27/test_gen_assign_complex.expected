@@ -1,0 +1,6 @@
+T1: PASS - weighted sum: 10,30,50,70
+T2: PASS - cond diff: 15,0,0,99
+T3: PASS - compare: 1,0,1,1
+T4: PASS - WEIGHT: 1,2,3,4
+pass_count = 4
+PASS: test_gen_assign_complex

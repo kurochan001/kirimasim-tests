@@ -1,0 +1,35 @@
+=== IEEE 1800-2023 Arithmetic Operators Test ===
+Test 1: Addition
+  100 + 200 = 300
+Test 1 PASS
+Test 2: Subtraction
+  500 - 200 = 300
+Test 2 PASS
+Test 3: Multiplication
+  12 * 13 = 156
+Test 3 PASS
+Test 4: Division
+  100 / 7 = 14
+Test 4 PASS
+Test 5: Modulo
+  100 % 7 = 2
+Test 5 PASS
+Test 6: Power
+  2 ** 10 = 1024
+Test 6 PASS
+Test 7: Negative numbers
+  -50 + 30 = -20
+  -50 * 2 = -100
+Test 7 PASS
+Test 8: Chained operations
+  10 + 20 * 3 = 70
+  (10 + 20) * 3 = 90
+Test 8 PASS
+Test 9: Real arithmetic
+  3.14 * 2.0 = 6.280000
+Test 9 PASS
+Test 10: Mixed operations
+  (100+30)*(100-30)/10 = 910
+Test 10 PASS
+=== Summary: 10/10 tests passed ===
+TEST PASSED

@@ -1,0 +1,5 @@
+PASS: 0x0F << 2 = 0x3C
+PASS: 0xF0 >> 4 = 0x0F
+PASS: -8 >>> 2 = -2
+PASS: 0x01 << 5 = 0x20
+TEST PASSED: shift tests completed

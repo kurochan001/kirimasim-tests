@@ -1,0 +1,32 @@
+=== IEEE 1800-2023 Assign Statement Test ===
+Test 1: Continuous assign
+  a=10, b=20, wire_result=30
+Test 1 PASS
+Test 2: Change continuous assign inputs
+  wire_result=70
+Test 2 PASS
+Test 3: Procedural assign
+  result=30
+Test 3 PASS
+Test 4: Multiple assignments
+  iter 0: a=00, b=00, result=00
+  iter 1: a=10, b=08, result=18
+  iter 2: a=20, b=10, result=30
+  iter 3: a=30, b=18, result=48
+Test 4 PASS
+Test 5: Compound assignment simulation
+  c after compounds=30
+Test 5 PASS
+Test 6: Bitwise assignment
+  result after AND=0f
+  result after OR=3f
+Test 6 PASS
+Test 7: Shift assignment
+  result after <<4=10
+  result after >>2=04
+Test 7 PASS
+Test 8: Sequential assignment
+  a=ab, b=ab, c=ab
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

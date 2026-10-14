@@ -1,0 +1,6 @@
+T1: PASS - process: 0001,1003,2007,300f
+T2: PASS - zero input: 0000,1000,2000,3000
+T3: PASS - BASE_ADDR: 00000000,00001000,00002000,00003000
+T4: PASS - MASK: 1,3,7,15
+pass_count = 4
+PASS: test_gen_function_localparams

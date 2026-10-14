@@ -1,0 +1,7 @@
+PASS: 1 && 1 = 1
+PASS: 1 && 0 = 0
+PASS: 0 || 0 = 0
+PASS: 0 || 1 = 1
+PASS: !0 = 1
+PASS: 5 && 0 = 0
+TEST PASSED: logical tests completed

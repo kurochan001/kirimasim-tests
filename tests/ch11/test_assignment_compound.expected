@@ -1,0 +1,13 @@
+Test 1: val += 5 = 15 PASS
+Test 2: val -= 3 = 7 PASS
+Test 3: val *= 5 = 20 PASS
+Test 4: val /= 4 = 5 PASS
+Test 5: val %= 5 = 2 PASS
+Test 6: vec &= 0x0FF0 = 0x0f00 PASS
+Test 7: vec |= 0x00F0 = 0x0ff0 PASS
+Test 8: vec ^= 0x0F0F = 0xf00f PASS
+Test 9: vec <<= 4 = 0x00f0 PASS
+Test 10: vec >>= 4 = 0x0f00 PASS
+Test 11: val++ = 6 PASS
+Test 12: val-- = 4 PASS
+TEST PASSED: 12/12 tests passed

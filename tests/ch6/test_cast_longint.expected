@@ -1,0 +1,5 @@
+Test 1 PASS: int to longint = 1000000
+Test 2 PASS: negative = -1000000
+Test 3 PASS: large value = 123456789abcdef0
+Passed: 3/3
+PASS

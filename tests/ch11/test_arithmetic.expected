@@ -1,0 +1,8 @@
+PASS: 15 + 4 = 19
+PASS: 15 - 4 = 11
+PASS: 15 * 4 = 60
+PASS: 15 / 4 = 3
+PASS: 15 % 4 = 3
+PASS: 2 ** 8 = 256
+PASS: 3.5 + 2.0 = 5.5
+TEST PASSED: arithmetic tests completed

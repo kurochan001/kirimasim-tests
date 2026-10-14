@@ -1,0 +1,14 @@
+T1: PASS - $clog2(8) = 3
+T2: PASS - $clog2(1) = 0
+T3: PASS - $clog2(0) = 0
+T4: PASS - $clog2(5) = 3
+T5: PASS - $countones(8'b10110100) = 4
+T6: PASS - $countones(0) = 0
+T7: PASS - $onehot(8'b00010000) = 1
+T8: PASS - $onehot(8'b00010100) = 0 (two bits set)
+T9: PASS - $onehot0(0) = 1 (zero is valid)
+T10: PASS - $isunknown detects X
+T11: PASS - $isunknown(no X) = 0
+T12: PASS - $clog2(1024) = 10
+pass_count = 12
+PASS: test_comb_system_functions

@@ -1,0 +1,7 @@
+PASS: +5 = 5
+PASS: -5 = -5
+PASS: ++10 = 11
+PASS: --11 = 10
+PASS: 5++ = 5, a = 6
+PASS: 6-- = 6, a = 5
+TEST PASSED: unary tests completed

@@ -1,0 +1,9 @@
+Test 1: Multi part select PASS
+Test 2: Array slice PASS
+Test 3: Compound *= PASS
+Test 4: Compound /= PASS
+Test 5: Compound %= PASS
+Test 6: Compound &= PASS
+Test 7: Compound |= PASS
+Test 8: Queue push PASS
+TEST PASSED: 8/8 tests passed

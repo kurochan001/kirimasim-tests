@@ -1,0 +1,6 @@
+T1: PASS - gen if transform: 105
+T2: PASS - gen case scale: 700
+T3: PASS - OFFSET=100
+T4: PASS - SCALE=100
+pass_count = 4
+PASS: test_gen_if_case

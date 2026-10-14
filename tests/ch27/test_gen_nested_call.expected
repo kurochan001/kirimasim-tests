@@ -1,0 +1,5 @@
+T1: PASS - pipeline: 10,21,32
+T2: PASS - zero input: 0,1,2
+T3: PASS - GAIN: 1,2,3
+pass_count = 3
+PASS: test_gen_nested_call

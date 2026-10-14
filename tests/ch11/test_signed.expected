@@ -1,0 +1,4 @@
+PASS: $signed(0xFF) = -1
+PASS: $unsigned(-1) = 255
+PASS: $signed(0x80) = -128
+TEST PASSED: signed/unsigned tests completed

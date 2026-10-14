@@ -1,0 +1,8 @@
+T1: PASS - block NBA x=42
+T2: PASS - module x=999
+T3: PASS - a=10 b=20
+T4a: PASS - y=50
+T4b: PASS - y=60
+T5: PASS - module y=999
+pass_count = 5
+PASS: test_scope_nba

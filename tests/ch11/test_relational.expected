@@ -1,0 +1,6 @@
+PASS: 10 < 20
+PASS: 10 > 20 = false
+PASS: 20 <= 20
+PASS: 20 >= 20
+PASS: 0xFF > 0x00 (unsigned)
+TEST PASSED: relational tests completed

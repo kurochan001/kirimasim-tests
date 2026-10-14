@@ -1,0 +1,5 @@
+Test 1 PASS: int to bit = ff
+Test 2 PASS: logic to bit = ab
+Test 3 PASS: zero = 00
+Passed: 3/3
+PASS

@@ -1,0 +1,17 @@
+Test 1: $onehot(00000001) = 1 PASS
+Test 2: $onehot(00010000) = 1 PASS
+Test 3: $onehot(00000011) = 0 PASS
+Test 4: $onehot(00000000) = 0 PASS
+Test 5: $onehot0(00000000) = 1 PASS
+Test 6: $onehot0(00000001) = 1 PASS
+Test 7: $onehot0(00000011) = 0 PASS
+Test 8: $countones(00000000) = 0 PASS
+Test 9: $countones(11111111) = 8 PASS
+Test 10: $countones(10101010) = 4 PASS
+Test 11: $clog2(1) = 0 PASS
+Test 12: $clog2(8) = 3 PASS
+Test 13: $clog2(9) = 4 PASS
+Test 14: $isunknown(00000000) = 0 PASS
+Test 15: $isunknown(xxxxxxxx) = 1 PASS
+Test 16: $isunknown(0000000x) = 1 PASS
+TEST PASSED: 16/16 tests passed

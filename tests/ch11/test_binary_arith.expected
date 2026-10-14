@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Binary Arithmetic Tests ===
+Test 1: Add
+Test 1 PASS: 30
+Test 2: Sub
+Test 2 PASS: 10
+Test 3: Mult
+Test 3 PASS: 200
+Test 4: Div
+Test 4 PASS: 20
+Test 5: Mod
+Test 5 PASS: 2
+Test 6: Power
+Test 6 PASS: 16
+Test 7: Neg sub
+Test 7 PASS: -5
+Test 8: Zero mult
+Test 8 PASS: 0
+=== Summary: 8/8 tests passed ===
+TEST PASSED

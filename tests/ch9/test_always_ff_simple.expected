@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Always FF Simple Tests ===
+Test 1: Initial
+Test 1 PASS
+Test 2: Set input
+Test 2 PASS: out=aa
+Test 3: Change
+Test 3 PASS: out=bb
+Test 4: FF pattern
+Test 4 PASS: out=ff
+Test 5: Zero
+Test 5 PASS: out=00
+Test 6: 55 pattern
+Test 6 PASS: out=55
+Test 7: AB pattern
+Test 7 PASS: out=ab
+Test 8: CD pattern
+Test 8 PASS: out=cd
+=== Summary: 8/8 tests passed ===
+TEST PASSED

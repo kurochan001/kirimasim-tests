@@ -1,0 +1,9 @@
+Test 1: int to shortint PASS
+Test 2: int to byte PASS
+Test 3: int to longint PASS
+Test 4: real to int PASS ival=4
+Test 5: neg real PASS ival=-3
+Test 6: unsigned to signed PASS
+Test 7: signed to unsigned PASS
+Test 8: cast in expr PASS ival=7
+TEST PASSED: 8/8 tests passed

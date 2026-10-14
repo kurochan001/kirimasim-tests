@@ -1,0 +1,7 @@
+Test 1: Simple AND PASS
+Test 2: Simple OR PASS
+Test 3: Nested condition PASS
+Test 4: Negation PASS
+Test 5: Complex expression PASS
+Test 6: Ternary in condition PASS
+TEST PASSED: 6/6 tests passed

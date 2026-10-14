@@ -1,0 +1,7 @@
+Test 1: $bits(byte) PASS
+Test 2: $bits(word) PASS
+Test 3: $size(array) PASS
+Test 4: $size(dyn) PASS
+Test 5: $clog2(16) PASS
+Test 6: $countones PASS
+TEST PASSED: 6/6 tests passed

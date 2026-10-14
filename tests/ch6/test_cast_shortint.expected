@@ -1,0 +1,5 @@
+Test 1 PASS: int to shortint = 1000
+Test 2 PASS: truncate = 5678
+Test 3 PASS: negative = -100
+Passed: 3/3
+PASS

@@ -1,0 +1,6 @@
+T1: PASS - threshold: 100,100,0,0
+T2: PASS - all pass: 200,200,200,200
+T3: PASS - only [0] passes: 25,0,0,0
+T4: PASS - THRESHOLD: 0,50,100,150
+pass_count = 4
+PASS: test_gen_ternary

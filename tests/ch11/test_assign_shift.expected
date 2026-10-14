@@ -1,0 +1,5 @@
+Test 1 PASS: lshift = 10
+Test 2 PASS: rshift = 08
+Test 3 PASS: shift 0 = ab
+Passed: 3/3
+PASS

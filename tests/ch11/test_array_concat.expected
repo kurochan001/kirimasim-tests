@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Array Concatenation Tests ===
+Test 1: Simple concat
+Test 1 PASS
+Test 2: Nibble concat
+Test 2 PASS
+Test 3: Replicate
+Test 3 PASS
+Test 4: Mixed concat
+Test 4 PASS
+Test 5: Var concat
+Test 5 PASS
+Test 6: Concat to wide
+Test 6 PASS
+Test 7: Zero extend
+Test 7 PASS
+Test 8: Replication 4x
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

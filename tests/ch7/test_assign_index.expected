@@ -1,0 +1,5 @@
+Test 1 PASS: var index = ab
+Test 2 PASS: computed idx = cd
+Test 3 PASS: loop assign
+Passed: 3/3
+PASS

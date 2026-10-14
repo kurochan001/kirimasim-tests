@@ -1,0 +1,5 @@
+Test 1 PASS: int to 8-bit = ff
+Test 2 PASS: int to 16-bit = abcd
+Test 3 PASS: truncate to 8-bit = 78
+Passed: 3/3
+PASS
