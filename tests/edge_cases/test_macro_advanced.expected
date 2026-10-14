@@ -1,0 +1,18 @@
+=== IEEE 1800-2023 §22 Macro Advanced Tests ===
+PASS: Basic macro WIDTH=8, DEPTH=16
+PASS: ADD(10, 20) = 30
+PASS: MUL(5, 6) = 30
+PASS: MAX/MIN macros
+PASS: Nested macro: ADD(MUL(2,3), MUL(4,5)) = 26
+PASS: SHIFT_LEFT with default argument
+PASS: ifdef FEATURE_A
+PASS: ifndef FEATURE_C
+PASS: Nested ifdef (FEATURE_A && FEATURE_B)
+PASS: elsif chain selected FEATURE_A branch
+PASS: MAKE_SIGNAL macro
+PASS: undef/redefine WIDTH=16
+PASS: Macro in array size
+=================================
+Macro Advanced Tests: 13 passed, 0 failed
+=================================
+TEST PASSED

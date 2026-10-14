@@ -1,0 +1,13 @@
+TEST: Bit select edge cases
+  [PASS] LSB select
+  [PASS] MSB select
+  [PASS] Middle bit select
+  [PASS] Variable index select
+  [PASS] Bit select write
+  [PASS] All zeros bit select
+  [PASS] All ones bit select
+  [PASS] Multiple bit select
+  [PASS] Bit select expression
+  [PASS] Consecutive bit select
+Results: 10 passed, 0 failed
+TEST PASSED

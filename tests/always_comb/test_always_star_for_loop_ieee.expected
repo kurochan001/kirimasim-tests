@@ -1,0 +1,13 @@
+IEEE 1800-2023 §9.4.2.2 Test: For Loop Sensitivity Exclusion
+Test 1: For loop array copy
+  PASS: data_out = {0xaa, 0xbb, 0xcc, 0xdd}
+Test 2: For loop inversion
+  PASS: inverted = {0x55, 0x44, 0x33, 0x22}
+Test 3: Nested for loops
+  PASS: nested_result incremented correctly
+Test 4: Sensitivity update after data change
+  PASS: Outputs updated correctly (data_out[0]=0xff, inverted[0]=0x00)
+========================================
+TEST RESULTS: 4/4 PASSED
+TEST PASSED
+========================================

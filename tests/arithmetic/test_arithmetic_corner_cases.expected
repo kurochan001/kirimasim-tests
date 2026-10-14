@@ -1,0 +1,23 @@
+Test 1 PASS: 10 + 20 = 30
+Test 2 PASS: 20 - 10 = 10
+Test 3 PASS: 10 * 20 = 200
+Test 4 PASS: 20 / 10 = 2
+Test 5 PASS: 25 % 10 = 5
+Test 6 PASS: -15 + 10 = -5
+Test 7 PASS: -5 * 3 = -15
+Test 8 PASS: -5 * -4 = 20
+Test 9 PASS: 100 * 0 = 0
+Test 10 PASS: 8-bit overflow = 00
+Test 11 PASS: Underflow = f5
+Test 12 PASS: 2**10 = 1024
+Test 13 PASS: 7 / 3 = 2 (truncated)
+Test 14 PASS: -7 % 3 = -1
+Test 15 PASS: Large mul = 01000000
+Test 16 PASS: 10 + 20 - 5 = 25
+Test 17 PASS: 2 + 3 * 4 = 14
+Test 18 PASS: (2 + 3) * 4 = 20
+Test 19 PASS: 42 / 1 = 42
+Test 20 PASS: Arithmetic tests complete
+=== Arithmetic Corner Cases ===
+Passed: 20/20
+TEST PASSED

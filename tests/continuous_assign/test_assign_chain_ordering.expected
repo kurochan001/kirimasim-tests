@@ -1,0 +1,15 @@
+=== Continuous Assignment Chain Ordering Test ===
+Test 1: Single chain a->d->e->f->g->h
+Test 1 PASS: Chain correctly evaluates a=10 to h=15
+Test 2: Parallel chains b->x, c->y, (x,y)->z
+Test 2 PASS: x=10, y=9, z=19
+Test 3: Diamond a->(p,q)->r
+Test 3 PASS: p=30, q=7, r=31
+Test 4: Update propagation
+Test 4 PASS: Propagation correct, a=20 -> h=25
+Test 5: Zero propagation
+Test 5 PASS: Zero base propagation correct
+Test 6: Maximum value with wrap
+Test 6 PASS: Max value propagation correct, h=255
+=== Summary: 6/6 tests passed ===
+TEST PASSED

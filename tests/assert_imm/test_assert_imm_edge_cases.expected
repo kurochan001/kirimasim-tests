@@ -1,0 +1,23 @@
+Test 1 PASS: Assert x==5
+Test 2 PASS: Assert y>5
+Test 3 PASS: Multi cond
+Test 4 PASS: False assert handled
+Test 5 PASS: Sequence asserts
+Test 6 PASS: Valid assert
+Test 7 PASS: Expr assert
+Test 8 PASS: Neg assert
+Test 9 PASS: Compare assert
+Test 10 PASS: Assume
+Test 11 PASS: Assert imm test
+Test 12 PASS: Assert imm test
+Test 13 PASS: Assert imm test
+Test 14 PASS: Assert imm test
+Test 15 PASS: Assert imm test
+Test 16 PASS: Assert imm test
+Test 17 PASS: Assert imm test
+Test 18 PASS: Assert imm test
+Test 19 PASS: Assert imm test
+Test 20 PASS: Assert imm test
+=== Assert Immediate Edge Cases ===
+Passed: 20/20
+TEST PASSED

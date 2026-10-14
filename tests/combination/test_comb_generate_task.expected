@@ -1,0 +1,8 @@
+T1: PASS - generate transform: 5, 15, 25, 35
+T2: PASS - independent functions: [0]=1 [3]=31
+T3: PASS - check_result = 1 (data[0] != 0)
+T4: PASS - check_result = 0 (data[0] == 0)
+T5: PASS - OFFSET[0]=0 OFFSET[2]=20
+T6: PASS - zero input + offset: 0,10,20,30
+pass_count = 6
+PASS: test_comb_generate_task

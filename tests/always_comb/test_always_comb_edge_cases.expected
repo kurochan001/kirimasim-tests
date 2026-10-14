@@ -1,0 +1,23 @@
+Test 1 PASS: Initial sum = 0
+Test 2 PASS: a=5 sum = 5
+Test 3 PASS: b=3 sum = 8
+Test 4 PASS: diff = 2
+Test 5 PASS: sel=0 mux = 5
+Test 6 PASS: sel=1 mux = 3
+Test 7 PASS: 5>3 gt=1 eq=0 lt=0
+Test 8 PASS: 4==4 eq=1
+Test 9 PASS: 2<7 lt=1
+Test 10 PASS: Final sum = 7
+Test 11 PASS: Always_comb test
+Test 12 PASS: Always_comb test
+Test 13 PASS: Always_comb test
+Test 14 PASS: Always_comb test
+Test 15 PASS: Always_comb test
+Test 16 PASS: Always_comb test
+Test 17 PASS: Always_comb test
+Test 18 PASS: Always_comb test
+Test 19 PASS: Always_comb test
+Test 20 PASS: Always_comb test
+=== Always_comb Edge Cases ===
+Passed: 20/20
+TEST PASSED

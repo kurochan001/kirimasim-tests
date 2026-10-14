@@ -1,0 +1,10 @@
+TEST 1 PASS: Initial state correct (q=0, counter=0)
+TEST 2 PASS: Async reset applied (q=0, counter=0)
+TEST 3 PASS: Clock edge after reset release (q=ab, counter=1)
+TEST 4 PASS: Level-sensitive sensitivity (level_out=5)
+TEST 5 PASS: Level input change (level_out=a)
+TEST 6 PASS: Multi-signal posedge a (multi_edge_result=1)
+TEST 7 PASS: Multi-signal posedge b (multi_edge_result=2)
+=== Test Summary ===
+Passed: 7 / 7
+All tests PASSED!

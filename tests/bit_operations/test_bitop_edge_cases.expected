@@ -1,0 +1,15 @@
+PASS: $onehot(32'h80000000) = 1 (MSB only)
+PASS: $onehot(32'h00000001) = 1 (LSB only)
+PASS: $onehot with X bit = 1
+PASS: $onehot0 with all X = 1
+PASS: $isunknown with LSB X = 1
+PASS: $isunknown with MSB X = 1
+PASS: $countones(64'hFFFFFFFF00000000) = 32
+PASS: $countones(16'hAAAA) = 8
+PASS: $onehot(16'h0100) = 1 (power of 2)
+PASS: $onehot0 with Z bits = 1
+PASS: $isunknown with mixed X and Z = 1
+PASS: $countones 32-bit vector single bit = 1
+=== Bit Operation Edge Cases Test Summary ===
+Tests: 12, Passed: 12
+PASS: All bit operation edge case tests passed

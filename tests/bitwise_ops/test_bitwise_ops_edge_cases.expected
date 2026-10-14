@@ -1,0 +1,13 @@
+TEST: Bitwise operations edge cases
+  [PASS] Bitwise AND
+  [PASS] Bitwise OR
+  [PASS] Bitwise XOR
+  [PASS] Bitwise NOT
+  [PASS] Bitwise NAND
+  [PASS] Bitwise NOR
+  [PASS] Bitwise XNOR
+  [PASS] AND with zero
+  [PASS] OR with zero
+  [PASS] XOR self cancellation
+Results: 10 passed, 0 failed
+TEST PASSED

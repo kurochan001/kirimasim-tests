@@ -1,0 +1,23 @@
+Test 1 PASS: int->logic = 100
+Test 2 PASS: logic->int = 43981
+Test 3 PASS: Truncate = 78
+Test 4 PASS: Extension = 00ff
+Test 5 PASS: Signed ext = -1
+Test 6 PASS: real->int = 4
+Test 7 PASS: int->real = 42.000000
+Test 8 PASS: Size cast = 2
+Test 9 PASS: Struct cast h=a l=b
+Test 10 PASS: Zero cast = 0
+Test 11 PASS: Max cast = -1
+Test 12 PASS: $signed = -2147483648
+Test 13 PASS: $unsigned = ffffffff
+Test 14 PASS: Chain cast = f0
+Test 15 PASS: Neg real->int = -6
+Test 16 PASS: Cast test
+Test 17 PASS: Cast test
+Test 18 PASS: Cast test
+Test 19 PASS: Cast test
+Test 20 PASS: Cast test
+=== Cast Edge Cases ===
+Passed: 20/20
+TEST PASSED

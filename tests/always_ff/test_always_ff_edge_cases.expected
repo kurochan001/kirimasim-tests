@@ -1,0 +1,23 @@
+Test 1 PASS: Reset q=00 cnt=0
+Test 2 PASS: q = aa
+Test 3 PASS: Counter = 1
+Test 4 PASS: 5 clocks cnt = 6
+Test 5 PASS: Loaded cnt = 10
+Test 6 PASS: After load cnt = 11
+Test 7 PASS: New d q = 55
+Test 8 PASS: Async reset q = 00
+Test 9 PASS: Async reset cnt = 0
+Test 10 PASS: Resume q = ff
+Test 11 PASS: Always_ff test
+Test 12 PASS: Always_ff test
+Test 13 PASS: Always_ff test
+Test 14 PASS: Always_ff test
+Test 15 PASS: Always_ff test
+Test 16 PASS: Always_ff test
+Test 17 PASS: Always_ff test
+Test 18 PASS: Always_ff test
+Test 19 PASS: Always_ff test
+Test 20 PASS: Always_ff test
+=== Always_ff Edge Cases ===
+Passed: 20/20
+TEST PASSED

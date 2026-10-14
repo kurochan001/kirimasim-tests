@@ -1,0 +1,13 @@
+TEST: Conditions edge cases
+  [PASS] Basic if-else
+  [PASS] If-else-if chain
+  [PASS] Nested if
+  [PASS] Conditional with &&
+  [PASS] Conditional with ||
+  [PASS] Negation in condition
+  [PASS] Signed comparison
+  [PASS] No else branch
+  [PASS] Complex boolean
+  [PASS] Zero is false
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,13 @@
+TEST: Dynamic array edge cases
+  [PASS] Empty size
+  [PASS] New allocation
+  [PASS] Element init
+  [PASS] Element modify
+  [PASS] Resize larger
+  [PASS] New elements are zero
+  [PASS] Element sum
+  [PASS] Resize smaller
+  [PASS] Delete all
+  [PASS] Rebuild
+Results: 10 passed, 0 failed
+TEST PASSED

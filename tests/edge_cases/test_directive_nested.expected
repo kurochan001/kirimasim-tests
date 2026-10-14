@@ -1,0 +1,8 @@
+Test 1: Outer macro = 8
+Test 2: Nested macro = 4
+Test 3: Macro args = 8
+Test 4: Nested invocation = 14
+Test 5: Guard defined correctly
+Test 6: Undefined macro check OK
+All 6 directive tests passed
+TEST PASSED

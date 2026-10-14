@@ -1,0 +1,13 @@
+TEST: Enum types edge cases
+  [PASS] Enum default
+  [PASS] Enum assignment
+  [PASS] Enum numeric
+  [PASS] Enum explicit
+  [PASS] Enum non-seq
+  [PASS] Enum compare
+  [PASS] Enum case
+  [PASS] Enum to int
+  [PASS] Enum first
+  [PASS] Enum last
+Results: 10 passed, 0 failed
+TEST PASSED

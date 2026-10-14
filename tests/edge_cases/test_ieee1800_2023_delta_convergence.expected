@@ -1,0 +1,15 @@
+=== IEEE 1800-2023 §4.6: Delta Convergence Tests ===
+PASS: Test 1 - Simple chain convergence
+PASS: Test 2 - Wide bus propagation
+PASS: Test 3 - Parallel paths
+PASS: Test 4 - Conditional propagation
+PASS: Test 5 - Feedback stable
+PASS: Test 6 - Signal propagation
+PASS: Test 7 - Cross-module propagation
+PASS: Test 8 - Reduction operators
+PASS: Test 9 - Concatenation propagation
+PASS: Test 10 - Part-select propagation
+PASS: Test 11 - Rapid toggle
+PASS: Test 12 - Zero-delay sequence
+=== Results: 12/12 tests passed ===
+ALL TESTS PASSED

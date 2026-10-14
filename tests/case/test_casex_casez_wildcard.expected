@@ -1,0 +1,9 @@
+=== casex/casez Wildcard Test (IEEE 1800-2023 §12.5.2) ===
+PASS: casez 1010 matched 1??? pattern
+PASS: casez 10z1 matched first pattern 1001
+PASS: casex 1100 matched 11xx pattern
+PASS: casex 1x00 matched first pattern 1100
+PASS: casez 0101 exact match
+PASS: casex 1z10 matched 1010 (Z as wildcard)
+=== Results: 6 passed, 0 failed ===
+TEST PASSED

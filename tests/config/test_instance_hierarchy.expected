@@ -1,0 +1,9 @@
+=== IEEE 1800-2023 §33.5: Instance Hierarchy ===
+PASS: top.mid1.leaf1.ID = 11
+PASS: top.mid1.leaf2.ID = 12
+PASS: top.mid2.leaf1.ID = 21
+PASS: top.mid2.leaf2.ID = 22
+PASS: MID_ID propagation correct
+PASS: Leaf default value is 0
+=== Results: 6 PASS, 0 FAIL ===
+TEST PASSED

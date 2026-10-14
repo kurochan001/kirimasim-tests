@@ -1,0 +1,23 @@
+Test 1 PASS: 5! = 120
+Test 2 PASS: 0! = 1
+Test 3 PASS: Fib(6) = 8
+Test 4 PASS: Fib(0) = 0
+Test 5 PASS: Sum(10) = 55
+Test 6 PASS: Sum(0) = 0
+Test 7 PASS: Local auto = 15
+Test 8 PASS: Multi r1=6 r2=24
+Test 9 PASS: 2^5 = 32
+Test 10 PASS: 5^0 = 1
+Test 11 PASS: Automatic test
+Test 12 PASS: Automatic test
+Test 13 PASS: Automatic test
+Test 14 PASS: Automatic test
+Test 15 PASS: Automatic test
+Test 16 PASS: Automatic test
+Test 17 PASS: Automatic test
+Test 18 PASS: Automatic test
+Test 19 PASS: Automatic test
+Test 20 PASS: Automatic test
+=== Automatic Edge Cases ===
+Passed: 20/20
+TEST PASSED

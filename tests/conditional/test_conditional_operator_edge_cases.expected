@@ -1,0 +1,23 @@
+Test 1 PASS: 1 ? 100 : 200 = 100
+Test 2 PASS: 0 ? 100 : 200 = 200
+Test 3 PASS: cond(1) ? AA : BB = aa
+Test 4 PASS: cond(0) ? AA : BB = bb
+Test 5 PASS: (5>3) ? 1 : 0 = 1
+Test 6 PASS: (10==10) ? 42 : 0 = 42
+Test 7 PASS: Nested right = 10
+Test 8 PASS: Nested left false = 20
+Test 9 PASS: Nested all false = 30
+Test 10 PASS: String result = yes
+Test 11 PASS: 42 ? 1 : 0 = 1
+Test 12 PASS: Expression true = 8
+Test 13 PASS: Expression false = 20
+Test 14 PASS: max(5,10) = 10
+Test 15 PASS: 100 + ternary = 110
+Test 16 PASS: Boolean result = 1
+Test 17 PASS: Same values = 42
+Test 18 PASS: Negative = -10
+Test 19 PASS: Zero result = 0
+Test 20 PASS: Conditional operator tests complete
+=== Conditional Operator Edge Cases ===
+Passed: 20/20
+TEST PASSED

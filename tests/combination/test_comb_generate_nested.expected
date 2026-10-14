@@ -1,0 +1,8 @@
+T1: PASS - 2D generate matrix correct
+T2: PASS - parity_out = 1
+T3: PASS - row sums: 1, 21, 41
+T4: PASS - matrix[1][0] = 10
+T5: PASS - last element matrix[2][1] = 21
+T6: PASS - localparams: 0, 10, 20
+pass_count = 6
+PASS: test_comb_generate_nested

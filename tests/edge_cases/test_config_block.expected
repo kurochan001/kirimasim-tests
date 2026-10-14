@@ -1,0 +1,6 @@
+Test 1: Multiple design versions instantiated
+Test 2: Hierarchical access to different instances
+Test 3: dut1.clk=1, dut2.clk=0
+Test 3: Instance separation verified
+All 3 config block edge case tests passed
+TEST PASSED

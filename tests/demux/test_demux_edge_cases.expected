@@ -1,0 +1,23 @@
+Test 1 PASS: sel=00 out0=ab
+Test 2 PASS: sel=01 out1=ab
+Test 3 PASS: sel=10 out2=ab
+Test 4 PASS: sel=11 out3=ab
+Test 5 PASS: data changed = cd
+Test 6 PASS: Zero data
+Test 7 PASS: FF data = ff
+Test 8 PASS: DEMUX test
+Test 9 PASS: DEMUX test
+Test 10 PASS: DEMUX test
+Test 11 PASS: DEMUX test
+Test 12 PASS: DEMUX test
+Test 13 PASS: DEMUX test
+Test 14 PASS: DEMUX test
+Test 15 PASS: DEMUX test
+Test 16 PASS: DEMUX test
+Test 17 PASS: DEMUX test
+Test 18 PASS: DEMUX test
+Test 19 PASS: DEMUX test
+Test 20 PASS: DEMUX test
+=== DEMUX Edge Cases ===
+Passed: 20/20
+TEST PASSED

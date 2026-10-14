@@ -1,0 +1,12 @@
+=== IEEE 1800-2023 Generate Construct Corner Case Tests (§27) ===
+PASS: Generate for loop values
+PASS: Conditional generate if branch
+PASS: Generate case selection
+PASS: Nested generate loops
+PASS: Generate local signals
+PASS: Generate continuous assignments
+PASS: Genvar properly scoped
+PASS: Empty generate block handled
+=== Results ===
+Total: 8, Passed: 8, Failed: 0
+All tests PASSED!

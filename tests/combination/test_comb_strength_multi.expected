@@ -1,0 +1,8 @@
+T1: PASS - strong(1) beats weak(0): w1=1
+T2: PASS - pullup: w2=1
+T3: PASS - equal strength conflict: w3=x (X)
+T4: PASS - supply(1) beats strong(0): w4=1
+T5: PASS - strong(1) + highz: w5=1
+T6: PASS - pull(1) beats weak(0): w6=1
+pass_count = 6
+PASS: test_comb_strength_multi

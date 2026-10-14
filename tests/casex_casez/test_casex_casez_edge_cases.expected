@@ -1,0 +1,13 @@
+TEST: Casex/casez edge cases
+  [PASS] Casez exact
+  [PASS] Casez wildcard
+  [PASS] Casez default
+  [PASS] Casez partial
+  [PASS] Casex exact
+  [PASS] Casex X wildcard
+  [PASS] Casex default
+  [PASS] Casez first match
+  [PASS] Casez patterns
+  [PASS] Casez all wildcards
+Results: 10 passed, 0 failed
+TEST PASSED

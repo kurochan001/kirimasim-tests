@@ -1,0 +1,13 @@
+TEST: $bits and $typename edge cases
+  [PASS] $bits of byte
+  [PASS] $bits of word
+  [PASS] $bits of struct
+  [PASS] $bits of quad
+  [PASS] $bits of int
+  [PASS] $bits of shortint
+  [PASS] $bits of longint
+  [PASS] $bits of bit vector
+  [PASS] $bits type vs variable
+  [PASS] $bits consistency
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,15 @@
+PASS: $countbits(8'hFF, 0) = 0 zeros
+PASS: $countbits(8'hFF, 1) = 8 ones
+PASS: $countbits(8'h00, 0) = 8 zeros
+PASS: $countbits(8'h00, 1) = 0 ones
+PASS: $countbits(8'hAA, 1) = 4 ones
+PASS: $countbits(8'hAA, 0) = 4 zeros
+PASS: $countbits(16'hF0F0, 1) = 8 ones
+PASS: $countbits(32'hFFFF0000, 1) = 16 ones
+PASS: $countbits(32'hFFFF0000, 0) = 16 zeros
+PASS: $countbits single bit: 1 one, 31 zeros
+PASS: ones(5) + zeros(11) = 16
+PASS: $countbits(,1) = $countones = 5
+=== Countbits Detailed Test Summary ===
+Tests: 12, Passed: 12
+PASS: All countbits tests passed

@@ -1,0 +1,13 @@
+TEST: Enums edge cases
+  [PASS] Default enum values
+  [PASS] Explicit enum values
+  [PASS] Enum variable assignment
+  [PASS] Enum comparison
+  [PASS] Enum to int cast
+  [PASS] Enum name() method
+  [PASS] Enum first() method
+  [PASS] Enum next() method
+  [PASS] Signed enum values
+  [PASS] Enum in case
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,13 @@
+TEST: Cast operations edge cases
+  [PASS] Int to real cast
+  [PASS] Real to int cast
+  [PASS] Logic to int cast
+  [PASS] Int to logic cast
+  [PASS] Width reduction cast
+  [PASS] Width extension cast
+  [PASS] Signed cast
+  [PASS] Unsigned cast
+  [PASS] Shortint cast
+  [PASS] Bit vector cast
+Results: 10 passed, 0 failed
+TEST PASSED

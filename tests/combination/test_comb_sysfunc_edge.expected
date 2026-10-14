@@ -1,0 +1,10 @@
+T1: PASS - $clog2 edge cases correct
+T2: PASS - $countones patterns correct
+T3: PASS - $onehot correct
+T4: PASS - $onehot0 correct
+T5: PASS - $isunknown detects X and Z
+T6: PASS - $signed(FF)=-1 $unsigned(FF)=255
+T7: PASS - $sformatf: val=42 hex=ab
+T8: PASS - $bits: 16,8,1,32
+pass_count = 8
+PASS: test_comb_sysfunc_edge

@@ -1,0 +1,13 @@
+TEST: Comparison operators edge cases
+  [PASS] Less than true
+  [PASS] Less than false
+  [PASS] Greater than true
+  [PASS] Greater than false
+  [PASS] Less or equal true (less)
+  [PASS] Less or equal true (equal)
+  [PASS] Greater or equal true (greater)
+  [PASS] Greater or equal true (equal)
+  [PASS] Compare with negative
+  [PASS] Compare zeros
+Results: 10 passed, 0 failed
+TEST PASSED

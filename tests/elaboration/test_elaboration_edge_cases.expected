@@ -1,0 +1,23 @@
+Test 1 PASS: WIDTH = 8
+Test 2 PASS: DEPTH = 4
+Test 3 PASS: sub_val1 = 42
+Test 4 PASS: sub_val2 = 99
+Test 5 PASS: Gen block val = aa
+Test 6 PASS: data = 55
+Test 7 PASS: $bits = 8
+Test 8 PASS: Elaboration test
+Test 9 PASS: Elaboration test
+Test 10 PASS: Elaboration test
+Test 11 PASS: Elaboration test
+Test 12 PASS: Elaboration test
+Test 13 PASS: Elaboration test
+Test 14 PASS: Elaboration test
+Test 15 PASS: Elaboration test
+Test 16 PASS: Elaboration test
+Test 17 PASS: Elaboration test
+Test 18 PASS: Elaboration test
+Test 19 PASS: Elaboration test
+Test 20 PASS: Elaboration test
+=== Elaboration Edge Cases ===
+Passed: 20/20
+TEST PASSED

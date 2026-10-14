@@ -1,0 +1,23 @@
+Test 1 PASS: Disabled q = xx
+Test 2 PASS: Enabled q = aa
+Test 3 PASS: Hold q = aa
+Test 4 PASS: Re-enable q = 55
+Test 5 PASS: Case 0 out = 11
+Test 6 PASS: Case 1 invert = f0
+Test 7 PASS: Case 2 +1 = 11
+Test 8 PASS: Case 3 hold = 11
+Test 9 PASS: Toggle en q = ff
+Test 10 PASS: Multi change q = 40
+Test 11 PASS: Always_latch test
+Test 12 PASS: Always_latch test
+Test 13 PASS: Always_latch test
+Test 14 PASS: Always_latch test
+Test 15 PASS: Always_latch test
+Test 16 PASS: Always_latch test
+Test 17 PASS: Always_latch test
+Test 18 PASS: Always_latch test
+Test 19 PASS: Always_latch test
+Test 20 PASS: Always_latch test
+=== Always_latch Edge Cases ===
+Passed: 20/20
+TEST PASSED

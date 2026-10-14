@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Compliance: $dimensions and 2-state conversion ===
+--- §20.7 $dimensions Tests ---
+PASS: $dimensions(arr1d) = 2
+PASS: $dimensions(arr2d) = 3
+PASS: $dimensions(arr3d) = 4
+PASS: $unpacked_dimensions(arr1d) = 1
+PASS: $unpacked_dimensions(arr2d) = 2
+PASS: $unpacked_dimensions(arr3d) = 3
+--- §6.11.2 X/Z to 0 Conversion Tests (byte' cast) ---
+PASS: X to bit conversion = 00000000
+PASS: Z to bit conversion = 00000000
+PASS: Mixed X/Z to bit conversion = 10000100
+--- §6.11.2 Single Bit Conversion Tests (bit' cast) ---
+PASS: Single X to bit = 0
+PASS: Single Z to bit = 0
+=================================
+IEEE Compliance: 11 passed, 0 failed
+=================================
+TEST PASSED

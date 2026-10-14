@@ -1,0 +1,13 @@
+TEST: Conditional operations edge cases
+  [PASS] True condition
+  [PASS] False condition
+  [PASS] Expression condition
+  [PASS] Nested conditional
+  [PASS] Min function
+  [PASS] Max function
+  [PASS] Absolute value
+  [PASS] Conditional with vectors
+  [PASS] Chained conditional
+  [PASS] Conditional as LHS value
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,13 @@
+TEST: Disable statement edge cases
+  [PASS] Disable named block
+  [PASS] Disable in loop
+  [PASS] Conditional disable
+  [PASS] No disable
+  [PASS] Disable at start
+  [PASS] Disable with accum
+  [PASS] Preserve state
+  [PASS] Multiple disables
+  [PASS] After work
+  [PASS] With expression
+Results: 10 passed, 0 failed
+TEST PASSED

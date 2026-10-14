@@ -1,0 +1,11 @@
+PASS: Test 1 - always_comb and assign produce same result: 30
+PASS: Test 1b - Updated values correct: 150
+PASS: Test 2 - Multiple blocks: prod=18, diff=3
+PASS: Test 3a - Mux sel=0: aa
+PASS: Test 3b - Mux sel=2: cc
+PASS: Test 4 - Chained: mid=6, out=12
+PASS: Test 5 - CA+comb: wire=30, comb_out=35
+PASS: Test 6 - Independent: a=11, b=22
+=== always_comb Performance Optimization Test Summary ===
+PASS: 8 / 8
+ALL TESTS PASSED

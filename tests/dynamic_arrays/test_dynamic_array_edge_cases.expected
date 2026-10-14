@@ -1,0 +1,13 @@
+TEST: Dynamic array edge cases
+  [PASS] Empty array size is 0
+  [PASS] new[5] creates array of size 5
+  [PASS] Default values are 0
+  [PASS] Resize with preservation works
+  [PASS] Shrink preserves valid indices
+  [PASS] delete() sets size to 0
+  [PASS] Logic array stores values correctly
+  [PASS] String array works
+  [PASS] Array assignment is deep copy
+  [PASS] new[0] creates empty array
+Results: 10 passed, 0 failed
+TEST PASSED

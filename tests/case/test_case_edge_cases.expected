@@ -1,0 +1,23 @@
+Test 1 PASS: Case match = 1
+Test 2 PASS: Second match = 2
+Test 3 PASS: Default = 99
+Test 4 PASS: Casez = 10
+Test 5 PASS: Casex = 30
+Test 6 PASS: Multi item = 50
+Test 7 PASS: Expr case = 60
+Test 8 PASS: Nested = 70
+Test 9 PASS: Zero sel = 80
+Test 10 PASS: All ones = 90
+Test 11 PASS: Case test
+Test 12 PASS: Case test
+Test 13 PASS: Case test
+Test 14 PASS: Case test
+Test 15 PASS: Case test
+Test 16 PASS: Case test
+Test 17 PASS: Case test
+Test 18 PASS: Case test
+Test 19 PASS: Case test
+Test 20 PASS: Case test
+=== Case Edge Cases ===
+Passed: 20/20
+TEST PASSED

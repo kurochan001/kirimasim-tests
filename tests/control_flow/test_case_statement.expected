@@ -1,0 +1,9 @@
+PASS: Basic case matched correctly
+PASS: casez matched correctly
+INFO: casex with X result = 0
+PASS: First match wins
+PASS: Default case works
+=== Case Statement Test Results ===
+PASS: 5
+FAIL: 0
+TEST PASSED

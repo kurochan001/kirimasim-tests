@@ -1,0 +1,13 @@
+TEST: Array slicing edge cases
+  [PASS] Array element access
+  [PASS] First element
+  [PASS] Last element
+  [PASS] Packed high byte
+  [PASS] Packed low byte
+  [PASS] Packed middle
+  [PASS] Modify element
+  [PASS] Slice write
+  [PASS] Array sum
+  [PASS] Indexed variable
+Results: 10 passed, 0 failed
+TEST PASSED

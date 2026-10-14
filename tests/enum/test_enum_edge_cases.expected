@@ -1,0 +1,13 @@
+TEST: Enum edge cases
+  [PASS] Enum default is first member
+  [PASS] Enum name() returns GREEN
+  [PASS] Enum first() returns RED
+  [PASS] Enum last() returns BLUE
+  [PASS] Enum next() returns GREEN after RED
+  [PASS] Enum prev() returns RED before GREEN
+  [PASS] Explicit enum value RUN=5
+  [PASS] Enum comparison RED < BLUE
+  [PASS] Enum num() returns 3 members
+  [PASS] Sparse enum C=7 (4'b0111)
+Results: 10 passed, 0 failed
+TEST PASSED

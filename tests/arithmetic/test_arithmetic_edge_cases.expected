@@ -1,0 +1,13 @@
+TEST: Arithmetic operators edge cases
+  [PASS] Addition
+  [PASS] Subtraction
+  [PASS] Multiplication
+  [PASS] Division
+  [PASS] Modulo
+  [PASS] Negative result
+  [PASS] Division truncation
+  [PASS] Logic addition
+  [PASS] Overflow wrap
+  [PASS] Multiply by zero
+Results: 10 passed, 0 failed
+TEST PASSED

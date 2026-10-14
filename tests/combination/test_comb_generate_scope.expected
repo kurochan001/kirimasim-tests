@@ -1,0 +1,8 @@
+T1: PASS - generate if: parity = 0
+T2: PASS - generate for [0]: data = 0
+T3: PASS - generate for [1]: data = 10
+T4: PASS - generate for [3]: data = 30
+T5: PASS - parameter WIDTH = 8
+T6: PASS - ENABLE_PARITY = 1, parity_gen exists
+pass_count = 6
+PASS: test_comb_generate_scope

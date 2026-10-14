@@ -1,0 +1,10 @@
+PASS: NBA ordering - b got old value of a
+PASS: Multiple NBA - last value wins
+PASS: NBA with intra-assignment delay
+PASS: NBA to array elements
+PASS: Blocking value visible before NBA takes effect
+PASS: NBA takes effect after time step
+=== Non-blocking Assignment Test Results ===
+PASS: 6
+FAIL: 0
+TEST PASSED

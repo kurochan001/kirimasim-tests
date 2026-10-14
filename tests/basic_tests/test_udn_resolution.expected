@@ -1,0 +1,21 @@
+=== UDN Resolution Function Tests (IEEE 1800-2023 §6.6.7) ===
+--- Test Group 1: Both Drivers High-Z ---
+PASS: wor: Z + Z = Z - got z, expected z
+PASS: wand: Z + Z = Z - got z, expected z
+--- Test Group 2: One Driver Active ---
+PASS: wor: 1 + Z = 1 - got 1, expected 1
+PASS: wand: 1 + Z = 1 - got 1, expected 1
+PASS: wor: 0 + Z = 0 - got 0, expected 0
+PASS: wand: 0 + Z = 0 - got 0, expected 0
+--- Test Group 3: Same Values ---
+PASS: wor: 1 + 1 = 1 - got 1, expected 1
+PASS: wand: 1 + 1 = 1 - got 1, expected 1
+PASS: wor: 0 + 0 = 0 - got 0, expected 0
+PASS: wand: 0 + 0 = 0 - got 0, expected 0
+--- Test Group 4: Different Values (OR vs AND) ---
+PASS: wor: 1 + 0 = 1 (OR) - got 1, expected 1
+PASS: wand: 1 + 0 = 0 (AND) - got 0, expected 0
+=== Test Summary ===
+PASSED: 12
+FAILED: 0
+ALL TESTS PASSED

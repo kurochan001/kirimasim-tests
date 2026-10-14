@@ -1,0 +1,13 @@
+TEST: Comparison operators edge cases
+  [PASS] Equal
+  [PASS] Not equal
+  [PASS] Less than
+  [PASS] Greater than
+  [PASS] Less or equal
+  [PASS] Greater or equal
+  [PASS] Negative comparison
+  [PASS] Zero comparison
+  [PASS] Logic comparison
+  [PASS] Chained comparison
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,7 @@
+=== IEEE 1800-2023 §33: Generate Config ===
+PASS: MODE=0 produces 0xAA
+PASS: MODE=1 produces 0xBB
+PASS: MODE=2 produces 0xCC
+PASS: Instances are independent
+=== Results: 4 PASS, 0 FAIL ===
+TEST PASSED

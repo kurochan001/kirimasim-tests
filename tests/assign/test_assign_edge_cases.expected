@@ -1,0 +1,23 @@
+Test 1 PASS: a+b = 30
+Test 2 PASS: sel=0, result = 20
+Test 3 PASS: FF+20 = 1f
+Test 4 PASS: sel=1, result = ff
+Test 5 PASS: 0+0 = 00
+Test 6 PASS: FF+FF = fe (overflow)
+Test 7 PASS: Rapid changes
+Test 8 PASS: Delta = 46
+Test 9 PASS: Toggle = ff
+Test 10 PASS: Selector toggle
+Test 11 PASS: Assign test
+Test 12 PASS: Assign test
+Test 13 PASS: Assign test
+Test 14 PASS: Assign test
+Test 15 PASS: Assign test
+Test 16 PASS: Assign test
+Test 17 PASS: Assign test
+Test 18 PASS: Assign test
+Test 19 PASS: Assign test
+Test 20 PASS: Assign test
+=== Assign Edge Cases ===
+Passed: 20/20
+TEST PASSED

@@ -1,0 +1,13 @@
+TEST: Constants edge cases
+  [PASS] Integer literal
+  [PASS] Hex literal
+  [PASS] Binary literal
+  [PASS] Octal literal
+  [PASS] Localparam integer
+  [PASS] Localparam logic
+  [PASS] Constant expression
+  [PASS] Negative constant
+  [PASS] Zero literal
+  [PASS] Underscore literal
+Results: 10 passed, 0 failed
+TEST PASSED

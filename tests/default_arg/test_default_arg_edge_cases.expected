@@ -1,0 +1,23 @@
+Test 1 PASS: Use default = 15
+Test 2 PASS: Override = 25
+Test 3 PASS: All default = 6
+Test 4 PASS: First override = 15
+Test 5 PASS: Two override = 33
+Test 6 PASS: All override = 60
+Test 7 PASS: Mixed req = 20
+Test 8 PASS: Mixed b = 16
+Test 9 PASS: Zero default = 10
+Test 10 PASS: Neg default = 5
+Test 11 PASS: Default arg test
+Test 12 PASS: Default arg test
+Test 13 PASS: Default arg test
+Test 14 PASS: Default arg test
+Test 15 PASS: Default arg test
+Test 16 PASS: Default arg test
+Test 17 PASS: Default arg test
+Test 18 PASS: Default arg test
+Test 19 PASS: Default arg test
+Test 20 PASS: Default arg test
+=== Default Arg Edge Cases ===
+Passed: 20/20
+TEST PASSED

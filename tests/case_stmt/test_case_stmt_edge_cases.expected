@@ -1,0 +1,13 @@
+TEST: Case statement edge cases
+  [PASS] Case first match
+  [PASS] Case second match
+  [PASS] Case default
+  [PASS] Case multiple values
+  [PASS] Case negative
+  [PASS] Case with expression
+  [PASS] Case fall through check
+  [PASS] Case large value
+  [PASS] Case zero
+  [PASS] Nested case
+Results: 10 passed, 0 failed
+TEST PASSED

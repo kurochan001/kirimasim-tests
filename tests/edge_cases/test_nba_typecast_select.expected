@@ -1,0 +1,4 @@
+PASS: Test 1 - NBA part-select on logic vector: cdab
+PASS: Test 2 - NBA part-select on array element: mem[0]=0f, mem[1]=a0
+PASS: Test 3 - Multiple NBA part-selects merged: 44332211
+PASS: All 3 tests passed

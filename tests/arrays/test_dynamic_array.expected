@@ -1,0 +1,10 @@
+PASS: Initial size is 0
+PASS: Allocated size is 5
+PASS: Values set correctly
+PASS: Resize preserves values
+PASS: delete() clears array
+PASS: Literal assignment works
+=== Dynamic Array Test Results ===
+PASS: 6
+FAIL: 0
+TEST PASSED

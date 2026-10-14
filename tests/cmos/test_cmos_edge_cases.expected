@@ -1,0 +1,23 @@
+Test 1 PASS: cmos off = Z
+Test 2 PASS: cmos on, d=0, y=0
+Test 3 PASS: cmos on, d=1, y=1
+Test 4 PASS: cmos off = Z
+Test 5 PASS: nmos only = 0
+Test 6 PASS: pmos only = 1
+Test 7 PASS: both on, d=0 = 0
+Test 8 PASS: CMOS test
+Test 9 PASS: CMOS test
+Test 10 PASS: CMOS test
+Test 11 PASS: CMOS test
+Test 12 PASS: CMOS test
+Test 13 PASS: CMOS test
+Test 14 PASS: CMOS test
+Test 15 PASS: CMOS test
+Test 16 PASS: CMOS test
+Test 17 PASS: CMOS test
+Test 18 PASS: CMOS test
+Test 19 PASS: CMOS test
+Test 20 PASS: CMOS test
+=== CMOS Edge Cases ===
+Passed: 20/20
+TEST PASSED
