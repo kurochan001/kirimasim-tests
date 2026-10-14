@@ -46,7 +46,9 @@ module test_enum_edge_cases;
         // Test 2: Enum name() method
         begin
             static color_t c = GREEN;
-            static string s = c.name();
+            static string s;
+            // Assigned here so the result does not depend on the order of static initializers.
+            s = c.name();
             if (s == "GREEN") begin
                 $display("  [PASS] Enum name() returns GREEN");
                 passed++;
@@ -59,7 +61,9 @@ module test_enum_edge_cases;
         // Test 3: Enum first() method
         begin
             static color_t c = BLUE;
-            static color_t first_val = c.first();
+            static color_t first_val;
+            // Assigned here so the result does not depend on the order of static initializers.
+            first_val = c.first();
             if (first_val == RED) begin
                 $display("  [PASS] Enum first() returns RED");
                 passed++;
@@ -72,7 +76,9 @@ module test_enum_edge_cases;
         // Test 4: Enum last() method
         begin
             static color_t c = RED;
-            static color_t last_val = c.last();
+            static color_t last_val;
+            // Assigned here so the result does not depend on the order of static initializers.
+            last_val = c.last();
             if (last_val == BLUE) begin
                 $display("  [PASS] Enum last() returns BLUE");
                 passed++;
@@ -85,7 +91,9 @@ module test_enum_edge_cases;
         // Test 5: Enum next() method
         begin
             static color_t c = RED;
-            static color_t next_val = c.next();
+            static color_t next_val;
+            // Assigned here so the result does not depend on the order of static initializers.
+            next_val = c.next();
             if (next_val == GREEN) begin
                 $display("  [PASS] Enum next() returns GREEN after RED");
                 passed++;
@@ -98,7 +106,9 @@ module test_enum_edge_cases;
         // Test 6: Enum prev() method
         begin
             static color_t c = GREEN;
-            static color_t prev_val = c.prev();
+            static color_t prev_val;
+            // Assigned here so the result does not depend on the order of static initializers.
+            prev_val = c.prev();
             if (prev_val == RED) begin
                 $display("  [PASS] Enum prev() returns RED before GREEN");
                 passed++;
@@ -111,7 +121,9 @@ module test_enum_edge_cases;
         // Test 7: Explicit enum values
         begin
             static state_t s = RUN;
-            static int v = int'(s);
+            static int v;
+            // Assigned here so the result does not depend on the order of static initializers.
+            v = int'(s);
             if (v == 5) begin
                 $display("  [PASS] Explicit enum value RUN=5");
                 passed++;
@@ -137,7 +149,9 @@ module test_enum_edge_cases;
         // Test 9: Enum num() method
         begin
             static color_t c = RED;
-            static int count = c.num();
+            static int count;
+            // Assigned here so the result does not depend on the order of static initializers.
+            count = c.num();
             if (count == 3) begin
                 $display("  [PASS] Enum num() returns 3 members");
                 passed++;
@@ -150,7 +164,9 @@ module test_enum_edge_cases;
         // Test 10: Enum with logic base type
         begin
             static sparse_t s = C;
-            static logic [3:0] val = s;
+            static logic [3:0] val;
+            // Assigned here so the result does not depend on the order of static initializers.
+            val = s;
             if (val == 4'b0111) begin
                 $display("  [PASS] Sparse enum C=7 (4'b0111)");
                 passed++;

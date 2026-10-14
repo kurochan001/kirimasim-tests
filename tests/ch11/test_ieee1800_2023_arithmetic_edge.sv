@@ -27,7 +27,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static logic [31:0] a = 32'd100;
       static logic [31:0] b = 32'd0;
-      static logic [31:0] result = a / b;
+      static logic [31:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a / b;
       if (result === 32'hxxxxxxxx) begin
         $display("PASS: Test 1 - integer division by zero -> X");
         pass_count++;
@@ -38,7 +40,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static real a = 1.0;
       static real b = 0.0;
-      static real result = a / b;
+      static real result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a / b;
       if (result > 1.0e300) begin
         $display("PASS: Test 2 - real division by zero -> infinity");
         pass_count++;
@@ -49,7 +53,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static int a = -100;
       static int b = 7;
-      static int result = a / b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a / b;
       if (result == -14) begin
         $display("PASS: Test 3 - signed div negative/positive");
         pass_count++;
@@ -60,7 +66,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static int a = -100;
       static int b = -7;
-      static int result = a / b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a / b;
       if (result == 14) begin
         $display("PASS: Test 4 - signed div negative/negative");
         pass_count++;
@@ -71,7 +79,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static int a = -2147483648;
       static int b = -1;
-      static int result = a / b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a / b;
       if (result == -2147483648) begin
         $display("PASS: Test 5 - INT_MIN / -1 overflow");
         pass_count++;
@@ -86,7 +96,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static logic [31:0] a = 32'd100;
       static logic [31:0] b = 32'd0;
-      static logic [31:0] result = a % b;
+      static logic [31:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a % b;
       if (result === 32'hxxxxxxxx) begin
         $display("PASS: Test 6 - integer modulo by zero -> X");
         pass_count++;
@@ -97,7 +109,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static int a = -17;
       static int b = 5;
-      static int result = a % b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a % b;
       if (result == -2) begin
         $display("PASS: Test 7 - signed modulo negative dividend");
         pass_count++;
@@ -108,7 +122,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static int a = 17;
       static int b = -5;
-      static int result = a % b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a % b;
       if (result == 2) begin
         $display("PASS: Test 8 - signed modulo negative divisor");
         pass_count++;
@@ -119,7 +135,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static int a = 42;
       static int b = 42;
-      static int result = a % b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a % b;
       if (result == 0) begin
         $display("PASS: Test 9 - modulo equal values -> 0");
         pass_count++;
@@ -192,7 +210,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static int a = 32'h7FFFFFFF;  // INT_MAX
       static int b = 2;
-      static int result = a * b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a * b;
       if (result == -2) begin
         $display("PASS: Test 16 - signed multiply overflow wraps");
         pass_count++;
@@ -203,7 +223,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static logic [7:0] a = 8'd200;
       static logic [7:0] b = 8'd2;
-      static logic [7:0] result = a * b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a * b;
       if (result == 8'd144) begin
         $display("PASS: Test 17 - unsigned multiply truncation");
         pass_count++;
@@ -218,7 +240,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static logic [7:0] a = 8'hFF;
       static logic [7:0] b = 8'h01;
-      static logic [7:0] result = a + b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a + b;
       if (result == 8'h00) begin
         $display("PASS: Test 18 - addition overflow truncation");
         pass_count++;
@@ -229,7 +253,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static logic [7:0] a = 8'h00;
       static logic [7:0] b = 8'h01;
-      static logic [7:0] result = a - b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a - b;
       if (result == 8'hFF) begin
         $display("PASS: Test 19 - subtraction underflow wraps");
         pass_count++;
@@ -240,7 +266,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static int a = 32'h7FFFFFFF;  // INT_MAX
       static int b = 1;
-      static int result = a + b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a + b;
       if (result == -2147483648) begin
         $display("PASS: Test 20 - signed addition overflow -> INT_MIN");
         pass_count++;
@@ -255,7 +283,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static int a = 3;
       static real b = 0.14;
-      static real result = a + b;
+      static real result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a + b;
       if (result > 3.13 && result < 3.15) begin
         $display("PASS: Test 21 - int + real -> real");
         pass_count++;
@@ -266,7 +296,9 @@ module test_ieee1800_2023_arithmetic_edge;
     begin
       static real a = 2.5;
       static int b = 4;
-      static real result = a * b;
+      static real result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a * b;
       if (result > 9.99 && result < 10.01) begin
         $display("PASS: Test 22 - real * int -> real");
         pass_count++;
@@ -276,7 +308,9 @@ module test_ieee1800_2023_arithmetic_edge;
     // Test 23: Unary minus on unsigned
     begin
       static logic [7:0] a = 8'd5;
-      static logic [7:0] result = -a;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = -a;
       if (result == 8'hFB) begin
         $display("PASS: Test 23 - unary minus on unsigned");
         pass_count++;
@@ -286,7 +320,9 @@ module test_ieee1800_2023_arithmetic_edge;
     // Test 24: Bitwise NOT
     begin
       static logic [7:0] a = 8'hA5;
-      static logic [7:0] result = ~a;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = ~a;
       if (result == 8'h5A) begin
         $display("PASS: Test 24 - bitwise NOT");
         pass_count++;

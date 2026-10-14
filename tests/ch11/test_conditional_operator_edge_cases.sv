@@ -160,7 +160,9 @@ module test_conditional_operator_edge_cases;
         begin
             static int a = 5;
             static int b = 10;
-            static int max_val = (a > b) ? a : b;
+            static int max_val;
+            // Assigned here so the result does not depend on the order of static initializers.
+            max_val = (a > b) ? a : b;
             if (max_val == 10) begin
                 pass_count++;
                 $display("Test 14 PASS: max(5,10) = %0d", max_val);

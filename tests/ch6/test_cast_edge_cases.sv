@@ -193,7 +193,9 @@ module test_cast_edge_cases;
         test_count++;
         begin
             static logic [63:0] big = 64'h123456789ABCDEF0;
-            static logic [7:0] tiny = 8'(16'(32'(big)));
+            static logic [7:0] tiny;
+            // Assigned here so the result does not depend on the order of static initializers.
+            tiny = 8'(16'(32'(big)));
             pass_count++;
             $display("Test 14 PASS: Chain cast = %h", tiny);
         end

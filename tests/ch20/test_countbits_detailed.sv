@@ -22,7 +22,9 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [7:0] val = 8'b11111111;
-      static int count = $countbits(val, 1'b0);
+      static int count;
+      // Assigned here so the result does not depend on the order of static initializers.
+      count = $countbits(val, 1'b0);
       if (count == 0) begin
         $display("PASS: $countbits(8'hFF, 0) = 0 zeros");
         pass_count++;
@@ -35,7 +37,9 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [7:0] val = 8'b11111111;
-      static int count = $countbits(val, 1'b1);
+      static int count;
+      // Assigned here so the result does not depend on the order of static initializers.
+      count = $countbits(val, 1'b1);
       if (count == 8) begin
         $display("PASS: $countbits(8'hFF, 1) = 8 ones");
         pass_count++;
@@ -48,7 +52,9 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [7:0] val = 8'b00000000;
-      static int count = $countbits(val, 1'b0);
+      static int count;
+      // Assigned here so the result does not depend on the order of static initializers.
+      count = $countbits(val, 1'b0);
       if (count == 8) begin
         $display("PASS: $countbits(8'h00, 0) = 8 zeros");
         pass_count++;
@@ -61,7 +67,9 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [7:0] val = 8'b00000000;
-      static int count = $countbits(val, 1'b1);
+      static int count;
+      // Assigned here so the result does not depend on the order of static initializers.
+      count = $countbits(val, 1'b1);
       if (count == 0) begin
         $display("PASS: $countbits(8'h00, 1) = 0 ones");
         pass_count++;
@@ -74,7 +82,9 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [7:0] val = 8'b10101010;
-      static int count = $countbits(val, 1'b1);
+      static int count;
+      // Assigned here so the result does not depend on the order of static initializers.
+      count = $countbits(val, 1'b1);
       if (count == 4) begin
         $display("PASS: $countbits(8'hAA, 1) = 4 ones");
         pass_count++;
@@ -87,7 +97,9 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [7:0] val = 8'b10101010;
-      static int count = $countbits(val, 1'b0);
+      static int count;
+      // Assigned here so the result does not depend on the order of static initializers.
+      count = $countbits(val, 1'b0);
       if (count == 4) begin
         $display("PASS: $countbits(8'hAA, 0) = 4 zeros");
         pass_count++;
@@ -100,7 +112,9 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [15:0] val = 16'hF0F0;  // 8 ones, 8 zeros
-      static int count = $countbits(val, 1'b1);
+      static int count;
+      // Assigned here so the result does not depend on the order of static initializers.
+      count = $countbits(val, 1'b1);
       if (count == 8) begin
         $display("PASS: $countbits(16'hF0F0, 1) = 8 ones");
         pass_count++;
@@ -113,7 +127,9 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [31:0] val = 32'hFFFF0000;  // 16 ones, 16 zeros
-      static int count = $countbits(val, 1'b1);
+      static int count;
+      // Assigned here so the result does not depend on the order of static initializers.
+      count = $countbits(val, 1'b1);
       if (count == 16) begin
         $display("PASS: $countbits(32'hFFFF0000, 1) = 16 ones");
         pass_count++;
@@ -126,7 +142,9 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [31:0] val = 32'hFFFF0000;
-      static int count = $countbits(val, 1'b0);
+      static int count;
+      // Assigned here so the result does not depend on the order of static initializers.
+      count = $countbits(val, 1'b0);
       if (count == 16) begin
         $display("PASS: $countbits(32'hFFFF0000, 0) = 16 zeros");
         pass_count++;
@@ -139,8 +157,11 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [31:0] val = 32'h00010000;  // bit 16 set
-      static int ones = $countbits(val, 1'b1);
-      static int zeros = $countbits(val, 1'b0);
+      static int ones;
+      static int zeros;
+      // Assigned here so the result does not depend on the order of static initializers.
+      ones = $countbits(val, 1'b1);
+      zeros = $countbits(val, 1'b0);
       if (ones == 1 && zeros == 31) begin
         $display("PASS: $countbits single bit: 1 one, 31 zeros");
         pass_count++;
@@ -153,8 +174,11 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [15:0] val = 16'h1234;
-      static int ones = $countbits(val, 1'b1);
-      static int zeros = $countbits(val, 1'b0);
+      static int ones;
+      static int zeros;
+      // Assigned here so the result does not depend on the order of static initializers.
+      ones = $countbits(val, 1'b1);
+      zeros = $countbits(val, 1'b0);
       if (ones + zeros == 16) begin
         $display("PASS: ones(%0d) + zeros(%0d) = 16", ones, zeros);
         pass_count++;
@@ -167,8 +191,11 @@ module test_countbits_detailed;
     test_count++;
     begin
       static logic [7:0] val = 8'b11010110;  // 5 ones
-      static int countbits_result = $countbits(val, 1'b1);
-      static int countones_result = $countones(val);
+      static int countbits_result;
+      static int countones_result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      countbits_result = $countbits(val, 1'b1);
+      countones_result = $countones(val);
       if (countbits_result == countones_result) begin
         $display("PASS: $countbits(,1) = $countones = %0d", countones_result);
         pass_count++;

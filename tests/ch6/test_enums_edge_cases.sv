@@ -77,7 +77,9 @@ module test_enums_edge_cases;
         // Test 5: Enum to int cast
         begin
             static color_t c = BLUE;
-            static int val = int'(c);
+            static int val;
+            // Assigned here so the result does not depend on the order of static initializers.
+            val = int'(c);
             if (val == 2) begin
                 $display("  [PASS] Enum to int cast");
                 passed++;

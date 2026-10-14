@@ -202,9 +202,12 @@ module test_math_system_functions;
         // T18: $abs(-5) = 5 (integer abs via expression)
         begin
             static int v1 = -5;
-            static int v2 = (v1 < 0) ? -v1 : v1;
+            static int v2;
             static real r1 = -5.5;
-            static real r2 = (r1 < 0.0) ? -r1 : r1;
+            static real r2;
+            // Assigned here so the result does not depend on the order of static initializers.
+            v2 = (v1 < 0) ? -v1 : v1;
+            r2 = (r1 < 0.0) ? -r1 : r1;
             if (v2 == 5 && r2 == 5.5) begin
                 $display("T18: PASS - abs(-5)=%0d, abs(-5.5)=%f", v2, r2);
                 pass_count++;

@@ -80,8 +80,11 @@ module test_comb_sysfunc_edge;
         // T6: $signed and $unsigned
         begin
             static logic [7:0] val = 8'hFF;
-            static int signed_val = $signed(val);
-            static int unsigned_val = $unsigned(val);
+            static int signed_val;
+            static int unsigned_val;
+            // Assigned here so the result does not depend on the order of static initializers.
+            signed_val = $signed(val);
+            unsigned_val = $unsigned(val);
             if (signed_val == -1 && unsigned_val == 255) begin
                 $display("T6: PASS - $signed(FF)=%0d $unsigned(FF)=%0d", signed_val, unsigned_val);
                 pass_count++;

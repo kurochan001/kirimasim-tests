@@ -130,7 +130,9 @@ module test_system_functions_edge;
     // Test 13: $countbits for 1s (§20.9)
     begin
       static logic [7:0] val = 8'b10101010;
-      static int cnt = $countbits(val, 1'b1);
+      static int cnt;
+      // Assigned here so the result does not depend on the order of static initializers.
+      cnt = $countbits(val, 1'b1);
       if (cnt == 4) begin
         $display("PASS: Test 13 - $countbits(AA, 1) = 4");
         pass_count++;
@@ -140,7 +142,9 @@ module test_system_functions_edge;
     // Test 14: $countbits for 0s (§20.9)
     begin
       static logic [7:0] val = 8'b10101010;
-      static int cnt = $countbits(val, 1'b0);
+      static int cnt;
+      // Assigned here so the result does not depend on the order of static initializers.
+      cnt = $countbits(val, 1'b0);
       if (cnt == 4) begin
         $display("PASS: Test 14 - $countbits(AA, 0) = 4");
         pass_count++;

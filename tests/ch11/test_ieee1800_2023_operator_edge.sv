@@ -61,7 +61,9 @@ module test_ieee1800_2023_operator_edge;
         begin
             static int a = -7;
             static int b = 3;
-            static int result = a % b;
+            static int result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = a % b;
             // -7 % 3 = -1 (sign follows dividend in Verilog)
             if (result == -1) begin
                 $display("PASS: Test 4 - Negative modulo (-7 %% 3 = %0d)", result);
@@ -114,7 +116,9 @@ module test_ieee1800_2023_operator_edge;
         // Test 9: Left shift by width
         begin
             static logic [31:0] a = 1;
-            static logic [31:0] result = a << 32;
+            static logic [31:0] result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = a << 32;
             if (result == 0) begin
                 $display("PASS: Test 9 - Left shift by width = 0");
                 pass_count++;
@@ -124,7 +128,9 @@ module test_ieee1800_2023_operator_edge;
         // Test 10: Right shift by more than width
         begin
             static logic [31:0] a = 32'hFFFFFFFF;
-            static logic [31:0] result = a >> 64;
+            static logic [31:0] result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = a >> 64;
             if (result == 0) begin
                 $display("PASS: Test 10 - Right shift by more than width = 0");
                 pass_count++;
@@ -134,7 +140,9 @@ module test_ieee1800_2023_operator_edge;
         // Test 11: Arithmetic right shift of negative
         begin
             static logic signed [31:0] a = -8;  // 0xFFFFFFF8
-            static logic signed [31:0] result = a >>> 2;
+            static logic signed [31:0] result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = a >>> 2;
             if (result == -2) begin
                 $display("PASS: Test 11 - Arithmetic right shift preserves sign");
                 pass_count++;
@@ -147,7 +155,9 @@ module test_ieee1800_2023_operator_edge;
         begin
             static logic [3:0] a = 4'b1x01;
             static logic [3:0] b = 4'b1101;
-            static logic result = (a == b);
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = (a == b);
             if ($isunknown(result) || result === 1'bx) begin
                 $display("PASS: Test 12 - Equality with X returns X");
                 pass_count++;
@@ -158,7 +168,9 @@ module test_ieee1800_2023_operator_edge;
         begin
             static logic [3:0] a = 4'b1x01;
             static logic [3:0] b = 4'b1x01;
-            static logic result = (a === b);
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = (a === b);
             if (result == 1) begin
                 $display("PASS: Test 13 - Case equality x === x is true");
                 pass_count++;
@@ -169,7 +181,9 @@ module test_ieee1800_2023_operator_edge;
         begin
             static logic [3:0] pattern = 4'b1x0x;
             static logic [3:0] value = 4'b1101;
-            static logic result = (value ==? pattern);  // x and z act as wildcards only on the right (11.4.6)
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = (value ==? pattern);  // x and z act as wildcards only on the right (11.4.6)
             if (result == 1) begin
                 $display("PASS: Test 14 - Wildcard equality works");
                 pass_count++;
@@ -182,7 +196,9 @@ module test_ieee1800_2023_operator_edge;
         begin
             static logic a = 1'bx;
             static logic b = 1'b0;
-            static logic result = a && b;
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = a && b;
             // x && 0 = 0
             if (result == 0) begin
                 $display("PASS: Test 15 - x && 0 = 0");
@@ -194,7 +210,9 @@ module test_ieee1800_2023_operator_edge;
         begin
             static logic a = 1'bx;
             static logic b = 1'b1;
-            static logic result = a || b;
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = a || b;
             // x || 1 = 1
             if (result == 1) begin
                 $display("PASS: Test 16 - x || 1 = 1");
@@ -205,7 +223,9 @@ module test_ieee1800_2023_operator_edge;
         // Test 17: Logical NOT of X
         begin
             static logic a = 1'bx;
-            static logic result = !a;
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = !a;
             if ($isunknown(result)) begin
                 $display("PASS: Test 17 - !x = x");
                 pass_count++;
@@ -217,7 +237,9 @@ module test_ieee1800_2023_operator_edge;
         // Test 18: Reduction AND with zero
         begin
             static logic [3:0] a = 4'b1110;
-            static logic result = &a;
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = &a;
             if (result == 0) begin
                 $display("PASS: Test 18 - Reduction AND with zero bit = 0");
                 pass_count++;
@@ -227,7 +249,9 @@ module test_ieee1800_2023_operator_edge;
         // Test 19: Reduction OR with all zeros
         begin
             static logic [3:0] a = 4'b0000;
-            static logic result = |a;
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = |a;
             if (result == 0) begin
                 $display("PASS: Test 19 - Reduction OR of all zeros = 0");
                 pass_count++;
@@ -237,7 +261,9 @@ module test_ieee1800_2023_operator_edge;
         // Test 20: Reduction XOR (parity)
         begin
             static logic [3:0] a = 4'b1011;  // 3 ones
-            static logic result = ^a;
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = ^a;
             if (result == 1) begin
                 $display("PASS: Test 20 - Reduction XOR (odd parity) = 1");
                 pass_count++;
@@ -247,7 +273,9 @@ module test_ieee1800_2023_operator_edge;
         // Test 21: Reduction with X
         begin
             static logic [3:0] a = 4'bx111;
-            static logic result = &a;
+            static logic result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = &a;
             if ($isunknown(result)) begin
                 $display("PASS: Test 21 - Reduction AND with X = X");
                 pass_count++;
@@ -270,7 +298,9 @@ module test_ieee1800_2023_operator_edge;
         // Test 23: Replication with 1
         begin
             static logic [7:0] a = 8'hFF;
-            static logic [7:0] result = {1{a}};
+            static logic [7:0] result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = {1{a}};
             if (result == 8'hFF) begin
                 $display("PASS: Test 23 - Replication {1{x}} = x");
                 pass_count++;
@@ -284,7 +314,9 @@ module test_ieee1800_2023_operator_edge;
             static logic cond = 1'bx;
             static logic [3:0] a = 4'b1111;
             static logic [3:0] b = 4'b0000;
-            static logic [3:0] result = cond ? a : b;
+            static logic [3:0] result;
+            // Assigned here so the result does not depend on the order of static initializers.
+            result = cond ? a : b;
             // When condition is X, result should be bitwise combination
             $display("PASS: Test 24 - Conditional with X condition (result=%b)", result);
             pass_count++;

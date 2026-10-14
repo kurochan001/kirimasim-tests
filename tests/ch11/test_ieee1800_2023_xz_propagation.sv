@@ -80,7 +80,9 @@ module test_ieee1800_2023_xz_propagation;
     // Test 6: Arithmetic right shift positive value
     begin
       static logic signed [7:0] val = 8'sb01100000;  // +96
-      static logic signed [7:0] result = val >>> 3;
+      static logic signed [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = val >>> 3;
       if (result == 8'sb00001100) begin  // +12
         $display("PASS: Test 6 - arith right shift positive");
         pass_count++;
@@ -90,7 +92,9 @@ module test_ieee1800_2023_xz_propagation;
     // Test 7: Arithmetic right shift negative value (sign extend)
     begin
       static logic signed [7:0] val = -64;  // 8'b11000000
-      static logic signed [7:0] result = val >>> 2;
+      static logic signed [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = val >>> 2;
       if (result == -16) begin  // 8'b11110000
         $display("PASS: Test 7 - arith right shift negative (sign extend)");
         pass_count++;
@@ -100,7 +104,9 @@ module test_ieee1800_2023_xz_propagation;
     // Test 8: Left shift << fills with zeros
     begin
       static logic [7:0] val = 8'hFF;
-      static logic [7:0] result = val << 4;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = val << 4;
       if (result == 8'hF0) begin
         $display("PASS: Test 8 - left shift fills zeros");
         pass_count++;
@@ -110,7 +116,9 @@ module test_ieee1800_2023_xz_propagation;
     // Test 9: Shift amount larger than bit width
     begin
       static logic [7:0] val = 8'hFF;
-      static logic [7:0] result = val << 10;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = val << 10;
       if (result == 8'h00) begin
         $display("PASS: Test 9 - shift amount > width -> 0");
         pass_count++;
@@ -120,7 +128,9 @@ module test_ieee1800_2023_xz_propagation;
     // Test 10: Zero shift amount
     begin
       static logic [7:0] val = 8'hAB;
-      static logic [7:0] result = val >> 0;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = val >> 0;
       if (result == 8'hAB) begin
         $display("PASS: Test 10 - shift by 0 unchanged");
         pass_count++;
@@ -136,7 +146,9 @@ module test_ieee1800_2023_xz_propagation;
       static logic [7:0] a = 8'hAA;
       static logic [7:0] b = 8'h55;
       static logic sel = 1'b1;
-      static logic [7:0] result = sel ? a : b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = sel ? a : b;
       if (result == 8'hAA) begin
         $display("PASS: Test 11 - conditional sel=1");
         pass_count++;
@@ -148,7 +160,9 @@ module test_ieee1800_2023_xz_propagation;
       static logic [7:0] a = 8'hAA;
       static logic [7:0] b = 8'h55;
       static logic sel = 1'b0;
-      static logic [7:0] result = sel ? a : b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = sel ? a : b;
       if (result == 8'h55) begin
         $display("PASS: Test 12 - conditional sel=0");
         pass_count++;
@@ -160,7 +174,9 @@ module test_ieee1800_2023_xz_propagation;
       static logic [7:0] a = 8'hFF;
       static logic [7:0] b = 8'hFF;
       static logic sel = 1'bx;
-      static logic [7:0] result = sel ? a : b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = sel ? a : b;
       // When both branches are same, result is same regardless of X
       if (result == 8'hFF) begin
         $display("PASS: Test 13 - conditional sel=X, same branches -> FF");
@@ -173,7 +189,9 @@ module test_ieee1800_2023_xz_propagation;
       static logic [7:0] a = 8'hF0;
       static logic [7:0] b = 8'h0F;
       static logic sel = 1'bx;
-      static logic [7:0] result = sel ? a : b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = sel ? a : b;
       // Bitwise merge: bits that match stay, others -> X
       // a=11110000, b=00001111 -> all differ -> xxxxxxxx
       if (result === 8'hxx) begin
@@ -187,7 +205,9 @@ module test_ieee1800_2023_xz_propagation;
       static logic [7:0] a = 8'hFF;
       static logic [7:0] b = 8'h0F;
       static logic sel = 1'bx;
-      static logic [7:0] result = sel ? a : b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = sel ? a : b;
       // a=11111111, b=00001111 -> upper 4 bits differ -> Xx0F pattern
       // Lower 4 bits match (1111) -> stay as F
       if (result[3:0] === 4'hF) begin
@@ -224,7 +244,9 @@ module test_ieee1800_2023_xz_propagation;
     begin
       static logic [3:0] a = 4'b1x00;
       static logic [3:0] b = 4'b1100;
-      static logic result = (a == b);
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = (a == b);
       if (result === 1'bx) begin
         $display("PASS: Test 18 - logical == with X -> X");
         pass_count++;
@@ -248,7 +270,9 @@ module test_ieee1800_2023_xz_propagation;
     // Test 20: Reduction OR with one 1 bit (overrides X)
     begin
       static logic [3:0] val = 4'b1x0x;
-      static logic result = |val;
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = |val;
       // At least one bit is 1, so result is 1
       if (result === 1'b1) begin
         $display("PASS: Test 20 - reduction OR with X (has 1) -> 1");
@@ -259,7 +283,9 @@ module test_ieee1800_2023_xz_propagation;
     // Test 21: Reduction AND with one 0 bit (overrides X)
     begin
       static logic [3:0] val = 4'b1x0x;
-      static logic result = &val;
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = &val;
       // At least one bit is 0, so result is 0
       if (result === 1'b0) begin
         $display("PASS: Test 21 - reduction AND with X (has 0) -> 0");
@@ -270,7 +296,9 @@ module test_ieee1800_2023_xz_propagation;
     // Test 22: Reduction OR all X -> X
     begin
       static logic [3:0] val = 4'bxxxx;
-      static logic result = |val;
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = |val;
       if (result === 1'bx) begin
         $display("PASS: Test 22 - reduction OR all X -> X");
         pass_count++;
@@ -280,7 +308,9 @@ module test_ieee1800_2023_xz_propagation;
     // Test 23: Reduction AND all X -> X
     begin
       static logic [3:0] val = 4'bxxxx;
-      static logic result = &val;
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = &val;
       if (result === 1'bx) begin
         $display("PASS: Test 23 - reduction AND all X -> X");
         pass_count++;
@@ -295,7 +325,9 @@ module test_ieee1800_2023_xz_propagation;
     begin
       static logic [7:0] a = 8'hFF;
       static logic [7:0] b = 8'hxx;
-      static logic [7:0] result = a + b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a + b;
       if (result === 8'hxx) begin
         $display("PASS: Test 24 - addition with X -> X");
         pass_count++;
@@ -306,7 +338,9 @@ module test_ieee1800_2023_xz_propagation;
     begin
       static logic [7:0] a = 8'd5;
       static logic [7:0] b = 8'hxx;
-      static logic [7:0] result = a * b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a * b;
       if (result === 8'hxx) begin
         $display("PASS: Test 25 - multiply with X -> X");
         pass_count++;
@@ -317,7 +351,9 @@ module test_ieee1800_2023_xz_propagation;
     begin
       static logic [3:0] a = 4'b1100;
       static logic [3:0] b = 4'bxx11;
-      static logic [3:0] result = a & b;
+      static logic [3:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a & b;
       // 1&x=x, 1&x=x, 0&1=0, 0&1=0
       if (result[1:0] === 2'b00) begin
         $display("PASS: Test 26 - bitwise AND with X (0&anything=0)");
@@ -329,7 +365,9 @@ module test_ieee1800_2023_xz_propagation;
     begin
       static logic [3:0] a = 4'b1100;
       static logic [3:0] b = 4'bxx00;
-      static logic [3:0] result = a | b;
+      static logic [3:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a | b;
       // 1|x=1, 1|x=1, 0|0=0, 0|0=0
       if (result[3:2] === 2'b11 && result[1:0] === 2'b00) begin
         $display("PASS: Test 27 - bitwise OR with X (1|anything=1)");

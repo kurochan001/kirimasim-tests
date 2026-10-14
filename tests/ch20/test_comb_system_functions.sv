@@ -63,8 +63,7 @@ module test;
         begin
             static logic [7:0] val = 8'b10110100;
             int cnt;
-            // The order of static initializers is not defined (6.8, 10.5),
-            // so cnt is computed after val has its initial value.
+            // Assigned here so the result does not depend on the order of static initializers.
             cnt = $countones(val);
             if (cnt == 4) begin
                 $display("T5: PASS - $countones(8'b10110100) = %0d", cnt);
@@ -78,8 +77,7 @@ module test;
         begin
             static logic [7:0] val = 8'b00000000;
             int cnt;
-            // The order of static initializers is not defined (6.8, 10.5),
-            // so cnt is computed after val has its initial value.
+            // Assigned here so the result does not depend on the order of static initializers.
             cnt = $countones(val);
             if (cnt == 0) begin
                 $display("T6: PASS - $countones(0) = %0d", cnt);

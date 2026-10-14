@@ -141,7 +141,9 @@ module test_value_operations;
     // Test 13: << shift beyond width (§11.4.10)
     begin
       static logic [7:0] val = 8'hFF;
-      static logic [7:0] result = val << 10;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = val << 10;
       if (result == 8'h00) begin
         $display("PASS: Test 13 - left shift beyond width = 0");
         pass_count++;
@@ -151,7 +153,9 @@ module test_value_operations;
     // Test 14: >> shift beyond width (§11.4.10)
     begin
       static logic [7:0] val = 8'hFF;
-      static logic [7:0] result = val >> 10;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = val >> 10;
       if (result == 8'h00) begin
         $display("PASS: Test 14 - right shift beyond width = 0");
         pass_count++;
@@ -161,7 +165,9 @@ module test_value_operations;
     // Test 15: >>> signed preserves sign (§11.4.10)
     begin
       static int val = -4;
-      static int result = val >>> 1;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = val >>> 1;
       if (result == -2) begin
         $display("PASS: Test 15 - >>> signed preserves sign bit");
         pass_count++;
@@ -171,7 +177,9 @@ module test_value_operations;
     // Test 16: >>> with X sign bit (§11.4.10)
     begin
       static logic signed [7:0] val = 8'bx1111100;
-      static logic signed [7:0] result = val >>> 2;
+      static logic signed [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = val >>> 2;
       // X sign bit should propagate
       if (result[7] === 1'bx) begin
         $display("PASS: Test 16 - >>> X sign bit propagates");
@@ -183,7 +191,9 @@ module test_value_operations;
     begin
       static logic [7:0] a = 8'd10;
       static logic [7:0] b = 8'd0;
-      static logic [7:0] result = a % b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a % b;
       if (result === 8'bxxxx_xxxx) begin
         $display("PASS: Test 17 - modulo by zero = X");
         pass_count++;
@@ -194,7 +204,9 @@ module test_value_operations;
     begin
       static int a = -7;
       static int b = 3;
-      static int result = a % b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a % b;
       // Sign of result follows sign of dividend
       if (result == -1) begin
         $display("PASS: Test 18 - (-7) %% 3 = -1");
@@ -206,7 +218,9 @@ module test_value_operations;
     begin
       static int a = 7;
       static int b = -3;
-      static int result = a % b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a % b;
       // Sign of result follows sign of dividend
       if (result == 1) begin
         $display("PASS: Test 19 - 7 %% (-3) = 1");
@@ -218,7 +232,9 @@ module test_value_operations;
     begin
       static logic a = 1'bx;
       static logic b = 1'b0;
-      static logic result = a && b;
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a && b;
       if (result === 1'b0) begin
         $display("PASS: Test 20 - X && 0 = 0 (0 dominates)");
         pass_count++;
@@ -229,7 +245,9 @@ module test_value_operations;
     begin
       static logic a = 1'bx;
       static logic b = 1'bx;
-      static logic result = a && b;
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a && b;
       if (result === 1'bx) begin
         $display("PASS: Test 21 - X && X = X");
         pass_count++;
@@ -240,7 +258,9 @@ module test_value_operations;
     begin
       static logic a = 1'bx;
       static logic b = 1'b1;
-      static logic result = a || b;
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a || b;
       if (result === 1'b1) begin
         $display("PASS: Test 22 - X || 1 = 1 (1 dominates)");
         pass_count++;
@@ -251,7 +271,9 @@ module test_value_operations;
     begin
       static logic a = 1'bx;
       static logic b = 1'bx;
-      static logic result = a || b;
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a || b;
       if (result === 1'bx) begin
         $display("PASS: Test 23 - X || X = X");
         pass_count++;
@@ -261,7 +283,9 @@ module test_value_operations;
     // Test 24: ! X = X (§11.4.7)
     begin
       static logic a = 1'bx;
-      static logic result = !a;
+      static logic result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = !a;
       if (result === 1'bx) begin
         $display("PASS: Test 24 - !X = X");
         pass_count++;
@@ -294,7 +318,9 @@ module test_value_operations;
     begin
       static int a = 3;
       static real b = 1.5;
-      static real result = a + b;
+      static real result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a + b;
       if (result > 4.49 && result < 4.51) begin
         $display("PASS: Test 27 - int+real = 4.5");
         pass_count++;
@@ -305,7 +331,9 @@ module test_value_operations;
     begin
       static int a = 5;
       static int b = 10;
-      static int result = a - b;
+      static int result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a - b;
       if (result == -5) begin
         $display("PASS: Test 28 - 5-10 = -5 signed");
         pass_count++;
@@ -316,7 +344,9 @@ module test_value_operations;
     begin
       static logic [7:0] a = 8'd200;
       static logic [7:0] b = 8'd2;
-      static logic [7:0] result = a * b;
+      static logic [7:0] result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a * b;
       // 200*2 = 400 = 0x190, truncated to 8 bits = 0x90 = 144
       if (result == 8'd144) begin
         $display("PASS: Test 29 - 200*2 truncated to 8-bit = 144");
@@ -328,7 +358,9 @@ module test_value_operations;
     begin
       static real a = 1.0;
       static real b = 0.0;
-      static real result = a / b;
+      static real result;
+      // Assigned here so the result does not depend on the order of static initializers.
+      result = a / b;
       // Should return infinity per IEEE 754
       if (result > 1.0e300) begin
         $display("PASS: Test 30 - 1.0/0.0 = infinity");
