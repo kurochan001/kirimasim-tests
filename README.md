@@ -14,11 +14,14 @@ standard it checks.
 ## Layout
 
 ```text
-tests/<group>/<name>.sv         the test, with a metadata header
-tests/<group>/<name>.expected   expected standard output (multi-line)
+tests/chNN/<name>.sv            the test, with a metadata header
+tests/chNN/<name>.expected      expected standard output (multi-line)
 tools/normalize_output.py       removes simulator banners before comparing
 tools/run_icarus.py             runs the suite with Icarus Verilog
 ```
+
+Tests are grouped by the chapter of IEEE 1800-2023 that their first
+`:lrm:` clause belongs to.
 
 ## Test format
 
@@ -30,7 +33,7 @@ extra fields.
 | --- | --- |
 | `:name:` | Test name, unique in the suite |
 | `:description:` | What the test checks |
-| `:tags:` | Group |
+| `:tags:` | Directory: `chNN`, the chapter of the first clause in `:lrm:` |
 | `:type:` | `simulation` for tests that are run |
 | `:lrm:` | IEEE 1800-2023 clauses the test checks, for example `1800-2023 11.4.3` |
 | `:oracle:` | Where the expected output comes from: `spec` (a person checked it against the standard), `iverilog@13.0` (Icarus Verilog 13.0 produced it) |
