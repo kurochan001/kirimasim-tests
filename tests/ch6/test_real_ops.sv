@@ -3,7 +3,7 @@
 :description: Real Number Operations Tests
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.12 6.12.2
+:lrm: 1800-2023 6.12 6.12.1
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no
@@ -67,7 +67,7 @@ module test_real_ops;
         $display("Test 7: To int");
         a = 7.9;
         i = int'(a);
-        // The conversion rounds (6.12.2)
+        // The conversion rounds (6.12.1)
         if (i == 8) begin $display("Test 7 PASS"); pass_count++; end
         else begin $display("Test 7 FAIL: %0d", i); fail_count++; end
 

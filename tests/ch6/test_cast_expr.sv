@@ -3,7 +3,7 @@
 :description: Cast Expression Tests
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.24.1 6.12.2
+:lrm: 1800-2023 6.24.1 6.12.1
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no
@@ -27,7 +27,7 @@ module test_cast_expr;
         $display("Test 1: Real to int");
         r = 3.7;
         i = int'(r);
-        // int'() rounds to the nearest integer (6.12.2)
+        // int'() rounds to the nearest integer (6.12.1)
         if (i == 4) begin $display("Test 1 PASS"); pass_count++; end
         else begin $display("Test 1 FAIL: %0d", i); fail_count++; end
 

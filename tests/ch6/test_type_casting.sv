@@ -3,7 +3,7 @@
 :description: Corner Case: Type Casting
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.24.1 6.12.2 10.7 11.7
+:lrm: 1800-2023 6.24.1 6.12.1 10.7 11.7
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no
@@ -45,7 +45,7 @@ module test_type_casting;
         r = 123.99;
         signed_int = int'(r);
         test_count++;
-        // int'() rounds to the nearest integer (6.12.2)
+        // int'() rounds to the nearest integer (6.12.1)
         if (signed_int == 124) pass_count++;
         else $display("FAIL: real to int - value=%0d", signed_int);
 

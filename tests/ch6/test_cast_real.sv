@@ -3,7 +3,7 @@
 :description: Real type casts
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.24.1 6.12.2
+:lrm: 1800-2023 6.24.1 6.12.1
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no

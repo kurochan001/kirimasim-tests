@@ -3,7 +3,7 @@
 :description: Test for type casting
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.24 6.12.2
+:lrm: 1800-2023 6.24 6.12.1
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no
@@ -39,7 +39,7 @@ module test_type_cast;
         test_count++;
         rval = 3.7;
         ival = int'(rval);
-        if (ival == 4) begin  // rounds (6.12.2)
+        if (ival == 4) begin  // rounds (6.12.1)
             $display("Test 2: real to int PASS ival=%0d", ival);
             pass_count++;
         end else begin
@@ -105,7 +105,7 @@ module test_type_cast;
         test_count++;
         rval = -5.5;
         ival = int'(rval);
-        if (ival == -6) begin  // ties round away from zero (6.12.2)
+        if (ival == -6) begin  // ties round away from zero (6.12.1)
             $display("Test 8: negative real PASS ival=%0d", ival);
         end else begin
             $display("Test 8: FAIL ival=%0d", ival);

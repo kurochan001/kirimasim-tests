@@ -3,7 +3,7 @@
 :description: Realtime Operations Tests
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.12 6.12.2 11.4.3
+:lrm: 1800-2023 6.12 6.12.1 11.4.3
 :oracle: spec iverilog@13.0
 :fourstate: no
 :nondeterministic: no
