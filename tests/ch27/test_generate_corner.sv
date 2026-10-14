@@ -59,6 +59,9 @@ module test_generate_corner;
   endgenerate
 
   initial begin
+    // The values come from continuous assignments; their order against this
+    // initial block at time 0 is not defined (4.7), so wait first.
+    #1;
     // Verify generate loops
     test_count++;
     assert(matrix[0][0] == 0) else $error("matrix[0][0] wrong");
