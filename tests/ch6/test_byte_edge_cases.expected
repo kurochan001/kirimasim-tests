@@ -16,8 +16,6 @@ Test 15 PASS: Inc = 100
 Test 16 PASS: Dec = 99
 Test 17 PASS: Unsigned = 255
 Test 18 PASS: Cast = -1
-Test 19 PASS: Byte test
-Test 20 PASS: Byte test
 === Byte Edge Cases ===
-Passed: 20/20
+Passed: 18/18
 TEST PASSED

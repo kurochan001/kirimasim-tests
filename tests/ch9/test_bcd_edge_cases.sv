@@ -38,8 +38,7 @@ module test_bcd_edge_cases;
             pass_count++;
             $display("Test 1 PASS: 0 -> BCD=%h", bcd);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled bcd=%h", bcd);
+            $display("Test 1 FAIL: unexpected bcd=%h", bcd);
         end
 
         // Test 2: Single digit
@@ -50,8 +49,7 @@ module test_bcd_edge_cases;
             pass_count++;
             $display("Test 2 PASS: 5 -> BCD=%h", bcd);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled bcd=%h", bcd);
+            $display("Test 2 FAIL: unexpected bcd=%h", bcd);
         end
 
         // Test 3: Two digits
@@ -62,8 +60,7 @@ module test_bcd_edge_cases;
             pass_count++;
             $display("Test 3 PASS: 42 -> BCD=%h", bcd);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled bcd=%h", bcd);
+            $display("Test 3 FAIL: unexpected bcd=%h", bcd);
         end
 
         // Test 4: Three digits
@@ -74,8 +71,7 @@ module test_bcd_edge_cases;
             pass_count++;
             $display("Test 4 PASS: 123 -> BCD=%h", bcd);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled bcd=%h", bcd);
+            $display("Test 4 FAIL: unexpected bcd=%h", bcd);
         end
 
         // Test 5: Max value 255
@@ -86,8 +82,7 @@ module test_bcd_edge_cases;
             pass_count++;
             $display("Test 5 PASS: 255 -> BCD=%h", bcd);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled bcd=%h", bcd);
+            $display("Test 5 FAIL: unexpected bcd=%h", bcd);
         end
 
         // Test 6: Boundary 99
@@ -98,8 +93,7 @@ module test_bcd_edge_cases;
             pass_count++;
             $display("Test 6 PASS: 99 -> BCD=%h", bcd);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled bcd=%h", bcd);
+            $display("Test 6 FAIL: unexpected bcd=%h", bcd);
         end
 
         // Test 7: Boundary 100
@@ -110,8 +104,7 @@ module test_bcd_edge_cases;
             pass_count++;
             $display("Test 7 PASS: 100 -> BCD=%h", bcd);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: handled bcd=%h", bcd);
+            $display("Test 7 FAIL: unexpected bcd=%h", bcd);
         end
 
         // Test 8-20: Additional BCD tests

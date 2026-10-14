@@ -8,16 +8,6 @@ Test 7 PASS: Sequence
 Test 8 PASS: Alternating
 Test 9 PASS: Max values
 Test 10 PASS: Zero values
-Test 11 PASS: Defparam test
-Test 12 PASS: Defparam test
-Test 13 PASS: Defparam test
-Test 14 PASS: Defparam test
-Test 15 PASS: Defparam test
-Test 16 PASS: Defparam test
-Test 17 PASS: Defparam test
-Test 18 PASS: Defparam test
-Test 19 PASS: Defparam test
-Test 20 PASS: Defparam test
 === Defparam Edge Cases ===
-Passed: 20/20
+Passed: 10/10
 TEST PASSED

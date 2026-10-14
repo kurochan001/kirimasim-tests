@@ -52,8 +52,7 @@ module test_always_comb_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Initial sum = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Sum handled = %0d", sum);
+            $display("Test 1 FAIL: Sum unexpected = %0d", sum);
         end
 
         // Test 2: Change a
@@ -64,8 +63,7 @@ module test_always_comb_edge_cases;
             pass_count++;
             $display("Test 2 PASS: a=5 sum = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Sum handled = %0d", sum);
+            $display("Test 2 FAIL: Sum unexpected = %0d", sum);
         end
 
         // Test 3: Change b
@@ -76,8 +74,7 @@ module test_always_comb_edge_cases;
             pass_count++;
             $display("Test 3 PASS: b=3 sum = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Sum handled = %0d", sum);
+            $display("Test 3 FAIL: Sum unexpected = %0d", sum);
         end
 
         // Test 4: Difference
@@ -86,8 +83,7 @@ module test_always_comb_edge_cases;
             pass_count++;
             $display("Test 4 PASS: diff = %0d", diff);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Diff handled = %0d", diff);
+            $display("Test 4 FAIL: Diff unexpected = %0d", diff);
         end
 
         // Test 5: Mux sel 0
@@ -98,8 +94,7 @@ module test_always_comb_edge_cases;
             pass_count++;
             $display("Test 5 PASS: sel=0 mux = %0d", mux_out);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Mux0 handled = %0d", mux_out);
+            $display("Test 5 FAIL: Mux0 unexpected = %0d", mux_out);
         end
 
         // Test 6: Mux sel 1
@@ -110,8 +105,7 @@ module test_always_comb_edge_cases;
             pass_count++;
             $display("Test 6 PASS: sel=1 mux = %0d", mux_out);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Mux1 handled = %0d", mux_out);
+            $display("Test 6 FAIL: Mux1 unexpected = %0d", mux_out);
         end
 
         // Test 7: Comparisons
@@ -120,8 +114,7 @@ module test_always_comb_edge_cases;
             pass_count++;
             $display("Test 7 PASS: 5>3 gt=%b eq=%b lt=%b", gt, eq, lt);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Cmp handled");
+            $display("Test 7 FAIL: Cmp unexpected");
         end
 
         // Test 8: Equal values
@@ -132,8 +125,7 @@ module test_always_comb_edge_cases;
             pass_count++;
             $display("Test 8 PASS: 4==4 eq=%b", eq);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Eq handled = %b", eq);
+            $display("Test 8 FAIL: Eq unexpected = %b", eq);
         end
 
         // Test 9: Less than
@@ -144,8 +136,7 @@ module test_always_comb_edge_cases;
             pass_count++;
             $display("Test 9 PASS: 2<7 lt=%b", lt);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Lt handled = %b", lt);
+            $display("Test 9 FAIL: Lt unexpected = %b", lt);
         end
 
         // Test 10: Multiple changes
@@ -157,13 +148,6 @@ module test_always_comb_edge_cases;
         end
         pass_count++;
         $display("Test 10 PASS: Final sum = %0d", sum);
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Always_comb test", i);
-        end
 
         $display("=== Always_comb Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);

@@ -46,8 +46,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Use default = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Default handled = %0d", result);
+            $display("Test 1 FAIL: Default unexpected = %0d", result);
         end
 
         // Test 2: Override default
@@ -57,8 +56,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Override = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Override handled = %0d", result);
+            $display("Test 2 FAIL: Override unexpected = %0d", result);
         end
 
         // Test 3: All defaults
@@ -68,8 +66,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 3 PASS: All default = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: All handled = %0d", result);
+            $display("Test 3 FAIL: All unexpected = %0d", result);
         end
 
         // Test 4: Override first
@@ -79,8 +76,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 4 PASS: First override = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: First handled = %0d", result);
+            $display("Test 4 FAIL: First unexpected = %0d", result);
         end
 
         // Test 5: Override first two
@@ -90,8 +86,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Two override = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Two handled = %0d", result);
+            $display("Test 5 FAIL: Two unexpected = %0d", result);
         end
 
         // Test 6: Override all
@@ -101,8 +96,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 6 PASS: All override = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: All handled = %0d", result);
+            $display("Test 6 FAIL: All unexpected = %0d", result);
         end
 
         // Test 7: Mixed - required only
@@ -112,8 +106,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Mixed req = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Mixed handled = %0d", result);
+            $display("Test 7 FAIL: Mixed unexpected = %0d", result);
         end
 
         // Test 8: Mixed - override b
@@ -123,8 +116,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Mixed b = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Mixed b handled = %0d", result);
+            $display("Test 8 FAIL: Mixed b unexpected = %0d", result);
         end
 
         // Test 9: Zero default
@@ -134,8 +126,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 9 PASS: Zero default = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Zero handled = %0d", result);
+            $display("Test 9 FAIL: Zero unexpected = %0d", result);
         end
 
         // Test 10: Negative default
@@ -145,15 +136,7 @@ module test_default_arg_edge_cases;
             pass_count++;
             $display("Test 10 PASS: Neg default = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Neg handled = %0d", result);
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Default arg test", i);
+            $display("Test 10 FAIL: Neg unexpected = %0d", result);
         end
 
         $display("=== Default Arg Edge Cases ===");

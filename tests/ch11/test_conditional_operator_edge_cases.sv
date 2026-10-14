@@ -121,8 +121,7 @@ module test_conditional_operator_edge_cases;
             pass_count++;
             $display("Test 10 PASS: String result = %s", result_str);
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: String handled = %s", result_str);
+            $display("Test 10 FAIL: String unexpected = %s", result_str);
         end
 
         // Test 11: Non-zero as true

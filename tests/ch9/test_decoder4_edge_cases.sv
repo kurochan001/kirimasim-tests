@@ -43,8 +43,7 @@ module test_decoder4_edge_cases;
             pass_count++;
             $display("Test 1 PASS: disabled out=%b", out);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled out=%b", out);
+            $display("Test 1 FAIL: unexpected out=%b", out);
         end
 
         // Test 2: Select 0
@@ -55,8 +54,7 @@ module test_decoder4_edge_cases;
             pass_count++;
             $display("Test 2 PASS: sel=0 out=%b", out);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled out=%b", out);
+            $display("Test 2 FAIL: unexpected out=%b", out);
         end
 
         // Test 3: Select 1
@@ -67,8 +65,7 @@ module test_decoder4_edge_cases;
             pass_count++;
             $display("Test 3 PASS: sel=1 out=%b", out);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled out=%b", out);
+            $display("Test 3 FAIL: unexpected out=%b", out);
         end
 
         // Test 4: Select 2
@@ -79,8 +76,7 @@ module test_decoder4_edge_cases;
             pass_count++;
             $display("Test 4 PASS: sel=2 out=%b", out);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled out=%b", out);
+            $display("Test 4 FAIL: unexpected out=%b", out);
         end
 
         // Test 5: Select 3
@@ -91,8 +87,7 @@ module test_decoder4_edge_cases;
             pass_count++;
             $display("Test 5 PASS: sel=3 out=%b", out);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled out=%b", out);
+            $display("Test 5 FAIL: unexpected out=%b", out);
         end
 
         // Test 6: Enable toggle
@@ -104,8 +99,7 @@ module test_decoder4_edge_cases;
             pass_count++;
             $display("Test 6 PASS: enable toggle");
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled");
+            $display("Test 6 FAIL: unexpected");
         end
 
         // Test 7: One-hot check

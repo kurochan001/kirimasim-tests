@@ -8,16 +8,6 @@ Test 7 PASS: Local auto = 15
 Test 8 PASS: Multi r1=6 r2=24
 Test 9 PASS: 2^5 = 32
 Test 10 PASS: 5^0 = 1
-Test 11 PASS: Automatic test
-Test 12 PASS: Automatic test
-Test 13 PASS: Automatic test
-Test 14 PASS: Automatic test
-Test 15 PASS: Automatic test
-Test 16 PASS: Automatic test
-Test 17 PASS: Automatic test
-Test 18 PASS: Automatic test
-Test 19 PASS: Automatic test
-Test 20 PASS: Automatic test
 === Automatic Edge Cases ===
-Passed: 20/20
+Passed: 10/10
 TEST PASSED

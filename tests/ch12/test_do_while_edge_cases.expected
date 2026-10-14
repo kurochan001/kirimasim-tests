@@ -8,16 +8,6 @@ Test 7 PASS: Decrement = 15
 Test 8 PASS: Continue = 5
 Test 9 PASS: False init = 1
 Test 10 PASS: Var cond = 4
-Test 11 PASS: Do-while test
-Test 12 PASS: Do-while test
-Test 13 PASS: Do-while test
-Test 14 PASS: Do-while test
-Test 15 PASS: Do-while test
-Test 16 PASS: Do-while test
-Test 17 PASS: Do-while test
-Test 18 PASS: Do-while test
-Test 19 PASS: Do-while test
-Test 20 PASS: Do-while test
 === Do-While Edge Cases ===
-Passed: 20/20
+Passed: 10/10
 TEST PASSED

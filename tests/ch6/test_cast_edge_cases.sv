@@ -50,8 +50,7 @@ module test_cast_edge_cases;
             pass_count++;
             $display("Test 2 PASS: logic->int = %0d", i_val);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: logic->int handled");
+            $display("Test 2 FAIL: logic->int unexpected");
         end
 
         // Test 3: Truncation cast
@@ -62,8 +61,7 @@ module test_cast_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Truncate = %h", b_val);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Truncate handled = %h", b_val);
+            $display("Test 3 FAIL: Truncate unexpected = %h", b_val);
         end
 
         // Test 4: Extension cast
@@ -74,8 +72,7 @@ module test_cast_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Extension = %h", w_val);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Extension handled = %h", w_val);
+            $display("Test 4 FAIL: Extension unexpected = %h", w_val);
         end
 
         // Test 5: Signed extension
@@ -86,8 +83,7 @@ module test_cast_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Signed ext = %0d", si_val);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Signed ext handled = %0d", si_val);
+            $display("Test 5 FAIL: Signed ext unexpected = %0d", si_val);
         end
 
         // Test 6: real to int
@@ -98,8 +94,7 @@ module test_cast_edge_cases;
             pass_count++;
             $display("Test 6 PASS: real->int = %0d", i_val);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: real->int handled = %0d", i_val);
+            $display("Test 6 FAIL: real->int unexpected = %0d", i_val);
         end
 
         // Test 7: int to real
@@ -110,8 +105,7 @@ module test_cast_edge_cases;
             pass_count++;
             $display("Test 7 PASS: int->real = %f", r_val);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: int->real handled = %f", r_val);
+            $display("Test 7 FAIL: int->real unexpected = %f", r_val);
         end
 
         // Test 8: Size cast expression
@@ -122,8 +116,7 @@ module test_cast_edge_cases;
                 pass_count++;
                 $display("Test 8 PASS: Size cast = %h", nibble);
             end else begin
-                pass_count++;
-                $display("Test 8 PASS: Size cast handled = %h", nibble);
+                $display("Test 8 FAIL: Size cast unexpected = %h", nibble);
             end
         end
 
@@ -137,8 +130,7 @@ module test_cast_edge_cases;
                 pass_count++;
                 $display("Test 9 PASS: Struct cast h=%h l=%h", nib.high, nib.low);
             end else begin
-                pass_count++;
-                $display("Test 9 PASS: Struct cast handled");
+                $display("Test 9 FAIL: Struct cast unexpected");
             end
         end
 
@@ -161,8 +153,7 @@ module test_cast_edge_cases;
             pass_count++;
             $display("Test 11 PASS: Max cast = %0d", i_val);
         end else begin
-            pass_count++;
-            $display("Test 11 PASS: Max cast handled = %0d", i_val);
+            $display("Test 11 FAIL: Max cast unexpected = %0d", i_val);
         end
 
         // Test 12: $signed cast
@@ -173,8 +164,7 @@ module test_cast_edge_cases;
             pass_count++;
             $display("Test 12 PASS: $signed = %0d", i_val);
         end else begin
-            pass_count++;
-            $display("Test 12 PASS: $signed handled = %0d", i_val);
+            $display("Test 12 FAIL: $signed unexpected = %0d", i_val);
         end
 
         // Test 13: $unsigned cast
@@ -185,8 +175,7 @@ module test_cast_edge_cases;
             pass_count++;
             $display("Test 13 PASS: $unsigned = %h", l_val);
         end else begin
-            pass_count++;
-            $display("Test 13 PASS: $unsigned handled = %h", l_val);
+            $display("Test 13 FAIL: $unsigned unexpected = %h", l_val);
         end
 
         // Test 14: Chain cast

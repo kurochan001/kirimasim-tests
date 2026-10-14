@@ -56,8 +56,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Reset q=%h cnt=%0d", q, counter);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Reset handled");
+            $display("Test 1 FAIL: Reset unexpected");
         end
 
         // Test 2: Release reset
@@ -69,8 +68,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 2 PASS: q = %h", q);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Q handled = %h", q);
+            $display("Test 2 FAIL: Q unexpected = %h", q);
         end
 
         // Test 3: Counter increment
@@ -79,8 +77,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Counter = %0d", counter);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Counter handled = %0d", counter);
+            $display("Test 3 FAIL: Counter unexpected = %0d", counter);
         end
 
         // Test 4: Multiple clocks
@@ -92,8 +89,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 4 PASS: 5 clocks cnt = %0d", counter);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Multi handled = %0d", counter);
+            $display("Test 4 FAIL: Multi unexpected = %0d", counter);
         end
 
         // Test 5: Load counter
@@ -105,8 +101,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Loaded cnt = %0d", counter);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Load handled = %0d", counter);
+            $display("Test 5 FAIL: Load unexpected = %0d", counter);
         end
 
         // Test 6: Continue after load
@@ -117,8 +112,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 6 PASS: After load cnt = %0d", counter);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: After handled = %0d", counter);
+            $display("Test 6 FAIL: After unexpected = %0d", counter);
         end
 
         // Test 7: D changes
@@ -129,8 +123,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 7 PASS: New d q = %h", q);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: D handled = %h", q);
+            $display("Test 7 FAIL: D unexpected = %h", q);
         end
 
         // Test 8: Async reset
@@ -141,8 +134,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Async reset q = %h", q);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Async handled = %h", q);
+            $display("Test 8 FAIL: Async unexpected = %h", q);
         end
 
         // Test 9: Reset counter check
@@ -151,8 +143,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 9 PASS: Async reset cnt = %0d", counter);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Cnt async handled = %0d", counter);
+            $display("Test 9 FAIL: Cnt async unexpected = %0d", counter);
         end
 
         // Test 10: Resume
@@ -164,15 +155,7 @@ module test_always_ff_edge_cases;
             pass_count++;
             $display("Test 10 PASS: Resume q = %h", q);
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Resume handled = %h", q);
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Always_ff test", i);
+            $display("Test 10 FAIL: Resume unexpected = %h", q);
         end
 
         $display("=== Always_ff Edge Cases ===");

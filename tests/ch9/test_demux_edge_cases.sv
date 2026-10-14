@@ -47,8 +47,7 @@ module test_demux_edge_cases;
             pass_count++;
             $display("Test 1 PASS: sel=00 out0=%h", out0);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled out0=%h", out0);
+            $display("Test 1 FAIL: unexpected out0=%h", out0);
         end
 
         // Test 2: Select out1
@@ -59,8 +58,7 @@ module test_demux_edge_cases;
             pass_count++;
             $display("Test 2 PASS: sel=01 out1=%h", out1);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled out1=%h", out1);
+            $display("Test 2 FAIL: unexpected out1=%h", out1);
         end
 
         // Test 3: Select out2
@@ -71,8 +69,7 @@ module test_demux_edge_cases;
             pass_count++;
             $display("Test 3 PASS: sel=10 out2=%h", out2);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled out2=%h", out2);
+            $display("Test 3 FAIL: unexpected out2=%h", out2);
         end
 
         // Test 4: Select out3
@@ -83,8 +80,7 @@ module test_demux_edge_cases;
             pass_count++;
             $display("Test 4 PASS: sel=11 out3=%h", out3);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled out3=%h", out3);
+            $display("Test 4 FAIL: unexpected out3=%h", out3);
         end
 
         // Test 5: Change data
@@ -95,8 +91,7 @@ module test_demux_edge_cases;
             pass_count++;
             $display("Test 5 PASS: data changed = %h", out3);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled = %h", out3);
+            $display("Test 5 FAIL: unexpected = %h", out3);
         end
 
         // Test 6: Zero data
@@ -116,15 +111,7 @@ module test_demux_edge_cases;
             pass_count++;
             $display("Test 7 PASS: FF data = %h", out1);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: handled = %h", out1);
-        end
-
-        // Test 8-20: Simple passes
-        for (int i = 8; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: DEMUX test", i);
+            $display("Test 7 FAIL: unexpected = %h", out1);
         end
 
         $display("=== DEMUX Edge Cases ===");

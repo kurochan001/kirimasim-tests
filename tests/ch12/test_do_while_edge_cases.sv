@@ -31,8 +31,7 @@ module test_do_while_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Do-while sum = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Sum handled = %0d", sum);
+            $display("Test 1 FAIL: Sum unexpected = %0d", sum);
         end
 
         // Test 2: Do-while executes at least once
@@ -46,8 +45,7 @@ module test_do_while_edge_cases;
             pass_count++;
             $display("Test 2 PASS: At least once = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Once handled = %0d", count);
+            $display("Test 2 FAIL: Once unexpected = %0d", count);
         end
 
         // Test 3: Do-while single iteration
@@ -62,8 +60,7 @@ module test_do_while_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Single iter = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Single handled = %0d", count);
+            $display("Test 3 FAIL: Single unexpected = %0d", count);
         end
 
         // Test 4: Nested do-while
@@ -84,8 +81,7 @@ module test_do_while_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Nested = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Nested handled = %0d", sum);
+            $display("Test 4 FAIL: Nested unexpected = %0d", sum);
         end
 
         // Test 5: Do-while with compound condition
@@ -100,8 +96,7 @@ module test_do_while_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Compound = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Compound handled = %0d", count);
+            $display("Test 5 FAIL: Compound unexpected = %0d", count);
         end
 
         // Test 6: Do-while with break
@@ -115,8 +110,7 @@ module test_do_while_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Break = %0d", i);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Break handled = %0d", i);
+            $display("Test 6 FAIL: Break unexpected = %0d", i);
         end
 
         // Test 7: Do-while decrementing
@@ -131,8 +125,7 @@ module test_do_while_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Decrement = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Dec handled = %0d", sum);
+            $display("Test 7 FAIL: Dec unexpected = %0d", sum);
         end
 
         // Test 8: Do-while with continue
@@ -148,8 +141,7 @@ module test_do_while_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Continue = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Cont handled = %0d", sum);
+            $display("Test 8 FAIL: Cont unexpected = %0d", sum);
         end
 
         // Test 9: False initial condition
@@ -163,8 +155,7 @@ module test_do_while_edge_cases;
             pass_count++;
             $display("Test 9 PASS: False init = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: False handled = %0d", count);
+            $display("Test 9 FAIL: False unexpected = %0d", count);
         end
 
         // Test 10: Variable condition
@@ -180,16 +171,8 @@ module test_do_while_edge_cases;
                 pass_count++;
                 $display("Test 10 PASS: Var cond = %0d", count);
             end else begin
-                pass_count++;
-                $display("Test 10 PASS: Var handled = %0d", count);
+                $display("Test 10 FAIL: Var unexpected = %0d", count);
             end
-        end
-
-        // Test 11-20: Simple passes
-        for (int t = 11; t <= 20; t++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Do-while test", t);
         end
 
         $display("=== Do-While Edge Cases ===");

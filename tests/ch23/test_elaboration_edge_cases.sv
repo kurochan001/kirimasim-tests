@@ -48,8 +48,7 @@ module test_elaboration_edge_cases;
             pass_count++;
             $display("Test 1 PASS: WIDTH = %0d", WIDTH);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: WIDTH handled = %0d", WIDTH);
+            $display("Test 1 FAIL: WIDTH unexpected = %0d", WIDTH);
         end
 
         // Test 2: Second parameter
@@ -58,8 +57,7 @@ module test_elaboration_edge_cases;
             pass_count++;
             $display("Test 2 PASS: DEPTH = %0d", DEPTH);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: DEPTH handled = %0d", DEPTH);
+            $display("Test 2 FAIL: DEPTH unexpected = %0d", DEPTH);
         end
 
         // Test 3: Submodule with override
@@ -68,8 +66,7 @@ module test_elaboration_edge_cases;
             pass_count++;
             $display("Test 3 PASS: sub_val1 = %0d", sub_val1);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: sub handled = %0d", sub_val1);
+            $display("Test 3 FAIL: sub unexpected = %0d", sub_val1);
         end
 
         // Test 4: Second submodule
@@ -78,8 +75,7 @@ module test_elaboration_edge_cases;
             pass_count++;
             $display("Test 4 PASS: sub_val2 = %0d", sub_val2);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: sub handled = %0d", sub_val2);
+            $display("Test 4 FAIL: sub unexpected = %0d", sub_val2);
         end
 
         // Test 5: Generated block exists
@@ -88,8 +84,7 @@ module test_elaboration_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Gen block val = %h", gen_8bit.extra_reg);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Gen handled = %h", gen_8bit.extra_reg);
+            $display("Test 5 FAIL: Gen unexpected = %h", gen_8bit.extra_reg);
         end
 
         // Test 6: Use data signal
@@ -100,8 +95,7 @@ module test_elaboration_edge_cases;
             pass_count++;
             $display("Test 6 PASS: data = %h", data);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: data handled = %h", data);
+            $display("Test 6 FAIL: data unexpected = %h", data);
         end
 
         // Test 7: $bits elaboration
@@ -110,15 +104,7 @@ module test_elaboration_edge_cases;
             pass_count++;
             $display("Test 7 PASS: $bits = %0d", $bits(data));
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: bits handled = %0d", $bits(data));
-        end
-
-        // Test 8-20: Simple passes
-        for (int i = 8; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Elaboration test", i);
+            $display("Test 7 FAIL: bits unexpected = %0d", $bits(data));
         end
 
         $display("=== Elaboration Edge Cases ===");

@@ -35,8 +35,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 1 PASS: A = %0d", A);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: A handled = %0d", A);
+            $display("Test 1 FAIL: A unexpected = %0d", A);
         end
 
         // Test 2: Second constant
@@ -45,8 +44,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 2 PASS: B = %0d", B);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: B handled = %0d", B);
+            $display("Test 2 FAIL: B unexpected = %0d", B);
         end
 
         // Test 3: Addition constant
@@ -55,8 +53,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 3 PASS: C = A+B = %0d", C);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: C handled = %0d", C);
+            $display("Test 3 FAIL: C unexpected = %0d", C);
         end
 
         // Test 4: Multiplication constant
@@ -65,8 +62,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 4 PASS: D = A*B = %0d", D);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: D handled = %0d", D);
+            $display("Test 4 FAIL: D unexpected = %0d", D);
         end
 
         // Test 5: Ternary constant
@@ -75,8 +71,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 5 PASS: E = min(A,B) = %0d", E);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: E handled = %0d", E);
+            $display("Test 5 FAIL: E unexpected = %0d", E);
         end
 
         // Test 6: Power constant
@@ -85,8 +80,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 6 PASS: F = 2^4 = %0d", F);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: F handled = %0d", F);
+            $display("Test 6 FAIL: F unexpected = %0d", F);
         end
 
         // Test 7: Division constant
@@ -95,8 +89,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 7 PASS: G = (A+B)/2 = %0d", G);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: G handled = %0d", G);
+            $display("Test 7 FAIL: G unexpected = %0d", G);
         end
 
         // Test 8: Hex constant
@@ -105,8 +98,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 8 PASS: H = %h", H);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: H handled = %h", H);
+            $display("Test 8 FAIL: H unexpected = %h", H);
         end
 
         // Test 9: Sized constant
@@ -115,8 +107,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 9 PASS: I = %h", I);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: I handled = %h", I);
+            $display("Test 9 FAIL: I unexpected = %h", I);
         end
 
         // Test 10: String constant
@@ -125,15 +116,7 @@ module test_constant_edge_cases;
             pass_count++;
             $display("Test 10 PASS: S = %s", S);
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: S handled = %s", S);
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Constant test", i);
+            $display("Test 10 FAIL: S unexpected = %s", S);
         end
 
         $display("=== Constant Edge Cases ===");

@@ -26,8 +26,7 @@ module test_byte_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Default = %0d", b1);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Default handled = %0d", b1);
+            $display("Test 1 FAIL: Default unexpected = %0d", b1);
         end
 
         // Test 2: Assignment
@@ -37,8 +36,7 @@ module test_byte_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Assign = %0d", b1);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Assign handled = %0d", b1);
+            $display("Test 2 FAIL: Assign unexpected = %0d", b1);
         end
 
         // Test 3: Negative value
@@ -48,8 +46,7 @@ module test_byte_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Negative = %0d", b1);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Negative handled = %0d", b1);
+            $display("Test 3 FAIL: Negative unexpected = %0d", b1);
         end
 
         // Test 4: Max positive (127)
@@ -59,8 +56,7 @@ module test_byte_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Max = %0d", b1);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Max handled = %0d", b1);
+            $display("Test 4 FAIL: Max unexpected = %0d", b1);
         end
 
         // Test 5: Min negative (-128)
@@ -70,8 +66,7 @@ module test_byte_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Min = %0d", b1);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Min handled = %0d", b1);
+            $display("Test 5 FAIL: Min unexpected = %0d", b1);
         end
 
         // Test 6: Addition
@@ -86,8 +81,7 @@ module test_byte_edge_cases;
                 pass_count++;
                 $display("Test 6 PASS: Sum = %0d", sum);
             end else begin
-                pass_count++;
-                $display("Test 6 PASS: Sum handled = %0d", sum);
+                $display("Test 6 FAIL: Sum unexpected = %0d", sum);
             end
         end
 
@@ -103,8 +97,7 @@ module test_byte_edge_cases;
                 pass_count++;
                 $display("Test 7 PASS: Diff = %0d", diff);
             end else begin
-                pass_count++;
-                $display("Test 7 PASS: Diff handled = %0d", diff);
+                $display("Test 7 FAIL: Diff unexpected = %0d", diff);
             end
         end
 
@@ -120,8 +113,7 @@ module test_byte_edge_cases;
                 pass_count++;
                 $display("Test 8 PASS: Prod = %0d", prod);
             end else begin
-                pass_count++;
-                $display("Test 8 PASS: Prod handled = %0d", prod);
+                $display("Test 8 FAIL: Prod unexpected = %0d", prod);
             end
         end
 
@@ -137,8 +129,7 @@ module test_byte_edge_cases;
                 pass_count++;
                 $display("Test 9 PASS: Quot = %0d", quot);
             end else begin
-                pass_count++;
-                $display("Test 9 PASS: Quot handled = %0d", quot);
+                $display("Test 9 FAIL: Quot unexpected = %0d", quot);
             end
         end
 
@@ -154,8 +145,7 @@ module test_byte_edge_cases;
                 pass_count++;
                 $display("Test 10 PASS: Mod = %0d", mod);
             end else begin
-                pass_count++;
-                $display("Test 10 PASS: Mod handled = %0d", mod);
+                $display("Test 10 FAIL: Mod unexpected = %0d", mod);
             end
         end
 
@@ -171,8 +161,7 @@ module test_byte_edge_cases;
                 pass_count++;
                 $display("Test 11 PASS: AND = %h", res);
             end else begin
-                pass_count++;
-                $display("Test 11 PASS: AND handled = %h", res);
+                $display("Test 11 FAIL: AND unexpected = %h", res);
             end
         end
 
@@ -188,8 +177,7 @@ module test_byte_edge_cases;
                 pass_count++;
                 $display("Test 12 PASS: OR = %h", res);
             end else begin
-                pass_count++;
-                $display("Test 12 PASS: OR handled = %h", res);
+                $display("Test 12 FAIL: OR unexpected = %h", res);
             end
         end
 
@@ -205,8 +193,7 @@ module test_byte_edge_cases;
                 pass_count++;
                 $display("Test 13 PASS: XOR = %h", res);
             end else begin
-                pass_count++;
-                $display("Test 13 PASS: XOR handled = %h", res);
+                $display("Test 13 FAIL: XOR unexpected = %h", res);
             end
         end
 
@@ -218,8 +205,7 @@ module test_byte_edge_cases;
             pass_count++;
             $display("Test 14 PASS: b1 < b2");
         end else begin
-            pass_count++;
-            $display("Test 14 PASS: Compare handled");
+            $display("Test 14 FAIL: Compare unexpected");
         end
 
         // Test 15: Increment
@@ -230,8 +216,7 @@ module test_byte_edge_cases;
             pass_count++;
             $display("Test 15 PASS: Inc = %0d", b1);
         end else begin
-            pass_count++;
-            $display("Test 15 PASS: Inc handled = %0d", b1);
+            $display("Test 15 FAIL: Inc unexpected = %0d", b1);
         end
 
         // Test 16: Decrement
@@ -242,8 +227,7 @@ module test_byte_edge_cases;
             pass_count++;
             $display("Test 16 PASS: Dec = %0d", b1);
         end else begin
-            pass_count++;
-            $display("Test 16 PASS: Dec handled = %0d", b1);
+            $display("Test 16 FAIL: Dec unexpected = %0d", b1);
         end
 
         // Test 17: Unsigned byte
@@ -253,8 +237,7 @@ module test_byte_edge_cases;
             pass_count++;
             $display("Test 17 PASS: Unsigned = %0d", bu);
         end else begin
-            pass_count++;
-            $display("Test 17 PASS: Unsigned handled = %0d", bu);
+            $display("Test 17 FAIL: Unsigned unexpected = %0d", bu);
         end
 
         // Test 18: Cast to int
@@ -268,16 +251,8 @@ module test_byte_edge_cases;
                 pass_count++;
                 $display("Test 18 PASS: Cast = %0d", i);
             end else begin
-                pass_count++;
-                $display("Test 18 PASS: Cast handled = %0d", i);
+                $display("Test 18 FAIL: Cast unexpected = %0d", i);
             end
-        end
-
-        // Test 19-20: Simple passes
-        for (int i = 19; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Byte test", i);
         end
 
         $display("=== Byte Edge Cases ===");

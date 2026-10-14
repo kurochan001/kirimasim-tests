@@ -51,8 +51,7 @@ module test_defparam_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Wide data = %h", out16);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Wide handled = %h", out16);
+            $display("Test 2 FAIL: Wide unexpected = %h", out16);
         end
 
         // Test 3: Default params work
@@ -63,8 +62,7 @@ module test_defparam_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Default data = %h", out8);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Default handled = %h", out8);
+            $display("Test 3 FAIL: Default unexpected = %h", out8);
         end
 
         // Test 4: Different instances
@@ -76,8 +74,7 @@ module test_defparam_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Different instances");
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Instance handled");
+            $display("Test 4 FAIL: Instance unexpected");
         end
 
         // Test 5: Toggle wide
@@ -125,8 +122,7 @@ module test_defparam_edge_cases;
             pass_count++;
             $display("Test 9 PASS: Max values");
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Max handled");
+            $display("Test 9 FAIL: Max unexpected");
         end
 
         // Test 10: Zero values
@@ -138,15 +134,7 @@ module test_defparam_edge_cases;
             pass_count++;
             $display("Test 10 PASS: Zero values");
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Zero handled");
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Defparam test", i);
+            $display("Test 10 FAIL: Zero unexpected");
         end
 
         $display("=== Defparam Edge Cases ===");

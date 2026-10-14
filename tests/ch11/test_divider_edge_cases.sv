@@ -42,8 +42,7 @@ module test_divider_edge_cases;
             pass_count++;
             $display("Test 1 PASS: 100/10=%0d r%0d", quotient, remainder);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled q=%0d r=%0d", quotient, remainder);
+            $display("Test 1 FAIL: unexpected q=%0d r=%0d", quotient, remainder);
         end
 
         // Test 2: Division with remainder
@@ -54,8 +53,7 @@ module test_divider_edge_cases;
             pass_count++;
             $display("Test 2 PASS: 17/5=%0d r%0d", quotient, remainder);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled q=%0d r=%0d", quotient, remainder);
+            $display("Test 2 FAIL: unexpected q=%0d r=%0d", quotient, remainder);
         end
 
         // Test 3: Division by 1
@@ -66,8 +64,7 @@ module test_divider_edge_cases;
             pass_count++;
             $display("Test 3 PASS: AB/1=%h r%0d", quotient, remainder);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled");
+            $display("Test 3 FAIL: unexpected");
         end
 
         // Test 4: Zero dividend
@@ -78,8 +75,7 @@ module test_divider_edge_cases;
             pass_count++;
             $display("Test 4 PASS: 0/10=%0d r%0d", quotient, remainder);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled");
+            $display("Test 4 FAIL: unexpected");
         end
 
         // Test 5: Division by zero
@@ -90,8 +86,7 @@ module test_divider_edge_cases;
             pass_count++;
             $display("Test 5 PASS: div_by_zero=%b", div_by_zero);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled div_by_zero=%b", div_by_zero);
+            $display("Test 5 FAIL: unexpected div_by_zero=%b", div_by_zero);
         end
 
         // Test 6: Dividend less than divisor
@@ -102,8 +97,7 @@ module test_divider_edge_cases;
             pass_count++;
             $display("Test 6 PASS: 5/10=%0d r%0d", quotient, remainder);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled");
+            $display("Test 6 FAIL: unexpected");
         end
 
         // Test 7: Max value division
@@ -114,8 +108,7 @@ module test_divider_edge_cases;
             pass_count++;
             $display("Test 7 PASS: FF/FF=%0d r%0d", quotient, remainder);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: handled");
+            $display("Test 7 FAIL: unexpected");
         end
 
         // Test 8-20: Additional divider tests

@@ -8,16 +8,6 @@ Test 7 PASS: Copy = aa
 Test 8 PASS: Sum = 643
 Test 9 PASS: All cleared
 Test 10 PASS: Sequential pattern
-Test 11 PASS: Interface array test
-Test 12 PASS: Interface array test
-Test 13 PASS: Interface array test
-Test 14 PASS: Interface array test
-Test 15 PASS: Interface array test
-Test 16 PASS: Interface array test
-Test 17 PASS: Interface array test
-Test 18 PASS: Interface array test
-Test 19 PASS: Interface array test
-Test 20 PASS: Interface array test
 === Interface Array Edge Cases ===
-Passed: 20/20
+Passed: 10/10
 TEST PASSED

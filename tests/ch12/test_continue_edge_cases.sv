@@ -30,8 +30,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Skip even = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Even handled = %0d", sum);
+            $display("Test 1 FAIL: Even unexpected = %0d", sum);
         end
 
         // Test 2: Skip odd numbers
@@ -45,8 +44,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Skip odd = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Odd handled = %0d", sum);
+            $display("Test 2 FAIL: Odd unexpected = %0d", sum);
         end
 
         // Test 3: Continue in while
@@ -62,8 +60,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 3 PASS: While cont = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: While handled = %0d", count);
+            $display("Test 3 FAIL: While unexpected = %0d", count);
         end
 
         // Test 4: Continue in nested loop
@@ -79,8 +76,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Nested cont = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Nested handled = %0d", count);
+            $display("Test 4 FAIL: Nested unexpected = %0d", count);
         end
 
         // Test 5: Multiple continues
@@ -96,8 +92,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Multi cont = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Multi handled = %0d", sum);
+            $display("Test 5 FAIL: Multi unexpected = %0d", sum);
         end
 
         // Test 6: Continue at start
@@ -111,8 +106,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Start cont = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Start handled = %0d", count);
+            $display("Test 6 FAIL: Start unexpected = %0d", count);
         end
 
         // Test 7: Continue in do-while
@@ -128,8 +122,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Dowhile cont = %0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Dowhile handled = %0d", sum);
+            $display("Test 7 FAIL: Dowhile unexpected = %0d", sum);
         end
 
         // Test 8: Continue with break after
@@ -144,8 +137,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Cont+break = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Ctbrk handled = %0d", count);
+            $display("Test 8 FAIL: Ctbrk unexpected = %0d", count);
         end
 
         // Test 9: Continue all iterations
@@ -159,8 +151,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 9 PASS: All cont = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: All handled = %0d", count);
+            $display("Test 9 FAIL: All unexpected = %0d", count);
         end
 
         // Test 10: Continue none
@@ -174,15 +165,7 @@ module test_continue_edge_cases;
             pass_count++;
             $display("Test 10 PASS: None cont = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: None handled = %0d", count);
-        end
-
-        // Test 11-20: Simple passes
-        for (int t = 11; t <= 20; t++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Continue test", t);
+            $display("Test 10 FAIL: None unexpected = %0d", count);
         end
 
         $display("=== Continue Edge Cases ===");

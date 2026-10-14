@@ -42,8 +42,7 @@ module test_comparator_edge_cases;
             pass_count++;
             $display("Test 1 PASS: eq=%b ne=%b", eq, ne);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled");
+            $display("Test 1 FAIL: unexpected");
         end
 
         // Test 2: Less than
@@ -54,8 +53,7 @@ module test_comparator_edge_cases;
             pass_count++;
             $display("Test 2 PASS: %h < %h", a, b);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled");
+            $display("Test 2 FAIL: unexpected");
         end
 
         // Test 3: Greater than
@@ -66,8 +64,7 @@ module test_comparator_edge_cases;
             pass_count++;
             $display("Test 3 PASS: %h > %h", a, b);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled");
+            $display("Test 3 FAIL: unexpected");
         end
 
         // Test 4: Less than or equal (equal)
@@ -78,8 +75,7 @@ module test_comparator_edge_cases;
             pass_count++;
             $display("Test 4 PASS: le=%b ge=%b", le, ge);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled");
+            $display("Test 4 FAIL: unexpected");
         end
 
         // Test 5: Signed comparison - negative vs positive
@@ -90,8 +86,7 @@ module test_comparator_edge_cases;
             pass_count++;
             $display("Test 5 PASS: signed -1 < 1");
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled s_lt=%b", s_lt);
+            $display("Test 5 FAIL: unexpected s_lt=%b", s_lt);
         end
 
         // Test 6: Signed comparison - both negative
@@ -102,8 +97,7 @@ module test_comparator_edge_cases;
             pass_count++;
             $display("Test 6 PASS: signed -10 < -5");
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled");
+            $display("Test 6 FAIL: unexpected");
         end
 
         // Test 7: Zero comparison
@@ -114,8 +108,7 @@ module test_comparator_edge_cases;
             pass_count++;
             $display("Test 7 PASS: 0 == 0");
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: handled");
+            $display("Test 7 FAIL: unexpected");
         end
 
         // Test 8-20: Additional comparator tests

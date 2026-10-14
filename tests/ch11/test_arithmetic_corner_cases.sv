@@ -124,8 +124,7 @@ module test_arithmetic_corner_cases;
             pass_count++;
             $display("Test 10 PASS: 8-bit overflow = %h", byte_result);
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Overflow handled = %h", byte_result);
+            $display("Test 10 FAIL: Overflow unexpected = %h", byte_result);
         end
 
         // Test 11: Unsigned subtraction underflow
@@ -137,8 +136,7 @@ module test_arithmetic_corner_cases;
             pass_count++;
             $display("Test 11 PASS: Underflow = %h", byte_result);
         end else begin
-            pass_count++;
-            $display("Test 11 PASS: Underflow handled = %h", byte_result);
+            $display("Test 11 FAIL: Underflow unexpected = %h", byte_result);
         end
 
         // Test 12: Power operator
@@ -148,8 +146,7 @@ module test_arithmetic_corner_cases;
             pass_count++;
             $display("Test 12 PASS: 2**10 = %0d", signed_result);
         end else begin
-            pass_count++;
-            $display("Test 12 PASS: Power handled = %0d", signed_result);
+            $display("Test 12 FAIL: Power unexpected = %0d", signed_result);
         end
 
         // Test 13: Division truncation
@@ -169,8 +166,7 @@ module test_arithmetic_corner_cases;
             pass_count++;
             $display("Test 14 PASS: -7 %% 3 = %0d", signed_result);
         end else begin
-            pass_count++;
-            $display("Test 14 PASS: Neg modulo handled = %0d", signed_result);
+            $display("Test 14 FAIL: Neg modulo unexpected = %0d", signed_result);
         end
 
         // Test 15: Large multiplication
@@ -182,8 +178,7 @@ module test_arithmetic_corner_cases;
             pass_count++;
             $display("Test 15 PASS: Large mul = %h", logic_result);
         end else begin
-            pass_count++;
-            $display("Test 15 PASS: Large mul handled = %h", logic_result);
+            $display("Test 15 FAIL: Large mul unexpected = %h", logic_result);
         end
 
         // Test 16: Chain operations

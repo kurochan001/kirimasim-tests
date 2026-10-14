@@ -33,8 +33,7 @@ module test_adder_edge_cases;
             pass_count++;
             $display("Test 1 PASS: 0+0+0=%0d cout=%b", sum, cout);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled sum=%0d", sum);
+            $display("Test 1 FAIL: unexpected sum=%0d", sum);
         end
 
         // Test 2: Max + 1 (overflow)
@@ -45,8 +44,7 @@ module test_adder_edge_cases;
             pass_count++;
             $display("Test 2 PASS: FF+01=%h cout=%b", sum, cout);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled sum=%h", sum);
+            $display("Test 2 FAIL: unexpected sum=%h", sum);
         end
 
         // Test 3: Carry in effect
@@ -57,8 +55,7 @@ module test_adder_edge_cases;
             pass_count++;
             $display("Test 3 PASS: 0+0+1=%0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled sum=%0d", sum);
+            $display("Test 3 FAIL: unexpected sum=%0d", sum);
         end
 
         // Test 4: Mid-range addition
@@ -69,8 +66,7 @@ module test_adder_edge_cases;
             pass_count++;
             $display("Test 4 PASS: 55+AA=%h", sum);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled sum=%h", sum);
+            $display("Test 4 FAIL: unexpected sum=%h", sum);
         end
 
         // Test 5: All ones + carry in
@@ -81,8 +77,7 @@ module test_adder_edge_cases;
             pass_count++;
             $display("Test 5 PASS: FF+FF+1=%h cout=%b", sum, cout);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled");
+            $display("Test 5 FAIL: unexpected");
         end
 
         // Test 6: Boundary value
@@ -93,8 +88,7 @@ module test_adder_edge_cases;
             pass_count++;
             $display("Test 6 PASS: 80+80=%h cout=%b", sum, cout);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled sum=%h", sum);
+            $display("Test 6 FAIL: unexpected sum=%h", sum);
         end
 
         // Test 7: Small values
@@ -105,8 +99,7 @@ module test_adder_edge_cases;
             pass_count++;
             $display("Test 7 PASS: 1+2=%0d", sum);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: handled sum=%0d", sum);
+            $display("Test 7 FAIL: unexpected sum=%0d", sum);
         end
 
         // Test 8-20: Additional adder tests

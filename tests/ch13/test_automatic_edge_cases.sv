@@ -48,8 +48,7 @@ module test_automatic_edge_cases;
             pass_count++;
             $display("Test 1 PASS: 5! = %0d", factorial(5));
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Factorial handled");
+            $display("Test 1 FAIL: Factorial unexpected");
         end
 
         // Test 2: Factorial 0
@@ -58,8 +57,7 @@ module test_automatic_edge_cases;
             pass_count++;
             $display("Test 2 PASS: 0! = %0d", factorial(0));
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: 0! handled");
+            $display("Test 2 FAIL: 0! unexpected");
         end
 
         // Test 3: Fibonacci 6
@@ -68,8 +66,7 @@ module test_automatic_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Fib(6) = %0d", fibonacci(6));
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Fib handled");
+            $display("Test 3 FAIL: Fib unexpected");
         end
 
         // Test 4: Fibonacci 0
@@ -78,8 +75,7 @@ module test_automatic_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Fib(0) = %0d", fibonacci(0));
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Fib0 handled");
+            $display("Test 4 FAIL: Fib0 unexpected");
         end
 
         // Test 5: Sum 1 to 10
@@ -88,8 +84,7 @@ module test_automatic_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Sum(10) = %0d", sum_to_n(10));
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Sum handled");
+            $display("Test 5 FAIL: Sum unexpected");
         end
 
         // Test 6: Sum 0
@@ -98,8 +93,7 @@ module test_automatic_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Sum(0) = %0d", sum_to_n(0));
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Sum0 handled");
+            $display("Test 6 FAIL: Sum0 unexpected");
         end
 
         // Test 7: Local automatic
@@ -108,8 +102,7 @@ module test_automatic_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Local auto = %0d", local_auto(5));
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Local handled");
+            $display("Test 7 FAIL: Local unexpected");
         end
 
         // Test 8: Multiple calls same function
@@ -121,8 +114,7 @@ module test_automatic_edge_cases;
                 pass_count++;
                 $display("Test 8 PASS: Multi r1=%0d r2=%0d", r1, r2);
             end else begin
-                pass_count++;
-                $display("Test 8 PASS: Multi handled");
+                $display("Test 8 FAIL: Multi unexpected");
             end
         end
 
@@ -132,8 +124,7 @@ module test_automatic_edge_cases;
             pass_count++;
             $display("Test 9 PASS: 2^5 = %0d", power(2, 5));
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Power handled");
+            $display("Test 9 FAIL: Power unexpected");
         end
 
         // Test 10: Power zero exponent
@@ -142,15 +133,7 @@ module test_automatic_edge_cases;
             pass_count++;
             $display("Test 10 PASS: 5^0 = %0d", power(5, 0));
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Zero exp handled");
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Automatic test", i);
+            $display("Test 10 FAIL: Zero exp unexpected");
         end
 
         $display("=== Automatic Edge Cases ===");

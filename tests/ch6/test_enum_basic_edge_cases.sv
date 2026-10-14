@@ -34,8 +34,7 @@ module test_enum_basic_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Default RED = %0d", col);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Default handled = %0d", col);
+            $display("Test 1 FAIL: Default unexpected = %0d", col);
         end
 
         // Test 2: Enum assignment
@@ -45,8 +44,7 @@ module test_enum_basic_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Assign BLUE = %0d", col);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Assign handled = %0d", col);
+            $display("Test 2 FAIL: Assign unexpected = %0d", col);
         end
 
         // Test 3: Enum comparison
@@ -56,8 +54,7 @@ module test_enum_basic_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Compare pass");
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Compare handled");
+            $display("Test 3 FAIL: Compare unexpected");
         end
 
         // Test 4: Explicit values
@@ -67,8 +64,7 @@ module test_enum_basic_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Explicit C = %0d", fl);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Explicit handled = %0d", fl);
+            $display("Test 4 FAIL: Explicit unexpected = %0d", fl);
         end
 
         // Test 5: Cast to int
@@ -78,8 +74,7 @@ module test_enum_basic_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Cast GREEN = %0d", int'(col));
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Cast handled = %0d", int'(col));
+            $display("Test 5 FAIL: Cast unexpected = %0d", int'(col));
         end
 
         // Test 6: Enum in case
@@ -92,8 +87,7 @@ module test_enum_basic_edge_cases;
                 $display("Test 6 PASS: Case RUN");
             end
             default: begin
-                pass_count++;
-                $display("Test 6 PASS: Case handled");
+                $display("Test 6 FAIL: Case unexpected");
             end
         endcase
 
@@ -104,8 +98,7 @@ module test_enum_basic_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Small S2 = %0d", sm);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Small handled = %0d", sm);
+            $display("Test 7 FAIL: Small unexpected = %0d", sm);
         end
 
         // Test 8: Enum loop
@@ -117,8 +110,7 @@ module test_enum_basic_edge_cases;
                 pass_count++;
                 $display("Test 8 PASS: Loop count = %0d", cnt);
             end else begin
-                pass_count++;
-                $display("Test 8 PASS: Loop handled = %0d", cnt);
+                $display("Test 8 FAIL: Loop unexpected = %0d", cnt);
             end
         end
 
@@ -129,8 +121,7 @@ module test_enum_basic_edge_cases;
             pass_count++;
             $display("Test 9 PASS: First = %0d", col);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: First handled = %0d", col);
+            $display("Test 9 FAIL: First unexpected = %0d", col);
         end
 
         // Test 10: Last enum value
@@ -140,15 +131,7 @@ module test_enum_basic_edge_cases;
             pass_count++;
             $display("Test 10 PASS: Last = %0d", col);
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Last handled = %0d", col);
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Enum basic test", i);
+            $display("Test 10 FAIL: Last unexpected = %0d", col);
         end
 
         $display("=== Enum Basic Edge Cases ===");

@@ -40,8 +40,7 @@ module test_mux4_edge_cases;
             pass_count++;
             $display("Test 1 PASS: sel=0 out=%h", out);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled out=%h", out);
+            $display("Test 1 FAIL: unexpected out=%h", out);
         end
 
         // Test 2: Select input 1
@@ -52,8 +51,7 @@ module test_mux4_edge_cases;
             pass_count++;
             $display("Test 2 PASS: sel=1 out=%h", out);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled out=%h", out);
+            $display("Test 2 FAIL: unexpected out=%h", out);
         end
 
         // Test 3: Select input 2
@@ -64,8 +62,7 @@ module test_mux4_edge_cases;
             pass_count++;
             $display("Test 3 PASS: sel=2 out=%h", out);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled out=%h", out);
+            $display("Test 3 FAIL: unexpected out=%h", out);
         end
 
         // Test 4: Select input 3
@@ -76,8 +73,7 @@ module test_mux4_edge_cases;
             pass_count++;
             $display("Test 4 PASS: sel=3 out=%h", out);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled out=%h", out);
+            $display("Test 4 FAIL: unexpected out=%h", out);
         end
 
         // Test 5: All zeros
@@ -89,8 +85,7 @@ module test_mux4_edge_cases;
             pass_count++;
             $display("Test 5 PASS: all zeros out=%h", out);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled");
+            $display("Test 5 FAIL: unexpected");
         end
 
         // Test 6: All ones
@@ -102,8 +97,7 @@ module test_mux4_edge_cases;
             pass_count++;
             $display("Test 6 PASS: all ones out=%h", out);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled");
+            $display("Test 6 FAIL: unexpected");
         end
 
         // Test 7: Dynamic change
@@ -117,8 +111,7 @@ module test_mux4_edge_cases;
             pass_count++;
             $display("Test 7 PASS: dynamic sel out=%h", out);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: handled");
+            $display("Test 7 FAIL: unexpected");
         end
 
         // Test 8-20: Additional mux4 tests

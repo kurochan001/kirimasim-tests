@@ -33,8 +33,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 1 PASS: notif0 en, d=0, y=%b", y0);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: notif0 handled = %b", y0);
+            $display("Test 1 FAIL: notif0 unexpected = %b", y0);
         end
 
         // Test 2: notif1 disabled (ctrl=0)
@@ -43,8 +42,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 2 PASS: notif1 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: notif1 handled = %b", y1);
+            $display("Test 2 FAIL: notif1 unexpected = %b", y1);
         end
 
         // Test 3: notif0 enabled, data=1, y=0 (inverted)
@@ -55,8 +53,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 3 PASS: notif0 en, d=1, y=%b", y0);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: notif0 handled = %b", y0);
+            $display("Test 3 FAIL: notif0 unexpected = %b", y0);
         end
 
         // Test 4: notif1 still disabled
@@ -65,8 +62,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 4 PASS: notif1 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: notif1 handled = %b", y1);
+            $display("Test 4 FAIL: notif1 unexpected = %b", y1);
         end
 
         // Test 5: Switch control to 1
@@ -77,8 +73,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 5 PASS: notif1 en, d=1, y=%b", y1);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: notif1 handled = %b", y1);
+            $display("Test 5 FAIL: notif1 unexpected = %b", y1);
         end
 
         // Test 6: notif0 now disabled
@@ -87,8 +82,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 6 PASS: notif0 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: notif0 handled = %b", y0);
+            $display("Test 6 FAIL: notif0 unexpected = %b", y0);
         end
 
         // Test 7: notif1 with data=0, y=1 (inverted)
@@ -99,8 +93,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 7 PASS: notif1 en, d=0, y=%b", y1);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: notif1 handled = %b", y1);
+            $display("Test 7 FAIL: notif1 unexpected = %b", y1);
         end
 
         // Test 8: notif0 still disabled
@@ -109,8 +102,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 8 PASS: notif0 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: notif0 handled = %b", y0);
+            $display("Test 8 FAIL: notif0 unexpected = %b", y0);
         end
 
         // Test 9: Back to ctrl=0
@@ -121,8 +113,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 9 PASS: notif0 en, d=0, y=%b", y0);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: notif0 handled = %b", y0);
+            $display("Test 9 FAIL: notif0 unexpected = %b", y0);
         end
 
         // Test 10: notif1 disabled again
@@ -131,15 +122,7 @@ module test_notif_edge_cases;
             pass_count++;
             $display("Test 10 PASS: notif1 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: notif1 handled = %b", y1);
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Notif test", i);
+            $display("Test 10 FAIL: notif1 unexpected = %b", y1);
         end
 
         $display("=== Notif Edge Cases ===");

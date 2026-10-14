@@ -43,8 +43,7 @@ module test_barrel_shifter_edge_cases;
             pass_count++;
             $display("Test 1 PASS: AA<<0=%h", dout);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled dout=%h", dout);
+            $display("Test 1 FAIL: unexpected dout=%h", dout);
         end
 
         // Test 2: Left shift by 4
@@ -55,8 +54,7 @@ module test_barrel_shifter_edge_cases;
             pass_count++;
             $display("Test 2 PASS: 0F<<4=%h", dout);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled dout=%h", dout);
+            $display("Test 2 FAIL: unexpected dout=%h", dout);
         end
 
         // Test 3: Right shift logical
@@ -67,8 +65,7 @@ module test_barrel_shifter_edge_cases;
             pass_count++;
             $display("Test 3 PASS: F0>>4=%h (logical)", dout);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled dout=%h", dout);
+            $display("Test 3 FAIL: unexpected dout=%h", dout);
         end
 
         // Test 4: Right shift arithmetic (negative)
@@ -79,8 +76,7 @@ module test_barrel_shifter_edge_cases;
             pass_count++;
             $display("Test 4 PASS: 80>>>4=%h (arith)", dout);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled dout=%h", dout);
+            $display("Test 4 FAIL: unexpected dout=%h", dout);
         end
 
         // Test 5: Shift by max
@@ -91,8 +87,7 @@ module test_barrel_shifter_edge_cases;
             pass_count++;
             $display("Test 5 PASS: FF<<7=%h", dout);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled dout=%h", dout);
+            $display("Test 5 FAIL: unexpected dout=%h", dout);
         end
 
         // Test 6: Shift all zeros
@@ -103,8 +98,7 @@ module test_barrel_shifter_edge_cases;
             pass_count++;
             $display("Test 6 PASS: 00<<4=%h", dout);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled");
+            $display("Test 6 FAIL: unexpected");
         end
 
         // Test 7: Rotate-like behavior
@@ -115,8 +109,7 @@ module test_barrel_shifter_edge_cases;
             pass_count++;
             $display("Test 7 PASS: 01<<1=%h", dout);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: handled");
+            $display("Test 7 FAIL: unexpected");
         end
 
         // Test 8-20: Additional barrel shifter tests

@@ -6,18 +6,6 @@ Test 5 PASS: Both low
 Test 6 PASS: w2 driven = 1
 Test 7 PASS: Both high
 Test 8 PASS: Both released
-Test 9 PASS: Pulldown test
-Test 10 PASS: Pulldown test
-Test 11 PASS: Pulldown test
-Test 12 PASS: Pulldown test
-Test 13 PASS: Pulldown test
-Test 14 PASS: Pulldown test
-Test 15 PASS: Pulldown test
-Test 16 PASS: Pulldown test
-Test 17 PASS: Pulldown test
-Test 18 PASS: Pulldown test
-Test 19 PASS: Pulldown test
-Test 20 PASS: Pulldown test
 === Pulldown Edge Cases ===
-Passed: 20/20
+Passed: 8/8
 TEST PASSED

@@ -30,8 +30,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 1 PASS: For break = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: For handled = %0d", count);
+            $display("Test 1 FAIL: For unexpected = %0d", count);
         end
 
         // Test 2: Break in while loop
@@ -45,8 +44,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 2 PASS: While break = %0d", i);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: While handled = %0d", i);
+            $display("Test 2 FAIL: While unexpected = %0d", i);
         end
 
         // Test 3: Break in nested loop (inner only)
@@ -62,8 +60,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Nested inner = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Inner handled = %0d", count);
+            $display("Test 3 FAIL: Inner unexpected = %0d", count);
         end
 
         // Test 4: Immediate break
@@ -77,8 +74,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Immediate = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Immed handled = %0d", count);
+            $display("Test 4 FAIL: Immed unexpected = %0d", count);
         end
 
         // Test 5: Break on condition
@@ -94,8 +90,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Cond break = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Cond handled = %0d", result);
+            $display("Test 5 FAIL: Cond unexpected = %0d", result);
         end
 
         // Test 6: Break with continue before
@@ -110,8 +105,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Continue+break = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Cont+brk handled = %0d", count);
+            $display("Test 6 FAIL: Cont+brk unexpected = %0d", count);
         end
 
         // Test 7: Break in do-while
@@ -125,8 +119,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Do-while break = %0d", i);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Dowhile handled = %0d", i);
+            $display("Test 7 FAIL: Dowhile unexpected = %0d", i);
         end
 
         // Test 8: Break in repeat
@@ -140,8 +133,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Repeat break = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Repeat handled = %0d", count);
+            $display("Test 8 FAIL: Repeat unexpected = %0d", count);
         end
 
         // Test 9: Break preserves loop variable
@@ -153,8 +145,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 9 PASS: Preserve i = %0d", i);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Preserve handled = %0d", i);
+            $display("Test 9 FAIL: Preserve unexpected = %0d", i);
         end
 
         // Test 10: Multiple breaks (first wins)
@@ -169,15 +160,7 @@ module test_break_edge_cases;
             pass_count++;
             $display("Test 10 PASS: First break = %0d", count);
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: First handled = %0d", count);
-        end
-
-        // Test 11-20: Simple passes
-        for (int t = 11; t <= 20; t++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Break test", t);
+            $display("Test 10 FAIL: First unexpected = %0d", count);
         end
 
         $display("=== Break Edge Cases ===");

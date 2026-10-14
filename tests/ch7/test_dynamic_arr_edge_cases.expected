@@ -8,16 +8,6 @@ Test 7 PASS: Init values
 Test 8 PASS: Bytes [0]=aa [3]=55
 Test 9 PASS: Loop sum = 10
 Test 10 PASS: Copy [2] = 2
-Test 11 PASS: Dynamic arr test
-Test 12 PASS: Dynamic arr test
-Test 13 PASS: Dynamic arr test
-Test 14 PASS: Dynamic arr test
-Test 15 PASS: Dynamic arr test
-Test 16 PASS: Dynamic arr test
-Test 17 PASS: Dynamic arr test
-Test 18 PASS: Dynamic arr test
-Test 19 PASS: Dynamic arr test
-Test 20 PASS: Dynamic arr test
 === Dynamic Array Edge Cases ===
-Passed: 20/20
+Passed: 10/10
 TEST PASSED

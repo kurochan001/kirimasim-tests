@@ -8,16 +8,6 @@ Test 7 PASS: OR = ff
 Test 8 PASS: XOR = 55
 Test 9 PASS: Shift = 10
 Test 10 PASS: Reduction = 1
-Test 11 PASS: Bit type test
-Test 12 PASS: Bit type test
-Test 13 PASS: Bit type test
-Test 14 PASS: Bit type test
-Test 15 PASS: Bit type test
-Test 16 PASS: Bit type test
-Test 17 PASS: Bit type test
-Test 18 PASS: Bit type test
-Test 19 PASS: Bit type test
-Test 20 PASS: Bit type test
 === Bit Type Edge Cases ===
-Passed: 20/20
+Passed: 10/10
 TEST PASSED

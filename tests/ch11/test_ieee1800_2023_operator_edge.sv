@@ -52,8 +52,9 @@ module test_ieee1800_2023_operator_edge;
             static int b = -1;
             int result;
             result = a / b;
-            // This overflows, result is undefined or wrapped
-            $display("PASS: Test 3 - INT_MIN / -1 handled (result=%0d)", result);
+            // The quotient 2**31 does not fit in 32 bits; only the low 32 bits
+            // are kept (11.6.1)
+            $display("PASS: Test 3 - INT_MIN / -1 wraps (result=%0d)", result);
             pass_count++;
         end
 

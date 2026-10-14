@@ -33,8 +33,7 @@ module test_cmos_edge_cases;
             pass_count++;
             $display("Test 1 PASS: cmos off = Z");
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: cmos handled = %b", out);
+            $display("Test 1 FAIL: cmos unexpected = %b", out);
         end
 
         // Test 2: CMOS on (nctrl=1, pctrl=0), data=0
@@ -46,8 +45,7 @@ module test_cmos_edge_cases;
             pass_count++;
             $display("Test 2 PASS: cmos on, d=0, y=%b", out);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: cmos handled = %b", out);
+            $display("Test 2 FAIL: cmos unexpected = %b", out);
         end
 
         // Test 3: CMOS on, data=1
@@ -58,8 +56,7 @@ module test_cmos_edge_cases;
             pass_count++;
             $display("Test 3 PASS: cmos on, d=1, y=%b", out);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: cmos handled = %b", out);
+            $display("Test 3 FAIL: cmos unexpected = %b", out);
         end
 
         // Test 4: CMOS off again
@@ -71,8 +68,7 @@ module test_cmos_edge_cases;
             pass_count++;
             $display("Test 4 PASS: cmos off = Z");
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: cmos handled = %b", out);
+            $display("Test 4 FAIL: cmos unexpected = %b", out);
         end
 
         // Test 5: Only NMOS on
@@ -85,8 +81,7 @@ module test_cmos_edge_cases;
             pass_count++;
             $display("Test 5 PASS: nmos only = %b", out);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled = %b", out);
+            $display("Test 5 FAIL: unexpected = %b", out);
         end
 
         // Test 6: Only PMOS on
@@ -99,8 +94,7 @@ module test_cmos_edge_cases;
             pass_count++;
             $display("Test 6 PASS: pmos only = %b", out);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled = %b", out);
+            $display("Test 6 FAIL: unexpected = %b", out);
         end
 
         // Test 7: Both on, data=0
@@ -113,15 +107,7 @@ module test_cmos_edge_cases;
             pass_count++;
             $display("Test 7 PASS: both on, d=0 = %b", out);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: handled = %b", out);
-        end
-
-        // Test 8-20: Simple passes
-        for (int i = 8; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: CMOS test", i);
+            $display("Test 7 FAIL: unexpected = %b", out);
         end
 
         $display("=== CMOS Edge Cases ===");

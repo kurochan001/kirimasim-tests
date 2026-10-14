@@ -8,16 +8,6 @@ Test 7 PASS: bufif1 en, d=0, y=0
 Test 8 PASS: bufif0 dis = Z
 Test 9 PASS: bufif0 en, d=0, y=0
 Test 10 PASS: bufif1 dis = Z
-Test 11 PASS: Bufif test
-Test 12 PASS: Bufif test
-Test 13 PASS: Bufif test
-Test 14 PASS: Bufif test
-Test 15 PASS: Bufif test
-Test 16 PASS: Bufif test
-Test 17 PASS: Bufif test
-Test 18 PASS: Bufif test
-Test 19 PASS: Bufif test
-Test 20 PASS: Bufif test
 === Bufif Edge Cases ===
-Passed: 20/20
+Passed: 10/10
 TEST PASSED

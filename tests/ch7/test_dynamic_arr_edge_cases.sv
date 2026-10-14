@@ -26,8 +26,7 @@ module test_dynamic_arr_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Empty size = %0d", dyn.size());
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Empty handled = %0d", dyn.size());
+            $display("Test 1 FAIL: Empty unexpected = %0d", dyn.size());
         end
 
         // Test 2: new size
@@ -37,8 +36,7 @@ module test_dynamic_arr_edge_cases;
             pass_count++;
             $display("Test 2 PASS: new[5] size = %0d", dyn.size());
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: new handled = %0d", dyn.size());
+            $display("Test 2 FAIL: new unexpected = %0d", dyn.size());
         end
 
         // Test 3: Element assignment
@@ -49,8 +47,7 @@ module test_dynamic_arr_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Elem [0]=%0d [4]=%0d", dyn[0], dyn[4]);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Elem handled");
+            $display("Test 3 FAIL: Elem unexpected");
         end
 
         // Test 4: Resize larger
@@ -60,8 +57,7 @@ module test_dynamic_arr_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Resize larger, preserved [0]=%0d", dyn[0]);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Resize handled");
+            $display("Test 4 FAIL: Resize unexpected");
         end
 
         // Test 5: Resize smaller
@@ -71,8 +67,7 @@ module test_dynamic_arr_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Resize smaller size = %0d", dyn.size());
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Smaller handled = %0d", dyn.size());
+            $display("Test 5 FAIL: Smaller unexpected = %0d", dyn.size());
         end
 
         // Test 6: Delete
@@ -82,8 +77,7 @@ module test_dynamic_arr_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Delete size = %0d", dyn.size());
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Delete handled = %0d", dyn.size());
+            $display("Test 6 FAIL: Delete unexpected = %0d", dyn.size());
         end
 
         // Test 7: Init with values
@@ -94,8 +88,7 @@ module test_dynamic_arr_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Init values");
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Init handled");
+            $display("Test 7 FAIL: Init unexpected");
         end
 
         // Test 8: Bytes array
@@ -107,8 +100,7 @@ module test_dynamic_arr_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Bytes [0]=%h [3]=%h", bytes[0], bytes[3]);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Bytes handled");
+            $display("Test 8 FAIL: Bytes unexpected");
         end
 
         // Test 9: Loop access
@@ -122,8 +114,7 @@ module test_dynamic_arr_edge_cases;
                 pass_count++;
                 $display("Test 9 PASS: Loop sum = %0d", sum);
             end else begin
-                pass_count++;
-                $display("Test 9 PASS: Loop handled = %0d", sum);
+                $display("Test 9 FAIL: Loop unexpected = %0d", sum);
             end
         end
 
@@ -136,16 +127,8 @@ module test_dynamic_arr_edge_cases;
                 pass_count++;
                 $display("Test 10 PASS: Copy [2] = %0d", copy[2]);
             end else begin
-                pass_count++;
-                $display("Test 10 PASS: Copy handled");
+                $display("Test 10 FAIL: Copy unexpected");
             end
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Dynamic arr test", i);
         end
 
         $display("=== Dynamic Array Edge Cases ===");

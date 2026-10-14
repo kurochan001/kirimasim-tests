@@ -33,8 +33,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 1 PASS: bufif0 en, d=0, y=%b", y0);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: bufif0 handled = %b", y0);
+            $display("Test 1 FAIL: bufif0 unexpected = %b", y0);
         end
 
         // Test 2: bufif1 disabled (ctrl=0)
@@ -43,8 +42,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 2 PASS: bufif1 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: bufif1 handled = %b", y1);
+            $display("Test 2 FAIL: bufif1 unexpected = %b", y1);
         end
 
         // Test 3: bufif0 enabled, data=1
@@ -55,8 +53,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 3 PASS: bufif0 en, d=1, y=%b", y0);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: bufif0 handled = %b", y0);
+            $display("Test 3 FAIL: bufif0 unexpected = %b", y0);
         end
 
         // Test 4: bufif1 still disabled
@@ -65,8 +62,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 4 PASS: bufif1 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: bufif1 handled = %b", y1);
+            $display("Test 4 FAIL: bufif1 unexpected = %b", y1);
         end
 
         // Test 5: Switch control to 1
@@ -77,8 +73,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 5 PASS: bufif1 en, d=1, y=%b", y1);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: bufif1 handled = %b", y1);
+            $display("Test 5 FAIL: bufif1 unexpected = %b", y1);
         end
 
         // Test 6: bufif0 now disabled
@@ -87,8 +82,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 6 PASS: bufif0 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: bufif0 handled = %b", y0);
+            $display("Test 6 FAIL: bufif0 unexpected = %b", y0);
         end
 
         // Test 7: bufif1 with data=0
@@ -99,8 +93,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 7 PASS: bufif1 en, d=0, y=%b", y1);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: bufif1 handled = %b", y1);
+            $display("Test 7 FAIL: bufif1 unexpected = %b", y1);
         end
 
         // Test 8: bufif0 still disabled
@@ -109,8 +102,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 8 PASS: bufif0 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: bufif0 handled = %b", y0);
+            $display("Test 8 FAIL: bufif0 unexpected = %b", y0);
         end
 
         // Test 9: Back to ctrl=0
@@ -121,8 +113,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 9 PASS: bufif0 en, d=0, y=%b", y0);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: bufif0 handled = %b", y0);
+            $display("Test 9 FAIL: bufif0 unexpected = %b", y0);
         end
 
         // Test 10: bufif1 disabled again
@@ -131,15 +122,7 @@ module test_bufif_edge_cases;
             pass_count++;
             $display("Test 10 PASS: bufif1 dis = Z");
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: bufif1 handled = %b", y1);
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Bufif test", i);
+            $display("Test 10 FAIL: bufif1 unexpected = %b", y1);
         end
 
         $display("=== Bufif Edge Cases ===");

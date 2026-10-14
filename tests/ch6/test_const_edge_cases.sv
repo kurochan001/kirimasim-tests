@@ -28,8 +28,7 @@ module test_const_edge_cases;
             pass_count++;
             $display("Test 1 PASS: CONST_VAL = %0d", CONST_VAL);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: const int handled");
+            $display("Test 1 FAIL: const int unexpected");
         end
 
         // Test 2: Read const byte
@@ -38,8 +37,7 @@ module test_const_edge_cases;
             pass_count++;
             $display("Test 2 PASS: CONST_BYTE = %h", CONST_BYTE);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: const byte handled");
+            $display("Test 2 FAIL: const byte unexpected");
         end
 
         // Test 3: Read const string
@@ -48,8 +46,7 @@ module test_const_edge_cases;
             pass_count++;
             $display("Test 3 PASS: CONST_STR = %s", CONST_STR);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: const string handled");
+            $display("Test 3 FAIL: const string unexpected");
         end
 
         // Test 4: Read const array
@@ -58,8 +55,7 @@ module test_const_edge_cases;
             pass_count++;
             $display("Test 4 PASS: CONST_ARR[0]=%0d [3]=%0d", CONST_ARR[0], CONST_ARR[3]);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: const array handled");
+            $display("Test 4 FAIL: const array unexpected");
         end
 
         // Test 5: Const in expression
@@ -72,8 +68,7 @@ module test_const_edge_cases;
                 pass_count++;
                 $display("Test 5 PASS: CONST_VAL * 2 = %0d", result);
             end else begin
-                pass_count++;
-                $display("Test 5 PASS: expr handled = %0d", result);
+                $display("Test 5 FAIL: expr unexpected = %0d", result);
             end
         end
 
@@ -85,8 +80,7 @@ module test_const_edge_cases;
                 pass_count++;
                 $display("Test 6 PASS: x == CONST_VAL");
             end else begin
-                pass_count++;
-                $display("Test 6 PASS: compare handled");
+                $display("Test 6 FAIL: compare unexpected");
             end
         end
 
@@ -98,8 +92,7 @@ module test_const_edge_cases;
                 pass_count++;
                 $display("Test 7 PASS: LOCAL_CONST = %0d", LOCAL_CONST);
             end else begin
-                pass_count++;
-                $display("Test 7 PASS: local const handled");
+                $display("Test 7 FAIL: local const unexpected");
             end
         end
 
@@ -112,8 +105,7 @@ module test_const_edge_cases;
                 pass_count++;
                 $display("Test 8 PASS: array sum = %0d", sum);
             end else begin
-                pass_count++;
-                $display("Test 8 PASS: sum handled = %0d", sum);
+                $display("Test 8 FAIL: sum unexpected = %0d", sum);
             end
         end
 
@@ -127,8 +119,7 @@ module test_const_edge_cases;
                 pass_count++;
                 $display("Test 9 PASS: CONST_STR.len() = %0d", len);
             end else begin
-                pass_count++;
-                $display("Test 9 PASS: len handled = %0d", len);
+                $display("Test 9 FAIL: len unexpected = %0d", len);
             end
         end
 
@@ -142,8 +133,7 @@ module test_const_edge_cases;
                 pass_count++;
                 $display("Test 10 PASS: CONST_BYTE & F0 = %h", result);
             end else begin
-                pass_count++;
-                $display("Test 10 PASS: byte op handled = %h", result);
+                $display("Test 10 FAIL: byte op unexpected = %h", result);
             end
         end
 
@@ -157,8 +147,7 @@ module test_const_edge_cases;
                 pass_count++;
                 $display("Test 11 PASS: conditional const");
             end else begin
-                pass_count++;
-                $display("Test 11 PASS: cond handled");
+                $display("Test 11 FAIL: cond unexpected");
             end
         end
 
@@ -170,13 +159,6 @@ module test_const_edge_cases;
             result = CONST_VAL + CONST_BYTE + CONST_ARR[0];
             pass_count++;
             $display("Test 12 PASS: multi const = %0d", result);
-        end
-
-        // Test 13-20: Simple passes
-        for (int i = 13; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Const test", i);
         end
 
         $display("=== Const Edge Cases ===");

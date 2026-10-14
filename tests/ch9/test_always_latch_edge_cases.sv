@@ -56,8 +56,7 @@ module test_always_latch_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Enabled q = %h", q);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Enable handled = %h", q);
+            $display("Test 2 FAIL: Enable unexpected = %h", q);
         end
 
         // Test 3: Disable holds value
@@ -69,8 +68,7 @@ module test_always_latch_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Hold q = %h", q);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Hold handled = %h", q);
+            $display("Test 3 FAIL: Hold unexpected = %h", q);
         end
 
         // Test 4: Re-enable
@@ -81,8 +79,7 @@ module test_always_latch_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Re-enable q = %h", q);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Re-enable handled = %h", q);
+            $display("Test 4 FAIL: Re-enable unexpected = %h", q);
         end
 
         // Test 5: Case latch addr=0
@@ -94,8 +91,7 @@ module test_always_latch_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Case 0 out = %h", latch_out);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Case0 handled = %h", latch_out);
+            $display("Test 5 FAIL: Case0 unexpected = %h", latch_out);
         end
 
         // Test 6: Case latch addr=1
@@ -107,8 +103,7 @@ module test_always_latch_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Case 1 invert = %h", latch_out);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Case1 handled = %h", latch_out);
+            $display("Test 6 FAIL: Case1 unexpected = %h", latch_out);
         end
 
         // Test 7: Case latch addr=2
@@ -120,8 +115,7 @@ module test_always_latch_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Case 2 +1 = %h", latch_out);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Case2 handled = %h", latch_out);
+            $display("Test 7 FAIL: Case2 unexpected = %h", latch_out);
         end
 
         // Test 8: Case latch addr=3 (holds)
@@ -152,13 +146,6 @@ module test_always_latch_edge_cases;
         end
         pass_count++;
         $display("Test 10 PASS: Multi change q = %h", q);
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Always_latch test", i);
-        end
 
         $display("=== Always_latch Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);

@@ -6,18 +6,6 @@ Test 5 PASS: Toggle to 0 = 0
 Test 6 PASS: Toggle to 1 = 1
 Test 7 PASS: Multi toggle = 0
 Test 8 PASS: Both equal
-Test 9 PASS: BUF test
-Test 10 PASS: BUF test
-Test 11 PASS: BUF test
-Test 12 PASS: BUF test
-Test 13 PASS: BUF test
-Test 14 PASS: BUF test
-Test 15 PASS: BUF test
-Test 16 PASS: BUF test
-Test 17 PASS: BUF test
-Test 18 PASS: BUF test
-Test 19 PASS: BUF test
-Test 20 PASS: BUF test
 === BUF Edge Cases ===
-Passed: 20/20
+Passed: 8/8
 TEST PASSED

@@ -52,8 +52,7 @@ module test_class_basic_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Default new = %0d", c1.value);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Default handled = %0d", c1.value);
+            $display("Test 1 FAIL: Default unexpected = %0d", c1.value);
         end
 
         // Test 2: New with argument
@@ -63,8 +62,7 @@ module test_class_basic_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Init new = %0d", c2.value);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Init handled = %0d", c2.value);
+            $display("Test 2 FAIL: Init unexpected = %0d", c2.value);
         end
 
         // Test 3: Method call
@@ -74,8 +72,7 @@ module test_class_basic_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Method = %0d", c1.get());
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Method handled = %0d", c1.get());
+            $display("Test 3 FAIL: Method unexpected = %0d", c1.get());
         end
 
         // Test 4: Independent instances
@@ -84,8 +81,7 @@ module test_class_basic_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Independent c1=%0d c2=%0d", c1.value, c2.value);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Independent handled");
+            $display("Test 4 FAIL: Independent unexpected");
         end
 
         // Test 5: Multiple method calls
@@ -95,8 +91,7 @@ module test_class_basic_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Multi call = %0d", c1.get());
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Multi handled = %0d", c1.get());
+            $display("Test 5 FAIL: Multi unexpected = %0d", c1.get());
         end
 
         // Test 6: Point class
@@ -106,8 +101,7 @@ module test_class_basic_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Point x=%0d y=%0d", p1.x, p1.y);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Point handled");
+            $display("Test 6 FAIL: Point unexpected");
         end
 
         // Test 7: Null handle
@@ -118,8 +112,7 @@ module test_class_basic_edge_cases;
                 pass_count++;
                 $display("Test 7 PASS: Null handle");
             end else begin
-                pass_count++;
-                $display("Test 7 PASS: Null handled");
+                $display("Test 7 FAIL: Null unexpected");
             end
         end
 
@@ -130,8 +123,7 @@ module test_class_basic_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Reassign = %0d", c1.value);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Reassign handled = %0d", c1.value);
+            $display("Test 8 FAIL: Reassign unexpected = %0d", c1.value);
         end
 
         // Test 9: Direct property access
@@ -141,8 +133,7 @@ module test_class_basic_edge_cases;
             pass_count++;
             $display("Test 9 PASS: Direct = %0d", c1.get());
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Direct handled = %0d", c1.get());
+            $display("Test 9 FAIL: Direct unexpected = %0d", c1.get());
         end
 
         // Test 10: Point default
@@ -152,15 +143,7 @@ module test_class_basic_edge_cases;
             pass_count++;
             $display("Test 10 PASS: Point default");
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Default handled");
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Class basic test", i);
+            $display("Test 10 FAIL: Default unexpected");
         end
 
         $display("=== Class Basic Edge Cases ===");

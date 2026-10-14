@@ -10,14 +10,6 @@ Test 9 PASS: LHS a=aa d=dd
 Test 10 PASS: Sign ext = ff
 Test 11 PASS: Zero ext = 0a
 Test 12 PASS: Large repl = abababababababab
-Test 13 PASS: Concat test
-Test 14 PASS: Concat test
-Test 15 PASS: Concat test
-Test 16 PASS: Concat test
-Test 17 PASS: Concat test
-Test 18 PASS: Concat test
-Test 19 PASS: Concat test
-Test 20 PASS: Concat test
 === Concat Edge Cases ===
-Passed: 20/20
+Passed: 12/12
 TEST PASSED

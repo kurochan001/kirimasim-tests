@@ -32,8 +32,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Case match = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Case handled = %0d", result);
+            $display("Test 1 FAIL: Case unexpected = %0d", result);
         end
 
         // Test 2: Case match second
@@ -48,8 +47,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Second match = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Second handled = %0d", result);
+            $display("Test 2 FAIL: Second unexpected = %0d", result);
         end
 
         // Test 3: Case default
@@ -64,8 +62,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Default = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Default handled = %0d", result);
+            $display("Test 3 FAIL: Default unexpected = %0d", result);
         end
 
         // Test 4: Casez with ?
@@ -80,8 +77,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Casez = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Casez handled = %0d", result);
+            $display("Test 4 FAIL: Casez unexpected = %0d", result);
         end
 
         // Test 5: Casex with x
@@ -96,8 +92,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Casex = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Casex handled = %0d", result);
+            $display("Test 5 FAIL: Casex unexpected = %0d", result);
         end
 
         // Test 6: Multiple items
@@ -111,8 +106,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Multi item = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Multi handled = %0d", result);
+            $display("Test 6 FAIL: Multi unexpected = %0d", result);
         end
 
         // Test 7: Case with expression
@@ -126,8 +120,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Expr case = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Expr handled = %0d", result);
+            $display("Test 7 FAIL: Expr unexpected = %0d", result);
         end
 
         // Test 8: Nested case (simplified)
@@ -146,8 +139,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Nested = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Nested handled = %0d", result);
+            $display("Test 8 FAIL: Nested unexpected = %0d", result);
         end
 
         // Test 9: All zeros
@@ -161,8 +153,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 9 PASS: Zero sel = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Zero handled = %0d", result);
+            $display("Test 9 FAIL: Zero unexpected = %0d", result);
         end
 
         // Test 10: All ones
@@ -176,15 +167,7 @@ module test_case_edge_cases;
             pass_count++;
             $display("Test 10 PASS: All ones = %0d", result);
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Ones handled = %0d", result);
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Case test", i);
+            $display("Test 10 FAIL: Ones unexpected = %0d", result);
         end
 
         $display("=== Case Edge Cases ===");

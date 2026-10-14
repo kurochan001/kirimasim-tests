@@ -43,8 +43,7 @@ module test_interface_array_edge_cases;
             pass_count++;
             $display("Test 2 PASS: intf_arr[0].data = %h", intf_arr[0].data);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: First handled = %h", intf_arr[0].data);
+            $display("Test 2 FAIL: First unexpected = %h", intf_arr[0].data);
         end
 
         // Test 3: Read last element
@@ -53,8 +52,7 @@ module test_interface_array_edge_cases;
             pass_count++;
             $display("Test 3 PASS: intf_arr[3].data = %h", intf_arr[3].data);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Last handled = %h", intf_arr[3].data);
+            $display("Test 3 FAIL: Last unexpected = %h", intf_arr[3].data);
         end
 
         // Test 4: Set valid flags
@@ -67,8 +65,7 @@ module test_interface_array_edge_cases;
             pass_count++;
             $display("Test 4 PASS: All valid set");
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Valid handled");
+            $display("Test 4 FAIL: Valid unexpected");
         end
 
         // Test 5: Modify middle element
@@ -78,8 +75,7 @@ module test_interface_array_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Middle modified = %h", intf_arr[2].data);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Middle handled = %h", intf_arr[2].data);
+            $display("Test 5 FAIL: Middle unexpected = %h", intf_arr[2].data);
         end
 
         // Test 6: Check independence
@@ -89,8 +85,7 @@ module test_interface_array_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Elements independent");
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Independence handled");
+            $display("Test 6 FAIL: Independence unexpected");
         end
 
         // Test 7: Copy between elements
@@ -100,8 +95,7 @@ module test_interface_array_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Copy = %h", intf_arr[0].data);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Copy handled = %h", intf_arr[0].data);
+            $display("Test 7 FAIL: Copy unexpected = %h", intf_arr[0].data);
         end
 
         // Test 8: Sum all data (use constant indices)
@@ -127,8 +121,7 @@ module test_interface_array_edge_cases;
             pass_count++;
             $display("Test 9 PASS: All cleared");
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Clear handled");
+            $display("Test 9 FAIL: Clear unexpected");
         end
 
         // Test 10: Sequential pattern
@@ -142,15 +135,7 @@ module test_interface_array_edge_cases;
             pass_count++;
             $display("Test 10 PASS: Sequential pattern");
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Sequential handled");
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Interface array test", i);
+            $display("Test 10 FAIL: Sequential unexpected");
         end
 
         $display("=== Interface Array Edge Cases ===");

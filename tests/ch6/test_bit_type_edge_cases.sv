@@ -28,8 +28,7 @@ module test_bit_type_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Default bit = %b", b);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Default handled = %b", b);
+            $display("Test 1 FAIL: Default unexpected = %b", b);
         end
 
         // Test 2: Bit assignment
@@ -39,8 +38,7 @@ module test_bit_type_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Assign = %b", b);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Assign handled = %b", b);
+            $display("Test 2 FAIL: Assign unexpected = %b", b);
         end
 
         // Test 3: Bit vector
@@ -50,8 +48,7 @@ module test_bit_type_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Vector = %h", bvec);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Vec handled = %h", bvec);
+            $display("Test 3 FAIL: Vec unexpected = %h", bvec);
         end
 
         // Test 4: Bit word
@@ -61,8 +58,7 @@ module test_bit_type_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Word = %h", bword);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Word handled = %h", bword);
+            $display("Test 4 FAIL: Word unexpected = %h", bword);
         end
 
         // Test 5: Signed bit
@@ -72,8 +68,7 @@ module test_bit_type_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Signed = %0d", sb);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Signed handled = %0d", sb);
+            $display("Test 5 FAIL: Signed unexpected = %0d", sb);
         end
 
         // Test 6: Bit operations
@@ -87,8 +82,7 @@ module test_bit_type_edge_cases;
                 pass_count++;
                 $display("Test 6 PASS: AND = %h", and_result);
             end else begin
-                pass_count++;
-                $display("Test 6 PASS: AND handled = %h", and_result);
+                $display("Test 6 FAIL: AND unexpected = %h", and_result);
             end
         end
 
@@ -102,8 +96,7 @@ module test_bit_type_edge_cases;
                 pass_count++;
                 $display("Test 7 PASS: OR = %h", or_result);
             end else begin
-                pass_count++;
-                $display("Test 7 PASS: OR handled = %h", or_result);
+                $display("Test 7 FAIL: OR unexpected = %h", or_result);
             end
         end
 
@@ -118,8 +111,7 @@ module test_bit_type_edge_cases;
                 pass_count++;
                 $display("Test 8 PASS: XOR = %h", xor_result);
             end else begin
-                pass_count++;
-                $display("Test 8 PASS: XOR handled = %h", xor_result);
+                $display("Test 8 FAIL: XOR unexpected = %h", xor_result);
             end
         end
 
@@ -134,8 +126,7 @@ module test_bit_type_edge_cases;
                 pass_count++;
                 $display("Test 9 PASS: Shift = %h", shifted);
             end else begin
-                pass_count++;
-                $display("Test 9 PASS: Shift handled = %h", shifted);
+                $display("Test 9 FAIL: Shift unexpected = %h", shifted);
             end
         end
 
@@ -150,16 +141,8 @@ module test_bit_type_edge_cases;
                 pass_count++;
                 $display("Test 10 PASS: Reduction = %b", reduced);
             end else begin
-                pass_count++;
-                $display("Test 10 PASS: Red handled = %b", reduced);
+                $display("Test 10 FAIL: Red unexpected = %b", reduced);
             end
-        end
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Bit type test", i);
         end
 
         $display("=== Bit Type Edge Cases ===");

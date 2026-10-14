@@ -10,14 +10,6 @@ Test 9 PASS: CONST_STR.len() = 5
 Test 10 PASS: CONST_BYTE & F0 = a0
 Test 11 PASS: conditional const
 Test 12 PASS: multi const = 272
-Test 13 PASS: Const test
-Test 14 PASS: Const test
-Test 15 PASS: Const test
-Test 16 PASS: Const test
-Test 17 PASS: Const test
-Test 18 PASS: Const test
-Test 19 PASS: Const test
-Test 20 PASS: Const test
 === Const Edge Cases ===
-Passed: 20/20
+Passed: 12/12
 TEST PASSED

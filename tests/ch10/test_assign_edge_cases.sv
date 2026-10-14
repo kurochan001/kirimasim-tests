@@ -41,8 +41,7 @@ module test_assign_edge_cases;
             pass_count++;
             $display("Test 1 PASS: a+b = %h", wire_result);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Assign handled = %h", wire_result);
+            $display("Test 1 FAIL: Assign unexpected = %h", wire_result);
         end
 
         // Test 2: Conditional assign
@@ -51,8 +50,7 @@ module test_assign_edge_cases;
             pass_count++;
             $display("Test 2 PASS: sel=0, result = %h", result1);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Cond handled = %h", result1);
+            $display("Test 2 FAIL: Cond unexpected = %h", result1);
         end
 
         // Test 3: Change input
@@ -75,8 +73,7 @@ module test_assign_edge_cases;
             pass_count++;
             $display("Test 4 PASS: sel=1, result = %h", result1);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Sel handled = %h", result1);
+            $display("Test 4 FAIL: Sel unexpected = %h", result1);
         end
 
         // Test 5: Both inputs zero
@@ -88,8 +85,7 @@ module test_assign_edge_cases;
             pass_count++;
             $display("Test 5 PASS: 0+0 = %h", wire_result);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Zero handled = %h", wire_result);
+            $display("Test 5 FAIL: Zero unexpected = %h", wire_result);
         end
 
         // Test 6: Max values
@@ -101,8 +97,7 @@ module test_assign_edge_cases;
             pass_count++;
             $display("Test 6 PASS: FF+FF = %h (overflow)", wire_result);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Max handled = %h", wire_result);
+            $display("Test 6 FAIL: Max unexpected = %h", wire_result);
         end
 
         // Test 7: Rapid changes
@@ -124,8 +119,7 @@ module test_assign_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Delta = %h", wire_result);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Delta handled = %h", wire_result);
+            $display("Test 8 FAIL: Delta unexpected = %h", wire_result);
         end
 
         // Test 9: Toggle inputs
@@ -140,8 +134,7 @@ module test_assign_edge_cases;
             pass_count++;
             $display("Test 9 PASS: Toggle = %h", wire_result);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Toggle handled = %h", wire_result);
+            $display("Test 9 FAIL: Toggle unexpected = %h", wire_result);
         end
 
         // Test 10: Selector toggle
@@ -154,13 +147,6 @@ module test_assign_edge_cases;
         #1;
         pass_count++;
         $display("Test 10 PASS: Selector toggle");
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Assign test", i);
-        end
 
         $display("=== Assign Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);

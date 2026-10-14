@@ -32,8 +32,7 @@ module test_pmos_edge_cases;
             pass_count++;
             $display("Test 1 PASS: pmos off = Z");
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: pmos handled = %b", out);
+            $display("Test 1 FAIL: pmos unexpected = %b", out);
         end
 
         // Test 2: PMOS on (ctrl=0), data=0
@@ -44,8 +43,7 @@ module test_pmos_edge_cases;
             pass_count++;
             $display("Test 2 PASS: pmos on, d=0, y=%b", out);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: pmos handled = %b", out);
+            $display("Test 2 FAIL: pmos unexpected = %b", out);
         end
 
         // Test 3: PMOS on, data=1
@@ -56,8 +54,7 @@ module test_pmos_edge_cases;
             pass_count++;
             $display("Test 3 PASS: pmos on, d=1, y=%b", out);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: pmos handled = %b", out);
+            $display("Test 3 FAIL: pmos unexpected = %b", out);
         end
 
         // Test 4: PMOS off again
@@ -68,8 +65,7 @@ module test_pmos_edge_cases;
             pass_count++;
             $display("Test 4 PASS: pmos off = Z");
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: pmos handled = %b", out);
+            $display("Test 4 FAIL: pmos unexpected = %b", out);
         end
 
         // Test 5: Data change while off
@@ -80,8 +76,7 @@ module test_pmos_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Still Z");
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled = %b", out);
+            $display("Test 5 FAIL: unexpected = %b", out);
         end
 
         // Test 6: Back on
@@ -92,8 +87,7 @@ module test_pmos_edge_cases;
             pass_count++;
             $display("Test 6 PASS: pmos on = %b", out);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled = %b", out);
+            $display("Test 6 FAIL: unexpected = %b", out);
         end
 
         // Test 7: Toggle data
@@ -106,15 +100,7 @@ module test_pmos_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Toggle = %b", out);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: handled = %b", out);
-        end
-
-        // Test 8-20: Simple passes
-        for (int i = 8; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: PMOS test", i);
+            $display("Test 7 FAIL: unexpected = %b", out);
         end
 
         $display("=== PMOS Edge Cases ===");

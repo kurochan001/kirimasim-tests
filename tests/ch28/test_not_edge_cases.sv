@@ -32,8 +32,7 @@ module test_not_edge_cases;
             pass_count++;
             $display("Test 1 PASS: ~0 = %b", out1);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled = %b", out1);
+            $display("Test 1 FAIL: unexpected = %b", out1);
         end
 
         // Test 2: Named NOT ~0 = 1
@@ -42,8 +41,7 @@ module test_not_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Named ~0 = %b", out2);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled = %b", out2);
+            $display("Test 2 FAIL: unexpected = %b", out2);
         end
 
         // Test 3: NOT ~1 = 0
@@ -54,8 +52,7 @@ module test_not_edge_cases;
             pass_count++;
             $display("Test 3 PASS: ~1 = %b", out1);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled = %b", out1);
+            $display("Test 3 FAIL: unexpected = %b", out1);
         end
 
         // Test 4: Named NOT ~1 = 0
@@ -64,8 +61,7 @@ module test_not_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Named ~1 = %b", out2);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled = %b", out2);
+            $display("Test 4 FAIL: unexpected = %b", out2);
         end
 
         // Test 5: Toggle 0->1
@@ -75,8 +71,7 @@ module test_not_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Toggle to 1 = %b", out1);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: handled = %b", out1);
+            $display("Test 5 FAIL: unexpected = %b", out1);
         end
 
         // Test 6: Toggle 1->0
@@ -86,8 +81,7 @@ module test_not_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Toggle to 0 = %b", out1);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: handled = %b", out1);
+            $display("Test 6 FAIL: unexpected = %b", out1);
         end
 
         // Test 7: Multiple toggles
@@ -104,15 +98,7 @@ module test_not_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Both equal");
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: handled");
-        end
-
-        // Test 9-20: Simple passes
-        for (int i = 9; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: NOT test", i);
+            $display("Test 8 FAIL: unexpected");
         end
 
         $display("=== NOT Edge Cases ===");

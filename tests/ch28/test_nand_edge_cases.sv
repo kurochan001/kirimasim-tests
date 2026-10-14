@@ -32,8 +32,7 @@ module test_nand_edge_cases;
             pass_count++;
             $display("Test 1 PASS: ~(0&0) = %b", out2);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: handled = %b", out2);
+            $display("Test 1 FAIL: unexpected = %b", out2);
         end
 
         // Test 2: NAND ~(0&1) = 1
@@ -44,8 +43,7 @@ module test_nand_edge_cases;
             pass_count++;
             $display("Test 2 PASS: ~(0&1) = %b", out2);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: handled = %b", out2);
+            $display("Test 2 FAIL: unexpected = %b", out2);
         end
 
         // Test 3: NAND ~(1&0) = 1
@@ -56,8 +54,7 @@ module test_nand_edge_cases;
             pass_count++;
             $display("Test 3 PASS: ~(1&0) = %b", out2);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: handled = %b", out2);
+            $display("Test 3 FAIL: unexpected = %b", out2);
         end
 
         // Test 4: NAND ~(1&1) = 0
@@ -68,8 +65,7 @@ module test_nand_edge_cases;
             pass_count++;
             $display("Test 4 PASS: ~(1&1) = %b", out2);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: handled = %b", out2);
+            $display("Test 4 FAIL: unexpected = %b", out2);
         end
 
         // Test 5: 3-input NAND ~(0&0&0) = 1
@@ -80,8 +76,7 @@ module test_nand_edge_cases;
             pass_count++;
             $display("Test 5 PASS: ~(0&0&0) = %b", out3);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: 3in handled = %b", out3);
+            $display("Test 5 FAIL: 3in unexpected = %b", out3);
         end
 
         // Test 6: 3-input NAND ~(1&1&0) = 1
@@ -92,8 +87,7 @@ module test_nand_edge_cases;
             pass_count++;
             $display("Test 6 PASS: ~(1&1&0) = %b", out3);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: 3in handled = %b", out3);
+            $display("Test 6 FAIL: 3in unexpected = %b", out3);
         end
 
         // Test 7: 3-input NAND ~(1&1&1) = 0
@@ -104,8 +98,7 @@ module test_nand_edge_cases;
             pass_count++;
             $display("Test 7 PASS: ~(1&1&1) = %b", out3);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: 3in handled = %b", out3);
+            $display("Test 7 FAIL: 3in unexpected = %b", out3);
         end
 
         // Test 8: Toggle test
@@ -115,13 +108,6 @@ module test_nand_edge_cases;
         a = 0; b = 0; #1;
         pass_count++;
         $display("Test 8 PASS: Toggle = %b", out2);
-
-        // Test 9-20: Simple passes
-        for (int i = 9; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: NAND test", i);
-        end
 
         $display("=== NAND Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);

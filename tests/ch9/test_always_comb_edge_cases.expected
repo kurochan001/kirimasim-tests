@@ -8,16 +8,6 @@ Test 7 PASS: 5>3 gt=1 eq=0 lt=0
 Test 8 PASS: 4==4 eq=1
 Test 9 PASS: 2<7 lt=1
 Test 10 PASS: Final sum = 7
-Test 11 PASS: Always_comb test
-Test 12 PASS: Always_comb test
-Test 13 PASS: Always_comb test
-Test 14 PASS: Always_comb test
-Test 15 PASS: Always_comb test
-Test 16 PASS: Always_comb test
-Test 17 PASS: Always_comb test
-Test 18 PASS: Always_comb test
-Test 19 PASS: Always_comb test
-Test 20 PASS: Always_comb test
 === Always_comb Edge Cases ===
-Passed: 20/20
+Passed: 10/10
 TEST PASSED

@@ -8,16 +8,6 @@ Test 7 PASS: G = (A+B)/2 = 15
 Test 8 PASS: H = deadbeef
 Test 9 PASS: I = ff
 Test 10 PASS: S = test
-Test 11 PASS: Constant test
-Test 12 PASS: Constant test
-Test 13 PASS: Constant test
-Test 14 PASS: Constant test
-Test 15 PASS: Constant test
-Test 16 PASS: Constant test
-Test 17 PASS: Constant test
-Test 18 PASS: Constant test
-Test 19 PASS: Constant test
-Test 20 PASS: Constant test
 === Constant Edge Cases ===
-Passed: 20/20
+Passed: 10/10
 TEST PASSED

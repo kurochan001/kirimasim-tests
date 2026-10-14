@@ -30,8 +30,7 @@ module test_concat_edge_cases;
             pass_count++;
             $display("Test 1 PASS: {a,b} = %h", med);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Concat handled = %h", med);
+            $display("Test 1 FAIL: Concat unexpected = %h", med);
         end
 
         // Test 2: Four-way concat
@@ -45,8 +44,7 @@ module test_concat_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Four concat = %h", wide);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Four handled = %h", wide);
+            $display("Test 2 FAIL: Four unexpected = %h", wide);
         end
 
         // Test 3: Replication
@@ -57,8 +55,7 @@ module test_concat_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Replication = %h", wide);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Replication handled = %h", wide);
+            $display("Test 3 FAIL: Replication unexpected = %h", wide);
         end
 
         // Test 4: Mixed concat and replicate
@@ -70,8 +67,7 @@ module test_concat_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Mixed = %h", wide);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Mixed handled = %h", wide);
+            $display("Test 4 FAIL: Mixed unexpected = %h", wide);
         end
 
         // Test 5: Single bit concat
@@ -88,8 +84,7 @@ module test_concat_edge_cases;
                 pass_count++;
                 $display("Test 5 PASS: Bit concat = %b", nibble);
             end else begin
-                pass_count++;
-                $display("Test 5 PASS: Bit handled = %b", nibble);
+                $display("Test 5 FAIL: Bit unexpected = %b", nibble);
             end
         end
 
@@ -101,8 +96,7 @@ module test_concat_edge_cases;
                 pass_count++;
                 $display("Test 6 PASS: Zero repl = %h", zeros);
             end else begin
-                pass_count++;
-                $display("Test 6 PASS: Zero handled = %h", zeros);
+                $display("Test 6 FAIL: Zero unexpected = %h", zeros);
             end
         end
 
@@ -114,8 +108,7 @@ module test_concat_edge_cases;
                 pass_count++;
                 $display("Test 7 PASS: One repl = %h", ones);
             end else begin
-                pass_count++;
-                $display("Test 7 PASS: One handled = %h", ones);
+                $display("Test 7 FAIL: One unexpected = %h", ones);
             end
         end
 
@@ -128,8 +121,7 @@ module test_concat_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Nested = %h", wide);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Nested handled = %h", wide);
+            $display("Test 8 FAIL: Nested unexpected = %h", wide);
         end
 
         // Test 9: LHS concat
@@ -140,8 +132,7 @@ module test_concat_edge_cases;
             pass_count++;
             $display("Test 9 PASS: LHS a=%h d=%h", a, d);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: LHS handled");
+            $display("Test 9 FAIL: LHS unexpected");
         end
 
         // Test 10: Sign extension
@@ -155,8 +146,7 @@ module test_concat_edge_cases;
                 pass_count++;
                 $display("Test 10 PASS: Sign ext = %h", extended);
             end else begin
-                pass_count++;
-                $display("Test 10 PASS: Sign handled = %h", extended);
+                $display("Test 10 FAIL: Sign unexpected = %h", extended);
             end
         end
 
@@ -171,8 +161,7 @@ module test_concat_edge_cases;
                 pass_count++;
                 $display("Test 11 PASS: Zero ext = %h", zext);
             end else begin
-                pass_count++;
-                $display("Test 11 PASS: Zext handled = %h", zext);
+                $display("Test 11 FAIL: Zext unexpected = %h", zext);
             end
         end
 
@@ -184,16 +173,8 @@ module test_concat_edge_cases;
                 pass_count++;
                 $display("Test 12 PASS: Large repl = %h", big);
             end else begin
-                pass_count++;
-                $display("Test 12 PASS: Large handled = %h", big);
+                $display("Test 12 FAIL: Large unexpected = %h", big);
             end
-        end
-
-        // Test 13-20: Simple passes
-        for (int i = 13; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Concat test", i);
         end
 
         $display("=== Concat Edge Cases ===");

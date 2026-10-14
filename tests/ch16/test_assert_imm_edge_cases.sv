@@ -30,8 +30,7 @@ module test_assert_imm_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Assert x==5");
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Assert handled");
+            $display("Test 1 FAIL: Assert unexpected");
         end
 
         // Test 2: Assert with message
@@ -47,17 +46,20 @@ module test_assert_imm_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Multi cond");
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Multi handled");
+            $display("Test 3 FAIL: Multi unexpected");
         end
 
         // Test 4: Assert false handling
         test_count++;
         begin
             static int temp = 0;
-            assert (temp != 0) else temp = 1;  // False but handled
-            pass_count++;
-            $display("Test 4 PASS: False assert handled");
+            assert (temp != 0) else temp = 1;  // Fails, so the else action runs
+            if (temp == 1) begin
+                pass_count++;
+                $display("Test 4 PASS: False assert handled");
+            end else begin
+                $display("Test 4 FAIL: else action did not run");
+            end
         end
 
         // Test 5: Assert in sequence
@@ -75,8 +77,7 @@ module test_assert_imm_edge_cases;
             pass_count++;
             $display("Test 6 PASS: Valid assert");
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Valid handled");
+            $display("Test 6 FAIL: Valid unexpected");
         end
 
         // Test 7: Expression in assert
@@ -85,8 +86,7 @@ module test_assert_imm_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Expr assert");
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Expr handled");
+            $display("Test 7 FAIL: Expr unexpected");
         end
 
         // Test 8: Negation
@@ -95,8 +95,7 @@ module test_assert_imm_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Neg assert");
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Neg handled");
+            $display("Test 8 FAIL: Neg unexpected");
         end
 
         // Test 9: Comparison
@@ -105,8 +104,7 @@ module test_assert_imm_edge_cases;
             pass_count++;
             $display("Test 9 PASS: Compare assert");
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Compare handled");
+            $display("Test 9 FAIL: Compare unexpected");
         end
 
         // Test 10: Assume
@@ -114,13 +112,6 @@ module test_assert_imm_edge_cases;
         assume (x < 100);
         pass_count++;
         $display("Test 10 PASS: Assume");
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Assert imm test", i);
-        end
 
         $display("=== Assert Immediate Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);

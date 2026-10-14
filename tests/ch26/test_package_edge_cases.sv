@@ -38,8 +38,7 @@ module test_package_edge_cases;
             pass_count++;
             $display("Test 1 PASS: WIDTH = %0d", WIDTH);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Param handled = %0d", WIDTH);
+            $display("Test 1 FAIL: Param unexpected = %0d", WIDTH);
         end
 
         // Test 2: Package typedef
@@ -49,8 +48,7 @@ module test_package_edge_cases;
             pass_count++;
             $display("Test 2 PASS: data_t = %h", d1);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Typedef handled = %h", d1);
+            $display("Test 2 FAIL: Typedef unexpected = %h", d1);
         end
 
         // Test 3: Package function
@@ -63,8 +61,7 @@ module test_package_edge_cases;
                 pass_count++;
                 $display("Test 3 PASS: add(10,20) = %0d", result);
             end else begin
-                pass_count++;
-                $display("Test 3 PASS: Func handled = %0d", result);
+                $display("Test 3 FAIL: Func unexpected = %0d", result);
             end
         end
 
@@ -74,8 +71,7 @@ module test_package_edge_cases;
             pass_count++;
             $display("Test 4 PASS: MAX_VAL = %0d", MAX_VAL);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Local handled = %0d", MAX_VAL);
+            $display("Test 4 FAIL: Local unexpected = %0d", MAX_VAL);
         end
 
         // Test 5: Multiple uses
@@ -90,8 +86,7 @@ module test_package_edge_cases;
                 pass_count++;
                 $display("Test 5 PASS: Sum = %h", sum);
             end else begin
-                pass_count++;
-                $display("Test 5 PASS: Sum handled = %h", sum);
+                $display("Test 5 FAIL: Sum unexpected = %h", sum);
             end
         end
 
@@ -107,8 +102,7 @@ module test_package_edge_cases;
                 pass_count++;
                 $display("Test 6 PASS: Multi r1=%0d r2=%0d", r1, r2);
             end else begin
-                pass_count++;
-                $display("Test 6 PASS: Multi handled");
+                $display("Test 6 FAIL: Multi unexpected");
             end
         end
 
@@ -122,16 +116,8 @@ module test_package_edge_cases;
                 pass_count++;
                 $display("Test 7 PASS: Nested = %0d", r);
             end else begin
-                pass_count++;
-                $display("Test 7 PASS: Nested handled = %0d", r);
+                $display("Test 7 FAIL: Nested unexpected = %0d", r);
             end
-        end
-
-        // Test 8-20: Simple passes
-        for (int i = 8; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Package test", i);
         end
 
         $display("=== Package Edge Cases ===");

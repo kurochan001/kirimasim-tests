@@ -29,8 +29,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 1 PASS: %h == %h", a, b);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Equality handled");
+            $display("Test 1 FAIL: Equality unexpected");
         end
 
         // Test 2: Inequality
@@ -41,8 +40,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 2 PASS: %h != %h", a, b);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Inequality handled");
+            $display("Test 2 FAIL: Inequality unexpected");
         end
 
         // Test 3: Case equality with X
@@ -53,8 +51,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 3 PASS: x === x");
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Case eq handled");
+            $display("Test 3 FAIL: Case eq unexpected");
         end
 
         // Test 4: Case inequality
@@ -65,8 +62,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 4 PASS: x !== 0");
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Case neq handled");
+            $display("Test 4 FAIL: Case neq unexpected");
         end
 
         // Test 5: Less than
@@ -77,8 +73,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 5 PASS: %0d < %0d", ia, ib);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Less handled");
+            $display("Test 5 FAIL: Less unexpected");
         end
 
         // Test 6: Greater than
@@ -89,8 +84,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 6 PASS: %0d > %0d", ia, ib);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Greater handled");
+            $display("Test 6 FAIL: Greater unexpected");
         end
 
         // Test 7: Less or equal
@@ -101,8 +95,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 7 PASS: %0d <= %0d", ia, ib);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: LE handled");
+            $display("Test 7 FAIL: LE unexpected");
         end
 
         // Test 8: Greater or equal
@@ -113,8 +106,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 8 PASS: %0d >= %0d", ia, ib);
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: GE handled");
+            $display("Test 8 FAIL: GE unexpected");
         end
 
         // Test 9: Negative compare
@@ -125,8 +117,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 9 PASS: %0d < %0d (negative)", ia, ib);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Neg compare handled");
+            $display("Test 9 FAIL: Neg compare unexpected");
         end
 
         // Test 10: Zero compare
@@ -137,8 +128,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 10 PASS: 0 == 0");
         end else begin
-            pass_count++;
-            $display("Test 10 PASS: Zero handled");
+            $display("Test 10 FAIL: Zero unexpected");
         end
 
         // Test 11: X with logical equality
@@ -157,15 +147,7 @@ module test_compare_edge_cases;
             pass_count++;
             $display("Test 12 PASS: Wildcard ==?");
         end else begin
-            pass_count++;
-            $display("Test 12 PASS: Wildcard handled");
-        end
-
-        // Test 13-20: Simple passes
-        for (int i = 13; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Compare test", i);
+            $display("Test 12 FAIL: Wildcard unexpected");
         end
 
         $display("=== Compare Edge Cases ===");

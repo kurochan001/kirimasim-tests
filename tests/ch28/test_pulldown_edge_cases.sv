@@ -36,8 +36,7 @@ module test_pulldown_edge_cases;
             pass_count++;
             $display("Test 1 PASS: Pulldown = %b", w1);
         end else begin
-            pass_count++;
-            $display("Test 1 PASS: Pulldown handled = %b", w1);
+            $display("Test 1 FAIL: Pulldown unexpected = %b", w1);
         end
 
         // Test 2: Second pulldown
@@ -46,8 +45,7 @@ module test_pulldown_edge_cases;
             pass_count++;
             $display("Test 2 PASS: Pulldown2 = %b", w2);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Pulldown2 handled = %b", w2);
+            $display("Test 2 FAIL: Pulldown2 unexpected = %b", w2);
         end
 
         // Test 3: Drive high overrides pulldown
@@ -58,8 +56,7 @@ module test_pulldown_edge_cases;
             pass_count++;
             $display("Test 3 PASS: Driven high = %b", w1);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Drive handled = %b", w1);
+            $display("Test 3 FAIL: Drive unexpected = %b", w1);
         end
 
         // Test 4: Release returns to pulldown
@@ -70,8 +67,7 @@ module test_pulldown_edge_cases;
             pass_count++;
             $display("Test 4 PASS: Released = %b", w1);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Release handled = %b", w1);
+            $display("Test 4 FAIL: Release unexpected = %b", w1);
         end
 
         // Test 5: Both wires pulled down
@@ -80,8 +76,7 @@ module test_pulldown_edge_cases;
             pass_count++;
             $display("Test 5 PASS: Both low");
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Both handled");
+            $display("Test 5 FAIL: Both unexpected");
         end
 
         // Test 6: Drive w2 high
@@ -92,8 +87,7 @@ module test_pulldown_edge_cases;
             pass_count++;
             $display("Test 6 PASS: w2 driven = %b", w2);
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: w2 handled = %b", w2);
+            $display("Test 6 FAIL: w2 unexpected = %b", w2);
         end
 
         // Test 7: Both driven high
@@ -104,8 +98,7 @@ module test_pulldown_edge_cases;
             pass_count++;
             $display("Test 7 PASS: Both high");
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Both handled");
+            $display("Test 7 FAIL: Both unexpected");
         end
 
         // Test 8: Release both
@@ -117,15 +110,7 @@ module test_pulldown_edge_cases;
             pass_count++;
             $display("Test 8 PASS: Both released");
         end else begin
-            pass_count++;
-            $display("Test 8 PASS: Release handled");
-        end
-
-        // Test 9-20: Simple passes
-        for (int i = 9; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Pulldown test", i);
+            $display("Test 8 FAIL: Release unexpected");
         end
 
         $display("=== Pulldown Edge Cases ===");

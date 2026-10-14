@@ -94,8 +94,7 @@ module test_display_format_edge_cases;
             pass_count++;
             $display("Test 12 PASS: $sformat = %s", str);
         end else begin
-            pass_count++;  // Format may vary slightly
-            $display("Test 12 PASS: $sformat handled = %s", str);
+            $display("Test 12 FAIL: $sformat unexpected = %s", str);
         end
 
         // Test 13: $sformatf

@@ -1,6 +1,6 @@
 PASS: Test 1 - Integer division by zero returns X
 PASS: Test 2 - Modulo by zero returns X
-PASS: Test 3 - INT_MIN / -1 handled (result=-2147483648)
+PASS: Test 3 - INT_MIN / -1 wraps (result=-2147483648)
 PASS: Test 4 - Negative modulo (-7 % 3 = -1)
 PASS: Test 5 - 5**0 = 1
 PASS: Test 6 - 2**(-1) = 0 for integer

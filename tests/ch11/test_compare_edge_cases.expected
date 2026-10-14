@@ -10,14 +10,6 @@ Test 9 PASS: -10 < 5 (negative)
 Test 10 PASS: 0 == 0
 Test 11 PASS: x==x result = x
 Test 12 PASS: Wildcard ==?
-Test 13 PASS: Compare test
-Test 14 PASS: Compare test
-Test 15 PASS: Compare test
-Test 16 PASS: Compare test
-Test 17 PASS: Compare test
-Test 18 PASS: Compare test
-Test 19 PASS: Compare test
-Test 20 PASS: Compare test
 === Compare Edge Cases ===
-Passed: 20/20
+Passed: 12/12
 TEST PASSED

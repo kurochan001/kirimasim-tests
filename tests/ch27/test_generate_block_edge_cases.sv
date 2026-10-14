@@ -78,8 +78,7 @@ module test_generate_block_edge_cases;
             pass_count++;
             $display("Test 2 PASS: gen_bits[0]=%b [1]=%b", gen_bits[0].bit_reg, gen_bits[1].bit_reg);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: gen_bits handled");
+            $display("Test 2 FAIL: gen_bits unexpected");
         end
 
         // Test 3: Access wide_logic (WIDTH > 2)
@@ -90,8 +89,7 @@ module test_generate_block_edge_cases;
             pass_count++;
             $display("Test 3 PASS: wide_logic.wide_reg = %h", wide_logic.wide_reg);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: wide_logic handled");
+            $display("Test 3 FAIL: wide_logic unexpected");
         end
 
         // Test 4: Access depth_2 (DEPTH == 2)
@@ -100,8 +98,7 @@ module test_generate_block_edge_cases;
             pass_count++;
             $display("Test 4 PASS: depth_2.dual_depth = %b", depth_2.dual_depth);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: depth_2 handled");
+            $display("Test 4 FAIL: depth_2 unexpected");
         end
 
         // Test 5: All gen_bits (use constant indices)
@@ -113,8 +110,7 @@ module test_generate_block_edge_cases;
             pass_count++;
             $display("Test 5 PASS: All gen_bits set");
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: All bits handled");
+            $display("Test 5 FAIL: All bits unexpected");
         end
 
         // Test 6: Zero data (use constant indices)
@@ -126,8 +122,7 @@ module test_generate_block_edge_cases;
             pass_count++;
             $display("Test 6 PASS: All gen_bits zero");
         end else begin
-            pass_count++;
-            $display("Test 6 PASS: Zero handled");
+            $display("Test 6 FAIL: Zero unexpected");
         end
 
         // Test 7: Alternating bits
@@ -141,8 +136,7 @@ module test_generate_block_edge_cases;
                 gen_bits[3].bit_reg, gen_bits[2].bit_reg,
                 gen_bits[1].bit_reg, gen_bits[0].bit_reg);
         end else begin
-            pass_count++;
-            $display("Test 7 PASS: Alternating handled");
+            $display("Test 7 FAIL: Alternating unexpected");
         end
 
         // Test 8: Dynamic data change
@@ -162,8 +156,7 @@ module test_generate_block_edge_cases;
             pass_count++;
             $display("Test 9 PASS: Read back = %h", wide_logic.wide_reg);
         end else begin
-            pass_count++;
-            $display("Test 9 PASS: Read handled");
+            $display("Test 9 FAIL: Read unexpected");
         end
 
         // Test 10: Max value
@@ -172,13 +165,6 @@ module test_generate_block_edge_cases;
         #1;
         pass_count++;
         $display("Test 10 PASS: Max value = %h", data);
-
-        // Test 11-20: Simple passes
-        for (int i = 11; i <= 20; i++) begin
-            test_count++;
-            pass_count++;
-            $display("Test %0d PASS: Generate test", i);
-        end
 
         $display("=== Generate Block Edge Cases ===");
         $display("Passed: %0d/%0d", pass_count, test_count);
