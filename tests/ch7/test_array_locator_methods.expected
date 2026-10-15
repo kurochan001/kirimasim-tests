@@ -1,0 +1,13 @@
+PASS: find() with (x == 20) returned 3 elements
+PASS: find_index() returned indices {1, 3, 5}
+PASS: find_first() with (x > 25) returned 30
+PASS: find_first_index() returned index 2
+PASS: find_last() with (x == 20) returned 20
+PASS: find_last_index() returned index 5
+PASS: unique() returned 4 unique values
+PASS: unique_index() returned 4 indices
+PASS: find() with no matches returned empty queue
+=== Array Locator Methods Test Results ===
+PASS: 9
+FAIL: 0
+TEST PASSED

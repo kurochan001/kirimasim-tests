@@ -1,0 +1,9 @@
+PASS: Rectangle area = 50
+PASS: Circle area = 147
+PASS: Rectangle name = Rectangle
+PASS: Circle name = Circle
+PASS: Direct member access works
+=== Abstract Class Test Results ===
+PASS: 5
+FAIL: 0
+TEST PASSED

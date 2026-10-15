@@ -1,0 +1,13 @@
+TEST: Chandle edge cases
+  [PASS] Chandle null initialization
+  [PASS] Chandle comparison
+  [PASS] Chandle inequality
+  [PASS] Chandle assignment
+  [PASS] Chandle in conditional
+  [PASS] Chandle array
+  [PASS] Chandle reset
+  [PASS] Chandle multiple vars
+  [PASS] Chandle not null check
+  [PASS] Chandle identity
+Results: 10 passed, 0 failed
+TEST PASSED

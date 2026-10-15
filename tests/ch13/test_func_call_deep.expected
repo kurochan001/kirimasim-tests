@@ -1,0 +1,10 @@
+PASS: recursive function
+PASS: ref parameter
+PASS: array parameter function
+PASS: array OOR returns -1
+PASS: default parameter
+PASS: static variable
+PASS: string return function
+PASS: virtual method dispatch
+PASS: queue parameter
+ALL TESTS PASSED (9 tests)

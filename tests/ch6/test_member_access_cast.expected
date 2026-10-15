@@ -1,0 +1,5 @@
+Test 1 PASS: b.value = 42
+Test 2 PASS: b.value = 100
+Test 3 PASS: b.value = 99
+Test 4 PASS: d2.extra = 200, d2.name = test
+4/4 passed

@@ -1,0 +1,8 @@
+=== Associative Array Foreach Struct Key Test ===
+Test 1 PASS: Simple packed struct key foreach works
+Test 2 PASS: Nested packed struct key foreach works
+Test 3 PASS: Unpacked struct key foreach works
+Test 4 PASS: break in foreach works
+Test 5 PASS: continue in foreach works
+=== Summary: 5/5 tests passed ===
+TEST PASSED

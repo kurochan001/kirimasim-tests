@@ -1,0 +1,17 @@
+=== Test 1: $cast to packed struct high byte ===
+PASS: $cast(w.high, 8'hAB) succeeded, w.high = ab
+=== Test 2: $cast to packed struct low byte ===
+PASS: $cast(w.low, 8'hCD) succeeded, w.low = cd
+=== Test 3: Verify full packed struct value ===
+PASS: w = abcd (expected ABCD)
+=== Test 4: $cast to tagged_data struct fields ===
+PASS: $cast(t.tag, 4'hF) succeeded, t.tag = f
+=== Test 5: $cast to tagged_data data field ===
+PASS: $cast(t.data, 12'hBEE) succeeded, t.data = bee
+=== Test 6: $cast to class's packed struct member ===
+PASS: $cast(c.word_member.high, 8'h12) succeeded (success=1)
+=== Test 7: $cast to nested packed struct ===
+PASS: $cast(n.word.high, 8'hDE) succeeded
+=== Test Summary ===
+Tests: 7/7 passed
+SUCCESS: All packed struct $cast tests passed

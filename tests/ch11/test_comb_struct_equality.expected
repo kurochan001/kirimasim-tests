@@ -1,0 +1,10 @@
+T1: PASS - identical packed structs are equal
+T2: PASS - different packed structs are not equal
+T3: PASS - assigned packed struct equals source
+T4: PASS - zero packed structs are equal
+T5: PASS - identical unpacked structs are equal
+T6: PASS - different unpacked structs are not equal
+T7: PASS - packed struct member in case works
+T8: PASS - packed struct case equality works
+pass_count = 8
+PASS: test_comb_struct_equality

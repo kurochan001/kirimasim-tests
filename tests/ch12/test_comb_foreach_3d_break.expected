@@ -1,0 +1,8 @@
+T1: PASS - 3D foreach break exits entire loop, sum=1
+T2: PASS - 3D foreach continue on j
+T3: PASS - 2D foreach break at [1][1]
+T4: PASS - dynamic array foreach break
+T5: PASS - foreach break at value 3: [1][2]
+T6: PASS - queue foreach break
+pass_count = 6
+PASS: test_comb_foreach_3d_break

@@ -1,0 +1,5 @@
+OK: Test 1 - $sampled(data)=00 as expected
+OK: Test 2 - $sampled(data)=aa as expected
+OK: Test 3 - $sampled(data)=bb as expected
+OK: Test 4 - $sampled(data)=cc as expected
+PASS: $sampled function test completed - all 4 tests passed

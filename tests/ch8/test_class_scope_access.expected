@@ -1,0 +1,11 @@
+TEST 1 PASS: Counter::count read before any instance (0)
+TEST 2 PASS: Counter::count=1 after first instance
+TEST 3 PASS: c1.count sees Counter::count modification (100)
+TEST 4 PASS: Counter::reset() worked, count=0
+TEST 5 PASS: Counter::get_count()=2
+========================================
+Class Scope Access Test Summary:
+  PASS: 5
+  FAIL: 0
+========================================
+All tests PASSED!

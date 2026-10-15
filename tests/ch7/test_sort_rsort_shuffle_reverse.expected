@@ -1,0 +1,12 @@
+PASS: Test 1 - Queue sort
+PASS: Test 2 - Queue rsort
+PASS: Test 3 - Queue reverse
+PASS: Test 4 - Queue shuffle (elements preserved)
+PASS: Test 5 - Dynamic array sort
+PASS: Test 6 - Dynamic array rsort
+PASS: Test 7 - Dynamic array reverse
+PASS: Test 8 - Dynamic array shuffle
+=== Test Summary ===
+Passed: 8
+Failed: 0
+TEST PASSED

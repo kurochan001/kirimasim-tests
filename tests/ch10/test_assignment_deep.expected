@@ -1,0 +1,10 @@
+PASS: struct assignment
+PASS: dynamic array copy semantics
+PASS: queue copy semantics
+PASS: real to int conversion
+PASS: unsigned to signed conversion
+PASS: class handle reference semantics
+PASS: assignment pattern
+PASS: multi-dimensional array assignment
+PASS: conditional assignment
+ALL TESTS PASSED (9 tests)

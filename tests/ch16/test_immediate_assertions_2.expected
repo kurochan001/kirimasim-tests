@@ -1,0 +1,11 @@
+PASS: Simple assert passed
+PASS: Assert with condition y > 0
+PASS: Deferred assert passed
+PASS: Assert else clause executed
+PASS: Complex assert expression
+PASS: Cover hit for x == 42
+PASS: Multiple sequential asserts
+=== Immediate Assertions Test Results ===
+PASS: 7
+FAIL: 0
+TEST PASSED

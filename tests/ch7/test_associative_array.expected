@@ -1,0 +1,12 @@
+PASS: Initial num() is 0
+PASS: Insert and retrieve works
+PASS: num() is 3 after 3 inserts
+PASS: exists() works correctly
+PASS: delete by key works
+PASS: first() returns key 'apple'
+PASS: Integer key AA works
+PASS: delete() clears all
+=== Associative Array Test Results ===
+PASS: 8
+FAIL: 0
+TEST PASSED

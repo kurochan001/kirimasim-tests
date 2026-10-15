@@ -1,0 +1,10 @@
+PASS: Dog speaks correctly via base pointer
+PASS: Cat speaks correctly via base pointer
+PASS: Bird speaks correctly via base pointer
+PASS: Dog has 4 legs
+PASS: Bird has 2 legs
+PASS: Dog name inherited correctly
+=== Class Polymorphism Test Results ===
+PASS: 6
+FAIL: 0
+TEST PASSED

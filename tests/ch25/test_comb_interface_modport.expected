@@ -1,0 +1,8 @@
+T1: PASS - producer writes data = aa
+T2: PASS - valid = 1
+T3: PASS - ready = 1
+T4: PASS - virtual interface reads correctly
+T5: PASS - virtual interface write propagates
+T6: PASS - vif is not null after assignment
+pass_count = 6
+PASS: test_comb_interface_modport

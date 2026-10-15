@@ -1,0 +1,12 @@
+=== Class Copy Corner Cases Test ===
+PASS: Basic copy works
+PASS: Copy is independent
+PASS: Shallow copy shares nested object (both show 999)
+PASS: Deep copy has independent nested object
+PASS: Array copy is independent
+PASS: Clone pattern works
+PASS: Handle assignment creates reference (both show 100)
+PASS: Null handling in copy works
+=== Summary ===
+Passed: 8, Failed: 0
+TEST PASSED

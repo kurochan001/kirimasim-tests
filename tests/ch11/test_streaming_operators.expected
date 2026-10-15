@@ -1,0 +1,10 @@
+PASS: Right stream pack - data=0x11223344
+PASS: Right stream unpack
+PASS: Left stream pack - data=0x08040201
+PASS: Stream to individual bytes
+PASS: Stream to words
+PASS: Pack words to data
+=== Streaming Operators Test Results ===
+PASS: 6
+FAIL: 0
+TEST PASSED

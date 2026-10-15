@@ -1,0 +1,8 @@
+Format: dec=42 hex=2a bin=101010 oct=52
+String format: name=hello len=5
+Real format: real=3.140000 sci=3.140000e+00
+Time format: time=0
+Width format: |        42|
+write: 100 writeh: ff writeb: 10101010 writeo: 77
+pass_count = 15
+PASS: test_comb_systask_string_format

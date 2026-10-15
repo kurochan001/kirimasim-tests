@@ -1,0 +1,5 @@
+PASS: streaming NBA pack
+PASS: streaming NBA unpack
+PASS: streaming NBA halfword
+PASS: streaming blocking assignment
+ALL TESTS PASSED (4 tests)

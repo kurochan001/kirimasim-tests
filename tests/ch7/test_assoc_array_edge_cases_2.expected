@@ -1,0 +1,13 @@
+TEST: Associative array edge cases
+  [PASS] Empty size
+  [PASS] String key insert
+  [PASS] Multiple keys
+  [PASS] Key update
+  [PASS] Exists check
+  [PASS] Delete key
+  [PASS] Int key insert
+  [PASS] Int key size
+  [PASS] Delete all
+  [PASS] Rebuild
+Results: 10 passed, 0 failed
+TEST PASSED

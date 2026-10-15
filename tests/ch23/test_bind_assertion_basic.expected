@@ -1,0 +1,9 @@
+=== Bind Assertion Basic Test ===
+Test 1: Reset behavior
+Test 1 PASS: ready is low after reset
+Test 2: Valid-ready protocol
+Test 2 PASS: ready high when valid is high
+Test 3: Another valid pulse
+Test 3 PASS: ready high for second pulse
+=== Summary: 3/3 tests passed ===
+TEST PASSED

@@ -1,0 +1,7 @@
+PASS: exists works
+PASS: size works (2 outer keys)
+latency[A][B] = 1.500000
+latency[A][C] = 2.000000
+latency[B][C] = 3.000000
+PASS: delete works
+TEST PASSED

@@ -1,0 +1,10 @@
+PASS: sum() = 15
+PASS: product() = 120
+PASS: and() = 0000
+PASS: or() = 1111
+PASS: xor() = 0011
+PASS: sum(x * 2) = 30
+=== Array Reduction Test Results ===
+PASS: 6
+FAIL: 0
+TEST PASSED

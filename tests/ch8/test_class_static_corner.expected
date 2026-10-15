@@ -1,0 +1,13 @@
+  Static initialization called
+=== Static Class Members Test ===
+PASS: Static counter = 3
+PASS: Static method access without instance works
+PASS: Static property modification works
+PASS: Instance IDs are unique: 1, 2, 3
+PASS: Static const works: VERSION=100, NAME=TestConfig
+PASS: Static initialization works
+PASS: Static with inheritance works: base=2, derived=2
+PASS: Static array works
+=== Summary ===
+Passed: 8, Failed: 0
+TEST PASSED

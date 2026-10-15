@@ -1,0 +1,17 @@
+=== Dynamic Array Corner Cases Test ===
+PASS: Dynamic array created with size 5
+PASS: Dynamic array initialized correctly
+PASS: Resize with preservation works
+PASS: Resize shrink works
+PASS: Array deleted, size = 0
+PASS: Uninitialized array has size 0
+PASS: Array copy works
+PASS: Array of objects works
+PASS: 2D dynamic array works
+PASS: Array methods work: sum=25, min=1, max=9
+PASS: find() found 3 elements with value 5
+PASS: Array sort works
+PASS: Array reverse works
+=== Summary ===
+Passed: 13, Failed: 0
+TEST PASSED

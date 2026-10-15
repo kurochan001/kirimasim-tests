@@ -1,0 +1,10 @@
+TEST 1 PASSED: list.head.value assignment = 42
+TEST 2 PASSED: list.head.value comparison works
+TEST 3 PASSED: list.head.value = 30 (most recent)
+TEST 4 PASSED: list.head.next.value = 20
+TEST 5 PASSED: list.head.next.next.value = 10
+TEST 6 PASSED: 4-level deep access = 5
+TEST 7 PASSED: temp.value = 77 (via intermediate)
+=== Test Summary ===
+Passed: 7 / 7
+TEST PASSED

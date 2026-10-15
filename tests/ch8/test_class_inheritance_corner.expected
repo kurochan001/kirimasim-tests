@@ -1,0 +1,12 @@
+=== Class Inheritance Corner Cases Test ===
+PASS: Basic inheritance works
+PASS: Virtual method override works
+PASS: super.method() works: Rex is 5 years old and is a Poodle
+PASS: Multi-level inheritance works
+PASS: Polymorphism works
+PASS: $cast downcast works
+PASS: $cast correctly fails for non-Dog Animal
+PASS: Virtual/abstract class works, area=78.539750
+=== Summary ===
+Passed: 8, Failed: 0
+TEST PASSED

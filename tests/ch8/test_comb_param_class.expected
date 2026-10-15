@@ -1,0 +1,8 @@
+T1: PASS - default Stack#() works
+T2: PASS - Stack#(int,4) full at 4
+T3: PASS - Stack#(string) works
+T4: PASS - Pair#(int,string)
+T5: PASS - Pair#(string,string)
+T6: PASS - multiple specializations coexist
+pass_count = 6
+PASS: test_comb_param_class

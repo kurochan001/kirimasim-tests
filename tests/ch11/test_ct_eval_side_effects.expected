@@ -1,0 +1,16 @@
+T1: PASS - sum of elements val=50
+T2: PASS - pushed sum q[3]=6
+T3: PASS - compound assign
+T4: PASS - += chain val=18
+T5: PASS - pre-inc a=6 b=12
+T6: PASS - post-inc a=6 b=10
+T7: PASS - task ref x=42
+T9: PASS - multiple side effects a=3 b=2
+T10: PASS - continuous assign func_out=21
+T11: PASS - string methods len=11
+T12: PASS - getc/putc 'axc'
+T13: PASS - array compound assign
+T14: PASS - pre/post decrement a=8 b=10 c=8
+T15: PASS - bitwise compound val=55
+pass_count = 14 / 14
+PASS: test_ct_eval_side_effects

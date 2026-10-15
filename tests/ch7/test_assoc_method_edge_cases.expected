@@ -1,0 +1,13 @@
+Test 1 PASS: Empty num = 0
+Test 2 PASS: Added num = 3
+Test 3 PASS: Access 'two' = 2
+Test 4 PASS: Exists 'one'
+Test 5 PASS: Not exists 'four'
+Test 6 PASS: Deleted 'two'
+Test 7 PASS: First key = one
+Test 8 PASS: Last key = three
+Test 9 PASS: Updated 'one' = 100
+Test 10 PASS: Delete all num = 0
+=== Assoc Method Edge Cases ===
+Passed: 10/10
+TEST PASSED

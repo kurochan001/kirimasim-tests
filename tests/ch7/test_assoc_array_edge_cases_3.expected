@@ -1,0 +1,13 @@
+TEST: Associative array edge cases
+  [PASS] Empty array: num()=size()=0
+  [PASS] Wildcard key with int works
+  [PASS] String values in associative array work
+  [PASS] Associative array assignment is deep copy
+  [PASS] last() returns highest key
+  [PASS] prev() returns previous key
+  [PASS] exists() returns 0 after delete
+  [PASS] Different value types with int keys work
+  [PASS] Zero is a valid key
+  [PASS] Overwrite updates value, keeps size
+Results: 10 passed, 0 failed
+TEST PASSED

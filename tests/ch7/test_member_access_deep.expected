@@ -1,0 +1,21 @@
+PASS: queue find
+PASS: queue find_first
+PASS: queue find_last
+PASS: queue find_index
+PASS: array sum
+PASS: array product
+PASS: queue sort
+PASS: queue rsort
+PASS: queue reverse
+PASS: dynamic array size
+PASS: dynamic array min
+PASS: dynamic array max
+PASS: string len
+PASS: string toupper
+PASS: string tolower
+PASS: string substr
+PASS: class member chain access
+PASS: assoc array size
+PASS: assoc array exists
+PASS: assoc array delete
+ALL TESTS PASSED (20 tests)

@@ -1,0 +1,19 @@
+T1: PASS - force/release
+T2: PASS - bit-select write 81
+T3: PASS - part-select write cdab
+T4: PASS - indexed +: write ff00
+T5: PASS - indexed -: write aa00
+T6: PASS - concat LHS hi=ab lo=cd
+T7: PASS - array bit-select
+T8: PASS - NBA simple aa
+T9: PASS - NBA struct 12,34
+T10: PASS - NBA array
+T11: PASS - multiple NBA last wins 33
+T12: PASS - concat NBA ch=a cl=b
+T14: PASS - task output r=30
+T15: PASS - compound assign val=6
+T16: PASS - inc/dec a=12
+T17: PASS - 2D array
+T18: PASS - packed NBA beef
+pass_count = 17 / 17
+PASS: test_ct_assignment_complex

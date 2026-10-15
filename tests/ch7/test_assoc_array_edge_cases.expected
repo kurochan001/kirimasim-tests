@@ -1,0 +1,15 @@
+Test 1 PASS: assoc[10] = 100
+Test 2 PASS: Multi insert
+Test 3 PASS: size = 3
+Test 4 PASS: exists(10) = true
+Test 5 PASS: exists(999) = false
+Test 6 PASS: Deleted 20
+Test 7 PASS: first key = 10
+Test 8 PASS: last key = 30
+Test 9 PASS: next key = 30
+Test 10 PASS: string key
+Test 11 PASS: delete all, size = 0
+Test 12 PASS: rebuild size = 2
+=== Assoc Array Edge Cases ===
+Passed: 12/12
+TEST PASSED

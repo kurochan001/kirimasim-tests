@@ -1,0 +1,6 @@
+PASS: size() = 5
+PASS: sum() = 150
+PASS: product() = 12000000
+PASS: min() = 10
+PASS: max() = 50
+TEST PASSED: All array reduction methods work correctly

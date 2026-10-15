@@ -1,0 +1,20 @@
+=== Associative Array Corner Cases Test ===
+PASS: String-indexed array works
+PASS: Array size = 3
+PASS: Int-indexed array works
+PASS: exists() method works
+PASS: delete() element works
+PASS: delete() all works
+  arr[10] = 100
+  arr[20] = 200
+  arr[30] = 300
+PASS: first()/next() iteration works, count=3
+PASS: last()/prev() iteration works
+PASS: num() returns 2
+PASS: Enum-indexed array works
+PASS: Class handle-indexed array works
+PASS: Wildcard index array works, size=2
+PASS: Associative array of dynamic arrays works
+=== Summary ===
+Passed: 13, Failed: 0
+TEST PASSED

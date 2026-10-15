@@ -1,0 +1,11 @@
+Test 1 PASS: this in constructor
+Test 2 PASS: super.new() call
+Test 3 PASS: this in method
+Test 4 PASS: super method call
+Test 5 PASS: virtual method override
+Test 6 PASS: grandchild super chain
+Test 7 PASS: grandchild method chain
+Test 8 PASS: polymorphism with grandchild
+=== Class this/super Test Results ===
+Passed: 8/8
+TEST PASSED

@@ -1,0 +1,13 @@
+TEST: Class cast edge cases
+  [PASS] Upcast implicit
+  [PASS] Downcast with $cast
+  [PASS] Failed cast
+  [PASS] Valid cast check
+  [PASS] Cast preserves data
+  [PASS] Multiple casts
+  [PASS] Cast value verification
+  [PASS] Different handles
+  [PASS] Cast after modify
+  [PASS] Same object check
+Results: 10 passed, 0 failed
+TEST PASSED

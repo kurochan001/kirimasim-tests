@@ -1,0 +1,14 @@
+T1: PASS - arr.find() size=2
+T2: PASS - arr.find_index() = {1, 3}
+T3: PASS - arr.find_first() = 25
+T4: PASS - arr.find_last() = 30
+T5: PASS - arr.find_first_index() = 1
+T6: PASS - arr.find_last_index() = 3
+T7: PASS - no match find() returns empty
+T8: PASS - no match find_first_index() returns empty
+T9: PASS - arr.sum() with (item*item) = 30
+T10: PASS - arr.min()=3, arr.max()=42
+T11: PASS - arr.sort(): [1,3,4,5,8]
+T12: PASS - arr.unique() size=3
+pass_count = 12
+PASS: test_comb_dynarray_locator

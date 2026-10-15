@@ -1,0 +1,15 @@
+Test 1 PASS: sum = 450
+Test 2 PASS: product = 6
+Test 3 PASS: reverse [0]=4 [3]=1
+Test 4 PASS: sort [0]=1 [4]=9
+Test 5 PASS: rsort [0]=9 [4]=1
+Test 6 PASS: shuffle completed
+Test 7 PASS: find > 35 count = 3
+Test 8 PASS: find_index count = 3
+Test 9 PASS: find_first = 15
+Test 10 PASS: min = 10
+Test 11 PASS: max = 90
+Test 12 PASS: unique count = 3
+=== Array Methods Edge Cases ===
+Passed: 12/12
+TEST PASSED

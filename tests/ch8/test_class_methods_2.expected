@@ -1,0 +1,12 @@
+PASS: Default constructor
+PASS: Init method
+PASS: Method calls - increment
+PASS: Method with return value
+PASS: Method with parameter
+PASS: Point set_pos method
+PASS: Manhattan distance calculation
+PASS: Move method
+=== Class Methods Test Results ===
+PASS: 8
+FAIL: 0
+TEST PASSED

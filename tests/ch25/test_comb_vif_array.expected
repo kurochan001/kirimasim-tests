@@ -1,0 +1,8 @@
+T1: PASS - vif write: data=aa valid=1
+T2: PASS - switched vif: bus1=11 bus2=22
+T3: PASS - vif read: bb
+T4: PASS - unassigned vif is null
+T5: PASS - reassigned vif reads bus1: dd
+T6: PASS - two vifs to same bus: ee
+pass_count = 6
+PASS: test_comb_vif_array

@@ -1,0 +1,10 @@
+T1: PASS - find_first(>10) = 12
+T2: PASS - find_last(>10) = 25
+T3: PASS - find_first_index(>=30) = 2
+T4: PASS - find_last_index(<=30) = 2
+T5: PASS - find(>4) found 3 items
+T6: PASS - find(>100) returns empty
+T7: PASS - min=3 max=99
+T8: PASS - unique size = 4
+pass_count = 8
+PASS: test_comb_dynarray_find

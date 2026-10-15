@@ -1,0 +1,11 @@
+PASS: find(x > 20) returned correct elements
+PASS: find_index(x == 25) returned correct indices
+PASS: find_first(x > 20) returned 25
+PASS: find_last(x > 20) returned 40
+PASS: find_first_index(x == 5) returned 2
+PASS: find_last_index(x == 25) returned 5
+PASS: find(x > 100) returned empty queue
+=== Array Find Test Results ===
+PASS: 7
+FAIL: 0
+TEST PASSED

@@ -1,0 +1,17 @@
+T1: PASS - 2D foreach total=66
+T2: PASS - 3D foreach total=28
+T3: PASS - foreach break count=5
+T4: PASS - foreach continue sum=20
+T5: PASS - foreach queue sum=150
+T6: PASS - foreach assoc sum=6
+T7: PASS - foreach dynarray sum=50
+T8: PASS - do-while sum=10
+T9: PASS - repeat count=10
+T10: PASS - multi-var for sum=50
+T11: PASS - forever+break count=7
+T12: PASS - nested foreach mixed total=15
+T13: PASS - while complex a=50 b=60
+T14: PASS - foreach modify
+T15: PASS - nested search found at [1][1]
+pass_count = 15 / 15
+PASS: test_ct_foreach_nd

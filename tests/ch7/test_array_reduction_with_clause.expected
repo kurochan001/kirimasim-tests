@@ -1,0 +1,11 @@
+PASS: sum with (x * 2) = 30
+PASS: sum with (item.index) = 10
+PASS: product with (x) = 120
+PASS: sum with (x * x) = 55
+PASS: sum with (x > 2 ? x : 0) = 12
+PASS: simple sum() = 15
+PASS: simple product() = 120
+=== Array Reduction with With-Clause Test Results ===
+PASS: 7
+FAIL: 0
+TEST PASSED

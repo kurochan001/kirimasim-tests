@@ -1,0 +1,13 @@
+TEST: Class virtual method edge cases
+  [PASS] Base virtual method
+  [PASS] Dog speak
+  [PASS] Bird speak
+  [PASS] Dog legs
+  [PASS] Bird legs
+  [PASS] Polymorphic dog
+  [PASS] Polymorphic bird
+  [PASS] Polymorphic legs
+  [PASS] Name inheritance
+  [PASS] Multiple dogs
+Results: 10 passed, 0 failed
+TEST PASSED

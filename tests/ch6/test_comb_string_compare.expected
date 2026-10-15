@@ -1,0 +1,14 @@
+T1: PASS - identical strings are equal
+T2: PASS - different strings are not equal
+T3: PASS - 'apple' < 'banana'
+T4: PASS - 'zebra' > 'aardvark'
+T5: PASS - compare() returns 0 for equal strings
+T6: PASS - icompare() returns 0 for case-different strings
+T7: PASS - string concatenation works
+T8: PASS - len() = 5
+T9: PASS - toupper/tolower work
+T10: PASS - substr(6,10) = 'world'
+T11: PASS - atoi('42') = 42
+T12: PASS - empty strings are equal
+pass_count = 12
+PASS: test_comb_string_compare

@@ -1,0 +1,13 @@
+TEST: Case statement edge cases
+  [PASS] Case with enum works
+  [PASS] Case inside with set membership works
+  [PASS] Case inside multiple values works
+  [PASS] Case inside default fallback works
+  [PASS] Unique case works
+  [PASS] Priority case selects highest priority
+  [PASS] Nested case statements work
+  [PASS] Case with negative values works
+  [PASS] Case with max int works
+  [PASS] Case default correctly selected
+Results: 10 passed, 0 failed
+TEST PASSED

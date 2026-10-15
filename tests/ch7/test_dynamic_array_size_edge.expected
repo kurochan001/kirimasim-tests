@@ -1,0 +1,18 @@
+=== Dynamic Array size() Edge Cases ===
+--- Test 1: Uninitialized module-level array ---
+[PASS] dyn_arr1.size() before init: got 0
+[PASS] dyn_arr1.size() after new[3]: got 3
+[PASS] dyn_arr1.size() after resize to 5: got 5
+[PASS] dyn_arr1.size() after new[0]: got 0
+--- Test 2: Local dynamic array ---
+[PASS] local_dyn.size() before init: got 0
+[PASS] local_dyn.size() after new[4]: got 4
+--- Test 3: Class member dynamic array ---
+[PASS] pkt.data.size() before init: got 0
+[PASS] pkt.data.size() after new[7]: got 7
+--- Test 4: Function parameter ---
+[PASS] get_dyn_size(empty_arr): got 0
+[PASS] get_dyn_size(arr[6]): got 6
+=== Test Summary ===
+Pass: 10, Fail: 0
+ALL TESTS PASSED

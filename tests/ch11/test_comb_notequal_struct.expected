@@ -1,0 +1,10 @@
+T1: PASS - packed struct != works
+T2: PASS - identical packed structs not !=
+T3: PASS - unpacked struct != works
+T4: PASS - identical unpacked structs not !=
+T5: PASS - packed union !=
+T6: PASS - packed union == via fields/raw
+T7: PASS - single member difference detected
+T8: PASS - string member difference detected
+pass_count = 8
+PASS: test_comb_notequal_struct

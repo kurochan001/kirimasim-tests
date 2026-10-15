@@ -1,0 +1,8 @@
+PASS: Shallow copy copied fields
+PASS: Modifying copy doesn't affect original scalars
+PASS: p1 and p2 are different objects
+PASS: Object creation and copy verified
+=== Class Copy Test Results ===
+PASS: 4
+FAIL: 0
+TEST PASSED

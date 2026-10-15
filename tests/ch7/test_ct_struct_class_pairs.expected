@@ -1,0 +1,22 @@
+T1: PASS - class member access
+T2: PASS - packed struct bit-select
+T3: PASS - packed struct part-select
+T4: PASS - struct copy semantics
+T5: PASS - class queue member
+T6: PASS - struct member assign p.x=10 p.y=20
+T7: PASS - packed struct pattern
+T8: PASS - struct array
+T9: PASS - struct queue foreach total=10
+T10: PASS - nested struct
+T11: PASS - class handle semantics
+T12: PASS - packed struct to vector
+T13: PASS - vector to packed struct
+T14: PASS - struct equality
+T15: PASS - packed union
+T16: PASS - null check
+T17: PASS - packed struct array
+T18: PASS - struct defaults
+T19: PASS - class basic
+T20: PASS - struct members in expression
+pass_count = 20 / 20
+PASS: test_ct_struct_class_pairs

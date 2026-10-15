@@ -1,0 +1,14 @@
+Test 1: arr[0].value before=0
+Test 1: arr[0].value after=100, result=1
+PASS: Test 1 - $cast to dynamic array element
+PASS: Test 2 - $cast to dynamic array element with index expression
+Test 3: queue_items[1].value before=20
+Test 3: queue_items[1].value after=300, result=1
+PASS: Test 3 - $cast to queue element
+Test 4: container.items[1].value before=10
+Test 4: container.items[1].value after=200, result=1
+PASS: Test 4 - $cast to class member array element
+=== Test Summary ===
+Tests passed: 4
+Tests failed: 0
+ALL TESTS PASSED
