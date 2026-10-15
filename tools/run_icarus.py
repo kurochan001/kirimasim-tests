@@ -11,8 +11,9 @@ does not match. The expected outputs were recorded with Icarus Verilog 13.0
 
 A test whose `:oracle:` does not list iverilog@13.0 has an expected output
 that Icarus Verilog 13.0 does not produce, because Icarus Verilog does not
-follow the standard there. Such a test is reported as a known difference and
-does not make the run fail.
+follow the standard there or cannot compile the test (such a test lists
+verilator@5.052 instead; see tools/run_verilator.py). Such a test is
+reported as a known difference and does not make the run fail.
 """
 
 import argparse

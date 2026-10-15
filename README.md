@@ -9,8 +9,9 @@ standard it checks.
 
 > **Status: early.** The suite has 1345 tests. Each one was checked
 > against IEEE 1800-2023 by reading the cited clauses, and its expected output
-> matches Icarus Verilog 13.0, except for 5 tests where Icarus Verilog does not
-> follow the standard (see below).
+> matches Icarus Verilog 13.0 or, for tests that Icarus Verilog 13.0 cannot
+> compile, Verilator 5.052. A few tests follow the standard where neither
+> simulator does (see below).
 
 ## Layout
 
@@ -19,6 +20,7 @@ tests/chNN/<name>.sv            the test, with a metadata header
 tests/chNN/<name>.expected      expected standard output (multi-line)
 tools/normalize_output.py       removes simulator banners before comparing
 tools/run_icarus.py             runs the suite with Icarus Verilog
+tools/run_verilator.py          runs the Verilator-oracle tests with Verilator
 ```
 
 Tests are grouped by the chapter of IEEE 1800-2023 that their first
@@ -37,7 +39,7 @@ extra fields.
 | `:tags:` | Directory: `chNN`, the chapter of the first clause in `:lrm:` |
 | `:type:` | `simulation` for tests that are run |
 | `:lrm:` | IEEE 1800-2023 clauses the test checks, for example `1800-2023 11.4.3` |
-| `:oracle:` | Where the expected output comes from: `spec` (a person checked it against the standard), `iverilog@13.0` (Icarus Verilog 13.0 produced it) |
+| `:oracle:` | Where the expected output comes from: `spec` (a person checked it against the standard), `iverilog@13.0` (Icarus Verilog 13.0 produced it), `verilator@5.052` (Verilator 5.052 produced it) |
 | `:fourstate:` | Whether the result depends on x or z values (`yes` / `no`): the test has x or z literals, `$isunknown`, `casex`/`casez`, tri-state or strength constructs, or x or z in its expected output |
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
 | `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test |
@@ -56,7 +58,21 @@ python3 tools/run_icarus.py --iverilog-bin /path/to/icarus-13.0/bin
 Where Icarus Verilog 13.0 does not follow the standard, the expected output
 follows the standard and `:oracle:` is `spec` without `iverilog@13.0`.
 `tools/run_icarus.py` reports such a test as a known difference and does not
-count it as a failure.
+count it as a failure. The same applies to tests that Icarus Verilog 13.0
+cannot compile; their `:oracle:` lists `verilator@5.052` instead.
+
+## Running with Verilator
+
+```sh
+python3 tools/run_verilator.py
+python3 tools/run_verilator.py --seed 7
+```
+
+This runs only the tests whose `:oracle:` lists `verilator@5.052`. Verilator is
+a two-state simulator, so all of these tests are `:fourstate: no`. Each test is
+built with `verilator --binary --timing` and run with random initial values
+(`--seed` chooses them); the expected outputs were checked to be the same with
+two different seeds.
 
 ## Contributing
 
