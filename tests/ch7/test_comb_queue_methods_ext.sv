@@ -126,6 +126,8 @@ module test_comb_queue_methods_ext;
             static int found[$];
             // Assigned here so the result does not depend on the order of static initializers.
             found = q.find() with (item > 25);
+            // Locator methods traverse the array in an unspecified order (7.12.1)
+            found.sort();
             if (found.size() == 3 && found[0] == 30 && found[1] == 40 && found[2] == 50) begin
                 $display("T9: PASS - queue find with clause: %0d items", found.size());
                 pass_count++;

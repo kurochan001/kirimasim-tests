@@ -149,6 +149,8 @@ module test_array_method_corner;
         int found[];
 
         found = arr.find(x) with (x > 25);
+        // Locator methods traverse the array in an unspecified order (7.12.1)
+        found.sort();
 
         if (found.size() == 3 && found[0] == 30) begin
             $display("PASS: Array find works");
@@ -165,6 +167,8 @@ module test_array_method_corner;
         int indices[];
 
         indices = arr.find_index(x) with (x > 25);
+        // Locator methods traverse the array in an unspecified order (7.12.1)
+        indices.sort();
 
         if (indices.size() == 3 && indices[0] == 2) begin
             $display("PASS: Array find_index works");

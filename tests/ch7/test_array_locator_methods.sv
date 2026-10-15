@@ -33,6 +33,8 @@ module test_array_locator_methods;
 
         // Test 2: find_index() - returns indices of matching elements
         index_result = arr.find_index(x) with (x == 20);
+        // Locator methods traverse the array in an unspecified order (7.12.1)
+        index_result.sort();
         if (index_result.size() == 3 &&
             index_result[0] == 1 && index_result[1] == 3 && index_result[2] == 5) begin
             $display("PASS: find_index() returned indices {1, 3, 5}");

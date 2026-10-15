@@ -36,6 +36,8 @@ module test_comb_dynarray_locator;
             static int idx[$];
             // Assigned here so the result does not depend on the order of static initializers.
             idx = arr.find_index() with (item > 20);
+            // Locator methods traverse the array in an unspecified order (7.12.1)
+            idx.sort();
             if (idx.size() == 2 && idx[0] == 1 && idx[1] == 3) begin
                 $display("T2: PASS - arr.find_index() = {%0d, %0d}", idx[0], idx[1]);
                 pass_count++;

@@ -23,7 +23,9 @@ module test_array_locator_methods_2;
         // Test 1: find
         test_count++;
         found = arr.find with (item > 5);
-        if (found.size() == 2 && found[0] == 9 && found[1] == 6) begin
+        // Locator methods traverse the array in an unspecified order (7.12.1)
+        found.sort();
+        if (found.size() == 2 && found[0] == 6 && found[1] == 9) begin
             $display("Test 1: find > 5 found %0d elements PASS", found.size());
             pass_count++;
         end else begin

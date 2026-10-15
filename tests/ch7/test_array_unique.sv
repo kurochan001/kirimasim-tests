@@ -20,6 +20,8 @@ module test_array_unique;
         int result[];
 
         result = arr.unique();
+        // The order of the unique() result is unrelated to the array order (7.12.1)
+        result.sort();
         if (result.size() == 3 && result[0] == 1 && result[1] == 2 && result[2] == 3) begin
             $display("Test 1 PASS: unique size=%0d", result.size());
             pass_count++;

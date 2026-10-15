@@ -230,6 +230,8 @@ module test_ieee1800_2023_array_method_corner;
         int result[];
         test_count++;
         result = arr.find_index(x) with (x > 4);
+        // Locator methods traverse the array in an unspecified order (7.12.1)
+        result.sort();
         if (result.size() == 2 && result[0] == 1 && result[1] == 3) begin  // indices of 5 and 8
             pass_count++;
             $display("PASS: Test 16 - Find_index method");

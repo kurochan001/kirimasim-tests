@@ -22,6 +22,8 @@ module test_array_locator;
     initial begin
         // find() - returns queue of matching elements
         queue = arr.find(x) with (x > 5);
+        // Locator methods traverse the array in an unspecified order (7.12.1)
+        queue.sort();
         if (queue.size() == 2 && queue[0] == 8 && queue[1] == 9)
             $display("PASS: find(x > 5)");
         else

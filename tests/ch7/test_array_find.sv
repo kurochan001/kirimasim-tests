@@ -22,7 +22,9 @@ module test_array_find;
 
         // Test 1: find - returns all elements matching condition
         result = arr.find(x) with (x > 20);
-        if (result.size() == 4 && result[0] == 25 && result[1] == 30 && result[2] == 25 && result[3] == 40) begin
+        // Locator methods traverse the array in an unspecified order (7.12.1)
+        result.sort();
+        if (result.size() == 4 && result[0] == 25 && result[1] == 25 && result[2] == 30 && result[3] == 40) begin
             $display("PASS: find(x > 20) returned correct elements");
             pass_count++;
         end else begin
@@ -32,6 +34,8 @@ module test_array_find;
 
         // Test 2: find_index - returns indices of matching elements
         idx = arr.find_index(x) with (x == 25);
+        // Locator methods traverse the array in an unspecified order (7.12.1)
+        idx.sort();
         if (idx.size() == 2 && idx[0] == 1 && idx[1] == 5) begin
             $display("PASS: find_index(x == 25) returned correct indices");
             pass_count++;
