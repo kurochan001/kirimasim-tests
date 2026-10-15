@@ -1,0 +1,15 @@
+Test 1 PASS: 1 -> 1 = 1
+Test 2 PASS: 1 -> 0 = 0
+Test 3 PASS: 0 -> 1 = 1
+Test 4 PASS: 0 -> 0 = 1
+Test 5 PASS: 1 <-> 1 = 1
+Test 6 PASS: 1 <-> 0 = 0
+Test 7 PASS: 0 <-> 1 = 0
+Test 8 PASS: 0 <-> 0 = 1
+Test 9 PASS: Chained impl = 1
+Test 10 PASS: Expr impl = 1
+Test 11 PASS: Expr equiv = 1
+Test 12 PASS: Negated impl = 1
+=== Implication Edge Cases ===
+Passed: 12/12
+TEST PASSED

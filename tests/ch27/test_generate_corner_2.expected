@@ -1,0 +1,10 @@
+=== Generate Construct Corner Cases Test ===
+PASS: Generate for loop pipeline works
+PASS: First stage captures input
+PASS: Generate if selected MODE 2
+PASS: Generate case selected many_stages (NUM_STAGES=4)
+PASS: Hierarchical access to generate block works
+PASS: Data propagation through pipeline
+=== Summary ===
+Passed: 6, Failed: 0
+TEST PASSED

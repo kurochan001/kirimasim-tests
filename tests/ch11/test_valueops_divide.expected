@@ -1,0 +1,5 @@
+Test 1 PASS: int div = 5
+Test 2 PASS: trunc div = 3
+Test 3 PASS: real div = 3.000000
+Passed: 3/3
+PASS

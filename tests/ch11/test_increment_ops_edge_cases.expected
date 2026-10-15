@@ -1,0 +1,13 @@
+TEST: Increment/Decrement operations edge cases
+  [PASS] Pre-increment
+  [PASS] Post-increment
+  [PASS] Pre-decrement
+  [PASS] Post-decrement
+  [PASS] Increment from zero
+  [PASS] Decrement to zero
+  [PASS] Increment negative
+  [PASS] Decrement to negative
+  [PASS] Multiple increments
+  [PASS] Increment in loop
+Results: 10 passed, 0 failed
+TEST PASSED

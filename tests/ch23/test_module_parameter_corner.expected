@@ -1,0 +1,13 @@
+=== Module Parameter Corner Cases Test ===
+  Module default: WIDTH=8, DEPTH=4, INIT=00
+  Module default: WIDTH=16, DEPTH=4, INIT=00
+  Module mod3: WIDTH=32, DEPTH=16, INIT=aa
+  Module mod4: WIDTH=4, DEPTH=8, INIT=bb
+PASS: Default parameters work
+PASS: WIDTH override works
+PASS: Multiple parameter override works
+PASS: Positional parameter override works
+PASS: Localparam calculation verified
+=== Summary ===
+Passed: 5, Failed: 0
+TEST PASSED

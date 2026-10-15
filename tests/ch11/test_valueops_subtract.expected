@@ -1,0 +1,5 @@
+Test 1 PASS: int sub = 20
+Test 2 PASS: neg sub = -10
+Test 3 PASS: real sub = 3.500000
+Passed: 3/3
+PASS

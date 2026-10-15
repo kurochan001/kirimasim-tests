@@ -1,0 +1,5 @@
+Test 1 PASS: int pow = 8
+Test 2 PASS: pow 0 = 1
+Test 3 PASS: square = 49
+Passed: 3/3
+PASS

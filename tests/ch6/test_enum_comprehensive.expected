@@ -1,0 +1,20 @@
+========== Enum Methods Comprehensive Test ==========
+PASS: color.first() = RED (value 0)
+PASS: color.last() = YELLOW (value 3)
+PASS: color.num() = 4
+PASS: RED.name() = "RED"
+PASS: GREEN.name() = "GREEN"
+PASS: GREEN.next() = BLUE
+PASS: BLUE.prev() = GREEN
+PASS: YELLOW.next() wraps to RED
+PASS: RED.prev() wraps to YELLOW
+PASS: state.num() = 3
+PASS: state.first() = IDLE
+PASS: state.last() = STOPPED
+PASS: RUNNING.name() = "RUNNING"
+========================================
+Test Summary:
+  Passed: 13
+  Failed: 0
+  Total:  13
+ALL TESTS PASSED

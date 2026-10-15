@@ -1,0 +1,23 @@
+Test 1 PASS: AB << 0 = ab
+Test 2 PASS: AB >> 0 = ab
+Test 3 PASS: AB << 8 = 00
+Test 4 PASS: AB >> 8 = 00
+Test 5 PASS: FF << 4 = f0
+Test 6 PASS: FF >> 4 = 0f
+Test 7 PASS: +64 >>> 2 = 10
+Test 8 PASS: -128 >>> 2 = e0 (sign extended)
+Test 9 PASS: F0 <<< 2 = c0
+Test 10 PASS: FF << 16 = 00
+Test 11 PASS: 01 << 1 = 02
+Test 12 PASS: 80 << 1 = 00
+Test 13 PASS: (FF<<4)>>4 = 0f
+Test 14 PASS: 32-bit << 16 = 56780000
+Test 15 PASS: Variable shift = 10
+Test 16 PASS: 00 << 4 = 00
+Test 17 PASS: Single bit >> 1 = 0
+Test 18 PASS: Shift by -1 as unsigned = 00
+Test 19 PASS: 01 << (2+1) = 08
+Test 20 PASS: 1 << 7 = 80
+=== Shift Corner Cases ===
+Passed: 20/20
+TEST PASSED

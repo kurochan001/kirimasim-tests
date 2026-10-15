@@ -1,0 +1,11 @@
+Test 1 PASS: 1 OR 1 = 1
+Test 2 PASS: 1 OR 0 = 1
+Test 3 PASS: 0 OR 0 = 0
+Test 4 PASS: F OR F = f
+Test 5 PASS: 5 OR A = f
+Test 6 PASS: 0 OR 0 = 0
+Test 7 PASS: 1 OR 2 = 3
+Test 8 PASS: Bit[1:0] = 11
+=== Wor Edge Cases ===
+Passed: 8/8
+TEST PASSED

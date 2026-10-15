@@ -1,0 +1,13 @@
+PASS: Underscore separated decimal: 1000000
+PASS: Hex with underscores: 65535
+PASS: Binary with underscores: 170
+PASS: Leading zeros decimal: 123
+PASS: Signed negative: -42
+PASS: Positive sign: 999
+PASS: Octal field ends at the letter o: 0
+PASS: Large hex: -559038737
+PASS: Zero value: 0
+PASS: 2**32-1 into an int: -1
+PASS: Single digit: 7
+PASS: Mixed case hex keeps the LSBs: -857870593
+TEST PASSED: All numeric edge case tests completed

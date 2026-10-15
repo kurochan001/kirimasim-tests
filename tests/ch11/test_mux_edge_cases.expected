@@ -1,0 +1,11 @@
+Test 1 PASS: sel=00 out=aa
+Test 2 PASS: sel=01 out=bb
+Test 3 PASS: sel=10 out=cc
+Test 4 PASS: sel=11 out=dd
+Test 5 PASS: Changed a = 11
+Test 6 PASS: Ternary = ff
+Test 7 PASS: Ternary = 00
+Test 8 PASS: Cycle complete
+=== MUX Edge Cases ===
+Passed: 8/8
+TEST PASSED

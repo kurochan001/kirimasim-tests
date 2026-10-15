@@ -1,0 +1,13 @@
+TEST: Signal types edge cases
+  [PASS] Logic type
+  [PASS] Bit type
+  [PASS] Single bit logic
+  [PASS] Single bit type
+  [PASS] Integer type
+  [PASS] Int type
+  [PASS] Logic to bit
+  [PASS] Bit to logic
+  [PASS] Negative integer
+  [PASS] Logic max value
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,11 @@
+=== Interface Value Sync Test ===
+IEEE 1800-2023: Signal value propagation through interfaces
+Test 1: Clock signal propagation
+PASS: bus.clk=0 after clk=0
+PASS: bus.clk=1 after clk=1
+Test 2: Multiple clock toggles
+PASS: Clock toggles synchronized correctly
+Test 3: Data signal assignment
+PASS: bus.data=0xab
+PASS: bus.valid=1
+TEST PASSED: Interface value sync works correctly

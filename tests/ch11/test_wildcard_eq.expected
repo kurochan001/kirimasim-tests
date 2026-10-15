@@ -1,0 +1,4 @@
+TEST1 PASS: wildcard eq with X in pattern
+TEST2 PASS: wildcard eq with Z in pattern
+TEST3 PASS: wildcard neq
+PASS: wildcard eq

@@ -1,0 +1,10 @@
+Test 1 PASS: en=1 q=aa
+Test 2 PASS: hold q=aa
+Test 3 PASS: pass q=55
+Test 4 PASS: zeros q=00
+Test 5 PASS: ones q=ff
+Test 6 PASS: multi q=33
+Test 7 PASS: toggle q=ab
+=== Latch Edge Cases ===
+Passed: 7/7
+TEST PASSED

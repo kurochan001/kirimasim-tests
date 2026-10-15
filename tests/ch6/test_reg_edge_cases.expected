@@ -1,0 +1,18 @@
+Test 1 PASS: Default = x
+Test 2 PASS: r = 0
+Test 3 PASS: r = 1
+Test 4 PASS: r = X
+Test 5 PASS: r = Z
+Test 6 PASS: rvec = aa
+Test 7 PASS: rvec[3:0] = a
+Test 8 PASS: rvec[3:0] = f
+Test 9 PASS: rword = 1234
+Test 10 PASS: rs = -50
+Test 11 PASS: AND = 00
+Test 12 PASS: OR = ff
+Test 13 PASS: Bit select
+Test 14 PASS: Part = cd
+Test 15 PASS: Concat = abcd
+=== Reg Edge Cases ===
+Passed: 15/15
+TEST PASSED

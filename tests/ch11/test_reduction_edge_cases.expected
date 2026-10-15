@@ -1,0 +1,15 @@
+Test 1 PASS: &FF = 1
+Test 2 PASS: &FE = 0
+Test 3 PASS: |01 = 1
+Test 4 PASS: |00 = 0
+Test 5 PASS: ^0F = 0 (even)
+Test 6 PASS: ^07 = 1 (odd)
+Test 7 PASS: ~&FF = 0
+Test 8 PASS: ~|00 = 1
+Test 9 PASS: ~^0F = 1
+Test 10 PASS: ^1010 = 0
+Test 11 PASS: &single = 1
+Test 12 PASS: ^AA = 0
+=== Reduction Edge Cases ===
+Passed: 12/12
+TEST PASSED

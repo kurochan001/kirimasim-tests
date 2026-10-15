@@ -1,0 +1,5 @@
+Test 1 PASS: AND = 00
+Test 2 PASS: OR = ff
+Test 3 PASS: XOR = 55
+Passed: 3/3
+PASS

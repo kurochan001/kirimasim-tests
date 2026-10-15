@@ -1,0 +1,13 @@
+TEST: Power operations edge cases
+  [PASS] Simple power
+  [PASS] Power of 2
+  [PASS] Power of 0
+  [PASS] Power of 1
+  [PASS] Base 0
+  [PASS] Base 1
+  [PASS] Square
+  [PASS] Cube
+  [PASS] Power of 10
+  [PASS] Large power
+Results: 10 passed, 0 failed
+TEST PASSED

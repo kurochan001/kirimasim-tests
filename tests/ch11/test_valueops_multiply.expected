@@ -1,0 +1,5 @@
+Test 1 PASS: int mul = 42
+Test 2 PASS: neg mul = -20
+Test 3 PASS: real mul = 10.000000
+Passed: 3/3
+PASS

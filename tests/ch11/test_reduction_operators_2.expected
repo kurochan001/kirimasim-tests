@@ -1,0 +1,14 @@
+PASS: &8'hFF = 1
+PASS: &8'hFE = 0
+PASS: |8'h01 = 1
+PASS: |8'h00 = 0
+PASS: ^8'b00000111 = 1 (odd parity)
+PASS: ^8'b00001111 = 0 (even parity)
+PASS: ~&8'hFF = 0
+PASS: ~|8'h00 = 1
+PASS: ~^8'b00000111 = 0
+PASS: ^~8'b00001111 = 1
+=== Reduction Operators Test Results ===
+PASS: 10
+FAIL: 0
+TEST PASSED

@@ -1,0 +1,13 @@
+TEST: Reduction operators edge cases
+  [PASS] Reduce AND all ones
+  [PASS] Reduce AND with zero
+  [PASS] Reduce OR all zeros
+  [PASS] Reduce OR with one
+  [PASS] Reduce XOR even ones
+  [PASS] Reduce XOR odd ones
+  [PASS] Reduce NAND all ones
+  [PASS] Reduce NOR all zeros
+  [PASS] Reduce XNOR even ones
+  [PASS] Reduce on nibble
+Results: 10 passed, 0 failed
+TEST PASSED

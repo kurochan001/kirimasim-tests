@@ -1,0 +1,12 @@
+PASS: 8'b00001111 << 2 = 8'b00111100
+PASS: 8'b11110000 >> 2 = 8'b00111100
+PASS: 8'sb00001111 <<< 2 = 8'b00111100
+PASS: 8'sb01110000 >>> 2 = 8'b00011100 (positive)
+PASS: 8'sb11110000 >>> 2 = 8'b11111100 (negative, sign extended)
+PASS: 8'hAB << 0 = 8'hAB
+PASS: 8'hFF >> 8 = 8'h00
+PASS: Variable shift amounts (8 tests)
+=== Shift Operators Test Results ===
+PASS: 15
+FAIL: 0
+TEST PASSED

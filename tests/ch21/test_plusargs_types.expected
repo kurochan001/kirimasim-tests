@@ -1,0 +1,13 @@
+Test 1: Integer plusarg
+  INT_VAL default: 100
+Test 2: Real plusarg
+  REAL_VAL default: 3.140000
+Test 3: String plusarg
+  STR_VAL default: default
+Test 4: Hex plusarg
+  HEX_VAL default: deadbeef
+Test 5: Binary plusarg
+  BIN_VAL default: 10101010
+Test 6: Octal plusarg
+  OCT_VAL default: 7777
+TEST PASSED: Plusargs types tests completed

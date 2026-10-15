@@ -1,0 +1,23 @@
+Test 1 PASS: FF & 00 = 00
+Test 2 PASS: FF & FF = ff
+Test 3 PASS: 00 | 00 = 00
+Test 4 PASS: AA | 55 = ff
+Test 5 PASS: AB ^ AB = 00
+Test 6 PASS: AA ^ 55 = ff
+Test 7 PASS: ~AA = 55
+Test 8 PASS: ~00 = ff
+Test 9 PASS: 1 & X = X
+Test 10 PASS: 0 & X = 0
+Test 11 PASS: 0 | X = X
+Test 12 PASS: 1 | X = 1
+Test 13 PASS: value ^ X = X
+Test 14 PASS: ~X = X
+Test 15 PASS: AND with Z = X
+Test 16 PASS: OR with Z = X
+Test 17 PASS: NAND(FF,FF) = 00
+Test 18 PASS: NOR(00,00) = ff
+Test 19 PASS: XNOR(AA,AA) = ff
+Test 20 PASS: Chained ops = a5
+=== Bitwise Corner Cases ===
+Passed: 20/20
+TEST PASSED

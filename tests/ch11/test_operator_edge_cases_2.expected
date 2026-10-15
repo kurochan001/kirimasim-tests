@@ -1,0 +1,13 @@
+TEST: Operator edge cases
+  [PASS] Integer overflow wraps to negative
+  [PASS] Signed -1 is negative
+  [PASS] Case equality matches X
+  [PASS] Wildcard equality
+  [PASS] Replication {4{2'b11}} = 8'hFF
+  [PASS] Concatenation {A,B} = AB
+  [PASS] Shift by 0 is identity
+  [PASS] XOR with self = 0
+  [PASS] -0 = 0
+  [PASS] Power rules: x**1=x, 1**x=1
+Results: 10 passed, 0 failed
+TEST PASSED

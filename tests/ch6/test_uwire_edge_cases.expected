@@ -1,0 +1,13 @@
+Test 1 PASS: uw = 0
+Test 2 PASS: uw = 1
+Test 3 PASS: uwvec = 00
+Test 4 PASS: uwvec = aa
+Test 5 PASS: uwvec = ff
+Test 6 PASS: Bits correct
+Test 7 PASS: [3:0] = 5
+Test 8 PASS: [7:4] = a
+Test 9 PASS: Change = 12
+Test 10 PASS: Zero = 00
+=== Uwire Edge Cases ===
+Passed: 10/10
+TEST PASSED

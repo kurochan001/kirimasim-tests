@@ -1,0 +1,11 @@
+PASS: data[7:0] = 0x78
+PASS: data[31:24] = 0x12
+PASS: data[8 +: 8] = 0x56
+PASS: data[16 +: 8] = 0x34
+PASS: data[15 -: 8] = 0x56
+PASS: data[0] = 0
+PASS: data[4] = 1
+=== Part Select Test Results ===
+PASS: 7
+FAIL: 0
+TEST PASSED

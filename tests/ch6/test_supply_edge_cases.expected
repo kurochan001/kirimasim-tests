@@ -1,0 +1,15 @@
+Test 1 PASS: gnd = 0
+Test 2 PASS: vdd = 1
+Test 3 PASS: gnd_vec = 0000
+Test 4 PASS: vdd_vec = 1111
+Test 5 PASS: gnd | 1 = 1
+Test 6 PASS: vdd & 0 = 0
+Test 7 PASS: gnd < vdd
+Test 8 PASS: gnd != vdd
+Test 9 PASS: gnd ^ vdd = 1
+Test 10 PASS: ternary = 1
+Test 11 PASS: Bit select
+Test 12 PASS: &gnd=0 &vdd=1
+=== Supply Edge Cases ===
+Passed: 12/12
+TEST PASSED

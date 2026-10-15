@@ -1,0 +1,13 @@
+TEST: Parameter basic edge cases
+  [PASS] Integer parameter
+  [PASS] Second parameter
+  [PASS] String parameter
+  [PASS] Typed parameter
+  [PASS] Logic parameter
+  [PASS] Parameter in expression
+  [PASS] Parameter arithmetic
+  [PASS] Parameter multiply
+  [PASS] Parameter comparison
+  [PASS] Parameter in array size
+Results: 10 passed, 0 failed
+TEST PASSED

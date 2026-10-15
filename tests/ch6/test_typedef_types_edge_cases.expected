@@ -1,0 +1,13 @@
+TEST: Typedef types edge cases
+  [PASS] Basic typedef
+  [PASS] Word typedef
+  [PASS] Dword typedef
+  [PASS] Unsigned typedef
+  [PASS] Nibble typedef
+  [PASS] Typedef array
+  [PASS] Typedef bits
+  [PASS] Typedef arithmetic
+  [PASS] Typedef cast
+  [PASS] Typedef compare
+Results: 10 passed, 0 failed
+TEST PASSED

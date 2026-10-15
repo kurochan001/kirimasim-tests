@@ -1,0 +1,22 @@
+Test 1 PASS: Integer overflow wraps correctly
+Test 2 PASS: Integer underflow wraps correctly
+Test 3 PASS: Division by power of 2
+Test 4 PASS: Negative division
+Test 5 PASS: Modulo with negative operands
+Test 6 PASS: Power operator edge cases
+Test 7 PASS: Shift by 0
+Test 8 PASS: Shift by full width
+Test 9 PASS: Arithmetic right shift
+Test 10 PASS: Signed vs unsigned comparison
+Test 11 PASS: Wildcard equality
+Test 12 PASS: Case equality with X/Z
+Test 13 PASS: Reduction operators
+Test 14 PASS: Reduction with X
+Test 15 PASS: Replication
+Test 16 PASS: Nested concatenation
+Test 17 PASS: Nested conditional
+Test 18 PASS: Conditional with X condition
+Test 19 PASS: Increment overflow
+Test 20 PASS: Zero operand cases
+=== Summary: 20/20 tests passed ===
+TEST PASSED

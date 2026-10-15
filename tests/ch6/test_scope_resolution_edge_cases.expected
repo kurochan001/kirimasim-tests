@@ -1,0 +1,13 @@
+TEST: Scope resolution edge cases
+  [PASS] Module level variable
+  [PASS] Block local variable
+  [PASS] Nested block scope
+  [PASS] Shadow variable
+  [PASS] Module parameter
+  [PASS] Loop variable scope
+  [PASS] Multiple locals
+  [PASS] Variable reuse
+  [PASS] Modify module variable
+  [PASS] Deep nesting
+Results: 10 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,10 @@
+Test 1 PASS: 0*FF=0
+Test 2 PASS: 1*55=0055
+Test 3 PASS: FF*FF=fe01
+Test 4 PASS: 10*10=0100
+Test 5 PASS: signed 10*5=50
+Test 6 PASS: signed -10*5=-50
+Test 7 PASS: signed -10*-5=50
+=== Multiplier Edge Cases ===
+Passed: 7/7
+TEST PASSED

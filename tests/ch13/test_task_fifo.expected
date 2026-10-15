@@ -1,0 +1,20 @@
+Test 1: Fill FIFO
+  Count after fill: 8
+  Full: 1
+Test 2: Read all
+  Read: 10
+  Read: 11
+  Read: 12
+  Read: 13
+  Read: 14
+  Read: 15
+  Read: 16
+  Read: 17
+  Empty: 1
+Test 3: Interleaved read/write
+  Read: aa
+  Read: bb
+  Read: cc
+Test 4: Wrap-around
+  Final count: 3
+TEST PASSED: Task FIFO tests completed

@@ -1,0 +1,13 @@
+TEST: Parameters edge cases
+  [PASS] Localparam default value
+  [PASS] Parameter in expression
+  [PASS] Parameter with width
+  [PASS] Parameter override (8-bit)
+  [PASS] Parameter override (16-bit)
+  [PASS] Computed localparam
+  [PASS] String parameter
+  [PASS] Real parameter
+  [PASS] Negative parameter
+  [PASS] Parameter in array dimension
+Results: 10 passed, 0 failed
+TEST PASSED

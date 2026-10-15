@@ -1,0 +1,13 @@
+Test 1 PASS: r1 = 3.141590
+Test 2 PASS: 1.5+2.5 = 4.000000
+Test 3 PASS: 1.5*2.5 = 3.750000
+Test 4 PASS: 2.5/1.5 = 1.666667
+Test 5 PASS: Negative = -5.500000
+Test 6 PASS: Zero = 0.000000
+Test 7 PASS: Large = 1.000000e+10
+Test 8 PASS: Small = 1.000000e-10
+Test 9 PASS: Cast int = 42.000000
+Test 10 PASS: 1.5 < 2.5
+=== Real Type Edge Cases ===
+Passed: 10/10
+TEST PASSED

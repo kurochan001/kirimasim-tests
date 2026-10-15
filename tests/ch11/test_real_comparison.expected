@@ -1,0 +1,9 @@
+=== Real Comparison Test ===
+[PASS] Equal: 3.500000 == 3.500000
+[PASS] Not equal: 2.500000 != 3.500000
+[PASS] Less than: 2.300000 < 4.500000
+[PASS] Greater than: 5.800000 > 3.200000
+[PASS] Less or equal: 3.500000 <= 3.500000
+[PASS] Greater or equal: 4.500000 >= 3.500000
+[PASS] Real-int equal: 5.000000 == 5
+=== Summary: 7/7 tests passed ===

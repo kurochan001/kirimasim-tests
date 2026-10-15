@@ -1,0 +1,13 @@
+TEST: Part select edge cases
+  [PASS] Lower byte select
+  [PASS] Upper byte select
+  [PASS] Nibble select
+  [PASS] Part select write
+  [PASS] Indexed part select +
+  [PASS] Indexed part select -
+  [PASS] Indexed write +
+  [PASS] Full width select
+  [PASS] Single bit as part
+  [PASS] Adjacent parts
+Results: 10 passed, 0 failed
+TEST PASSED

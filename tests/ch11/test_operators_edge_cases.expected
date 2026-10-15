@@ -1,0 +1,13 @@
+TEST: Operators edge cases
+  [PASS] Signed division -7/3 = -2
+  [PASS] Modulo 17 % 5 = 2
+  [PASS] Power 2**10 = 1024
+  [PASS] Reduction &|^ on 0xFF
+  [PASS] Logical &&, ||, !
+  [PASS] Shift << and >>
+  [PASS] Arithmetic right shift
+  [PASS] Comparison operators
+  [PASS] Conditional operator ?:
+  [PASS] Concatenation {a, b}
+Results: 10 passed, 0 failed
+TEST PASSED

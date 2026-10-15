@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 §11 Operators Edge Cases ===
+Test 1 PASS: -17 % 5 = -2 (negative mod)
+Test 2 PASS: 17 % -5 = 2 (negative divisor)
+Test 3 PASS: -17 / 5 = -3 (truncate toward zero)
+Test 4 PASS: Shift by width gives 0
+Test 5 PASS: -8 >>> 2 = -2 (sign preserved)
+Test 6 PASS: X == X returns X
+Test 7 PASS: X === X returns 1 (case equal)
+Test 8 PASS: Wildcard equality with X
+Test 9 PASS: 5.0 ** 0 = 1.000000
+Test 10 PASS: -5u = 0xfffffffb (wrap)
+Test 11 PASS: ^(all 1s) = 0 (even parity)
+Test 12 PASS: |(...X) = X (X propagation)
+Test 13 PASS: Concatenation zero-extends
+Test 14 PASS: {4{8'hAB}} = 0xabababab
+Test 15 PASS: Conditional type extension
+=== Summary ===
+Passed: 15/15
+TEST PASSED

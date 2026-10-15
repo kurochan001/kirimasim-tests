@@ -1,0 +1,6 @@
+Test 1: Linear dependency PASS
+Test 2: Mux select PASS
+Test 3: Input change PASS
+Test 4: Multiple updates PASS
+Test 5: Sel toggle PASS
+TEST PASSED: 5/5 tests passed

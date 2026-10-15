@@ -1,0 +1,13 @@
+TEST: Real number operations edge cases
+  [PASS] Real assignment
+  [PASS] Real addition
+  [PASS] Real subtraction
+  [PASS] Real multiplication
+  [PASS] Real division
+  [PASS] Real to int conversion
+  [PASS] Int to real conversion
+  [PASS] Real comparison
+  [PASS] Real negation
+  [PASS] Real zero
+Results: 10 passed, 0 failed
+TEST PASSED

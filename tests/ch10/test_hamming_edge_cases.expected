@@ -1,0 +1,10 @@
+Test 1 PASS: 0000 encoded=0000000
+Test 2 PASS: No error syndrome=000
+Test 3 PASS: 1111 encoded=1111111
+Test 4 PASS: Decoded=1111
+Test 5 PASS: 0101 encoded=0101101
+Test 6 PASS: Parity valid syndrome=000
+Test 7 PASS: All patterns tested
+=== Hamming Edge Cases ===
+Passed: 7/7
+TEST PASSED

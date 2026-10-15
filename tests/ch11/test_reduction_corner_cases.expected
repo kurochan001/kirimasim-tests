@@ -1,0 +1,23 @@
+Test 1 PASS: &(all zeros) = 0
+Test 2 PASS: &(all ones) = 1
+Test 3 PASS: |(all zeros) = 0
+Test 4 PASS: |(all ones) = 1
+Test 5 PASS: ^(all zeros) = 0
+Test 6 PASS: ^(8'hFF) = 0 (even parity)
+Test 7 PASS: ~&(all ones) = 0
+Test 8 PASS: ~|(all zeros) = 1
+Test 9 PASS: ~^(all zeros) = 1
+Test 10 PASS: Single bit reduction AND
+Test 11 PASS: Single bit reduction OR
+Test 12 PASS: Single bit reduction XOR
+Test 13 PASS: &(all X) = x
+Test 14 PASS: &(all Z) = x
+Test 15 PASS: &(32'hFFFFFFFF) = 1
+Test 16 PASS: ^(alternating) = 0
+Test 17 PASS: ^(7 ones) = 1 (odd parity)
+Test 18 PASS: |(1xz0) = 1
+Test 19 PASS: &(1xz0) = 0
+Test 20 PASS: Literal reductions work
+=== Reduction Corner Cases ===
+Passed: 20/20
+TEST PASSED

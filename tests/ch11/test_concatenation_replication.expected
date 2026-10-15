@@ -1,0 +1,23 @@
+Test 1 PASS: {AB,CD} = abcd
+Test 2 PASS: Triple concat = 112233
+Test 3 PASS: Bit concat = 1011
+Test 4 PASS: {2{AB}} = abab
+Test 5 PASS: {4{F}} = ffff
+Test 6 PASS: {8{1}} = ff
+Test 7 PASS: {8{0}} = 00
+Test 8 PASS: Nested replication = 10101010
+Test 9 PASS: Zero extension = 05
+Test 10 PASS: Sign extension = 11111001
+Test 11 PASS: {FF,00} = ff00
+Test 12 PASS: {32{1}} = ffffffff
+Test 13 PASS: {4,8} = abc
+Test 14 PASS: LHS concat hi=a lo=b
+Test 15 PASS: {2{{10,01}}} = 10011001
+Test 16 PASS: {{2{11}},{2{00}}} = 11110000
+Test 17 PASS: {4{var}} = aaaaaaaa
+Test 18 PASS: Single elem concat = 55
+Test 19 PASS: {var,literal} = 0ff0
+Test 20 PASS: Alternating = 10101010
+=== Concatenation/Replication Edge Cases ===
+Passed: 20/20
+TEST PASSED

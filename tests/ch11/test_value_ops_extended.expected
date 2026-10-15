@@ -1,0 +1,9 @@
+Test 1: 100 + 200 = 300 PASS
+Test 2: 100 - 200 = 0xffffff9c PASS
+Test 3: 1000 * 1000 = 1000000 PASS
+Test 4: 100 / 3 = 33 PASS
+Test 5: 100 % 7 = 2 PASS
+Test 6: 2 ** 10 = 1024 PASS
+Test 7: 0xFFFFFFFF * 2 = 0x00000001fffffffe PASS
+Test 8: -10 / 3 = -3 PASS
+TEST PASSED: 8/8 tests passed

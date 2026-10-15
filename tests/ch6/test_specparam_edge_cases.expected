@@ -1,0 +1,13 @@
+Test 1 PASS: tpd = 10
+Test 2 PASS: tsetup = 5
+Test 3 PASS: thold = 3
+Test 4 PASS: twidth = 20
+Test 5 PASS: sum = 18
+Test 6 PASS: tpd > tsetup
+Test 7 PASS: prod = 20
+Test 8 PASS: quot = 5
+Test 9 PASS: ternary = 10
+Test 10 PASS: tpd == 10
+=== Specparam Edge Cases ===
+Passed: 10/10
+TEST PASSED

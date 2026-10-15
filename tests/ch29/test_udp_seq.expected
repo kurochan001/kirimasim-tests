@@ -1,0 +1,7 @@
+Test 1 PASS: D Latch latches 1 when enabled
+Test 2 PASS: D Latch holds value when disabled
+Test 3 PASS: SR Latch set
+Test 4 PASS: SR Latch reset
+Test 5 PASS: T Flip-flop toggle (q=1)
+Results: 5 PASS, 0 FAIL
+ALL TESTS PASSED

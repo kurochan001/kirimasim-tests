@@ -1,0 +1,10 @@
+Test 1 PASS: 0->0000
+Test 2 PASS: 1->0001
+Test 3 PASS: 2->0011
+Test 4 PASS: 3->0010
+Test 5 PASS: Round-trip binary=0101 decoded=0101
+Test 6 PASS: Single-bit change property
+Test 7 PASS: Max gray=1000 decoded=1111
+=== Gray Code Edge Cases ===
+Passed: 7/7
+TEST PASSED

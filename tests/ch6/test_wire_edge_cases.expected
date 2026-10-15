@@ -1,0 +1,13 @@
+Test 1 PASS: w1 = 1
+Test 2 PASS: w8 = ff
+Test 3 PASS: w8 zero = 00
+Test 4 PASS: Tri Z = z
+Test 5 PASS: Tri 1 = 1
+Test 6 PASS: Tri 0 = 0
+Test 7 PASS: Wand 1&1 = 1
+Test 8 PASS: Wand 1&0 = 0
+Test 9 PASS: Wor 0|0 = 0
+Test 10 PASS: Wor 0|1 = 1
+=== Wire Edge Cases ===
+Passed: 10/10
+TEST PASSED

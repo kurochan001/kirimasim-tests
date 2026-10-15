@@ -1,0 +1,13 @@
+TEST: Real numbers edge cases
+  [PASS] Real assignment
+  [PASS] Real addition
+  [PASS] Real subtraction
+  [PASS] Real multiplication
+  [PASS] Real division
+  [PASS] Real comparison
+  [PASS] Negative real
+  [PASS] Real to int cast (round)
+  [PASS] Int to real cast
+  [PASS] Real in conditional
+Results: 10 passed, 0 failed
+TEST PASSED

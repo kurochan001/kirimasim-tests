@@ -1,0 +1,18 @@
+Test 1 PASS: Integer overflow wraps to negative (-2147483648)
+Test 2 PASS: Integer underflow wraps to positive (2147483647)
+Test 3 PASS: Left shift by width gives 0
+Test 4 PASS: Arithmetic right shift preserves sign (-2)
+Test 5 PASS: Logical right shift works (0f000000)
+Test 6 PASS: Division by zero gives X
+Test 7 PASS: Modulo by zero gives X
+Test 8 PASS: Negative modulo sign matches dividend (-1)
+Test 9 PASS: Power operation 2**10=1024
+Test 10 PASS: x**0 = 1 (1)
+Test 11 PASS: Width extension in addition (256)
+Test 12 PASS: Concatenation works (abcd1234)
+Test 13 PASS: Replication works (abababab)
+Test 14 PASS: Reduction operators work
+Test 15 PASS: Real to int truncates (3)
+=== Expression Edge Cases Test Results ===
+Passed: 15/15
+TEST PASSED

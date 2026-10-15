@@ -1,0 +1,22 @@
+Test 1: Combinational chain propagation
+  PASS: not_a = 0
+Test 2: Multi-input chain
+  PASS: abc = 1
+Test 3: Delta cycle sensitivity
+  Counter before changes:   3
+  Counter after 3 a changes:   6
+Test 4: Simultaneous signal updates
+  After simultaneous update: abc=0, final=0
+Test 5: Blocking vs NBA ordering
+  Immediate blocking: a, nba: 0
+  After delta - blocking: a, nba: 0
+  After time advance - blocking: a, nba: b
+Test 6: Delta delay in always block
+  Counter=  8, delayed_counter=  8
+Test 7: Multiple delta cycles
+  After 5 toggles: a=1, counter= 13
+Test 8: Chain reaction through combinational logic
+  Initial: final_out=0
+  After d=1: final_out=1 (should be 1)
+  After abc all 1: final_out=1 (should be 1)
+TEST PASSED: Event delta cycle tests completed

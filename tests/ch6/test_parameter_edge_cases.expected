@@ -1,0 +1,22 @@
+Test 1 PASS: TEST_PARAM = 100
+Test 2 PASS: TEST_STR = hello
+Test 3 PASS: TEST_REAL = 3.140000
+Test 4 PASS: LOCAL_PARAM = 50
+Test 5 PASS: CALC_PARAM = 200
+Test 6 PASS: Overridden widths 16 and 32
+Test 7 PASS: Default XOR = aa
+Test 8 PASS: Wide instance dout16 = 00aa
+Test 9 PASS: Custom instance dout32 = 00000055
+Test 10 PASS: EXPR = 150
+Test 11 PASS: TEST_PARAM > 50
+Test 12 PASS: Loop count = 50
+Test 13 PASS: Wide FFFF result = ff55
+Test 14 PASS: 32-bit result = deadbeba
+Test 15 PASS: Array size 100
+Test 16 PASS: NESTED = 50
+Test 17 PASS: Wide signal bits OK
+Test 18 PASS: Sum = 350
+Test 19 PASS: String len = 5
+=== Parameter Edge Cases ===
+Passed: 19/19
+TEST PASSED

@@ -1,0 +1,13 @@
+TEST: Relational operations edge cases
+  [PASS] Less than true
+  [PASS] Less than false
+  [PASS] Greater than true
+  [PASS] Greater than false
+  [PASS] Less than or equal (less)
+  [PASS] Less than or equal (equal)
+  [PASS] Greater than or equal (greater)
+  [PASS] Greater than or equal (equal)
+  [PASS] Negative comparison
+  [PASS] Zero comparison
+Results: 10 passed, 0 failed
+TEST PASSED

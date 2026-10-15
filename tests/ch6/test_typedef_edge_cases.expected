@@ -1,0 +1,13 @@
+Test 1 PASS: byte_t = aa
+Test 2 PASS: word_t = 1234
+Test 3 PASS: dword_t = deadbeef
+Test 4 PASS: my_int = 42
+Test 5 PASS: pair_t a=c b=d
+Test 6 PASS: Assign b2 = aa
+Test 7 PASS: Sum = 15
+Test 8 PASS: Bit select = ff
+Test 9 PASS: Concat = ffffffff
+Test 10 PASS: Struct bits = cd
+=== Typedef Edge Cases ===
+Passed: 10/10
+TEST PASSED

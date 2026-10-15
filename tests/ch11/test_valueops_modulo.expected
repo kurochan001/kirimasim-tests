@@ -1,0 +1,5 @@
+Test 1 PASS: mod = 2
+Test 2 PASS: even mod = 0
+Test 3 PASS: large mod = 2
+Passed: 3/3
+PASS

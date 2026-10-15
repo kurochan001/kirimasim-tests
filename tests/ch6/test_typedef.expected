@@ -1,0 +1,9 @@
+PASS: Basic typedef values correct
+PASS: Enum IDLE = 0
+PASS: Enum WRITE = 2
+PASS: Struct typedef values correct
+PASS: Packed struct is 32 bits
+=== Typedef Test Results ===
+PASS: 5
+FAIL: 0
+TEST PASSED

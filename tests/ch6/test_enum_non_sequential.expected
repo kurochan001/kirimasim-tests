@@ -1,0 +1,15 @@
+========== Non-Sequential Enum Test ==========
+PASS: level.first() = LOW (10)
+PASS: level.last() = HIGH (100)
+PASS: level.num() = 3
+PASS: LOW.next() = MEDIUM (50)
+PASS: HIGH.prev() = MEDIUM (50)
+PASS: LOW.name() = "LOW"
+PASS: MEDIUM.name() = "MEDIUM"
+PASS: HIGH.name() = "HIGH"
+========================================
+Test Summary:
+  Passed: 8
+  Failed: 0
+  Total:  8
+ALL TESTS PASSED

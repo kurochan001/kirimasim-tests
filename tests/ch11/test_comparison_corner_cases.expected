@@ -1,0 +1,23 @@
+Test 1 PASS: AB == AB
+Test 2 PASS: AB != CD
+Test 3 PASS: X === X
+Test 4 PASS: Z === Z
+Test 5 PASS: X !== Z
+Test 6 PASS: X == 0 gives X
+Test 7 PASS: 10 < 20
+Test 8 PASS: 30 > 20
+Test 9 PASS: 20 <= 20
+Test 10 PASS: 20 >= 20
+Test 11 PASS: -10 < -5
+Test 12 PASS: Signed/unsigned comparison
+Test 13 PASS: Zero comparisons
+Test 14 PASS: INT_MAX == INT_MAX
+Test 15 PASS: INT_MIN == INT_MIN
+Test 16 PASS: Different width comparison
+Test 17 PASS: Wildcard equality
+Test 18 PASS: Wildcard inequality
+Test 19 PASS: String comparison
+Test 20 PASS: Real comparison
+=== Comparison Corner Cases ===
+Passed: 20/20
+TEST PASSED

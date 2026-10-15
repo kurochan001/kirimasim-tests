@@ -1,0 +1,11 @@
+Test 1 PASS: 1 AND 1 = 1
+Test 2 PASS: 1 AND 0 = 0
+Test 3 PASS: 0 AND 0 = 0
+Test 4 PASS: F AND F = f
+Test 5 PASS: F AND 5 = 5
+Test 6 PASS: 0 AND 0 = 0
+Test 7 PASS: A AND C = 8
+Test 8 PASS: Bit[3] = 1
+=== Wand Edge Cases ===
+Passed: 8/8
+TEST PASSED

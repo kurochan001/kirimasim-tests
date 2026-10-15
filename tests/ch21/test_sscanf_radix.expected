@@ -1,0 +1,13 @@
+Test 1: Hexadecimal parsing
+  PASS: hex FF = 255
+Test 2: Octal parsing
+  PASS: oct 77 = 63
+Test 3: Binary parsing
+  PASS: bin 1010 = 10
+Test 4: Decimal parsing
+  PASS: dec 12345 = 12345
+Test 5: Mixed format parsing
+  Parsed: dec=100, hex=32, oct=8 (count=3)
+Test 6: Negative decimal
+  Negative: -42 (count=1)
+TEST PASSED: sscanf radix tests completed
