@@ -61,8 +61,8 @@ module test_format_precision;
 
         // T4: $sformatf("%e", 12345.6789) — scientific notation
         result = $sformatf("%e", 12345.6789);
-        // Expected: "1.234568e+04" or "1.234568e+004" (platform-dependent exponent width)
-        if (result == "1.234568e+04" || result == "1.234568e+004") begin
+        // Real formats follow C (21.2.1.1): the exponent has at least two digits.
+        if (result == "1.234568e+04") begin
             $display("T4: PASS - %%e: \"%s\"", result);
             pass_count++;
         end else begin
@@ -72,8 +72,7 @@ module test_format_precision;
 
         // T5: $sformatf("%.0e", 12345.0) — scientific with precision 0
         result = $sformatf("%.0e", 12345.0);
-        // Expected: "1e+04" or "1e+004"
-        if (result == "1e+04" || result == "1e+004") begin
+        if (result == "1e+04") begin
             $display("T5: PASS - %%.0e: \"%s\"", result);
             pass_count++;
         end else begin
@@ -116,7 +115,7 @@ module test_format_precision;
 
         // T12: $sformatf("%g", 0.00001) — %g format for small value
         result = $sformatf("%g", 0.00001);
-        if (result == "1e-05" || result == "1e-005") begin
+        if (result == "1e-05") begin
             $display("T12: PASS - %%g small: \"%s\"", result);
             pass_count++;
         end else begin
@@ -136,30 +135,31 @@ module test_format_precision;
 
         // T14: $sformatf("%x", 255) — hex format
         result = $sformatf("%x", 255);
-        // Accept either "ff" or "000000ff" (implementation-defined width)
-        if (result == "ff" || result == "000000ff" || result == "0000_00ff") begin
+        // Without a field width, hex shows every digit of the 32-bit value,
+        // leading zeros included (21.2.1.2).
+        if (result == "000000ff") begin
             $display("T14: PASS - %%x of 255: \"%s\"", result);
             pass_count++;
         end else begin
-            $display("T14: FAIL - %%x of 255: \"%s\", expected \"ff\" or \"000000ff\"", result);
+            $display("T14: FAIL - %%x of 255: \"%s\", expected \"000000ff\"", result);
         end
         #1;
 
         // T15: $sformatf("%o", 8) — octal format
         result = $sformatf("%o", 8);
-        // Accept "10" or "00000000010" (padded)
-        if (result == "10" || result == "00000000010" || result == "0000_0000_010") begin
+        // 11 octal digits for a 32-bit value, leading zeros included (21.2.1.2)
+        if (result == "00000000010") begin
             $display("T15: PASS - %%o of 8: \"%s\"", result);
             pass_count++;
         end else begin
-            $display("T15: FAIL - %%o of 8: \"%s\", expected \"10\"", result);
+            $display("T15: FAIL - %%o of 8: \"%s\", expected \"00000000010\"", result);
         end
         #1;
 
         // T16: $sformatf("%b", 8'hA5) — binary format
         result = $sformatf("%b", 8'hA5);
-        // Accept "10100101" or "10100101" with leading zeros
-        if (result == "10100101" || result == "00000000000000000000000010100101") begin
+        // 8 binary digits for an 8-bit value (21.2.1.2)
+        if (result == "10100101") begin
             $display("T16: PASS - %%b of 8'hA5: \"%s\"", result);
             pass_count++;
         end else begin
