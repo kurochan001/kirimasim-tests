@@ -1,0 +1,15 @@
+Test 1 PASS: {4{8'hAB}} = abababab
+Test 2 PASS: {32{1'b1}} = ffffffff
+Test 3 PASS: {32{1'b0}} = 00000000
+Test 4 PASS: {8{4'hA}} = aaaaaaaa
+Test 5 PASS: {2{16'h1234}} = 12341234
+Test 6 PASS: {8{8'hFF}} 64-bit = ffffffffffffffff
+Test 7 PASS: Mixed = aaaabbbb
+Test 8 PASS: Nested = 10101010
+Test 9 PASS: Sign ext = ff80
+Test 10 PASS: Alternating = 55555555
+Test 11 PASS: Alt2 = aaaaaaaa
+Test 12 PASS: Expr repl = 66666666
+=== Replication Edge Cases ===
+Passed: 12/12
+TEST PASSED

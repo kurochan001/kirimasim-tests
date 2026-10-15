@@ -1,0 +1,13 @@
+TEST: Sign extension edge cases
+  [PASS] Positive sign extension
+  [PASS] Negative sign extension
+  [PASS] Max positive extension
+  [PASS] Min negative extension
+  [PASS] Zero sign extension
+  [PASS] -1 sign extension
+  [PASS] Bit pattern preserved
+  [PASS] High bits extended
+  [PASS] Positive high bits clear
+  [PASS] Chain extension
+Results: 10 passed, 0 failed
+TEST PASSED

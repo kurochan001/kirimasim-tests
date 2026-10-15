@@ -1,0 +1,4 @@
+enum name() test: PASSED - got GREEN
+enum RED name: PASSED
+enum BLUE name: PASSED
+PASSED

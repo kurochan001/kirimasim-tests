@@ -1,0 +1,7 @@
+data[15:8] = be (expected: BE)
+data[8+:8] = be (expected: BE)
+data[15-:8] = be (expected: BE)
+data[i+:8] with i=8 = be (expected: BE)
+data[0+:8] = ef (expected: EF)
+data[31-:8] = de (expected: DE)
+PASS: All part-select tests passed

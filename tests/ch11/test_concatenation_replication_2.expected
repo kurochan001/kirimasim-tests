@@ -1,0 +1,16 @@
+=== Concatenation and Replication Test ===
+PASS: Basic concatenation works
+PASS: Multi-operand concatenation works
+PASS: Mixed width concatenation works
+PASS: Basic replication works
+PASS: Single bit replication works
+PASS: Nested replication works
+PASS: Replication in concatenation works
+PASS: Sign extension using replication works
+PASS: Zero extension works
+PASS: Concatenation assignment works
+PASS: Replication count 1 works
+PASS: Literal concatenation works
+=== Summary ===
+Passed: 12, Failed: 0
+TEST PASSED

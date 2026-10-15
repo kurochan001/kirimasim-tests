@@ -1,0 +1,13 @@
+TEST: Ternary/conditional operator edge cases
+  [PASS] Basic true condition
+  [PASS] Basic false condition
+  [PASS] Expression condition
+  [PASS] Nested ternary
+  [PASS] Ternary with variables
+  [PASS] Ternary in expression
+  [PASS] Ternary byte values
+  [PASS] Zero condition
+  [PASS] Non-zero condition
+  [PASS] Ternary assignment
+Results: 10 passed, 0 failed
+TEST PASSED

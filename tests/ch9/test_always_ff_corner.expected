@@ -1,0 +1,13 @@
+=== always_ff Corner Cases Test ===
+PASS: Basic always_ff works
+PASS: Async reset FF captures data
+PASS: Async reset immediately clears FF
+PASS: Sync reset FF captures data when rst=0
+PASS: Sync reset clears FF at clock edge
+PASS: Enable=0 holds value
+PASS: Enable=1 captures data
+PASS: Counter increments correctly
+PASS: Shift register works
+=== Summary ===
+Passed: 9, Failed: 0
+TEST PASSED

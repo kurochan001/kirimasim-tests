@@ -1,0 +1,15 @@
+Test 1 PASS: 10 + 5 = 15
+Test 2 PASS: -10 + 5 = -5
+Test 3 PASS: -1 < 1 (signed)
+Test 4 PASS: 255 > 1 (unsigned)
+Test 5 PASS: -4 * 3 = -12
+Test 6 PASS: -20 / 4 = -5
+Test 7 PASS: $signed(FF) = -1
+Test 8 PASS: $unsigned(-1) = 255
+Test 9 PASS: Min signed = -128
+Test 10 PASS: Max signed = 127
+Test 11 PASS: -8 >>> 2 = -2
+Test 12 PASS: Mixed operation = 0
+=== Signed Edge Cases ===
+Passed: 12/12
+TEST PASSED

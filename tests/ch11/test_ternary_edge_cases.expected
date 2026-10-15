@@ -1,0 +1,13 @@
+Test 1 PASS: True result = aa
+Test 2 PASS: False result = 55
+Test 3 PASS: Nested = 100
+Test 4 PASS: Chain = 20
+Test 5 PASS: Expr cond = ff
+Test 6 PASS: Branch expr = 8
+Test 7 PASS: Zero cond = bb
+Test 8 PASS: Nonzero cond = aa
+Test 9 PASS: Same type = 10
+Test 10 PASS: Assign = ff
+=== Ternary Edge Cases ===
+Passed: 10/10
+TEST PASSED

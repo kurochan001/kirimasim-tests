@@ -1,0 +1,10 @@
+PASS: initial size == 0
+PASS: size after new[4] == 4
+PASS: da[2] == 30
+PASS: size after resize == 6
+PASS: old data preserved
+PASS: new elements zero
+PASS: size after delete == 0
+PASS: da[1] == 200
+Results: 8 passed, 0 failed
+TEST PASSED

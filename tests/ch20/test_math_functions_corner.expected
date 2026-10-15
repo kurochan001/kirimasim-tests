@@ -1,0 +1,39 @@
+=== Math Functions Corner Cases Test ===
+PASS: $clog2(1) = 0
+PASS: $clog2(2) = 1
+PASS: $clog2(256) = 8
+PASS: $clog2(5) = 3
+PASS: $clog2(0) = 0
+PASS: $ln(1.0) = 0.000000
+PASS: $ln(e) ~ 1.000000
+PASS: $ln(10) = 2.302585
+PASS: $log10(1.0) = 0.000000
+PASS: $log10(10.0) = 1.000000
+PASS: $log10(100.0) = 2.000000
+PASS: $exp(0.0) = 1.000000
+PASS: $exp(1.0) = 2.718282
+PASS: $sqrt(0.0) = 0.000000
+PASS: $sqrt(1.0) = 1.000000
+PASS: $sqrt(4.0) = 2.000000
+PASS: $sqrt(2.0) = 1.414214
+PASS: $pow(2.0, 3.0) = 8.000000
+PASS: $pow(10.0, 0.0) = 1.000000
+PASS: $pow(2.0, -1.0) = 0.500000
+PASS: $sin(0.0) = 0.000000
+PASS: $cos(0.0) = 1.000000
+PASS: $sin(pi/2) = 1.000000
+PASS: $tan(0.0) = 0.000000
+PASS: $asin(0.0) = 0.000000
+PASS: $acos(1.0) = 0.000000
+PASS: $atan(0.0) = 0.000000
+PASS: $atan2(1.0, 1.0) = 0.785398 (pi/4)
+PASS: $sinh(0.0) = 0.000000
+PASS: $cosh(0.0) = 1.000000
+PASS: $tanh(0.0) = 0.000000
+PASS: $floor(3.7) = 3.000000
+PASS: $ceil(3.2) = 4.000000
+PASS: $floor(-3.2) = -4.000000
+PASS: $ceil(-3.7) = -3.000000
+=== Summary ===
+Passed: 35, Failed: 0
+TEST PASSED

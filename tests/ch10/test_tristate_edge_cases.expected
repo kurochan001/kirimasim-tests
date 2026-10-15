@@ -1,0 +1,10 @@
+Test 1 PASS: oe=1 bus=aa
+Test 2 PASS: oe=0 bus=Z
+Test 3 PASS: din change bus=55
+Test 4 PASS: zeros bus=00
+Test 5 PASS: ones bus=ff
+Test 6 PASS: Toggle enable
+Test 7 PASS: Data while disabled bus=cd
+=== Tristate Edge Cases ===
+Passed: 7/7
+TEST PASSED

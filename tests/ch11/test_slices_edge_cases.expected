@@ -1,0 +1,13 @@
+TEST: Bit/part select edge cases
+  [PASS] Bit select read
+  [PASS] Bit select write
+  [PASS] Part select read
+  [PASS] Part select write
+  [PASS] MSB access
+  [PASS] LSB access
+  [PASS] Middle byte
+  [PASS] Assign to slice
+  [PASS] Clear bits
+  [PASS] Set bits
+Results: 10 passed, 0 failed
+TEST PASSED

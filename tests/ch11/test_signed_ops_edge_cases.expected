@@ -1,0 +1,13 @@
+TEST: Signed operations edge cases
+  [PASS] Positive signed
+  [PASS] Negative signed
+  [PASS] Signed addition
+  [PASS] Signed subtraction
+  [PASS] Signed comparison less
+  [PASS] Signed comparison greater
+  [PASS] Signed zero
+  [PASS] Signed max positive
+  [PASS] Signed min negative
+  [PASS] Signed multiply
+Results: 10 passed, 0 failed
+TEST PASSED

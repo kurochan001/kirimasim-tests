@@ -1,0 +1,15 @@
+Test 1 PASS: data[31] = 1
+Test 2 PASS: data[31:24] = aa
+Test 3 PASS: data[7:0] = dd
+Test 4 PASS: data[7:4] = 7
+Test 5 PASS: data[16] = 0
+Test 6 PASS: data[8+:8] = 56
+Test 7 PASS: data[23-:8] = 34
+Test 8 PASS: Zero slice = 00
+Test 9 PASS: Ones slice = ff
+Test 10 PASS: Write slice = 0000ab00
+Test 11 PASS: Bit write = 00000001
+Test 12 PASS: Cross boundary = 4567
+=== Slice Edge Cases ===
+Passed: 12/12
+TEST PASSED

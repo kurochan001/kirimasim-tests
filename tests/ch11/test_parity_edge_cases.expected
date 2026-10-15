@@ -1,0 +1,10 @@
+Test 1 PASS: 0x00 even_parity=0
+Test 2 PASS: 0xFF even_parity=0
+Test 3 PASS: 0x01 even_parity=1
+Test 4 PASS: 0x01 odd_parity=0
+Test 5 PASS: Even check valid=0
+Test 6 PASS: Odd check valid=1
+Test 7 PASS: 0x55 even_parity=0
+=== Parity Edge Cases ===
+Passed: 7/7
+TEST PASSED

@@ -1,0 +1,17 @@
+=== Real Literal Type Preservation Test ===
+Test 1: Direct literal conversion
+  $shortrealtobits(1.5) = 0x3fc00000
+  PASS
+Test 2: Variable assignment
+  x = 2.5; $shortrealtobits(x) = 0x40200000
+  PASS
+Test 3: Real (64-bit) literal
+  $realtobits(pi) = 0x400921fb54442d18
+  PASS
+Test 4: Negative literal
+  $shortrealtobits(-0.5) = 0xbf000000
+  PASS
+Test 5: Small literal
+  $shortrealtobits(0.0001) = 0x38d1b717
+  PASS
+=== All Real Literal Tests PASSED ===

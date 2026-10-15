@@ -1,0 +1,19 @@
+=== Reduction Operators Corner Cases Test ===
+PASS: AND reduction of 0xFF = 1
+PASS: AND reduction of 0xFE = 0
+PASS: OR reduction of 0x00 = 0
+PASS: OR reduction of 0x01 = 1
+PASS: XOR reduction of 4 ones = 0 (even parity)
+PASS: XOR reduction of 3 ones = 1 (odd parity)
+PASS: NAND reduction of 0xFF = 0
+PASS: NAND reduction of 0x00 = 1
+PASS: NOR reduction of 0x00 = 1
+PASS: NOR reduction of 0xFF = 0
+PASS: XNOR reduction of 4 ones = 1
+PASS: AND reduction of single bit 1 = 1
+PASS: OR reduction with X handles known 1
+PASS: Reduction in expression works
+PASS: AND reduction of 64-bit all-ones = 1
+=== Summary ===
+Passed: 15, Failed: 0
+TEST PASSED

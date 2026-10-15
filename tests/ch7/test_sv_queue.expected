@@ -1,0 +1,11 @@
+PASS: initial size == 0
+PASS: size after 3 push_back == 3
+PASS: elements 10,20,30
+PASS: pop_front == 10
+PASS: insert(1,25)
+PASS: delete(1)
+PASS: push_front(5)
+PASS: pop_back == 30
+PASS: q[$] == 99
+Results: 9 passed, 0 failed
+TEST PASSED

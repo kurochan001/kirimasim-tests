@@ -1,0 +1,8 @@
+PASS: p1.id == 42
+PASS: p1.name == alpha
+PASS: get_id() == 42
+PASS: describe() == alpha
+PASS: independent instances
+PASS: property write p1.id = 100
+Results: 6 passed, 0 failed
+TEST PASSED

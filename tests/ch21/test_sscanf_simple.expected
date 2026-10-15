@@ -1,0 +1,5 @@
+Testing $sscanf...
+PASS: Integer parsing
+PASS: Hex parsing
+PASS: String parsing
+$sscanf test complete

@@ -1,0 +1,13 @@
+TEST: Shift operations edge cases
+  [PASS] Left shift by 1
+  [PASS] Left shift by 4
+  [PASS] Right shift by 1
+  [PASS] Right shift by 4
+  [PASS] Left shift overflow
+  [PASS] Right shift to zero
+  [PASS] Shift by zero
+  [PASS] Arith right shift pos
+  [PASS] Arith right shift neg
+  [PASS] Wide shift
+Results: 10 passed, 0 failed
+TEST PASSED

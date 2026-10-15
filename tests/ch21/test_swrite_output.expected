@@ -1,0 +1,8 @@
+=== Testing $swrite Output Argument Handling ===
+Test 1 - Basic $swrite: 'The value is 42'
+Test 2 - $swriteb: '00000000000000000000000000001010'
+Test 3 - $swriteo: '00000000100'
+Test 4 - $swriteh: '000000ff'
+Test 5 - Multiple formats: 'Int: 123, Real: 45.67, Hex: 0000007b'
+Test 6 - Overwrite: 'Overwritten'
+=== Test Completed Successfully ===

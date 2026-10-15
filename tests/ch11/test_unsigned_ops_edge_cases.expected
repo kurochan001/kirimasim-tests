@@ -1,0 +1,13 @@
+TEST: Unsigned operations edge cases
+  [PASS] Basic unsigned
+  [PASS] Max unsigned
+  [PASS] Unsigned addition
+  [PASS] Unsigned subtraction
+  [PASS] Unsigned overflow
+  [PASS] Unsigned comparison
+  [PASS] Unsigned zero
+  [PASS] Unsigned multiply
+  [PASS] Unsigned divide
+  [PASS] Unsigned modulo
+Results: 10 passed, 0 failed
+TEST PASSED

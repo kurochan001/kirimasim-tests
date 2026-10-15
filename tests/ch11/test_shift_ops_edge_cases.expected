@@ -1,0 +1,13 @@
+TEST: Shift operations edge cases
+  [PASS] Left shift by 1
+  [PASS] Right shift by 1
+  [PASS] Left shift by 4
+  [PASS] Right shift by 4
+  [PASS] Shift by 0
+  [PASS] Shift out all bits
+  [PASS] Arithmetic right shift positive
+  [PASS] Arithmetic right shift negative
+  [PASS] Variable shift amount
+  [PASS] Chained shifts
+Results: 10 passed, 0 failed
+TEST PASSED

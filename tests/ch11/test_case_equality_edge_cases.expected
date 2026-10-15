@@ -1,0 +1,13 @@
+TEST: Case equality edge cases
+  [PASS] Exact match ===
+  [PASS] X equals X
+  [PASS] Z equals Z
+  [PASS] X not equals Z
+  [PASS] Mixed X pattern
+  [PASS] Mixed Z pattern
+  [PASS] Not equal values
+  [PASS] All zeros match
+  [PASS] All ones match
+  [PASS] Alternating pattern
+Results: 10 passed, 0 failed
+TEST PASSED

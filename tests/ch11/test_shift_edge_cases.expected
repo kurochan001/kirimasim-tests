@@ -1,0 +1,15 @@
+Test 1 PASS: 1 << 3 = 08
+Test 2 PASS: 80 >> 3 = 10
+Test 3 PASS: -8 >>> 2 = -2
+Test 4 PASS: 4 <<< 2 = 16
+Test 5 PASS: x << 0 = ab
+Test 6 PASS: FF << 8 = 00
+Test 7 PASS: Round trip = a0
+Test 8 PASS: Wide shift = 8000
+Test 9 PASS: -1 >>> 4 = -1
+Test 10 PASS: Variable shift = 0f
+Test 11 PASS: Chain = 20
+Test 12 PASS: << 1 = fc
+=== Shift Edge Cases ===
+Passed: 12/12
+TEST PASSED

@@ -1,0 +1,12 @@
+=== Real/Bits Conversion Test ===
+$realtobits(3.14159) = 400921f9f01b866e
+$bitstoreal(400921f9f01b866e) = 3.141590
+PASS: $realtobits/$bitstoreal
+$shortrealtobits(2.71828) = 402df84d
+$bitstoshortreal(402df84d) = 2.718280
+PASS: $shortrealtobits/$bitstoshortreal
+--- Special Values ---
+$realtobits(0.0) = 0000000000000000
+$realtobits(-1.0) = bff0000000000000
+Round-trip 1234567890.0: 1234567890.000000
+=== Test Complete ===

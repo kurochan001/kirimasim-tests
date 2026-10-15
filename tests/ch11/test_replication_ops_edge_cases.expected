@@ -1,0 +1,13 @@
+TEST: Replication operations edge cases
+  [PASS] Replicate 1-bit to 8
+  [PASS] Replicate 0-bit
+  [PASS] Replicate 2-bits
+  [PASS] Replicate nibble
+  [PASS] Replicate byte
+  [PASS] Single replication
+  [PASS] Replication with byte
+  [PASS] Sign extension pattern
+  [PASS] Zero extension pattern
+  [PASS] Double replication
+Results: 10 passed, 0 failed
+TEST PASSED

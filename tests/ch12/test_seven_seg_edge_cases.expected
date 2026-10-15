@@ -1,0 +1,9 @@
+Test 1 PASS: 0 -> 0111111
+Test 2 PASS: 1 -> 0000110
+Test 3 PASS: 8 -> 1111111
+Test 4 PASS: A -> 1110111
+Test 5 PASS: F -> 1110001
+Test 6 PASS: All digits tested
+=== Seven-Segment Edge Cases ===
+Passed: 6/6
+TEST PASSED

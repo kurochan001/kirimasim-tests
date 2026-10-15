@@ -1,0 +1,13 @@
+TEST: Zero extension edge cases
+  [PASS] Basic zero extension
+  [PASS] High bit set
+  [PASS] Zero value
+  [PASS] Max value
+  [PASS] Alternating pattern
+  [PASS] MSB clear
+  [PASS] Chain extension
+  [PASS] Pattern preserve
+  [PASS] 16 to 32
+  [PASS] Single bit
+Results: 10 passed, 0 failed
+TEST PASSED

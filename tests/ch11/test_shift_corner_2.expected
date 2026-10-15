@@ -1,0 +1,16 @@
+=== Shift Operators Corner Cases Test ===
+PASS: Logical left shift works
+PASS: Logical right shift works
+PASS: Arithmetic left shift works
+PASS: Arithmetic right shift (positive) works
+PASS: Arithmetic right shift (negative) works
+PASS: Shift by zero works
+PASS: Shift by full width works
+PASS: Variable shift amount works
+PASS: Wide value shift works
+PASS: Shift in expression works
+PASS: Chain of shifts works
+PASS: Shift and mask works
+=== Summary ===
+Passed: 12, Failed: 0
+TEST PASSED

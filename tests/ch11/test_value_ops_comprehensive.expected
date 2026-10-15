@@ -1,0 +1,15 @@
+PASS: Wildcard equality 10101010 ==? 1010zzzz
+PASS: Wildcard equality 10101010 !=? 1111zzzz
+PASS: Wildcard inequality 10101010 !=? 1111zzzz
+PASS: Case equality 10x1 === 10x1
+PASS: Case inequality 10x1 !== 10x0
+PASS: Equality with X returns unknown/x
+PASS: 8'hFF != 4'hF (width mismatch)
+PASS: Signed -1 == 8'hFF
+PASS: Case equality ignores signedness (same bits)
+PASS: Reduction OR of zeros = 0
+PASS: Reduction AND of all ones = 1
+PASS: Reduction XOR even parity = 0
+=== Value Operations Comprehensive Test Summary ===
+Tests: 12, Passed: 12
+PASS: All value operations tests passed
