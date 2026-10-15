@@ -1,0 +1,7 @@
+PASS: Test 1 - Default parameters (8, 16)
+PASS: Test 2 - Override parameters (16, 32)
+PASS: Test 3 - localparam values (42, 84)
+PASS: Test 4 - Type parameter width = 16
+PASS: Test 5 - Multiple parameters (100, 200, ff)
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,7 @@
+PASS: Test 1 - $signed on positive value
+PASS: Test 2 - $signed with MSB set
+PASS: Test 3 - $signed on 0xFF
+PASS: Test 4 - $signed with sign extension
+PASS: Test 5 - Arithmetic with $signed
+Cast Signed: 5 PASS, 0 FAIL
+PASS: All tests passed

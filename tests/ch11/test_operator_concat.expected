@@ -1,0 +1,7 @@
+PASS: {4'hA, 4'hB} = 8'hAB
+PASS: {4'h1, 4'h2, 4'h3, 4'h4} = 16'h1234
+PASS: {16'hCAFE, 8'hBA, 8'hBE} = 32'hCAFEBABE
+PASS: {5+1, 5-1} = 8'h64
+PASS: Nested concat = 16'hFF00
+Concatenation operators: 5 PASS, 0 FAIL
+PASS: All concatenation operator tests passed

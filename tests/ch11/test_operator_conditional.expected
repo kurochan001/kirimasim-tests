@@ -1,0 +1,7 @@
+PASS: true ? 10 : 20 = 10
+PASS: false ? 10 : 20 = 20
+PASS: Nested conditional = 200
+PASS: (12 > 10) ? 16 : 12 = 16
+PASS: Chained conditional for 50 = 2
+Conditional operators: 5 PASS, 0 FAIL
+PASS: All conditional operator tests passed

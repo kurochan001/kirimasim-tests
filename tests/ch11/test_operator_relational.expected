@@ -1,0 +1,7 @@
+PASS: Test 1 - Less/greater than
+PASS: Test 2 - Less/greater or equal
+PASS: Test 3 - Unsigned comparison
+PASS: Test 4 - Signed comparison
+PASS: Test 5 - Real comparison
+Operator Relational: 5 PASS, 0 FAIL
+PASS: All tests passed

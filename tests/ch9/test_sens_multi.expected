@@ -1,0 +1,10 @@
+PASS: Scenario 1 - Async reset active (q=0x00)
+PASS: Scenario 2 - Normal operation after reset (q=0xab)
+PASS: Scenario 3 - Mid-cycle async reset (q=0x00)
+PASS: Scenario 4 - Level trigger a (comb_out=0x04)
+PASS: Scenario 5 - Level triggers b,c (comb_out=0x07)
+PASS: Scenario 6a - sig1 posedge (count=1)
+PASS: Scenario 6b - sig2 posedge (count=2)
+PASS: Scenario 6c - sig3 posedge (count=3)
+Multiple sensitivity: 8 PASS, 0 FAIL
+PASS

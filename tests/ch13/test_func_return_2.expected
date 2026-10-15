@@ -1,0 +1,6 @@
+Test 1 PASS: return_int() = -100
+Test 2 PASS: return_unsigned() = 0xffff
+Test 3 PASS: return_real() = 3.141590
+Test 4 PASS: return_logic() = 0xcafebabe
+Test 5 PASS: return_string() = Hello
+PASS: All function return type tests passed

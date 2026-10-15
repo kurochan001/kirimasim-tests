@@ -1,0 +1,8 @@
+PASS: Scenario 1 - Async reset initial state
+PASS: Scenario 2 - Normal operation after reset
+PASS: Scenario 3 - Async reset without clock edge
+PASS: Scenario 4 - Counter reset to 0
+PASS: Scenario 5 - Counter incremented to 3
+PASS: Scenario 6 - Async set to 0xFF
+always_ff async reset: 6 PASS, 0 FAIL
+PASS

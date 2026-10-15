@@ -1,0 +1,7 @@
+Test 1 PASS: Pulldown pulls wire to 0
+Test 2 PASS: Driver overrides pulldown
+Test 3 PASS: Pulldown active when driver is Z
+Test 4 PASS: Multiple pulldowns on same wire
+Test 5 PASS: Pulldown primitive instantiated
+Results: 5 PASS, 0 FAIL
+ALL TESTS PASSED

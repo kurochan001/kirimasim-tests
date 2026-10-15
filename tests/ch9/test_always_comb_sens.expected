@@ -1,0 +1,7 @@
+PASS: Scenario 1 - Initial state correct
+PASS: Scenario 2 - a=1 triggers update
+PASS: Scenario 3 - AND gate correct
+PASS: Scenario 4 - Arithmetic out3=0x8
+PASS: Scenario 5 - Conditional mux correct
+always_comb sensitivity: 5 PASS, 0 FAIL
+PASS

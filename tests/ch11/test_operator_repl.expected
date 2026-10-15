@@ -1,0 +1,7 @@
+PASS: {2{4'hA}} = 8'hAA
+PASS: {4{4'hF}} = 16'hFFFF
+PASS: {32{1'b1}} = 32'hFFFFFFFF
+PASS: {2{{4'hC, 4'hD}}} = 16'hCDCD
+PASS: Sign extension of 4'b1010 = 8'hFA
+Replication operators: 5 PASS, 0 FAIL
+PASS: All replication operator tests passed

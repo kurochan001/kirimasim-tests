@@ -1,0 +1,7 @@
+PASS: word[0] of 0xCAFEBABE = 0
+PASS: word[7:4] of 0xCAFEBABE = 0xB
+PASS: word[8 +: 4] of 0xCAFEBABE = 0xA
+PASS: word[15 -: 4] of 0xCAFEBABE = 0xB
+PASS: arr[2] = 0x30
+Index operators: 5 PASS, 0 FAIL
+PASS: All index operator tests passed

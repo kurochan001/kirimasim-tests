@@ -1,0 +1,7 @@
+PASS: 15 + 4 = 19
+PASS: 17/5=3, 17%5=2
+PASS: Comparison operators all correct
+PASS: 8<<2=32, 8>>1=4
+PASS: 2 ** 10 = 1024
+Binary expressions: 5 PASS, 0 FAIL
+PASS: All binary expression tests passed

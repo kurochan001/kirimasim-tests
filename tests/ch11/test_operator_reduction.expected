@@ -1,0 +1,7 @@
+PASS: AND reduction of 0xFF = 1
+PASS: OR reduction of 0x00 = 0
+PASS: XOR reduction of 0xAA = 0 (even parity)
+PASS: NAND reduction of 0xFF = 0
+PASS: NOR reduction of 0x01 = 0
+Reduction operators: 5 PASS, 0 FAIL
+PASS: All reduction operator tests passed

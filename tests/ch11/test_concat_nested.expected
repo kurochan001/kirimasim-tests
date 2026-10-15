@@ -1,0 +1,7 @@
+PASS: Test 1 - Two-level nested concat
+PASS: Test 2 - Direct nested concat
+PASS: Test 3 - Three-level nested concat
+PASS: Test 4 - Nested with replication
+PASS: Test 5 - Complex nested expression
+Concat Nested: 5 PASS, 0 FAIL
+PASS: All tests passed

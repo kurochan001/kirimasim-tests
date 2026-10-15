@@ -1,0 +1,7 @@
+PASS: Test 1 - Wildcard import (CONST_A=100)
+PASS: Test 2 - Specific import (CONST_B=200)
+PASS: Test 3 - Function imports (func_a=42, func_b=84)
+PASS: Test 4 - Explicit scope (A=100, C.A=999)
+PASS: Test 5 - Type from specific import
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,7 @@
+PASS: Test 1 - $unsigned on -1
+PASS: Test 2 - $unsigned on positive
+PASS: Test 3 - $unsigned prevents sign extension
+PASS: Test 4 - Comparison after $unsigned
+PASS: Test 5 - Arithmetic with $unsigned
+Cast Unsigned: 5 PASS, 0 FAIL
+PASS: All tests passed

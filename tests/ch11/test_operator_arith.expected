@@ -1,0 +1,7 @@
+PASS: Test 1 - Basic arithmetic
+PASS: Test 2 - Modulo operator
+PASS: Test 3 - Power operator
+PASS: Test 4 - Unary operators
+PASS: Test 5 - Real division
+Operator Arith: 5 PASS, 0 FAIL
+PASS: All tests passed

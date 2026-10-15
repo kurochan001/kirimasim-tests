@@ -1,0 +1,10 @@
+PASS: Scenario 1 - Blocking assign (a=0xaa)
+PASS: Scenario 2 - Expression assign (c=0xff)
+PASS: Scenario 3 - Compound += (counter=15)
+PASS: Scenario 4 - Multiple compound (counter=24)
+PASS: Scenario 5 - Bit-select assign (wide=0xcdab)
+PASS: Scenario 6a - Increment (counter=11)
+PASS: Scenario 6b - Decrement (counter=9)
+PASS: Scenario 7 - Conditional assign (result=0x20)
+Variable procedural assign: 8 PASS, 0 FAIL
+PASS

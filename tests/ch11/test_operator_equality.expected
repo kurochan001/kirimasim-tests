@@ -1,0 +1,7 @@
+PASS: Test 1 - Logical equality
+PASS: Test 2 - Logical inequality
+PASS: Test 3 - Case equality with X
+PASS: Test 4 - Case inequality with X
+PASS: Test 5 - Wildcard equality
+Operator Equality: 5 PASS, 0 FAIL
+PASS: All tests passed

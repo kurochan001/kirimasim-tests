@@ -1,0 +1,7 @@
+PASS: Integer literal 42
+PASS: Real literal 3.14159
+PASS: String literal "Hello"
+PASS: Binary literal 8'b10101010 = 0xAA
+PASS: Parenthesized ((5+3)*2) = 16
+Primary expressions: 5 PASS, 0 FAIL
+PASS: All primary expression tests passed

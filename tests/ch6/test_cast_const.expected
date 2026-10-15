@@ -1,0 +1,7 @@
+PASS: Test 1 - Literal width cast
+PASS: Test 2 - Parameter width cast
+PASS: Test 3 - Signed cast of literal
+PASS: Test 4 - Cast of expression
+PASS: Test 5 - Cast in array index
+Cast Const: 5 PASS, 0 FAIL
+PASS: All tests passed

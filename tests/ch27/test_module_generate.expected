@@ -1,0 +1,7 @@
+PASS: Test 1 - Generate for loop correct
+PASS: Test 2 - Generate if correct (fast path)
+PASS: Test 3 - Generate case correct (mode 2)
+PASS: Test 4 - Nested generate correct
+PASS: Test 5 - Generate with parameters correct
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

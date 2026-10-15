@@ -1,0 +1,7 @@
+PASS: Scenario 1 - Block 1 executed (data1=0xaa)
+PASS: Scenario 2 - Block 2 executed (data2=0xbb)
+PASS: Scenario 3 - Block 3 executed after delay (data3=0xcc)
+PASS: Scenario 4 - Block 3 executed after delay
+PASS: Scenario 5 - Computation correct (sum=15)
+Initial block execution: 5 PASS, 0 FAIL
+PASS

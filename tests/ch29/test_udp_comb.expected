@@ -1,0 +1,7 @@
+Test 1 PASS: MUX selects a when sel=0
+Test 2 PASS: MUX selects b when sel=1
+Test 3 PASS: Majority gate outputs 1 for 2/3 high
+Test 4 PASS: Majority gate outputs 0 for 1/3 high
+Test 5 PASS: AND UDP 0&X = 0
+Results: 5 PASS, 0 FAIL
+ALL TESTS PASSED

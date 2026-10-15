@@ -1,0 +1,7 @@
+Test 1 PASS: D FF posedge captures 1
+Test 2 PASS: D FF holds value without clock edge
+Test 3 PASS: D FF negedge captures 0
+Test 4 PASS: JK FF set (J=1, K=0)
+Test 5 PASS: JK FF toggle (q=0)
+Results: 5 PASS, 0 FAIL
+ALL TESTS PASSED

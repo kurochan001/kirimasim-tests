@@ -1,0 +1,7 @@
+PASS: Simple assignment a = 100
+PASS: Add-assign a += 5: 10 + 5 = 15
+PASS: Subtract-assign a -= 8: 20 - 8 = 12
+PASS: Multiply-assign a *= 6: 7 * 6 = 42
+PASS: AND-assign 0xFF &= 0x0F = 0x0F
+Assignment operators: 5 PASS, 0 FAIL
+PASS: All assignment operator tests passed

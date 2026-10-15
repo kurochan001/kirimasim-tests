@@ -1,0 +1,7 @@
+Test 1 PASS: Pullup pulls wire to 1
+Test 2 PASS: Driver overrides pullup
+Test 3 PASS: Pullup active when driver is Z
+Test 4 PASS: Multiple pullups on same wire
+Test 5 PASS: Pullup primitive instantiated
+Results: 5 PASS, 0 FAIL
+ALL TESTS PASSED

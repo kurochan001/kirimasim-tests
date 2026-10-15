@@ -1,0 +1,6 @@
+Test 1 PASS: factorial(5) = 120
+Test 2 PASS: fibonacci(10) = 55
+Test 3 PASS: gcd(48, 18) = 6
+Test 4 PASS: sum_digits(12345) = 15
+Test 5 PASS: power(2, 10) = 1024
+PASS: All recursive function tests passed

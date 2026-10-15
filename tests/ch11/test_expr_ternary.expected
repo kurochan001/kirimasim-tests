@@ -1,0 +1,6 @@
+PASS: (5<10) ? 5 : 10 = 5
+PASS: (20<10) ? 20 : 10 = 10
+PASS: Nested ternary for 50 = 2
+PASS: Pythagorean check (3,4,5) = 1
+Ternary expressions: 4 PASS, 0 FAIL
+PASS: All ternary expression tests passed

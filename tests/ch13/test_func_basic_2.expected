@@ -1,0 +1,6 @@
+Test 1 PASS: add(3, 5) = 8
+Test 2 PASS: get_byte extracts correctly
+Test 3 PASS: get_constant() = 42
+Test 4 PASS: double_val(7) = 14
+Test 5 PASS: sum_range(1, 5) = 15
+PASS: All basic function tests passed

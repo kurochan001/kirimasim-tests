@@ -1,0 +1,7 @@
+PASS: Test 1 - Bitwise AND
+PASS: Test 2 - Bitwise OR
+PASS: Test 3 - Bitwise XOR
+PASS: Test 4 - Bitwise NOT
+PASS: Test 5 - Bitwise XNOR
+Operator Bitwise: 5 PASS, 0 FAIL
+PASS: All tests passed

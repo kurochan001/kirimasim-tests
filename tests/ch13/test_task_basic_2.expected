@@ -1,0 +1,6 @@
+Test 1 PASS: reset_result() sets result to 0
+Test 2 PASS: set_result(42) sets result to 42
+Test 3 PASS: add_to_result(15, 25) = 40
+Test 4 PASS: compute_sum(10) = 55
+Test 5 PASS: init_array() sets array to [0,10,20,30]
+PASS: All basic task tests passed

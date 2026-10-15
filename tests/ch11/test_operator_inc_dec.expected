@@ -1,0 +1,7 @@
+PASS: Pre-increment ++a: result=6, a=6
+PASS: Post-increment a++: result=5, a=6
+PASS: Pre-decrement --a: result=9, a=9
+PASS: Post-decrement a--: result=10, a=9
+PASS: Mixed inc: (++3) + (2++) = 6, a=4, b=3
+Increment/decrement operators: 5 PASS, 0 FAIL
+PASS: All increment/decrement operator tests passed

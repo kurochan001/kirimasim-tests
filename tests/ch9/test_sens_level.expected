@@ -1,0 +1,8 @@
+PASS: Scenario 1 - Initial trigger (out1=1)
+PASS: Scenario 2 - a=1 triggers (out1=0)
+PASS: Scenario 3 - x change triggers (out2=0x10)
+PASS: Scenario 4 - y change triggers (out2=0x15)
+PASS: Scenario 5 - Conditional a=1 (out3=0xaa)
+PASS: Scenario 6 - Conditional b=1 (out3=0xbb)
+Level sensitivity: 6 PASS, 0 FAIL
+PASS

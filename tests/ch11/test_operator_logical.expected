@@ -1,0 +1,7 @@
+PASS: Test 1 - Logical AND
+PASS: Test 2 - Logical OR
+PASS: Test 3 - Logical NOT
+PASS: Test 4 - Logical ops on vectors
+PASS: Test 5 - Logical implication
+Operator Logical: 5 PASS, 0 FAIL
+PASS: All tests passed

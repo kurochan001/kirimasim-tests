@@ -1,0 +1,6 @@
+Test 1 PASS: compute_sum(10) = 55
+Test 2 PASS: factorial(6) = 720
+Test 3 PASS: process_data(1,2,3) = 20
+Test 4 PASS: double_it(5) + double_it(10) = 30
+Test 5 PASS: array_sum(5)=15, array_sum(3)=6
+PASS: All automatic function tests passed

@@ -1,0 +1,6 @@
+Test 1 PASS: increment(5) = 6 (using default step=1)
+Test 2 PASS: increment(5, 3) = 8 (overriding default)
+Test 3 PASS: compute(1) = 111 (using b=10, c=100)
+Test 4 PASS: compute(1, 20) = 121 (overriding b, using c=100)
+Test 5 PASS: get_size() = 16 (using default=DEFAULT_SIZE*2)
+PASS: All default argument tests passed

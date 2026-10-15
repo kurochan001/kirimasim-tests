@@ -1,0 +1,7 @@
+PASS: Unary minus -10 = -10
+PASS: Unary plus +25 = 25
+PASS: Logical NOT !0 = 1
+PASS: Bitwise NOT ~0x0F = 0xF0
+PASS: Double negation -(-5) = 5
+Unary expressions: 5 PASS, 0 FAIL
+PASS: All unary expression tests passed
