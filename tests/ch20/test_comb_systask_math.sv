@@ -129,12 +129,8 @@ module test_comb_systask_math;
 
         if (!$isunknown(8'b10110101)) pass_count++;
 
-        // $bits
-        i1 = $bits(r1);
-        // $bits on real should return 64
-
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 25)
+        if (pass_count == 32)
             $display("PASS: test_comb_systask_math");
         else
             $display("FAIL: test_comb_systask_math (pass_count=%0d)", pass_count);
