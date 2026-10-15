@@ -65,7 +65,7 @@ module test_local_var_edge_cases;
         begin
             int result;
             // Called here, not in a static initializer: local_in_func might not be
-            // initialized yet when static initializers run (6.21).
+            // initialized yet when static initializers run (the standard gives them no order).
             result = local_func(10);
             if (result == 60) begin
                 pass_count++;

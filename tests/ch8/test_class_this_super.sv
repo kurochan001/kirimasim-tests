@@ -110,7 +110,7 @@ module test_class_this_super;
             static Derived d = new(1, 2);
             static string result;
             // Assigned here: a static initializer runs before the others in no
-            // guaranteed order relative to the handle it reads (6.21).
+            // guaranteed order relative to the handle it reads (the standard specifies none).
             result = d.get_both_names();
             if (result == "Base-Derived") begin
                 pass_count++;
@@ -152,7 +152,7 @@ module test_class_this_super;
             static GrandChild gc = new(1, 2);
             static string result;
             // Assigned here: a static initializer runs before the others in no
-            // guaranteed order relative to the handle it reads (6.21).
+            // guaranteed order relative to the handle it reads (the standard specifies none).
             result = gc.get_chain();
             if (result == "Derived->GrandChild") begin
                 pass_count++;

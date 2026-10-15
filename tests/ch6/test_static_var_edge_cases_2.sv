@@ -40,7 +40,7 @@ module test_static_var_edge_cases_2;
         test_count++;
         begin
             static int c;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             c = counter_func();
             if (c == 1) begin
                 pass_count++;
@@ -54,7 +54,7 @@ module test_static_var_edge_cases_2;
         test_count++;
         begin
             static int c;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             c = counter_func();
             if (c == 2) begin
                 pass_count++;
@@ -68,7 +68,7 @@ module test_static_var_edge_cases_2;
         test_count++;
         begin
             static int c;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             c = counter_func();
             if (c == 3) begin
                 pass_count++;
@@ -82,7 +82,7 @@ module test_static_var_edge_cases_2;
         test_count++;
         begin
             static int t;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             t = accumulator(10);
             if (t == 10) begin
                 pass_count++;
@@ -96,7 +96,7 @@ module test_static_var_edge_cases_2;
         test_count++;
         begin
             static int t;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             t = accumulator(20);
             if (t == 30) begin
                 pass_count++;
@@ -110,7 +110,7 @@ module test_static_var_edge_cases_2;
         test_count++;
         begin
             static int t;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             t = accumulator(5);
             if (t == 35) begin
                 pass_count++;
@@ -124,7 +124,7 @@ module test_static_var_edge_cases_2;
         test_count++;
         begin
             static int id;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             id = get_id();
             if (id == 100) begin
                 pass_count++;
@@ -138,7 +138,7 @@ module test_static_var_edge_cases_2;
         test_count++;
         begin
             static int id;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             id = get_id();
             if (id == 101) begin
                 pass_count++;
@@ -154,7 +154,7 @@ module test_static_var_edge_cases_2;
             static int c1;
             static int c2;
             static int c3;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             c1 = counter_func();
             c2 = counter_func();
             c3 = counter_func();
@@ -181,7 +181,7 @@ module test_static_var_edge_cases_2;
         test_count++;
         begin
             static int t;
-            // Assigned here: static initializers run in an unspecified order (6.21).
+            // Assigned here: the standard specifies no order for static initializers.
             t = accumulator(-10);
             pass_count++;
             $display("Test 11 PASS: accum neg = %0d", t);

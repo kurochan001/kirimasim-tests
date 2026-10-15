@@ -39,7 +39,7 @@ module test_class_copy_corner;
         static SimpleData orig = new(42, "original");
         static SimpleData copied;
         // Assigned here: a static initializer runs before the others in no
-        // guaranteed order relative to the handle it reads (6.21).
+        // guaranteed order relative to the handle it reads (the standard specifies none).
         copied = orig.copy();
 
         if (copied.value == 42 && copied.name == "original") begin
@@ -100,7 +100,7 @@ module test_class_copy_corner;
         static Outer orig = new(1, 100);
         static Outer shallow;
         // Assigned here: a static initializer runs before the others in no
-        // guaranteed order relative to the handle it reads (6.21).
+        // guaranteed order relative to the handle it reads (the standard specifies none).
         shallow = orig.shallow_copy();
 
         // Modify nested object
@@ -120,7 +120,7 @@ module test_class_copy_corner;
         static Outer orig = new(1, 100);
         static Outer deep;
         // Assigned here: a static initializer runs before the others in no
-        // guaranteed order relative to the handle it reads (6.21).
+        // guaranteed order relative to the handle it reads (the standard specifies none).
         deep = orig.deep_copy();
 
         // Modify nested object

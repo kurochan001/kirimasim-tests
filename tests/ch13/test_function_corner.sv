@@ -76,7 +76,7 @@ module test_function_corner;
     // Test 1: Basic function call
     task test_basic_function();
         static int result;
-        // Assigned here: the order of static initializers is not defined (6.21)
+        // Assigned here: the standard specifies no order for static initializers
         result = add(3, 5);
 
         if (result == 8) begin
@@ -92,7 +92,7 @@ module test_function_corner;
     task test_default_argument();
         static int result1;
         static int result2;
-        // Assigned here: the order of static initializers is not defined (6.21)
+        // Assigned here: the standard specifies no order for static initializers
         result1 = multiply(5);     // Uses default b=2
         result2 = multiply(5, 3);  // Overrides default
 
@@ -144,7 +144,7 @@ module test_function_corner;
     // Test 6: Recursive function
     task test_recursive_function();
         static int result;
-        // Assigned here: the order of static initializers is not defined (6.21)
+        // Assigned here: the standard specifies no order for static initializers
         result = factorial(5);
 
         if (result == 120) begin  // 5! = 120
@@ -174,7 +174,7 @@ module test_function_corner;
         static int val1;
         static int val2;
         static int val3;
-        // Assigned here: the order of static initializers is not defined (6.21)
+        // Assigned here: the standard specifies no order for static initializers
         val1 = get_static_counter();
         val2 = get_static_counter();
         val3 = get_static_counter();
@@ -191,7 +191,7 @@ module test_function_corner;
     // Test 9: Automatic function
     task test_automatic_function();
         static int result;
-        // Assigned here: the order of static initializers is not defined (6.21)
+        // Assigned here: the standard specifies no order for static initializers
         result = auto_factorial(6);
 
         if (result == 720) begin  // 6! = 720
@@ -206,7 +206,7 @@ module test_function_corner;
     // Test 10: Function in expression
     task test_function_in_expr();
         static int result;
-        // Assigned here: the order of static initializers is not defined (6.21)
+        // Assigned here: the standard specifies no order for static initializers
         result = add(multiply(2, 3), 4);  // (2*3) + 4 = 10
 
         if (result == 10) begin
@@ -246,7 +246,7 @@ module test_function_corner;
 
     task test_local_variables();
         static int result;
-        // Assigned here: the order of static initializers is not defined (6.21)
+        // Assigned here: the standard specifies no order for static initializers
         result = compute_sum(10);
 
         if (result == 55) begin  // 1+2+...+10 = 55

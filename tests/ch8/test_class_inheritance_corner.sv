@@ -96,7 +96,7 @@ module test_class_inheritance_corner;
         static Dog d = new("Rex", 5, "Poodle");
         static string desc;
         // Assigned here: a static initializer runs before the others in no
-        // guaranteed order relative to the handle it reads (6.21).
+        // guaranteed order relative to the handle it reads (the standard specifies none).
         desc = d.describe();
 
         if (desc == "Rex is 5 years old and is a Poodle") begin

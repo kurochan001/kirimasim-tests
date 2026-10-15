@@ -94,7 +94,7 @@ module test_deep_hierarchy_ref;
         begin
             static int result;
             // Assigned here: a static initializer runs before the others in no
-            // guaranteed order relative to the handle it reads (6.21).
+            // guaranteed order relative to the handle it reads (the standard specifies none).
             result = dut.l1.l2.l3.l4.get_level();
             if (result == 4) pass_count++;
             else begin fail_count++; $display("FAIL: func call level4, got %0d", result); end
@@ -104,7 +104,7 @@ module test_deep_hierarchy_ref;
         begin
             static int result;
             // Assigned here: a static initializer runs before the others in no
-            // guaranteed order relative to the handle it reads (6.21).
+            // guaranteed order relative to the handle it reads (the standard specifies none).
             result = dut.l1.l2.l3.l4.l5.get_level();
             if (result == 5) pass_count++;
             else begin fail_count++; $display("FAIL: func call level5, got %0d", result); end
