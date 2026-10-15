@@ -1,0 +1,23 @@
+Test 1 PASS: add(3,5) = 8
+Test 2 PASS: counter = 1, 2, 3
+Test 3 PASS: swap worked x=20 y=10
+Test 4 PASS: with_default(5) = 15
+Test 5 PASS: with_default(5,20) = 25
+Test 6 PASS: factorial(5) = 120
+Test 7 PASS: task_result = 42
+Test 8 PASS: global_var = 999
+Test 9 PASS: abs_val works
+Test 10 PASS: increment_val = 11
+Test 11 PASS: auto_func(5) = 10
+Test 12 PASS: nested add = 10
+Test 13 PASS: add*2 = 20
+Test 14 PASS: add(0,0) = 0
+Test 15 PASS: add(-5,-3) = -8
+Test 16 PASS: factorial(0/1) = 1
+Test 17 PASS: factorial(10) = 3628800
+Test 18 PASS: counter continues = 4
+Test 19 PASS: double swap restored
+Test 20 PASS: function in condition
+=== Task/Function Edge Cases ===
+Passed: 20/20
+TEST PASSED

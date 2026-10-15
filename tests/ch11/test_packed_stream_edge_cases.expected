@@ -1,0 +1,13 @@
+TEST: Packed streaming operations edge cases
+  [PASS] Stream right to bytes
+  [PASS] Stream left to bytes
+  [PASS] Bytes to stream right
+  [PASS] Bytes to stream left
+  [PASS] Stream to words
+  [PASS] 16-bit in 32-bit stream
+  [PASS] Alternating pattern
+  [PASS] All zeros stream
+  [PASS] All ones stream
+  [PASS] Round trip
+Results: 10 passed, 0 failed
+TEST PASSED

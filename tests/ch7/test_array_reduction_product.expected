@@ -1,0 +1,7 @@
+Test 1 PASS: product=120
+Test 2 PASS: product=70
+Test 3 PASS: product=60
+Test 4 PASS: product with zero=0
+Test 5 PASS: single=42
+Passed: 5/5
+PASS

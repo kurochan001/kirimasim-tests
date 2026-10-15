@@ -1,0 +1,5 @@
+PASS: Test 1 - reverse streaming NBA byte: result=ddccbbaa
+PASS: Test 2 - reverse streaming NBA bit: result=0f0f0f0f
+PASS: Test 3 - forward streaming NBA byte: result=aabbccdd
+=== Reverse Streaming NBA Summary: 3 passed, 0 failed ===
+ALL TESTS PASSED

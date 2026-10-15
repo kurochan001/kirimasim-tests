@@ -1,0 +1,15 @@
+Test 1 PASS: >> stream bytes[0]=aa [1]=bb
+Test 2 PASS: << stream bytes[0]=44
+Test 3 PASS: >> words[0]=abcd [1]=1234
+Test 4 PASS: Array to scalar = 12345678
+Test 5 PASS: Slice bytes[3] = cc
+Test 6 PASS: >>byte stream
+Test 7 PASS: Zero stream all zero
+Test 8 PASS: Max stream all FF
+Test 9 PASS: 64-bit stream = 0011223344556677
+Test 10 PASS: Roundtrip = 12345678
+Test 11 PASS: 24-bit stream
+Test 12 PASS: Alternating = aa55aa55
+=== Streaming Edge Cases ===
+Passed: 12/12
+TEST PASSED

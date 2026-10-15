@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Associative Array Key Tests ===
+Test 1: String key set
+Test 1 PASS
+Test 2: String key get
+Test 2 PASS
+Test 3: Int key set
+Test 3 PASS
+Test 4: Int key get
+Test 4 PASS
+Test 5: Modify value
+Test 5 PASS
+Test 6: Add new key
+Test 6 PASS
+Test 7: Size check
+Test 7 PASS
+Test 8: Delete key
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

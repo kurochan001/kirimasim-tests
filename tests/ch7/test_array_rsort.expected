@@ -1,0 +1,6 @@
+Test 1 PASS: rsorted=9,8,5,2,1
+Test 2 PASS: dyn rsorted
+Test 3 PASS: queue rsorted
+Test 4 PASS: already rsorted
+Passed: 4/4
+PASS

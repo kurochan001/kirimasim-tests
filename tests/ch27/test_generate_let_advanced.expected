@@ -1,0 +1,32 @@
+=== Generate and Let Constructs Advanced Test ===
+Test 1: Generate for loop
+  PASS: gen_result = ~gen_data
+  PASS: Inverted all ones
+Test 2: Generate if/else (USE_FAST=1)
+  PASS: Fast path: shift left
+Test 3: Generate case (MODE=2)
+  PASS: Mode 2: add one
+Test 4: Nested generate (2x2 matrix)
+  matrix_flat = 0110
+  PASS: Nested generate executed
+Test 5: Let declarations
+  PASS: add_one(5) = 6
+  PASS: multiply(3, 4) = 12
+  PASS: max_val(10, 20) = 20
+  PASS: max_val(30, 15) = 30
+Test 6: Let with type (clamp)
+  PASS: clamp(50, 0, 100) = 50
+  PASS: clamp(150, 0, 100) = 100
+  PASS: clamp(10, 20, 100) = 20
+Test 7: Generate with localparam
+  PASS: ADDR_WIDTH = $clog2(8) = 3
+  PASS: mem_data[0] = 0
+  PASS: mem_data[3] = 30
+  PASS: mem_data[7] = 70
+Test 8: Conditional generate
+  PASS: Parity generation enabled
+  PASS: DATA_WIDTH > 8
+========================================
+TEST RESULTS: 18/18 PASSED
+TEST PASSED
+========================================

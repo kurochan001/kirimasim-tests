@@ -1,0 +1,13 @@
+Test 1 PASS: Sum = 30
+Test 2 PASS: Multi d=10 t=15
+Test 3 PASS: Compute s=17 p=70
+Test 4 PASS: Zero = 0
+Test 5 PASS: Negative = 5
+Test 6 PASS: Task s=9 p=27
+Test 7 PASS: Overwrite = 3
+Test 8 PASS: Chain = 20
+Test 9 PASS: Large = 3000000
+Test 10 PASS: Loop result = 8
+=== Output Arg Edge Cases ===
+Passed: 10/10
+TEST PASSED

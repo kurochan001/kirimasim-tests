@@ -1,0 +1,9 @@
+PASS: $dimensions(arr2d) = 2
+arr2d[1]: $left=0, $right=3, $low=0, $high=3
+PASS: $dimensions(dyn_arr) = 2
+PASS: dyn_arr bounds correct (0:9)
+PASS: $dimensions(queue_arr) = 2
+PASS: queue_arr bounds correct (0:4)
+PASS: $dimensions(scalar) = 0
+PASS: $dimensions(packed_vec) = 1
+PASS: All multi-dimensional array query tests passed

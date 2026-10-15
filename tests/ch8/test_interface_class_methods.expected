@@ -1,0 +1,8 @@
+Test 1 PASS: single interface implementation
+Test 2 PASS: multiple interface implementation
+Test 3 PASS: interface polymorphism (Printable)
+Test 4 PASS: compare via Comparable interface
+Test 5 PASS: different values compare false
+=== Interface Class Methods Test Results ===
+Passed: 5/5
+TEST PASSED

@@ -1,0 +1,13 @@
+Test 1 PASS: Swap a=20 b=10
+Test 2 PASS: Inc ref = 6
+Test 3 PASS: Double = 14
+Test 4 PASS: Mod+ret c=15 ret=15
+Test 5 PASS: Multi inc = 5
+Test 6 PASS: Triple = 12
+Test 7 PASS: Chain = 8
+Test 8 PASS: Same swap a=42
+Test 9 PASS: Zero inc = 1
+Test 10 PASS: Neg double = -10
+=== Ref Arg Edge Cases ===
+Passed: 10/10
+TEST PASSED

@@ -1,0 +1,10 @@
+=== Interface Class Test (IEEE 1800-2023 §8.26) ===
+Test 1: Circle via Shape interface
+PASS: getName() = Circle
+PASS: getArea() = 78.539750
+Test 2: Rectangle via Shape interface
+PASS: getName() = Rectangle
+PASS: getArea() = 24.000000
+=== Summary ===
+Passed: 4, Failed: 0
+PASS

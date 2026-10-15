@@ -1,0 +1,6 @@
+Test 1 PASS: and=00
+Test 2 PASS: and=ff
+Test 3 PASS: and=80
+Test 4 PASS: single=ab
+Passed: 4/4
+PASS

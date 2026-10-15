@@ -1,0 +1,13 @@
+TEST: String edge cases
+  [PASS] Empty string length is 0
+  [PASS] String concatenation works
+  [PASS] String comparison works
+  [PASS] String len() returns 5
+  [PASS] String getc(0) returns 'A' (65)
+  [PASS] String toupper() works
+  [PASS] String tolower() works
+  [PASS] String atoi() returns 123
+  [PASS] String substr(0,4) returns hello
+  [PASS] String assignment creates copy
+Results: 10 passed, 0 failed
+TEST PASSED

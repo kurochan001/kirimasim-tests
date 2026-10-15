@@ -1,0 +1,28 @@
+=== IEEE 1800-2023 §8 Class Inheritance Tests ===
+Test 1: Basic class instantiation and inheritance
+  PASS: Dog instantiation with super.new
+Test 2: Virtual method override
+  PASS: Dog virtual methods
+Test 3: Polymorphism with base class handle
+  PASS: Polymorphic method call
+Test 4: Bird class
+  PASS: Bird polymorphism
+Test 5: Multi-level inheritance (Puppy extends Dog)
+  PASS: Puppy multi-level inheritance
+Test 6: Abstract class implementation
+  PASS: Abstract class polymorphism
+Test 7: Virtual area calculation
+  PASS: Rectangle area=12.000000, perimeter=14.000000
+Test 8: Static class members
+  PASS: Static member count=3
+Test 9: Parameterized class
+  PASS: Parameterized int container
+Test 10: Parameterized class with string
+  PASS: Parameterized string container
+Test 11: Non-virtual method inheritance
+  PASS: Non-virtual method from base
+Test 12: Dynamic type casting
+  PASS: $cast to derived type
+=== Summary ===
+Pass: 12, Fail: 0
+TEST PASSED

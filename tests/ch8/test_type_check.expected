@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Type Checking Tests ===
+Test 1: Create base
+Test 1 PASS
+Test 2: Create derived
+Test 2 PASS
+Test 3: Assign derived to base
+Test 3 PASS
+Test 4: Cast back to derived
+Test 4 PASS
+Test 5: New base
+Test 5 PASS
+Test 6: Cast base to derived fails
+Test 6 PASS
+Test 7: Variable check
+Test 7 PASS
+Test 8: Non-null check
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

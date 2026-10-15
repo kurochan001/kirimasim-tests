@@ -1,0 +1,7 @@
+Test 1 PASS: sorted=1,2,5,8,9
+Test 2 PASS: dyn sorted
+Test 3 PASS: queue sorted
+Test 4 PASS: already sorted
+Test 5 PASS: with duplicates
+Passed: 5/5
+PASS

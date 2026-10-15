@@ -1,0 +1,6 @@
+Test 1: String assignment PASS
+Test 2: String concatenation PASS
+Test 3: String length PASS
+Test 4: String comparison PASS
+Test 5: String toupper PASS
+TEST PASSED: 5/5 tests passed

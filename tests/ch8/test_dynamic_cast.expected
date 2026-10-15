@@ -1,0 +1,3 @@
+  Downcast correctly failed for pure base object
+  Null cast correctly succeeded and yielded null
+PASS: Dynamic casting

@@ -1,0 +1,13 @@
+Test 1 PASS: add_task = 30
+Test 2 PASS: void_task result = 50
+Test 3 PASS: ref_task = 15
+Test 4 PASS: Delay task returned after #5
+Test 5 PASS: Multi calls = 3,7,11
+Test 6 PASS: Zero args = 0
+Test 7 PASS: Negative = -5
+Test 8 PASS: Large = 3000000
+Test 9 PASS: Sequential ref = 30
+Test 10 PASS: Loop task = 20
+=== Task Edge Cases ===
+Passed: 10/10
+TEST PASSED

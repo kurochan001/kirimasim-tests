@@ -1,0 +1,13 @@
+TEST: Inside operator edge cases
+  [PASS] Inside single
+  [PASS] Inside multiple
+  [PASS] Not inside
+  [PASS] Inside range
+  [PASS] Outside range
+  [PASS] Range boundary low
+  [PASS] Range boundary high
+  [PASS] Mixed values range
+  [PASS] Zero inside
+  [PASS] Negative inside
+Results: 10 passed, 0 failed
+TEST PASSED

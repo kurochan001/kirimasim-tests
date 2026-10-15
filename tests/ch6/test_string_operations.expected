@@ -1,0 +1,33 @@
+=== IEEE 1800-2023 String Operations Test ===
+Test 1: String assignment
+Test 1 PASS: s1 = Hello
+Test 2: String length
+Test 2 PASS: len = 5
+Test 3: String concatenation
+Test 3 PASS: s3 = Hello World
+Test 4: String comparison
+Test 4 PASS: strings equal
+Test 5: compare method
+Test 5 PASS: compare result < 0
+Test 6: icompare method
+Test 6 PASS: icompare result == 0
+Test 7: getc method
+Test 7 PASS: first char = T (84)
+Test 8: toupper method
+Test 8 PASS: upper = HELLO WORLD
+Test 9: tolower method
+Test 9 PASS: lower = hello world
+Test 10: substr method
+Test 10 PASS: substr = Hello
+Test 11: putc method
+Test 11 PASS: after putc = Xest
+Test 12: atoi conversion
+Test 12 PASS: atoi = 12345
+Test 13: atohex conversion
+Test 13 PASS: atohex = 255 (0xff)
+Test 14: atobin conversion
+Test 14 PASS: atobin = 10
+Test 15: itoa conversion
+Test 15 PASS: itoa = 255
+=== Summary: 15/15 tests passed ===
+TEST PASSED

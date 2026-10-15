@@ -1,0 +1,13 @@
+TEST: Parameter passing edge cases
+  [PASS] Input parameters
+  [PASS] Multiply function
+  [PASS] Output parameter
+  [PASS] Multiple parameters
+  [PASS] Multiple calls
+  [PASS] Nested calls
+  [PASS] Expression argument
+  [PASS] Recursive function
+  [PASS] Conditional function
+  [PASS] Zero result
+Results: 10 passed, 0 failed
+TEST PASSED

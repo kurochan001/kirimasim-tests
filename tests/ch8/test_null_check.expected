@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Null Check Tests ===
+Test 1: Create object
+Test 1 PASS: value=10
+Test 2: Two objects
+Test 2 PASS: a=10 b=20
+Test 3: Assign handle
+Test 3 PASS: c=10
+Test 4: Modify through alias
+Test 4 PASS: a=99
+Test 5: Container basic
+Test 5 PASS: no obj
+Test 6: Container with object
+Test 6 PASS: has obj
+Test 7: Access container object
+Test 7 PASS: value=20
+Test 8: Handle comparison
+Test 8 PASS: same value
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,13 @@
+TEST: Expressions edge cases
+  [PASS] Precedence: 2+3*4 = 14
+  [PASS] Parentheses: (2+3)*4 = 20
+  [PASS] Mixed signed/unsigned
+  [PASS] Short-circuit &&
+  [PASS] Range check 0 < 5 < 10
+  [PASS] Nested ternary
+  [PASS] Assignment expression
+  [PASS] Increment operators
+  [PASS] Decrement operators
+  [PASS] Unary minus
+Results: 10 passed, 0 failed
+TEST PASSED

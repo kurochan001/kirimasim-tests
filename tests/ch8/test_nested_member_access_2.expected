@@ -1,0 +1,13 @@
+PASS: outer.inner.value = 50
+PASS: outer.inner.name = inner_name
+PASS: outer.inner.get_value() = 50
+PASS: outer.get_inner().value = 50
+PASS: outer.get_inner().double_value() = 100
+PASS: outer.get_inner_value() = 50
+PASS: Modified outer.inner.value = 75
+PASS: outer.values.size() = 3
+PASS: outer.values[1] = 2
+PASS: After push_back, outer.values.size() = 4
+=== Nested Member Access Test Summary ===
+Tests: 10, Passed: 10
+PASS: All nested member access tests passed

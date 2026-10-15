@@ -1,0 +1,7 @@
+=== Complete Streaming Test ===
+Input data: deadbeef
+Bytes after {>>{bytes}} = deadbeef: de ad be ef
+Reconstructed with {>>{bytes}}: deadbeef
+Bytes after {<<8{bytes}} = deadbeef: ef be ad de
+Reconstructed with {<<8{bytes}}: deadbeef
+SUCCESS: Data correctly reconstructed!

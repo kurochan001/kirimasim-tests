@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Assoc Array Basic Tests ===
+Test 1: String key
+Test 1 PASS
+Test 2: Multiple
+Test 2 PASS
+Test 3: Num
+Test 3 PASS: num=3
+Test 4: Int key
+Test 4 PASS
+Test 5: Exists
+Test 5 PASS
+Test 6: Delete
+Test 6 PASS: num=2
+Test 7: Update
+Test 7 PASS
+Test 8: Clear
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

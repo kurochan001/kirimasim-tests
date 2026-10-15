@@ -1,0 +1,15 @@
+Test 1: Forward iteration
+    apple: 1
+    banana: 2
+    cherry: 3
+  PASS: forward 3 items
+Test 2: Backward iteration
+    Last key: cherry
+    Prev key: banana
+    Prev key: apple
+  PASS: backward 3 items
+Test 3: Empty array iteration
+  PASS: first() returns 0 for empty
+Test 4: Single element iteration
+  PASS: single element iteration
+TEST PASSED: 4/4 tests passed

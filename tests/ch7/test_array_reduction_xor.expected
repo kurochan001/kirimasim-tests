@@ -1,0 +1,6 @@
+Test 1 PASS: xor=00
+Test 2 PASS: xor=00
+Test 3 PASS: xor=ff
+Test 4 PASS: single=ef
+Passed: 4/4
+PASS

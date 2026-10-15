@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Typedef Tests ===
+Test 1: Byte type
+Test 1 PASS
+Test 2: Word type
+Test 2 PASS
+Test 3: Type size
+Test 3 PASS
+Test 4: Array type
+Test 4 PASS
+Test 5: Byte max
+Test 5 PASS
+Test 6: Word max
+Test 6 PASS
+Test 7: Byte arith
+Test 7 PASS
+Test 8: Array sum
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

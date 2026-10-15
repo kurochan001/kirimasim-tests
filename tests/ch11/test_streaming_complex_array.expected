@@ -1,0 +1,13 @@
+=== Streaming Complex Array Base Test (IEEE 1800-2023 §11.4.14) ===
+--- Test 1: Streaming to struct.arr[i] ---
+PASS: pkt.bytes = {0xaa, 0xbb, 0xcc, 0xdd}
+--- Test 2: Verify struct.id preserved ---
+PASS: pkt.id = 0x12345678 (preserved)
+--- Test 3: Streaming to obj.data[i] ---
+PASS: obj.data = {0x11, 0x22, 0x33, 0x44}
+--- Test 4: Verify obj.header preserved ---
+PASS: obj.header = 0xabcd (preserved)
+--- Test 5: Left-to-right streaming {<<} ---
+PASS: {<<8} pkt.bytes = {0x88, 0x77, 0x66, 0x55}
+=== Results: 5 passed, 0 failed ===
+TEST PASSED

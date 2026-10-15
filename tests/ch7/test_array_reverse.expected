@@ -1,0 +1,6 @@
+Test 1 PASS: reverse=4,3,2,1
+Test 2 PASS: dyn reverse first=50 last=10
+Test 3 PASS: queue reverse
+Test 4 PASS: single element
+Passed: 4/4
+PASS

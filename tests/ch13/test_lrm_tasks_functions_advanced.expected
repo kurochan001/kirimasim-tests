@@ -1,0 +1,16 @@
+=== IEEE 1800-2023 §13 Tasks/Functions Advanced ===
+Test 1 PASS: factorial(5) = 120
+Test 2 PASS: counter() after 3 calls = 3
+Test 3 PASS: reverse_array works
+Test 4 PASS: swap(10,20) gives a=20 b=10
+Test 5 PASS: add_with_default(5) = 35
+Test 6 PASS: add_with_default(5,15) = 40
+Test 7 PASS: void function set global to 42
+Test 8 PASS: increment_ref changed a to 101
+Test 9 PASS: call_counter returns 1,2,3
+Test 10 PASS: fibonacci(10) = 55
+Test 11 PASS: factorial(10) = 3628800
+Test 12 PASS: explicit all args = 35
+=== Summary ===
+Passed: 12/12
+TEST PASSED

@@ -1,0 +1,10 @@
+Test 1: add_globals() = 30 PASS
+Test 2: modify_and_return(5) = 20 PASS
+Nested scope: inner = 15 PASS
+Test 3: nested_scope_task PASS
+Test 4: obj.member = 50 PASS
+Test 5: obj.get_combined() = 150 PASS
+Test 6: static_member = 100 PASS
+Test 7: modified add_globals() = 120 PASS
+Test 8: nested calls = 304 PASS
+TEST PASSED: 8/8 tests passed

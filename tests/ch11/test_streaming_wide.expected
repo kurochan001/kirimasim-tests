@@ -1,0 +1,5 @@
+Test 1 PASS: pack 8 bytes = 0011223344556677
+Test 2 PASS: pack FF = ffffffffffffffff
+Test 3 PASS: pack zeros = 0000000000000000
+Passed: 3/3
+PASS

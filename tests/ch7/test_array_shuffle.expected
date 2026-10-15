@@ -1,0 +1,6 @@
+Test 1 PASS: shuffle preserves sum=15
+Test 2 PASS: dyn shuffle preserves sum=150
+Test 3 PASS: single element unchanged
+Test 4 PASS: empty shuffle ok
+Passed: 4/4
+PASS

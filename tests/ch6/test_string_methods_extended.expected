@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Extended String Methods Tests ===
+Test 1: substr method
+Test 1 PASS: 'Hello ' (len=6)
+Test 2: getc method
+Test 2 PASS: ch=65 ('A')
+Test 3: putc method
+Test 3 PASS: 'AXC'
+Test 4: toupper method
+Test 4 PASS: 'HELLO'
+Test 5: tolower method
+Test 5 PASS: 'world'
+Test 6: compare method
+Test 6 PASS: compare=0
+Test 7: compare different strings
+Test 7 PASS: compare=-1
+Test 8: len method
+Test 8 PASS: len=7
+=== Summary: 8/8 tests passed ===
+TEST PASSED

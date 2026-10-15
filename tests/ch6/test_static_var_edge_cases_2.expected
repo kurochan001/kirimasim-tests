@@ -1,0 +1,15 @@
+Test 1 PASS: counter = 1
+Test 2 PASS: counter = 2
+Test 3 PASS: counter = 3
+Test 4 PASS: accum = 10
+Test 5 PASS: accum = 30
+Test 6 PASS: accum = 35
+Test 7 PASS: id = 100
+Test 8 PASS: id = 101
+Test 9 PASS: sequential c1=4 c3=6
+Test 10 PASS: loop static last = 11
+Test 11 PASS: accum neg = 25
+Test 12 PASS: ID sequence
+=== Static Var Edge Cases ===
+Passed: 12/12
+TEST PASSED

@@ -1,0 +1,6 @@
+Test 1 PASS: unique size=3
+Test 2 PASS: all same unique=5
+Test 3 PASS: all different size=4
+Test 4 PASS: two same=7
+Passed: 4/4
+PASS
