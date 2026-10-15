@@ -1,0 +1,8 @@
+PASS: NodeA label == alpha
+PASS: NodeB label == beta
+PASS: unlinked partner == none
+PASS: A->B partner == beta
+PASS: B->A partner == alpha
+PASS: handle alias sees update
+Results: 6 passed, 0 failed
+TEST PASSED

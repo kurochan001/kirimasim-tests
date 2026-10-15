@@ -1,0 +1,6 @@
+Test 1 PASS: Dog.make_sound() = Woof
+Test 2 PASS: Animal=Dog, sound=Woof, legs=4
+Test 3 PASS: Animal=Bird, sound=Tweet, legs=2
+Test 4 PASS: Animal=Parrot, sound=Hello, legs=2
+Test 5 PASS: describe() uses virtual methods correctly
+PASS: All virtual method tests passed

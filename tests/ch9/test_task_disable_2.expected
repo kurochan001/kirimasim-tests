@@ -1,0 +1,6 @@
+Test 1 PASS: find_first() found target at index 4
+Test 2 PASS: search_with_disable() found = 1
+Test 3 PASS: nested_search() found at [1][1]
+Test 4 PASS: conditional_process(50) = 100
+Test 5 PASS: early_return_task(20) sum = 55 (stopped at 55)
+PASS: All task disable tests passed

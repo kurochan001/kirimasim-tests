@@ -1,0 +1,11 @@
+PASS: len == 5
+PASS: substr(1,3) == ell
+PASS: concat == Hello World
+PASS: toupper == HELLO
+PASS: tolower == hello
+PASS: atoi == 12345
+PASS: Hello == Hello
+PASS: Hello != World
+PASS: getc(0) == H
+Results: 9 passed, 0 failed
+TEST PASSED

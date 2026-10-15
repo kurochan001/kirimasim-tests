@@ -1,0 +1,7 @@
+PASS: Test 1 - Basic modport master/slave
+PASS: Test 2 - Directional modport
+PASS: Test 3 - Clocking modport
+PASS: Test 4 - Multiple modports
+PASS: Test 5 - Function modport
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

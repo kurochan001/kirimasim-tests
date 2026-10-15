@@ -1,0 +1,9 @@
+PASS: vif assigned via class
+PASS: drive data == 0xA5
+PASS: read ready == 1
+PASS: updated data == 0x3C
+PASS: clocked drive data == 0xFF
+PASS: two drivers share instance
+PASS: valid readback on instance == 1
+Results: 7 passed, 0 failed
+TEST PASSED

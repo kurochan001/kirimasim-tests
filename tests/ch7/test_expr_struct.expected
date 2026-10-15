@@ -1,0 +1,7 @@
+PASS: Struct member assignment
+PASS: Struct literal assignment
+PASS: Packed struct = 24'hFF0080
+PASS: Struct copy
+PASS: Packed struct member read r=0xAA g=0xBB b=0xCC
+Struct expressions: 5 PASS, 0 FAIL
+PASS: All struct expression tests passed

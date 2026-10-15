@@ -1,0 +1,7 @@
+PASS: Test 1 - Package constant accessible (42)
+PASS: Test 2 - Package type usable (data=ab, bits=8)
+PASS: Test 3 - Another package constant (100)
+PASS: Test 4 - Explicit scope access (42)
+PASS: Test 5 - Package variable modification
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

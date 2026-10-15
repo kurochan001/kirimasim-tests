@@ -1,0 +1,6 @@
+Test 1 PASS: empty assoc array num
+Test 2 PASS: single entry num
+Test 3 PASS: three entries num
+Test 4 PASS: integer key assoc num
+Test 5 PASS: num after delete
+PASS: All 5 tests passed

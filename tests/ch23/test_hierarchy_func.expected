@@ -1,0 +1,10 @@
+PASS: Test 1 - Simple function call (15 + 27 = 42)
+PASS: Test 2 - Multiply function (7 * 8 = 56)
+PASS: Test 3 - Recursive factorial (5! = 120)
+PASS: Test 4 - Recursive fibonacci (fib(10) = 55)
+PASS: Test 5 - Pack nibbles function
+PASS: Test 6 - String length function
+PASS: Test 7 - Container function call
+=== Hierarchical Function Call Test Summary ===
+PASS: 7, FAIL: 0
+ALL TESTS PASSED

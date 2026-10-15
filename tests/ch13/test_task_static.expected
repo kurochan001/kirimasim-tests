@@ -1,0 +1,6 @@
+Test 1 PASS: count_calls() called 3 times, count = 3
+Test 2 PASS: accumulate(10,20,30) total = 60
+Test 3 PASS: state_machine() after 3 calls, state = 3
+Test 4 PASS: min_max_tracker min=30, max=70
+Test 5 PASS: record_history = [100, 200, 300]
+PASS: All static task variable tests passed

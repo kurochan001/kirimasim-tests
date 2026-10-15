@@ -1,0 +1,17 @@
+=== Function Corner Cases Test ===
+PASS: Basic function call works
+PASS: Default argument works
+PASS: Reference argument works
+PASS: Output argument works
+  Value: 42
+PASS: Void function works
+PASS: Recursive function works
+PASS: Function returning array works
+PASS: Static function preserves state
+PASS: Automatic recursive function works
+PASS: Function in expression works
+PASS: Named argument passing works
+PASS: Function with local variables works
+=== Summary ===
+Passed: 12, Failed: 0
+TEST PASSED

@@ -1,0 +1,7 @@
+PASS: add(3, 4) = 7
+PASS: multiply(5) with default = 10
+PASS: multiply(5, 3) = 15
+PASS: factorial(5) = 120
+PASS: swap(10, 20) -> x=20, y=10
+Function call expressions: 5 PASS, 0 FAIL
+PASS: All function call expression tests passed

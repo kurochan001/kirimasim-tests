@@ -1,0 +1,7 @@
+PASS: String assignment and comparison
+PASS: String concatenation
+PASS: String length of 'Test' = 4
+PASS: toupper='HELLO', tolower='hello'
+PASS: getc(0)='A', getc(3)='D'
+String expressions: 5 PASS, 0 FAIL
+PASS: All string expression tests passed

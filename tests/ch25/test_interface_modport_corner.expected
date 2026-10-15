@@ -1,0 +1,17 @@
+=== Interface Modport Corner Cases Test ===
+PASS: Virtual interface connection works
+  Transfer 1: data=0x01
+  Transfer 2: data=0x02
+  Transfer 3: data=0x03
+  Transfer 4: data=0x04
+  Transfer 5: data=0x05
+  Transfer 6: data=0x06
+  Transfer 7: data=0x07
+  Transfer 8: data=0x08
+  Transfer 9: data=0x09
+PASS: Data transfers occurred: 9
+  Monitor view: data=0x0a, valid=1, ready=1
+PASS: Monitor sees the bus through the interface
+=== Summary ===
+Passed: 3, Failed: 0
+TEST PASSED

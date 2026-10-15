@@ -1,0 +1,23 @@
+=== Function/Task Edge Cases Test ===
+--- Basic Function ---
+PASS: basic function
+--- Multiple Returns ---
+PASS: multiple returns
+--- Local Variables ---
+PASS: local variables (5! = 120)
+--- Recursive Function ---
+PASS: recursive function (fib(7) = 13)
+--- Ref Arguments ---
+PASS: ref arguments (x=20, y=10)
+--- Simple Task ---
+PASS: simple task
+--- Task with Ref ---
+PASS: task with ref
+--- Static Local ---
+PASS: static local (x=1 y=2 r=3)
+--- Function as Expression ---
+PASS: nested function calls
+--- Void Function Call ---
+PASS: void function executed
+=== Summary: 10 passed, 0 failed ===
+TEST PASSED

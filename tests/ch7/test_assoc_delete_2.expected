@@ -1,0 +1,6 @@
+Test 1 PASS: delete single entry
+Test 2 PASS: delete all entries
+Test 3 PASS: delete integer key
+Test 4 PASS: delete from empty
+Test 5 PASS: delete last entry
+PASS: All 5 tests passed

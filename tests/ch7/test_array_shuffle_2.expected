@@ -1,0 +1,7 @@
+PASS: shuffle preserves sum (15 == 15)
+PASS: shuffle preserves size (5)
+PASS: single element shuffle = {10}
+PASS: shuffle preserves product
+PASS: shuffle preserves all elements
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,7 @@
+PASS: arr1.min() = 1
+PASS: arr2.min() = -10
+PASS: arr3.min() = 42
+PASS: arr4.min() = 7
+PASS: min() returns queue with 1 element
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

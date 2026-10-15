@@ -1,0 +1,7 @@
+PASS: Test 1 - Basic module array instantiated
+PASS: Test 2 - Connected array modules
+PASS: Test 3 - Indexed array connections
+PASS: Test 4 - Generate array instances accessible
+PASS: Test 5 - Flattened 2D module array
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

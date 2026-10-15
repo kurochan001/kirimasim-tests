@@ -1,0 +1,16 @@
+=== Assignment Patterns Corner Cases Test ===
+PASS: Array assignment pattern works
+PASS: Struct assignment pattern works
+PASS: Positional struct pattern works
+PASS: Array default pattern works
+PASS: Partial override with default works
+PASS: Packed struct pattern works
+PASS: Nested struct pattern works
+PASS: Array of structs pattern works
+PASS: Replication in pattern works
+PASS: Mixed named and default works
+PASS: Dynamic array pattern works
+PASS: 2D array pattern works
+=== Summary ===
+Passed: 12, Failed: 0
+TEST PASSED

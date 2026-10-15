@@ -1,0 +1,7 @@
+PASS: arr1.max() = 9
+PASS: arr2.max() = -2
+PASS: arr3.max() = 42
+PASS: arr4.max() = 7
+PASS: max() returns queue with 1 element
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

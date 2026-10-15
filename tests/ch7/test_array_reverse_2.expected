@@ -1,0 +1,7 @@
+PASS: arr1.reverse() = {5, 4, 3, 2, 1}
+PASS: arr2.reverse() = {20, 10}
+PASS: arr3.reverse() = {7}
+PASS: double reverse restores original
+PASS: arr5.reverse() = {400, 300, 200, 100}
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,24 @@
+=== Starting Register Block Test ===
+Created register block at 0x10000000
+Created memory with 256 entries
+--- Test 1: Read reset values ---
+REG: Read dut_regs.ctrl = 0x00000001
+PASS: ctrl reset value correct
+--- Test 2: Write and read back ---
+REG: Write dut_regs.data = 0xdeadbeef
+REG: Read dut_regs.data = 0xdeadbeef
+PASS: Write/read data correct
+--- Test 3: Memory operations ---
+MEM: Write dut_mem[0] = 0x11111111
+MEM: Write dut_mem[1] = 0x22222222
+MEM: Write dut_mem[2] = 0x33333333
+MEM: Read dut_mem[1] = 0x22222222
+PASS: Memory read correct
+--- Test 4: Reset functionality ---
+REG: Reset dut_regs
+REG: Read dut_regs.data = 0x00000000
+PASS: Reset cleared data register
+REG: Read dut_regs.ctrl = 0x00000001
+PASS: Reset restored ctrl to default
+=== Test Complete ===
+TEST PASSED

@@ -1,0 +1,6 @@
+Test 1 PASS: increment_counter() called 3 times, counter = 3
+Test 2 PASS: set_counter(100), counter = 100
+Test 3 PASS: init_array(10), array = [10,11,12,13]
+Test 4 PASS: compute_both(7,8) -> sum=15, prod=56
+Test 5 PASS: conditional_set(25, 1), counter = 50
+PASS: All void function tests passed

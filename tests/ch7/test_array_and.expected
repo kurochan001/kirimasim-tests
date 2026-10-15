@@ -1,0 +1,6 @@
+PASS: arr1.and() = 0xff
+PASS: arr2.and() = 0x00
+PASS: arr3.and() = 0x00
+PASS: single element and = 0xab
+Test Summary: 4 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,7 @@
+PASS: Test 1 - Half-word reversal
+PASS: Test 2 - Stream to half-word array
+PASS: Test 3 - Nibble slice to array
+PASS: Test 4 - Right stream 16-bit slice
+PASS: Test 5 - 2-bit slice streaming
+Streaming Custom: 5 PASS, 0 FAIL
+PASS: All tests passed

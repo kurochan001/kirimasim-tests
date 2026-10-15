@@ -1,0 +1,6 @@
+Test 1 PASS: call_counter() returns 1, 2, 3
+Test 2 PASS: accumulate(10,20,30) = 10, 30, 60
+Test 3 PASS: toggle_state() = 1, 0, 1
+Test 4 PASS: min=30, max=70, range=40
+Test 5 PASS: history_avg() sum = 10
+PASS: All static function variable tests passed

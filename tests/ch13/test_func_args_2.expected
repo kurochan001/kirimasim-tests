@@ -1,0 +1,6 @@
+Test 1 PASS: add_inputs(10, 20) = 30
+Test 2 PASS: multiply(6, 7) = 42
+Test 3 PASS: compute_with_output(5) returned 6, output = 10
+Test 4 PASS: modify_inout returned 4, inout_val = 12
+Test 5 PASS: pack_bytes(0xAB, 0xCD) = 0xabcd
+PASS: All function arguments tests passed

@@ -1,0 +1,6 @@
+Test 1 PASS: prev after last
+Test 2 PASS: prev to first
+Test 3 PASS: prev at beginning returns 0
+Test 4 PASS: integer key prev
+Test 5 PASS: full reverse iteration count
+PASS: All 5 tests passed

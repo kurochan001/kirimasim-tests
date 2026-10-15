@@ -1,0 +1,6 @@
+Test 1 PASS: exists on empty array
+Test 2 PASS: exists after add
+Test 3 PASS: not exists for different key
+Test 4 PASS: integer key exists
+Test 5 PASS: exists after delete
+PASS: All 5 tests passed

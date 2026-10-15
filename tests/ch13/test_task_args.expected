@@ -1,0 +1,6 @@
+Test 1 PASS: compute_square(7) -> squared = 49
+Test 2 PASS: double_value(5) -> value = 10
+Test 3 PASS: div_mod(17, 5) -> quotient=3, remainder=2
+Test 4 PASS: process_data(25, 100) -> acc=125, proc=50
+Test 5 PASS: sum_array([10,20,30,40]) = 100
+PASS: All task arguments tests passed

@@ -1,0 +1,34 @@
+=== String Methods Corner Cases Test ===
+PASS: "Hello".len() = 5
+PASS: Empty string len() = 0
+PASS: getc(0) = 65 ('A')
+PASS: After putc: XBCDE
+PASS: toupper() = HELLO WORLD
+PASS: tolower() = hello world
+PASS: "abc".compare("abc") = 0
+PASS: "abc".compare("ABC") != 0 (case sensitive)
+PASS: "abc".icompare("ABC") = 0 (case insensitive)
+PASS: "abc".compare("abd") < 0
+PASS: substr(0, 4) = Hello
+PASS: substr(6, 10) = World
+PASS: substr(0, 0) = H
+PASS: "42".atoi() = 42
+PASS: "FF".atohex() = 255
+PASS: "1010".atobin() = 10
+PASS: "77".atooct() = 63
+PASS: "3.14159".atoreal() = 3.141590
+PASS: itoa(42) = 42
+PASS: hextoa(255) = ff
+PASS: bintoa(10) = 1010
+PASS: octtoa(63) = 77
+PASS: realtoa(3.14) = 3.14
+PASS: Concatenation = Hello World
+PASS: "abc" == "abc"
+PASS: "abc" != "abd"
+PASS: "abc" < "abd"
+PASS: Empty string len = 0
+String with spaces: '  trimme  ' len=10
+String with tab: len=8
+=== Summary ===
+Passed: 30, Failed: 0
+TEST PASSED

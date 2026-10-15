@@ -1,0 +1,6 @@
+Test 1 PASS: next after first
+Test 2 PASS: next to last
+Test 3 PASS: next at end returns 0
+Test 4 PASS: integer key next
+Test 5 PASS: full iteration count
+PASS: All 5 tests passed

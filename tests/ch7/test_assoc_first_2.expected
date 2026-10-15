@@ -1,0 +1,6 @@
+Test 1 PASS: first on empty array returns 0
+Test 2 PASS: first with single entry
+Test 3 PASS: first returns smallest key
+Test 4 PASS: first integer key
+Test 5 PASS: first after delete
+PASS: All 5 tests passed

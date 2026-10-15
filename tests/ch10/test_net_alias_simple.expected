@@ -1,0 +1,4 @@
+drv=0, a=0, b=0
+TEST1 PASS: a and b are 0
+drv=1, a=1, b=1
+TEST2 PASS: a and b are 1

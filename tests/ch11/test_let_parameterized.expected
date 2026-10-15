@@ -1,0 +1,23 @@
+===== let declaration test =====
+[let without arguments]
+  MAX_VALUE =         255
+  MID_VALUE =         127
+[let with arguments]
+  in_range(100) = 1
+  in_range tests PASSED
+  add(10, 20) =          30
+  add(100, 155) =         255
+  add tests PASSED
+  multiply(5, 6) =          30
+  multiply(12, 12) =         144
+  multiply tests PASSED
+  is_even(4) = 1
+  is_even tests PASSED
+  clamp(50, 0, 100) =          50
+  clamp(-10, 0, 100) =           0
+  clamp(150, 0, 100) =         100
+  clamp tests PASSED
+[nested calls]
+  add(multiply(3, 4), multiply(5, 6)) =          42
+  clamp(add(100, 200), MIN_VALUE, MAX_VALUE) =         255
+===== all let checks done =====

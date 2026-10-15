@@ -1,0 +1,16 @@
+=== Cast Expressions Corner Cases Test ===
+PASS: Size cast to narrower works
+PASS: Signed cast works (0xFF = -1)
+PASS: Unsigned cast works (-1 = 0xFF)
+PASS: Type cast works
+PASS: $cast downcast works
+PASS: $cast correctly fails for base-only object
+PASS: Real to int cast rounds (3.7 -> 4)
+PASS: Int to real cast works
+PASS: Enum cast works (1 -> GREEN)
+PASS: Invalid enum cast correctly fails
+PASS: Width extension cast works
+PASS: Cast in expression works (result=256)
+=== Summary ===
+Passed: 12, Failed: 0
+TEST PASSED

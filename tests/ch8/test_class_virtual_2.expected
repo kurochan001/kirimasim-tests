@@ -1,0 +1,8 @@
+PASS: rect area == 15
+PASS: circle area == 48
+PASS: polymorphic rect area
+PASS: polymorphic circle area
+PASS: polymorphic kind == rectangle
+PASS: color inheritance
+Results: 6 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,7 @@
+PASS: arr1.unique() has 4 elements
+PASS: arr2.unique() = {5}
+PASS: arr3.unique() has 3 elements (all unique)
+PASS: single element unique = {7}
+PASS: unique contains all distinct values
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,15 @@
+=== Abstract Class Basic Test ===
+--- Test 1: Creating concrete instances ---
+Rectangle created successfully
+Circle created successfully
+--- Test 2: Polymorphic usage ---
+Rectangle: width=5.000000, height=3.000000
+Area: 15.000000, Perimeter: 16.000000
+Circle: radius=4.000000
+Area: 50.265440, Perimeter: 25.132720
+--- Test 3: Method resolution test ---
+Rectangle area: 15.000000
+Rectangle perimeter: 16.000000
+Circle area: 50.265440
+Circle perimeter: 25.132720
+=== Test completed successfully ===

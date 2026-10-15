@@ -1,0 +1,6 @@
+Test 1 PASS: modify first char
+Test 2 PASS: modify last char
+Test 3 PASS: modify middle char
+Test 4 PASS: multiple modifications
+Test 5 PASS: replace with number
+PASS: All 5 tests passed

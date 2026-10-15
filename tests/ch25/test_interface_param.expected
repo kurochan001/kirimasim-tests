@@ -1,0 +1,7 @@
+PASS: Test 1 - Default parameters (WIDTH=8, DEPTH=16)
+PASS: Test 2 - Override parameters (WIDTH=16, DEPTH=32)
+PASS: Test 3 - Type parameter (data=cafebabe, bits=32)
+PASS: Test 4 - Multiple parameters (ADDR=16, DATA=32, ID=4)
+PASS: Test 5 - Module using parameterized interface
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,6 @@
+Test 1 PASS: get_instance_count() = 3 after creating 3 instances
+Test 2 PASS: get_total_count() = 60 (10+20+30)
+Test 3 PASS: Counter::add(15, 25) = 40
+Test 4 PASS: MathUtils::max(10, 20) = 20
+Test 5 PASS: MathUtils::clamp(150, 0, 100) = 100
+PASS: All static method tests passed

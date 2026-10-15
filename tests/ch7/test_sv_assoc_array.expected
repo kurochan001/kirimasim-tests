@@ -1,0 +1,11 @@
+PASS: initial num == 0
+PASS: map[banana] == 20
+PASS: num == 3
+PASS: exists(cherry)
+PASS: !exists(grape)
+PASS: first == apple
+PASS: next == banana
+PASS: delete banana
+PASS: delete all, num == 0
+Results: 9 passed, 0 failed
+TEST PASSED

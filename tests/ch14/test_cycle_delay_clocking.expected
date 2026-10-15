@@ -1,0 +1,11 @@
+=== Clocking Block Cycle Delay Test ===
+[5] Cycle 1: data=00, valid=0, ready=1
+[15] Cycle 2: data=aa, valid=1, ready=1
+[25] Cycle 3: data=bb, valid=1, ready=1
+[35] Cycle 4: data=bb, valid=0, ready=1
+[45] Cycle 5: data=bb, valid=0, ready=1
+[55] Cycle 6: data=cc, valid=1, ready=1
+[65] Cycle 7: data=cc, valid=0, ready=1
+=== Test Complete ===
+Total cycles: 7
+PASS: Clocking block cycle delays executed

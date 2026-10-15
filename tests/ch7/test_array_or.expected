@@ -1,0 +1,6 @@
+PASS: arr1.or() = 0x00
+PASS: arr2.or() = 0xff
+PASS: arr3.or() = 0xff
+PASS: single element or = 0xcd
+Test Summary: 4 PASS, 0 FAIL
+PASS: All tests passed

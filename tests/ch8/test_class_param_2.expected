@@ -1,0 +1,8 @@
+PASS: int pair sum == 30
+PASS: int pair swap
+PASS: real pair sum == 4.0
+PASS: Box#(8) width == 8
+PASS: Box#(8) data == 0xAB
+PASS: Box#(16) data and width
+Results: 6 passed, 0 failed
+TEST PASSED

@@ -1,0 +1,7 @@
+PASS: Test 1 - Basic interface array independent
+PASS: Test 2 - Generated interface array
+PASS: Test 3 - Module using interface array
+PASS: Test 4 - 2D interface array
+PASS: Test 5 - Parameterized interface array
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

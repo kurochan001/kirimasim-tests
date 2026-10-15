@@ -1,0 +1,7 @@
+PASS: Test 1 - Simple function add(30)
+PASS: Test 2 - Logic function invert(55)
+PASS: Test 3 - Factorial function (5!=120)
+PASS: Test 4 - Swap bytes function (cdab)
+PASS: Test 5 - Divide with remainder (q=3, r=2)
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

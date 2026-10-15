@@ -1,0 +1,6 @@
+PASS: arr1.xor() = 0x00
+PASS: arr2.xor() = 0xff
+PASS: arr3.xor() = 0x70
+PASS: single element xor = 0xef
+Test Summary: 4 PASS, 0 FAIL
+PASS: All tests passed

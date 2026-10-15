@@ -1,0 +1,6 @@
+Test 1 PASS: find_index elements > 25
+Test 2 PASS: find_index element == 30
+Test 3 PASS: find_index element == 10
+Test 4 PASS: find_index no matches
+Test 5 PASS: find_index all elements
+PASS: All 5 tests passed

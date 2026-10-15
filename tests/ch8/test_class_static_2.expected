@@ -1,0 +1,9 @@
+PASS: initial count == 0
+PASS: count == 1 after c1
+PASS: c1.id == 1
+PASS: count == 3 after 3 instances
+PASS: unique ids c2=2 c3=3
+PASS: static method via instance
+PASS: count == 0 after reset
+Results: 7 passed, 0 failed
+TEST PASSED

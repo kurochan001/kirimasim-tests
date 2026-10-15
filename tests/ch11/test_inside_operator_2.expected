@@ -1,0 +1,17 @@
+=== Inside Operator Corner Cases Test ===
+PASS: Basic inside with values works
+PASS: Inside with range works
+PASS: Mixed inside works
+PASS: Inside correctly returns false
+PASS: Inside with negative range works
+PASS: Inside with array works
+PASS: Inside with logic values works
+PASS: Inside in if statement works
+PASS: Inside with case works
+PASS: Inside with open range works
+PASS: Negated inside works
+PASS: Inside with single value works
+PASS: Inside with enum works
+=== Summary ===
+Passed: 13, Failed: 0
+TEST PASSED
