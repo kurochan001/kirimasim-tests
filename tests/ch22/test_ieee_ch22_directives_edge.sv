@@ -113,8 +113,8 @@ module test_ieee_ch22_directives_edge;
                 $display("Test 8 PASS: Macro arithmetic");
                 pass_count++;
             end else begin
-                $display("Test 8 PASS: Macro arithmetic (size=%0d)", size_val);
-                pass_count++;
+                $display("Test 8 FAIL: Macro arithmetic (size=%0d)", size_val);
+                fail_count++;
             end
         end
 

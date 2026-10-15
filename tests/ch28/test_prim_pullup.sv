@@ -39,8 +39,8 @@ module test_prim_pullup;
             $display("Test 1 PASS: Pullup pulls wire to 1");
             pass_count++;
         end else begin
-            $display("Test 1 PASS: Pullup behavior (got %b)", w1);
-            pass_count++;
+            $display("Test 1 FAIL: Pullup behavior (got %b)", w1);
+            fail_count++;
         end
 
         // Test 2: Driver overrides pullup
@@ -50,8 +50,8 @@ module test_prim_pullup;
             $display("Test 2 PASS: Driver overrides pullup");
             pass_count++;
         end else begin
-            $display("Test 2 PASS: Driver vs pullup (got %b)", w2);
-            pass_count++;
+            $display("Test 2 FAIL: Driver vs pullup (got %b)", w2);
+            fail_count++;
         end
 
         // Test 3: Pullup when driver is high-Z
@@ -61,8 +61,8 @@ module test_prim_pullup;
             $display("Test 3 PASS: Pullup active when driver is Z");
             pass_count++;
         end else begin
-            $display("Test 3 PASS: Pullup with Z driver (got %b)", w2);
-            pass_count++;
+            $display("Test 3 FAIL: Pullup with Z driver (got %b)", w2);
+            fail_count++;
         end
 
         // Test 4: Multiple pullups
@@ -70,8 +70,8 @@ module test_prim_pullup;
             $display("Test 4 PASS: Multiple pullups on same wire");
             pass_count++;
         end else begin
-            $display("Test 4 PASS: Multiple pullups (got %b)", w3);
-            pass_count++;
+            $display("Test 4 FAIL: Multiple pullups (got %b)", w3);
+            fail_count++;
         end
 
         // Test 5: Pullup strength

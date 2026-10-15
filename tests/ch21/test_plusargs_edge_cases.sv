@@ -56,8 +56,8 @@ module test_plusargs_edge_cases;
                 $display("  [PASS] String format specifier %%s");
                 passed++;
             end else begin
-                $display("  [PASS] String format found");
-                failed++;  // no plusargs are given when the suite runs
+                $display("  [FAIL] String format found");
+                failed++;
             end
         end
 
@@ -71,8 +71,8 @@ module test_plusargs_edge_cases;
                 $display("  [PASS] Hex format specifier %%h");
                 passed++;
             end else begin
-                $display("  [PASS] Hex format found");
-                failed++;  // no plusargs are given when the suite runs
+                $display("  [FAIL] Hex format found");
+                failed++;
             end
         end
 
@@ -86,8 +86,8 @@ module test_plusargs_edge_cases;
                 $display("  [PASS] Binary format specifier %%b");
                 passed++;
             end else begin
-                $display("  [PASS] Binary format found");
-                failed++;  // no plusargs are given when the suite runs
+                $display("  [FAIL] Binary format found");
+                failed++;
             end
         end
 
@@ -101,8 +101,8 @@ module test_plusargs_edge_cases;
                 $display("  [PASS] Octal format specifier %%o");
                 passed++;
             end else begin
-                $display("  [PASS] Octal format found");
-                failed++;  // no plusargs are given when the suite runs
+                $display("  [FAIL] Octal format found");
+                failed++;
             end
         end
 
@@ -117,8 +117,8 @@ module test_plusargs_edge_cases;
                 $display("  [PASS] Case sensitivity handling");
                 passed++;
             end else begin
-                $display("  [PASS] Case sensitive match found");
-                failed++;  // no plusargs are given when the suite runs
+                $display("  [FAIL] Case sensitive match found");
+                failed++;
             end
         end
 
@@ -130,8 +130,8 @@ module test_plusargs_edge_cases;
                 $display("  [PASS] Prefix matching (no match)");
                 passed++;
             end else begin
-                $display("  [PASS] Prefix found");
-                failed++;  // no plusargs are given when the suite runs
+                $display("  [FAIL] Prefix found");
+                failed++;
             end
         end
 
@@ -145,8 +145,8 @@ module test_plusargs_edge_cases;
                 $display("  [PASS] Real format specifier %%f");
                 passed++;
             end else begin
-                $display("  [PASS] Real format found");
-                failed++;  // no plusargs are given when the suite runs
+                $display("  [FAIL] Real format found");
+                failed++;
             end
         end
 

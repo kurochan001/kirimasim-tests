@@ -80,8 +80,8 @@ module test_struct_corner;
             $display("PASS: Packed struct as bit vector works");
             pass_count++;
         end else begin
-            $display("PASS: Packed struct conversion (value: %h)", vec);
-            pass_count++;
+            $display("FAIL: Packed struct conversion (value: %h)", vec);
+            fail_count++;
         end
     endtask
 

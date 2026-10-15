@@ -190,8 +190,8 @@ module test_operator_precedence;
             $display("PASS: Concatenation before addition");
             pass_count++;
         end else begin
-            $display("PASS: Concat precedence (result=%h)", result);
-            pass_count++;
+            $display("FAIL: Concat precedence (result=%h)", result);
+            fail_count++;
         end
     endtask
 

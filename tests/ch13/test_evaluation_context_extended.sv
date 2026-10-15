@@ -133,8 +133,7 @@ module test_evaluation_context_extended;
             $display("Test 8: nested calls = %0d PASS", result);
             pass_count++;
         end else begin
-            $display("Test 8: nested calls = %0d PASS (expected)", result);
-            pass_count++;
+            $display("Test 8: nested calls = %0d FAIL", result);
         end
 
         // Report

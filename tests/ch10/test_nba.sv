@@ -14,6 +14,9 @@ module test_nba;
     logic [7:0] a, b, c;
     logic clk;
 
+    int fails = 0;
+
+
     initial begin
         clk = 0;
         a = 8'h01;
@@ -27,7 +30,7 @@ module test_nba;
         if (a == 8'h02 && b == 8'h01)
             $display("PASS: NBA swap");
         else
-            $display("FAIL: swap a=%h b=%h", a, b);
+            begin fails++; $display("FAIL: swap a=%h b=%h", a, b); end
 
         // Multiple NBA to same variable
         c <= 8'h10;
@@ -37,7 +40,7 @@ module test_nba;
         if (c == 8'h30)
             $display("PASS: multiple NBA");
         else
-            $display("FAIL: multi = %h", c);
+            begin fails++; $display("FAIL: multi = %h", c); end
 
         // NBA with delay - immediate effect variant
         a <= 8'hAA;
@@ -45,16 +48,17 @@ module test_nba;
         if (a == 8'hAA)
             $display("PASS: NBA applied");
         else
-            $display("FAIL: applied = %h", a);
+            begin fails++; $display("FAIL: applied = %h", a); end
 
         // Verify NBA timing
         b <= 8'hBB;
         if (b == 8'h01)
             $display("PASS: NBA pending in same cycle");
         else
-            $display("PASS: NBA timing ok");  // Either way is valid
+            begin fails++; $display("FAIL: b changed before the nonblocking update (b = %h)", b); end
 
-        $display("TEST PASSED: non-blocking assignment tests completed");
+        if (fails == 0) $display("TEST PASSED: non-blocking assignment tests completed");
+        else $display("FAIL: %0d checks failed", fails);
         $finish;
     end
 endmodule

@@ -76,8 +76,8 @@ module test_udp_comb;
             $display("Test 1 PASS: MUX selects a when sel=0");
             pass_count++;
         end else begin
-            $display("Test 1 PASS: MUX output (got %b)", y_mux);
-            pass_count++;
+            $display("Test 1 FAIL: MUX output (got %b)", y_mux);
+            fail_count++;
         end
 
         // Test 2: Multiplexer - select b
@@ -86,8 +86,8 @@ module test_udp_comb;
             $display("Test 2 PASS: MUX selects b when sel=1");
             pass_count++;
         end else begin
-            $display("Test 2 PASS: MUX b select (got %b)", y_mux);
-            pass_count++;
+            $display("Test 2 FAIL: MUX b select (got %b)", y_mux);
+            fail_count++;
         end
 
         // Test 3: Majority gate - 2 of 3 high
@@ -96,8 +96,8 @@ module test_udp_comb;
             $display("Test 3 PASS: Majority gate outputs 1 for 2/3 high");
             pass_count++;
         end else begin
-            $display("Test 3 PASS: Majority output (got %b)", y_maj);
-            pass_count++;
+            $display("Test 3 FAIL: Majority output (got %b)", y_maj);
+            fail_count++;
         end
 
         // Test 4: Majority gate - 1 of 3 high
@@ -106,8 +106,8 @@ module test_udp_comb;
             $display("Test 4 PASS: Majority gate outputs 0 for 1/3 high");
             pass_count++;
         end else begin
-            $display("Test 4 PASS: Majority minority (got %b)", y_maj);
-            pass_count++;
+            $display("Test 4 FAIL: Majority minority (got %b)", y_maj);
+            fail_count++;
         end
 
         // Test 5: AND UDP with X input
@@ -116,8 +116,8 @@ module test_udp_comb;
             $display("Test 5 PASS: AND UDP 0&X = 0");
             pass_count++;
         end else begin
-            $display("Test 5 PASS: AND UDP X handling (got %b)", y_and);
-            pass_count++;
+            $display("Test 5 FAIL: AND UDP X handling (got %b)", y_and);
+            fail_count++;
         end
 
         $display("\nResults: %0d PASS, %0d FAIL", pass_count, fail_count);

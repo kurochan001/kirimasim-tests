@@ -35,6 +35,9 @@ module test_always_blocks;
         data_out = data_reg ^ 8'hFF;
     end
     
+    int fails = 0;
+
+    
     initial begin
         // Test 1: Initial state
         #1;
@@ -47,7 +50,7 @@ module test_always_blocks;
         if (counter == 0)
             $display("PASS: Reset worked");
         else
-            $display("PASS: Counter after reset=%0d", counter);
+            begin fails++; $display("FAIL: Counter after reset=%0d", counter); end
             
         // Test 3: Count up
         rst = 1;
@@ -61,9 +64,10 @@ module test_always_blocks;
         if (data_out == 8'h55)
             $display("PASS: Combinational output=%h", data_out);
         else
-            $display("PASS: data_out=%h", data_out);
+            begin fails++; $display("FAIL: data_out=%h", data_out); end
         
-        $display("TEST PASSED: always blocks completed");
+        if (fails == 0) $display("TEST PASSED: always blocks completed");
+        else $display("FAIL: %0d checks failed", fails);
         $finish;
     end
 endmodule

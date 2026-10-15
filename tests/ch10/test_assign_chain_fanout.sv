@@ -95,8 +95,7 @@ module test_assign_chain_fanout;
             $display("Test 6: Overflow propagation PASS");
             pass_count++;
         end else begin
-            $display("Test 6: processed with overflow = 0x%h PASS (expected)", processed);
-            pass_count++;
+            $display("Test 6: processed with overflow = 0x%h FAIL", processed);
         end
 
         // Report

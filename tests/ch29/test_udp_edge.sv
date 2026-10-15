@@ -85,8 +85,8 @@ module test_udp_edge;
             $display("Test 1 PASS: D FF posedge captures 1");
             pass_count++;
         end else begin
-            $display("Test 1 PASS: D FF posedge (got %b)", q_pos);
-            pass_count++;
+            $display("Test 1 FAIL: D FF posedge (got %b)", q_pos);
+            fail_count++;
         end
 
         // Test 2: D FF rising edge - hold on data change
@@ -96,8 +96,8 @@ module test_udp_edge;
             $display("Test 2 PASS: D FF holds value without clock edge");
             pass_count++;
         end else begin
-            $display("Test 2 PASS: D FF hold (got %b)", q_pos);
-            pass_count++;
+            $display("Test 2 FAIL: D FF hold (got %b)", q_pos);
+            fail_count++;
         end
 
         // Test 3: D FF falling edge - capture 0
@@ -107,8 +107,8 @@ module test_udp_edge;
             $display("Test 3 PASS: D FF negedge captures 0");
             pass_count++;
         end else begin
-            $display("Test 3 PASS: D FF negedge (got %b)", q_neg);
-            pass_count++;
+            $display("Test 3 FAIL: D FF negedge (got %b)", q_neg);
+            fail_count++;
         end
 
         // Test 4: JK FF - set (J=1, K=0)
@@ -118,8 +118,8 @@ module test_udp_edge;
             $display("Test 4 PASS: JK FF set (J=1, K=0)");
             pass_count++;
         end else begin
-            $display("Test 4 PASS: JK FF set (got %b)", q_jk);
-            pass_count++;
+            $display("Test 4 FAIL: JK FF set (got %b)", q_jk);
+            fail_count++;
         end
 
         // Test 5: JK FF - toggle (J=1, K=1)

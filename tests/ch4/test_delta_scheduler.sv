@@ -38,8 +38,7 @@ module test_delta_scheduler;
             $display("Test 1: Comb propagation PASS");
             pass_count++;
         end else begin
-            $display("Test 1: Comb propagation PASS (relaxed)");
-            pass_count++;
+            $display("Test 1: Comb propagation FAIL");
         end
 
         // Test 2: NBA assignment
@@ -75,8 +74,7 @@ module test_delta_scheduler;
             $display("Test 5: Signal dependency PASS");
             pass_count++;
         end else begin
-            $display("Test 5: Signal dependency PASS (relaxed)");
-            pass_count++;
+            $display("Test 5: Signal dependency FAIL");
         end
 
         // Report

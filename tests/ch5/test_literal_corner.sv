@@ -131,8 +131,8 @@ module test_literal_corner;
             $display("PASS: Signed literal wraps correctly");
             pass_count++;
         end else begin
-            $display("PASS: Signed literal (val=%0d)", val);
-            pass_count++;
+            $display("FAIL: Signed literal (val=%0d)", val);
+            fail_count++;
         end
 
         val = -8'sd1;
@@ -163,8 +163,8 @@ module test_literal_corner;
             $display("PASS: Z literal creates high-Z");
             pass_count++;
         end else begin
-            $display("PASS: Z literal (val=%h)", val);
-            pass_count++;
+            $display("FAIL: Z literal (val=%h)", val);
+            fail_count++;
         end
     endtask
 
@@ -246,8 +246,8 @@ module test_literal_corner;
             $display("PASS: Literal truncated to fit width");
             pass_count++;
         end else begin
-            $display("PASS: Width mismatch (val=%h)", val);
-            pass_count++;
+            $display("FAIL: Width mismatch (val=%h)", val);
+            fail_count++;
         end
     endtask
 

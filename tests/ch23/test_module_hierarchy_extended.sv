@@ -50,8 +50,7 @@ module test_module_hierarchy_extended;
             $display("Test 3: Overflow = 0x%h PASS", data_out);
             pass_count++;
         end else begin
-            $display("Test 3: Overflow = 0x%h PASS (expected)", data_out);
-            pass_count++;
+            $display("Test 3: Overflow = 0x%h FAIL", data_out);
         end
 
         // Test 4: Zero value

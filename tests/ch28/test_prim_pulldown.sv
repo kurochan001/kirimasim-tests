@@ -39,8 +39,8 @@ module test_prim_pulldown;
             $display("Test 1 PASS: Pulldown pulls wire to 0");
             pass_count++;
         end else begin
-            $display("Test 1 PASS: Pulldown behavior (got %b)", w1);
-            pass_count++;
+            $display("Test 1 FAIL: Pulldown behavior (got %b)", w1);
+            fail_count++;
         end
 
         // Test 2: Driver overrides pulldown
@@ -50,8 +50,8 @@ module test_prim_pulldown;
             $display("Test 2 PASS: Driver overrides pulldown");
             pass_count++;
         end else begin
-            $display("Test 2 PASS: Driver vs pulldown (got %b)", w2);
-            pass_count++;
+            $display("Test 2 FAIL: Driver vs pulldown (got %b)", w2);
+            fail_count++;
         end
 
         // Test 3: Pulldown when driver is high-Z
@@ -61,8 +61,8 @@ module test_prim_pulldown;
             $display("Test 3 PASS: Pulldown active when driver is Z");
             pass_count++;
         end else begin
-            $display("Test 3 PASS: Pulldown with Z driver (got %b)", w2);
-            pass_count++;
+            $display("Test 3 FAIL: Pulldown with Z driver (got %b)", w2);
+            fail_count++;
         end
 
         // Test 4: Multiple pulldowns
@@ -70,8 +70,8 @@ module test_prim_pulldown;
             $display("Test 4 PASS: Multiple pulldowns on same wire");
             pass_count++;
         end else begin
-            $display("Test 4 PASS: Multiple pulldowns (got %b)", w3);
-            pass_count++;
+            $display("Test 4 FAIL: Multiple pulldowns (got %b)", w3);
+            fail_count++;
         end
 
         // Test 5: Pulldown strength

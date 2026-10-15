@@ -75,8 +75,8 @@ module test_implicit_conversion;
             $display("PASS: Signed width extension (sign-extend)");
             pass_count++;
         end else begin
-            $display("PASS: Signed extension (wide=%h)", wide);
-            pass_count++;
+            $display("FAIL: Signed extension (wide=%h)", wide);
+            fail_count++;
         end
     endtask
 
@@ -246,8 +246,8 @@ module test_implicit_conversion;
             $display("PASS: Conditional expression type promotion");
             pass_count++;
         end else begin
-            $display("PASS: Conditional type (result=%h)", result);
-            pass_count++;
+            $display("FAIL: Conditional type (result=%h)", result);
+            fail_count++;
         end
     endtask
 

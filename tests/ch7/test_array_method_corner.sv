@@ -60,8 +60,8 @@ module test_array_method_corner;
             $display("PASS: Array min/max works");
             pass_count++;
         end else begin
-            $display("PASS: Min=%0d, Max=%0d", min_arr[0], max_arr[0]);
-            pass_count++;
+            $display("FAIL: Min=%0d, Max=%0d", min_arr[0], max_arr[0]);
+            fail_count++;
         end
     endtask
 
@@ -138,8 +138,8 @@ module test_array_method_corner;
             $display("PASS: Array unique works");
             pass_count++;
         end else begin
-            $display("PASS: Unique (size=%0d)", uniq.size());
-            pass_count++;
+            $display("FAIL: Unique (size=%0d)", uniq.size());
+            fail_count++;
         end
     endtask
 
@@ -156,8 +156,8 @@ module test_array_method_corner;
             $display("PASS: Array find works");
             pass_count++;
         end else begin
-            $display("PASS: Find (size=%0d)", found.size());
-            pass_count++;
+            $display("FAIL: Find (size=%0d)", found.size());
+            fail_count++;
         end
     endtask
 
@@ -174,8 +174,8 @@ module test_array_method_corner;
             $display("PASS: Array find_index works");
             pass_count++;
         end else begin
-            $display("PASS: Find_index (size=%0d)", indices.size());
-            pass_count++;
+            $display("FAIL: Find_index (size=%0d)", indices.size());
+            fail_count++;
         end
     endtask
 
@@ -190,8 +190,8 @@ module test_array_method_corner;
             $display("PASS: Array find_first works");
             pass_count++;
         end else begin
-            $display("PASS: Find_first (result=%0d)", first[0]);
-            pass_count++;
+            $display("FAIL: Find_first (result=%0d)", first[0]);
+            fail_count++;
         end
     endtask
 
@@ -206,8 +206,8 @@ module test_array_method_corner;
             $display("PASS: Array find_last works");
             pass_count++;
         end else begin
-            $display("PASS: Find_last (result=%0d)", last[0]);
-            pass_count++;
+            $display("FAIL: Find_last (result=%0d)", last[0]);
+            fail_count++;
         end
     endtask
 
@@ -224,8 +224,8 @@ module test_array_method_corner;
             $display("PASS: Array and/or reduction works");
             pass_count++;
         end else begin
-            $display("PASS: Reduction (and=%h, or=%h)", and_result, or_result);
-            pass_count++;
+            $display("FAIL: Reduction (and=%h, or=%h)", and_result, or_result);
+            fail_count++;
         end
     endtask
 

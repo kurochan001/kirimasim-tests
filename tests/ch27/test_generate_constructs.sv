@@ -90,8 +90,7 @@ module test_generate_constructs;
             $display("Test 1 PASS: gen_block[0]=%0d [1]=%0d",
                      gen_block[0].local_reg, gen_block[1].local_reg);
         end else begin
-            pass_count++;  // Hierarchical access may vary
-            $display("Test 1 PASS: Generate-for blocks created");
+            $display("Test 1 FAIL: Generate-for blocks created");
         end
 
         // Test 2: Generate-for all iterations
@@ -101,8 +100,7 @@ module test_generate_constructs;
             $display("Test 2 PASS: gen_block[2]=%0d [3]=%0d",
                      gen_block[2].local_reg, gen_block[3].local_reg);
         end else begin
-            pass_count++;
-            $display("Test 2 PASS: Generate iterations executed");
+            $display("Test 2 FAIL: Generate iterations executed");
         end
 
         // Test 3: Generate-if selected wide
@@ -111,8 +109,7 @@ module test_generate_constructs;
             pass_count++;
             $display("Test 3 PASS: Wide generate selected (WIDTH=%0d)", WIDTH);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Narrow generate selected");
+            $display("Test 3 FAIL: Narrow generate selected");
         end
 
         // Test 4: Generate-case SEL=2
@@ -121,8 +118,7 @@ module test_generate_constructs;
             pass_count++;
             $display("Test 4 PASS: Generate-case SEL=%0d", SEL);
         end else begin
-            pass_count++;
-            $display("Test 4 PASS: Generate-case executed");
+            $display("Test 4 FAIL: Generate-case executed");
         end
 
         // Test 5: Localparam in generate
@@ -132,8 +128,7 @@ module test_generate_constructs;
             $display("Test 5 PASS: param_gen[0]=%0d [1]=%0d",
                      param_gen[0].param_reg, param_gen[1].param_reg);
         end else begin
-            pass_count++;
-            $display("Test 5 PASS: Localparam generate works");
+            $display("Test 5 FAIL: Localparam generate works");
         end
 
         // Test 6: Parameter value

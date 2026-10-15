@@ -61,8 +61,7 @@ module test_assign_edge_cases;
             pass_count++;
             $display("Test 3 PASS: FF+20 = %h", wire_result);
         end else begin
-            pass_count++;
-            $display("Test 3 PASS: Changed = %h", wire_result);
+            $display("Test 3 FAIL: Changed = %h", wire_result);
         end
 
         // Test 4: Change selector

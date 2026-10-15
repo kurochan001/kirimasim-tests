@@ -88,8 +88,8 @@ module test_memory_array_ops;
             $display("PASS: Dynamic array resize works");
             pass_count++;
         end else begin
-            $display("PASS: Dynamic resize (size=%0d)", dyn.size());
-            pass_count++;
+            $display("FAIL: Dynamic resize (size=%0d)", dyn.size());
+            fail_count++;
         end
     endtask
 
@@ -201,8 +201,8 @@ module test_memory_array_ops;
             $display("PASS: Array find works");
             pass_count++;
         end else begin
-            $display("PASS: Array find (size=%0d)", result.size());
-            pass_count++;
+            $display("FAIL: Array find (size=%0d)", result.size());
+            fail_count++;
         end
     endtask
 
@@ -217,8 +217,8 @@ module test_memory_array_ops;
             $display("PASS: Array find_first works");
             pass_count++;
         end else begin
-            $display("PASS: Array find_first (size=%0d)", result.size());
-            pass_count++;
+            $display("FAIL: Array find_first (size=%0d)", result.size());
+            fail_count++;
         end
     endtask
 
@@ -327,8 +327,8 @@ module test_memory_array_ops;
             $display("PASS: Array min works");
             pass_count++;
         end else begin
-            $display("PASS: Array min test");
-            pass_count++;
+            $display("FAIL: Array min test");
+            fail_count++;
         end
 
         result = arr.max();
@@ -336,8 +336,8 @@ module test_memory_array_ops;
             $display("PASS: Array max works");
             pass_count++;
         end else begin
-            $display("PASS: Array max test");
-            pass_count++;
+            $display("FAIL: Array max test");
+            fail_count++;
         end
     endtask
 
@@ -352,8 +352,8 @@ module test_memory_array_ops;
             $display("PASS: Array unique works");
             pass_count++;
         end else begin
-            $display("PASS: Array unique (size=%0d)", result.size());
-            pass_count++;
+            $display("FAIL: Array unique (size=%0d)", result.size());
+            fail_count++;
         end
     endtask
 
