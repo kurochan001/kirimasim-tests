@@ -19,7 +19,7 @@ module test_semaphore_try_get;
         static semaphore sem1 = new(5);
         int result;
         result = sem1.try_get(3);
-        if (result == 1) begin
+        if (result > 0) begin  // success returns a positive integer (15.3)
             $display("PASS: test_try_get_available - try_get succeeded");
         end else begin
             $display("FAIL: test_try_get_available - try_get failed unexpectedly");
@@ -55,7 +55,7 @@ module test_semaphore_try_get;
         static semaphore sem4 = new(1);
         int result;
         result = sem4.try_get();
-        if (result == 1) begin
+        if (result > 0) begin  // success returns a positive integer (15.3)
             $display("PASS: test_try_get_default - Default argument works");
         end else begin
             $display("FAIL: test_try_get_default - Default argument failed");
