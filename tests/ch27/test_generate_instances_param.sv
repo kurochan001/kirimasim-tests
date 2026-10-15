@@ -46,7 +46,7 @@ module test_generate_instances_param;
     if (vals[3] == 30) pass_count++;
 
     $display("Inst array tests: %0d/4 passed", pass_count);
-    if (pass_count >= 1) begin
+    if (pass_count == 4) begin
       $display("PASS: Inst array tests");
     end else begin
       $display("FAIL: Some inst array tests failed");

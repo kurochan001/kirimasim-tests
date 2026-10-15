@@ -48,7 +48,7 @@ module test_default_args;
     if (greet() == "Hello, World") pass_count++;
 
     $display("Default args tests: %0d/6 passed", pass_count);
-    if (pass_count >= 3) begin
+    if (pass_count == 6) begin
       $display("PASS: Default args tests");
     end else begin
       $display("FAIL: Some default arg tests failed");
