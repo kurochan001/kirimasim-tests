@@ -9,6 +9,10 @@
 :nondeterministic: no
 :expected_stdout: @test_cycle_delay_clocking.expected
 */
+// The default time unit and precision are implementation-specific
+// (3.14.2.3), and %0t prints in $timeformat units, which by default are the
+// smallest precision in the design (20.4.3), so the test sets them.
+`timescale 1ns/1ns
 // Test cycle delay (##N) in clocking blocks
 
 module test_cycle_delay_clocking;
