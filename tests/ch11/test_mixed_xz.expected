@@ -1,0 +1,11 @@
+PASS: Mixed X and Z stored correctly
+PASS: X AND Z gives x (result=0xxx)
+PASS: X OR Z gives x (result=0xxx)
+PASS: X XOR Z gives x (result=0xxx)
+PASS: Alternating XZ arithmetic gives x (result=0xxx)
+PASS: Concatenate X and Z preserves distinction
+PASS: Logical equality X==Z is x
+PASS: Case inequality X!==Z is true
+PASS: Reduction OR with XZ and 1 gives 1
+PASS: Bit select preserves mixed XZ
+PASS: mixed_xz (10/10)

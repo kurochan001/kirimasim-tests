@@ -1,0 +1,5 @@
+PASS: Test 1 - $swrite basic string: Hello World
+PASS: Test 2 - $swrite integer: Value: 42
+PASS: Test 3 - $swrite hex: Hex: deadbeef
+PASS: Test 4 - $swrite multiple: int=42 hex=deadbeef byte=ab
+PASS: Test 5 - $swrite overwrites: overwritten

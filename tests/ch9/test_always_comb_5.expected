@@ -1,0 +1,9 @@
+PASS: Test 1a - always_comb AND gate (0 & 0 = 0)
+PASS: Test 1b - always_comb AND gate (1 & 1 = 1)
+PASS: Test 2 - always_comb OR/XOR operations
+PASS: Test 3a - always_comb conditional (sel=1)
+PASS: Test 3b - always_comb conditional (sel=0)
+PASS: Test 4 - always_comb case statement
+PASS: Test 5 - always_comb nested conditions
+=== Summary: 7 PASS, 0 FAIL ===
+PASS: All always_comb tests passed

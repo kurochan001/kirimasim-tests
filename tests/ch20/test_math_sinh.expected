@@ -1,0 +1,7 @@
+PASS: $sinh(0.0) = 0.000000
+PASS: $sinh(1.0) = 1.175201
+PASS: $sinh(-1.0) = -1.175201
+PASS: $sinh(2.0) = 3.626860
+PASS: sinh(-x) = -sinh(x) verified
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

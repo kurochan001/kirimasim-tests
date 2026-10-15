@@ -1,0 +1,6 @@
+Test 1: $sscanf decimal - PASS
+Test 2: $sscanf hex - PASS
+Test 3: $sscanf multi-val - PASS
+Test 4: $sscanf string - PASS
+Test 5: $sscanf partial - PASS
+All sscanf tests PASS

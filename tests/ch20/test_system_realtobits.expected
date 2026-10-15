@@ -1,0 +1,5 @@
+PASS: Test 1 - $realtobits(0.0) = 0000000000000000
+PASS: Test 2 - $realtobits(1.0) = 3ff0000000000000
+PASS: Test 3 - $realtobits(-1.0) = bff0000000000000
+PASS: Test 4 - $realtobits(2.0) = 4000000000000000
+PASS: Test 5 - $realtobits(0.5) = 3fe0000000000000

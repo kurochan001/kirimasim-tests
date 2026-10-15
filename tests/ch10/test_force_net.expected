@@ -1,0 +1,7 @@
+PASS: Test 1 - Force net to high
+PASS: Test 2 - Force overrides driver
+PASS: Test 3 - Release net returns to driver
+PASS: Test 4 - Force multi-bit bus
+PASS: Test 5 - Release bus returns to driver value
+Summary: 5 PASS, 0 FAIL
+ALL TESTS PASSED

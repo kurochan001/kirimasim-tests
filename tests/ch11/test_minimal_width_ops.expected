@@ -1,0 +1,11 @@
+PASS: Single bit AND
+PASS: Single bit addition overflows to 0
+PASS: Single bit increment 0->1
+PASS: Two-bit overflow wraps
+PASS: Single bit XOR
+PASS: Single bit shift left produces 0
+PASS: Extract single bit
+PASS: Assign single bit to byte
+PASS: Single bit reduction OR
+PASS: Single bit concatenation
+PASS: zero_width (10/10)

@@ -1,0 +1,7 @@
+PASS: $tanh(0.0) = 0.000000
+PASS: $tanh(1.0) = 0.761594
+PASS: $tanh(-1.0) = -0.761594
+PASS: $tanh(10.0) = 1.000000 (close to 1)
+PASS: $tanh(0.5) = 0.462117 is in (-1, 1)
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,10 @@
+PASS: Test 1a - Latch transparent when enabled
+PASS: Test 1b - Latch holds value when disabled
+PASS: Test 2a - Partial latch passes through
+PASS: Test 2b - Partial latch holds
+PASS: Test 3a - Case latch updates on valid case
+PASS: Test 3b - Case latch holds on missing case
+PASS: Test 4 - Nested latch condition
+PASS: Test 5 - Multiple outputs in latch block
+=== Summary: 8 PASS, 0 FAIL ===
+PASS: All always_latch tests passed

@@ -1,0 +1,7 @@
+PASS: Test 1 - Two byte concat
+PASS: Test 2 - Four byte concat
+PASS: Test 3 - Nibble concat
+PASS: Test 4 - Mixed size concat
+PASS: Test 5 - Single bit concat
+Concat Simple: 5 PASS, 0 FAIL
+PASS: All tests passed

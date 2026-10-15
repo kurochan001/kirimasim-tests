@@ -1,0 +1,5 @@
+PASS: Test 1 - $exp(0) = 1.0
+PASS: Test 2 - $exp(1) = e
+PASS: Test 3 - $exp(2) = 7.389
+PASS: Test 4 - $exp(-1) = 0.3679
+PASS: Test 5 - $exp(ln(2)) = 2.0

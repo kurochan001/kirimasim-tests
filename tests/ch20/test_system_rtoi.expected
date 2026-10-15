@@ -1,0 +1,5 @@
+PASS: $rtoi(3.7) = 3
+PASS: $rtoi(-2.9) = -2
+PASS: $rtoi(100.0) = 100
+PASS: $rtoi(0.999) = 0
+PASS: $rtoi(123456.789) = 123456

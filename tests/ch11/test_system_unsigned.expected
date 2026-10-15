@@ -1,0 +1,5 @@
+PASS: $unsigned(8'sd100) = 100
+PASS: $unsigned(-1) = 255
+PASS: $unsigned(-128) = 128
+PASS: $unsigned(16'sd-1) = 65535
+PASS: $unsigned(8'sd0) = 0

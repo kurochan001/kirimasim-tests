@@ -1,0 +1,5 @@
+PASS: Test 1 - $acos(1) = 0
+PASS: Test 2 - $acos(0) = pi/2
+PASS: Test 3 - $acos(-1) = pi
+PASS: Test 4 - $acos(0.5) = pi/3
+PASS: Test 5 - $acos(sqrt(2)/2) = pi/4

@@ -1,0 +1,7 @@
+PASS: Test 1 - Wire with value 1
+PASS: Test 2 - Wand both high = 1
+PASS: Test 3 - Wand one low = 0
+PASS: Test 4 - Wor one high = 1
+PASS: Test 5 - Supply0=0, Supply1=1
+Summary: 5 PASS, 0 FAIL
+ALL TESTS PASSED

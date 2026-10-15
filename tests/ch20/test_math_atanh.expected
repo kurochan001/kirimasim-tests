@@ -1,0 +1,7 @@
+PASS: $atanh(0.0) = 0.000000
+PASS: $atanh($tanh(0.5)) = 0.500000
+PASS: $atanh(0.5) = 0.549306
+PASS: $atanh(-0.5) = -0.549306
+PASS: $atanh(0.9) = 1.472219
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

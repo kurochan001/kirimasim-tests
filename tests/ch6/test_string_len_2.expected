@@ -1,0 +1,6 @@
+Test 1 PASS: empty string len
+Test 2 PASS: single char len
+Test 3 PASS: hello len
+Test 4 PASS: string with space len
+Test 5 PASS: longer string len
+PASS: All 5 tests passed

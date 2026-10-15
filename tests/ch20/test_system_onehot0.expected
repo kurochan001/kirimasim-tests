@@ -1,0 +1,5 @@
+PASS: $onehot0(8'b00000001) = 1 (valid)
+PASS: $onehot0(8'b00000000) = 1 (valid - zero)
+PASS: $onehot0(8'b00000011) = 0 (invalid)
+PASS: $onehot0(8'b10000000) = 1 (valid)
+PASS: $onehot0(16'hFFFF) = 0 (invalid)

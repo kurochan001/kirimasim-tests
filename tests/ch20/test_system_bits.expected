@@ -1,0 +1,5 @@
+PASS: $bits(logic[7:0]) = 8
+PASS: $bits(int) = 32
+PASS: $bits(longint) = 64
+PASS: $bits(packed struct) = 32
+PASS: $bits(logic[3:0][7:0]) = 32

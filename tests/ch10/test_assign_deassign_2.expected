@@ -1,0 +1,9 @@
+PASS: Test 1a - Procedural assign active
+PASS: Test 1b - Value retained after deassign
+PASS: Test 2 - Source change after deassign doesn't propagate
+PASS: Test 3 - Regular assignment works after deassign
+PASS: Test 4a - Second assign after deassign
+PASS: Test 4b - Procedural write after second deassign
+PASS: Test 5 - Deassign on non-assigned signal is no-op
+=== Summary: 7 PASS, 0 FAIL ===
+PASS: All deassign tests passed

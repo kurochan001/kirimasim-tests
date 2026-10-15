@@ -1,0 +1,7 @@
+PASS: Test 1 - Strong drive high
+PASS: Test 2 - Strong drive low
+PASS: Test 3 - Weak drive high
+PASS: Test 4 - Pull drive low
+PASS: Test 5 - Highz0 drive of a 1 gives 1
+Summary: 5 PASS, 0 FAIL
+ALL TESTS PASSED

@@ -1,0 +1,5 @@
+PASS: Test 1 - $cos(0) = 1.0
+PASS: Test 2 - $cos(pi/2) = 0
+PASS: Test 3 - $cos(pi) = -1.0
+PASS: Test 4 - $cos(2*pi) = 1.0
+PASS: Test 5 - $cos(-pi/3) = 0.5

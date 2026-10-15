@@ -1,0 +1,7 @@
+PASS: Generate if - Feature A enabled
+PASS: Generate if - Feature B disabled
+PASS: Generate if - Wide mode (DATA_WIDTH=16)
+PASS: Nested generate if
+PASS: Generate with parameterized width
+Generate if test: 5 PASS, 0 FAIL
+PASS: All generate if tests passed

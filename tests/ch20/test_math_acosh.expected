@@ -1,0 +1,7 @@
+PASS: $acosh(1.0) = 0.000000
+PASS: $acosh($cosh(1.0)) = 1.000000
+PASS: $acosh(2.0) = 1.316958
+PASS: $acosh(10.0) = 2.993223
+PASS: $acosh($cosh(2.0)) = 2.000000
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

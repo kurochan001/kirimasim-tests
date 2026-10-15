@@ -1,0 +1,7 @@
+PASS: Generate for - channel results
+PASS: Generate for - channel valid flags
+PASS: Nested generate for - matrix doubled
+PASS: Generate for with conditional - parity
+PASS: Generate for creates NUM_CHANNELS=4 instances
+Generate for test: 5 PASS, 0 FAIL
+PASS: All generate for tests passed

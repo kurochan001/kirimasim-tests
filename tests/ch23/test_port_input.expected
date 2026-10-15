@@ -1,0 +1,9 @@
+PASS: Test 1 - Named port connection (35+42=77)
+PASS: Test 2 - Input with carry (100+50+1=151)
+PASS: Test 3 - Expression as input port
+PASS: Test 4 - Constant input ports
+PASS: Test 5 - Decoder input sel=0
+PASS: Test 5b - Decoder input sel=5
+=== Input Port Test Summary ===
+PASS: 6, FAIL: 0
+ALL TESTS PASSED

@@ -1,0 +1,7 @@
+PASS: $sqrt(4.0) = 2.000000
+PASS: $sqrt(9.0) = 3.000000
+PASS: $sqrt(2.0) = 1.414214
+PASS: $sqrt(0.0) = 0.000000
+PASS: $sqrt(100.0) = 10.000000
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

@@ -1,0 +1,7 @@
+Test 1: $bits basic types - PASS
+  bits(byte)=8, bits(word)=32, bits(dword)=64
+Test 2: $bits(integer) = 32 - PASS
+Test 3: $bits(packed_struct) = 32 - PASS
+Test 4: $bits(packed_array) = 32 - PASS
+Test 5: $bits(logic[15:0]) = 16 - PASS
+All bits tests PASS

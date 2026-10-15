@@ -1,0 +1,11 @@
+PASS: 128-bit all ones
+PASS: 128-bit overflow wraps to 0
+PASS: 128-bit MSB and LSB set
+PASS: 256-bit MSB set
+PASS: 128-bit AND with no overlap
+PASS: 128-bit OR fills all bits
+PASS: 128-bit shift by 64
+PASS: 128-bit from 64-bit concat
+PASS: 512-bit replication pattern
+PASS: 128-bit equality comparison
+PASS: max_width (10/10)

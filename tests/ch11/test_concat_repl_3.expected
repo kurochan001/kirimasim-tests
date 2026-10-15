@@ -1,0 +1,7 @@
+PASS: Test 1 - 2x replication
+PASS: Test 2 - 4x replication
+PASS: Test 3 - 32x single bit replication
+PASS: Test 4 - 4x nibble replication
+PASS: Test 5 - Nested replication
+Concat Repl: 5 PASS, 0 FAIL
+PASS: All tests passed

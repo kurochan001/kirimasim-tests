@@ -1,0 +1,6 @@
+Test 1 PASS: empty queue size
+Test 2 PASS: single element size
+Test 3 PASS: five elements size
+Test 4 PASS: size after push
+Test 5 PASS: size after pop
+PASS: All 5 tests passed

@@ -1,0 +1,13 @@
+PASS: Sign extend positive preserves value
+PASS: Sign extend negative preserves value
+PASS: Sign extend -1 to 32-bit
+PASS: Sign extend -10 to 64-bit
+PASS: $signed then extend
+PASS: Zero MSB extends with zeros
+PASS: One MSB extends with ones
+PASS: Sign extension in addition
+PASS: Sign extended comparison equal
+PASS: $signed with extension
+PASS: $unsigned prevents sign extension
+PASS: Mixed signed/unsigned with extension
+PASS: sign_extension (12/12)

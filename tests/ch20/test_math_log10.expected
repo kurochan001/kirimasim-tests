@@ -1,0 +1,5 @@
+PASS: Test 1 - $log10(1) = 0
+PASS: Test 2 - $log10(10) = 1.0
+PASS: Test 3 - $log10(100) = 2.0
+PASS: Test 4 - $log10(1000) = 3.0
+PASS: Test 5 - $log10(0.1) = -1.0

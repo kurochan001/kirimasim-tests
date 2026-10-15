@@ -1,0 +1,5 @@
+PASS: $signed(8'd100) = 100
+PASS: $signed(8'hFF) = -1
+PASS: $signed(8'h80) = -128
+PASS: $signed(16'hFFFF) = -1
+PASS: $signed(8'd0) = 0

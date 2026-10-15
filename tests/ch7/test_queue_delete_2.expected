@@ -1,0 +1,6 @@
+Test 1 PASS: delete at beginning
+Test 2 PASS: delete in middle
+Test 3 PASS: delete at end
+Test 4 PASS: delete to make empty
+Test 5 PASS: delete all elements
+PASS: All 5 tests passed

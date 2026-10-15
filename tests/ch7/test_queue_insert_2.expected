@@ -1,0 +1,6 @@
+Test 1 PASS: insert at beginning
+Test 2 PASS: insert in middle
+Test 3 PASS: insert at end
+Test 4 PASS: insert into empty queue
+Test 5 PASS: insert negative value
+PASS: All 5 tests passed

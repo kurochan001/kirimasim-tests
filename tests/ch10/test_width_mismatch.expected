@@ -1,0 +1,13 @@
+PASS: Wide to narrow truncation
+PASS: Narrow to wide zero extension
+PASS: Add different widths
+PASS: Multiply different widths
+PASS: Compare different widths (equal)
+PASS: AND different widths
+PASS: Shift with different widths
+PASS: Concatenate different widths
+PASS: Single bit to 64-bit extension
+PASS: 64-bit to single bit (LSB)
+PASS: Ternary with different widths
+PASS: Reduction with different widths
+PASS: width_mismatch (12/12)

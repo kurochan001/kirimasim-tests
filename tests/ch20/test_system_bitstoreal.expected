@@ -1,0 +1,5 @@
+PASS: Test 1 - $bitstoreal(0x0) = 0.000000
+PASS: Test 2 - $bitstoreal(0x3FF...) = 1.000000
+PASS: Test 3 - $bitstoreal(0xBFF...) = -1.000000
+PASS: Test 4 - $bitstoreal(0x400...) = 2.000000
+PASS: Test 5 - $bitstoreal(PI bits) = 3.141593

@@ -1,0 +1,7 @@
+PASS: $asinh(0.0) = 0.000000
+PASS: $asinh($sinh(1.0)) = 1.000000
+PASS: $asinh(1.0) = 0.881374
+PASS: $asinh(-1.0) = -0.881374
+PASS: $asinh(2.0) = 1.443635
+Test Summary: 5 PASS, 0 FAIL
+PASS: All tests passed

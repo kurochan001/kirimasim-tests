@@ -1,0 +1,10 @@
+PASS: Test 1 - Top-level parameter access (L1_SIZE = 32)
+PASS: Test 2 - Localparam access (L1_HALF = 16)
+PASS: Test 3 - Nested parameter (L2_DEPTH = 32)
+PASS: Test 4 - Second instance parameter (L2_DEPTH = 64)
+PASS: Test 5 - Deep nested derived parameter
+PASS: Test 6 - Different instances have different parameters
+PASS: Test 7 - Boolean parameter access
+=== Hierarchical Parameter Access Test Summary ===
+PASS: 7, FAIL: 0
+ALL TESTS PASSED

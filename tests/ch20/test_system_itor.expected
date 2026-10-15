@@ -1,0 +1,5 @@
+PASS: Test 1 - $itor(42) = 42.000000
+PASS: Test 2 - $itor(0) = 0.000000
+PASS: Test 3 - $itor(-100) = -100.000000
+PASS: Test 4 - $itor(1000000) = 1000000.000000
+PASS: Test 5 - $itor(signed -500) = -500.000000

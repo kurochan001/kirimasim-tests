@@ -1,0 +1,6 @@
+Test 1 PASS: pop_back single element
+Test 2 PASS: pop_back last of three
+Test 3 PASS: pop_back second element
+Test 4 PASS: pop_back last remaining
+Test 5 PASS: pop_back negative value
+PASS: All 5 tests passed

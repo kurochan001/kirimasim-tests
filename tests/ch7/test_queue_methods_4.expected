@@ -1,0 +1,7 @@
+PASS: push_back works correctly
+PASS: pop_front works correctly
+PASS: pop_back works correctly
+PASS: insert works correctly
+PASS: delete works correctly
+Queue methods test: 5 PASS, 0 FAIL
+PASS: All queue method tests passed

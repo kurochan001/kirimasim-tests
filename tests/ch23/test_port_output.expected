@@ -1,0 +1,10 @@
+PASS: Test 1 - Zero detection output
+PASS: Test 2 - Negative detection output
+PASS: Test 3 - Nibble splitting outputs
+PASS: Test 4 - Parity output (even)
+PASS: Test 4b - Parity output (odd)
+PASS: Test 5 - Partial output connection
+PASS: Test 6 - Clocked outputs
+=== Output Port Test Summary ===
+PASS: 7, FAIL: 0
+ALL TESTS PASSED

@@ -1,0 +1,9 @@
+Test 1: $clog2 powers of 2 - PASS
+  clog2(1)=0, clog2(2)=1, clog2(4)=2, clog2(8)=3
+Test 2: $clog2 non-powers - PASS
+  clog2(3)=2, clog2(5)=3, clog2(7)=3, clog2(9)=4
+Test 3: $clog2(0) = 0 - PASS
+Test 4: $clog2 large values - PASS
+  clog2(256)=8, clog2(1024)=10, clog2(65536)=16
+Test 5: $clog2(1000) = 10 (address width) - PASS
+All clog2 tests PASS

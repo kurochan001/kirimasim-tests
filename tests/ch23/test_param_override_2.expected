@@ -1,0 +1,8 @@
+PASS: Test 1 - All parameters overridden
+PASS: Test 2 - Positional parameter override
+PASS: Test 3 - Mixed positional and named override
+PASS: Test 4 - Default parameters used
+PASS: Test 5 - Width parameter affects signal size
+=== Parameter Override Test Summary ===
+PASS: 5, FAIL: 0
+ALL TESTS PASSED

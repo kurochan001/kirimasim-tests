@@ -1,0 +1,5 @@
+PASS: Test 1 - $atan(0) = 0
+PASS: Test 2 - $atan(1) = pi/4
+PASS: Test 3 - $atan(-1) = -pi/4
+PASS: Test 4 - $atan(1000) approaches pi/2
+PASS: Test 5 - $atan(sqrt(3)) = pi/3

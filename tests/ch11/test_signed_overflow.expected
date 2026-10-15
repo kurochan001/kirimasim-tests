@@ -1,0 +1,11 @@
+PASS: 8-bit signed positive overflow wraps to -128
+PASS: 8-bit signed negative overflow wraps to 127
+PASS: 32-bit signed max overflow
+PASS: 32-bit signed min underflow
+PASS: int type overflow wraps correctly
+PASS: Signed multiplication overflow
+PASS: Shortint overflow wraps correctly
+PASS: Longint overflow wraps (result=-9223372036854775808)
+PASS: Signed negation overflow at min value
+PASS: Signed subtraction overflow
+PASS: signed_overflow (10/10)

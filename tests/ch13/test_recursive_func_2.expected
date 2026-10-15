@@ -1,0 +1,11 @@
+PASS: factorial(0) = 1
+PASS: factorial(5) = 120
+PASS: fibonacci base cases
+PASS: fibonacci(10) = 55
+PASS: sum_array = 15
+PASS: binary_search found at index 3
+PASS: binary_search not found returns -1
+PASS: power(2,10) = 1024
+PASS: gcd(48,18) = 6
+PASS: power(5,0) = 1
+PASS: recursive_func (10/10)

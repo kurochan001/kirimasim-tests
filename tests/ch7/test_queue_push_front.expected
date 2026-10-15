@@ -1,0 +1,6 @@
+Test 1 PASS: push_front to empty queue
+Test 2 PASS: push_front second element
+Test 3 PASS: push_front third element
+Test 4 PASS: push_front negative value
+Test 5 PASS: push_front with zero
+PASS: All 5 tests passed

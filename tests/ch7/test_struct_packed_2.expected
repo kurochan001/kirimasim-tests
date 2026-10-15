@@ -1,0 +1,10 @@
+PASS: Packed struct field assignment
+PASS: Packed struct to bit vector conversion
+PASS: Bit vector to packed struct conversion
+PASS: Bitwise AND on packed struct
+PASS: Command struct packing
+PASS: Bit slicing on packed struct
+PASS: Nested packed struct
+PASS: XOR operation on packed struct
+Packed struct test: 8 PASS, 0 FAIL
+PASS: All packed struct tests passed

@@ -1,0 +1,8 @@
+PASS: Test 1 - String equality (==)
+PASS: Test 2 - String inequality (!=)
+PASS: Test 3 - String less than (<)
+PASS: Test 4 - String greater than (>)
+PASS: Test 5 - String less than or equal (<=)
+PASS: Test 6 - String greater than or equal (>=)
+Summary: 6 PASS, 0 FAIL
+ALL TESTS PASSED

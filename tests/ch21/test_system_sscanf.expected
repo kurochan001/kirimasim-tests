@@ -1,0 +1,5 @@
+PASS: Test 1 - $sscanf integer: 42 (result=1)
+PASS: Test 2 - $sscanf hex: deadbeef (result=1)
+PASS: Test 3 - $sscanf two integers: 123, 456 (result=2)
+PASS: Test 4 - $sscanf with prefix: 789 (result=1)
+PASS: Test 5 - $sscanf real: 3.141590 (result=1)

@@ -1,0 +1,6 @@
+Test 1: $countones(8'b10101010) = 4 - PASS
+Test 2: $onehot - PASS
+Test 3: $onehot0 - PASS
+Test 4: $isunknown - PASS
+Test 5: $countones various - PASS
+All countones/onehot tests PASS

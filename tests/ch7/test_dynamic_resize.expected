@@ -1,0 +1,8 @@
+PASS: new[5] creates array of size 5
+PASS: array initialization works
+PASS: resize larger preserves old values
+PASS: resize smaller truncates correctly
+PASS: delete clears the array
+PASS: copy constructor works
+Dynamic resize test: 6 PASS, 0 FAIL
+PASS: All dynamic array tests passed

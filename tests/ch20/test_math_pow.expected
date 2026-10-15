@@ -1,0 +1,5 @@
+PASS: Test 1 - $pow(2, 3) = 8.0
+PASS: Test 2 - $pow(10, 2) = 100.0
+PASS: Test 3 - $pow(5, 0) = 1.0
+PASS: Test 4 - $pow(7.5, 1) = 7.5
+PASS: Test 5 - $pow(16, 0.5) = 4.0

@@ -1,0 +1,5 @@
+PASS: Test 1 - $floor(3.7) = 3.0
+PASS: Test 2 - $floor(-3.2) = -4.0
+PASS: Test 3 - $floor(5.0) = 5.0
+PASS: Test 4 - $floor(0.999) = 0.0
+PASS: Test 5 - $floor(0.0) = 0.0

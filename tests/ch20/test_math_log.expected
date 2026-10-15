@@ -1,0 +1,5 @@
+PASS: Test 1 - $ln(1) = 0
+PASS: Test 2 - $ln(e) = 1.0
+PASS: Test 3 - $ln(e^2) = 2.0
+PASS: Test 4 - $ln(10) = 2.303
+PASS: Test 5 - $ln(0.5) = -0.693

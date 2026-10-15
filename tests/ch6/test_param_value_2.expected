@@ -1,0 +1,9 @@
+PASS: Test 1 - Integer parameter ADD (25+17=42)
+PASS: Test 2 - Integer parameter SUB (100-30=70)
+PASS: Test 3 - Integer parameter AND (F0 & 3C = 30)
+PASS: Test 4 - Real value parameter GAIN = 2.5
+PASS: Test 5 - Bit value parameter ENABLE = 1
+PASS: Test 6 - String value parameter VERSION = 1.0.0
+=== Value Parameter Test Summary ===
+PASS: 6, FAIL: 0
+ALL TESTS PASSED

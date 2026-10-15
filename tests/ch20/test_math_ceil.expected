@@ -1,0 +1,5 @@
+PASS: Test 1 - $ceil(3.2) = 4.0
+PASS: Test 2 - $ceil(-3.2) = -3.0
+PASS: Test 3 - $ceil(5.0) = 5.0
+PASS: Test 4 - $ceil(0.001) = 1.0
+PASS: Test 5 - $ceil(0.0) = 0.0

@@ -1,0 +1,5 @@
+PASS: Test 1 - $sin(0) = 0
+PASS: Test 2 - $sin(pi/2) = 1.0
+PASS: Test 3 - $sin(pi) = 0
+PASS: Test 4 - $sin(3*pi/2) = -1.0
+PASS: Test 5 - $sin(-pi/2) = -1.0

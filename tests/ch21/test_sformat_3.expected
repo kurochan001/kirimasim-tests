@@ -1,0 +1,6 @@
+Test 1: $sformat hex - PASS
+Test 2: $sformatf decimal - PASS
+Test 3: $sformatf multi-arg - PASS
+Test 4: $sformat string arg - PASS
+Test 5: $sformatf real - PASS
+All sformat tests PASS

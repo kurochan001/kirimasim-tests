@@ -1,0 +1,10 @@
+Test 1: [7:0] left=7, right=0 - PASS
+Test 2: [0:7] left=0, right=7 - PASS
+Test 3: $low/$high - PASS
+  [7:0]: low=0, high=7
+  [0:7]: low=0, high=7
+Test 4: [15:8] left=15, right=8, low=8, high=15 - PASS
+Test 5: Unpacked arrays - PASS
+  [0:3]: left=0, right=3
+  [3:0]: left=3, right=0
+All left/right/low/high tests PASS
