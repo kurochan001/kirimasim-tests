@@ -1,0 +1,16 @@
+PASS: Simple array element assign
+PASS: Array read and assign
+PASS: Variable index assignment
+PASS: Expression index assignment
+PASS: Array element swap
+PASS: Loop assignment to array
+PASS: 2D matrix assignment
+PASS: 2D element access
+PASS: 3D cube assignment
+PASS: Array of packed assignment
+PASS: Array compound assignment
+PASS: Array copy element by element
+PASS: Boundary index assignment
+PASS: Word array assignment
+PASS: Array assign with arithmetic
+PASS: array_assign (15/15)

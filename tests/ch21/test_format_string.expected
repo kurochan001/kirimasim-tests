@@ -1,0 +1,15 @@
+PASS: basic %s
+PASS: empty string
+PASS: string with spaces
+PASS: concatenated strings
+PASS: string in sentence
+PASS: special characters
+PASS: numeric string
+PASS: mixed content
+PASS: packed array as string
+PASS: logic as ASCII string
+PASS: multiple strings
+PASS: long string
+PASS: punctuation
+PASS: assigned string
+PASS: format_string (14/14)

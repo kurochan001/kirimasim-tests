@@ -1,0 +1,26 @@
+Test 1 PASSED: exact match ==?
+Test 2 PASSED: mismatch ==?
+Test 3 PASSED: X wildcard matches
+Test 4 PASSED: Z wildcard matches
+Test 5 PASSED: upper X, lower exact
+Test 6 PASSED: non-wildcard mismatch
+Test 7 PASSED: all wildcards match anything
+Test 8 PASSED: !=? on exact match = 0
+Test 9 PASSED: !=? on mismatch = 1
+Test 10 PASSED: !=? with wildcard match = 0
+Test 11 PASSED: !=? wildcard mismatch = 1
+Test 12 PASSED: nibble wildcard ==?
+Test 13 PASSED: single bit wildcard
+Test 14 PASSED: 16-bit wildcard match
+Test 15 PASSED: 16-bit wildcard mismatch
+Test 16 PASSED: wildcard in if condition
+Test 17 PASSED: scattered wildcards
+Test 18 PASSED: alternating pattern
+Test 19 PASSED: wildcard at MSB
+Test 20 PASSED: wildcard at LSB
+Test 21 PASSED: zero data with wildcard
+Test 22 PASSED: all ones with wildcard
+Test 23 PASSED: mixed z and x wildcards
+Test 24 PASSED: wildcard in conditional
+Test 25 PASSED: expression wildcard comparison
+PASS: wildcard_eq (25/25)

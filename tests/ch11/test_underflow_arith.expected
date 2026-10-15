@@ -1,0 +1,9 @@
+PASS: 8-bit underflow subtraction wraps to 0xFF
+PASS: 8-bit underflow with larger subtrahend
+PASS: 32-bit underflow wraps to max
+PASS: 32-bit underflow with large subtrahend
+PASS: 64-bit underflow wraps to max
+PASS: Chain underflow wraps correctly
+PASS: Decrement underflow wraps
+PASS: Multiple underflows cancel out
+PASS: underflow_arith (8/8)

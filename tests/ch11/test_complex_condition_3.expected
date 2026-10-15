@@ -1,0 +1,6 @@
+PASS: (a||b)&&(c||d) is true
+PASS: chained comparison
+PASS: mixed condition
+PASS: short-circuit OR
+PASS: short-circuit AND
+TEST PASSED

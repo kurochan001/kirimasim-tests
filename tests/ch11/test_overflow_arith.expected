@@ -1,0 +1,9 @@
+PASS: 8-bit overflow addition wraps to 0
+PASS: 8-bit overflow multiplication wraps correctly
+PASS: 32-bit overflow wraps to 0
+PASS: 32-bit large value overflow
+PASS: 64-bit overflow wraps to 0
+PASS: Chain overflow wraps correctly
+PASS: Increment overflow wraps
+PASS: Multiple overflows in expression
+PASS: overflow_arith (8/8)

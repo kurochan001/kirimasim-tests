@@ -1,0 +1,16 @@
+PASS: Simple 2-element concat LHS
+PASS: 4-element concat LHS
+PASS: Mixed width concat LHS
+PASS: Nibble concat LHS
+PASS: Single bit concat LHS
+PASS: Word boundary concat
+PASS: Concat LHS from expression
+PASS: Nested concat LHS
+PASS: Wide 64-bit concat
+PASS: Concat from part-select
+PASS: Concat reverse order
+PASS: Concat zero padding
+PASS: Concat with slice elements
+PASS: Single + multi element concat
+PASS: Concat from concat RHS
+PASS: concat_lhs (15/15)

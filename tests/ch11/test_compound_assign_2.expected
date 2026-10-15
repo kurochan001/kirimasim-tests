@@ -1,0 +1,16 @@
+PASS: Addition assignment +=
+PASS: Subtraction assignment -=
+PASS: Multiplication assignment *=
+PASS: Division assignment /=
+PASS: Modulo assignment %=
+PASS: AND assignment &=
+PASS: OR assignment |=
+PASS: XOR assignment ^=
+PASS: Left shift assignment <<=
+PASS: Right shift assignment >>=
+PASS: Arithmetic right shift assignment >>>=
+PASS: Compound with expression
+PASS: Compound with overflow wrap
+PASS: Chained compound assignments
+PASS: Wide value compound shift
+PASS: compound_assign (15/15)

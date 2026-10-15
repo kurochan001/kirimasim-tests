@@ -1,0 +1,9 @@
+Test 1 PASS: dut.sub.data = ab
+Test 2 PASS: dut.sub.valid = 1
+Test 3 PASS: dut.counter = 12345678
+Test 4 PASS: dut.sub.addr = cafe
+Test 5 PASS: Write to dut.sub.data successful
+Test 6 PASS: direct_sub.data = ab
+Test 7 PASS: Multiple hierarchical writes successful
+Test 8 PASS: Read-modify-write via hierarchy successful
+PASS: hierarchy_access (8/8)

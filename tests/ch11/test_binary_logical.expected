@@ -1,0 +1,26 @@
+Test 1 PASSED: 1 && 1 = 1
+Test 2 PASSED: 1 && 0 = 0
+Test 3 PASSED: 0 && 0 = 0
+Test 4 PASSED: 1 || 0 = 1
+Test 5 PASSED: 0 || 0 = 0
+Test 6 PASSED: 0xF0 & 0x0F = 0x00
+Test 7 PASSED: 0xAA & 0xCC = 0x88
+Test 8 PASSED: 0xF0 | 0x0F = 0xFF
+Test 9 PASSED: 0xA0 | 0x05 = 0xA5
+Test 10 PASSED: 0xFF ^ 0xAA = 0x55
+Test 11 PASSED: 0x5A ^ 0x5A = 0x00
+Test 12 PASSED: 42 && 100 = 1
+Test 13 PASSED: 42 && 0 = 0
+Test 14 PASSED: 0 || 100 = 1
+Test 15 PASSED: 0xFFFF0000 & 0x0000FFFF = 0
+Test 16 PASSED: 0xFF00FF00 | 0x00FF00FF = 0xFFFFFFFF
+Test 17 PASSED: 0xAAAAAAAA ^ 0xFFFFFFFF = 0x55555555
+Test 18 PASSED: 1 && 1 && 1 = 1
+Test 19 PASSED: 0 || 0 || 1 = 1
+Test 20 PASSED: (1 && 0) || (1 && 1) = 1
+Test 21 PASSED: 0xFF & 0xFF = 0xFF
+Test 22 PASSED: 0x00 | 0x00 = 0x00
+Test 23 PASSED: 0xAB ^ 0xAB = 0x00
+Test 24 PASSED: 0x42 ^ 0x00 = 0x42
+Test 25 PASSED: (0xAA & 0x55) | (0xAA ^ 0x55) = 0xFF
+PASS: binary_logical (25/25)

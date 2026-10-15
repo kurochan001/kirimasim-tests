@@ -1,0 +1,26 @@
+Test 1 PASSED: real'(42) = 42.0
+Test 2 PASSED: int'(3.7) = 4
+Test 3 PASSED: int'(-5.9) = -6
+Test 4 PASSED: unsigned'(-1) = 0xFFFFFFFF
+Test 5 PASSED: signed'(0xFFFFFFFF) = -1
+Test 6 PASSED: byte_t'(0x12345678) = 0x78
+Test 7 PASSED: dword_t'(0xAB) = 0x000000AB
+Test 8 PASSED: int'(GREEN) = 1
+Test 9 PASSED: color_e'(2) = BLUE
+Test 10 PASSED: 16'(8'hFF) = 16'h00FF
+Test 11 PASSED: 16'(0xABCD1234) = 0x1234
+Test 12 PASSED: real'(10) / 4.0 = 2.5
+Test 13 PASSED: byte_t'(word_t'(0xFFFF0001)) = 0x01
+Test 14 PASSED: int'(42) = 42
+Test 15 PASSED: unsigned extension = 128
+Test 16 PASSED: int'(l_val[31]) = 1
+Test 17 PASSED: real'(100) = 100.0
+Test 18 PASSED: 32'(-10) = 0xFFFFFFF6
+Test 19 PASSED: real'(0) = 0.0
+Test 20 PASSED: int'(3+4) = 7
+Test 21 PASSED: 1'(5) = 1
+Test 22 PASSED: 1'(4) = 0
+Test 23 PASSED: real'(1.5) = 1.5
+Test 24 PASSED: conditional cast = 10.0
+Test 25 PASSED: word_t'({0xAB, 0xCD}) = 0xABCD
+PASS: cast_expr (25/25)

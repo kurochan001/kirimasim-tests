@@ -1,0 +1,15 @@
+PASS: simple assert true
+PASS: assert with else (pass path)
+PASS: assert expression
+PASS: assert range check
+PASS: assert bitwise
+PASS: multiple assertions
+PASS: assert ternary
+PASS: assert in conditional
+PASS: assert function result
+PASS: assert logical ops
+PASS: assert negation
+PASS: assert case equality
+PASS: assert inequality
+PASS: assert reduction OR
+PASS: assert_imm (14/14)

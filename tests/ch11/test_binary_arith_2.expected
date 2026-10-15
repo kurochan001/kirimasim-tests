@@ -1,0 +1,26 @@
+Test 1 PASSED: 10 + 20 = 30
+Test 2 PASSED: 50 - 30 = 20
+Test 3 PASSED: 7 * 8 = 56
+Test 4 PASSED: 100 / 4 = 25
+Test 5 PASSED: 17 % 5 = 2
+Test 6 PASSED: -10 + -20 = -30
+Test 7 PASSED: 10 - 30 = -20
+Test 8 PASSED: -5 * 7 = -35
+Test 9 PASSED: -100 / 4 = -25
+Test 10 PASSED: -17 % 5 = -2
+Test 11 PASSED: 0xFFFFFFFF + 1 = 0 (overflow)
+Test 12 PASSED: 0x10000 * 0x100 = 0x1000000
+Test 13 PASSED: 3.14 + 2.86 = 6.0
+Test 14 PASSED: 10.5 - 3.5 = 7.0
+Test 15 PASSED: 2.5 * 4.0 = 10.0
+Test 16 PASSED: 15.0 / 3.0 = 5.0
+Test 17 PASSED: 8'd200 + 8'd100 = 300
+Test 18 PASSED: 10 / 3 = 3 (truncated)
+Test 19 PASSED: 12345 * 0 = 0
+Test 20 PASSED: 999 + 0 = 999
+Test 21 PASSED: 42 - 42 = 0
+Test 22 PASSED: 256 / 2 = 128
+Test 23 PASSED: 10 + 5 - 3 * 2 = 9
+Test 24 PASSED: 100 % 10 = 0
+Test 25 PASSED: 100000 * 1000 = 100000000
+PASS: binary_arith (25/25)

@@ -1,0 +1,26 @@
+Test 1 PASSED: 0x01 << 1 = 0x02
+Test 2 PASSED: 0x0F << 4 = 0xF0
+Test 3 PASSED: 0x80 >> 1 = 0x40
+Test 4 PASSED: 0xF0 >> 4 = 0x0F
+Test 5 PASSED: 0xAB << 0 = 0xAB
+Test 6 PASSED: 0xFF << 4 = 0xF0 (overflow)
+Test 7 PASSED: 0x0F >> 8 = 0x00
+Test 8 PASSED: 5 <<< 2 = 20
+Test 9 PASSED: 64 >>> 2 = 16
+Test 10 PASSED: -16 >>> 2 = -4 (sign extended)
+Test 11 PASSED: 0xF0 >> 2 = 0x3C (logical)
+Test 12 PASSED: 0x00FF << 8 = 0xFF00
+Test 13 PASSED: 1 << 31 = 0x80000000
+Test 14 PASSED: 0x01 << 3 (variable) = 0x08
+Test 15 PASSED: 0xFF << 8 = 0x00
+Test 16 PASSED: (0x01 << 2) << 2 = 0x10
+Test 17 PASSED: (0x0F << 4) >> 4 = 0x0F
+Test 18 PASSED: -64 >>> 3 = -8
+Test 19 PASSED: 0x01 << 7 = 0x80
+Test 20 PASSED: 0xAA >> 1 = 0x55
+Test 21 PASSED: 100 << 3 = 800 (multiply by 8)
+Test 22 PASSED: 800 >> 3 = 100 (divide by 8)
+Test 23 PASSED: 0x01 << (2+1) = 0x08
+Test 24 PASSED: 0xFF << -1 = 0x00 (amount is unsigned)
+Test 25 PASSED: -1 >>> 4 = -1 (all 1s preserved)
+PASS: shift_ops (25/25)

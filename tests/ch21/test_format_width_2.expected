@@ -1,0 +1,11 @@
+PASS: %10d right-aligned
+PASS: %5d exact fit
+PASS: %3d overflow
+PASS: %8h with padding
+PASS: %10s right-aligned
+PASS: %10d negative
+PASS: combined widths
+PASS: %1d minimal
+PASS: %20d large width (len=20)
+PASS: %15f: '       3.140000'
+PASS: format_width (10/10)

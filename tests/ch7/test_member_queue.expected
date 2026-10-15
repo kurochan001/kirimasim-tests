@@ -1,0 +1,9 @@
+Test 1 PASS: push_back works, size=3
+Test 2 PASS: push_front works, front=5
+Test 3 PASS: pop_front returned 5
+Test 4 PASS: pop_back returned 30
+Test 5 PASS: insert at index 1 = 15
+Test 6 PASS: delete(1) works, remaining: 10, 20
+Test 7 PASS: byte queue pop_front = aa
+Test 8 PASS: string queue pop_back = world
+PASS: member_queue (8/8)

@@ -1,0 +1,13 @@
+PASS: int to real
+PASS: negative int to real
+PASS: shortint to real
+PASS: longint to real
+PASS: bit vector to real
+PASS: logic vector to real
+PASS: byte to real
+PASS: shortreal to real
+PASS: zero to real
+PASS: large value to real
+PASS: real to real
+PASS: unsigned max to real
+PASS: cast_real (12/12)

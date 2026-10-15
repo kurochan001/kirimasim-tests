@@ -1,0 +1,9 @@
+Test 1 PASS: gen_unit[0].local_data = 00
+Test 2 PASS: gen_unit[1].local_data = 0b
+Test 3 PASS: gen_unit[2].local_data = 16
+Test 4 PASS: gen_unit[3].local_data = 21
+Test 5 PASS: gen_large.large_counter = abcd
+Test 6 PASS: gen_case_4.quad_mode = 1
+Test 7 PASS: gen_unit valid flags set correctly
+Test 8 PASS: Propagation through generate block
+PASS: generate_hier (8/8)

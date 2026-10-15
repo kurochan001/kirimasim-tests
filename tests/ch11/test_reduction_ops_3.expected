@@ -1,0 +1,31 @@
+Test 1 PASSED: &8'hFF = 1
+Test 2 PASSED: &8'hFE = 0
+Test 3 PASSED: &8'h00 = 0
+Test 4 PASSED: |8'h00 = 0
+Test 5 PASSED: |8'h01 = 1
+Test 6 PASSED: |8'hFF = 1
+Test 7 PASSED: ^8'b11001100 = 0 (even parity)
+Test 8 PASSED: ^8'b11001101 = 1 (odd parity)
+Test 9 PASSED: ^8'b00000001 = 1
+Test 10 PASSED: ^8'h00 = 0
+Test 11 PASSED: ~&8'hFF = 0
+Test 12 PASSED: ~&8'hFE = 1
+Test 13 PASSED: ~|8'h00 = 1
+Test 14 PASSED: ~|8'h80 = 0
+Test 15 PASSED: ~^8'b11110000 = 1 (even parity inverted)
+Test 16 PASSED: ~^8'b11110001 = 0 (odd parity inverted)
+Test 17 PASSED: &16'hFFFF = 1
+Test 18 PASSED: |16'h0001 = 1
+Test 19 PASSED: &32'hFFFFFFFF = 1
+Test 20 PASSED: ^32'hAAAAAAAA = 0
+Test 21 PASSED: &4'b1111 = 1
+Test 22 PASSED: |4'b0000 = 0
+Test 23 PASSED: reduction in expression
+Test 24 PASSED: ~|0 as condition
+Test 25 PASSED: chained reduction
+Test 26 PASSED: &data16[15:8] = 1
+Test 27 PASSED: |data16[7:0] = 0
+Test 28 PASSED: parity of 0xAA = 0 (even)
+Test 29 PASSED: XNOR parity of 0xAA = 1
+Test 30 PASSED: (&4'hF) & (|8'hF0) = 1
+PASS: reduction_ops (30/30)

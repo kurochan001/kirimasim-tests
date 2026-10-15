@@ -1,0 +1,9 @@
+Test 1 PASS: module_var = 1000
+Test 2 PASS: block_var = 200
+Test 3 PASS: level1=10, level2=20
+Test 4 PASS: auto local resets each call
+Test 5 PASS: static local persists: 1, 2, 3
+Test 6 PASS: for loop sum = 10
+Test 7 PASS: task_result = 42
+Test 8 PASS: inner shadow = 600
+PASS: local_var_scope (8/8)

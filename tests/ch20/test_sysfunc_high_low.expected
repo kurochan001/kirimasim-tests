@@ -1,0 +1,9 @@
+Test 1 PASS: desc_vec[31:0]: $high=31, $low=0
+Test 2 PASS: asc_vec[0:7]: $high=7, $low=0
+Test 3 PASS: desc_arr[9:0]: $high=9, $low=0
+Test 4 PASS: multi dim1[4:1]: $high=4, $low=1
+Test 5 PASS: multi dim2[8:3]: $high=8, $low=3
+Test 6 PASS: dyn_arr: $high=7, $low=0
+Test 7 PASS: queue_arr: $high=5, $low=0
+Test 8 PASS: neg_arr[-3:3]: $high=3, $low=-3
+PASS: sysfunc_high_low (8/8)

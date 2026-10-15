@@ -1,0 +1,15 @@
+PASS: unsigned to signed (positive)
+PASS: unsigned to signed (negative)
+PASS: signed to unsigned (positive)
+PASS: signed to unsigned (negative)
+PASS: sign extension
+PASS: zero extension
+PASS: $signed system function
+PASS: $unsigned system function
+PASS: cast in expression
+PASS: chained casts
+PASS: max positive (127)
+PASS: boundary (128 -> -128)
+PASS: arithmetic right shift
+PASS: logical right shift
+PASS: cast_signed (14/14)
