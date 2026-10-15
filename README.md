@@ -48,6 +48,12 @@ A test passes when the simulator's standard output, after removing empty
 lines and the simulator's own banners (see `tools/normalize_output.py`),
 is exactly the expected output.
 
+A test whose output depends on the time unit or precision (a nonzero time
+printed with `%t`, `$timeformat`, `$printtimescale`, fractional delays or
+delays with time units) sets them with `` `timescale `` before its first design
+element: the default time unit and precision are implementation-specific
+(IEEE 1800-2023 3.14.2.3).
+
 ## Running with Icarus Verilog
 
 ```sh
