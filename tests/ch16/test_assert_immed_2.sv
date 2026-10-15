@@ -4,7 +4,7 @@
 :tags: ch16
 :type: simulation
 :lrm: 1800-2023 16.3
-:oracle: spec iverilog@13.0
+:oracle: spec
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_assert_immed_2.expected
@@ -33,11 +33,12 @@ module test_assert_immed;
     // Test 4: Assume
     assume(val == 8'hAA) pass_count++;
 
-    // Test 5: Cover
+    // Test 5: Cover. Its pass statement runs when the expression is true
+    // (16.3).
     cover(val == 8'hAA) pass_count++;
 
     $display("Assert immed tests: %0d/5 passed", pass_count);
-    if (pass_count >= 3) begin
+    if (pass_count == 5) begin
       $display("PASS: Assert immed tests");
     end else begin
       $display("FAIL: Some assert tests failed");

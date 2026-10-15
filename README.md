@@ -9,7 +9,7 @@ standard it checks.
 
 > **Status: early.** The suite has 990 tests. Each one was checked
 > against IEEE 1800-2023 by reading the cited clauses, and its expected output
-> matches Icarus Verilog 13.0, except for 4 tests where Icarus Verilog does not
+> matches Icarus Verilog 13.0, except for 5 tests where Icarus Verilog does not
 > follow the standard (see below).
 
 ## Layout
