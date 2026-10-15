@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Inside Operator Tests ===
+Test 1: In set
+Test 1 PASS
+Test 2: Not in set
+Test 2 PASS
+Test 3: In range
+Test 3 PASS
+Test 4: Below range
+Test 4 PASS
+Test 5: Above range
+Test 5 PASS
+Test 6: Range low
+Test 6 PASS
+Test 7: Range high
+Test 7 PASS
+Test 8: Mixed
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

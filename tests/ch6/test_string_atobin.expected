@@ -1,0 +1,7 @@
+PASS: atobin('1010') = 10 (binary 00000000000000000000000000001010)
+PASS: atobin('11111111') = 255 (0xff)
+PASS: atobin('0000') = 0
+PASS: atobin('1') = 1
+PASS: atobin('10110101') = 181 (0xb5)
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string atobin tests passed

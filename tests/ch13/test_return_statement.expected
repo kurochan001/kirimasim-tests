@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Return Statement Tests ===
+Test 1: Early return in loop
+Test 1 PASS: result=5
+Test 2: Abs value negative
+Test 2 PASS: result=42
+Test 3: Abs value positive
+Test 3 PASS: result=17
+Test 4: Sign function
+Test 4 PASS: sign works
+Test 5: Factorial
+Test 5 PASS: 5!=120
+Test 6: Find index
+Test 6 PASS: index=2
+Test 7: Clamp value
+Test 7 PASS: clamp works
+Test 8: Square function
+Test 8 PASS: 7^2=49
+=== Summary: 8/8 tests passed ===
+TEST PASSED

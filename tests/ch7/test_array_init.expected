@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Array Init Tests ===
+Test 1: Explicit
+Test 1 PASS
+Test 2: Manual
+Test 2 PASS
+Test 3: Assign
+Test 3 PASS
+Test 4: Sum
+Test 4 PASS
+Test 5: Access
+Test 5 PASS
+Test 6: Modify
+Test 6 PASS
+Test 7: All same
+Test 7 PASS
+Test 8: Size
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

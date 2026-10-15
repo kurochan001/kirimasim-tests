@@ -1,0 +1,7 @@
+PASS: getc(0) returned 'H' (0x48)
+PASS: getc(2) returned 'l' (0x6c)
+PASS: getc(4) returned 'o' (0x6f)
+PASS: getc(0) from '12345' returned '1' (0x31)
+PASS: getc(1) returned space (0x20)
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string getc tests passed

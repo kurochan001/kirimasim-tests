@@ -1,0 +1,7 @@
+PASS: hextoa(0x1A)
+PASS: hextoa(0)
+PASS: hextoa(0xABCDEF)
+PASS: hextoa(0x100)
+PASS: hextoa(0xDEADBEEF)
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string hextoa tests passed

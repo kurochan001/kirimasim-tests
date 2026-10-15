@@ -1,0 +1,7 @@
+PASS: Test 1 - Small stack (DEPTH=4) works correctly
+PASS: Test 2 - Large stack (DEPTH=16) has correct capacity
+PASS: Test 3 - Default parameter (DEPTH=8) works
+PASS: Test 4 - Multiple parameters (3x4 matrix) work
+PASS: Test 5 - Counter with custom parameters
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All parameterized class tests passed

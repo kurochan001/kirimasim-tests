@@ -1,0 +1,13 @@
+TEST: Mailbox edge cases
+  [PASS] Create mailbox
+  [PASS] Initial size
+  [PASS] Put message
+  [PASS] Get message
+  [PASS] Multiple put
+  [PASS] FIFO order
+  [PASS] Peek message
+  [PASS] Try get success
+  [PASS] Try get empty
+  [PASS] Large value
+Results: 10 passed, 0 failed
+TEST PASSED

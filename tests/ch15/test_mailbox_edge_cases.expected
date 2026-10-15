@@ -1,0 +1,15 @@
+IEEE 1800-2023 Section 15.4 - Mailbox Edge Cases Test
+============================================================
+PASS: Test 1 - Unbounded mailbox created
+PASS: Test 2 - Empty mailbox num() = 0
+PASS: Test 3 - After 3 puts, num() = 3
+PASS: Test 4 - get() retrieves FIFO (first = 1)
+PASS: Test 5 - try_get() succeeds when message available
+PASS: Test 6 - try_get() returns 0 on empty mailbox
+PASS: Test 7 - peek() returns message without removing
+PASS: Test 8 - try_peek() returns 0 on empty mailbox
+PASS: Test 9 - Bounded mailbox rejects when full
+PASS: Test 10 - String mailbox works
+============================================================
+Test Summary: 10 passed, 0 failed
+ALL TESTS PASSED

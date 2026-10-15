@@ -1,0 +1,13 @@
+Test 1 PASS: Add to = 15
+Test 2 PASS: Multiply = 21
+Test 3 PASS: Increment = 1
+Test 4 PASS: Chain = 20
+Test 5 PASS: Multi inc = 5
+Test 6 PASS: Two inout a=13 b=20
+Test 7 PASS: Zero = 0
+Test 8 PASS: Negative = -5
+Test 9 PASS: Mult zero = 0
+Test 10 PASS: Mult neg = -10
+=== Inout Arg Edge Cases ===
+Passed: 10/10
+TEST PASSED

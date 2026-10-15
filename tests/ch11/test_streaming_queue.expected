@@ -1,0 +1,5 @@
+Test 1 PASS: pack queue = aabbccdd
+Test 2 PASS: partial pack = 11220000
+Test 3 PASS: empty queue = 00000000
+Passed: 3/3
+PASS

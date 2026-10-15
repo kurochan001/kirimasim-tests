@@ -1,0 +1,13 @@
+Test 1: Simple member access
+  PASS: obj.value = 42
+Test 2: Member function call
+  PASS: obj.get_value() = 100
+Test 3: Member assignment
+  PASS: assigned value = 999
+Test 4: String member
+  PASS: obj.name = hello
+Test 5: Nested class access
+  PASS: obj.inner.value = 100
+Test 6: Nested function call
+  PASS: obj.sum() = 130
+TEST PASSED: 6/6 tests passed

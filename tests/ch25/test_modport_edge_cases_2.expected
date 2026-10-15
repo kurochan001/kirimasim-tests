@@ -1,0 +1,13 @@
+Test 1 PASS: Initial data=0 valid=0
+Test 2 PASS: Clock edge
+Test 3 PASS: Data = 2
+Test 4 PASS: Multi cycles data=7
+Test 5 PASS: Ready = 1
+Test 6 PASS: Valid = 1
+Test 7 PASS: Direct access = aa
+Test 8 PASS: Reset done
+Test 9 PASS: Re-enabled
+Test 10 PASS: Final data=1 valid=1 ready=1
+=== Modport Edge Cases ===
+Passed: 10/10
+TEST PASSED

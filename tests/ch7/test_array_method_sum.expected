@@ -1,0 +1,18 @@
+Test 1: Simple sum
+  PASS: sum of {1,2,3,4,5} = 15
+Test 2: Simple product
+  PASS: product of {2,3,4,5} = 120
+Test 3: Sum with condition
+  sum of items > 2 = 12
+Test 4: Product with logic array
+  sum of logic array = 6
+Test 5: Sum with filtering
+  sum of even items = 6
+  PASS
+Test 6: XOR reduction
+  xor of array = 1
+Test 7: AND/OR reduction
+  and of array = 0
+  or of array = 7
+  PASS: and/or
+TEST PASSED: 7/7 tests passed

@@ -1,0 +1,5 @@
+Test 1 PASS: pack 4 elements = 11223344
+Test 2 PASS: pack hex = aabbccdd
+Test 3 PASS: pack ones = ffffffff
+Passed: 3/3
+PASS

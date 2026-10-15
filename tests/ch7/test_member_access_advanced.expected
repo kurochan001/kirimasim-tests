@@ -1,0 +1,9 @@
+Test 1: Struct member access PASS
+Test 2: Nested struct member PASS
+Test 3: Union byte access PASS
+Test 4: Union member write PASS
+Test 5: Class member access PASS
+Test 6: Class method access PASS
+Test 7: Class array member PASS
+Test 8: Packed struct $bits = 16 PASS
+TEST PASSED: 8/8 tests passed

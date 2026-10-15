@@ -1,0 +1,7 @@
+PASS: realtoa(3.14) reads back with atoreal
+PASS: realtoa(42.0) reads back with atoreal
+PASS: realtoa(0.0) reads back with atoreal
+PASS: realtoa(-123.456) reads back with atoreal
+PASS: realtoa(0.001) reads back with atoreal
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string realtoa tests passed

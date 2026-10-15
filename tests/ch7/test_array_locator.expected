@@ -1,0 +1,7 @@
+PASS: find(x > 5)
+PASS: find_index(x == 8) = 2
+PASS: find_first(x > 3) = 5
+PASS: find_last(x < 5) = 3
+PASS: min() = 1
+PASS: max() = 9
+TEST PASSED: array locator tests completed

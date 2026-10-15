@@ -1,0 +1,5 @@
+Test 1 PASS: concat 4 bytes = aabbccdd
+Test 2 PASS: concat 2 bytes = 12340000
+Test 3 PASS: concat same = ffffffff
+Passed: 3/3
+PASS

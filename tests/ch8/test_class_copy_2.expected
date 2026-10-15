@@ -1,0 +1,7 @@
+PASS: Test 1 - Simple copy creates independent object
+PASS: Test 2 - Shallow copy shares nested objects
+PASS: Test 3 - Deep copy creates independent nested objects
+PASS: Test 4 - Deep copy of queue creates independent copy
+PASS: Test 5 - Virtual copy preserves derived type
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All class copy tests passed

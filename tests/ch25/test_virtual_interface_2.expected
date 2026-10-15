@@ -1,0 +1,9 @@
+=== IEEE 1800-2023 §25.9: Virtual Interfaces ===
+PASS: Driver created with virtual interface
+PASS: Data driven through vif = 0xAB
+PASS: Valid set through vif
+PASS: Read through vif = 0xAB
+PASS: Clear through vif works
+PASS: Second drive works
+=== Results: 6 PASS, 0 FAIL ===
+TEST PASSED

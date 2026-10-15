@@ -1,0 +1,7 @@
+PASS: tolower('HELLO') = 'hello'
+PASS: tolower('HeLLo WoRLd') = 'hello world'
+PASS: tolower('lowercase') = 'lowercase'
+PASS: tolower('ABC123!@#') = 'abc123!@#'
+PASS: tolower('') = '' (empty string)
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string tolower tests passed

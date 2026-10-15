@@ -1,0 +1,13 @@
+Test 1 PASS: empty string length is 0
+Test 2 PASS: empty strings are equal
+Test 3 PASS: concat with empty string
+Test 4 PASS: toupper on empty
+Test 5 PASS: substr with single char
+Test 6 PASS: string with spaces
+Test 7 PASS: getc at boundaries
+Test 8 PASS: putc at boundaries
+Test 9 PASS: string with special chars
+Test 10 PASS: atoi zero cases
+=== String Edge Cases Test Results ===
+Passed: 10/10
+TEST PASSED

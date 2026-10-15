@@ -1,0 +1,7 @@
+PASS: dif[0].data = 0xaa (from producer)
+PASS: dif[1].data = 0xbb (from producer)
+PASS: valid signals set by producers
+PASS: ready signals set by consumers
+=== Interface Array with Modport Test Summary ===
+Tests: 4/4 passed
+ALL TESTS PASSED

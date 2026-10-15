@@ -1,0 +1,8 @@
+=== Virtual Interface Signal Access Test ===
+PASS: Driver created with virtual interface
+PASS: Write through vif works (data=0xab, valid=1)
+PASS: Read through vif works (read_data=0xab)
+PASS: is_valid() returns correct value
+PASS: Clear through vif works
+=== Summary: 5 PASS, 0 FAIL ===
+TEST PASSED

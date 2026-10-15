@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Class Polymorphism Tests ===
+Test 1: Base class method
+Test 1 PASS: base speak='...'
+Test 2: Derived class override
+Test 2 PASS: dog speak='Woof'
+Test 3: Polymorphic call via base reference
+Test 3 PASS: polymorphic speak='Woof'
+Test 4: Another polymorphic type
+Test 4 PASS: bird via base='Tweet'
+Test 5: Multi-level inheritance
+Test 5 PASS: parrot via base='Hello'
+Test 6: Virtual method with return value
+Test 6 PASS: dog legs=4
+Test 7: Different type via base
+Test 7 PASS: bird legs=2
+Test 8: Parrot legs via Bird inheritance
+Test 8 PASS: parrot via base has legs=2
+=== Summary: 8/8 tests passed ===
+TEST PASSED

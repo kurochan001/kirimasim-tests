@@ -1,0 +1,23 @@
+=== Null and Empty Corner Cases Test ===
+PASS: Uninitialized class handle is null
+PASS: Initialized handle is not null
+PASS: Handle set to null works
+PASS: Uninitialized dynamic array size is 0
+PASS: new[0] creates empty array
+PASS: Empty queue size is 0
+PASS: Queue empty after pop
+PASS: Empty associative array size is 0
+PASS: Non-existent key returns false
+PASS: Empty string length is 0
+PASS: Empty string equals ""
+PASS: Default int is 0
+PASS: Default real is 0.0
+PASS: Default string is empty
+PASS: Delete from associative array works
+PASS: Delete all from array works
+PASS: Queue delete clears all elements
+PASS: null == null is true
+PASS: null != object is true
+=== Summary ===
+Passed: 19, Failed: 0
+TEST PASSED

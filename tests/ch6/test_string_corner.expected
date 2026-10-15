@@ -1,0 +1,18 @@
+=== String Corner Cases Test ===
+PASS: String length works
+PASS: String concatenation works
+PASS: String comparison works
+PASS: String substr works
+PASS: String getc works
+PASS: String case conversion works
+PASS: String to number conversion works
+PASS: Number to string conversion works
+PASS: Empty string length is 0
+PASS: String with special characters works
+PASS: String replication works
+PASS: String assignment creates copy
+PASS: String expression works
+PASS: String putc works
+=== Summary ===
+Passed: 14, Failed: 0
+TEST PASSED

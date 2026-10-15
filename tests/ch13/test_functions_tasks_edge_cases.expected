@@ -1,0 +1,13 @@
+TEST: Functions and Tasks edge cases
+  [PASS] Simple function call
+  [PASS] Default argument
+  [PASS] Recursive function (5! = 120)
+  [PASS] Ref argument increment
+  [PASS] Task completes normally
+  [PASS] Task output arguments
+  [PASS] Function in expression
+  [PASS] Nested function calls
+  [PASS] Function in conditional
+  [PASS] Function calls in loop
+Results: 10 passed, 0 failed
+TEST PASSED

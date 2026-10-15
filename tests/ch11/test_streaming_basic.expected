@@ -1,0 +1,5 @@
+Test 1 PASS: pack array = aabbccdd
+Test 2 PASS: pack single = ff000000
+Test 3 PASS: pack vars = 11223344
+Passed: 3/3
+PASS

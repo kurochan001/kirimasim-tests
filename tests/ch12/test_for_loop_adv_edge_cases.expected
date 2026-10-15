@@ -1,0 +1,13 @@
+TEST: For loop advanced edge cases
+  [PASS] Basic for loop
+  [PASS] For loop with step 2
+  [PASS] For loop decrement
+  [PASS] For loop sum
+  [PASS] Nested for loop
+  [PASS] For loop zero iterations
+  [PASS] For loop with delay
+  [PASS] For loop with break
+  [PASS] For loop with continue
+  [PASS] Multiple init
+Results: 10 passed, 0 failed
+TEST PASSED

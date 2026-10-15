@@ -1,0 +1,13 @@
+TEST: Loop edge cases
+  [PASS] For loop with break at i=5
+  [PASS] For loop with continue skips i=2
+  [PASS] While loop executes 5 times
+  [PASS] While(0) executes 0 times
+  [PASS] Do-while executes at least once
+  [PASS] Nested for loops (3x4=12)
+  [PASS] Forever with break stops correctly
+  [PASS] Repeat with variable count
+  [PASS] For loop decrement (5+4+3+2+1=15)
+  [PASS] For loop with multiple init/update
+Results: 10 passed, 0 failed
+TEST PASSED

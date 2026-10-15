@@ -1,0 +1,13 @@
+TEST: Unique/priority edge cases
+  [PASS] Priority case basic
+  [PASS] Priority if basic
+  [PASS] Unique case basic
+  [PASS] Unique if basic
+  [PASS] Priority case with default
+  [PASS] Unique case first match
+  [PASS] Priority if else
+  [PASS] Nested priority case
+  [PASS] Unique case zero
+  [PASS] Priority if chain
+Results: 10 passed, 0 failed
+TEST PASSED

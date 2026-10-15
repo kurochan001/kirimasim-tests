@@ -1,0 +1,15 @@
+IEEE 1800-2023 Section 15.3 - Semaphore Edge Cases Test
+============================================================
+PASS: Test 1 - Semaphore created with 3 keys
+PASS: Test 2 - get(1) succeeded
+PASS: Test 3 - get(3) succeeded
+PASS: Test 4 - put() keys back succeeded
+PASS: Test 5 - try_get(2) succeeded when keys available
+PASS: Test 6 - try_get(5) returned 0 when only 1 key available
+PASS: Test 7 - try_get on empty semaphore returns 0
+PASS: Test 8 - put() then get() sequence works
+PASS: Test 9 - Multiple put() accumulates keys
+PASS: Test 10 - get() default argument is 1
+============================================================
+Test Summary: 10 passed, 0 failed
+ALL TESTS PASSED

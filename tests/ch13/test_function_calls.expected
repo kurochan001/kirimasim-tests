@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Function Calls Tests ===
+Test 1: Simple function call
+Test 1 PASS: add(5,3)=8
+Test 2: Function with conditional return
+Test 2 PASS: abs_val(-42)=42
+Test 3: Recursive function
+Test 3 PASS: factorial(5)=120
+Test 4: Function with output argument
+Test 4 PASS: result=11, doubled=20
+Test 5: Function with ref argument
+Test 5 PASS: result=101 after increment
+Test 6: Nested function calls
+Test 6 PASS: add(2*3, 4*5)=26
+Test 7: Function result as condition
+Test 7 PASS: abs_val(-10) > 5
+Test 8: Multiple function calls in expression
+Test 8 PASS: sum=21
+=== Summary: 8/8 tests passed ===
+TEST PASSED

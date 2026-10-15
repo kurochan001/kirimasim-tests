@@ -1,0 +1,19 @@
+=== Starting TLM 2.0 Generic Payload Test ===
+--- Test 1: Default values ---
+PASS: Default values correct
+--- Test 2: Set command ---
+PASS: Command set to WRITE
+--- Test 3: Set address ---
+PASS: Address = 0x00001000deadbeef
+--- Test 4: Set data ---
+PASS: Data[2] = 0xcc, length = 4
+--- Test 5: Response status ---
+PASS: Response = OK
+--- Test 6: Error response ---
+PASS: Error response = ADDRESS_ERROR
+--- Test 7: DMI allowed ---
+PASS: DMI allowed = 1
+--- Test 8: Streaming width ---
+PASS: Streaming width = 64
+=== Test Complete ===
+TEST PASSED

@@ -1,0 +1,7 @@
+PASS: Test 1 - Downcast Animal to Dog succeeds
+PASS: Test 2 - Invalid cast Cat->Dog correctly fails
+PASS: Test 3 - Multi-level downcast Animal->GermanShepherd
+PASS: Test 4 - Cast to intermediate class succeeds
+PASS: Test 5 - Cast allows access to derived methods
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All class cast tests passed

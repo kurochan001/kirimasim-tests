@@ -1,0 +1,7 @@
+PASS: toupper('hello') = 'HELLO'
+PASS: toupper('HeLLo WoRLd') = 'HELLO WORLD'
+PASS: toupper('UPPERCASE') = 'UPPERCASE'
+PASS: toupper('abc123!@#') = 'ABC123!@#'
+PASS: toupper('') = '' (empty string)
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string toupper tests passed

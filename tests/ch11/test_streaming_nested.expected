@@ -1,0 +1,5 @@
+Test 1 PASS: pack+swap = ddccbbaa
+Test 2 PASS: double swap = 12345678
+Test 3 PASS: swap symmetric = badccdab
+Passed: 3/3
+PASS

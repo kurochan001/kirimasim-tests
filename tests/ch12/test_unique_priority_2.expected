@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Unique/Priority Tests ===
+Test 1: Unique case
+Test 1 PASS: sel=00 out=11
+Test 2: Unique case value 01
+Test 2 PASS: sel=01 out=22
+Test 3: Priority case
+Test 3 PASS: sel=10 out=cc
+Test 4: Priority case value 11
+Test 4 PASS: sel=11 out=dd
+Test 5: Unique if
+Test 5 PASS: unique if a=1, out=10
+Test 6: Unique if second branch
+Test 6 PASS: unique if b=1, out=20
+Test 7: Priority if
+Test 7 PASS: priority if c=1, out=03
+Test 8: Priority if else branch
+Test 8 PASS: priority if else, out=ff
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,5 @@
+Test 1 PASS: swap bytes = cdab
+Test 2 PASS: swap 32-bit = 44332211
+Test 3 PASS: double swap = deadbeef
+Passed: 3/3
+PASS

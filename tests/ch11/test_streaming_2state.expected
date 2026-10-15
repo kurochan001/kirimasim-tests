@@ -1,0 +1,5 @@
+Test 1 PASS: pack to int = aabbccdd
+Test 2 PASS: pack seq = 01020304
+Test 3 PASS: pack zeros = 00000000
+Passed: 3/3
+PASS

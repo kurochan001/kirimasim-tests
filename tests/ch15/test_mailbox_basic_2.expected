@@ -1,0 +1,9 @@
+Put 42 and 100 into mailbox
+Got 42 from mailbox
+Got 100 from mailbox
+try_get correctly failed on empty mailbox
+Put 10 and 20 into bounded mailbox (size=2)
+try_put correctly failed on full mailbox
+Got 10, mailbox has space now
+Successfully put 30 after freeing space
+PASS: Mailbox test completed

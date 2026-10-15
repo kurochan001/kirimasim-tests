@@ -1,0 +1,7 @@
+PASS: icompare('hello', 'hello') == 0
+PASS: icompare('Hello', 'hello') == 0
+PASS: icompare('HELLO WORLD', 'hello world') == 0
+PASS: icompare('ABC', 'abd') < 0
+PASS: icompare('xyz', 'ABC') > 0
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string icompare tests passed

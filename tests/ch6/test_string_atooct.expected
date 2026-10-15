@@ -1,0 +1,7 @@
+PASS: atooct('17') = 15 (octal 00000000017)
+PASS: atooct('777') = 511 (0x1ff)
+PASS: atooct('0') = 0
+PASS: atooct('7') = 7
+PASS: atooct('12345') = 5349 (0x14e5)
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All string atooct tests passed

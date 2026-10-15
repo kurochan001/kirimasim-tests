@@ -1,0 +1,7 @@
+PASS: Test 1 - Container<int> works
+PASS: Test 2 - Container<string> works
+PASS: Test 3 - Pair<int, string> works
+PASS: Test 4 - TypedQueue<int> works
+PASS: Test 5 - Array<int, 8> with mixed parameters works
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All type parameter tests passed
