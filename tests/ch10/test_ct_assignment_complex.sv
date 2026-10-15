@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 10.4 10.6.2 11.5.1
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_ct_assignment_complex.expected

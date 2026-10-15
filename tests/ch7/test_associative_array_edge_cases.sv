@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.8.4 7.9
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_associative_array_edge_cases.expected

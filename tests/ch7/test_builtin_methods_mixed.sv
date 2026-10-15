@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.10 7.5 7.9 6.16
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_builtin_methods_mixed.expected

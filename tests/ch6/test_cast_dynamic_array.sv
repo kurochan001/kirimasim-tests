@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 6.24.2 7.5 7.10
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_cast_dynamic_array.expected

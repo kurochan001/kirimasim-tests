@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 23.6 23.8
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_hier_ref_child_variable.expected

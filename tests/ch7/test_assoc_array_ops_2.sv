@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.9 7.9.3 7.9.4 7.9.5 7.9.6
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_assoc_array_ops_2.expected

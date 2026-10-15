@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 5.7 5.7.1 5.7.2 5.9 6.11 6.16 10.7
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_ieee1800_2023_literal_edge.expected

@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 8.4 8.5 12.5
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_class_register_block.expected

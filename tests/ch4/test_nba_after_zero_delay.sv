@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 4.4.2.3 4.4.2.4 10.4.2
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_nba_after_zero_delay.expected

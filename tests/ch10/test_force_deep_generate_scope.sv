@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 10.6.2 27.4 7.2
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_force_deep_generate_scope.expected

@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.4 7.4.2 7.2
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_unpacked_types_edge_cases.expected

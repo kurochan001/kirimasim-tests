@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 20.6.2 6.24.3
 :oracle: spec iverilog@13.0 verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_bits_2.expected

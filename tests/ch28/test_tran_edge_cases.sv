@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 28.8
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_tran_edge_cases.expected

@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 20.6.3 6.20.2
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_system_isunbounded.expected

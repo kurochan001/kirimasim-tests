@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 6.20.4 27.5
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_generate_string_localparam.expected

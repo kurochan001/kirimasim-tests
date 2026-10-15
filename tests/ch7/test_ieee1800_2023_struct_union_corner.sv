@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.2 7.2.1 7.3 7.3.1 10.9.2
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_ieee1800_2023_struct_union_corner.expected

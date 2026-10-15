@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 25.8 25.5 4.9.4 10.4.2
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_interface_parameter_corner.expected

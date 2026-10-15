@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 14.11 14.12
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_cycle_delay.expected

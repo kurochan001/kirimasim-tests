@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.12 7.10.2
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_comb_queue_methods_ext.expected

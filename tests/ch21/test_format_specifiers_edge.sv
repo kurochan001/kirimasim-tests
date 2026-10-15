@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 21.2.1.1 21.2.1.2 21.2.1.5 21.3.3
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_format_specifiers_edge.expected

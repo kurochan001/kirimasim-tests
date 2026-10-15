@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 20.5 20.7 11.7 6.24.1
 :oracle: spec iverilog@13.0 verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_comb_systask_conversion.expected

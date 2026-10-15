@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 4.4.2.3 4.6 10.4.2 10.3.2
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_delta_cycle.expected

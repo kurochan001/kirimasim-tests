@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 11.4.3 11.4.5 11.4.6 11.4.9 11.4.10 11.4.11 11.4.8 11.4.4
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_ieee1800_2023_xz_propagation.expected

@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.10.2 7.9.4 7.9.2 7.9.3 7.8.2
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_edge_queue_assoc.expected

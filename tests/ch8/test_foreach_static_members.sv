@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 8.9 8.10 12.7.3 7.10 7.8
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_foreach_static_members.expected

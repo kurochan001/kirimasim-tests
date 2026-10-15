@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 27.5 23.8 13.4
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_gen_if_case.expected

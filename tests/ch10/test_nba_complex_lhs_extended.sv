@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 10.4.2 7.2 7.4
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_nba_complex_lhs_extended.expected

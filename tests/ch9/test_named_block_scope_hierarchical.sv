@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 9.3.4 23.6 6.21
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_named_block_scope_hierarchical.expected

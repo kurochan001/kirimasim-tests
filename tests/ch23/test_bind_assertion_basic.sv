@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 23.11 16.12
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_bind_assertion_basic.expected

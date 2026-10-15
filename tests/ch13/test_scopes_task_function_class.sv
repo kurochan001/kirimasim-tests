@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 13.3 13.4 9.3.4 8.4
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_scopes_task_function_class.expected

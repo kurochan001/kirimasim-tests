@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 16.12 16.6
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_sva_array_bitselect.expected

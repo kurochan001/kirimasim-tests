@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 10.3.4 28.10 28.11 28.12
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_strength_resolution.expected

@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 6.20.4 6.20.1
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_param_local_2.expected

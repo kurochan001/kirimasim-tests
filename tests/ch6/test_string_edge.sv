@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 6.16 6.16.9 6.16.10 6.16.11 6.16.12
 :oracle: spec
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_string_edge.expected

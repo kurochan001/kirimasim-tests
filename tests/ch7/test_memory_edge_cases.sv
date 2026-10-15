@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.4 7.5 7.8 7.10
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_memory_edge_cases.expected

@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.2 7.2.2
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_edge_struct_member_access.expected

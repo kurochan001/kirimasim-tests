@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 6.11.2 7.4.1 8 20.7
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_ieee_compliance_dimensions_twostate.expected

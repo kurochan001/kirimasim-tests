@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 6.18 6.19 7.2
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_typedef_struct_enum.expected

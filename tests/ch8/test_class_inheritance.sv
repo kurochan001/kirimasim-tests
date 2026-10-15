@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 8.13 8.20 8.22
 :oracle: spec
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_class_inheritance.expected

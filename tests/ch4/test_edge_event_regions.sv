@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 4.4.2.2 4.4.2.3 4.4.2.4 21.2.2
 :oracle: spec iverilog@13.0 verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_edge_event_regions.expected

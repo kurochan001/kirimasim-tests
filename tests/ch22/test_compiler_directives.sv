@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 22.5.1 22.6 22.7 22.8
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_compiler_directives.expected

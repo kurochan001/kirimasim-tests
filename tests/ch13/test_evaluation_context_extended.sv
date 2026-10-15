@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 13.4 8.9 8.10 6.21
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_evaluation_context_extended.expected

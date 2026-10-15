@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.5.1 7.5.2 7.5.3 7.10.2
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_dynamic_array_queue_size.expected

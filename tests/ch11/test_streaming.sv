@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 11.4.14
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_streaming.expected

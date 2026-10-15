@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 13.4 11.4.11
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_min_max_func.expected

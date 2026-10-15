@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 8.4 8.8
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_edge_class_null_handle.expected

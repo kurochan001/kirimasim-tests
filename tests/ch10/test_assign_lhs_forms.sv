@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 10.4.1 11.5.1 7.4 10.9.1
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_assign_lhs_forms.expected

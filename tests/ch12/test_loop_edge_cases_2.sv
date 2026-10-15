@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 12.7 12.7.1 12.7.2 12.7.3 12.7.4 12.7.5 12.8
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_loop_edge_cases_2.expected

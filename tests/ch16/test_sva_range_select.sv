@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 16.12 11.4.13
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_sva_range_select.expected

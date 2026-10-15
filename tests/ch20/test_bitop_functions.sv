@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 20.9 20.8.1
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_bitop_functions.expected

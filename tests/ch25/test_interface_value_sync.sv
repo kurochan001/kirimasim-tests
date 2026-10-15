@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 25.3 25.4
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_interface_value_sync.expected

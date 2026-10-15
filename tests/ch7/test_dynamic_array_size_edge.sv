@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 7.5.2
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_dynamic_array_size_edge.expected

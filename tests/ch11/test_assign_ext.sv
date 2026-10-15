@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 11.4.1 11.5.1 7.10.2
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_assign_ext.expected

@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 29.4
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_udp_comb.expected

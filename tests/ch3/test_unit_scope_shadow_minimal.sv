@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 3.12.1 26.3
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_unit_scope_shadow_minimal.expected

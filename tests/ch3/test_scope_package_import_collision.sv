@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 3.12.1 26.3 23.7 26.5
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_scope_package_import_collision.expected

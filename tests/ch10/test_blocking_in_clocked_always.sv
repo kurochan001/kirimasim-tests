@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 10.4.1
 :oracle: spec iverilog@13.0
+:spec_check: ai
 :fourstate: yes
 :nondeterministic: no
 :expected_stdout: @test_blocking_in_clocked_always.expected

@@ -5,6 +5,7 @@
 :type: simulation
 :lrm: 1800-2023 11.4.5 7.2 7.3
 :oracle: spec verilator@5.052
+:spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_comb_notequal_struct.expected
