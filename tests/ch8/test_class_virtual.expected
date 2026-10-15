@@ -1,0 +1,7 @@
+PASS: Test 1 - Dog created from virtual Animal
+PASS: Test 2 - Cat implements speak()
+PASS: Test 3 - Polymorphic call through Animal reference
+PASS: Test 4 - Overridden get_info() called
+PASS: Test 5 - Rectangle area from Shape virtual class
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All virtual class tests passed

@@ -1,0 +1,9 @@
+Test 1: Factorial PASS
+Test 2: Fibonacci PASS
+Test 3: Ref arg PASS
+Test 4: Auto func PASS
+Test 5: Nested calls PASS
+Test 6: Expr in call PASS
+Test 7: Conditional call PASS
+Test 8: Multiple args PASS
+TEST PASSED: 8/8 tests passed

@@ -1,0 +1,18 @@
+=== Starting Callback Chain Test ===
+Registered 3 callbacks
+--- Test 1: Execute all callbacks ---
+COMPONENT: Executing operation
+CALLBACK: id=1 executing, count=1
+CALLBACK: id=2 executing, count=1
+CALLBACK: id=3 executing, count=1
+COMPONENT: Operation done
+PASS: All callbacks called once
+--- Test 2: Execute again ---
+COMPONENT: Executing operation
+CALLBACK: id=1 executing, count=2
+CALLBACK: id=2 executing, count=2
+CALLBACK: id=3 executing, count=2
+COMPONENT: Operation done
+PASS: All callbacks called twice total
+=== Test Complete ===
+TEST PASSED

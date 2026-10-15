@@ -1,0 +1,7 @@
+Test 1: $rtoi PASS
+Test 2: $itor PASS
+Test 3: $realtobits PASS
+Test 4: $bitstoreal PASS
+Test 5: $signed PASS
+Test 6: $unsigned PASS
+TEST PASSED: 6/6 tests passed

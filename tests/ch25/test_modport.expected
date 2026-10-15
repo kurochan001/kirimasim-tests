@@ -1,0 +1,7 @@
+=== IEEE 1800-2023 §25.4: Modports ===
+PASS: Master wrote data = 0xAA
+PASS: Master wrote valid = 1
+PASS: Slave wrote ready = 1
+PASS: Testbench can access interface signals
+=== Results: 4 PASS, 0 FAIL ===
+TEST PASSED

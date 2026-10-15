@@ -1,0 +1,23 @@
+Test 1 PASS: add(10,20) = 30
+Test 2 PASS: multiply(5,6) = 30
+Test 3 PASS: PKG_CONST = 100
+Test 4 PASS: point_t = (10, 20)
+Test 5 PASS: format_int(42) = 42
+Test 6 PASS: add(multiply(2,3),4) = 10
+Test 7 PASS: Point add = (8, 17)
+Test 8 PASS: PKG_CONST + 50 = 150
+Test 9 PASS: Sum 1-5 = 15
+Test 10 PASS: Product 1-4 = 24
+Test 11 PASS: Point array[2] = (5, 6)
+Test 12 PASS: add(0,0) = 0
+Test 13 PASS: add(-10,5) = -5
+Test 14 PASS: multiply(100,0) = 0
+Test 15 PASS: multiply(-3,4) = -12
+Test 16 PASS: Origin = (0, 0)
+Test 17 PASS: format_int(-42) = -42
+Test 18 PASS: PKG_CONST > 50
+Test 19 PASS: 10000*100 = 1000000
+Test 20 PASS: Package tests complete
+=== Package Edge Cases ===
+Passed: 20/20
+TEST PASSED

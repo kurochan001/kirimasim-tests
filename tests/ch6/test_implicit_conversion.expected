@@ -1,0 +1,18 @@
+=== Implicit Type Conversion Test ===
+PASS: Int to logic conversion works
+PASS: Logic to int conversion works
+PASS: Unsigned width extension (zero-extend)
+PASS: Signed width extension (sign-extend)
+PASS: Width truncation keeps low bits
+PASS: Mixed sign expression (result=510)
+PASS: Real to int rounds (3.9 -> 4) per §6.12.1
+PASS: Int to real conversion works
+PASS: Boolean context conversions work
+PASS: String to int via atoi()
+PASS: Enum to int conversion works
+PASS: Array element conversion works
+PASS: Function return conversion works
+PASS: Conditional expression type promotion
+=== Summary ===
+Passed: 14, Failed: 0
+TEST PASSED

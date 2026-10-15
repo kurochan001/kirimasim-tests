@@ -1,0 +1,7 @@
+PASS: aa.num() = 3
+PASS: exists('banana')
+PASS: !exists('grape')
+PASS: aa['apple'] = 10
+PASS: delete reduced size
+PASS: int key access
+TEST PASSED: associative array tests completed

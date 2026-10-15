@@ -1,0 +1,9 @@
+Test 1: $countones(8'b00000000) = 0 PASS
+Test 2: $countones(8'b11111111) = 8 PASS
+Test 3: $countones(8'b10101010) = 4 PASS
+Test 4: $countones(8'b00000001) = 1 PASS
+Test 5: $countones(255) = 8 PASS
+Test 6: $countbits(8'b11110000, 0) = 4 PASS
+Test 7: $countbits(8'b11110000, 1) = 4 PASS
+Test 8: $countbits(8'b00000000, 0) = 8 PASS
+TEST PASSED: 8/8 tests passed

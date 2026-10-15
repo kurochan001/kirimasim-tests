@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Function Arguments Tests ===
+Test 1: Two args
+Test 1 PASS
+Test 2: Multiply
+Test 2 PASS
+Test 3: Default arg
+Test 3 PASS
+Test 4: Override default
+Test 4 PASS
+Test 5: Array arg
+Test 5 PASS
+Test 6: Expression arg
+Test 6 PASS
+Test 7: Nested calls
+Test 7 PASS
+Test 8: Negative args
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

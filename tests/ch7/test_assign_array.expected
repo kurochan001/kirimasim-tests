@@ -1,0 +1,5 @@
+Test 1 PASS: element assign
+Test 2 PASS: array copy
+Test 3 PASS: reassign element
+Passed: 3/3
+PASS

@@ -1,0 +1,5 @@
+PASS: test_default_semaphore - Semaphore created
+PASS: test_semaphore_with_keys - Semaphore with 5 keys created
+PASS: test_semaphore_one_key - Single-key semaphore works
+PASS: test_multiple_semaphores - Multiple semaphores created
+PASS: test_semaphore_zero_keys - Zero-key semaphore works

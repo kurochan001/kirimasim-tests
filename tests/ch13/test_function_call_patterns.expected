@@ -1,0 +1,11 @@
+Test 1: add(5,3) = 8 PASS
+Test 2: add_default(5) = 15 PASS
+Test 3: add_default(5,20) = 25 PASS
+Test 4: output args x=100 y=200 PASS
+Test 5: factorial(5) = 120 PASS
+Test 6: ref increment x=11 PASS
+Test 7: array sum = 6 PASS
+Test 8: nested calls = 18 PASS
+Test 9: named args = 30 PASS
+Test 10: expr args = 25 PASS
+TEST PASSED: 10/10 tests passed

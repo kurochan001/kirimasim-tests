@@ -1,0 +1,9 @@
+Test 1 PASS: 3-input AND gate
+Test 2 PASS: 3-input OR gate
+Test 3 PASS: 3-input XOR gate (parity)
+Test 4 PASS: 3-input NAND gate
+Test 5 PASS: 4-input AND gate
+Test 6 PASS: 4-input OR gate
+=== Multi-input Primitives Test Results ===
+Passed: 6/6
+TEST PASSED

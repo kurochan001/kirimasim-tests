@@ -1,0 +1,12 @@
+=== IEEE 1800-2023 §20.6 $bits Test ===
+Test 1 PASS: $bits(logic[7:0]) = 8
+Test 2 PASS: $bits(logic[31:0]) = 32
+Test 3 PASS: $bits(logic[63:0]) = 64
+Test 4 PASS: $bits(logic[127:0]) = 128
+Test 5 PASS: $bits(int) = 32
+Test 7 PASS: $bits(bit) = 1
+Test 8 PASS: $bits(logic[3:0][7:0]) = 32
+Test 9 PASS: $bits(packed struct) = 24
+=== Summary ===
+Passed: 8, Failed: 0
+TEST PASSED

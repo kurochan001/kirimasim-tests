@@ -1,0 +1,6 @@
+PASS: add(3, 4) = 7
+PASS: factorial(5) = 120
+PASS: with_default(5) = 15
+PASS: with_default(5, 20) = 25
+PASS: by_ref doubled value
+TEST PASSED: function call tests completed

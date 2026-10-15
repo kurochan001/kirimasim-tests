@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Interface Basic Tests ===
+Test 1: Interface instantiation
+Test 1 PASS: interface created
+Test 2: Write data signal
+Test 2 PASS: data=ab
+Test 3: Write valid signal
+Test 3 PASS: valid=1
+Test 4: Read ready signal
+Test 4 PASS: ready=1
+Test 5: Modify data
+Test 5 PASS: data=cd
+Test 6: Clear valid
+Test 6 PASS: valid=0
+Test 7: Multiple signal update
+Test 7 PASS: data=ef valid=1 ready=0
+Test 8: Final state
+Test 8 PASS: reset complete
+=== Summary: 8/8 tests passed ===
+TEST PASSED

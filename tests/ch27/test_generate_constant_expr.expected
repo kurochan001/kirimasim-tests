@@ -1,0 +1,8 @@
+PASS: Test 1 - Simple genvar iteration
+PASS: Test 2 - Array parameter access
+PASS: Test 3 - Complex genvar expression
+PASS: Test 4 - Conditional generate (if-generate)
+=== Test Summary ===
+Passed: 13
+Failed: 0
+TEST PASSED

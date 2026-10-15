@@ -1,0 +1,23 @@
+PASS: Test 1 - Basic streaming left-to-right
+PASS: Test 2 - Basic streaming right-to-left
+PASS: Test 3 - Streaming with implicit slice
+PASS: Test 4 - Streaming with explicit slice size
+PASS: Test 5 - Streaming concatenation source
+PASS: Test 6 - Streaming to dynamic array
+PASS: Test 7 - Nested streaming nibbles
+PASS: Test 8 - Streaming with packed struct
+PASS: Test 9 - Streaming reverse with struct
+PASS: Test 10 - Streaming array to packed
+PASS: Test 11 - Streaming bit reversal
+PASS: Test 12 - Streaming 2-bit slice reversal
+PASS: Test 13 - Streaming mixed sizes
+PASS: Test 14 - Streaming queue target
+PASS: Test 15 - Streaming with enum
+PASS: Test 16 - Identity streaming
+PASS: Test 17 - Streaming signed value
+PASS: Test 18 - Large streaming operation
+PASS: Test 19 - Streaming to 2D array elements
+PASS: Test 20 - Bidirectional streaming combination
+=== Streaming Operator Complex Summary ===
+Tests passed: 20/20
+ALL TESTS PASSED

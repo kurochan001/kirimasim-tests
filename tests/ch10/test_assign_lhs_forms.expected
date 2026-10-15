@@ -1,0 +1,16 @@
+=== Assignment Patterns Test ===
+PASS: Simple assignment vec = 32'hDEADBEEF
+PASS: Bit select assignment vec[0]=1, vec[31]=1
+PASS: Part select assignment vec[15:8]=8'hAB
+PASS: Indexed part select (ascending) vec[8+:8]=8'hCD
+PASS: Indexed part select (descending) vec[23-:8]=8'hEF
+PASS: Array element assignment
+PASS: Packed 2D array assignment
+PASS: Struct member assignment
+PASS: Array literal assignment
+PASS: Variable index assignment
+PASS: Chained bit select in loop
+=== Assignment Patterns Test Summary ===
+PASS: 11
+FAIL: 0
+ALL TESTS PASSED

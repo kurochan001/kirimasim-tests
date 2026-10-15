@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Case Inside Tests ===
+Test 1: Exact match zero
+Test 1 PASS: val=0 -> zero
+Test 2: Multiple values match
+Test 2 PASS: val=2 -> low
+Test 3: Odd values
+Test 3 PASS: val=7 -> odd
+Test 4: Even values
+Test 4 PASS: val=8 -> even
+Test 5: Default case
+Test 5 PASS: val=15 -> default
+Test 6: First branch match
+Test 6 PASS: val=1 -> first
+Test 7: Second branch match
+Test 7 PASS: val=5 -> second
+Test 8: Max value
+Test 8 PASS: val=14 -> even
+=== Summary: 8/8 tests passed ===
+TEST PASSED

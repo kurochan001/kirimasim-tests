@@ -1,0 +1,23 @@
+PASS: Test 1 - packed struct member access
+PASS: Test 2 - packed struct from integer 16'hAABB
+PASS: Test 3 - packed struct member modification
+PASS: Test 4 - packed struct equality comparison
+PASS: Test 5 - packed struct -> bit vector
+PASS: Test 6 - quad packed struct -> 32'h12345678
+PASS: Test 7 - nested packed struct access
+PASS: Test 8 - nested struct from int 32'hDEADBEEF
+PASS: Test 9 - $bits(packed struct) -> 16
+PASS: Test 10 - $bits(quad struct) -> 32
+PASS: Test 11 - unpacked struct assignment
+PASS: Test 12 - unpacked struct literal
+PASS: Test 13 - struct with array member
+PASS: Test 14 - struct copy
+PASS: Test 15 - packed union word access
+PASS: Test 16 - packed union field overlay
+PASS: Test 17 - union field write -> word read
+PASS: Test 18 - array of packed structs
+PASS: Test 19 - struct literal '{default: 0}
+PASS: Test 20 - dynamic array of structs
+=== Struct/Union Corner Cases Summary ===
+Tests passed: 20/20
+ALL TESTS PASSED

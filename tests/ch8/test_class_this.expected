@@ -1,0 +1,7 @@
+PASS: Test 1 - this.member = parameter works
+PASS: Test 2 - this.member in getter works
+PASS: Test 3 - Return this enables method chaining
+PASS: Test 4 - this.member vs other.member comparison
+PASS: Test 5 - Builder pattern with this chaining
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All this keyword tests passed

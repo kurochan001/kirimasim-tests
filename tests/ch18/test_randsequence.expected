@@ -1,0 +1,12 @@
+Test 1: Simple production sequence
+  first production
+  second production
+  third production
+PASS: Simple sequence executed 3 productions
+Test 2: Weighted random selection
+PASS: Weighted selection executed 10 times
+Test 3: Code block in production
+  Code block executed
+PASS: Code block executed correctly
+=== Test Summary ===
+All tests PASSED (3/3)

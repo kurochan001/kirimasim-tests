@@ -1,0 +1,5 @@
+PASS: Test 1 - Streaming NBA {>>{a,b,c,d}} <= 0xAABBCCDD
+PASS: Test 2 - Streaming NBA {>>{a,b,c,d}} <= 0x11223344
+=== Streaming NBA Complex Test Summary ===
+PASS: 2, FAIL: 0
+ALL TESTS PASSED

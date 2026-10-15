@@ -1,0 +1,3 @@
+T0 display-before a=0
+T0 strobe-end   a=1
+PASS: event region ordering verified

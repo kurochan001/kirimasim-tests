@@ -1,0 +1,6 @@
+Test 1: Initial state PASS
+Test 2: Data change PASS
+Test 3: Valid signal PASS
+Test 4: Output PASS data_out=bb
+Test 5: Multiple cycles PASS
+TEST PASSED: 5/5 tests passed

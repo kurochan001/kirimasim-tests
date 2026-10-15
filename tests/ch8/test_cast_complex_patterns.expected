@@ -1,0 +1,7 @@
+PASS: Test 1 - $cast(arr[0], d)
+PASS: Test 2 - $cast(matrix[1][0], d)
+PASS: Test 3 - $cast(cube[1][0][1], d)
+PASS: Test 4 - $cast(cont.items[1], d)
+PASS: Test 5 - $cast(cont.matrix[0][1], d)
+PASS: Test 6 - $cast(cont.cube[1][1][0], d)
+ALL TESTS PASSED (6 tests)

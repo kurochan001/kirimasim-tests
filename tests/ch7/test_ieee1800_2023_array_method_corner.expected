@@ -1,0 +1,28 @@
+PASS: Test 1 - Empty dynamic array size
+PASS: Test 2 - Delete dynamic array via new[0]
+PASS: Test 3 - Reverse array
+PASS: Test 4 - Sort ascending
+PASS: Test 5 - Rsort descending
+PASS: Test 6 - Shuffle array (sum preserved)
+PASS: Test 7 - Sum method
+PASS: Test 8 - Product method
+PASS: Test 9 - And reduction
+PASS: Test 10 - Or reduction
+PASS: Test 11 - Xor reduction
+PASS: Test 12 - Min method
+PASS: Test 13 - Max method
+PASS: Test 14 - Unique method (size=4)
+PASS: Test 15 - Find method (found 2 elements)
+PASS: Test 16 - Find_index method
+PASS: Test 17 - Find_first method
+PASS: Test 18 - Find_last method
+PASS: Test 19 - Single element reverse
+PASS: Test 20 - Queue pop_front/pop_back
+PASS: Test 21 - Queue push_front/push_back
+PASS: Test 22 - Queue insert
+PASS: Test 23 - Associative array exists/delete
+PASS: Test 24 - Associative array first/next
+PASS: Test 25 - Dynamic array sum after resize
+=== Array Method Corner Cases Summary ===
+Tests: 25/25 passed
+TEST PASSED

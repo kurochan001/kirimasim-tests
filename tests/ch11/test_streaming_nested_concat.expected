@@ -1,0 +1,6 @@
+PASS: Test 1 - Basic streaming {>>{a,b,c,d}} = 0xAABBCCDD
+PASS: Test 2 - Nested concat {>>{{a,b},{c,d}}} = 0x11223344
+PASS: Test 3 - {>>{a,b}} from 16-bit: BE EF
+=== Streaming Nested Concat Test Summary ===
+PASS: 3, FAIL: 0
+ALL TESTS PASSED

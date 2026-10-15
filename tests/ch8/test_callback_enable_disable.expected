@@ -1,0 +1,16 @@
+=== Starting Enable/Disable Test ===
+--- Test 1: Callback enabled (default) ---
+CALLBACK: on_event(data=100), count=1
+PASS: Callback called
+--- Test 2: Disable using callback_mode(0) ---
+PASS: Disabled callback not called
+--- Test 3: Enable using callback_mode(1) ---
+CALLBACK: on_event(data=300), count=2
+PASS: Re-enabled callback called
+--- Test 4: Disable using disable_cb() ---
+PASS: Disabled callback not called
+--- Test 5: Enable using enable() ---
+CALLBACK: on_event(data=500), count=3
+PASS: Enabled callback called
+=== Test Complete ===
+TEST PASSED

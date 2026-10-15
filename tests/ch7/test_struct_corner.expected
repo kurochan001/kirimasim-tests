@@ -1,0 +1,14 @@
+=== Struct Corner Cases Test ===
+PASS: Packed struct basic access works
+PASS: Packed struct as bit vector works
+PASS: Unpacked struct works
+PASS: Nested struct works
+PASS: Struct with array works
+PASS: Struct assignment creates copy
+PASS: Struct comparison (equal) works
+PASS: Struct comparison (not equal) works
+PASS: Struct literal assignment works
+PASS: Struct in function works
+=== Summary ===
+Passed: 10, Failed: 0
+TEST PASSED

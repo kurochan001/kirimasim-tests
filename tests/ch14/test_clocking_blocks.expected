@@ -1,0 +1,6 @@
+Test 1: cb.data_out <= 0xAA PASS
+Test 2: cb.data_in == 0x55 PASS
+Test 3: cb.data_in after cycles PASS
+Test 4: Multiple writes through cb PASS
+Test 5: Read/write same cycle - data_in=bb PASS
+TEST PASSED: 5/5 tests passed

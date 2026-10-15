@@ -1,0 +1,5 @@
+PASS: test_try_get_available - try_get succeeded
+PASS: test_try_get_insufficient - try_get returns 0
+PASS: test_try_get_empty - try_get on empty returns 0
+PASS: test_try_get_default - Default argument works
+PASS: test_try_get_nonblocking - Non-blocking behavior confirmed

@@ -1,0 +1,7 @@
+PASS: Event e1 not triggered initially
+PASS: Event e1 is triggered after ->
+PASS: Event e2 is not triggered
+PASS: Event e2 is now triggered
+PASS: e1 and e2 triggered, e3 not triggered
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All event triggered tests passed

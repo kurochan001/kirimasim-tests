@@ -1,0 +1,17 @@
+=== Array Method Corner Cases Test ===
+PASS: Array sum works
+PASS: Array product works
+PASS: Array min/max works
+PASS: Array sort works
+PASS: Array rsort works
+PASS: Array reverse works
+PASS: Array shuffle preserves elements
+PASS: Array unique works
+PASS: Array find works
+PASS: Array find_index works
+PASS: Array find_first works
+PASS: Array find_last works
+PASS: Array and/or reduction works
+=== Summary ===
+Passed: 13, Failed: 0
+TEST PASSED

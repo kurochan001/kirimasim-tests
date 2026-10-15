@@ -1,0 +1,9 @@
+PASS: Test 1 - NBA to a member of an array element (reg_bank[addr].data)
+PASS: Test 2 - NBA to a member of an array element (reg_bank[addr].control)
+PASS: Test 3 - NBA to a member of an element of a struct member (obj.pkts[i].data)
+PASS: Test 4 - Mixed NBA same root, different paths
+PASS: Test 5 - Variable index NBA (reg_bank[idx].data)
+=== Test Summary ===
+Passed: 5
+Failed: 0
+TEST PASSED

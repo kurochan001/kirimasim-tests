@@ -1,0 +1,6 @@
+PASS: pt.x = 10
+PASS: pt.y = 20
+PASS: pt.data = 0xAB
+PASS: aggregate assignment
+PASS: packed struct to bits
+TEST PASSED: struct access tests completed

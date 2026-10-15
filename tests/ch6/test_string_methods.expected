@@ -1,0 +1,7 @@
+PASS: len() = 11
+PASS: toupper()
+PASS: tolower()
+PASS: substr(0,4)
+PASS: getc(0) = 'H'
+PASS: putc(0, 'h')
+TEST PASSED: string methods tests completed

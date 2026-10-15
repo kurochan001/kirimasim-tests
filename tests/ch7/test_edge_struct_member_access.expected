@@ -1,0 +1,2 @@
+PASS: Struct member access works correctly
+PASS: Struct member modification works correctly

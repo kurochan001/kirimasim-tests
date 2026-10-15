@@ -1,0 +1,15 @@
+Test 1 PASS: pkg_a::VALUE = 100
+Test 2 PASS: pkg_b::VALUE = 200
+Test 3 PASS: pkg_b::VALUE = 200
+Test 4 PASS: pkg_a::get_value() = 100
+Test 5 PASS: pkg_a::byte_t = ff
+Test 6 PASS: BaseClass::class_val = 50
+Test 7 PASS: get_static() = 50
+Test 8 PASS: DerivedClass::derived_val = 75
+Test 9 PASS: Modified class_val = 60
+Test 10 PASS: Inherited static = 60
+Test 11 PASS: Wildcard import = aa
+Test 12 PASS: pkg_a != pkg_b
+=== Scope Resolution Edge Cases ===
+Passed: 12/12
+TEST PASSED

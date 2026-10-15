@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Advanced Interface Tests ===
+Test 1: Direct signal access
+Test 1 PASS: data=ab
+Test 2: Valid signal
+Test 2 PASS: valid=1
+Test 3: Ready signal
+Test 3 PASS: ready=1
+Test 4: Interface function call
+Test 4 PASS: get_data()=cd
+Test 5: Multiple signal assignment
+Test 5 PASS: data=12 valid=0 ready=1
+Test 6: Signal toggle
+Test 6 PASS: toggle complete
+Test 7: Data pattern
+Test 7 PASS: pattern=10101010 (aa)
+Test 8: Zero data
+Test 8 PASS: all zeros
+=== Summary: 8/8 tests passed ===
+TEST PASSED
