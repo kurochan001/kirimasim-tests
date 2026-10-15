@@ -83,7 +83,7 @@ module test_nested_gen_func;
 
         // Summary
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 2)
+        if (pass_count == 3)
             $display("PASS: test_nested_gen_func");
         else
             $display("FAIL: test_nested_gen_func (pass_count=%0d)", pass_count);

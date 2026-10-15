@@ -141,7 +141,7 @@ module test_comb_generate_blocks;
         if (BYTE_LANES == 4) pass_count++;
 
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 8)
+        if (pass_count == 9)
             $display("PASS: test_comb_generate_blocks");
         else
             $display("FAIL: test_comb_generate_blocks (pass_count=%0d)", pass_count);

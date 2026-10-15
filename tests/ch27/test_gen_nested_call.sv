@@ -75,7 +75,7 @@ module test_gen_nested_call;
 
         // Summary
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 2)
+        if (pass_count == 3)
             $display("PASS: test_gen_nested_call");
         else
             $display("FAIL: test_gen_nested_call (pass_count=%0d)", pass_count);

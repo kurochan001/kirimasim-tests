@@ -87,7 +87,7 @@ module test_scope_nba;
 
         // Summary
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 4)
+        if (pass_count == 5)
             $display("PASS: test_scope_nba");
         else
             $display("FAIL: test_scope_nba (pass_count=%0d)", pass_count);

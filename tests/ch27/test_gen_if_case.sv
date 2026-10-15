@@ -100,7 +100,7 @@ module test_gen_if_case;
 
         // Summary
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 3)
+        if (pass_count == 4)
             $display("PASS: test_gen_if_case");
         else
             $display("FAIL: test_gen_if_case (pass_count=%0d)", pass_count);

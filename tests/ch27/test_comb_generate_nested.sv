@@ -112,7 +112,7 @@ module test_comb_generate_nested;
 
         // Summary
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 5)
+        if (pass_count == 6)
             $display("PASS: test_comb_generate_nested");
         else
             $display("FAIL: test_comb_generate_nested (pass_count=%0d)", pass_count);

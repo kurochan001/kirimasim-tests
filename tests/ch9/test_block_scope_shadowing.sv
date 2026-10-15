@@ -129,7 +129,7 @@ module test_block_scope_shadowing;
 
         // Summary
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 7)
+        if (pass_count == 9)
             $display("PASS: test_block_scope_shadowing");
         else
             $display("FAIL: test_block_scope_shadowing (pass_count=%0d)", pass_count);

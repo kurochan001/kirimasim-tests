@@ -85,7 +85,7 @@ module test;
         end
 
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 5)
+        if (pass_count == 6)
             $display("PASS: test_comb_generate_scope");
         else
             $display("FAIL: test_comb_generate_scope (pass_count=%0d)", pass_count);

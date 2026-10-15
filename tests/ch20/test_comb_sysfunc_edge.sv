@@ -118,7 +118,7 @@ module test_comb_sysfunc_edge;
 
         // Summary
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 6)
+        if (pass_count == 8)
             $display("PASS: test_comb_sysfunc_edge");
         else
             $display("FAIL: test_comb_sysfunc_edge (pass_count=%0d)", pass_count);

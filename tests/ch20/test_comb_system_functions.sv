@@ -154,7 +154,7 @@ module test;
         end
 
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 10)
+        if (pass_count == 12)
             $display("PASS: test_comb_system_functions");
         else
             $display("FAIL: test_comb_system_functions (pass_count=%0d)", pass_count);

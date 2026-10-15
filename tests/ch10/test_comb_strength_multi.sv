@@ -90,7 +90,7 @@ module test_comb_strength_multi;
 
         // Summary
         $display("pass_count = %0d", pass_count);
-        if (pass_count >= 5)
+        if (pass_count == 6)
             $display("PASS: test_comb_strength_multi");
         else
             $display("FAIL: test_comb_strength_multi (pass_count=%0d)", pass_count);
