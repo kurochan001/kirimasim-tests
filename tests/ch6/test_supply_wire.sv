@@ -18,6 +18,9 @@ module test_supply_wire;
 
   initial begin
     pass_count = 0;
+    // The supply nets get their values from time-0 events; wait so that
+    // reading them does not race with that update (4.7).
+    #1;
 
     // Test 1: Supply1 is always 1
     if (vdd === 1'b1) pass_count++;
