@@ -1,0 +1,16 @@
+PASS: Queue element assignment
+PASS: First element assignment
+PASS: Last element assignment
+PASS: Byte queue element
+PASS: String queue element
+PASS: Struct queue element field
+PASS: Struct queue element name
+PASS: Queue element compound
+PASS: Queue element from expression
+PASS: Queue swap elements
+PASS: Queue whole assignment
+PASS: Queue variable index
+PASS: Queue clear and reassign
+PASS: Queue element bit-slice
+PASS: Queue copy element by element
+PASS: queue_assign (15/15)

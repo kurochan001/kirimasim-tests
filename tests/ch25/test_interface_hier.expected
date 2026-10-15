@@ -1,0 +1,9 @@
+Test 1 PASS: sif1.data = ab
+Test 2 PASS: sif1.valid = 1
+Test 3 PASS: sif1.ready driven by sub-module = 1
+Test 4 PASS: sif2.data = ff, sif2.valid = 1
+Test 5 PASS: cif.addr = deadbeef
+Test 6 PASS: cif.wdata = cafebabe12345678
+Test 7 PASS: cif.we = 1, cif.re = 0
+Test 8 PASS: cif.addr after increment = deadbfef
+PASS: interface_hier (8/8)

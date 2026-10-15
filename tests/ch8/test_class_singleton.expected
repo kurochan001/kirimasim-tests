@@ -1,0 +1,7 @@
+PASS: Test 1 - Static counter tracks creation correctly
+PASS: Test 2 - Object state modification works
+PASS: Test 3 - Config class state works
+PASS: Test 4 - IdGenerator produces sequential IDs
+PASS: Test 5 - Logger collects all logs
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All singleton pattern tests passed

@@ -1,0 +1,19 @@
+Test 1 PASS: Assignment = Hello
+Test 2 PASS: Concat = Hello World
+Test 3 PASS: len() = 4
+Test 4 PASS: Empty len = 0
+Test 5 PASS: Strings equal
+Test 6 PASS: Strings not equal
+Test 7 PASS: getc(0) = A
+Test 8 PASS: putc = AXCD
+Test 9 PASS: toupper = HELLO
+Test 10 PASS: tolower = hello
+Test 11 PASS: substr = Hello
+Test 12 PASS: atoi = 123
+Test 13 PASS: atohex = 255
+Test 14 PASS: itoa = 456
+Test 15 PASS: hextoa = ff
+Test 16 PASS: atoi of "-100" = 0
+=== String Ops Edge Cases ===
+Passed: 16/16
+TEST PASSED

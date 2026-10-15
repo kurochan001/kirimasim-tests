@@ -1,0 +1,16 @@
+PASS: 2D matrix element
+PASS: 2D loop initialization
+PASS: 2D row access
+PASS: 2D column access
+PASS: 3D cube element
+PASS: 3D loop initialization
+PASS: Variable indices 2D
+PASS: Expression indices
+PASS: Mixed dimension 2D
+PASS: Packed 3D whole
+PASS: Packed 3D element
+PASS: 2D swap elements
+PASS: 2D compound assignment
+PASS: 2D from expression
+PASS: Boundary elements
+PASS: multi_dim_assign (15/15)

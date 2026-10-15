@@ -1,0 +1,9 @@
+Test 1 PASS: base_obj.base_member = 10
+Test 2 PASS: base_obj.get_base() = 10
+Test 3 PASS: derived_obj.get_both() = 30
+Test 4 PASS: BaseClass::base_static = 100
+Test 5 PASS: DerivedClass::get_derived_static() = 200
+Test 6 PASS: poly_obj.virtual_get() = 60
+Test 7 PASS: container_obj.get_inner_val() = 10
+Test 8 PASS: After set_inner_val(99), get_inner_val() = 99
+PASS: class_scope (8/8)

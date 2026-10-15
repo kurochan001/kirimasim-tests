@@ -1,0 +1,13 @@
+TEST: Structs edge cases
+  [PASS] Basic struct member access
+  [PASS] Struct literal init
+  [PASS] Named member init
+  [PASS] Packed struct size
+  [PASS] Packed struct from bits
+  [PASS] Nested struct access
+  [PASS] Struct member modification
+  [PASS] Struct member sum
+  [PASS] Struct reassignment
+  [PASS] Struct member arithmetic
+Results: 10 passed, 0 failed
+TEST PASSED

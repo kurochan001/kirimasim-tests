@@ -1,0 +1,13 @@
+TEST: String methods edge cases
+  [PASS] Empty string length is 0
+  [PASS] String length 'Hello' is 5
+  [PASS] String equality comparison
+  [PASS] String inequality comparison
+  [PASS] String concatenation
+  [PASS] Character access s[2] = 'C'
+  [PASS] toupper method
+  [PASS] tolower method
+  [PASS] String value semantics
+  [PASS] String with escape characters
+Results: 10 passed, 0 failed
+TEST PASSED

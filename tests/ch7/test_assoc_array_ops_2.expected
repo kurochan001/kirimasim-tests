@@ -1,0 +1,8 @@
+PASS: exists works correctly
+PASS: first returns 'apple'
+PASS: last returns 'date'
+PASS: next after 'banana' returns 'cherry'
+PASS: prev before 'cherry' returns 'banana'
+PASS: delete single key works
+Associative array ops test: 6 PASS, 0 FAIL
+PASS: All associative array tests passed

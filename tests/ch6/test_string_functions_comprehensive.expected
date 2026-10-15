@@ -1,0 +1,67 @@
+=== String System Functions Comprehensive Test ===
+Test 1: String.len() - String length
+  PASS: "Hello".len() = 5
+  PASS: "".len() = 0
+  PASS: "A".len() = 1
+  PASS: "Hello World!".len() = 12
+Test 2: String.toupper() - Convert to uppercase
+  PASS: "hello".toupper() = "HELLO"
+  PASS: "Hello World".toupper() = "HELLO WORLD"
+  PASS: "123abc".toupper() = "123ABC"
+  PASS: "ALREADY UPPER".toupper() = "ALREADY UPPER"
+Test 3: String.tolower() - Convert to lowercase
+  PASS: "HELLO".tolower() = "hello"
+  PASS: "Hello World".tolower() = "hello world"
+  PASS: "123ABC".tolower() = "123abc"
+Test 4: String.substr() - Substring extraction
+  PASS: "Hello World".substr(0,4) = "Hello"
+  PASS: "Hello World".substr(6,10) = "World"
+  PASS: "Hello World".substr(0,0) = "H"
+  PASS: "ABCDEF".substr(2,4) = "CDE"
+Test 5: String.getc() - Get character at index
+  PASS: "Hello".getc(0) = 72
+  PASS: "Hello".getc(4) = 111
+Test 6: String.putc() - Set character at index
+  PASS: After putc(0,"J") = "Jello"
+  PASS: After putc(2,"B") = "AABA"
+Test 7: String.compare() - Case-sensitive comparison
+  PASS: "abc".compare("abc") = 0
+  PASS: "abc".compare("ABC") > 0
+  PASS: "aaa".compare("aab") < 0
+Test 8: String.icompare() - Case-insensitive comparison
+  PASS: "abc".icompare("ABC") = 0
+  PASS: "Hello".icompare("HELLO") = 0
+Test 9: String.atoi() - String to integer
+  PASS: "123".atoi() = 123
+  PASS: "-456".atoi() = 0
+  PASS: "0".atoi() = 0
+  PASS: "42abc".atoi() = 42
+Test 10: String.atohex() - Hex string to integer
+  PASS: "FF".atohex() = 255
+  PASS: "100".atohex() = 256
+  "DEADBEEF".atohex() = 0xdeadbeef
+Test 11: String.atobin() - Binary string to integer
+  PASS: "1010".atobin() = 10
+  PASS: "11111111".atobin() = 255
+Test 12: String.atooct() - Octal string to integer
+  PASS: "77".atooct() = 63
+  PASS: "100".atooct() = 64
+Test 13: String.atoreal() - String to real
+  PASS: "3.14".atoreal() = 3.140000
+  PASS: "2.5e1".atoreal() = 25.000000
+Test 14: String.itoa() - Integer to string
+  PASS: itoa(123) = "123"
+  PASS: itoa(-456) = "-456"
+  PASS: itoa(0) = "0"
+Test 15: String.hextoa() - Integer to hex string
+  PASS: hextoa(255) = "ff"
+  PASS: hextoa(16) = "10"
+Test 16: Edge cases
+  PASS: Empty string len = 0
+  PASS: Empty toupper = ""
+  PASS: Empty tolower = ""
+  PASS: "Test123!@#".toupper() = "TEST123!@#"
+========================================
+TEST RESULTS: 46/46 PASSED
+TEST PASSED
+========================================

@@ -1,0 +1,26 @@
+Test 1 PASSED: add(10, 20) = 30
+Test 2 PASSED: multiply(7, 8) = 56
+Test 3 PASSED: factorial(5) = 120
+Test 4 PASSED: factorial(1) = 1
+Test 5 PASSED: max_val(15, 25) = 25
+Test 6 PASSED: max_val(10, 10) = 10
+Test 7 PASSED: min_val(15, 25) = 15
+Test 8 PASSED: abs_val(42) = 42
+Test 9 PASSED: abs_val(-42) = 42
+Test 10 PASSED: square(7) = 49
+Test 11 PASSED: fib(10) = 55
+Test 12 PASSED: fib(0) = 0
+Test 13 PASSED: concat_str = HelloWorld
+Test 14 PASSED: byte_swap(0xABCD) = 0xCD
+Test 15 PASSED: add(multiply(2,3), multiply(4,5)) = 26
+Test 16 PASSED: 10 + triple(5) = 25
+Test 17 PASSED: sum_array([1,2,3,4,5]) = 15
+Test 18 PASSED: set_value(result, 25) -> 50
+Test 19 PASSED: clamp(50, 0, 100) = 50
+Test 20 PASSED: clamp(-10, 0, 100) = 0
+Test 21 PASSED: clamp(150, 0, 100) = 100
+Test 22 PASSED: square(add(2,3)) = 25
+Test 23 PASSED: add(0, 0) = 0
+Test 24 PASSED: add(-10, -20) = -30
+Test 25 PASSED: max(min(10,20), min(5,15)) = 10
+PASS: function_call (25/25)

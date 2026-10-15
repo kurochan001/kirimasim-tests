@@ -1,0 +1,16 @@
+PASS: Int key assignment
+PASS: String key assignment
+PASS: String value assignment
+PASS: Wide key assignment
+PASS: Overwrite existing key
+PASS: Struct value assignment
+PASS: Compound assignment
+PASS: Assignment from expression
+PASS: Loop assignment
+PASS: Negative key assignment
+PASS: Empty string key
+PASS: Exists after assignment
+PASS: Preserves other keys
+PASS: Struct field compound
+PASS: Byte value bit-slice
+PASS: assoc_array_assign (15/15)

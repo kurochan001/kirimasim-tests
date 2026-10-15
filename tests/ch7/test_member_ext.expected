@@ -1,0 +1,9 @@
+Test 1: Packed write PASS
+Test 2: Packed read PASS
+Test 3: Unpacked struct PASS
+Test 4: Class member PASS
+Test 5: Class method PASS
+Test 6: String member PASS
+Test 7: Member expr PASS
+Test 8: Modify member PASS
+TEST PASSED: 8/8 tests passed

@@ -1,0 +1,8 @@
+PASS: Test 1 - String len() = 5
+PASS: Test 2 - String substr(0,4) = 'Hello'
+PASS: Test 3 - String getc(2) = 'C'
+PASS: Test 4 - String putc() = 'Jello'
+PASS: Test 5 - String toupper() = 'HELLO'
+PASS: Test 6 - String tolower() = 'world'
+Summary: 6 PASS, 0 FAIL
+ALL TESTS PASSED

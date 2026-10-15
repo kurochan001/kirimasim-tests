@@ -1,0 +1,22 @@
+=== Array Methods Test ===
+PASS: dyn_arr.size() = 5
+PASS: dyn_arr.sum() = 150
+PASS: dyn_arr.product() = 24
+PASS: dyn_arr.min() = 10
+PASS: dyn_arr.max() = 50
+PASS: dyn_arr.reverse() = {5, 4, 3, 2, 1}
+PASS: dyn_arr.sort() = {10, 20, 30, 40, 50}
+PASS: dyn_arr.rsort() = {50, 40, 30, 20, 10}
+PASS: dyn_arr.shuffle() kept the elements
+PASS: dyn_arr.find() with item==5 found 2 elements
+PASS: dyn_arr.find_index() with item>2 found 3 indices
+PASS: dyn_arr.find_first() with item>3 = 5
+PASS: dyn_arr.find_first_index() with item==5 = 1
+PASS: dyn_arr.find_last() with item==5 = 5
+PASS: dyn_arr.find_last_index() with item==5 = 3
+PASS: dyn_arr.unique() = 4 unique elements
+PASS: dyn_arr.unique_index() = 4 unique indices
+=== Array Methods Test Summary ===
+PASS: 17
+FAIL: 0
+ALL TESTS PASSED

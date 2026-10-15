@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Struct Basic Tests ===
+Test 1: Member assign
+Test 1 PASS
+Test 2: Member read
+Test 2 PASS: sum=30
+Test 3: Struct copy
+Test 3 PASS
+Test 4: Data struct
+Test 4 PASS
+Test 5: Modify
+Test 5 PASS: x=15
+Test 6: p2 unchanged
+Test 6 PASS: p2.x=10
+Test 7: Negative
+Test 7 PASS: x=-10
+Test 8: Zero
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

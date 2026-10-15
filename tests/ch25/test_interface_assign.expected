@@ -1,0 +1,13 @@
+PASS: Direct interface signal assign
+PASS: Interface bit assignment
+PASS: Interface address assignment
+PASS: Bus interface clock toggle
+PASS: Bus interface reset
+PASS: Wide data assignment
+PASS: Read data assignment
+PASS: Address assignment
+PASS: Control signal assignments
+PASS: Ack signal assignment
+PASS: Interface from expression
+PASS: Multiple interface signals
+PASS: interface_assign (12/12)

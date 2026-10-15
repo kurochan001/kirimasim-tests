@@ -1,0 +1,10 @@
+=== $cast System Function Test ===
+PASS: Upcast derived_obj to base reference
+PASS: $cast(casted_obj, ref_obj) succeeded, derived_id=200
+PASS: Casted object values correct
+PASS: $cast(ref_obj, derived_obj) succeeded
+PASS: $cast(casted_obj, base_obj) correctly failed (pure base instance)
+=== $cast System Function Test Summary ===
+PASS: 5
+FAIL: 0
+ALL TESTS PASSED

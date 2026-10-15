@@ -1,0 +1,7 @@
+PASS: Test 1 - Default chandle is null
+PASS: Test 2 - Explicit null assignment
+PASS: Test 3 - Two null chandles are equal
+PASS: Test 4 - Chandle assignment
+PASS: Test 5 - Chandle != null is false for null
+Summary: 5 PASS, 0 FAIL
+ALL TESTS PASSED

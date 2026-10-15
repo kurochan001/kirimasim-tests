@@ -1,0 +1,16 @@
+PASS: Right-to-left streaming to array
+PASS: Left-to-right streaming to array
+PASS: Streaming with word size
+PASS: Streaming to scalars
+PASS: Streaming from array to scalar
+PASS: Streaming to packed struct
+PASS: Streaming with explicit width
+PASS: Left streaming byte reversal
+PASS: Streaming 64-bit partial
+PASS: Double streaming roundtrip
+PASS: Streaming with nibble slice
+PASS: Single element streaming
+PASS: Streaming preserving struct
+PASS: Mixed size streaming
+PASS: Streaming with computation
+PASS: streaming_assign (15/15)

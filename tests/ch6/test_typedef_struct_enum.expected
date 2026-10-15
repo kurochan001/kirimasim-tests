@@ -1,0 +1,13 @@
+Test 1 PASS: enum typedef basic
+Test 2 PASS: enum comparison
+Test 3 PASS: packed struct typedef
+Test 4 PASS: packed struct $bits = 24
+Test 5 PASS: unpacked struct typedef
+Test 6 PASS: nested typedef (struct with enum)
+Test 7 PASS: enum .first() and .last()
+Test 8 PASS: enum .next()
+Test 9 PASS: enum .prev()
+Test 10 PASS: struct array typedef
+=== Typedef Struct/Enum Test Results ===
+Passed: 10/10
+TEST PASSED

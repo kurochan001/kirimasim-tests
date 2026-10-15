@@ -1,0 +1,9 @@
+Test 1 PASS: desc_vec[31:0]: $left=31, $right=0
+Test 2 PASS: asc_vec[0:7]: $left=0, $right=7
+Test 3 PASS: desc_arr[7:0]: $left=7, $right=0
+Test 4 PASS: multi dim1: $left=3, $right=0
+Test 5 PASS: multi dim2: $left=0, $right=5
+Test 6 PASS: dyn_arr: $left=0, $right=9
+Test 7 PASS: queue_arr: $left=0, $right=4
+Test 8 PASS: mixed_arr[0:3]: $left=0, $right=3
+PASS: sysfunc_left_right (8/8)

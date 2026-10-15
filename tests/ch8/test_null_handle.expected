@@ -1,0 +1,11 @@
+PASS: Uninitialized handle is null
+PASS: Two null handles are equal
+PASS: Handle is non-null after construction
+PASS: Null and non-null handles not equal
+PASS: Handle set to null
+PASS: Derived class handle initially null
+PASS: Null derived assigned to base is null
+PASS: Non-null derived assigned to base
+PASS: Conditional correctly handles null
+PASS: Reassign from null to non-null
+PASS: null_handle (10/10)

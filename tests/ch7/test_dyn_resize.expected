@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Dynamic Array Resize Tests ===
+Test 1: Create
+Test 1 PASS
+Test 2: Assign
+Test 2 PASS
+Test 3: Resize larger
+Test 3 PASS
+Test 4: Resize smaller
+Test 4 PASS
+Test 5: Delete
+Test 5 PASS
+Test 6: Re-create
+Test 6 PASS
+Test 7: Fill
+Test 7 PASS
+Test 8: Size 1
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

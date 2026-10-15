@@ -1,0 +1,6 @@
+PASS: arr1.product() = 120
+PASS: arr2.product() = 24
+PASS: arr3.product() = 24
+PASS: single element product = 7
+Test Summary: 4 PASS, 0 FAIL
+PASS: All tests passed

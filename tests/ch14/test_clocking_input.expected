@@ -1,0 +1,7 @@
+PASS: Test 1 - Clocking block samples input data
+PASS: Test 2 - Clocking block samples valid signal
+PASS: Test 3 - Samples value at skew point
+PASS: Test 4 - Control signal sampled correctly
+PASS: Test 5 - Consecutive sampling works
+=== Summary: 7 PASS, 0 FAIL ===
+PASS: All clocking input tests passed

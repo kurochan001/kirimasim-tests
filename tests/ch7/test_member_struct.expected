@@ -1,0 +1,9 @@
+Test 1 PASS: simple_var.data=ab, valid=1
+Test 2 PASS: Nested struct access works
+Test 3 PASS: packed_var.tag=a, value=bcd
+Test 4 PASS: Packed struct as whole = f123
+Test 5 PASS: Array member access works
+Test 6 PASS: Deep nested struct access works
+Test 7 PASS: Array of structs access works
+Test 8 PASS: Computed index struct access works
+PASS: member_struct (8/8)

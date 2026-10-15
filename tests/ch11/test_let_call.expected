@@ -1,0 +1,8 @@
+Test 1 PASS: square(5) = 25
+Test 2 PASS: power2(4) = 16
+Test 3 PASS: get_bit(0xA0, 5) = 1
+Test 4 PASS: is_even(42) = true
+Test 5 PASS: square(3) + cube(2) = 17
+=== Let Call Test Summary ===
+PASS: 5, FAIL: 0
+PASS

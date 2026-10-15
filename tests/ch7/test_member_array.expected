@@ -1,0 +1,9 @@
+Test 1 PASS: dyn_arr.size() = 5
+Test 2 PASS: queue_arr.size() = 3
+Test 3 PASS: assoc_arr.size() = 3
+Test 4 PASS: find(x > 25) found 3 elements
+Test 5 PASS: find_index(x == 30) = 2
+Test 6 PASS: dyn_arr.sum() = 150
+Test 7 PASS: min=10, max=50
+Test 8 PASS: unique() returned 4 elements
+PASS: member_array (8/8)

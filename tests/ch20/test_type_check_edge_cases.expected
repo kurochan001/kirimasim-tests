@@ -1,0 +1,15 @@
+Test 1 PASS: $bits(int) = 32
+Test 2 PASS: $bits(logic[31:0]) = 32
+Test 3 PASS: $bits(byte_t) = 8
+Test 4 PASS: $bits(struct) = 8
+Test 5 PASS: $typename(int)
+Test 6 PASS: $typename(logic [31:0]) differs from bit [31:0]
+Test 7 PASS: $typename(byte_t) resolves to logic [7:0]
+Test 8 PASS: $typename(struct) is the struct type
+Test 9 PASS: $typename(real)
+Test 10 PASS: $typename(string)
+Test 11 PASS: type() = 42
+Test 12 PASS: struct = ab
+=== Type Check Edge Cases ===
+Passed: 12/12
+TEST PASSED

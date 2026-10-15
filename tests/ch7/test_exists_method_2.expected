@@ -1,0 +1,22 @@
+=== IEEE 1800-2023 exists() Method Test ===
+Testing exists() on associative arrays only (§7.9.3)
+Test 1: Associative array with int key
+PASS: assoc_int.exists(0) = 1
+PASS: assoc_int.exists(5) = 1
+PASS: assoc_int.exists(10) = 1
+PASS: assoc_int.exists(1) = 0
+PASS: assoc_int.exists(-1) = 0
+Test 2: Associative array with string key
+PASS: assoc_str.exists("hello") = 1
+PASS: assoc_str.exists("foo") = 1
+PASS: assoc_str.exists("baz") = 0
+PASS: assoc_str.exists("") = 0
+Test 3: Delete and check exists
+PASS: assoc_int.exists(5) = 0 after delete
+PASS: assoc_int.exists(0) = 1 (unchanged)
+Test 4: Empty associative array
+PASS: empty assoc_wild.exists(0) = 0
+PASS: assoc_wild.exists(42) = 1 after assignment
+=== Test Summary ===
+All exists() tests PASSED
+PASS

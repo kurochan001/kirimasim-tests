@@ -1,0 +1,8 @@
+PASS: Base class instantiation
+PASS: Derived class with super.new
+PASS: Virtual method override in Dog
+PASS: Polymorphic virtual dispatch
+PASS: Multi-level inheritance
+PASS: Inherited method access
+Class inheritance test: 6 PASS, 0 FAIL
+PASS: All inheritance tests passed

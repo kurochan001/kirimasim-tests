@@ -1,0 +1,12 @@
+PASS: len() = 5
+PASS: getc() works correctly
+PASS: toupper() = HELLO
+PASS: tolower() = world
+PASS: compare(abc, abd) < 0
+PASS: icompare(ABC, abc) = 0
+PASS: substr(6, 10) = World
+PASS: putc(0, J) = Jello
+=== String Methods Test Results ===
+PASS: 8
+FAIL: 0
+TEST PASSED

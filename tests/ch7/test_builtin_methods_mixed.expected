@@ -1,0 +1,33 @@
+=== Testing Queue Methods ===
+PASS: queue.size() empty = 0
+PASS: queue.push_back 3 elements
+PASS: queue.push_front
+PASS: queue.pop_back = 30
+PASS: queue.pop_front = 5
+PASS: queue.delete
+=== Testing Dynamic Array Methods ===
+PASS: dynamic_array.new(5)
+PASS: dynamic_array.size() = 5
+PASS: dynamic_array.delete()
+PASS: dynamic_array.sum() = 100
+PASS: dynamic_array.min()[0] = 10
+PASS: dynamic_array.max()[0] = 40
+=== Testing Associative Array Methods ===
+PASS: assoc.exists(1) = 1
+PASS: assoc.exists(99) = 0
+PASS: assoc.num() = 2
+PASS: assoc.first() found key = 1
+PASS: assoc.delete(1)
+=== Testing String Methods ===
+PASS: string.len() = 11
+PASS: string.toupper()
+PASS: string.tolower()
+PASS: string.substr(0,4) = 'Hello'
+PASS: string.getc(0) = 72 (H)
+PASS: string.compare(equal) = 0
+PASS: string.compare(less) < 0
+PASS: string.atoi() = 12345
+PASS: string.atohex() = 255
+=== Built-in Method Test Summary ===
+Tests passed: 26/26
+TEST PASSED

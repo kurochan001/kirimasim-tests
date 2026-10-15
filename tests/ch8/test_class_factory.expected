@@ -1,0 +1,7 @@
+PASS: Test 1 - Factory creates Product A
+PASS: Test 2 - Factory creates different product types
+PASS: Test 3 - Factory tracks creation count
+PASS: Test 4 - Factory returns null for unknown type
+PASS: Test 5 - Abstract Factory creates correct products
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All factory pattern tests passed

@@ -1,0 +1,5 @@
+PASS: $sampled initial value = 0x00
+PASS: $sampled after change = 0xaa
+PASS: $sampled = 0x55
+PASS: $sampled(data+1) = 0x10
+PASS: All $sampled tests completed

@@ -1,0 +1,8 @@
+PASS: No arguments constructor
+PASS: Basic arguments constructor
+PASS: Default arguments - all provided
+PASS: Default arguments - partial (uses defaults)
+PASS: String argument constructor
+PASS: Array argument constructor
+Class new args test: 6 PASS, 0 FAIL
+PASS: All class constructor tests passed

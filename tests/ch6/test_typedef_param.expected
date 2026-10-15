@@ -1,0 +1,9 @@
+PASS: Parameterized data_t typedef
+PASS: Parameterized addr_t typedef
+PASS: Parameterized struct typedef
+PASS: Parameterized array typedef
+PASS: Class parameterized typedef (32-bit)
+PASS: Class parameterized typedef (8-bit)
+PASS: Struct typedef total bits = 25
+Typedef param test: 7 PASS, 0 FAIL
+PASS: All typedef param tests passed

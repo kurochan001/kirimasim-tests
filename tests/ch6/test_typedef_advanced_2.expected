@@ -1,0 +1,22 @@
+Test 1 PASS: byte_t = ab
+Test 2 PASS: word_t = dead
+Test 3 PASS: dword_t = cafebabe
+Test 4 PASS: signed_int_t = -100
+Test 5 PASS: short_t = 1000
+Test 6 PASS: byte_array_t[0]=11 [3]=44
+Test 7 PASS: packet_t.data = 55
+Test 8 PASS: packet_t.valid = 1
+Test 9 PASS: state_t = IDLE (00)
+Test 10 PASS: state_t = RUN (01)
+Test 11 PASS: state_t = DONE (10)
+Test 12 PASS: byte_t + 1 = 10
+Test 13 PASS: word_t << 4 = 0000 (overflow)
+Test 14 PASS: Array sum = 170
+Test 15 PASS: Packet updated
+Test 16 PASS: State transitions complete
+Test 17 PASS: short_t = -500
+Test 18 PASS: byte_t max = ff
+Test 19 PASS: dword_t zero = 00000000
+=== Typedef Advanced ===
+Passed: 19/19
+TEST PASSED

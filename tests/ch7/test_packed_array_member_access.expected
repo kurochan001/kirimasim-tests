@@ -1,0 +1,11 @@
+=== Packed Struct Array Element Member Access Test (IEEE 1800-2023 §7.2) ===
+PASS: colors[0] = 0xffaabbcc
+PASS: colors[0].r = 0xff
+PASS: colors[1].r = 0x12 after assignment
+PASS: colors[1].g = 0x34 after assignment
+PASS: colors[1] = 0x12340000 (combined)
+PASS: colors[2] = 0xaabbccdd after all members set
+PASS: colors[3] = 0x00000000 (unchanged)
+PASS: All alpha channels set to 0xFF
+=== Results: 8 passed, 0 failed ===
+TEST PASSED

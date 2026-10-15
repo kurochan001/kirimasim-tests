@@ -1,0 +1,13 @@
+TEST: Unpacked types edge cases
+  [PASS] 3D unpacked array works
+  [PASS] Unpacked array of packed values
+  [PASS] Unpacked struct works
+  [PASS] Array of unpacked structs
+  [PASS] Unpacked array copy
+  [PASS] Unpacked array literal
+  [PASS] Mixed packed/unpacked dimensions
+  [PASS] Non-zero based array bounds
+  [PASS] Struct with array member
+  [PASS] Nested unpacked struct
+Results: 10 passed, 0 failed
+TEST PASSED

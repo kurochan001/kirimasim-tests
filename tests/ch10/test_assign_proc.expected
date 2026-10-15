@@ -1,0 +1,9 @@
+PASS: Test 1a - Procedural assign connects signal
+PASS: Test 1b - Source change propagates through assign
+PASS: Test 2 - After deassign, regular assignment works
+PASS: Test 3 - Conditional procedural assign
+PASS: Test 4a - Wide procedural assign with expression
+PASS: Test 4b - Wide assign tracks source changes
+PASS: Test 5 - Re-assign after deassign works
+=== Summary: 7 PASS, 0 FAIL ===
+PASS: All procedural assign tests passed

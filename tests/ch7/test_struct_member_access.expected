@@ -1,0 +1,13 @@
+PASS: pt.x=10, pt.y=20
+PASS: pt.name=origin
+PASS: col.r=0xff, col.g=0x80
+PASS: Packed struct value=0xff804000
+PASS: rect.origin.x=100, rect.origin.y=200
+PASS: rect.width=50, rect.height=75
+PASS: Modified rect.origin.x=110
+PASS: Struct array access works
+PASS: col.r after assignment = 0xaa
+PASS: pt.x + pt.y = 15
+=== Struct Member Access Test Summary ===
+Tests: 10, Passed: 10
+PASS: All struct member access tests passed

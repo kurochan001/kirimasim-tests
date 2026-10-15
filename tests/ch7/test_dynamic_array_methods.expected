@@ -1,0 +1,24 @@
+=== Dynamic Array Methods Test ===
+PASS: new[5] - size = 5
+PASS: dyn.size() = 5
+PASS: delete() - size = 0
+PASS: dyn.sum() = 150
+PASS: dyn.product() = 120
+PASS: dyn.min() = 10
+PASS: dyn.max() = 50
+PASS: dyn.reverse() = {5, 4, 3, 2, 1}
+PASS: dyn.sort() = {10, 20, 30, 40, 50}
+PASS: dyn.rsort() = {50, 40, 30, 20, 10}
+PASS: dyn.shuffle() kept the elements
+PASS: dyn.find() with item==5 found 2 elements
+PASS: dyn.find_index() with item>2 found 3 indices
+PASS: dyn.find_first() with item>3 = 5
+PASS: dyn.find_first_index() with item==5 = 1
+PASS: dyn.find_last() with item==5 = 5
+PASS: dyn.find_last_index() with item==5 = 3
+PASS: dyn.unique() = 4 unique elements
+PASS: dyn.unique_index() = 4 unique indices
+=== Dynamic Array Methods Test Summary ===
+PASS: 19
+FAIL: 0
+ALL TESTS PASSED

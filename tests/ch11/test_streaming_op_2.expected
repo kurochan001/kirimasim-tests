@@ -1,0 +1,26 @@
+Test 1 PASSED: {>>{bytes}} = 0x01020304
+Test 2 PASSED: {<<{bytes}} reverses the bits
+Test 3 PASSED: {>>{bytes}} = 0xABCDEF01
+Test 4 PASSED: unpack 0x12345678 to bytes
+Test 5 PASSED: {>>{8'hAB}} = 0xAB
+Test 6 PASSED: {<<{8'b10110100}} = 8'b00101101
+Test 7 PASSED: unpack 0xABCD to nibbles
+Test 8 PASSED: pack nibbles to 0x1234
+Test 9 PASSED: {>>{0}} = 0
+Test 10 PASSED: {>>{0xFFFFFFFF}} = 0xFFFFFFFF
+Test 11 PASSED: {<<8{0x12345678}} = 0x78563412
+Test 12 PASSED: {<<4{0xABCD}} = 0xDCBA
+Test 13 PASSED: double bit reversal = original
+Test 14 PASSED: {>>{0x0F | 0xF0}} = 0xFF
+Test 15 PASSED: {>>{8'hAB, 8'hCD}} = 0xABCD
+Test 16 PASSED: unpack to hi=0x12, lo=0x34
+Test 17 PASSED: 64-bit unpack correct
+Test 18 PASSED: 64-bit pack correct
+Test 19 PASSED: stream upper 16 bits
+Test 20 PASSED: round-trip streaming
+Test 21 PASSED: {<<16{0xABCD1234}} = 0x1234ABCD
+Test 22 PASSED: bit reversal of symmetric pattern
+Test 23 PASSED: {<<1{8'b01010101}} = 8'b10101010
+Test 24 PASSED: stream duplicate narrow
+Test 25 PASSED: streaming result comparison
+PASS: streaming_op (25/25)

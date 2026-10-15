@@ -1,0 +1,6 @@
+Test 1: $typename logic - PASS
+Test 2: $typename integer - PASS
+Test 3: $typename real - PASS
+Test 4: $typename string - PASS
+Test 5: $typename struct - PASS
+All typename tests PASS

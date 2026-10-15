@@ -1,0 +1,15 @@
+Test 1: Basic ref argument
+PASS: Test 1 - ref argument incremented value to 11
+Test 2: Multiple ref arguments (swap)
+PASS: Test 2 - Values swapped (x=200, y=100)
+Test 3: const ref argument
+PASS: Test 3 - Array sum = 50
+Test 4: Output arguments
+PASS: Test 4 - min=5, max=20
+Test 5: Inout argument
+PASS: Test 5 - Inout value scaled to 15
+Test 6: Mixed argument types
+PASS: Test 6 - ref=13, out=6, inout=15, result=31
+=== Function Reference Arguments Test Summary ===
+Passed: 6, Failed: 0
+PASS: All tests passed

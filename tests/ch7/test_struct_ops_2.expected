@@ -1,0 +1,6 @@
+Test 1: Struct init PASS
+Test 2: Struct assignment PASS
+Test 3: Packed struct PASS
+Test 4: Struct literal PASS
+Test 5: Struct member modify PASS
+TEST PASSED: 5/5 tests passed

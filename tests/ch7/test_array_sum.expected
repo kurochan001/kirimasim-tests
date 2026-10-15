@@ -1,0 +1,6 @@
+PASS: arr1.sum() = 15
+PASS: arr2.sum() = 60
+PASS: arr3.sum() = 10
+PASS: single element sum = 100
+Test Summary: 4 PASS, 0 FAIL
+PASS: All tests passed

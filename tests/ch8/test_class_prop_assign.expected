@@ -1,0 +1,16 @@
+PASS: Simple property assignment
+PASS: Bit property assignment
+PASS: Int property assignment
+PASS: String property assignment
+PASS: Object property copy
+PASS: Array property element
+PASS: Array property loop
+PASS: Nested object property
+PASS: Container property
+PASS: Static property increment
+PASS: Static property direct assign
+PASS: Property compound assignment
+PASS: Property bit-slice assignment
+PASS: Property from expression
+PASS: Multiple property reset
+PASS: class_prop_assign (15/15)

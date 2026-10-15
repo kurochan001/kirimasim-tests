@@ -1,0 +1,16 @@
+PASS: Packed array whole assignment
+PASS: Packed array element read
+PASS: Packed array element assignment
+PASS: Packed struct whole assignment
+PASS: Packed struct field read
+PASS: Packed struct field assignment
+PASS: Packed struct aggregate
+PASS: Packed struct single-bit field
+PASS: Nested packed struct field
+PASS: Nested packed sub-struct whole
+PASS: Packed to unpacked conversion
+PASS: Word packed array
+PASS: Nibble packed array
+PASS: Packed array slice
+PASS: Packed struct to raw
+PASS: packed_assign (15/15)

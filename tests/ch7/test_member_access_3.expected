@@ -1,0 +1,26 @@
+Test 1 PASSED: pt.x = 10
+Test 2 PASSED: pt.y = 20
+Test 3 PASSED: pt.x + pt.y = 300
+Test 4 PASSED: color.r = 0xFF
+Test 5 PASSED: color = 24'hFF0080
+Test 6 PASSED: person.location.x = 50
+Test 7 PASSED: person.location.y = 60
+Test 8 PASSED: person.name = Alice
+Test 9 PASSED: person.age = 30
+Test 10 PASSED: obj.value = 42
+Test 11 PASSED: obj.label = "test"
+Test 12 PASSED: obj.value modified to 100
+Test 13 PASSED: obj.get_value() = 100
+Test 14 PASSED: struct assignment '{x:5, y:15}
+Test 15 PASSED: pt.x * pt.y = 21
+Test 16 PASSED: color.g = 0xAA
+Test 17 PASSED: struct copy
+Test 18 PASSED: pt.x == pt.y
+Test 19 PASSED: obj.value > 25
+Test 20 PASSED: nested struct assignment
+Test 21 PASSED: double_val(pt.x) = 50
+Test 22 PASSED: color.r + color.g + color.b = 0x66
+Test 23 PASSED: obj.label updated
+Test 24 PASSED: abs(pt.x) = 5
+Test 25 PASSED: packed struct from literal
+PASS: member_access (25/25)

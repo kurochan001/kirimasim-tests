@@ -1,0 +1,18 @@
+Test 1: Search with disable named block
+PASS: Test 1 - Found value at index 3
+  Value not found correctly (index=-1)
+Test 2: Find first positive with disable outer
+PASS: Test 2 - First positive = 5
+Test 3: Multiple validation with disable
+PASS: Test 3a - Valid data (status=1)
+PASS: Test 3b - Negative rejected (status=-1)
+PASS: Test 3c - Too large rejected (status=-2)
+Test 4: Nested matrix search with disable
+PASS: Test 4 - Found at [2][3]
+Test 5: Process with early exit
+PASS: Test 5a - Zero input exits early (result=-1)
+PASS: Test 5b - Capped at 100 (result=100)
+PASS: Test 5c - Normal processing (result=70)
+=== Task Disable Named Blocks Test Summary ===
+Passed: 9, Failed: 0
+PASS: All tests passed

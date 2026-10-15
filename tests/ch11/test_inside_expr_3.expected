@@ -1,0 +1,26 @@
+Test 1 PASSED: 5 inside {5}
+Test 2 PASSED: 5 not inside {6}
+Test 3 PASSED: 3 inside {1,2,3,4,5}
+Test 4 PASSED: 10 not inside {1,2,3,4,5}
+Test 5 PASSED: 15 inside {[10:20]}
+Test 6 PASSED: 10 inside {[10:20]}
+Test 7 PASSED: 20 inside {[10:20]}
+Test 8 PASSED: 5 not inside {[10:20]}
+Test 9 PASSED: 25 not inside {[10:20]}
+Test 10 PASSED: 50 inside mixed set
+Test 11 PASSED: 15 inside mixed set (range)
+Test 12 PASSED: 0 inside {0,1,2}
+Test 13 PASSED: -5 inside negative set
+Test 14 PASSED: -3 inside {[-5:-1]}
+Test 15 PASSED: 0xAB inside logic set
+Test 16 PASSED: 0xF inside nibble set
+Test 17 PASSED: 5 not inside {[0:4], [6:10]}
+Test 18 PASSED: 0x80 inside full byte range
+Test 19 PASSED: 15 inside overlapping ranges
+Test 20 PASSED: inside with expressions
+Test 21 PASSED: inside in conditional
+Test 22 PASSED: inside with variables
+Test 23 PASSED: not inside
+Test 24 PASSED: inside single point range
+Test 25 PASSED: 0x55 inside complex set
+PASS: inside_expr (25/25)

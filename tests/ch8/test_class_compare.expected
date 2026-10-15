@@ -1,0 +1,7 @@
+PASS: Test 1 - Value equality works
+PASS: Test 2 - Value comparison ordering works
+PASS: Test 3 - Multi-field and partial equality work
+PASS: Test 4 - Reference vs value equality
+PASS: Test 5 - Validity-aware comparison
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All class comparison tests passed

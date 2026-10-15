@@ -1,0 +1,16 @@
+PASS: Empty string length is 0
+PASS: String concatenation
+PASS: String equality comparison
+PASS: String inequality comparison
+PASS: String length
+PASS: getc() at index 2
+PASS: toupper()
+PASS: tolower()
+PASS: putc() modify first char
+PASS: substr(0,4)
+PASS: atoi()
+PASS: String with newline character
+PASS: String with tab character
+PASS: Empty string concatenation
+PASS: String less than comparison
+PASS: string_ops (15/15)

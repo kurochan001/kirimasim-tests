@@ -1,0 +1,18 @@
+=== Associative Array Methods Test ===
+PASS: aa.num() = 3
+PASS: aa.size() = 3
+PASS: aa.exists("apple") = 1
+PASS: aa.exists("grape") = 0
+PASS: aa.first() = "apple"
+PASS: aa.last() = "cherry"
+PASS: aa.next("apple") = "banana"
+PASS: aa.prev("cherry") = "banana"
+PASS: delete("banana") - num = 2
+PASS: delete() cleared all - num = 0
+PASS: aa_int.num() = 3
+PASS: aa_int.exists(200) = 1
+PASS: aa_int.first() = 100
+=== Associative Array Methods Test Summary ===
+PASS: 13
+FAIL: 0
+ALL TESTS PASSED

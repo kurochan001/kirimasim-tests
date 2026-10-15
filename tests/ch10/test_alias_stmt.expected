@@ -1,0 +1,8 @@
+PASS: Test 1 - Alias propagates value (net_a->net_b)
+PASS: Test 2 - Alias follows driver changes
+PASS: Test 3 - 4-bit alias works
+PASS: Test 4a - Single-bit alias (1)
+PASS: Test 4b - Single-bit alias (0)
+PASS: Test 5 - Alias tracks multiple changes
+=== Summary: 6 PASS, 0 FAIL ===
+PASS: All alias statement tests passed

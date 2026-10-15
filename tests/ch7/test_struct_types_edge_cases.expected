@@ -1,0 +1,13 @@
+TEST: Struct types edge cases
+  [PASS] Struct member write
+  [PASS] Struct literal
+  [PASS] Packed struct
+  [PASS] Packed as vector
+  [PASS] Mixed types
+  [PASS] Struct copy
+  [PASS] Struct member compare
+  [PASS] Struct zero init
+  [PASS] Nested access
+  [PASS] Struct init
+Results: 10 passed, 0 failed
+TEST PASSED

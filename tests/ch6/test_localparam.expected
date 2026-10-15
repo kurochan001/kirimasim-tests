@@ -1,0 +1,10 @@
+PASS: Basic localparam values
+PASS: Localparam arithmetic expression
+PASS: Localparam with $clog2
+PASS: Localparam conditional expression
+PASS: Localparam string
+PASS: Derived localparam chain
+PASS: Localparam array
+PASS: Localparam type
+Localparam test: 8 PASS, 0 FAIL
+PASS: All localparam tests passed

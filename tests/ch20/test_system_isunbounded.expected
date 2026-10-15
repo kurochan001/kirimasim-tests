@@ -1,0 +1,5 @@
+PASS: $isunbounded(BOUNDED_PARAM) = 0 (bounded)
+PASS: $isunbounded(UNBOUNDED_PARAM) = 1 (unbounded)
+PASS: $isunbounded(REAL_PARAM) = 0 (bounded)
+PASS: $isunbounded(100) = 0 (literal is bounded)
+PASS: $isunbounded(STRING_PARAM) = 0 (bounded)

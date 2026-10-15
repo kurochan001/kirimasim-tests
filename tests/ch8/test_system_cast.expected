@@ -1,0 +1,4 @@
+PASS: $cast downcast successful, value=10, extra=20
+PASS: $cast correctly failed for incompatible types
+PASS: $cast same type successful, value=40
+PASS: Original object unchanged after $cast

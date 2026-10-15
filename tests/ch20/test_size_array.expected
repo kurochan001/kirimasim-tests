@@ -1,0 +1,6 @@
+Test 1: $size(fixed_arr[0:9]) = 10 - PASS
+Test 2: $size(fixed_arr2[5:14]) = 10 - PASS
+Test 3: $size(wide_arr) dims: 5 x 4 - PASS
+Test 4: $size(dyn_arr) resized: 8 -> 20 - PASS
+Test 5: $size(queue) = 7 - PASS
+All size tests PASS

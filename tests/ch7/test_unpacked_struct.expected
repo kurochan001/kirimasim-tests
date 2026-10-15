@@ -1,0 +1,19 @@
+=== IEEE 1800-2023 Unpacked Struct Tests ===
+Test 1: Assign fields
+Test 1 PASS
+Test 2: Pattern assign
+Test 2 PASS
+Test 3: Named assign
+Test 3 PASS
+Test 4: Copy struct
+Test 4 PASS
+Test 5: String field
+Test 5 PASS
+Test 6: Negative values
+Test 6 PASS
+Test 7: Zero values
+Test 7 PASS
+Test 8: Modify one
+Test 8 PASS
+=== Summary: 8/8 tests passed ===
+TEST PASSED

@@ -1,0 +1,16 @@
+PASS: Simple field assignment
+PASS: Struct copy
+PASS: Aggregate literal assignment
+PASS: Positional aggregate assignment
+PASS: Nested struct field assignment
+PASS: Nested struct copy
+PASS: Struct with array field
+PASS: Packed struct field assignment
+PASS: Packed struct whole assignment
+PASS: Field with expression
+PASS: Compound field assignment
+PASS: Field bit slice assignment
+PASS: Default value in aggregate
+PASS: Mixed aggregate assignment
+PASS: Field assignment from comparison
+PASS: struct_assign (15/15)

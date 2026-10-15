@@ -1,0 +1,19 @@
+PASS: assoc_int.exists(5) = 1
+PASS: assoc_int.exists(10) = 1
+PASS: assoc_int.exists(0) = 0
+PASS: assoc_int.exists(20) = 0
+PASS: assoc_str.exists("apple") = 1
+PASS: assoc_str.exists("orange") = 0
+PASS: empty_assoc.exists(0) = 0
+PASS: assoc_del.exists(1) before delete = 1
+PASS: assoc_del.exists(1) after delete = 0
+PASS: assoc_del.exists(2) after deleting key 1 = 1
+PASS: assoc_neg.exists(-5) = 1
+PASS: assoc_neg.exists(5) = 0
+========================================
+exists() Method Test Summary:
+  Passed: 12
+  Failed: 0
+  Total:  12
+========================================
+ALL TESTS PASSED

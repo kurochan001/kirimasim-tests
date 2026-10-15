@@ -1,0 +1,26 @@
+Test 1 PASSED: struct '{0xAA, 0xBB, 0xCC}
+Test 2 PASSED: struct '{a:0x11, b:0x22, c:0x33}
+Test 3 PASSED: named pattern out of order
+Test 4 PASSED: mixed type struct pattern
+Test 5 PASSED: array '{10, 20, 30, 40}
+Test 6 PASSED: array '{4{100}}
+Test 7 PASSED: array '{default: 0}
+Test 8 PASSED: byte array pattern
+Test 9 PASSED: nibble pair '{high:A, low:5} = 0xA5
+Test 10 PASSED: pattern with expressions
+Test 11 PASSED: nested struct pattern
+Test 12 PASSED: pattern in function arg
+Test 13 PASSED: all-zero pattern
+Test 14 PASSED: all-ones pattern
+Test 15 PASSED: partial named with default
+Test 16 PASSED: indexed array pattern
+Test 17 PASSED: mixed index and default
+Test 18 PASSED: pattern reassignment
+Test 19 PASSED: pattern in conditional
+Test 20 PASSED: empty array with default
+Test 21 PASSED: struct with default
+Test 22 PASSED: pattern to raw via struct
+Test 23 PASSED: replication in struct
+Test 24 PASSED: nested array in struct
+Test 25 PASSED: pattern comparison
+PASS: assignment_pattern (25/25)

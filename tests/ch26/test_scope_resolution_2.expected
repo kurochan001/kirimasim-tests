@@ -1,0 +1,9 @@
+Test 1 PASS: pkg_a::VALUE = 100
+Test 2 PASS: pkg_b::VALUE = 200
+Test 3 PASS: pkg_a::get_value() = 100
+Test 4 PASS: Package typedefs work correctly
+Test 5 PASS: ClassA::static_count = 2
+Test 6 PASS: ClassA::get_count() = 2
+Test 7 PASS: OuterClass::outer_static = 42
+Test 8 PASS: Write via :: successful
+PASS: scope_resolution (8/8)

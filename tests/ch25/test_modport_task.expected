@@ -1,0 +1,7 @@
+PASS: Test 1 - Interface task do_add (0x100 + 0x50 = 0x150)
+PASS: Test 2 - Interface task do_sub (0x200 - 0x80 = 0x180)
+PASS: Test 3 - Interface function get_max
+PASS: Test 4 - Interface function get_min
+PASS: Test 5 - Chain of operations (1000+234-100 = 1134)
+=== Summary: 5 PASS, 0 FAIL ===
+PASS: All modport task/function tests passed

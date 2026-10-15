@@ -1,0 +1,26 @@
+Test 1 PASSED: arr[0] = 100
+Test 2 PASSED: arr[5] = 555
+Test 3 PASSED: arr[idx] with idx=3
+Test 4 PASSED: arr[2+1] = 999
+Test 5 PASSED: byte_arr[0] = 0xAB
+Test 6 PASSED: byte_arr[4] = 0x40
+Test 7 PASSED: multi_arr[1][2] = 42
+Test 8 PASSED: multi_arr[2][2] = 99
+Test 9 PASSED: dyn_arr[0] = 10
+Test 10 PASSED: dyn_arr[4] = 400
+Test 11 PASSED: assoc_arr["first"] = 1
+Test 12 PASSED: queue_arr[0] = 100
+Test 13 PASSED: queue_arr[1] = 200
+Test 14 PASSED: arr[0] + arr[1] = 30
+Test 15 PASSED: arr[arr[0]] = 999
+Test 16 PASSED: packed_arr[0] = 1
+Test 17 PASSED: packed_arr[31] = 1
+Test 18 PASSED: arr[9] = 909
+Test 19 PASSED: arr[0]++ = 51
+Test 20 PASSED: swap arr[0] and arr[1]
+Test 21 PASSED: arr[0] = -100
+Test 22 PASSED: byte_arr[0] = 0xFF
+Test 23 PASSED: multi_arr[3][3] = 33
+Test 24 PASSED: queue_arr[0] modified to 999
+Test 25 PASSED: arr[idx?5:0] = 555
+PASS: array_indexing (25/25)
