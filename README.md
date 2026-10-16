@@ -1,8 +1,8 @@
-# haremasim-tests
+# kirimasim-tests
 
 A conformance test suite for IEEE 1800-2023 SystemVerilog simulators.
 
-The tests are written for the [haremasim](https://github.com/kurochan001/haremasim)
+The tests are written for the [kirimasim](https://github.com/kurochan001/kirimasim)
 simulator, but they are meant to be usable with any simulator. Every test
 records where its expected result comes from and which clauses of the
 standard it checks.
