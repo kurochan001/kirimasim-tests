@@ -1,0 +1,220 @@
+name: Nightly
+
+# Runs every test of main with each simulator once a day, and adds the results
+# to the history on the results branch, which tools/results_history.py draws
+# as charts (see "Nightly results" in README.md).
+
+on:
+  schedule:
+    - cron: "23 19 * * *"  # once a day (19:23 UTC, 04:23 JST)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  # The expected outputs recorded with Icarus Verilog 13.0 must all match, so
+  # a failure here is a problem of the suite: the job fails, after the results
+  # have been uploaded.
+  icarus:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Restored and saved in separate steps, so that the build is kept even
+      # when the tests then fail the job.
+      - name: Restore Icarus Verilog 13.0
+        id: cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/icarus
+          key: icarus-v13_0-ubuntu-24.04
+
+      - name: Build Icarus Verilog 13.0
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autoconf gperf bison flex zlib1g-dev libbz2-dev
+          git clone -q --depth 1 --branch v13_0 https://github.com/steveicarus/iverilog.git \
+            "$RUNNER_TEMP/iverilog"
+          cd "$RUNNER_TEMP/iverilog"
+          sh autoconf.sh
+          ./configure -q --prefix="$HOME/icarus"
+          make -s -j"$(nproc)"
+          make -s install
+
+      - name: Save Icarus Verilog 13.0
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/icarus
+          key: icarus-v13_0-ubuntu-24.04
+
+      - name: Run the suite
+        run: |
+          mkdir -p results
+          python3 tools/run_icarus.py --iverilog-bin "$HOME/icarus/bin" -j "$(nproc)" \
+            --json results/icarus.json | tee results/icarus.log
+          tail -n 1 results/icarus.log >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: results-icarus
+          path: results/
+          if-no-files-found: warn
+
+  # Every test, not only those recorded with Verilator 5.052: the others are
+  # counted as known differences when they do not match. As for Icarus
+  # Verilog, a test recorded with Verilator that does not match fails the job.
+  verilator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Restored and saved in separate steps, so that the build is kept even
+      # when the tests then fail the job.
+      - name: Restore Verilator 5.052
+        id: cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/verilator
+          key: verilator-v5.052-ubuntu-24.04
+
+      - name: Build Verilator 5.052
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y help2man autoconf flex bison libfl-dev zlib1g-dev
+          git clone -q --depth 1 --branch v5.052 https://github.com/verilator/verilator.git \
+            "$RUNNER_TEMP/verilator"
+          cd "$RUNNER_TEMP/verilator"
+          autoconf
+          ./configure -q --prefix="$HOME/verilator"
+          make -s -j"$(nproc)"
+          make -s install
+
+      - name: Save Verilator 5.052
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/verilator
+          key: verilator-v5.052-ubuntu-24.04
+
+      - name: Run the suite
+        run: |
+          mkdir -p results
+          python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" --all \
+            -j "$(nproc)" --json results/verilator.json | tee results/verilator.log
+          tail -n 1 results/verilator.log >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: results-verilator
+          path: results/
+          if-no-files-found: warn
+
+  # The latest main of kirimasim, built as its own nightly builds it. Its
+  # results are only reported: tests that do not match do not fail the job.
+  kirimasim:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: kurochan001/kirimasim
+          path: kirimasim
+
+      - name: Cache FetchContent downloads
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            kirimasim/build/release/_deps/*-src
+            kirimasim/build/release/_deps/*-subbuild
+            kirimasim/build/release/_deps/*-tmp
+            kirimasim/build/release/CMakeFiles/fc-stamp
+          key: >-
+            kirimasim-fetchcontent-ubuntu-24.04-release-${{
+            hashFiles('kirimasim/cmake/Dependencies.cmake') }}
+
+      - name: Build kirimasim
+        working-directory: kirimasim
+        run: |
+          cmake --preset release
+          cmake --build --preset release
+
+      - name: Run the suite
+        run: |
+          mkdir -p results
+          python3 tools/run_kirimasim.py --kirimasim kirimasim/build/release/src/driver/kirimasim \
+            -j "$(nproc)" --json results/kirimasim.json > results/kirimasim.log || true
+          cat results/kirimasim.log
+          tail -n 1 results/kirimasim.log >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: results-kirimasim
+          path: results/
+          if-no-files-found: warn
+
+  # Adds the results of the simulators that ran to the history on the results
+  # branch, draws the charts and the report there, and pushes it.
+  publish:
+    needs: [icarus, verilator, kirimasim]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: results-*
+          path: results
+          merge-multiple: true
+
+      - name: Check out the results branch
+        run: |
+          if git fetch -q --depth 1 origin results; then
+            git worktree add -q -B results history FETCH_HEAD
+          else
+            git worktree add -q --orphan -b results history
+          fi
+
+      - name: Update the history
+        run: |
+          shopt -s nullglob
+          files=(results/*.json)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "::error::No simulator produced results."
+            exit 1
+          fi
+          python3 tools/results_history.py update --history history \
+            --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            "${files[@]}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Push the results branch
+        working-directory: history
+        run: |
+          git add -A
+          git -c user.name="github-actions[bot]" \
+            -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "Nightly results of $(date -u +%Y-%m-%d) for ${GITHUB_SHA::7}"
+          git push -q origin results
+
+      - name: Check the counts in README.md
+        run: |
+          python3 tools/suite_stats.py --check ||
+            echo "::warning::README.md is out of date: run python3 tools/suite_stats.py --update"
