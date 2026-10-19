@@ -1,0 +1,7 @@
+a11: 1 2 3 10 1 2 3 20 30 40 50
+string: abcd, string array: ab / cd
+byte: 3a, byte array: 03 0a
+queue of strings: 4 items, last zabcd
+with a typed item: 5 items, last abcd
+queue of queues: sizes 1 3 2, qq[1][2] = 4
+{}: 0 elements

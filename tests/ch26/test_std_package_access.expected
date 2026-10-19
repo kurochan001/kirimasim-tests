@@ -1,0 +1,6 @@
+mailbox: n = 42, num() = -1
+std::mailbox: num() = 1
+semaphore: 1, std::semaphore: 0
+same process: 1, running: 1
+std::randomize: 1
+x in range: 1

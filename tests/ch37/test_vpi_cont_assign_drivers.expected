@@ -1,0 +1,16 @@
+continuous assignments: 5
+  k = 1
+  m = 0
+  m = 1
+  n = 1, net decl, weak0 strong1
+  w = 3, delay 3
+drivers of m: 2
+  cont assign
+  cont assign
+drivers of t: 1
+  prim term
+drivers of n: 1
+  cont assign
+loads of n: 2
+  cont assign
+  prim term

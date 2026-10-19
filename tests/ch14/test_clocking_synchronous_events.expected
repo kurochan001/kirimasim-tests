@@ -1,0 +1,6 @@
+5: @(cb)
+15: @(cb.ack), cb.ack = 1
+25: @(posedge cb.en)
+35: @(negedge cb.v[idx]), cb.v = 0011
+55: @(cb.ack), cb.ack = 0
+watcher: cb.v = 0011

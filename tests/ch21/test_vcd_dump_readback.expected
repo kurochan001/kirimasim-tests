@@ -1,0 +1,9 @@
+0 $dumpvars: a=0 n=101 v=10
+10: a=1 v=10x1
+20 $dumpoff: a=x n=x v=x
+40 $dumpon: a=0 n=101 v=10x1
+50: v=1
+60 $dumpall: a=0 n=101 v=1
+var a: reg 1
+var n: integer 32
+var v: reg 4

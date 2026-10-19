@@ -1,0 +1,5 @@
+variable widget = 8
+macro widget = 7
+package widget: get() = 5
+instance of module widget: o = 3
+block variable widget = 100, module variable = 8

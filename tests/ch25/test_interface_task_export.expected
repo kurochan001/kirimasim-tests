@@ -1,0 +1,4 @@
+targets = 2
+7: read_word(5) gives 405
+9: read_word(2) gives 2
+peek(3) = -3

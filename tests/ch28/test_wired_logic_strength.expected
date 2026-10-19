@@ -1,0 +1,6 @@
+wand, weak 1 and weak 0: We0
+wor, weak 1 and weak 0: We1
+triand, pull 1 and pull 0: Pu0
+trior, pull 1 and pull 0: Pu1
+wand, strong 1 and weak 0: St1
+wor, strong 0 and weak 1: St0

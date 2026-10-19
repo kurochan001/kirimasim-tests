@@ -1,0 +1,5 @@
+top_a: top_b.y = 2
+top_b: $root.top_a.x = 1
+test_top_level_instances.c
+test_top_level_instances
+top_p: program

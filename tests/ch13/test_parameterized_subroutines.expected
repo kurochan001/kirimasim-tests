@@ -1,0 +1,7 @@
+highest #(8): 6, 3 bits
+highest #(32): 16, 5 bits
+reverse default: 10000011
+reverse #(4): 1100
+sum int: 300
+sum byte: 44
+sum shortint, 2: -5536

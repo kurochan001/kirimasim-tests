@@ -1,0 +1,7 @@
+1364-1995: generate=1 localparam=2
+1364-2001: logic=3 uwire=4
+1364-2001-noconfig: config=5 cell=6 design=7
+1364-2005: bit=8 int=9
+1800-2005: global=10 let=11 until=12
+1800-2009: nettype=13 soft=14
+1800-2023: done

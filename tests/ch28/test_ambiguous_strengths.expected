@@ -1,0 +1,5 @@
+weak 1 and weak 0: WeX
+bufif1 with an x control: StH
+bufif0 with an x control: StL
+both on one net: StX
+strong H and pull 0: 56X
