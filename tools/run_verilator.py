@@ -24,8 +24,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 NORMALIZE = ROOT / "tools" / "normalize_output.py"
-# Lines that Verilator itself prints, not the test.
-BANNER = re.compile(r"^- (?:\S+:\d+: Verilog \$finish|S i m u l a t i o n|Verilator: )")
+# Lines that Verilator itself prints, not the test: its banners and its run-time
+# warnings, such as the one for a randomize() call whose constraints fail.
+BANNER = re.compile(r"^(?:- (?:\S+:\d+: Verilog \$finish|S i m u l a t i o n|Verilator: )|%Warning-)")
 
 
 def header_field(test: Path, name: str) -> str | None:

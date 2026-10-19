@@ -79,7 +79,9 @@ This runs only the tests whose `:oracle:` lists `verilator@5.052`. Verilator is
 a two-state simulator, so all of these tests are `:fourstate: no`. Each test is
 built with `verilator --binary --timing` and run with random initial values
 (`--seed` chooses them); the expected outputs were checked to be the same with
-two different seeds.
+two different seeds. Verilator's own lines are removed before comparing: its
+banners and its run-time warnings (`%Warning-...`), which it prints on standard
+output, for example when the constraints of a `randomize()` call cannot be met.
 
 ## Contributing
 
