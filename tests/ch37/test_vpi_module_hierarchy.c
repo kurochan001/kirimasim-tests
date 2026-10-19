@@ -85,12 +85,16 @@ static PLI_INT32 lookup_calltf(PLI_BYTE8 *user_data)
 {
     s_vpi_value v;
     vpiHandle obj;
+    char *name, *scope;
     (void)user_data;
     v.format = vpiStringVal;
     vpi_get_value(first_arg(), &v);
     obj = vpi_handle_by_name(v.value.str, NULL);
-    vpi_printf("%s: %d bits, in %s\n", str_of(vpiFullName, obj), (int)vpi_get(vpiSize, obj),
-               vpi_get_str(vpiFullName, vpi_handle(vpiModule, obj)));
+    /* Both names are copied first: the order in which the arguments of a
+       call are evaluated is unspecified. */
+    name = str_of(vpiFullName, obj);
+    scope = str_of(vpiFullName, vpi_handle(vpiModule, obj));
+    vpi_printf("%s: %d bits, in %s\n", name, (int)vpi_get(vpiSize, obj), scope);
     return 0;
 }
 
