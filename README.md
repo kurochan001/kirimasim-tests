@@ -36,45 +36,45 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **2176 tests** in 37 chapters.
+The suite has **2202 tests** in 37 chapters.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 1453 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 569 |
-| The standard only, where neither simulator follows it | 154 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 1476 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 570 |
+| The standard only, where neither simulator follows it | 156 |
 
-190 tests depend on x or z values (`:fourstate: yes`). 70 tests come with C code: 11 DPI tests (`:dpi_c:`) and 59 VPI tests (`:vpi_c:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+192 tests depend on x or z values (`:fourstate: yes`). 70 tests come with C code: 11 DPI tests (`:dpi_c:`) and 59 VPI tests (`:vpi_c:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 6 | 2 | 3 | 1 |
 | 4 | Scheduling semantics | 19 | 16 | 1 | 2 |
 | 5 | Lexical conventions | 25 | 24 | 1 |  |
-| 6 | Data types | 241 | 181 | 55 | 5 |
-| 7 | Aggregate data types | 271 | 113 | 155 | 3 |
+| 6 | Data types | 247 | 186 | 55 | 6 |
+| 7 | Aggregate data types | 272 | 113 | 155 | 4 |
 | 8 | Classes | 117 | 28 | 85 | 4 |
-| 9 | Processes | 84 | 77 | 5 | 2 |
-| 10 | Assignment statements | 93 | 81 | 10 | 2 |
-| 11 | Operators and expressions | 375 | 318 | 56 | 1 |
+| 9 | Processes | 90 | 83 | 5 | 2 |
+| 10 | Assignment statements | 94 | 82 | 10 | 2 |
+| 11 | Operators and expressions | 378 | 321 | 56 | 1 |
 | 12 | Procedural programming statements | 119 | 102 | 16 | 1 |
-| 13 | Tasks and functions (subroutines) | 94 | 52 | 42 |  |
+| 13 | Tasks and functions (subroutines) | 98 | 56 | 42 |  |
 | 14 | Clocking blocks | 13 |  | 11 | 2 |
-| 15 | Interprocess synchronization and communication | 22 | 1 | 19 | 2 |
+| 15 | Interprocess synchronization and communication | 23 | 1 | 20 | 2 |
 | 16 | Assertions | 54 | 16 | 11 | 27 |
 | 17 | Checkers | 6 |  |  | 6 |
 | 18 | Constrained random value generation | 21 |  | 19 | 2 |
 | 19 | Functional coverage | 20 |  | 8 | 12 |
 | 20 | Utility system tasks and system functions | 168 | 157 | 8 | 3 |
-| 21 | Input/output system tasks and system functions | 72 | 66 | 3 | 3 |
+| 21 | Input/output system tasks and system functions | 73 | 67 | 3 | 3 |
 | 22 | Compiler directives | 22 | 21 | 1 |  |
-| 23 | Modules and hierarchy | 53 | 46 | 5 | 2 |
+| 23 | Modules and hierarchy | 54 | 47 | 5 | 2 |
 | 24 | Programs | 7 | 3 |  | 4 |
 | 25 | Interfaces | 42 | 11 | 30 | 1 |
 | 26 | Packages | 24 | 17 | 7 |  |
 | 27 | Generate constructs | 64 | 62 | 2 |  |
-| 28 | Gate-level and switch-level modeling | 28 | 24 | 3 | 1 |
-| 29 | User-defined primitives | 8 | 5 | 3 |  |
+| 28 | Gate-level and switch-level modeling | 29 | 25 | 3 | 1 |
+| 29 | User-defined primitives | 9 | 6 | 3 |  |
 | 30 | Specify blocks | 8 | 7 |  | 1 |
 | 31 | Timing checks | 7 |  |  | 7 |
 | 32 | Backannotation using the standard delay format | 13 | 7 |  | 6 |

@@ -1,0 +1,4 @@
+automatic output: 5
+automatic output after a delay: 5
+automatic inout: 105
+static output, first call: 5, second call: 10

@@ -1,0 +1,4 @@
+s: len=10 "HelloWorld"
+t: len=3 "abc"
+after s[1] = "\0": len=10 "HelloWorld"
+after s[1] = "a": len=10 "HalloWorld"

@@ -1,0 +1,5 @@
+arr[two >> 63] = 22
+arr[three] = 23
+continuous arr[two >> 63] = 22
+arr[far] = 0
+arr[3] after a write to arr[far] = 23

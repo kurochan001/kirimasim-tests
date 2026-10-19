@@ -1,0 +1,3 @@
+p = 3'b101: $bits = 3, value = 5
+p = 8'ha5: $bits = 8, value = 165
+p = 1 (default): $bits = 32, value = 1

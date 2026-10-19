@@ -1,0 +1,2 @@
+d=1: buf outputs 111, not outputs 00
+d=0: buf outputs 000, not outputs 11

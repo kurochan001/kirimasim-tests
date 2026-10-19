@@ -1,0 +1,8 @@
+0.4: !r=0 r&&1=1 r||0=1 r?1:0=1
+  if (r) takes the true branch
+-0.3: !r=0 r&&1=1 r||0=1 r?1:0=1
+  if (r) takes the true branch
+0.0: !r=1 r&&1=0 r||0=0 r?1:0=0
+  if (r) takes the false branch
+-0.0: !r=1 r&&1=0 r||0=0 r?1:0=0
+  if (r) takes the false branch

@@ -1,0 +1,3 @@
+scalar_in: y=1
+vector_in: n=42
+int_out gives -7, twice(9) gives 18

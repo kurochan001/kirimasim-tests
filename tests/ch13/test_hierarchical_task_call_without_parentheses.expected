@@ -1,0 +1,3 @@
+t=1 a.n=1 after a.bump;
+t=2 a.n=2 after a.bump();
+t=3 m=1 after local_bump;

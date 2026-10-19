@@ -1,0 +1,2 @@
+before the block runs: h.keep.held = 0
+after the block runs: h.keep.held = 1

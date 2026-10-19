@@ -1,0 +1,4 @@
+after the first rising edge: qa=1 qb=0
+after the second rising edge: qa=1 qb=0
+after d changes without an edge: qa=1 qb=0
+after the third rising edge: qa=0 qb=1
