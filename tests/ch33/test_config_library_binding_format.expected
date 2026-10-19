@@ -1,0 +1,3 @@
+test_config_library_binding_format: work.test_config_library_binding_format
+test_config_library_binding_format.u1.show: work.cfg_lib_a
+test_config_library_binding_format.u2.show: work.cfg_lib_b

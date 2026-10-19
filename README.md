@@ -7,7 +7,7 @@ simulator, but they are meant to be usable with any simulator. Every test
 records where its expected result comes from and which clauses of the
 standard it checks.
 
-> **Status: early.** The suite has 2009 tests. Each one was checked
+> **Status: early.** The suite has 2015 tests. Each one was checked
 > against IEEE 1800-2023 by reading the cited clauses, and its expected output
 > matches Icarus Verilog 13.0 or, for tests that Icarus Verilog 13.0 cannot
 > compile or does not run as the standard says, Verilator 5.052. A few tests
@@ -24,7 +24,12 @@ tools/run_verilator.py          runs the Verilator-oracle tests with Verilator
 ```
 
 Tests are grouped by the chapter of IEEE 1800-2023 that their first
-`:lrm:` clause belongs to.
+`:lrm:` clause belongs to. Chapters 3 to 33 have tests. Chapters 1 and 2 set
+out no behavior to test. Chapter 34 (protected envelopes) depends on
+encryption that each tool defines. Chapters 35 to 39 (DPI, VPI and the
+assertion API) need C code, which a test of this suite, one SystemVerilog
+file, cannot carry; so does the API of chapter 40, whose system functions
+return what the coverage collected by each tool gives.
 
 ## Test format
 
