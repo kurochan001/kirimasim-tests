@@ -49,7 +49,9 @@ def run(test: Path, bindir: Path | None) -> tuple[bool, str]:
     vvp = str(bindir / "vvp") if bindir else "vvp"
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / "a.vvp"
-        c = subprocess.run([iverilog, "-g2012", "-o", str(out), str(test)],
+        # Without -gspecify Icarus Verilog ignores specify blocks, and without
+        # -ginterconnect it cannot annotate SDF interconnect delays.
+        c = subprocess.run([iverilog, "-g2012", "-gspecify", "-ginterconnect", "-o", str(out), str(test)],
                            capture_output=True, text=True)
         if c.returncode != 0:
             return False, "compile failed: " + c.stderr.strip().splitlines()[0]
