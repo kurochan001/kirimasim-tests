@@ -1,0 +1,2 @@
+t=10 wait (pk::v == 8'ha5) resumes
+t=20 events=2 comb_copy=a5 assign_copy=a5

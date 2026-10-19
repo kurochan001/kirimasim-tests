@@ -1,0 +1,3 @@
+logic base: mv=xxxx ma[0]=xxxx h.s=xxxx
+int base: iv=0 h.si=0
+invalid index: q[5]=xxxx aa[3]=xxxx qi[2]=0

@@ -1,0 +1,4 @@
+obj == null: 1
+obj.ping() = 37
+leaf::ping() = 37
+obj.calls = 2

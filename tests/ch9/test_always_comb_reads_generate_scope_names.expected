@@ -1,0 +1,2 @@
+in=10: g[0].t_hier=1b g[0].t_cont=1b outer.b_up=13 direct=13
+in=20: g[0].t_hier=2b g[0].t_cont=2b outer.b_up=23 direct=23

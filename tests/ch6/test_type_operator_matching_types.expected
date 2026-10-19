@@ -1,0 +1,6 @@
+byte == bit signed [7:0]: 1
+byte != bit signed [7:0]: 0
+byte == bit signed [0:7]: 0
+byte == logic signed [7:0]: 0
+byte == int: 0
+localparam byte == bit signed [7:0]: 1

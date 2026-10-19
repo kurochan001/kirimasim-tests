@@ -1,0 +1,6 @@
+t=5 stamp=0
+count_calls: calls=1
+count_calls: calls=2
+t=10 always: c=1
+t=20 always: c=2
+t=30 always: c=3

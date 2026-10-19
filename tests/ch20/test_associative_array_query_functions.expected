@@ -1,0 +1,4 @@
+a4: left=0 right=15 low=2 high=9 increment=-1 size=2
+ab: left=0 right=127 low=-5 high=100 increment=-1 size=2
+empty: low=x high=x size=0
+queue: increment=-1

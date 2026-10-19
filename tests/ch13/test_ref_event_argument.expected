@@ -1,0 +1,2 @@
+t=1 @(go) resumes, hits=1
+t=2 wait_for resumes

@@ -1,0 +1,3 @@
+t=1 wait (q.size() != 0) resumes, size 1
+t=2 wait (d.size() == 2) resumes
+t=4 done

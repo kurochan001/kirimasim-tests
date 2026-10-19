@@ -1,0 +1,4 @@
+t=1 parent wrote 11, u1.r reads 11
+t=2 child wrote 55, parent's v reads 55
+t=3 v=55
+t=3 parent wrote a7, u1.r reads a7
