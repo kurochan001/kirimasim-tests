@@ -1,0 +1,3 @@
+20: setup notifier=1 hold notifier=0
+21: setup notifier=1 hold notifier=1
+31: setup notifier=1 hold notifier=0
