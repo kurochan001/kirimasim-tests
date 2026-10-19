@@ -4,7 +4,7 @@ output with its expected output.
 
 Usage:
     python3 tools/run_sukimasim.py [--sukimasim PATH] [--include DIR]
-                                   [--strip-diagnostics] [-j N] [TEST ...]
+                                   [--strip-diagnostics] [-j N] [--json FILE] [TEST ...]
 
 With no TEST arguments, runs every tests/**/*.sv. Exits with 1 if any test
 does not match. No expected output was recorded with sukimasim, so every test
@@ -25,6 +25,9 @@ which is built into a shared library with $CC (default cc) against sukimasim's
 include directory and loaded with --lib. sukimasim has no sv_vpi_user.h, and
 its vpi_user.h declares that API itself, so the runner provides an
 sv_vpi_user.h that includes vpi_user.h.
+
+With --json, the result of every test is also written to FILE in the form
+that tools/suite_results.py describes.
 """
 
 import argparse
@@ -36,6 +39,8 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+
+import suite_results
 
 ROOT = Path(__file__).resolve().parent.parent
 NORMALIZE = ROOT / "tools" / "normalize_output.py"
@@ -144,12 +149,14 @@ def main() -> int:
     ap.add_argument("--strip-diagnostics", action="store_true",
                     help="also remove the messages that sukimasim prints while it runs")
     ap.add_argument("-j", "--jobs", type=int, default=1, help="number of tests run at once")
+    ap.add_argument("--json", type=Path, default=None, help="also write the results to this file")
     ap.add_argument("tests", nargs="*", type=Path)
     args = ap.parse_args()
 
     exe = shutil.which(args.sukimasim)
     if exe is None:
         ap.error(f"cannot find {args.sukimasim}")
+    exe = str(Path(exe).resolve())   # the tests run in other directories
     include = args.include
     if include is None:
         guess = Path(exe).resolve().parent.parent / "include"
@@ -157,6 +164,7 @@ def main() -> int:
 
     tests = args.tests or sorted((ROOT / "tests").rglob("*.sv"))
     failed = 0
+    statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
         results = pool.map(lambda t: run(t, exe, include, args.strip_diagnostics), tests)
         for t, (ok, why) in zip(tests, results):
@@ -164,7 +172,11 @@ def main() -> int:
                 failed += 1
                 name = t.relative_to(ROOT) if t.is_absolute() else t
                 print(f"FAIL {name}: {why}", flush=True)
+            statuses[suite_results.test_id(t)] = ("pass" if ok else "fail", why)
     print(f"{len(tests) - failed}/{len(tests)} tests match")
+    if args.json:
+        suite_results.write(args.json, "sukimasim", "sukimasim",
+                            suite_results.tool_version([exe, "--version"]), statuses)
     return 1 if failed else 0
 
 
