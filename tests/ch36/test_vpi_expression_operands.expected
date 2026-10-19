@@ -1,0 +1,6 @@
+add(a, mult(b, c)) = 11
+mult(add(a, b), c) = 5
+sub(a, sub(b, c)) = 6
+concat(a, b) = 82
+replicate(2, b) = 34
+condition(s, minus(a), c) = 11

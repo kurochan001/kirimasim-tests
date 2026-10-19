@@ -1,0 +1,3 @@
+a = 100, b = 101, next = 102
+user $stop called
+still running after $stop

@@ -1,0 +1,8 @@
+w = 000000ffffffffff, w2 = 000000ffffffffff, n = 7
+compiletf: $vt_task 3, $vt_wide 2, $vt_int 1
+sizetf: $vt_task 0, $vt_wide 1, $vt_int 0
+calltf: $vt_task 4, $vt_wide 2, $vt_int 1
+compiletf or sizetf after the end of compilation: 0
+calltf before the start of simulation: 0
+end of compilation before start of simulation: yes
+wrong user_data: 0
