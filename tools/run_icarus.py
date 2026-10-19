@@ -14,6 +14,10 @@ that Icarus Verilog 13.0 does not produce, because Icarus Verilog does not
 follow the standard there or cannot compile the test (such a test lists
 verilator@5.052 instead; see tools/run_verilator.py). Such a test is
 reported as a known difference and does not make the run fail.
+
+A test with `:vpi_c: @<file>.c` has a VPI application next to it: the file is
+built with iverilog-vpi and loaded with vvp -m. Icarus Verilog has no DPI, so a
+test with `:dpi_c:` does not compile and lists another oracle.
 """
 
 import argparse
@@ -44,18 +48,33 @@ def expected_output(test: Path) -> str | None:
     return value + "\n"
 
 
+def c_source(test: Path, name: str) -> Path | None:
+    value = header_field(test, name)
+    if value is None:
+        return None
+    return (test.parent / value.removeprefix("@")).resolve()
+
+
 def run(test: Path, bindir: Path | None) -> tuple[bool, str]:
     iverilog = str(bindir / "iverilog") if bindir else "iverilog"
     vvp = str(bindir / "vvp") if bindir else "vvp"
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / "a.vvp"
+        vvp_args = []
+        vpi = c_source(test, "vpi_c")
+        if vpi is not None:
+            b = subprocess.run([str(bindir / "iverilog-vpi") if bindir else "iverilog-vpi",
+                                "--name=app", str(vpi)], capture_output=True, text=True, cwd=tmp)
+            if b.returncode != 0:
+                return False, "VPI build failed: " + (b.stderr.strip().splitlines() or [""])[-1]
+            vvp_args = ["-M", tmp, "-mapp"]
         # Without -gspecify Icarus Verilog ignores specify blocks, and without
         # -ginterconnect it cannot annotate SDF interconnect delays.
         c = subprocess.run([iverilog, "-g2012", "-gspecify", "-ginterconnect", "-o", str(out), str(test)],
                            capture_output=True, text=True)
         if c.returncode != 0:
             return False, "compile failed: " + c.stderr.strip().splitlines()[0]
-        r = subprocess.run([vvp, str(out)], capture_output=True, text=True, cwd=tmp,
+        r = subprocess.run([vvp, *vvp_args, str(out)], capture_output=True, text=True, cwd=tmp,
                            timeout=60)
     norm = subprocess.run([sys.executable, str(NORMALIZE)], input=r.stdout,
                           capture_output=True, text=True).stdout

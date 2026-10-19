@@ -18,6 +18,7 @@ standard it checks.
 ```text
 tests/chNN/<name>.sv            the test, with a metadata header
 tests/chNN/<name>.expected      expected standard output (multi-line)
+tests/chNN/<name>.c             C code of a DPI or VPI test (see below)
 tools/normalize_output.py       removes simulator banners before comparing
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the Verilator-oracle tests with Verilator
@@ -27,9 +28,8 @@ Tests are grouped by the chapter of IEEE 1800-2023 that their first
 `:lrm:` clause belongs to. Chapters 3 to 33 have tests. Chapters 1 and 2 set
 out no behavior to test. Chapter 34 (protected envelopes) depends on
 encryption that each tool defines. Chapters 35 to 39 (DPI, VPI and the
-assertion API) need C code, which a test of this suite, one SystemVerilog
-file, cannot carry; so does the API of chapter 40, whose system functions
-return what the coverage collected by each tool gives.
+assertion API) have no tests yet; the system functions of chapter 40 return
+what the coverage collected by each tool gives.
 
 ## Test format
 
@@ -49,6 +49,8 @@ extra fields.
 | `:fourstate:` | Whether the result depends on x or z values (`yes` / `no`): the test has x or z literals, `$isunknown`, `casex`/`casez`, tri-state or strength constructs, or x or z in its expected output |
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
 | `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test |
+| `:dpi_c:` | `@<file>`: C code next to the test that implements its DPI imports and calls its exports (chapter 35) |
+| `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 38) |
 
 A test passes when the simulator's standard output, after removing empty
 lines and the simulator's own banners (see `tools/normalize_output.py`),
@@ -59,6 +61,16 @@ printed with `%t`, `$timeformat`, `$printtimescale`, fractional delays or
 delays with time units) sets them with `` `timescale `` before its first design
 element: the default time unit and precision are implementation-specific
 (IEEE 1800-2023 3.14.2.3).
+
+A test with `:dpi_c:` or `:vpi_c:` is the SystemVerilog file together with
+its C file, which has the same name. The C file includes only the standard
+headers `svdpi.h` (Annex I) or `vpi_user.h` (Annex K) and those of the C
+library, and it compiles both as C and as C++ (Verilator compiles it as C++),
+with its definitions inside `extern "C"`. Results are returned to
+SystemVerilog and printed with `$display` where possible; C code that prints
+uses `vpi_printf`, or `printf` followed by `fflush(stdout)`. sv-tests' runners
+do not know these fields and compile only the SystemVerilog file, so such a
+test fails there.
 
 Tests of file input and output (IEEE 1800-2023 21.3 to 21.5) and of SDF
 annotation (chapter 32), which write the SDF file they annotate, create files
@@ -74,7 +86,9 @@ python3 tools/run_icarus.py --iverilog-bin /path/to/icarus-13.0/bin
 
 Each test is compiled with `iverilog -g2012 -gspecify -ginterconnect`: without
 `-gspecify` Icarus Verilog ignores specify blocks, and `-ginterconnect` lets it
-annotate SDF interconnect delays.
+annotate SDF interconnect delays. For a test with `:vpi_c:`, the C file is
+built with `iverilog-vpi` and loaded with `vvp -m`. Icarus Verilog has no DPI,
+so the tests with `:dpi_c:` are known differences.
 
 Where Icarus Verilog 13.0 does not follow the standard, the expected output
 follows the standard and `:oracle:` is `spec` without `iverilog@13.0`.
@@ -97,7 +111,10 @@ two different seeds. Verilator's own lines are removed before comparing: its
 banners and its run-time warnings (`%Warning-...`), which it prints on standard
 output, for example when the constraints of a `randomize()` call cannot be met.
 Tests whose results depend on random values print only what the standard fixes,
-such as whether every constraint held.
+such as whether every constraint held. The C file of a test with `:dpi_c:` is
+built into the model; for `:vpi_c:` the model is also built with `--vpi` and
+`--public-flat-rw`, but Verilator does not support user-defined system tasks,
+which the VPI tests use.
 
 ## Contributing
 

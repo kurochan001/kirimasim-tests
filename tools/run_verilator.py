@@ -13,6 +13,10 @@ not depend on x or z values (`:fourstate: no`). Each test is built with
 `verilator --binary --timing` and run with random initial values, so a test
 that depended on uninitialized values would show up as a difference.
 Exits with 1 if any test does not match.
+
+A test with `:dpi_c: @<file>.c` or `:vpi_c: @<file>.c` has C code next to it,
+which is built with the model (Verilator compiles it as C++); for `:vpi_c:` the
+model is also built with --vpi and --public-flat-rw.
 """
 
 import argparse
@@ -46,12 +50,25 @@ def expected_output(test: Path) -> str | None:
     return value + "\n"
 
 
+def c_source(test: Path, name: str) -> Path | None:
+    value = header_field(test, name)
+    if value is None:
+        return None
+    return (test.parent / value.removeprefix("@")).resolve()
+
+
 def run(test: Path, verilator: str, seed: int) -> tuple[bool, str]:
+    extra = []
+    dpi, vpi = c_source(test, "dpi_c"), c_source(test, "vpi_c")
+    if dpi is not None:
+        extra.append(str(dpi))
+    if vpi is not None:
+        extra += ["--vpi", "--public-flat-rw", str(vpi)]
     with tempfile.TemporaryDirectory() as tmp:
         obj = Path(tmp) / "obj"
         b = subprocess.run([verilator, "--binary", "--timing", "-Wno-fatal", "-Wno-lint",
                             "-Wno-style", "--x-assign", "unique", "--x-initial", "unique",
-                            "-Mdir", str(obj), "--prefix", "Vt", str(test)],
+                            "-Mdir", str(obj), "--prefix", "Vt", str(test), *extra],
                            capture_output=True, text=True)
         if b.returncode != 0:
             err = [l for l in b.stderr.splitlines() if l.startswith("%Error")]
