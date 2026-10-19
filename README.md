@@ -1,5 +1,6 @@
 # kirimasim-tests
 
+[![Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml)
 [![Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
 
 A conformance test suite for the simulation semantics of IEEE 1800-2023
@@ -100,8 +101,9 @@ allows and how the results of the coverage functions relate.
 ## Nightly results
 
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
-every test of `main` with Icarus Verilog 13.0, Verilator 5.052 and the latest
-`main` of kirimasim, and adds the results to the history on the
+every test of `main` with the latest development version of each simulator:
+the `master` branches of Icarus Verilog and Verilator and the `main` branch
+of kirimasim, built that night. It adds the results to the history on the
 [`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)
 branch. The chart below is redrawn after each run; the
 [report on that branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)
@@ -117,13 +119,18 @@ Each test of a run gets one of these statuses:
 | --- | --- |
 | match | The normalized standard output is exactly the expected output. |
 | differ | It is not, or the test could not be built or run. |
-| known difference | It is not, and the expected output was not recorded with this simulator: Icarus Verilog and Verilator are known not to produce it (see `:oracle:`). |
+| known difference | It is not, and the expected output was not recorded with this simulator, because its release that the suite was checked with (Icarus Verilog 13.0 or Verilator 5.052) does not produce it (see `:oracle:`). |
 | unsupported | The simulator reported a construct it does not support yet, or it cannot run this kind of test (kirimasim cannot load the C code of DPI and VPI tests yet). |
 
-The expected outputs recorded with Icarus Verilog 13.0 and Verilator 5.052
-must all match them: a test that does not makes the job of that simulator
-fail, because it points to a problem in the suite. The results of kirimasim
-are only reported.
+So for Icarus Verilog and Verilator, a test that differs is one that the
+release matches but the development version does not, and a known
+difference that matches is one that the development version has fixed.
+
+The nightly results are only reported: a test that does not match does not
+make the workflow fail. The expected outputs recorded with Icarus Verilog
+13.0 and Verilator 5.052 are checked with those releases by a
+[second workflow](.github/workflows/check.yml) whenever the tests or the
+tools change (see "Workflows").
 
 ## Layout
 
@@ -139,6 +146,7 @@ tools/normalize_output.py       normalizes a simulator's output before it is com
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
 tools/suite_stats.py            counts the tests and keeps the tables of this README
+.github/workflows/check.yml     checks the expected outputs with the releases
 .github/workflows/nightly.yml   the nightly run
 ```
 
@@ -278,7 +286,10 @@ Each test is compiled with `iverilog -g2012 -gspecify -ginterconnect`: without
 `-gspecify` Icarus Verilog ignores specify blocks, and `-ginterconnect` lets it
 annotate SDF interconnect delays. For a test with `:vpi_c:`, the C file is
 built with `iverilog-vpi` and loaded with `vvp -m`. Icarus Verilog has no DPI,
-so the tests with `:dpi_c:` are known differences.
+so the tests with `:dpi_c:` are known differences. The expected outputs were
+checked with Icarus Verilog 13.0; another version can differ, so name the
+directory of 13.0 with `--iverilog-bin` when the `iverilog` on `PATH` is
+another one.
 
 Where Icarus Verilog 13.0 does not follow the standard, the expected output
 follows the standard and `:oracle:` does not list `iverilog@13.0`.
@@ -368,25 +379,38 @@ adds the run to `my-results/history.json`, and draws `my-results/charts/*.svg`
 and `my-results/README.md`. `python3 tools/results_history.py render
 --history my-results` draws them again from the history alone.
 
-## Nightly workflow
+## Workflows
 
-`.github/workflows/nightly.yml` runs at 19:23 UTC every day, and can be
-started by hand from the Actions tab (`workflow_dispatch`). It has four jobs:
+`.github/workflows/check.yml` runs on every push to `main` and every pull
+request that changes `tests/`, `tools/` or this README, and can be started by
+hand from the Actions tab (`workflow_dispatch`). Its jobs fail when the
+suite has a problem:
 
 - **icarus** builds Icarus Verilog 13.0 from its `v13_0` tag (kept in the
-  Actions cache) and runs every test.
+  Actions cache) and runs every test. Every test whose `:oracle:` lists
+  `iverilog@13.0` must match; the others are known differences.
 - **verilator** builds Verilator 5.052 from its `v5.052` tag (kept in the
-  cache) and runs every test with `--all`.
+  cache) and runs the tests whose `:oracle:` lists `verilator@5.052`, which
+  must all match.
+- **readme** checks that the tables of this README are up to date
+  (`tools/suite_stats.py --check`).
+
+`.github/workflows/nightly.yml` runs at 19:23 UTC every day, and can be
+started by hand as well. Its results are only reported. It has four jobs:
+
+- **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
+  by its commit) and runs every test.
+- **verilator** builds the latest `master` of Verilator (kept in the cache
+  by its commit) and runs every test with `--all`.
 - **kirimasim** builds the latest `main` of kirimasim with its `release`
   preset and runs every test.
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
   `tools/results_history.py update`, and pushes the branch. The summary of
   the run lists each simulator's counts and the tests whose result changed.
-  It also warns when the tables of this README are out of date.
 
-A simulator whose job fails before it has results is left out of that
-night's entry, and its next run is compared with its last results.
+A simulator whose nightly job fails before it has results is left out of
+that night's entry, and its next run is compared with its last results.
 
 ## Contributing
 
@@ -408,7 +432,8 @@ A new test should:
   confirmed with Icarus Verilog 13.0 or Verilator 5.052 as described in
   "Where the expected outputs come from".
 
-After adding tests, update the tables of this README:
+After adding tests, update the tables of this README, which the check
+workflow requires:
 
 ```sh
 python3 tools/suite_stats.py --update

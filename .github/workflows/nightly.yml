@@ -1,8 +1,10 @@
 name: Nightly
 
-# Runs every test of main with each simulator once a day, and adds the results
-# to the history on the results branch, which tools/results_history.py draws
-# as charts (see "Nightly results" in README.md).
+# Runs every test of main once a day with the latest development version of
+# each simulator, and adds the results to the history on the results branch,
+# which tools/results_history.py draws as charts (see "Nightly results" in
+# README.md). The results are only reported: the expected outputs recorded
+# with Icarus Verilog 13.0 and Verilator 5.052 are checked by check.yml.
 
 on:
   schedule:
@@ -17,52 +19,59 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # The expected outputs recorded with Icarus Verilog 13.0 must all match, so
-  # a failure here is a problem of the suite: the job fails, after the results
-  # have been uploaded.
+  # The latest master of Icarus Verilog, kept in the cache by its commit.
   icarus:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      # Restored and saved in separate steps, so that the build is kept even
-      # when the tests then fail the job.
-      - name: Restore Icarus Verilog 13.0
+      - name: Find the latest commit of Icarus Verilog
+        id: head
+        run: |
+          sha=$(git ls-remote https://github.com/steveicarus/iverilog.git refs/heads/master |
+            cut -f1)
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Restore Icarus Verilog
         id: cache
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/icarus
-          key: icarus-v13_0-ubuntu-24.04
+          key: icarus-${{ steps.head.outputs.sha }}-ubuntu-24.04
 
-      - name: Build Icarus Verilog 13.0
+      # Cloned with its history, so that the version that iverilog -V prints
+      # names the commit.
+      - name: Build Icarus Verilog
         if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          SHA: ${{ steps.head.outputs.sha }}
         run: |
           sudo apt-get update
           sudo apt-get install -y autoconf gperf bison flex zlib1g-dev libbz2-dev
-          git clone -q --depth 1 --branch v13_0 https://github.com/steveicarus/iverilog.git \
+          git clone -q --filter=blob:none https://github.com/steveicarus/iverilog.git \
             "$RUNNER_TEMP/iverilog"
           cd "$RUNNER_TEMP/iverilog"
+          git checkout -q --detach "$SHA"
           sh autoconf.sh
           ./configure -q --prefix="$HOME/icarus"
           make -s -j"$(nproc)"
           make -s install
 
-      - name: Save Icarus Verilog 13.0
+      - name: Save Icarus Verilog
         if: steps.cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/icarus
-          key: icarus-v13_0-ubuntu-24.04
+          key: icarus-${{ steps.head.outputs.sha }}-ubuntu-24.04
 
       - name: Run the suite
         run: |
           mkdir -p results
           python3 tools/run_icarus.py --iverilog-bin "$HOME/icarus/bin" -j "$(nproc)" \
-            --json results/icarus.json | tee results/icarus.log
-          status=${PIPESTATUS[0]}
+            --json results/icarus.json > results/icarus.log || true
+          cat results/icarus.log
           tail -n 1 results/icarus.log >> "$GITHUB_STEP_SUMMARY"
-          exit "$status"
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
@@ -71,52 +80,61 @@ jobs:
           path: results/
           if-no-files-found: warn
 
-  # Every test, not only those recorded with Verilator 5.052: the others are
-  # counted as known differences when they do not match. As for Icarus
-  # Verilog, a test recorded with Verilator that does not match fails the job.
+  # The latest master of Verilator, kept in the cache by its commit. Every
+  # test runs, not only those recorded with Verilator 5.052: the others are
+  # counted as known differences when they do not match.
   verilator:
     runs-on: ubuntu-24.04
     timeout-minutes: 180
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      # Restored and saved in separate steps, so that the build is kept even
-      # when the tests then fail the job.
-      - name: Restore Verilator 5.052
+      - name: Find the latest commit of Verilator
+        id: head
+        run: |
+          sha=$(git ls-remote https://github.com/verilator/verilator.git refs/heads/master |
+            cut -f1)
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Restore Verilator
         id: cache
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/verilator
-          key: verilator-v5.052-ubuntu-24.04
+          key: verilator-${{ steps.head.outputs.sha }}-ubuntu-24.04
 
-      - name: Build Verilator 5.052
+      # Cloned with its history, so that the version that verilator --version
+      # prints names the commit.
+      - name: Build Verilator
         if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          SHA: ${{ steps.head.outputs.sha }}
         run: |
           sudo apt-get update
           sudo apt-get install -y help2man autoconf flex bison libfl-dev zlib1g-dev
-          git clone -q --depth 1 --branch v5.052 https://github.com/verilator/verilator.git \
+          git clone -q --filter=blob:none https://github.com/verilator/verilator.git \
             "$RUNNER_TEMP/verilator"
           cd "$RUNNER_TEMP/verilator"
+          git checkout -q --detach "$SHA"
           autoconf
           ./configure -q --prefix="$HOME/verilator"
           make -s -j"$(nproc)"
           make -s install
 
-      - name: Save Verilator 5.052
+      - name: Save Verilator
         if: steps.cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/verilator
-          key: verilator-v5.052-ubuntu-24.04
+          key: verilator-${{ steps.head.outputs.sha }}-ubuntu-24.04
 
       - name: Run the suite
         run: |
           mkdir -p results
           python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" --all \
-            -j "$(nproc)" --json results/verilator.json | tee results/verilator.log
-          status=${PIPESTATUS[0]}
+            -j "$(nproc)" --json results/verilator.json > results/verilator.log || true
+          cat results/verilator.log
           tail -n 1 results/verilator.log >> "$GITHUB_STEP_SUMMARY"
-          exit "$status"
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
@@ -125,8 +143,7 @@ jobs:
           path: results/
           if-no-files-found: warn
 
-  # The latest main of kirimasim, built as its own nightly builds it. Its
-  # results are only reported: tests that do not match do not fail the job.
+  # The latest main of kirimasim, built as its own nightly builds it.
   kirimasim:
     runs-on: ubuntu-24.04
     timeout-minutes: 120
@@ -217,8 +234,3 @@ jobs:
             -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
             commit -q -m "Nightly results of $(date -u +%Y-%m-%d) for ${GITHUB_SHA::7}"
           git push -q origin results
-
-      - name: Check the counts in README.md
-        run: |
-          python3 tools/suite_stats.py --check ||
-            echo "::warning::README.md is out of date: run python3 tools/suite_stats.py --update"

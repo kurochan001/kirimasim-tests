@@ -25,6 +25,7 @@ import html
 import json
 import math
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -169,14 +170,16 @@ def sim_colors(sim: str, all_sims: list[str]) -> tuple[str, str]:
 
 
 def short_version(version: str) -> str:
-    """"13.0" from "Icarus Verilog version 13.0 (stable) (v13_0)", the commit
+    """"13.0" from "Icarus Verilog version 13.0 (stable) (v13_0)", "5.053 devel
+    1a2b3c4" from "Verilator 5.053 devel rev v5.052-12-g1a2b3c4", the commit
     from "kirimasim 0.0.0 (commit 6ff7f4aae24a)"."""
     words = version.replace("(", " ").replace(")", " ").split()
     if "commit" in words and words.index("commit") + 1 < len(words):
         return words[words.index("commit") + 1][:9]
     for w in words:
         if w[:1].isdigit() and "." in w:
-            return w
+            commit = re.search(r"-g([0-9a-f]{7,})", version)
+            return f"{w} devel {commit.group(1)[:7]}" if "devel" in words and commit else w
     return version
 
 

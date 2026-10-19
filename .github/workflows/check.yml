@@ -1,0 +1,131 @@
+name: Check
+
+# Runs the tests whose expected outputs were recorded with Icarus Verilog 13.0
+# and Verilator 5.052 with those releases whenever the tests or the tools
+# change. Every one of them must match: these releases do not change, so a
+# test that does not points to a problem in the suite. Also checks that the
+# tables in README.md are up to date.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tests/**"
+      - "tools/**"
+      - "README.md"
+      - ".github/workflows/check.yml"
+  pull_request:
+    paths:
+      - "tests/**"
+      - "tools/**"
+      - "README.md"
+      - ".github/workflows/check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  icarus:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Restored and saved in separate steps, so that the build is kept even
+      # when the tests then fail the job.
+      - name: Restore Icarus Verilog 13.0
+        id: cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/icarus
+          key: icarus-v13_0-ubuntu-24.04
+
+      - name: Build Icarus Verilog 13.0
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autoconf gperf bison flex zlib1g-dev libbz2-dev
+          git clone -q --depth 1 --branch v13_0 https://github.com/steveicarus/iverilog.git \
+            "$RUNNER_TEMP/iverilog"
+          cd "$RUNNER_TEMP/iverilog"
+          sh autoconf.sh
+          ./configure -q --prefix="$HOME/icarus"
+          make -s -j"$(nproc)"
+          make -s install
+
+      - name: Save Icarus Verilog 13.0
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/icarus
+          key: icarus-v13_0-ubuntu-24.04
+
+      # Every test runs; those not recorded with Icarus Verilog 13.0 are known
+      # differences and do not fail the job.
+      - name: Run the suite
+        run: |
+          python3 tools/run_icarus.py --iverilog-bin "$HOME/icarus/bin" -j "$(nproc)" \
+            | tee icarus.log
+          status=${PIPESTATUS[0]}
+          tail -n 1 icarus.log >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+  verilator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Restore Verilator 5.052
+        id: cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/verilator
+          key: verilator-v5.052-ubuntu-24.04
+
+      - name: Build Verilator 5.052
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y help2man autoconf flex bison libfl-dev zlib1g-dev
+          git clone -q --depth 1 --branch v5.052 https://github.com/verilator/verilator.git \
+            "$RUNNER_TEMP/verilator"
+          cd "$RUNNER_TEMP/verilator"
+          autoconf
+          ./configure -q --prefix="$HOME/verilator"
+          make -s -j"$(nproc)"
+          make -s install
+
+      - name: Save Verilator 5.052
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/verilator
+          key: verilator-v5.052-ubuntu-24.04
+
+      # Only the tests recorded with Verilator 5.052.
+      - name: Run the suite
+        run: |
+          python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" \
+            -j "$(nproc)" | tee verilator.log
+          status=${PIPESTATUS[0]}
+          tail -n 1 verilator.log >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+  readme:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check the tables in README.md
+        run: |
+          python3 tools/suite_stats.py --check || {
+            echo "::error::README.md is out of date: run python3 tools/suite_stats.py --update"
+            exit 1
+          }
