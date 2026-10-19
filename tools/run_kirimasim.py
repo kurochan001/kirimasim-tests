@@ -79,7 +79,8 @@ def run(test: Path, kirimasim: str) -> tuple[str, str]:
         return "fail", f"crashed (signal {-r.returncode})"
     err = [l for l in r.stderr.splitlines() if ": error: " in l or ": fatal: " in l]
     return "fail", "output differs" + (f" (exit {r.returncode})" if r.returncode else "") + (
-        f": {err[0].split(': ', 1)[-1]}" if err else "")
+        f": {err[0].split(': ', 1)[-1]}" if err
+        else ": " + suite_results.first_difference(norm, want))
 
 
 def main() -> int:

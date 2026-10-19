@@ -95,7 +95,9 @@ def run(test: Path, verilator: str, seed: int) -> tuple[bool, str]:
     want = expected_output(test)
     if want is None:
         return False, "no :expected_stdout:"
-    return (norm == want), ("" if norm == want else "output differs")
+    if norm == want:
+        return True, ""
+    return False, "output differs: " + suite_results.first_difference(norm, want)
 
 
 def main() -> int:

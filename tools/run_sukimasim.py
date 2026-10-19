@@ -137,7 +137,8 @@ def run(test: Path, sukimasim: str, include: Path | None, diagnostics: bool) -> 
     err = [ANSI.sub("", l) for l in r.stderr.splitlines() if re.search(r"error", l, re.I)]
     if r.returncode in (1, 255) and not norm:
         return False, "compile failed: " + (err[0] if err else "")
-    return False, "output differs" + (f" (exit {r.returncode}): {err[0]}" if err else "")
+    return False, "output differs" + (f" (exit {r.returncode}): {err[0]}" if err
+                                      else ": " + suite_results.first_difference(norm, want))
 
 
 def main() -> int:

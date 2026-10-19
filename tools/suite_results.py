@@ -42,6 +42,23 @@ def tool_version(command: list[str]) -> str:
     return lines[0].strip() if lines else ""
 
 
+def first_difference(got: str, want: str) -> str:
+    """Where an output first differs from the expected output, for the reason
+    of a failure, such as "line 3 is 'a=1', expected 'a=0'"."""
+    def quote(line: str) -> str:
+        return repr(line if len(line) <= 60 else line[:57] + "...")
+    got_lines, want_lines = got.splitlines(), want.splitlines()
+    for n, (g, w) in enumerate(zip(got_lines, want_lines), 1):
+        if g != w:
+            return f"line {n} is {quote(g)}, expected {quote(w)}"
+    n = min(len(got_lines), len(want_lines)) + 1
+    if len(got_lines) < len(want_lines):
+        return f"line {n} is missing, expected {quote(want_lines[n - 1])}"
+    if len(got_lines) > len(want_lines):
+        return f"line {n} is extra: {quote(got_lines[n - 1])}"
+    return "the line ends differ"
+
+
 def write(path: Path, simulator: str, name: str, version: str,
           results: dict[str, tuple[str, str]]) -> None:
     """results maps a test id to its status and the reason for it."""
