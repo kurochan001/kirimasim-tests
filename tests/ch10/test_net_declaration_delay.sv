@@ -29,8 +29,8 @@ module test_net_declaration_delay;
   initial begin
     #10 a = 1;
     #1 $display("t=%0d n1=%b n2=%b m=%b", $time, n1, n2, m);
-    #2 $display("t=%0d n1=%b n2=%b m=%b", $time, n1, n2, m);
     #3 $display("t=%0d n1=%b n2=%b m=%b", $time, n1, n2, m);
+    #2 $display("t=%0d n1=%b n2=%b m=%b", $time, n1, n2, m);
     #2 $display("t=%0d n1=%b n2=%b m=%b", $time, n1, n2, m);
   end
 endmodule
