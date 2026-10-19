@@ -1,0 +1,36 @@
+assertion: check gives OK, NOCOV or PARTIAL
+assertion: start gives the check result
+assertion: second start gives the same
+assertion: stop gives OK
+assertion: second stop gives OK
+assertion: reset gives OK
+assertion: check after stop gives the same
+assertion: check of module cc_sub gives OK, NOCOV or PARTIAL
+assertion: check of a missing module gives ERROR
+FSM state: check gives OK, NOCOV or PARTIAL
+FSM state: start gives the check result
+FSM state: second start gives the same
+FSM state: stop gives OK
+FSM state: second stop gives OK
+FSM state: reset gives OK
+FSM state: check after stop gives the same
+FSM state: check of module cc_sub gives OK, NOCOV or PARTIAL
+FSM state: check of a missing module gives ERROR
+statement: check gives OK, NOCOV or PARTIAL
+statement: start gives the check result
+statement: second start gives the same
+statement: stop gives OK
+statement: second stop gives OK
+statement: reset gives OK
+statement: check after stop gives the same
+statement: check of module cc_sub gives OK, NOCOV or PARTIAL
+statement: check of a missing module gives ERROR
+toggle: check gives OK, NOCOV or PARTIAL
+toggle: start gives the check result
+toggle: second start gives the same
+toggle: stop gives OK
+toggle: second stop gives OK
+toggle: reset gives OK
+toggle: check after stop gives the same
+toggle: check of module cc_sub gives OK, NOCOV or PARTIAL
+toggle: check of a missing module gives ERROR

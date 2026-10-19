@@ -1,0 +1,5 @@
+a_never: covered max 1
+a_open: covered max 1
+a_fail: covered max 1
+a_pass: covered max 1
+fail actions: 3

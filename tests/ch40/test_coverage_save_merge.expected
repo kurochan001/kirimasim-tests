@@ -1,0 +1,6 @@
+save gives OK, NOCOV or ERROR
+saving does not change the toggle coverage
+saving again under the same name gives the same result
+merge after a successful save gives OK
+merge after a failed save gives ERROR
+merge of a name never saved gives ERROR

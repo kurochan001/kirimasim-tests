@@ -1,0 +1,4 @@
+control: start 0, stop 1, reset 2, check 3
+scope: module 10, hierarchy 11
+type: assertion 20, FSM state 21, statement 22, toggle 23
+status: overflow -2, error -1, no coverage 0, ok 1, partial 2

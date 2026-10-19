@@ -1,0 +1,5 @@
+10: st 1, mode 1, pair 01
+20: st 2, mode 2, pair 11
+30: st 3, mode 0, pair 00
+40: st 0, mode 1, pair 01
+50: st 1, mode 2, pair 11

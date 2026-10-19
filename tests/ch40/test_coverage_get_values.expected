@@ -1,0 +1,20 @@
+assertion: maximum is the same at both times
+assertion: maximum agrees with the check
+assertion: current value is between zero and the maximum
+assertion: current value does not decrease
+assertion: missing module gives ERROR
+FSM state: maximum is the same at both times
+FSM state: maximum agrees with the check
+FSM state: current value is between zero and the maximum
+FSM state: current value does not decrease
+FSM state: missing module gives ERROR
+statement: maximum is the same at both times
+statement: maximum agrees with the check
+statement: current value is between zero and the maximum
+statement: current value does not decrease
+statement: missing module gives ERROR
+toggle: maximum is the same at both times
+toggle: maximum agrees with the check
+toggle: current value is between zero and the maximum
+toggle: current value does not decrease
+toggle: missing module gives ERROR

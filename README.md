@@ -7,7 +7,7 @@ simulator, but they are meant to be usable with any simulator. Every test
 records where its expected result comes from and which clauses of the
 standard it checks.
 
-> **Status: early.** The suite has 2043 tests. Each one was checked
+> **Status: early.** The suite has 2049 tests. Each one was checked
 > against IEEE 1800-2023 by reading the cited clauses, and its expected output
 > matches Icarus Verilog 13.0 or, for tests that Icarus Verilog 13.0 cannot
 > compile or does not run as the standard says, Verilator 5.052. A few tests
@@ -25,10 +25,12 @@ tools/run_verilator.py          runs the Verilator-oracle tests with Verilator
 ```
 
 Tests are grouped by the chapter of IEEE 1800-2023 that their first
-`:lrm:` clause belongs to. Chapters 3 to 39 have tests, except chapter 34
+`:lrm:` clause belongs to. Chapters 3 to 40 have tests, except chapter 34
 (protected envelopes), which depends on encryption that each tool defines.
-Chapters 1 and 2 set out no behavior to test; the system functions of chapter
-40 return what the coverage collected by each tool gives.
+Chapters 1 and 2 set out no behavior to test. Which parts of a design have
+coverage depends on the tool and its options, so the tests of chapter 40 print
+only what holds for every result, such as the values the standard allows and
+how the results of the coverage functions relate.
 
 ## Test format
 
@@ -49,7 +51,7 @@ extra fields.
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
 | `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test |
 | `:dpi_c:` | `@<file>`: C code next to the test that implements its DPI imports and calls its exports (chapter 35) |
-| `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 39) |
+| `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 40) |
 
 A test passes when the simulator's standard output, after removing empty
 lines and the simulator's own banners (see `tools/normalize_output.py`),
@@ -73,8 +75,9 @@ the SystemVerilog file, so such a test fails there.
 
 Tests of file input and output (IEEE 1800-2023 21.3 to 21.5) and of SDF
 annotation (chapter 32), which write the SDF file they annotate, create files
-named after the test in the current directory. Both runners run every test
-in a temporary directory.
+named after the test in the current directory, and `$coverage_save` (40.3.2.5)
+can store coverage data there. Both runners run every test in a temporary
+directory.
 
 ## Running with Icarus Verilog
 
