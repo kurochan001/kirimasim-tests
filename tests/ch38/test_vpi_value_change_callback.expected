@@ -1,0 +1,4 @@
+5: test_vpi_value_change_callback.r = 0011
+5: test_vpi_value_change_callback.w = 1100
+15: test_vpi_value_change_callback.r = 1010
+15: test_vpi_value_change_callback.w = 0101

@@ -1,0 +1,18 @@
+module test_vpi_module_hierarchy (test_vpi_module_hierarchy)
+  net y1, 1 bits
+  net y2, 1 bits
+  reg a, 1 bits
+  module test_vpi_module_hierarchy.m (vpi_mid)
+    net a, 1 bits
+    net y, 1 bits
+    module test_vpi_module_hierarchy.m.l1 (vpi_leaf)
+      net a, 1 bits
+      net n, 1 bits
+      net y, 1 bits
+      reg r, 4 bits
+  module test_vpi_module_hierarchy.u1 (vpi_leaf)
+    net a, 1 bits
+    net n, 1 bits
+    net y, 1 bits
+    reg r, 4 bits
+test_vpi_module_hierarchy.m.l1.r: 4 bits, in test_vpi_module_hierarchy.m.l1

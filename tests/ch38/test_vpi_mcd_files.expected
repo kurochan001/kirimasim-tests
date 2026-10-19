@@ -1,0 +1,4 @@
+opened test_vpi_mcd_files.txt
+value 42
+read: first line
+read: value 42

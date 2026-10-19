@@ -1,0 +1,6 @@
+argument 1: b, 8 bits, 10100101
+argument 2: i, integer -7
+argument 3: r, real 2.500
+argument 4: string "text"
+argument 5: expression, 32 bits, 166
+5 arguments

@@ -1,0 +1,3 @@
+simulation time: 2500000
+test_vpi_get_time_scaled: unit -9, precision -12, time 2500.000
+test_vpi_get_time_scaled.s: unit -6, precision -9, time 2.500
