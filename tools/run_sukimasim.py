@@ -93,9 +93,14 @@ def run(test: Path, sukimasim: str, include: Path | None, diagnostics: bool) -> 
                 return False, "C build failed: no include directory of sukimasim (see --include)"
             (Path(tmp) / "sv_vpi_user.h").write_text('#include "vpi_user.h"\n')
             so = Path(tmp) / "libtest.so"
-            b = subprocess.run([os.environ.get("CC", "cc"), "-shared", "-fPIC", "-o", str(so),
-                                str(source), f"-I{include}", f"-I{include / 'sukimasim' / 'vpi'}",
-                                f"-I{tmp}"], capture_output=True, text=True)
+            # The VPI and DPI routines are defined by the sukimasim executable that
+            # loads the library; the macOS linker needs to be told to leave them
+            # unresolved until then.
+            undefined = ["-undefined", "dynamic_lookup"] if sys.platform == "darwin" else []
+            b = subprocess.run([os.environ.get("CC", "cc"), "-shared", "-fPIC", *undefined,
+                                "-o", str(so), str(source), f"-I{include}",
+                                f"-I{include / 'sukimasim' / 'vpi'}", f"-I{tmp}"],
+                               capture_output=True, text=True)
             if b.returncode != 0:
                 err = [l for l in b.stderr.splitlines() if "error:" in l]
                 return False, "C build failed: " + (err[0] if err else "")
