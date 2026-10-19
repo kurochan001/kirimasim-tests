@@ -1,0 +1,5 @@
+20: all on: assert failures 2, assume failures 2, immediate failures 2
+40: concurrent asserts off: assert failures 0, assume failures 2, immediate failures 2
+60: immediate fail action off: assert failures 2, assume failures 2, immediate failures 0
+80: ac locked, others off: assert failures 2, assume failures 0, immediate failures 0
+100: all on again: assert failures 2, assume failures 2, immediate failures 2
