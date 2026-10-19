@@ -1,0 +1,19 @@
+uniform(0, 99) = 0, seed = 69070
+uniform(0, 99) = 11, seed = 475628535
+uniform(0, 99) = 76, seed = -1017563188
+uniform(-10, 10) = 10, seed = -345344
+uniform(-10, 10) = -1, seed = 1917239041
+normal(100, 10) = 112, seed = -1368524349
+normal(100, 10) = 94, seed = -809111543
+exponential(50) = 432, seed = 759760
+exponential(50) = 76, seed = 936255889
+poisson(5) = 0, seed = 897898
+poisson(5) = 6, seed = -1962284539
+chi_square(3) = 2, seed = 2015541066
+chi_square(3) = 2, seed = -434453879
+t(4) = 0, seed = -1356605297
+t(4) = 0, seed = 329461451
+erlang(3, 30) = 107, seed = 491957274
+erlang(3, 30) = 18, seed = -1705057383
+random = 303379748, seed = -1844104698
+random = -1064739199, seed = 1082744015

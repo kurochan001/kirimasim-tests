@@ -1,0 +1,3 @@
+stop between ticks, done in time: accept_on 0, reject_on 1, sync_accept_on 0, sync_reject_on 0
+stop at a tick, no done: accept_on 0, reject_on 1, sync_accept_on 0, sync_reject_on 1
+no stop, no done: accept_on 1, reject_on 1, sync_accept_on 1, sync_reject_on 1

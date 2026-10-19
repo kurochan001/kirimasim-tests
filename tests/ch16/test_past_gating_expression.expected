@@ -1,0 +1,6 @@
+tick 1: past1 0, gated past1 0, gated past2 0
+tick 2: past1 1, gated past1 1, gated past2 0
+tick 3: past1 2, gated past1 1, gated past2 0
+tick 4: past1 3, gated past1 3, gated past2 1
+tick 5: past1 4, gated past1 3, gated past2 1
+tick 6: past1 5, gated past1 3, gated past2 1
