@@ -1,0 +1,6 @@
+processes: 5
+  always: event control posedge clk, then nonblocking assignment q = d, intra-assignment delay 2
+  always_comb: blocking assignment r = d
+  final: blocking assignment acc = 0
+  initial: delay control 1, then call of $vt_processes
+  initial: delay control 4, then blocking assignment acc += 3

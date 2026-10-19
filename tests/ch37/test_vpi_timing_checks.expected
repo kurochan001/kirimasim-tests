@@ -1,0 +1,4 @@
+timing checks: 3
+  $hold: reference posedge clk, data d, limit 2, notifier n
+  $recovery: reference negedge rst, data posedge clk, limit 4, notifier (none)
+  $setup: reference posedge clk, data d, limit 3, notifier n

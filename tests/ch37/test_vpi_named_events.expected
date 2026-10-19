@@ -1,0 +1,6 @@
+named events: done go
+named event arrays: lane
+lane[1]: named event 1, array member 1, index 1, parent is lane 1
+go: array member 0, waiting processes 2
+resumed: 2
+go: waiting processes 0

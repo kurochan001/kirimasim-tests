@@ -1,0 +1,7 @@
+cb: clocking event posedge clk, default input skew 2, default output skew 1
+  a: input, refers to a
+  b: output, refers to b
+  c: input, refers to c
+  renamed: input, refers to raw
+input skew of c: 3
+clocking blocks: 1

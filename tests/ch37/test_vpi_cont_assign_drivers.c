@@ -62,8 +62,11 @@ static int int_value(vpiHandle h)
 static void report_assign(vpiHandle ca)
 {
     vpiHandle lhs = vpi_handle(vpiLhs, ca);
-    char *name = lhs ? vpi_get_str(vpiName, lhs) : NULL;
-    char extra[64] = "";
+    char name[32], extra[64] = "";
+
+    /* vpi_get_str can reuse its buffer, so the name is copied. */
+    snprintf(name, sizeof name, "%s",
+             lhs && vpi_get_str(vpiName, lhs) ? vpi_get_str(vpiName, lhs) : "(no lhs)");
 
     if (vpi_handle(vpiDelay, ca) != NULL) {
         s_vpi_time t[1];
@@ -80,8 +83,7 @@ static void report_assign(vpiHandle ca)
         snprintf(extra + strlen(extra), sizeof extra - strlen(extra), ", net decl, %s0 %s1",
                  strength(vpi_get(vpiStrength0, ca)), strength(vpi_get(vpiStrength1, ca)));
     if (n_lines < MAX_LINES)
-        snprintf(lines[n_lines++], sizeof lines[0], "%s = %d%s", name ? name : "(no lhs)",
-                 int_value(ca), extra);
+        snprintf(lines[n_lines++], sizeof lines[0], "%s = %d%s", name, int_value(ca), extra);
 }
 
 static void relation(const char *net, PLI_INT32 type, const char *label)

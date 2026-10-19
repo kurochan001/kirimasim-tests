@@ -1,0 +1,5 @@
+module paths: 4
+  a -> w: parallel, polarity positive, ifnone 0, condition en, delays 1 6
+  a -> w: parallel, polarity unknown, ifnone 1, condition none, delays 7 8
+  a -> y: full, polarity unknown, ifnone 0, condition none, delays 3 5
+  b -> z: parallel, polarity negative, ifnone 0, condition none, delays 2 4

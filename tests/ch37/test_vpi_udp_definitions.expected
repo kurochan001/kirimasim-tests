@@ -1,0 +1,4 @@
+m: maj3, combinational, 3 inputs, 4 io declarations, initial 0
+m: 6 table entries, symbols per entry: 4 4 4 4 4 4
+l: latch_udp, sequential, 2 inputs, 3 io declarations, initial 1
+l: 3 table entries, symbols per entry: 4 4 4

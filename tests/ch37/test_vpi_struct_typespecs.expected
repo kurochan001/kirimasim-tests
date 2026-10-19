@@ -1,0 +1,7 @@
+rv: struct var 1, packed 1, size 8, value 133
+members of rv: cnt=5 st=2
+uv: union var 1, packed 1
+members of uv: raw rec
+typespec of rv: struct typespec, name rec_alias_t, alias rec_t
+typespec members: cnt:logic typespec((none)) st:enum typespec(state_t)
+enum constants: IDLE=0 RUN=2 STOP=3

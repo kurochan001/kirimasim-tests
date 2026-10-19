@@ -1,0 +1,5 @@
+nets: type is iterator 1, iterator type is net 1, use is module 1
+nets: 3 scanned
+top modules: iterator type is module 1, use is NULL 1
+top modules: released after one scan 1
+named events: iterator is NULL 1

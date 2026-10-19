@@ -1,0 +1,4 @@
+u: module array 1, full name test_vpi_instance_arrays.u, size 4, range 3:0, ranges 1, elements 4
+u element 1: test_vpi_instance_arrays.u[1]
+g: gate array 1, full name test_vpi_instance_arrays.g, size 2, range 0:1, ranges 1, elements 2
+g element 1: test_vpi_instance_arrays.g[1]
