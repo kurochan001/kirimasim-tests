@@ -54,8 +54,10 @@ BANNER = re.compile(
 # Messages that sukimasim prints while it runs, removed with --strip-diagnostics.
 DIAGNOSTIC = re.compile(
     r"^(?:\[IEEE1800-§24\] Program block |\[TIMING\] |\[COMB_EVAL\] |\[CONSTRAINT_MODE\] "
-    r"|\w+ check for .*\): delta=|Cover point hit at time \d+$|Registered covergroup: "
-    r"|Coverage database saved to: |Merging with existing coverage database: "
+    r"|\w+ check for .*\): delta=|setup/hold aggregate for .*\): setup_delta="
+    r"|(?:skew|timeskew|fullskew|nochange) check: |Cover point hit at time \d+$"
+    r"|Registered covergroup: |Coverage database saved to: "
+    r"|Merging with existing coverage database: "
     r"|Fork-join_(?:none|any) block |MCD: |VPI: |Warning: Invalid (?:hex|binary) value in )")
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
 
