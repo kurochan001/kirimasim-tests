@@ -1,0 +1,7 @@
+g: gen scope array, size 3, gen var i
+test_vpi_generate_scopes.g[0]: gen scope, array member 1, index 0, implicit 0, local parameter i = 0
+test_vpi_generate_scopes.g[1]: gen scope, array member 1, index 1, implicit 0, local parameter i = 1
+test_vpi_generate_scopes.g[2]: gen scope, array member 1, index 2, implicit 0, local parameter i = 2
+g by index 1: test_vpi_generate_scopes.g[1]
+g[1].r: size 2
+scope of x: test_vpi_generate_scopes.genblk2, gen scope, implicit 1

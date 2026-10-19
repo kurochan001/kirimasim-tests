@@ -1,0 +1,6 @@
+L: value 16, local 1, no range
+P: value 165, local 0, range 7:0, default 15
+R: value 1.50, local 0, no range
+W: value 8, local 0, no range, default 4
+parameter assignment: P = 165
+parameter assignment: W = 8

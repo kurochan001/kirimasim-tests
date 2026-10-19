@@ -1,0 +1,7 @@
+ports: 6
+port 0: a, size 4, input, vector, high conn av, low conn a
+port 1: (null), size 0, high conn NULL, low conn NULL
+port 2: y, size 1, output, scalar, high conn yw, low conn y
+port 3: z, size 1, inout, scalar, high conn zw, low conn z
+port 4: nc, size 1, input, scalar, high conn NULL, low conn nc
+port 5: p, size 1, input, scalar, high conn qv, low conn q

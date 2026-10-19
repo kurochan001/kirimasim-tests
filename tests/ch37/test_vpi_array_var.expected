@@ -1,0 +1,8 @@
+mem: array var, size 4, scalar 0, vector 1, range 0:3
+elements of mem: mem[0] mem[1] mem[2] mem[3]
+mem[2] (test_vpi_array_var.mem[2]): size 8, value 18, array member 1, parent is the array 1, index 2
+q: array var, size 4, scalar 0, vector 1, range 5:2
+q[3]: int var
+q[3] (test_vpi_array_var.q[3]): size 32, value 30, array member 1, parent is the array 1, index 3
+mem among the vpiMemory arrays: 1
+mem[1] = 77

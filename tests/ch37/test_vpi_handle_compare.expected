@@ -1,0 +1,6 @@
+r by full name, r by name in the module: 1
+r by full name, r by iteration: 1
+r by full name, parent of r[3]: 1
+module by name, module of r: 1
+r, s: 0
+r, r[3]: 0

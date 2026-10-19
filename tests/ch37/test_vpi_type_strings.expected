@@ -1,0 +1,21 @@
+module: vpiModule, vpi_get(vpiType) matches
+w: vpiNet or vpiLogicNet, vpi_get(vpiType) matches
+w[2]: vpiNetBit, vpi_get(vpiType) matches
+r: vpiReg or vpiLogicVar, vpi_get(vpiType) matches
+r[2]: vpiRegBit or vpiVarBit, vpi_get(vpiType) matches
+i: vpiIntegerVar, vpi_get(vpiType) matches
+re: vpiRealVar, vpi_get(vpiType) matches
+t: vpiTimeVar, vpi_get(vpiType) matches
+ii: vpiIntVar, vpi_get(vpiType) matches
+bv: vpiBitVar, vpi_get(vpiType) matches
+by: vpiByteVar, vpi_get(vpiType) matches
+mem: vpiRegArray or vpiArrayVar, vpi_get(vpiType) matches
+ev: vpiNamedEvent, vpi_get(vpiType) matches
+P: vpiParameter, vpi_get(vpiType) matches
+blk: vpiNamedBegin, vpi_get(vpiType) matches
+tk: vpiTask, vpi_get(vpiType) matches
+fn: vpiFunction, vpi_get(vpiType) matches
+w: net type vpiWire, vpi_get(vpiNetType) matches
+wa: net type vpiWand, vpi_get(vpiNetType) matches
+t1: net type vpiTri1, vpi_get(vpiNetType) matches
+s0: net type vpiSupply0, vpi_get(vpiNetType) matches

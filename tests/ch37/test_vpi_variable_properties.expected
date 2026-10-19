@@ -1,0 +1,15 @@
+r: logic, size 1, signed 0, scalar 1, vector 0
+rv: logic, size 8, signed 0, scalar 0, vector 1, range 7:0
+rs: logic, size 4, signed 1, scalar 0, vector 1, range 3:0
+la: logic, size 3, signed 0, scalar 0, vector 1, range 0:2
+i: integer, size 32, signed 1, scalar 0, vector 1
+t: time, size 64, signed 0, scalar 0, vector 1
+ii: int, size 32, signed 1, scalar 0, vector 1
+si: shortint, size 16, signed 1, scalar 0, vector 1
+li: longint, size 64, signed 1, scalar 0, vector 1
+by: byte, size 8, signed 1, scalar 0, vector 1
+b: bit, size 1, signed 0, scalar 1, vector 0
+bv: bit, size 6, signed 0, scalar 0, vector 1, range 5:0
+re: real, scalar 0, vector 0
+rv[3]: var bit, size 1, scalar 1, vector 0, value 0, index 3, parent is rv: 1
+init: initialization expression 60

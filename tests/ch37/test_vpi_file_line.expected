@@ -1,0 +1,6 @@
+r: line 29, file test_vpi_file_line.sv
+w: line 30, file test_vpi_file_line.sv
+after_line: line 200, file renamed.sv
+u: line 201, file renamed.sv
+u.n: line 24, file test_vpi_file_line.sv
+definition of u: line 23, file test_vpi_file_line.sv

@@ -1,0 +1,6 @@
+scopes of the module: blk named begin, fn function, tk task, vf function
+scopes of blk: fk named fork
+scope of blk.v is blk: 1
+automatic: tk 1, fn 0
+size: fn 6, its return variable 6, vf 0
+io declarations of tk: a input 32, io inout 32, o output 4

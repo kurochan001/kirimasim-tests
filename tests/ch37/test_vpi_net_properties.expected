@@ -1,0 +1,17 @@
+w: wire, size 1, scalar 1, vector 0, signed 0
+v: wire, size 8, scalar 0, vector 1, signed 0, range 7:0
+sv: wire, size 4, scalar 0, vector 1, signed 1, range 3:0
+asc: wire, size 4, scalar 0, vector 1, signed 0, range 0:3
+t: tri, size 1, scalar 1, vector 0, signed 0
+wa: wand, size 1, scalar 1, vector 0, signed 0
+wo: wor, size 1, scalar 1, vector 0, signed 0
+ta: triand, size 1, scalar 1, vector 0, signed 0
+tor: trior, size 1, scalar 1, vector 0, signed 0
+t0: tri0, size 1, scalar 1, vector 0, signed 0
+t1: tri1, size 1, scalar 1, vector 0, signed 0
+s0: supply0, size 1, scalar 1, vector 0, signed 0
+s1: supply1, size 1, scalar 1, vector 0, signed 0
+uw: uwire, size 1, scalar 1, vector 0, signed 0
+tr: trireg, size 1, scalar 1, vector 0, signed 0
+v[2]: net bit, size 1, scalar 1, vector 0, index 2, parent is v: 1
+imp: wire, size 1, implicit 1, line 0, file test_vpi_net_properties.sv
