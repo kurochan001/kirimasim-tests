@@ -78,7 +78,7 @@ module test_system_tasks_edge_cases;
             time t;
             t = $time;
             if (t == 0) begin
-                $display("  [PASS] $time returns: %0t", t);
+                $display("  [PASS] $time returns: %0d", t);
                 passed++;
             end else begin
                 $display("  [FAIL] $time");

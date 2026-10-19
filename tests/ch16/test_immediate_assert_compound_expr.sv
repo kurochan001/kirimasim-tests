@@ -16,12 +16,12 @@ module tb;
 
   initial begin
     assert ((a < b) && (a + b == 15)) else begin
-      $display("ASSERTION FAIL: complex expression time=%0t", $time);
+      $display("ASSERTION FAIL: complex expression time=%0d", $time);
       failure_count++;
     end
 
     assert ((a * 2) == b) else begin
-      $display("ASSERTION FAIL: arithmetic assertion time=%0t", $time);
+      $display("ASSERTION FAIL: arithmetic assertion time=%0d", $time);
       failure_count++;
     end
 

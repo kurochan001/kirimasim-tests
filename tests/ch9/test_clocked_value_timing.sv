@@ -76,7 +76,7 @@ module test_clocked_value_timing_top;
             t2 = $time;
             if (t2 > t1) begin
                 pass_count++;
-                $display("Test 4 PASS: time progresses (%0t -> %0t)", t1, t2);
+                $display("Test 4 PASS: time progresses (%0d -> %0d)", t1, t2);
             end else begin
                 $display("Test 4 FAIL: time did not progress");
             end

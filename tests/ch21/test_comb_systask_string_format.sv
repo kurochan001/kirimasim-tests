@@ -37,7 +37,7 @@ module test_comb_systask_string_format;
         pass_count++;
 
         // $sformatf with time
-        s1 = $sformatf("time=%0t", $time);
+        s1 = $sformatf("time=%0d", $time);
         $display("Time format: %s", s1);
         pass_count++;
 

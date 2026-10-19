@@ -11,8 +11,8 @@
 :expected_stdout: @test_cycle_delay_clocking.expected
 */
 // The default time unit and precision are implementation-specific
-// (3.14.2.3), and %0t prints in $timeformat units, which by default are the
-// smallest precision in the design (20.4.3), so the test sets them.
+// (3.14.2.3), and $time counts in the time unit of the module (20.3.1), so the
+// test sets them.
 `timescale 1ns/1ns
 // Test cycle delay (##N) in clocking blocks
 
@@ -29,7 +29,7 @@ module test_cycle_delay_clocking;
     // Count clock cycles
     always @(posedge clk) begin
         cycle_count = cycle_count + 1;
-        $display("[%0t] Cycle %0d: data=%h, valid=%b, ready=%b",
+        $display("[%0d] Cycle %0d: data=%h, valid=%b, ready=%b",
                  $time, cycle_count, data, valid, ready);
     end
 

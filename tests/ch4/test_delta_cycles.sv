@@ -25,9 +25,9 @@ module test_delta_cycles;
         $display("=== Delta Cycles ===");
 
         // Test 1: #0 advances delta cycle but not time
-        $display("Initial $time = %0t", $time);
+        $display("Initial $time = %0d", $time);
         #0;
-        $display("After #0: $time = %0t", $time);
+        $display("After #0: $time = %0d", $time);
         if ($time == 0) begin
             $display("PASS: #0 does not advance time");
             pass_count++;
@@ -55,7 +55,7 @@ module test_delta_cycles;
             $display("PASS: Time accumulates: 5+5 = 10");
             pass_count++;
         end else begin
-            $display("FAIL: Time = %0t, expected 10", $time);
+            $display("FAIL: Time = %0d, expected 10", $time);
             fail_count++;
         end
 
@@ -66,7 +66,7 @@ module test_delta_cycles;
             $display("PASS: Mixed delays: 10+3+7 = 20");
             pass_count++;
         end else begin
-            $display("FAIL: Time = %0t, expected 20", $time);
+            $display("FAIL: Time = %0d, expected 20", $time);
             fail_count++;
         end
 
@@ -74,7 +74,7 @@ module test_delta_cycles;
         #0.5;
         #0.5;
         if ($time >= 20) begin
-            $display("PASS: Fractional delays work, time = %0t", $time);
+            $display("PASS: Fractional delays work, time = %0d", $time);
             pass_count++;
         end else begin
             $display("FAIL: Fractional delay issue");

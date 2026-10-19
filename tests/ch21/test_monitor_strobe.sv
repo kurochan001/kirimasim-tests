@@ -33,7 +33,7 @@ module test_monitor_strobe;
         counter = 8'd0;
 
         // Test 1: Basic $monitor
-        $monitor("Monitor: time=%0t, counter=%0d", $time, counter);
+        $monitor("Monitor: time=%0d, counter=%0d", $time, counter);
         $display("PASS: $monitor set up");
         pass_count++;
 
@@ -76,7 +76,7 @@ module test_monitor_strobe;
         @(posedge clk);
 
         // Test 6: Strobe at a later time
-        $strobe("Strobe: t=%0t", $time);
+        $strobe("Strobe: t=%0d", $time);
         $display("PASS: $strobe at a later time");
         pass_count++;
 

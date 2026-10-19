@@ -24,8 +24,8 @@ module test_edge_event_regions;
     if (a !== 0) $fatal(1, "NBA update must not be visible before #0");
 
     // Generate diagnostic output (strobe should see 1)
-    $display("T%0t display-before a=%0d", $time, a);
-    $strobe("T%0t strobe-end   a=%0d", $time, a);
+    $display("T%0d display-before a=%0d", $time, a);
+    $strobe("T%0d strobe-end   a=%0d", $time, a);
 
     // Inactive region, which executes BEFORE the NBA region. The NBA update is
     // therefore NOT yet visible immediately after #0.

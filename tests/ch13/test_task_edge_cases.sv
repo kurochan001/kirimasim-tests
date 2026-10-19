@@ -88,7 +88,7 @@ module test_task_edge_cases;
                 pass_count++;
                 $display("Test 4 PASS: Delay task returned after #5");
             end else begin
-                $display("Test 4 FAIL: done=%0d time=%0t", done, $time);
+                $display("Test 4 FAIL: done=%0d time=%0d", done, $time);
             end
         end
 

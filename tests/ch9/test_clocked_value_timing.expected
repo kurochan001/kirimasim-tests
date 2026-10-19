@@ -1,7 +1,7 @@
 Test 1 PASS: initial block executes
 Test 2 PASS: value increments on clock (value=1)
 Test 3 PASS: multiple edges (start=1, end=4)
-Test 4 PASS: time progresses (36000 -> 45000)
+Test 4 PASS: time progresses (36 -> 45)
 === Program Timing Test Results ===
 Passed: 4/4
 TEST PASSED

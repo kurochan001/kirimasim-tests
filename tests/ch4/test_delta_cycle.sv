@@ -30,7 +30,7 @@ module test_delta_cycle;
         c = 8'h00;
 
         // Test #0 delay (inactive region)
-        #0 $display("Time %0t: After #0 delay", $time);
+        #0 $display("Time %0d: After #0 delay", $time);
 
         // Test blocking and non-blocking mix
         a = 8'h10;  // Blocking - immediate

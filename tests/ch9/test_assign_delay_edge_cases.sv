@@ -42,7 +42,7 @@ module test_assign_delay_edge_cases;
                 $display("  [PASS] Intra-assignment delay");
                 passed++;
             end else begin
-                $display("  [FAIL] IntraDelay: %h %0t", data, t2-t1);
+                $display("  [FAIL] IntraDelay: %h %0d", data, t2-t1);
                 failed++;
             end
         end
@@ -56,7 +56,7 @@ module test_assign_delay_edge_cases;
                 $display("  [PASS] Blocking with delay");
                 passed++;
             end else begin
-                $display("  [FAIL] BlockDelay: %h %0t", data, t2-t1);
+                $display("  [FAIL] BlockDelay: %h %0d", data, t2-t1);
                 failed++;
             end
         end
@@ -72,7 +72,7 @@ module test_assign_delay_edge_cases;
                 $display("  [PASS] Sequential delays");
                 passed++;
             end else begin
-                $display("  [FAIL] SeqDelay: %0d %0t", data, t2-t1);
+                $display("  [FAIL] SeqDelay: %0d %0d", data, t2-t1);
                 failed++;
             end
         end
@@ -101,7 +101,7 @@ module test_assign_delay_edge_cases;
                 $display("  [PASS] Delay in loop");
                 passed++;
             end else begin
-                $display("  [FAIL] LoopDelay: %0t", t2-t1);
+                $display("  [FAIL] LoopDelay: %0d", t2-t1);
                 failed++;
             end
         end
@@ -145,7 +145,7 @@ module test_assign_delay_edge_cases;
                 $display("  [PASS] Event delay");
                 passed++;
             end else begin
-                $display("  [FAIL] EvDelay: %0t %0t", t1, t2);
+                $display("  [FAIL] EvDelay: %0d %0d", t1, t2);
                 failed++;
             end
         end
@@ -161,7 +161,7 @@ module test_assign_delay_edge_cases;
                 $display("  [PASS] Combined delays");
                 passed++;
             end else begin
-                $display("  [FAIL] CombDelay: %0t", t2-t1);
+                $display("  [FAIL] CombDelay: %0d", t2-t1);
                 failed++;
             end
         end
@@ -175,7 +175,7 @@ module test_assign_delay_edge_cases;
                 $display("  [PASS] Repeat delay");
                 passed++;
             end else begin
-                $display("  [FAIL] RepDelay: %0t", t2-t1);
+                $display("  [FAIL] RepDelay: %0d", t2-t1);
                 failed++;
             end
         end

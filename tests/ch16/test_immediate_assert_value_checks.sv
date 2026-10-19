@@ -16,17 +16,17 @@ module tb;
 
   initial begin
     assert (test_val == 10) else begin
-      $display("ASSERTION FAIL: extended test 10 time=%0t", $time);
+      $display("ASSERTION FAIL: extended test 10 time=%0d", $time);
       failure_count++;
     end
 
     assert (test_val > 0) else begin
-      $display("ASSERTION FAIL: positive check 10 time=%0t", $time);
+      $display("ASSERTION FAIL: positive check 10 time=%0d", $time);
       failure_count++;
     end
 
     assert (test_val < 1000) else begin
-      $display("ASSERTION FAIL: range check 10 time=%0t", $time);
+      $display("ASSERTION FAIL: range check 10 time=%0d", $time);
       failure_count++;
     end
 

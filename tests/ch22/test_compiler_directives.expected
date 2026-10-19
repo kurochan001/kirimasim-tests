@@ -4,7 +4,7 @@ PASS: Test 2 - `ifdef selected else path for undefined macro
 PASS: Test 3 - `ifndef selected else path for defined macro
 PASS: Test 4 - Nested `ifdef both conditions true
 PASS: Test 5 - `elsif selected correct branch (MODE=3)
-PASS: Test 6 - Timescale 1ns/1ps working (delta=1001)
+PASS: Test 6 - Timescale 1ns/1ps working (delta=1.001)
 === Test Summary ===
 Passed: 6
 Failed: 0

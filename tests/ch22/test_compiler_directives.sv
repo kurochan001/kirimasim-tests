@@ -125,10 +125,10 @@ module test_compiler_directives;
       #1.001;  // Should be 1.001ns
       t2 = $realtime;
       if ((t2 - t1) >= 1.0 && (t2 - t1) <= 1.002) begin
-        $display("PASS: Test 6 - Timescale 1ns/1ps working (delta=%0t)", t2-t1);
+        $display("PASS: Test 6 - Timescale 1ns/1ps working (delta=%.3f)", t2-t1);
         pass_count++;
       end else begin
-        $display("FAIL: Test 6 - Timescale verification (delta=%0t)", t2-t1);
+        $display("FAIL: Test 6 - Timescale verification (delta=%.3f)", t2-t1);
         fail_count++;
       end
     end

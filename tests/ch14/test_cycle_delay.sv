@@ -37,7 +37,7 @@ module test_cycle_delay;
             $display("Test 1: Single cycle delay PASS");
             pass_count++;
         end else begin
-            $display("Test 1: FAIL at time %0t", $time);
+            $display("Test 1: FAIL at time %0d", $time);
         end
 
         // Test 2: Multiple cycle delay
@@ -49,7 +49,7 @@ module test_cycle_delay;
             $display("Test 2: Multiple cycle delay PASS");
             pass_count++;
         end else begin
-            $display("Test 2: FAIL at time %0t", $time);
+            $display("Test 2: FAIL at time %0d", $time);
         end
 
         // Test 3: Zero cycle delay
@@ -61,7 +61,7 @@ module test_cycle_delay;
             $display("Test 3: Zero cycle delay PASS");
             pass_count++;
         end else begin
-            $display("Test 3: FAIL at time %0t", $time);
+            $display("Test 3: FAIL at time %0d", $time);
         end
 
         // Test 4: Cycle delay in sequence
@@ -89,7 +89,7 @@ module test_cycle_delay;
             $display("Test 5: Longer delay PASS");
             pass_count++;
         end else begin
-            $display("Test 5: FAIL at time %0t", $time);
+            $display("Test 5: FAIL at time %0d", $time);
         end
 
         // Report
