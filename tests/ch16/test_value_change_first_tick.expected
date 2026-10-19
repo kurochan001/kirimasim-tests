@@ -1,0 +1,6 @@
+tick 1: u rose 1 fell 0 stable 0 changed 1 past x
+tick 1: b rose 1 stable 0 past 0, one rose 0 stable 1 past 1
+tick 1: zero_now rose 1 past 0, one_then_0 fell 1 past 1
+tick 2: u rose 0 fell 0 stable 1 changed 0 past 1
+tick 2: b rose 0 stable 1 past 1, one rose 0 stable 1 past 1
+tick 2: zero_now rose 0 past 1, one_then_0 fell 0 past 0

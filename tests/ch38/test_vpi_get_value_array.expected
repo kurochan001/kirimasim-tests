@@ -1,0 +1,3 @@
+mem[1:3] as integers: 17 18 19
+ia[3:4] in VPI storage: 300 400
+mem[0:1] as vectors: aval 10 bval 0, aval 11 bval 0

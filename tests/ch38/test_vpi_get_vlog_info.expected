@@ -1,0 +1,6 @@
+vpi_get_vlog_info returns 1
+argc at least 1: yes
+argv[0] given: yes
+product given: yes, version given: yes
+vpi_chk_error after it: 0, again: 0
+vpi_release_handle of the iterator returns 1

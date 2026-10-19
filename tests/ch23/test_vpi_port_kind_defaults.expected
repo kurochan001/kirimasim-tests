@@ -1,0 +1,8 @@
+in_logic: logic net
+in_int: int net
+in_var: logic variable
+io: logic net
+out_plain: logic net
+out_signed: logic net
+out_logic: logic variable
+out_integer: integer variable

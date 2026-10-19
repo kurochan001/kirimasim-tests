@@ -1,0 +1,5 @@
+start: runs 1, y 1
+hidden changed: runs 1, y 1
+a changed: runs 2, y 7
+e changed: runs 3, y 7
+verbose changed: runs 3, y 7, reports 0

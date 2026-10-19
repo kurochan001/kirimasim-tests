@@ -1,0 +1,5 @@
+test_vpi_celldefine: cell instance 0
+test_vpi_celldefine.c1: cell instance 1
+test_vpi_celldefine.p1: cell instance 0
+test_vpi_celldefine.c2: cell instance 1
+test_vpi_celldefine.r1: cell instance 0

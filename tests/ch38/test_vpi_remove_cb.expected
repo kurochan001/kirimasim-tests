@@ -1,0 +1,3 @@
+10: r changed to 1
+15: vpi_remove_cb returns 1 and 1
+40: r = 2
