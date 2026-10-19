@@ -1,0 +1,5 @@
+PASS bit-select accumulation: seen=0x55
+PASS full 8-bit accumulation: seen=0xFF
+PASS part-select accumulation: seen16=0xAAAA
+PASS indexed accumulation: cycle_seen=0xFF
+TEST PASSED

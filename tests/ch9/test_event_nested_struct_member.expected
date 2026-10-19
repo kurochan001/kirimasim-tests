@@ -1,0 +1,2 @@
+n_nested=2 n_deep=1 n_mid=4 n_lvl1=1
+TEST PASSED: event controls on nested structure members

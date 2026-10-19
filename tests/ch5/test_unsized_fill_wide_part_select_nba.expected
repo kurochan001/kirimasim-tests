@@ -1,0 +1,8 @@
+ok    A 33-bit a[32:0] <= a[32:0] ^ '1
+ok    B 65-bit b[W-1:0] <= b[W-1:0] ^ '1
+ok    C interface member with a compilation-unit localparam
+ok    D d[32:0] <= ~'0
+ok    E e[0 +: 33] <= e[0 +: 33] | '1
+ok    F control: f[32:0] <= ~f[32:0]
+ok    G control: blocking g[32:0] = g[32:0] ^ '1
+TEST PASSED

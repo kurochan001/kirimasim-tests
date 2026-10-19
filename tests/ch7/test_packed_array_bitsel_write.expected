@@ -1,0 +1,11 @@
+  ok   pa[0][0]=1 = 00000001
+  ok   pa[0][7]=1 = 00000080
+  ok   pa[3][0]=1 = 01000000
+  ok   pa[3][7]=1 = 80000000
+  ok   pa[2][5]=1 = 00200000
+  ok   clr pa[2][5] = 00000000
+  ok   pa[1][3] 1->0 = 00000000
+  ok   NBA pa[1][0]=1 = 00000100
+  ok   NBA after whole = 00200080
+  ok   NBA w/ blocking bits = 00800402
+TEST PASSED

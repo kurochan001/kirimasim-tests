@@ -1,0 +1,19 @@
+  ok   $bits(pa2) = 32
+  ok   $bits(pa3) = 64
+  ok   $bits(pa2[0]) = 8
+  ok   $bits(pa2[3]) = 8
+  ok   $bits(pa3[0]) = 32
+  ok   $bits(pa3[1]) = 32
+  ok   $bits(pa3[0][0]) = 8
+  ok   $bits(pa3[0][3]) = 8
+  ok   $bits(pa2[0][3:0]) = 4
+  ok   $bits(pa2[0][7:4]) = 4
+  ok   $bits(pa2[0][0]) = 1
+  ok   $bits(pa2[0][7]) = 1
+  ok   pa2 == 4*bits(pa2[0]) = 32
+  ok   pa3 == 2*bits(pa3[0]) = 64
+  ok   $bits(ref8) = 8
+  ok   $bits(ref48) = 32
+  ok   bits(pa2[0]) == bits(ref8) = 8
+  ok   bits(pa3[0]) == bits(ref48) = 32
+TEST PASSED
