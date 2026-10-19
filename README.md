@@ -22,6 +22,7 @@ tests/chNN/<name>.c             C code of a DPI or VPI test (see below)
 tools/normalize_output.py       removes simulator banners before comparing
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the Verilator-oracle tests with Verilator
+tools/run_sukimasim.py          runs the suite with sukimasim
 ```
 
 Tests are grouped by the chapter of IEEE 1800-2023 that their first
@@ -117,6 +118,29 @@ such as whether every constraint held. The C file of a test with `:dpi_c:` is
 built into the model; for `:vpi_c:` the model is also built with `--vpi` and
 `--public-flat-rw`, but Verilator does not support user-defined system tasks,
 which the VPI tests use.
+
+## Running with sukimasim
+
+```sh
+python3 tools/run_sukimasim.py --sukimasim /path/to/sukimasim
+python3 tools/run_sukimasim.py --strip-diagnostics -j 8
+```
+
+sukimasim is the simulator that came before kirimasim. No expected output was
+recorded with it, so every test counts and none is a known difference. Each
+test runs in a temporary directory with `--quiet --quiet-stats --quiet-exit`
+and `SUKIMASIM_FINISH_STRICT_MODE=1`. The lines that sukimasim prints on
+standard output itself are removed before comparing: everything from
+`[sukimasim] Simulation completed` on, the lines that its `--diff` option
+ignores, and its `$finish` message. `TEST PASSED` is removed only as part of
+what follows `[sukimasim] Simulation completed`, because many tests print it
+themselves. With `--strip-diagnostics` the messages that sukimasim prints while
+it runs, such as `[TIMING] ...`, are removed as well. The C file of a test with
+`:dpi_c:` or `:vpi_c:` is built into a shared library against sukimasim's
+include directory (`--include`; by default the `include` directory beside the
+one that holds the executable) and loaded with `--lib`. sukimasim has no
+`sv_vpi_user.h`, so the runner provides one that includes `vpi_user.h`. Tests
+run one at a time unless `-j` says otherwise.
 
 ## Contributing
 
