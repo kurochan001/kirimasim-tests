@@ -1,0 +1,4 @@
+scale_by(3, 4) = 12
+scale_by_ten(3) = 30
+scale_by_ten(3, 2) = 6
+plus_hundred(5) = 105

@@ -1,0 +1,6 @@
+unit 1: test_dpi_context_scope.u1
+unit 2: test_dpi_context_scope.u2
+unit_id in u2: 2
+unit_id in u1: 1
+unit 1: recalled 100
+unit 2: recalled 200

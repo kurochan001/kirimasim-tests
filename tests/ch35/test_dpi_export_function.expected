@@ -1,0 +1,3 @@
+sum of squares 1..4 = 30
+calls from C: 4
+square(7) = 49, calls: 5

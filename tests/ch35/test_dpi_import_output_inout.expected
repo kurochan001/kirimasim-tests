@@ -1,0 +1,6 @@
+1: q changed to 3
+divmod: q=3 r=2
+bump: x=47
+fill: v=ace
+swap: n=c3
+name: set by C

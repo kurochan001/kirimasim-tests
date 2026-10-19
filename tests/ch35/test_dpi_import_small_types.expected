@@ -1,0 +1,9 @@
+byte: -100
+shortint: -2468
+int: -1
+longint: 12000000000
+real: 2.625
+bit: 1 0
+string in: 5
+string out: two
+chandle: 11 12

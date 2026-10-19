@@ -1,0 +1,4 @@
+10: tick 1
+20: tick 2
+disabled during tick 3, svIsDisabledState() = 1
+26: after the disable
