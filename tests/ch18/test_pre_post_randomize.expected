@@ -1,0 +1,3 @@
+ok=1 p=5 ch.v=3
+parent pre=1 post=1, p in pre=0 in post=5
+child pre=1 post=1

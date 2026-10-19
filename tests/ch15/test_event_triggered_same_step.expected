@@ -1,0 +1,3 @@
+before the trigger=0 after it=1
+wait(e.triggered) released at 1
+triggered at time 2: 0

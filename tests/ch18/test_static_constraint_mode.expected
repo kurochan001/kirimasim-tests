@@ -1,0 +1,4 @@
+after turning both off in a: b.c_s=0 b.c_d=1
+b with v==9: ok=1 v=9
+b with w==9: ok=0
+after turning c_s on in b: a.c_s=1 a.v=5

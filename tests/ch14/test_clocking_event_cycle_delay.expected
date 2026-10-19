@@ -1,0 +1,5 @@
+5: after ##1 started at 2
+5: after ##0 at a clocking event
+35: after ##3
+45: after ##0 between events
+46: edges=5 seen=5 mismatches=0

@@ -1,0 +1,5 @@
+fixed by value: sum=105 fixed[0]=1
+fixed by ref: fixed[1]=50
+dynamic by value: sum=15 dyn[0]=4
+queue by value: sum=24 q[0]=7
+associative by value: callee size=3 caller size=2

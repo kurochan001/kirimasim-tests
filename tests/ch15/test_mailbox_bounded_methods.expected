@@ -1,0 +1,8 @@
+full: try_put=0 num=2
+peek=1 num=2
+get=1 num=1
+try_peek ok=1 v=2 num=1
+try_get ok=1 v=2 num=0
+empty: try_get=0 v=0
+empty: try_peek=0
+not full: try_put ok=1 num=1

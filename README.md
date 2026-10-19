@@ -7,7 +7,7 @@ simulator, but they are meant to be usable with any simulator. Every test
 records where its expected result comes from and which clauses of the
 standard it checks.
 
-> **Status: early.** The suite has 1919 tests. Each one was checked
+> **Status: early.** The suite has 1966 tests. Each one was checked
 > against IEEE 1800-2023 by reading the cited clauses, and its expected output
 > matches Icarus Verilog 13.0 or, for tests that Icarus Verilog 13.0 cannot
 > compile or does not run as the standard says, Verilator 5.052. A few tests
@@ -86,6 +86,8 @@ built with `verilator --binary --timing` and run with random initial values
 two different seeds. Verilator's own lines are removed before comparing: its
 banners and its run-time warnings (`%Warning-...`), which it prints on standard
 output, for example when the constraints of a `randomize()` call cannot be met.
+Tests whose results depend on random values print only what the standard fixes,
+such as whether every constraint held.
 
 ## Contributing
 

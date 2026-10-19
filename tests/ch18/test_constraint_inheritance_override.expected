@@ -1,0 +1,3 @@
+base: ok=1 v=3
+derived through a base handle: ok=1 v=6
+replacing constraint against the inherited limit: ok=0 v=1

@@ -1,0 +1,5 @@
+clr high: q=0
+rising clock with d=1 while clr is high: q=0
+clr released: q=0
+rising clock with d=1: q=1
+clr high again: q=0

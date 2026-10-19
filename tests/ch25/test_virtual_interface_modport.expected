@@ -1,0 +1,2 @@
+b0.d=01 b1.d=02
+after pointing d0 at b1: b0.d=01 b1.d=03

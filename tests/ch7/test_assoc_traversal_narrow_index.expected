@@ -1,0 +1,4 @@
+first into 8 bits: status=-1 index=232
+last into 8 bits: status=-1 index=208
+first into int: status=1 index=1000
+last into int: status=1 index=2000

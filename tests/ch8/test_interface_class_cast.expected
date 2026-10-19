@@ -1,0 +1,4 @@
+reader of a cast_reg to writer: 1
+written through the writer: 9
+reader to cast_reg: 1, same object: 1
+reader of a cast_rom to writer: 0, writer is null: 1

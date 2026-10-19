@@ -1,0 +1,5 @@
+6: after one key came back, waiter got keys at -1
+11: waiter got keys at 10
+try_get with no keys: 0
+try_get of 2 with 3 keys: ok=1
+try_get of 2 with 1 key: 0

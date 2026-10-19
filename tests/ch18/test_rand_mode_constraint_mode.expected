@@ -1,0 +1,5 @@
+all on: ok=1 a=10 b=20
+a inactive, c_a off: ok=1 a=77 b=20
+modes: a.rand_mode=0 b.rand_mode=1 c_a=0 c_b=1
+a inactive, c_a on again with a=77: ok=0 a=77
+all on again: ok=1 a=10 b=20

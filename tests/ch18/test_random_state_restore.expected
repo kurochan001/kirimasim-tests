@@ -1,0 +1,4 @@
+set_randstate repeats the value: 1
+object srandom repeats the sequence: 1
+process srandom repeats the sequence: 1
+$urandom_range stays in range: 1

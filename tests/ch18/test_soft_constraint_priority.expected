@@ -1,0 +1,6 @@
+later soft wins: a=2
+hard constraint wins over soft: b in (10,20) every time=1
+soft kept when nothing contradicts it: c=3
+inline soft wins over class soft: a=7
+inline hard: a=9
+disable soft c: c in {40,41}=1
