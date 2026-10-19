@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="340" viewBox="0 0 880 340" role="img">
+<title>Verilator: results by status: Tests that match, differ, are known differences, or use what the simulator does not support</title>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;font-size:12px;fill:#1f2328;stroke:none}.bg{fill:#ffffff}.muted{fill:#59636e}.title{font-size:15px;font-weight:600}.grid{stroke:#d1d9e0;stroke-width:1}.axis{stroke:#818b98;stroke-width:1}.line{fill:none;stroke-width:2}.dashed{stroke-dasharray:5 4}.c-pass{stroke:#1a7f37;fill:#1a7f37}.c-fail{stroke:#cf222e;fill:#cf222e}.c-known{stroke:#8c959f;fill:#8c959f}.c-unsupported{stroke:#bf8700;fill:#bf8700}@media (prefers-color-scheme:dark){text{fill:#f0f6fc}.bg{fill:#0d1117}.muted{fill:#9198a1}.grid{stroke:#3d444d}.axis{stroke:#656c76}.c-pass{stroke:#3fb950;fill:#3fb950}.c-fail{stroke:#f85149;fill:#f85149}.c-known{stroke:#6e7681;fill:#6e7681}.c-unsupported{stroke:#d29922;fill:#d29922}}</style>
+<rect class="bg" width="880" height="340" rx="6"/>
+<text x="20.0" y="28.0" class="title" text-anchor="start">Verilator: results by status</text>
+<text x="20.0" y="48.0" class="muted" text-anchor="start">Tests that match, differ, are known differences, or use what the simulator does not support</text>
+<rect class="c-pass" x="20" y="64" width="12" height="12" rx="2"/>
+<text x="38.0" y="74.0" text-anchor="start">match</text>
+<rect class="c-fail" x="89.0" y="64" width="12" height="12" rx="2"/>
+<text x="107.0" y="74.0" text-anchor="start">differ</text>
+<rect class="c-known" x="164.6" y="64" width="12" height="12" rx="2"/>
+<text x="182.6" y="74.0" text-anchor="start">known difference</text>
+<line class="grid" x1="64" x2="856" y1="300.0" y2="300.0"/>
+<text x="56.0" y="304.0" class="muted" text-anchor="end">0</text>
+<line class="grid" x1="64" x2="856" y1="258.4" y2="258.4"/>
+<text x="56.0" y="262.4" class="muted" text-anchor="end">500</text>
+<line class="grid" x1="64" x2="856" y1="216.8" y2="216.8"/>
+<text x="56.0" y="220.8" class="muted" text-anchor="end">1000</text>
+<line class="grid" x1="64" x2="856" y1="175.2" y2="175.2"/>
+<text x="56.0" y="179.2" class="muted" text-anchor="end">1500</text>
+<line class="grid" x1="64" x2="856" y1="133.6" y2="133.6"/>
+<text x="56.0" y="137.6" class="muted" text-anchor="end">2000</text>
+<line class="grid" x1="64" x2="856" y1="92.0" y2="92.0"/>
+<text x="56.0" y="96.0" class="muted" text-anchor="end">2500</text>
+<line class="axis" x1="64" x2="856" y1="300" y2="300"/>
+<line class="axis" x1="290.4" x2="290.4" y1="300" y2="304"/>
+<text x="290.4" y="318.0" class="muted" text-anchor="middle">10-19</text>
+<line class="axis" x1="670.4" x2="670.4" y1="300" y2="304"/>
+<text x="670.4" y="318.0" class="muted" text-anchor="middle">10-20</text>
+<rect class="c-pass" x="446.0" y="148.2" width="28.0" height="151.8"/>
+<rect class="c-fail" x="446.0" y="146.9" width="28.0" height="1.2"/>
+<rect class="c-known" x="446.0" y="119.0" width="28.0" height="28.0"/>
+</svg>
