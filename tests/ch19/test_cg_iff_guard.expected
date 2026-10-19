@@ -1,0 +1,3 @@
+guard false, after 0 and 1: 0.00
+guard true, after 2: 25.00
+guard true, after 0: 50.00

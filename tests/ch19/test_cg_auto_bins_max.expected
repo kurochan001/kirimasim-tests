@@ -1,0 +1,5 @@
+2-bit, default auto_bin_max, after 2: 25.00
+auto_bin_max 3, after 4 and 7 (same bin): 33.33
+after 2: 66.67
+after 3 (same bin as 2): 66.67
+after 1: 100.00
