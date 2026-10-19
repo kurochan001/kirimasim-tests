@@ -128,6 +128,13 @@ jobs:
           path: ~/verilator
           key: verilator-${{ steps.head.outputs.sha }}-ubuntu-24.04
 
+      # Verilator solves the constraints of randomize() with an SMT solver, z3
+      # by default, which the runner does not have.
+      - name: Install z3
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y z3
+
       - name: Run the suite
         run: |
           mkdir -p results

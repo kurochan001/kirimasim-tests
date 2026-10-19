@@ -317,7 +317,9 @@ cannot be met. Tests whose results depend on random values print only what
 the standard fixes, such as whether every constraint held. The C file of a
 test with `:dpi_c:` is built into the model; for `:vpi_c:` the model is also
 built with `--vpi` and `--public-flat-rw`, but Verilator does not support
-user-defined system tasks, which the VPI tests use.
+user-defined system tasks, which the VPI tests use. Verilator solves the
+constraints of `randomize()` with an SMT solver, `z3` by default, which has to
+be on `PATH`; without it the tests of randomization do not match.
 
 ### kirimasim
 
@@ -390,8 +392,8 @@ suite has a problem:
   Actions cache) and runs every test. Every test whose `:oracle:` lists
   `iverilog@13.0` must match; the others are known differences.
 - **verilator** builds Verilator 5.052 from its `v5.052` tag (kept in the
-  cache) and runs the tests whose `:oracle:` lists `verilator@5.052`, which
-  must all match.
+  cache), installs `z3` for `randomize()`, and runs the tests whose
+  `:oracle:` lists `verilator@5.052`, which must all match.
 - **readme** checks that the tables of this README are up to date
   (`tools/suite_stats.py --check`).
 
@@ -401,7 +403,7 @@ started by hand as well. Its results are only reported. It has four jobs:
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every test.
 - **verilator** builds the latest `master` of Verilator (kept in the cache
-  by its commit) and runs every test with `--all`.
+  by its commit), installs `z3`, and runs every test with `--all`.
 - **kirimasim** builds the latest `main` of kirimasim with its `release`
   preset and runs every test.
 - **publish** collects the `--json` results of the jobs that finished, adds
