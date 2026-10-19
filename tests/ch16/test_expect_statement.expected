@@ -1,0 +1,6 @@
+35: first passed
+35: after the first
+45: second failed
+45: after the second
+75: wait_for(7) 1
+115: wait_for(9) 0

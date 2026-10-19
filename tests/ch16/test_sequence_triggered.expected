@@ -1,0 +1,5 @@
+wait (s_ab.triggered): 15 45
+@(s_ab): 15 45
+program at posedge clk: 15 45
+module at posedge clk: 0
+s_ab.triggered ##1 c: 25

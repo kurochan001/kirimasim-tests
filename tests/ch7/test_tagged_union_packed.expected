@@ -1,0 +1,8 @@
+$bits(pk_t) = 10
+Off: tag 00
+Small: tag 01, member 9, p.Small 9
+Big: tag 10, member a5, p.Big a5
+after p.Big = 3c: tag 10, member 3c
+it.Count = 42
+it.Color = 1 2 3
+after it.Color.g = 20: 1 20 3

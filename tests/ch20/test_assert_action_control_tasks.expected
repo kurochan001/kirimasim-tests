@@ -1,0 +1,9 @@
+default: passes 2, failures 1
+$assertpassoff: passes 0, failures 1
+$assertpasson, $assertfailoff: passes 2, failures 0
+$assertfailon, $assertvacuousoff: passes 1, failures 1
+$assertpassoff, $assertnonvacuouson: passes 1, failures 1
+$assertpasson: passes 2, failures 1
+no control: a_later failures 1
+$assertoff after go: a_later failures 1
+$assertkill after go: a_later failures 0

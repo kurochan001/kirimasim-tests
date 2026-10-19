@@ -1,0 +1,7 @@
+n=4 a=42 h=255 b=5 d=-7
+n=3 s=name r=2.5 c=Z
+n=0, a letter where a number is expected
+n=2 s=abc x=9
+n=3 x=2 y=12 d=34
+n=1 x=77
+n=-1 at the end

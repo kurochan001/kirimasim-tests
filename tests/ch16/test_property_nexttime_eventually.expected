@@ -1,0 +1,4 @@
+x after 1: nexttime 0, nexttime[2] 1, eventually 1, s_eventually 1
+x after 2: nexttime 1, nexttime[2] 0, eventually 0, s_eventually 0
+x after 3: nexttime 1, nexttime[2] 1, eventually 0, s_eventually 0
+x after 4: nexttime 1, nexttime[2] 1, eventually 1, s_eventually 1

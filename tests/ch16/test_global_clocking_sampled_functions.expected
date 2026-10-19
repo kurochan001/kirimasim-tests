@@ -1,0 +1,9 @@
+$rose_gclk: 25
+$fell_gclk: 55
+$changed_gclk: 15 25 35 55
+$past_gclk(v) == 2'b11: 35
+$rising_gclk, actions at: 25
+$falling_gclk, actions at: 55
+$changing_gclk, actions at: 15 25 35 55
+$future_gclk(v) == 2'b01, actions at: 35 45
+$steady_gclk == $changing_gclk: 0

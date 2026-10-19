@@ -1,0 +1,5 @@
+a ##[1:3] b: 15 25 35 75 115
+first_match(a ##[1:3] b): 15 75 115
+(a ##[1:3] b) ##1 c: 35 125
+first_match(a ##[1:3] b) ##1 c: 125
+first_match of the or: 15 75 75 115

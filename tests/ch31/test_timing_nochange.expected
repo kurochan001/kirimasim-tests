@@ -1,0 +1,5 @@
+d inside: offsets 0 and 0: 1, offsets 2 and -1: 1
+d with the leading edge: offsets 0 and 0: 0, offsets 2 and -1: 1
+d with the trailing edge: offsets 0 and 0: 0, offsets 2 and -1: 0
+d 1 before the trailing edge: offsets 0 and 0: 1, offsets 2 and -1: 0
+d 1 before the leading edge: offsets 0 and 0: 0, offsets 2 and -1: 1

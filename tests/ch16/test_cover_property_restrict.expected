@@ -1,0 +1,3 @@
+cover property: 15 85
+cover sequence: 15 25 35 85
+assume failures: 3

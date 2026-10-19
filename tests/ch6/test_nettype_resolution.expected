@@ -1,0 +1,5 @@
+start: r_sum=3.75 r_alias=5.50 m_max=7 n_count=3
+a=10, y=1: r_sum=12.25 r_alias=14.00 m_max=6 n_count=3
+forced: r_sum=0.50 r_alias=14.00 m_max=6 n_count=3
+a=20 while forced: r_sum=0.50 r_alias=24.00 m_max=6 n_count=3
+released: r_sum=22.25 r_alias=24.00 m_max=6 n_count=3

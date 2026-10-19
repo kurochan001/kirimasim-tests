@@ -1,0 +1,6 @@
+test_file_fmonitor_fstrobe_a.txt: 0: v=0
+test_file_fmonitor_fstrobe_a.txt: 1: v=2
+test_file_fmonitor_fstrobe_a.txt: 5: v=3
+test_file_fmonitor_fstrobe_b.txt: 0: w=0
+test_file_fmonitor_fstrobe_b.txt: 2: strobe u=7
+test_file_fmonitor_fstrobe_b.txt: 3: w=5

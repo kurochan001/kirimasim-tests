@@ -1,0 +1,4 @@
+ns: $time=13 $stime=13 $realtime=12.6
+slow: $time=1 $stime=1 $realtime=1.26
+ns: $time=4294967313 $stime=17 $realtime=4294967312.6
+slow: $time=429496731 $stime=429496731 $realtime=429496731.26

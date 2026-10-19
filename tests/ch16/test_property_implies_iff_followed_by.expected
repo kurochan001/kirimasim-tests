@@ -1,0 +1,3 @@
+p at T+1, q at T+2: implies 0, iff 1, #-# 1, #=# 0
+p and q at T+1: implies 1, iff 0, #-# 0, #=# 1
+neither: implies 0, iff 0, #-# 1, #=# 1

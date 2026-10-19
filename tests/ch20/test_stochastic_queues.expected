@@ -1,0 +1,19 @@
+create FIFO 1: 0
+create 1 again: 6
+create with type 3: 4
+create with length 0: 5
+create LIFO 4: 0
+add job 1 to 1: 0
+add job 2 to 1: 0
+add job 3 to 1: 0
+1 full: 1, status 0
+add job 4 to 1: 1
+length of 1: 3, status 0
+maximum length of 1: 3, status 0
+remove from 1: job 1 inform 100, status 0
+1 full: 0, status 0
+remove from 4: job 3 inform 30, status 0
+remove from 4: job 2 inform 20, status 0
+length of 4: 1, status 0
+remove from empty 4: 3
+add to undefined 9: 2
