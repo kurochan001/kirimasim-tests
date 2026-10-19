@@ -47,6 +47,22 @@ module test_atan2_corner_cases;
         end
     endtask
 
+    // 20.8.2: these functions behave like the C functions of the same names, and C
+    // leaves the accuracy of its math library to the implementation. Two results
+    // that are equal in exact arithmetic can differ in their last bit, so even the
+    // sign of their difference is not fixed. This check prints only whether the
+    // difference is within epsilon, never the difference itself.
+    task automatic check_close(input string name, input real a, input real b);
+        if (a - b >= -epsilon && a - b <= epsilon) begin
+            $display("  PASS: %s (difference in [%0f, %0f])", name, -epsilon, epsilon);
+            pass_count++;
+        end else begin
+            $display("  FAIL: %s: %0f and %0f (expected the difference in [%0f, %0f])",
+                     name, a, b, -epsilon, epsilon);
+            fail_count++;
+        end
+    endtask
+
     initial begin
         real result;
 
@@ -142,8 +158,8 @@ module test_atan2_corner_cases;
             result1 = $atan2(y, x);
             result2 = $atan2(y*10.0, x*10.0);
             result3 = $atan2(y*0.001, x*0.001);
-            check_in_range("$atan2(3,4) vs $atan2(30,40)", result1 - result2, -epsilon, epsilon);
-            check_in_range("$atan2(3,4) vs $atan2(0.003,0.004)", result1 - result3, -epsilon, epsilon);
+            check_close("$atan2(3,4) vs $atan2(30,40)", result1, result2);
+            check_close("$atan2(3,4) vs $atan2(0.003,0.004)", result1, result3);
         end
 
         // ===== Very small angles =====
@@ -184,7 +200,7 @@ module test_atan2_corner_cases;
             // Assigned here so the result does not depend on the order of static initializers.
             atan2_result = $atan2(y, x);
             atan_result = $atan(y/x);
-            check_in_range("$atan2(1,2) vs $atan(0.5)", atan2_result - atan_result, -epsilon, epsilon);
+            check_close("$atan2(1,2) vs $atan(0.5)", atan2_result, atan_result);
         end
 
         // ===== Symmetry tests =====
@@ -198,7 +214,7 @@ module test_atan2_corner_cases;
             // Assigned here so the result does not depend on the order of static initializers.
             result1 = $atan2(y, x);
             result2 = $atan2(-y, x);
-            check_in_range("Symmetry check", result1 + result2, -epsilon, epsilon);
+            check_close("Symmetry check: $atan2(1,2) vs -$atan2(-1,2)", result1, -result2);
         end
 
         // Summary
