@@ -1,0 +1,4 @@
+pav: packed array var 1, packed 1, vector 1, size 24, value 123456
+pav[0]: struct var 1, member 1, parent is pav 1, index 0, value 56
+pav[1]: struct var 1, member 1, parent is pav 1, index 1, value 34
+pav[2]: struct var 1, member 1, parent is pav 1, index 2, value 12

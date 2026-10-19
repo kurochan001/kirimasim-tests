@@ -1,0 +1,4 @@
+busy 111000, done 000100: hold_until 0, hold_for(3) 0
+busy 110000, done 000100: hold_until 1, hold_for(3) 1
+busy 000000, done 100000: hold_until 0, hold_for(3) 1
+busy 111111, done 000000: hold_until 0, hold_for(3) 0

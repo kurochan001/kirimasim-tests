@@ -1,0 +1,4 @@
+mode 1, sel 0, x 10: if-else 0, if 0, case 0, default 0
+mode 0, sel 1, x 01: if-else 0, if 0, case 0, default 0
+mode 1, sel 2, x 01: if-else 1, if 1, case 0, default 0
+mode 0, sel 3, x 00: if-else 1, if 0, case 0, default 1

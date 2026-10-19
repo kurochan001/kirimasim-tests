@@ -1,0 +1,9 @@
+class definitions: base shape square
+base: virtual 0
+  variables: x y
+  methods: f t
+  constraints in order: c_low c_high
+  parameters: K(local 1) W(local 0)
+shape: virtual 1
+  derived classes: square
+square: virtual 0, extends shape

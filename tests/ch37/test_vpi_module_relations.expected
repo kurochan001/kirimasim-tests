@@ -1,0 +1,6 @@
+top modules: test_vpi_module_relations
+test_vpi_module_relations: top module 1, default decay time 50
+single: top module 0, index is NULL 1
+arr[1]: index 1
+global clocking gclk, default clocking dcb, default disable iff rst
+alias statements: n1=n3 n2=n3

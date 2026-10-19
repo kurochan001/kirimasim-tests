@@ -1,0 +1,6 @@
+deferred pass: 1
+disable fail: 1
+final pass: 1
+immediate fail: 1
+observed fail: 1
+observed pass: 1

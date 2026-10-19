@@ -1,0 +1,8 @@
+w changed 1 time(s), r changed 1 time(s)
+w: 1 callback(s), includes the registered one 1
+w: reason value change 1, object is w 1
+r: 1 callback(s), includes the registered one 1
+r: reason value change 1, object is r 1
+NULL: includes the end of simulation callback 1
+remove the callback on r: 1
+r: 0 callback(s), includes the registered one 0

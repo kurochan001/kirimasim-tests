@@ -1,0 +1,8 @@
+interface bus of bus_if
+modports:
+  dev: input req output gnt
+  host: input gnt output req
+interface task and function declarations:
+  peek: extern, function
+  ping: forkjoin, task
+p: program 1, definition prog_p, processes 2

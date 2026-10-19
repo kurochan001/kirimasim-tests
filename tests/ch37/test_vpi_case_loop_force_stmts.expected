@@ -1,0 +1,8 @@
+case: type case, qualifier unique, condition sel, expressions per item: 1 2 0
+case: type casez, qualifier none, condition sel, expressions per item: 1
+foreach: array m, loop variables: (skipped) j
+do-while: condition present, statement present
+force f = 1
+release f
+assign g = f
+deassign g

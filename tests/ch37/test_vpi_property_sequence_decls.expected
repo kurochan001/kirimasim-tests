@@ -1,0 +1,8 @@
+sequence s_req:
+  x: untyped, no direction
+  n: typed, no direction, default 2
+  v: typed, output
+property p_chk:
+  ck: typed, no direction
+  p: untyped, no direction
+  q: untyped, no direction, default 1

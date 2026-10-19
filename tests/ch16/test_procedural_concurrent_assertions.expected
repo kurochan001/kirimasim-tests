@@ -1,0 +1,5 @@
+automatic loop variable: 3 failures
+static loop variable: 8 failures
+const'(j): 3 failures
+inside if (en): 1 failures
+disabled at the third tick: 2 failures

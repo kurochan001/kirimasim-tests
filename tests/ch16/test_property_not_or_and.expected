@@ -1,0 +1,4 @@
+p1 at T+1, q at T+2: not 1, or 0, and 0
+q at T+1: not 0, or 0, and 1
+p1 at T+1 only: not 1, or 0, and 1
+neither: not 0, or 1, and 1
