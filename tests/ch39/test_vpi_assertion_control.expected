@@ -1,0 +1,21 @@
+30: all enabled: a1 pass 1 fail 2, a2 pass 2 fail 1
+30: callback: a1 fail action disabled, attempt information NULL
+60: a1 fail action disabled: a1 pass 1 fail 0, a2 pass 2 fail 1
+60: callback: a1 fail action enabled, attempt information NULL
+60: callback: a1 pass action disabled, attempt information NULL
+90: a1 pass action disabled: a1 pass 0 fail 2, a2 pass 2 fail 1
+90: callback: a1 pass action enabled, attempt information NULL
+90: callback: a1 disabled, attempt information NULL
+120: a1 disabled: a1 pass 0 fail 0, a2 pass 2 fail 1
+120: callback: a1 locked, attempt information NULL
+150: a1 locked: a1 pass 0 fail 0, a2 pass 2 fail 1
+150: callback: a1 unlocked, attempt information NULL
+150: callback: a1 enabled, attempt information NULL
+180: a1 enabled: a1 pass 1 fail 2, a2 pass 2 fail 1
+180: callback: a2 vacuous action disabled, attempt information NULL
+210: a2 vacuous action disabled: a1 pass 1 fail 2, a2 pass 1 fail 1
+210: callback: a2 pass action disabled, attempt information NULL
+210: callback: a2 nonvacuous action enabled, attempt information NULL
+240: a2 nonvacuous action enabled: a1 pass 1 fail 2, a2 pass 1 fail 1
+240: callback: a2 pass action enabled, attempt information NULL
+270: a2 pass action enabled: a1 pass 1 fail 2, a2 pass 2 fail 1

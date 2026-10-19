@@ -1,0 +1,18 @@
+5: a1 start, attempt started at 5
+5: a2 failure, attempt started at 5
+15: a1 start, attempt started at 15
+15: a1 success, attempt started at 5
+15: a1 failure, attempt started at 15
+15: a2 vacuous success
+15: a3 success, attempt started at 5
+15: a3 vacuous success
+25: a1 start, attempt started at 25
+25: a2 success, attempt started at 25
+25: a3 disabled evaluation
+35: a1 start, attempt started at 35
+35: a1 failure, attempt started at 25
+35: a1 failure, attempt started at 35
+35: a2 vacuous success
+35: a3 vacuous success
+callbacks with a wrong handle or user data: 0
+fail actions: 4

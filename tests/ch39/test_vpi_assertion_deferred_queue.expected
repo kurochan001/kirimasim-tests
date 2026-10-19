@@ -1,0 +1,4 @@
+d_disable: immediate assert
+d_reset: immediate assert
+0: d_disable failed
+10: d_reset failed

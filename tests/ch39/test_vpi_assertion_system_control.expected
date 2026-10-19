@@ -1,0 +1,15 @@
+30: all on: pass 1 fail 2
+40: system callback: off
+60: off in the middle: pass 1 fail 0
+60: system callback: on
+70: system callback: kill
+90: kill in the middle: pass 0 fail 0
+90: system callback: on
+90: system callback: fail action disabled
+120: fail action disabled: pass 1 fail 0
+120: system callback: fail action enabled
+120: system callback: pass action disabled
+150: pass action disabled: pass 0 fail 2
+150: system callback: pass action enabled
+180: on after end: pass 0 fail 0
+assertion system initialized: 1 time(s)

@@ -7,7 +7,7 @@ simulator, but they are meant to be usable with any simulator. Every test
 records where its expected result comes from and which clauses of the
 standard it checks.
 
-> **Status: early.** The suite has 2037 tests. Each one was checked
+> **Status: early.** The suite has 2043 tests. Each one was checked
 > against IEEE 1800-2023 by reading the cited clauses, and its expected output
 > matches Icarus Verilog 13.0 or, for tests that Icarus Verilog 13.0 cannot
 > compile or does not run as the standard says, Verilator 5.052. A few tests
@@ -25,11 +25,10 @@ tools/run_verilator.py          runs the Verilator-oracle tests with Verilator
 ```
 
 Tests are grouped by the chapter of IEEE 1800-2023 that their first
-`:lrm:` clause belongs to. Chapters 3 to 38 have tests, except chapter 34
+`:lrm:` clause belongs to. Chapters 3 to 39 have tests, except chapter 34
 (protected envelopes), which depends on encryption that each tool defines.
-Chapters 1 and 2 set out no behavior to test. Chapter 39 (the assertion API)
-has no tests yet; the system functions of chapter 40 return what the coverage
-collected by each tool gives.
+Chapters 1 and 2 set out no behavior to test; the system functions of chapter
+40 return what the coverage collected by each tool gives.
 
 ## Test format
 
@@ -50,7 +49,7 @@ extra fields.
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
 | `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test |
 | `:dpi_c:` | `@<file>`: C code next to the test that implements its DPI imports and calls its exports (chapter 35) |
-| `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 38) |
+| `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 39) |
 
 A test passes when the simulator's standard output, after removing empty
 lines and the simulator's own banners (see `tools/normalize_output.py`),
@@ -64,13 +63,13 @@ element: the default time unit and precision are implementation-specific
 
 A test with `:dpi_c:` or `:vpi_c:` is the SystemVerilog file together with
 its C file, which has the same name. The C file includes only the standard
-headers `svdpi.h` (Annex I) or `vpi_user.h` (Annex K) and those of the C
-library, and it compiles both as C and as C++ (Verilator compiles it as C++),
-with its definitions inside `extern "C"`. Results are returned to
-SystemVerilog and printed with `$display` where possible; C code that prints
-uses `vpi_printf`, or `printf` followed by `fflush(stdout)`. sv-tests' runners
-do not know these fields and compile only the SystemVerilog file, so such a
-test fails there.
+headers `svdpi.h` (Annex I), `vpi_user.h` (Annex K) or `sv_vpi_user.h`
+(Annex M) and those of the C library, and it compiles both as C and as C++
+(Verilator compiles it as C++), with its definitions inside `extern "C"`.
+Results are returned to SystemVerilog and printed with `$display` where
+possible; C code that prints uses `vpi_printf`, or `printf` followed by
+`fflush(stdout)`. sv-tests' runners do not know these fields and compile only
+the SystemVerilog file, so such a test fails there.
 
 Tests of file input and output (IEEE 1800-2023 21.3 to 21.5) and of SDF
 annotation (chapter 32), which write the SDF file they annotate, create files

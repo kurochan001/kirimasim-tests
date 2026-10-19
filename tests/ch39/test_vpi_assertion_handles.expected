@@ -1,0 +1,14 @@
+unnamed assertion: assert
+all assertions: 4 named, 1 unnamed
+test_vpi_assertion_handles.a_req: assert, name a_req, line 38, file test_vpi_assertion_handles.sv
+  instance test_vpi_assertion_handles of module test_vpi_assertion_handles, clock inferred 0
+test_vpi_assertion_handles.m_ack: assume, name m_ack, line 39, file test_vpi_assertion_handles.sv
+  instance test_vpi_assertion_handles of module test_vpi_assertion_handles, clock inferred 0
+test_vpi_assertion_handles.r_req: restrict, name r_req, line 40, file test_vpi_assertion_handles.sv
+  instance test_vpi_assertion_handles of module test_vpi_assertion_handles, clock inferred 0
+test_vpi_assertion_handles.u.c_ack: cover, name c_ack, line 30, file test_vpi_assertion_handles.sv
+  instance test_vpi_assertion_handles.u of module ah_leaf, clock inferred 1
+assertion of u: c_ack (cover)
+assertions of u: 1
+by full name test_vpi_assertion_handles.u.c_ack: cover
+by name a_req in test_vpi_assertion_handles: assert test_vpi_assertion_handles.a_req
