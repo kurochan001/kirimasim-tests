@@ -1,0 +1,3 @@
+20: setup d=1 hold d=0 setup e=0
+22: setup d=1 hold d=1 setup e=0
+end: setup d=1 hold d=1 setup e=0
