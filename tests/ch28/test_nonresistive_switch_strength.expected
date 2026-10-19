@@ -1,0 +1,2 @@
+nmos supply=St1 nmos pull=Pu1 cmos supply=St1 tran supply=St1
+vs strong0=StX vs pull0=St1

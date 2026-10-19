@@ -1,0 +1,5 @@
+after bump: n=1
+after bump(): n=2
+after add: n=7
+after add(2): n=9
+after addf: n=109

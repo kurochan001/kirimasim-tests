@@ -1,0 +1,10 @@
+mem[0] = 0a
+mem[1] = 0b
+mem[2] = cc
+mem[3] = ee
+mem[4] = ee
+mem[5] = ee
+mem[6] = 1f
+mem[7] = x5
+dmem[7:4] = aa bb zz 00
+bmem = 1001 0011

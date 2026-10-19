@@ -1,0 +1,6 @@
+t0 display a=1
+t0 strobe a=2
+t1 display b=0 c=0
+t1 strobe b=7 c=14
+t2 strobe a=4
+t3 display a=4

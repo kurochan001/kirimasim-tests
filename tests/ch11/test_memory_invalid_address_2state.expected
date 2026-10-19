@@ -1,0 +1,4 @@
+bmem = 1 2 3 4
+imem = 10 20 30
+read out of range: bmem=0 imem=0
+read with -1:      imem=0

@@ -1,0 +1,7 @@
+fgetc   -> 65
+ungetc  -> 0
+fgetc   -> 65
+ungetc 90 -> 0
+fgetc   -> 90
+fgetc   -> 66
+fgetc   -> -1 eof=1

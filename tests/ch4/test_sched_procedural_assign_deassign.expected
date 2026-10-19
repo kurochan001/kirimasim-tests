@@ -1,0 +1,6 @@
+assigned: q=2
+d changed: q=6
+procedural write while assigned: q=6
+deassigned: q=6
+d changed after deassign: q=6
+procedural write after deassign: q=3

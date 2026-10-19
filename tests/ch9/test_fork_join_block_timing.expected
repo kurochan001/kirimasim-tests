@@ -1,0 +1,11 @@
+5: fork 1, inner block, first
+10: fork 1, #10
+15: fork 1, inner block, second
+30: fork 1, #30
+30: after join
+32: fork 2, #2
+32: after join_any
+32: after join_none
+33: fork 3, #1
+40: fork 2, #10
+52: end

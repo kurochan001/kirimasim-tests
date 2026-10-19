@@ -1,0 +1,10 @@
+0 && f: r=0 calls=0
+1 || f: r=1 calls=0
+1 && f: r=1 calls=1
+0 || f: r=1 calls=1
+0 -> f: r=1 calls=0
+1 -> f: r=0 calls=1
+1 ? 5 : f: t=5 calls=0
+0 ? f : 7: t=7 calls=0
+0 & f: r=0 calls=1
+1 | f: r=1 calls=1

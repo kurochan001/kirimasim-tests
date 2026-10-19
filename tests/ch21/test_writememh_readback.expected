@@ -1,0 +1,4 @@
+back = 12 34 ab cd
+@ characters in the file: 0
+part = 34 ab 00 00
+bits_back = 101100 000111

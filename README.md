@@ -7,11 +7,11 @@ simulator, but they are meant to be usable with any simulator. Every test
 records where its expected result comes from and which clauses of the
 standard it checks.
 
-> **Status: early.** The suite has 1880 tests. Each one was checked
+> **Status: early.** The suite has 1919 tests. Each one was checked
 > against IEEE 1800-2023 by reading the cited clauses, and its expected output
 > matches Icarus Verilog 13.0 or, for tests that Icarus Verilog 13.0 cannot
-> compile, Verilator 5.052. A few tests follow the standard where neither
-> simulator does (see below).
+> compile or does not run as the standard says, Verilator 5.052. A few tests
+> follow the standard where neither simulator does (see below).
 
 ## Layout
 
@@ -54,6 +54,10 @@ printed with `%t`, `$timeformat`, `$printtimescale`, fractional delays or
 delays with time units) sets them with `` `timescale `` before its first design
 element: the default time unit and precision are implementation-specific
 (IEEE 1800-2023 3.14.2.3).
+
+Tests of file input and output (IEEE 1800-2023 21.3 to 21.5) create files,
+named after the test, in the current directory. Both runners run every test
+in a temporary directory.
 
 ## Running with Icarus Verilog
 

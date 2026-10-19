@@ -1,0 +1,5 @@
+signed x sign bit:  xxxxx011
+signed z sign bit:  zzzzz011
+signed 1 sign bit:  11111011
+unsigned x top bit: 0000x011
+signed x plus 1:    xxxxxxxx

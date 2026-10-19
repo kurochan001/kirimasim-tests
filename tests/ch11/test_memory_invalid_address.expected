@@ -1,0 +1,4 @@
+mem = 1 2 3 4
+read with x address: xxxxxxxx
+read out of range:   xxxxxxxx
+mem[mem[0]] = 2

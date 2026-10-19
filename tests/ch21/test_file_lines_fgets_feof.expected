@@ -1,0 +1,6 @@
+write fd: nonzero=1 bit31=1
+read fd: nonzero=1 bit31=1
+n=11 line=[first line] eof=0
+n=9 line=[second 2] eof=0
+n=17 line=[no newline at end] eof=1
+n=0 eof=1
