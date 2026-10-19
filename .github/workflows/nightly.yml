@@ -60,7 +60,9 @@ jobs:
           mkdir -p results
           python3 tools/run_icarus.py --iverilog-bin "$HOME/icarus/bin" -j "$(nproc)" \
             --json results/icarus.json | tee results/icarus.log
+          status=${PIPESTATUS[0]}
           tail -n 1 results/icarus.log >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
@@ -112,7 +114,9 @@ jobs:
           mkdir -p results
           python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" --all \
             -j "$(nproc)" --json results/verilator.json | tee results/verilator.log
+          status=${PIPESTATUS[0]}
           tail -n 1 results/verilator.log >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
