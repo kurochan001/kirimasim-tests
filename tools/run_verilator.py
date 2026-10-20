@@ -20,6 +20,16 @@ A test with `:dpi_c: @<file>.c` or `:vpi_c: @<file>.c` has C code next to it,
 which is built with the model (Verilator compiles it as C++); for `:vpi_c:` the
 model is also built with --vpi and --public-flat-rw.
 
+A test with `:should_fail_because:` is an illegal design, which matches when
+Verilator rejects it with an error at the place `:expected_stderr_regex:`
+names. The sources and include files of `:files:` are passed to verilator,
+the arguments of `:args:` to the model, and the exit code and messages of the
+model are checked against `:expected_exit:` and `:expected_stderr_regex:`
+(see tools/suite_results.py). The model runs with
++verilator+error+limit+1000000, so that $error does not stop it, and the
+messages of the severity tasks are removed from the output before it is
+compared.
+
 With --all, or when a test is named, a test whose `:oracle:` does not list
 verilator@5.052 is reported as a known difference when it does not match,
 and does not make the run fail. With --json, the result of every test is also
@@ -38,9 +48,17 @@ import suite_results
 
 ROOT = Path(__file__).resolve().parent.parent
 NORMALIZE = ROOT / "tools" / "normalize_output.py"
-# Lines that Verilator itself prints, not the test: its banners and its run-time
-# warnings, such as the one for a randomize() call whose constraints fail.
-BANNER = re.compile(r"^(?:- (?:\S+:\d+: Verilog \$finish|S i m u l a t i o n|Verilator: )|%Warning-)")
+# Lines that Verilator itself prints, not the test: its banners, its run-time
+# warnings, such as the one for a randomize() call whose constraints fail, and
+# the messages of the severity tasks (IEEE 1800-2023 20.10), whose form the
+# standard leaves to the tool, such as "[0] %Error: <file>:<line>: ...", with
+# the lines it prints when $fatal ends the run.
+BANNER = re.compile(r"^(?:- (?:\S+:\d+: Verilog \$finish|S i m u l a t i o n|Verilator: )|%Warning-"
+                    r"|\[\d+\] (?:-Info|%Warning|%Error|%Fatal): "
+                    r"|(?:-Info|%Error): \S+:\d+: Verilog \$stop|Aborting\.\.\.$)")
+# Verilator stops the run at the first $error unless told to allow more; the
+# standard has $error report the error and the run go on (20.10).
+ERROR_LIMIT = 1000000
 
 
 def header_field(test: Path, name: str) -> str | None:
@@ -74,19 +92,25 @@ def run(test: Path, verilator: str, seed: int) -> tuple[bool, str]:
         extra.append(str(dpi))
     if vpi is not None:
         extra += ["--vpi", "--public-flat-rw", str(vpi)]
+    sources, include_dirs = suite_results.files(test)
     with tempfile.TemporaryDirectory() as tmp:
         obj = Path(tmp) / "obj"
         b = subprocess.run([verilator, "--binary", "--timing", "-Wno-fatal", "-Wno-lint",
                             "-Wno-style", "--x-assign", "unique", "--x-initial", "unique",
-                            "-Mdir", str(obj), "--prefix", "Vt", str(test), *extra],
+                            *[f"-I{d}" for d in include_dirs], "-Mdir", str(obj),
+                            "--prefix", "Vt", *map(str, sources), str(test), *extra],
                            capture_output=True, text=True, errors="replace")
+        if header_field(test, "should_fail_because") is not None:
+            return suite_results.judge_illegal(test, b.returncode == 0, b.stdout + b.stderr)
         if b.returncode != 0:
             err = [l for l in b.stderr.splitlines() if l.startswith("%Error")]
             return False, "build failed: " + (err[0] if err else "")
         try:
             r = subprocess.run([str(obj / "Vt"), "+verilator+rand+reset+2",
-                                f"+verilator+seed+{seed}"], capture_output=True, text=True,
-                               errors="replace", cwd=tmp, timeout=60)
+                                f"+verilator+seed+{seed}", f"+verilator+error+limit+{ERROR_LIMIT}",
+                                *suite_results.run_args(test)],
+                               capture_output=True, text=True, errors="replace", cwd=tmp,
+                               timeout=60)
         except subprocess.TimeoutExpired:
             return False, "timed out"
     raw = "".join(l + "\n" for l in r.stdout.splitlines() if not BANNER.match(l))
@@ -95,9 +119,10 @@ def run(test: Path, verilator: str, seed: int) -> tuple[bool, str]:
     want = expected_output(test)
     if want is None:
         return False, "no :expected_stdout:"
-    if norm == want:
-        return True, ""
-    return False, "output differs: " + suite_results.first_difference(norm, want)
+    if norm != want:
+        return False, "output differs: " + suite_results.first_difference(norm, want)
+    why = suite_results.judge_run(test, r.returncode, r.stdout + r.stderr)
+    return not why, why
 
 
 def main() -> int:
@@ -111,7 +136,7 @@ def main() -> int:
     ap.add_argument("tests", nargs="*", type=Path)
     args = ap.parse_args()
 
-    tests = args.tests or [t for t in sorted((ROOT / "tests").rglob("*.sv"))
+    tests = args.tests or [t for t in suite_results.find_tests()
                            if args.all
                            or "verilator@5.052" in (header_field(t, "oracle") or "").split()]
     failed = known = 0

@@ -6,7 +6,8 @@ Reads standard input and writes standard output. It removes:
 
 * empty lines, and
 * the line Icarus Verilog prints when $finish runs
-  ("<file>:<line>: $finish called at <time> (<unit>)").
+  ("<file>:<line>: $finish called at <time> (<unit>)", or "$finish(<n>)"
+  when it has an argument).
 
 Everything else is kept exactly. Runners for other simulators should strip
 their own banners the same way before comparing.
@@ -15,7 +16,7 @@ their own banners the same way before comparing.
 import re
 import sys
 
-FINISH = re.compile(r"^\S+:\d+: \$finish called at \d+ \(\d*\w*s\)$")
+FINISH = re.compile(r"^\S+:\d+: \$finish(?:\(\d\))? called at \d+ \(\d*\w*s\)$")
 
 
 def main() -> int:

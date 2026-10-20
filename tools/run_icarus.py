@@ -19,6 +19,14 @@ A test with `:vpi_c: @<file>.c` has a VPI application next to it: the file is
 built with iverilog-vpi and loaded with vvp -m. Icarus Verilog has no DPI, so a
 test with `:dpi_c:` does not compile and lists another oracle.
 
+A test with `:should_fail_because:` is an illegal design, which matches when
+iverilog rejects it with an error at the place `:expected_stderr_regex:`
+names. The sources and include files of `:files:` are passed to iverilog, the
+arguments of `:args:` to vvp, and the exit code and messages of vvp are
+checked against `:expected_exit:` and `:expected_stderr_regex:` (see
+tools/suite_results.py). The messages of the severity tasks, such as $error,
+are removed from the output before it is compared.
+
 With --json, the result of every test is also written to FILE in the form
 that tools/suite_results.py describes.
 """
@@ -35,6 +43,10 @@ import suite_results
 
 ROOT = Path(__file__).resolve().parent.parent
 NORMALIZE = ROOT / "tools" / "normalize_output.py"
+# The messages of the severity tasks (IEEE 1800-2023 20.10), whose form the
+# standard leaves to the tool: Icarus Verilog prints "ERROR: <file>:<line>:
+# <message>" and then a line with the time and the scope.
+SEVERITY = re.compile(r"^(?:(?:INFO|WARNING|ERROR|FATAL): \S+:\d+: |\s+Time: \d+\s+Scope: )")
 
 
 def header_field(test: Path, name: str) -> str | None:
@@ -64,6 +76,7 @@ def c_source(test: Path, name: str) -> Path | None:
 def run(test: Path, bindir: Path | None) -> tuple[bool, str]:
     iverilog = str(bindir / "iverilog") if bindir else "iverilog"
     vvp = str(bindir / "vvp") if bindir else "vvp"
+    sources, include_dirs = suite_results.files(test)
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / "a.vvp"
         vvp_args = []
@@ -76,23 +89,30 @@ def run(test: Path, bindir: Path | None) -> tuple[bool, str]:
             vvp_args = ["-M", tmp, "-mapp"]
         # Without -gspecify Icarus Verilog ignores specify blocks, and without
         # -ginterconnect it cannot annotate SDF interconnect delays.
-        c = subprocess.run([iverilog, "-g2012", "-gspecify", "-ginterconnect", "-o", str(out), str(test)],
+        c = subprocess.run([iverilog, "-g2012", "-gspecify", "-ginterconnect",
+                            *[f"-I{d}" for d in include_dirs], "-o", str(out),
+                            *map(str, sources), str(test)],
                            capture_output=True, text=True)
+        if header_field(test, "should_fail_because") is not None:
+            return suite_results.judge_illegal(test, c.returncode == 0, c.stdout + c.stderr)
         if c.returncode != 0:
             return False, "compile failed: " + c.stderr.strip().splitlines()[0]
         try:
-            r = subprocess.run([vvp, *vvp_args, str(out)], capture_output=True, text=True,
-                               errors="replace", cwd=tmp, timeout=60)
+            r = subprocess.run([vvp, *vvp_args, str(out), *suite_results.run_args(test)],
+                               capture_output=True, text=True, errors="replace", cwd=tmp,
+                               timeout=60)
         except subprocess.TimeoutExpired:
             return False, "timed out"
-    norm = subprocess.run([sys.executable, str(NORMALIZE)], input=r.stdout,
+    raw = "".join(l + "\n" for l in r.stdout.splitlines() if not SEVERITY.match(l))
+    norm = subprocess.run([sys.executable, str(NORMALIZE)], input=raw,
                           capture_output=True, text=True).stdout
     want = expected_output(test)
     if want is None:
         return False, "no :expected_stdout:"
-    if norm == want:
-        return True, ""
-    return False, "output differs: " + suite_results.first_difference(norm, want)
+    if norm != want:
+        return False, "output differs: " + suite_results.first_difference(norm, want)
+    why = suite_results.judge_run(test, r.returncode, r.stdout + r.stderr)
+    return not why, why
 
 
 def main() -> int:
@@ -106,7 +126,7 @@ def main() -> int:
 
     if args.iverilog_bin:
         args.iverilog_bin = args.iverilog_bin.resolve()   # iverilog-vpi runs in another directory
-    tests = args.tests or sorted((ROOT / "tests").rglob("*.sv"))
+    tests = args.tests or suite_results.find_tests()
     failed = known = 0
     statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:

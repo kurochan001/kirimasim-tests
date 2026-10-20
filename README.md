@@ -150,6 +150,7 @@ tools change (see "Workflows").
 tests/chNN/<name>.sv            a test, with its metadata header
 tests/chNN/<name>.expected      its expected standard output
 tests/chNN/<name>.c             C code of a DPI or VPI test
+tests/chNN/<other>.sv, .svh     a source or include file that a test names in :files:
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
@@ -168,9 +169,10 @@ every test in the latest run), `charts/*.svg` and the report, `README.md`.
 
 ## Test format
 
-A test is one SystemVerilog file. It starts with a metadata comment, followed
-by a comment that explains what the test checks, and then the design. For
-example (an illustration, not a test of the suite):
+A test is one SystemVerilog file (a few also have C code or other source
+files next to them, see `:dpi_c:`, `:vpi_c:` and `:files:`). It starts with a
+metadata comment, followed by a comment that explains what the test checks,
+and then the design. For example (an illustration, not a test of the suite):
 
 ```systemverilog
 /*
@@ -221,13 +223,28 @@ it does not know.
 | `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test |
 | `:dpi_c:` | `@<file>`: C code next to the test that implements its DPI imports and calls its exports (chapter 35) |
 | `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 40) |
+| `:should_fail_because:` | The design is illegal, for the reason given, and a simulator has to reject it. Such a test has `:type: elaboration`, no `:expected_stdout:`, and an `:expected_stderr_regex:` that names the place of the error |
+| `:expected_exit:` | The exit code that the simulation has to end with: `0`, `nonzero` (above 0) or a number. The standard fixes only that `$fatal` ends the run with an error code (20.10), so the tests use `nonzero` for it |
+| `:expected_stderr_regex:` | A Python regular expression for the simulator's messages (standard error, and the lines on standard output that the simulator prints itself). For an illegal design, a line of the messages that says "error" has to match it; the tests give the file and line of the error, such as `test_x\.sv:12:`, which every simulator prints. For other tests, the messages of the run have to match it. The wording of a message is never compared |
+| `:args:` | Arguments for the simulation, separated by spaces: plusargs such as `+count=3` |
+| `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it |
 
 ### How a test is judged
 
 A test passes when the simulator's standard output, after removing empty
 lines and the simulator's own banners (see `tools/normalize_output.py` and the
-runners), is exactly the expected output. Only standard output is compared:
-not the exit code, and not standard error.
+runners), is exactly the expected output. The messages of the severity tasks
+(`$info`, `$warning`, `$error` and `$fatal`), whose form the standard leaves to
+the tool (20.10), are removed as well, since Icarus Verilog and Verilator
+print them on standard output. The exit code and standard error are checked
+only when the test asks for it with `:expected_exit:` or
+`:expected_stderr_regex:`.
+
+An illegal design (`:should_fail_because:`) passes when the simulator rejects
+it with an error at the place that `:expected_stderr_regex:` names, and fails
+when the simulator accepts it or reports its error somewhere else. For
+kirimasim, an error saying that the design uses a construct it does not
+support yet makes the test unsupported, as for other tests.
 
 A test whose output depends on the time unit or precision (a nonzero time
 printed with `%t`, `$timeformat`, `$printtimescale`, fractional delays or
@@ -270,6 +287,12 @@ The test is then run with Icarus Verilog 13.0:
 3. If neither simulator follows the standard, `:oracle:` is `spec` alone, and
    the comment of the test says what the standard requires.
 
+For an illegal design (`:should_fail_because:`), the expected result is that
+the design is rejected with an error at the place the test names, and
+`iverilog@13.0` or `verilator@5.052` in `:oracle:` means that the release
+rejects it there. A tool that rejects the design for another reason, such as
+a construct it does not support, does not count.
+
 A disagreement between a simulator and the expected output is never resolved
 by copying the simulator's output: the clause decides.
 
@@ -279,7 +302,7 @@ Every runner needs Python 3.10 or later, and has these options in common:
 
 | Option | Meaning |
 | --- | --- |
-| `TEST ...` | Run only these test files (default: every `tests/**/*.sv`) |
+| `TEST ...` | Run only these test files (default: every `tests/**/test_*.sv`) |
 | `-j N`, `--jobs N` | Run N tests at once (default: 1) |
 | `--json FILE` | Also write the result of every test to FILE (see `tools/suite_results.py`) |
 
@@ -325,7 +348,9 @@ known differences when they do not match. Each test is built with
 chooses them). Verilator's own lines are removed before comparing: its
 banners and its run-time warnings (`%Warning-...`), which it prints on
 standard output, for example when the constraints of a `randomize()` call
-cannot be met. Tests whose results depend on random values print only what
+cannot be met. The model runs with `+verilator+error+limit+1000000`: by
+default Verilator stops at the first `$error`, which the standard has report
+an error and go on (20.10). Tests whose results depend on random values print only what
 the standard fixes, such as whether every constraint held. The C file of a
 test with `:dpi_c:` is built into the model; for `:vpi_c:` the model is also
 built with `--vpi` and `--public-flat-rw`, but Verilator does not support
@@ -451,6 +476,9 @@ A new test should:
   observes it; lines of code are at most 100 columns;
 - print only what the standard fixes, and end with `$finish` or by running
   out of events;
+- if it is an illegal design, give the reason in `:should_fail_because:` and
+  the file and line of the error in `:expected_stderr_regex:`, and contain
+  no other error;
 - have its expected output decided from the standard and, where possible,
   confirmed with Icarus Verilog 13.0 or Verilator 5.052 as described in
   "Where the expected outputs come from".

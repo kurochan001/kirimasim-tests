@@ -18,6 +18,15 @@ kirimasim does not support yet, which it reports with exit code 2 and an
 load C code yet, so the tests with `:dpi_c:` or `:vpi_c:` are reported as
 unsupported without running them.
 
+A test with `:should_fail_because:` is an illegal design, which matches when
+kirimasim rejects it (exit code 2) with an error at the place
+`:expected_stderr_regex:` names; when the error says the design uses what
+kirimasim does not support yet, the test is unsupported. The sources of
+`:files:` are passed before the test, the directories of its include files as
++incdir+, the arguments of `:args:` after the test, and the exit code and
+standard error are checked against `:expected_exit:` and
+`:expected_stderr_regex:` (see tools/suite_results.py).
+
 With --json, the result of every test is also written to FILE in the form
 that tools/suite_results.py describes.
 """
@@ -59,20 +68,33 @@ def run(test: Path, kirimasim: str) -> tuple[str, str]:
     """The status of the test (pass, fail or unsupported) and the reason."""
     if header_field(test, "dpi_c") is not None or header_field(test, "vpi_c") is not None:
         return "unsupported", "kirimasim cannot load C code yet"
+    sources, include_dirs = suite_results.files(test)
     with tempfile.TemporaryDirectory() as tmp:
         try:
-            r = subprocess.run([kirimasim, str(test.resolve())], capture_output=True, text=True,
-                               errors="replace", cwd=tmp, timeout=120)
+            r = subprocess.run([kirimasim, *[f"+incdir+{d}" for d in include_dirs],
+                                *map(str, sources), str(test.resolve()),
+                                *suite_results.run_args(test)],
+                               capture_output=True, text=True, errors="replace", cwd=tmp,
+                               timeout=120)
         except subprocess.TimeoutExpired:
             return "fail", "timed out"
+    unsupported = UNSUPPORTED.search(r.stderr)
+    if header_field(test, "should_fail_because") is not None:
+        if r.returncode == 2 and unsupported:
+            return "unsupported", unsupported.group(1).strip()
+        # kirimasim rejects a design with exit code 2.
+        if r.returncode not in (0, 2):
+            return "fail", f"exit code {r.returncode}, expected 2"
+        ok, why = suite_results.judge_illegal(test, r.returncode == 0, r.stderr)
+        return ("pass" if ok else "fail"), why
     norm = subprocess.run([sys.executable, str(NORMALIZE)], input=r.stdout,
                           capture_output=True, text=True).stdout
     want = expected_output(test)
     if want is None:
         return "fail", "no :expected_stdout:"
     if norm == want:
-        return "pass", ""
-    unsupported = UNSUPPORTED.search(r.stderr)
+        why = suite_results.judge_run(test, r.returncode, r.stderr)
+        return ("fail" if why else "pass"), why
     if r.returncode == 2 and unsupported:
         return "unsupported", unsupported.group(1).strip()
     if r.returncode < 0:
@@ -96,7 +118,7 @@ def main() -> int:
         ap.error(f"cannot find {args.kirimasim}")
     exe = str(Path(exe).resolve())   # the tests run in other directories
 
-    tests = args.tests or sorted((ROOT / "tests").rglob("*.sv"))
+    tests = args.tests or suite_results.find_tests()
     failed = unsupported = 0
     statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:

@@ -17,9 +17,15 @@ of:
                  this simulator (a known difference, see README.md)
     unsupported  the simulator reported a construct it does not support yet,
                  or it cannot run this kind of test
+
+It also holds what the runners share about the tests: how they are found,
+and the metadata fields that change how a test is run and judged
+(:should_fail_because:, :expected_exit:, :expected_stderr_regex:, :args: and
+:files:, see "Metadata" in README.md).
 """
 
 import json
+import re
 import subprocess
 from pathlib import Path
 
@@ -30,6 +36,72 @@ STATUSES = ("pass", "fail", "known", "unsupported")
 def test_id(test: Path) -> str:
     path = test.resolve()
     return path.relative_to(ROOT / "tests").with_suffix("").as_posix()
+
+
+def find_tests(root: Path = ROOT) -> list[Path]:
+    """Every test of the suite. Other .sv files under tests/ are sources that
+    tests name in :files:, and their names do not start with "test_"."""
+    return sorted((root / "tests").rglob("test_*.sv"))
+
+
+def header(test: Path) -> dict[str, str]:
+    """The fields of the metadata comment at the top of a test."""
+    m = re.search(r"/\*(.*?)\*/", test.read_text(encoding="utf-8"), re.DOTALL)
+    if not m:
+        return {}
+    return {k: v.strip() for k, v in re.findall(r"^:(\w+):\s*(.*)$", m.group(1), re.MULTILINE)}
+
+
+def files(test: Path) -> tuple[list[Path], list[Path]]:
+    """The files that :files: names next to the test: the sources (.sv and .v)
+    that are compiled before the test, in the order written, and the
+    directories of the others, which the design includes with `include."""
+    sources, include_dirs = [], []
+    for name in header(test).get("files", "").split():
+        path = (test.parent / name).resolve()
+        if path.suffix in (".sv", ".v"):
+            sources.append(path)
+        elif path.parent not in include_dirs:
+            include_dirs.append(path.parent)
+    return sources, include_dirs
+
+
+def run_args(test: Path) -> list[str]:
+    """The arguments that :args: gives the simulation, such as plusargs."""
+    return header(test).get("args", "").split()
+
+
+def judge_illegal(test: Path, accepted: bool, messages: str) -> tuple[bool, str]:
+    """For a test with :should_fail_because:, whether the simulator rejected
+    the design as it should, given whether it accepted it and the messages it
+    printed: a line of them must say "error" (in any case) and match
+    :expected_stderr_regex:, which names the place of the error."""
+    if accepted:
+        return False, "the design was accepted, but it is illegal"
+    regex = header(test).get("expected_stderr_regex")
+    if regex is None:
+        return False, "no :expected_stderr_regex:"
+    lines = messages.splitlines()
+    if any(re.search(regex, l) and "error" in l.lower() for l in lines):
+        return True, ""
+    first = next((l.strip() for l in lines if "error" in l.lower()), "")
+    return False, f"no error matches {regex!r}" + (f"; the first is: {first}" if first else "")
+
+
+def judge_run(test: Path, returncode: int, messages: str) -> str:
+    """Why the exit code of a simulation or its messages are not what
+    :expected_exit: and :expected_stderr_regex: say, or "" if they are (or
+    the test has neither). "nonzero" asks for an exit code above 0: a run
+    killed by a signal does not end with an error code."""
+    fields = header(test)
+    want = fields.get("expected_exit")
+    if want is not None and not (returncode > 0 if want == "nonzero"
+                                 else returncode == int(want)):
+        return f"exit code {returncode}, expected {want}"
+    regex = fields.get("expected_stderr_regex")
+    if regex is not None and not re.search(regex, messages, re.MULTILINE):
+        return f"no message matches {regex!r}"
+    return ""
 
 
 def tool_version(command: list[str]) -> str:

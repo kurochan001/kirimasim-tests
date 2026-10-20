@@ -16,6 +16,8 @@ import re
 import sys
 from pathlib import Path
 
+import suite_results
+
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "README.md"
 BEGIN = "<!-- suite-stats:begin -->"
@@ -86,8 +88,9 @@ def oracle_kind(fields: dict[str, str]) -> str:
 def collect(root: Path = ROOT) -> dict:
     by_chapter: dict[int, dict[str, int]] = {}
     totals = {"tests": 0, "icarus": 0, "verilator": 0, "spec": 0, "human": 0,
-              "fourstate": 0, "dpi_c": 0, "vpi_c": 0}
-    for test in sorted((root / "tests").rglob("*.sv")):
+              "fourstate": 0, "dpi_c": 0, "vpi_c": 0, "illegal": 0, "exit": 0, "files": 0,
+              "args": 0}
+    for test in suite_results.find_tests(root):
         fields = header(test)
         chapter = int(test.parent.name.removeprefix("ch"))
         row = by_chapter.setdefault(chapter, {"tests": 0, "icarus": 0, "verilator": 0, "spec": 0})
@@ -100,6 +103,10 @@ def collect(root: Path = ROOT) -> dict:
         totals["fourstate"] += fields.get("fourstate") == "yes"
         totals["dpi_c"] += "dpi_c" in fields
         totals["vpi_c"] += "vpi_c" in fields
+        totals["illegal"] += "should_fail_because" in fields
+        totals["exit"] += "expected_exit" in fields
+        totals["files"] += "files" in fields
+        totals["args"] += "args" in fields
     return {"totals": totals, "chapters": by_chapter}
 
 
@@ -118,6 +125,13 @@ def markdown(stats: dict) -> str:
         f"{t['fourstate']} tests depend on x or z values (`:fourstate: yes`). "
         f"{t['dpi_c'] + t['vpi_c']} tests come with C code: {t['dpi_c']} DPI tests (`:dpi_c:`) "
         f"and {t['vpi_c']} VPI tests (`:vpi_c:`). "
+        + (f"{t['illegal']} tests are illegal designs, which a simulator has to reject "
+           "(`:should_fail_because:`). " if t["illegal"] else "")
+        + (f"{t['exit']} tests check the exit code of the simulation (`:expected_exit:`). "
+           if t["exit"] else "")
+        + (f"{t['files']} tests have more than one source file (`:files:`), and "
+           f"{t['args']} pass arguments to the simulation (`:args:`). "
+           if t["files"] or t["args"] else "")
         + (f"{t['human']} tests have been checked against the standard by a person "
            "(`:spec_check: human`); the others were checked by an AI model."
            if t["human"] else

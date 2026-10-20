@@ -26,6 +26,13 @@ include directory and loaded with --lib. sukimasim has no sv_vpi_user.h, and
 its vpi_user.h declares that API itself, so the runner provides an
 sv_vpi_user.h that includes vpi_user.h.
 
+A test with `:should_fail_because:` is an illegal design, which matches when
+sukimasim rejects it with an error at the place `:expected_stderr_regex:`
+names. The sources of `:files:` are passed before the test, the directories
+of its include files as +incdir+, the arguments of `:args:` after the test,
+and the exit code and messages are checked against `:expected_exit:` and
+`:expected_stderr_regex:` (see tools/suite_results.py).
+
 With --json, the result of every test is also written to FILE in the form
 that tools/suite_results.py describes.
 """
@@ -116,13 +123,21 @@ def run(test: Path, sukimasim: str, include: Path | None, diagnostics: bool) -> 
                 err = [l for l in b.stderr.splitlines() if "error:" in l]
                 return False, "C build failed: " + (err[0] if err else "")
             lib = ["--lib", str(so)]
+        sources, include_dirs = suite_results.files(test)
         try:
             r = subprocess.run([sukimasim, "--quiet", "--quiet-stats", "--quiet-exit",
-                                "--wall-timeout", "60", *lib, str(test.resolve())],
+                                "--wall-timeout", "60", *lib,
+                                *[f"+incdir+{d}" for d in include_dirs], *map(str, sources),
+                                str(test.resolve()), *suite_results.run_args(test)],
                                capture_output=True, text=True, errors="replace", cwd=tmp,
                                env=dict(os.environ, SUKIMASIM_FINISH_STRICT_MODE="1"), timeout=90)
         except subprocess.TimeoutExpired:
             return False, "timed out"
+    if header_field(test, "should_fail_because") is not None:
+        if r.returncode < 0:
+            return False, f"crashed (signal {-r.returncode})"
+        return suite_results.judge_illegal(test, r.returncode == 0,
+                                           ANSI.sub("", r.stdout + r.stderr))
     kept = []
     for line in r.stdout.splitlines():
         if line.startswith(TRAILER):
@@ -135,7 +150,8 @@ def run(test: Path, sukimasim: str, include: Path | None, diagnostics: bool) -> 
     if want is None:
         return False, "no :expected_stdout:"
     if norm == want:
-        return True, ""
+        why = suite_results.judge_run(test, r.returncode, ANSI.sub("", r.stdout + r.stderr))
+        return not why, why
     if r.returncode < 0:
         return False, f"crashed (signal {-r.returncode})"
     err = [ANSI.sub("", l) for l in r.stderr.splitlines() if re.search(r"error", l, re.I)]
@@ -167,7 +183,7 @@ def main() -> int:
         guess = Path(exe).resolve().parent.parent / "include"
         include = guess if (guess / "svdpi.h").is_file() else None
 
-    tests = args.tests or sorted((ROOT / "tests").rglob("*.sv"))
+    tests = args.tests or suite_results.find_tests()
     failed = 0
     statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
