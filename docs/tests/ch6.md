@@ -1,6 +1,6 @@
 # Clause 6: Data types
 
-[All chapters](README.md). 271 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 273 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -223,6 +223,8 @@
 | [`test_localparam_from_parameters`](../../tests/ch6/test_localparam_from_parameters.sv) | Localparams computed from parameters differ per instance and are read hierarchically | 6.20.4 23.10 23.6 | Icarus Verilog 13.0 |  |
 | [`test_localparam_ops_edge_cases`](../../tests/ch6/test_localparam_ops_edge_cases.sv) | Test: Localparam operations edge cases | 6.20.4 | Icarus Verilog 13.0 |  |
 | [`test_param_local_2`](../../tests/ch6/test_param_local_2.sv) | Test: Localparam usage | 6.20.4 6.20.1 | Verilator 5.052 |  |
+| [`test_illegal_parameter_from_specparam`](../../tests/ch6/test_illegal_parameter_from_specparam.sv) | A parameter cannot be given a value that uses a specify parameter | 6.20.5 | Verilator 5.052 | illegal design |
+| [`test_specify_specparam_delays`](../../tests/ch6/test_specify_specparam_delays.sv) | Path delays can be given by specify parameters, declared in the specify block or in the module before use, also as expressions of other specify parameters | 6.20.5 30.3 30.5.1 | Icarus Verilog 13.0 |  |
 | [`test_specparam_edge_cases`](../../tests/ch6/test_specparam_edge_cases.sv) | specparam values used in expressions in the module body | 6.20.5 | Icarus Verilog 13.0 |  |
 | [`test_const_edge_cases`](../../tests/ch6/test_const_edge_cases.sv) | Const variables edge cases | 6.20.6 6.21 | Icarus Verilog 13.0 | x/z |
 | [`test_const_ops_edge_cases`](../../tests/ch6/test_const_ops_edge_cases.sv) | Test: Const operations edge cases | 6.20.6 6.21 | Icarus Verilog 13.0 |  |

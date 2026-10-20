@@ -1,0 +1,2 @@
+toggle coverage right after vpiCoverageReset: 0
+toggle coverage unchanged after vpiCoverageStop: yes

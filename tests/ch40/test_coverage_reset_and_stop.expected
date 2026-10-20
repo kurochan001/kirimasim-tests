@@ -1,0 +1,3 @@
+toggle coverage right after a reset: 0
+toggle coverage unchanged while stopped: yes
+statement coverage unchanged while stopped: yes

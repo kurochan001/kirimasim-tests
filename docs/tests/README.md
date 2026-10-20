@@ -9,7 +9,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 3 | [Design and verification building blocks](ch3.md) | 11 |  |
 | 4 | [Scheduling semantics](ch4.md) | 348 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 28 |  |
-| 6 | [Data types](ch6.md) | 271 |  |
+| 6 | [Data types](ch6.md) | 273 |  |
 | 7 | [Aggregate data types](ch7.md) | 281 |  |
 | 8 | [Classes](ch8.md) | 125 |  |
 | 9 | [Processes](ch9.md) | 108 |  |
@@ -33,14 +33,14 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 27 | [Generate constructs](ch27.md) | 68 |  |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 170 | 136 |
 | 29 | [User-defined primitives](ch29.md) | 16 |  |
-| 30 | [Specify blocks](ch30.md) | 10 |  |
+| 30 | [Specify blocks](ch30.md) | 17 |  |
 | 31 | [Timing checks](ch31.md) | 14 |  |
 | 32 | [Backannotation using the standard delay format](ch32.md) | 13 |  |
-| 33 | [Configuring the contents of a design](ch33.md) | 10 |  |
+| 33 | [Configuring the contents of a design](ch33.md) | 14 |  |
 | 34 | Protected envelopes | — | |
 | 35 | [Direct programming interface](ch35.md) | 16 |  |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 13 |  |
 | 37 | [VPI object model diagrams](ch37.md) | 31 |  |
 | 38 | [VPI routine definitions](ch38.md) | 13 |  |
 | 39 | [Assertion API](ch39.md) | 11 |  |
-| 40 | [Code coverage control and API](ch40.md) | 9 |  |
+| 40 | [Code coverage control and API](ch40.md) | 12 |  |
