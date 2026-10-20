@@ -4,7 +4,7 @@
 :tags: ch16
 :type: simulation
 :lrm: 1800-2023 16.7 16.14.3 16.9.2
-:oracle: spec
+:oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no

@@ -42,8 +42,8 @@ The suite has **3332 tests** in 37 chapters. 763 of them are generated (`tests/g
 | Expected output recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2344 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 647 |
-| The standard only, where neither simulator follows it | 341 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 648 |
+| The standard only, where neither simulator follows it | 340 |
 
 523 tests depend on x or z values (`:fourstate: yes`). 126 tests come with C code: 21 DPI tests (`:dpi_c:`) and 105 VPI tests (`:vpi_c:`). 74 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -62,7 +62,7 @@ The suite has **3332 tests** in 37 chapters. 763 of them are generated (`tests/g
 | 13 | Tasks and functions (subroutines) | 108 | 60 | 46 | 2 |
 | 14 | Clocking blocks | 19 |  | 14 | 5 |
 | 15 | Interprocess synchronization and communication | 26 | 1 | 21 | 4 |
-| 16 | Assertions | 73 | 16 | 15 | 42 |
+| 16 | Assertions | 73 | 16 | 16 | 41 |
 | 17 | Checkers | 11 |  |  | 11 |
 | 18 | Constrained random value generation | 28 |  | 26 | 2 |
 | 19 | Functional coverage | 26 |  | 8 | 18 |
@@ -392,8 +392,9 @@ python3 tools/run_verilator.py --all -j 8
 By default this runs only the tests whose `:oracle:` lists `verilator@5.052`;
 `--all` runs every test, and counts those not recorded with Verilator as
 known differences when they do not match. Each test is built with
-`verilator --binary --timing` and run with random initial values (`--seed`
-chooses them). Verilator's own lines are removed before comparing: its
+`verilator --binary --timing --coverage-user` and run with random initial
+values (`--seed` chooses them); without `--coverage-user`, Verilator does not
+run cover statements. Verilator's own lines are removed before comparing: its
 banners and its run-time warnings (`%Warning-...`), which it prints on
 standard output, for example when the constraints of a `randomize()` call
 cannot be met. The model runs with `+verilator+error+limit+1000000`: by

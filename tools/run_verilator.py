@@ -11,9 +11,10 @@ verilator@5.052 (with --all, every test). These are tests that Icarus
 Verilog 13.0 cannot compile or run; their expected outputs were recorded
 with Verilator 5.052 and checked against the standard. Verilator is a
 two-state simulator, so these tests do not depend on x or z values
-(`:fourstate: no`). Each test is built with `verilator --binary --timing`
-and run with random initial values, so a test that depended on
-uninitialized values would show up as a difference.
+(`:fourstate: no`). Each test is built with `verilator --binary --timing
+--coverage-user`, without which Verilator does not run cover statements, and
+run with random initial values, so a test that depended on uninitialized
+values would show up as a difference.
 Exits with 1 if any test does not match.
 
 A test with `:dpi_c: @<file>.c` or `:vpi_c: @<file>.c` has C code next to it,
@@ -95,8 +96,8 @@ def run(test: Path, verilator: str, seed: int) -> tuple[bool, str]:
     sources, include_dirs = suite_results.files(test)
     with tempfile.TemporaryDirectory() as tmp:
         obj = Path(tmp) / "obj"
-        b = subprocess.run([verilator, "--binary", "--timing", "-Wno-fatal", "-Wno-lint",
-                            "-Wno-style", "--x-assign", "unique", "--x-initial", "unique",
+        b = subprocess.run([verilator, "--binary", "--timing", "--coverage-user", "-Wno-fatal",
+                            "-Wno-lint", "-Wno-style", "--x-assign", "unique", "--x-initial", "unique",
                             *[f"-I{d}" for d in include_dirs], "-Mdir", str(obj),
                             "--prefix", "Vt", *map(str, sources), str(test), *extra],
                            capture_output=True, text=True, errors="replace")
