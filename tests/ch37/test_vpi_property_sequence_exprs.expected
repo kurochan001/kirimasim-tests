@@ -1,0 +1,6 @@
+s_delay: cycle delay 1, 4 operands: a b 1 3
+s_rep: consecutive repeat 1, 2 operands: c 2
+s_multi: multiclock 1, clocked sequences on clk clk2
+p_imp: clocked by clk, overlapping implication 1, then nexttime 1 with 1 operand
+p_ev: eventually 1, strong 1, 3 operands
+p_inst: instance of s_arg, arguments: a 2

@@ -1,0 +1,1 @@
+port r: low connection is a ref obj named r, actual test_vpi_ref_obj_actual.v = 10

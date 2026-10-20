@@ -1,0 +1,3 @@
+alias_t: resolved by none, alias of plain_t
+plain_t: resolved by none, alias of none
+summed_t: resolved by total, alias of none

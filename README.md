@@ -37,15 +37,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3312 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **3332 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2343 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2344 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 647 |
-| The standard only, where neither simulator follows it | 322 |
+| The standard only, where neither simulator follows it | 341 |
 
-523 tests depend on x or z values (`:fourstate: yes`). 107 tests come with C code: 21 DPI tests (`:dpi_c:`) and 86 VPI tests (`:vpi_c:`). 74 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+523 tests depend on x or z values (`:fourstate: yes`). 126 tests come with C code: 21 DPI tests (`:dpi_c:`) and 105 VPI tests (`:vpi_c:`). 74 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -83,10 +83,10 @@ The suite has **3312 tests** in 37 chapters. 763 of them are generated (`tests/g
 | 34 | Protected envelopes | — | | | |
 | 35 | Direct programming interface | 21 |  | 15 | 6 |
 | 36 | Programming language interface (PLI/VPI) overview | 13 | 8 |  | 5 |
-| 37 | VPI object model diagrams | 31 | 2 |  | 29 |
+| 37 | VPI object model diagrams | 49 | 3 |  | 46 |
 | 38 | VPI routine definitions | 21 | 13 |  | 8 |
-| 39 | Assertion API | 11 |  |  | 11 |
-| 40 | Code coverage control and API | 12 | 1 | 1 | 10 |
+| 39 | Assertion API | 12 |  |  | 12 |
+| 40 | Code coverage control and API | 13 | 1 | 1 | 11 |
 <!-- suite-stats:end -->
 
 The [catalog](docs/tests/README.md) lists every test, chapter by chapter,

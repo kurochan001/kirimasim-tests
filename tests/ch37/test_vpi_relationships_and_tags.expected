@@ -1,0 +1,2 @@
+bus is in test_vpi_relationships_and_tags.c, size 8
+y = part-select of bus, left 5, right 2, value 1101

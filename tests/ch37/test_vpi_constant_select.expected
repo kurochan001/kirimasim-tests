@@ -1,0 +1,4 @@
+c1: var select, constant 1, value 30
+c2: var select, constant 0, value 20
+d1: bit-select, constant 1, value 0
+d2: bit-select, constant 0, value 1

@@ -53,6 +53,7 @@ of the test as well.
 | 9.6.1, 9.6.3 | It stops with an internal assertion. | `ch9/test_wait_fork_disable_fork` |
 | 7.10.2.4, 7.10.2.5, 7.4.5 | `pop_front()` and `pop_back()` on an empty queue of int give x, and an int variable then holds x; Table 7-1 gives 0. | `ch7/test_queue_method_edges` |
 | 20.17.2 | `$stacktrace` called as a function makes the compiler stop on an internal assertion. | `ch20/test_stacktrace_function` |
+| 37.3.5 | `vpi_put_value` on a system task argument whose index has a side effect stops on an internal assertion instead of reporting an error. | `ch37/test_vpi_put_value_side_effect` |
 | 30.7.4.2 | A showcancelled declaration has no effect: a negative pulse leaves the output unchanged instead of showing x. | `ch30/test_negative_pulse_cancelled` |
 
 ### Illegal designs that it accepts

@@ -1,0 +1,4 @@
+inner frame: doubled=10, active 1
+current statement: system task call, origin: task call
+parent frame: next=5, its statement: task call
+frames ended: 1, threads ended: 1

@@ -1,0 +1,4 @@
+module: protected 0, type known 1
+net w: protected 0, type known 1
+variable v: protected 0, type known 1
+task t: protected 0, type known 1

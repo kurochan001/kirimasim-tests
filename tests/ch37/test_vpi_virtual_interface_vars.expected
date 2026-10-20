@@ -1,0 +1,3 @@
+v_init: expr b1, actual b1, modport 0
+v_late: expr none, actual b1, modport 0
+v_mp: expr none, actual none, modport 1

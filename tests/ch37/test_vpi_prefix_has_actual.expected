@@ -1,0 +1,4 @@
+t=1: prefix vi, has actual 0
+t=1: prefix c, has actual 0
+t=2: prefix vi, has actual 1
+t=2: prefix c, has actual 1

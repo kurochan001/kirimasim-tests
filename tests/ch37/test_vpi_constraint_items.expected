@@ -1,0 +1,4 @@
+constraints: c_first(automatic 1, extern 0) c_ext(automatic 1, extern 1) c_second(automatic 1, extern 0) c_static(automatic 0, extern 0) c_skip(automatic 1, extern 0)
+c_second: foreach over arr, index i, 1 expression
+c_second: if-else, condition given, 1 then, 1 else
+c_skip: foreach over grid, index (skipped) j, 1 expression

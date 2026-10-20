@@ -1,0 +1,2 @@
+bus_t: def name test_vpi_interface_typespecs_bus, parent none
+phy_t: def name phy, parent test_vpi_interface_typespecs_bus
