@@ -1,0 +1,3 @@
+t=12 clk=1 dclk=1 d=1 dd=1 q=1 n=0
+t=17 clk=1 dclk=1 d=0 dd=0 q=1 n=0
+t=25 clk=1 dclk=1 d=0 dd=0 q=0 n=0

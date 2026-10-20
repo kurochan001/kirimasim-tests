@@ -1,0 +1,3 @@
+before: nx=x nz=z
+after the first violation: nx known: yes, nz=z
+after the second violation: nx toggled: yes, nz=z

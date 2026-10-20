@@ -1,0 +1,5 @@
+1: vpiBitSelect = 1
+2: vpiPartSelect = 11
+3: vpiOperation vpiAddOp = 91
+4: vpiOperation vpiNullOp
+5: vpiBitSelect = 0

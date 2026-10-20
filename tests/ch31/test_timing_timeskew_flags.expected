@@ -1,0 +1,3 @@
+timer-based: 25
+event-based: 30
+event-based, remain active: 30 32

@@ -1,0 +1,4 @@
+$vt_ignore does not read its argument
+after $vt_ignore: calls=0
+$vt_read reads 1
+after $vt_read: calls=1

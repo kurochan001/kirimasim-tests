@@ -37,15 +37,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3170 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **3184 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2293 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 624 |
-| The standard only, where neither simulator follows it | 253 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2298 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 625 |
+| The standard only, where neither simulator follows it | 261 |
 
-508 tests depend on x or z values (`:fourstate: yes`). 84 tests come with C code: 16 DPI tests (`:dpi_c:`) and 68 VPI tests (`:vpi_c:`). 42 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+509 tests depend on x or z values (`:fourstate: yes`). 90 tests come with C code: 16 DPI tests (`:dpi_c:`) and 74 VPI tests (`:vpi_c:`). 42 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -77,13 +77,13 @@ The suite has **3170 tests** in 37 chapters. 763 of them are generated (`tests/g
 | 28 | Gate-level and switch-level modeling | 170 | 135 | 3 | 32 |
 | 29 | User-defined primitives | 16 | 10 | 4 | 2 |
 | 30 | Specify blocks | 10 | 9 |  | 1 |
-| 31 | Timing checks | 9 |  |  | 9 |
+| 31 | Timing checks | 14 | 1 |  | 13 |
 | 32 | Backannotation using the standard delay format | 13 | 7 |  | 6 |
-| 33 | Configuring the contents of a design | 7 |  | 1 | 6 |
+| 33 | Configuring the contents of a design | 10 |  | 2 | 8 |
 | 34 | Protected envelopes | — | | | |
 | 35 | Direct programming interface | 16 |  | 11 | 5 |
-| 36 | Programming language interface (PLI/VPI) overview | 8 | 4 |  | 4 |
-| 37 | VPI object model diagrams | 30 | 2 |  | 28 |
+| 36 | Programming language interface (PLI/VPI) overview | 13 | 8 |  | 5 |
+| 37 | VPI object model diagrams | 31 | 2 |  | 29 |
 | 38 | VPI routine definitions | 13 | 9 |  | 4 |
 | 39 | Assertion API | 11 |  |  | 11 |
 | 40 | Code coverage control and API | 9 | 1 | 1 | 7 |

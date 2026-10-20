@@ -1,0 +1,4 @@
+plus one: 5
+plus ten: 14
+plus one: 21
+compiletf calls: $vt_plus_one 2, $vt_plus_ten 1

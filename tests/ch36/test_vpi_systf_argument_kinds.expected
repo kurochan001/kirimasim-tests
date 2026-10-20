@@ -1,0 +1,7 @@
+1: vpiReg test_vpi_systf_argument_kinds.r = 90
+2: vpiNet test_vpi_systf_argument_kinds.w = 3
+3: vpiParameter test_vpi_systf_argument_kinds.P = 12
+4: vpiConstant = 7
+5: vpiConstant vpiStringConst = abc
+6: vpiReg test_vpi_systf_argument_kinds.c.inner = 9
+7: vpiSysFuncCall $time = 1
