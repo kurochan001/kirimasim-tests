@@ -37,43 +37,43 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **2327 tests** in 37 chapters.
+The suite has **2381 tests** in 37 chapters.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 1503 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 619 |
-| The standard only, where neither simulator follows it | 205 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 1546 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 624 |
+| The standard only, where neither simulator follows it | 211 |
 
-209 tests depend on x or z values (`:fourstate: yes`). 78 tests come with C code: 16 DPI tests (`:dpi_c:`) and 62 VPI tests (`:vpi_c:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+209 tests depend on x or z values (`:fourstate: yes`). 78 tests come with C code: 16 DPI tests (`:dpi_c:`) and 62 VPI tests (`:vpi_c:`). 42 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), and 0 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 9 | 3 | 4 | 2 |
+| 3 | Design and verification building blocks | 10 | 4 | 4 | 2 |
 | 4 | Scheduling semantics | 23 | 18 | 2 | 3 |
 | 5 | Lexical conventions | 27 | 25 | 1 | 1 |
-| 6 | Data types | 255 | 188 | 57 | 10 |
-| 7 | Aggregate data types | 279 | 114 | 160 | 5 |
-| 8 | Classes | 122 | 29 | 89 | 4 |
-| 9 | Processes | 100 | 89 | 7 | 4 |
-| 10 | Assignment statements | 104 | 84 | 16 | 4 |
+| 6 | Data types | 270 | 202 | 58 | 10 |
+| 7 | Aggregate data types | 281 | 116 | 160 | 5 |
+| 8 | Classes | 125 | 31 | 90 | 4 |
+| 9 | Processes | 106 | 91 | 7 | 8 |
+| 10 | Assignment statements | 105 | 85 | 16 | 4 |
 | 11 | Operators and expressions | 382 | 324 | 56 | 2 |
 | 12 | Procedural programming statements | 119 | 102 | 16 | 1 |
-| 13 | Tasks and functions (subroutines) | 101 | 56 | 45 |  |
+| 13 | Tasks and functions (subroutines) | 107 | 59 | 46 | 2 |
 | 14 | Clocking blocks | 19 |  | 14 | 5 |
 | 15 | Interprocess synchronization and communication | 26 | 1 | 21 | 4 |
 | 16 | Assertions | 64 | 16 | 14 | 34 |
 | 17 | Checkers | 11 |  |  | 11 |
 | 18 | Constrained random value generation | 27 |  | 25 | 2 |
 | 19 | Functional coverage | 25 |  | 8 | 17 |
-| 20 | Utility system tasks and system functions | 171 | 157 | 9 | 5 |
+| 20 | Utility system tasks and system functions | 177 | 163 | 9 | 5 |
 | 21 | Input/output system tasks and system functions | 75 | 68 | 4 | 3 |
-| 22 | Compiler directives | 22 | 21 | 1 |  |
-| 23 | Modules and hierarchy | 57 | 47 | 7 | 3 |
+| 22 | Compiler directives | 28 | 27 | 1 |  |
+| 23 | Modules and hierarchy | 59 | 49 | 7 | 3 |
 | 24 | Programs | 10 | 4 |  | 6 |
-| 25 | Interfaces | 43 | 11 | 31 | 1 |
-| 26 | Packages | 26 | 17 | 8 | 1 |
-| 27 | Generate constructs | 67 | 62 | 4 | 1 |
+| 25 | Interfaces | 45 | 11 | 33 | 1 |
+| 26 | Packages | 29 | 20 | 8 | 1 |
+| 27 | Generate constructs | 68 | 63 | 4 | 1 |
 | 28 | Gate-level and switch-level modeling | 29 | 25 | 3 | 1 |
 | 29 | User-defined primitives | 16 | 10 | 4 | 2 |
 | 30 | Specify blocks | 10 | 9 |  | 1 |
