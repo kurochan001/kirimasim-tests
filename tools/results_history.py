@@ -47,6 +47,11 @@ SIMULATORS = {
     "sukimasim": ("#bc4c00", "#f0883e"),
 }
 OTHER_COLORS = [("#9a6700", "#d29922"), ("#bf3989", "#db61a2"), ("#1b7c83", "#39c5cf")]
+# The shape of each simulator's markers in the line charts. They are drawn as
+# outlines, so that markers of equal or close values stay visible together.
+MARKERS = {"icarus": "circle", "verilator": "square", "kirimasim": "diamond",
+           "sukimasim": "triangle"}
+OTHER_MARKERS = ["triangle", "circle", "square", "diamond"]
 STATUS_COLORS = {
     "pass": ("#1a7f37", "#3fb950"),
     "fail": ("#cf222e", "#f85149"),
@@ -169,6 +174,13 @@ def sim_colors(sim: str, all_sims: list[str]) -> tuple[str, str]:
     return OTHER_COLORS[others.index(sim) % len(OTHER_COLORS)]
 
 
+def sim_marker(sim: str, all_sims: list[str]) -> str:
+    if sim in MARKERS:
+        return MARKERS[sim]
+    others = [s for s in all_sims if s not in MARKERS]
+    return OTHER_MARKERS[others.index(sim) % len(OTHER_MARKERS)]
+
+
 def short_version(version: str) -> str:
     """"13.0" from "Icarus Verilog version 13.0 (stable) (v13_0)", "5.053 devel
     1a2b3c4" from "Verilator 5.053 devel rev v5.052-12-g1a2b3c4", the commit
@@ -211,17 +223,21 @@ FONT = ('-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial
 def svg_document(width: int, height: int, colors: dict[str, tuple[str, str]], body: list[str],
                  description: str) -> str:
     """An SVG image whose colors follow the viewer's color scheme. colors maps a
-    class name to its light and dark color, used as stroke and fill."""
+    class name to its light and dark color, used as stroke and fill. Lines
+    and shapes of class mk are not filled."""
     light = "".join(f".c-{k}{{stroke:{v[0]};fill:{v[0]}}}" for k, v in colors.items())
     dark = "".join(f".c-{k}{{stroke:{v[1]};fill:{v[1]}}}" for k, v in colors.items())
+    # After the colors, which would fill lines and markers otherwise.
+    unfilled = ".line{fill:none}.mk{fill:none;stroke-width:1.6}"
     style = (
         f"text{{font-family:{FONT};font-size:12px;fill:#1f2328;stroke:none}}"
         ".bg{fill:#ffffff}.muted{fill:#59636e}.title{font-size:15px;font-weight:600}"
         ".grid{stroke:#d1d9e0;stroke-width:1}.axis{stroke:#818b98;stroke-width:1}"
         ".line{fill:none;stroke-width:2}.dashed{stroke-dasharray:5 4}"
-        + light +
+        + light + unfilled +
         "@media (prefers-color-scheme:dark){text{fill:#f0f6fc}.bg{fill:#0d1117}"
-        ".muted{fill:#9198a1}.grid{stroke:#3d444d}.axis{stroke:#656c76}" + dark + "}"
+        ".muted{fill:#9198a1}.grid{stroke:#3d444d}.axis{stroke:#656c76}" + dark
+        + unfilled + "}"
     )
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
             f'viewBox="0 0 {width} {height}" role="img">\n'
@@ -297,38 +313,74 @@ def plot_frame(axis: TimeAxis, top: float, bottom: float, y_max: float, y_suffix
     return body
 
 
-def legend(entries: list[tuple[str, str, bool]], x: float, y: float) -> list[str]:
-    """entries: class name, text, and whether the line is dashed."""
+def marker(shape: str, cls: str, x: float, y: float) -> str:
+    """The outline of a marker of the given shape centered at (x, y); "dot" is a
+    small filled circle. The circle holds the square and the square the diamond
+    and the triangle, so markers at the same point stay visible."""
+    if shape == "dot":
+        return f'<circle class="c-{cls}" cx="{x:.1f}" cy="{y:.1f}" r="2.5"/>'
+    if shape == "square":
+        return (f'<rect class="mk c-{cls}" x="{x - 4.5:.1f}" y="{y - 4.5:.1f}" width="9" '
+                f'height="9"/>')
+    if shape == "diamond":
+        points = [(x, y - 3.5), (x + 3.5, y), (x, y + 3.5), (x - 3.5, y)]
+    elif shape == "triangle":
+        points = [(x, y - 3.5), (x + 3.2, y + 2.5), (x - 3.2, y + 2.5)]
+    else:
+        return f'<circle class="mk c-{cls}" cx="{x:.1f}" cy="{y:.1f}" r="7.5"/>'
+    shown = " ".join(f"{px:.1f},{py:.1f}" for px, py in points)
+    return f'<polygon class="mk c-{cls}" points="{shown}"/>'
+
+
+def legend(entries: list[tuple[str, str, bool, str]], x: float, y: float,
+           right: float) -> tuple[list[str], float]:
+    """entries: class name, text, whether the line is dashed, and the shape of
+    its markers. Entries go on as many rows as needed before right; returns the
+    elements and the baseline of the last row."""
     body = []
-    for cls, content, dashed in entries:
+    start = x
+    for cls, content, dashed, shape in entries:
+        width = 36 + 7 * len(content)
+        if x > start and x + width - 10 > right:
+            x, y = start, y + 20
         dash = " dashed" if dashed else ""
         body.append(f'<line class="line{dash} c-{cls}" x1="{x}" x2="{x + 18}" '
                     f'y1="{y - 4}" y2="{y - 4}"/>')
+        body.append(marker(shape, cls, x + 9, y - 4))
         body.append(text(x + 24, y, content))
-        x += 34 + 6.6 * len(content)
-    return body
+        x += width
+    return body, y
 
 
 def line_chart(title: str, subtitle: str, runs: list[dict],
-               series: list[tuple[str, str, bool, list[float | None]]],
+               series: list[tuple[str, str, bool, str, list[float | None]]],
                colors: dict[str, tuple[str, str]], y_max: float | None = None,
-               y_suffix: str = "") -> str:
-    """series: class name, legend text, dashed, and one value per run (None
-    where the run has none). colors maps the class names to their colors."""
-    width, height = 880, 380
-    top, bottom = 92, height - 40
+               y_suffix: str = "", shown=lambda v: f"{v:g}") -> str:
+    """series: class name, legend text, dashed, marker shape, and one value per
+    run (None where the run has none). colors maps the class names to their
+    colors. The legend gives each series' latest value, written by shown."""
+    width = 880
     times = [parse_time(r["time"]) for r in runs]
     axis = TimeAxis(times, 64, width - 28)
-    values = [v for _, _, _, vs in series for v in vs if v is not None]
+    values = [v for *_, vs in series for v in vs if v is not None]
     y_max = y_max or nice_ceiling(max(values, default=1) * 1.05)
     body = [text(20, 28, title, "title"), text(20, 48, subtitle, "muted")]
-    body += legend([(c, name, dashed) for c, name, dashed, _ in series], 20, 74)
+    entries = []
+    for cls, name, dashed, shape, vs in series:
+        latest = next((v for v in reversed(vs) if v is not None), None)
+        entries.append((cls, name if latest is None else f"{name}: {shown(latest)}",
+                        dashed, shape))
+    rows, last_row = legend(entries, 20, 74, width - 20)
+    body += rows
+    top = last_row + 18
+    bottom = top + 248
+    height = int(bottom + 40)
     body += plot_frame(axis, top, bottom, y_max, y_suffix)
 
     def y(v: float) -> float:
         return bottom - (bottom - top) * v / y_max
 
-    for cls, _, dashed, vs in series:
+    for cls, _, dashed, _, vs in series:
         segment: list[str] = []
         segments = [segment]
         for t, v in zip(times, vs):
@@ -341,11 +393,13 @@ def line_chart(title: str, subtitle: str, runs: list[dict],
         for seg in segments:
             if len(seg) > 1:
                 body.append(f'<polyline class="line{dash} c-{cls}" points="{" ".join(seg)}"/>')
-        if len(runs) <= 60 and not dashed:
-            for t, v in zip(times, vs):
-                if v is not None:
-                    body.append(f'<circle class="c-{cls}" cx="{axis.x(t):.1f}" cy="{y(v):.1f}" '
-                                f'r="3"/>')
+    # Markers after all the lines, so that no line covers them. A dashed series
+    # has them only while it has a single point, which a line cannot show.
+    for cls, _, dashed, shape, vs in series:
+        points = [(t, v) for t, v in zip(times, vs) if v is not None]
+        if len(runs) <= 60 and (not dashed or len(points) == 1):
+            for t, v in points:
+                body.append(marker(shape, cls, axis.x(t), y(v)))
     return svg_document(width, height, colors, body, f"{title}: {subtitle}")
 
 
@@ -425,22 +479,23 @@ def render(directory: Path, runs: list[dict]) -> None:
     charts = directory / "charts"
     charts.mkdir(parents=True, exist_ok=True)
 
-    counts = [(sim, label(last[sim]), False,
+    counts = [(sim, label(last[sim]), False, sim_marker(sim, sims),
                [matched(r["simulators"][sim]) if sim in r["simulators"] else None for r in runs])
               for sim in sims]
-    counts.append(("total", "tests in the suite", True, [r["tests"] for r in runs]))
+    counts.append(("total", "tests in the suite", True, "dot", [r["tests"] for r in runs]))
     (charts / "overview.svg").write_text(line_chart(
         "Tests that match their expected output",
         "Each night, every test of the suite's main branch, with each simulator",
-        runs, counts, colors), encoding="utf-8")
+        runs, counts, colors, shown=lambda v: f"{v:.0f}"), encoding="utf-8")
 
-    rates = [(sim, label(last[sim]), False,
+    rates = [(sim, label(last[sim]), False, sim_marker(sim, sims),
               [100 * matched(r["simulators"][sim]) / ran(r["simulators"][sim])
                if sim in r["simulators"] and ran(r["simulators"][sim]) else None for r in runs])
              for sim in sims]
     (charts / "rate.svg").write_text(line_chart(
         "Share of the tests that match", "Matching tests out of the tests run, in percent",
-        runs, rates, colors, y_max=100, y_suffix="%"), encoding="utf-8")
+        runs, rates, colors, y_max=100, y_suffix="%", shown=lambda v: f"{v:.1f}%"),
+        encoding="utf-8")
 
     (charts / "chapters.svg").write_text(heatmap(runs[-1]), encoding="utf-8")
     for sim in sims:

@@ -113,6 +113,11 @@ previous night.
 
 ![Tests that match their expected output](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
+Each simulator has its own marker: a circle for Icarus Verilog, a square for
+Verilator and a diamond for kirimasim. The markers are drawn as outlines that
+fit inside each other, so simulators with the same or close counts stay
+visible together, and the legend gives each one's count in the latest run.
+
 Each test of a run gets one of these statuses:
 
 | Status | Meaning |
