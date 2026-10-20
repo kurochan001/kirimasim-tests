@@ -13,7 +13,10 @@ A test whose `:oracle:` does not list iverilog@13.0 has an expected output
 that Icarus Verilog 13.0 does not produce, because Icarus Verilog does not
 follow the standard there or cannot compile the test (such a test lists
 verilator@5.052 instead; see tools/run_verilator.py). Such a test is
-reported as a known difference and does not make the run fail.
+reported as a known difference and does not make the run fail, or as NOW
+MATCHES when it matches. An illegal design that Icarus Verilog 13.0 rejects at
+the place the test names only because it does not support a construct there
+shows as NOW MATCHES as well; the comment of the test says so.
 
 A test with `:vpi_c: @<file>.c` has a VPI application next to it: the file is
 built with iverilog-vpi and loaded with vvp -m. Icarus Verilog has no DPI, so a

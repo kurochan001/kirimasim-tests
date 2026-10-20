@@ -15,7 +15,8 @@ first clause they cite; generated tests follow, grouped by generator.
 
 docs/tests/clauses.md compares the clauses that the tests cite with the
 clause numbers of the standard in tools/clauses.txt: for each chapter, how
-many of its clauses without subclauses are cited, and which are not.
+many of its clauses without subclauses are cited, which are not, and which
+are out of scope, by the tags of tools/clauses.txt.
 """
 
 import argparse

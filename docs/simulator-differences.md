@@ -10,7 +10,10 @@ it.
 Constructs that a release does not support at all, where it stops with an
 error, a "sorry" or "unsupported" message, are not listed: they show as known
 differences that do not compile. Verilator's lack of x, z and strengths, as a
-two-state simulator, is not listed either.
+two-state simulator, is not listed either. Nor is an illegal design that a
+release rejects only because it does not support a construct in it: when that
+error falls on the line the test names, the runner counts it, and the comment
+of the test says why `:oracle:` does not list the release.
 
 None of these has been reported to the projects. Before reporting one, check
 it with the current development version: the [nightly
@@ -83,7 +86,7 @@ not parse the modport in an interface port of a module.
 | --- | --- | --- |
 | 20.10 | `$error` stops the run; it has to report the error and go on. The runner passes `+verilator+error+limit+1000000`, with which it goes on. | `ch20/test_error_does_not_end_run` (without that option) |
 | 20.10, 9.2.3 | When `$fatal` ends the run, the final procedures do not run. | `ch20/test_fatal_runs_final_procedures` |
-| 4.4.2.3, 21.2.2, 21.2.3 | At time 0, `$strobe` and `$monitor` show the values from before a write made after `#0` or by a nonblocking assignment; `$monitor` also misses changes of variables of an interface instance. | the 51 `gen/ch4/test_gen_sched_*_{strobe,monitor}_*` tests it does not match |
+| 4.4.2.3, 21.2.2, 21.2.3 | At time 0, `$strobe` and `$monitor` show the values from before a write made after `#0` or by a nonblocking assignment; `$monitor` also misses changes of variables of an interface instance. | the 45 `gen/ch4/test_gen_sched_*_{strobe,monitor}_*` tests it does not match |
 | 4.9.1, 4.4.2.3 | After a second `#0`, it still shows the old value of a continuous assignment. | `ch4/test_sched_contassign_zero_delay` |
 | 9.2.2.2.2 | `always @*` runs at time 0 and wakes for a change of a variable that it only reads in a called function. | `ch9/test_always_comb_vs_always_star` |
 | 9.4.2 | Event controls wake once at time 0 although nothing changed. | `ch9/test_event_nested_struct_member`, `ch12/test_foreach_index_shadows_outer` |
@@ -115,7 +118,7 @@ not parse the modport in an interface port of a module.
 | 20.4.1 | `$timeprecision` without an argument gives the simulation precision instead of that of the design element. | `ch20/test_timeunit_timeprecision_functions` |
 | 20.7 | `$size` of a fixed-size dimension that follows a dynamic one gives 0. | `ch20/test_array_query_fixed_dimensions` |
 | 21.2.1.6 | `%p` prints an int member in hexadecimal with `'h` and an enum member as a number instead of its name. | `ch21/test_format_p_struct` |
-| 28.3.3, 28.10 | A pullup with a delay makes it stop with an internal error. | `ch28/test_illegal_pullup_delay` |
+| 28.3.3, 28.10 | A pullup with a delay makes it stop with an internal error. As the error names the line of the pullup, the runner counts it as the rejection that the test asks for; `:oracle:` does not list `verilator@5.052`. | `ch28/test_illegal_pullup_delay` |
 
 ### Illegal designs that it accepts
 
