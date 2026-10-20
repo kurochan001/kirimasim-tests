@@ -89,6 +89,9 @@ The suite has **3170 tests** in 37 chapters. 763 of them are generated (`tests/g
 | 40 | Code coverage control and API | 9 | 1 | 1 | 7 |
 <!-- suite-stats:end -->
 
+The [catalog](docs/tests/README.md) lists every test, chapter by chapter,
+with what it checks and the clauses it cites.
+
 Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
 Verilator and Standard only count the tests by where their expected output
@@ -156,6 +159,7 @@ generators/<generator>.py       a generator of tests and its reference model
 generators/generate.py          writes tests/gen/, or checks it with --check
 generators/oracles.txt          which releases produce each generated test's output
 docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 differ from the standard
+docs/tests/                     the catalog: every test with what it checks, by chapter
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
@@ -164,6 +168,7 @@ tools/normalize_output.py       normalizes a simulator's output before it is com
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
 tools/suite_stats.py            counts the tests and keeps the tables of this README
+tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
 .github/workflows/check.yml     checks the expected outputs with the releases
 .github/workflows/nightly.yml   the nightly run
 ```
@@ -327,6 +332,9 @@ python3 generators/generate.py            # write tests/gen/
 python3 generators/generate.py --check    # check that tests/gen/ is up to date
 ```
 
+Then update the tables of this README and the catalog as for any new test
+(see "Contributing").
+
 As for other tests, the expected outputs are then run with Icarus Verilog 13.0
 and Verilator 5.052, and `generators/record_oracles.py` records which of them
 produce them in `generators/oracles.txt`, from which `:oracle:` is written. A
@@ -471,8 +479,9 @@ suite has a problem:
   cache), installs `z3` for `randomize()`, and runs the tests whose
   `:oracle:` lists `verilator@5.052`, which must all match.
 - **readme** checks that the tables of this README are up to date
-  (`tools/suite_stats.py --check`) and that the generated tests are what the
-  generators write (`generators/generate.py --check`).
+  (`tools/suite_stats.py --check`), that the generated tests are what the
+  generators write (`generators/generate.py --check`), and that the catalog
+  in `docs/tests/` is up to date (`tools/suite_catalog.py --check`).
 
 `.github/workflows/nightly.yml` runs at 19:23 UTC every day, and can be
 started by hand as well. Its results are only reported. It has five jobs:
@@ -521,11 +530,12 @@ A new test should:
   confirmed with Icarus Verilog 13.0 or Verilator 5.052 as described in
   "Where the expected outputs come from".
 
-After adding tests, update the tables of this README, which the check
-workflow requires:
+After adding tests, update the tables of this README and the catalog of the
+tests, which the check workflow requires:
 
 ```sh
 python3 tools/suite_stats.py --update
+python3 tools/suite_catalog.py --update
 ```
 
 Most of the material here was produced with AI assistance (Claude Code);
