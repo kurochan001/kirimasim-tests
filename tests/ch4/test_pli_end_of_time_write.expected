@@ -1,0 +1,3 @@
+cbAtEndOfSimTime at 10: b=1, writes w=3
+design at 10: c=6
+cbReadOnlySynch at 10: w=3 c=6

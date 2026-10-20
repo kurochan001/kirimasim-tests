@@ -1,0 +1,4 @@
+empty size=0
+after inserts: 0 1 2 3, size=4
+popped 0 and 3, left: 1 2
+from empty queues: 0 0 xxxx, sizes 0 0

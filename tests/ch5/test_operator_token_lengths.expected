@@ -1,0 +1,5 @@
+one: 16 0101
+two: 9 0100
+three: -32 -4 1 0
+wildcard and equivalence: 1 1
+conditional: 6

@@ -2,24 +2,24 @@
 
 [All chapters](README.md). For each clause of IEEE 1800-2023 from 3 to 40, this page counts the clauses without subclauses of its own, the numbers in `tools/clauses.txt`, by whether a test cites them in `:lrm:`. A clause can also be cited only through a parent clause, which says less about what is tested. Clauses that set out no behavior of their own, clause 34, behavior left to the tool or its setup, and the content of VCD files are out of scope (the tags of `tools/clauses.txt`). The page is written by `tools/suite_catalog.py`.
 
-Of 932 clauses in scope, 841 are cited by a test, 42 only through a parent clause, and 49 not at all; 186 are out of scope.
+Of 932 clauses in scope, 879 are cited by a test, 18 only through a parent clause, and 35 not at all; 186 are out of scope.
 
 | Clause | Title | Cited | Only through a parent | Not cited | Out of scope |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 8 |  |  | 10 |
-| 4 | Scheduling semantics | 23 | 4 |  | 8 |
-| 5 | Lexical conventions | 10 | 1 | 5 | 1 |
+| 4 | Scheduling semantics | 27 |  |  | 8 |
+| 5 | Lexical conventions | 16 |  |  | 1 |
 | 6 | Data types | 74 |  |  | 3 |
-| 7 | Aggregate data types | 41 | 8 |  | 2 |
-| 8 | Classes | 37 | 5 |  | 2 |
-| 9 | Processes | 23 | 1 | 1 | 1 |
+| 7 | Aggregate data types | 49 |  |  | 2 |
+| 8 | Classes | 42 |  |  | 2 |
+| 9 | Processes | 25 |  |  | 1 |
 | 10 | Assignment statements | 18 |  |  | 1 |
-| 11 | Operators and expressions | 37 | 5 |  | 2 |
+| 11 | Operators and expressions | 42 |  |  | 2 |
 | 12 | Procedural programming statements | 14 |  |  | 7 |
-| 13 | Tasks and functions (subroutines) | 12 |  | 2 | 2 |
+| 13 | Tasks and functions (subroutines) | 14 |  |  | 2 |
 | 14 | Clocking blocks | 14 |  |  | 3 |
 | 15 | Interprocess synchronization and communication | 20 |  |  | 2 |
-| 16 | Assertions | 60 | 3 | 3 | 5 |
+| 16 | Assertions | 61 | 3 | 2 | 5 |
 | 17 | Checkers | 9 |  |  | 2 |
 | 18 | Constrained random value generation | 43 |  | 1 | 2 |
 | 19 | Functional coverage | 22 |  | 1 | 2 |
@@ -38,7 +38,7 @@ Of 932 clauses in scope, 841 are cited by a test, 42 only through a parent claus
 | 32 | Backannotation using the standard delay format | 9 |  | 1 | 2 |
 | 33 | Configuring the contents of a design | 10 |  |  | 17 |
 | 34 | Protected envelopes | 0 |  |  | 41 |
-| 35 | Direct programming interface | 12 |  | 5 | 5 |
+| 35 | Direct programming interface | 17 |  |  | 5 |
 | 36 | Programming language interface (PLI/VPI) overview | 13 |  |  | 9 |
 | 37 | VPI object model diagrams | 55 |  | 25 | 5 |
 | 38 | VPI routine definitions | 44 |  |  | 3 |
@@ -49,14 +49,7 @@ Of 932 clauses in scope, 841 are cited by a test, 42 only through a parent claus
 
 Clauses in scope that no test cites; those marked with * have a parent clause that a test cites.
 
-- 4: 4.4.3.2*, 4.4.3.4*, 4.4.3.9*, 4.4.3.10*
-- 5: 5.2, 5.3, 5.5, 5.6.4*, 5.11, 5.13
-- 7: 7.4.3*, 7.8.7*, 7.10.2.1*, 7.10.2.2*, 7.10.2.4*, 7.10.2.5*, 7.10.2.6*, 7.10.3*
-- 8: 8.26.3*, 8.26.4*, 8.26.6.2*, 8.26.9*, 8.29*
-- 9: 9.4.4*, 9.5
-- 11: 11.3.1*, 11.3.4*, 11.4.12.2*, 11.8.3*, 11.11*
-- 13: 13.6, 13.7
-- 16: 16.5.2*, 16.7, 16.9.1, 16.9.11, 16.12.22*, 16.16.1*
+- 16: 16.5.2*, 16.7, 16.9.1, 16.12.22*, 16.16.1*
 - 18: 18.10
 - 19: 19.10
 - 20: 20.4.1*, 20.7.1*, 20.10.1*, 20.17.1, 20.17.2
@@ -65,7 +58,6 @@ Clauses in scope that no test cites; those marked with * have a parent clause th
 - 28: 28.3.1*, 28.3.3*, 28.3.4*, 28.15.2, 28.16.2.2*
 - 30: 30.4.7.1*, 30.7.4.2*
 - 32: 32.7
-- 35: 35.2.1, 35.5.1.1, 35.5.1.3, 35.5.1.4, 35.5.1.5
 - 37: 37.2.4, 37.3.1, 37.3.4, 37.3.5, 37.3.6, 37.3.7, 37.3.8, 37.15, 37.19, 37.21, 37.23, 37.24, 37.29, 37.30, 37.33, 37.34, 37.38, 37.43, 37.44, 37.52, 37.54, 37.56, 37.57, 37.58, 37.61
 - 39: 39.4.2.1*
 - 40: 40.2.1

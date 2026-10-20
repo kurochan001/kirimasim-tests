@@ -1,0 +1,4 @@
+bits: 1 1 1
+values: 1 1 1
+real: 64 64, shortreal: 32
+condition only: 32, branches: 64 3.0

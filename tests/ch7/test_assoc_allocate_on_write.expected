@@ -1,0 +1,3 @@
+x=15 new=42 absent read as 10
+hits has 2 entries, absent exists: 0
+pts[7]: lo=3 hi=1, entries=1

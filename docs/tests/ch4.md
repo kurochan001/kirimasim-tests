@@ -1,6 +1,6 @@
 # Clause 4: Scheduling semantics
 
-[All chapters](README.md). 348 tests, 325 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 351 tests, 325 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -16,6 +16,9 @@
 | [`test_nba_after_zero_delay`](../../tests/ch4/test_nba_after_zero_delay.sv) | A process resumed after #0 runs before the nonblocking assignments of the same time slot | 4.4.2.3 4.4.2.4 10.4.2 | Icarus Verilog 13.0 | x/z |
 | [`test_reactive_region_set_order`](../../tests/ch4/test_reactive_region_set_order.sv) | in a program, #0 resumes the process in the Re-Inactive region, before the Re-NBA region updates a nonblocking assignment made in the Reactive region, and a module process woken by that update runs before the program process woken by it | 4.4.2.7 4.4.2.8 4.5 24.3 | standard only |  |
 | [`test_sched_strobe_after_nba`](../../tests/ch4/test_sched_strobe_after_nba.sv) | $strobe prints at the end of the time step, after nonblocking updates and the processes they wake | 4.4.2.9 21.2.2 10.4.2 | Icarus Verilog 13.0 |  |
+| [`test_pli_pre_active_write`](../../tests/ch4/test_pli_pre_active_write.sv) | A cbAfterDelay callback runs in the Pre-Active region, so it sees the values from before the design's events of its time step, and a value it writes is there when the design's processes of that time step run | 4.4.3.2 4.10 38.36.2 38.34 | Icarus Verilog 13.0 | VPI |
+| [`test_pli_read_write_synch_write`](../../tests/ch4/test_pli_read_write_synch_write.sv) | A cbReadWriteSynch callback runs in the Pre-NBA or the Post-NBA region, after the blocking assignments of its time step, and a value it writes wakes the design's processes in the same time step | 4.4.3.4 4.4.3.3 4.10 38.36.2 | Icarus Verilog 13.0 | VPI |
+| [`test_pli_end_of_time_write`](../../tests/ch4/test_pli_end_of_time_write.sv) | A cbAtEndOfSimTime callback runs in the Pre-Postponed region, after the nonblocking updates, and a value it writes starts another iteration of the time step, which a cbReadOnlySynch callback in the Postponed region then sees | 4.4.3.9 4.4.3.10 4.10 4.5 38.36.2 | Icarus Verilog 13.0 | VPI |
 | [`test_ieee1800_2023_delta_convergence`](../../tests/ch4/test_ieee1800_2023_delta_convergence.sv) | Delta Cycle Convergence Tests | 4.5 4.4.2.3 10.3 | Icarus Verilog 13.0 |  |
 | [`test_array_element_noop_nba_keeps_override_order`](../../tests/ch4/test_array_element_noop_nba_keeps_override_order.sv) | Nonblocking assignments to one array element keep their order, also when one assigns the current value | 4.6 10.4.2 | Icarus Verilog 13.0 |  |
 | [`test_port_complex_expr_extended`](../../tests/ch4/test_port_complex_expr_extended.sv) | Port connection expressions | 4.7 23.3.2 23.3.3 4.9.6 | Icarus Verilog 13.0 |  |

@@ -1,0 +1,2 @@
+ram[5]=a5 ram[6]=xx rom[3]=9 rom[0]=0
+regs[2]=beef regs[1]=xxxx high byte=be bit 0=1

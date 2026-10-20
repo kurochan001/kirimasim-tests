@@ -1,6 +1,6 @@
 # Clause 9: Processes
 
-[All chapters](README.md). 108 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 110 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -89,7 +89,9 @@
 | [`test_implicit_event`](../../tests/ch9/test_implicit_event.sv) | Test for @* (implicit event control) - IEEE 1800-2023 §9.4.2.2 | 9.4.2.2 | Icarus Verilog 13.0 |  |
 | [`test_sequence_as_event_control`](../../tests/ch9/test_sequence_as_event_control.sv) | A named sequence used as an event control resumes the process at the end of a match | 9.4.2.4 16.8 | Verilator 5.052 |  |
 | [`test_wait_on_array_size`](../../tests/ch9/test_wait_on_array_size.sv) | wait on the size() of a queue and of a dynamic array resumes when push_back or new[] changes it | 9.4.3 7.10.2.7 7.5.1 | Icarus Verilog 13.0 |  |
+| [`test_wait_sequence_triggered`](../../tests/ch9/test_wait_sequence_triggered.sv) | A wait statement on the triggered method of a named sequence unblocks in the time step in which the sequence reaches its end point, and triggered is false again once time advances | 9.4.4 16.9.11 16.13.6 9.4.3 | standard only |  |
 | [`test_intra_assignment_repeat_nonblocking`](../../tests/ch9/test_intra_assignment_repeat_nonblocking.sv) | A nonblocking assignment with an intra-assignment repeat event control takes the right-hand value when it executes and assigns it after the given number of events; the count is evaluated once, and a count of zero or less assigns without waiting | 9.4.5 10.4.2 | Icarus Verilog 13.0 |  |
+| [`test_process_threads_distinct`](../../tests/ch9/test_process_threads_distinct.sv) | Each initial, always and final procedure, each parallel statement of a fork and each process started by fork-join_none runs as a thread of its own | 9.5 9.7 9.3.2 | Verilator 5.052 |  |
 | [`test_wait_fork_disable_fork`](../../tests/ch9/test_wait_fork_disable_fork.sv) | wait fork waits for immediate child processes only, and disable fork ends all descendants, also those of children that have finished | 9.6.1 9.6.3 9.3.2 | Verilator 5.052 |  |
 | [`test_wait_fork_ignores_grandchildren`](../../tests/ch9/test_wait_fork_ignores_grandchildren.sv) | wait fork waits only for the immediate children of the process, not for the processes those children started | 9.6.1 9.3.2 | Icarus Verilog 13.0 |  |
 | [`test_wait_fork_without_children`](../../tests/ch9/test_wait_fork_without_children.sv) | wait fork in a process without child processes continues at once, even while other processes have children running | 9.6.1 | Icarus Verilog 13.0 |  |

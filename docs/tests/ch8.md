@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 129 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 138 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -124,11 +124,20 @@
 | [`test_interface_class_methods`](../../tests/ch8/test_interface_class_methods.sv) | Interface class method implementation test | 8.26 | Verilator 5.052 |  |
 | [`test_interface_impl`](../../tests/ch8/test_interface_impl.sv) | Test: Interface class implementation | 8.26 8.26.2 | Verilator 5.052 |  |
 | [`test_interface_simple_2`](../../tests/ch8/test_interface_simple_2.sv) | Simplified interface class test - IEEE 1800-2023 Ch.8.26 | 8.26 | Verilator 5.052 |  |
+| [`test_illegal_interface_class_unqualified_type`](../../tests/ch8/test_illegal_interface_class_unqualified_type.sv) | A class that implements an interface class does not inherit its typedefs, so it cannot use one without the class scope | 8.26.3 | Verilator 5.052 | illegal design |
+| [`test_interface_class_type_access`](../../tests/ch8/test_interface_class_type_access.sv) | Parameters and typedefs of an interface class are inherited by an interface class that extends it but not by a class that implements it, which reaches them with the class scope resolution operator | 8.26.3 8.26.2 8.23 | Verilator 5.052 |  |
+| [`test_illegal_class_implements_type_parameter`](../../tests/ch8/test_illegal_class_implements_type_parameter.sv) | A class cannot implement a type parameter, even one whose value is an interface class | 8.26.4 | standard only | illegal design |
+| [`test_illegal_implements_forward_typedef`](../../tests/ch8/test_illegal_implements_forward_typedef.sv) | A class cannot implement an interface class that is only declared by a forward typedef at that point | 8.26.4 | standard only | illegal design |
 | [`test_interface_class_cast`](../../tests/ch8/test_interface_class_cast.sv) | $cast between interface class handles and class handles succeeds only when the object implements the destination type | 8.26.5 8.16 | standard only |  |
 | [`test_interface_class_diamond`](../../tests/ch8/test_interface_class_diamond.sv) | One method implements the methods of the same name that a class gets from several interface classes, also through a diamond of extends | 8.26.6.1 8.26.6.3 8.26.2 | Verilator 5.052 |  |
+| [`test_illegal_interface_class_typedef_conflict`](../../tests/ch8/test_illegal_interface_class_typedef_conflict.sv) | An interface class that inherits the same typedef name from two interface classes without declaring the name itself is an error | 8.26.6.2 | standard only | illegal design |
+| [`test_interface_class_typedef_conflict_resolved`](../../tests/ch8/test_interface_class_typedef_conflict_resolved.sv) | An interface class that inherits the same typedef name from two interface classes resolves the collision by declaring the name itself | 8.26.6.2 8.26.3 8.26.6 | standard only |  |
 | [`test_interface_class_partial_virtual`](../../tests/ch8/test_interface_class_partial_virtual.sv) | A virtual class can implement an interface class partly, declaring the rest pure, and a derived class completes it | 8.26.7 8.21 8.26.8 | Verilator 5.052 |  |
+| [`test_illegal_interface_class_constraint`](../../tests/ch8/test_illegal_interface_class_constraint.sv) | An interface class cannot declare a constraint block | 8.26.9 | Verilator 5.052 | illegal design |
+| [`test_interface_class_randomize`](../../tests/ch8/test_interface_class_randomize.sv) | randomize() can be called through an interface class handle; interface classes have built-in pre_randomize and post_randomize methods that the class can override, without a name conflict between two interface classes | 8.26.9 18.6.2 18.6.1 | standard only |  |
 | [`test_class_typedef`](../../tests/ch8/test_class_typedef.sv) | Test: typedef class forward declaration, mutual references | 8.27 | Verilator 5.052 |  |
 | [`test_class_vs_struct_assignment`](../../tests/ch8/test_class_vs_struct_assignment.sv) | Assigning a class handle shares one object, while assigning a structure copies its value | 8.28 8.12 7.2 | Verilator 5.052 |  |
+| [`test_object_strongly_reachable`](../../tests/ch8/test_object_strongly_reachable.sv) | An object stays strongly reachable, so its weak references are not cleared, while a handle in an active scope refers to it or a nonblocking assignment to one of its members is pending | 8.29 8.30.1 8.30.3 | standard only |  |
 | [`test_illegal_weak_reference_non_class`](../../tests/ch8/test_illegal_weak_reference_non_class.sv) | The parameter of weak_reference has to be a class type | 8.30.1 | standard only | illegal design |
 | [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) | A weak_reference returns its referent from get() until clear() is called on it, after which get() returns null; two weak references to one object are different objects with the same referent | 8.30.3 8.30.2 8.30.4 8.30.1 26.7 | standard only |  |
 | [`test_weak_reference_wait_cleared`](../../tests/ch8/test_weak_reference_wait_cleared.sv) | A wait on weak_reference get() becoming null resumes when another process clears the reference | 8.30.3 8.30.4 9.4.3 | standard only |  |

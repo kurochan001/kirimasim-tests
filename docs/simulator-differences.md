@@ -51,6 +51,7 @@ of the test as well.
 | 38.36.1 | A value change callback on a named event gets a value structure. | `ch38/test_vpi_value_change_event` |
 | 36.8.1 | User-defined system functions need their return types at compile time (in a `.sft` file), and it stops at the first real result. | `ch36/test_vpi_systf_function_types` |
 | 9.6.1, 9.6.3 | It stops with an internal assertion. | `ch9/test_wait_fork_disable_fork` |
+| 7.10.2.4, 7.10.2.5, 7.4.5 | `pop_front()` and `pop_back()` on an empty queue of int give x, and an int variable then holds x; Table 7-1 gives 0. | `ch7/test_queue_method_edges` |
 
 ### Illegal designs that it accepts
 
@@ -104,6 +105,8 @@ not parse the modport in an interface port of a module.
 | 19.7 | `at_least` is ignored: a bin is covered after one hit. | `ch19/test_cg_at_least` |
 | 19.6, 19.11 | Coverage of a cross, and of a covergroup with weights, is the share of all bins, ignoring the weight option. | `ch19/test_cg_cross_coverage`, `ch19/test_cg_item_weighted_average` |
 | 19.8 | Sampling goes on after `stop()`, and `get_coverage` sets both of its arguments to 0. | `ch19/test_cg_start_stop_counts` |
+| 11.3.1 | It treats shortreal as real, so an expression with a shortreal operand and no real one is 64 bits wide instead of 32. | `ch11/test_real_operand_result_types` |
+| 7.10.3, 13.5.2 | A reference to a queue element follows the position instead of the element: after the element is deleted, a write through the reference changes the element that took its place, and after an assignment to the whole queue it reads memory that is no longer the queue's. | `ch7/test_queue_reference_persistence` |
 
 ### Illegal designs that it accepts
 
@@ -121,3 +124,5 @@ not parse the modport in an interface port of a module.
 | 6.7.1 | A net type keyword followed directly by `reg` (`wire reg`) | `ch6/test_illegal_net_type_then_reg` |
 | 6.22.2, 6.22.3 | An assignment between variables of two anonymous unpacked struct types from different declarations, which are not equivalent | `ch6/test_illegal_anonymous_struct_not_equivalent` |
 | 23.10.4.2 | A defparam whose hierarchical name resolves to another parameter once the generate blocks are elaborated | `ch23/test_illegal_defparam_early_resolution` |
+| 8.26.4 | A class that implements a type parameter, or a forward typedef of an interface class | `ch8/test_illegal_class_implements_type_parameter`, `ch8/test_illegal_implements_forward_typedef` |
+| 8.26.6.2 | An interface class that inherits the same typedef name from two interface classes and does not declare it | `ch8/test_illegal_interface_class_typedef_conflict` |

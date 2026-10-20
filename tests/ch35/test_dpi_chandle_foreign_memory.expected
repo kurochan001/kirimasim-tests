@@ -1,0 +1,3 @@
+allocated: 1, copy equal: 1, unset is null: 1
+squares: 0 1 4 9
+released, now null: 1

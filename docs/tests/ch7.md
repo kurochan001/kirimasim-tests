@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 281 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 285 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -101,6 +101,7 @@
 | [`test_unpack_arr`](../../tests/ch7/test_unpack_arr.sv) | Unpacked Array Tests | 7.4.2 | Icarus Verilog 13.0 |  |
 | [`test_unpacked_2d`](../../tests/ch7/test_unpacked_2d.sv) | 2D unpacked arrays | 7.4.2 | Icarus Verilog 13.0 |  |
 | [`test_unpacked_3d`](../../tests/ch7/test_unpacked_3d.sv) | 3D unpacked arrays | 7.4.2 | Icarus Verilog 13.0 |  |
+| [`test_memory_words`](../../tests/ch7/test_memory_words.sv) | A one-dimensional array of logic, bit or reg elements is a memory: each element is a word written and read by its address, and a part of a word can be selected after the address | 7.4.3 7.4.1 7.4.6 | Icarus Verilog 13.0 | x/z |
 | [`test_copy_row_of_unpacked_struct_array`](../../tests/ch7/test_copy_row_of_unpacked_struct_array.sv) | A row of a two-dimensional array of unpacked structures is an array that can be read and written as a whole | 7.4.4 7.6 | Verilator 5.052 |  |
 | [`test_array_index_wider_than_64_bits`](../../tests/ch7/test_array_index_wider_than_64_bits.sv) | An index of an unpacked array that is wider than 64 bits selects by its whole value | 7.4.5 11.4.10 | standard only |  |
 | [`test_contassign_packed_element_of_unpacked`](../../tests/ch7/test_contassign_packed_element_of_unpacked.sv) | Continuous assignments to packed elements of an element of an unpacked array | 7.4.5 6.5 10.3.2 | Icarus Verilog 13.0 |  |
@@ -158,6 +159,7 @@
 | [`test_associative_array_edge_cases`](../../tests/ch7/test_associative_array_edge_cases.sv) | Associative array edge cases | 7.8.4 7.9 | Verilator 5.052 |  |
 | [`test_assoc_foreach_struct_key`](../../tests/ch7/test_assoc_foreach_struct_key.sv) | Test associative array foreach with struct keys | 7.8.5 12.7.3 | Verilator 5.052 |  |
 | [`test_assoc_array_unknown_index`](../../tests/ch7/test_assoc_array_unknown_index.sv) | An index with x or z bits is invalid for an associative array: a read gives the element type's default and a write does nothing | 7.8.6 7.4.5 | standard only | x/z |
+| [`test_assoc_allocate_on_write`](../../tests/ch7/test_assoc_allocate_on_write.sv) | A nonexistent associative array element is allocated when it is assigned or passed by reference, and an increment or member write first allocates it with its default or initial value | 7.8.7 7.9.11 7.9.1 13.5.2 | standard only |  |
 | [`test_assoc_array_methods_basic`](../../tests/ch7/test_assoc_array_methods_basic.sv) | Associative array methods: exists/first/next/delete | 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array_ops_2`](../../tests/ch7/test_assoc_array_ops_2.sv) | Test: Associative array exists, first, last, next, prev, delete operations | 7.9 7.9.3 7.9.4 7.9.5 7.9.6 | Verilator 5.052 |  |
 | [`test_assoc_method_edge_cases`](../../tests/ch7/test_assoc_method_edge_cases.sv) | Associative array method edge cases | 7.9 | Verilator 5.052 |  |
@@ -224,7 +226,9 @@
 | [`test_queue_push_front`](../../tests/ch7/test_queue_push_front.sv) | Queue push_front method | 7.10.2 | Icarus Verilog 13.0 |  |
 | [`test_queue_push_pop_2`](../../tests/ch7/test_queue_push_pop_2.sv) | Queue push_front, push_back, pop_front and pop_back | 7.10.2 | Icarus Verilog 13.0 |  |
 | [`test_queue_size_2`](../../tests/ch7/test_queue_size_2.sv) | Queue size method | 7.10.2 | Icarus Verilog 13.0 |  |
+| [`test_queue_method_edges`](../../tests/ch7/test_queue_method_edges.sv) | Queue methods at their limits: size of an empty queue, insert at the end and ignored inserts at a negative, too large or unknown index, push_front, and pop_front and pop_back that remove an end or, on an empty queue, return the value of a nonexistent element | 7.10.2.2 7.10.2.1 7.10.2.4 7.10.2.5 7.10.2.6 7.4.5 | standard only | x/z |
 | [`test_queue_delete`](../../tests/ch7/test_queue_delete.sv) | Test queue delete | 7.10.2.3 7.10.4 | Icarus Verilog 13.0 |  |
+| [`test_queue_reference_persistence`](../../tests/ch7/test_queue_reference_persistence.sv) | A reference to a queue element held by a task stays on that element when other methods change the queue, and becomes outdated when the element is deleted or the whole queue is assigned | 7.10.3 13.5.2 7.10.2 | standard only |  |
 | [`test_array_method_corner`](../../tests/ch7/test_array_method_corner.sv) | Tests find, sort, sum, min, max, unique methods | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 |  |
 | [`test_array_methods_2`](../../tests/ch7/test_array_methods_2.sv) | Test for IEEE 1800-2023 §7.12: Array manipulation methods | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 |  |
 | [`test_array_predicates`](../../tests/ch7/test_array_predicates.sv) | Array Methods Tests | 7.12 7.5 7.10 | Icarus Verilog 13.0 |  |
