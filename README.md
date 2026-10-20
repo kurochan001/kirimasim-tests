@@ -37,15 +37,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3008 tests** in 37 chapters. 627 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **3144 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2171 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2278 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 624 |
-| The standard only, where neither simulator follows it | 213 |
+| The standard only, where neither simulator follows it | 242 |
 
-367 tests depend on x or z values (`:fourstate: yes`). 78 tests come with C code: 16 DPI tests (`:dpi_c:`) and 62 VPI tests (`:vpi_c:`). 42 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), and 0 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+503 tests depend on x or z values (`:fourstate: yes`). 78 tests come with C code: 16 DPI tests (`:dpi_c:`) and 62 VPI tests (`:vpi_c:`). 42 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), and 0 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -74,7 +74,7 @@ The suite has **3008 tests** in 37 chapters. 627 of them are generated (`tests/g
 | 25 | Interfaces | 45 | 11 | 33 | 1 |
 | 26 | Packages | 29 | 20 | 8 | 1 |
 | 27 | Generate constructs | 68 | 63 | 4 | 1 |
-| 28 | Gate-level and switch-level modeling | 29 | 25 | 3 | 1 |
+| 28 | Gate-level and switch-level modeling | 165 | 132 | 3 | 30 |
 | 29 | User-defined primitives | 16 | 10 | 4 | 2 |
 | 30 | Specify blocks | 10 | 9 |  | 1 |
 | 31 | Timing checks | 9 |  |  | 9 |
@@ -313,6 +313,7 @@ outputs, and it writes many small variations of one kind of test:
 | `scheduling` | 4 | How a variable is written (blocking, nonblocking, nonblocking with an intra-assignment delay, through a continuous assignment, by `force`), how it is read (in the same process, by another process waiting for it, `$strobe`, `$monitor`), where the write is (initial, always, task, function, fork branch, interface, generate block) and after which delay (none, `#0`, `#1`); only the combinations whose result the standard fixes |
 | `width_sign` | 11 | Operands and targets of 63 to 1000 bits, signed and unsigned, with the operators whose result size and sign 11.6 to 11.8 decide |
 | `xz_propagation` | 11 | Operands with x and z bits for every operator of 11.4 that has rules for them |
+| `strength` | 28 | Two drivers of a net with different strengths and values, on wire, tri, wand, triand, wor, trior, tri0 and tri1 nets and through bufif gates, shown with `%v` |
 
 The docstring of each generator says which rules its model follows and which
 combinations it leaves out because the standard does not decide them. A

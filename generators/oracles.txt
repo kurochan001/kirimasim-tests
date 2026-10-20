@@ -325,6 +325,142 @@ test_gen_sched_nbadelay_wait_interface_nodelay spec iverilog@13.0
 test_gen_sched_nbadelay_wait_task_delay0 spec iverilog@13.0
 test_gen_sched_nbadelay_wait_task_delay1 spec iverilog@13.0
 test_gen_sched_nbadelay_wait_task_nodelay spec iverilog@13.0
+test_gen_strength_bufif0_01 spec iverilog@13.0
+test_gen_strength_bufif0_02 spec iverilog@13.0
+test_gen_strength_bufif0_03 spec iverilog@13.0
+test_gen_strength_bufif0_04 spec iverilog@13.0
+test_gen_strength_bufif0_05 spec iverilog@13.0
+test_gen_strength_bufif0_06 spec iverilog@13.0
+test_gen_strength_bufif0_07 spec iverilog@13.0
+test_gen_strength_bufif0_08 spec iverilog@13.0
+test_gen_strength_bufif1_01 spec iverilog@13.0
+test_gen_strength_bufif1_02 spec iverilog@13.0
+test_gen_strength_bufif1_03 spec iverilog@13.0
+test_gen_strength_bufif1_04 spec iverilog@13.0
+test_gen_strength_bufif1_05 spec iverilog@13.0
+test_gen_strength_bufif1_06 spec iverilog@13.0
+test_gen_strength_bufif1_07 spec iverilog@13.0
+test_gen_strength_bufif1_08 spec iverilog@13.0
+test_gen_strength_tri0_01 spec iverilog@13.0
+test_gen_strength_tri0_02 spec iverilog@13.0
+test_gen_strength_tri0_03 spec iverilog@13.0
+test_gen_strength_tri0_04 spec iverilog@13.0
+test_gen_strength_tri0_05 spec iverilog@13.0
+test_gen_strength_tri0_06 spec iverilog@13.0
+test_gen_strength_tri0_07 spec iverilog@13.0
+test_gen_strength_tri0_08 spec iverilog@13.0
+test_gen_strength_tri0_09 spec iverilog@13.0
+test_gen_strength_tri0_10 spec iverilog@13.0
+test_gen_strength_tri0_11 spec iverilog@13.0
+test_gen_strength_tri0_12 spec iverilog@13.0
+test_gen_strength_tri0_13 spec iverilog@13.0
+test_gen_strength_tri0_14 spec iverilog@13.0
+test_gen_strength_tri0_15 spec iverilog@13.0
+test_gen_strength_tri0_16 spec iverilog@13.0
+test_gen_strength_tri0_17 spec iverilog@13.0
+test_gen_strength_tri0_18 spec iverilog@13.0
+test_gen_strength_tri0_19 spec iverilog@13.0
+test_gen_strength_tri0_20 spec iverilog@13.0
+test_gen_strength_tri0_21 spec iverilog@13.0
+test_gen_strength_tri0_22 spec iverilog@13.0
+test_gen_strength_tri1_01 spec iverilog@13.0
+test_gen_strength_tri1_02 spec iverilog@13.0
+test_gen_strength_tri1_03 spec iverilog@13.0
+test_gen_strength_tri1_04 spec iverilog@13.0
+test_gen_strength_tri1_05 spec iverilog@13.0
+test_gen_strength_tri1_06 spec iverilog@13.0
+test_gen_strength_tri1_07 spec iverilog@13.0
+test_gen_strength_tri1_08 spec iverilog@13.0
+test_gen_strength_tri1_09 spec iverilog@13.0
+test_gen_strength_tri1_10 spec iverilog@13.0
+test_gen_strength_tri1_11 spec iverilog@13.0
+test_gen_strength_tri1_12 spec iverilog@13.0
+test_gen_strength_tri1_13 spec iverilog@13.0
+test_gen_strength_tri1_14 spec iverilog@13.0
+test_gen_strength_tri1_15 spec iverilog@13.0
+test_gen_strength_tri1_16 spec iverilog@13.0
+test_gen_strength_tri1_17 spec iverilog@13.0
+test_gen_strength_tri1_18 spec iverilog@13.0
+test_gen_strength_tri1_19 spec iverilog@13.0
+test_gen_strength_tri1_20 spec iverilog@13.0
+test_gen_strength_tri1_21 spec iverilog@13.0
+test_gen_strength_tri1_22 spec iverilog@13.0
+test_gen_strength_tri_01 spec iverilog@13.0
+test_gen_strength_tri_02 spec iverilog@13.0
+test_gen_strength_tri_03 spec iverilog@13.0
+test_gen_strength_tri_04 spec iverilog@13.0
+test_gen_strength_tri_05 spec iverilog@13.0
+test_gen_strength_tri_06 spec iverilog@13.0
+test_gen_strength_tri_07 spec iverilog@13.0
+test_gen_strength_tri_08 spec iverilog@13.0
+test_gen_strength_tri_09 spec iverilog@13.0
+test_gen_strength_tri_10 spec iverilog@13.0
+test_gen_strength_tri_11 spec iverilog@13.0
+test_gen_strength_tri_12 spec iverilog@13.0
+test_gen_strength_tri_13 spec iverilog@13.0
+test_gen_strength_tri_14 spec iverilog@13.0
+test_gen_strength_tri_15 spec iverilog@13.0
+test_gen_strength_tri_16 spec iverilog@13.0
+test_gen_strength_tri_17 spec iverilog@13.0
+test_gen_strength_tri_18 spec iverilog@13.0
+test_gen_strength_tri_19 spec iverilog@13.0
+test_gen_strength_tri_20 spec iverilog@13.0
+test_gen_strength_tri_21 spec iverilog@13.0
+test_gen_strength_tri_22 spec iverilog@13.0
+test_gen_strength_triand_01 spec iverilog@13.0
+test_gen_strength_triand_02 spec
+test_gen_strength_triand_03 spec
+test_gen_strength_triand_04 spec
+test_gen_strength_triand_05 spec
+test_gen_strength_triand_06 spec
+test_gen_strength_triand_07 spec
+test_gen_strength_triand_08 spec
+test_gen_strength_trior_01 spec iverilog@13.0
+test_gen_strength_trior_02 spec
+test_gen_strength_trior_03 spec
+test_gen_strength_trior_04 spec
+test_gen_strength_trior_05 spec
+test_gen_strength_trior_06 spec
+test_gen_strength_trior_07 spec
+test_gen_strength_trior_08 spec
+test_gen_strength_wand_01 spec
+test_gen_strength_wand_02 spec
+test_gen_strength_wand_03 spec
+test_gen_strength_wand_04 spec
+test_gen_strength_wand_05 spec
+test_gen_strength_wand_06 spec
+test_gen_strength_wand_07 spec
+test_gen_strength_wand_08 spec
+test_gen_strength_wire_01 spec iverilog@13.0
+test_gen_strength_wire_02 spec iverilog@13.0
+test_gen_strength_wire_03 spec iverilog@13.0
+test_gen_strength_wire_04 spec iverilog@13.0
+test_gen_strength_wire_05 spec iverilog@13.0
+test_gen_strength_wire_06 spec iverilog@13.0
+test_gen_strength_wire_07 spec iverilog@13.0
+test_gen_strength_wire_08 spec iverilog@13.0
+test_gen_strength_wire_09 spec iverilog@13.0
+test_gen_strength_wire_10 spec iverilog@13.0
+test_gen_strength_wire_11 spec iverilog@13.0
+test_gen_strength_wire_12 spec iverilog@13.0
+test_gen_strength_wire_13 spec iverilog@13.0
+test_gen_strength_wire_14 spec iverilog@13.0
+test_gen_strength_wire_15 spec iverilog@13.0
+test_gen_strength_wire_16 spec iverilog@13.0
+test_gen_strength_wire_17 spec iverilog@13.0
+test_gen_strength_wire_18 spec iverilog@13.0
+test_gen_strength_wire_19 spec iverilog@13.0
+test_gen_strength_wire_20 spec iverilog@13.0
+test_gen_strength_wire_21 spec iverilog@13.0
+test_gen_strength_wire_22 spec iverilog@13.0
+test_gen_strength_wor_01 spec iverilog@13.0
+test_gen_strength_wor_02 spec
+test_gen_strength_wor_03 spec
+test_gen_strength_wor_04 spec
+test_gen_strength_wor_05 spec
+test_gen_strength_wor_06 spec
+test_gen_strength_wor_07 spec
+test_gen_strength_wor_08 spec
 test_gen_width_add_01 spec iverilog@13.0
 test_gen_width_add_02 spec iverilog@13.0
 test_gen_width_add_03 spec iverilog@13.0

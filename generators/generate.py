@@ -14,10 +14,11 @@ import sys
 
 import common
 import scheduling
+import strength
 import width_sign
 import xz_propagation
 
-GENERATORS = [scheduling, width_sign, xz_propagation]
+GENERATORS = [scheduling, width_sign, xz_propagation, strength]
 
 
 def main() -> int:
