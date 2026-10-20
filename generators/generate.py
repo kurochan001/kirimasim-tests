@@ -15,8 +15,9 @@ import sys
 import common
 import scheduling
 import width_sign
+import xz_propagation
 
-GENERATORS = [scheduling, width_sign]
+GENERATORS = [scheduling, width_sign, xz_propagation]
 
 
 def main() -> int:
