@@ -37,11 +37,11 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **2381 tests** in 37 chapters.
+The suite has **2706 tests** in 37 chapters. 325 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 1546 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 1871 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 624 |
 | The standard only, where neither simulator follows it | 211 |
 
@@ -50,7 +50,7 @@ The suite has **2381 tests** in 37 chapters.
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 10 | 4 | 4 | 2 |
-| 4 | Scheduling semantics | 23 | 18 | 2 | 3 |
+| 4 | Scheduling semantics | 348 | 343 | 2 | 3 |
 | 5 | Lexical conventions | 27 | 25 | 1 | 1 |
 | 6 | Data types | 270 | 202 | 58 | 10 |
 | 7 | Aggregate data types | 281 | 116 | 160 | 5 |
@@ -151,6 +151,10 @@ tests/chNN/<name>.sv            a test, with its metadata header
 tests/chNN/<name>.expected      its expected standard output
 tests/chNN/<name>.c             C code of a DPI or VPI test
 tests/chNN/<other>.sv, .svh     a source or include file that a test names in :files:
+tests/gen/chNN/<name>.sv        a generated test (do not edit; see "Generated tests")
+generators/<generator>.py       a generator of tests and its reference model
+generators/generate.py          writes tests/gen/, or checks it with --check
+generators/oracles.txt          which releases produce each generated test's output
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
@@ -227,6 +231,7 @@ it does not know.
 | `:expected_exit:` | The exit code that the simulation has to end with: `0`, `nonzero` (above 0) or a number. The standard fixes only that `$fatal` ends the run with an error code (20.10), so the tests use `nonzero` for it |
 | `:expected_stderr_regex:` | A Python regular expression for the simulator's messages (standard error, and the lines on standard output that the simulator prints itself). For an illegal design, a line of the messages that says "error" has to match it; the tests give the file and line of the error, such as `test_x\.sv:12:`, which every simulator prints. For other tests, the messages of the run have to match it. The wording of a message is never compared |
 | `:args:` | Arguments for the simulation, separated by spaces: plusargs such as `+count=3` |
+| `:generator:` | `<generator>@<version>`: the test was written by `generators/<generator>.py` (see "Generated tests") |
 | `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it |
 
 ### How a test is judged
@@ -295,6 +300,32 @@ a construct it does not support, does not count.
 
 A disagreement between a simulator and the expected output is never resolved
 by copying the simulator's output: the clause decides.
+
+### Generated tests
+
+The tests under `tests/gen/` are written by the generators in `generators/`.
+Each generator has a reference model of the clauses it tests, written from the
+standard in Python without the help of any simulator, which gives the expected
+outputs, and it writes many small variations of one kind of test:
+
+| Generator | Chapter | What it varies |
+| --- | ---: | --- |
+| `scheduling` | 4 | How a variable is written (blocking, nonblocking, nonblocking with an intra-assignment delay, through a continuous assignment, by `force`), how it is read (in the same process, by another process waiting for it, `$strobe`, `$monitor`), where the write is (initial, always, task, function, fork branch, interface, generate block) and after which delay (none, `#0`, `#1`); only the combinations whose result the standard fixes |
+
+The docstring of each generator says which rules its model follows and which
+combinations it leaves out because the standard does not decide them. A
+change goes into the generator, not into the generated files:
+
+```sh
+python3 generators/generate.py            # write tests/gen/
+python3 generators/generate.py --check    # check that tests/gen/ is up to date
+```
+
+As for other tests, the expected outputs are then run with Icarus Verilog 13.0
+and Verilator 5.052, and `generators/record_oracles.py` records which of them
+produce them in `generators/oracles.txt`, from which `:oracle:` is written. A
+test that neither release produces follows the model alone (`:oracle: spec`);
+where the model and a simulator differ, the clause decides, as above.
 
 ## Running the suite
 
@@ -434,7 +465,8 @@ suite has a problem:
   cache), installs `z3` for `randomize()`, and runs the tests whose
   `:oracle:` lists `verilator@5.052`, which must all match.
 - **readme** checks that the tables of this README are up to date
-  (`tools/suite_stats.py --check`).
+  (`tools/suite_stats.py --check`) and that the generated tests are what the
+  generators write (`generators/generate.py --check`).
 
 `.github/workflows/nightly.yml` runs at 19:23 UTC every day, and can be
 started by hand as well. Its results are only reported. It has five jobs:

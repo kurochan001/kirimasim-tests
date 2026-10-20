@@ -4,7 +4,7 @@ name: Check
 # and Verilator 5.052 with those releases whenever the tests or the tools
 # change. Every one of them must match: these releases do not change, so a
 # test that does not points to a problem in the suite. Also checks that the
-# tables in README.md are up to date.
+# tables in README.md and the generated tests in tests/gen/ are up to date.
 #
 # A failed apt-get update only warns: it can fail for a source that the runner
 # image adds (packages.microsoft.com has answered 403), while the packages
@@ -16,12 +16,14 @@ on:
     paths:
       - "tests/**"
       - "tools/**"
+      - "generators/**"
       - "README.md"
       - ".github/workflows/check.yml"
   pull_request:
     paths:
       - "tests/**"
       - "tools/**"
+      - "generators/**"
       - "README.md"
       - ".github/workflows/check.yml"
   workflow_dispatch:
@@ -138,5 +140,12 @@ jobs:
         run: |
           python3 tools/suite_stats.py --check || {
             echo "::error::README.md is out of date: run python3 tools/suite_stats.py --update"
+            exit 1
+          }
+
+      - name: Check the generated tests
+        run: |
+          python3 generators/generate.py --check || {
+            echo "::error::tests/gen/ is out of date: run python3 generators/generate.py"
             exit 1
           }

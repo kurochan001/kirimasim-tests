@@ -89,7 +89,7 @@ def collect(root: Path = ROOT) -> dict:
     by_chapter: dict[int, dict[str, int]] = {}
     totals = {"tests": 0, "icarus": 0, "verilator": 0, "spec": 0, "human": 0,
               "fourstate": 0, "dpi_c": 0, "vpi_c": 0, "illegal": 0, "exit": 0, "files": 0,
-              "args": 0}
+              "args": 0, "generated": {}}
     for test in suite_results.find_tests(root):
         fields = header(test)
         chapter = int(test.parent.name.removeprefix("ch"))
@@ -107,13 +107,20 @@ def collect(root: Path = ROOT) -> dict:
         totals["exit"] += "expected_exit" in fields
         totals["files"] += "files" in fields
         totals["args"] += "args" in fields
+        if "generator" in fields:
+            g = fields["generator"].split("@")[0]
+            totals["generated"][g] = totals["generated"].get(g, 0) + 1
     return {"totals": totals, "chapters": by_chapter}
 
 
 def markdown(stats: dict) -> str:
     t = stats["totals"]
     lines = [
-        f"The suite has **{t['tests']} tests** in {len(stats['chapters'])} chapters.",
+        f"The suite has **{t['tests']} tests** in {len(stats['chapters'])} chapters."
+        + (f" {sum(t['generated'].values())} of them are generated (`tests/gen/`, see "
+           "\"Generated tests\"): "
+           + ", ".join(f"{n} by `{g}`" for g, n in sorted(t["generated"].items())) + "."
+           if t["generated"] else ""),
         "",
         "| Expected output recorded with | Tests |",
         "| --- | ---: |",

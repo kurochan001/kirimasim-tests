@@ -88,7 +88,8 @@ def save_json(path: Path, data) -> None:
 
 
 def chapter_of(test: str) -> str:
-    return test.split("/", 1)[0].removeprefix("ch")
+    """"4" for "ch4/test_x" and for a generated test, "gen/ch4/test_x"."""
+    return next(p for p in test.split("/") if p.startswith("ch")).removeprefix("ch")
 
 
 def compare(now: dict[str, dict], before: dict[str, str] | None) -> dict | None:
