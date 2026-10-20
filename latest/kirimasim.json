@@ -1,8 +1,8 @@
 {
  "name": "kirimasim",
- "version": "kirimasim 0.0.0 (commit ff80adcf6051), built with GNU 13.3.0",
- "time": "2026-10-20T05:01:19Z",
- "suite_commit": "56508cdce0a414ca1623756c6856dd1f49819977",
+ "version": "kirimasim 0.0.0 (commit b1be7015e643), built with GNU 13.3.0",
+ "time": "2026-10-20T07:49:15Z",
+ "suite_commit": "6bffc4a184134250ca4b934ef2b40af9961bc4d5",
  "tests": {
   "ch10/test_adder_edge_cases": "pass",
   "ch10/test_alias_part_select_and_ports": "unsupported",

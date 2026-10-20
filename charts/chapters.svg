@@ -5,207 +5,207 @@
 <text x="20.0" y="28.0" class="title" text-anchor="start">Matching tests by chapter</text>
 <text x="20.0" y="48.0" class="muted" text-anchor="start">Run of 2026-10-20: the share of each chapter&#x27;s tests whose output matches</text>
 <text x="405.0" y="70.0" text-anchor="middle" font-weight="600">Icarus Verilog</text>
-<text x="405.0" y="84.0" class="muted" text-anchor="middle">14.0 devel eed9291</text>
-<text x="555.0" y="70.0" text-anchor="middle" font-weight="600">Verilator</text>
-<text x="555.0" y="84.0" class="muted" text-anchor="middle">5.053 devel 0177067</text>
-<text x="705.0" y="70.0" text-anchor="middle" font-weight="600">kirimasim</text>
-<text x="705.0" y="84.0" class="muted" text-anchor="middle">ff80adcf6</text>
+<text x="405.0" y="84.0" class="muted" text-anchor="middle">14.0 devel 7e3d0c6</text>
+<text x="555.0" y="70.0" text-anchor="middle" font-weight="600">kirimasim</text>
+<text x="555.0" y="84.0" class="muted" text-anchor="middle">b1be7015e</text>
+<text x="705.0" y="70.0" text-anchor="middle" font-weight="600">sukimasim</text>
+<text x="705.0" y="84.0" class="muted" text-anchor="middle">02efa6d73</text>
 <text x="20.0" y="107.0" text-anchor="start">3  Design and verification building blocks</text>
 <rect x="332" y="94" width="146" height="18" rx="3" style="fill:hsl(40,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="107.0" text-anchor="middle">3/9  33%</text>
-<rect x="482" y="94" width="146" height="18" rx="3" style="fill:hsl(67,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="107.0" text-anchor="middle">5/9  56%</text>
+<rect x="482" y="94" width="146" height="18" rx="3" style="fill:hsl(93,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="107.0" text-anchor="middle">7/9  78%</text>
 <rect x="632" y="94" width="146" height="18" rx="3" style="fill:hsl(93,70%,45%);fill-opacity:0.35"/>
 <text x="705.0" y="107.0" text-anchor="middle">7/9  78%</text>
 <text x="20.0" y="129.0" text-anchor="start">4  Scheduling semantics</text>
 <rect x="332" y="116" width="146" height="18" rx="3" style="fill:hsl(94,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="129.0" text-anchor="middle">18/23  78%</text>
-<rect x="482" y="116" width="146" height="18" rx="3" style="fill:hsl(63,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="129.0" text-anchor="middle">12/23  52%</text>
-<rect x="632" y="116" width="146" height="18" rx="3" style="fill:hsl(89,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="129.0" text-anchor="middle">17/23  74%</text>
+<rect x="482" y="116" width="146" height="18" rx="3" style="fill:hsl(89,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="129.0" text-anchor="middle">17/23  74%</text>
+<rect x="632" y="116" width="146" height="18" rx="3" style="fill:hsl(83,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="129.0" text-anchor="middle">16/23  70%</text>
 <text x="20.0" y="151.0" text-anchor="start">5  Lexical conventions</text>
 <rect x="332" y="138" width="146" height="18" rx="3" style="fill:hsl(120,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="151.0" text-anchor="middle">27/27  100%</text>
-<rect x="482" y="138" width="146" height="18" rx="3" style="fill:hsl(98,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="151.0" text-anchor="middle">22/27  81%</text>
-<rect x="632" y="138" width="146" height="18" rx="3" style="fill:hsl(111,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="151.0" text-anchor="middle">25/27  93%</text>
+<rect x="482" y="138" width="146" height="18" rx="3" style="fill:hsl(111,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="151.0" text-anchor="middle">25/27  93%</text>
+<rect x="632" y="138" width="146" height="18" rx="3" style="fill:hsl(116,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="151.0" text-anchor="middle">26/27  96%</text>
 <text x="20.0" y="173.0" text-anchor="start">6  Data types</text>
 <rect x="332" y="160" width="146" height="18" rx="3" style="fill:hsl(94,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="173.0" text-anchor="middle">200/255  78%</text>
-<rect x="482" y="160" width="146" height="18" rx="3" style="fill:hsl(104,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="173.0" text-anchor="middle">222/255  87%</text>
+<rect x="482" y="160" width="146" height="18" rx="3" style="fill:hsl(114,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="173.0" text-anchor="middle">242/255  95%</text>
 <rect x="632" y="160" width="146" height="18" rx="3" style="fill:hsl(114,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="173.0" text-anchor="middle">242/255  95%</text>
+<text x="705.0" y="173.0" text-anchor="middle">243/255  95%</text>
 <text x="20.0" y="195.0" text-anchor="start">7  Aggregate data types</text>
 <rect x="332" y="182" width="146" height="18" rx="3" style="fill:hsl(63,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="195.0" text-anchor="middle">147/279  53%</text>
-<rect x="482" y="182" width="146" height="18" rx="3" style="fill:hsl(117,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="195.0" text-anchor="middle">273/279  98%</text>
-<rect x="632" y="182" width="146" height="18" rx="3" style="fill:hsl(40,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="195.0" text-anchor="middle">93/279  33%</text>
+<rect x="482" y="182" width="146" height="18" rx="3" style="fill:hsl(40,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="195.0" text-anchor="middle">93/279  33%</text>
+<rect x="632" y="182" width="146" height="18" rx="3" style="fill:hsl(115,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="195.0" text-anchor="middle">268/279  96%</text>
 <text x="20.0" y="217.0" text-anchor="start">8  Classes</text>
 <rect x="332" y="204" width="146" height="18" rx="3" style="fill:hsl(30,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="217.0" text-anchor="middle">30/122  25%</text>
-<rect x="482" y="204" width="146" height="18" rx="3" style="fill:hsl(119,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="217.0" text-anchor="middle">121/122  99%</text>
-<rect x="632" y="204" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="217.0" text-anchor="middle">0/122  0%</text>
+<rect x="482" y="204" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="217.0" text-anchor="middle">0/122  0%</text>
+<rect x="632" y="204" width="146" height="18" rx="3" style="fill:hsl(111,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="217.0" text-anchor="middle">113/122  93%</text>
 <text x="20.0" y="239.0" text-anchor="start">9  Processes</text>
 <rect x="332" y="226" width="146" height="18" rx="3" style="fill:hsl(108,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="239.0" text-anchor="middle">90/100  90%</text>
-<rect x="482" y="226" width="146" height="18" rx="3" style="fill:hsl(103,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="239.0" text-anchor="middle">86/100  86%</text>
-<rect x="632" y="226" width="146" height="18" rx="3" style="fill:hsl(108,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="239.0" text-anchor="middle">90/100  90%</text>
+<rect x="482" y="226" width="146" height="18" rx="3" style="fill:hsl(108,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="239.0" text-anchor="middle">90/100  90%</text>
+<rect x="632" y="226" width="146" height="18" rx="3" style="fill:hsl(107,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="239.0" text-anchor="middle">89/100  89%</text>
 <text x="20.0" y="261.0" text-anchor="start">10  Assignment statements</text>
 <rect x="332" y="248" width="146" height="18" rx="3" style="fill:hsl(99,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="261.0" text-anchor="middle">86/104  83%</text>
-<rect x="482" y="248" width="146" height="18" rx="3" style="fill:hsl(110,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="261.0" text-anchor="middle">95/104  91%</text>
-<rect x="632" y="248" width="146" height="18" rx="3" style="fill:hsl(106,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="261.0" text-anchor="middle">92/104  88%</text>
+<rect x="482" y="248" width="146" height="18" rx="3" style="fill:hsl(106,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="261.0" text-anchor="middle">92/104  88%</text>
+<rect x="632" y="248" width="146" height="18" rx="3" style="fill:hsl(112,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="261.0" text-anchor="middle">97/104  93%</text>
 <text x="20.0" y="283.0" text-anchor="start">11  Operators and expressions</text>
 <rect x="332" y="270" width="146" height="18" rx="3" style="fill:hsl(102,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="283.0" text-anchor="middle">325/382  85%</text>
-<rect x="482" y="270" width="146" height="18" rx="3" style="fill:hsl(107,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="283.0" text-anchor="middle">340/382  89%</text>
-<rect x="632" y="270" width="146" height="18" rx="3" style="fill:hsl(114,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="283.0" text-anchor="middle">364/382  95%</text>
+<rect x="482" y="270" width="146" height="18" rx="3" style="fill:hsl(114,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="283.0" text-anchor="middle">364/382  95%</text>
+<rect x="632" y="270" width="146" height="18" rx="3" style="fill:hsl(118,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="283.0" text-anchor="middle">375/382  98%</text>
 <text x="20.0" y="305.0" text-anchor="start">12  Procedural programming statements</text>
 <rect x="332" y="292" width="146" height="18" rx="3" style="fill:hsl(105,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="305.0" text-anchor="middle">104/119  87%</text>
-<rect x="482" y="292" width="146" height="18" rx="3" style="fill:hsl(113,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="305.0" text-anchor="middle">112/119  94%</text>
-<rect x="632" y="292" width="146" height="18" rx="3" style="fill:hsl(110,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="305.0" text-anchor="middle">109/119  92%</text>
+<rect x="482" y="292" width="146" height="18" rx="3" style="fill:hsl(110,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="305.0" text-anchor="middle">109/119  92%</text>
+<rect x="632" y="292" width="146" height="18" rx="3" style="fill:hsl(119,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="305.0" text-anchor="middle">118/119  99%</text>
 <text x="20.0" y="327.0" text-anchor="start">13  Tasks and functions (subroutines)</text>
 <rect x="332" y="314" width="146" height="18" rx="3" style="fill:hsl(71,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="327.0" text-anchor="middle">60/101  59%</text>
-<rect x="482" y="314" width="146" height="18" rx="3" style="fill:hsl(119,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="327.0" text-anchor="middle">100/101  99%</text>
-<rect x="632" y="314" width="146" height="18" rx="3" style="fill:hsl(100,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="327.0" text-anchor="middle">84/101  83%</text>
+<rect x="482" y="314" width="146" height="18" rx="3" style="fill:hsl(100,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="327.0" text-anchor="middle">84/101  83%</text>
+<rect x="632" y="314" width="146" height="18" rx="3" style="fill:hsl(112,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="327.0" text-anchor="middle">94/101  93%</text>
 <text x="20.0" y="349.0" text-anchor="start">14  Clocking blocks</text>
 <rect x="332" y="336" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="349.0" text-anchor="middle">0/19  0%</text>
-<rect x="482" y="336" width="146" height="18" rx="3" style="fill:hsl(95,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="349.0" text-anchor="middle">15/19  79%</text>
-<rect x="632" y="336" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="349.0" text-anchor="middle">0/19  0%</text>
+<rect x="482" y="336" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="349.0" text-anchor="middle">0/19  0%</text>
+<rect x="632" y="336" width="146" height="18" rx="3" style="fill:hsl(76,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="349.0" text-anchor="middle">12/19  63%</text>
 <text x="20.0" y="371.0" text-anchor="start">15  Interprocess synchronization and communication</text>
 <rect x="332" y="358" width="146" height="18" rx="3" style="fill:hsl(5,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="371.0" text-anchor="middle">1/26  4%</text>
-<rect x="482" y="358" width="146" height="18" rx="3" style="fill:hsl(102,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="371.0" text-anchor="middle">22/26  85%</text>
-<rect x="632" y="358" width="146" height="18" rx="3" style="fill:hsl(23,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="371.0" text-anchor="middle">5/26  19%</text>
+<rect x="482" y="358" width="146" height="18" rx="3" style="fill:hsl(23,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="371.0" text-anchor="middle">5/26  19%</text>
+<rect x="632" y="358" width="146" height="18" rx="3" style="fill:hsl(106,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="371.0" text-anchor="middle">23/26  88%</text>
 <text x="20.0" y="393.0" text-anchor="start">16  Assertions</text>
 <rect x="332" y="380" width="146" height="18" rx="3" style="fill:hsl(30,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="393.0" text-anchor="middle">16/64  25%</text>
-<rect x="482" y="380" width="146" height="18" rx="3" style="fill:hsl(56,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="393.0" text-anchor="middle">30/64  47%</text>
-<rect x="632" y="380" width="146" height="18" rx="3" style="fill:hsl(36,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="393.0" text-anchor="middle">19/64  30%</text>
+<rect x="482" y="380" width="146" height="18" rx="3" style="fill:hsl(36,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="393.0" text-anchor="middle">19/64  30%</text>
+<rect x="632" y="380" width="146" height="18" rx="3" style="fill:hsl(58,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="393.0" text-anchor="middle">31/64  48%</text>
 <text x="20.0" y="415.0" text-anchor="start">17  Checkers</text>
 <rect x="332" y="402" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="415.0" text-anchor="middle">0/11  0%</text>
 <rect x="482" y="402" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="555.0" y="415.0" text-anchor="middle">0/11  0%</text>
-<rect x="632" y="402" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="415.0" text-anchor="middle">0/11  0%</text>
+<rect x="632" y="402" width="146" height="18" rx="3" style="fill:hsl(22,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="415.0" text-anchor="middle">2/11  18%</text>
 <text x="20.0" y="437.0" text-anchor="start">18  Constrained random value generation</text>
 <rect x="332" y="424" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="437.0" text-anchor="middle">0/27  0%</text>
-<rect x="482" y="424" width="146" height="18" rx="3" style="fill:hsl(111,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="437.0" text-anchor="middle">25/27  93%</text>
-<rect x="632" y="424" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="437.0" text-anchor="middle">0/27  0%</text>
+<rect x="482" y="424" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="437.0" text-anchor="middle">0/27  0%</text>
+<rect x="632" y="424" width="146" height="18" rx="3" style="fill:hsl(98,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="437.0" text-anchor="middle">22/27  81%</text>
 <text x="20.0" y="459.0" text-anchor="start">19  Functional coverage</text>
 <rect x="332" y="446" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="459.0" text-anchor="middle">0/25  0%</text>
-<rect x="482" y="446" width="146" height="18" rx="3" style="fill:hsl(72,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="459.0" text-anchor="middle">15/25  60%</text>
-<rect x="632" y="446" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="459.0" text-anchor="middle">0/25  0%</text>
+<rect x="482" y="446" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="459.0" text-anchor="middle">0/25  0%</text>
+<rect x="632" y="446" width="146" height="18" rx="3" style="fill:hsl(72,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="459.0" text-anchor="middle">15/25  60%</text>
 <text x="20.0" y="481.0" text-anchor="start">20  Utility system tasks and system functions</text>
 <rect x="332" y="468" width="146" height="18" rx="3" style="fill:hsl(111,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="481.0" text-anchor="middle">158/171  92%</text>
-<rect x="482" y="468" width="146" height="18" rx="3" style="fill:hsl(93,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="481.0" text-anchor="middle">132/171  77%</text>
-<rect x="632" y="468" width="146" height="18" rx="3" style="fill:hsl(106,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="481.0" text-anchor="middle">151/171  88%</text>
+<rect x="482" y="468" width="146" height="18" rx="3" style="fill:hsl(106,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="481.0" text-anchor="middle">151/171  88%</text>
+<rect x="632" y="468" width="146" height="18" rx="3" style="fill:hsl(116,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="481.0" text-anchor="middle">165/171  96%</text>
 <text x="20.0" y="503.0" text-anchor="start">21  Input/output system tasks and system functions</text>
 <rect x="332" y="490" width="146" height="18" rx="3" style="fill:hsl(110,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="503.0" text-anchor="middle">69/75  92%</text>
-<rect x="482" y="490" width="146" height="18" rx="3" style="fill:hsl(96,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="503.0" text-anchor="middle">60/75  80%</text>
-<rect x="632" y="490" width="146" height="18" rx="3" style="fill:hsl(98,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="503.0" text-anchor="middle">61/75  81%</text>
+<rect x="482" y="490" width="146" height="18" rx="3" style="fill:hsl(98,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="503.0" text-anchor="middle">61/75  81%</text>
+<rect x="632" y="490" width="146" height="18" rx="3" style="fill:hsl(94,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="503.0" text-anchor="middle">59/75  79%</text>
 <text x="20.0" y="525.0" text-anchor="start">22  Compiler directives</text>
 <rect x="332" y="512" width="146" height="18" rx="3" style="fill:hsl(115,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="525.0" text-anchor="middle">21/22  95%</text>
-<rect x="482" y="512" width="146" height="18" rx="3" style="fill:hsl(109,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="525.0" text-anchor="middle">20/22  91%</text>
-<rect x="632" y="512" width="146" height="18" rx="3" style="fill:hsl(115,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="525.0" text-anchor="middle">21/22  95%</text>
+<rect x="482" y="512" width="146" height="18" rx="3" style="fill:hsl(115,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="525.0" text-anchor="middle">21/22  95%</text>
+<rect x="632" y="512" width="146" height="18" rx="3" style="fill:hsl(104,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="525.0" text-anchor="middle">19/22  86%</text>
 <text x="20.0" y="547.0" text-anchor="start">23  Modules and hierarchy</text>
 <rect x="332" y="534" width="146" height="18" rx="3" style="fill:hsl(103,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="547.0" text-anchor="middle">49/57  86%</text>
-<rect x="482" y="534" width="146" height="18" rx="3" style="fill:hsl(107,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="547.0" text-anchor="middle">51/57  89%</text>
-<rect x="632" y="534" width="146" height="18" rx="3" style="fill:hsl(109,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="547.0" text-anchor="middle">52/57  91%</text>
+<rect x="482" y="534" width="146" height="18" rx="3" style="fill:hsl(109,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="547.0" text-anchor="middle">52/57  91%</text>
+<rect x="632" y="534" width="146" height="18" rx="3" style="fill:hsl(116,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="547.0" text-anchor="middle">55/57  96%</text>
 <text x="20.0" y="569.0" text-anchor="start">24  Programs</text>
 <rect x="332" y="556" width="146" height="18" rx="3" style="fill:hsl(48,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="569.0" text-anchor="middle">4/10  40%</text>
-<rect x="482" y="556" width="146" height="18" rx="3" style="fill:hsl(48,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="569.0" text-anchor="middle">4/10  40%</text>
+<rect x="482" y="556" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="569.0" text-anchor="middle">0/10  0%</text>
 <rect x="632" y="556" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="705.0" y="569.0" text-anchor="middle">0/10  0%</text>
 <text x="20.0" y="591.0" text-anchor="start">25  Interfaces</text>
 <rect x="332" y="578" width="146" height="18" rx="3" style="fill:hsl(50,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="591.0" text-anchor="middle">18/43  42%</text>
-<rect x="482" y="578" width="146" height="18" rx="3" style="fill:hsl(117,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="591.0" text-anchor="middle">42/43  98%</text>
-<rect x="632" y="578" width="146" height="18" rx="3" style="fill:hsl(81,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="591.0" text-anchor="middle">29/43  67%</text>
+<rect x="482" y="578" width="146" height="18" rx="3" style="fill:hsl(81,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="591.0" text-anchor="middle">29/43  67%</text>
+<rect x="632" y="578" width="146" height="18" rx="3" style="fill:hsl(112,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="591.0" text-anchor="middle">40/43  93%</text>
 <text x="20.0" y="613.0" text-anchor="start">26  Packages</text>
 <rect x="332" y="600" width="146" height="18" rx="3" style="fill:hsl(83,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="613.0" text-anchor="middle">18/26  69%</text>
-<rect x="482" y="600" width="146" height="18" rx="3" style="fill:hsl(115,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="613.0" text-anchor="middle">25/26  96%</text>
-<rect x="632" y="600" width="146" height="18" rx="3" style="fill:hsl(111,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="613.0" text-anchor="middle">24/26  92%</text>
+<rect x="482" y="600" width="146" height="18" rx="3" style="fill:hsl(111,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="613.0" text-anchor="middle">24/26  92%</text>
+<rect x="632" y="600" width="146" height="18" rx="3" style="fill:hsl(106,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="613.0" text-anchor="middle">23/26  88%</text>
 <text x="20.0" y="635.0" text-anchor="start">27  Generate constructs</text>
 <rect x="332" y="622" width="146" height="18" rx="3" style="fill:hsl(115,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="635.0" text-anchor="middle">64/67  96%</text>
-<rect x="482" y="622" width="146" height="18" rx="3" style="fill:hsl(100,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="635.0" text-anchor="middle">56/67  84%</text>
+<rect x="482" y="622" width="146" height="18" rx="3" style="fill:hsl(116,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="635.0" text-anchor="middle">65/67  97%</text>
 <rect x="632" y="622" width="146" height="18" rx="3" style="fill:hsl(116,70%,45%);fill-opacity:0.35"/>
 <text x="705.0" y="635.0" text-anchor="middle">65/67  97%</text>
 <text x="20.0" y="657.0" text-anchor="start">28  Gate-level and switch-level modeling</text>
 <rect x="332" y="644" width="146" height="18" rx="3" style="fill:hsl(116,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="657.0" text-anchor="middle">28/29  97%</text>
-<rect x="482" y="644" width="146" height="18" rx="3" style="fill:hsl(87,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="657.0" text-anchor="middle">21/29  72%</text>
-<rect x="632" y="644" width="146" height="18" rx="3" style="fill:hsl(74,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="657.0" text-anchor="middle">18/29  62%</text>
+<rect x="482" y="644" width="146" height="18" rx="3" style="fill:hsl(74,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="657.0" text-anchor="middle">18/29  62%</text>
+<rect x="632" y="644" width="146" height="18" rx="3" style="fill:hsl(103,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="657.0" text-anchor="middle">25/29  86%</text>
 <text x="20.0" y="679.0" text-anchor="start">29  User-defined primitives</text>
 <rect x="332" y="666" width="146" height="18" rx="3" style="fill:hsl(75,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="679.0" text-anchor="middle">10/16  62%</text>
-<rect x="482" y="666" width="146" height="18" rx="3" style="fill:hsl(60,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="679.0" text-anchor="middle">8/16  50%</text>
-<rect x="632" y="666" width="146" height="18" rx="3" style="fill:hsl(112,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="679.0" text-anchor="middle">15/16  94%</text>
+<rect x="482" y="666" width="146" height="18" rx="3" style="fill:hsl(112,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="679.0" text-anchor="middle">15/16  94%</text>
+<rect x="632" y="666" width="146" height="18" rx="3" style="fill:hsl(105,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="679.0" text-anchor="middle">14/16  88%</text>
 <text x="20.0" y="701.0" text-anchor="start">30  Specify blocks</text>
 <rect x="332" y="688" width="146" height="18" rx="3" style="fill:hsl(108,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="701.0" text-anchor="middle">9/10  90%</text>
 <rect x="482" y="688" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="555.0" y="701.0" text-anchor="middle">0/10  0%</text>
-<rect x="632" y="688" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="701.0" text-anchor="middle">0/10  0%</text>
+<rect x="632" y="688" width="146" height="18" rx="3" style="fill:hsl(96,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="701.0" text-anchor="middle">8/10  80%</text>
 <text x="20.0" y="723.0" text-anchor="start">31  Timing checks</text>
 <rect x="332" y="710" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="723.0" text-anchor="middle">0/9  0%</text>
@@ -223,38 +223,38 @@
 <text x="20.0" y="767.0" text-anchor="start">33  Configuring the contents of a design</text>
 <rect x="332" y="754" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="767.0" text-anchor="middle">0/7  0%</text>
-<rect x="482" y="754" width="146" height="18" rx="3" style="fill:hsl(17,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="767.0" text-anchor="middle">1/7  14%</text>
-<rect x="632" y="754" width="146" height="18" rx="3" style="fill:hsl(86,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="767.0" text-anchor="middle">5/7  71%</text>
+<rect x="482" y="754" width="146" height="18" rx="3" style="fill:hsl(86,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="767.0" text-anchor="middle">5/7  71%</text>
+<rect x="632" y="754" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="767.0" text-anchor="middle">0/7  0%</text>
 <text x="20.0" y="789.0" text-anchor="start">35  Direct programming interface</text>
 <rect x="332" y="776" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="789.0" text-anchor="middle">0/16  0%</text>
-<rect x="482" y="776" width="146" height="18" rx="3" style="fill:hsl(82,70%,45%);fill-opacity:0.35"/>
-<text x="555.0" y="789.0" text-anchor="middle">11/16  69%</text>
-<rect x="632" y="776" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="789.0" text-anchor="middle">0/16  0%</text>
+<rect x="482" y="776" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
+<text x="555.0" y="789.0" text-anchor="middle">0/16  0%</text>
+<rect x="632" y="776" width="146" height="18" rx="3" style="fill:hsl(82,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="789.0" text-anchor="middle">11/16  69%</text>
 <text x="20.0" y="811.0" text-anchor="start">36  Programming language interface (PLI/VPI) overview</text>
 <rect x="332" y="798" width="146" height="18" rx="3" style="fill:hsl(60,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="811.0" text-anchor="middle">4/8  50%</text>
 <rect x="482" y="798" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="555.0" y="811.0" text-anchor="middle">0/8  0%</text>
-<rect x="632" y="798" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="811.0" text-anchor="middle">0/8  0%</text>
+<rect x="632" y="798" width="146" height="18" rx="3" style="fill:hsl(30,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="811.0" text-anchor="middle">2/8  25%</text>
 <text x="20.0" y="833.0" text-anchor="start">37  VPI object model diagrams</text>
 <rect x="332" y="820" width="146" height="18" rx="3" style="fill:hsl(8,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="833.0" text-anchor="middle">2/30  7%</text>
 <rect x="482" y="820" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="555.0" y="833.0" text-anchor="middle">0/30  0%</text>
-<rect x="632" y="820" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="833.0" text-anchor="middle">0/30  0%</text>
+<rect x="632" y="820" width="146" height="18" rx="3" style="fill:hsl(4,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="833.0" text-anchor="middle">1/30  3%</text>
 <text x="20.0" y="855.0" text-anchor="start">38  VPI routine definitions</text>
 <rect x="332" y="842" width="146" height="18" rx="3" style="fill:hsl(83,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="855.0" text-anchor="middle">9/13  69%</text>
 <rect x="482" y="842" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="555.0" y="855.0" text-anchor="middle">0/13  0%</text>
-<rect x="632" y="842" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
-<text x="705.0" y="855.0" text-anchor="middle">0/13  0%</text>
+<rect x="632" y="842" width="146" height="18" rx="3" style="fill:hsl(28,70%,45%);fill-opacity:0.35"/>
+<text x="705.0" y="855.0" text-anchor="middle">3/13  23%</text>
 <text x="20.0" y="877.0" text-anchor="start">39  Assertion API</text>
 <rect x="332" y="864" width="146" height="18" rx="3" style="fill:hsl(0,70%,45%);fill-opacity:0.35"/>
 <text x="405.0" y="877.0" text-anchor="middle">0/6  0%</text>

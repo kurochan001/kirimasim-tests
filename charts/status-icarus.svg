@@ -21,12 +21,14 @@
 <line class="grid" x1="64" x2="856" y1="92.0" y2="92.0"/>
 <text x="56.0" y="96.0" class="muted" text-anchor="end">2500</text>
 <line class="axis" x1="64" x2="856" y1="300" y2="300"/>
-<line class="axis" x1="266.0" x2="266.0" y1="300" y2="304"/>
-<text x="266.0" y="318.0" class="muted" text-anchor="middle">10-19</text>
-<line class="axis" x1="601.8" x2="601.8" y1="300" y2="304"/>
-<text x="601.8" y="318.0" class="muted" text-anchor="middle">10-20</text>
-<rect class="c-pass" x="401.8" y="173.4" width="28.0" height="126.6"/>
-<rect class="c-known" x="401.8" y="119.0" width="28.0" height="54.4"/>
-<rect class="c-pass" x="490.2" y="168.7" width="28.0" height="131.3"/>
-<rect class="c-known" x="490.2" y="106.4" width="28.0" height="62.3"/>
+<line class="axis" x1="256.8" x2="256.8" y1="300" y2="304"/>
+<text x="256.8" y="318.0" class="muted" text-anchor="middle">10-19</text>
+<line class="axis" x1="576.2" x2="576.2" y1="300" y2="304"/>
+<text x="576.2" y="318.0" class="muted" text-anchor="middle">10-20</text>
+<rect class="c-pass" x="385.4" y="173.4" width="28.0" height="126.6"/>
+<rect class="c-known" x="385.4" y="119.0" width="28.0" height="54.4"/>
+<rect class="c-pass" x="469.4" y="168.7" width="28.0" height="131.3"/>
+<rect class="c-known" x="469.4" y="106.4" width="28.0" height="62.3"/>
+<rect class="c-pass" x="506.6" y="168.7" width="28.0" height="131.3"/>
+<rect class="c-known" x="506.6" y="106.4" width="28.0" height="62.3"/>
 </svg>
