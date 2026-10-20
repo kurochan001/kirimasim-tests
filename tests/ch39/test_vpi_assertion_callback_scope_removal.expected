@@ -1,0 +1,9 @@
+removing the second callback: done
+5: a1 success, user data first
+5: a1 success, user data second
+5: a2 failure, user data third
+15: a1 success, user data first
+15: a1 success, user data second
+15: a2 failure, user data third
+25: a1 success, user data first
+25: a2 failure, user data third

@@ -1,0 +1,14 @@
+statement maximum: definition is u1 + u2: yes, u1 hierarchy is u1 + u1.in: yes
+statement maximum: definition hierarchy is u1 + u2 hierarchies: yes, top hierarchy: yes
+statement current: definition is u1 + u2: yes, u1 hierarchy is u1 + u1.in: yes
+statement current: definition hierarchy is u1 + u2 hierarchies: yes, top hierarchy: yes
+toggle maximum: definition is u1 + u2: yes, u1 hierarchy is u1 + u1.in: yes
+toggle maximum: definition hierarchy is u1 + u2 hierarchies: yes, top hierarchy: yes
+toggle current: definition is u1 + u2: yes, u1 hierarchy is u1 + u1.in: yes
+toggle current: definition hierarchy is u1 + u2 hierarchies: yes, top hierarchy: yes
+FSM state maximum: definition is u1 + u2: yes, u1 hierarchy is u1 + u1.in: yes
+FSM state maximum: definition hierarchy is u1 + u2 hierarchies: yes, top hierarchy: yes
+assertion maximum: definition is u1 + u2: yes, u1 hierarchy is u1 + u1.in: yes
+assertion maximum: definition hierarchy is u1 + u2 hierarchies: yes, top hierarchy: yes
+statement maximum unchanged by stop, reset and start: yes
+toggle maximum unchanged by stop, reset and start: yes

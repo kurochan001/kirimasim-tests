@@ -1,0 +1,12 @@
+module, start: ERROR
+module, stop: ERROR
+module, reset: ERROR
+module, check: ERROR
+module, maximum: ERROR
+module, current: ERROR
+hierarchy, start: ERROR
+hierarchy, stop: ERROR
+hierarchy, reset: ERROR
+hierarchy, check: ERROR
+hierarchy, maximum: ERROR
+hierarchy, current: ERROR

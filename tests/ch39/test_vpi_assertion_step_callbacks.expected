@@ -1,0 +1,7 @@
+step callback placed
+steps of other attempts: 0
+15: step success
+25: step success
+35: step failure
+failing step has an expression: yes
+a step at the start leaves state 0: yes

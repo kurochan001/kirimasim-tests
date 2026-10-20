@@ -1,0 +1,8 @@
+all enabled: nonvacuous 1, vacuous 1, fail 1
+vacuous disabled: nonvacuous 1, vacuous 0, fail 1
+pass enabled: nonvacuous 1, vacuous 1, fail 1
+nonvacuous enabled: nonvacuous 1, vacuous 0, fail 1
+30: vacuous pass action disabled
+60: pass action enabled
+90: pass action disabled
+90: nonvacuous pass action enabled

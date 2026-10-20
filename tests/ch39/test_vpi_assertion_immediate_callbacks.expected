@@ -1,0 +1,19 @@
+immediate assertions found: 3
+10: assert start, attempt started at 10
+10: assert success, attempt started at 10
+10: assume start, attempt started at 10
+10: assume success, attempt started at 10
+10: cover start, attempt started at 10
+10: cover success, attempt started at 10
+20: assert start, attempt started at 20
+20: assert failure, attempt started at 20, failing expression given
+20: assume start, attempt started at 20
+20: assume failure, attempt started at 20, failing expression given
+20: cover start, attempt started at 20
+30: assert start, attempt started at 30
+30: assert success, attempt started at 30
+30: assume start, attempt started at 30
+30: assume success, attempt started at 30
+30: cover start, attempt started at 30
+30: cover success, attempt started at 30
+fail actions: 2
