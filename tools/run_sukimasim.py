@@ -65,6 +65,10 @@ DIAGNOSTIC = re.compile(
     r"|Merging with existing coverage database: "
     r"|Fork-join_(?:none|any) block |MCD: |VPI: |Warning: Invalid (?:hex|binary) value in )")
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
+# Places in sukimasim's own C++ sources that some of its messages name, such as
+# "(foo.cpp:12)". sukimasim is not public, so they are left out of the reasons
+# that the runner prints and writes with --json.
+SOURCE = re.compile(r"\s*\(?\b[\w./-]+\.(?:cpp|cc|cxx|hpp|hh|hxx)(?::\d+)*\)?")
 
 
 def header_field(test: Path, name: str) -> str | None:
@@ -169,6 +173,7 @@ def main() -> int:
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
         results = pool.map(lambda t: run(t, exe, include, args.strip_diagnostics), tests)
         for t, (ok, why) in zip(tests, results):
+            why = SOURCE.sub("", why)
             if not ok:
                 failed += 1
                 name = t.relative_to(ROOT) if t.is_absolute() else t

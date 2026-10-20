@@ -5,6 +5,10 @@ name: Check
 # change. Every one of them must match: these releases do not change, so a
 # test that does not points to a problem in the suite. Also checks that the
 # tables in README.md are up to date.
+#
+# A failed apt-get update only warns: it can fail for a source that the runner
+# image adds (packages.microsoft.com has answered 403), while the packages
+# installed here come from Ubuntu's own archive.
 
 on:
   push:
@@ -48,7 +52,7 @@ jobs:
       - name: Build Icarus Verilog 13.0
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          sudo apt-get update
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
           sudo apt-get install -y autoconf gperf bison flex zlib1g-dev libbz2-dev
           git clone -q --depth 1 --branch v13_0 https://github.com/steveicarus/iverilog.git \
             "$RUNNER_TEMP/iverilog"
@@ -91,7 +95,7 @@ jobs:
       - name: Build Verilator 5.052
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          sudo apt-get update
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
           sudo apt-get install -y help2man autoconf flex bison libfl-dev zlib1g-dev
           git clone -q --depth 1 --branch v5.052 https://github.com/verilator/verilator.git \
             "$RUNNER_TEMP/verilator"
@@ -112,7 +116,7 @@ jobs:
       # by default, which the runner does not have.
       - name: Install z3
         run: |
-          sudo apt-get update
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
           sudo apt-get install -y z3
 
       # Only the tests recorded with Verilator 5.052.

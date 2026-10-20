@@ -5,6 +5,10 @@ name: Nightly
 # which tools/results_history.py draws as charts (see "Nightly results" in
 # README.md). The results are only reported: the expected outputs recorded
 # with Icarus Verilog 13.0 and Verilator 5.052 are checked by check.yml.
+#
+# A failed apt-get update only warns: it can fail for a source that the runner
+# image adds (packages.microsoft.com has answered 403), while the packages
+# installed here come from Ubuntu's own archive.
 
 on:
   schedule:
@@ -47,7 +51,7 @@ jobs:
         env:
           SHA: ${{ steps.head.outputs.sha }}
         run: |
-          sudo apt-get update
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
           sudo apt-get install -y autoconf gperf bison flex zlib1g-dev libbz2-dev
           git clone -q --filter=blob:none https://github.com/steveicarus/iverilog.git \
             "$RUNNER_TEMP/iverilog"
@@ -110,7 +114,7 @@ jobs:
         env:
           SHA: ${{ steps.head.outputs.sha }}
         run: |
-          sudo apt-get update
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
           sudo apt-get install -y help2man autoconf flex bison libfl-dev zlib1g-dev
           git clone -q --filter=blob:none https://github.com/verilator/verilator.git \
             "$RUNNER_TEMP/verilator"
@@ -132,7 +136,7 @@ jobs:
       # by default, which the runner does not have.
       - name: Install z3
         run: |
-          sudo apt-get update
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
           sudo apt-get install -y z3
 
       - name: Run the suite
@@ -229,7 +233,7 @@ jobs:
       - name: Build sukimasim
         working-directory: sukimasim
         run: |
-          sudo apt-get update
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
           sudo apt-get install -y ninja-build zlib1g-dev
           if ! { cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF &&
                  cmake --build build --target sukimasim --parallel "$(nproc)"
