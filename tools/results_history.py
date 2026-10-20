@@ -52,6 +52,12 @@ OTHER_COLORS = [("#9a6700", "#d29922"), ("#bf3989", "#db61a2"), ("#1b7c83", "#39
 MARKERS = {"icarus": "circle", "verilator": "square", "kirimasim": "diamond",
            "sukimasim": "triangle"}
 OTHER_MARKERS = ["triangle", "circle", "square", "diamond"]
+# Shown in the report under the table of the latest run, for the simulators in
+# that run.
+NOTES = {
+    "sukimasim": "sukimasim's repository is private: the nightly workflow builds its latest "
+                 "`main` from there, and only its results are published.",
+}
 STATUS_COLORS = {
     "pass": ("#1a7f37", "#3fb950"),
     "fail": ("#cf222e", "#f85149"),
@@ -595,6 +601,7 @@ def report(runs: list[dict], sims: list[str]) -> str:
         "",
         latest_table(run),
         "",
+        *[f"{NOTES[sim]}\n" for sim in sims if sim in NOTES and sim in run["simulators"]],
         "![Tests that match their expected output](charts/overview.svg)",
         "",
         "![Share of the tests that match](charts/rate.svg)",

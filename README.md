@@ -11,7 +11,8 @@ simulator passes a test when its standard output, normalized, is exactly the
 test's expected output. The tests are written for the
 [kirimasim](https://github.com/kurochan001/kirimasim) simulator, but nothing in
 them is specific to it: runners for Icarus Verilog, Verilator, kirimasim and
-sukimasim are included, and the metadata format is that of
+sukimasim (kirimasim's predecessor, which is not public) are included, and the
+metadata format is that of
 [sv-tests](https://github.com/chipsalliance/sv-tests).
 
 What sets the suite apart:
@@ -102,8 +103,9 @@ allows and how the results of the coverage functions relate.
 
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
 every test of `main` with the latest development version of each simulator:
-the `master` branches of Icarus Verilog and Verilator and the `main` branch
-of kirimasim, built that night. It adds the results to the history on the
+the `master` branches of Icarus Verilog and Verilator and the `main` branches
+of kirimasim and sukimasim, built that night. It adds the results to the
+history on the
 [`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)
 branch. The chart below is redrawn after each run; the
 [report on that branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)
@@ -114,9 +116,14 @@ previous night.
 ![Tests that match their expected output](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
-Verilator and a diamond for kirimasim. The markers are drawn as outlines that
-fit inside each other, so simulators with the same or close counts stay
-visible together, and the legend gives each one's count in the latest run.
+Verilator, a diamond for kirimasim and a triangle for sukimasim. The markers
+are drawn as outlines that fit inside each other, so simulators with the same
+or close counts stay visible together, and the legend gives each one's count
+in the latest run.
+
+sukimasim is not public. Its repository is private, and the nightly workflow
+builds it from there with a read-only key; only its results are published.
+Running the suite with sukimasim yourself needs access to that repository.
 
 Each test of a run gets one of these statuses:
 
@@ -346,8 +353,10 @@ python3 tools/run_sukimasim.py --sukimasim /path/to/sukimasim
 python3 tools/run_sukimasim.py --strip-diagnostics -j 8
 ```
 
-sukimasim is the simulator that came before kirimasim. No expected output was
-recorded with it, so every test counts and none is a known difference. Each
+sukimasim is the simulator that came before kirimasim. It is not public: its
+repository is private, so this runner is of use only with access to it (its
+results are in the nightly report). No expected output was recorded with it,
+so every test counts, and none is a known difference or unsupported. Each
 test runs in a temporary directory with `--quiet --quiet-stats --quiet-exit`
 and `SUKIMASIM_FINISH_STRICT_MODE=1`. The lines that sukimasim prints on
 standard output itself are removed before comparing: everything from
@@ -403,7 +412,7 @@ suite has a problem:
   (`tools/suite_stats.py --check`).
 
 `.github/workflows/nightly.yml` runs at 19:23 UTC every day, and can be
-started by hand as well. Its results are only reported. It has four jobs:
+started by hand as well. Its results are only reported. It has five jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every test.
@@ -411,6 +420,13 @@ started by hand as well. Its results are only reported. It has four jobs:
   by its commit), installs `z3`, and runs every test with `--all`.
 - **kirimasim** builds the latest `main` of kirimasim with its `release`
   preset and runs every test.
+- **sukimasim** checks out the latest `main` of sukimasim from its private
+  repository with a read-only deploy key (the `SUKIMASIM_DEPLOY_KEY` secret),
+  and the `sukimasim-improvements` branch of its parser,
+  [slang-sukimasim](https://github.com/kurochan001/slang-sukimasim), builds
+  it and runs every test. Only the results leave the job: the output of the
+  build is not shown in the log, and nothing of sukimasim is cached. The job
+  runs only in this repository.
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
   `tools/results_history.py update`, and pushes the branch. The summary of

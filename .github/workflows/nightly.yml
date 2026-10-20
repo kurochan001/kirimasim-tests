@@ -195,10 +195,74 @@ jobs:
           path: results/
           if-no-files-found: warn
 
+  # The latest main of sukimasim, the simulator that came before kirimasim.
+  # Its repository is private, so only its results leave this job: it is
+  # checked out with a read-only deploy key (the SUKIMASIM_DEPLOY_KEY secret),
+  # the output of its build is kept out of the log, and nothing of it is
+  # cached, since pull requests can restore the caches of main.
+  sukimasim:
+    if: github.repository == 'kurochan001/kirimasim-tests'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: kurochan001/sukimasim
+          path: sukimasim
+          ssh-key: ${{ secrets.SUKIMASIM_DEPLOY_KEY }}
+          persist-credentials: false
+
+      # sukimasim's parser is a fork of slang, which its CMakeLists.txt takes
+      # from ../slang-sukimasim.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: kurochan001/slang-sukimasim
+          ref: sukimasim-improvements
+          path: slang-sukimasim
+          persist-credentials: false
+
+      # Its largest files take about 2 GB each to compile, so no more of them
+      # are compiled at once than the runner has cores (ninja would run two
+      # more).
+      - name: Build sukimasim
+        working-directory: sukimasim
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ninja-build zlib1g-dev
+          if ! { cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF &&
+                 cmake --build build --target sukimasim --parallel "$(nproc)"
+               } > "$RUNNER_TEMP/build.log" 2>&1; then
+            echo "::error::sukimasim did not build (its output is not shown, as it is private)"
+            exit 1
+          fi
+
+      # sukimasim --version names no commit, so the commit that was built is
+      # added to the version in the results.
+      - name: Run the suite
+        run: |
+          mkdir -p results
+          python3 tools/run_sukimasim.py --sukimasim sukimasim/build/sukimasim -j "$(nproc)" \
+            --json results/sukimasim.json > results/sukimasim.log || true
+          commit=$(git -C sukimasim rev-parse --short=12 HEAD)
+          jq --arg c "$commit" '.version += " (commit \($c))"' results/sukimasim.json \
+            > "$RUNNER_TEMP/sukimasim.json"
+          mv "$RUNNER_TEMP/sukimasim.json" results/sukimasim.json
+          cat results/sukimasim.log
+          tail -n 1 results/sukimasim.log >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: results-sukimasim
+          path: results/
+          if-no-files-found: warn
+
   # Adds the results of the simulators that ran to the history on the results
   # branch, draws the charts and the report there, and pushes it.
   publish:
-    needs: [icarus, verilator, kirimasim]
+    needs: [icarus, verilator, kirimasim, sukimasim]
     if: ${{ !cancelled() }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
