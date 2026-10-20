@@ -90,7 +90,9 @@ The suite has **3200 tests** in 37 chapters. 763 of them are generated (`tests/g
 <!-- suite-stats:end -->
 
 The [catalog](docs/tests/README.md) lists every test, chapter by chapter,
-with what it checks and the clauses it cites.
+with what it checks and the clauses it cites, and
+[docs/tests/clauses.md](docs/tests/clauses.md) shows which clauses of the
+standard the tests cite and which they do not yet.
 
 Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
@@ -169,6 +171,7 @@ tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
 tools/suite_stats.py            counts the tests and keeps the tables of this README
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
+tools/clauses.txt               the clause numbers of the standard, for docs/tests/clauses.md
 .github/workflows/check.yml     checks the expected outputs with the releases
 .github/workflows/nightly.yml   the nightly run
 ```

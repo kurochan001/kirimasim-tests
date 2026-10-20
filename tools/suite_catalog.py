@@ -12,6 +12,10 @@ test of chapter NN with what it checks (its :description:), the clauses it
 cites (:lrm:), the release its expected output was recorded with (:oracle:)
 and notes on its kind. Hand-written tests come first, in the order of the
 first clause they cite; generated tests follow, grouped by generator.
+
+docs/tests/clauses.md compares the clauses that the tests cite with the
+clause numbers of the standard in tools/clauses.txt: for each chapter, how
+many of its clauses without subclauses are cited, and which are not.
 """
 
 import argparse
@@ -24,6 +28,11 @@ import suite_stats
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "docs" / "tests"
+CLAUSES = ROOT / "tools" / "clauses.txt"
+TAGS = {"none": "it sets out no behavior of its own",
+        "excluded": "clause 34, protected envelopes",
+        "tool": "left to the tool or its setup",
+        "dump": "the content of VCD files"}
 ORACLES = {"icarus": "Icarus Verilog 13.0", "verilator": "Verilator 5.052",
            "spec": "standard only"}
 
@@ -106,6 +115,93 @@ def chapter_page(chapter: int, entries: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def read_clauses() -> dict[str, str]:
+    """The clause numbers of tools/clauses.txt, with their tags."""
+    clauses = {}
+    for line in CLAUSES.read_text(encoding="utf-8").splitlines():
+        if line.strip() and not line.startswith("#"):
+            number, _, tag = line.partition(" ")
+            clauses[number] = tag.strip()
+    return clauses
+
+
+def clause_coverage(entries: list[dict]) -> dict:
+    """For each chapter, its clauses without subclauses sorted into cited,
+    cited only through a parent clause, not cited, and out of scope."""
+    clauses = read_clauses()
+    cited = {c for e in entries for c in e["clauses"]}
+    numbers = sorted(clauses, key=clause_key)
+    parents = {n.rsplit(".", 1)[0] for n in numbers if "." in n}
+    chapters: dict[int, dict[str, list[str]]] = {}
+    for n in numbers:
+        if n in parents:
+            continue
+        row = chapters.setdefault(int(n.split(".")[0]),
+                                  {"cited": [], "parent": [], "missing": [], "out": []})
+        ancestors = [n.rsplit(".", i)[0] for i in range(1, n.count(".") + 1)]
+        if n in cited:
+            row["cited"].append(n)
+        elif clauses[n]:
+            row["out"].append(n)
+        elif any(a in cited for a in ancestors):
+            row["parent"].append(n)
+        else:
+            row["missing"].append(n)
+    unknown = sorted((c for c in cited
+                      if re.fullmatch(r"\d+(\.\d+)*", c) and 3 <= int(c.split(".")[0]) <= 40
+                      and c not in clauses), key=clause_key)
+    return {"chapters": chapters, "unknown": unknown, "tags": clauses}
+
+
+def clauses_page(coverage: dict) -> str:
+    chapters = coverage["chapters"]
+    total = {k: sum(len(r[k]) for r in chapters.values()) for k in ("cited", "parent", "missing",
+                                                                      "out")}
+    in_scope = total["cited"] + total["parent"] + total["missing"]
+    lines = ["# Clauses cited by the tests", "",
+             "[All chapters](README.md). For each clause of IEEE 1800-2023 from 3 to 40, this "
+             "page counts the clauses without subclauses of its own, the numbers in "
+             "`tools/clauses.txt`, by whether a test cites them in `:lrm:`. A clause can also "
+             "be cited only through a parent clause, which says less about what is tested. "
+             "Clauses that set out no behavior of their own, clause 34, behavior left to the "
+             "tool or its setup, and the content of VCD files are out of scope (the tags of "
+             "`tools/clauses.txt`). The page is written by `tools/suite_catalog.py`.", "",
+             f"Of {in_scope} clauses in scope, {total['cited']} are cited by a test, "
+             f"{total['parent']} only through a parent clause, and {total['missing']} not at "
+             f"all; {total['out']} are out of scope.", "",
+             "| Clause | Title | Cited | Only through a parent | Not cited | Out of scope |",
+             "| ---: | --- | ---: | ---: | ---: | ---: |"]
+    for chapter, title in suite_stats.CHAPTERS.items():
+        r = chapters.get(chapter, {"cited": [], "parent": [], "missing": [], "out": []})
+        lines.append(f"| {chapter} | {title} | {len(r['cited'])} | {len(r['parent']) or ''} | "
+                     f"{len(r['missing']) or ''} | {len(r['out']) or ''} |")
+    lines += ["", "## Not cited yet", "",
+              "Clauses in scope that no test cites; those marked with * have a parent clause "
+              "that a test cites.", ""]
+    any_gaps = False
+    for chapter in sorted(chapters):
+        r = chapters[chapter]
+        gaps = sorted(r["missing"] + [n + "*" for n in r["parent"]],
+                      key=lambda n: clause_key(n.rstrip("*")))
+        if gaps:
+            lines.append(f"- {chapter}: " + ", ".join(gaps))
+            any_gaps = True
+    if not any_gaps:
+        lines.append("None.")
+    lines += ["", "## Out of scope", ""]
+    for tag, why in TAGS.items():
+        numbers = [n for c in sorted(chapters) for n in chapters[c]["out"]
+                   if coverage["tags"][n] == tag]
+        if numbers:
+            lines.append(f"- `{tag}`, {why}: " + ", ".join(numbers))
+    if coverage["unknown"]:
+        lines += ["", "## Cited numbers missing from the list", "",
+                  "These numbers are cited by tests but are not in `tools/clauses.txt`; "
+                  "either the citation or the list needs a correction: "
+                  + ", ".join(coverage["unknown"]) + "."]
+    return "\n".join(lines) + "\n"
+
+
 def index_page(by_chapter: dict[int, list[dict]]) -> str:
     lines = ["# Catalog of the tests", "",
              "One page for each clause of IEEE 1800-2023 that has tests, listing every test "
@@ -118,7 +214,8 @@ def index_page(by_chapter: dict[int, list[dict]]) -> str:
              "cited clauses require and how the test observes it.", "",
              "These pages are written by `tools/suite_catalog.py` from the metadata of the "
              "tests (`python3 tools/suite_catalog.py --update`), and the check workflow "
-             "fails when they are out of date.", "",
+             "fails when they are out of date. [Clauses cited by the tests](clauses.md) shows "
+             "which clauses of the standard the tests cite and which they do not yet.", "",
              "| Clause | Title | Tests | Generated |", "| ---: | --- | ---: | ---: |"]
     for chapter, title in suite_stats.CHAPTERS.items():
         entries = by_chapter.get(chapter)
@@ -136,7 +233,9 @@ def pages() -> dict[Path, str]:
     for test in suite_results.find_tests():
         e = entry(test)
         by_chapter.setdefault(e["chapter"], []).append(e)
-    files = {CATALOG / "README.md": index_page(by_chapter)}
+    files = {CATALOG / "README.md": index_page(by_chapter),
+             CATALOG / "clauses.md": clauses_page(
+                 clause_coverage([e for es in by_chapter.values() for e in es]))}
     for chapter, entries in by_chapter.items():
         files[CATALOG / f"ch{chapter}.md"] = chapter_page(chapter, entries)
     return files
