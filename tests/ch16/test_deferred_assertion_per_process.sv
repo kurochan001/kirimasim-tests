@@ -1,9 +1,9 @@
 /*
 :name: test_deferred_assertion_per_process
-:description: A deferred assertion in a function called by two processes is reported separately for each process, and a rerun of one process flushes only its report (IEEE 1800-2023 Section 16.4.5)
+:description: A deferred assertion in a function called by two processes is reported separately for each process, and a rerun of one process flushes only its own pending report (IEEE 1800-2023 Section 16.4.5)
 :tags: ch16
 :type: simulation
-:lrm: 1800-2023 16.4.5 16.4.2 16.4.1
+:lrm: 1800-2023 16.4.5 16.4.2 16.4
 :oracle: spec
 :spec_check: ai
 :fourstate: no
@@ -13,24 +13,19 @@
 // IEEE 1800-2023 §16.4.5: a deferred assertion belongs to the process that
 // executes it, also when it sits in a function that two always_comb
 // procedures call. §16.4.2: when a process runs again in the same time step,
-// its pending reports are flushed. At 10 both processes call the function
-// with unequal values, so the failure is reported twice. At 20 b1 first sees
-// unequal values and then, after y changes behind #0, equal ones: its
-// pending report is flushed. At 30 b1 fails again while b2 now passes. The
-// fail action is a single call (16.4.1) that counts per process.
+// its pending reports are flushed, but not those of the other process. The
+// fail action is a single call whose arguments are evaluated when the
+// assertion is (16.4), so it reports the process that failed. b1 fails at 10
+// and b2 at 20. At 30 both fail first; then y changes behind #0, and b1 runs
+// again and passes, which flushes only its report. At 40 b1 fails again
+// while b2 now passes.
 
 module test_deferred_assertion_per_process;
   logic [3:0] x = 0, y = 0, z = 0, w = 0;
   logic r1, r2;
-  int fails_b1 = 0, fails_b2 = 0;
-
-  function void report_fail(int who);
-    if (who == 1) fails_b1++;
-    else fails_b2++;
-  endfunction
 
   function automatic bit same(logic [3:0] a, logic [3:0] b, int who);
-    a1: assert #0 (a == b) else report_fail(who);
+    a1: assert #0 (a == b) else $display("t=%0d a1 failed in b%0d", $time, who);
     return a == b;
   endfunction
 
@@ -43,16 +38,15 @@ module test_deferred_assertion_per_process;
   end
 
   initial begin
+    #10 x = 1;
+    #10 z = 1;
     #10;
-    x = 1;
-    z = 1;
-    #5 $display("t=%0d failures: b1 %0d, b2 %0d", $time, fails_b1, fails_b2);
-    #5 x = 2;
+    x = 2;
+    z = 2;
     #0 y = 2;
-    #5 $display("t=%0d failures: b1 %0d, b2 %0d", $time, fails_b1, fails_b2);
-    #5;
+    #10;
     x = 3;
-    w = 1;
-    #5 $display("t=%0d failures: b1 %0d, b2 %0d", $time, fails_b1, fails_b2);
+    w = 2;
+    #10 $finish;
   end
 endmodule
