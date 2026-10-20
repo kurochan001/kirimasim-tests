@@ -1,0 +1,2 @@
+tick 40: $past(cnt) = 38, $past(cnt, 30) = 9
+passes=40 fails=0

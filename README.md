@@ -36,13 +36,13 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **2269 tests** in 37 chapters.
+The suite has **2280 tests** in 37 chapters.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 1494 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 603 |
-| The standard only, where neither simulator follows it | 172 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 605 |
+| The standard only, where neither simulator follows it | 181 |
 
 201 tests depend on x or z values (`:fourstate: yes`). 70 tests come with C code: 11 DPI tests (`:dpi_c:`) and 59 VPI tests (`:vpi_c:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -61,11 +61,11 @@ The suite has **2269 tests** in 37 chapters.
 | 13 | Tasks and functions (subroutines) | 101 | 56 | 45 |  |
 | 14 | Clocking blocks | 15 |  | 12 | 3 |
 | 15 | Interprocess synchronization and communication | 23 | 1 | 20 | 2 |
-| 16 | Assertions | 55 | 16 | 12 | 27 |
-| 17 | Checkers | 6 |  |  | 6 |
+| 16 | Assertions | 64 | 16 | 14 | 34 |
+| 17 | Checkers | 7 |  |  | 7 |
 | 18 | Constrained random value generation | 21 |  | 19 | 2 |
 | 19 | Functional coverage | 20 |  | 8 | 12 |
-| 20 | Utility system tasks and system functions | 170 | 157 | 9 | 4 |
+| 20 | Utility system tasks and system functions | 171 | 157 | 9 | 5 |
 | 21 | Input/output system tasks and system functions | 75 | 68 | 4 | 3 |
 | 22 | Compiler directives | 22 | 21 | 1 |  |
 | 23 | Modules and hierarchy | 57 | 47 | 7 | 3 |

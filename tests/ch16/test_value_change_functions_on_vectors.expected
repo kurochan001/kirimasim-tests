@@ -1,0 +1,5 @@
+t=5 v=0000: rose=0 fell=0 rose(v[3:2])=0 changed=0 stable(v[1:0])=1
+t=15 v=0010: rose=0 fell=0 rose(v[3:2])=0 changed=1 stable(v[1:0])=0
+t=25 v=0101: rose=1 fell=0 rose(v[3:2])=1 changed=1 stable(v[1:0])=0
+t=35 v=1100: rose=0 fell=1 rose(v[3:2])=0 changed=1 stable(v[1:0])=0
+t=45 v=1000: rose=0 fell=0 rose(v[3:2])=0 changed=1 stable(v[1:0])=1
