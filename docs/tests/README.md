@@ -19,23 +19,23 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 108 |  |
 | 14 | [Clocking blocks](ch14.md) | 19 |  |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 26 |  |
-| 16 | [Assertions](ch16.md) | 64 |  |
+| 16 | [Assertions](ch16.md) | 73 |  |
 | 17 | [Checkers](ch17.md) | 11 |  |
-| 18 | [Constrained random value generation](ch18.md) | 27 |  |
-| 19 | [Functional coverage](ch19.md) | 25 |  |
-| 20 | [Utility system tasks and system functions](ch20.md) | 178 |  |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 80 |  |
+| 18 | [Constrained random value generation](ch18.md) | 28 |  |
+| 19 | [Functional coverage](ch19.md) | 26 |  |
+| 20 | [Utility system tasks and system functions](ch20.md) | 187 |  |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 83 |  |
 | 22 | [Compiler directives](ch22.md) | 30 |  |
 | 23 | [Modules and hierarchy](ch23.md) | 69 |  |
 | 24 | [Programs](ch24.md) | 10 |  |
-| 25 | [Interfaces](ch25.md) | 45 |  |
+| 25 | [Interfaces](ch25.md) | 49 |  |
 | 26 | [Packages](ch26.md) | 29 |  |
 | 27 | [Generate constructs](ch27.md) | 68 |  |
-| 28 | [Gate-level and switch-level modeling](ch28.md) | 170 | 136 |
+| 28 | [Gate-level and switch-level modeling](ch28.md) | 176 | 136 |
 | 29 | [User-defined primitives](ch29.md) | 16 |  |
-| 30 | [Specify blocks](ch30.md) | 17 |  |
+| 30 | [Specify blocks](ch30.md) | 20 |  |
 | 31 | [Timing checks](ch31.md) | 14 |  |
-| 32 | [Backannotation using the standard delay format](ch32.md) | 13 |  |
+| 32 | [Backannotation using the standard delay format](ch32.md) | 14 |  |
 | 33 | [Configuring the contents of a design](ch33.md) | 14 |  |
 | 34 | Protected envelopes | — | |
 | 35 | [Direct programming interface](ch35.md) | 21 |  |

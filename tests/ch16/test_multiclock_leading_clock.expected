@@ -1,0 +1,2 @@
+a ##1 @(posedge clk2) b: 18 38
+a and b on clk1: 35

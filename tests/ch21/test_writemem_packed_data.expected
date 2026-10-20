@@ -1,0 +1,4 @@
+words[0]: tag=1 data=23
+words[1]: tag=a data=bc
+words[2]: tag=f data=00
+nibbles: 1001 0110 / 0001 1111

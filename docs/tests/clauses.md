@@ -2,7 +2,7 @@
 
 [All chapters](README.md). For each clause of IEEE 1800-2023 from 3 to 40, this page counts the clauses without subclauses of its own, the numbers in `tools/clauses.txt`, by whether a test cites them in `:lrm:`. A clause can also be cited only through a parent clause, which says less about what is tested. Clauses that set out no behavior of their own, clause 34, behavior left to the tool or its setup, and the content of VCD files are out of scope (the tags of `tools/clauses.txt`). The page is written by `tools/suite_catalog.py`.
 
-Of 932 clauses in scope, 879 are cited by a test, 18 only through a parent clause, and 35 not at all; 186 are out of scope.
+Of 932 clauses in scope, 905 are cited by a test, 1 only through a parent clause, and 26 not at all; 186 are out of scope.
 
 | Clause | Title | Cited | Only through a parent | Not cited | Out of scope |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -19,23 +19,23 @@ Of 932 clauses in scope, 879 are cited by a test, 18 only through a parent claus
 | 13 | Tasks and functions (subroutines) | 14 |  |  | 2 |
 | 14 | Clocking blocks | 14 |  |  | 3 |
 | 15 | Interprocess synchronization and communication | 20 |  |  | 2 |
-| 16 | Assertions | 61 | 3 | 2 | 5 |
+| 16 | Assertions | 66 |  |  | 5 |
 | 17 | Checkers | 9 |  |  | 2 |
-| 18 | Constrained random value generation | 43 |  | 1 | 2 |
-| 19 | Functional coverage | 22 |  | 1 | 2 |
-| 20 | Utility system tasks and system functions | 26 | 3 | 2 | 3 |
-| 21 | Input/output system tasks and system functions | 33 | 3 |  | 15 |
+| 18 | Constrained random value generation | 44 |  |  | 2 |
+| 19 | Functional coverage | 23 |  |  | 2 |
+| 20 | Utility system tasks and system functions | 31 |  |  | 3 |
+| 21 | Input/output system tasks and system functions | 36 |  |  | 15 |
 | 22 | Compiler directives | 20 |  |  | 4 |
 | 23 | Modules and hierarchy | 32 |  |  | 3 |
 | 24 | Programs | 7 |  |  | 1 |
-| 25 | Interfaces | 11 | 2 | 1 | 5 |
+| 25 | Interfaces | 14 |  |  | 5 |
 | 26 | Packages | 6 |  |  | 1 |
 | 27 | Generate constructs | 4 |  |  | 2 |
-| 28 | Gate-level and switch-level modeling | 21 | 4 | 1 | 2 |
+| 28 | Gate-level and switch-level modeling | 26 |  |  | 2 |
 | 29 | User-defined primitives | 13 |  |  | 2 |
-| 30 | Specify blocks | 18 | 2 |  | 4 |
+| 30 | Specify blocks | 20 |  |  | 4 |
 | 31 | Timing checks | 19 |  |  | 3 |
-| 32 | Backannotation using the standard delay format | 9 |  | 1 | 2 |
+| 32 | Backannotation using the standard delay format | 10 |  |  | 2 |
 | 33 | Configuring the contents of a design | 10 |  |  | 17 |
 | 34 | Protected envelopes | 0 |  |  | 41 |
 | 35 | Direct programming interface | 17 |  |  | 5 |
@@ -49,15 +49,6 @@ Of 932 clauses in scope, 879 are cited by a test, 18 only through a parent claus
 
 Clauses in scope that no test cites; those marked with * have a parent clause that a test cites.
 
-- 16: 16.5.2*, 16.7, 16.9.1, 16.12.22*, 16.16.1*
-- 18: 18.10
-- 19: 19.10
-- 20: 20.4.1*, 20.7.1*, 20.10.1*, 20.17.1, 20.17.2
-- 21: 21.2.1.6*, 21.5.1*, 21.5.2*
-- 25: 25.5.5*, 25.6, 25.9.1*
-- 28: 28.3.1*, 28.3.3*, 28.3.4*, 28.15.2, 28.16.2.2*
-- 30: 30.4.7.1*, 30.7.4.2*
-- 32: 32.7
 - 37: 37.2.4, 37.3.1, 37.3.4, 37.3.5, 37.3.6, 37.3.7, 37.3.8, 37.15, 37.19, 37.21, 37.23, 37.24, 37.29, 37.30, 37.33, 37.34, 37.38, 37.43, 37.44, 37.52, 37.54, 37.56, 37.57, 37.58, 37.61
 - 39: 39.4.2.1*
 - 40: 40.2.1

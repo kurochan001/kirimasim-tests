@@ -52,6 +52,8 @@ of the test as well.
 | 36.8.1 | User-defined system functions need their return types at compile time (in a `.sft` file), and it stops at the first real result. | `ch36/test_vpi_systf_function_types` |
 | 9.6.1, 9.6.3 | It stops with an internal assertion. | `ch9/test_wait_fork_disable_fork` |
 | 7.10.2.4, 7.10.2.5, 7.4.5 | `pop_front()` and `pop_back()` on an empty queue of int give x, and an int variable then holds x; Table 7-1 gives 0. | `ch7/test_queue_method_edges` |
+| 20.17.2 | `$stacktrace` called as a function makes the compiler stop on an internal assertion. | `ch20/test_stacktrace_function` |
+| 30.7.4.2 | A showcancelled declaration has no effect: a negative pulse leaves the output unchanged instead of showing x. | `ch30/test_negative_pulse_cancelled` |
 
 ### Illegal designs that it accepts
 
@@ -66,6 +68,7 @@ of the test as well.
 | 33.4.1.2, 33.4.1.4 | Two default liblist clauses, and a cell clause with a library and a liblist (it skips config declarations) | `ch33/test_illegal_config_two_default_liblists`, `ch33/test_illegal_config_cell_library_liblist` |
 | 6.7.1 | A net type keyword followed directly by `reg` (`wire reg`) | `ch6/test_illegal_net_type_then_reg` |
 | 23.10.4.2 | A defparam whose hierarchical name resolves to another parameter once the generate blocks are elaborated | `ch23/test_illegal_defparam_early_resolution` |
+| 30.7.4.2 | A showcancelled declaration that names a path output after a module path to it | `ch30/test_illegal_showcancelled_after_path` |
 
 It also rejects some illegal designs for another reason than their error:
 it does not support ref ports or output arguments of functions, and it does
@@ -107,6 +110,11 @@ not parse the modport in an interface port of a module.
 | 19.8 | Sampling goes on after `stop()`, and `get_coverage` sets both of its arguments to 0. | `ch19/test_cg_start_stop_counts` |
 | 11.3.1 | It treats shortreal as real, so an expression with a shortreal operand and no real one is 64 bits wide instead of 32. | `ch11/test_real_operand_result_types` |
 | 7.10.3, 13.5.2 | A reference to a queue element follows the position instead of the element: after the element is deleted, a write through the reference changes the element that took its place, and after an assignment to the whole queue it reads memory that is no longer the queue's. | `ch7/test_queue_reference_persistence` |
+| 16.9.1 | It groups `x throughout y ##1 z` as `(x throughout y) ##1 z`; `##` has to bind more tightly than throughout. | `ch16/test_sequence_operator_precedence` |
+| 20.4.1 | `$timeprecision` without an argument gives the simulation precision instead of that of the design element. | `ch20/test_timeunit_timeprecision_functions` |
+| 20.7 | `$size` of a fixed-size dimension that follows a dynamic one gives 0. | `ch20/test_array_query_fixed_dimensions` |
+| 21.2.1.6 | `%p` prints an int member in hexadecimal with `'h` and an enum member as a number instead of its name. | `ch21/test_format_p_struct` |
+| 28.3.3, 28.10 | A pullup with a delay makes it stop with an internal error. | `ch28/test_illegal_pullup_delay` |
 
 ### Illegal designs that it accepts
 
@@ -126,3 +134,8 @@ not parse the modport in an interface port of a module.
 | 23.10.4.2 | A defparam whose hierarchical name resolves to another parameter once the generate blocks are elaborated | `ch23/test_illegal_defparam_early_resolution` |
 | 8.26.4 | A class that implements a type parameter, or a forward typedef of an interface class | `ch8/test_illegal_class_implements_type_parameter`, `ch8/test_illegal_implements_forward_typedef` |
 | 8.26.6.2 | An interface class that inherits the same typedef name from two interface classes and does not declare it | `ch8/test_illegal_interface_class_typedef_conflict` |
+| 16.12.22 | The antecedent of `\|=>` is a sequence that can never match | `ch16/test_illegal_nonoverlapping_antecedent_no_match` |
+| 20.7.1 | `$size` with a dimension number that names a queue dimension | `ch20/test_illegal_array_query_variable_dimension` |
+| 20.10.1 | An elaboration-time `$error`, which it reports as the warning USERERROR; with `-Wno-fatal`, which the runner passes, the simulation starts | `ch20/test_illegal_elaboration_error_task` |
+| 25.6, 30.7.4.2 | A ref port as a terminal of a module path, and a showcancelled declaration after the path (it ignores specify blocks) | `ch25/test_illegal_specify_ref_port_terminal`, `ch30/test_illegal_showcancelled_after_path` |
+| 28.3.4 | An array of gate instances without a name | `ch28/test_illegal_unnamed_gate_array` |

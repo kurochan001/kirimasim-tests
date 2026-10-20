@@ -1,0 +1,7 @@
+t=10: no delay 1
+t=11: rise pending 0
+t=13: rise 1
+t=23: fall pending 1
+t=25: fall 0
+t=34: off pending 0
+t=36: off z
