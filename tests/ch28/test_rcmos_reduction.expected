@@ -1,0 +1,4 @@
+nc=1 pc=1: in=St0 out=Pu0
+nc=0 pc=0: in=St0 out=Pu0
+nc=0 pc=1: in=St0 out=HiZ
+nc=1 pc=0: in=Pu1 out=We1

@@ -1,0 +1,3 @@
+parent: time=3
+child: time=3 realtime=3.0
+parent: time=30 after the child's event

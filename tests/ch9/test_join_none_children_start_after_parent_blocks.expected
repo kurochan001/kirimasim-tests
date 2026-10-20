@@ -1,0 +1,5 @@
+t=0 parent after the loop, i=3
+t=0 child sees i=3
+t=0 child sees i=3
+t=0 child sees i=3
+t=1 parent after #1

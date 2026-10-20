@@ -1,0 +1,6 @@
+strong: St1 -> Pu1
+pull:   Pu1 -> We1
+weak:   We1 -> Me1
+strong: St0 -> Pu0
+pull:   Pu0 -> We0
+weak:   We0 -> Me0
