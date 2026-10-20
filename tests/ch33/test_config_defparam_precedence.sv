@@ -15,7 +15,7 @@
 // every other case defparam works as usual. The config sets m.P to 9, which
 // replaces the defparam value 5. Nothing in the config sets m.c.Q, so the
 // defparam value 6 is kept. Icarus Verilog 13.0 skips config declarations, and
-// Verilator 5.052 does not support parameter assignments in a use clause.
+// in Verilator 5.052 parameter assignments in a use clause are not supported.
 
 module cfg_dp_leaf #(parameter int Q = 1) ();
 endmodule

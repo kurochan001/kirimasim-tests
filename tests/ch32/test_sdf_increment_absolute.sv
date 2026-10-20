@@ -15,7 +15,7 @@
 // entry modifies it. The path to y is set to 4 and then increased by 2, so its
 // delay is 6. The path to z is only increased by 1, from its specify delay of 2
 // to 3. Icarus Verilog 13.0 applies the INCREMENT values as absolute delays.
-// Verilator 5.052 ignores $sdf_annotate and module path delays.
+// In Verilator 5.052, $sdf_annotate and module path delays have no effect.
 
 `timescale 1ns/1ns
 
