@@ -1,0 +1,3 @@
+g=1: far1=1 far2=0 far3=0 near2=0
+g=0: far1=1 far2=1 far3=0 near2=0
+g=x: far1=1 far2=x far3=0 near2=0

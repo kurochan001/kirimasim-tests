@@ -1,0 +1,5 @@
+t=15: a woke 1, b woke 1, c woke 0
+t=25: a woke 2, b woke 2, c woke 0
+t=35: a woke 2, b woke 2, c woke 1
+t=45: a woke 3, b woke 3, c woke 1
+t=55: a woke 4, b woke 4, c woke 1

@@ -1,0 +1,4 @@
+t=1: q_now=1 q_late=1
+t=2: q_now=0 q_late=1
+t=4: q_now=0 q_late=1
+t=6: q_now=0 q_late=0

@@ -1,0 +1,7 @@
+clk x -> 0: edge kind q=0, toggled=1
+clk 0 -> x: edge kind q=1, toggled=0
+clk x -> 0: edge kind q=0, toggled=1
+clk 0 -> 1: edge kind q=1, toggled=0
+clk 1 -> x: edge kind q=0, toggled=1
+clk x -> 1: edge kind q=1, toggled=0
+clk 1 -> 0: edge kind q=0, toggled=1

@@ -1,0 +1,4 @@
+cbReadWriteSynch without a time: not registered, error: yes, again: yes
+cbAtStartOfSimTime with delay 0 at 5: not registered, error: yes, again: yes
+cbReadOnlySynch with delay 0: registered, error: no, again: no
+in cbReadOnlySynch, cbReadWriteSynch with delay 0: not registered, error: yes, again: yes

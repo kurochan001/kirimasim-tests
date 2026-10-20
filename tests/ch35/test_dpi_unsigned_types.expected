@@ -1,0 +1,5 @@
+byte unsigned: 255 + 1 = 0
+shortint unsigned: 65534 / 2 = 32767
+int unsigned: max = 4294967295
+longint unsigned: 2**63 = 9223372036854775808
+enum: GREEN gives 20, BLUE gives 40

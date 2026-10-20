@@ -1,0 +1,6 @@
+a=0 s=0: udp_b=1 udp_bx=1
+a=1 s=0: udp_b=1 udp_bx=1
+a=x s=0: udp_b=x udp_bx=0
+a=x s=1: udp_b=0 udp_bx=0
+a=1 s=1: udp_b=0 udp_bx=0
+a=0 s=x: udp_b=x udp_bx=x

@@ -1,0 +1,3 @@
+a=0 b=0: cross 33.33
+a=0 b=1: cross 66.67
+a=1 b=0: cross 100.00

@@ -1,0 +1,3 @@
+cbAtStartOfSimTime at 10: a=0 b=0
+cbAtEndOfSimTime at 10: a=1 b=1
+cbReadOnlySynch at 10: a=1 b=1

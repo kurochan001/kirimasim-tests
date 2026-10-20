@@ -1,0 +1,4 @@
+t=15: checker 1 sees 5
+t=25: checker 2 sees 5
+t=45: checker 1 sees 5
+ticks: c_out 5, c_in 5

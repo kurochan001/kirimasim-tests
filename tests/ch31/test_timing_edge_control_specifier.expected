@@ -1,0 +1,2 @@
+edge[01] notifier: 40:1
+posedge notifier: 10:1 20:0 40:1
