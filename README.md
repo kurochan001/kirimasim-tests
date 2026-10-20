@@ -155,6 +155,7 @@ tests/gen/chNN/<name>.sv        a generated test (do not edit; see "Generated te
 generators/<generator>.py       a generator of tests and its reference model
 generators/generate.py          writes tests/gen/, or checks it with --check
 generators/oracles.txt          which releases produce each generated test's output
+docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 differ from the standard
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
@@ -299,7 +300,9 @@ rejects it there. A tool that rejects the design for another reason, such as
 a construct it does not support, does not count.
 
 A disagreement between a simulator and the expected output is never resolved
-by copying the simulator's output: the clause decides.
+by copying the simulator's output: the clause decides. The places found so
+far where Icarus Verilog 13.0 or Verilator 5.052 differs from the standard are
+listed in [docs/simulator-differences.md](docs/simulator-differences.md).
 
 ### Generated tests
 
