@@ -1,15 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="380" viewBox="0 0 880 380" role="img">
 <title>Share of the tests that match: Matching tests out of the tests run, in percent</title>
-<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;font-size:12px;fill:#1f2328;stroke:none}.bg{fill:#ffffff}.muted{fill:#59636e}.title{font-size:15px;font-weight:600}.grid{stroke:#d1d9e0;stroke-width:1}.axis{stroke:#818b98;stroke-width:1}.line{fill:none;stroke-width:2}.dashed{stroke-dasharray:5 4}.c-total{stroke:#59636e;fill:#59636e}.c-icarus{stroke:#0969da;fill:#0969da}.c-verilator{stroke:#8250df;fill:#8250df}.c-kirimasim{stroke:#1a7f37;fill:#1a7f37}@media (prefers-color-scheme:dark){text{fill:#f0f6fc}.bg{fill:#0d1117}.muted{fill:#9198a1}.grid{stroke:#3d444d}.axis{stroke:#656c76}.c-total{stroke:#9198a1;fill:#9198a1}.c-icarus{stroke:#4493f8;fill:#4493f8}.c-verilator{stroke:#ab7df8;fill:#ab7df8}.c-kirimasim{stroke:#3fb950;fill:#3fb950}}</style>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;font-size:12px;fill:#1f2328;stroke:none}.bg{fill:#ffffff}.muted{fill:#59636e}.title{font-size:15px;font-weight:600}.grid{stroke:#d1d9e0;stroke-width:1}.axis{stroke:#818b98;stroke-width:1}.line{fill:none;stroke-width:2}.dashed{stroke-dasharray:5 4}.c-total{stroke:#59636e;fill:#59636e}.c-icarus{stroke:#0969da;fill:#0969da}.c-verilator{stroke:#8250df;fill:#8250df}.c-kirimasim{stroke:#1a7f37;fill:#1a7f37}.line{fill:none}.mk{fill:none;stroke-width:1.6}@media (prefers-color-scheme:dark){text{fill:#f0f6fc}.bg{fill:#0d1117}.muted{fill:#9198a1}.grid{stroke:#3d444d}.axis{stroke:#656c76}.c-total{stroke:#9198a1;fill:#9198a1}.c-icarus{stroke:#4493f8;fill:#4493f8}.c-verilator{stroke:#ab7df8;fill:#ab7df8}.c-kirimasim{stroke:#3fb950;fill:#3fb950}.line{fill:none}.mk{fill:none;stroke-width:1.6}}</style>
 <rect class="bg" width="880" height="380" rx="6"/>
 <text x="20.0" y="28.0" class="title" text-anchor="start">Share of the tests that match</text>
 <text x="20.0" y="48.0" class="muted" text-anchor="start">Matching tests out of the tests run, in percent</text>
 <line class="line c-icarus" x1="20" x2="38" y1="70" y2="70"/>
-<text x="44.0" y="74.0" text-anchor="start">Icarus Verilog 14.0 devel eed9291</text>
-<line class="line c-verilator" x1="271.79999999999995" x2="289.79999999999995" y1="70" y2="70"/>
-<text x="295.8" y="74.0" text-anchor="start">Verilator 5.053 devel 60f166e</text>
-<line class="line c-kirimasim" x1="497.19999999999993" x2="515.1999999999999" y1="70" y2="70"/>
-<text x="521.2" y="74.0" text-anchor="start">kirimasim 8b598b574</text>
+<circle class="mk c-icarus" cx="29.0" cy="70.0" r="7.5"/>
+<text x="44.0" y="74.0" text-anchor="start">Icarus Verilog 14.0 devel eed9291: 67.8%</text>
+<line class="line c-verilator" x1="336" x2="354" y1="70" y2="70"/>
+<rect class="mk c-verilator" x="340.5" y="65.5" width="9" height="9"/>
+<text x="360.0" y="74.0" text-anchor="start">Verilator 5.053 devel 0177067: 82.9%</text>
+<line class="line c-kirimasim" x1="624" x2="642" y1="70" y2="70"/>
+<polygon class="mk c-kirimasim" points="633.0,66.5 636.5,70.0 633.0,73.5 629.5,70.0"/>
+<text x="648.0" y="74.0" text-anchor="start">kirimasim ff80adcf6: 68.3%</text>
 <line class="grid" x1="64" x2="852" y1="340.0" y2="340.0"/>
 <text x="56.0" y="344.0" class="muted" text-anchor="end">0%</text>
 <line class="grid" x1="64" x2="852" y1="290.4" y2="290.4"/>
@@ -23,11 +26,17 @@
 <line class="grid" x1="64" x2="852" y1="92.0" y2="92.0"/>
 <text x="56.0" y="96.0" class="muted" text-anchor="end">100%</text>
 <line class="axis" x1="64" x2="852" y1="340" y2="340"/>
-<line class="axis" x1="282.2" x2="282.2" y1="340" y2="344"/>
-<text x="282.2" y="358.0" class="muted" text-anchor="middle">10-19</text>
-<line class="axis" x1="676.2" x2="676.2" y1="340" y2="344"/>
-<text x="676.2" y="358.0" class="muted" text-anchor="middle">10-20</text>
-<circle class="c-icarus" cx="458.0" cy="166.5" r="3"/>
-<circle class="c-verilator" cx="458.0" cy="132.0" r="3"/>
-<circle class="c-kirimasim" cx="458.0" cy="165.6" r="3"/>
+<line class="axis" x1="256.8" x2="256.8" y1="340" y2="344"/>
+<text x="256.8" y="358.0" class="muted" text-anchor="middle">10-19</text>
+<line class="axis" x1="605.0" x2="605.0" y1="340" y2="344"/>
+<text x="605.0" y="358.0" class="muted" text-anchor="middle">10-20</text>
+<polyline class="line c-icarus" points="412.2,166.5 503.8,171.8"/>
+<polyline class="line c-verilator" points="412.2,132.0 503.8,134.5"/>
+<polyline class="line c-kirimasim" points="412.2,165.6 503.8,170.5"/>
+<circle class="mk c-icarus" cx="412.2" cy="166.5" r="7.5"/>
+<circle class="mk c-icarus" cx="503.8" cy="171.8" r="7.5"/>
+<rect class="mk c-verilator" x="407.7" y="127.5" width="9" height="9"/>
+<rect class="mk c-verilator" x="499.3" y="130.0" width="9" height="9"/>
+<polygon class="mk c-kirimasim" points="412.2,162.1 415.7,165.6 412.2,169.1 408.7,165.6"/>
+<polygon class="mk c-kirimasim" points="503.8,167.0 507.3,170.5 503.8,174.0 500.3,170.5"/>
 </svg>
