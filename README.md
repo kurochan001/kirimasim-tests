@@ -37,11 +37,11 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **2706 tests** in 37 chapters. 325 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`.
+The suite has **2850 tests** in 37 chapters. 469 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 144 by `width_sign`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 1871 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2015 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 624 |
 | The standard only, where neither simulator follows it | 211 |
 
@@ -57,7 +57,7 @@ The suite has **2706 tests** in 37 chapters. 325 of them are generated (`tests/g
 | 8 | Classes | 125 | 31 | 90 | 4 |
 | 9 | Processes | 106 | 91 | 7 | 8 |
 | 10 | Assignment statements | 105 | 85 | 16 | 4 |
-| 11 | Operators and expressions | 382 | 324 | 56 | 2 |
+| 11 | Operators and expressions | 526 | 468 | 56 | 2 |
 | 12 | Procedural programming statements | 119 | 102 | 16 | 1 |
 | 13 | Tasks and functions (subroutines) | 107 | 59 | 46 | 2 |
 | 14 | Clocking blocks | 19 |  | 14 | 5 |
@@ -311,6 +311,7 @@ outputs, and it writes many small variations of one kind of test:
 | Generator | Chapter | What it varies |
 | --- | ---: | --- |
 | `scheduling` | 4 | How a variable is written (blocking, nonblocking, nonblocking with an intra-assignment delay, through a continuous assignment, by `force`), how it is read (in the same process, by another process waiting for it, `$strobe`, `$monitor`), where the write is (initial, always, task, function, fork branch, interface, generate block) and after which delay (none, `#0`, `#1`); only the combinations whose result the standard fixes |
+| `width_sign` | 11 | Operands and targets of 63 to 1000 bits, signed and unsigned, with the operators whose result size and sign 11.6 to 11.8 decide |
 
 The docstring of each generator says which rules its model follows and which
 combinations it leaves out because the standard does not decide them. A

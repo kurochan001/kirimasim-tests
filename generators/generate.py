@@ -14,8 +14,9 @@ import sys
 
 import common
 import scheduling
+import width_sign
 
-GENERATORS = [scheduling]
+GENERATORS = [scheduling, width_sign]
 
 
 def main() -> int:
