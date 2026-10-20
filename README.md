@@ -91,8 +91,12 @@ The suite has **3332 tests** in 37 chapters. 763 of them are generated (`tests/g
 
 The [catalog](docs/tests/README.md) lists every test, chapter by chapter,
 with what it checks and the clauses it cites, and
-[docs/tests/clauses.md](docs/tests/clauses.md) shows which clauses of the
-standard the tests cite and which they do not yet.
+[docs/tests/clauses.md](docs/tests/clauses.md) shows, chapter by chapter,
+which clauses of the standard the tests cite. Every clause from 3 to 40 that
+sets out behavior a test can observe is cited by at least one test; the page
+lists the others and why they are left out (the tags of `tools/clauses.txt`):
+general text, clause 34, behavior left to the tool, and the content of VCD
+files.
 
 Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
@@ -162,6 +166,7 @@ generators/generate.py          writes tests/gen/, or checks it with --check
 generators/oracles.txt          which releases produce each generated test's output
 docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 differ from the standard
 docs/tests/                     the catalog: every test with what it checks, by chapter
+docs/tests/clauses.md           which clauses of the standard the tests cite
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
@@ -305,7 +310,10 @@ For an illegal design (`:should_fail_because:`), the expected result is that
 the design is rejected with an error at the place the test names, and
 `iverilog@13.0` or `verilator@5.052` in `:oracle:` means that the release
 rejects it there. A tool that rejects the design for another reason, such as
-a construct it does not support, does not count.
+a construct it does not support, does not count. When such an error falls on
+the line the test names, the runner cannot tell the difference: the comment of
+the test says so, and `tools/run_icarus.py` shows the test as `NOW MATCHES`
+without its `:oracle:` listing `iverilog@13.0`.
 
 A disagreement between a simulator and the expected output is never resolved
 by copying the simulator's output: the clause decides. The places found so
@@ -472,8 +480,9 @@ and `my-results/README.md`. `python3 tools/results_history.py render
 ## Workflows
 
 `.github/workflows/check.yml` runs on every push to `main` and every pull
-request that changes `tests/`, `tools/` or this README, and can be started by
-hand from the Actions tab (`workflow_dispatch`). Its jobs fail when the
+request that changes `tests/`, `tools/`, `generators/`, `docs/tests/`, this
+README or the workflow itself, and can be started by hand from the Actions
+tab (`workflow_dispatch`). Its jobs fail when the
 suite has a problem:
 
 - **icarus** builds Icarus Verilog 13.0 from its `v13_0` tag (kept in the
@@ -524,7 +533,9 @@ A new test should:
   the chapter of the first clause in its `:lrm:`;
 - start with the metadata comment and a comment of lines of at most 80
   columns that explains what the cited clauses require and how the test
-  observes it; lines of code are at most 100 columns;
+  observes it; lines of code are at most 100 columns. No comment line starts
+  with the word "Verilator": Verilator reads a comment that starts with it as
+  a directive and stops with BADVLTPRAGMA;
 - print only what the standard fixes, and end with `$finish` or by running
   out of events;
 - if it is an illegal design, give the reason in `:should_fail_because:` and
@@ -532,10 +543,14 @@ A new test should:
   no other error;
 - have its expected output decided from the standard and, where possible,
   confirmed with Icarus Verilog 13.0 or Verilator 5.052 as described in
-  "Where the expected outputs come from".
+  "Where the expected outputs come from"; where either release does not follow
+  the standard, the place goes into
+  [docs/simulator-differences.md](docs/simulator-differences.md) and the
+  comment of the test says so.
 
-After adding tests, update the tables of this README and the catalog of the
-tests, which the check workflow requires:
+After adding tests, update the tables of this README, the catalog of the
+tests and the page of the clauses they cite, which the check workflow
+requires:
 
 ```sh
 python3 tools/suite_stats.py --update
