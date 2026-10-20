@@ -1,0 +1,2 @@
+self-killed: after_self=0 status=KILLED
+killed by another: after_other=0 status=KILLED

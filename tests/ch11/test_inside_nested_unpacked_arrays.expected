@@ -1,0 +1,4 @@
+13 inside {a}: 1
+9 inside {grid}: 1
+11 inside {q}: 1
+5 inside {a, q, grid}: 0
