@@ -1,0 +1,2 @@
+while: one callback per iteration: yes, block: 1, objects as placed: yes
+module: callbacks before the removal: yes, after it: 0

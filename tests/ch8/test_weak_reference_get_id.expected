@@ -1,0 +1,6 @@
+null gives 0: 1
+nonzero: 1
+same at a second call: 1
+same through a base handle: 1
+differs for another object: 1
+lookup: first second

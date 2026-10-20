@@ -1,0 +1,5 @@
+value 42 and text
+vpi_vprintf wrote 18 characters
+vpi_flush returned 0
+vpi_mcd_vprintf wrote 19 characters
+file: line 7 of the file

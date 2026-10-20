@@ -1,0 +1,3 @@
+from the call: $vt_info, task, user data "info data", same as passed: yes, calltf: this routine
+from the registration: $vt_twice, function, vpiIntFunc, user data "twice data", calltf: its routine
+twice: 42

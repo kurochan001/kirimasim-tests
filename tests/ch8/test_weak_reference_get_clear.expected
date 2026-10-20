@@ -1,0 +1,3 @@
+w1 != w2: 1, same referent: 1, id: 42
+null referent: 1
+after w1.clear(): w1.get() null: 1, w2.get() is obj: 1

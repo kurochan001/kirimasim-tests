@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 125 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 129 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -129,3 +129,7 @@
 | [`test_interface_class_partial_virtual`](../../tests/ch8/test_interface_class_partial_virtual.sv) | A virtual class can implement an interface class partly, declaring the rest pure, and a derived class completes it | 8.26.7 8.21 8.26.8 | Verilator 5.052 |  |
 | [`test_class_typedef`](../../tests/ch8/test_class_typedef.sv) | Test: typedef class forward declaration, mutual references | 8.27 | Verilator 5.052 |  |
 | [`test_class_vs_struct_assignment`](../../tests/ch8/test_class_vs_struct_assignment.sv) | Assigning a class handle shares one object, while assigning a structure copies its value | 8.28 8.12 7.2 | Verilator 5.052 |  |
+| [`test_illegal_weak_reference_non_class`](../../tests/ch8/test_illegal_weak_reference_non_class.sv) | The parameter of weak_reference has to be a class type | 8.30.1 | standard only | illegal design |
+| [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) | A weak_reference returns its referent from get() until clear() is called on it, after which get() returns null; two weak references to one object are different objects with the same referent | 8.30.3 8.30.2 8.30.4 8.30.1 26.7 | standard only |  |
+| [`test_weak_reference_wait_cleared`](../../tests/ch8/test_weak_reference_wait_cleared.sv) | A wait on weak_reference get() becoming null resumes when another process clears the reference | 8.30.3 8.30.4 9.4.3 | standard only |  |
+| [`test_weak_reference_get_id`](../../tests/ch8/test_weak_reference_get_id.sv) | The static get_id() of weak_reference returns 0 for null and a nonzero value for an object, the same at every call and through every class type of the handle, and different for different objects | 8.30.5 8.30.1 7.8 | standard only |  |

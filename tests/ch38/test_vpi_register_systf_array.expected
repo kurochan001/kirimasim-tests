@@ -1,0 +1,3 @@
+$vt_hello, from the first startup routine
+$vt_listed, from the array
+$vt_add3(4)=7 $vt_twice(5)=10

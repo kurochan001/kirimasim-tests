@@ -1,0 +1,4 @@
+test_parameter_dependence_override.u1: WIDTH=8 DEPTH=16 P2=1 P3=44
+test_parameter_dependence_override.u2: WIDTH=10 DEPTH=20 P2=1 P3=44
+test_parameter_dependence_override.u3: WIDTH=12 DEPTH=100 P2=1 P3=44
+test_parameter_dependence_override.u4: WIDTH=14 DEPTH=28 P2=13 P3=300

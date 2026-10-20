@@ -1,0 +1,9 @@
+idle=0
+rd0=1
+rd1=2
+rd2=3
+wr2=10
+wr3=11
+nop4=12
+nop3=13
+nop2=14

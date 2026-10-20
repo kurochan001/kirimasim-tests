@@ -9,9 +9,9 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 3 | [Design and verification building blocks](ch3.md) | 11 |  |
 | 4 | [Scheduling semantics](ch4.md) | 348 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 28 |  |
-| 6 | [Data types](ch6.md) | 273 |  |
+| 6 | [Data types](ch6.md) | 292 |  |
 | 7 | [Aggregate data types](ch7.md) | 281 |  |
-| 8 | [Classes](ch8.md) | 125 |  |
+| 8 | [Classes](ch8.md) | 129 |  |
 | 9 | [Processes](ch9.md) | 108 |  |
 | 10 | [Assignment statements](ch10.md) | 105 |  |
 | 11 | [Operators and expressions](ch11.md) | 684 | 302 |
@@ -26,7 +26,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 20 | [Utility system tasks and system functions](ch20.md) | 178 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 80 |  |
 | 22 | [Compiler directives](ch22.md) | 30 |  |
-| 23 | [Modules and hierarchy](ch23.md) | 59 |  |
+| 23 | [Modules and hierarchy](ch23.md) | 69 |  |
 | 24 | [Programs](ch24.md) | 10 |  |
 | 25 | [Interfaces](ch25.md) | 45 |  |
 | 26 | [Packages](ch26.md) | 29 |  |
@@ -41,6 +41,6 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 35 | [Direct programming interface](ch35.md) | 16 |  |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 13 |  |
 | 37 | [VPI object model diagrams](ch37.md) | 31 |  |
-| 38 | [VPI routine definitions](ch38.md) | 13 |  |
+| 38 | [VPI routine definitions](ch38.md) | 21 |  |
 | 39 | [Assertion API](ch39.md) | 11 |  |
 | 40 | [Code coverage control and API](ch40.md) | 12 |  |

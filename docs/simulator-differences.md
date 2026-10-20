@@ -63,6 +63,8 @@ of the test as well.
 | 13.4 | fork-join in a function | `ch13/test_illegal_function_fork_join` |
 | 6.20.5 | A parameter whose value uses a specify parameter | `ch6/test_illegal_parameter_from_specparam` |
 | 33.4.1.2, 33.4.1.4 | Two default liblist clauses, and a cell clause with a library and a liblist (it skips config declarations) | `ch33/test_illegal_config_two_default_liblists`, `ch33/test_illegal_config_cell_library_liblist` |
+| 6.7.1 | A net type keyword followed directly by `reg` (`wire reg`) | `ch6/test_illegal_net_type_then_reg` |
+| 23.10.4.2 | A defparam whose hierarchical name resolves to another parameter once the generate blocks are elaborated | `ch23/test_illegal_defparam_early_resolution` |
 
 It also rejects some illegal designs for another reason than their error:
 it does not support ref ports or output arguments of functions, and it does
@@ -116,3 +118,6 @@ not parse the modport in an interface port of a module.
 | 13.4 | A function with an output argument called in a continuous assignment | `ch13/test_illegal_function_in_continuous_assign_output` |
 | 30.4.1, 30.4.5 | A module path from an output port, to an input port, or in parallel between vectors of different widths | `ch30/test_illegal_specify_path_from_output`, `ch30/test_illegal_specify_path_to_input`, `ch30/test_illegal_specify_parallel_width_mismatch` |
 | 33.4.1.2, 33.4.1.4 | Two default liblist clauses, and a cell clause with a library and a liblist | `ch33/test_illegal_config_two_default_liblists`, `ch33/test_illegal_config_cell_library_liblist` |
+| 6.7.1 | A net type keyword followed directly by `reg` (`wire reg`) | `ch6/test_illegal_net_type_then_reg` |
+| 6.22.2, 6.22.3 | An assignment between variables of two anonymous unpacked struct types from different declarations, which are not equivalent | `ch6/test_illegal_anonymous_struct_not_equivalent` |
+| 23.10.4.2 | A defparam whose hierarchical name resolves to another parameter once the generate blocks are elaborated | `ch23/test_illegal_defparam_early_resolution` |

@@ -1,0 +1,3 @@
+test_generic_interface_port.s1: first
+test_generic_interface_port.s2: second
+test_generic_interface_port.n: second 3
