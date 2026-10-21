@@ -1,0 +1,2 @@
+read counter=20
+after bump counter=25
