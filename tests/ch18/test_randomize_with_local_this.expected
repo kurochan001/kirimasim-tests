@@ -1,0 +1,5 @@
+x == this.lim: 100
+x == local::this.lim + 1: 8
+x == local::x + k: 43
+with (x), x == lim + 2: 9
+with (x), x == local::x + 1: 41

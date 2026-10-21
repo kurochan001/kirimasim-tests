@@ -1,0 +1,3 @@
+cap=30, 60 calls: violations=0 first=7 step=5 last=42
+module variable: ok=1 total=12 step=6
+array: ok=1 marks = 30 29 28 27

@@ -1,0 +1,4 @@
+8-bit weight a + b: taken 0 times, weight 1 taken 100 times
+all weights 0: branches taken 0, statement after it ran 10 times
+weights that follow i: ABCABC
+weight evaluated more than once: 0 times

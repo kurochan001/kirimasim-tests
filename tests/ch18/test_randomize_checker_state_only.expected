@@ -1,0 +1,5 @@
+no random variables: lo<hi 1, lo>hi 0, lo=3 hi=2
+c_order off: 1, on again: 0
+randomize(null): x=12 mode=1 1, x=12 mode=0 0, x=3 mode=0 1, x=3
+x inactive: mode=1 1, mode=0 0, x=12
+x active, mode=0: 1, x<5 1

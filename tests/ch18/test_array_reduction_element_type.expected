@@ -1,0 +1,6 @@
+ok=1
+sum wraps in 4 bits: a[1]=8
+sum with: e = 7 7 7 7
+product: c = 2 3 5
+xor: b[2]=0
+and, or: d = 0001 0001 0001

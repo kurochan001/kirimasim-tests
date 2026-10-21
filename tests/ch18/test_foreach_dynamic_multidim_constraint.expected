@@ -1,0 +1,4 @@
+30 calls: failed=0 violations=0
+size 3: q = 3 5 7
+m: m[3][0]=30 m[3][1]=31 m[2][0]=20 m[2][1]=21 m[1][0]=10 m[1][1]=11
+r = bcd

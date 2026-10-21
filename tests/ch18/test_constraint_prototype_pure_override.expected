@@ -1,0 +1,4 @@
+base with an empty prototype: ok=1 x=10
+derived prototype replaces c_fix: ok=1 x=20
+pure constraint given by a block: ok=1 y=30
+pure constraint given by an external block: ok=1 y=40

@@ -1,0 +1,5 @@
+100 calls: failed=0 level outside the named values=0
+enum state variable with the unnamed value 3: w=4
+tag == "small": s=1
+p * q == 667: p=23 q=29
+tag == "large": ok=1 s=12

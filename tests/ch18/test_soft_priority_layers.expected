@@ -1,0 +1,8 @@
+ok=1
+prototype order: p=20
+derived over base: b=2
+container over held object: h1.v=7
+later handle: h2.v=9 h3.v=9
+later iteration: r=6
+no contradiction: s=6
+only soft constraints, 20 calls: failed=0 t<=5: 0

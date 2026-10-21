@@ -1,0 +1,4 @@
+100 calls: failed=0, mode=1 with v!=9: 0, kind==1 with len==5: 0
+kind==1: ok=1 len=102
+mode==0, v==3: ok=1 v=3
+mode==1, v==3: ok=0 v=3
