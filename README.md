@@ -31,7 +31,7 @@ What sets the suite apart:
   default time unit or on the format of a simulator's messages.
 
 > **Status: early.** Every test has been checked against the standard by an
-> AI model (Claude Code), and none by a person yet (`:spec_check: ai`).
+> AI model, and none by a person yet (`:spec_check: ai`).
 > Reports of wrong expectations are welcome.
 
 ## Contents
@@ -245,7 +245,7 @@ it does not know.
 | `:type:` | `simulation` for tests that are run |
 | `:lrm:` | IEEE 1800-2023 clauses the test checks, for example `1800-2023 11.4.3` |
 | `:oracle:` | Where the expected output comes from: `spec` (it was checked against the cited clauses of the standard; `:spec_check:` says by whom), `iverilog@13.0` (Icarus Verilog 13.0 produced it), `verilator@5.052` (Verilator 5.052 produced it) |
-| `:spec_check:` | Who checked a `spec` expectation against the standard: `ai` (an AI model, Claude Code, read the cited clauses; no person has checked this test yet) or `human` (a person checked it) |
+| `:spec_check:` | Who checked a `spec` expectation against the standard: `ai` (an AI model read the cited clauses; no person has checked this test yet) or `human` (a person checked it) |
 | `:fourstate:` | Whether the result depends on x or z values (`yes` / `no`): the test has x or z literals, `$isunknown`, `casex`/`casez`, tri-state or strength constructs, or x or z in its expected output |
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
 | `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test |
@@ -640,9 +640,9 @@ design, the files that the metadata names, the line lengths, comment lines
 that start with the word Verilator, a `` `timescale `` when a time is printed,
 and TODO left from the skeleton. Its docstring lists the rules.
 
-Most of the material here was produced with AI assistance (Claude Code);
-people are responsible for checking the expected results against the
-standard.
+Most of the material here was produced with AI assistance (Claude Code
+and OpenCode); people are responsible for checking the expected results
+against the standard.
 
 ## License
 
