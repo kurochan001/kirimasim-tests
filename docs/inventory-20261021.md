@@ -939,6 +939,9 @@ from 191 to 177, and the clauses with only standard-only tests from 265
 to 252. The tests with both releases rose from 164 to 171. The next
 slice should continue with the remaining 55.
 
+The clause text also requires `%L`; `ch33/test_config_binding_upper`
+adds it, recorded with Verilator, so the suite then had 3793 tests.
+
 ### Clause-text corrections
 
 Reading the clause text in the IEEE 1800-2023 PDF found three
@@ -959,8 +962,8 @@ corrections to the metadata:
 
 ### Current state
 
-After these commits the suite has 3792 tests in 37 chapters, 812 of them
-generated. By `:oracle:`, 2526 list Icarus Verilog 13.0, 767 list
+After these commits the suite has 3793 tests in 37 chapters, 812 of them
+generated. By `:oracle:`, 2526 list Icarus Verilog 13.0, 768 list
 Verilator 5.052, and 499 follow the standard only. 568 tests depend on
 x or z values, 205 have C code (29 DPI and 176 VPI), 167 are illegal
 designs, and 5 set an expected exit code.
@@ -982,5 +985,5 @@ designs, and 5 set an expected exit code.
 | 40 | 7 |
 | **All** | **100** |
 
-The 12 second tests in the depth follow-up bring the total added in this
-work to 112.
+The 12 second tests in the depth follow-up, and the `%L` test, bring the
+total added in this work to 113.

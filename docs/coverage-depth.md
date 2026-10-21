@@ -6,11 +6,11 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 3792 |
+| Tests | 3793 |
 | Clauses in scope | 933 |
 | Clauses out of scope | 186 |
 | Clauses with one test | 177 |
-| Clauses with two tests or fewer | 443 |
+| Clauses with two tests or fewer | 442 |
 | Clauses with only standard-only tests | 252 |
 | Clauses with one test and only a standard-only test | 55 |
 
@@ -18,7 +18,7 @@
 | --- | ---: |
 | both releases | 171 |
 | Icarus Verilog 13.0 only | 2355 |
-| Verilator 5.052 only | 767 |
+| Verilator 5.052 only | 768 |
 | standard only | 499 |
 
 ## By chapter
@@ -55,7 +55,7 @@
 | 30 | Specify blocks | 23 | 20 | 1.1 | 0 | 5 |
 | 31 | Timing checks | 23 | 19 | 1.2 | 1 | 19 |
 | 32 | Backannotation using the standard delay format | 23 | 10 | 2.3 | 2 | 14 |
-| 33 | Configuring the contents of a design | 23 | 11 | 2.1 | 0 | 15 |
+| 33 | Configuring the contents of a design | 24 | 11 | 2.2 | 0 | 15 |
 | 35 | Direct programming interface | 31 | 17 | 1.8 | 0 | 10 |
 | 36 | Programming language interface (PLI/VPI) overview | 29 | 13 | 2.2 | 0 | 9 |
 | 37 | VPI object model diagrams | 74 | 81 | 0.9 | 2 | 68 |
