@@ -38,7 +38,7 @@ of the test as well.
 | 29.7 | The delay of a sequential UDP instance also delays its initial value, which shows x until then. | `ch29/test_udp_initial_value_not_delayed` |
 | 24.3 | When a program's initial procedures end, the threads they forked go on running; they have to end with the program. | `ch24/test_program_end_kills_descendants` |
 | 24.5, 24.3.1 | A program's thread, and a module task it calls, run in the Active region with the module's processes instead of in the Reactive region: the call sees a variable before the nonblocking update of its time step, and runs before the module's own processes of the time step it resumes in. | `ch24/test_program_calls_module_task` |
-| 24.3.1 | A program's process sees the values from before the nonblocking updates of its time step (Verilator 5.052 too). | `ch24/test_program_reactive_sees_nba` |
+| 24.3.1 | A program's process sees the values from before the nonblocking updates of its time step (Verilator 5.052 too). | `ch24/test_program_reactive_sees_nba`, `ch24/test_program_stimulus_after_clock_edge` |
 | 10.6.1, 4.9.2 | `assign` (procedural continuous) evaluates its right-hand side once, so the variable does not follow later changes (it warns about this; Verilator 5.052 does the same). | `ch4/test_sched_procedural_assign_deassign` |
 | 11.5.2, 7.4.5 | Reading a 2-state memory at an invalid address gives x instead of the default value 0. | `ch11/test_memory_invalid_address_2state` |
 | 22.5.3 | It does not know `` `undefineall `` and treats it as an empty macro, so the macros stay defined. | `ch22/test_undefineall` |
@@ -47,7 +47,7 @@ of the test as well.
 | 32.4.3 | It does not read the LABEL section of an SDF file. | `ch32/test_sdf_label_specparam` |
 | 32.9 | It uses only the first two arguments of `$sdf_annotate`, and rejects an empty module instance argument. | `ch32/test_sdf_mtm_spec`, `ch32/test_sdf_scale_factors` |
 | 33 | It skips config declarations without an error, so the design is not configured. | `ch33/test_config_cell_use`, `ch33/test_config_cell_with_library`, `ch33/test_config_defparam_precedence`, `ch33/test_config_design_top`, `ch33/test_config_design_two_tops`, `ch33/test_config_instance_deep_path`, `ch33/test_config_instance_use`, `ch33/test_config_library_binding_format` |
-| 31 | It skips timing checks such as `$setup`, `$timeskew` and `$fullskew` without an error, so their notifiers never change. | `ch31/test_timing_timeskew_flags`, `ch31/test_timing_timeskew_remain_active`, `ch31/test_timing_fullskew_event_based`, `ch31/test_timing_notifier_x_and_z` and the other tests of chapter 31 with `:oracle: spec` |
+| 31 | It skips timing checks such as `$setup`, `$timeskew` and `$fullskew` without an error, so their notifiers never change. | `ch31/test_timing_timeskew_flags`, `ch31/test_timing_timeskew_remain_active`, `ch31/test_timing_fullskew_event_based`, `ch31/test_timing_notifier_x_and_z` and the other tests of chapter 31 with `:oracle: spec`, `ch32/test_sdf_width_period_limits` |
 | 36.10.1, 38.36.2 | `vpi_chk_error` reports no error after `vpi_register_cb` refuses a callback that the standard makes an error, and a cbAtStartOfSimTime with delay 0 makes it stop on an internal assertion. | `ch36/test_vpi_chk_error_callbacks` |
 | 37.42 | It evaluates an argument of a user-defined system task that the application never reads; such an argument must not be evaluated. | `ch36/test_vpi_systf_argument_on_demand` |
 | 38.34 | `vpi_put_value` keeps every scheduled event in all three delay modes; inertial delay has to cancel the pending ones. | `ch38/test_vpi_put_value_delay_modes` |
@@ -58,6 +58,7 @@ of the test as well.
 | 20.17.2 | `$stacktrace` called as a function makes the compiler stop on an internal assertion. | `ch20/test_stacktrace_function` |
 | 37.3.5 | `vpi_put_value` on a system task argument whose index has a side effect stops on an internal assertion instead of reporting an error. | `ch37/test_vpi_put_value_side_effect` |
 | 30.7.4.2 | A showcancelled declaration has no effect: a negative pulse leaves the output unchanged instead of showing x. | `ch30/test_negative_pulse_cancelled` |
+| 29.3.2 | A combinational UDP that declares its output reg makes it stop on an internal assertion instead of reporting the error. | `ch29/test_illegal_udp_combinational_reg` |
 
 ### Illegal designs that it accepts
 
@@ -69,10 +70,13 @@ of the test as well.
 | 8.10 | A static method that reads a non-static property | `ch8/test_illegal_static_method_uses_property` |
 | 13.4 | fork-join in a function | `ch13/test_illegal_function_fork_join` |
 | 6.20.5 | A parameter whose value uses a specify parameter | `ch6/test_illegal_parameter_from_specparam` |
-| 33.4.1.2, 33.4.1.4 | Two default liblist clauses, and a cell clause with a library and a liblist (it skips config declarations) | `ch33/test_illegal_config_two_default_liblists`, `ch33/test_illegal_config_cell_library_liblist` |
+| 33.4.1.2, 33.4.1.4, 33.4.2 | Two default liblist clauses, a cell clause with a library and a liblist, and an instance clause that names an instance inside the hierarchy of another config (it skips config declarations) | `ch33/test_illegal_config_two_default_liblists`, `ch33/test_illegal_config_cell_library_liblist`, `ch33/test_illegal_config_instance_inside_other_config` |
 | 6.7.1 | A net type keyword followed directly by `reg` (`wire reg`) | `ch6/test_illegal_net_type_then_reg` |
 | 23.10.4.2 | A defparam whose hierarchical name resolves to another parameter once the generate blocks are elaborated | `ch23/test_illegal_defparam_early_resolution` |
 | 30.7.4.2 | A showcancelled declaration that names a path output after a module path to it | `ch30/test_illegal_showcancelled_after_path` |
+| 24.3, 24.5 | A module that reads a variable of a program, and one that calls a task of a program | `ch24/test_illegal_program_signal_from_module`, `ch24/test_illegal_module_calls_program_task` |
+| 29.3.4, 29.6 | A UDP table with two entries that give different outputs for the same inputs, and an entry with transitions on two inputs | `ch29/test_illegal_udp_conflicting_entries`, `ch29/test_illegal_udp_two_transitions_in_entry` |
+| 31.4.4, 31.4.5, 31.4.6 | `$width` and `$period` whose reference event has no edge, and `$nochange` with an edge-control specifier (it skips timing checks) | `ch31/test_illegal_width_reference_not_edge`, `ch31/test_illegal_period_reference_not_edge`, `ch31/test_illegal_nochange_edge_control` |
 
 It also rejects some illegal designs for another reason than their error:
 it does not support ref ports or output arguments of functions, and it does
@@ -90,13 +94,15 @@ not parse the modport in an interface port of a module.
 | 4.9.1, 4.4.2.3 | After a second `#0`, it still shows the old value of a continuous assignment. | `ch4/test_sched_contassign_zero_delay` |
 | 9.2.2.2.2 | `always @*` runs at time 0 and wakes for a change of a variable that it only reads in a called function. | `ch9/test_always_comb_vs_always_star` |
 | 9.4.2 | Event controls wake once at time 0 although nothing changed. | `ch9/test_event_nested_struct_member`, `ch12/test_foreach_index_shadows_outer` |
-| 24.3.1 | A program's process sees the values from before the nonblocking updates of its time step (as Icarus Verilog 13.0). | `ch24/test_program_reactive_sees_nba` |
+| 24.3.1 | A program's process sees the values from before the nonblocking updates of its time step (as Icarus Verilog 13.0). | `ch24/test_program_reactive_sees_nba`, `ch24/test_program_stimulus_after_clock_edge` |
+| 24.7 | `$exit` called from a process of a module ends the simulation; it has to be ignored. | `ch24/test_exit_outside_program_ignored` |
 | 10.6.1, 4.9.2 | `assign` (procedural continuous) does not follow later changes of its right-hand side (as Icarus Verilog 13.0). | `ch4/test_sched_procedural_assign_deassign` |
 | 11.5.2, 7.4.5 | An invalid address of a memory loses its upper bits, so another element is read and written. | `ch11/test_memory_invalid_address_2state` |
 | 29.7 | A sequential UDP instance with a delay changes its output before the delay has passed. | `ch29/test_udp_initial_value_not_delayed` |
 | 14.16 | A synchronous drive of a clocking output on a net, here a 0 against a weak 1 and on a wand net, does not reach the net. | `ch14/test_clocking_output_net_driver` |
 | 33.4.1.1, 33.5.4 | With a config whose design statement names two cells, it also makes another uninstantiated module a top-level module. | `ch33/test_config_design_two_tops` |
 | 30 | It ignores the module path delays of specify blocks without an error, so outputs change without them. | the tests of chapter 30 with `iverilog@13.0` in `:oracle:`, such as `ch30/test_specify_path_rise_fall` |
+| 31 | It skips timing checks without an error, so their notifiers never change. | the tests of chapter 31 with `:oracle: spec`, such as `ch31/test_timing_recrem_windows`, and `ch32/test_sdf_width_period_limits` |
 | 20.4.2 | `$printtimescale` prints the name of the design element without parentheses. | `ch20/test_printtimescale_other_module`, `ch3/test_timeunit_with_precision` |
 | 21.2.3 | `$monitoron` prints nothing. | `ch21/test_monitor_end_of_step` |
 | 21.3.7 | `$ferror` puts "Undefined error: 0" in its string when there is no error. | `ch21/test_file_fflush_ferror` |
@@ -143,3 +149,10 @@ not parse the modport in an interface port of a module.
 | 20.10.1 | An elaboration-time `$error`, which it reports as the warning USERERROR; with `-Wno-fatal`, which the runner passes, the simulation starts | `ch20/test_illegal_elaboration_error_task` |
 | 25.6, 30.7.4.2 | A ref port as a terminal of a module path, and a showcancelled declaration after the path (it ignores specify blocks) | `ch25/test_illegal_specify_ref_port_terminal`, `ch30/test_illegal_showcancelled_after_path` |
 | 28.3.4 | An array of gate instances without a name | `ch28/test_illegal_unnamed_gate_array` |
+| 3.14.2.2 | A timeunit declaration after another item of its module, and a repeated one that does not match the first | `ch3/test_illegal_timeunit_after_item`, `ch3/test_illegal_timeunit_mismatch` |
+| 17.5, 17.7.1 | In a checker, a plain always procedure, a blocking assignment in always_ff and an assignment to a checker variable in an initial procedure; and a module that assigns a checker variable by its hierarchical name | `ch17/test_illegal_checker_plain_always`, `ch17/test_illegal_checker_always_ff_blocking`, `ch17/test_illegal_checker_variable_initial_assignment`, `ch17/test_illegal_checker_variable_hierarchical_write` |
+| 18.5.9 | A solve-before constraint that names a property not declared rand | `ch18/test_illegal_solve_before_state_variable` |
+| 24.3, 24.5 | A module that reads a variable of a program, and one that calls a task of a program | `ch24/test_illegal_program_signal_from_module`, `ch24/test_illegal_module_calls_program_task` |
+| 29.3.1, 29.3.4, 29.7 | A UDP with a vector input, a UDP table with two entries that give different outputs for the same inputs, and a delay in the initial statement of a UDP | `ch29/test_illegal_udp_vector_port`, `ch29/test_illegal_udp_conflicting_entries`, `ch29/test_illegal_udp_initial_delay` |
+| 31.4.4, 31.4.5, 31.4.6 | `$width` and `$period` whose reference event has no edge, `$width` with a notifier and no threshold, and `$nochange` with an edge-control specifier (it ignores specify blocks) | `ch31/test_illegal_width_reference_not_edge`, `ch31/test_illegal_period_reference_not_edge`, `ch31/test_illegal_width_notifier_without_threshold`, `ch31/test_illegal_nochange_edge_control` |
+| 33.4 | A cell clause that binds a package name to another package | `ch33/test_illegal_config_package_binding` |
