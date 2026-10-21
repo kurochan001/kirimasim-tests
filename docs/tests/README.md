@@ -24,12 +24,12 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 18 | [Constrained random value generation](ch18.md) | 40 |  |
 | 19 | [Functional coverage](ch19.md) | 26 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 187 |  |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 83 |  |
-| 22 | [Compiler directives](ch22.md) | 35 |  |
-| 23 | [Modules and hierarchy](ch23.md) | 70 |  |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 85 |  |
+| 22 | [Compiler directives](ch22.md) | 39 |  |
+| 23 | [Modules and hierarchy](ch23.md) | 71 |  |
 | 24 | [Programs](ch24.md) | 18 |  |
-| 25 | [Interfaces](ch25.md) | 49 |  |
-| 26 | [Packages](ch26.md) | 30 |  |
+| 25 | [Interfaces](ch25.md) | 50 |  |
+| 26 | [Packages](ch26.md) | 31 |  |
 | 27 | [Generate constructs](ch27.md) | 68 |  |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 176 | 136 |
 | 29 | [User-defined primitives](ch29.md) | 27 |  |
