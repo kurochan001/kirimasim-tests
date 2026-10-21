@@ -48,7 +48,7 @@ of the test as well.
 | 32.9 | It uses only the first two arguments of `$sdf_annotate`, and rejects an empty module instance argument. | `ch32/test_sdf_mtm_spec`, `ch32/test_sdf_scale_factors` |
 | 33 | It skips config declarations without an error, so the design is not configured. | `ch33/test_config_cell_use`, `ch33/test_config_cell_with_library`, `ch33/test_config_defparam_precedence`, `ch33/test_config_design_top`, `ch33/test_config_design_two_tops`, `ch33/test_config_instance_deep_path`, `ch33/test_config_instance_use`, `ch33/test_config_library_binding_format` |
 | 31 | It skips timing checks such as `$setup`, `$timeskew` and `$fullskew` without an error, so their notifiers never change. | `ch31/test_timing_timeskew_flags`, `ch31/test_timing_timeskew_remain_active`, `ch31/test_timing_fullskew_event_based`, `ch31/test_timing_notifier_x_and_z` and the other tests of chapter 31 with `:oracle: spec`, `ch32/test_sdf_width_period_limits` |
-| 36.10.1, 38.36.2 | `vpi_chk_error` reports no error after `vpi_register_cb` refuses a callback that the standard makes an error, and a cbAtStartOfSimTime with delay 0 makes it stop on an internal assertion. | `ch36/test_vpi_chk_error_callbacks` |
+| 36.10.1, 38.36.2 | `vpi_chk_error` reports no error after `vpi_register_cb` refuses a callback that the standard makes an error, and a cbAtStartOfSimTime with delay 0 makes it stop on an internal assertion. | `ch36/test_vpi_chk_error_callbacks`, `ch36/test_vpi_chk_error_status` |
 | 37.42 | It evaluates an argument of a user-defined system task that the application never reads; such an argument must not be evaluated. | `ch36/test_vpi_systf_argument_on_demand` |
 | 38.34 | `vpi_put_value` keeps every scheduled event in all three delay modes; inertial delay has to cancel the pending ones. | `ch38/test_vpi_put_value_delay_modes` |
 | 38.36.1 | A value change callback on a named event gets a value structure. | `ch38/test_vpi_value_change_event` |
@@ -68,6 +68,12 @@ of the test as well.
 | 6.16.12, 6.16.9 | `hextoa` of a negative int writes a minus sign and the digits of the magnitude (`-21524111` for 32'hDEADBEEF). As the inverse of `atohex`, which reads no sign, it has to write the hexadecimal digits of the value. | `ch6/test_string_hextoa` |
 | 21.2.1.2 | A field width on `%h` pads with spaces (`[  ab]` for `%4h` of 8'hab); outside decimal, leading zeros are always displayed. | `ch21/test_display_format` |
 | 16.3 | The pass statement of an immediate cover statement does not run when its expression is true (Verilator 5.052 does the same). | `ch16/test_assert_immed_2` |
+| 30.7.1 | It ignores `PATHPULSE$`: a pulse on a module path that is narrower than the path delay is rejected, also when the reject and error limits of `PATHPULSE$` make it pass or turn it into x. | `ch30/test_specify_pulse_filtering`, `ch30/test_specify_pulsestyle_ondetect` |
+| 36.3.2 | A VPI application registered as `$signed` or `$unsigned` does not replace the built-in function, whose result keeps the width of its argument instead of the width that the sizetf routine gives. | `ch36/test_vpi_systf_override_signed_width` |
+| 37.3.5 | `vpi_get_value` on a system task argument with side effects, such as a function call or `k++`, gives the value from the call of the task each time instead of evaluating the argument again with its side effects. | `ch37/test_vpi_get_value_side_effects` |
+| 37.20 | The vpiMemory and vpiMemoryWord relations give objects of the types vpiMemory and vpiMemoryWord instead of vpiRegArray and vpiReg, and the vpiIndex of a word counts from 0 instead of being its index in the range of the array. | `ch37/test_vpi_memory_word_objects` |
+| 38.3 | `vpi_compare_objects` gives 0 for an argument that selects an element or a bit with a variable index, such as `mem[j]`, and the element or bit that the index selects. | `ch38/test_vpi_compare_objects_variable_select` |
+| 38.22 | `vpi_handle_multi(vpiInterModPath, ...)` with ports at different levels of the hierarchy reports that it cannot insert the path and returns NULL. | `ch38/test_vpi_intermod_path_levels` |
 
 ### Illegal designs that it accepts
 
@@ -103,10 +109,10 @@ not parse the modport in an interface port of a module.
 | 4.4.2.3, 21.2.2, 21.2.3 | At time 0, `$strobe` and `$monitor` show the values from before a write made after `#0` or by a nonblocking assignment; `$monitor` also misses changes of variables of an interface instance. | the 45 `gen/ch4/test_gen_sched_*_{strobe,monitor}_*` tests it does not match, `ch4/test_sched_strobe_after_zero_delays_and_nba`, `ch4/test_sched_monitor_once_per_time_step` |
 | 4.9.1, 4.4.2.3 | After a second `#0`, it still shows the old value of a continuous assignment. | `ch4/test_sched_contassign_zero_delay` |
 | 9.2.2.2.2 | `always @*` runs at time 0 and wakes for a change of a variable that it only reads in a called function. | `ch9/test_always_comb_vs_always_star` |
-| 9.4.2 | Event controls wake once at time 0 although nothing changed. | `ch9/test_event_nested_struct_member`, `ch12/test_foreach_index_shadows_outer` |
+| 9.4.2 | Event controls wake once at time 0 although nothing changed. | `ch9/test_event_nested_struct_member`, `ch12/test_foreach_index_shadows_outer`, `ch16/test_deferred_assertion_disable_inner_scope` |
 | 24.3.1 | A program's process sees the values from before the nonblocking updates of its time step (as Icarus Verilog 13.0). | `ch24/test_program_reactive_sees_nba`, `ch24/test_program_stimulus_after_clock_edge` |
 | 24.7 | `$exit` called from a process of a module ends the simulation; it has to be ignored. | `ch24/test_exit_outside_program_ignored` |
-| 16.4 | It runs the action block of an observed deferred assertion at once, where the assertion is, instead of in the Reactive region, so a const ref argument reads the value from before the nonblocking update. | `ch4/test_sched_deferred_action_arguments` |
+| 16.4, 16.4.2, 16.4.4 | It runs the action block of an observed deferred assertion at once, where the assertion is, instead of in the Reactive region, so a const ref argument reads the value from before the nonblocking update, and neither a flush point nor a disable statement can cancel the report. | `ch4/test_sched_deferred_action_arguments`, `ch16/test_deferred_assertion_forked_processes`, `ch16/test_deferred_assertion_disable_inner_scope` |
 | 15.5.1 | A process waiting for an event triggered with `->>` does not wake. | `ch4/test_sched_nonblocking_event_trigger` |
 | 8.11, 6.23 | It rejects type(this) in a static method ("Cannot use 'this' in a static method"); type(this) names the type of the enclosing class anywhere in it. | `ch8/test_type_this` |
 | 10.6.1, 4.9.2 | `assign` (procedural continuous) does not follow later changes of its right-hand side (as Icarus Verilog 13.0). | `ch4/test_sched_procedural_assign_deassign` |
@@ -124,10 +130,10 @@ not parse the modport in an interface port of a module.
 | 18.5.12 | A guard of a constraint does not keep a null handle from being dereferenced. | `ch18/test_constraint_guard_null` |
 | 18.6.3 | When randomization fails, it still calls post_randomize and changes the variables passed to `std::randomize`. | `ch18/test_randomize_failure_keeps_values` |
 | 8.26.5 | A cast from one interface class handle to another fails. | `ch8/test_interface_class_cast` |
-| 19.5.7 | Values of a bin that do not survive the cast to the type of the coverpoint are not left out. | `ch19/test_cg_bins_value_resolution` |
+| 19.5, 19.5.7 | Values of a bin that do not survive the cast to the type of the coverpoint are not left out, and a sampled value is compared with the bins without being converted to the type of the coverpoint. | `ch19/test_cg_bins_value_resolution`, `ch19/test_cg_coverpoint_type_resolution` |
 | 19.5.1 | A fixed number of bins is ignored, one bin per value is made. | `ch19/test_cg_fixed_count_bins` |
 | 19.5.3 | An enum coverpoint gets the wrong number of automatic bins. | `ch19/test_cg_enum_auto_bins` |
-| 19.5.5, 19.5.6 | Ignored and illegal values stay in the bins and are counted. | `ch19/test_cg_ignore_bins`, `ch19/test_cg_illegal_bins_removed` |
+| 19.5.5, 19.5.6 | Ignored and illegal values stay in the bins, also in automatic bins, and are counted; transition bins keep the sequences that contain an ignored or illegal transition. | `ch19/test_cg_ignore_bins`, `ch19/test_cg_illegal_bins_removed`, `ch19/test_cg_auto_bins_illegal_ignore`, `ch19/test_cg_excluded_transitions` |
 | 19.7 | `at_least` is ignored: a bin is covered after one hit. | `ch19/test_cg_at_least` |
 | 19.6, 19.11 | Coverage of a cross, and of a covergroup with weights, is the share of all bins, ignoring the weight option. | `ch19/test_cg_cross_coverage`, `ch19/test_cg_item_weighted_average` |
 | 19.8 | Sampling goes on after `stop()`, and `get_coverage` sets both of its arguments to 0. | `ch19/test_cg_start_stop_counts` |
@@ -151,6 +157,21 @@ not parse the modport in an interface port of a module.
 | 29.6 | A sequential UDP whose table toggles its output on a rising edge of the clock (a T flip-flop starting at 0) keeps the output at 0 after the edge. | `ch29/test_udp_seq` |
 | 21.2.1.1 | `%E` and `%G` write a lower-case `e`. The real formats have the formatting of C, where they write `E`. | `ch21/test_format_advanced`, `ch21/test_format_float` |
 | 16.3 | The pass statement of an immediate cover statement does not run when its expression is true (as Icarus Verilog 13.0). | `ch16/test_assert_immed_2` |
+| 15.4.9 | It rejects a mailbox declared without a type parameter ("Class parameter type without default value"); such a mailbox is typeless. | `ch15/test_mailbox_typeless_try_type_check` |
+| 16.4.3, 9.2.2.2.1 | A deferred assertion outside procedural code whose action blocks write variables stops the run with DIDNOTCONVERGE: the writes wake it again, although the expressions of action blocks do not add to its sensitivity. | `ch16/test_static_deferred_assertion_always_comb` |
+| 16.12.7, 16.9.8 | `a ##[1:3] b \|=> c` passes when the consequent holds after one of the matches of the antecedent, also with `first_match`; it has to hold after each match, and with `first_match` after the first. | `ch16/test_first_match_antecedent` |
+| 16.12.14 | `not (accept_on (k) ...)` passes when k aborts the evaluation; the abort makes the operand true, so the negation has to fail. | `ch16/test_property_abort_nesting` |
+| 18.5.13.1 | Soft constraints of external constraint blocks rank in the order of the blocks instead of the order of their prototypes. | `ch18/test_soft_priority_layers` |
+| 18.5.13.2 | `disable soft x` removes every soft constraint of lower priority, also those that do not name x. | `ch18/test_disable_soft_direct_reference` |
+| 18.5.8, 18.11 | `randomize()` with arguments still randomizes the objects of the rand handles that it does not list, and applies their constraints. | `ch18/test_global_constraints_nested_inactive` |
+| 18.5.7.1, 18.4 | With `randomize() with { q.size() == 3; }`, it sets `q[0]` to 3 and leaves `q` at its previous size; the size has to become 3. | `ch18/test_foreach_dynamic_multidim_constraint` |
+| 18.11.1 | `randomize()` of an object with no random variables returns 1 also when its constraints do not hold; it has to return 0. | `ch18/test_randomize_checker_state_only` |
+| 18.16 | The weight expression of a randcase item is evaluated twice each time the randcase runs; it may be evaluated at most once. | `ch18/test_randcase_weight_precision` |
+| 35.6.1.1, H.7.6 | An unpacked array passed to a formal with the other range direction, `int up[0:3]` to `int a[3:0]`, reaches C in the order of the actual: C element 0 is `up[0]`. The formal is assigned from the actual left to right, so C element 0 has to be `a[0]`, which is `up[3]`. | `ch35/test_dpi_wysiwyg_formal_types` |
+| 35.5.3 | When an export called from an import call chain returns, the chain keeps the scope that was set during the export instead of going back to the scope it had when the export was called. | `ch35/test_dpi_context_call_chain` |
+| 38.6, 37.17 | `vpiType` of int, byte and longint variables is vpiLogicVar instead of vpiIntVar, vpiByteVar and vpiLongIntVar; a real variable has vpiScalar 1; and vpiTimeUnit and vpiTimePrecision give other values than the time units of the modules and the simulation. | `ch38/test_vpi_get_property_values` |
+| 38.35 | `vpi_put_value_array` on a two-dimensional array writes the values from another element and in another order. | `ch38/test_vpi_put_value_array_order` |
+| 38.36.1 | The time passed in the `s_cb_data` of a value change callback is 0 instead of the current time. | `ch38/test_vpi_release_handle_keeps_object` |
 
 ### Illegal designs that it accepts
 
@@ -189,3 +210,4 @@ not parse the modport in an interface port of a module.
 | 12.8 | break inside a fork-join block that ends a loop around the block | `ch12/test_illegal_break_in_fork_to_outer_loop` |
 | 26.3 | A local declaration of a name that a wildcard import has already made visible | `ch26/test_illegal_local_declaration_after_import` |
 | 8.20 | A pure virtual method declared :final | `ch8/test_illegal_final_pure_virtual` |
+| 35.5.1.3, 35.5.4 | An imported task declared pure | `ch35/test_illegal_dpi_pure_import_task` |
