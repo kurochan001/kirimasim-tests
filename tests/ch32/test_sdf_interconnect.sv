@@ -3,7 +3,7 @@
 :description: An INTERCONNECT entry delays a signal from an output port to an input port: the source sees the undelayed value and the load the delayed one (IEEE 1800-2023 Section 32.4.4)
 :tags: ch32
 :type: simulation
-:lrm: 1800-2023 32.4.4
+:lrm: 1800-2023 32.4.4 21.2.2
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no
@@ -15,7 +15,9 @@
 // source yields the undelayed value, and a reference to the load, or to
 // anything after it, the delayed value: the net n changes at 10, u2.i and the
 // output of u2 at 15. The entry belongs to the cell of this module, named by an
-// empty INSTANCE.
+// empty INSTANCE. The test prints the values with $strobe at 10, 14 and 15,
+// which shows them at the end of each time step (21.2.2), when the
+// continuous assignment in u2 has followed u2.i.
 
 `timescale 1ns/1ns
 
@@ -44,8 +46,9 @@ module test_sdf_interconnect;
     $fclose(f);
     $sdf_annotate("test_sdf_interconnect.sdf");
     #10 a = 1;
-    #10 $finish;
+    $strobe("%0d: n=%b u2.i=%b o=%b", $time, n, u2.i, o);
+    #4 $strobe("%0d: n=%b u2.i=%b o=%b", $time, n, u2.i, o);
+    #1 $strobe("%0d: n=%b u2.i=%b o=%b", $time, n, u2.i, o);
+    #5 $finish;
   end
-
-  always @(n or u2.i or o) if ($time >= 10) $display("%0d: n=%b u2.i=%b o=%b", $time, n, u2.i, o);
 endmodule
