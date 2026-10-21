@@ -1,0 +1,4 @@
+p_reset: assert
+p_disable: assert
+5: p_disable failed
+15: p_reset failed
