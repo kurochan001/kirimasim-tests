@@ -3,7 +3,7 @@
 :description: $cast between interface class handles and class handles succeeds only when the object implements the destination type (IEEE 1800-2023 Section 8.26.5)
 :tags: ch8
 :type: simulation
-:lrm: 1800-2023 8.26.5 8.16
+:lrm: 1800-2023 8.26.5 8.16 8.26 8.20
 :oracle: spec
 :spec_check: ai
 :fourstate: no
@@ -15,7 +15,10 @@
 // interface class handle to another, or from an interface class handle to a
 // class handle, succeeds when the object it holds is of a type that can be
 // assigned to the destination, and fails otherwise, leaving the destination
-// unchanged.
+// unchanged. The methods of cast_reg implement the prototypes of the
+// interface classes and so have to meet the rules of a virtual method
+// override (8.26, 8.20): write takes the argument name of its prototype as
+// well as its type.
 //
 // The cast from one interface class handle to the other fails in version 5.052
 // of Verilator, which then stops on the null handle; Icarus Verilog 13.0 does
@@ -26,7 +29,7 @@ interface class cast_reader;
 endclass
 
 interface class cast_writer;
-  pure virtual function void write(int v);
+  pure virtual function void write(int x);
 endclass
 
 class cast_reg implements cast_reader, cast_writer;
