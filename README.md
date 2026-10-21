@@ -489,7 +489,8 @@ test runs in a temporary directory with `--quiet --quiet-stats --quiet-exit`
 and `SUKIMASIM_FINISH_STRICT_MODE=1`. The lines that sukimasim prints on
 standard output itself are removed before comparing: everything from
 `[sukimasim] Simulation completed` on, the lines that its `--diff` option
-ignores, and its `$finish` message. `TEST PASSED` is removed only as part of
+ignores, its `$finish` message, and the messages of the severity tasks, as for
+the other simulators. `TEST PASSED` is removed only as part of
 what follows `[sukimasim] Simulation completed`, because many tests print it
 themselves. With `--strip-diagnostics` the messages that sukimasim prints while
 it runs, such as `[TIMING] ...`, are removed as well. The C file of a test with

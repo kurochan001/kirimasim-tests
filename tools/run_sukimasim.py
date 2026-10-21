@@ -16,7 +16,8 @@ of its own on standard output, which are removed before comparing: everything
 from "[sukimasim] Simulation completed" on (its statistics and a "TEST PASSED"
 line), the lines that its --diff option ignores, and "$finish called at
 simulation time N". "TEST PASSED" is not removed anywhere else, because many
-tests print it themselves. With --strip-diagnostics the messages that sukimasim
+tests print it themselves. The messages of the severity tasks, such as $error,
+are removed as well. With --strip-diagnostics the messages that sukimasim
 prints while it runs, such as "[TIMING] ..." or "Cover point hit at time N",
 are removed too.
 
@@ -64,6 +65,12 @@ BANNER = re.compile(
     r"|SystemTaskRegistry: Registered |VPI: Processed |VPIIRBridge: TestbenchRuntime connected"
     r"|\$finish called at simulation time \d+|V C S   S i m u l a t i o n   R e p o r t$"
     r"|Time: \d+ time units$)")
+# The messages of the severity tasks (IEEE 1800-2023 20.10), whose form the
+# standard leaves to the tool: sukimasim prints "Info: <message> at time <t>"
+# (Warning, Error) and then a line with the file and the scope, and for $fatal
+# "[FATAL] <message> at time <t>" with the file and the scope on the same line.
+SEVERITY = re.compile(r"^(?:(?:Info|Warning|Error): .* at time \d+$|\s+file \S+:\d+, scope \S+$"
+                      r"|\[FATAL\] .* at time \d+\s+file \S+:\d+, scope \S+$)")
 # Messages that sukimasim prints while it runs, removed with --strip-diagnostics.
 DIAGNOSTIC = re.compile(
     r"^(?:\[IEEE1800-§24\] Program block |\[TIMING\] |\[COMB_EVAL\] |\[CONSTRAINT_MODE\] "
@@ -146,7 +153,8 @@ def run(test: Path, sukimasim: str, include: Path | None, diagnostics: bool) -> 
     for line in r.stdout.splitlines():
         if line.startswith(TRAILER):
             break
-        if not BANNER.match(line) and not (diagnostics and DIAGNOSTIC.match(line)):
+        if not BANNER.match(line) and not SEVERITY.match(line) \
+                and not (diagnostics and DIAGNOSTIC.match(line)):
             kept.append(line + "\n")
     norm = subprocess.run([sys.executable, str(NORMALIZE)], input="".join(kept),
                           capture_output=True, text=True).stdout
