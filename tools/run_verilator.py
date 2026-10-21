@@ -14,7 +14,9 @@ two-state simulator, so these tests do not depend on x or z values
 (`:fourstate: no`). Each test is built with `verilator --binary --timing
 --coverage-user`, without which Verilator does not run cover statements, and
 run with random initial values, so a test that depended on uninitialized
-values would show up as a difference.
+values would show up as a difference. With OBJCACHE=ccache in the
+environment, the makefile of each model compiles through ccache, so the
+runtime library of Verilator, the same for every test, is compiled only once.
 Exits with 1 if any test does not match.
 
 A test with `:dpi_c: @<file>.c` or `:vpi_c: @<file>.c` has C code next to it,

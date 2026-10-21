@@ -133,19 +133,45 @@ jobs:
           key: verilator-${{ steps.head.outputs.sha }}-ubuntu-24.04
 
       # Verilator solves the constraints of randomize() with an SMT solver, z3
-      # by default, which the runner does not have.
-      - name: Install z3
+      # by default, which the runner does not have. ccache: every test compiles
+      # the same runtime library of Verilator, so the makefile of each model
+      # compiles through ccache (OBJCACHE). The cache is kept for the next
+      # night, which reuses what the new commit of Verilator leaves unchanged.
+      # A hit returns what the compiler made from the same sources and
+      # options, so the results do not change.
+      - name: Install z3 and ccache
         run: |
           sudo apt-get update || echo "::warning::apt-get update failed for some sources"
-          sudo apt-get install -y z3
+          sudo apt-get install -y z3 ccache
+          {
+            echo "OBJCACHE=ccache"
+            echo "CCACHE_DIR=$HOME/.ccache"
+            echo "CCACHE_MAXSIZE=1G"
+          } >> "$GITHUB_ENV"
+
+      - name: Restore the compiler cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.ccache
+          key: ccache-verilator-master-ubuntu-24.04-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccache-verilator-master-ubuntu-24.04-
 
       - name: Run the suite
         run: |
           mkdir -p results
+          ccache -z
           python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" --all \
             -j "$(nproc)" --json results/verilator.json > results/verilator.log || true
           cat results/verilator.log
           tail -n 1 results/verilator.log >> "$GITHUB_STEP_SUMMARY"
+          ccache -s
+
+      - name: Save the compiler cache
+        if: ${{ !cancelled() }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.ccache
+          key: ccache-verilator-master-ubuntu-24.04-${{ github.run_id }}-${{ github.run_attempt }}
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}

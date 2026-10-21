@@ -422,6 +422,12 @@ user-defined system tasks, which the VPI tests use. Verilator solves the
 constraints of `randomize()` with an SMT solver, `z3` by default, which has to
 be on `PATH`; without it the tests of randomization do not match.
 
+Most of the time of a test goes into compiling the runtime library of
+Verilator, which is the same for every test. With `OBJCACHE=ccache` in the
+environment, the makefile of each model compiles through
+[ccache](https://ccache.dev), so the library is compiled once, and a later run
+also reuses the C++ of the tests that did not change; both workflows do this.
+
 ### kirimasim
 
 ```sh
@@ -496,8 +502,9 @@ suite has a problem:
   Actions cache) and runs every test. Every test whose `:oracle:` lists
   `iverilog@13.0` must match; the others are known differences.
 - **verilator** builds Verilator 5.052 from its `v5.052` tag (kept in the
-  cache), installs `z3` for `randomize()`, and runs the tests whose
-  `:oracle:` lists `verilator@5.052`, which must all match.
+  cache), installs `z3` for `randomize()` and ccache, whose cache it keeps for
+  the next run, and runs the tests whose `:oracle:` lists `verilator@5.052`,
+  which must all match.
 - **readme** checks that the tables of this README are up to date
   (`tools/suite_stats.py --check`), that the generated tests are what the
   generators write (`generators/generate.py --check`), and that the catalog
@@ -512,7 +519,8 @@ only reported. It has five jobs:
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every test.
 - **verilator** builds the latest `master` of Verilator (kept in the cache
-  by its commit), installs `z3`, and runs every test with `--all`.
+  by its commit), installs `z3` and ccache, whose cache it keeps for the next
+  night, and runs every test with `--all`.
 - **kirimasim** builds the latest `main` of kirimasim with its `release`
   preset and runs every test.
 - **sukimasim** checks out the latest `main` of sukimasim from its private

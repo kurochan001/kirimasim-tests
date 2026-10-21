@@ -118,20 +118,46 @@ jobs:
           key: verilator-v5.052-ubuntu-24.04
 
       # Verilator solves the constraints of randomize() with an SMT solver, z3
-      # by default, which the runner does not have.
-      - name: Install z3
+      # by default, which the runner does not have. ccache: every test compiles
+      # the same runtime library of Verilator, and the C++ of a test stays the
+      # same while the test and Verilator do, so the makefile of each model
+      # compiles through ccache (OBJCACHE), whose cache is kept for the next
+      # run. A hit returns what the compiler made from the same sources and
+      # options, so the results do not change.
+      - name: Install z3 and ccache
         run: |
           sudo apt-get update || echo "::warning::apt-get update failed for some sources"
-          sudo apt-get install -y z3
+          sudo apt-get install -y z3 ccache
+          {
+            echo "OBJCACHE=ccache"
+            echo "CCACHE_DIR=$HOME/.ccache"
+            echo "CCACHE_MAXSIZE=500M"
+          } >> "$GITHUB_ENV"
+
+      - name: Restore the compiler cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.ccache
+          key: ccache-verilator-v5.052-ubuntu-24.04-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ccache-verilator-v5.052-ubuntu-24.04-
 
       # Only the tests recorded with Verilator 5.052.
       - name: Run the suite
         run: |
+          ccache -z
           python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" \
             -j "$(nproc)" | tee verilator.log
           status=${PIPESTATUS[0]}
           tail -n 1 verilator.log >> "$GITHUB_STEP_SUMMARY"
+          ccache -s
           exit "$status"
+
+      - name: Save the compiler cache
+        if: ${{ !cancelled() }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.ccache
+          key: ccache-verilator-v5.052-ubuntu-24.04-${{ github.run_id }}-${{ github.run_attempt }}
 
   readme:
     runs-on: ubuntu-24.04
