@@ -1,0 +1,4 @@
+vpi_get_vlog_info returns 1, all argc entries are strings: yes
++vt_alpha in argv: yes, +vt_count=3 in argv: yes
++vt_alpha comes before +vt_count=3: yes
+design: vt_alpha given, vt_count=3

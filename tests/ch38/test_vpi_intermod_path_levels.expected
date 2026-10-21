@@ -1,0 +1,2 @@
+from m.leaf to s: vpiInterModPath
+ports of the path include the output of m.leaf: yes, the input of s: yes

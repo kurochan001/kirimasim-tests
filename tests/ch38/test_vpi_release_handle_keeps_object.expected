@@ -1,0 +1,6 @@
+vpi_release_handle of the callback handle: 1
+vpi_release_handle of the handle to r: 1
+r found again: vpiSize 8, value 0
+r changed to 3 at 1
+r changed to 4 at 2
+design: r=4

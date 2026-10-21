@@ -1,0 +1,3 @@
+callback on u1: placed
+design: u1.v=2 u2.v=5
+u1 callbacks: begin 1, delay control 1, assignment 2, without obj 0

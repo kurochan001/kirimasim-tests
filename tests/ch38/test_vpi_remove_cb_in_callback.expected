@@ -1,0 +1,3 @@
+design: r=3
+once: 1 call(s), removing itself returned 1
+every: 3 call(s), removing the time callback returned 1, removing the end callback returned 1

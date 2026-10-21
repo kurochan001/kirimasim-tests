@@ -1,0 +1,2 @@
+j=0: mem[j] and mem[0]: 1, mem[j] and mem[1]: 0, r[j] and r[0]: 1, r[j] and r[1]: 0
+j=1: mem[j] and mem[0]: 0, mem[j] and mem[1]: 1, r[j] and r[0]: 0, r[j] and r[1]: 1

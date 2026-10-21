@@ -1,0 +1,12 @@
+r: vpiLogicVar, vpiSize 8, vpiSigned 0, vpiVector 1, vpiScalar 0
+sr: vpiLogicVar, vpiSize 12, vpiSigned 1, vpiVector 1, vpiScalar 0
+b: vpiLogicVar, vpiSize 1, vpiSigned 0, vpiVector 0, vpiScalar 1
+i: vpiIntVar, vpiSize 32, vpiSigned 1, vpiVector 1, vpiScalar 0
+by: vpiByteVar, vpiSize 8, vpiSigned 1, vpiVector 1, vpiScalar 0
+li: vpiLongIntVar, vpiSize 64, vpiSigned 1, vpiVector 1, vpiScalar 0
+bt: vpiBitVar, vpiSize 4, vpiSigned 0, vpiVector 1, vpiScalar 0
+rl: vpiRealVar, vpiVector 0, vpiScalar 0
+NULL: vpiTimeUnit -12, vpiTimePrecision -12
+top module: vpiTimeUnit -9, vpiTimePrecision -10
+submodule: vpiTimeUnit -6, vpiTimePrecision -12
+design: done

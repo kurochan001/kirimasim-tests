@@ -1,0 +1,7 @@
+callbacks placed: 5
+callback "delay": obj vpiDelayControl, time 0, value NULL, index 0
+callback "assignment": obj vpiAssignment, time 2, value NULL, index 0, x before it 0
+callback "if": obj vpiIf, time NULL, value NULL, index 0, calls before the condition 0
+callback "display": obj vpiSysTaskCall, time NULL, value NULL, index 0
+callback "display": obj vpiSysTaskCall, time NULL, value NULL, index 0
+design: x=6 calls=1 at 2

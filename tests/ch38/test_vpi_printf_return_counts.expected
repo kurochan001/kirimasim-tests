@@ -1,0 +1,15 @@
+[-42|    7|3   |]
+[-42|    7|3   |]
+hex=ff oct=10 Z 100%
+hex=ff oct=10 Z 100%
+2.500 1.500000e+03
+2.500 1.500000e+03
+two
+lines
+two
+lines
+vpi_printf: 18 21 19 10 0
+vpi_vprintf: 18 21 19 10 0
+first part, second part
+parts: 12 and 12 characters, vpi_flush returned 0
+design: done

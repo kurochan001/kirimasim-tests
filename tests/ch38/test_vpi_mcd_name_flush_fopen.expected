@@ -1,0 +1,9 @@
+name of the $fopen mcd: test_vpi_mcd_name_flush_fopen_a.txt
+name of the $fopen fd: test_vpi_mcd_name_flush_fopen_b.txt
+name of a channel that is not open: NULL
+vpi_mcd_vprintf wrote 14 characters to a and 18 to c
+vpi_mcd_flush of both returns 0
+read from a: line for a: 7
+read from c: line for c: seven
+name of the fd after $fclose: NULL
+vpi_mcd_close of c returns 0

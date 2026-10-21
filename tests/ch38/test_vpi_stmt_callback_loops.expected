@@ -1,0 +1,9 @@
+callbacks placed: 5
+for: callback 1, i=7
+for: callback 2, i=0
+for: callback 3, i=1
+for: callback 4, i=2
+fork: callback at time 0
+event: callback at time 2
+design: n=133 at 5
+delay controls in the fork: 2 callbacks, 0 of them after time 0

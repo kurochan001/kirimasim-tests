@@ -1,0 +1,7 @@
+variables of the top module: 3: a b c
+first of two iterators: 3: a b c
+second of two iterators: 3: a b c
+instances: 2
+variables of the instances: 4: u1.p u1.q u2.p u2.q
+vpi_iterate of the instances of u1: NULL
+design: done

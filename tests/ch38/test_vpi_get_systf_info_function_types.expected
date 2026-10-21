@@ -1,0 +1,5 @@
+$vt_report: task, compiletf report_compiletf, sizetf NULL, user data "report"
+$vt_sized: function, vpiSizedFunc, calltf function_calltf, compiletf function_compiletf, sizetf function_sizetf, user data "sized"
+$vt_signed: function, vpiSizedSignedFunc, calltf function_calltf, compiletf NULL, sizetf function_sizetf, user data "signed"
+$vt_half: function, vpiRealFunc, calltf function_calltf, compiletf NULL, sizetf NULL, user data "(NULL)"
+$vt_stamp: function, vpiTimeFunc, calltf function_calltf, compiletf NULL, sizetf NULL, user data "(NULL)"

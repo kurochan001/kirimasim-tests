@@ -1,0 +1,6 @@
+a=3 b=1
+$vt_mark: stored before: NULL, vpi_put_userdata returns 1
+$vt_mark: stored before: first, vpi_put_userdata returns 1
+$vt_mark: stored before: second, vpi_put_userdata returns 1
+$vt_peek: vpi_get_userdata returns NULL
+$vt_seq compiletf: 2 calls, vpi_put_userdata failed 0 times

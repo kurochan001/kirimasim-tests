@@ -1,0 +1,5 @@
+$vt_separate_task: user data "separate"
+$vt_separate_func(4)=104
+$vt_listed_task: user data "listed", compiletf ran 2 times before
+$vt_listed_task: user data "listed", compiletf ran 2 times before
+$vt_listed_func(5)=205
