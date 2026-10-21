@@ -1,0 +1,11 @@
+v[60:23]=0ZXX16070a
+v[23 +: 16]=070a
+v[47 +: 16]=8ZXX
+v[62 -: 20]=8ZXX1
+v[0 +: 8]=20
+v[55 +: 8]=8Z
+after the write v=43fX8b038565d620
+m=0ZXX4e37ec8f517fZZXX586cbc51678fXXZ91e701efcc884zxe097f646adccd
+m[2][62 -: 8]=ZZ
+m[2:1]=3ZZXXb0d978a2cf1fxzf23ce03df9910
+m[3]=02zxa71bf647a85a

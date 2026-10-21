@@ -1,0 +1,29 @@
+{a, b[7:0]}=56dbced452d8781ed87e88fbde89233e85
+{2{a}}=2b6de76a296c3c0f6c3f447def44919f56dbced452d8781ed87e88fbde89233e
+{3{b[15:0]}}=198519851985
+a << 1=2db79da8a5b0f03db0fd11f7bd12467c
+a >> 1=2b6de76a296c3c0f6c3f447def44919f
+s >>> 1=7fffffffffffffffffffffffffffffff
+a << 63=6c3f447def44919f0000000000000000
+a >> 63=0000000000000000adb79da8a5b0f03d
+s >>> 63=7fffffffffffffffffffffffffffffff
+a << 64=587e88fbde89233e0000000000000000
+a >> 64=000000000000000056dbced452d8781e
+s >>> 64=7fffffffffffffffffffffffffffffff
+a << 65=30fd11f7bd12467c0000000000000000
+a >> 65=00000000000000002b6de76a296c3c0f
+s >>> 65=7fffffffffffffffffffffffffffffff
+a << 126=00000000000000000000000000000000
+a >> 126=00000000000000000000000000000001
+s >>> 126=7fffffffffffffffffffffffffffffff
+a << 127=00000000000000000000000000000000
+a >> 127=00000000000000000000000000000000
+s >>> 127=7fffffffffffffffffffffffffffffff
+a << 132=00000000000000000000000000000000
+a >> 132=00000000000000000000000000000000
+s >>> 132=7fffffffffffffffffffffffffffffff
+a << 70=1fa23ef7a248cf800000000000000000
+a == b: 0, a != b: 1, a === b: 0, a < b: 0
+a == a: 1, a != a: 0, a === a: 1, a < a: 0
+s < t: 1, t < s: 0
+$bits(a)=127 $bits({a, b})=254

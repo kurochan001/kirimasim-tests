@@ -1,0 +1,11 @@
+v[61:24]=3ezx2f8d06
+v[24 +: 16]=8d06
+v[48 +: 16]=7ezx
+v[63 -: 20]=7ezx2
+v[0 +: 8]=31
+v[56 +: 8]=7e
+after the write v=dd8x2f8d06d46531
+m=3zex2ad3e17bd32e5z6x4482b3b0bad2fxz5b8996c6735ebfz5xa78f5f08de24
+m[2][63 -: 8]=5z
+m[2:1]=5z6x4482b3b0bad2fxz5b8996c6735eb
+m[3]=3zex2ad3e17bd35a

@@ -1,0 +1,11 @@
+v[62:25]=zXX545584d
+v[24 +: 16]=b09b
+v[49 +: 16]=XXX5
+v[64 -: 20]=XXX54
+v[0 +: 8]=1b
+v[57 +: 8]=XX
+after the write v=1f96a8ab09b0bad1b
+m=XXXZ7d4d3354514eXXZ091345504ebddXZXXb01544098d82Xzexa56f80e8eff31
+m[2][64 -: 8]=xX
+m[2:1]=xXZ0489a2a8275eeX0zx580aa204c6c16
+m[3]=x2xzcfa9a66a8a25a

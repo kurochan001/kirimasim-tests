@@ -3,7 +3,8 @@ are written to tests/gen/.
 
 A generator is a module with NAME, VERSION, CHAPTER and a function cases()
 that returns Case objects. Each case becomes tests/gen/chNN/<name>.sv and
-<name>.expected, where the expected output comes from the generator's
+<name>.expected, where NN is the chapter of the case if it gives one and the
+CHAPTER of the generator otherwise, where the expected output comes from the generator's
 reference model, which is written from the clauses of IEEE 1800-2023 and
 does not use any simulator.
 
@@ -31,6 +32,7 @@ class Case:
     expected: str             # the expected standard output
     fourstate: bool = False
     extra: dict = field(default_factory=dict)   # other metadata fields
+    chapter: int | None = None                   # the generator's CHAPTER if None
 
 
 def read_oracles() -> dict[str, str]:
@@ -79,8 +81,9 @@ def outputs(generators) -> dict[Path, str]:
         for case in g.cases():
             assert case.name not in names, case.name
             names.add(case.name)
-            directory = GEN / f"ch{g.CHAPTER}"
-            text, expected = render(case, g.NAME, g.VERSION, g.CHAPTER,
+            chapter = case.chapter or g.CHAPTER
+            directory = GEN / f"ch{chapter}"
+            text, expected = render(case, g.NAME, g.VERSION, chapter,
                                     oracles.get(case.name, "spec"))
             files[directory / f"{case.name}.sv"] = text
             files[directory / f"{case.name}.expected"] = expected

@@ -37,29 +37,29 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3458 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **3507 tests** in 37 chapters. 812 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2409 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 673 |
-| The standard only, where neither simulator follows it | 376 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2443 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 687 |
+| The standard only, where neither simulator follows it | 377 |
 
-525 tests depend on x or z values (`:fourstate: yes`). 129 tests come with C code: 21 DPI tests (`:dpi_c:`) and 108 VPI tests (`:vpi_c:`). 143 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), 1 defines macros (`:defines:`), 1 names include directories (`:incdirs:`), 1 names the top-level module (`:top_module:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+553 tests depend on x or z values (`:fourstate: yes`). 129 tests come with C code: 21 DPI tests (`:dpi_c:`) and 108 VPI tests (`:vpi_c:`). 143 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), 1 defines macros (`:defines:`), 1 names include directories (`:incdirs:`), 1 names the top-level module (`:top_module:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 15 | 9 | 4 | 2 |
 | 4 | Scheduling semantics | 381 | 372 | 4 | 5 |
 | 5 | Lexical conventions | 33 | 29 | 3 | 1 |
-| 6 | Data types | 296 | 213 | 64 | 19 |
-| 7 | Aggregate data types | 286 | 118 | 160 | 8 |
+| 6 | Data types | 303 | 220 | 64 | 19 |
+| 7 | Aggregate data types | 300 | 125 | 167 | 8 |
 | 8 | Classes | 144 | 34 | 95 | 15 |
 | 9 | Processes | 114 | 97 | 8 | 9 |
 | 10 | Assignment statements | 105 | 85 | 16 | 4 |
-| 11 | Operators and expressions | 689 | 627 | 57 | 5 |
+| 11 | Operators and expressions | 703 | 641 | 57 | 5 |
 | 12 | Procedural programming statements | 120 | 102 | 16 | 2 |
-| 13 | Tasks and functions (subroutines) | 112 | 62 | 47 | 3 |
+| 13 | Tasks and functions (subroutines) | 126 | 68 | 54 | 4 |
 | 14 | Clocking blocks | 29 |  | 24 | 5 |
 | 15 | Interprocess synchronization and communication | 26 | 1 | 21 | 4 |
 | 16 | Assertions | 73 | 16 | 16 | 41 |
@@ -343,6 +343,7 @@ outputs, and it writes many small variations of one kind of test:
 | `width_sign` | 11 | Operands and targets of 63 to 1000 bits, signed and unsigned, with the operators whose result size and sign 11.6 to 11.8 decide |
 | `xz_propagation` | 11 | Operands with x and z bits for every operator of 11.4 that has rules for them |
 | `strength` | 28 | Two drivers of a net with different strengths and values, on wire, tri, wand, triand, wor, trior, tri0 and tri1 nets and through bufif gates, shown with `%v` |
+| `wide_paths` | 6, 7, 11, 13 | Values of 63, 64, 65, 127, 128, 129 and 200 bits, 2-state and 4-state with x and z above bit 64, signed and unsigned, on the paths a value takes: assignments to wider, narrower and 2-state targets, part-selects and slices of packed arrays and writes to them, concatenation, replication, shifts past the width, comparisons and `?:` with an x condition, `$bits`, and function results, task inputs, output and ref arguments; shown with `%h`, `%b` and `%0d` |
 
 The docstring of each generator says which rules its model follows and which
 combinations it leaves out because the standard does not decide them. A

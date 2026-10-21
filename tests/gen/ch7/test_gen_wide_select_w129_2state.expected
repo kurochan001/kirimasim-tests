@@ -1,0 +1,14 @@
+v[126:89]=21f1fb4d75
+v[56 +: 16]=0b7b
+v[60 +: 16]=e0b7
+v[113 +: 16]=a1f1
+v[128 -: 20]=a1f1f
+v[0 +: 8]=6c
+v[59 +: 8]=6f
+v[63 +: 8]=16
+v[121 +: 8]=a1
+after the write v=143e3f69aebdafe1f4f6b65a6f93a7e6c
+m=9f0edca209386592e9f1ada3279610ac1145e7bd16a9fb0d69b1be6b21ccf955b5fa7e45c898bdbe99909559a2fce6260738f93322cff62060b9ceda233e6a939
+m[2][128 -: 8]=22
+m[2:1]=08a2f3de8b54fd86b4d8df3590e67caadafd3f22e44c5edf4cc84aacd17e73130
+m[3]=13e1db9441270cb25d3e35b464f2c215a

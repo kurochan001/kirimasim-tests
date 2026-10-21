@@ -62,6 +62,8 @@ of the test as well.
 | 6.21, 7.5 | A continuous assignment to an element of a dynamic array makes it stop on an internal assertion instead of reporting the error. | `ch6/test_illegal_dynamic_array_element_continuous` |
 | 13.4.4 | It rejects a function whose fork-join_none spawns a process with a delay, as if the function had the delay; the spawned process may hold any statement of a task. | `ch4/test_sched_fork_join_none_in_function` |
 | 9.6.3 | disable fork in a task does not end the processes that the calling process spawned before the call. | `ch4/test_sched_disable_fork_in_called_task` |
+| 21.2.1.3 | `%h` of an expression, such as a function call, whose top digit has fewer than four bits, all x, prints X instead of x; a variable with the same value prints x. | `gen/ch13/test_gen_wide_subroutine_w65_4state` |
+| 7.4.5, 11.5.1 | A write to a part-select of an element of a packed array through a variable index, such as `m[i][7:0] = v`, is rejected ("Array index expressions must be constant here") and makes it stop on an internal assertion. | the 7 `gen/ch7/test_gen_wide_select_*_2state` tests |
 
 ### Illegal designs that it accepts
 

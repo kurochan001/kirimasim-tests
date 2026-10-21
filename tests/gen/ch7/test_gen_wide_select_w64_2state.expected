@@ -1,0 +1,11 @@
+v[61:24]=2d46e35561
+v[24 +: 16]=5561
+v[48 +: 16]=ed46
+v[63 -: 20]=ed46e
+v[0 +: 8]=e1
+v[56 +: 8]=ed
+after the write v=4356e35561e7a6e1
+m=e6c46f87dcac337f3ea1beb99a52088d237ffc35103b7dff92faf9713ddc0aa2
+m[2][63 -: 8]=3e
+m[2:1]=3ea1beb99a52088d237ffc35103b7dff
+m[3]=e6c46f87dcac335a

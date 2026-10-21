@@ -461,6 +461,55 @@ test_gen_strength_wor_05 spec
 test_gen_strength_wor_06 spec
 test_gen_strength_wor_07 spec
 test_gen_strength_wor_08 spec
+test_gen_wide_ops_w127_2state spec iverilog@13.0
+test_gen_wide_ops_w127_4state spec iverilog@13.0
+test_gen_wide_ops_w128_2state spec iverilog@13.0
+test_gen_wide_ops_w128_4state spec iverilog@13.0
+test_gen_wide_ops_w129_2state spec iverilog@13.0
+test_gen_wide_ops_w129_4state spec iverilog@13.0
+test_gen_wide_ops_w200_2state spec iverilog@13.0
+test_gen_wide_ops_w200_4state spec iverilog@13.0
+test_gen_wide_ops_w63_2state spec iverilog@13.0
+test_gen_wide_ops_w63_4state spec iverilog@13.0
+test_gen_wide_ops_w64_2state spec iverilog@13.0
+test_gen_wide_ops_w64_4state spec iverilog@13.0
+test_gen_wide_ops_w65_2state spec iverilog@13.0
+test_gen_wide_ops_w65_4state spec iverilog@13.0
+test_gen_wide_select_w127_2state spec verilator@5.052
+test_gen_wide_select_w127_4state spec iverilog@13.0
+test_gen_wide_select_w128_2state spec verilator@5.052
+test_gen_wide_select_w128_4state spec iverilog@13.0
+test_gen_wide_select_w129_2state spec verilator@5.052
+test_gen_wide_select_w129_4state spec iverilog@13.0
+test_gen_wide_select_w200_2state spec verilator@5.052
+test_gen_wide_select_w200_4state spec iverilog@13.0
+test_gen_wide_select_w63_2state spec verilator@5.052
+test_gen_wide_select_w63_4state spec iverilog@13.0
+test_gen_wide_select_w64_2state spec verilator@5.052
+test_gen_wide_select_w64_4state spec iverilog@13.0
+test_gen_wide_select_w65_2state spec verilator@5.052
+test_gen_wide_select_w65_4state spec iverilog@13.0
+test_gen_wide_subroutine_w127_2state spec verilator@5.052
+test_gen_wide_subroutine_w127_4state spec iverilog@13.0
+test_gen_wide_subroutine_w128_2state spec verilator@5.052
+test_gen_wide_subroutine_w128_4state spec iverilog@13.0
+test_gen_wide_subroutine_w129_2state spec verilator@5.052
+test_gen_wide_subroutine_w129_4state spec iverilog@13.0
+test_gen_wide_subroutine_w200_2state spec verilator@5.052
+test_gen_wide_subroutine_w200_4state spec iverilog@13.0
+test_gen_wide_subroutine_w63_2state spec verilator@5.052
+test_gen_wide_subroutine_w63_4state spec iverilog@13.0
+test_gen_wide_subroutine_w64_2state spec verilator@5.052
+test_gen_wide_subroutine_w64_4state spec iverilog@13.0
+test_gen_wide_subroutine_w65_2state spec verilator@5.052
+test_gen_wide_subroutine_w65_4state spec
+test_gen_wide_values_w127 spec iverilog@13.0
+test_gen_wide_values_w128 spec iverilog@13.0
+test_gen_wide_values_w129 spec iverilog@13.0
+test_gen_wide_values_w200 spec iverilog@13.0
+test_gen_wide_values_w63 spec iverilog@13.0
+test_gen_wide_values_w64 spec iverilog@13.0
+test_gen_wide_values_w65 spec iverilog@13.0
 test_gen_width_add_01 spec iverilog@13.0
 test_gen_width_add_02 spec iverilog@13.0
 test_gen_width_add_03 spec iverilog@13.0

@@ -1,0 +1,25 @@
+{a, b[7:0]}=0zx5c090da5f820980
+{2{a}}=0zx5c090da5f82090zx5c090da5f8209
+{3{b[15:0]}}=658065806580
+a << 1=ZXXb8121b4bf0412
+a >> 1=0ZXXe0486d2fc104
+s >>> 1=xXZXX147badc2a08
+a << 63=8000000000000000
+a >> 63=0000000000000000
+s >>> 63=xxxxxxxxxxxxxxxx
+a << 64=0000000000000000
+a >> 64=0000000000000000
+s >>> 64=xxxxxxxxxxxxxxxx
+a << 65=0000000000000000
+a >> 65=0000000000000000
+s >>> 65=xxxxxxxxxxxxxxxx
+a << 69=0000000000000000
+a >> 69=0000000000000000
+s >>> 69=xxxxxxxxxxxxxxxx
+a << 70=0000000000000000
+a == b: 0, a != b: 1, a === b: 0, a < b: x
+a == a: x, a != a: x, a === a: 1, a < a: x
+a == r: x, a != r: x, a === r: 1, a < r: x
+s < t: x, t < s: x
+x ? a : b=dXxxXXXXxXXXxX4X
+$bits(a)=64 $bits({a, b})=128

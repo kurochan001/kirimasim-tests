@@ -15,10 +15,11 @@ import sys
 import common
 import scheduling
 import strength
+import wide_paths
 import width_sign
 import xz_propagation
 
-GENERATORS = [scheduling, width_sign, xz_propagation, strength]
+GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths]
 
 
 def main() -> int:
