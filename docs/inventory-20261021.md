@@ -956,8 +956,11 @@ corrections to the metadata:
 - `21.7.1.1` to `21.7.1.4` and `21.7.1.6` name the `$dumpfile`,
   `$dumpvars`, `$dumpoff`/`$dumpon`, `$dumpall` and `$dumpflush`
   controls, not the content of a VCD file. They are in scope again; only
-  `21.7.1.5` (`$dumplimit`) and the VCD content clauses keep the `dump`
-  tag.
+  `21.7.1.5` (`$dumplimit`) and the VCD content clauses that no test reads
+  keep the `dump` tag.
+- `21.7.2.1` to `21.7.2.3` and `21.7.5` are VCD content clauses that
+  `test_vcd_dump_readback` does read back, so their `dump` tag goes as
+  well. The README says that these four are in scope.
 
 
 ### Current state

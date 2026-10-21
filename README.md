@@ -99,7 +99,8 @@ output. Every clause from 3 to 40 that
 sets out behavior a test can observe is cited by at least one test; the page
 lists the others and why they are left out (the tags of `tools/clauses.txt`):
 general text, clause 34, behavior left to the tool, and the content of VCD
-files.
+files, except the parts that `test_vcd_dump_readback` reads back (21.7.2.1
+to 21.7.2.3 and 21.7.5).
 
 Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
