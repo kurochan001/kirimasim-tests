@@ -3163,6 +3163,836 @@
      }
     }
    }
+  },
+  {
+   "time": "2026-10-21T22:46:03Z",
+   "suite_commit": "4752cea52e9dc0d24ef58240eddee11ef055c673",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/39686633157",
+   "tests": 3719,
+   "chapters": {
+    "10": 105,
+    "11": 704,
+    "12": 120,
+    "13": 126,
+    "14": 31,
+    "15": 36,
+    "16": 99,
+    "17": 23,
+    "18": 60,
+    "19": 43,
+    "20": 187,
+    "21": 85,
+    "22": 39,
+    "23": 71,
+    "24": 23,
+    "25": 50,
+    "26": 33,
+    "27": 68,
+    "28": 176,
+    "29": 28,
+    "3": 21,
+    "30": 23,
+    "31": 23,
+    "32": 23,
+    "33": 22,
+    "35": 31,
+    "36": 24,
+    "37": 74,
+    "38": 41,
+    "39": 18,
+    "4": 381,
+    "40": 21,
+    "5": 35,
+    "6": 303,
+    "7": 304,
+    "8": 154,
+    "9": 114
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-631-gce986819)",
+     "counts": {
+      "pass": 2611,
+      "fail": 0,
+      "known": 1108,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       14,
+       21
+      ],
+      "4": [
+       372,
+       381
+      ],
+      "5": [
+       32,
+       35
+      ],
+      "6": [
+       233,
+       303
+      ],
+      "7": [
+       161,
+       304
+      ],
+      "8": [
+       48,
+       154
+      ],
+      "9": [
+       98,
+       114
+      ],
+      "10": [
+       87,
+       105
+      ],
+      "11": [
+       642,
+       704
+      ],
+      "12": [
+       104,
+       120
+      ],
+      "13": [
+       73,
+       126
+      ],
+      "14": [
+       8,
+       31
+      ],
+      "15": [
+       2,
+       36
+      ],
+      "16": [
+       22,
+       99
+      ],
+      "17": [
+       0,
+       23
+      ],
+      "18": [
+       8,
+       60
+      ],
+      "19": [
+       2,
+       43
+      ],
+      "20": [
+       167,
+       187
+      ],
+      "21": [
+       77,
+       85
+      ],
+      "22": [
+       37,
+       39
+      ],
+      "23": [
+       59,
+       71
+      ],
+      "24": [
+       9,
+       23
+      ],
+      "25": [
+       19,
+       50
+      ],
+      "26": [
+       24,
+       33
+      ],
+      "27": [
+       65,
+       68
+      ],
+      "28": [
+       142,
+       176
+      ],
+      "29": [
+       19,
+       28
+      ],
+      "30": [
+       19,
+       23
+      ],
+      "31": [
+       4,
+       23
+      ],
+      "32": [
+       10,
+       23
+      ],
+      "33": [
+       7,
+       22
+      ],
+      "35": [
+       1,
+       31
+      ],
+      "36": [
+       15,
+       24
+      ],
+      "37": [
+       6,
+       74
+      ],
+      "38": [
+       24,
+       41
+      ],
+      "39": [
+       0,
+       18
+      ],
+      "40": [
+       1,
+       21
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 0,
+      "passing_tests": [],
+      "failing_tests": [],
+      "added": 318,
+      "added_passing": 140,
+      "removed": 2
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.053 devel rev v5.052-525-g019f1ca6",
+     "counts": {
+      "pass": 2659,
+      "fail": 0,
+      "known": 1060,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       14,
+       21
+      ],
+      "4": [
+       313,
+       381
+      ],
+      "5": [
+       30,
+       35
+      ],
+      "6": [
+       249,
+       303
+      ],
+      "7": [
+       286,
+       304
+      ],
+      "8": [
+       139,
+       154
+      ],
+      "9": [
+       89,
+       114
+      ],
+      "10": [
+       96,
+       105
+      ],
+      "11": [
+       512,
+       704
+      ],
+      "12": [
+       112,
+       120
+      ],
+      "13": [
+       114,
+       126
+      ],
+      "14": [
+       27,
+       31
+      ],
+      "15": [
+       28,
+       36
+      ],
+      "16": [
+       45,
+       99
+      ],
+      "17": [
+       7,
+       23
+      ],
+      "18": [
+       45,
+       60
+      ],
+      "19": [
+       20,
+       43
+      ],
+      "20": [
+       140,
+       187
+      ],
+      "21": [
+       69,
+       85
+      ],
+      "22": [
+       37,
+       39
+      ],
+      "23": [
+       60,
+       71
+      ],
+      "24": [
+       11,
+       23
+      ],
+      "25": [
+       47,
+       50
+      ],
+      "26": [
+       30,
+       33
+      ],
+      "27": [
+       57,
+       68
+      ],
+      "28": [
+       24,
+       176
+      ],
+      "29": [
+       15,
+       28
+      ],
+      "30": [
+       0,
+       23
+      ],
+      "31": [
+       1,
+       23
+      ],
+      "32": [
+       0,
+       23
+      ],
+      "33": [
+       9,
+       22
+      ],
+      "35": [
+       23,
+       31
+      ],
+      "36": [
+       1,
+       24
+      ],
+      "37": [
+       0,
+       74
+      ],
+      "38": [
+       7,
+       41
+      ],
+      "39": [
+       0,
+       18
+      ],
+      "40": [
+       2,
+       21
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 0,
+      "passing_tests": [],
+      "failing_tests": [],
+      "added": 318,
+      "added_passing": 149,
+      "removed": 2
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.0.0 (commit b27968d1f3c1), built with GNU 13.3.0",
+     "counts": {
+      "pass": 2552,
+      "fail": 21,
+      "known": 0,
+      "unsupported": 1146
+     },
+     "chapters": {
+      "3": [
+       17,
+       21
+      ],
+      "4": [
+       372,
+       381
+      ],
+      "5": [
+       32,
+       35
+      ],
+      "6": [
+       281,
+       303
+      ],
+      "7": [
+       114,
+       304
+      ],
+      "8": [
+       21,
+       154
+      ],
+      "9": [
+       102,
+       114
+      ],
+      "10": [
+       93,
+       105
+      ],
+      "11": [
+       684,
+       704
+      ],
+      "12": [
+       110,
+       120
+      ],
+      "13": [
+       109,
+       126
+      ],
+      "14": [
+       9,
+       31
+      ],
+      "15": [
+       7,
+       36
+      ],
+      "16": [
+       23,
+       99
+      ],
+      "17": [
+       10,
+       23
+      ],
+      "18": [
+       11,
+       60
+      ],
+      "19": [
+       1,
+       43
+      ],
+      "20": [
+       166,
+       187
+      ],
+      "21": [
+       79,
+       85
+      ],
+      "22": [
+       38,
+       39
+      ],
+      "23": [
+       64,
+       71
+      ],
+      "24": [
+       4,
+       23
+      ],
+      "25": [
+       33,
+       50
+      ],
+      "26": [
+       29,
+       33
+      ],
+      "27": [
+       66,
+       68
+      ],
+      "28": [
+       23,
+       176
+      ],
+      "29": [
+       28,
+       28
+      ],
+      "30": [
+       3,
+       23
+      ],
+      "31": [
+       3,
+       23
+      ],
+      "32": [
+       0,
+       23
+      ],
+      "33": [
+       16,
+       22
+      ],
+      "35": [
+       2,
+       31
+      ],
+      "36": [
+       0,
+       24
+      ],
+      "37": [
+       0,
+       74
+      ],
+      "38": [
+       0,
+       41
+      ],
+      "39": [
+       0,
+       18
+      ],
+      "40": [
+       2,
+       21
+      ]
+     },
+     "changes": {
+      "passing": 5,
+      "failing": 0,
+      "passing_tests": [
+       "ch18/test_randcase_zero_weight",
+       "ch18/test_urandom_range_bounds",
+       "ch18/test_urandom_seed_repeatable",
+       "ch20/test_dist_functions_annex_n",
+       "ch20/test_stacktrace_function"
+      ],
+      "failing_tests": [],
+      "added": 318,
+      "added_passing": 142,
+      "removed": 2
+     }
+    },
+    "sukimasim": {
+     "name": "sukimasim",
+     "version": "sukimasim version 0.9.9.2 (commit 5321c9d4581f)",
+     "counts": {
+      "pass": 3109,
+      "fail": 610,
+      "known": 0,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       16,
+       21
+      ],
+      "4": [
+       352,
+       381
+      ],
+      "5": [
+       33,
+       35
+      ],
+      "6": [
+       283,
+       303
+      ],
+      "7": [
+       289,
+       304
+      ],
+      "8": [
+       143,
+       154
+      ],
+      "9": [
+       100,
+       114
+      ],
+      "10": [
+       99,
+       105
+      ],
+      "11": [
+       693,
+       704
+      ],
+      "12": [
+       119,
+       120
+      ],
+      "13": [
+       116,
+       126
+      ],
+      "14": [
+       23,
+       31
+      ],
+      "15": [
+       29,
+       36
+      ],
+      "16": [
+       45,
+       99
+      ],
+      "17": [
+       11,
+       23
+      ],
+      "18": [
+       37,
+       60
+      ],
+      "19": [
+       18,
+       43
+      ],
+      "20": [
+       178,
+       187
+      ],
+      "21": [
+       71,
+       85
+      ],
+      "22": [
+       38,
+       39
+      ],
+      "23": [
+       67,
+       71
+      ],
+      "24": [
+       11,
+       23
+      ],
+      "25": [
+       46,
+       50
+      ],
+      "26": [
+       30,
+       33
+      ],
+      "27": [
+       66,
+       68
+      ],
+      "28": [
+       85,
+       176
+      ],
+      "29": [
+       26,
+       28
+      ],
+      "30": [
+       15,
+       23
+      ],
+      "31": [
+       17,
+       23
+      ],
+      "32": [
+       2,
+       23
+      ],
+      "33": [
+       7,
+       22
+      ],
+      "35": [
+       19,
+       31
+      ],
+      "36": [
+       5,
+       24
+      ],
+      "37": [
+       2,
+       74
+      ],
+      "38": [
+       11,
+       41
+      ],
+      "39": [
+       3,
+       18
+      ],
+      "40": [
+       4,
+       21
+      ]
+     },
+     "changes": {
+      "passing": 362,
+      "failing": 0,
+      "passing_tests": [
+       "ch14/test_illegal_clocking_blocking_write",
+       "ch14/test_illegal_clocking_drive_intra_delay",
+       "ch14/test_illegal_clocking_read_output_clockvar",
+       "ch14/test_illegal_clocking_two_default",
+       "ch14/test_illegal_clocking_write_input_clockvar",
+       "ch14/test_illegal_cycle_delay_intra_assignment",
+       "ch14/test_illegal_two_global_clocking",
+       "ch14/test_illegal_unnamed_clocking_not_default",
+       "ch16/test_multiclock_leading_clock",
+       "ch16/test_sequence_linear_and_ranges",
+       "ch17/test_illegal_checker_always_ff_blocking",
+       "ch17/test_illegal_checker_free_variable_continuous_assign",
+       "ch17/test_illegal_checker_in_checker_procedure",
+       "ch17/test_illegal_checker_in_fork",
+       "ch17/test_illegal_checker_module_instance",
+       "ch17/test_illegal_checker_net_declaration",
+       "ch17/test_illegal_checker_plain_always",
+       "ch17/test_illegal_checker_variable_hierarchical_write",
+       "ch18/test_illegal_solve_before_randc",
+       "ch18/test_illegal_solve_before_state_variable",
+       "ch20/test_elaboration_severity_not_generated",
+       "ch20/test_error_does_not_end_run",
+       "ch20/test_fatal_ends_with_error_code",
+       "ch20/test_fatal_in_assertion_action",
+       "ch20/test_fatal_runs_final_procedures",
+       "ch23/test_illegal_port_connected_twice",
+       "ch23/test_illegal_unknown_port_name",
+       "ch24/test_illegal_program_always",
+       "ch25/test_interface_specify_terminal",
+       "ch25/test_virtual_interface_clocking_block",
+       "ch26/test_illegal_package_missing_member",
+       "ch26/test_illegal_wildcard_import_conflict",
+       "ch28/test_gate_delay_specification",
+       "ch28/test_illegal_pullup_delay",
+       "ch28/test_trireg_three_delay_form",
+       "ch29/test_illegal_udp_combinational_reg",
+       "ch29/test_illegal_udp_conflicting_entries",
+       "ch29/test_illegal_udp_initial_delay",
+       "ch29/test_illegal_udp_inout_port",
+       "ch29/test_illegal_udp_instance_three_delays",
+       "ch29/test_illegal_udp_output_not_first",
+       "ch29/test_illegal_udp_two_transitions_in_entry",
+       "ch29/test_illegal_udp_z_in_table",
+       "ch30/test_path_polarity_no_effect",
+       "ch35/test_dpi_import_zero_time",
+       "ch4/test_pli_read_write_synch_write",
+       "ch6/test_illegal_const_assigned",
+       "ch6/test_illegal_enum_from_int",
+       "ch6/test_illegal_real_bit_select",
+       "ch6/test_illegal_real_edge_event",
+       "ch8/test_illegal_local_member_outside",
+       "ch9/test_illegal_always_ff_delay",
+       "ch9/test_illegal_always_ff_two_event_controls",
+       "gen/ch4/test_gen_sched_assign_monitor_always_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_always_delay1",
+       "gen/ch4/test_gen_sched_assign_monitor_always_nodelay",
+       "gen/ch4/test_gen_sched_assign_monitor_fork_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_fork_delay1",
+       "gen/ch4/test_gen_sched_assign_monitor_fork_nodelay",
+       "gen/ch4/test_gen_sched_assign_monitor_function_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_function_delay1",
+       "gen/ch4/test_gen_sched_assign_monitor_function_nodelay",
+       "gen/ch4/test_gen_sched_assign_monitor_generate_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_generate_delay1",
+       "gen/ch4/test_gen_sched_assign_monitor_generate_nodelay",
+       "gen/ch4/test_gen_sched_assign_monitor_initial_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_initial_delay1",
+       "gen/ch4/test_gen_sched_assign_monitor_initial_nodelay",
+       "gen/ch4/test_gen_sched_assign_monitor_interface_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_interface_nodelay",
+       "gen/ch4/test_gen_sched_assign_monitor_task_delay0",
+       "gen/ch4/test_gen_sched_assign_monitor_task_delay1",
+       "gen/ch4/test_gen_sched_assign_monitor_task_nodelay",
+       "gen/ch4/test_gen_sched_assign_strobe_always_delay0",
+       "gen/ch4/test_gen_sched_assign_strobe_always_delay1",
+       "gen/ch4/test_gen_sched_assign_strobe_always_nodelay",
+       "gen/ch4/test_gen_sched_assign_strobe_fork_delay0",
+       "gen/ch4/test_gen_sched_assign_strobe_fork_delay1",
+       "gen/ch4/test_gen_sched_assign_strobe_fork_nodelay",
+       "gen/ch4/test_gen_sched_assign_strobe_function_delay0",
+       "gen/ch4/test_gen_sched_assign_strobe_function_delay1",
+       "gen/ch4/test_gen_sched_assign_strobe_function_nodelay",
+       "gen/ch4/test_gen_sched_assign_strobe_generate_delay0",
+       "gen/ch4/test_gen_sched_assign_strobe_generate_delay1",
+       "gen/ch4/test_gen_sched_assign_strobe_generate_nodelay",
+       "gen/ch4/test_gen_sched_assign_strobe_initial_delay0",
+       "gen/ch4/test_gen_sched_assign_strobe_initial_delay1",
+       "gen/ch4/test_gen_sched_assign_strobe_initial_nodelay",
+       "gen/ch4/test_gen_sched_assign_strobe_interface_delay0",
+       "gen/ch4/test_gen_sched_assign_strobe_interface_delay1",
+       "gen/ch4/test_gen_sched_assign_strobe_interface_nodelay",
+       "gen/ch4/test_gen_sched_assign_strobe_task_delay0",
+       "gen/ch4/test_gen_sched_assign_strobe_task_delay1",
+       "gen/ch4/test_gen_sched_assign_strobe_task_nodelay",
+       "gen/ch4/test_gen_sched_assign_wait_always_delay1",
+       "gen/ch4/test_gen_sched_assign_wait_fork_delay0",
+       "gen/ch4/test_gen_sched_assign_wait_fork_delay1",
+       "gen/ch4/test_gen_sched_assign_wait_function_delay0",
+       "gen/ch4/test_gen_sched_assign_wait_function_delay1",
+       "gen/ch4/test_gen_sched_assign_wait_generate_delay0"
+      ],
+      "failing_tests": [],
+      "added": 318,
+      "added_passing": 172,
+      "removed": 2
+     }
+    }
+   }
   }
  ]
 }
