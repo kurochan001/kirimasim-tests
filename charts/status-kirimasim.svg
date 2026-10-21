@@ -23,18 +23,21 @@
 <line class="grid" x1="64" x2="856" y1="92.0" y2="92.0"/>
 <text x="56.0" y="96.0" class="muted" text-anchor="end">5000</text>
 <line class="axis" x1="64" x2="856" y1="300" y2="300"/>
-<line class="axis" x1="463.5" x2="463.5" y1="300" y2="304"/>
-<text x="463.5" y="318.0" class="muted" text-anchor="middle">10-20</text>
-<rect class="c-pass" x="66.0" y="236.4" width="28.0" height="63.6"/>
-<rect class="c-fail" x="66.0" y="236.1" width="28.0" height="0.3"/>
-<rect class="c-unsupported" x="66.0" y="209.5" width="28.0" height="26.6"/>
-<rect class="c-pass" x="248.1" y="233.9" width="28.0" height="66.1"/>
-<rect class="c-fail" x="248.1" y="233.5" width="28.0" height="0.4"/>
-<rect class="c-unsupported" x="248.1" y="203.2" width="28.0" height="30.3"/>
-<rect class="c-pass" x="328.9" y="233.9" width="28.0" height="66.1"/>
-<rect class="c-fail" x="328.9" y="233.5" width="28.0" height="0.4"/>
-<rect class="c-unsupported" x="328.9" y="203.2" width="28.0" height="30.3"/>
-<rect class="c-pass" x="826.0" y="202.5" width="28.0" height="97.5"/>
-<rect class="c-fail" x="826.0" y="202.1" width="28.0" height="0.4"/>
-<rect class="c-unsupported" x="826.0" y="161.4" width="28.0" height="40.7"/>
+<line class="axis" x1="456.8" x2="456.8" y1="300" y2="304"/>
+<text x="456.8" y="318.0" class="muted" text-anchor="middle">10-20</text>
+<rect class="c-pass" x="75.3" y="236.4" width="9.3" height="63.6"/>
+<rect class="c-fail" x="75.3" y="236.1" width="9.3" height="0.3"/>
+<rect class="c-unsupported" x="75.3" y="209.5" width="9.3" height="26.6"/>
+<rect class="c-pass" x="254.3" y="233.9" width="9.3" height="66.1"/>
+<rect class="c-fail" x="254.3" y="233.5" width="9.3" height="0.4"/>
+<rect class="c-unsupported" x="254.3" y="203.2" width="9.3" height="30.3"/>
+<rect class="c-pass" x="333.6" y="233.9" width="9.3" height="66.1"/>
+<rect class="c-fail" x="333.6" y="233.5" width="9.3" height="0.4"/>
+<rect class="c-unsupported" x="333.6" y="203.2" width="9.3" height="30.3"/>
+<rect class="c-pass" x="822.0" y="202.5" width="9.3" height="97.5"/>
+<rect class="c-fail" x="822.0" y="202.1" width="9.3" height="0.4"/>
+<rect class="c-unsupported" x="822.0" y="161.4" width="9.3" height="40.7"/>
+<rect class="c-pass" x="835.3" y="200.0" width="9.3" height="100.0"/>
+<rect class="c-fail" x="835.3" y="199.4" width="9.3" height="0.5"/>
+<rect class="c-unsupported" x="835.3" y="158.4" width="9.3" height="41.0"/>
 </svg>
