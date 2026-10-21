@@ -770,3 +770,40 @@ use what it does not support yet, and 3 differ:
 `iverilog` on `PATH` is 14.0 (devel); every oracle run used Icarus Verilog
 13.0 (stable) (v13_0) through `--iverilog-bin`. Verilator is 5.052
 2026-09-05.
+
+## Tests added after this report
+
+The work of the report above left chapters 3, 14, 17, 24, 26, 29, 32, 33,
+36, 39 and 40 with the fewest tests. Two later commits added 19 tests to
+them, `b43cfa4` (12 tests) and `3c2472f` (7 tests). The suite then had
+3699 tests.
+
+| Chapter | Tests | Which |
+| ---: | ---: | --- |
+| 3 | 2 | the order of `timeprecision` and `timeunit`, and the state shared through `$unit` |
+| 14 | 2 | default clocking skews, and a clocking event gated by `iff` |
+| 17 | 3 | `always_latch` and a generate loop in checkers, and the illegal instance of a checker in a function |
+| 24 | 3 | `$exit` in a task, the state and parameters of program instances, and a final procedure of a program |
+| 26 | 2 | `export *::*`, and an import in an interface header |
+| 29 | 1 | the rise and fall delays of a sequential UDP instance |
+| 32 | 2 | the `TIMESCALE` of an SDF file, and an unknown `COND` condition |
+| 33 | 1 | an instance rule that overrides a cell rule |
+| 36 | 1 | a user-defined system task in a program and in a final procedure |
+| 39 | 1 | the `cbAssertionSuccess` callback of a cover property |
+| 40 | 1 | an interface instance as the scope of the coverage calls |
+
+By `:oracle:`, Icarus Verilog 13.0 recorded 7 of them, Verilator 5.052
+(seeds 1 and 7) 7, and 5 follow the standard only. One is an illegal
+design, two have VPI C code, and two depend on x or z values.
+
+The tests found four places where a release differs from the standard,
+all listed in [simulator-differences.md](simulator-differences.md):
+
+- Verilator 5.052: `$exit` called in a task returns from the task instead
+  of ending the initial procedures of the program (24.7).
+- Verilator 5.052: a sequential UDP instance with two delays changes its
+  output at the clock edge and uses neither delay (29.8).
+- Icarus Verilog 13.0: it ignores the `TIMESCALE` of an SDF file and reads
+  its delay values in the time unit of the design (32.3).
+- Icarus Verilog 13.0: it treats the unknown condition of an SDF `COND`
+  entry as false; such a condition is true (30.4.4.1, 32.4.1).

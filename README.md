@@ -169,7 +169,7 @@ generators/<generator>.py       a generator of tests and its reference model
 generators/generate.py          writes tests/gen/, or checks it with --check
 generators/oracles.txt          which releases produce each generated test's output
 docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 differ from the standard
-docs/inventory-20261021.md      what the suite had before the extension work of 2026-10-21, and its plan
+docs/inventory-20261021.md      what the suite had before the extension work of 2026-10-21, its plan, and the tests added after its report
 docs/tests/                     the catalog: every test with what it checks, by chapter
 docs/tests/clauses.md           which clauses of the standard the tests cite
 tools/run_icarus.py             runs the suite with Icarus Verilog
