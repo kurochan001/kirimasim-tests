@@ -1,0 +1,6 @@
+t=1: num=2, the waiting put has ended: 0
+t=1: try_put on the full mailbox=0, num=2
+t=5: get=1
+t=6: num=2, the waiting put ended at 5
+t=6: get=2 then 3
+t=6: try_get on the emptied mailbox=0, num=0

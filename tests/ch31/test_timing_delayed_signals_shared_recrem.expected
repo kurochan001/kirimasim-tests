@@ -1,0 +1,5 @@
+t=6 clk=0 dclk=0 rst_n=1 drst_n=1 d1=1 dd1=1 d2=0 dd2=0 q=00 n=0
+t=12 clk=1 dclk=1 rst_n=1 drst_n=1 d1=1 dd1=1 d2=0 dd2=0 q=10 n=0
+t=16 clk=0 dclk=0 rst_n=1 drst_n=1 d1=0 dd1=0 d2=1 dd2=1 q=10 n=0
+t=22 clk=1 dclk=1 rst_n=1 drst_n=1 d1=0 dd1=0 d2=1 dd2=1 q=01 n=0
+t=25 clk=1 dclk=1 rst_n=0 drst_n=0 d1=0 dd1=0 d2=1 dd2=1 q=00 n=0

@@ -1,0 +1,2 @@
+t=3: 3 waiters released, the triggering process still waits: 1
+t=6: the triggering process woke at 5, the waiter from 2 at 5, 3 released

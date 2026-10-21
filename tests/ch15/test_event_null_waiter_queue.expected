@@ -1,0 +1,4 @@
+t=2: e1 == null 1, e2 == null 0
+t=4: the first waiter on e2 woke at 1, the second at -1
+t=5: the second waiter on e2 woke at 4
+triggered at 3: e1 0 e2 0, at 4: e1 0 e2 1

@@ -1,0 +1,6 @@
+string from the int: try_peek<0 1, try_get<0 1, num=2
+bit [31:0]: try_get<0 1, logic signed [31:0]: try_get<0 1, num=2
+bit signed [31:0]: try_peek>0 1, value=7, num=2
+int: try_get>0 1, value=7, num=1
+int from the string: try_get<0 1, num=1
+string: try_get>0 1, value=hi, num=0

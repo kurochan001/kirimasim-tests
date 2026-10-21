@@ -1,0 +1,6 @@
+same(a, a)=1 same(a, b)=0
+after a = b, b = c: a == b 0, b == c 1, a == c 0, same(b, c)=1
+after a = c: a === b 1, a !== c 0, same(a, b)=1
+two null events: n1 == n2 1, n1 === n2 1, n1 != a 1, same(n1, n2)=1
+a is true as a condition
+n1 is false as a condition

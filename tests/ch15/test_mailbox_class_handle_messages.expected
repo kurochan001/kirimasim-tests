@@ -1,0 +1,5 @@
+try_put stored b: 1, num=3
+get gave a: 1, val=10, peek gave the same handle: 1
+a.val=11
+try_get ok=1, gave b: 1, val=20
+the third message is null: 1, num=0
