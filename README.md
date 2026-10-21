@@ -646,4 +646,5 @@ standard.
 
 ## License
 
-Apache License 2.0. See [LICENSE](LICENSE).
+Apache License 2.0 with LLVM Exceptions (`Apache-2.0 WITH LLVM-exception`).
+See [LICENSE](LICENSE).
