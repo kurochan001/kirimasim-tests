@@ -807,3 +807,21 @@ all listed in [simulator-differences.md](simulator-differences.md):
   its delay values in the time unit of the design (32.3).
 - Icarus Verilog 13.0: it treats the unknown condition of an SDF `COND`
   entry as false; such a condition is true (30.4.4.1, 32.4.1).
+
+### Six more tests
+
+A third commit, `b0994fd`, added 6 more tests to the thinnest chapters;
+the suite then had 3705 tests.
+
+| Chapter | Tests | Which |
+| ---: | ---: | --- |
+| 3 | 2 | an import at the compilation-unit scope, and the time unit of a class in a package |
+| 24 | 1 | a clocking block, with its output skew, in a program |
+| 36 | 1 | a user-defined system task called from an always procedure |
+| 39 | 1 | the `cbAssertionStart` callback of every attempt of a cover property |
+| 40 | 1 | a program instance as the scope of the coverage calls |
+
+The two chapter 3 tests list both Icarus Verilog 13.0 and Verilator
+5.052; the chapter 36 test lists Icarus Verilog 13.0, the chapter 24
+test Verilator 5.052, and the chapter 39 and 40 tests follow the
+standard only. No new simulator difference was found.
