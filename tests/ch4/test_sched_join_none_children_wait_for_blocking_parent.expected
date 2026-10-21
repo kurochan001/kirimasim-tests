@@ -1,0 +1,4 @@
+parent wrote x=1
+parent wrote x=2
+child sees x=2
+parent after its delay at 1

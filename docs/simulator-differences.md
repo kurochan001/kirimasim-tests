@@ -60,6 +60,8 @@ of the test as well.
 | 30.7.4.2 | A showcancelled declaration has no effect: a negative pulse leaves the output unchanged instead of showing x. | `ch30/test_negative_pulse_cancelled` |
 | 29.3.2 | A combinational UDP that declares its output reg makes it stop on an internal assertion instead of reporting the error. | `ch29/test_illegal_udp_combinational_reg` |
 | 6.21, 7.5 | A continuous assignment to an element of a dynamic array makes it stop on an internal assertion instead of reporting the error. | `ch6/test_illegal_dynamic_array_element_continuous` |
+| 13.4.4 | It rejects a function whose fork-join_none spawns a process with a delay, as if the function had the delay; the spawned process may hold any statement of a task. | `ch4/test_sched_fork_join_none_in_function` |
+| 9.6.3 | disable fork in a task does not end the processes that the calling process spawned before the call. | `ch4/test_sched_disable_fork_in_called_task` |
 
 ### Illegal designs that it accepts
 
@@ -92,12 +94,14 @@ not parse the modport in an interface port of a module.
 | --- | --- | --- |
 | 20.10 | `$error` stops the run; it has to report the error and go on. The runner passes `+verilator+error+limit+1000000`, with which it goes on. | `ch20/test_error_does_not_end_run` (without that option) |
 | 20.10, 9.2.3 | When `$fatal` ends the run, the final procedures do not run. | `ch20/test_fatal_runs_final_procedures` |
-| 4.4.2.3, 21.2.2, 21.2.3 | At time 0, `$strobe` and `$monitor` show the values from before a write made after `#0` or by a nonblocking assignment; `$monitor` also misses changes of variables of an interface instance. | the 45 `gen/ch4/test_gen_sched_*_{strobe,monitor}_*` tests it does not match |
+| 4.4.2.3, 21.2.2, 21.2.3 | At time 0, `$strobe` and `$monitor` show the values from before a write made after `#0` or by a nonblocking assignment; `$monitor` also misses changes of variables of an interface instance. | the 45 `gen/ch4/test_gen_sched_*_{strobe,monitor}_*` tests it does not match, `ch4/test_sched_strobe_after_zero_delays_and_nba`, `ch4/test_sched_monitor_once_per_time_step` |
 | 4.9.1, 4.4.2.3 | After a second `#0`, it still shows the old value of a continuous assignment. | `ch4/test_sched_contassign_zero_delay` |
 | 9.2.2.2.2 | `always @*` runs at time 0 and wakes for a change of a variable that it only reads in a called function. | `ch9/test_always_comb_vs_always_star` |
 | 9.4.2 | Event controls wake once at time 0 although nothing changed. | `ch9/test_event_nested_struct_member`, `ch12/test_foreach_index_shadows_outer` |
 | 24.3.1 | A program's process sees the values from before the nonblocking updates of its time step (as Icarus Verilog 13.0). | `ch24/test_program_reactive_sees_nba`, `ch24/test_program_stimulus_after_clock_edge` |
 | 24.7 | `$exit` called from a process of a module ends the simulation; it has to be ignored. | `ch24/test_exit_outside_program_ignored` |
+| 16.4 | It runs the action block of an observed deferred assertion at once, where the assertion is, instead of in the Reactive region, so a const ref argument reads the value from before the nonblocking update. | `ch4/test_sched_deferred_action_arguments` |
+| 15.5.1 | A process waiting for an event triggered with `->>` does not wake. | `ch4/test_sched_nonblocking_event_trigger` |
 | 10.6.1, 4.9.2 | `assign` (procedural continuous) does not follow later changes of its right-hand side (as Icarus Verilog 13.0). | `ch4/test_sched_procedural_assign_deassign` |
 | 11.5.2, 7.4.5 | An invalid address of a memory loses its upper bits, so another element is read and written. | `ch11/test_memory_invalid_address_2state` |
 | 29.7 | A sequential UDP instance with a delay changes its output before the delay has passed. | `ch29/test_udp_initial_value_not_delayed` |
