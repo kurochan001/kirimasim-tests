@@ -828,3 +828,21 @@ The two chapter 3 tests list both Icarus Verilog 13.0 and Verilator
 5.052; the chapter 36 test lists Icarus Verilog 13.0, the chapter 24
 test Verilator 5.052, and the chapter 39 and 40 tests follow the
 standard only. No new simulator difference was found.
+
+### Five more tests
+
+A fourth commit, `fea36a2`, added 5 more tests; the suite then had 3710
+tests.
+
+| Chapter | Tests | Which |
+| ---: | ---: | --- |
+| 3 | 1 | the time unit of a task in an interface |
+| 24 | 1 | a clocking block input skew in a program |
+| 36 | 1 | a user-defined system task called from a class method |
+| 39 | 1 | the disable of an immediate assertion through VPI |
+| 40 | 1 | a package as the scope of the coverage calls |
+
+The chapter 3 test lists both Icarus Verilog 13.0 and Verilator 5.052;
+the chapter 36 test lists Icarus Verilog 13.0, the chapter 24 test
+Verilator 5.052, and the chapter 39 and 40 tests follow the standard
+only. No new simulator difference was found.
