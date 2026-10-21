@@ -1,0 +1,8 @@
+t=1: clk=0 d=0 clr=0 q=0
+t=2: clk=0 d=0 clr=1 q=0
+t=3: clk=0 d=1 clr=1 q=0
+t=4: clk=1 d=1 clr=1 q=1
+t=5: clk=1 d=0 clr=1 q=1
+t=6: clk=0 d=0 clr=1 q=1
+t=7: clk=0 d=0 clr=0 q=0
+t=8: clk=0 d=0 clr=1 q=0

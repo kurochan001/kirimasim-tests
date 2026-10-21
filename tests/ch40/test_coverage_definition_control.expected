@@ -1,0 +1,4 @@
+reset of u1 clears u1 and leaves u2 unchanged: 1
+while the definition is stopped, neither instance changes: 1
+starting the instance u1 lets u1 collect: 1
+u2 stays stopped after starting u1: 1

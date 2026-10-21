@@ -1,0 +1,10 @@
+5: a1 start, attempt started at 5
+15: a1 success, attempt started at 5
+15: a1 start, attempt started at 15
+25: a1 success, attempt started at 15
+45: a1 start, attempt started at 45
+45: a1 failure, attempt started at 45
+55: a1 start, attempt started at 55
+65: a1 failure, attempt started at 55
+65: a1 start, attempt started at 65
+pass actions: 2, fail actions: 2

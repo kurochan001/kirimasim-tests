@@ -1,0 +1,6 @@
+u1 and u2 have different handles: 1
+after two edges: u1 pass 0 fail 0, u2 pass 2 fail 0
+after two more edges: u1 pass 1 fail 1, u2 pass 3 fail 1
+1: u1 disabled
+16: u1 enabled
+disable callbacks on u2: 0

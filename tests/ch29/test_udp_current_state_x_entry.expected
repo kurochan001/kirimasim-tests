@@ -1,0 +1,4 @@
+clk=0: q=x
+clk=1: q=0
+clk=1: q=1
+clk=1: q=1

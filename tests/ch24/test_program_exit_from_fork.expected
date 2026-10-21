@@ -1,0 +1,3 @@
+3: forked thread calls $exit
+4: p_other continues
+6: module continues

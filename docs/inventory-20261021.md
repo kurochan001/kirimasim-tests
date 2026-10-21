@@ -890,10 +890,34 @@ tests.
 Icarus Verilog 13.0 produces the chapter 36 test; the chapter 32 and 40
 tests follow the standard only. No new simulator difference was found.
 
+### 61 more tests
+
+A final batch of 61 tests brought the additions to 100 (39 + 61). They
+were written in the thinnest chapters:
+
+| Chapter | Tests | Which |
+| ---: | ---: | --- |
+| 3 | 7 | time units and precision, including an illegal coarser precision |
+| 14 | 14 | input, output, default and edge-clock skews of clocking blocks |
+| 17 | 6 | checker ports, always procedures, generate instances and contexts |
+| 24 | 6 | program ports, initial and final procedures, clocking and `$exit` |
+| 26 | 6 | explicit and wildcard imports, exports and header imports |
+| 29 | 12 | UDP delays, edge symbols, initial values and table matching |
+| 36 | 5 | system tasks called from tasks, forks, startups and compiletf |
+| 39 | 3 | assertion system controls, procedural callbacks and per-instance controls |
+| 40 | 2 | coverage reset/merge and control by definition or instance |
+
+By `:oracle:`, Icarus Verilog 13.0 recorded 33 of them, Verilator 5.052
+21, and 7 follow the standard only. Two are illegal designs. The tests
+found three further places where a release differs, all in
+[simulator-differences.md](simulator-differences.md): Verilator's
+explicit-import precedence (26.3) and `$exit` from a program fork
+(24.7), and Icarus Verilog's named wildcard export (26.5).
+
 ### Current state
 
-After these commits the suite has 3719 tests in 37 chapters, 812 of them
-generated. By `:oracle:`, 2486 list Icarus Verilog 13.0, 741 list
-Verilator 5.052, and 492 follow the standard only. 559 tests depend on
-x or z values, 197 have C code (29 DPI and 168 VPI), 165 are illegal
+After these commits the suite has 3780 tests in 37 chapters, 812 of them
+generated. By `:oracle:`, 2519 list Icarus Verilog 13.0, 762 list
+Verilator 5.052, and 499 follow the standard only. 568 tests depend on
+x or z values, 205 have C code (29 DPI and 176 VPI), 167 are illegal
 designs, and 5 set an expected exit code.

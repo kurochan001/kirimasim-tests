@@ -1,0 +1,4 @@
+clk 0 -> x: r=0 p=1
+clk x -> 1: r=0 p=0
+clk 1 -> 0: r=0 p=0
+clk 0 -> 1: r=1 p=1

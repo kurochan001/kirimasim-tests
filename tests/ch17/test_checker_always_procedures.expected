@@ -1,0 +1,4 @@
+2: comb=0 latch=0 ff=0
+6: comb=1 latch=1 ff=1
+8: comb=0 latch=1 ff=1
+16: comb=1 latch=1 ff=2

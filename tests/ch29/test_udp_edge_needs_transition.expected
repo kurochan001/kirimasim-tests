@@ -1,0 +1,3 @@
+clk=1 d=1: q=x
+clk=1 d=0: q=0
+clk=1 d=1: q=1

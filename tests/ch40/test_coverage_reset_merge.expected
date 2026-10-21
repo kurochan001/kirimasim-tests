@@ -1,0 +1,5 @@
+reset gives OK: 1
+maximum unchanged by reset and merge: 1
+a merge after a save that gave OK gives OK: 1
+merged saved coverage restores the current value: 1
+merging the same data again keeps the value: 1
