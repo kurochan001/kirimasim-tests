@@ -19,7 +19,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 126 | 14 |
 | 14 | [Clocking blocks](ch14.md) | 29 |  |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 36 |  |
-| 16 | [Assertions](ch16.md) | 73 |  |
+| 16 | [Assertions](ch16.md) | 99 |  |
 | 17 | [Checkers](ch17.md) | 20 |  |
 | 18 | [Constrained random value generation](ch18.md) | 40 |  |
 | 19 | [Functional coverage](ch19.md) | 26 |  |

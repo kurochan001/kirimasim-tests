@@ -1,0 +1,4 @@
+r 1, s 0: a_not_imp 3 fail 0 pass, a_or 0, a_not_or 1, a_and_not 1
+r 0, s 1: a_not_imp 2 fail 1 pass, a_or 0, a_not_or 1, a_and_not 1
+r 0, s 0: a_not_imp 2 fail 1 pass, a_or 1, a_not_or 0, a_and_not 0
+r 1, s 1: a_not_imp 3 fail 0 pass, a_or 0, a_not_or 1, a_and_not 1

@@ -1,0 +1,3 @@
+@(posedge c2) s_mc.triggered: 38
+@(posedge c1) g ##1 @(posedge c2) s_h.triggered: 98
+@(posedge c2) r ##[1:2] s_pair(u, v).matched ##1 q: 68 98

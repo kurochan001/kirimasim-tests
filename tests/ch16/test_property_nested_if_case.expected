@@ -1,0 +1,4 @@
+m 0 n 0, sel 0 k1 1 k2 2, x 0 y 0 z 1: if 0, case 0
+m 1 n 1, sel 1 k1 1 k2 1, x 0 y 1 z 0: if 1, case 1
+m 0 n 1, sel 2 k1 1 k2 2, x 0 y 1 z 0: if 0, case 0
+m 0 n 0, sel 3 k1 0 k2 0, x 1 y 1 z 0: if 1, case 1

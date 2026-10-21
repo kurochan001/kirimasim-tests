@@ -1,0 +1,8 @@
+go |-> x: passes 15 35; failures 45
+not (go |-> x): passes 45; failures 5 15 25 35 55
+(go |-> x) or (go2 |-> y): passes 15 25 35 45; failures
+(go |-> x) and (go2 |-> y): passes 15 25 35; failures 45
+if (sel) (go |-> x) else x: passes 5 15 35; failures 45
+(go |-> x) implies (go2 |-> y): passes 35; failures
+(go |-> x) iff (go2 |-> y): passes 15 25 35; failures 45
+nx |-> nexttime (go |-> x): passes 15 35; failures

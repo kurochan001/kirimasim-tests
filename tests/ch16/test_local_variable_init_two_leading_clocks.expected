@@ -1,0 +1,3 @@
+copy for ca: snap=1042 at 24
+copy for cb: snap=1078 at 27
+failures: 0

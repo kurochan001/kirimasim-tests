@@ -1,0 +1,8 @@
+go |-> nexttime [0] x failures: 55
+go |-> s_nexttime [0] x failures: 55
+go |-> s_nexttime x failures: 15
+go |-> s_nexttime [2] x failures: 75
+go |-> nexttime (x ##1 y) failures: 15
+start |=> always h failures: 145 165
+start #-# s_eventually e covered: 115 155
+start #-# s_eventually [2:$] e covered: 145 205

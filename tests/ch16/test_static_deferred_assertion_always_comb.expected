@@ -1,0 +1,3 @@
+a_zero: 2 failures
+a_func: 2 passes, 1 failures
+a_action: 1 passes, the last with v=0

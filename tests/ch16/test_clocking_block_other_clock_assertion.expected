@@ -1,0 +1,3 @@
+a on posedge clk, failures: 10 40 50
+cb_neg.a on posedge clk, failures: 10 20 50
+a on cb_neg, failures: 5 15 45

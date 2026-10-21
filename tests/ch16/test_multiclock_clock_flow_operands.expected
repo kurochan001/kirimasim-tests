@@ -1,0 +1,6 @@
+@(c1) (st ##0 @(c2) md) ##1 fin: 25
+@(c1) st ##0 @(c2) md ##1 fin: 85
+@(c1) x ##1 s_c2 ##1 z: 55
+@(c1) s_dd: 31
+go |=> ((@(c2) b) and d) failures: 142 175
+go |-> if (sel) (@(c2) b) else (d ##1 d) failures: 175

@@ -1,0 +1,3 @@
+@(posedge clk iff en) en: passes 40, failures 10 30
+@(posedge clk) en: passes 20 40 50, failures 10 30
+@(s_rise) en: passes 20 40 50, failures 10 30

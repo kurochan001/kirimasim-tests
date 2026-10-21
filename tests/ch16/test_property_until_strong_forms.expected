@@ -1,0 +1,4 @@
+a 11000, b 00100, c 00010, d 01100: a_su 0, a_suw 1, a_useq 0, a_uprop 0
+a 11000, b 00100, c 00000, d 01000: a_su 0, a_suw 1, a_useq 1, a_uprop 1
+a 11100, b 00100, c 00010, d 01100: a_su 0, a_suw 0, a_useq 0, a_uprop 0
+a 00000, b 10000, c 01000, d 00000: a_su 0, a_suw 1, a_useq 0, a_uprop 0

@@ -1,0 +1,5 @@
+5: a |=> b passed, q=1
+5: after the first expect, q=1
+25: c ##1 c failed, q=3
+35: ##2 b passed, q=4
+35: after the join, q=4

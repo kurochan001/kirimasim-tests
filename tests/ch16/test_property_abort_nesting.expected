@@ -1,0 +1,5 @@
+stop at T+2, done: a_rej 1, a_acc 0, a_ar 0, a_ra 0, a_not 1
+stop at T+2, no done: a_rej 1, a_acc 0, a_ar 1, a_ra 1, a_not 0
+ka and kr at T+1, done: a_rej 0, a_acc 0, a_ar 0, a_ra 1, a_not 1
+kr at T+1, ka at T+2, done: a_rej 0, a_acc 0, a_ar 1, a_ra 1, a_not 1
+ka at T+1, kr at T+2, done: a_rej 0, a_acc 0, a_ar 0, a_ra 0, a_not 1
