@@ -1,0 +1,4 @@
+a1: immediate assert
+a2: immediate assume
+a3: immediate cover
+immediate assertions: 3
