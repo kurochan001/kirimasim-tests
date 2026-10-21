@@ -1,0 +1,4 @@
+$unsigned of a 4-bit value: 010
+$unsigned of a 16-bit value: 124
+in a concatenation: 0100
+$signed of 16'h00ff and 4'hf: -1 15

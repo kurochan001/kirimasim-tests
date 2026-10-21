@@ -1,0 +1,7 @@
+$vt_triple(14) = 42
+$vt_mark ran
+the call of $vt_list is user-defined: yes
+registered: $vt_list, a task, user data "first routine"
+registered: $vt_mark, a task, user data "second routine"
+registered: $vt_triple, a function, user data "first routine"
+each is the object its registration returned: yes

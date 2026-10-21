@@ -1,0 +1,4 @@
+part-select: word 5a11, its copy 5a11, woke 1 time(s)
+array element: arr[1] 12, woke 1 time(s)
+same value: k 7, woke 0 time(s)
+new value: k -7, woke 1 time(s)

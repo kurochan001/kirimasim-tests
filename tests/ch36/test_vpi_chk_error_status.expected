@@ -1,0 +1,3 @@
+vpiSuppressTime: error yes, a level of Table 38-1: yes, the same in the structure: yes
+after a vpi_get_time that succeeded: error no
+again: error yes, still after vpi_chk_error: yes, after a vpi_get that succeeded: no

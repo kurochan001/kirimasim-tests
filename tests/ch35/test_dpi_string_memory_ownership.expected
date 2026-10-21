@@ -1,0 +1,3 @@
+inout: a=[one] b=[two]
+results: m1=item 1 m2=item 2
+C kept "first", SystemVerilog now has "second"

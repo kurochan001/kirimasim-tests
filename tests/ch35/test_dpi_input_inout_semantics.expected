@@ -1,0 +1,5 @@
+input int: 5 steps, n is still 5, n + 2 gives 7
+input string: length 5, s is still "hello"
+inout real: 3.75
+inout array: 2 3 4 1
+inout packed: 0100000010

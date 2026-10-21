@@ -1,0 +1,4 @@
+t=5: thread 1 back in C, 3 call(s) inside, own value 11
+t=10: thread 2 back in C, 2 call(s) inside, own value 22
+t=15: thread 3 back in C, 1 call(s) inside, own value 33
+t=15: all calls returned

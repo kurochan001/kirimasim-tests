@@ -1,0 +1,4 @@
+t=5: native function gave 50, 0 time passed
+t=15: nonblocking 40, always_comb 30
+t=16: always_comb 60
+final: 90

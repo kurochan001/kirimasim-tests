@@ -1,0 +1,6 @@
+logor(logand(not(a), b), c) = 1
+bitor(lshift(a, 1), bitand(b, c)) = 5
+eq(lt(a, b), gt(c, b)) = 1
+mod(power(b, a), c) = 4
+bitxor(unarynand(a), unaryand(c)) = 1
+a = 2; null; b = 3
