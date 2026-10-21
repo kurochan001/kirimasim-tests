@@ -875,3 +875,17 @@ tests.
 
 Verilator 5.052 produces the chapter 3 test; the chapter 39 and 40
 tests follow the standard only. No new simulator difference was found.
+
+### Three tests of SDF, VPI and coverage
+
+A seventh commit, `f6b1fab`, added 3 more tests; the suite then had 3719
+tests.
+
+| Chapter | Tests | Which |
+| ---: | ---: | --- |
+| 32 | 1 | the `RECREM` entry of an SDF file |
+| 36 | 1 | a user-defined system task called from a generate block |
+| 40 | 1 | the `NOCOV` answer for a module definition with no instances |
+
+Icarus Verilog 13.0 produces the chapter 36 test; the chapter 32 and 40
+tests follow the standard only. No new simulator difference was found.
