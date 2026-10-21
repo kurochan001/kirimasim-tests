@@ -861,3 +861,17 @@ tests.
 None of the three is produced by Icarus Verilog 13.0 or Verilator
 5.052, so all follow the standard only. No new simulator difference was
 found.
+
+### Three further tests
+
+A sixth commit, `c7d3edb`, added 3 more tests; the suite then had 3716
+tests.
+
+| Chapter | Tests | Which |
+| ---: | ---: | --- |
+| 3 | 1 | the time unit of a program |
+| 39 | 1 | the absence of a failure callback for a cover that does not match |
+| 40 | 1 | saving coverage after a stop |
+
+Verilator 5.052 produces the chapter 3 test; the chapter 39 and 40
+tests follow the standard only. No new simulator difference was found.
