@@ -1,6 +1,6 @@
 # Clause 3: Design and verification building blocks
 
-[All chapters](README.md). 20 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 21 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -24,3 +24,4 @@
 | [`test_timeunit_interface_task`](../../tests/ch3/test_timeunit_interface_task.sv) | A delay in a task of an interface is in the time unit of the interface, not in that of the module that calls it | 3.14.2.3 3.14.2.2 3.14.1 | Icarus Verilog 13.0 |  |
 | [`test_timeunit_package_class`](../../tests/ch3/test_timeunit_package_class.sv) | A delay in a class method is in the time unit of the package that declares the class, not in that of the module that calls it | 3.14.2.3 3.14.2.2 3.14.1 | Icarus Verilog 13.0 |  |
 | [`test_timeunit_precedence`](../../tests/ch3/test_timeunit_precedence.sv) | A timeunit declaration in a module overrides \`timescale, its slash form also sets the precision, a nested module takes the time unit of its parent, and a module without one takes the last \`timescale | 3.14.2.3 3.14.2.2 3.14.1 23.4 | standard only |  |
+| [`test_timeunit_program`](../../tests/ch3/test_timeunit_program.sv) | A delay in a program is in the time unit of the program, not in that of the module that instantiates it | 3.14.2.3 3.14.2.2 3.14.1 24.3 | Verilator 5.052 |  |

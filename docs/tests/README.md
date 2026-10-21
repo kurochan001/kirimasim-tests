@@ -6,7 +6,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
-| 3 | [Design and verification building blocks](ch3.md) | 20 |  |
+| 3 | [Design and verification building blocks](ch3.md) | 21 |  |
 | 4 | [Scheduling semantics](ch4.md) | 381 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 35 |  |
 | 6 | [Data types](ch6.md) | 303 | 7 |
@@ -42,5 +42,5 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 23 |  |
 | 37 | [VPI object model diagrams](ch37.md) | 74 |  |
 | 38 | [VPI routine definitions](ch38.md) | 41 |  |
-| 39 | [Assertion API](ch39.md) | 17 |  |
-| 40 | [Code coverage control and API](ch40.md) | 19 |  |
+| 39 | [Assertion API](ch39.md) | 18 |  |
+| 40 | [Code coverage control and API](ch40.md) | 20 |  |

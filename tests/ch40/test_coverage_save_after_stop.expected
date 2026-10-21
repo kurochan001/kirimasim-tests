@@ -1,0 +1,4 @@
+stop gives OK: 1
+stopped coverage does not change: 1
+save after stop gives OK or NOCOV: 1
+merge after save gives OK: 1
