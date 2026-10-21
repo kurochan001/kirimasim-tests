@@ -1,0 +1,9 @@
+b: nested interfaces: nest of test_vpi_interface_modport_links_inner
+b: default clocking cb
+b: continuous assignments 1, their instance is b 1
+b: processes 1, their instance is b 1
+modport dev: interface is b 1, instance is b 1
+modport host: interface is b 1, instance is b 1, io declarations gnt req, leading back to host 2
+interface tf decl ping: extern 1, task 1, io declarations of the task: k input
+typedef chan5_t: interface typespec, definition test_vpi_interface_modport_links_chan, parameters: DEPTH = 5, FAST = 1
+typedef sink_set_t: array typespec, element: interface typespec 1, definition sink, modport 1

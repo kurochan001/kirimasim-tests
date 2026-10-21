@@ -1,0 +1,16 @@
+mem[2] by index, by name: 1
+mem[1] by index, mem[2] by name: 0
+vpi_iterate: type vpiIterator 1
+s by vpi_scan, by name: 1
+module of w by vpi_handle, module by name: 1
+vpi_register_cb: type vpiCallback 1
+vpi_remove_cb: 1
+vpi_register_systf: $vt_a
+systf of this call: $vt_a
+vpi_handle_multi: type vpiInterModPath 1
+ports of the path: 2, the output port of s 1, the input port of t 1
+delays of the path after vpi_put_delays: 3 5
+program A releases its handle to count: 1
+program B reads count through its handle: 6
+program B's handle, a new handle to count: 1
+mem[2]=12

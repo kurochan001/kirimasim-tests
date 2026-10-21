@@ -1,0 +1,24 @@
+port of u: vpiPort, vpi_get(vpiType) matches 1, protected 0
+fk: vpiNamedFork, vpi_get(vpiType) matches 1, protected 0
+call of $vt_types: vpiSysTaskCall, vpi_get(vpiType) matches 1, protected 0
+its user systf: vpiUserSystf, vpi_get(vpiType) matches 1, protected 0
+argument iterator: vpiIterator, vpi_get(vpiType) matches 1, protected 0
+argument $time: vpiSysFuncCall, vpi_get(vpiType) matches 1, protected 0
+argument 5: vpiConstant, vpi_get(vpiType) matches 1, protected 0
+argument r[3:1]: vpiPartSelect, vpi_get(vpiType) matches 1, protected 0
+argument a2 + b2: vpiOperation, vpi_get(vpiType) matches 1, protected 0
+callback: vpiCallback, vpi_get(vpiType) matches 1, protected 0
+g: vpiGenScopeArray, vpi_get(vpiType) matches 1, protected 0
+g[1]: vpiGenScope, vpi_get(vpiType) matches 1, protected 0
+ga: vpiGate, vpi_get(vpiType) matches 1, protected 0
+lu: vpiUdp, vpi_get(vpiType) matches 1, protected 0
+definition of lu: vpiUdpDefn, vpi_get(vpiType) matches 1, protected 0
+terminal of ga: vpiPrimTerm, vpi_get(vpiType) matches 1, protected 0
+continuous assignment: vpiContAssign, vpi_get(vpiType) matches 1, protected 0
+timing check of u: vpiTchk, vpi_get(vpiType) matches 1, protected 0
+its reference term: vpiTchkTerm, vpi_get(vpiType) matches 1, protected 0
+ga primitive type: vpiAndPrim, vpi_get matches 1
+gb primitive type: vpiBufif1Prim, vpi_get matches 1
+definition of lu primitive type: vpiSeqPrim, vpi_get matches 1
+a2 + b2 operation type: vpiAddOp, vpi_get matches 1
+timing check type: vpiSetup, vpi_get matches 1

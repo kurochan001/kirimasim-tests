@@ -1,0 +1,20 @@
+top modules: test_vpi_object_access_basics test_vpi_object_access_basics_other
+s1 found from the top: test_vpi_object_access_basics.ua.s1
+its module: test_vpi_object_access_basics.ua
+nets of ua: a s1 s2 y
+instances in the top module: ua ub
+instances in ua: lf
+vpiTopModule of test_vpi_object_access_basics: 1
+vpiTopModule of test_vpi_object_access_basics_other: 1
+vpiTopModule of test_vpi_object_access_basics.ua: 0
+vpiTopModule of test_vpi_object_access_basics.ua.lf: 0
+vpiSigned: count 1, vec 0
+vpiScalar and vpiVector: a 1 0, vec 0 1
+time unit and precision of NULL: -11 -11
+time unit and precision of test_vpi_object_access_basics: -9 -9
+time unit and precision of test_vpi_object_access_basics_other: -6 -11
+line of test_vpi_object_access_basics.ub: 49
+line of test_vpi_object_access_basics.tk: 51
+line of test_vpi_object_access_basics.fn: 52
+line of test_vpi_object_access_basics.blk: 54
+line of the call of $vt_access: 54

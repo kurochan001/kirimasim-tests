@@ -1,0 +1,21 @@
+p_next: nexttime, strong 0, operands: a
+p_next2: nexttime, strong 0, operands: a 2
+p_snext: nexttime, strong 1, operands: a
+p_always: always, strong 0, operands: a 1 3
+p_salways: always, strong 1, operands: a 1 3
+p_until: until, strong 0, operands: a b
+p_suntil: until, strong 1, operands: a b
+p_case: case on sel, items: a: conditions 2, b: conditions 1, c: conditions 0
+p_dis: disable condition rst
+p_dis: |->, operands: a b
+p_clocked: and, operands: clocked on posedge clk (nexttime), clocked on posedge clk2 (nexttime)
+s_udelay: unary ##, operands: a 2
+s_goto: [->], operands: b 1 3
+s_nonconsec: [=], operands: c 2
+s_throughout: throughout, operands: a (##)
+s_within: within, operands: (##) (##)
+s_first: first_match, operands: (##)
+s_intersect: intersect, operands: (##) (##)
+s_three_clocks: multiclock 1, clocks of its clocked sequences: negedge clk, posedge clk, posedge clk2
+let mix: formals: p q, default of q 4
+let expression: declaration is mix 1, value 5, arguments: x 2

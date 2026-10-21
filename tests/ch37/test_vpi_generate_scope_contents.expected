@@ -1,0 +1,7 @@
+scopes in the module: test_vpi_generate_scope_contents.cond gen scope 1, test_vpi_generate_scope_contents.outer[0] gen scope 1, test_vpi_generate_scope_contents.outer[1] gen scope 1
+scopes in outer[1]: test_vpi_generate_scope_contents.outer[1].inner[0] gen scope 1, test_vpi_generate_scope_contents.outer[1].inner[1] gen scope 1, test_vpi_generate_scope_contents.outer[1].inner[2] gen scope 1
+parameters of outer[1]: OL local 1 = 10, OP local 1 = 6, g local 1 = 1
+parameters of outer[1].inner[2]: h local 1 = 2
+parameters of cond: CP local 1 = 3
+outer[1].inner[2].x: size 3
+its scope: test_vpi_generate_scope_contents.outer[1].inner[2]

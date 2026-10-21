@@ -1,0 +1,10 @@
+function make_pair: visibility public, method 0, return variable make_pair, struct var 1, typespec pair_t
+function nib: visibility public, method 0, return variable nib, bit var 1, size 4
+class counter: full name test_vpi_task_function_properties.counter
+  get: visibility public, method 1, virtual 0, full name test_vpi_task_function_properties.counter::get
+  next: visibility public, method 1, virtual 1, full name test_vpi_task_function_properties.counter::next
+  peek: visibility protected, method 1, virtual 0, full name test_vpi_task_function_properties.counter::peek
+  reset: visibility local, method 1, virtual 0, full name test_vpi_task_function_properties.counter::reset
+imported function twice: test_vpi_task_function_properties_pkg::twice
+sv_hook: export 1, DPI-C 1, C name vt_sv_hook
+bump: io declaration slot, ref 1, expr ref obj 1

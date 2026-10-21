@@ -1,0 +1,8 @@
+pav: packed array var, size 48, ranges: 1:0, 2:0
+elements of pav: pav[0] pav[1]
+pav[1]: packed array var, size 24, parent is pav 1, struct member 0, packed array member 1, indices: 1, value 929190
+elements of pav[1]: pav[1][0] pav[1][1] pav[1][2]
+pav[1][2]: struct var, size 8, parent is pav 1, packed array member 1, indices: 2 1, value 92
+rv.pp: packed array var, size 16, parent is rv 1, struct member 1, value 9796
+elements of rv.pp: pp[0] pp[1]
+rv.pp[1]: struct var, size 8, parent is rv.pp 1, struct member 0, packed array member 1, indices: 1, value 97

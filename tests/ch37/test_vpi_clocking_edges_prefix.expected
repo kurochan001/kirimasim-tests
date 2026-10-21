@@ -1,0 +1,7 @@
+ck: default input edge negedge, default output edge posedge, instance is the module 1
+  b: output edge negedge
+  c: input edge posedge, input skew is a delay control 1 of 2
+  e: output skew 3
+bus.cb: instance is bus 1
+vif.cb.gnt: prefix is a clocking block 1, its prefix vif (virtual interface var 1), actual none
+vif.cb.gnt after vif = bus: actual test_vpi_clocking_edges_prefix.bus.cb

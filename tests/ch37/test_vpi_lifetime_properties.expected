@@ -1,0 +1,14 @@
+instance test_vpi_lifetime_properties: automatic 0
+instance am: automatic 1
+task tk: automatic 1
+function f_default: automatic 0
+task am.t_default: automatic 1
+task am.t_static: automatic 0
+variable am.mv: automatic 0
+variable calls: automatic 0
+variable tk.auto_v: automatic 1
+variable tk.count: automatic 0
+in tk: count = 5, callback registered 1
+after the call: count = 5
+value change of count: 12
+after the call: count = 12

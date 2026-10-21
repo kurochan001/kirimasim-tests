@@ -1,0 +1,11 @@
+drivers of n: force
+loads of n: port with high connection not operation
+loads of m: force
+loads of w: assign stmt
+drivers of v: port
+drivers of f: force
+loads of g: force
+drivers of q: assign stmt
+loads of h: assign stmt
+drivers of ps: cont assign, cont assign
+loads of ps: cont assign, cont assign

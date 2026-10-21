@@ -1,0 +1,7 @@
+memories of the module: mem
+memories of blk: pair
+mem: type vpiRegArray 1, size 3, range 1:3
+words of mem: mem[1] mem[2] mem[3]
+word with index 2: type vpiReg 1, size 8, range 7:0, value 22
+its parent is mem: 1
+mem by index 2 is that word: 1

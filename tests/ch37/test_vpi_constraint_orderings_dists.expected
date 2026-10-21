@@ -1,0 +1,7 @@
+c_order: ordering, solve a before b c
+c_dist: distribution of a, items: 0 := 2, [1:3] :/ 6
+c_impl: implication, condition is an equality 1, operators of the expressions in order: < >
+c_if: constr if, condition is an equality 1, operators of the expressions in order: >
+c_soft: item 1 soft 1, item 2 disables soft constraints on b
+before constraint_mode(0): c_order 1 c_dist 1 c_impl 1 c_if 1 c_soft 1, parent is the object 5
+after constraint_mode(0) on c_if: c_order 1 c_dist 1 c_impl 1 c_if 0 c_soft 1, parent is the object 5

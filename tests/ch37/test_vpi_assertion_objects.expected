@@ -1,0 +1,10 @@
+assertions of the module found by iterating it: 6 of 6
+assertions of the module found by iterating NULL: 6 of 6
+a_expl: assert, clock inferred 0, clocking event negedge clk, pass statement 1, fail statement 1
+a_expl: by name the same 1, full name test_vpi_assertion_objects.a_expl, instance is the module 1, file test_vpi_assertion_objects.sv, lines 45 to 45
+a_inf: assert, clocking event posedge clk, property spec 1, disable condition rst
+c_prop: cover, clock inferred 0, clocking event posedge clk, cover sequence 0
+c_seq: cover, clocking event posedge clk, cover sequence 1
+m_inst: assume, clocking event posedge clk
+r_prop: restrict, clock inferred 0, clocking event posedge clk, pass statement 0
+a_proc in blk: assert, clock inferred 1, clocking event posedge clk2

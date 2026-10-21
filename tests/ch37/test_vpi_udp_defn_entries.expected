@@ -1,0 +1,14 @@
+udp definitions: test_vpi_udp_defn_entries_and2 test_vpi_udp_defn_entries_catch
+and2: 2 inputs, io declarations: a input, b input, y output
+and2 entry symbols 0 ? 0
+and2 entry symbols 1 1 1
+and2 entry symbols ? 0 0
+catch: 2 inputs, io declarations: arm input, hit output, trig input
+catch entry symbols 0 ? ? 0
+catch entry symbols 1 f ? 1
+catch entry symbols 1 r ? -
+catch entry symbols p ? ? -
+u1: definition is and2 1, terminals: 0 output 1, 1 input 1, 2 input 1
+hit after vpi_put_value: 1
+hit after arm falls: 0
+hit after trig falls with arm at 1: 1

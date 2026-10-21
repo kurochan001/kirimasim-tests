@@ -1,0 +1,6 @@
+a: input 1, size 4, range 7:4, expr is a net 1
+b: expr ref obj 1, actual interface test_vpi_io_decl_ref_objs.bi, def name test_vpi_io_decl_ref_objs_bus, generic 0, typespec NULL 1
+d: expr ref obj 1, actual modport dev, def name dev, typespec NULL 1
+g: expr ref obj 1, actual interface test_vpi_io_decl_ref_objs.bi, def name test_vpi_io_decl_ref_objs_bus, generic 1, typespec NULL 1
+link: ref 1, expr ref obj 1, actual test_vpi_io_decl_ref_objs.tap = 5
+link[4]: ref obj 1, parent is ref obj link 1, actual test_vpi_io_decl_ref_objs.tap[4], var bit 1

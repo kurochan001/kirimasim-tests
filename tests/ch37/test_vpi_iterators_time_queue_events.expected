@@ -1,0 +1,11 @@
+time queue iterator: type is time queue 1, use is NULL 1, protected 0
+time queue at 5 from read-only synch: 20 (protected 0) 25
+callback on x: protected 0
+callback iterator: type is callback 1, use is x 1, protected 0
+argument iterator: use is the call 1
+scheduled event: type is sched event 1, scheduled 1, protected 0
+without vpiReturnEvent: NULL 1
+active time format: same object twice 1, no arguments 1
+alias statements: wp=ws wq=ws wr=ws wt=ws
+alias statements of the module instance: 4, protected 0
+target at 40: 4

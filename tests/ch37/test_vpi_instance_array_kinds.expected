@@ -1,0 +1,12 @@
+arrays of the module: module 1, interface 1, program 1, primitive 1
+u: module array 1, range 1:0, ranges: 1:0 2:4
+u: connections are a list operation 1
+u: parameter assignments: W = 3 by name 1
+u[0][3] by multiple index: test_vpi_instance_array_kinds.u[0][3]
+ifs: array type matches 1, element 1 has index 1
+one: index is NULL 1
+pa: array type matches 1, element 3 has index 3
+po: index is NULL 1
+g: array type matches 1, element 0 has index 0
+go: index is NULL 1
+g: delay 3

@@ -1,0 +1,10 @@
+bits of the assignment to cv: 4
+  offset 0: cont assign bit 1, size 1, parent is the assignment 1, value 0
+  offset 1: cont assign bit 1, size 1, parent is the assignment 1, value 1
+  offset 2: cont assign bit 1, size 1, parent is the assignment 1, value 1
+  offset 3: cont assign bit 1, size 1, parent is the assignment 1, value 0
+changes of the assignment: 2:0100 3:1100 4:1110
+changes of its bit of offset 1: 2:0 4:1
+vpiDelay of n2: operation, list 1, operands: 2 3
+vpiDelay of n1: value 4
+delays of gb: 1 2 3

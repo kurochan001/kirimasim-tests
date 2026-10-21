@@ -1,0 +1,7 @@
+frames: current active 1, caller active 0
+thread of the caller's frame is the current thread: 1
+loc from the frame: value 6, automatic 1, alloc scheme automatic, has actual 1
+loc from the task declaration: automatic 1, has actual 0
+sv: automatic 0, alloc scheme other, has actual 1
+v of the object of c: value 7, alloc scheme dynamic
+objects created: 2, frames ended: 1

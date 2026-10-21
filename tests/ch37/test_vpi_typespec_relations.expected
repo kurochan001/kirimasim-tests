@@ -1,0 +1,12 @@
+grid: array typespec, name none, range 4:1, ranges: 4:1, 0:2
+ element 1: array typespec, name row_t, range 0:2
+ element 2: logic typespec, name byte_t, range 1:0
+ element 3: logic typespec, name nib_t, range 3:0
+ element 4: logic typespec, name none
+ element 5: none
+da: array typespec, range none, ranges: none (size 0), 0:1
+aa: array typespec, index typespec int typespec, ranges: none (size 0)
+aw: array typespec, index typespec none
+when: time typespec, name stamp_t, alias: time typespec, name none
+ds: struct typespec, name dflt_t, members: a default 5, b
+ic: interconnect net 1, typespec struct typespec, name test_vpi_typespec_relations_bus_t, members: hi lo

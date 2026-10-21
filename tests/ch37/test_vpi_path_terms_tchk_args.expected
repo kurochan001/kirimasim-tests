@@ -1,0 +1,7 @@
+module paths: 2
+  clk -> q: input edge posedge, data path terms: d, data polarity positive, instance is u 1
+  rst -> q: input edge none, data path terms: none, instance is u 1
+timing checks: 3
+  $period: reference posedge clk, delay 10, arguments: tchk terms 1, constants 1, variables 0, others 0
+  $setup: reference posedge clk if en, data d, delay 5, arguments: tchk terms 2, constants 1, variables 0, others 0
+  $setuphold: reference posedge clk, data d, delay list, sorted: 1 2, arguments: tchk terms 2, constants 2, variables 1, others 0
