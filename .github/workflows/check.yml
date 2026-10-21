@@ -5,7 +5,7 @@ name: Check
 # change. Every one of them must match: these releases do not change, so a
 # test that does not points to a problem in the suite. Also checks that the
 # tables in README.md, the generated tests in tests/gen/ and the catalog of the
-# tests in docs/tests/ are up to date.
+# tests in docs/tests/ are up to date, and the metadata of the tests.
 #
 # A failed apt-get update only warns: it can fail for a source that the runner
 # image adds (packages.microsoft.com has answered 403), while the packages
@@ -185,3 +185,14 @@ jobs:
             echo "::error::docs/tests/ is out of date: run python3 tools/suite_catalog.py --update"
             exit 1
           }
+
+      # Problems of existing tests listed in tools/lint_baseline.txt are known.
+      - name: Check the metadata of the tests
+        run: |
+          status=0
+          python3 tools/lint_metadata.py > lint.log || status=$?
+          grep -v '^KNOWN ' lint.log || true
+          if [ "$status" != 0 ]; then
+            echo "::error::a test breaks a rule of README.md: see python3 tools/lint_metadata.py"
+            exit 1
+          fi

@@ -179,6 +179,9 @@ tools/results_history.py        keeps the nightly history and draws its charts
 tools/suite_stats.py            counts the tests and keeps the tables of this README
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
 tools/clauses.txt               the clause numbers of the standard, for docs/tests/clauses.md
+tools/lint_metadata.py          checks the metadata and the form of the tests
+tools/lint_baseline.txt         the problems of existing tests that the check reports as known
+tools/new_test.py               writes the skeleton of a new test
 .github/workflows/check.yml     checks the expected outputs with the releases
 .github/workflows/nightly.yml   the nightly run
 ```
@@ -526,8 +529,11 @@ suite has a problem:
   which must all match.
 - **readme** checks that the tables of this README are up to date
   (`tools/suite_stats.py --check`), that the generated tests are what the
-  generators write (`generators/generate.py --check`), and that the catalog
-  in `docs/tests/` is up to date (`tools/suite_catalog.py --check`).
+  generators write (`generators/generate.py --check`), that the catalog
+  in `docs/tests/` is up to date (`tools/suite_catalog.py --check`), and that
+  no test breaks a rule of the metadata or of "Contributing" that
+  `tools/lint_metadata.py` checks, other than the known problems of existing
+  tests in `tools/lint_baseline.txt`.
 
 `.github/workflows/nightly.yml` runs at 19:23 UTC every day, and can be
 started by hand as well; GitHub can start a scheduled run hours late when it
@@ -564,6 +570,15 @@ why and cite the IEEE 1800-2023 clause. Do not copy text, figures, or example
 code from the standard; describe behavior in your own words and cite clause
 numbers.
 
+`tools/new_test.py` writes the skeleton of a new test, with its metadata
+and an empty `.expected` file, and TODO where the test still needs its
+description, its comment, its design and its expected output:
+
+```sh
+python3 tools/new_test.py ch16 test_sequence_and --lrm "16.9.5"
+python3 tools/new_test.py ch9 test_illegal_always_comb_delay --lrm "9.2.2.2" --illegal
+```
+
 A new test should:
 
 - be named `test_<what it checks>.sv` and placed in `tests/chNN/`, where NN is
@@ -590,13 +605,21 @@ A new test should:
   comment of the test says so.
 
 After adding tests, update the tables of this README, the catalog of the
-tests and the page of the clauses they cite, which the check workflow
-requires:
+tests and the page of the clauses they cite, and check the metadata, as the
+check workflow does:
 
 ```sh
 python3 tools/suite_stats.py --update
 python3 tools/suite_catalog.py --update
+python3 tools/lint_metadata.py
 ```
+
+`tools/lint_metadata.py` reports what a script can check of the rules above:
+the fields and their values, `:lrm:` and the directory, x or z literals in a
+test with `:fourstate: no`, the expected output, the fields of an illegal
+design, the files that the metadata names, the line lengths, comment lines
+that start with the word Verilator, a `` `timescale `` when a time is printed,
+and TODO left from the skeleton. Its docstring lists the rules.
 
 Most of the material here was produced with AI assistance (Claude Code);
 people are responsible for checking the expected results against the
