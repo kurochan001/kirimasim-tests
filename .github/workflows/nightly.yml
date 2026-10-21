@@ -3,8 +3,10 @@ name: Nightly
 # Runs every test of main once a day with the latest development version of
 # each simulator, and adds the results to the history on the results branch,
 # which tools/results_history.py draws as charts (see "Nightly results" in
-# README.md). The results are only reported: the expected outputs recorded
-# with Icarus Verilog 13.0 and Verilator 5.052 are checked by check.yml.
+# README.md). The results are only reported, except that the kirimasim job
+# fails when a test that matched the night before differs now; the expected
+# outputs recorded with Icarus Verilog 13.0 and Verilator 5.052 are checked by
+# check.yml.
 #
 # A failed apt-get update only warns: it can fail for a source that the runner
 # image adds (packages.microsoft.com has answered 403), while the packages
@@ -224,6 +226,26 @@ jobs:
           name: results-kirimasim
           path: results/
           if-no-files-found: warn
+
+      # The ratchet: the job fails when a test that matched in the previous
+      # results on the results branch differs now. New tests, unsupported ones
+      # and a first night without previous results do not fail it. The publish
+      # job of this run needs this job, so the results branch still holds the
+      # previous night here; publish runs even when this job fails.
+      - name: Compare with the previous night
+        run: |
+          if [ ! -f results/kirimasim.json ]; then
+            echo "No results of kirimasim: the comparison is skipped."
+          elif git fetch -q --depth 1 origin results &&
+               git show FETCH_HEAD:latest/kirimasim.json > previous-kirimasim.json 2>/dev/null; then
+            python3 tools/results_ratchet.py previous-kirimasim.json results/kirimasim.json \
+              | tee ratchet.log
+            status=${PIPESTATUS[0]}
+            tail -n 1 ratchet.log >> "$GITHUB_STEP_SUMMARY"
+            exit "$status"
+          else
+            echo "No previous results of kirimasim: the comparison is skipped."
+          fi
 
   # The latest main of sukimasim, the simulator that came before kirimasim.
   # Its repository is private, so only its results leave this job: it is

@@ -147,8 +147,11 @@ So for Icarus Verilog and Verilator, a test that differs is one that the
 release matches but the development version does not, and a known
 difference that matches is one that the development version has fixed.
 
-The nightly results are only reported: a test that does not match does not
-make the workflow fail. The expected outputs recorded with Icarus Verilog
+The nightly results are reported, and with one exception a test that does not
+match does not make the workflow fail: the kirimasim job fails when a test
+that matched in the previous night's results differs now (a ratchet, see
+"Workflows"). New tests and tests that kirimasim does not support yet do not
+fail it. The expected outputs recorded with Icarus Verilog
 13.0 and Verilator 5.052 are checked with those releases by a
 [second workflow](.github/workflows/check.yml) whenever the tests or the
 tools change (see "Workflows").
@@ -176,6 +179,7 @@ tools/run_sukimasim.py          runs the suite with sukimasim
 tools/normalize_output.py       normalizes a simulator's output before it is compared
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
+tools/results_ratchet.py        lists the tests that matched in the previous run and differ now
 tools/suite_stats.py            counts the tests and keeps the tables of this README
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
 tools/clauses.txt               the clause numbers of the standard, for docs/tests/clauses.md
@@ -540,7 +544,7 @@ suite has a problem:
 started by hand as well; GitHub can start a scheduled run hours late when it
 is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
-only reported. It has five jobs:
+only reported, except for the ratchet of the kirimasim job. It has five jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every test.
@@ -548,7 +552,12 @@ only reported. It has five jobs:
   by its commit), installs `z3` and ccache, whose cache it keeps for the next
   night, and runs every test with `--all`.
 - **kirimasim** builds the latest `main` of kirimasim with its `release`
-  preset and runs every test.
+  preset and runs every test. Then it compares the results with
+  `latest/kirimasim.json` of the `results` branch, the previous night's, with
+  `tools/results_ratchet.py`, and fails when a test that matched there differs
+  now; tests that are new or unsupported, and a night without previous
+  results, do not count. The results are uploaded before, so the night's
+  entry has them either way.
 - **sukimasim** checks out the latest `main` of sukimasim from its private
   repository with a read-only deploy key (the `SUKIMASIM_DEPLOY_KEY` secret),
   and the `sukimasim-improvements` branch of its parser,
