@@ -2,7 +2,7 @@
 
 [All chapters](README.md). For each clause of IEEE 1800-2023 from 3 to 40, this page counts the clauses without subclauses of its own, the numbers in `tools/clauses.txt`, by whether a test cites them in `:lrm:`. A clause can also be cited only through a parent clause, which says less about what is tested. Clauses that set out no behavior of their own, clause 34, behavior left to the tool or its setup, and the content of VCD files are out of scope (the tags of `tools/clauses.txt`). The page is written by `tools/suite_catalog.py`.
 
-Of 933 clauses in scope, 933 are cited by a test, 0 only through a parent clause, and 0 not at all; 185 are out of scope.
+Of 934 clauses in scope, 934 are cited by a test, 0 only through a parent clause, and 0 not at all; 185 are out of scope.
 
 | Clause | Title | Cited | Only through a parent | Not cited | Out of scope |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -40,7 +40,7 @@ Of 933 clauses in scope, 933 are cited by a test, 0 only through a parent clause
 | 34 | Protected envelopes | 0 |  |  | 41 |
 | 35 | Direct programming interface | 17 |  |  | 5 |
 | 36 | Programming language interface (PLI/VPI) overview | 13 |  |  | 9 |
-| 37 | VPI object model diagrams | 80 |  |  | 5 |
+| 37 | VPI object model diagrams | 81 |  |  | 5 |
 | 38 | VPI routine definitions | 44 |  |  | 3 |
 | 39 | Assertion API | 7 |  |  | 2 |
 | 40 | Code coverage control and API | 18 |  |  | 2 |
@@ -57,7 +57,3 @@ None.
 - `excluded`, clause 34, protected envelopes: 34.1, 34.2, 34.3.1, 34.3.2, 34.4, 34.5.1.2, 34.5.2.2, 34.5.3.2, 34.5.4.2, 34.5.5.2, 34.5.6.2, 34.5.7.2, 34.5.8.2, 34.5.9.1, 34.5.9.2, 34.5.10.2, 34.5.11.2, 34.5.12.2, 34.5.13.2, 34.5.14.2, 34.5.15.2, 34.5.16.2, 34.5.17.2, 34.5.18.2, 34.5.19.2, 34.5.20.2, 34.5.21.2, 34.5.22.2, 34.5.23.2, 34.5.24.2, 34.5.25.2, 34.5.26.2, 34.5.27.2, 34.5.28.1, 34.5.28.2, 34.5.29.1, 34.5.29.2, 34.5.30.2, 34.5.31.2, 34.5.32.1, 34.5.32.2
 - `tool`, left to the tool or its setup: 12.4.2.1, 12.4.2.2, 12.5.3.1, 12.5.3.2, 22.11.1, 23.3.3.1, 23.3.3.6, 30.7.2, 30.7.3, 31.9.2, 31.9.3, 33.2.1, 33.2.2, 33.3.1.1, 33.3.2, 33.3.3, 33.5.1, 33.5.2, 33.6.1, 33.6.2, 33.6.3, 33.6.4, 33.6.5, 33.8.1, 33.8.2, 33.8.3, 36.12.1, 36.12.2.1, 36.12.2.2, 36.12.3, 37.45, 38.9
 - `dump`, the content of VCD files: 21.7.1.5, 21.7.2.4, 21.7.3.1, 21.7.3.2, 21.7.3.3, 21.7.3.4, 21.7.3.5, 21.7.3.6.1, 21.7.3.7, 21.7.4.1, 21.7.4.2, 21.7.4.3.1, 21.7.4.3.2, 21.7.4.4
-
-## Cited numbers missing from the list
-
-These numbers are cited by tests but are not in `tools/clauses.txt`; either the citation or the list needs a correction: 37.69.

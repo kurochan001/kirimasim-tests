@@ -92,7 +92,10 @@ The suite has **3780 tests** in 37 chapters. 812 of them are generated (`tests/g
 The [catalog](docs/tests/README.md) lists every test, chapter by chapter,
 with what it checks and the clauses it cites, and
 [docs/tests/clauses.md](docs/tests/clauses.md) shows, chapter by chapter,
-which clauses of the standard the tests cite. Every clause from 3 to 40 that
+which clauses of the standard the tests cite. The
+[depth report](docs/coverage-depth.md) counts the tests behind each clause
+and lists the clauses that one test covers with a standard-only expected
+output. Every clause from 3 to 40 that
 sets out behavior a test can observe is cited by at least one test; the page
 lists the others and why they are left out (the tags of `tools/clauses.txt`):
 general text, clause 34, behavior left to the tool, and the content of VCD
@@ -172,6 +175,7 @@ docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 di
 docs/inventory-20261021.md      what the suite had before the extension work of 2026-10-21, its plan, and the tests added after its report
 docs/tests/                     the catalog: every test with what it checks, by chapter
 docs/tests/clauses.md           which clauses of the standard the tests cite
+docs/coverage-depth.md          how many tests each clause has, and the priority gaps
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
@@ -182,6 +186,7 @@ tools/results_history.py        keeps the nightly history and draws its charts
 tools/results_ratchet.py        lists the tests that matched in the previous run and differ now
 tools/suite_stats.py            counts the tests and keeps the tables of this README
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
+tools/coverage_depth.py         writes docs/coverage-depth.md, the depth report
 tools/clauses.txt               the clause numbers of the standard, for docs/tests/clauses.md
 tools/lint_metadata.py          checks the metadata and the form of the tests
 tools/lint_baseline.txt         the problems of existing tests that the check reports as known
@@ -544,8 +549,9 @@ suite has a problem:
 - **readme** checks that the tables of this README are up to date
   (`tools/suite_stats.py --check`), that the generated tests are what the
   generators write (`generators/generate.py --check`), that the catalog
-  in `docs/tests/` is up to date (`tools/suite_catalog.py --check`), and that
-  no test breaks a rule of the metadata or of "Contributing" that
+  in `docs/tests/` is up to date (`tools/suite_catalog.py --check`), that
+  `docs/coverage-depth.md` is up to date (`tools/coverage_depth.py --check`),
+  and that no test breaks a rule of the metadata or of "Contributing" that
   `tools/lint_metadata.py` checks, other than the known problems of existing
   tests in `tools/lint_baseline.txt`.
 
