@@ -1,0 +1,32 @@
+=== group of cells ===
+made group top
+--- Step 1: layout ---
+LAYOUT: set up main, base=0x24000000, unit=4
+GROUP: made layout main
+PASS: layout base 0x24000000 is the main layout
+--- Step 2: cells in the group ---
+GROUP: add cell mode
+GROUP: add cell flags
+GROUP: add cell level
+PASS: group has 3 cells
+--- Step 3: cells in the layout ---
+LAYOUT: cell mode at offset 0x0000
+LAYOUT: cell flags at offset 0x0008
+LAYOUT: cell level at offset 0x0010
+PASS: layout has 3 cells, the same objects
+--- Step 4: address by label ---
+PASS: flags at 0x24000008
+--- Step 5: store ---
+GROUP: add store fifo
+LAYOUT: store fifo at offset 0x0800
+PASS: group has 1 store, the next slot is null
+--- Step 6: cell by label ---
+PASS: found cell 'level', width 16
+--- Step 7: freeze ---
+GROUP: frozen
+PASS: group is frozen
+--- Step 8: restore ---
+GROUP: restored every cell and store
+PASS: mode back to 0x00000005
+=== done ===
+TEST PASSED

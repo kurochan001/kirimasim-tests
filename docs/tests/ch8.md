@@ -13,6 +13,8 @@
 | [`test_class_compare`](../../tests/ch8/test_class_compare.sv) | Test: Class comparison | 8.4 8.5 8.6 | Verilator 5.052 |  |
 | [`test_class_component_tree`](../../tests/ch8/test_class_component_tree.sv) | A tree of class objects that build hierarchical names from their parents | 8.4 8.5 7.10 | Verilator 5.052 |  |
 | [`test_class_edge`](../../tests/ch8/test_class_edge.sv) | Classes: construction, methods, local members, inheritance | 8.4 8.6 8.13 8.18 | Icarus Verilog 13.0 |  |
+| [`test_class_enum_property_accessors`](../../tests/ch8/test_class_enum_property_accessors.sv) | Methods of an object read and write its properties of enumerated types, a 64-bit vector and fixed-size arrays of bytes, and an enumeration with explicit values in any order keeps their signs through a cast to int | 8.4 8.5 8.6 6.19 7.4 | Verilator 5.052 |  |
+| [`test_class_handle_arrays_lookup`](../../tests/ch8/test_class_handle_arrays_lookup.sv) | Objects kept in fixed-size arrays of class handles by two containers are shared, not copied, can be found by comparing a string property, and a method of one container changes them for the other | 8.4 8.7 7.4 6.16 | Verilator 5.052 |  |
 | [`test_class_null_comparison`](../../tests/ch8/test_class_null_comparison.sv) | Class handles: null by default, compared with null, copied by assignment | 8.4 8.12 | Icarus Verilog 13.0 |  |
 | [`test_class_null_handle`](../../tests/ch8/test_class_null_handle.sv) | Test: Null handle detection (check if handle is null before use) | 8.4 | Verilator 5.052 |  |
 | [`test_class_object`](../../tests/ch8/test_class_object.sv) | Test class objects | 8.4 8.7 | Icarus Verilog 13.0 |  |
@@ -28,8 +30,6 @@
 | [`test_null_empty_corner`](../../tests/ch8/test_null_empty_corner.sv) | Tests null handles, empty arrays, and default values | 8.4 7.5 7.10 7.8 6.16 | Verilator 5.052 |  |
 | [`test_null_expr`](../../tests/ch8/test_null_expr.sv) | Test null expression | 8.4 | Icarus Verilog 13.0 |  |
 | [`test_null_handle`](../../tests/ch8/test_null_handle.sv) | Null class handle operations edge cases | 8.4 8.15 | Verilator 5.052 |  |
-| [`test_ral_block`](../../tests/ch8/test_ral_block.sv) | A register-model block written with plain classes: handles, arrays of handles and lookups by name | 8.4 8.7 7.4 6.16 | Verilator 5.052 |  |
-| [`test_tlm2_generic_payload`](../../tests/ch8/test_tlm2_generic_payload.sv) | A TLM 2.0 style generic payload written with plain classes and enumerated types | 8.4 8.5 8.6 6.19 7.4 | Verilator 5.052 |  |
 | [`test_class_member_access`](../../tests/ch8/test_class_member_access.sv) | Test for IEEE 1800-2023 §8: Class member access | 8.5 8.6 8.13 | Icarus Verilog 13.0 |  |
 | [`test_class_prop`](../../tests/ch8/test_class_prop.sv) | Class Property Tests | 8.5 8.7 | Icarus Verilog 13.0 |  |
 | [`test_class_property`](../../tests/ch8/test_class_property.sv) | Test class property | 8.5 8.18 | Icarus Verilog 13.0 |  |

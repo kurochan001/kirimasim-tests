@@ -1,0 +1,20 @@
+=== request object ===
+--- Step 1: defaults ---
+PASS: op 0, place 0, result waiting
+--- Step 2: op ---
+PASS: op 1 is a store
+--- Step 3: place ---
+PASS: place = 0x000030000badf00d
+--- Step 4: bytes ---
+PASS: byte 2 = 0x33, 4 bytes
+--- Step 5: result ---
+PASS: result 3 = done
+--- Step 6: failed results ---
+PASS: result -4 = bad place
+PASS: result -9 = bad mask
+--- Step 7: cacheable ---
+PASS: cacheable = 1
+--- Step 8: beat width ---
+PASS: beat width = 32
+=== done ===
+TEST PASSED
