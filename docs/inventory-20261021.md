@@ -846,3 +846,18 @@ The chapter 3 test lists both Icarus Verilog 13.0 and Verilator 5.052;
 the chapter 36 test lists Icarus Verilog 13.0, the chapter 24 test
 Verilator 5.052, and the chapter 39 and 40 tests follow the standard
 only. No new simulator difference was found.
+
+### Three more tests
+
+A fifth commit, `4ff57d6`, added 3 more tests; the suite then had 3713
+tests.
+
+| Chapter | Tests | Which |
+| ---: | ---: | --- |
+| 32 | 1 | separate `SETUP` and `HOLD` entries of an SDF file |
+| 33 | 1 | a cell rule that binds its instances with parameter overrides |
+| 39 | 1 | the VPI handles of immediate assert, assume and cover statements |
+
+None of the three is produced by Icarus Verilog 13.0 or Verilator
+5.052, so all follow the standard only. No new simulator difference was
+found.
