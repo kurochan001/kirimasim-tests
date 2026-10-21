@@ -33,7 +33,7 @@ endprogram
 
 module test_program_clocking_output;
   logic clk = 0;
-  logic q;
+  logic q = 0;
 
   always #5 clk = ~clk;
 
