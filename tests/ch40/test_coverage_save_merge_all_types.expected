@@ -1,0 +1,8 @@
+assertion: save gives NOCOV or ERROR without coverage, OK or ERROR with: yes
+assertion: a merge after a save that gave OK gives OK: yes
+FSM state: save gives NOCOV or ERROR without coverage, OK or ERROR with: yes
+FSM state: a merge after a save that gave OK gives OK: yes
+statement: save gives NOCOV or ERROR without coverage, OK or ERROR with: yes
+statement: a merge after a save that gave OK gives OK: yes
+toggle: save gives NOCOV or ERROR without coverage, OK or ERROR with: yes
+toggle: a merge after a save that gave OK gives OK: yes

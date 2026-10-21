@@ -1,0 +1,18 @@
+covergroup option: weight 1, goal 100, comment "", at_least 1
+  auto_bin_max 64, cross_num_print_missing 0, cross_retain_auto_bins 1
+  detect_overlap 0, per_instance 0, get_inst_coverage 0
+coverpoint option: weight 1, goal 100, comment "", at_least 1
+  auto_bin_max 64, detect_overlap 0
+cross option: weight 1, goal 100, comment "", at_least 1
+  cross_num_print_missing 0, cross_retain_auto_bins 1
+covergroup type_option: weight 1, goal 100, comment ""
+  strobe 0, merge_instances 0, distribute_first 0, real_interval 1.00
+coverpoint type_option: weight 1, goal 100, comment "", real_interval 1.00
+cross type_option: weight 1, goal 100, comment ""
+cg_set coverpoint option: weight 1, goal 100, comment "", at_least 3
+  auto_bin_max 16, detect_overlap 1
+cg_set cross option: weight 1, goal 100, comment "", at_least 3
+  cross_num_print_missing 4, cross_retain_auto_bins 0
+cg_set coverpoint type_option: weight 1, goal 100, comment ""
+  real_interval 0.25
+cg_set cross type_option: weight 1, goal 100, comment ""

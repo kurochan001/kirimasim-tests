@@ -1,0 +1,2 @@
+after vpiCoverageReset of u1, u1 is zero and u2 is unchanged: yes
+while u1 is stopped, its toggles do not raise its coverage: yes

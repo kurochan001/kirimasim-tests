@@ -1,0 +1,3 @@
+g8a samples 0 and 1, g4 samples 0: type 25.00
+then g8b samples 1: type 25.00
+then g8b samples 4 and 5, g4 samples 7: type 50.00

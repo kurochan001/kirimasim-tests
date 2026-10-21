@@ -1,0 +1,4 @@
+with FSM coverage started, the maximum is the 10 states named: yes
+with FSM coverage started, at time 20 the current value is below it: yes
+with FSM coverage started, at time 40 the current value is the maximum: yes
+states at time 40: sa 0, ctl[2:1] 1, {hi, lo} 01

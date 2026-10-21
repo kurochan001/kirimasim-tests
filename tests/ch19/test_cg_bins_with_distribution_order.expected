@@ -1,0 +1,4 @@
+x=3: filtered first 50.00, distributed first 0.00
+x=2: filtered first 75.00, distributed first 50.00
+x=0: filtered first 100.00, distributed first 50.00
+x=4: filtered first 100.00, distributed first 100.00
