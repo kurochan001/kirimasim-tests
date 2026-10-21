@@ -753,8 +753,12 @@ use what it does not support yet, and 3 differ:
 
 - `ch13/test_illegal_function_fork_join_any`: kirimasim reports the error at
   `join_any` (line 25), not at `fork` (line 22), which the test names.
-  Whether `join_any` should count as a right place too is a question for a
-  person; the test was not changed to follow kirimasim.
+  The test was not changed to follow kirimasim: the place of the error is
+  the fork that starts the statement, and `ch13/test_illegal_function_fork_join`
+  was changed afterwards to name only its fork as well. kirimasim reports
+  that one at its `join` too, so it no longer matches it; kirimasim issue
+  [#34](https://github.com/kurochan001/kirimasim/issues/34) asks for both
+  errors at the fork.
 - `ch26/test_illegal_local_declaration_after_import`: kirimasim reports the
   reference that imports `limit` (line 25); 26.3 makes the later local
   declaration (line 26) the illegal one.
