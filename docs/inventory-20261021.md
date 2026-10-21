@@ -921,3 +921,20 @@ generated. By `:oracle:`, 2519 list Icarus Verilog 13.0, 762 list
 Verilator 5.052, and 499 follow the standard only. 568 tests depend on
 x or z values, 205 have C code (29 DPI and 176 VPI), 167 are illegal
 designs, and 5 set an expected exit code.
+
+### Tests added in this work
+
+| Chapter | Tests |
+| ---: | ---: |
+| 3 | 13 |
+| 14 | 16 |
+| 17 | 9 |
+| 24 | 11 |
+| 26 | 8 |
+| 29 | 13 |
+| 32 | 4 |
+| 33 | 2 |
+| 36 | 9 |
+| 39 | 8 |
+| 40 | 7 |
+| **All** | **100** |
