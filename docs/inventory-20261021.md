@@ -889,3 +889,11 @@ tests.
 
 Icarus Verilog 13.0 produces the chapter 36 test; the chapter 32 and 40
 tests follow the standard only. No new simulator difference was found.
+
+### Current state
+
+After these commits the suite has 3719 tests in 37 chapters, 812 of them
+generated. By `:oracle:`, 2486 list Icarus Verilog 13.0, 741 list
+Verilator 5.052, and 492 follow the standard only. 559 tests depend on
+x or z values, 197 have C code (29 DPI and 168 VPI), 165 are illegal
+designs, and 5 set an expected exit code.
