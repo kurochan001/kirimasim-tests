@@ -1,6 +1,6 @@
 # Catalog of the tests
 
-One page for each clause of IEEE 1800-2023 that has tests, listing every test with what it checks (`:description:`), the clauses it cites (`:lrm:`), the release its expected output was recorded with (`:oracle:`; "standard only" when neither Icarus Verilog 13.0 nor Verilator 5.052 produces it) and notes: illegal designs, tests of the exit code, tests with C code (DPI, VPI), with several source files or with plusargs, and tests whose result depends on x or z values. The comment at the top of each test explains in more detail what the cited clauses require and how the test observes it.
+One page for each clause of IEEE 1800-2023 that has tests, listing every test with what it checks (`:description:`), the clauses it cites (`:lrm:`), the release its expected output was recorded with (`:oracle:`; "standard only" when neither Icarus Verilog 13.0 nor Verilator 5.052 produces it) and notes: illegal designs, tests of the exit code, tests with C code (DPI, VPI), with several source files, macros, include directories, a named top module or plusargs, and tests whose result depends on x or z values. The comment at the top of each test explains in more detail what the cited clauses require and how the test observes it.
 
 These pages are written by `tools/suite_catalog.py` from the metadata of the tests (`python3 tools/suite_catalog.py --update`), and the check workflow fails when they are out of date. [Clauses cited by the tests](clauses.md) shows which clauses of the standard the tests cite and which they do not yet.
 
@@ -25,8 +25,8 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 19 | [Functional coverage](ch19.md) | 26 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 187 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 83 |  |
-| 22 | [Compiler directives](ch22.md) | 30 |  |
-| 23 | [Modules and hierarchy](ch23.md) | 69 |  |
+| 22 | [Compiler directives](ch22.md) | 32 |  |
+| 23 | [Modules and hierarchy](ch23.md) | 70 |  |
 | 24 | [Programs](ch24.md) | 18 |  |
 | 25 | [Interfaces](ch25.md) | 49 |  |
 | 26 | [Packages](ch26.md) | 29 |  |

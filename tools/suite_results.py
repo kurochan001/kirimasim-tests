@@ -20,8 +20,9 @@ of:
 
 It also holds what the runners share about the tests: how they are found,
 and the metadata fields that change how a test is run and judged
-(:should_fail_because:, :expected_exit:, :expected_stderr_regex:, :args: and
-:files:, see "Metadata" in README.md).
+(:should_fail_because:, :expected_exit:, :expected_stderr_regex:, :args:,
+:files:, :defines:, :incdirs: and :top_module:, see "Metadata" in
+README.md).
 """
 
 import json
@@ -54,16 +55,35 @@ def header(test: Path) -> dict[str, str]:
 
 def files(test: Path) -> tuple[list[Path], list[Path]]:
     """The files that :files: names next to the test: the sources (.sv and .v)
-    that are compiled before the test, in the order written, and the
-    directories of the others, which the design includes with `include."""
+    that are compiled before the test, in the order written, and the include
+    directories: those of the other files, which the design includes with
+    `include, then those that :incdirs: names, relative to the test."""
+    fields = header(test)
     sources, include_dirs = [], []
-    for name in header(test).get("files", "").split():
+    for name in fields.get("files", "").split():
         path = (test.parent / name).resolve()
         if path.suffix in (".sv", ".v"):
             sources.append(path)
         elif path.parent not in include_dirs:
             include_dirs.append(path.parent)
+    for name in fields.get("incdirs", "").split():
+        path = (test.parent / name).resolve()
+        if path not in include_dirs:
+            include_dirs.append(path)
     return sources, include_dirs
+
+
+def defines(test: Path) -> list[str]:
+    """The macros that :defines: sets before the first source, each NAME or
+    NAME=VALUE, which every runner passes in the form its simulator takes
+    (-D or +define+)."""
+    return header(test).get("defines", "").split()
+
+
+def top_module(test: Path) -> str | None:
+    """The top-level module that :top_module: names, or None to let the
+    simulator take every module that nothing instantiates (23.3.1)."""
+    return header(test).get("top_module") or None
 
 
 def run_args(test: Path) -> list[str]:

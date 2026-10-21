@@ -68,6 +68,12 @@ def notes(fields: dict[str, str]) -> str:
         out.append("VPI")
     if "files" in fields:
         out.append("several files")
+    if "defines" in fields:
+        out.append("macros")
+    if "incdirs" in fields:
+        out.append("include directories")
+    if "top_module" in fields:
+        out.append("top module")
     if "args" in fields:
         out.append("plusargs")
     if fields.get("fourstate") == "yes":
@@ -210,8 +216,8 @@ def index_page(by_chapter: dict[int, list[dict]]) -> str:
              "release its expected output was recorded with (`:oracle:`; \"standard only\" "
              "when neither Icarus Verilog 13.0 nor Verilator 5.052 produces it) and notes: "
              "illegal designs, tests of the exit code, tests with C code (DPI, VPI), with "
-             "several source files or with plusargs, and tests whose result depends on x or "
-             "z values. The comment at the top of each test explains in more detail what the "
+             "several source files, macros, include directories, a named top module or "
+             "plusargs, and tests whose result depends on x or z values. The comment at the top of each test explains in more detail what the "
              "cited clauses require and how the test observes it.", "",
              "These pages are written by `tools/suite_catalog.py` from the metadata of the "
              "tests (`python3 tools/suite_catalog.py --update`), and the check workflow "

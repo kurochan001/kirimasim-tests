@@ -89,7 +89,7 @@ def collect(root: Path = ROOT) -> dict:
     by_chapter: dict[int, dict[str, int]] = {}
     totals = {"tests": 0, "icarus": 0, "verilator": 0, "spec": 0, "human": 0,
               "fourstate": 0, "dpi_c": 0, "vpi_c": 0, "illegal": 0, "exit": 0, "files": 0,
-              "args": 0, "generated": {}}
+              "args": 0, "defines": 0, "incdirs": 0, "top_module": 0, "generated": {}}
     for test in suite_results.find_tests(root):
         fields = header(test)
         chapter = int(test.parent.name.removeprefix("ch"))
@@ -107,10 +107,37 @@ def collect(root: Path = ROOT) -> dict:
         totals["exit"] += "expected_exit" in fields
         totals["files"] += "files" in fields
         totals["args"] += "args" in fields
+        totals["defines"] += "defines" in fields
+        totals["incdirs"] += "incdirs" in fields
+        totals["top_module"] += "top_module" in fields
         if "generator" in fields:
             g = fields["generator"].split("@")[0]
             totals["generated"][g] = totals["generated"].get(g, 0) + 1
     return {"totals": totals, "chapters": by_chapter}
+
+
+def run_setup(t: dict) -> str:
+    """The sentence that counts the tests whose metadata sets up the run, such
+    as "6 tests have more than one source file (`:files:`), and 5 pass
+    arguments to the simulation (`:args:`). ", or "" if there are none."""
+    parts = [f"{n} {one if n == 1 else more}" for n, one, more in (
+        (t["files"], "has more than one source file", "have more than one source file"),
+        (t["defines"], "defines macros", "define macros"),
+        (t["incdirs"], "names include directories", "name include directories"),
+        (t["top_module"], "names the top-level module", "name the top-level module"),
+        (t["args"], "passes arguments to the simulation", "pass arguments to the simulation"))
+        if n]
+    fields = [f for n, f in ((t["files"], "files"), (t["defines"], "defines"),
+                             (t["incdirs"], "incdirs"), (t["top_module"], "top_module"),
+                             (t["args"], "args")) if n]
+    parts = [f"{p} (`:{f}:`)" for p, f in zip(parts, fields)]
+    if not parts:
+        return ""
+    number, rest = parts[0].split(" ", 1)
+    parts[0] = f"{number} {'test' if number == '1' else 'tests'} {rest}"
+    if len(parts) > 1:
+        parts[-1] = "and " + parts[-1]
+    return ", ".join(parts) + ". "
 
 
 def markdown(stats: dict) -> str:
@@ -136,9 +163,7 @@ def markdown(stats: dict) -> str:
            "(`:should_fail_because:`). " if t["illegal"] else "")
         + (f"{t['exit']} tests check the exit code of the simulation (`:expected_exit:`). "
            if t["exit"] else "")
-        + (f"{t['files']} tests have more than one source file (`:files:`), and "
-           f"{t['args']} pass arguments to the simulation (`:args:`). "
-           if t["files"] or t["args"] else "")
+        + run_setup(t)
         + (f"{t['human']} tests have been checked against the standard by a person "
            "(`:spec_check: human`); the others were checked by an AI model."
            if t["human"] else

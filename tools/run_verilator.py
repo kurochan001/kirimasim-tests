@@ -26,8 +26,9 @@ model is also built with --vpi and --public-flat-rw.
 A test with `:should_fail_because:` is an illegal design, which matches when
 Verilator rejects it with an error at the place `:expected_stderr_regex:`
 names. The sources and include files of `:files:` are passed to verilator,
-the arguments of `:args:` to the model, and the exit code and messages of the
-model are checked against `:expected_exit:` and `:expected_stderr_regex:`
+the macros of `:defines:` as -D, the directories of `:incdirs:` as -I and the
+module of `:top_module:` as --top-module, the arguments of `:args:` to the
+model, and the exit code and messages of the model are checked against `:expected_exit:` and `:expected_stderr_regex:`
 (see tools/suite_results.py). The model runs with
 +verilator+error+limit+1000000, so that $error does not stop it, and the
 messages of the severity tasks are removed from the output before it is
@@ -96,11 +97,14 @@ def run(test: Path, verilator: str, seed: int) -> tuple[bool, str]:
     if vpi is not None:
         extra += ["--vpi", "--public-flat-rw", str(vpi)]
     sources, include_dirs = suite_results.files(test)
+    top = suite_results.top_module(test)
     with tempfile.TemporaryDirectory() as tmp:
         obj = Path(tmp) / "obj"
         b = subprocess.run([verilator, "--binary", "--timing", "--coverage-user", "-Wno-fatal",
                             "-Wno-lint", "-Wno-style", "--x-assign", "unique", "--x-initial", "unique",
-                            *[f"-I{d}" for d in include_dirs], "-Mdir", str(obj),
+                            *[f"-I{d}" for d in include_dirs],
+                            *[f"-D{d}" for d in suite_results.defines(test)],
+                            *(["--top-module", top] if top else []), "-Mdir", str(obj),
                             "--prefix", "Vt", *map(str, sources), str(test), *extra],
                            capture_output=True, text=True, errors="replace")
         if header_field(test, "should_fail_because") is not None:

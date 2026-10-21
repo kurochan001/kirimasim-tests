@@ -25,7 +25,9 @@ test with `:dpi_c:` does not compile and lists another oracle.
 A test with `:should_fail_because:` is an illegal design, which matches when
 iverilog rejects it with an error at the place `:expected_stderr_regex:`
 names. The sources and include files of `:files:` are passed to iverilog, the
-arguments of `:args:` to vvp, and the exit code and messages of vvp are
+macros of `:defines:` as -D, the directories of `:incdirs:` as -I and the
+module of `:top_module:` as -s, the arguments of `:args:` to vvp, and the exit
+code and messages of vvp are
 checked against `:expected_exit:` and `:expected_stderr_regex:` (see
 tools/suite_results.py). The messages of the severity tasks, such as $error,
 are removed from the output before it is compared.
@@ -92,8 +94,11 @@ def run(test: Path, bindir: Path | None) -> tuple[bool, str]:
             vvp_args = ["-M", tmp, "-mapp"]
         # Without -gspecify Icarus Verilog ignores specify blocks, and without
         # -ginterconnect it cannot annotate SDF interconnect delays.
+        top = suite_results.top_module(test)
         c = subprocess.run([iverilog, "-g2012", "-gspecify", "-ginterconnect",
-                            *[f"-I{d}" for d in include_dirs], "-o", str(out),
+                            *[f"-I{d}" for d in include_dirs],
+                            *[f"-D{d}" for d in suite_results.defines(test)],
+                            *(["-s", top] if top else []), "-o", str(out),
                             *map(str, sources), str(test)],
                            capture_output=True, text=True)
         if header_field(test, "should_fail_because") is not None:

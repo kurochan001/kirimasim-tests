@@ -2,7 +2,7 @@
 
 [All chapters](README.md). For each clause of IEEE 1800-2023 from 3 to 40, this page counts the clauses without subclauses of its own, the numbers in `tools/clauses.txt`, by whether a test cites them in `:lrm:`. A clause can also be cited only through a parent clause, which says less about what is tested. Clauses that set out no behavior of their own, clause 34, behavior left to the tool or its setup, and the content of VCD files are out of scope (the tags of `tools/clauses.txt`). The page is written by `tools/suite_catalog.py`.
 
-Of 932 clauses in scope, 932 are cited by a test, 0 only through a parent clause, and 0 not at all; 186 are out of scope.
+Of 933 clauses in scope, 933 are cited by a test, 0 only through a parent clause, and 0 not at all; 185 are out of scope.
 
 | Clause | Title | Cited | Only through a parent | Not cited | Out of scope |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -36,7 +36,7 @@ Of 932 clauses in scope, 932 are cited by a test, 0 only through a parent clause
 | 30 | Specify blocks | 20 |  |  | 4 |
 | 31 | Timing checks | 19 |  |  | 3 |
 | 32 | Backannotation using the standard delay format | 10 |  |  | 2 |
-| 33 | Configuring the contents of a design | 10 |  |  | 17 |
+| 33 | Configuring the contents of a design | 11 |  |  | 16 |
 | 34 | Protected envelopes | 0 |  |  | 41 |
 | 35 | Direct programming interface | 17 |  |  | 5 |
 | 36 | Programming language interface (PLI/VPI) overview | 13 |  |  | 9 |
@@ -55,5 +55,5 @@ None.
 
 - `none`, it sets out no behavior of its own: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 4.1, 4.2, 4.4.3.1, 4.4.3.5, 4.4.3.6, 4.4.3.7, 4.4.3.8, 4.8, 5.1, 6.1, 6.2, 6.15, 7.1, 7.11, 8.1, 8.2, 9.1, 10.1, 11.1, 11.6.3, 12.1, 12.2, 12.3, 13.1, 13.2, 14.1, 14.2, 14.8, 15.1, 15.2, 16.1, 16.2, 16.12.20, 16.12.21, 16.13.4, 17.1, 17.9, 18.1, 18.2, 19.1, 19.2, 20.1, 20.12, 20.13, 21.1, 22.1, 22.2, 22.14.1, 23.1, 24.1, 25.1, 25.2, 25.5.1, 25.5.2, 25.5.3, 26.1, 27.1, 27.2, 28.1, 28.2, 29.1, 29.2, 30.1, 30.2, 31.1, 32.1, 32.2, 33.1, 35.1, 35.2.2.1, 35.3.1, 35.3.2, 35.5.1.6, 36.1, 36.2, 36.6, 36.7, 36.11, 37.1, 37.4.1, 37.4.2, 37.4.3, 38.1, 38.7, 39.1, 39.2, 40.1, 40.4.8
 - `excluded`, clause 34, protected envelopes: 34.1, 34.2, 34.3.1, 34.3.2, 34.4, 34.5.1.2, 34.5.2.2, 34.5.3.2, 34.5.4.2, 34.5.5.2, 34.5.6.2, 34.5.7.2, 34.5.8.2, 34.5.9.1, 34.5.9.2, 34.5.10.2, 34.5.11.2, 34.5.12.2, 34.5.13.2, 34.5.14.2, 34.5.15.2, 34.5.16.2, 34.5.17.2, 34.5.18.2, 34.5.19.2, 34.5.20.2, 34.5.21.2, 34.5.22.2, 34.5.23.2, 34.5.24.2, 34.5.25.2, 34.5.26.2, 34.5.27.2, 34.5.28.1, 34.5.28.2, 34.5.29.1, 34.5.29.2, 34.5.30.2, 34.5.31.2, 34.5.32.1, 34.5.32.2
-- `tool`, left to the tool or its setup: 12.4.2.1, 12.4.2.2, 12.5.3.1, 12.5.3.2, 22.11.1, 23.3.3.1, 23.3.3.6, 30.7.2, 30.7.3, 31.9.2, 31.9.3, 33.2.1, 33.2.2, 33.3.1.1, 33.3.2, 33.3.3, 33.5.1, 33.5.2, 33.5.3, 33.6.1, 33.6.2, 33.6.3, 33.6.4, 33.6.5, 33.8.1, 33.8.2, 33.8.3, 36.12.1, 36.12.2.1, 36.12.2.2, 36.12.3, 37.45, 38.9
+- `tool`, left to the tool or its setup: 12.4.2.1, 12.4.2.2, 12.5.3.1, 12.5.3.2, 22.11.1, 23.3.3.1, 23.3.3.6, 30.7.2, 30.7.3, 31.9.2, 31.9.3, 33.2.1, 33.2.2, 33.3.1.1, 33.3.2, 33.3.3, 33.5.1, 33.5.2, 33.6.1, 33.6.2, 33.6.3, 33.6.4, 33.6.5, 33.8.1, 33.8.2, 33.8.3, 36.12.1, 36.12.2.1, 36.12.2.2, 36.12.3, 37.45, 38.9
 - `dump`, the content of VCD files: 21.7.1.5, 21.7.2.4, 21.7.3.1, 21.7.3.2, 21.7.3.3, 21.7.3.4, 21.7.3.5, 21.7.3.6.1, 21.7.3.7, 21.7.4.1, 21.7.4.2, 21.7.4.3.1, 21.7.4.3.2, 21.7.4.4

@@ -37,15 +37,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3403 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **3406 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2366 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2369 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 666 |
 | The standard only, where neither simulator follows it | 371 |
 
-525 tests depend on x or z values (`:fourstate: yes`). 129 tests come with C code: 21 DPI tests (`:dpi_c:`) and 108 VPI tests (`:vpi_c:`). 121 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+525 tests depend on x or z values (`:fourstate: yes`). 129 tests come with C code: 21 DPI tests (`:dpi_c:`) and 108 VPI tests (`:vpi_c:`). 121 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), 1 defines macros (`:defines:`), 1 names include directories (`:incdirs:`), 1 names the top-level module (`:top_module:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -68,8 +68,8 @@ The suite has **3403 tests** in 37 chapters. 763 of them are generated (`tests/g
 | 19 | Functional coverage | 26 |  | 8 | 18 |
 | 20 | Utility system tasks and system functions | 187 | 166 | 11 | 10 |
 | 21 | Input/output system tasks and system functions | 83 | 74 | 5 | 4 |
-| 22 | Compiler directives | 30 | 29 | 1 |  |
-| 23 | Modules and hierarchy | 69 | 53 | 8 | 8 |
+| 22 | Compiler directives | 32 | 31 | 1 |  |
+| 23 | Modules and hierarchy | 70 | 54 | 8 | 8 |
 | 24 | Programs | 18 | 7 |  | 11 |
 | 25 | Interfaces | 49 | 11 | 34 | 4 |
 | 26 | Packages | 29 | 20 | 8 | 1 |
@@ -160,11 +160,13 @@ tests/chNN/<name>.sv            a test, with its metadata header
 tests/chNN/<name>.expected      its expected standard output
 tests/chNN/<name>.c             C code of a DPI or VPI test
 tests/chNN/<other>.sv, .svh     a source or include file that a test names in :files:
+tests/chNN/<dir>/               an include directory that a test names in :incdirs:
 tests/gen/chNN/<name>.sv        a generated test (do not edit; see "Generated tests")
 generators/<generator>.py       a generator of tests and its reference model
 generators/generate.py          writes tests/gen/, or checks it with --check
 generators/oracles.txt          which releases produce each generated test's output
 docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 differ from the standard
+docs/inventory-20261021.md      what the suite had before the extension work of 2026-10-21, and its plan
 docs/tests/                     the catalog: every test with what it checks, by chapter
 docs/tests/clauses.md           which clauses of the standard the tests cite
 tools/run_icarus.py             runs the suite with Icarus Verilog
@@ -187,8 +189,9 @@ every test in the latest run), `charts/*.svg` and the report, `README.md`.
 
 ## Test format
 
-A test is one SystemVerilog file (a few also have C code or other source
-files next to them, see `:dpi_c:`, `:vpi_c:` and `:files:`). It starts with a
+A test is one SystemVerilog file (a few also have C code, other source files
+or include files next to them, see `:dpi_c:`, `:vpi_c:`, `:files:` and
+`:incdirs:`). It starts with a
 metadata comment, followed by a comment that explains what the test checks,
 and then the design. For example (an illustration, not a test of the suite):
 
@@ -247,6 +250,9 @@ it does not know.
 | `:args:` | Arguments for the simulation, separated by spaces: plusargs such as `+count=3` |
 | `:generator:` | `<generator>@<version>`: the test was written by `generators/<generator>.py` (see "Generated tests") |
 | `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it |
+| `:defines:` | Macros that the simulator defines before the first source file, separated by spaces: `NAME` or `NAME=VALUE` (the `-D` or `+define+` option of a tool). The standard leaves such options to the tool; the tests use them only to set macros that `` `ifdef `` and macro uses then see as if `` `define `` had set them (22.5.1) |
+| `:incdirs:` | Include directories, relative to the directory of the test, separated by spaces, where `` `include "<file>" `` looks after the current working directory (22.4); a runner gives them to the simulator after the directories of the include files in `:files:` |
+| `:top_module:` | The top-level module of the design. Without it, every module that nothing instantiates is a top-level module (23.3.1); with it, only the named module and what it instantiates are elaborated (the tool is told the top-level module, 33.5.3) |
 
 ### How a test is judged
 
@@ -363,6 +369,17 @@ Every runner needs Python 3.10 or later, and has these options in common:
 | `-j N`, `--jobs N` | Run N tests at once (default: 1) |
 | `--json FILE` | Also write the result of every test to FILE (see `tools/suite_results.py`) |
 
+Every runner gives the simulator the metadata that sets up a run, in the
+form the simulator takes:
+
+| Field | Icarus Verilog | Verilator | kirimasim | sukimasim |
+| --- | --- | --- | --- | --- |
+| `:files:` (sources) | before the test | before the test | before the test | before the test |
+| `:files:` (include files) and `:incdirs:` | `-I` | `-I` | `+incdir+` | `+incdir+` |
+| `:defines:` | `-D` | `-D` | `+define+` | `+define+` |
+| `:top_module:` | `-s` | `--top-module` | `--top=` | `-top` |
+| `:args:` | to `vvp` | to the model | after the test | after the test |
+
 A runner prints one line for each test that does not match (`FAIL`, or
 `KNOWN` for a known difference, `UNSUPPORTED` for kirimasim), and
 `tools/run_icarus.py` one for each known difference that matches (`NOW
@@ -468,7 +485,9 @@ one that holds the executable) and loaded with `--lib`. sukimasim has no
 ### Other simulators
 
 A runner for another simulator needs to do four things for each test: run it
-in an empty temporary directory, remove the lines the simulator prints on
+in an empty temporary directory, with the sources, macros, include
+directories, top-level module and arguments of its metadata (see the table
+above), remove the lines the simulator prints on
 standard output by itself, pass the rest through `tools/normalize_output.py`,
 and compare the result with the expected output. The runners above are short
 and can serve as templates; with `--json` and `tools/suite_results.py`, the

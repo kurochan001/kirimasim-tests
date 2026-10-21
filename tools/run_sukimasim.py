@@ -29,8 +29,9 @@ sv_vpi_user.h that includes vpi_user.h.
 A test with `:should_fail_because:` is an illegal design, which matches when
 sukimasim rejects it with an error at the place `:expected_stderr_regex:`
 names. The sources of `:files:` are passed before the test, the directories
-of its include files as +incdir+, the arguments of `:args:` after the test,
-and the exit code and messages are checked against `:expected_exit:` and
+of its include files and of `:incdirs:` as +incdir+, the macros of
+`:defines:` as +define+, the module of `:top_module:` as -top, the arguments
+of `:args:` after the test, and the exit code and messages are checked against `:expected_exit:` and
 `:expected_stderr_regex:` (see tools/suite_results.py).
 
 With --json, the result of every test is also written to FILE in the form
@@ -124,10 +125,13 @@ def run(test: Path, sukimasim: str, include: Path | None, diagnostics: bool) -> 
                 return False, "C build failed: " + (err[0] if err else "")
             lib = ["--lib", str(so)]
         sources, include_dirs = suite_results.files(test)
+        top = suite_results.top_module(test)
         try:
             r = subprocess.run([sukimasim, "--quiet", "--quiet-stats", "--quiet-exit",
                                 "--wall-timeout", "60", *lib,
-                                *[f"+incdir+{d}" for d in include_dirs], *map(str, sources),
+                                *[f"+incdir+{d}" for d in include_dirs],
+                                *[f"+define+{d}" for d in suite_results.defines(test)],
+                                *(["-top", top] if top else []), *map(str, sources),
                                 str(test.resolve()), *suite_results.run_args(test)],
                                capture_output=True, text=True, errors="replace", cwd=tmp,
                                env=dict(os.environ, SUKIMASIM_FINISH_STRICT_MODE="1"), timeout=90)

@@ -22,8 +22,10 @@ A test with `:should_fail_because:` is an illegal design, which matches when
 kirimasim rejects it (exit code 2) with an error at the place
 `:expected_stderr_regex:` names; when the error says the design uses what
 kirimasim does not support yet, the test is unsupported. The sources of
-`:files:` are passed before the test, the directories of its include files as
-+incdir+, the arguments of `:args:` after the test, and the exit code and
+`:files:` are passed before the test, the directories of its include files
+and of `:incdirs:` as +incdir+, the macros of `:defines:` as +define+, the
+module of `:top_module:` as --top=, the arguments of `:args:` after the test,
+and the exit code and
 standard error are checked against `:expected_exit:` and
 `:expected_stderr_regex:` (see tools/suite_results.py).
 
@@ -69,9 +71,12 @@ def run(test: Path, kirimasim: str) -> tuple[str, str]:
     if header_field(test, "dpi_c") is not None or header_field(test, "vpi_c") is not None:
         return "unsupported", "kirimasim cannot load C code yet"
     sources, include_dirs = suite_results.files(test)
+    top = suite_results.top_module(test)
     with tempfile.TemporaryDirectory() as tmp:
         try:
             r = subprocess.run([kirimasim, *[f"+incdir+{d}" for d in include_dirs],
+                                *[f"+define+{d}" for d in suite_results.defines(test)],
+                                *([f"--top={top}"] if top else []),
                                 *map(str, sources), str(test.resolve()),
                                 *suite_results.run_args(test)],
                                capture_output=True, text=True, errors="replace", cwd=tmp,
