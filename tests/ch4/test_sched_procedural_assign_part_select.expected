@@ -1,0 +1,6 @@
+assigned low nibble: q=0c
+whole write: q=fc
+high nibble write: q=5c
+low nibble write: q=5c
+after deassign: q=5c
+new whole write: q=11

@@ -1,0 +1,4 @@
+string: abcd (4)
+byte: 3a
+nested vector: 1234 (16 bits)
+byte and vector: 3a5a

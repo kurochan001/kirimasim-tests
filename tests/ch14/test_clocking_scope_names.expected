@@ -1,0 +1,4 @@
+prod t=6 plain=1 sampled=0
+prod t=8 q=1
+prod t=15 sampled=1
+obs t=16 sampled=1

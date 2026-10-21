@@ -1,0 +1,4 @@
+dut t=15 data=11
+dut t=25 data=22
+dut t=35 data=33
+tb t=36 ack=1

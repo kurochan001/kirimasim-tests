@@ -1,0 +1,4 @@
+popped 'c' size=2 last='b'
+popped 'b' size=1 last='a'
+popped 'a' size=0
+int 8 size 1 last 9

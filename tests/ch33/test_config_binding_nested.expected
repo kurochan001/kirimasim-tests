@@ -1,0 +1,5 @@
+top: test_config_binding_nested work.test_config_binding_nested
+x task: test_config_binding_nested.w1.x.show work.cell_x
+x task: test_config_binding_nested.w2.x.show work.cell_x
+y task: test_config_binding_nested.w1.y.show work.cell_y
+func through path: work.cell_x

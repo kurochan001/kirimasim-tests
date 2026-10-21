@@ -1,0 +1,4 @@
+popped 'a' size=2 first='b'
+popped 'b' size=1 first='c'
+popped 'c' size=0
+int 7 size 0

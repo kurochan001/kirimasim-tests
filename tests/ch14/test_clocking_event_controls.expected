@@ -1,0 +1,3 @@
+t=5 @(cb)
+t=15 posedge cb.d 1
+t=25 negedge cb.d 0

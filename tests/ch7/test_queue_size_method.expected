@@ -1,0 +1,5 @@
+start: 0 0
+after 3 pushes: 3
+after delete(1): 2 first=0 last=2
+pattern: 4 last=7
+string after delete: 0

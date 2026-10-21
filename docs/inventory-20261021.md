@@ -914,10 +914,35 @@ found three further places where a release differs, all in
 explicit-import precedence (26.3) and `$exit` from a program fork
 (24.7), and Icarus Verilog's named wildcard export (26.5).
 
+### 12 second tests for the priority queue
+
+The depth report found 68 clauses with one test and only a standard-only
+expectation. A first slice adds a second test for 12 of them:
+
+| Clause | New test | Oracle |
+| ---: | --- | --- |
+| 4.9.2 | `ch4/test_sched_procedural_assign_part_select` | both |
+| 7.8.7 | `ch7/test_assoc_allocate_on_write_types` | Verilator |
+| 7.10.2.1 | `ch7/test_queue_size_method` | both |
+| 7.10.2.2 | `ch7/test_queue_insert_positions` | both |
+| 7.10.2.4 | `ch7/test_queue_pop_front_order` | both |
+| 7.10.2.5 | `ch7/test_queue_pop_back_order` | both |
+| 10.10.2 | `ch10/test_unpacked_concat_vector_string` | both |
+| 14.7 | `ch14/test_clocking_scope_names` | Verilator |
+| 14.9 | `ch14/test_clocking_interface_plain_port` | Verilator |
+| 14.15 | `ch14/test_clocking_event_controls` | Verilator |
+| 21.4.3 | `ch21/test_readmemh_address_range` | both |
+| 33.7 | `ch33/test_config_binding_nested` | Verilator |
+
+The priority queue fell from 68 to 55 clauses, the clauses with one test
+from 191 to 178, and the clauses with only standard-only tests from 265
+to 252. The tests with both releases rose from 164 to 171. The next
+slice should continue with the remaining 55.
+
 ### Current state
 
-After these commits the suite has 3780 tests in 37 chapters, 812 of them
-generated. By `:oracle:`, 2519 list Icarus Verilog 13.0, 762 list
+After these commits the suite has 3792 tests in 37 chapters, 812 of them
+generated. By `:oracle:`, 2526 list Icarus Verilog 13.0, 767 list
 Verilator 5.052, and 499 follow the standard only. 568 tests depend on
 x or z values, 205 have C code (29 DPI and 176 VPI), 167 are illegal
 designs, and 5 set an expected exit code.
@@ -938,3 +963,6 @@ designs, and 5 set an expected exit code.
 | 39 | 8 |
 | 40 | 7 |
 | **All** | **100** |
+
+The 12 second tests in the depth follow-up bring the total added in this
+work to 112.

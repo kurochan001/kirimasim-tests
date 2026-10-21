@@ -7,24 +7,24 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
 | 3 | [Design and verification building blocks](ch3.md) | 28 |  |
-| 4 | [Scheduling semantics](ch4.md) | 381 | 325 |
+| 4 | [Scheduling semantics](ch4.md) | 382 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 35 |  |
 | 6 | [Data types](ch6.md) | 303 | 7 |
-| 7 | [Aggregate data types](ch7.md) | 304 | 14 |
+| 7 | [Aggregate data types](ch7.md) | 309 | 14 |
 | 8 | [Classes](ch8.md) | 154 |  |
 | 9 | [Processes](ch9.md) | 114 |  |
-| 10 | [Assignment statements](ch10.md) | 105 |  |
+| 10 | [Assignment statements](ch10.md) | 106 |  |
 | 11 | [Operators and expressions](ch11.md) | 704 | 316 |
 | 12 | [Procedural programming statements](ch12.md) | 120 |  |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 126 | 14 |
-| 14 | [Clocking blocks](ch14.md) | 45 |  |
+| 14 | [Clocking blocks](ch14.md) | 48 |  |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 36 |  |
 | 16 | [Assertions](ch16.md) | 99 |  |
 | 17 | [Checkers](ch17.md) | 29 |  |
 | 18 | [Constrained random value generation](ch18.md) | 60 |  |
 | 19 | [Functional coverage](ch19.md) | 43 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 187 |  |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 85 |  |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 86 |  |
 | 22 | [Compiler directives](ch22.md) | 39 |  |
 | 23 | [Modules and hierarchy](ch23.md) | 71 |  |
 | 24 | [Programs](ch24.md) | 29 |  |
@@ -36,7 +36,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 30 | [Specify blocks](ch30.md) | 23 |  |
 | 31 | [Timing checks](ch31.md) | 23 |  |
 | 32 | [Backannotation using the standard delay format](ch32.md) | 23 |  |
-| 33 | [Configuring the contents of a design](ch33.md) | 22 |  |
+| 33 | [Configuring the contents of a design](ch33.md) | 23 |  |
 | 34 | Protected envelopes | — | |
 | 35 | [Direct programming interface](ch35.md) | 31 |  |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 29 |  |

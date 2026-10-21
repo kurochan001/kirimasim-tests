@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 304 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 309 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -163,6 +163,7 @@
 | [`test_assoc_foreach_struct_key`](../../tests/ch7/test_assoc_foreach_struct_key.sv) | Test associative array foreach with struct keys | 7.8.5 12.7.3 | Verilator 5.052 |  |
 | [`test_assoc_array_unknown_index`](../../tests/ch7/test_assoc_array_unknown_index.sv) | An index with x or z bits is invalid for an associative array: a read gives the element type's default and a write does nothing | 7.8.6 7.4.5 | standard only | x/z |
 | [`test_assoc_allocate_on_write`](../../tests/ch7/test_assoc_allocate_on_write.sv) | A nonexistent associative array element is allocated when it is assigned or passed by reference, and an increment or member write first allocates it with its default or initial value | 7.8.7 7.9.11 7.9.1 13.5.2 | standard only |  |
+| [`test_assoc_allocate_on_write_types`](../../tests/ch7/test_assoc_allocate_on_write_types.sv) | A write to a nonexistent associative array element allocates it first, with the default or initial value of the element type or with a nested array, for an increment, a member write, a string concatenation and a ref argument | 7.8.7 7.9.1 13.5.2 | Verilator 5.052 |  |
 | [`test_assoc_array_methods_basic`](../../tests/ch7/test_assoc_array_methods_basic.sv) | Associative array methods: exists/first/next/delete | 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array_ops_2`](../../tests/ch7/test_assoc_array_ops_2.sv) | Test: Associative array exists, first, last, next, prev, delete operations | 7.9 7.9.3 7.9.4 7.9.5 7.9.6 | Verilator 5.052 |  |
 | [`test_assoc_method_edge_cases`](../../tests/ch7/test_assoc_method_edge_cases.sv) | Associative array method edge cases | 7.9 | Verilator 5.052 |  |
@@ -229,8 +230,12 @@
 | [`test_queue_push_front`](../../tests/ch7/test_queue_push_front.sv) | Queue push_front method | 7.10.2 | Icarus Verilog 13.0 |  |
 | [`test_queue_push_pop_2`](../../tests/ch7/test_queue_push_pop_2.sv) | Queue push_front, push_back, pop_front and pop_back | 7.10.2 | Icarus Verilog 13.0 |  |
 | [`test_queue_size_2`](../../tests/ch7/test_queue_size_2.sv) | Queue size method | 7.10.2 | Icarus Verilog 13.0 |  |
+| [`test_queue_size_method`](../../tests/ch7/test_queue_size_method.sv) | size() of a queue is 0 when the queue is empty and follows every push, insert and delete, and the elements of an assignment pattern | 7.10.2.1 7.10.2.3 7.10.2.6 7.10 | Icarus Verilog 13.0 |  |
+| [`test_queue_insert_positions`](../../tests/ch7/test_queue_insert_positions.sv) | insert(index, item) puts an item at the first, middle or end position of a queue and shifts the later elements, and an index equal to the size appends, for queues of int and string | 7.10.2.2 7.10.2.1 | Icarus Verilog 13.0 |  |
 | [`test_queue_method_edges`](../../tests/ch7/test_queue_method_edges.sv) | Queue methods at their limits: size of an empty queue, insert at the end and ignored inserts at a negative, too large or unknown index, push_front, and pop_front and pop_back that remove an end or, on an empty queue, return the value of a nonexistent element | 7.10.2.2 7.10.2.1 7.10.2.4 7.10.2.5 7.10.2.6 7.4.5 | standard only | x/z |
 | [`test_queue_delete`](../../tests/ch7/test_queue_delete.sv) | Test queue delete | 7.10.2.3 7.10.4 | Icarus Verilog 13.0 |  |
+| [`test_queue_pop_front_order`](../../tests/ch7/test_queue_pop_front_order.sv) | pop_front() removes and returns the first element and shifts the others, for queues of string and int, until the queue is empty | 7.10.2.4 7.10.2.1 | Icarus Verilog 13.0 |  |
+| [`test_queue_pop_back_order`](../../tests/ch7/test_queue_pop_back_order.sv) | pop_back() removes and returns the last element and leaves the others in order, for queues of string and int, until the queue is empty | 7.10.2.5 7.10.2.1 | Icarus Verilog 13.0 |  |
 | [`test_queue_reference_persistence`](../../tests/ch7/test_queue_reference_persistence.sv) | A reference to a queue element held by a task stays on that element when other methods change the queue, and becomes outdated when the element is deleted or the whole queue is assigned | 7.10.3 13.5.2 7.10.2 | standard only |  |
 | [`test_array_method_corner`](../../tests/ch7/test_array_method_corner.sv) | Tests find, sort, sum, min, max, unique methods | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 |  |
 | [`test_array_method_index_argument`](../../tests/ch7/test_array_method_index_argument.sv) | The second argument of an array method names the index method of its iterator, also where an element has a member named index | 7.12 7.12.4 7.12.1 | standard only |  |
