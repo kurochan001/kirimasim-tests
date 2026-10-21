@@ -243,7 +243,7 @@ it does not know.
 | `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 40) |
 | `:should_fail_because:` | The design is illegal, for the reason given, and a simulator has to reject it. Such a test has `:type: elaboration`, no `:expected_stdout:`, and an `:expected_stderr_regex:` that names the place of the error |
 | `:expected_exit:` | The exit code that the simulation has to end with: `0`, `nonzero` (above 0) or a number. The standard fixes only that `$fatal` ends the run with an error code (20.10), so the tests use `nonzero` for it |
-| `:expected_stderr_regex:` | A Python regular expression for the simulator's messages (standard error, and the lines on standard output that the simulator prints itself). For an illegal design, a line of the messages that says "error" has to match it; the tests give the file and line of the error, such as `test_x\.sv:12:`, which every simulator prints. For other tests, the messages of the run have to match it. The wording of a message is never compared |
+| `:expected_stderr_regex:` | A Python regular expression for the simulator's messages (standard error, and the lines on standard output that the simulator prints itself). For an illegal design, a line of the messages that says "error" has to match it; the tests give the file and line of the error, such as `test_x\.sv:12:`, which every simulator prints, or each line where a tool can rightly report it, such as `test_x\.sv:(12|13):`. For other tests, the messages of the run have to match it. The wording of a message is never compared |
 | `:args:` | Arguments for the simulation, separated by spaces: plusargs such as `+count=3` |
 | `:generator:` | `<generator>@<version>`: the test was written by `generators/<generator>.py` (see "Generated tests") |
 | `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it |
@@ -302,7 +302,8 @@ The test is then run with Icarus Verilog 13.0:
    test is run with Verilator 5.052 with two different random seeds for the
    initial values. If Verilator produces the expected output both times,
    `:oracle:` lists `verilator@5.052`. Verilator is a two-state simulator, so
-   such tests have `:fourstate: no`.
+   such tests have `:fourstate: no`. A test that was also run with the other
+   release lists both when both produce its expected output.
 3. If neither simulator follows the standard, `:oracle:` is `spec` alone, and
    the comment of the test says what the standard requires.
 
@@ -363,8 +364,10 @@ Every runner needs Python 3.10 or later, and has these options in common:
 | `--json FILE` | Also write the result of every test to FILE (see `tools/suite_results.py`) |
 
 A runner prints one line for each test that does not match (`FAIL`, or
-`KNOWN` for a known difference, `UNSUPPORTED` for kirimasim), then a summary
-line, and exits with 1 if a test it counts does not match.
+`KNOWN` for a known difference, `UNSUPPORTED` for kirimasim), and
+`tools/run_icarus.py` one for each known difference that matches (`NOW
+MATCHES`), then a summary line, and exits with 1 if a test it counts does not
+match.
 
 ### Icarus Verilog
 
@@ -376,8 +379,12 @@ python3 tools/run_icarus.py --iverilog-bin /path/to/icarus-13.0/bin
 Each test is compiled with `iverilog -g2012 -gspecify -ginterconnect`: without
 `-gspecify` Icarus Verilog ignores specify blocks, and `-ginterconnect` lets it
 annotate SDF interconnect delays. For a test with `:vpi_c:`, the C file is
-built with `iverilog-vpi` and loaded with `vvp -m`. Icarus Verilog has no DPI,
-so the tests with `:dpi_c:` are known differences. The expected outputs were
+built with `iverilog-vpi` and loaded with `vvp -m`, that is, only when the
+design runs. Icarus Verilog takes the return types of user-defined system
+functions from a `.sft` file when it compiles, and the runner gives it none:
+it takes a call in procedural code as a 32-bit result, and it does not
+compile a call in a continuous assignment. Icarus Verilog has no DPI, so the
+tests with `:dpi_c:` are known differences. The expected outputs were
 checked with Icarus Verilog 13.0; another version can differ, so name the
 directory of 13.0 with `--iverilog-bin` when the `iverilog` on `PATH` is
 another one.
@@ -497,7 +504,10 @@ suite has a problem:
   in `docs/tests/` is up to date (`tools/suite_catalog.py --check`).
 
 `.github/workflows/nightly.yml` runs at 19:23 UTC every day, and can be
-started by hand as well. Its results are only reported. It has five jobs:
+started by hand as well; GitHub can start a scheduled run hours late when it
+is busy. Runs do not overlap: one that starts while another is running waits
+for it, and a newer one replaces a run that is still waiting. Its results are
+only reported. It has five jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every test.
@@ -537,10 +547,14 @@ A new test should:
   with the word "Verilator": Verilator reads a comment that starts with it as
   a directive and stops with BADVLTPRAGMA;
 - print only what the standard fixes, and end with `$finish` or by running
-  out of events;
+  out of events. An event control on a signal and on a value computed from
+  it, such as the output of a continuous assignment, can wake once or twice
+  in the same time step, so print such values at fixed times instead;
 - if it is an illegal design, give the reason in `:should_fail_because:` and
-  the file and line of the error in `:expected_stderr_regex:`, and contain
-  no other error;
+  the file and line of the error in `:expected_stderr_regex:` (each line where
+  a tool can rightly report it, when there are several), and contain no other
+  error. When a release rejects the design on that line only because it does
+  not support a construct there, the comment of the test says so;
 - have its expected output decided from the standard and, where possible,
   confirmed with Icarus Verilog 13.0 or Verilator 5.052 as described in
   "Where the expected outputs come from"; where either release does not follow

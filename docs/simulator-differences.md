@@ -52,7 +52,7 @@ of the test as well.
 | 37.42 | It evaluates an argument of a user-defined system task that the application never reads; such an argument must not be evaluated. | `ch36/test_vpi_systf_argument_on_demand` |
 | 38.34 | `vpi_put_value` keeps every scheduled event in all three delay modes; inertial delay has to cancel the pending ones. | `ch38/test_vpi_put_value_delay_modes` |
 | 38.36.1 | A value change callback on a named event gets a value structure. | `ch38/test_vpi_value_change_event` |
-| 36.8.1 | User-defined system functions need their return types at compile time (in a `.sft` file), and it stops at the first real result. | `ch36/test_vpi_systf_function_types` |
+| 36.8.1 | User-defined system functions need their return types at compile time (in a `.sft` file): without one, it takes a call in procedural code as a 32-bit result, does not compile a call in a continuous assignment, and stops at the first real result. | `ch36/test_vpi_systf_function_types`, `ch36/test_vpi_systf_function_in_continuous_assign` |
 | 9.6.1, 9.6.3 | It stops with an internal assertion. | `ch9/test_wait_fork_disable_fork` |
 | 7.10.2.4, 7.10.2.5, 7.4.5 | `pop_front()` and `pop_back()` on an empty queue of int give x, and an int variable then holds x; Table 7-1 gives 0. | `ch7/test_queue_method_edges` |
 | 20.17.2 | `$stacktrace` called as a function makes the compiler stop on an internal assertion. | `ch20/test_stacktrace_function` |

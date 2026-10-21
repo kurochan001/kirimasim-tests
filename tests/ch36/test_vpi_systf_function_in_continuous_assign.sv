@@ -18,7 +18,8 @@
 // again whenever an operand of its expression changes, here the argument a.
 // The Icarus Verilog runner loads the application only when the design runs,
 // and Icarus Verilog 13.0 needs the system function when it compiles a
-// continuous assignment, so the test does not compile there.
+// continuous assignment, so the test does not compile there
+// (docs/simulator-differences.md).
 
 `timescale 1ns/1ns
 
