@@ -1,0 +1,2 @@
+interface scope check is OK, NOCOV or PARTIAL: 1
+interface maximum is not ERROR: 1

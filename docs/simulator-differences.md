@@ -33,7 +33,7 @@ of the test as well.
 | --- | --- | --- |
 | 11.4.11 | With an x or z condition, `?:` gives z where both operands have z in the same bit; Table 11-20 gives x. | `gen/ch11/test_gen_xz_cond_07`, `_08` |
 | 28.12.1, 28.12.4 | On wand, wor, triand and trior nets it ignores the strengths of the drivers: it combines their values with the logic function and gives the result strong strength. The stronger driver has to win, and only drivers of equal strength are combined, at that strength. | the 29 `gen/ch28/test_gen_strength_{wand,wor,triand,trior}_*` tests with `:oracle: spec` |
-| 30.4.4.1 | It treats the condition of a state-dependent path as false when it is x or z; it has to be treated as true. | `ch30/test_specify_condition_unknown_true` |
+| 30.4.4.1, 32.4.1 | It treats the condition of a state-dependent path as false when it is x or z; it has to be treated as true, also for the COND entry of an SDF file. | `ch30/test_specify_condition_unknown_true`, `ch32/test_sdf_cond_unknown_true` |
 | 28.14 | rcmos passes a strong drive as strong; it has to reduce it to pull, as rtran and rtranif do. | `ch28/test_rcmos_reduction` |
 | 29.7 | The delay of a sequential UDP instance also delays its initial value, which shows x until then. | `ch29/test_udp_initial_value_not_delayed` |
 | 24.3 | When a program's initial procedures end, the threads they forked go on running; they have to end with the program. | `ch24/test_program_end_kills_descendants` |
@@ -43,6 +43,7 @@ of the test as well.
 | 11.5.2, 7.4.5 | Reading a 2-state memory at an invalid address gives x instead of the default value 0. | `ch11/test_memory_invalid_address_2state` |
 | 22.5.3 | It does not know `` `undefineall `` and treats it as an empty macro, so the macros stay defined. | `ch22/test_undefineall` |
 | 32.5 | It applies INCREMENT delays of an SDF file as absolute ones. | `ch32/test_sdf_increment_absolute` |
+| 32.3 | It ignores the TIMESCALE of the DELAYFILE and reads delay values in the time unit of the design. | `ch32/test_sdf_timescale` |
 | 32.4.1 | It leaves module paths with COND entries at their specify delays. | `ch32/test_sdf_cond_iopath` |
 | 32.4.3 | It does not read the LABEL section of an SDF file. | `ch32/test_sdf_label_specparam` |
 | 32.9 | It uses only the first two arguments of `$sdf_annotate`, and rejects an empty module instance argument. | `ch32/test_sdf_mtm_spec`, `ch32/test_sdf_scale_factors` |
