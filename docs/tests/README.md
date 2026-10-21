@@ -34,9 +34,9 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 176 | 136 |
 | 29 | [User-defined primitives](ch29.md) | 27 |  |
 | 30 | [Specify blocks](ch30.md) | 20 |  |
-| 31 | [Timing checks](ch31.md) | 14 |  |
-| 32 | [Backannotation using the standard delay format](ch32.md) | 14 |  |
-| 33 | [Configuring the contents of a design](ch33.md) | 14 |  |
+| 31 | [Timing checks](ch31.md) | 21 |  |
+| 32 | [Backannotation using the standard delay format](ch32.md) | 19 |  |
+| 33 | [Configuring the contents of a design](ch33.md) | 20 |  |
 | 34 | Protected envelopes | — | |
 | 35 | [Direct programming interface](ch35.md) | 21 |  |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 13 |  |
