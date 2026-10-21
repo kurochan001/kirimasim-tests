@@ -1,6 +1,6 @@
 # Clause 3: Design and verification building blocks
 
-[All chapters](README.md). 17 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 19 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -8,6 +8,7 @@
 | [`test_files_module_in_other_file`](../../tests/ch3/test_files_module_in_other_file.sv) | A module declared in another source file of the same compilation is found when the test instantiates it, with its parameter overridden | 3.12.1 3.13 23.3 | Icarus Verilog 13.0 | several files |
 | [`test_scope_package_import_collision`](../../tests/ch3/test_scope_package_import_collision.sv) | The same name in $unit, a wildcard-imported package and a module, resolved locally, by package, by $unit and by $root | 3.12.1 26.3 23.7 26.5 | Verilator 5.052 |  |
 | [`test_unit_root_name_collision`](../../tests/ch3/test_unit_root_name_collision.sv) | Name collisions between $unit, a module and its child, resolved with $unit:: and $root | 3.12.1 23.9 23.6 | Verilator 5.052 |  |
+| [`test_unit_scope_import`](../../tests/ch3/test_unit_scope_import.sv) | A package imported in the compilation-unit scope is visible to every module of the compilation unit | 3.12.1 26.3 | Icarus Verilog 13.0 |  |
 | [`test_unit_scope_shadow_minimal`](../../tests/ch3/test_unit_scope_shadow_minimal.sv) | A local name hides $unit and package names, which stay reachable by scope | 3.12.1 26.3 | Icarus Verilog 13.0 |  |
 | [`test_unit_scope_shared_state`](../../tests/ch3/test_unit_scope_shared_state.sv) | A variable and a task declared in the compilation-unit scope are one object and one subroutine for every module | 3.12.1 3.13 | Icarus Verilog 13.0 |  |
 | [`test_name_spaces`](../../tests/ch3/test_name_spaces.sv) | the same identifier can name a module, a package, a text macro, a variable of a module and a variable of a block, because they belong to different name spaces | 3.13 26.3 22.5.1 23.6 | standard only |  |
@@ -20,4 +21,5 @@
 | [`test_timeunit_repeated_matching`](../../tests/ch3/test_timeunit_repeated_matching.sv) | A timeunit or timeprecision declaration can be repeated later in its time scope when it matches the first one | 3.14.2.2 3.14.1 | Icarus Verilog 13.0 |  |
 | [`test_timeunit_with_precision`](../../tests/ch3/test_timeunit_with_precision.sv) | timeunit with a slash sets the time unit and the precision of a module at once, overriding \`timescale, and delays are rounded to that precision | 3.14.2.2 3.14.2.3 20.4.2 22.7 | Icarus Verilog 13.0 |  |
 | [`test_timeunit_compilation_unit`](../../tests/ch3/test_timeunit_compilation_unit.sv) | Without \`timescale, a timeunit and timeprecision declared in the compilation-unit scope apply to the modules that do not declare their own, and delays are rounded to that precision | 3.14.2.3 3.14.2.2 3.14.1 3.12.1 | Icarus Verilog 13.0 |  |
+| [`test_timeunit_package_class`](../../tests/ch3/test_timeunit_package_class.sv) | A delay in a class method is in the time unit of the package that declares the class, not in that of the module that calls it | 3.14.2.3 3.14.2.2 3.14.1 | Icarus Verilog 13.0 |  |
 | [`test_timeunit_precedence`](../../tests/ch3/test_timeunit_precedence.sv) | A timeunit declaration in a module overrides \`timescale, its slash form also sets the precision, a nested module takes the time unit of its parent, and a module without one takes the last \`timescale | 3.14.2.3 3.14.2.2 3.14.1 23.4 | standard only |  |

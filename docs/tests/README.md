@@ -6,7 +6,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
-| 3 | [Design and verification building blocks](ch3.md) | 17 |  |
+| 3 | [Design and verification building blocks](ch3.md) | 19 |  |
 | 4 | [Scheduling semantics](ch4.md) | 381 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 35 |  |
 | 6 | [Data types](ch6.md) | 303 | 7 |
@@ -27,7 +27,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 21 | [Input/output system tasks and system functions](ch21.md) | 85 |  |
 | 22 | [Compiler directives](ch22.md) | 39 |  |
 | 23 | [Modules and hierarchy](ch23.md) | 71 |  |
-| 24 | [Programs](ch24.md) | 21 |  |
+| 24 | [Programs](ch24.md) | 22 |  |
 | 25 | [Interfaces](ch25.md) | 50 |  |
 | 26 | [Packages](ch26.md) | 33 |  |
 | 27 | [Generate constructs](ch27.md) | 68 |  |
@@ -39,8 +39,8 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 33 | [Configuring the contents of a design](ch33.md) | 21 |  |
 | 34 | Protected envelopes | — | |
 | 35 | [Direct programming interface](ch35.md) | 31 |  |
-| 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 21 |  |
+| 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 22 |  |
 | 37 | [VPI object model diagrams](ch37.md) | 74 |  |
 | 38 | [VPI routine definitions](ch38.md) | 41 |  |
-| 39 | [Assertion API](ch39.md) | 14 |  |
-| 40 | [Code coverage control and API](ch40.md) | 17 |  |
+| 39 | [Assertion API](ch39.md) | 15 |  |
+| 40 | [Code coverage control and API](ch40.md) | 18 |  |
