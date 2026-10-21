@@ -9,10 +9,10 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the function contains a fork-join_any block
-:expected_stderr_regex: test_illegal_function_fork_join_any\.sv:22:
+:expected_stderr_regex: test_illegal_function_fork_join_any\.sv:(22|25):
 */
 // IEEE 1800-2023 §13.4: a function shall not contain fork-join_any, which can
-// block (§9.3.2); §13.4.4 allows only fork-join_none in a function.
+// block (§9.3.2, 13.4.4); a tool may rightly report it at fork or join_any.
 // The design is accepted by Icarus Verilog 13.0
 // (docs/simulator-differences.md).
 
