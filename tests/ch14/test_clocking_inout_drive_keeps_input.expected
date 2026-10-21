@@ -1,0 +1,3 @@
+after drive: cb.data=0
+one unit later: data=1 cb.data=0
+next edge: cb.data=1

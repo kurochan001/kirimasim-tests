@@ -1,0 +1,4 @@
+ok=1 a=10,99,12
+modes=101
+modes after a.rand_mode(0)=000
+static s through p=0
