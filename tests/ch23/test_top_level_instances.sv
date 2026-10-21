@@ -1,16 +1,16 @@
 /*
 :name: test_top_level_instances
-:description: every module and program that is not instantiated becomes a top-level block, named after its definition, and they can refer to each other by hierarchical names; an instantiated module is not one (IEEE 1800-2023 Section 3.11)
-:tags: ch3
+:description: every module and program that is not instantiated becomes a top-level block, named after its definition, and they can refer to each other by hierarchical names; an instantiated module is not one (IEEE 1800-2023 Section 23.3.1)
+:tags: ch23
 :type: simulation
-:lrm: 1800-2023 3.11 23.3 23.6 23.9 24.3
+:lrm: 1800-2023 23.3.1 23.3 23.6 23.9 24.3
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_top_level_instances.expected
 */
-// IEEE 1800-2023 §3.11: a module or program that is elaborated but not
+// IEEE 1800-2023 §23.3.1: a module or program that is elaborated but not
 // instantiated is implicitly instantiated once at the top of the hierarchy,
 // and there can be several such top-level blocks. Their instance names are
 // their definition names, so %m prints them alone (§23.3), and one can reach

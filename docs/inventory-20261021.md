@@ -935,9 +935,27 @@ expectation. A first slice adds a second test for 12 of them:
 | 33.7 | `ch33/test_config_binding_nested` | Verilator |
 
 The priority queue fell from 68 to 55 clauses, the clauses with one test
-from 191 to 178, and the clauses with only standard-only tests from 265
+from 191 to 177, and the clauses with only standard-only tests from 265
 to 252. The tests with both releases rose from 164 to 171. The next
 slice should continue with the remaining 55.
+
+### Clause-text corrections
+
+Reading the clause text in the IEEE 1800-2023 PDF found three
+corrections to the metadata:
+
+- `3.11` is “Overview of hierarchy”, not the behavior of top-level
+  modules. `test_top_level_instances` moved to `ch23`, cites `23.3.1`,
+  and `3.11` is tagged `none` again. This is one of the reasons the
+  one-test count is 177 rather than 178.
+- `37.69` is “Repeat control”; the test that cites it is right, and the
+  clause list now has it.
+- `21.7.1.1` to `21.7.1.4` and `21.7.1.6` name the `$dumpfile`,
+  `$dumpvars`, `$dumpoff`/`$dumpon`, `$dumpall` and `$dumpflush`
+  controls, not the content of a VCD file. They are in scope again; only
+  `21.7.1.5` (`$dumplimit`) and the VCD content clauses keep the `dump`
+  tag.
+
 
 ### Current state
 

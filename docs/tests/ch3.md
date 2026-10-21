@@ -1,10 +1,9 @@
 # Clause 3: Design and verification building blocks
 
-[All chapters](README.md). 28 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 27 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
-| [`test_top_level_instances`](../../tests/ch3/test_top_level_instances.sv) | every module and program that is not instantiated becomes a top-level block, named after its definition, and they can refer to each other by hierarchical names; an instantiated module is not one | 3.11 23.3 23.6 23.9 24.3 | Verilator 5.052 |  |
 | [`test_files_module_in_other_file`](../../tests/ch3/test_files_module_in_other_file.sv) | A module declared in another source file of the same compilation is found when the test instantiates it, with its parameter overridden | 3.12.1 3.13 23.3 | Icarus Verilog 13.0 | several files |
 | [`test_scope_package_import_collision`](../../tests/ch3/test_scope_package_import_collision.sv) | The same name in $unit, a wildcard-imported package and a module, resolved locally, by package, by $unit and by $root | 3.12.1 26.3 23.7 26.5 | Verilator 5.052 |  |
 | [`test_unit_root_name_collision`](../../tests/ch3/test_unit_root_name_collision.sv) | Name collisions between $unit, a module and its child, resolved with $unit:: and $root | 3.12.1 23.9 23.6 | Verilator 5.052 |  |

@@ -6,7 +6,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
-| 3 | [Design and verification building blocks](ch3.md) | 28 |  |
+| 3 | [Design and verification building blocks](ch3.md) | 27 |  |
 | 4 | [Scheduling semantics](ch4.md) | 382 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 35 |  |
 | 6 | [Data types](ch6.md) | 303 | 7 |
@@ -26,7 +26,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 20 | [Utility system tasks and system functions](ch20.md) | 187 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 86 |  |
 | 22 | [Compiler directives](ch22.md) | 39 |  |
-| 23 | [Modules and hierarchy](ch23.md) | 71 |  |
+| 23 | [Modules and hierarchy](ch23.md) | 72 |  |
 | 24 | [Programs](ch24.md) | 29 |  |
 | 25 | [Interfaces](ch25.md) | 50 |  |
 | 26 | [Packages](ch26.md) | 39 |  |

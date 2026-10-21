@@ -49,7 +49,7 @@ The suite has **3792 tests** in 37 chapters. 812 of them are generated (`tests/g
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 28 | 21 | 5 | 2 |
+| 3 | Design and verification building blocks | 27 | 21 | 4 | 2 |
 | 4 | Scheduling semantics | 382 | 373 | 4 | 5 |
 | 5 | Lexical conventions | 35 | 30 | 4 | 1 |
 | 6 | Data types | 303 | 220 | 64 | 19 |
@@ -69,7 +69,7 @@ The suite has **3792 tests** in 37 chapters. 812 of them are generated (`tests/g
 | 20 | Utility system tasks and system functions | 187 | 166 | 11 | 10 |
 | 21 | Input/output system tasks and system functions | 86 | 77 | 5 | 4 |
 | 22 | Compiler directives | 39 | 36 | 3 |  |
-| 23 | Modules and hierarchy | 71 | 55 | 8 | 8 |
+| 23 | Modules and hierarchy | 72 | 55 | 9 | 8 |
 | 24 | Programs | 29 | 13 | 3 | 13 |
 | 25 | Interfaces | 50 | 11 | 35 | 4 |
 | 26 | Packages | 39 | 28 | 10 | 1 |

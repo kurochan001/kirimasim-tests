@@ -7,10 +7,10 @@
 | Measure | Value |
 | --- | ---: |
 | Tests | 3792 |
-| Clauses in scope | 934 |
-| Clauses out of scope | 185 |
-| Clauses with one test | 178 |
-| Clauses with two tests or fewer | 444 |
+| Clauses in scope | 933 |
+| Clauses out of scope | 186 |
+| Clauses with one test | 177 |
+| Clauses with two tests or fewer | 443 |
 | Clauses with only standard-only tests | 252 |
 | Clauses with one test and only a standard-only test | 55 |
 
@@ -25,7 +25,7 @@
 
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 28 | 8 | 3.5 | 1 | 2 |
+| 3 | Design and verification building blocks | 27 | 7 | 3.9 | 0 | 2 |
 | 4 | Scheduling semantics | 382 | 27 | 14.1 | 10 | 5 |
 | 5 | Lexical conventions | 35 | 16 | 2.2 | 9 | 1 |
 | 6 | Data types | 303 | 74 | 4.1 | 26 | 19 |
@@ -45,7 +45,7 @@
 | 20 | Utility system tasks and system functions | 187 | 31 | 6.0 | 13 | 10 |
 | 21 | Input/output system tasks and system functions | 86 | 36 | 2.4 | 17 | 4 |
 | 22 | Compiler directives | 39 | 20 | 1.9 | 10 | 0 |
-| 23 | Modules and hierarchy | 71 | 32 | 2.2 | 12 | 8 |
+| 23 | Modules and hierarchy | 72 | 32 | 2.2 | 12 | 8 |
 | 24 | Programs | 29 | 7 | 4.1 | 1 | 13 |
 | 25 | Interfaces | 50 | 14 | 3.6 | 6 | 4 |
 | 26 | Packages | 39 | 6 | 6.5 | 0 | 1 |
@@ -127,7 +127,6 @@ These clauses have exactly one citing test, and that test has `:oracle: spec` al
 
 | Chapter | Clauses |
 | ---: | ---: |
-| 3 | 1 |
 | 4 | 10 |
 | 5 | 9 |
 | 6 | 26 |
@@ -168,11 +167,6 @@ These clauses are cited by tests but carry a tag in `tools/clauses.txt` that say
 - `10.2`: tag `none`
 - `11.6.2`: tag `none`
 - `19.6.1.1`: tag `none`
-- `21.7.1.1`: tag `dump`
-- `21.7.1.2`: tag `dump`
-- `21.7.1.3`: tag `dump`
-- `21.7.1.4`: tag `dump`
-- `21.7.1.6`: tag `dump`
 - `21.7.2.1`: tag `dump`
 - `21.7.2.2`: tag `dump`
 - `21.7.2.3`: tag `dump`
