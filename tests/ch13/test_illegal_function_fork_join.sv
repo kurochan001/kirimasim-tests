@@ -9,11 +9,12 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: the function f contains fork-join
-:expected_stderr_regex: test_illegal_function_fork_join\.sv:(21|24):
+:expected_stderr_regex: test_illegal_function_fork_join\.sv:22:
 */
 // IEEE 1800-2023 §13.4: fork-join waits for the processes it starts, so a
-// function cannot contain it (only fork-join_none is allowed, 13.4.4). A tool
-// can report the fork or the join.
+// function cannot contain it (only fork-join_none is allowed, 13.4.4). The
+// error is the fork-join statement, whose place is the fork that starts it,
+// as for fork-join_any (ch13/test_illegal_function_fork_join_any).
 
 module test_illegal_function_fork_join;
   int n;
@@ -21,7 +22,7 @@ module test_illegal_function_fork_join;
     fork               // illegal: fork-join in a function
       n = 1;
       n = 2;
-    join               // illegal: (where it waits)
+    join               // where the block waits
   endfunction
   initial f();
 endmodule
