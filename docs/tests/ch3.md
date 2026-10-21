@@ -1,6 +1,6 @@
 # Clause 3: Design and verification building blocks
 
-[All chapters](README.md). 15 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 17 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -9,12 +9,14 @@
 | [`test_scope_package_import_collision`](../../tests/ch3/test_scope_package_import_collision.sv) | The same name in $unit, a wildcard-imported package and a module, resolved locally, by package, by $unit and by $root | 3.12.1 26.3 23.7 26.5 | Verilator 5.052 |  |
 | [`test_unit_root_name_collision`](../../tests/ch3/test_unit_root_name_collision.sv) | Name collisions between $unit, a module and its child, resolved with $unit:: and $root | 3.12.1 23.9 23.6 | Verilator 5.052 |  |
 | [`test_unit_scope_shadow_minimal`](../../tests/ch3/test_unit_scope_shadow_minimal.sv) | A local name hides $unit and package names, which stay reachable by scope | 3.12.1 26.3 | Icarus Verilog 13.0 |  |
+| [`test_unit_scope_shared_state`](../../tests/ch3/test_unit_scope_shared_state.sv) | A variable and a task declared in the compilation-unit scope are one object and one subroutine for every module | 3.12.1 3.13 | Icarus Verilog 13.0 |  |
 | [`test_name_spaces`](../../tests/ch3/test_name_spaces.sv) | the same identifier can name a module, a package, a text macro, a variable of a module and a variable of a block, because they belong to different name spaces | 3.13 26.3 22.5.1 23.6 | standard only |  |
 | [`test_same_class_name_in_two_scopes`](../../tests/ch3/test_same_class_name_in_two_scopes.sv) | Classes with the same name declared in two modules or in two packages are different classes | 3.13 26.3 8.9 | Verilator 5.052 |  |
 | [`test_time_value_rounding`](../../tests/ch3/test_time_value_rounding.sv) | delays are rounded to the time precision of the design element that contains them, also when another element of the design has a finer precision | 3.14.1 3.14.2.2 20.3.3 | Icarus Verilog 13.0 |  |
 | [`test_timescale_replaced_by_next`](../../tests/ch3/test_timescale_replaced_by_next.sv) | A \`timescale directive applies to the design elements that follow it until the next \`timescale directive replaces it | 3.14.2.1 22.7 20.3.1 | Icarus Verilog 13.0 |  |
 | [`test_illegal_timeunit_after_item`](../../tests/ch3/test_illegal_timeunit_after_item.sv) | A timeunit declaration has to come before the other items of its module | 3.14.2.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_timeunit_mismatch`](../../tests/ch3/test_illegal_timeunit_mismatch.sv) | A repeated timeunit declaration has to match the first one of its module | 3.14.2.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_timeunit_precision_order`](../../tests/ch3/test_timeunit_precision_order.sv) | timeprecision may come before timeunit in the compilation-unit scope, and both apply to a module that declares neither | 3.14.2.2 3.14.2.3 3.14.1 | Icarus Verilog 13.0 |  |
 | [`test_timeunit_repeated_matching`](../../tests/ch3/test_timeunit_repeated_matching.sv) | A timeunit or timeprecision declaration can be repeated later in its time scope when it matches the first one | 3.14.2.2 3.14.1 | Icarus Verilog 13.0 |  |
 | [`test_timeunit_with_precision`](../../tests/ch3/test_timeunit_with_precision.sv) | timeunit with a slash sets the time unit and the precision of a module at once, overriding \`timescale, and delays are rounded to that precision | 3.14.2.2 3.14.2.3 20.4.2 22.7 | Icarus Verilog 13.0 |  |
 | [`test_timeunit_compilation_unit`](../../tests/ch3/test_timeunit_compilation_unit.sv) | Without \`timescale, a timeunit and timeprecision declared in the compilation-unit scope apply to the modules that do not declare their own, and delays are rounded to that precision | 3.14.2.3 3.14.2.2 3.14.1 3.12.1 | Icarus Verilog 13.0 |  |

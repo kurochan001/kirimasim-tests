@@ -37,19 +37,19 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3680 tests** in 37 chapters. 812 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **3692 tests** in 37 chapters. 812 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2473 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 731 |
-| The standard only, where neither simulator follows it | 476 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2477 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 738 |
+| The standard only, where neither simulator follows it | 477 |
 
-557 tests depend on x or z values (`:fourstate: yes`). 188 tests come with C code: 29 DPI tests (`:dpi_c:`) and 159 VPI tests (`:vpi_c:`). 164 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 2 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+558 tests depend on x or z values (`:fourstate: yes`). 188 tests come with C code: 29 DPI tests (`:dpi_c:`) and 159 VPI tests (`:vpi_c:`). 165 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 3 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 15 | 9 | 4 | 2 |
+| 3 | Design and verification building blocks | 17 | 11 | 4 | 2 |
 | 4 | Scheduling semantics | 381 | 372 | 4 | 5 |
 | 5 | Lexical conventions | 35 | 30 | 4 | 1 |
 | 6 | Data types | 303 | 220 | 64 | 19 |
@@ -60,26 +60,26 @@ The suite has **3680 tests** in 37 chapters. 812 of them are generated (`tests/g
 | 11 | Operators and expressions | 704 | 641 | 57 | 6 |
 | 12 | Procedural programming statements | 120 | 102 | 16 | 2 |
 | 13 | Tasks and functions (subroutines) | 126 | 68 | 54 | 4 |
-| 14 | Clocking blocks | 29 |  | 24 | 5 |
+| 14 | Clocking blocks | 31 |  | 26 | 5 |
 | 15 | Interprocess synchronization and communication | 36 | 2 | 26 | 8 |
 | 16 | Assertions | 99 | 16 | 20 | 63 |
-| 17 | Checkers | 20 |  | 2 | 18 |
+| 17 | Checkers | 23 |  | 5 | 18 |
 | 18 | Constrained random value generation | 60 | 1 | 43 | 16 |
 | 19 | Functional coverage | 43 |  | 11 | 32 |
 | 20 | Utility system tasks and system functions | 187 | 166 | 11 | 10 |
 | 21 | Input/output system tasks and system functions | 85 | 76 | 5 | 4 |
 | 22 | Compiler directives | 39 | 36 | 3 |  |
 | 23 | Modules and hierarchy | 71 | 55 | 8 | 8 |
-| 24 | Programs | 18 | 7 |  | 11 |
+| 24 | Programs | 19 | 7 |  | 12 |
 | 25 | Interfaces | 50 | 11 | 35 | 4 |
-| 26 | Packages | 31 | 22 | 8 | 1 |
+| 26 | Packages | 33 | 23 | 9 | 1 |
 | 27 | Generate constructs | 68 | 63 | 4 | 1 |
 | 28 | Gate-level and switch-level modeling | 176 | 139 | 3 | 34 |
-| 29 | User-defined primitives | 27 | 18 | 6 | 3 |
+| 29 | User-defined primitives | 28 | 19 | 6 | 3 |
 | 30 | Specify blocks | 23 | 18 |  | 5 |
 | 31 | Timing checks | 23 | 4 |  | 19 |
 | 32 | Backannotation using the standard delay format | 19 | 9 |  | 10 |
-| 33 | Configuring the contents of a design | 20 | 4 | 2 | 14 |
+| 33 | Configuring the contents of a design | 21 | 4 | 3 | 14 |
 | 34 | Protected envelopes | — | | | |
 | 35 | Direct programming interface | 31 |  | 21 | 10 |
 | 36 | Programming language interface (PLI/VPI) overview | 20 | 11 |  | 9 |
