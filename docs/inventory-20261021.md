@@ -773,10 +773,11 @@ use what it does not support yet, and 3 differ:
 
 ## Tests added after this report
 
-The work of the report above left chapters 3, 14, 17, 24, 26, 29, 32, 33,
-36, 39 and 40 with the fewest tests. Two later commits added 19 tests to
-them, `b43cfa4` (12 tests) and `3c2472f` (7 tests). The suite then had
-3699 tests.
+The tests below were added on 2026-10-22, after the report above. The work
+of the report left chapters 3, 14, 17, 24, 26, 29, 32, 33, 36, 39 and 40
+with the fewest tests. Two later commits added 19 tests to them,
+`b43cfa4` (12 tests) and `3c2472f` (7 tests). The suite then had 3699
+tests.
 
 | Chapter | Tests | Which |
 | ---: | ---: | --- |
@@ -811,7 +812,9 @@ all listed in [simulator-differences.md](simulator-differences.md):
 ### Six more tests
 
 A third commit, `b0994fd`, added 6 more tests to the thinnest chapters;
-the suite then had 3705 tests.
+the suite then had 3705 tests. `0641d74` initialized the output port of
+`test_program_clocking_output`, because Verilator gives an uninitialized
+variable a random initial value, which changed the result with seed 7.
 
 | Chapter | Tests | Which |
 | ---: | ---: | --- |
