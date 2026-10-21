@@ -1647,6 +1647,783 @@
      "changes": null
     }
    }
+  },
+  {
+   "time": "2026-10-21T01:02:49Z",
+   "suite_commit": "824f5748dd619afaf472f60fd0ce83d0a547d829",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/39507186309",
+   "tests": 3332,
+   "chapters": {
+    "10": 105,
+    "11": 689,
+    "12": 119,
+    "13": 108,
+    "14": 19,
+    "15": 26,
+    "16": 73,
+    "17": 11,
+    "18": 28,
+    "19": 26,
+    "20": 187,
+    "21": 83,
+    "22": 30,
+    "23": 69,
+    "24": 10,
+    "25": 49,
+    "26": 29,
+    "27": 68,
+    "28": 176,
+    "29": 16,
+    "3": 11,
+    "30": 20,
+    "31": 14,
+    "32": 14,
+    "33": 14,
+    "35": 21,
+    "36": 13,
+    "37": 49,
+    "38": 21,
+    "39": 12,
+    "4": 351,
+    "40": 13,
+    "5": 33,
+    "6": 292,
+    "7": 285,
+    "8": 138,
+    "9": 110
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-626-g7e3d0c6b)",
+     "counts": {
+      "pass": 2435,
+      "fail": 0,
+      "known": 897,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       5,
+       11
+      ],
+      "4": [
+       346,
+       351
+      ],
+      "5": [
+       31,
+       33
+      ],
+      "6": [
+       224,
+       292
+      ],
+      "7": [
+       151,
+       285
+      ],
+      "8": [
+       38,
+       138
+      ],
+      "9": [
+       94,
+       110
+      ],
+      "10": [
+       87,
+       105
+      ],
+      "11": [
+       628,
+       689
+      ],
+      "12": [
+       104,
+       119
+      ],
+      "13": [
+       64,
+       108
+      ],
+      "14": [
+       0,
+       19
+      ],
+      "15": [
+       1,
+       26
+      ],
+      "16": [
+       20,
+       73
+      ],
+      "17": [
+       0,
+       11
+      ],
+      "18": [
+       0,
+       28
+      ],
+      "19": [
+       0,
+       26
+      ],
+      "20": [
+       167,
+       187
+      ],
+      "21": [
+       75,
+       83
+      ],
+      "22": [
+       29,
+       30
+      ],
+      "23": [
+       57,
+       69
+      ],
+      "24": [
+       4,
+       10
+      ],
+      "25": [
+       19,
+       49
+      ],
+      "26": [
+       21,
+       29
+      ],
+      "27": [
+       65,
+       68
+      ],
+      "28": [
+       142,
+       176
+      ],
+      "29": [
+       10,
+       16
+      ],
+      "30": [
+       17,
+       20
+      ],
+      "31": [
+       1,
+       14
+      ],
+      "32": [
+       8,
+       14
+      ],
+      "33": [
+       2,
+       14
+      ],
+      "35": [
+       0,
+       21
+      ],
+      "36": [
+       8,
+       13
+      ],
+      "37": [
+       3,
+       49
+      ],
+      "38": [
+       13,
+       21
+      ],
+      "39": [
+       0,
+       12
+      ],
+      "40": [
+       1,
+       13
+      ]
+     },
+     "changes": {
+      "passing": 0,
+      "failing": 0,
+      "passing_tests": [],
+      "failing_tests": [],
+      "added": 1005,
+      "added_passing": 857,
+      "removed": 0
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.053 devel rev v5.052-518-g3cc49815",
+     "counts": {
+      "pass": 2477,
+      "fail": 0,
+      "known": 855,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       6,
+       11
+      ],
+      "4": [
+       286,
+       351
+      ],
+      "5": [
+       28,
+       33
+      ],
+      "6": [
+       246,
+       292
+      ],
+      "7": [
+       275,
+       285
+      ],
+      "8": [
+       128,
+       138
+      ],
+      "9": [
+       89,
+       110
+      ],
+      "10": [
+       96,
+       105
+      ],
+      "11": [
+       505,
+       689
+      ],
+      "12": [
+       112,
+       119
+      ],
+      "13": [
+       104,
+       108
+      ],
+      "14": [
+       15,
+       19
+      ],
+      "15": [
+       22,
+       26
+      ],
+      "16": [
+       40,
+       73
+      ],
+      "17": [
+       0,
+       11
+      ],
+      "18": [
+       26,
+       28
+      ],
+      "19": [
+       16,
+       26
+      ],
+      "20": [
+       140,
+       187
+      ],
+      "21": [
+       67,
+       83
+      ],
+      "22": [
+       28,
+       30
+      ],
+      "23": [
+       58,
+       69
+      ],
+      "24": [
+       4,
+       10
+      ],
+      "25": [
+       46,
+       49
+      ],
+      "26": [
+       27,
+       29
+      ],
+      "27": [
+       57,
+       68
+      ],
+      "28": [
+       24,
+       176
+      ],
+      "29": [
+       8,
+       16
+      ],
+      "30": [
+       0,
+       20
+      ],
+      "31": [
+       1,
+       14
+      ],
+      "32": [
+       0,
+       14
+      ],
+      "33": [
+       4,
+       14
+      ],
+      "35": [
+       16,
+       21
+      ],
+      "36": [
+       1,
+       13
+      ],
+      "37": [
+       0,
+       49
+      ],
+      "38": [
+       0,
+       21
+      ],
+      "39": [
+       0,
+       12
+      ],
+      "40": [
+       2,
+       13
+      ]
+     },
+     "changes": {
+      "passing": 7,
+      "failing": 0,
+      "passing_tests": [
+       "ch16/test_assert_immed_2",
+       "ch16/test_cover_disable_iff",
+       "ch16/test_cover_property_restrict",
+       "ch16/test_immediate_assertions_2",
+       "ch16/test_untyped_formal_arguments",
+       "ch19/test_cg_at_least",
+       "ch35/test_dpi_unpacked_struct"
+      ],
+      "failing_tests": [],
+      "added": 1005,
+      "added_passing": 542,
+      "removed": 0
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.0.0 (commit 0680c67d562e), built with GNU 13.3.0",
+     "counts": {
+      "pass": 2344,
+      "fail": 10,
+      "known": 0,
+      "unsupported": 978
+     },
+     "chapters": {
+      "3": [
+       9,
+       11
+      ],
+      "4": [
+       342,
+       351
+      ],
+      "5": [
+       30,
+       33
+      ],
+      "6": [
+       270,
+       292
+      ],
+      "7": [
+       96,
+       285
+      ],
+      "8": [
+       9,
+       138
+      ],
+      "9": [
+       98,
+       110
+      ],
+      "10": [
+       93,
+       105
+      ],
+      "11": [
+       670,
+       689
+      ],
+      "12": [
+       109,
+       119
+      ],
+      "13": [
+       91,
+       108
+      ],
+      "14": [
+       0,
+       19
+      ],
+      "15": [
+       5,
+       26
+      ],
+      "16": [
+       22,
+       73
+      ],
+      "17": [
+       0,
+       11
+      ],
+      "18": [
+       0,
+       28
+      ],
+      "19": [
+       0,
+       26
+      ],
+      "20": [
+       161,
+       187
+      ],
+      "21": [
+       67,
+       83
+      ],
+      "22": [
+       29,
+       30
+      ],
+      "23": [
+       62,
+       69
+      ],
+      "24": [
+       0,
+       10
+      ],
+      "25": [
+       32,
+       49
+      ],
+      "26": [
+       27,
+       29
+      ],
+      "27": [
+       66,
+       68
+      ],
+      "28": [
+       23,
+       176
+      ],
+      "29": [
+       16,
+       16
+      ],
+      "30": [
+       3,
+       20
+      ],
+      "31": [
+       0,
+       14
+      ],
+      "32": [
+       0,
+       14
+      ],
+      "33": [
+       12,
+       14
+      ],
+      "35": [
+       0,
+       21
+      ],
+      "36": [
+       0,
+       13
+      ],
+      "37": [
+       0,
+       49
+      ],
+      "38": [
+       0,
+       21
+      ],
+      "39": [
+       0,
+       12
+      ],
+      "40": [
+       2,
+       13
+      ]
+     },
+     "changes": {
+      "passing": 2,
+      "failing": 0,
+      "passing_tests": [
+       "ch21/test_file_fmonitor_fstrobe",
+       "ch29/test_udp_initial_value_not_delayed"
+      ],
+      "failing_tests": [],
+      "added": 1005,
+      "added_passing": 752,
+      "removed": 0
+     }
+    },
+    "sukimasim": {
+     "name": "sukimasim",
+     "version": "sukimasim version 0.9.9.2 (commit 2754b2970fcb)",
+     "counts": {
+      "pass": 2554,
+      "fail": 778,
+      "known": 0,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       9,
+       11
+      ],
+      "4": [
+       16,
+       351
+      ],
+      "5": [
+       31,
+       33
+      ],
+      "6": [
+       269,
+       292
+      ],
+      "7": [
+       271,
+       285
+      ],
+      "8": [
+       128,
+       138
+      ],
+      "9": [
+       94,
+       110
+      ],
+      "10": [
+       99,
+       105
+      ],
+      "11": [
+       679,
+       689
+      ],
+      "12": [
+       118,
+       119
+      ],
+      "13": [
+       99,
+       108
+      ],
+      "14": [
+       12,
+       19
+      ],
+      "15": [
+       23,
+       26
+      ],
+      "16": [
+       41,
+       73
+      ],
+      "17": [
+       2,
+       11
+      ],
+      "18": [
+       23,
+       28
+      ],
+      "19": [
+       16,
+       26
+      ],
+      "20": [
+       173,
+       187
+      ],
+      "21": [
+       70,
+       83
+      ],
+      "22": [
+       29,
+       30
+      ],
+      "23": [
+       63,
+       69
+      ],
+      "24": [
+       5,
+       10
+      ],
+      "25": [
+       43,
+       49
+      ],
+      "26": [
+       25,
+       29
+      ],
+      "27": [
+       66,
+       68
+      ],
+      "28": [
+       82,
+       176
+      ],
+      "29": [
+       15,
+       16
+      ],
+      "30": [
+       13,
+       20
+      ],
+      "31": [
+       9,
+       14
+      ],
+      "32": [
+       0,
+       14
+      ],
+      "33": [
+       4,
+       14
+      ],
+      "35": [
+       13,
+       21
+      ],
+      "36": [
+       3,
+       13
+      ],
+      "37": [
+       2,
+       49
+      ],
+      "38": [
+       5,
+       21
+      ],
+      "39": [
+       1,
+       12
+      ],
+      "40": [
+       3,
+       13
+      ]
+     },
+     "changes": {
+      "passing": 42,
+      "failing": 0,
+      "passing_tests": [
+       "ch10/test_nba_verification",
+       "ch11/test_expression_width",
+       "ch11/test_string_literal_vector_padding",
+       "ch16/test_assert_immed_2",
+       "ch16/test_cover_disable_iff",
+       "ch16/test_cover_property_restrict",
+       "ch16/test_immediate_assertions",
+       "ch16/test_immediate_assertions_2",
+       "ch16/test_sequence_goto_nonconsecutive",
+       "ch16/test_untyped_formal_arguments",
+       "ch19/test_cg_embedded_in_class",
+       "ch20/test_printtimescale",
+       "ch20/test_typename",
+       "ch21/test_format_explicit_field_width",
+       "ch21/test_numeric_edge_cases",
+       "ch21/test_readmemh_addresses_comments",
+       "ch21/test_scanf_functions",
+       "ch22/test_compiler_directives_comprehensive",
+       "ch22/test_unconnected_drive",
+       "ch24/test_program_automatic_lifetime",
+       "ch24/test_program_comprehensive",
+       "ch24/test_program_reactive",
+       "ch24/test_program_reactive_sees_nba",
+       "ch24/test_program_variables",
+       "ch26/test_package_task",
+       "ch29/test_udp_level_edge_mix",
+       "ch31/test_timing_conditioned_event",
+       "ch31/test_timing_edge_control_specifier",
+       "ch31/test_timing_recovery_removal_recrem",
+       "ch31/test_timing_setup_hold_notifier",
+       "ch31/test_timing_setuphold",
+       "ch31/test_timing_vector_signal",
+       "ch31/test_timing_width_period_notifier",
+       "ch38/test_vpi_mcd_files",
+       "ch38/test_vpi_mcd_flush",
+       "ch6/test_string_getc_is_byte",
+       "ch6/test_string_ignores_null_characters",
+       "ch8/test_interface_class_implements",
+       "ch8/test_ral_block",
+       "ch9/test_disable_fork_ends_loops_and_class_tasks",
+       "ch9/test_fork_automatic_declaration_per_iteration",
+       "ch9/test_wait_fork_disable_fork"
+      ],
+      "failing_tests": [],
+      "added": 1005,
+      "added_passing": 469,
+      "removed": 0
+     }
+    }
+   }
   }
  ]
 }
