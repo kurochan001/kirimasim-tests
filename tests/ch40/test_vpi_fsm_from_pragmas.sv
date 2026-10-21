@@ -37,5 +37,8 @@ module test_vpi_fsm_from_pragmas;
       default: st <= S_IDLE;
     endcase
 
-  initial #20 $vt_fsm;
+  initial begin
+    #20 $vt_fsm;
+    $finish;
+  end
 endmodule
