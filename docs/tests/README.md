@@ -6,7 +6,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
-| 3 | [Design and verification building blocks](ch3.md) | 11 |  |
+| 3 | [Design and verification building blocks](ch3.md) | 15 |  |
 | 4 | [Scheduling semantics](ch4.md) | 351 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 33 |  |
 | 6 | [Data types](ch6.md) | 292 |  |
@@ -32,7 +32,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 26 | [Packages](ch26.md) | 29 |  |
 | 27 | [Generate constructs](ch27.md) | 68 |  |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 176 | 136 |
-| 29 | [User-defined primitives](ch29.md) | 16 |  |
+| 29 | [User-defined primitives](ch29.md) | 27 |  |
 | 30 | [Specify blocks](ch30.md) | 20 |  |
 | 31 | [Timing checks](ch31.md) | 14 |  |
 | 32 | [Backannotation using the standard delay format](ch32.md) | 14 |  |

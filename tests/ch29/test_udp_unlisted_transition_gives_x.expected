@@ -1,0 +1,4 @@
+after rising edge: q=1
+after falling edge: q=1
+after data change: q=x
+after next rising edge: q=0

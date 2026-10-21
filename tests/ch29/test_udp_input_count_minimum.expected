@@ -1,0 +1,5 @@
+all ones: y=1
+one zero: y=0
+latch closed: q=0
+latch open: q=1
+latch closed again: q=1
