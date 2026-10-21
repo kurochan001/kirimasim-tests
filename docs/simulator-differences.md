@@ -59,6 +59,7 @@ of the test as well.
 | 37.3.5 | `vpi_put_value` on a system task argument whose index has a side effect stops on an internal assertion instead of reporting an error. | `ch37/test_vpi_put_value_side_effect` |
 | 30.7.4.2 | A showcancelled declaration has no effect: a negative pulse leaves the output unchanged instead of showing x. | `ch30/test_negative_pulse_cancelled` |
 | 29.3.2 | A combinational UDP that declares its output reg makes it stop on an internal assertion instead of reporting the error. | `ch29/test_illegal_udp_combinational_reg` |
+| 6.21, 7.5 | A continuous assignment to an element of a dynamic array makes it stop on an internal assertion instead of reporting the error. | `ch6/test_illegal_dynamic_array_element_continuous` |
 
 ### Illegal designs that it accepts
 
@@ -68,13 +69,14 @@ of the test as well.
 | 6.5 | An input port declared as a variable and assigned by its module | `ch6/test_illegal_input_port_variable_assigned` |
 | 25.5 | A modport that names a signal its interface does not declare | `ch25/test_illegal_modport_undeclared_name` |
 | 8.10 | A static method that reads a non-static property | `ch8/test_illegal_static_method_uses_property` |
-| 13.4 | fork-join in a function | `ch13/test_illegal_function_fork_join` |
+| 13.4 | fork-join or fork-join_any in a function | `ch13/test_illegal_function_fork_join`, `ch13/test_illegal_function_fork_join_any` |
 | 6.20.5 | A parameter whose value uses a specify parameter | `ch6/test_illegal_parameter_from_specparam` |
 | 33.4.1.2, 33.4.1.4, 33.4.2 | Two default liblist clauses, a cell clause with a library and a liblist, and an instance clause that names an instance inside the hierarchy of another config (it skips config declarations) | `ch33/test_illegal_config_two_default_liblists`, `ch33/test_illegal_config_cell_library_liblist`, `ch33/test_illegal_config_instance_inside_other_config` |
 | 6.7.1 | A net type keyword followed directly by `reg` (`wire reg`) | `ch6/test_illegal_net_type_then_reg` |
 | 23.10.4.2 | A defparam whose hierarchical name resolves to another parameter once the generate blocks are elaborated | `ch23/test_illegal_defparam_early_resolution` |
 | 30.7.4.2 | A showcancelled declaration that names a path output after a module path to it | `ch30/test_illegal_showcancelled_after_path` |
 | 24.3, 24.5 | A module that reads a variable of a program, and one that calls a task of a program | `ch24/test_illegal_program_signal_from_module`, `ch24/test_illegal_module_calls_program_task` |
+| 12.8 | break inside a fork-join block that ends a loop around the block | `ch12/test_illegal_break_in_fork_to_outer_loop` |
 | 29.3.4, 29.6 | A UDP table with two entries that give different outputs for the same inputs, and an entry with transitions on two inputs | `ch29/test_illegal_udp_conflicting_entries`, `ch29/test_illegal_udp_two_transitions_in_entry` |
 | 31.4.4, 31.4.5, 31.4.6 | `$width` and `$period` whose reference event has no edge, and `$nochange` with an edge-control specifier (it skips timing checks) | `ch31/test_illegal_width_reference_not_edge`, `ch31/test_illegal_period_reference_not_edge`, `ch31/test_illegal_nochange_edge_control` |
 
@@ -135,7 +137,7 @@ not parse the modport in an interface port of a module.
 | 6.6.2 | A uwire net with two drivers | `ch6/test_illegal_uwire_two_drivers` |
 | 6.5 | Continuous assignments to overlapping bits of a variable, and a variable driven by an output port and assigned elsewhere | `ch6/test_illegal_overlapping_continuous_assigns`, `ch6/test_illegal_output_port_variable_also_assigned` |
 | 26.3 | A reference to a name that two wildcard imports provide | `ch26/test_illegal_wildcard_import_conflict` |
-| 13.5.2 | A ref argument of a static task | `ch13/test_illegal_ref_in_static_task` |
+| 13.5.2 | A ref argument of a static task or function | `ch13/test_illegal_ref_in_static_task`, `ch13/test_illegal_ref_in_static_function` |
 | 13.4 | A function with an output argument called in a continuous assignment | `ch13/test_illegal_function_in_continuous_assign_output` |
 | 30.4.1, 30.4.5 | A module path from an output port, to an input port, or in parallel between vectors of different widths | `ch30/test_illegal_specify_path_from_output`, `ch30/test_illegal_specify_path_to_input`, `ch30/test_illegal_specify_parallel_width_mismatch` |
 | 33.4.1.2, 33.4.1.4 | Two default liblist clauses, and a cell clause with a library and a liblist | `ch33/test_illegal_config_two_default_liblists`, `ch33/test_illegal_config_cell_library_liblist` |
@@ -156,3 +158,9 @@ not parse the modport in an interface port of a module.
 | 29.3.1, 29.3.4, 29.7 | A UDP with a vector input, a UDP table with two entries that give different outputs for the same inputs, and a delay in the initial statement of a UDP | `ch29/test_illegal_udp_vector_port`, `ch29/test_illegal_udp_conflicting_entries`, `ch29/test_illegal_udp_initial_delay` |
 | 31.4.4, 31.4.5, 31.4.6 | `$width` and `$period` whose reference event has no edge, `$width` with a notifier and no threshold, and `$nochange` with an edge-control specifier (it ignores specify blocks) | `ch31/test_illegal_width_reference_not_edge`, `ch31/test_illegal_period_reference_not_edge`, `ch31/test_illegal_width_notifier_without_threshold`, `ch31/test_illegal_nochange_edge_control` |
 | 33.4 | A cell clause that binds a package name to another package | `ch33/test_illegal_config_package_binding` |
+| 7.4.1 | A packed dimension on a type defined as real | `ch7/test_illegal_packed_array_of_real` |
+| 9.2.2.2.2, 9.2.2.3 | A delay, an event control or fork-join in always_comb, and a delay in always_latch | `ch9/test_illegal_always_comb_delay`, `ch9/test_illegal_always_comb_event_control`, `ch9/test_illegal_always_comb_fork_join`, `ch9/test_illegal_always_latch_delay` |
+| 8.19 | An assignment to a class constant with an initial value in the constructor, and an instance constant declared static | `ch8/test_illegal_global_constant_assigned_in_constructor`, `ch8/test_illegal_static_instance_constant` |
+| 6.19 | An enum value given as a sized literal narrower than the base type | `ch6/test_illegal_enum_sized_literal_width` |
+| 12.8 | break inside a fork-join block that ends a loop around the block | `ch12/test_illegal_break_in_fork_to_outer_loop` |
+| 26.3 | A local declaration of a name that a wildcard import has already made visible | `ch26/test_illegal_local_declaration_after_import` |

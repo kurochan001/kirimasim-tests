@@ -37,29 +37,29 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3406 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **3428 tests** in 37 chapters. 763 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2369 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 666 |
-| The standard only, where neither simulator follows it | 371 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2383 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 671 |
+| The standard only, where neither simulator follows it | 374 |
 
-525 tests depend on x or z values (`:fourstate: yes`). 129 tests come with C code: 21 DPI tests (`:dpi_c:`) and 108 VPI tests (`:vpi_c:`). 121 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), 1 defines macros (`:defines:`), 1 names include directories (`:incdirs:`), 1 names the top-level module (`:top_module:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+525 tests depend on x or z values (`:fourstate: yes`). 129 tests come with C code: 21 DPI tests (`:dpi_c:`) and 108 VPI tests (`:vpi_c:`). 143 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 6 tests have more than one source file (`:files:`), 1 defines macros (`:defines:`), 1 names include directories (`:incdirs:`), 1 names the top-level module (`:top_module:`), and 5 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 15 | 9 | 4 | 2 |
 | 4 | Scheduling semantics | 351 | 346 | 2 | 3 |
 | 5 | Lexical conventions | 33 | 29 | 3 | 1 |
-| 6 | Data types | 292 | 211 | 62 | 19 |
-| 7 | Aggregate data types | 285 | 117 | 160 | 8 |
-| 8 | Classes | 138 | 31 | 93 | 14 |
-| 9 | Processes | 110 | 93 | 8 | 9 |
+| 6 | Data types | 296 | 213 | 64 | 19 |
+| 7 | Aggregate data types | 286 | 118 | 160 | 8 |
+| 8 | Classes | 144 | 34 | 95 | 15 |
+| 9 | Processes | 114 | 97 | 8 | 9 |
 | 10 | Assignment statements | 105 | 85 | 16 | 4 |
 | 11 | Operators and expressions | 689 | 627 | 57 | 5 |
-| 12 | Procedural programming statements | 119 | 102 | 16 | 1 |
-| 13 | Tasks and functions (subroutines) | 108 | 60 | 46 | 2 |
+| 12 | Procedural programming statements | 120 | 102 | 16 | 2 |
+| 13 | Tasks and functions (subroutines) | 112 | 62 | 47 | 3 |
 | 14 | Clocking blocks | 29 |  | 24 | 5 |
 | 15 | Interprocess synchronization and communication | 26 | 1 | 21 | 4 |
 | 16 | Assertions | 73 | 16 | 16 | 41 |
@@ -68,11 +68,11 @@ The suite has **3406 tests** in 37 chapters. 763 of them are generated (`tests/g
 | 19 | Functional coverage | 26 |  | 8 | 18 |
 | 20 | Utility system tasks and system functions | 187 | 166 | 11 | 10 |
 | 21 | Input/output system tasks and system functions | 83 | 74 | 5 | 4 |
-| 22 | Compiler directives | 32 | 31 | 1 |  |
+| 22 | Compiler directives | 33 | 32 | 1 |  |
 | 23 | Modules and hierarchy | 70 | 54 | 8 | 8 |
 | 24 | Programs | 18 | 7 |  | 11 |
 | 25 | Interfaces | 49 | 11 | 34 | 4 |
-| 26 | Packages | 29 | 20 | 8 | 1 |
+| 26 | Packages | 30 | 21 | 8 | 1 |
 | 27 | Generate constructs | 68 | 63 | 4 | 1 |
 | 28 | Gate-level and switch-level modeling | 176 | 139 | 3 | 34 |
 | 29 | User-defined primitives | 27 | 18 | 6 | 3 |

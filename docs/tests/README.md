@@ -9,14 +9,14 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 3 | [Design and verification building blocks](ch3.md) | 15 |  |
 | 4 | [Scheduling semantics](ch4.md) | 351 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 33 |  |
-| 6 | [Data types](ch6.md) | 292 |  |
-| 7 | [Aggregate data types](ch7.md) | 285 |  |
-| 8 | [Classes](ch8.md) | 138 |  |
-| 9 | [Processes](ch9.md) | 110 |  |
+| 6 | [Data types](ch6.md) | 296 |  |
+| 7 | [Aggregate data types](ch7.md) | 286 |  |
+| 8 | [Classes](ch8.md) | 144 |  |
+| 9 | [Processes](ch9.md) | 114 |  |
 | 10 | [Assignment statements](ch10.md) | 105 |  |
 | 11 | [Operators and expressions](ch11.md) | 689 | 302 |
-| 12 | [Procedural programming statements](ch12.md) | 119 |  |
-| 13 | [Tasks and functions (subroutines)](ch13.md) | 108 |  |
+| 12 | [Procedural programming statements](ch12.md) | 120 |  |
+| 13 | [Tasks and functions (subroutines)](ch13.md) | 112 |  |
 | 14 | [Clocking blocks](ch14.md) | 29 |  |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 26 |  |
 | 16 | [Assertions](ch16.md) | 73 |  |
@@ -25,11 +25,11 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 19 | [Functional coverage](ch19.md) | 26 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 187 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 83 |  |
-| 22 | [Compiler directives](ch22.md) | 32 |  |
+| 22 | [Compiler directives](ch22.md) | 33 |  |
 | 23 | [Modules and hierarchy](ch23.md) | 70 |  |
 | 24 | [Programs](ch24.md) | 18 |  |
 | 25 | [Interfaces](ch25.md) | 49 |  |
-| 26 | [Packages](ch26.md) | 29 |  |
+| 26 | [Packages](ch26.md) | 30 |  |
 | 27 | [Generate constructs](ch27.md) | 68 |  |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 176 | 136 |
 | 29 | [User-defined primitives](ch29.md) | 27 |  |

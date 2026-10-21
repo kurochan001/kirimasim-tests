@@ -1,6 +1,6 @@
 # Clause 9: Processes
 
-[All chapters](README.md). 110 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 114 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -40,10 +40,14 @@
 | [`test_always_comb_reads_generate_scope_names`](../../tests/ch9/test_always_comb_reads_generate_scope_names.sv) | always_comb procedures in generate blocks rerun when variables they read through hierarchical names in other generate blocks change | 9.2.2.2.1 23.6 27.4 | Icarus Verilog 13.0 |  |
 | [`test_always_comb_sensitivity_exceptions`](../../tests/ch9/test_always_comb_sensitivity_exceptions.sv) | The implicit sensitivity of always_comb leaves out variables it writes, the contents of called tasks and the expressions of assertion action blocks, but includes task arguments and the expression of an immediate assertion | 9.2.2.2.1 9.2.2.2.2 16.3 | standard only |  |
 | [`test_always_comb_vs_always_star`](../../tests/ch9/test_always_comb_vs_always_star.sv) | always_comb runs at time zero and is sensitive to variables read in called functions, unlike always @* | 9.2.2.2.2 9.2.2.2.1 9.4.2.2 | Icarus Verilog 13.0 | x/z |
+| [`test_illegal_always_comb_delay`](../../tests/ch9/test_illegal_always_comb_delay.sv) | An always_comb procedure cannot contain a delay | 9.2.2.2.2 9.2.2.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_always_comb_event_control`](../../tests/ch9/test_illegal_always_comb_event_control.sv) | An always_comb procedure cannot contain an event control | 9.2.2.2.2 9.2.2.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_always_comb_fork_join`](../../tests/ch9/test_illegal_always_comb_fork_join.sv) | An always_comb procedure cannot contain fork-join | 9.2.2.2.2 9.3.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_always_latch`](../../tests/ch9/test_always_latch.sv) | Always_latch Tests | 9.2.2.3 | Icarus Verilog 13.0 |  |
 | [`test_always_latch_2`](../../tests/ch9/test_always_latch_2.sv) | always_latch holds its outputs while the condition is false | 9.2.2.3 | Icarus Verilog 13.0 |  |
 | [`test_always_latch_comb_in_interface`](../../tests/ch9/test_always_latch_comb_in_interface.sv) | always_latch and always_comb procedures in an interface run as they do in a module | 9.2.2.3 9.2.2.2 25.3 | Icarus Verilog 13.0 |  |
 | [`test_always_latch_edge_cases`](../../tests/ch9/test_always_latch_edge_cases.sv) | Always_latch edge cases | 9.2.2.3 | Icarus Verilog 13.0 | x/z |
+| [`test_illegal_always_latch_delay`](../../tests/ch9/test_illegal_always_latch_delay.sv) | An always_latch procedure cannot contain a delay | 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_always_latch_other_writer`](../../tests/ch9/test_illegal_always_latch_other_writer.sv) | A variable assigned in an always_latch procedure cannot be written by another process | 9.2.2.3 9.2.2.2 | standard only | illegal design |
 | [`test_latch_edge_cases`](../../tests/ch9/test_latch_edge_cases.sv) | A D latch in always_latch: pass and hold | 9.2.2.3 | Icarus Verilog 13.0 |  |
 | [`test_always_ff_async`](../../tests/ch9/test_always_ff_async.sv) | always_ff async reset | 9.2.2.4 4.7 | Icarus Verilog 13.0 |  |

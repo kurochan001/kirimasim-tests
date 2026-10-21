@@ -1,6 +1,6 @@
 # Clause 6: Data types
 
-[All chapters](README.md). 292 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 296 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -192,6 +192,8 @@
 | [`test_enums_edge_cases`](../../tests/ch6/test_enums_edge_cases.sv) | Test: Enums edge cases | 6.19 | Icarus Verilog 13.0 |  |
 | [`test_illegal_enum_duplicate_value`](../../tests/ch6/test_illegal_enum_duplicate_value.sv) | Two names of an enumeration cannot have the same value, also when one value comes from automatic increment | 6.19 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_enum_increment_overflow`](../../tests/ch6/test_illegal_enum_increment_overflow.sv) | Automatic increment past the largest value of the base type of an enumeration is an error | 6.19 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_enum_sized_literal_width`](../../tests/ch6/test_illegal_enum_sized_literal_width.sv) | A sized literal that sets an enum value must have the width of the base type | 6.19 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_enum_value_out_of_range`](../../tests/ch6/test_illegal_enum_value_out_of_range.sv) | An enum value cannot lie outside the range of the base type | 6.19 | Icarus Verilog 13.0 | illegal design |
 | [`test_enum_named_ranges`](../../tests/ch6/test_enum_named_ranges.sv) | In an enumeration, name[N] generates N names numbered from 0 and name[N:M] the names numbered from N to M, counting up or down, each taking consecutive values, starting from an assigned constant if there is one | 6.19.2 6.19.1 6.19.5 | Icarus Verilog 13.0 |  |
 | [`test_illegal_enum_from_int`](../../tests/ch6/test_illegal_enum_from_int.sv) | An int value cannot be assigned to an enum variable without a cast | 6.19.3 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_enum_from_other_enum`](../../tests/ch6/test_illegal_enum_from_other_enum.sv) | A member of one enum type cannot be assigned to a variable of another enum type | 6.19.3 | Icarus Verilog 13.0 | illegal design |
@@ -244,6 +246,8 @@
 | [`test_dollar_parameter_unbounded`](../../tests/ch6/test_dollar_parameter_unbounded.sv) | $ can be the value of a parameter, which $isunbounded then reports, also through another parameter, and $ stands for the open end of a value range and the last element of a queue | 6.20.7 20.6.3 11.4.13 7.10.1 | Verilator 5.052 |  |
 | [`test_automatic_var`](../../tests/ch6/test_automatic_var.sv) | Test automatic variables | 6.21 13.4.2 | Icarus Verilog 13.0 |  |
 | [`test_automatic_variable_in_static_subroutine`](../../tests/ch6/test_automatic_variable_in_static_subroutine.sv) | An automatic variable in a static function or task is initialized again on every call, while a static one keeps its value | 6.21 13.3.1 13.4.2 | Verilator 5.052 |  |
+| [`test_illegal_automatic_variable_nonblocking`](../../tests/ch6/test_illegal_automatic_variable_nonblocking.sv) | An automatic variable cannot be written with a nonblocking assignment | 6.21 10.4.2 | Verilator 5.052 | illegal design |
+| [`test_illegal_dynamic_array_element_continuous`](../../tests/ch6/test_illegal_dynamic_array_element_continuous.sv) | An element of a dynamic array cannot be driven by a continuous assignment | 6.21 7.5 10.3 | Verilator 5.052 | illegal design |
 | [`test_local_scope`](../../tests/ch6/test_local_scope.sv) | Local Scope Tests | 6.21 | Icarus Verilog 13.0 |  |
 | [`test_local_scope_edge_cases`](../../tests/ch6/test_local_scope_edge_cases.sv) | Test: Local scope edge cases | 6.21 | Icarus Verilog 13.0 |  |
 | [`test_local_static`](../../tests/ch6/test_local_static.sv) | A static variable in a function keeps its value between calls | 6.21 13.4.2 | Icarus Verilog 13.0 |  |

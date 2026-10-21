@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 138 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 144 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -78,8 +78,10 @@
 | [`test_class_inheritance_corner`](../../tests/ch8/test_class_inheritance_corner.sv) | Tests single and multi-level inheritance, method override, super | 8.13 8.15 8.20 8.21 | Verilator 5.052 |  |
 | [`test_class_inheritance_virtual_super`](../../tests/ch8/test_class_inheritance_virtual_super.sv) | Class inheritance, super, and virtual method overriding | 8.13 8.15 8.20 | standard only |  |
 | [`test_class_multilevel_inheritance`](../../tests/ch8/test_class_multilevel_inheritance.sv) | Multilevel inheritance; constructors that do not call super.new() explicitly | 8.13 8.17 | Icarus Verilog 13.0 |  |
+| [`test_illegal_final_class_extended`](../../tests/ch8/test_illegal_final_class_extended.sv) | A class declared :final cannot be extended | 8.13 8.3 | Verilator 5.052 | illegal design |
 | [`test_lrm_class_inheritance_8`](../../tests/ch8/test_lrm_class_inheritance_8.sv) | Class inheritance and polymorphism edge cases | 8.13 8.15 8.20 8.21 | Verilator 5.052 |  |
 | [`test_class_super`](../../tests/ch8/test_class_super.sv) | Test: super keyword usage | 8.15 8.20 8.13 | Icarus Verilog 13.0 |  |
+| [`test_illegal_super_new_not_first`](../../tests/ch8/test_illegal_super_new_not_first.sv) | A call of super.new has to be the first statement of a constructor | 8.15 8.17 | Icarus Verilog 13.0 | illegal design |
 | [`test_cast_class`](../../tests/ch8/test_cast_class.sv) | Test class casting | 8.16 6.24.2 | Verilator 5.052 |  |
 | [`test_cast_complex_patterns`](../../tests/ch8/test_cast_complex_patterns.sv) | $cast with complex nested patterns | 8.16 6.24.2 7.5 | Verilator 5.052 |  |
 | [`test_class_cast`](../../tests/ch8/test_class_cast.sv) | Test: Class casting $cast | 8.16 6.24.2 8.20 | Verilator 5.052 |  |
@@ -89,6 +91,9 @@
 | [`test_type_check`](../../tests/ch8/test_type_check.sv) | Type Checking Tests | 8.16 6.24.2 | Verilator 5.052 |  |
 | [`test_illegal_local_member_outside`](../../tests/ch8/test_illegal_local_member_outside.sv) | A local class property cannot be accessed from outside the class | 8.18 | Icarus Verilog 13.0 | illegal design |
 | [`test_class_const_properties`](../../tests/ch8/test_class_const_properties.sv) | Global constant class properties take their value in the declaration, and instance constants are set once in the constructor | 8.19 8.9 | Verilator 5.052 |  |
+| [`test_illegal_global_constant_assigned_in_constructor`](../../tests/ch8/test_illegal_global_constant_assigned_in_constructor.sv) | A class constant with an initial value cannot be assigned, not even in the constructor | 8.19 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_instance_constant_assigned_in_method`](../../tests/ch8/test_illegal_instance_constant_assigned_in_method.sv) | An instance constant of a class can be assigned only in its constructor | 8.19 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_static_instance_constant`](../../tests/ch8/test_illegal_static_instance_constant.sv) | An instance constant of a class cannot be declared static | 8.19 8.9 | standard only | illegal design |
 | [`test_callback_basic`](../../tests/ch8/test_callback_basic.sv) | A user-written callback pattern built from classes and virtual methods | 8.20 8.10 7.10 | Verilator 5.052 |  |
 | [`test_callback_chain`](../../tests/ch8/test_callback_chain.sv) | Several user-written callbacks called in order through base-class handles | 8.20 7.10 | Verilator 5.052 |  |
 | [`test_callback_enable_disable`](../../tests/ch8/test_callback_enable_disable.sv) | Enabling and disabling a user-written callback object | 8.20 7.10 | Verilator 5.052 |  |
@@ -97,6 +102,7 @@
 | [`test_class_polymorphism_2`](../../tests/ch8/test_class_polymorphism_2.sv) | Class Polymorphism Tests | 8.20 8.22 | Verilator 5.052 |  |
 | [`test_class_virtual_edge_cases`](../../tests/ch8/test_class_virtual_edge_cases.sv) | Test: Class virtual method edge cases | 8.20 | Verilator 5.052 |  |
 | [`test_class_virtual_param`](../../tests/ch8/test_class_virtual_param.sv) | Virtual method override and a parameterized class with a type parameter | 8.20 8.25 | Verilator 5.052 |  |
+| [`test_illegal_final_method_overridden`](../../tests/ch8/test_illegal_final_method_overridden.sv) | A method declared :final cannot be overridden in a subclass | 8.20 | Verilator 5.052 | illegal design |
 | [`test_method_virtual`](../../tests/ch8/test_method_virtual.sv) | Virtual methods test | 8.20 8.15 | Verilator 5.052 |  |
 | [`test_virt_method`](../../tests/ch8/test_virt_method.sv) | Test virtual methods | 8.20 8.14 | Verilator 5.052 |  |
 | [`test_virtual_method`](../../tests/ch8/test_virtual_method.sv) | Test virtual method | 8.20 | Verilator 5.052 |  |

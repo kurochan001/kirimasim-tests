@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 285 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 286 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -78,6 +78,7 @@
 | [`test_unpacked_types_edge_cases`](../../tests/ch7/test_unpacked_types_edge_cases.sv) | Test: Unpacked types edge cases | 7.4 7.4.2 7.2 | Verilator 5.052 |  |
 | [`test_value_unpacked`](../../tests/ch7/test_value_unpacked.sv) | Test for unpacked array value operations | 7.4 7.6 11.2.2 | Verilator 5.052 |  |
 | [`test_bit_select`](../../tests/ch7/test_bit_select.sv) | Bit-select and part-select | 7.4.1 11.5.1 | Icarus Verilog 13.0 |  |
+| [`test_illegal_packed_array_of_real`](../../tests/ch7/test_illegal_packed_array_of_real.sv) | A packed array cannot have real elements | 7.4.1 6.12 | Icarus Verilog 13.0 | illegal design |
 | [`test_mixed_packed`](../../tests/ch7/test_mixed_packed.sv) | Mixed packed/unpacked arrays | 7.4.1 7.4.2 7.4.5 | Icarus Verilog 13.0 |  |
 | [`test_multidim_packed_vector`](../../tests/ch7/test_multidim_packed_vector.sv) | Two-dimensional packed vectors driven bit by bit from nested generate loops | 7.4.1 7.4.5 27.4 | Icarus Verilog 13.0 |  |
 | [`test_packed_2d`](../../tests/ch7/test_packed_2d.sv) | 2D packed arrays | 7.4.1 | Icarus Verilog 13.0 |  |
