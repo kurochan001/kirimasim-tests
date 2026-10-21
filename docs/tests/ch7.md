@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 300 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 304 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -50,9 +50,11 @@
 | [`test_struct_packed`](../../tests/ch7/test_struct_packed.sv) | Test packed structs | 7.2.1 10.9.2 | Icarus Verilog 13.0 |  |
 | [`test_struct_packed_2`](../../tests/ch7/test_struct_packed_2.sv) | Packed struct bit operations | 7.2.1 | Icarus Verilog 13.0 |  |
 | [`test_struct_union`](../../tests/ch7/test_struct_union.sv) | Packed Struct (§7.2) | 7.2.1 7.3.1 | Icarus Verilog 13.0 |  |
+| [`test_illegal_hard_packed_union_sizes`](../../tests/ch7/test_illegal_hard_packed_union_sizes.sv) | The members of a packed union without soft have to be of the same size | 7.3.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_packed_nested_member_write`](../../tests/ch7/test_packed_nested_member_write.sv) | 7.3 Packed Nested Member Write Test | 7.3.1 7.2.1 | Icarus Verilog 13.0 |  |
 | [`test_packed_union`](../../tests/ch7/test_packed_union.sv) | Test packed union | 7.3.1 | Icarus Verilog 13.0 |  |
 | [`test_packed_union_struct_member`](../../tests/ch7/test_packed_union_struct_member.sv) | Packed union with a struct member: reading and writing through both views | 7.3.1 | Icarus Verilog 13.0 |  |
+| [`test_soft_packed_union`](../../tests/ch7/test_soft_packed_union.sv) | The members of a soft packed union can have different sizes; the union is as wide as the largest, and each member lies in its low bits | 7.3.1 7.2.1 | Verilator 5.052 |  |
 | [`test_union_basic_edge_cases`](../../tests/ch7/test_union_basic_edge_cases.sv) | Union basic edge cases | 7.3.1 | Icarus Verilog 13.0 |  |
 | [`test_union_edge`](../../tests/ch7/test_union_edge.sv) | Test: Union operation edge cases | 7.3.1 | Icarus Verilog 13.0 |  |
 | [`test_union_ops`](../../tests/ch7/test_union_ops.sv) | A packed union of a word and a struct of two halves | 7.3.1 | Icarus Verilog 13.0 |  |
@@ -231,11 +233,13 @@
 | [`test_queue_delete`](../../tests/ch7/test_queue_delete.sv) | Test queue delete | 7.10.2.3 7.10.4 | Icarus Verilog 13.0 |  |
 | [`test_queue_reference_persistence`](../../tests/ch7/test_queue_reference_persistence.sv) | A reference to a queue element held by a task stays on that element when other methods change the queue, and becomes outdated when the element is deleted or the whole queue is assigned | 7.10.3 13.5.2 7.10.2 | standard only |  |
 | [`test_array_method_corner`](../../tests/ch7/test_array_method_corner.sv) | Tests find, sort, sum, min, max, unique methods | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 |  |
+| [`test_array_method_index_argument`](../../tests/ch7/test_array_method_index_argument.sv) | The second argument of an array method names the index method of its iterator, also where an element has a member named index | 7.12 7.12.4 7.12.1 | standard only |  |
 | [`test_array_methods_2`](../../tests/ch7/test_array_methods_2.sv) | Test for IEEE 1800-2023 §7.12: Array manipulation methods | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 |  |
 | [`test_array_predicates`](../../tests/ch7/test_array_predicates.sv) | Array Methods Tests | 7.12 7.5 7.10 | Icarus Verilog 13.0 |  |
 | [`test_comb_queue_methods_ext`](../../tests/ch7/test_comb_queue_methods_ext.sv) | Test: Extended queue and array method edge cases | 7.12 7.10.2 | Verilator 5.052 |  |
 | [`test_comb_queue_with_clause`](../../tests/ch7/test_comb_queue_with_clause.sv) | Test: Queue methods with 'with' clause | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 |  |
 | [`test_ieee1800_2023_array_method_corner`](../../tests/ch7/test_ieee1800_2023_array_method_corner.sv) | Array Manipulation Methods Corner Cases | 7.12 7.12.1 7.12.2 7.12.3 7.10.2 7.9 | Verilator 5.052 |  |
+| [`test_illegal_iterator_argument_without_with`](../../tests/ch7/test_illegal_iterator_argument_without_with.sv) | An array method cannot name its iterator without a with clause | 7.12 7.12.3 | standard only | illegal design |
 | [`test_member_access_deep`](../../tests/ch7/test_member_access_deep.sv) | array methods, §8.5 class member access | 7.12 8.5 | Verilator 5.052 |  |
 | [`test_array_find`](../../tests/ch7/test_array_find.sv) | Array Locator Methods (§7.12.1) | 7.12.1 | Verilator 5.052 |  |
 | [`test_array_find_2`](../../tests/ch7/test_array_find_2.sv) | Test: Array find method | 7.12.1 | Verilator 5.052 |  |

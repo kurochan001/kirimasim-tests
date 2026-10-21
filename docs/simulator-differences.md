@@ -104,6 +104,7 @@ not parse the modport in an interface port of a module.
 | 24.7 | `$exit` called from a process of a module ends the simulation; it has to be ignored. | `ch24/test_exit_outside_program_ignored` |
 | 16.4 | It runs the action block of an observed deferred assertion at once, where the assertion is, instead of in the Reactive region, so a const ref argument reads the value from before the nonblocking update. | `ch4/test_sched_deferred_action_arguments` |
 | 15.5.1 | A process waiting for an event triggered with `->>` does not wake. | `ch4/test_sched_nonblocking_event_trigger` |
+| 8.11, 6.23 | It rejects type(this) in a static method ("Cannot use 'this' in a static method"); type(this) names the type of the enclosing class anywhere in it. | `ch8/test_type_this` |
 | 10.6.1, 4.9.2 | `assign` (procedural continuous) does not follow later changes of its right-hand side (as Icarus Verilog 13.0). | `ch4/test_sched_procedural_assign_deassign` |
 | 11.5.2, 7.4.5 | An invalid address of a memory loses its upper bits, so another element is read and written. | `ch11/test_memory_invalid_address_2state` |
 | 29.7 | A sequential UDP instance with a delay changes its output before the delay has passed. | `ch29/test_udp_initial_value_not_delayed` |
@@ -170,3 +171,4 @@ not parse the modport in an interface port of a module.
 | 6.19 | An enum value given as a sized literal narrower than the base type | `ch6/test_illegal_enum_sized_literal_width` |
 | 12.8 | break inside a fork-join block that ends a loop around the block | `ch12/test_illegal_break_in_fork_to_outer_loop` |
 | 26.3 | A local declaration of a name that a wildcard import has already made visible | `ch26/test_illegal_local_declaration_after_import` |
+| 8.20 | A pure virtual method declared :final | `ch8/test_illegal_final_pure_virtual` |

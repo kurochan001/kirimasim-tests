@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 144 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 154 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -60,7 +60,9 @@
 | [`test_static_method_through_null_handle`](../../tests/ch8/test_static_method_through_null_handle.sv) | A static method and a static property can be used through a class handle that is null | 8.10 8.9 8.4 | Verilator 5.052 |  |
 | [`test_class_this`](../../tests/ch8/test_class_this.sv) | Test: this keyword usage | 8.11 8.4 | Verilator 5.052 |  |
 | [`test_class_this_super`](../../tests/ch8/test_class_this_super.sv) | this and super keywords | 8.11 8.15 | Verilator 5.052 |  |
+| [`test_illegal_type_this_outside_class`](../../tests/ch8/test_illegal_type_this_outside_class.sv) | type(this) cannot be used outside a class | 8.11 6.23 | Verilator 5.052 | illegal design |
 | [`test_this_expr`](../../tests/ch8/test_this_expr.sv) | Test this expression | 8.11 | Icarus Verilog 13.0 |  |
+| [`test_type_this`](../../tests/ch8/test_type_this.sv) | type(this) is the type of the enclosing class, also in a subclass, where it names the subclass | 8.11 6.23 | standard only |  |
 | [`test_assign_class`](../../tests/ch8/test_assign_class.sv) | Test for class assignment | 8.12 8.4 | Icarus Verilog 13.0 |  |
 | [`test_class_copy`](../../tests/ch8/test_class_copy.sv) | Class Copy (§8.13) | 8.12 | Verilator 5.052 |  |
 | [`test_class_copy_2`](../../tests/ch8/test_class_copy_2.sv) | Test: Class copy method | 8.12 8.7 | Verilator 5.052 |  |
@@ -78,6 +80,7 @@
 | [`test_class_inheritance_corner`](../../tests/ch8/test_class_inheritance_corner.sv) | Tests single and multi-level inheritance, method override, super | 8.13 8.15 8.20 8.21 | Verilator 5.052 |  |
 | [`test_class_inheritance_virtual_super`](../../tests/ch8/test_class_inheritance_virtual_super.sv) | Class inheritance, super, and virtual method overriding | 8.13 8.15 8.20 | standard only |  |
 | [`test_class_multilevel_inheritance`](../../tests/ch8/test_class_multilevel_inheritance.sv) | Multilevel inheritance; constructors that do not call super.new() explicitly | 8.13 8.17 | Icarus Verilog 13.0 |  |
+| [`test_final_class_and_method`](../../tests/ch8/test_final_class_and_method.sv) | A class declared :final can extend another class and be used, and a method declared :final is inherited and called as any other | 8.13 8.20 8.3 | Verilator 5.052 |  |
 | [`test_illegal_final_class_extended`](../../tests/ch8/test_illegal_final_class_extended.sv) | A class declared :final cannot be extended | 8.13 8.3 | Verilator 5.052 | illegal design |
 | [`test_lrm_class_inheritance_8`](../../tests/ch8/test_lrm_class_inheritance_8.sv) | Class inheritance and polymorphism edge cases | 8.13 8.15 8.20 8.21 | Verilator 5.052 |  |
 | [`test_class_super`](../../tests/ch8/test_class_super.sv) | Test: super keyword usage | 8.15 8.20 8.13 | Icarus Verilog 13.0 |  |
@@ -89,6 +92,8 @@
 | [`test_dynamic_cast`](../../tests/ch8/test_dynamic_cast.sv) | Assignment and casting | 8.16 6.24.2 | Verilator 5.052 |  |
 | [`test_system_cast`](../../tests/ch8/test_system_cast.sv) | Test $cast - dynamic type casting | 8.16 6.24.2 | Verilator 5.052 |  |
 | [`test_type_check`](../../tests/ch8/test_type_check.sv) | Type Checking Tests | 8.16 6.24.2 | Verilator 5.052 |  |
+| [`test_illegal_super_new_default_without_default`](../../tests/ch8/test_illegal_super_new_default_without_default.sv) | super.new(default) needs default in the argument list of the constructor | 8.17 | standard only | illegal design |
+| [`test_super_new_default`](../../tests/ch8/test_super_new_default.sv) | default in the argument list of a constructor takes the arguments of the superclass constructor, super.new(default) passes them on, and extends with default gives an implicit constructor the same arguments | 8.17 8.15 | standard only |  |
 | [`test_illegal_local_member_outside`](../../tests/ch8/test_illegal_local_member_outside.sv) | A local class property cannot be accessed from outside the class | 8.18 | Icarus Verilog 13.0 | illegal design |
 | [`test_class_const_properties`](../../tests/ch8/test_class_const_properties.sv) | Global constant class properties take their value in the declaration, and instance constants are set once in the constructor | 8.19 8.9 | Verilator 5.052 |  |
 | [`test_illegal_global_constant_assigned_in_constructor`](../../tests/ch8/test_illegal_global_constant_assigned_in_constructor.sv) | A class constant with an initial value cannot be assigned, not even in the constructor | 8.19 | Icarus Verilog 13.0 | illegal design |
@@ -103,6 +108,11 @@
 | [`test_class_virtual_edge_cases`](../../tests/ch8/test_class_virtual_edge_cases.sv) | Test: Class virtual method edge cases | 8.20 | Verilator 5.052 |  |
 | [`test_class_virtual_param`](../../tests/ch8/test_class_virtual_param.sv) | Virtual method override and a parameterized class with a type parameter | 8.20 8.25 | Verilator 5.052 |  |
 | [`test_illegal_final_method_overridden`](../../tests/ch8/test_illegal_final_method_overridden.sv) | A method declared :final cannot be overridden in a subclass | 8.20 | Verilator 5.052 | illegal design |
+| [`test_illegal_final_pure_virtual`](../../tests/ch8/test_illegal_final_pure_virtual.sv) | A pure virtual method cannot be declared :final | 8.20 8.21 | standard only | illegal design |
+| [`test_illegal_method_extends_without_base`](../../tests/ch8/test_illegal_method_extends_without_base.sv) | A method declared :extends has to override a virtual method of a base class | 8.20 | Verilator 5.052 | illegal design |
+| [`test_illegal_method_initial_and_extends`](../../tests/ch8/test_illegal_method_initial_and_extends.sv) | A method cannot be declared both :initial and :extends | 8.20 | Verilator 5.052 | illegal design |
+| [`test_illegal_method_initial_overrides`](../../tests/ch8/test_illegal_method_initial_overrides.sv) | A method declared :initial cannot override a virtual method | 8.20 | Verilator 5.052 | illegal design |
+| [`test_method_initial_extends`](../../tests/ch8/test_method_initial_extends.sv) | A method declared :initial starts a method and does not override one, and a method declared :extends overrides a virtual method and is virtual itself | 8.20 | Verilator 5.052 |  |
 | [`test_method_virtual`](../../tests/ch8/test_method_virtual.sv) | Virtual methods test | 8.20 8.15 | Verilator 5.052 |  |
 | [`test_virt_method`](../../tests/ch8/test_virt_method.sv) | Test virtual methods | 8.20 8.14 | Verilator 5.052 |  |
 | [`test_virtual_method`](../../tests/ch8/test_virtual_method.sv) | Test virtual method | 8.20 | Verilator 5.052 |  |

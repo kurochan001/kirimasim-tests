@@ -1,6 +1,6 @@
 # Clause 5: Lexical conventions
 
-[All chapters](README.md). 33 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 35 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -30,8 +30,10 @@
 | [`test_real_literal_edge_cases`](../../tests/ch5/test_real_literal_edge_cases.sv) | Test: Real literal edge cases | 5.7.2 6.12 | Icarus Verilog 13.0 |  |
 | [`test_time_literal_scaled_to_unit`](../../tests/ch5/test_time_literal_scaled_to_unit.sv) | A time literal in a delay is scaled to the module's time unit, and $time rounds the time to a whole number of units while $realtime keeps the fraction | 5.8 22.7 20.3.1 20.3.3 | Icarus Verilog 13.0 |  |
 | [`test_time_literal_scaling`](../../tests/ch5/test_time_literal_scaling.sv) | Time literals are real values scaled to the current time unit, in expressions and in delays | 5.8 3.14.2.1 20.3.3 | Icarus Verilog 13.0 |  |
+| [`test_illegal_quoted_string_newline`](../../tests/ch5/test_illegal_quoted_string_newline.sv) | A quoted string cannot contain a newline that is not escaped | 5.9 | Icarus Verilog 13.0 | illegal design |
 | [`test_lexical_strings`](../../tests/ch5/test_lexical_strings.sv) | Chapter 5.9: String literals | 5.9 5.9.1 6.16 | Verilator 5.052 |  |
 | [`test_string_literal_to_unpacked_byte_array`](../../tests/ch5/test_string_literal_to_unpacked_byte_array.sv) | A string literal assigned to an unpacked array of bytes fills it from the left element, padding the rest with 0 | 5.9 7.4 | standard only |  |
+| [`test_triple_quoted_string`](../../tests/ch5/test_triple_quoted_string.sv) | A triple-quoted string holds newlines and double quotes as they are written, and an escaped newline in it continues the line | 5.9 5.9.1 | Verilator 5.052 |  |
 | [`test_array_literal_nesting`](../../tests/ch5/test_array_literal_nesting.sv) | Array literals nest one level of braces per dimension, a replication acts within one dimension and can be nested, and a literal gets its type from a cast or from the assignment, with index and default keys | 5.11 10.9.1 10.8 | Verilator 5.052 |  |
 | [`test_attrib_module`](../../tests/ch5/test_attrib_module.sv) | Test: Module attributes | 5.12 | Icarus Verilog 13.0 | x/z |
 | [`test_attrib_signal`](../../tests/ch5/test_attrib_signal.sv) | Test: Signal attributes | 5.12 | Icarus Verilog 13.0 |  |
