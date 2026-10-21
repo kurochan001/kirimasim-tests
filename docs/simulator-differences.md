@@ -64,6 +64,10 @@ of the test as well.
 | 9.6.3 | disable fork in a task does not end the processes that the calling process spawned before the call. | `ch4/test_sched_disable_fork_in_called_task` |
 | 21.2.1.3 | `%h` of an expression, such as a function call, whose top digit has fewer than four bits, all x, prints X instead of x; a variable with the same value prints x. | `gen/ch13/test_gen_wide_subroutine_w65_4state` |
 | 7.4.5, 11.5.1 | A write to a part-select of an element of a packed array through a variable index, such as `m[i][7:0] = v`, is rejected ("Array index expressions must be constant here") and makes it stop on an internal assertion. | the 7 `gen/ch7/test_gen_wide_select_*_2state` tests |
+| 20.9 | `$countbits` stops the run on an internal assertion (exit code 134), after the checks of `$countones`. | `ch20/test_countones_bits` |
+| 6.16.12, 6.16.9 | `hextoa` of a negative int writes a minus sign and the digits of the magnitude (`-21524111` for 32'hDEADBEEF). As the inverse of `atohex`, which reads no sign, it has to write the hexadecimal digits of the value. | `ch6/test_string_hextoa` |
+| 21.2.1.2 | A field width on `%h` pads with spaces (`[  ab]` for `%4h` of 8'hab); outside decimal, leading zeros are always displayed. | `ch21/test_display_format` |
+| 16.3 | The pass statement of an immediate cover statement does not run when its expression is true (Verilator 5.052 does the same). | `ch16/test_assert_immed_2` |
 
 ### Illegal designs that it accepts
 
@@ -134,6 +138,19 @@ not parse the modport in an interface port of a module.
 | 20.7 | `$size` of a fixed-size dimension that follows a dynamic one gives 0. | `ch20/test_array_query_fixed_dimensions` |
 | 21.2.1.6 | `%p` prints an int member in hexadecimal with `'h` and an enum member as a number instead of its name. | `ch21/test_format_p_struct` |
 | 28.3.3, 28.10 | A pullup with a delay makes it stop with an internal error. As the error names the line of the pullup, the runner counts it as the rejection that the test asks for; `:oracle:` does not list `verilator@5.052`. | `ch28/test_illegal_pullup_delay` |
+| 6.6.3 | A wand, wor, triand or trior net takes the value of one of its drivers instead of the AND or the OR of all of them (`1 & 0` gives 1, `0 \| 1` gives 0). | `ch6/test_net_wand`, `ch6/test_net_wor`, `ch6/test_net_triand`, `ch6/test_net_trior`, `ch6/test_edge_wor_wand`, `ch6/test_net_resolution`, `ch6/test_net_types_resolution` |
+| 20.5 | `$shortrealtobits` gives 0 (other bits for 0.0001), and `$bitstoshortreal` gives 0.0. | `ch20/test_shortreal_ieee754`, `ch20/test_system_shortrealtobits`, `ch20/test_system_bitstoshortreal`, `ch20/test_real_bits_simple`, `ch20/test_real_literal_type`, `ch20/test_realtobits_bitstoreal`, `ch20/test_realtobits_corner_cases`, `ch20/test_math_special_values`, `ch20/test_type_conversion` |
+| 20.8.2, 6.12 | A NaN, from a math function out of its domain or from `$bitstoreal`, compares equal to itself (`v != v` is false), although it prints as nan. A real is a C double, whose NaN is unequal to every value. | `ch20/test_math_special_values`, `ch20/test_math_advanced`, `ch20/test_math_hyperbolic_special_values`, `ch20/test_system_functions_edge`, `ch20/test_realtobits_bitstoreal` |
+| 4.4.2.3, 4.5 | Right after `#0`, continuous assignments and always_comb blocks that a write before it woke still show their old values; the process resumes only when the Active region is empty. | `ch4/test_delta_cycle`, `ch4/test_ieee1800_2023_delta_convergence`, `ch9/test_always_comb_cascade_propagation` |
+| 9.2.2.2, 4.4.2.3 | After `a = 1; b = 2; #0; a = 3; b = 4; #1`, an always_comb of `a + b` holds 3: it does not wake for the writes after `#0`. | `ch9/test_sensitivity_edge_cases` |
+| 9.4.2.2 | An `always @*` block that writes a variable it also reads (a counter) stops the run with DIDNOTCONVERGE. Its own writes come while it runs, not while it waits, so they do not wake it again. | `ch9/test_implicit_event` |
+| 21.3.4.3 | `$sscanf` ignores a field width (`%4d%4d` reads all of `12345678` into the first variable), and `%d` stops at an underscore, which it has to read as part of the number. | `ch21/test_scanf_comprehensive`, `ch21/test_numeric_edge_cases` |
+| 6.16.9 | `atoi` reads a sign and skips leading spaces (`"-9876"` gives -9876, `"   42"` 42); it has to read only leading digits and underscores, and give 0 for both. | `ch6/test_string_atoi`, `ch6/test_string_atoi_2` |
+| 5.7.1 | An unsized decimal number of 2147483648 or more is given only the bits of its magnitude and read as signed, so it turns negative: `1000000000000` gives -99511627776, and a longint of 2147483648 compares unequal to `2147483648`. | `ch6/test_int_types_edge_cases`, `ch11/test_ieee1800_2023_arithmetic_edge` |
+| 11.6.1, 11.6.2 | `INT_MIN / -1` on int gives 0; the quotient, 2147483648, truncated to 32 bits is -2147483648. | `ch11/test_ieee1800_2023_arithmetic_edge` |
+| 29.6 | A sequential UDP whose table toggles its output on a rising edge of the clock (a T flip-flop starting at 0) keeps the output at 0 after the edge. | `ch29/test_udp_seq` |
+| 21.2.1.1 | `%E` and `%G` write a lower-case `e`. The real formats have the formatting of C, where they write `E`. | `ch21/test_format_advanced`, `ch21/test_format_float` |
+| 16.3 | The pass statement of an immediate cover statement does not run when its expression is true (as Icarus Verilog 13.0). | `ch16/test_assert_immed_2` |
 
 ### Illegal designs that it accepts
 

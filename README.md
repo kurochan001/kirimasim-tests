@@ -334,6 +334,14 @@ by copying the simulator's output: the clause decides. The places found so
 far where Icarus Verilog 13.0 or Verilator 5.052 differs from the standard are
 listed in [docs/simulator-differences.md](docs/simulator-differences.md).
 
+An [audit](https://github.com/kurochan001/kirimasim/blob/main/docs/review/oracle_audit.md)
+in kirimasim (2026-10-21) ran the 1466 tests of its P1 population, taken from
+this repository at `c983cf7`, with both releases, Verilator with four random
+seeds for the initial values. Every expected output that lists a release was
+reproduced by that release, and none was found to record a deviation of a
+release from the standard; the deviations that the runs showed are in that
+file.
+
 ### Generated tests
 
 The tests under `tests/gen/` are written by the generators in `generators/`.
