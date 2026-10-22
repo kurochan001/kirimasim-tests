@@ -8,7 +8,8 @@ SystemVerilog.
 
 Each test is a small, self-contained design that prints what it observes. A
 simulator passes a test when its standard output, normalized, is exactly the
-test's expected output. The tests are written for the
+test's expected output and any specified exit-code and diagnostic checks
+succeed. The tests are written for the
 [kirimasim](https://github.com/kurochan001/kirimasim) simulator, but nothing in
 them is specific to it: runners for Icarus Verilog, Verilator, kirimasim and
 sukimasim (kirimasim's predecessor, which is not public) are included, and the
@@ -28,7 +29,7 @@ What sets the suite apart:
   the expected output follows the standard.
 - **Tests print only what the standard fixes.** They do not depend on the
   order of events that the standard leaves open, on random values, on the
-  default time unit or on the format of a simulator's messages.
+  default time unit or on the exact wording of a simulator's messages.
 
 > **Status: early.** Every test has been checked against the standard by an
 > AI model, and none by a person yet (`:spec_check: ai`).
@@ -133,6 +134,13 @@ chapter progress and links to the complete candidate worklist and content findin
 Collective witnesses require every member test to pass in one simulator snapshot;
 partial successes from separate runs are not combined into a successful requirement.
 
+The 2026-10-23 updates are documented in the
+[matching progress and findings](docs/existing-test-matching-review-20261022.md),
+the [11 expression gap tests](docs/expression-gap-tests-20261023.md) and the
+[15 associative-array gap tests](docs/associative-gap-tests-20261023.md).
+The addition reports record the observations, standard-derived expectations,
+simulator differences, mutation checks and execution evidence.
+
 Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
 Verilator and Standard only count the tests by where their expected output
@@ -156,6 +164,22 @@ branch. The chart below is redrawn after each run; the
 also shows the share of tests that match, the results by chapter, each
 simulator's results over time, and the tests whose result changed since the
 previous night.
+
+The scheduled start is **04:23 Japan Standard Time (JST, UTC+09:00)** every
+day, or 19:23 UTC on the preceding date. Results are published after the
+simulator jobs finish; GitHub scheduling delays and build times can move the
+update hours later. The results report's `Latest run` and `Recent runs`
+timestamps are in **UTC** and record when the report is generated, rather
+than when the workflow starts. Add nine hours to read them in JST. Actual
+start times and pending runs are shown in
+[GitHub Actions](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml).
+See the [Japanese guide to update times and report versions](docs/nightly-results.md).
+
+The chart represents the suite commit and test count named in that report.
+Adding tests to `main` updates the catalog and suite statistics; their nightly
+results appear after a subsequent workflow runs that commit and publishes
+its results. Check `suite commit` and the test count before comparing a chart
+with the current suite.
 
 ![Tests that match their expected output](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
@@ -232,7 +256,12 @@ tools/new_test.py               writes the skeleton of a new test
 
 The `results` branch, written only by the nightly workflow, holds
 `history.json` (one entry per run), `latest/<simulator>.json` (the result of
-every test in the latest run), `charts/*.svg` and the report, `README.md`.
+every test in each simulator's latest run), `charts/*.svg` and the report,
+`README.md`. The publish job also writes `behavior-coverage-summary.md`,
+`behavior-coverage.md`, `behavior-summary.json`, `behavior-coverage.json`
+and `behavior-history.json` for behavioral coverage of that run. The
+[Japanese guide](docs/nightly-results.md) explains how these differ from the
+saved evidence on `main`.
 
 ## Test format
 
@@ -308,9 +337,15 @@ lines and the simulator's own banners (see `tools/normalize_output.py` and the
 runners), is exactly the expected output. The messages of the severity tasks
 (`$info`, `$warning`, `$error` and `$fatal`), whose form the standard leaves to
 the tool (20.10), are removed as well, since Icarus Verilog and Verilator
-print them on standard output. The exit code and standard error are checked
+print them on standard output. The exit code and runtime messages are checked
 only when the test asks for it with `:expected_exit:` or
-`:expected_stderr_regex:`.
+`:expected_stderr_regex:`. For runtime checks, the regular expression sees
+the raw standard output plus standard error before those messages are removed.
+The new associative-array diagnostic tests therefore detect a missing warning,
+or an unwanted warning, even when the normalized standard output matches.
+They recognize warning severity markers without fixing the complete message
+wording or a source location; see the
+[test addition report](docs/associative-gap-tests-20261023.md).
 
 An illegal design (`:should_fail_because:`) passes when the simulator rejects
 it with an error at the place that `:expected_stderr_regex:` names, and fails
@@ -570,7 +605,8 @@ and `my-results/README.md`. `python3 tools/results_history.py render
 
 `.github/workflows/check.yml` runs on every push to `main` and every pull
 request that changes `tests/`, `tools/`, `generators/`, `docs/tests/`, this
-README or the workflow itself, and can be started by hand from the Actions
+README, `coverage/`, `docs/behavior-coverage.md`, `docs/coverage-depth.md`
+or the workflow itself, and can be started by hand from the Actions
 tab (`workflow_dispatch`). Its jobs fail when the
 suite has a problem:
 
@@ -589,9 +625,12 @@ suite has a problem:
   two direct tests (`tools/coverage_depth.py --check --minimum-tests 2`),
   and that no test breaks a rule of the metadata or of "Contributing" that
   `tools/lint_metadata.py` checks, other than the known problems of existing
-  tests in `tools/lint_baseline.txt`.
+  tests in `tools/lint_baseline.txt`. It also runs the tooling unit tests,
+  validates behavioral coverage and its baseline with source review required,
+  and checks the freshness of the requirement-matching inventory.
 
-`.github/workflows/nightly.yml` runs at 19:23 UTC every day, and can be
+`.github/workflows/nightly.yml` is scheduled at 19:23 UTC every day
+(04:23 JST the following day), and can be
 started by hand as well; GitHub can start a scheduled run hours late when it
 is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
@@ -618,8 +657,11 @@ only reported, except for the ratchet of the kirimasim job. It has five jobs:
   runs only in this repository.
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
-  `tools/results_history.py update`, and pushes the branch. The summary of
-  the run lists each simulator's counts and the tests whose result changed.
+  `tools/results_history.py update`, measures behavioral coverage using only
+  that run's result files, and pushes the branch. The summary of the run
+  lists each simulator's counts, tests whose result changed and behavioral
+  coverage. Publishing waits for all four simulator jobs to finish, including
+  failed jobs; a successful publish is what updates the chart and report.
 
 A simulator whose nightly job fails before it has results is left out of
 that night's entry, and its next run is compared with its last results.
