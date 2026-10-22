@@ -202,7 +202,7 @@ jobs:
       - name: Check behavioral coverage and its regression tests
         run: |
           python3 -m unittest discover -s tools -p 'test_*.py'
-          python3 tools/behavior_coverage.py --check
+          python3 tools/behavior_coverage.py --check --require-source-reviewed
 
       # Problems of existing tests listed in tools/lint_baseline.txt are known.
       - name: Check the metadata of the tests

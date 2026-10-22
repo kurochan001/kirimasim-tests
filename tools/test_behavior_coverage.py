@@ -73,16 +73,32 @@ class BehaviorCoverageTests(unittest.TestCase):
         sections, rows = self.validated()
         small = {"4.9.3": {"kind": "normative", "review": "complete"},
                  "P": {"kind": "informative", "review": "unreviewed"}}
-        stats = coverage.summarize(small, rows, {"executed": []})
+        stats = coverage.summarize(small, rows, {"executed": []}, denominator_reviewed=True)
         self.assertEqual(stats["whole_standard_percent"], 0)
         self.assertEqual(stats["unmapped"], 1)
 
     def test_complete_design_coverage_can_still_lack_execution_evidence(self):
         _, rows = self.validated()
         stats = coverage.summarize({"4.9.3": {"kind": "normative", "review": "complete"}},
-                                   rows, {"executed": []})
+                                   rows, {"executed": []}, denominator_reviewed=True)
         self.assertEqual(stats["whole_standard_percent"], 100)
         self.assertEqual(stats["whole_standard_executed_percent"], 0)
+
+    def test_reading_all_source_does_not_approve_overlapping_requirement_units(self):
+        _, rows = self.validated()
+        stats = coverage.summarize({"4.9.3": {"kind": "normative", "review": "complete"}},
+                                   rows, {"executed": [rows[0]["id"]]})
+        self.assertEqual(stats["extraction_progress_percent"], 100)
+        self.assertEqual(stats["registered_percent"], 100)
+        self.assertIsNone(stats["whole_standard_percent"])
+
+    def test_source_review_evidence_cannot_be_removed_from_baseline(self):
+        sections, rows = self.validated()
+        before = coverage.baseline(sections, rows)
+        before["source_reviewed_sections"] = ["4.9.3"]
+        after = {**before, "source_reviewed_sections": []}
+        with self.assertRaisesRegex(coverage.InvalidCoverage, "source review regression"):
+            coverage.check_baseline(before, after)
 
     def test_parent_introductions_are_not_completed_by_children(self):
         sections, rows = self.validated()
@@ -219,6 +235,10 @@ class BehaviorCoverageTests(unittest.TestCase):
             self.assertEqual([r["registered"] for r in json.loads(path.read_text())["runs"]], [10, 12])
 
     def test_update_locks_new_requirements_against_later_removal(self):
+        for section in self.inv["sections"]:
+            section["review"] = "in_progress"
+        for rule in self.reg["requirements"]:
+            rule.pop("source_spans", None)
         sections, rows = self.validated()
         initial = coverage.baseline(sections, rows, self.inv["source"])
         extra = copy.deepcopy(self.reg["requirements"][0])
@@ -228,6 +248,12 @@ class BehaviorCoverageTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
             (folder / "standard-sections.json").write_text(json.dumps(self.inv))
+            (folder / "requirement-source-index.json").write_bytes(
+                (coverage.DATA / "requirement-source-index.json").read_bytes())
+            (folder / "requirement-audit.json").write_text(json.dumps({
+                "schema": 1, "pdf_sha256": self.inv["source"]["pdf_sha256"],
+                "text_sha256": json.loads((coverage.DATA / "requirement-source-index.json").read_text())["text_sha256"],
+                "sections": {}}))
             registry_path = folder / "behaviors.json"
             registry_path.write_text(json.dumps(self.reg))
             (folder / "behavior-baseline.json").write_text(json.dumps(initial))
