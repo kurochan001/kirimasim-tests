@@ -111,16 +111,27 @@ cases for all 187 clauses that previously had one test. CI enforces the
 two-test floor with `tools/coverage_depth.py --check --minimum-tests 2`;
 parent-clause citations do not satisfy that floor for a child clause.
 
-The separate [behavior report](docs/behavior-coverage.md) measures explicitly
-reviewed requirements and observable test outcomes. Its
+The [behavior summary](docs/behavior-coverage-summary.md) and
+[detailed report](docs/behavior-coverage.md) measure explicitly reviewed
+requirements and observable test outcomes. Their
 [registry and workflow](coverage/README.md) inventory clauses 1–41 and annexes
 A–Q, including parent introductions and previously excluded material. The
-whole-standard behavior percentage remains undefined until the normative
-requirements have all been extracted. Registered-requirement coverage,
-execution evidence and investigation progress are reported separately; they
-do not imply that every behavior of the standard is already tested. CI checks
-the registry and prevents silent coverage regressions. Nightly records the
-counts and denominator identities on the `results` branch.
+source review covers all 1,740 sections. Provisional percentages use every
+registered requirement/condition/observation row, including interpretation
+holds and unmapped rows. Confirmed whole-standard percentages remain undefined
+until interpretations and overlapping requirement units are reconciled and
+the denominator is approved. The reports separate design coverage, execution
+evidence, simulator outcomes and source-review progress. CI checks the registry
+and generated summaries. Nightly records percentages, outstanding items,
+simulator outcomes and denominator identities on the `results` branch.
+Existing tests contribute only after their stimuli and expected outcomes have
+been linked to requirements. The summary shows how many test files have at least
+one reviewed link; unlinked tests may exercise additional requirements that are
+not yet counted. Review existing tests before adding new ones for an unmapped row.
+The [existing-test matching inventory](docs/test-requirement-matching.md) lists
+chapter progress and links to the complete candidate worklist and content findings.
+Collective witnesses require every member test to pass in one simulator snapshot;
+partial successes from separate runs are not combined into a successful requirement.
 
 Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
@@ -197,6 +208,9 @@ docs/inventory-20261021.md      what the suite had before the extension work of 
 docs/tests/                     the catalog: every test with what it checks, by chapter
 docs/tests/clauses.md           which clauses of the standard the tests cite
 docs/coverage-depth.md          how many tests each clause has, and the priority gaps
+docs/behavior-coverage-summary.md provisional and confirmed behavior coverage, by chapter and simulator
+coverage/behavior-summary.json  the current behavior measurements and denominator identity
+coverage/behavior-history.json  saved measurement history with denominator identities
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim

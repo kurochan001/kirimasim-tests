@@ -1,9 +1,12 @@
 # IEEE 1800-2023 動作カバレッジ
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。
-[全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
+[集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
+**全規格の要求台帳ベース（暫定）: 設計 4.00%、実行 3.64%。**
+解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
+
 規格全動作の実行確認率: 未確定。
 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
@@ -12,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 46 論点、42 節、49 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1661/1703 見出し (97.53%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 94/12319 (0.76%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 85/12319 (0.69%)。
-- 登録済みだがテスト未対応: 12225 動作。
+- 登録済み動作に対するテスト設計網羅率: 493/12319 (4.00%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 448/12319 (3.64%)。
+- 登録済みだがテスト未対応: 11826 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -30,8 +33,13 @@
 `fail`、来歴なし、入力／ランナー変更後の結果は成功に数えません。複数の結果の和集合は
 独立した検証環境での確認数であり、一つのシミュレータの適合率ではありません。
 
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-22T07:18:10.878145+00:00 / 59/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T07:18:13.917102+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
+複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で
+グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
+
+- `citation-refinement-icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T14:29:24.878016+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
+- `citation-refinement-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:29:34.097194+00:00 / 16/12319 動作確認、古い入力との対応 0 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 355/12319 動作確認、古い入力との対応 28 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 272/12319 動作確認、古い入力との対応 28 件。
 
 ## 章・附属書別の調査状態
 
@@ -39,32 +47,32 @@
 
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
-- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 0。
-- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 4。
+- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 6。
+- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 6。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 4。
-- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 23。
-- 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 16。
-- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 1。
-- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 0。
-- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 1。
-- 11 Operators and expressions: 解釈保留なし 54/55、登録 461、テスト対応 23。
+- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 93。
+- 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 53。
+- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 7。
+- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 1。
+- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 6。
+- 11 Operators and expressions: 解釈保留なし 54/55、登録 461、テスト対応 121。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 2。
-- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 2。
+- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 5。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 0。
-- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 0。
+- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 36。
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 0。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 0。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 0。
 - 19 Functional coverage: 解釈保留なし 30/34、登録 272、テスト対応 0。
-- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 4。
-- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 4。
-- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 2。
+- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 65。
+- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 11。
+- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 13。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 3。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 1。
 - 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 0。
-- 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 1。
-- 27 Generate constructs: 解釈保留なし 6/7、登録 32、テスト対応 0。
-- 28 Gate-level and switch-level modeling: 解釈保留なし 33/34、登録 384、テスト対応 2。
+- 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 2。
+- 27 Generate constructs: 解釈保留なし 6/7、登録 32、テスト対応 3。
+- 28 Gate-level and switch-level modeling: 解釈保留なし 33/34、登録 384、テスト対応 54。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 1。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 0。
 - 31 Timing checks: 解釈保留なし 24/26、登録 180、テスト対応 0。
@@ -1480,7 +1488,7 @@ The time suffixes s, ms, us, ns, ps and fs denote seconds, milliseconds, microse
 
 ### SV2023-3.14.1-EXTRACT-LOCAL-ROUNDING-INDEPENDENCE
 
-3.14.1 / normal / テスト未対応
+3.14.1 / normal / 実行確認あり
 
 A finer precision elsewhere in the design does not increase the accuracy of a delay already rounded in another design element.
 
@@ -1488,10 +1496,11 @@ A finer precision elsewhere in the design does not increase the accuracy of a de
 
 規定の性質: `mandatory`。
 
+- [test_time_value_rounding.sv](../tests/ch3/test_time_value_rounding.sv): The fine instance and top have 1ps precision but do not refine the coarse instance 100ps-rounded delays; coarse and fine expected outputs are checked together.
 
 ### SV2023-3.14.1-EXTRACT-RELATIVE-DECIMAL-RESOLUTION
 
-3.14.1 / normal / テスト未対応
+3.14.1 / normal / 実行確認あり
 
 Decimal resolution is the ratio of local time precision to local time unit.
 
@@ -1499,6 +1508,7 @@ Decimal resolution is the ratio of local time precision to local time unit.
 
 規定の性質: `definition`。
 
+- [test_time_value_rounding.sv](../tests/ch3/test_time_value_rounding.sv): The ratio 100ps/1ns is0.1 local units; sub-resolution 0.04 rounds to zero and 0.06 to0.1, while the 1ps instance resolves three fractional digits.
 
 ### SV2023-3.14.1-EXTRACT-ROUND-LOCAL-PRECISION
 
@@ -1535,7 +1545,7 @@ A timescale directive contains the time-unit literal followed by the time-precis
 
 ### SV2023-3.14.2.1-EXTRACT-TIMESCALE-DEFAULT
 
-3.14.2.1 / normal / テスト未対応
+3.14.2.1 / normal / 実行確認あり
 
 A timescale directive supplies default unit/precision for subsequent design elements lacking the applicable local declarations.
 
@@ -1543,10 +1553,11 @@ A timescale directive supplies default unit/precision for subsequent design elem
 
 規定の性質: `mandatory`。
 
+- [test_timescale_replaced_by_next.sv](../tests/ch3/test_timescale_replaced_by_next.sv): Earlier a/b modules use1ns units, later c/top use10ns. Their output order corresponds to physical15,20,25,30ns, while local time values are15,2,25,3. This distinguishes the most recent preceding directive from the caller/last global directive.
 
 ### SV2023-3.14.2.1-EXTRACT-TIMESCALE-REPLACEMENT
 
-3.14.2.1 / normal / テスト未対応
+3.14.2.1 / normal / 実行確認あり
 
 The most recently encountered timescale directive supplies the active directive setting until another such directive changes it.
 
@@ -1554,6 +1565,7 @@ The most recently encountered timescale directive supplies the active directive 
 
 規定の性質: `mandatory`。
 
+- [test_timescale_replaced_by_next.sv](../tests/ch3/test_timescale_replaced_by_next.sv): Earlier a/b modules use1ns units, later c/top use10ns. Their output order corresponds to physical15,20,25,30ns, while local time values are15,2,25,3. This distinguishes the most recent preceding directive from the caller/last global directive.
 
 ### SV2023-3.14.2.1-EXTRACT-TIMESCALE-UNIT-BOUNDARY
 
@@ -1568,7 +1580,7 @@ A timescale directive is restricted to its current compilation unit and does not
 
 ### SV2023-3.14.2.2-EXTRACT-COMBINED-TIMEUNIT
 
-3.14.2.2 / normal / テスト未対応
+3.14.2.2 / normal / 実行確認あり
 
 A timeunit declaration may additionally specify precision as a second time literal after a slash.
 
@@ -1576,6 +1588,7 @@ A timeunit declaration may additionally specify precision as a second time liter
 
 規定の性質: `permission`。
 
+- [test_timeunit_with_precision.sv](../tests/ch3/test_timeunit_with_precision.sv): The combined slash declaration overrides the preceding timescale, and both printtimescale and accumulated fractional delay show the declared 100ps unit/10ps precision.
 
 ### SV2023-3.14.2.2-EXTRACT-INITIAL-TIME-DECLARATION-ORDER
 
@@ -1590,7 +1603,7 @@ The initial timeunit/timeprecision declarations in a time scope must precede its
 
 ### SV2023-3.14.2.2-EXTRACT-LOCAL-TIME-DECLARATIONS
 
-3.14.2.2 / normal / テスト未対応
+3.14.2.2 / normal / 実行確認あり
 
 timeunit and timeprecision declarations each take a time literal for the corresponding local setting.
 
@@ -1598,6 +1611,7 @@ timeunit and timeprecision declarations each take a time literal for the corresp
 
 規定の性質: `definition`。
 
+- [test_time_value_rounding.sv](../tests/ch3/test_time_value_rounding.sv): Separate local unit and precision declarations give the coarse and fine modules their distinct delay quantization; observable fractional delays distinguish the settings.
 
 ### SV2023-3.14.2.2-EXTRACT-LOCAL-TIME-INDEPENDENCE
 
@@ -1920,7 +1934,7 @@ Events currently in Active may be processed in any order consistent with other e
 
 ### SV2023-4.4.2.3-EXTRACT-INACTIVE-AFTER-ACTIVE
 
-4.4.2.3 / normal / テスト未対応
+4.4.2.3 / normal / 実行確認あり
 
 Inactive events are eligible only after the current Active work has been processed.
 
@@ -1928,10 +1942,30 @@ Inactive events are eligible only after the current Active work has been process
 
 規定の性質: `mandatory`。
 
+- [test_gen_sched_blocking_wait_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_initial_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_always_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_always_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_task_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_task_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_function_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_function_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_fork_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_interface_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_generate_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_initial_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_always_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_always_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_task_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_task_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_function_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_function_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_fork_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_interface_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_generate_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_initial_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_always_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_always_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_task_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_task_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_fork_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_interface_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_generate_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
 
 ### SV2023-4.4.2.3-EXTRACT-ZERO-DELAY-INACTIVE
 
-4.4.2.3 / normal / テスト未対応
+4.4.2.3 / normal / 実行確認あり
 
 An explicit #0 executed in the active-region set suspends the process into the current slot's Inactive queue.
 
@@ -1939,6 +1973,26 @@ An explicit #0 executed in the active-region set suspends the process into the c
 
 規定の性質: `mandatory`。
 
+- [test_gen_sched_blocking_wait_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_initial_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_always_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_always_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_task_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_task_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_function_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_function_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_fork_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_interface_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_blocking_wait_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_wait_generate_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_initial_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_always_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_always_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_task_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_task_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_function_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_function_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_fork_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_interface_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_assign_wait_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_assign_wait_generate_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_initial_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_always_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_always_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_task_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_task_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_fork_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_interface_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_gen_sched_force_wait_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_generate_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
 
 ### SV2023-4.4.2.4-EXTRACT-ACTIVE-NBA-SCHEDULE
 
@@ -4902,7 +4956,7 @@ Data objects must be declared before use except for the explicit implicit-net ca
 
 ### SV2023-6.5-EXTRACT-DECLARATION-NAME-COLLISION
 
-6.5 / error / テスト未対応
+6.5 / error / 実行確認あり
 
 A net, variable or other declaration cannot redeclare a name already declared in the same namespace.
 
@@ -4910,6 +4964,7 @@ A net, variable or other declaration cannot redeclare a name already declared in
 
 規定の性質: `mandatory`。
 
+- [test_illegal_redeclaration.sv](../tests/ch6/test_illegal_redeclaration.sv): A module declares count as both logic vector and int in the same scope. Inspected Icarus13.0 diagnostic identifies the existing declaration and the conflicting declaration.
 
 ### SV2023-6.5-EXTRACT-DECLARED-VARIABLE-INITIALIZER
 
@@ -4968,7 +5023,7 @@ A declared variable initialization or procedural assign counts as a procedural a
 
 ### SV2023-6.5-EXTRACT-INPUT-VARIABLE-DRIVER
 
-6.5 / error / テスト未対応
+6.5 / error / 実行確認あり
 
 An input-port variable has an implied continuous driving assignment and therefore cannot also be assigned independently.
 
@@ -4976,10 +5031,11 @@ An input-port variable has an implied continuous driving assignment and therefor
 
 規定の性質: `mandatory`。
 
+- [test_illegal_input_port_variable_assigned.sv](../tests/ch6/test_illegal_input_port_variable_assigned.sv): Input var logic port is independently assigned by its module. Verilator5.052 lint diagnostic inspected: ASSIGNIN assigning to input/const variable a, exactly at the illegal statement. Icarus acceptance remains a known mismatch.
 
 ### SV2023-6.5-EXTRACT-INSTANCE-OUTPUT-VARIABLE-DRIVER
 
-6.5 / error / テスト未対応
+6.5 / error / 実行確認あり
 
 A variable driven by an instance output has an implied continuous assignment; additional procedural/continuous writers are illegal.
 
@@ -4987,6 +5043,7 @@ A variable driven by an instance output has an implied continuous assignment; ad
 
 規定の性質: `mandatory`。
 
+- [test_illegal_output_port_variable_also_assigned.sv](../tests/ch6/test_illegal_output_port_variable_also_assigned.sv): The parent variable is connected to an instance output and assigned procedurally. Icarus13.0 diagnostic explicitly identifies procedural assignment conflicting with its continuous driver.
 
 ### SV2023-6.5-EXTRACT-NET-DRIVERS
 
@@ -5023,7 +5080,7 @@ A multiply driven net uses the resolution function associated with its net type 
 
 ### SV2023-6.5-EXTRACT-NO-PROCEDURAL-NET-ASSIGNMENT
 
-6.5 / error / テスト未対応
+6.5 / error / 実行確認あり
 
 A net cannot be assigned by an ordinary procedural variable assignment.
 
@@ -5031,6 +5088,7 @@ A net cannot be assigned by an ordinary procedural variable assignment.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_procedural_assign_to_net.sv](../tests/ch10/test_illegal_procedural_assign_to_net.sv): Ordinary procedural assignment targets a wire net. Inspected Icarus13.0 diagnostic identifies w as an invalid procedural lvalue and notes its wire declaration.
 
 ### SV2023-6.5-EXTRACT-NO-VARIABLE-INOUT
 
@@ -5980,7 +6038,7 @@ With two strong drivers and the implicit pull0 source, tri0 drivers 1 and z reso
 
 ### SV2023-6.6.5-EXTRACT-TRI0-PULL
 
-6.6.5 / normal / テスト未対応
+6.6.5 / normal / 実行確認あり
 
 tri0 is equivalent to a wire with an implicit continuous pull-strength zero; without another effective driver its value is pull0.
 
@@ -5988,6 +6046,28 @@ tri0 is equivalent to a wire with an implicit continuous pull-strength zero; wit
 
 規定の性質: `definition`。
 
+- [test_gen_strength_tri0_01.sv](../tests/gen/ch28/test_gen_strength_tri0_01.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_02.sv](../tests/gen/ch28/test_gen_strength_tri0_02.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_03.sv](../tests/gen/ch28/test_gen_strength_tri0_03.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_04.sv](../tests/gen/ch28/test_gen_strength_tri0_04.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_05.sv](../tests/gen/ch28/test_gen_strength_tri0_05.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_06.sv](../tests/gen/ch28/test_gen_strength_tri0_06.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_07.sv](../tests/gen/ch28/test_gen_strength_tri0_07.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_08.sv](../tests/gen/ch28/test_gen_strength_tri0_08.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_09.sv](../tests/gen/ch28/test_gen_strength_tri0_09.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_10.sv](../tests/gen/ch28/test_gen_strength_tri0_10.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_11.sv](../tests/gen/ch28/test_gen_strength_tri0_11.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_12.sv](../tests/gen/ch28/test_gen_strength_tri0_12.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_13.sv](../tests/gen/ch28/test_gen_strength_tri0_13.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_14.sv](../tests/gen/ch28/test_gen_strength_tri0_14.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_15.sv](../tests/gen/ch28/test_gen_strength_tri0_15.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_16.sv](../tests/gen/ch28/test_gen_strength_tri0_16.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_17.sv](../tests/gen/ch28/test_gen_strength_tri0_17.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_18.sv](../tests/gen/ch28/test_gen_strength_tri0_18.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_19.sv](../tests/gen/ch28/test_gen_strength_tri0_19.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_20.sv](../tests/gen/ch28/test_gen_strength_tri0_20.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_21.sv](../tests/gen/ch28/test_gen_strength_tri0_21.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri0_22.sv](../tests/gen/ch28/test_gen_strength_tri0_22.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri0 source gives pull-strength 0 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
 
 ### SV2023-6.6.5-EXTRACT-TRI0-X-0
 
@@ -6167,7 +6247,7 @@ With two strong drivers and the implicit pull1 source, tri1 drivers 1 and z reso
 
 ### SV2023-6.6.5-EXTRACT-TRI1-PULL
 
-6.6.5 / normal / テスト未対応
+6.6.5 / normal / 実行確認あり
 
 tri1 is equivalent to a wire with an implicit continuous pull-strength one; without another effective driver its value is pull1.
 
@@ -6175,6 +6255,28 @@ tri1 is equivalent to a wire with an implicit continuous pull-strength one; with
 
 規定の性質: `definition`。
 
+- [test_gen_strength_tri1_01.sv](../tests/gen/ch28/test_gen_strength_tri1_01.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_02.sv](../tests/gen/ch28/test_gen_strength_tri1_02.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_03.sv](../tests/gen/ch28/test_gen_strength_tri1_03.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_04.sv](../tests/gen/ch28/test_gen_strength_tri1_04.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_05.sv](../tests/gen/ch28/test_gen_strength_tri1_05.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_06.sv](../tests/gen/ch28/test_gen_strength_tri1_06.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_07.sv](../tests/gen/ch28/test_gen_strength_tri1_07.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_08.sv](../tests/gen/ch28/test_gen_strength_tri1_08.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_09.sv](../tests/gen/ch28/test_gen_strength_tri1_09.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_10.sv](../tests/gen/ch28/test_gen_strength_tri1_10.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_11.sv](../tests/gen/ch28/test_gen_strength_tri1_11.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_12.sv](../tests/gen/ch28/test_gen_strength_tri1_12.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_13.sv](../tests/gen/ch28/test_gen_strength_tri1_13.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_14.sv](../tests/gen/ch28/test_gen_strength_tri1_14.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_15.sv](../tests/gen/ch28/test_gen_strength_tri1_15.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_16.sv](../tests/gen/ch28/test_gen_strength_tri1_16.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_17.sv](../tests/gen/ch28/test_gen_strength_tri1_17.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_18.sv](../tests/gen/ch28/test_gen_strength_tri1_18.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_19.sv](../tests/gen/ch28/test_gen_strength_tri1_19.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_20.sv](../tests/gen/ch28/test_gen_strength_tri1_20.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_21.sv](../tests/gen/ch28/test_gen_strength_tri1_21.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
+- [test_gen_strength_tri1_22.sv](../tests/gen/ch28/test_gen_strength_tri1_22.sv): Exact reviewed strength.net_cases template/oracle. With both explicit sources z, the implicit tri1 source gives pull-strength 1 rather than floating z; other known driver combinations in the same checked output exercise resolution with the implicit source.
 
 ### SV2023-6.6.5-EXTRACT-TRI1-X-0
 
@@ -7836,7 +7938,7 @@ logic, reg, integer and time are the named four-state integer types; the named t
 
 ### SV2023-6.11.2-EXTRACT-FOUR-TO-TWO-STATE
 
-6.11.2 / normal / テスト未対応
+6.11.2 / normal / 実行確認あり
 
 Automatic four-state to two-state conversion maps x and z bits to zero.
 
@@ -7844,6 +7946,13 @@ Automatic four-state to two-state conversion maps x and z bits to zero.
 
 規定の性質: `mandatory`。
 
+- [test_gen_wide_values_w63.sv](../tests/gen/ch6/test_gen_wide_values_w63.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w64.sv](../tests/gen/ch6/test_gen_wide_values_w64.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w65.sv](../tests/gen/ch6/test_gen_wide_values_w65.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w127.sv](../tests/gen/ch6/test_gen_wide_values_w127.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w128.sv](../tests/gen/ch6/test_gen_wide_values_w128.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w129.sv](../tests/gen/ch6/test_gen_wide_values_w129.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w200.sv](../tests/gen/ch6/test_gen_wide_values_w200.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 
 ### SV2023-6.11.2-EXTRACT-LOGIC-REG-TYPE-IDENTITY
 
@@ -7858,7 +7967,7 @@ logic and reg denote the same data type, despite the reg keyword's historical co
 
 ### SV2023-6.11.2-EXTRACT-NARROW-MSB-TRUNCATION
 
-6.11.2 / normal / テスト未対応
+6.11.2 / normal / 実行確認あり
 
 Automatic narrowing discards the most significant excess bits.
 
@@ -7866,10 +7975,17 @@ Automatic narrowing discards the most significant excess bits.
 
 規定の性質: `mandatory`。
 
+- [test_gen_wide_values_w63.sv](../tests/gen/ch6/test_gen_wide_values_w63.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w64.sv](../tests/gen/ch6/test_gen_wide_values_w64.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w65.sv](../tests/gen/ch6/test_gen_wide_values_w65.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w127.sv](../tests/gen/ch6/test_gen_wide_values_w127.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w128.sv](../tests/gen/ch6/test_gen_wide_values_w128.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w129.sv](../tests/gen/ch6/test_gen_wide_values_w129.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w200.sv](../tests/gen/ch6/test_gen_wide_values_w200.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 
 ### SV2023-6.11.2-EXTRACT-SIGNED-WIDEN
 
-6.11.2 / normal / テスト未対応
+6.11.2 / normal / 実行確認あり
 
 Automatic widening of a signed bit value replicates the sign bit, under the expression type rules.
 
@@ -7877,10 +7993,17 @@ Automatic widening of a signed bit value replicates the sign bit, under the expr
 
 規定の性質: `mandatory`。
 
+- [test_gen_wide_values_w63.sv](../tests/gen/ch6/test_gen_wide_values_w63.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w64.sv](../tests/gen/ch6/test_gen_wide_values_w64.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w65.sv](../tests/gen/ch6/test_gen_wide_values_w65.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w127.sv](../tests/gen/ch6/test_gen_wide_values_w127.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w128.sv](../tests/gen/ch6/test_gen_wide_values_w128.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w129.sv](../tests/gen/ch6/test_gen_wide_values_w129.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w200.sv](../tests/gen/ch6/test_gen_wide_values_w200.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 
 ### SV2023-6.11.2-EXTRACT-UNSIGNED-WIDEN
 
-6.11.2 / normal / テスト未対応
+6.11.2 / normal / 実行確認あり
 
 Automatic widening of an unsigned bit value fills the new high bits with zeros.
 
@@ -7888,6 +8011,13 @@ Automatic widening of an unsigned bit value fills the new high bits with zeros.
 
 規定の性質: `mandatory`。
 
+- [test_gen_wide_values_w63.sv](../tests/gen/ch6/test_gen_wide_values_w63.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w64.sv](../tests/gen/ch6/test_gen_wide_values_w64.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w65.sv](../tests/gen/ch6/test_gen_wide_values_w65.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w127.sv](../tests/gen/ch6/test_gen_wide_values_w127.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w128.sv](../tests/gen/ch6/test_gen_wide_values_w128.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w129.sv](../tests/gen/ch6/test_gen_wide_values_w129.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w200.sv](../tests/gen/ch6/test_gen_wide_values_w200.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 
 ### SV2023-6.11.3-EXTRACT-DEFAULT-SIGNED-INTEGERS
 
@@ -7934,7 +8064,7 @@ byte and shortint are signed unless declared otherwise.
 
 ### SV2023-6.12-EXTRACT-NO-REAL-EDGE
 
-6.12 / error / テスト未対応
+6.12 / error / 実行確認あり
 
 An edge event control cannot be applied to a real variable.
 
@@ -7942,10 +8072,11 @@ An edge event control cannot be applied to a real variable.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_real_edge_event.sv](../tests/ch6/test_illegal_real_edge_event.sv): Uses posedge on a real variable. Inspected Icarus13.0 diagnostic specifically states posedge cannot be used with real expressions.
 
 ### SV2023-6.12-EXTRACT-NO-REAL-SELECT
 
-6.12 / error / テスト未対応
+6.12 / error / 実行確認あり
 
 A real variable cannot be bit-selected or part-selected.
 
@@ -7953,6 +8084,7 @@ A real variable cannot be bit-selected or part-selected.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_real_bit_select.sv](../tests/ch6/test_illegal_real_bit_select.sv): Selects bit zero of a real variable. Inspected Icarus13.0 diagnostic states it cannot select part of real r, at that expression.
 
 ### SV2023-6.12-EXTRACT-NO-REAL-VECTOR-INDEX
 
@@ -8022,7 +8154,7 @@ The shortreal data type has the representation of a C float.
 
 ### SV2023-6.12.1-EXTRACT-ASSIGNMENT-IMPLICIT-INTEGER
 
-6.12.1 / normal / テスト未対応
+6.12.1 / normal / 実行確認あり
 
 Assigning a real value to an integer performs the real-to-integer conversion implicitly.
 
@@ -8030,6 +8162,7 @@ Assigning a real value to an integer performs the real-to-integer conversion imp
 
 規定の性質: `mandatory`。
 
+- [test_type_assignment_cast_compatible.sv](../tests/ch6/test_type_assignment_cast_compatible.sv): Real-to-int conversion happens by assignment without an explicit type cast, for both signs.
 
 ### SV2023-6.12.1-EXTRACT-ASSIGNMENT-IMPLICIT-REAL
 
@@ -8044,7 +8177,7 @@ Assigning an expression to a real performs the applicable implicit conversion.
 
 ### SV2023-6.12.1-EXTRACT-HALF-AWAY-FROM-ZERO
 
-6.12.1 / boundary / テスト未対応
+6.12.1 / boundary / 実行確認あり
 
 An exactly half-integer real converts to the integer farther from zero, for both positive and negative values.
 
@@ -8052,10 +8185,11 @@ An exactly half-integer real converts to the integer farther from zero, for both
 
 規定の性質: `mandatory`。
 
+- [test_type_assignment_cast_compatible.sv](../tests/ch6/test_type_assignment_cast_compatible.sv): Implicit assignments of exactly2.5 and-2.5 produce3 and-3, checking both tie directions.
 
 ### SV2023-6.12.1-EXTRACT-REAL-TO-INTEGER-ROUND
 
-6.12.1 / normal / テスト未対応
+6.12.1 / normal / 実行確認あり
 
 A real-to-integer conversion rounds to the nearest integer rather than truncating.
 
@@ -8063,6 +8197,13 @@ A real-to-integer conversion rounds to the nearest integer rather than truncatin
 
 規定の性質: `mandatory`。
 
+- [test_cast_expr.sv](../tests/ch6/test_cast_expr.sv): Fractional real above the halfway point converts to the nearest larger integer (with negative cases where present), distinguishing rounding from truncation.
+- [test_cast_corner.sv](../tests/ch6/test_cast_corner.sv): Fractional real above the halfway point converts to the nearest larger integer (with negative cases where present), distinguishing rounding from truncation.
+- [test_cast_expr_2.sv](../tests/ch6/test_cast_expr_2.sv): Fractional real above the halfway point converts to the nearest larger integer (with negative cases where present), distinguishing rounding from truncation.
+- [test_cast_operations.sv](../tests/ch6/test_cast_operations.sv): Fractional real above the halfway point converts to the nearest larger integer (with negative cases where present), distinguishing rounding from truncation.
+- [test_type_casting.sv](../tests/ch6/test_type_casting.sv): Fractional real above the halfway point converts to the nearest larger integer (with negative cases where present), distinguishing rounding from truncation.
+- [test_type_casts.sv](../tests/ch6/test_type_casts.sv): Fractional real above the halfway point converts to the nearest larger integer (with negative cases where present), distinguishing rounding from truncation.
+- [test_cast_ext.sv](../tests/ch6/test_cast_ext.sv): Fractional real above the halfway point converts to the nearest larger integer (with negative cases where present), distinguishing rounding from truncation.
 
 ### SV2023-6.12.1-EXTRACT-UNKNOWN-BITS-TO-REAL
 
@@ -8385,7 +8526,7 @@ Concatenating only string literals follows integral concatenation rules and conv
 
 ### SV2023-6.16-EXTRACT-CONCAT-STRING-OPERANDS
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 A string concatenation accepts string literals and string-typed expressions as operands.
 
@@ -8393,6 +8534,8 @@ A string concatenation accepts string literals and string-typed expressions as o
 
 規定の性質: `definition`。
 
+- [test_string_ops_2.sv](../tests/ch6/test_string_ops_2.sv): Concatenates two string variables and a literal space and checks the entire Hello World result.
+- [test_sv_string.sv](../tests/ch6/test_sv_string.sv): Concatenates the Hello string variable with a literal and checks the complete result.
 
 ### SV2023-6.16-EXTRACT-CONCAT-STRING-PROMOTION
 
@@ -8429,7 +8572,7 @@ Literal-to-string and integral-to-string conversions remove all zero-valued char
 
 ### SV2023-6.16-EXTRACT-DYNAMIC-CHARACTER-COLLECTION
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 A string is an ordered character collection whose variable length may change during simulation.
 
@@ -8437,6 +8580,7 @@ A string is an ordered character collection whose variable length may change dur
 
 規定の性質: `definition`。
 
+- [test_string_basic.sv](../tests/ch6/test_string_basic.sv): The same string starts with Hello (length five), then New (length three), then X (length one), with checked values and lengths after each update.
 
 ### SV2023-6.16-EXTRACT-EMPTY-STRING-INDEX
 
@@ -8528,7 +8672,7 @@ An integral-to-string cast resizes the destination to the resulting converted st
 
 ### SV2023-6.16-EXTRACT-LITERAL-IMPLICIT-STRING
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 A string literal implicitly converts to string type when assigned to a string or combined with a string-typed operand.
 
@@ -8536,10 +8680,11 @@ A string literal implicitly converts to string type when assigned to a string or
 
 規定の性質: `mandatory`。
 
+- [test_string_basic.sv](../tests/ch6/test_string_basic.sv): Hello is directly assigned from a literal and literal space/World operands are combined with the string Hello, producing Hello World.
 
 ### SV2023-6.16-EXTRACT-LITERAL-INTEGRAL-ALIGNMENT
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 A string literal assigned to an integral destination is right aligned; excess high bits are truncated and missing high bits are zero filled.
 
@@ -8547,6 +8692,7 @@ A string literal assigned to an integral destination is right aligned; excess hi
 
 規定の性質: `mandatory`。
 
+- [test_string_integral_truncation_and_lexical_compare.sv](../tests/ch11/test_string_integral_truncation_and_lexical_compare.sv): WXYZ truncates on the left into 16 bits while K is right-aligned and zero-filled to 32 bits; both width directions are observed.
 
 ### SV2023-6.16-EXTRACT-LITERAL-PACKED-REPRESENTATION
 
@@ -8561,7 +8707,7 @@ A string literal has packed integral representation in complete eight-bit charac
 
 ### SV2023-6.16-EXTRACT-NO-NUL-CHARACTER
 
-6.16 / boundary / テスト未対応
+6.16 / boundary / 実行確認あり
 
 A string variable never stores a NUL character; writing zero to an indexed character leaves the string unchanged.
 
@@ -8569,6 +8715,7 @@ A string variable never stores a NUL character; writing zero to an indexed chara
 
 規定の性質: `mandatory`。
 
+- [test_string_ignores_null_characters.sv](../tests/ch6/test_string_ignores_null_characters.sv): The literal initially drops NUL and the later indexed NUL write leaves the full ten-character receiver unchanged; subsequent nonzero write changes precisely that character.
 
 ### SV2023-6.16-EXTRACT-RELATIONAL-MIXED-LITERAL
 
@@ -8583,7 +8730,7 @@ For relational comparisons, a literal paired with a string converts to string, w
 
 ### SV2023-6.16-EXTRACT-REPLICATION-DYNAMIC-STRING
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 A string operand or nonconstant multiplier causes literal operands to convert to string first; the result is a string containing the requested number of copies of the inner concatenation.
 
@@ -8591,6 +8738,7 @@ A string operand or nonconstant multiplier causes literal operands to convert to
 
 規定の性質: `mandatory`。
 
+- [test_string_concat_replication.sv](../tests/ch11/test_string_concat_replication.sv): Nonconstant n=3 replicates the string ab; after n becomes two, nested concatenation of string ab and literal ! yields exactly two ab! copies.
 
 ### SV2023-6.16-EXTRACT-REPLICATION-INNER-NONEMPTY
 
@@ -8649,7 +8797,7 @@ A zero replication multiplier produces an empty result of string type.
 
 ### SV2023-6.16-EXTRACT-STRING-CHARACTER-READ-WRITE
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 A single indexed string character is a readable/writable byte under string index/write restrictions.
 
@@ -8657,6 +8805,8 @@ A single indexed string character is a readable/writable byte under string index
 
 規定の性質: `definition`。
 
+- [test_string_methods_edge_cases.sv](../tests/ch6/test_string_methods_edge_cases.sv): Indexed ABCDE[2] reads ASCII 67 as a byte; indexed write behavior is separately witnessed by the NUL/nonzero string test.
+- [test_string_ignores_null_characters.sv](../tests/ch6/test_string_ignores_null_characters.sv): The nonzero indexed byte write updates exactly the selected character; paired with the explicit indexed-byte read test.
 
 ### SV2023-6.16-EXTRACT-STRING-DECLARATION
 
@@ -8682,7 +8832,7 @@ An uninitialized string variable starts as the empty string with length zero.
 
 ### SV2023-6.16-EXTRACT-STRING-DIRECT-ASSIGNMENT
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 A string literal or string-typed expression can be assigned directly to a string variable.
 
@@ -8690,6 +8840,13 @@ A string literal or string-typed expression can be assigned directly to a string
 
 規定の性質: `permission`。
 
+- [test_string_cmp.sv](../tests/ch6/test_string_cmp.sv): Literal assignment and copying a string-typed expression both yield the checked text abc.
+- [test_string_ops.sv](../tests/ch6/test_string_ops.sv): Directly assigns a literal to a string and checks the resulting full text; this approves only direct assignment, not every observation in the file.
+- [test_expr_string.sv](../tests/ch6/test_expr_string.sv): Directly assigns a literal to a string and checks the resulting full text; this approves only direct assignment, not every observation in the file.
+- [test_value_string.sv](../tests/ch6/test_value_string.sv): Directly assigns a literal to a string and checks the resulting full text; this approves only direct assignment, not every observation in the file.
+- [test_core_types.sv](../tests/ch6/test_core_types.sv): Directly assigns a literal to a string and checks the resulting full text; this approves only direct assignment, not every observation in the file.
+- [test_string_operations.sv](../tests/ch6/test_string_operations.sv): Directly assigns a literal to a string and checks the resulting full text; this approves only direct assignment, not every observation in the file.
+- [test_string_ops_edge_cases.sv](../tests/ch6/test_string_ops_edge_cases.sv): Directly assigns a literal to a string and checks the resulting full text; this approves only direct assignment, not every observation in the file.
 
 ### SV2023-6.16-EXTRACT-STRING-EQUALITY
 
@@ -8748,7 +8905,7 @@ String <= returns one exactly when its first operand is less than or equal to it
 
 ### SV2023-6.16-EXTRACT-STRING-LENGTH
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 A string length is its number of characters.
 
@@ -8756,6 +8913,16 @@ A string length is its number of characters.
 
 規定の性質: `definition`。
 
+- [test_string_len.sv](../tests/ch6/test_string_len.sv): Checks lengths zero, one, five and eleven including a space, then growth from five to eleven after concatenation.
+- [test_string_corner.sv](../tests/ch6/test_string_corner.sv): Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.
+- [test_string_edge.sv](../tests/ch6/test_string_edge.sv): Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.
+- [test_string_edge_cases.sv](../tests/ch6/test_string_edge_cases.sv): Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.
+- [test_string_edge_cases_2.sv](../tests/ch6/test_string_edge_cases_2.sv): Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.
+- [test_string_methods_2.sv](../tests/ch6/test_string_methods_2.sv): Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.
+- [test_string_methods_3.sv](../tests/ch6/test_string_methods_3.sv): Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.
+- [test_string_methods_4.sv](../tests/ch6/test_string_methods_4.sv): Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.
+- [test_string_ops_3.sv](../tests/ch6/test_string_ops_3.sv): Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.
+- [test_comb_string_compare.sv](../tests/ch6/test_comb_string_compare.sv): Checks the character count of a known string; no static return-type signature is inferred from assignment into an int.
 
 ### SV2023-6.16-EXTRACT-STRING-LT
 
@@ -8770,7 +8937,7 @@ String < returns one exactly when its first operand is less than its second in t
 
 ### SV2023-6.16-EXTRACT-STRING-METHOD-DOT
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 A string method is invoked using the dot method notation.
 
@@ -8778,10 +8945,11 @@ A string method is invoked using the dot method notation.
 
 規定の性質: `definition`。
 
+- [test_string_methods.sv](../tests/ch6/test_string_methods.sv): Invokes len, case conversion, substring, getc and putc through the string receiver dot notation and observes results.
 
 ### SV2023-6.16-EXTRACT-STRING-NO-FIXED-TRUNCATION
 
-6.16 / normal / テスト未対応
+6.16 / normal / 実行確認あり
 
 Assigning a string literal to a string variable retains its converted string length instead of truncating it to a fixed destination width.
 
@@ -8789,6 +8957,7 @@ Assigning a string literal to a string variable retains its converted string len
 
 規定の性質: `mandatory`。
 
+- [test_string_basic.sv](../tests/ch6/test_string_basic.sv): String assignment/concatenation preserves Hello World and later reassignment preserves New/X with their changed lengths, rather than a fixed destination size.
 
 ### SV2023-6.16-STRING-LEFT-TRUNCATE
 
@@ -8802,7 +8971,7 @@ An integral target too short for a string literal discards leftmost characters.
 
 ### SV2023-6.16.1-EXTRACT-EMPTY-LENGTH
 
-6.16.1 / boundary / テスト未対応
+6.16.1 / boundary / 実行確認あり
 
 len() returns zero for an empty string.
 
@@ -8810,10 +8979,11 @@ len() returns zero for an empty string.
 
 規定の性質: `mandatory`。
 
+- [test_string_len_2.sv](../tests/ch6/test_string_len_2.sv): The receiver is empty; the branch and exact expected output require length zero.
 
 ### SV2023-6.16.1-EXTRACT-LENGTH
 
-6.16.1 / normal / テスト未対応
+6.16.1 / normal / 実行確認あり
 
 len() returns the number of characters in its receiver.
 
@@ -8821,6 +8991,7 @@ len() returns the number of characters in its receiver.
 
 規定の性質: `mandatory`。
 
+- [test_string_len_2.sv](../tests/ch6/test_string_len_2.sv): Empty, single-character, five-character and space-containing strings require lengths 0, 1, 5, 11 and 18.
 
 ### SV2023-6.16.1-EXTRACT-SIGNATURE
 
@@ -8868,7 +9039,7 @@ putc never changes string length.
 
 ### SV2023-6.16.2-EXTRACT-REPLACE
 
-6.16.2 / normal / テスト未対応
+6.16.2 / normal / 実行確認あり
 
 putc(i,c) replaces character i when i is in range and c is nonzero.
 
@@ -8876,6 +9047,9 @@ putc(i,c) replaces character i when i is in range and c is nonzero.
 
 規定の性質: `mandatory`。
 
+- [test_string_putc_2.sv](../tests/ch6/test_string_putc_2.sv): First, last and middle positions receive nonzero ASCII replacements; exact receiver strings are checked after each call.
+- [test_string_putc.sv](../tests/ch6/test_string_putc.sv): Checks nonzero character replacement at first, middle and last valid positions; invalid-index and zero-character rules are not inferred.
+- [test_string_putc_getc.sv](../tests/ch6/test_string_putc_getc.sv): Checks nonzero character replacement at first, middle and last valid positions; invalid-index and zero-character rules are not inferred.
 
 ### SV2023-6.16.2-EXTRACT-SIGNATURE
 
@@ -8923,7 +9097,7 @@ getc(i) returns zero if i is negative or at least the string length.
 
 ### SV2023-6.16.3-EXTRACT-READ-CHARACTER
 
-6.16.3 / normal / テスト未対応
+6.16.3 / normal / 実行確認あり
 
 getc(i) returns the ASCII byte code of the in-range ith character.
 
@@ -8931,6 +9105,9 @@ getc(i) returns the ASCII byte code of the in-range ith character.
 
 規定の性質: `mandatory`。
 
+- [test_string_getc.sv](../tests/ch6/test_string_getc.sv): First, middle, last, digit and space characters are compared to their ASCII values; their hexadecimal bytes are checked in the expected output.
+- [test_string_getc_2.sv](../tests/ch6/test_string_getc_2.sv): Reads checked ASCII values from multiple valid indices including the first and last characters; this does not approve the untested out-of-range or full type signature rules.
+- [test_string_putc_getc.sv](../tests/ch6/test_string_putc_getc.sv): Reads checked ASCII values from multiple valid indices including the first and last characters; this does not approve the untested out-of-range or full type signature rules.
 
 ### SV2023-6.16.3-EXTRACT-SIGNATURE
 
@@ -8945,7 +9122,7 @@ getc is a string method accepting an int index and returning byte.
 
 ### SV2023-6.16.4-EXTRACT-CONVERT-CASE
 
-6.16.4 / normal / テスト未対応
+6.16.4 / normal / 実行確認あり
 
 toupper() returns the receiver with its characters converted to uppercase.
 
@@ -8953,6 +9130,8 @@ toupper() returns the receiver with its characters converted to uppercase.
 
 規定の性質: `mandatory`。
 
+- [test_string_toupper.sv](../tests/ch6/test_string_toupper.sv): Lowercase and mixed case convert to uppercase; uppercase, numbers, punctuation and the empty string have exact expected results. Receiver immutability is not claimed.
+- [test_string_toupper_2.sv](../tests/ch6/test_string_toupper_2.sv): Checks case conversion of lower, upper and mixed-case inputs; the five-case variant also preserves digits/punctuation and accepts empty input. Receiver preservation is not inferred.
 
 ### SV2023-6.16.4-EXTRACT-RECEIVER-UNCHANGED
 
@@ -8978,7 +9157,7 @@ toupper is a no-argument string method returning string.
 
 ### SV2023-6.16.5-EXTRACT-CONVERT-CASE
 
-6.16.5 / normal / テスト未対応
+6.16.5 / normal / 実行確認あり
 
 tolower() returns the receiver with its characters converted to lowercase.
 
@@ -8986,6 +9165,8 @@ tolower() returns the receiver with its characters converted to lowercase.
 
 規定の性質: `mandatory`。
 
+- [test_string_tolower.sv](../tests/ch6/test_string_tolower.sv): Uppercase and mixed case convert to lowercase; lowercase, numbers, punctuation and the empty string have exact expected results. Receiver immutability is not claimed.
+- [test_string_tolower_2.sv](../tests/ch6/test_string_tolower_2.sv): Checks case conversion of lower, upper and mixed-case inputs; the five-case variant also preserves digits/punctuation and accepts empty input. Receiver preservation is not inferred.
 
 ### SV2023-6.16.5-EXTRACT-RECEIVER-UNCHANGED
 
@@ -9011,7 +9192,7 @@ tolower is a no-argument string method returning string.
 
 ### SV2023-6.16.6-EXTRACT-LEXICAL-COMPARE
 
-6.16.6 / normal / テスト未対応
+6.16.6 / normal / 実行確認あり
 
 compare(s) uses the ANSI C strcmp lexical order and return-value semantics; oracle checks the sign for less/greater and zero for equal, not a fixed nonzero magnitude.
 
@@ -9019,6 +9200,7 @@ compare(s) uses the ANSI C strcmp lexical order and return-value semantics; orac
 
 規定の性質: `mandatory`。
 
+- [test_string_compare_2.sv](../tests/ch6/test_string_compare_2.sv): Equal strings require zero, lexical less/greater require negative/positive, and a prefix is less than its extension. Nonzero magnitudes are not fixed.
 
 ### SV2023-6.16.6-EXTRACT-SIGNATURE
 
@@ -9033,7 +9215,7 @@ compare is a string method accepting one string argument and returning int.
 
 ### SV2023-6.16.7-EXTRACT-IGNORE-CASE-COMPARE
 
-6.16.7 / normal / テスト未対応
+6.16.7 / normal / 実行確認あり
 
 icompare(s) uses strcmp-style lexical order and negative/zero/positive return semantics while ignoring letter case.
 
@@ -9041,6 +9223,7 @@ icompare(s) uses strcmp-style lexical order and negative/zero/positive return se
 
 規定の性質: `mandatory`。
 
+- [test_string_icompare.sv](../tests/ch6/test_string_icompare.sv): Same-case and mixed-case equality require zero; mixed-case lexical less/greater require negative/positive. Nonzero magnitudes are not fixed.
 
 ### SV2023-6.16.7-EXTRACT-SIGNATURE
 
@@ -9055,7 +9238,7 @@ icompare is a string method accepting one string argument and returning int.
 
 ### SV2023-6.16.8-EXTRACT-END-OUTSIDE
 
-6.16.8 / boundary / テスト未対応
+6.16.8 / boundary / 実行確認あり
 
 substr(i,j) returns an empty string when j is at least the receiver length.
 
@@ -9063,10 +9246,11 @@ substr(i,j) returns an empty string when j is at least the receiver length.
 
 規定の性質: `mandatory`。
 
+- [test_string_substr_out_of_range.sv](../tests/ch6/test_string_substr_out_of_range.sv): For length five, end indices ten and five must return empty strings; clipped output increments fails and cannot match the expected PASS.
 
 ### SV2023-6.16.8-EXTRACT-INCLUSIVE-SUBSTRING
 
-6.16.8 / normal / テスト未対応
+6.16.8 / normal / 実行確認あり
 
 For valid indices i and j, substr(i,j) returns a new string containing characters i through j inclusive.
 
@@ -9074,6 +9258,10 @@ For valid indices i and j, substr(i,j) returns a new string containing character
 
 規定の性質: `mandatory`。
 
+- [test_string_substr.sv](../tests/ch6/test_string_substr.sv): Beginning, middle, numeric, single-character and entire-string ranges require exact inclusive substring results.
+- [test_string_substr_2.sv](../tests/ch6/test_string_substr_2.sv): Checks the complete characters at both inclusive substring endpoints, with multiple intervals. Other invalid-start rules are not inferred.
+- [test_string_manipulation.sv](../tests/ch6/test_string_manipulation.sv): Checks the complete characters at both inclusive substring endpoints, with multiple intervals. Other invalid-start rules are not inferred.
+- [test_string_substr_out_of_range.sv](../tests/ch6/test_string_substr_out_of_range.sv): Checks the complete characters at both inclusive substring endpoints, with multiple intervals. Other invalid-start rules are not inferred.
 
 ### SV2023-6.16.8-EXTRACT-NEGATIVE-START
 
@@ -9088,7 +9276,7 @@ substr(i,j) returns an empty string when i is negative.
 
 ### SV2023-6.16.8-EXTRACT-REVERSED
 
-6.16.8 / boundary / テスト未対応
+6.16.8 / boundary / 実行確認あり
 
 substr(i,j) returns an empty string when j is smaller than i.
 
@@ -9096,6 +9284,7 @@ substr(i,j) returns an empty string when j is smaller than i.
 
 規定の性質: `mandatory`。
 
+- [test_string_substr_out_of_range.sv](../tests/ch6/test_string_substr_out_of_range.sv): The reversed range (3,1) must return empty; any nonempty result increments fails and changes the checked final output. Negative-start behavior is not tested here.
 
 ### SV2023-6.16.8-EXTRACT-SIGNATURE
 
@@ -9231,7 +9420,7 @@ Integer string conversion scans digits and underscores from the start and stops 
 
 ### SV2023-6.16.10-EXTRACT-DECIMAL-REAL
 
-6.16.10 / normal / テスト未対応
+6.16.10 / normal / 実行確認あり
 
 atoreal() converts an ASCII decimal real representation to a real value.
 
@@ -9239,6 +9428,7 @@ atoreal() converts an ASCII decimal real representation to a real value.
 
 規定の性質: `mandatory`。
 
+- [test_string_atoreal_2.sv](../tests/ch6/test_string_atoreal_2.sv): Checks positive fractional, whole and negative fractional decimal text conversion; the complete expected pass count requires all three observations.
 
 ### SV2023-6.16.10-EXTRACT-NO-DIGITS-ZERO
 
@@ -9286,7 +9476,7 @@ itoa is a void string method taking one integer argument.
 
 ### SV2023-6.16.11-EXTRACT-STORE-TEXT
 
-6.16.11 / normal / テスト未対応
+6.16.11 / normal / 実行確認あり
 
 itoa replaces the receiver with the ASCII decimal representation of its argument, as the inverse of the corresponding ASCII conversion method.
 
@@ -9294,6 +9484,7 @@ itoa replaces the receiver with the ASCII decimal representation of its argument
 
 規定の性質: `mandatory`。
 
+- [test_string_itoa_2.sv](../tests/ch6/test_string_itoa_2.sv): The same receiver is replaced by decimal text 123, -456, then 0. The expected count requires all three checks even though the final PASS label alone would only require two.
 
 ### SV2023-6.16.12-EXTRACT-SIGNATURE
 
@@ -9308,7 +9499,7 @@ hextoa is a void string method taking one integer argument.
 
 ### SV2023-6.16.12-EXTRACT-STORE-TEXT
 
-6.16.12 / normal / テスト未対応
+6.16.12 / normal / 実行確認あり
 
 hextoa replaces the receiver with the ASCII hexadecimal representation of its argument, as the inverse of the corresponding ASCII conversion method.
 
@@ -9316,6 +9507,7 @@ hextoa replaces the receiver with the ASCII hexadecimal representation of its ar
 
 規定の性質: `mandatory`。
 
+- [test_string_hextoa.sv](../tests/ch6/test_string_hextoa.sv): Replaces the same receiver for 0x1A, zero, 0xABCDEF, 0x100 and 0xDEADBEEF. The expected success lines accept either case for letters and do not print the implementation-selected case.
 
 ### SV2023-6.16.13-EXTRACT-SIGNATURE
 
@@ -9330,7 +9522,7 @@ octtoa is a void string method taking one integer argument.
 
 ### SV2023-6.16.13-EXTRACT-STORE-TEXT
 
-6.16.13 / normal / テスト未対応
+6.16.13 / normal / 実行確認あり
 
 octtoa replaces the receiver with the ASCII octal representation of its argument, as the inverse of the corresponding ASCII conversion method.
 
@@ -9338,6 +9530,7 @@ octtoa replaces the receiver with the ASCII octal representation of its argument
 
 規定の性質: `mandatory`。
 
+- [test_string_binary_octal_round_trip.sv](../tests/ch6/test_string_binary_octal_round_trip.sv): For 0, 1 and 0x40000001, the existing receiver is overwritten with nonempty octal digits and the inverse parser recovers the value. The test permits leading zeroes and does not claim the separate negative-integer case.
 
 ### SV2023-6.16.13-OCTAL-HIGH
 
@@ -9430,7 +9623,7 @@ bintoa is a void string method taking one integer argument.
 
 ### SV2023-6.16.14-EXTRACT-STORE-TEXT
 
-6.16.14 / normal / テスト未対応
+6.16.14 / normal / 実行確認あり
 
 bintoa replaces the receiver with the ASCII binary representation of its argument, as the inverse of the corresponding ASCII conversion method.
 
@@ -9438,6 +9631,7 @@ bintoa replaces the receiver with the ASCII binary representation of its argumen
 
 規定の性質: `mandatory`。
 
+- [test_string_binary_octal_round_trip.sv](../tests/ch6/test_string_binary_octal_round_trip.sv): For 0, 1 and 0x40000001, the existing receiver is overwritten with nonempty binary digits and the inverse parser recovers the value. The test permits leading zeroes and does not claim the separate negative-integer case.
 
 ### SV2023-6.16.15-EXTRACT-SIGNATURE
 
@@ -9848,7 +10042,7 @@ Enum encoding expressions cannot use hierarchical names or const variables.
 
 ### SV2023-6.19-EXTRACT-NO-INCREMENT-OVERFLOW
 
-6.19 / error / テスト未対応
+6.19 / error / 実行確認あり
 
 Automatically incrementing the maximum representable enum encoding is an error.
 
@@ -9856,6 +10050,7 @@ Automatically incrementing the maximum representable enum encoding is an error.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_increment_overflow.sv](../tests/ch6/test_illegal_enum_increment_overflow.sv): Q automatically follows maximum unsigned two-bit encoding3. Inspected Icarus13.0 diagnostic specifically reports an inferred enumeration value overflow.
 
 ### SV2023-6.19-EXTRACT-NO-INCREMENT-XZ
 
@@ -9903,7 +10098,7 @@ For a signed enum base, truncation is an out-of-range error if any discarded bit
 
 ### SV2023-6.19-EXTRACT-SIZED-LITERAL-WIDTH
 
-6.19 / error / テスト未対応
+6.19 / error / 実行確認あり
 
 A sized literal enum encoding must have exactly the base type width even when its value would otherwise fit.
 
@@ -9911,6 +10106,7 @@ A sized literal enum encoding must have exactly the base type width even when it
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_sized_literal_width.sv](../tests/ch6/test_illegal_enum_sized_literal_width.sv): Rejects a two-bit sized encoding in an enum with four-bit base even though value one fits. Inspected Icarus13.0 diagnostic reports an incorrectly sized enum constant at RUN.
 
 ### SV2023-6.19-EXTRACT-TYPEDEF-BASE-CATEGORY
 
@@ -9925,7 +10121,7 @@ An enum base type identifier must denote an integer atom or integer vector; an a
 
 ### SV2023-6.19-EXTRACT-UNIQUE-ENCODINGS
 
-6.19 / error / テスト未対応
+6.19 / error / 実行確認あり
 
 Enumeration encodings must be unique whether explicit or automatically incremented.
 
@@ -9933,6 +10129,7 @@ Enumeration encodings must be unique whether explicit or automatically increment
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_duplicate_value.sv](../tests/ch6/test_illegal_enum_duplicate_value.sv): Rejects explicit HIGH=3 colliding with automatically incremented MID=3. Icarus13.0 diagnostic inspected: enumeration names have the same value, not unsupported syntax; the test anchors that declaration line.
 
 ### SV2023-6.19-EXTRACT-UNIQUE-NAMES
 
@@ -9947,7 +10144,7 @@ Enumeration names must be unique within the applicable declaration/scope rules.
 
 ### SV2023-6.19-EXTRACT-UNSIGNED-RANGE-CHECK
 
-6.19 / error / テスト未対応
+6.19 / error / 実行確認あり
 
 For an unsigned enum base, an encoding cast that truncates any nonzero bits is an out-of-range error.
 
@@ -9955,6 +10152,7 @@ For an unsigned enum base, an encoding cast that truncates any nonzero bits is a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_value_out_of_range.sv](../tests/ch6/test_illegal_enum_value_out_of_range.sv): Rejects unsized encoding5 when its cast to unsigned two-bit base would discard a nonzero bit. Inspected Icarus13.0 diagnostic specifically reports enum HIGH value too large.
 
 ### SV2023-6.19.1-EXTRACT-NAMED-ENUM-REUSE
 
@@ -10111,7 +10309,7 @@ Enum variables automatically convert to integral values when their expression co
 
 ### SV2023-6.19.3-EXTRACT-EXPRESSION-TO-ENUM-CAST
 
-6.19.3 / error / テスト未対応
+6.19.3 / error / 実行確認あり
 
 Assigning an arbitrary nonequivalent expression to an enum requires an explicit cast.
 
@@ -10119,6 +10317,8 @@ Assigning an arbitrary nonequivalent expression to an enum requires an explicit 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_from_int.sv](../tests/ch6/test_illegal_enum_from_int.sv): Assigns an int variable to an enum without a cast although its current value equals a member encoding. Icarus13.0 diagnostic explicitly requires an explicit cast.
+- [test_illegal_enum_from_other_enum.sv](../tests/ch6/test_illegal_enum_from_other_enum.sv): Assigns a member from a distinct enum type even though its integer encoding equals a target member; Icarus13.0 diagnostic specifically reports enumeration type mismatch.
 
 ### SV2023-6.19.3-EXTRACT-STRONG-ENUM-ASSIGNMENT
 
@@ -10155,7 +10355,7 @@ An expression assigned to an enum needs a cast unless its type is equivalent to 
 
 ### SV2023-6.19.4-EXTRACT-NUMERICAL-ENUM-VALUE
 
-6.19.4 / normal / テスト未対応
+6.19.4 / normal / 実行確認あり
 
 A numerical expression using an enum value uses its associated numerical encoding.
 
@@ -10163,10 +10363,11 @@ A numerical expression using an enum value uses its associated numerical encodin
 
 規定の性質: `mandatory`。
 
+- [test_enum_casts_and_values.sv](../tests/ch6/test_enum_casts_and_values.sv): Uses the associated integer encoding of GREEN in addition and explicitly casts the resulting encoding back to the enum; the result is BLUE.
 
 ### SV2023-6.19.4-EXTRACT-STATIC-CAST-NO-MEMBERSHIP-CHECK
 
-6.19.4 / normal / テスト未対応
+6.19.4 / normal / 実行確認あり
 
 An ordinary enum cast converts to the base type without validating membership; dynamic casts use the separate 6.24.2 check.
 
@@ -10174,10 +10375,11 @@ An ordinary enum cast converts to the base type without validating membership; d
 
 規定の性質: `mandatory`。
 
+- [test_cast_to_enum_truncates.sv](../tests/ch6/test_cast_to_enum_truncates.sv): Static enum cast first narrows to its two-bit base, then retains encoding three even though only zero, one, two are enum members. Also checks six->two and five->one.
 
 ### SV2023-6.19.5.1-EXTRACT-DECLARATION-ORDER
 
-6.19.5.1 / normal / テスト未対応
+6.19.5.1 / normal / 実行確認あり
 
 first() returns the value of the first member in enumeration declaration order, not the numeric extremum.
 
@@ -10185,6 +10387,7 @@ first() returns the value of the first member in enumeration declaration order, 
 
 規定の性質: `mandatory`。
 
+- [test_enum_first_last_num.sv](../tests/ch6/test_enum_first_last_num.sv): The first declared member has value three while a later member has smaller value one; first must return S_A, distinguishing declaration order from numeric minimum.
 
 ### SV2023-6.19.5.1-EXTRACT-SIGNATURE
 
@@ -10263,7 +10466,7 @@ next returns its enum type and accepts int unsigned N with default one.
 
 ### SV2023-6.19.5.3-EXTRACT-STEP
 
-6.19.5.3 / normal / テスト未対応
+6.19.5.3 / normal / 実行確認あり
 
 next(N) returns the Nth following member from the receiver in declaration order.
 
@@ -10271,10 +10474,13 @@ next(N) returns the Nth following member from the receiver in declaration order.
 
 規定の性質: `mandatory`。
 
+- [test_enum_first_last_num.sv](../tests/ch6/test_enum_first_last_num.sv): Iterates to the next declared member with nonmonotonic encodings three, one, six, distinguishing numerical increment/sort from declaration order.
+- [test_enum_method_edge.sv](../tests/ch6/test_enum_method_edge.sv): Checks single/two-step next with nonconsecutive member encodings, proving declaration-step selection instead of arithmetic increment.
+- [test_enum_methods_navigation.sv](../tests/ch6/test_enum_methods_navigation.sv): Observed default-count enum navigation and complete name iteration, with explicit fatal checks on first/last, neighboring values and both wrap directions. No claim is made about invalid receiver encodings or static signatures.
 
 ### SV2023-6.19.5.3-EXTRACT-WRAP
 
-6.19.5.3 / boundary / テスト未対応
+6.19.5.3 / boundary / 実行確認あり
 
 next(N) wraps around the end of the enum member list as needed.
 
@@ -10282,6 +10488,8 @@ next(N) wraps around the end of the enum member list as needed.
 
 規定の性質: `mandatory`。
 
+- [test_enum_method_edge.sv](../tests/ch6/test_enum_method_edge.sv): Checks end wrapping for both default and explicit two-step counts, as well as a single-member enum.
+- [test_enum_methods_navigation.sv](../tests/ch6/test_enum_methods_navigation.sv): Observed default-count enum navigation and complete name iteration, with explicit fatal checks on first/last, neighboring values and both wrap directions. No claim is made about invalid receiver encodings or static signatures.
 
 ### SV2023-6.19.5.4-EXTRACT-INVALID-DEFAULT
 
@@ -10307,7 +10515,7 @@ prev returns its enum type and accepts int unsigned N with default one.
 
 ### SV2023-6.19.5.4-EXTRACT-STEP
 
-6.19.5.4 / normal / テスト未対応
+6.19.5.4 / normal / 実行確認あり
 
 prev(N) returns the Nth preceding member from the receiver in declaration order.
 
@@ -10315,10 +10523,12 @@ prev(N) returns the Nth preceding member from the receiver in declaration order.
 
 規定の性質: `mandatory`。
 
+- [test_enum_method_edge.sv](../tests/ch6/test_enum_method_edge.sv): Checks previous selection by one/two declaration positions on nonconsecutive member encodings.
+- [test_enum_methods_navigation.sv](../tests/ch6/test_enum_methods_navigation.sv): Observed default-count enum navigation and complete name iteration, with explicit fatal checks on first/last, neighboring values and both wrap directions. No claim is made about invalid receiver encodings or static signatures.
 
 ### SV2023-6.19.5.4-EXTRACT-WRAP
 
-6.19.5.4 / boundary / テスト未対応
+6.19.5.4 / boundary / 実行確認あり
 
 prev(N) wraps around the start of the enum member list as needed.
 
@@ -10326,6 +10536,9 @@ prev(N) wraps around the start of the enum member list as needed.
 
 規定の性質: `mandatory`。
 
+- [test_enum_descending_names_and_wrap.sv](../tests/ch6/test_enum_descending_names_and_wrap.sv): From first-declared SLOT2 one previous wraps to DONE, two previous wraps to SLOT0 with encoding nine.
+- [test_enum_method_edge.sv](../tests/ch6/test_enum_method_edge.sv): Checks wrapping before the start for default and two-step counts, plus a one-member enum.
+- [test_enum_methods_navigation.sv](../tests/ch6/test_enum_methods_navigation.sv): Observed default-count enum navigation and complete name iteration, with explicit fatal checks on first/last, neighboring values and both wrap directions. No claim is made about invalid receiver encodings or static signatures.
 
 ### SV2023-6.19.5.4-PREV-WRAP
 
@@ -10339,7 +10552,7 @@ Enum prev() wraps in declaration order across value gaps.
 
 ### SV2023-6.19.5.5-EXTRACT-MEMBER-COUNT
 
-6.19.5.5 / normal / テスト未対応
+6.19.5.5 / normal / 実行確認あり
 
 num() returns the number of members declared in the enum.
 
@@ -10347,6 +10560,10 @@ num() returns the number of members declared in the enum.
 
 規定の性質: `mandatory`。
 
+- [test_enum_first_last_num.sv](../tests/ch6/test_enum_first_last_num.sv): Three declared members with nonconsecutive, nonmonotonic encodings yield count three.
+- [test_enum_descending_names_and_wrap.sv](../tests/ch6/test_enum_descending_names_and_wrap.sv): The descending generated name range contributes three members plus DONE, so count is four despite the numeric gap.
+- [test_enum_method_edge.sv](../tests/ch6/test_enum_method_edge.sv): Checks counts for contiguous, noncontiguous and single-member enums, independent of the magnitudes/gaps in encodings.
+- [test_enum_methods_name_num.sv](../tests/ch6/test_enum_methods_name_num.sv): Checks four members despite a gap from encoding two to ten, then iterates exactly those named members.
 
 ### SV2023-6.19.5.5-EXTRACT-SIGNATURE
 
@@ -10371,7 +10588,7 @@ Enum num() counts members rather than the numeric value span.
 
 ### SV2023-6.19.5.6-EXTRACT-INVALID-EMPTY
 
-6.19.5.6 / boundary / テスト未対応
+6.19.5.6 / boundary / テスト対応あり・実行未確認
 
 name() returns the empty string for an encoding outside the enum member set.
 
@@ -10379,10 +10596,11 @@ name() returns the empty string for an encoding outside the enum member set.
 
 規定の性質: `mandatory`。
 
+- [test_enum_wider_than_64_bits_name.sv](../tests/ch6/test_enum_wider_than_64_bits_name.sv): An encoding absent from the enum member set produces an empty name string.
 
 ### SV2023-6.19.5.6-EXTRACT-MEMBER-NAME
 
-6.19.5.6 / normal / テスト未対応
+6.19.5.6 / normal / 実行確認あり
 
 name() returns the member identifier string for a valid enum encoding.
 
@@ -10390,6 +10608,12 @@ name() returns the member identifier string for a valid enum encoding.
 
 規定の性質: `mandatory`。
 
+- [test_enum_wider_than_64_bits_name.sv](../tests/ch6/test_enum_wider_than_64_bits_name.sv): Two 65-bit members share their low 64 bits, so their distinct checked names require the full encoding to be considered.
+- [test_enum_name.sv](../tests/ch6/test_enum_name.sv): Checks names for all three declared enum members; the entire expected output/count is required, not just the final PASS label.
+- [test_enum_name_2.sv](../tests/ch6/test_enum_name_2.sv): Checks names for all three declared enum members; the entire expected output/count is required, not just the final PASS label.
+- [test_enum_method_edge.sv](../tests/ch6/test_enum_method_edge.sv): Checks identifier names of nonconsecutive, singleton and sparse enum members. The label gap_name_MID uses HI as the correct current value; it is not treated as a MID observation.
+- [test_enum_methods_navigation.sv](../tests/ch6/test_enum_methods_navigation.sv): Observed default-count enum navigation and complete name iteration, with explicit fatal checks on first/last, neighboring values and both wrap directions. No claim is made about invalid receiver encodings or static signatures.
+- [test_enum_methods_name_num.sv](../tests/ch6/test_enum_methods_name_num.sv): Checks all four member names explicitly and outputs their full name/value iteration.
 
 ### SV2023-6.19.5.6-EXTRACT-SIGNATURE
 
@@ -10943,7 +11167,7 @@ In a parameter port list, declarations after localparam remain local until a par
 
 ### SV2023-6.20.4-EXTRACT-NO-DIRECT-LOCAL-OVERRIDE
 
-6.20.4 / error / テスト未対応
+6.20.4 / error / 実行確認あり
 
 A localparam follows parameter semantics except that defparam and instance parameter assignments cannot directly change it.
 
@@ -10951,6 +11175,8 @@ A localparam follows parameter semantics except that defparam and instance param
 
 規定の性質: `mandatory`。
 
+- [test_illegal_localparam_defparam.sv](../tests/ch6/test_illegal_localparam_defparam.sv): One half of the direct-localparam override prohibition: defparam or named instance override. Inspected Icarus13.0 diagnostic explicitly identifies the cannot-override localparam W violation; both cases are required as a group.
+- [test_illegal_localparam_instance_override.sv](../tests/ch6/test_illegal_localparam_instance_override.sv): One half of the direct-localparam override prohibition: defparam or named instance override. Inspected Icarus13.0 diagnostic explicitly identifies the cannot-override localparam W violation; both cases are required as a group.
 
 ### SV2023-6.20.4-EXTRACT-PORT-LOCALPARAM
 
@@ -10998,7 +11224,7 @@ A specparam without a declared range takes its range from its final assigned val
 
 ### SV2023-6.20.5-EXTRACT-NO-SPECPARAM-IN-PARAMETER
 
-6.20.5 / error / テスト未対応
+6.20.5 / error / 実行確認あり
 
 parameter and localparam value expressions cannot contain specparams.
 
@@ -11006,6 +11232,7 @@ parameter and localparam value expressions cannot contain specparams.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_parameter_from_specparam.sv](../tests/ch6/test_illegal_parameter_from_specparam.sv): Parameter expression references a specparam. Verilator5.052 diagnostic inspected: tDelay is not a permitted constant for this parameter, at the reference. Icarus merely warns and accepts, so is not a successful negative witness.
 
 ### SV2023-6.20.5-EXTRACT-PARAMETER-OVERRIDE-MECHANISMS
 
@@ -11733,7 +11960,7 @@ Packed arrays/structs/unions and built-in integral types are equivalent when tot
 
 ### SV2023-6.22.3-EXTRACT-ASSIGNMENT-COMPATIBILITY
 
-6.22.3 / normal / テスト未対応
+6.22.3 / normal / 実行確認あり
 
 Equivalent types and nonequivalent types with a defined implicit conversion are assignment compatible; this compatibility can still involve truncation/rounding.
 
@@ -11741,6 +11968,7 @@ Equivalent types and nonequivalent types with a defined implicit conversion are 
 
 規定の性質: `definition`。
 
+- [test_type_assignment_cast_compatible.sv](../tests/ch6/test_type_assignment_cast_compatible.sv): Different but assignment-compatible integral/real values convert implicitly, observing both truncation and rounding rather than assuming losslessness.
 
 ### SV2023-6.22.3-EXTRACT-DIRECTIONAL-COMPATIBILITY
 
@@ -11786,7 +12014,7 @@ A dynamic enum cast succeeds for a declared member value.
 
 ### SV2023-6.22.4-EXTRACT-CAST-COMPATIBILITY
 
-6.22.4 / normal / テスト未対応
+6.22.4 / normal / 実行確認あり
 
 Cast-compatible types include assignment-compatible types and nonequivalent types with a defined explicit cast.
 
@@ -11794,6 +12022,7 @@ Cast-compatible types include assignment-compatible types and nonequivalent type
 
 規定の性質: `definition`。
 
+- [test_enum_explicit_cast_and_failed_dynamic_cast.sv](../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv): Explicit integral-to-enum conversion is accepted; dynamic conversion separately rejects out-of-set99 without replacing8 and accepts member3.
 
 ### SV2023-6.22.5-EXTRACT-INCOMPATIBLE
 
@@ -11884,7 +12113,7 @@ Equality/inequality and case equality/inequality comparisons between type refere
 
 ### SV2023-6.23-EXTRACT-TYPE-COMPARISON-MATCH
 
-6.23 / normal / テスト未対応
+6.23 / normal / テスト対応あり・実行未確認
 
 Two type references compare equal exactly when their referred types match under 6.22.1; mere equivalence is insufficient.
 
@@ -11892,6 +12121,7 @@ Two type references compare equal exactly when their referred types match under 
 
 規定の性質: `mandatory`。
 
+- [test_type_operator_matching_types.sv](../tests/ch6/test_type_operator_matching_types.sv): Type comparisons distinguish matching byte and descending signed two-state8-bit vector from merely equivalent ascending-range vector and mismatched state-domain/width types.
 
 ### SV2023-6.23-EXTRACT-TYPE-COMPARISON-OPERANDS
 
@@ -11972,7 +12202,7 @@ A permitted structure-to-bits conversion preserves the bit pattern for a lossles
 
 ### SV2023-6.24.1-EXTRACT-ASSIGNMENT-CAST-EQUIVALENCE
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 An assignment-compatible explicit type cast yields the value a variable of that type would hold after assignment from the expression, equal to its implicit conversion.
 
@@ -11980,6 +12210,15 @@ An assignment-compatible explicit type cast yields the value a variable of that 
 
 規定の性質: `mandatory`。
 
+- [test_cast_byte.sv](../tests/ch6/test_cast_byte.sv): Casts 100,300,-50 to byte and checks100,44,-50, the values that byte assignment would store. This is a concrete value-conversion witness, not exhaustive coverage of every type pairing.
+- [test_cast_shortint.sv](../tests/ch6/test_cast_shortint.sv): Casts1000,12345678h,-100 to shortint and checks1000,5678h,-100. This is a concrete value-conversion witness, not exhaustive coverage of every type pairing.
+- [test_cast_longint.sv](../tests/ch6/test_cast_longint.sv): Casts positive and negative int to longint with preserved sign; the large direct longint assignment is not misclassified as a cast. This is a concrete value-conversion witness, not exhaustive coverage of every type pairing.
+- [test_cast_real.sv](../tests/ch6/test_cast_real.sv): Converts positive42,negative100 and zero to real with exact expected values. This is a concrete value-conversion witness, not exhaustive coverage of every type pairing.
+- [test_cast_real_basic.sv](../tests/ch6/test_cast_real_basic.sv): Converts42,-10 and100 to real with exact expected values. This is a concrete value-conversion witness, not exhaustive coverage of every type pairing.
+- [test_cast_ext.sv](../tests/ch6/test_cast_ext.sv): Observes both narrowing/sign extension and real conversion, including3.9->4,-2.5->-3 and the sum of two rounded casts. This is a concrete value-conversion witness, not exhaustive coverage of every type pairing.
+- [test_cast_operations.sv](../tests/ch6/test_cast_operations.sv): Converts real3.7 to nearest int4, also checks predefined shortint/longint and real casts. This is a concrete value-conversion witness, not exhaustive coverage of every type pairing.
+- [test_cast_enum.sv](../tests/ch6/test_cast_enum.sv): An enum with explicit int base value-10 casts to int-10; also checks enum integer encodings via explicit int casts. This is a concrete value-conversion witness, not exhaustive coverage of every type pairing.
+- [test_cast_expr_2.sv](../tests/ch6/test_cast_expr_2.sv): Checks positive/negative real-to-int rounding and named integral type truncation/extension, whose expected values match destination assignment conversion. This is a concrete value-conversion witness, not exhaustive coverage of every type pairing.
 
 ### SV2023-6.24.1-EXTRACT-CAST-GRAMMAR
 
@@ -12071,7 +12310,7 @@ Converting shortreal to int or 32 bits by assignment/static cast rounds numerica
 
 ### SV2023-6.24.1-EXTRACT-SIGN-CAST-PERMITTED
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 A signing cast can change an integral expression signedness.
 
@@ -12079,10 +12318,11 @@ A signing cast can change an integral expression signedness.
 
 規定の性質: `permission`。
 
+- [test_signed_cast.sv](../tests/ch6/test_signed_cast.sv): Uses the signed keyword cast on an unsigned vector and checks positive and negative interpretations after widening.
 
 ### SV2023-6.24.1-EXTRACT-SIGN-CAST-SIGN
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 A signing cast produces the signedness explicitly requested by the cast.
 
@@ -12090,6 +12330,7 @@ A signing cast produces the signedness explicitly requested by the cast.
 
 規定の性質: `mandatory`。
 
+- [test_signed_cast.sv](../tests/ch6/test_signed_cast.sv): Widening an unsigned 8-bit80 via signed cast yields -128 rather than128; FF similarly yields -1, so cast signedness affects observed extension.
 
 ### SV2023-6.24.1-EXTRACT-SIGN-CAST-STATE
 
@@ -12126,7 +12367,7 @@ A constant size cast must specify a positive integral value; zero/negative sizes
 
 ### SV2023-6.24.1-EXTRACT-SIZE-CAST-RESIZE
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 A valid constant size cast pads or truncates to the specified bit count.
 
@@ -12134,6 +12375,11 @@ A valid constant size cast pads or truncates to the specified bit count.
 
 規定の性質: `mandatory`。
 
+- [test_cast_size.sv](../tests/ch6/test_cast_size.sv): Checks zero-padding from eight to sixteen/thirty-two, truncation from thirty-two to eight/four and equal-width identity. A FAIL line would differ from the complete expected output.
+- [test_cast_corner.sv](../tests/ch6/test_cast_corner.sv): Checks both truncation of DEADBEEF to EF and zero-extension of AB to 000000AB.
+- [test_cast_expr.sv](../tests/ch6/test_cast_expr.sv): Checks zero-extension of AB and truncation of 12AB to AB.
+- [test_type_casts.sv](../tests/ch6/test_type_casts.sv): Checks narrowing ABCD1234 to34 and widening FF to000000FF.
+- [test_cast_expr_2.sv](../tests/ch6/test_cast_expr_2.sv): Checks padding and truncation, including width-one least-significant-bit casts on both an odd and an even source.
 
 ### SV2023-6.24.1-EXTRACT-SIZE-CAST-SIGN-PRESERVED
 
@@ -12181,7 +12427,7 @@ Size casts and signing casts require integral expression operands.
 
 ### SV2023-6.24.1-EXTRACT-TYPE-CAST-PREFIX
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 A predefined type cast uses its type keyword and a user-defined type cast uses its type identifier.
 
@@ -12189,6 +12435,7 @@ A predefined type cast uses its type keyword and a user-defined type cast uses i
 
 規定の性質: `definition`。
 
+- [test_cast_expr_2.sv](../tests/ch6/test_cast_expr_2.sv): Uses predefined real/int keywords and user-defined byte_t/word_t/dword_t/color_e identifiers as cast prefixes and observes the conversions.
 
 ### SV2023-6.24.1-EXTRACT-UNION-BIT-SIZE
 
@@ -12225,7 +12472,7 @@ For nonsingular arguments, a dynamic cast assignment is invalid if the argument 
 
 ### SV2023-6.24.2-EXTRACT-DYNAMIC-ENUM-MEMBERSHIP
 
-6.24.2 / normal / テスト未対応
+6.24.2 / normal / 実行確認あり
 
 A dynamic cast to an enum checks that the source value belongs to the enum set before assignment.
 
@@ -12233,6 +12480,8 @@ A dynamic cast to an enum checks that the source value belongs to the enum set b
 
 規定の性質: `mandatory`。
 
+- [test_cast_corner.sv](../tests/ch6/test_cast_corner.sv): A member encoding1 dynamically casts successfully to GREEN, while nonmember99 returns failure; destination preservation on that failure is not observed here.
+- [test_enum_explicit_cast_and_failed_dynamic_cast.sv](../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv): Explicitly contrasts rejected nonmember99 and accepted member3, checking status and destination for each.
 
 ### SV2023-6.24.2-EXTRACT-DYNAMIC-SIGNATURE
 
@@ -12258,7 +12507,7 @@ $cast can be invoked as a task or an int-returning function to attempt a convers
 
 ### SV2023-6.24.2-EXTRACT-FUNCTION-FAILURE
 
-6.24.2 / boundary / テスト未対応
+6.24.2 / boundary / 実行確認あり
 
 A failed $cast function leaves the destination unchanged and returns zero.
 
@@ -12266,6 +12515,7 @@ A failed $cast function leaves the destination unchanged and returns zero.
 
 規定の性質: `mandatory`。
 
+- [test_enum_explicit_cast_and_failed_dynamic_cast.sv](../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv): Invalid nonmember99 returns zero and preserves the preexisting HIGH encoding8, rather than only checking failure.
 
 ### SV2023-6.24.2-EXTRACT-FUNCTION-NO-CAST-ERROR
 
@@ -12280,7 +12530,7 @@ The $cast function does not issue a compile-time or runtime error for an invalid
 
 ### SV2023-6.24.2-EXTRACT-FUNCTION-SUCCESS
 
-6.24.2 / normal / テスト未対応
+6.24.2 / normal / 実行確認あり
 
 A successful $cast function updates the destination and returns one.
 
@@ -12288,6 +12538,9 @@ A successful $cast function updates the destination and returns one.
 
 規定の性質: `mandatory`。
 
+- [test_cast_dynamic_array.sv](../tests/ch6/test_cast_dynamic_array.sv): Checks success status exactly one and replacement of a class handle stored in a dynamic array element; also checks indexed expression, queue element and class-member array destinations.
+- [test_cast_packed_struct_member.sv](../tests/ch6/test_cast_packed_struct_member.sv): Checks the packed field destination is updated and printed success code is exactly one; the other field checks establish the selected destination, not a copy, is changed.
+- [test_enum_explicit_cast_and_failed_dynamic_cast.sv](../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv): Member3 returns exactly one and replaces the enum destination with LOW encoding3.
 
 ### SV2023-6.24.2-EXTRACT-SINGULAR-CAST-COMPATIBILITY
 
@@ -12707,7 +12960,7 @@ An unpacked structure cannot have an overall signing qualifier.
 
 ### SV2023-7.2.1-EXTRACT-PACKED-MEMBER-RESTRICTION
 
-7.2.1 / error / テスト未対応
+7.2.1 / error / 実行確認あり
 
 Packed structures permit only packed data types and the specified integer data types as members.
 
@@ -12715,6 +12968,8 @@ Packed structures permit only packed data types and the specified integer data t
 
 規定の性質: `mandatory`。
 
+- [test_illegal_packed_struct_real_member.sv](../tests/ch7/test_illegal_packed_struct_real_member.sv): Rejects a real member in a packed struct. Diagnostics inspected in both compilers identify the unpacked/nonpacked member type; pinned Icarus is the approved executed witness.
+- [test_illegal_packed_struct_unpacked_member.sv](../tests/ch7/test_illegal_packed_struct_unpacked_member.sv): Rejects an unpacked byte array member even though byte itself is integral. Diagnostics inspected in both compilers identify that the member must be packed, rather than rejecting ordinary packed struct syntax.
 
 ### SV2023-7.2.1-EXTRACT-PACKED-TYPEDEF
 
@@ -12905,7 +13160,7 @@ Without an explicit initializer, an unpacked union variable takes the default va
 
 ### SV2023-7.3.1-EXTRACT-HARD-EQUAL-SIZE
 
-7.3.1 / error / テスト未対応
+7.3.1 / error / 実行確認あり
 
 An untagged union qualified packed without soft is hard packed; all members must have the same size.
 
@@ -12913,6 +13168,7 @@ An untagged union qualified packed without soft is hard packed; all members must
 
 規定の性質: `mandatory`。
 
+- [test_illegal_hard_packed_union_sizes.sv](../tests/ch7/test_illegal_hard_packed_union_sizes.sv): Hard packed union members have widths8 and4. Both Icarus13.0 and Verilator5.052 diagnostics explicitly report the unequal sizes, rather than unsupported union syntax.
 
 ### SV2023-7.3.1-EXTRACT-HOST-INDEPENDENT-PACKED
 
@@ -13290,7 +13546,7 @@ byte, shortint, int, longint, integer and time cannot declare additional packed 
 
 ### SV2023-7.4.1-EXTRACT-PACKED-CONTIGUOUS
 
-7.4.1 / normal / テスト未対応
+7.4.1 / normal / 実行確認あり
 
 A packed array is a contiguous set of bits and behaves as a single vector when used as a primary; unpacked storage has no such guarantee.
 
@@ -13298,10 +13554,24 @@ A packed array is a contiguous set of bits and behaves as a single vector when u
 
 規定の性質: `definition`。
 
+- [test_gen_wide_select_w63_2state.sv](../tests/gen/ch7/test_gen_wide_select_w63_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w63_4state.sv](../tests/gen/ch7/test_gen_wide_select_w63_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w64_2state.sv](../tests/gen/ch7/test_gen_wide_select_w64_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w64_4state.sv](../tests/gen/ch7/test_gen_wide_select_w64_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w65_2state.sv](../tests/gen/ch7/test_gen_wide_select_w65_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w65_4state.sv](../tests/gen/ch7/test_gen_wide_select_w65_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w127_2state.sv](../tests/gen/ch7/test_gen_wide_select_w127_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w127_4state.sv](../tests/gen/ch7/test_gen_wide_select_w127_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w128_2state.sv](../tests/gen/ch7/test_gen_wide_select_w128_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w128_4state.sv](../tests/gen/ch7/test_gen_wide_select_w128_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w129_2state.sv](../tests/gen/ch7/test_gen_wide_select_w129_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w129_4state.sv](../tests/gen/ch7/test_gen_wide_select_w129_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w200_2state.sv](../tests/gen/ch7/test_gen_wide_select_w200_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w200_4state.sv](../tests/gen/ch7/test_gen_wide_select_w200_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
 
 ### SV2023-7.4.1-EXTRACT-PACKED-ELEMENT-TYPES
 
-7.4.1 / error / テスト未対応
+7.4.1 / error / 実行確認あり
 
 Packed array element types follow the specified bit/logic/reg, enum, recursively packed array and packed structure restrictions.
 
@@ -13309,6 +13579,7 @@ Packed array element types follow the specified bit/logic/reg, enum, recursively
 
 規定の性質: `mandatory`。
 
+- [test_illegal_packed_array_of_real.sv](../tests/ch7/test_illegal_packed_array_of_real.sv): Declares a packed dimension on a typedef of real. Icarus13.0 diagnostic explicitly says the packed array base type is not packed; Verilator acceptance remains a known mismatch.
 
 ### SV2023-7.4.1-EXTRACT-PACKED-TWO-ENDPOINT-RANGE
 
@@ -13488,7 +13759,7 @@ A slice or part-select must have constant size; its position may vary.
 
 ### SV2023-7.4.5-EXTRACT-ELEMENT-INDEX
 
-7.4.5 / normal / テスト未対応
+7.4.5 / normal / 実行確認あり
 
 An indexed name selects one element of a packed or unpacked array.
 
@@ -13496,6 +13767,20 @@ An indexed name selects one element of a packed or unpacked array.
 
 規定の性質: `definition`。
 
+- [test_gen_wide_select_w63_2state.sv](../tests/gen/ch7/test_gen_wide_select_w63_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w63_4state.sv](../tests/gen/ch7/test_gen_wide_select_w63_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w64_2state.sv](../tests/gen/ch7/test_gen_wide_select_w64_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w64_4state.sv](../tests/gen/ch7/test_gen_wide_select_w64_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w65_2state.sv](../tests/gen/ch7/test_gen_wide_select_w65_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w65_4state.sv](../tests/gen/ch7/test_gen_wide_select_w65_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w127_2state.sv](../tests/gen/ch7/test_gen_wide_select_w127_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w127_4state.sv](../tests/gen/ch7/test_gen_wide_select_w127_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w128_2state.sv](../tests/gen/ch7/test_gen_wide_select_w128_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w128_4state.sv](../tests/gen/ch7/test_gen_wide_select_w128_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w129_2state.sv](../tests/gen/ch7/test_gen_wide_select_w129_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w129_4state.sv](../tests/gen/ch7/test_gen_wide_select_w129_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w200_2state.sv](../tests/gen/ch7/test_gen_wide_select_w200_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w200_4state.sv](../tests/gen/ch7/test_gen_wide_select_w200_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
 
 ### SV2023-7.4.5-EXTRACT-INTEGER-SELECTION
 
@@ -13708,7 +13993,7 @@ An expression can slice only one array dimension; other dimensions may have sing
 
 ### SV2023-7.4.5-EXTRACT-PART-SELECT-DEFINITION
 
-7.4.5 / normal / テスト未対応
+7.4.5 / normal / 実行確認あり
 
 A part-select selects contiguous bits of a one-dimensional packed array.
 
@@ -13716,10 +14001,24 @@ A part-select selects contiguous bits of a one-dimensional packed array.
 
 規定の性質: `definition`。
 
+- [test_gen_wide_select_w63_2state.sv](../tests/gen/ch7/test_gen_wide_select_w63_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w63_4state.sv](../tests/gen/ch7/test_gen_wide_select_w63_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w64_2state.sv](../tests/gen/ch7/test_gen_wide_select_w64_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w64_4state.sv](../tests/gen/ch7/test_gen_wide_select_w64_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w65_2state.sv](../tests/gen/ch7/test_gen_wide_select_w65_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w65_4state.sv](../tests/gen/ch7/test_gen_wide_select_w65_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w127_2state.sv](../tests/gen/ch7/test_gen_wide_select_w127_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w127_4state.sv](../tests/gen/ch7/test_gen_wide_select_w127_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w128_2state.sv](../tests/gen/ch7/test_gen_wide_select_w128_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w128_4state.sv](../tests/gen/ch7/test_gen_wide_select_w128_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w129_2state.sv](../tests/gen/ch7/test_gen_wide_select_w129_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w129_4state.sv](../tests/gen/ch7/test_gen_wide_select_w129_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w200_2state.sv](../tests/gen/ch7/test_gen_wide_select_w200_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w200_4state.sv](../tests/gen/ch7/test_gen_wide_select_w200_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
 
 ### SV2023-7.4.5-EXTRACT-SLICE-DEFINITION
 
-7.4.5 / normal / テスト未対応
+7.4.5 / normal / 実行確認あり
 
 An array slice selects one or more contiguous elements.
 
@@ -13727,6 +14026,20 @@ An array slice selects one or more contiguous elements.
 
 規定の性質: `definition`。
 
+- [test_gen_wide_select_w63_2state.sv](../tests/gen/ch7/test_gen_wide_select_w63_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w63_4state.sv](../tests/gen/ch7/test_gen_wide_select_w63_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w64_2state.sv](../tests/gen/ch7/test_gen_wide_select_w64_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w64_4state.sv](../tests/gen/ch7/test_gen_wide_select_w64_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w65_2state.sv](../tests/gen/ch7/test_gen_wide_select_w65_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w65_4state.sv](../tests/gen/ch7/test_gen_wide_select_w65_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w127_2state.sv](../tests/gen/ch7/test_gen_wide_select_w127_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w127_4state.sv](../tests/gen/ch7/test_gen_wide_select_w127_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w128_2state.sv](../tests/gen/ch7/test_gen_wide_select_w128_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w128_4state.sv](../tests/gen/ch7/test_gen_wide_select_w128_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w129_2state.sv](../tests/gen/ch7/test_gen_wide_select_w129_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w129_4state.sv](../tests/gen/ch7/test_gen_wide_select_w129_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w200_2state.sv](../tests/gen/ch7/test_gen_wide_select_w200_2state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
+- [test_gen_wide_select_w200_4state.sv](../tests/gen/ch7/test_gen_wide_select_w200_4state.sv): Reviewed wide_paths.select_case, contiguous-bit selection/overwrite and row concatenation model against 7.4.1/7.4.5. Body and whole expected file are exact template outputs. Independent rows are displayed as a whole packed vector, contiguous slices, constant/variable-base part-selects, and after writes that must preserve all other bits. This link counts only the named selection/value property, not a type/signature inference from successful compilation.
 
 ### SV2023-7.4.5-EXTRACT-SLICE-PACKING
 
@@ -13818,7 +14131,7 @@ A signing modifier on an unpacked array applies to its individual elements rathe
 
 ### SV2023-7.5-EXTRACT-DYNAMIC-DEFAULT-ZERO
 
-7.5 / normal / テスト未対応
+7.5 / normal / 実行確認あり
 
 A dynamic array without initialization starts with zero elements.
 
@@ -13826,10 +14139,16 @@ A dynamic array without initialization starts with zero elements.
 
 規定の性質: `mandatory`。
 
+- [test_dyn_array_edge.sv](../tests/ch7/test_dyn_array_edge.sv): Queries an uninitialized dynamic array before any allocation and requires zero size, rather than inferring this from a later delete.
+- [test_sv_dynamic_array.sv](../tests/ch7/test_sv_dynamic_array.sv): Queries an uninitialized dynamic array before any allocation and requires zero size, rather than inferring this from a later delete.
+- [test_dynamic_array.sv](../tests/ch7/test_dynamic_array.sv): Queries an uninitialized dynamic array before any allocation and requires zero size, rather than inferring this from a later delete.
+- [test_dyn_array_edge_cases.sv](../tests/ch7/test_dyn_array_edge_cases.sv): Queries an uninitialized dynamic array before any allocation and requires zero size, rather than inferring this from a later delete.
+- [test_dynamic_arr_edge_cases.sv](../tests/ch7/test_dynamic_arr_edge_cases.sv): Queries an uninitialized dynamic array before any allocation and requires zero size, rather than inferring this from a later delete.
+- [test_dynamic_array_edge_cases.sv](../tests/ch7/test_dynamic_array_edge_cases.sv): Queries an uninitialized dynamic array before any allocation and requires zero size, rather than inferring this from a later delete.
 
 ### SV2023-7.5-EXTRACT-DYNAMIC-DEFINITION
 
-7.5 / normal / テスト未対応
+7.5 / normal / 実行確認あり
 
 A dynamic array is an unpacked variable array whose size can change at runtime through construction or array assignment.
 
@@ -13837,6 +14156,10 @@ A dynamic array is an unpacked variable array whose size can change at runtime t
 
 規定の性質: `definition`。
 
+- [test_dynamic_array.sv](../tests/ch7/test_dynamic_array.sv): Observes a dynamic unpacked array change size at runtime and preserves checked element values where explicitly initialized; array-assignment resizing is observed where used.
+- [test_dynamic_array_ops.sv](../tests/ch7/test_dynamic_array_ops.sv): Observes a dynamic unpacked array change size at runtime and preserves checked element values where explicitly initialized; array-assignment resizing is observed where used.
+- [test_dynamic_array_2.sv](../tests/ch7/test_dynamic_array_2.sv): Observes a dynamic unpacked array change size at runtime and preserves checked element values where explicitly initialized; array-assignment resizing is observed where used.
+- [test_value_dynamic.sv](../tests/ch7/test_value_dynamic.sv): Observes a dynamic unpacked array change size at runtime and preserves checked element values where explicitly initialized; array-assignment resizing is observed where used.
 
 ### SV2023-7.5-EXTRACT-DYNAMIC-DIMENSION
 
@@ -13851,7 +14174,7 @@ Empty brackets denote a dynamic unpacked dimension; any unpacked dimension may b
 
 ### SV2023-7.5-EXTRACT-DYNAMIC-ELEMENT-TYPES
 
-7.5 / normal / テスト未対応
+7.5 / normal / 実行確認あり
 
 Dynamic array elements may use any variable data type, including array types.
 
@@ -13859,6 +14182,7 @@ Dynamic array elements may use any variable data type, including array types.
 
 規定の性質: `permission`。
 
+- [test_dyn_array_edge.sv](../tests/ch7/test_dyn_array_edge.sv): Allocates and uses integer and packed-logic element arrays, and a nested dynamic array whose element is itself an array; checks an actual nested stored value.
 
 ### SV2023-7.5-EXTRACT-LEFTMOST-DYNAMIC
 
@@ -13895,7 +14219,7 @@ Dynamic arrays may be initialized by new at declaration or by blocking assignmen
 
 ### SV2023-7.5.1-EXTRACT-DEFAULT-ELEMENTS
 
-7.5.1 / normal / テスト未対応
+7.5.1 / normal / 実行確認あり
 
 Without a constructor initializer, each new element receives its type default value.
 
@@ -13903,6 +14227,7 @@ Without a constructor initializer, each new element receives its type default va
 
 規定の性質: `mandatory`。
 
+- [test_dynamic_array_edge_cases.sv](../tests/ch7/test_dynamic_array_edge_cases.sv): After new[5] without initializer, checks first and last int elements are the int default zero before any explicit element writes. Other element domains are not claimed as exhaustive cases.
 
 ### SV2023-7.5.1-EXTRACT-INITIALIZER-COMPATIBILITY
 
@@ -13939,7 +14264,7 @@ Reallocation/reinitialization using new discards previous data unless supplied a
 
 ### SV2023-7.5.1-EXTRACT-NEW-SYNTAX
 
-7.5.1 / normal / テスト未対応
+7.5.1 / normal / 実行確認あり
 
 Dynamic array construction uses new[size-expression] with an optional parenthesized initializer expression.
 
@@ -13947,6 +14272,10 @@ Dynamic array construction uses new[size-expression] with an optional parenthesi
 
 規定の性質: `definition`。
 
+- [test_dyn_array_new.sv](../tests/ch7/test_dyn_array_new.sv): Uses new[size] in a blocking procedural assignment and observes the new size; optional initialization form is observed where present. No return/size operand type is inferred.
+- [test_dyn_array_basic.sv](../tests/ch7/test_dyn_array_basic.sv): Uses new[size] in a blocking procedural assignment and observes the new size; optional initialization form is observed where present. No return/size operand type is inferred.
+- [test_container_assign_pattern.sv](../tests/ch7/test_container_assign_pattern.sv): Uses new[size] in a blocking procedural assignment and observes the new size; optional initialization form is observed where present. No return/size operand type is inferred.
+- [test_dynamic_array_queue_size.sv](../tests/ch7/test_dynamic_array_queue_size.sv): Uses new[size] in a blocking procedural assignment and observes the new size; optional initialization form is observed where present. No return/size operand type is inferred.
 
 ### SV2023-7.5.1-EXTRACT-NO-NEGATIVE-SIZE
 
@@ -13961,7 +14290,7 @@ A negative dynamic array allocation size is an error.
 
 ### SV2023-7.5.1-EXTRACT-OPTIONAL-ARRAY-INITIALIZER
 
-7.5.1 / normal / テスト未対応
+7.5.1 / normal / 実行確認あり
 
 The optional parenthesized constructor expression supplies an array initializer.
 
@@ -13969,10 +14298,12 @@ The optional parenthesized constructor expression supplies an array initializer.
 
 規定の性質: `definition`。
 
+- [test_dynamic_resize.sv](../tests/ch7/test_dynamic_resize.sv): A separate initialized source array supplies four values; destination size and first/last copied contents are checked.
+- [test_dynamic_array_corner.sv](../tests/ch7/test_dynamic_array_corner.sv): Supplies an optional array assignment-pattern initializer to new[4] and checks all four resulting elements.
 
 ### SV2023-7.5.1-EXTRACT-PAD-INITIALIZER
 
-7.5.1 / normal / テスト未対応
+7.5.1 / normal / 実行確認あり
 
 If the initializer has fewer elements than the allocation size, the remaining elements receive type defaults.
 
@@ -13980,10 +14311,13 @@ If the initializer has fewer elements than the allocation size, the remaining el
 
 規定の性質: `mandatory`。
 
+- [test_dynamic_resize.sv](../tests/ch7/test_dynamic_resize.sv): Grows an existing array with itself as initializer and explicitly checks a newly added element is default zero in addition to old contents and size.
+- [test_dyn_array_ops.sv](../tests/ch7/test_dyn_array_ops.sv): Grows an existing array with itself as initializer and explicitly checks a newly added element is default zero in addition to old contents and size.
+- [test_sv_dynamic_array.sv](../tests/ch7/test_sv_dynamic_array.sv): Grows an existing array with itself as initializer and explicitly checks a newly added element is default zero in addition to old contents and size.
 
 ### SV2023-7.5.1-EXTRACT-SELF-INITIALIZER-PRESERVES
 
-7.5.1 / normal / テスト未対応
+7.5.1 / normal / 実行確認あり
 
 Using the old array itself as the new initializer preserves its leading contents under truncation/default-padding rules.
 
@@ -13991,6 +14325,7 @@ Using the old array itself as the new initializer preserves its leading contents
 
 規定の性質: `permission`。
 
+- [test_dynamic_resize.sv](../tests/ch7/test_dynamic_resize.sv): The same array is grown from five to eight preserving old values and default-padding, then shrunk to three with all retained values and size checked.
 
 ### SV2023-7.5.1-EXTRACT-SIZE-LONGINT
 
@@ -14005,7 +14340,7 @@ The dynamic-array allocation size operand is evaluated with longint type.
 
 ### SV2023-7.5.1-EXTRACT-TRUNCATE-INITIALIZER
 
-7.5.1 / normal / テスト未対応
+7.5.1 / normal / 実行確認あり
 
 If the initializer has more elements than the requested allocation size, excess elements are discarded.
 
@@ -14013,10 +14348,17 @@ If the initializer has more elements than the requested allocation size, excess 
 
 規定の性質: `mandatory`。
 
+- [test_dynamic_resize.sv](../tests/ch7/test_dynamic_resize.sv): Shrinks using the old larger array as initializer, checking the smaller count and retained leading content; no claim about stale references is made.
+- [test_dynamic_array_edge.sv](../tests/ch7/test_dynamic_array_edge.sv): Shrinks using the old larger array as initializer, checking the smaller count and retained leading content; no claim about stale references is made.
+- [test_edge_dynamic_array_resize.sv](../tests/ch7/test_edge_dynamic_array_resize.sv): Shrinks using the old larger array as initializer, checking the smaller count and retained leading content; no claim about stale references is made.
+- [test_dyn_resize.sv](../tests/ch7/test_dyn_resize.sv): Shrinks using the old larger array as initializer, checking the smaller count and retained leading content; no claim about stale references is made.
+- [test_dynamic_array_ops.sv](../tests/ch7/test_dynamic_array_ops.sv): Shrinks using the old larger array as initializer, checking the smaller count and retained leading content; no claim about stale references is made.
+- [test_value_dynamic.sv](../tests/ch7/test_value_dynamic.sv): Shrinks using the old larger array as initializer, checking the smaller count and retained leading content; no claim about stale references is made.
+- [test_dynamic_array_corner.sv](../tests/ch7/test_dynamic_array_corner.sv): Shrinks a five-element array initialized with1,2,3,4,5 and checks count three and every retained value.
 
 ### SV2023-7.5.1-EXTRACT-ZERO-ALLOCATION
 
-7.5.1 / boundary / テスト未対応
+7.5.1 / boundary / 実行確認あり
 
 new[0] produces an empty array.
 
@@ -14024,10 +14366,13 @@ new[0] produces an empty array.
 
 規定の性質: `mandatory`。
 
+- [test_dynamic_array_edge.sv](../tests/ch7/test_dynamic_array_edge.sv): Calls new[0] and requires size zero. The edge test does so after a previously nonempty allocation.
+- [test_edge_dynamic_array_resize.sv](../tests/ch7/test_edge_dynamic_array_resize.sv): Calls new[0] and requires size zero. The edge test does so after a previously nonempty allocation.
+- [test_dynamic_array_edge_cases.sv](../tests/ch7/test_dynamic_array_edge_cases.sv): Replaces a previously used dynamic array with new[0] and checks size zero.
 
 ### SV2023-7.5.2-EXTRACT-CURRENT-SIZE
 
-7.5.2 / normal / テスト未対応
+7.5.2 / normal / 実行確認あり
 
 size() returns the current dynamic array element count, including zero for an uncreated array.
 
@@ -14035,6 +14380,11 @@ size() returns the current dynamic array element count, including zero for an un
 
 規定の性質: `mandatory`。
 
+- [test_dyn_array_edge.sv](../tests/ch7/test_dyn_array_edge.sv): Checks size before allocation is zero and after allocation/resizing reflects the current element count; the size-edge test also covers local/class/argument receivers.
+- [test_dynamic_array_edge.sv](../tests/ch7/test_dynamic_array_edge.sv): Checks size before allocation is zero and after allocation/resizing reflects the current element count; the size-edge test also covers local/class/argument receivers.
+- [test_dyn_array_method.sv](../tests/ch7/test_dyn_array_method.sv): Checks size before allocation is zero and after allocation/resizing reflects the current element count; the size-edge test also covers local/class/argument receivers.
+- [test_dynamic_array_size_edge.sv](../tests/ch7/test_dynamic_array_size_edge.sv): Checks size before allocation is zero and after allocation/resizing reflects the current element count; the size-edge test also covers local/class/argument receivers.
+- [test_dynamic_array_edge_cases.sv](../tests/ch7/test_dynamic_array_edge_cases.sv): Checks zero before construction and changed sizes after allocation, preserving resize, shrink, delete and new[0].
 
 ### SV2023-7.5.2-EXTRACT-QUERY-EQUIVALENCE
 
@@ -14060,7 +14410,7 @@ Dynamic-array size is a no-argument method returning int.
 
 ### SV2023-7.5.3-EXTRACT-DELETE-EMPTY
 
-7.5.3 / normal / テスト未対応
+7.5.3 / normal / 実行確認あり
 
 delete() removes all elements and leaves size zero.
 
@@ -14068,6 +14418,16 @@ delete() removes all elements and leaves size zero.
 
 規定の性質: `mandatory`。
 
+- [test_dyn_array_delete.sv](../tests/ch7/test_dyn_array_delete.sv): Deletes an allocated dynamic array and explicitly observes size zero; the dedicated delete test repeats deletion on an already empty array and reallocates afterward.
+- [test_dyn_array_edge.sv](../tests/ch7/test_dyn_array_edge.sv): Deletes an allocated dynamic array and explicitly observes size zero; the dedicated delete test repeats deletion on an already empty array and reallocates afterward.
+- [test_dynamic_array_edge.sv](../tests/ch7/test_dynamic_array_edge.sv): Deletes an allocated dynamic array and explicitly observes size zero; the dedicated delete test repeats deletion on an already empty array and reallocates afterward.
+- [test_dyn_array_method.sv](../tests/ch7/test_dyn_array_method.sv): Deletes an allocated dynamic array and explicitly observes size zero; the dedicated delete test repeats deletion on an already empty array and reallocates afterward.
+- [test_dyn_array_ops.sv](../tests/ch7/test_dyn_array_ops.sv): Deletes an allocated dynamic array and explicitly observes size zero; the dedicated delete test repeats deletion on an already empty array and reallocates afterward.
+- [test_dyn_resize.sv](../tests/ch7/test_dyn_resize.sv): Deletes an allocated dynamic array and explicitly observes size zero; the dedicated delete test repeats deletion on an already empty array and reallocates afterward.
+- [test_sv_dynamic_array.sv](../tests/ch7/test_sv_dynamic_array.sv): Deletes an allocated dynamic array and explicitly observes size zero; the dedicated delete test repeats deletion on an already empty array and reallocates afterward.
+- [test_value_dynamic.sv](../tests/ch7/test_value_dynamic.sv): Deletes an allocated dynamic array and explicitly observes size zero; the dedicated delete test repeats deletion on an already empty array and reallocates afterward.
+- [test_dynamic_array_queue_size.sv](../tests/ch7/test_dynamic_array_queue_size.sv): Deletes an allocated dynamic array and explicitly observes size zero; the dedicated delete test repeats deletion on an already empty array and reallocates afterward.
+- [test_dynamic_array_edge_cases.sv](../tests/ch7/test_dynamic_array_edge_cases.sv): Deletes the populated array and observes size zero.
 
 ### SV2023-7.5.3-EXTRACT-SIGNATURE
 
@@ -15226,7 +15586,7 @@ Queues support applicable indexing, concatenation, slicing and equality array op
 
 ### SV2023-7.10-EXTRACT-QUEUE-DEFAULT-EMPTY
 
-7.10 / normal / テスト未対応
+7.10 / normal / 実行確認あり
 
 A queue declaration without an initializer starts empty; empty unpacked concatenation denotes the empty queue.
 
@@ -15234,6 +15594,7 @@ A queue declaration without an initializer starts empty; empty unpacked concaten
 
 規定の性質: `mandatory`。
 
+- [test_queue_edge_2.sv](../tests/ch7/test_queue_edge_2.sv): Checks both an initially uninitialized queue is empty and assigning the empty unpacked concatenation produces an empty queue.
 
 ### SV2023-7.10-EXTRACT-QUEUE-DEFINITION
 
@@ -15270,7 +15631,7 @@ Queue values may use assignment patterns or unpacked array concatenations.
 
 ### SV2023-7.10.1-EXTRACT-APPEND-INDEX
 
-7.10.1 / boundary / テスト未対応
+7.10.1 / boundary / 実行確認あり
 
 Writing queue index last-plus-one is legal and appends an element under bounded-queue rules.
 
@@ -15278,6 +15639,7 @@ Writing queue index last-plus-one is legal and appends an element under bounded-
 
 規定の性質: `mandatory`。
 
+- [test_queue_write_at_size_appends.sv](../tests/ch7/test_queue_write_at_size_appends.sv): Writes exactly last+one in a three-element queue; also starts an empty second queue and successively appends at its current size. Both resulting contents and sizes are observed.
 
 ### SV2023-7.10.1-EXTRACT-AUTOMATIC-RESIZE
 
@@ -15292,7 +15654,7 @@ Queue writes resize the queue to accommodate the assigned queue value subject to
 
 ### SV2023-7.10.1-EXTRACT-BOUND-MAXIMUM
 
-7.10.1 / normal / テスト未対応
+7.10.1 / normal / 実行確認あり
 
 A queue declared with upper bound N cannot retain an index above N or size above N plus one.
 
@@ -15300,6 +15662,7 @@ A queue declared with upper bound N cannot retain an index above N or size above
 
 規定の性質: `mandatory`。
 
+- [test_queue_edge_2.sv](../tests/ch7/test_queue_edge_2.sv): Attempts fifteen appends to a queue bounded at index ten and checks the retained size never exceeds eleven. This does not prove exact retained values or the mandatory overflow warning.
 
 ### SV2023-7.10.1-EXTRACT-CLAMP-HIGH
 
@@ -15347,7 +15710,7 @@ Queues support the operations defined for fixed unpacked arrays, with the queue-
 
 ### SV2023-7.10.1-EXTRACT-INCLUSIVE-SLICE
 
-7.10.1 / normal / テスト未対応
+7.10.1 / normal / 実行確認あり
 
 For valid ordered endpoints, queue slice a:b contains elements a through b inclusive.
 
@@ -15355,6 +15718,7 @@ For valid ordered endpoints, queue slice a:b contains elements a through b inclu
 
 規定の性質: `mandatory`。
 
+- [test_queue_edge_2.sv](../tests/ch7/test_queue_edge_2.sv): After assigning four known values, reads slice 1:2 and checks count two and both endpoint values.
 
 ### SV2023-7.10.1-EXTRACT-INVALID-READ
 
@@ -15435,7 +15799,7 @@ Queue slice endpoints may be arbitrary integral expressions rather than constant
 
 ### SV2023-7.10.2.1-EXTRACT-COUNT
 
-7.10.2.1 / normal / テスト未対応
+7.10.2.1 / normal / 実行確認あり
 
 Queue size() returns its current element count, including zero when empty.
 
@@ -15443,6 +15807,8 @@ Queue size() returns its current element count, including zero when empty.
 
 規定の性質: `mandatory`。
 
+- [test_queue_size_method.sv](../tests/ch7/test_queue_size_method.sv): Checks zero before insertion, three after pushes, two after deletion, four after a pattern and zero after clearing a string queue.
+- [test_queue_method_edges.sv](../tests/ch7/test_queue_method_edges.sv): Observes counts before insertion, after valid/invalid inserts, and after removal/empty pops for int and four-state vector queues.
 
 ### SV2023-7.10.2.1-EXTRACT-SIGNATURE
 
@@ -15457,7 +15823,7 @@ Queue size takes no arguments and returns int.
 
 ### SV2023-7.10.2.2-EXTRACT-INSERT-POSITION
 
-7.10.2.2 / normal / テスト未対応
+7.10.2.2 / normal / 実行確認あり
 
 insert(index,item) inserts the item at the given position, shifting later items under queue/bound rules.
 
@@ -15465,6 +15831,7 @@ insert(index,item) inserts the item at the given position, shifting later items 
 
 規定の性質: `mandatory`。
 
+- [test_queue_insert_positions.sv](../tests/ch7/test_queue_insert_positions.sv): Insertion into an empty queue, front, middle, and size index shifts existing elements; complete int/string queues are output and checked.
 
 ### SV2023-7.10.2.2-EXTRACT-INVALID-INSERT
 
@@ -15490,7 +15857,7 @@ Queue insert returns void and accepts an input integer index followed by an inpu
 
 ### SV2023-7.10.2.3-EXTRACT-DELETE-ALL
 
-7.10.2.3 / normal / テスト未対応
+7.10.2.3 / normal / 実行確認あり
 
 Queue delete() without an index removes every element.
 
@@ -15498,10 +15865,12 @@ Queue delete() without an index removes every element.
 
 規定の性質: `mandatory`。
 
+- [test_queue_size_method.sv](../tests/ch7/test_queue_size_method.sv): Clears a nonempty string queue and observes size zero.
+- [test_queue_delete.sv](../tests/ch7/test_queue_delete.sv): Clears the remaining queue after indexed deletion and requires size zero in the complete three-check count.
 
 ### SV2023-7.10.2.3-EXTRACT-DELETE-POSITION
 
-7.10.2.3 / normal / テスト未対応
+7.10.2.3 / normal / 実行確認あり
 
 Queue delete(index) removes the in-range indexed item and shifts following elements.
 
@@ -15509,6 +15878,8 @@ Queue delete(index) removes the in-range indexed item and shifts following eleme
 
 規定の性質: `mandatory`。
 
+- [test_queue_size_method.sv](../tests/ch7/test_queue_size_method.sv): Removes the middle of 0,1,2 and observes count and both survivor values.
+- [test_queue_delete.sv](../tests/ch7/test_queue_delete.sv): Deletes index two from five values and checks count four and that the following value shifts into index two.
 
 ### SV2023-7.10.2.3-EXTRACT-INVALID-DELETE
 
@@ -15534,7 +15905,7 @@ Queue delete is void and accepts an optional input integer index.
 
 ### SV2023-7.10.2.4-EXTRACT-EMPTY-POP
 
-7.10.2.4 / boundary / テスト未対応
+7.10.2.4 / boundary / テスト対応あり・実行未確認
 
 pop_front() on an empty queue returns the Table 7-1 nonexistent value for its element type, leaves the queue unchanged and may issue a warning.
 
@@ -15542,10 +15913,11 @@ pop_front() on an empty queue returns the Table 7-1 nonexistent value for its el
 
 規定の性質: `mandatory`。
 
+- [test_queue_method_edges.sv](../tests/ch7/test_queue_method_edges.sv): On an empty int queue the pop returns nonexistent-element value zero and leaves size zero; front-pop additionally checks xxxx for a four-state vector queue. Warnings are permitted and not constrained.
 
 ### SV2023-7.10.2.4-EXTRACT-POP
 
-7.10.2.4 / normal / テスト未対応
+7.10.2.4 / normal / 実行確認あり
 
 pop_front() removes and returns the first queue element.
 
@@ -15553,6 +15925,7 @@ pop_front() removes and returns the first queue element.
 
 規定の性質: `mandatory`。
 
+- [test_queue_pop_front_order.sv](../tests/ch7/test_queue_pop_front_order.sv): Checks the returned endpoint value, decremented count, and the new endpoint through draining a three-element string queue; also checks integer queue removal.
 
 ### SV2023-7.10.2.4-EXTRACT-SIGNATURE
 
@@ -15567,7 +15940,7 @@ Queue pop_front has no arguments and returns the element type.
 
 ### SV2023-7.10.2.5-EXTRACT-EMPTY-POP
 
-7.10.2.5 / boundary / テスト未対応
+7.10.2.5 / boundary / テスト対応あり・実行未確認
 
 pop_back() on an empty queue returns the Table 7-1 nonexistent value for its element type, leaves the queue unchanged and may issue a warning.
 
@@ -15575,10 +15948,11 @@ pop_back() on an empty queue returns the Table 7-1 nonexistent value for its ele
 
 規定の性質: `mandatory`。
 
+- [test_queue_method_edges.sv](../tests/ch7/test_queue_method_edges.sv): On an empty int queue the pop returns nonexistent-element value zero and leaves size zero; front-pop additionally checks xxxx for a four-state vector queue. Warnings are permitted and not constrained.
 
 ### SV2023-7.10.2.5-EXTRACT-POP
 
-7.10.2.5 / normal / テスト未対応
+7.10.2.5 / normal / 実行確認あり
 
 pop_back() removes and returns the last queue element.
 
@@ -15586,6 +15960,7 @@ pop_back() removes and returns the last queue element.
 
 規定の性質: `mandatory`。
 
+- [test_queue_pop_back_order.sv](../tests/ch7/test_queue_pop_back_order.sv): Checks the returned endpoint value, decremented count, and the new endpoint through draining a three-element string queue; also checks integer queue removal.
 
 ### SV2023-7.10.2.5-EXTRACT-SIGNATURE
 
@@ -15600,7 +15975,7 @@ Queue pop_back has no arguments and returns the element type.
 
 ### SV2023-7.10.2.6-EXTRACT-PUSH
 
-7.10.2.6 / normal / テスト未対応
+7.10.2.6 / normal / テスト対応あり・実行未確認
 
 push_front(item) inserts the item at the queue front, subject to queue bound rules.
 
@@ -15608,6 +15983,7 @@ push_front(item) inserts the item at the queue front, subject to queue bound rul
 
 規定の性質: `mandatory`。
 
+- [test_queue_method_edges.sv](../tests/ch7/test_queue_method_edges.sv): Pushes two values at the front then inserts before/after them; full ordered contents and count check that both front pushes retain their order.
 
 ### SV2023-7.10.2.6-EXTRACT-SIGNATURE
 
@@ -15675,7 +16051,7 @@ insert/push_front normally preserve existing elements, but on bounded overflow a
 
 ### SV2023-7.10.3-EXTRACT-CONCAT-ASSIGNMENT-REFERENCE
 
-7.10.3 / normal / テスト未対応
+7.10.3 / normal / テスト対応あり・実行未確認
 
 Queue insertion via whole-value unpacked concatenation assignment invalidates all original element references.
 
@@ -15683,10 +16059,11 @@ Queue insertion via whole-value unpacked concatenation assignment invalidates al
 
 規定の性質: `mandatory`。
 
+- [test_queue_reference_persistence.sv](../tests/ch7/test_queue_reference_persistence.sv): Delayed ref writes distinguish a surviving element after push_front, an element removed by delete, and a second element whose reference becomes outdated after whole-queue concatenation assignment. Task-local outdated values remain accessible but do not update the current queue.
 
 ### SV2023-7.10.3-EXTRACT-HELD-ELEMENT-REFERENCE
 
-7.10.3 / normal / テスト未対応
+7.10.3 / normal / 実行確認あり
 
 A queue element may be passed by ref to a task that holds the reference across other queue operations under 13.5.2.
 
@@ -15694,10 +16071,12 @@ A queue element may be passed by ref to a task that holds the reference across o
 
 規定の性質: `permission`。
 
+- [test_queue_ref_survives_unrelated_pop.sv](../tests/ch7/test_queue_ref_survives_unrelated_pop.sv): An automatic task holds a queue-element ref while another element is popped and a new front inserted; its later write changes the original element at its shifted index.
+- [test_queue_reference_persistence.sv](../tests/ch7/test_queue_reference_persistence.sv): Delayed ref writes distinguish a surviving element after push_front, an element removed by delete, and a second element whose reference becomes outdated after whole-queue concatenation assignment. Task-local outdated values remain accessible but do not update the current queue.
 
 ### SV2023-7.10.3-EXTRACT-METHOD-DELETED-REFERENCE
 
-7.10.3 / normal / テスト未対応
+7.10.3 / normal / テスト対応あり・実行未確認
 
 Every queue element removed by a method has its references made outdated.
 
@@ -15705,10 +16084,11 @@ Every queue element removed by a method has its references made outdated.
 
 規定の性質: `mandatory`。
 
+- [test_queue_reference_persistence.sv](../tests/ch7/test_queue_reference_persistence.sv): Delayed ref writes distinguish a surviving element after push_front, an element removed by delete, and a second element whose reference becomes outdated after whole-queue concatenation assignment. Task-local outdated values remain accessible but do not update the current queue.
 
 ### SV2023-7.10.3-EXTRACT-METHOD-SURVIVOR-REFERENCE
 
-7.10.3 / normal / テスト未対応
+7.10.3 / normal / 実行確認あり
 
 Queue method updates preserve existing references to elements that the method does not delete.
 
@@ -15716,10 +16096,12 @@ Queue method updates preserve existing references to elements that the method do
 
 規定の性質: `mandatory`。
 
+- [test_queue_ref_survives_unrelated_pop.sv](../tests/ch7/test_queue_ref_survives_unrelated_pop.sv): The reference to the original first element survives a pop of a different element and insertion before it; later delayed write reaches the same element after its index changes.
+- [test_queue_reference_persistence.sv](../tests/ch7/test_queue_reference_persistence.sv): Delayed ref writes distinguish a surviving element after push_front, an element removed by delete, and a second element whose reference becomes outdated after whole-queue concatenation assignment. Task-local outdated values remain accessible but do not update the current queue.
 
 ### SV2023-7.10.3-EXTRACT-WHOLE-ASSIGNMENT-REFERENCE
 
-7.10.3 / normal / テスト未対応
+7.10.3 / normal / テスト対応あり・実行未確認
 
 Whole-queue assignment makes every preexisting element reference outdated.
 
@@ -15727,6 +16109,7 @@ Whole-queue assignment makes every preexisting element reference outdated.
 
 規定の性質: `mandatory`。
 
+- [test_queue_reference_persistence.sv](../tests/ch7/test_queue_reference_persistence.sv): Delayed ref writes distinguish a surviving element after push_front, an element removed by delete, and a second element whose reference becomes outdated after whole-queue concatenation assignment. Task-local outdated values remain accessible but do not update the current queue.
 
 ### SV2023-7.10.4-EXTRACT-ASSIGNMENT-INVALIDATES
 
@@ -16984,7 +17367,7 @@ A static property can be used without constructing a class object.
 
 ### SV2023-8.10-EXTRACT-NO-STATIC-INSTANCE-ACCESS
 
-8.10 / error / テスト未対応
+8.10 / error / 実行確認あり
 
 Direct nonstatic member access or this use in a static method is a compilation error.
 
@@ -16992,6 +17375,7 @@ Direct nonstatic member access or this use in a static method is a compilation e
 
 規定の性質: `mandatory`。
 
+- [test_illegal_static_method_uses_property.sv](../tests/ch8/test_illegal_static_method_uses_property.sv): Static get directly reads an instance property without a receiver. Inspected Verilator5.052 diagnostic explicitly identifies non-static member access from a static method; the Icarus acceptance is a known mismatch.
 
 ### SV2023-8.10-EXTRACT-NO-STATIC-VIRTUAL
 
@@ -17303,7 +17687,7 @@ Accessing a value parameter/localparam using super does not form a constant expr
 
 ### SV2023-8.16-EXTRACT-CAST-CHECKED-OBJECT
 
-8.16 / normal / テスト未対応
+8.16 / normal / 実行確認あり
 
 For a source static type that is an ancestor of the destination or an interface class, $cast succeeds when the runtime source object is assignment compatible with the destination.
 
@@ -17311,6 +17695,8 @@ For a source static type that is an ancestor of the destination or an interface 
 
 規定の性質: `mandatory`。
 
+- [test_cast_function.sv](../tests/ch6/test_cast_function.sv): The source has static BaseClass type but holds a DerivedClass object; a successful checked downcast exposes its derived member200 and inherited100.
+- [test_member_access_cast.sv](../tests/ch6/test_member_access_cast.sv): Downcasts a base handle holding a derived object and observes both inherited and derived members.
 
 ### SV2023-8.16-EXTRACT-CAST-FORMS
 
@@ -17347,7 +17733,7 @@ Every other class $cast fails, including incompatible static source/destination 
 
 ### SV2023-8.16-EXTRACT-CAST-STATIC-UPWARD
 
-8.16 / normal / テスト未対応
+8.16 / normal / 実行確認あり
 
 A class $cast succeeds when source and destination types are assignment compatible (same type or destination ancestor).
 
@@ -17355,6 +17741,7 @@ A class $cast succeeds when source and destination types are assignment compatib
 
 規定の性質: `mandatory`。
 
+- [test_member_access_cast.sv](../tests/ch6/test_member_access_cast.sv): A dynamic cast from derived to base succeeds and preserves handle identity; shared property updates through both handles are then observed.
 
 ### SV2023-8.16-EXTRACT-CAST-UPDATE-OR-ERROR
 
@@ -17380,7 +17767,7 @@ Direct base-handle assignment to a derived variable is illegal; $cast may perfor
 
 ### SV2023-8.16-EXTRACT-UPCAST-LEGAL
 
-8.16 / normal / テスト未対応
+8.16 / normal / 実行確認あり
 
 An expression of derived class type can always assign to an ancestor class handle.
 
@@ -17388,6 +17775,7 @@ An expression of derived class type can always assign to an ancestor class handl
 
 規定の性質: `mandatory`。
 
+- [test_cast_function.sv](../tests/ch6/test_cast_function.sv): Directly assigns a derived object to an ancestor handle, then checks inherited and derived properties via the checked downcast.
 
 ### SV2023-8.17-EXTRACT-AFTER-DEFAULT-ARGUMENT
 
@@ -17644,7 +18032,7 @@ A protected property/method has local-style hiding from unrelated code but remai
 
 ### SV2023-8.19-EXTRACT-GLOBAL-DECLARATION-ONLY
 
-8.19 / error / テスト未対応
+8.19 / error / 実行確認あり
 
 A const class property with a declaration initializer cannot be assigned anywhere else.
 
@@ -17652,6 +18040,7 @@ A const class property with a declaration initializer cannot be assigned anywher
 
 規定の性質: `mandatory`。
 
+- [test_illegal_global_constant_assigned_in_constructor.sv](../tests/ch8/test_illegal_global_constant_assigned_in_constructor.sv): Declaration-initialized const property is written again by its constructor. Inspected Icarus13.0 diagnostic identifies property limit as constant in that method; this is not the unsupported const-class-item diagnostic.
 
 ### SV2023-8.19-EXTRACT-INSTANCE-CONSTRUCTOR-ONCE
 
@@ -17875,7 +18264,7 @@ A nonabstract class derived from an abstract hierarchy must provide overridden i
 
 ### SV2023-8.21-EXTRACT-NO-ABSTRACT-CONSTRUCTION
 
-8.21 / error / テスト未対応
+8.21 / error / 実行確認あり
 
 An abstract class cannot be directly constructed; its constructor may run only through a constructor chain from a nonabstract derived object.
 
@@ -17883,6 +18272,7 @@ An abstract class cannot be directly constructed; its constructor may run only t
 
 規定の性質: `mandatory`。
 
+- [test_illegal_abstract_class_new.sv](../tests/ch8/test_illegal_abstract_class_new.sv): Directly constructs a virtual class. Both compiler diagnostics were inspected and explicitly identify abstract/virtual class construction; only the pinned Icarus negative oracle counts as executed.
 
 ### SV2023-8.21-EXTRACT-PURE-PROTOTYPE
 
@@ -19238,7 +19628,7 @@ The language imposes no count limit on module initial/always procedures.
 
 ### SV2023-9.2.1-EXTRACT-ONCE
 
-9.2.1 / normal / テスト未対応
+9.2.1 / normal / 実行確認あり
 
 An initial procedure executes once and ceases when its statement completes.
 
@@ -19246,6 +19636,15 @@ An initial procedure executes once and ceases when its statement completes.
 
 規定の性質: `mandatory`。
 
+- [test_gen_sched_blocking_same_initial_nodelay.sv](../tests/gen/ch4/test_gen_sched_blocking_same_initial_nodelay.sv): Exact reviewed scheduling template/oracle. The finite initial body performs its write followed by one display and completes without looping. The complete expected output has exactly one observation, so repeated execution of the body is detected. This does not use monitor coalescing to infer a one-time execution.
+- [test_gen_sched_blocking_same_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_blocking_same_initial_delay0.sv): Exact reviewed scheduling template/oracle. The finite initial body performs its write followed by one display and completes without looping. The complete expected output has exactly one observation, so repeated execution of the body is detected. This does not use monitor coalescing to infer a one-time execution.
+- [test_gen_sched_blocking_same_initial_delay1.sv](../tests/gen/ch4/test_gen_sched_blocking_same_initial_delay1.sv): Exact reviewed scheduling template/oracle. The finite initial body performs its write followed by one display and completes without looping. The complete expected output has exactly one observation, so repeated execution of the body is detected. This does not use monitor coalescing to infer a one-time execution.
+- [test_gen_sched_nba_same_initial_nodelay.sv](../tests/gen/ch4/test_gen_sched_nba_same_initial_nodelay.sv): Exact reviewed scheduling template/oracle. The finite initial body performs its write followed by one display and completes without looping. The complete expected output has exactly one observation, so repeated execution of the body is detected. This does not use monitor coalescing to infer a one-time execution.
+- [test_gen_sched_nba_same_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_nba_same_initial_delay0.sv): Exact reviewed scheduling template/oracle. The finite initial body performs its write followed by one display and completes without looping. The complete expected output has exactly one observation, so repeated execution of the body is detected. This does not use monitor coalescing to infer a one-time execution.
+- [test_gen_sched_nba_same_initial_delay1.sv](../tests/gen/ch4/test_gen_sched_nba_same_initial_delay1.sv): Exact reviewed scheduling template/oracle. The finite initial body performs its write followed by one display and completes without looping. The complete expected output has exactly one observation, so repeated execution of the body is detected. This does not use monitor coalescing to infer a one-time execution.
+- [test_gen_sched_nbadelay_same_initial_nodelay.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_initial_nodelay.sv): Exact reviewed scheduling template/oracle. The finite initial body performs its write followed by one display and completes without looping. The complete expected output has exactly one observation, so repeated execution of the body is detected. This does not use monitor coalescing to infer a one-time execution.
+- [test_gen_sched_nbadelay_same_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_initial_delay0.sv): Exact reviewed scheduling template/oracle. The finite initial body performs its write followed by one display and completes without looping. The complete expected output has exactly one observation, so repeated execution of the body is detected. This does not use monitor coalescing to infer a one-time execution.
+- [test_gen_sched_nbadelay_same_initial_delay1.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_initial_delay1.sv): Exact reviewed scheduling template/oracle. The finite initial body performs its write followed by one display and completes without looping. The complete expected output has exactly one observation, so repeated execution of the body is detected. This does not use monitor coalescing to infer a one-time execution.
 
 ### SV2023-9.2.2-EXTRACT-ALWAYS-FORMS-REPEAT
 
@@ -21420,7 +21819,7 @@ A net may combine multiple continuous, primitive-output and module-output driver
 
 ### SV2023-10.3.2-EXTRACT-REEVALUATE-OPERAND-CHANGE
 
-10.3.2 / normal / テスト未対応
+10.3.2 / normal / 実行確認あり
 
 A continuous assignment reevaluates its whole RHS when an operand changes and drives a new target value when the evaluated result differs.
 
@@ -21428,6 +21827,13 @@ A continuous assignment reevaluates its whole RHS when an operand changes and dr
 
 規定の性質: `mandatory`。
 
+- [test_gen_sched_assign_monitor_initial_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_initial_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
+- [test_gen_sched_assign_monitor_always_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_always_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
+- [test_gen_sched_assign_monitor_task_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_task_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
+- [test_gen_sched_assign_monitor_function_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_function_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
+- [test_gen_sched_assign_monitor_fork_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_fork_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
+- [test_gen_sched_assign_monitor_interface_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_interface_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
+- [test_gen_sched_assign_monitor_generate_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_generate_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
 
 ### SV2023-10.3.2-EXTRACT-VARIABLE-DECLARED-FIRST
 
@@ -21849,7 +22255,7 @@ Nonblocking assignment cannot target an automatic variable or an element of a dy
 
 ### SV2023-10.4.2-EXTRACT-NONBLOCKING-FLOW
 
-10.4.2 / normal / テスト未対応
+10.4.2 / normal / 実行確認あり
 
 A nonblocking assignment evaluates/schedules its update without delaying execution of subsequent sequential statements.
 
@@ -21857,6 +22263,42 @@ A nonblocking assignment evaluates/schedules its update without delaying executi
 
 規定の性質: `mandatory`。
 
+- [test_gen_sched_nba_same_initial_nodelay.sv](../tests/gen/ch4/test_gen_sched_nba_same_initial_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_nba_same_initial_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_initial_delay1.sv](../tests/gen/ch4/test_gen_sched_nba_same_initial_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_always_nodelay.sv](../tests/gen/ch4/test_gen_sched_nba_same_always_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_always_delay0.sv](../tests/gen/ch4/test_gen_sched_nba_same_always_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_always_delay1.sv](../tests/gen/ch4/test_gen_sched_nba_same_always_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_task_nodelay.sv](../tests/gen/ch4/test_gen_sched_nba_same_task_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_task_delay0.sv](../tests/gen/ch4/test_gen_sched_nba_same_task_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_task_delay1.sv](../tests/gen/ch4/test_gen_sched_nba_same_task_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_fork_nodelay.sv](../tests/gen/ch4/test_gen_sched_nba_same_fork_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_nba_same_fork_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_fork_delay1.sv](../tests/gen/ch4/test_gen_sched_nba_same_fork_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_interface_nodelay.sv](../tests/gen/ch4/test_gen_sched_nba_same_interface_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_nba_same_interface_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_interface_delay1.sv](../tests/gen/ch4/test_gen_sched_nba_same_interface_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_generate_nodelay.sv](../tests/gen/ch4/test_gen_sched_nba_same_generate_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_nba_same_generate_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nba_same_generate_delay1.sv](../tests/gen/ch4/test_gen_sched_nba_same_generate_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_initial_nodelay.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_initial_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_initial_delay0.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_initial_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_initial_delay1.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_initial_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_always_nodelay.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_always_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_always_delay0.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_always_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_always_delay1.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_always_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_task_nodelay.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_task_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_task_delay0.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_task_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_task_delay1.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_task_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_fork_nodelay.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_fork_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_fork_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_fork_delay1.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_fork_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_interface_nodelay.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_interface_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_interface_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_interface_delay1.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_interface_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_generate_nodelay.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_generate_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_generate_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_gen_sched_nbadelay_same_generate_delay1.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_generate_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
 
 ### SV2023-10.4.2-EXTRACT-ORDERED-NBA-UPDATES
 
@@ -22112,7 +22554,7 @@ The LHS size supplies assignment context to the RHS under expression-sizing rule
 
 ### SV2023-10.7-EXTRACT-SIGNED-EXTENSION
 
-10.7 / normal / テスト未対応
+10.7 / normal / 実行確認あり
 
 A signed RHS smaller than the destination is sign extended.
 
@@ -22120,6 +22562,13 @@ A signed RHS smaller than the destination is sign extended.
 
 規定の性質: `mandatory`。
 
+- [test_gen_wide_values_w63.sv](../tests/gen/ch6/test_gen_wide_values_w63.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w64.sv](../tests/gen/ch6/test_gen_wide_values_w64.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w65.sv](../tests/gen/ch6/test_gen_wide_values_w65.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w127.sv](../tests/gen/ch6/test_gen_wide_values_w127.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w128.sv](../tests/gen/ch6/test_gen_wide_values_w128.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w129.sv](../tests/gen/ch6/test_gen_wide_values_w129.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w200.sv](../tests/gen/ch6/test_gen_wide_values_w200.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 
 ### SV2023-10.7-EXTRACT-SIZE-DIAGNOSTIC-OPTIONAL
 
@@ -22134,7 +22583,7 @@ A size mismatch/truncation warning or error is optional; a conforming test canno
 
 ### SV2023-10.7-EXTRACT-TRUNCATE-HIGH
 
-10.7 / normal / テスト未対応
+10.7 / normal / 実行確認あり
 
 A wider RHS loses its excess most significant bits on assignment, including possible removal of a signed expression sign bit.
 
@@ -22142,10 +22591,17 @@ A wider RHS loses its excess most significant bits on assignment, including poss
 
 規定の性質: `mandatory`。
 
+- [test_gen_wide_values_w63.sv](../tests/gen/ch6/test_gen_wide_values_w63.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w64.sv](../tests/gen/ch6/test_gen_wide_values_w64.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w65.sv](../tests/gen/ch6/test_gen_wide_values_w65.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w127.sv](../tests/gen/ch6/test_gen_wide_values_w127.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w128.sv](../tests/gen/ch6/test_gen_wide_values_w128.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w129.sv](../tests/gen/ch6/test_gen_wide_values_w129.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w200.sv](../tests/gen/ch6/test_gen_wide_values_w200.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 
 ### SV2023-10.7-EXTRACT-UNSIGNED-PADDING
 
-10.7 / normal / テスト未対応
+10.7 / normal / 実行確認あり
 
 An unsigned RHS smaller than the destination is padded under 11.6.1.
 
@@ -22153,6 +22609,13 @@ An unsigned RHS smaller than the destination is padded under 11.6.1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_wide_values_w63.sv](../tests/gen/ch6/test_gen_wide_values_w63.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w64.sv](../tests/gen/ch6/test_gen_wide_values_w64.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w65.sv](../tests/gen/ch6/test_gen_wide_values_w65.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w127.sv](../tests/gen/ch6/test_gen_wide_values_w127.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w128.sv](../tests/gen/ch6/test_gen_wide_values_w128.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w129.sv](../tests/gen/ch6/test_gen_wide_values_w129.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_gen_wide_values_w200.sv](../tests/gen/ch6/test_gen_wide_values_w200.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 
 ### SV2023-10.8-EXTRACT-ASSIGNMENT-CONTEXT
 
@@ -23994,7 +24457,7 @@ Assignment side effects relative to other operations in one expression have unde
 
 ### SV2023-11.4.3-EXTRACT-ADD
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Binary + computes addition under operand type/width and special-case rules.
 
@@ -24002,10 +24465,14 @@ Binary + computes addition under operand type/width and special-case rules.
 
 規定の性質: `definition`。
 
+- [test_gen_xz_add_01.sv](../tests/gen/ch11/test_gen_xz_add_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_gen_xz_add_02.sv](../tests/gen/ch11/test_gen_xz_add_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_gen_xz_add_03.sv](../tests/gen/ch11/test_gen_xz_add_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_gen_xz_add_04.sv](../tests/gen/ch11/test_gen_xz_add_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
 
 ### SV2023-11.4.3-EXTRACT-ARITHMETIC-XZ
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 An arithmetic operand containing x/z produces an all-x result under the arithmetic unknown-value rule.
 
@@ -24013,10 +24480,34 @@ An arithmetic operand containing x/z produces an all-x result under the arithmet
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_add_01.sv](../tests/gen/ch11/test_gen_xz_add_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_add_02.sv](../tests/gen/ch11/test_gen_xz_add_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_add_03.sv](../tests/gen/ch11/test_gen_xz_add_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_add_04.sv](../tests/gen/ch11/test_gen_xz_add_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_sub_01.sv](../tests/gen/ch11/test_gen_xz_sub_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_sub_02.sv](../tests/gen/ch11/test_gen_xz_sub_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_sub_03.sv](../tests/gen/ch11/test_gen_xz_sub_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_sub_04.sv](../tests/gen/ch11/test_gen_xz_sub_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_mul_01.sv](../tests/gen/ch11/test_gen_xz_mul_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_mul_02.sv](../tests/gen/ch11/test_gen_xz_mul_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_mul_03.sv](../tests/gen/ch11/test_gen_xz_mul_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_mul_04.sv](../tests/gen/ch11/test_gen_xz_mul_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_div_01.sv](../tests/gen/ch11/test_gen_xz_div_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_div_02.sv](../tests/gen/ch11/test_gen_xz_div_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_div_03.sv](../tests/gen/ch11/test_gen_xz_div_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_div_04.sv](../tests/gen/ch11/test_gen_xz_div_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_mod_01.sv](../tests/gen/ch11/test_gen_xz_mod_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_mod_02.sv](../tests/gen/ch11/test_gen_xz_mod_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_mod_03.sv](../tests/gen/ch11/test_gen_xz_mod_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_mod_04.sv](../tests/gen/ch11/test_gen_xz_mod_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_neg_01.sv](../tests/gen/ch11/test_gen_xz_neg_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_neg_02.sv](../tests/gen/ch11/test_gen_xz_neg_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_neg_03.sv](../tests/gen/ch11/test_gen_xz_neg_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
+- [test_gen_xz_neg_04.sv](../tests/gen/ch11/test_gen_xz_neg_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Actual x and z operand cases each produce a full-width all-x result, in contrast to checked known-operand samples. No arithmetic operator family absent from this file is asserted as an independent extra row.
 
 ### SV2023-11.4.3-EXTRACT-DIV
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Binary / computes division under operand type/width and special-case rules.
 
@@ -24024,6 +24515,7 @@ Binary / computes division under operand type/width and special-case rules.
 
 規定の性質: `definition`。
 
+- [test_gen_xz_div_03.sv](../tests/gen/ch11/test_gen_xz_div_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
 
 ### SV2023-11.4.3-EXTRACT-DIV-TRUNCATES-ZERO
 
@@ -24060,7 +24552,7 @@ Power without a real operand follows the expression type/length rules of 11.6.1/
 
 ### SV2023-11.4.3-EXTRACT-MOD
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Binary % computes remainder under operand type/width and special-case rules.
 
@@ -24068,6 +24560,8 @@ Binary % computes remainder under operand type/width and special-case rules.
 
 規定の性質: `definition`。
 
+- [test_gen_xz_mod_03.sv](../tests/gen/ch11/test_gen_xz_mod_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_gen_xz_mod_04.sv](../tests/gen/ch11/test_gen_xz_mod_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
 
 ### SV2023-11.4.3-EXTRACT-MOD-REMAINDER-SIGN
 
@@ -24082,7 +24576,7 @@ Modulus is the division remainder, zero for an exact division, with the sign of 
 
 ### SV2023-11.4.3-EXTRACT-MUL
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Binary * computes multiplication under operand type/width and special-case rules.
 
@@ -24090,6 +24584,8 @@ Binary * computes multiplication under operand type/width and special-case rules
 
 規定の性質: `definition`。
 
+- [test_gen_xz_mul_02.sv](../tests/gen/ch11/test_gen_xz_mul_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_gen_xz_mul_04.sv](../tests/gen/ch11/test_gen_xz_mul_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
 
 ### SV2023-11.4.3-EXTRACT-POW
 
@@ -24291,7 +24787,7 @@ With real power semantics, zero to a negative exponent and a negative base to a 
 
 ### SV2023-11.4.3-EXTRACT-SUB
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Binary - computes subtraction under operand type/width and special-case rules.
 
@@ -24299,6 +24795,9 @@ Binary - computes subtraction under operand type/width and special-case rules.
 
 規定の性質: `definition`。
 
+- [test_gen_xz_sub_02.sv](../tests/gen/ch11/test_gen_xz_sub_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_gen_xz_sub_03.sv](../tests/gen/ch11/test_gen_xz_sub_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_gen_xz_sub_04.sv](../tests/gen/ch11/test_gen_xz_sub_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
 
 ### SV2023-11.4.3-EXTRACT-UNARY-MINUS
 
@@ -24335,7 +24834,7 @@ Unary arithmetic operators group before binary operators under the precedence ru
 
 ### SV2023-11.4.3-EXTRACT-ZERO-DIVISOR
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 Division or modulus by zero produces an all-x integral result.
 
@@ -24343,6 +24842,14 @@ Division or modulus by zero produces an all-x integral result.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_div_01.sv](../tests/gen/ch11/test_gen_xz_div_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member for the zero-divisor rule: this file observes div by literal zero; its group also requires the other operator in the same run.
+- [test_gen_xz_div_02.sv](../tests/gen/ch11/test_gen_xz_div_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member for the zero-divisor rule: this file observes div by literal zero; its group also requires the other operator in the same run.
+- [test_gen_xz_div_03.sv](../tests/gen/ch11/test_gen_xz_div_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member for the zero-divisor rule: this file observes div by literal zero; its group also requires the other operator in the same run.
+- [test_gen_xz_div_04.sv](../tests/gen/ch11/test_gen_xz_div_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member for the zero-divisor rule: this file observes div by literal zero; its group also requires the other operator in the same run.
+- [test_gen_xz_mod_01.sv](../tests/gen/ch11/test_gen_xz_mod_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member for the zero-divisor rule: this file observes mod by literal zero; its group also requires the other operator in the same run.
+- [test_gen_xz_mod_02.sv](../tests/gen/ch11/test_gen_xz_mod_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member for the zero-divisor rule: this file observes mod by literal zero; its group also requires the other operator in the same run.
+- [test_gen_xz_mod_03.sv](../tests/gen/ch11/test_gen_xz_mod_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member for the zero-divisor rule: this file observes mod by literal zero; its group also requires the other operator in the same run.
+- [test_gen_xz_mod_04.sv](../tests/gen/ch11/test_gen_xz_mod_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member for the zero-divisor rule: this file observes mod by literal zero; its group also requires the other operator in the same run.
 
 ### SV2023-11.4.3-EXTRACT-ZERO-EXPONENT
 
@@ -24850,7 +25357,7 @@ Logical &&, || and -> always evaluate their first operand.
 
 ### SV2023-11.4.7-EXTRACT-LOGICAL-NOT
 
-11.4.7 / normal / テスト未対応
+11.4.7 / normal / 実行確認あり
 
 ! returns zero for a true/nonzero operand, one for a false/zero operand and x for ambiguous truth.
 
@@ -24858,6 +25365,10 @@ Logical &&, || and -> always evaluate their first operand.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_lnot_01.sv](../tests/gen/ch11/test_gen_xz_lnot_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial logical-not witness: one bits dominate unknown bits in truth conversion; all-zero inputs are false and otherwise unknown inputs ambiguous. Grouped with other widths to require all three truth categories collectively.
+- [test_gen_xz_lnot_02.sv](../tests/gen/ch11/test_gen_xz_lnot_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial logical-not witness: one bits dominate unknown bits in truth conversion; all-zero inputs are false and otherwise unknown inputs ambiguous. Grouped with other widths to require all three truth categories collectively.
+- [test_gen_xz_lnot_03.sv](../tests/gen/ch11/test_gen_xz_lnot_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial logical-not witness: one bits dominate unknown bits in truth conversion; all-zero inputs are false and otherwise unknown inputs ambiguous. Grouped with other widths to require all three truth categories collectively.
+- [test_gen_xz_lnot_04.sv](../tests/gen/ch11/test_gen_xz_lnot_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial logical-not witness: one bits dominate unknown bits in truth conversion; all-zero inputs are false and otherwise unknown inputs ambiguous. Grouped with other widths to require all three truth categories collectively.
 
 ### SV2023-11.4.7-EXTRACT-LOGICAL-PRECEDENCE
 
@@ -24894,7 +25405,7 @@ Logical connectives yield one-bit one/zero/x for true/false/ambiguous results.
 
 ### SV2023-11.4.8-EXTRACT-AND-0-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and 0, bitwise & returns 0.
 
@@ -24902,10 +25413,15 @@ For single bits 0 and 0, bitwise & returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 3 (LSB=0), observes 0 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 5 (LSB=0), observes 0 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 11 (LSB=0), observes 0 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 6 (LSB=0), observes 0 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 10 (LSB=0), observes 0 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-0-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and 1, bitwise & returns 0.
 
@@ -24913,10 +25429,18 @@ For single bits 0 and 1, bitwise & returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_01.sv](../tests/gen/ch11/test_gen_xz_and_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 0 & 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 3 (LSB=0), observes 0 & 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 3 (LSB=0), observes 0 & 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 0 & 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_05.sv](../tests/gen/ch11/test_gen_xz_and_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 0 & 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes 0 & 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 5 (LSB=0), observes 0 & 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 12 (LSB=0), observes 0 & 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-0-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and x, bitwise & returns 0.
 
@@ -24924,10 +25448,14 @@ For single bits 0 and x, bitwise & returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes 0 & x = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 9 (LSB=0), observes 0 & x = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes 0 & x = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 3 (LSB=0), observes 0 & x = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-0-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and z, bitwise & returns 0.
 
@@ -24935,10 +25463,14 @@ For single bits 0 and z, bitwise & returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 6 (LSB=0), observes 0 & z = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 12 (LSB=0), observes 0 & z = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 0 & z = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 5 (LSB=0), observes 0 & z = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-1-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and 0, bitwise & returns 0.
 
@@ -24946,10 +25478,16 @@ For single bits 1 and 0, bitwise & returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 2 (LSB=0), observes 1 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 2 (LSB=0), observes 1 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 12 (LSB=0), observes 1 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 3 (LSB=0), observes 1 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 2 (LSB=0), observes 1 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 11 (LSB=0), observes 1 & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-1-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and 1, bitwise & returns 1.
 
@@ -24957,10 +25495,17 @@ For single bits 1 and 1, bitwise & returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_01.sv](../tests/gen/ch11/test_gen_xz_and_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes 1 & 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 1 (LSB=0), observes 1 & 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 1 & 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 10 (LSB=0), observes 1 & 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 1 (LSB=0), observes 1 & 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 1 & 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 9 (LSB=0), observes 1 & 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-1-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and x, bitwise & returns x.
 
@@ -24968,10 +25513,15 @@ For single bits 1 and x, bitwise & returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 2 (LSB=0), observes 1 & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 6 (LSB=0), observes 1 & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes 1 & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 4 (LSB=0), observes 1 & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes 1 & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-1-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and z, bitwise & returns x.
 
@@ -24979,10 +25529,18 @@ For single bits 1 and z, bitwise & returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_01.sv](../tests/gen/ch11/test_gen_xz_and_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 1 & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 1 (LSB=0), observes 1 & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 1 (LSB=0), observes 1 & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 9 (LSB=0), observes 1 & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_05.sv](../tests/gen/ch11/test_gen_xz_and_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 1 & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 3 (LSB=0), observes 1 & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 3 (LSB=0), observes 1 & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 1 (LSB=0), observes 1 & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-X-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and 0, bitwise & returns 0.
 
@@ -24990,10 +25548,18 @@ For single bits x and 0, bitwise & returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_01.sv](../tests/gen/ch11/test_gen_xz_and_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 1 (LSB=0), observes x & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 6 (LSB=0), observes x & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 11 (LSB=0), observes x & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_05.sv](../tests/gen/ch11/test_gen_xz_and_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes x & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 6 (LSB=0), observes x & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 11 (LSB=0), observes x & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-X-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and 1, bitwise & returns x.
 
@@ -25001,10 +25567,16 @@ For single bits x and 1, bitwise & returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes x & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 4 (LSB=0), observes x & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 9 (LSB=0), observes x & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 2 (LSB=0), observes x & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes x & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 10 (LSB=0), observes x & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-X-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and x, bitwise & returns x.
 
@@ -25012,10 +25584,13 @@ For single bits x and x, bitwise & returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes x & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 3 (LSB=0), observes x & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes x & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-X-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and z, bitwise & returns x.
 
@@ -25023,10 +25598,12 @@ For single bits x and z, bitwise & returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes x & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 8 (LSB=0), observes x & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-Z-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and 0, bitwise & returns 0.
 
@@ -25034,10 +25611,16 @@ For single bits z and 0, bitwise & returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes z & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 8 (LSB=0), observes z & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_05.sv](../tests/gen/ch11/test_gen_xz_and_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes z & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes z & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 12 (LSB=0), observes z & 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-Z-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and 1, bitwise & returns x.
 
@@ -25045,10 +25628,17 @@ For single bits z and 1, bitwise & returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_02.sv](../tests/gen/ch11/test_gen_xz_and_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes z & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes z & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 12 (LSB=0), observes z & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_05.sv](../tests/gen/ch11/test_gen_xz_and_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 0 (LSB=0), observes z & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_06.sv](../tests/gen/ch11/test_gen_xz_and_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes z & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 7 (LSB=0), observes z & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 12 (LSB=0), observes z & 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-Z-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and x, bitwise & returns x.
 
@@ -25056,10 +25646,16 @@ For single bits z and x, bitwise & returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_01.sv](../tests/gen/ch11/test_gen_xz_and_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes z & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 11 (LSB=0), observes z & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_05.sv](../tests/gen/ch11/test_gen_xz_and_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 5 (LSB=0), observes z & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 10 (LSB=0), observes z & x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-AND-Z-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and z, bitwise & returns x.
 
@@ -25067,10 +25663,14 @@ For single bits z and z, bitwise & returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_and_03.sv](../tests/gen/ch11/test_gen_xz_and_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 4 (LSB=0), observes z & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_04.sv](../tests/gen/ch11/test_gen_xz_and_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes z & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_07.sv](../tests/gen/ch11/test_gen_xz_and_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes z & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_and_08.sv](../tests/gen/ch11/test_gen_xz_and_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 11 (LSB=0), observes z & z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-NOT-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 Bitwise ~ of a single 0 bit yields 1.
 
@@ -25078,10 +25678,14 @@ Bitwise ~ of a single 0 bit yields 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_not_01.sv](../tests/gen/ch11/test_gen_xz_not_01.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 1, bit 0 observes ~0 = 1; no absent input state is inferred.
+- [test_gen_xz_not_02.sv](../tests/gen/ch11/test_gen_xz_not_02.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 1, bit 1 observes ~0 = 1; no absent input state is inferred.
+- [test_gen_xz_not_03.sv](../tests/gen/ch11/test_gen_xz_not_03.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 1, bit 7 observes ~0 = 1; no absent input state is inferred.
+- [test_gen_xz_not_04.sv](../tests/gen/ch11/test_gen_xz_not_04.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 1, bit 7 observes ~0 = 1; no absent input state is inferred.
 
 ### SV2023-11.4.8-EXTRACT-NOT-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 Bitwise ~ of a single 1 bit yields 0.
 
@@ -25089,10 +25693,13 @@ Bitwise ~ of a single 1 bit yields 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_not_02.sv](../tests/gen/ch11/test_gen_xz_not_02.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 1, bit 3 observes ~1 = 0; no absent input state is inferred.
+- [test_gen_xz_not_03.sv](../tests/gen/ch11/test_gen_xz_not_03.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 1, bit 6 observes ~1 = 0; no absent input state is inferred.
+- [test_gen_xz_not_04.sv](../tests/gen/ch11/test_gen_xz_not_04.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 1, bit 12 observes ~1 = 0; no absent input state is inferred.
 
 ### SV2023-11.4.8-EXTRACT-NOT-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 Bitwise ~ of a single x bit yields x.
 
@@ -25100,10 +25707,14 @@ Bitwise ~ of a single x bit yields x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_not_01.sv](../tests/gen/ch11/test_gen_xz_not_01.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 2, bit 0 observes ~x = x; no absent input state is inferred.
+- [test_gen_xz_not_02.sv](../tests/gen/ch11/test_gen_xz_not_02.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 2, bit 3 observes ~x = x; no absent input state is inferred.
+- [test_gen_xz_not_03.sv](../tests/gen/ch11/test_gen_xz_not_03.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 2, bit 6 observes ~x = x; no absent input state is inferred.
+- [test_gen_xz_not_04.sv](../tests/gen/ch11/test_gen_xz_not_04.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 2, bit 12 observes ~x = x; no absent input state is inferred.
 
 ### SV2023-11.4.8-EXTRACT-NOT-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 Bitwise ~ of a single z bit yields x.
 
@@ -25111,10 +25722,14 @@ Bitwise ~ of a single z bit yields x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_not_01.sv](../tests/gen/ch11/test_gen_xz_not_01.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 5, bit 0 observes ~z = x; no absent input state is inferred.
+- [test_gen_xz_not_02.sv](../tests/gen/ch11/test_gen_xz_not_02.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 4, bit 1 observes ~z = x; no absent input state is inferred.
+- [test_gen_xz_not_03.sv](../tests/gen/ch11/test_gen_xz_not_03.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 4, bit 7 observes ~z = x; no absent input state is inferred.
+- [test_gen_xz_not_04.sv](../tests/gen/ch11/test_gen_xz_not_04.sv): Exact reviewed unary-not template and oracle match. Independent LRM lookup confirms all bits. Output sample 4, bit 9 observes ~z = x; no absent input state is inferred.
 
 ### SV2023-11.4.8-EXTRACT-OR-0-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and 0, bitwise | returns 0.
 
@@ -25122,10 +25737,17 @@ For single bits 0 and 0, bitwise | returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 3 (LSB=0), observes 0 | 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 5 (LSB=0), observes 0 | 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 10 (LSB=0), observes 0 | 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_05.sv](../tests/gen/ch11/test_gen_xz_or_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 0 | 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes 0 | 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 0 | 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 12 (LSB=0), observes 0 | 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-0-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and 1, bitwise | returns 1.
 
@@ -25133,10 +25755,16 @@ For single bits 0 and 1, bitwise | returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 2 (LSB=0), observes 0 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 4 (LSB=0), observes 0 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 12 (LSB=0), observes 0 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 3 (LSB=0), observes 0 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 6 (LSB=0), observes 0 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 0 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-0-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and x, bitwise | returns x.
 
@@ -25144,10 +25772,15 @@ For single bits 0 and x, bitwise | returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes 0 | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes 0 | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 2 (LSB=0), observes 0 | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes 0 | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 6 (LSB=0), observes 0 | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-0-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and z, bitwise | returns x.
 
@@ -25155,10 +25788,16 @@ For single bits 0 and z, bitwise | returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes 0 | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 6 (LSB=0), observes 0 | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_05.sv](../tests/gen/ch11/test_gen_xz_or_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 0 | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 3 (LSB=0), observes 0 | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 1 (LSB=0), observes 0 | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 11 (LSB=0), observes 0 | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-1-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and 0, bitwise | returns 1.
 
@@ -25166,10 +25805,16 @@ For single bits 1 and 0, bitwise | returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 3 (LSB=0), observes 1 | 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 1 | 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 6 (LSB=0), observes 1 | 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 2 (LSB=0), observes 1 | 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 1 (LSB=0), observes 1 | 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 10 (LSB=0), observes 1 | 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-1-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and 1, bitwise | returns 1.
 
@@ -25177,10 +25822,17 @@ For single bits 1 and 1, bitwise | returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_01.sv](../tests/gen/ch11/test_gen_xz_or_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 1 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 2 (LSB=0), observes 1 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 1 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 11 (LSB=0), observes 1 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 2 (LSB=0), observes 1 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 5 (LSB=0), observes 1 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 11 (LSB=0), observes 1 | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-1-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and x, bitwise | returns 1.
 
@@ -25188,10 +25840,15 @@ For single bits 1 and x, bitwise | returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes 1 | x = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 2 (LSB=0), observes 1 | x = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 3 (LSB=0), observes 1 | x = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 6 (LSB=0), observes 1 | x = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes 1 | x = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-1-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and z, bitwise | returns 1.
 
@@ -25199,10 +25856,16 @@ For single bits 1 and z, bitwise | returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_01.sv](../tests/gen/ch11/test_gen_xz_or_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 1 | z = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 1 (LSB=0), observes 1 | z = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 7 (LSB=0), observes 1 | z = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 12 (LSB=0), observes 1 | z = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 7 (LSB=0), observes 1 | z = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 8 (LSB=0), observes 1 | z = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-X-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and 0, bitwise | returns x.
 
@@ -25210,10 +25873,18 @@ For single bits x and 0, bitwise | returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_01.sv](../tests/gen/ch11/test_gen_xz_or_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes x | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 6 (LSB=0), observes x | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 10 (LSB=0), observes x | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_05.sv](../tests/gen/ch11/test_gen_xz_or_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 0 (LSB=0), observes x | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 5 (LSB=0), observes x | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 8 (LSB=0), observes x | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-X-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and 1, bitwise | returns 1.
 
@@ -25221,10 +25892,17 @@ For single bits x and 1, bitwise | returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 1 (LSB=0), observes x | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes x | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 9 (LSB=0), observes x | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_05.sv](../tests/gen/ch11/test_gen_xz_or_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 2 (LSB=0), observes x | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 6 (LSB=0), observes x | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 11 (LSB=0), observes x | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-X-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and x, bitwise | returns x.
 
@@ -25232,10 +25910,14 @@ For single bits x and x, bitwise | returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 12 (LSB=0), observes x | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_05.sv](../tests/gen/ch11/test_gen_xz_or_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes x | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 3 (LSB=0), observes x | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 4 (LSB=0), observes x | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-X-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and z, bitwise | returns x.
 
@@ -25243,10 +25925,13 @@ For single bits x and z, bitwise | returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes x | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes x | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes x | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-Z-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and 0, bitwise | returns x.
 
@@ -25254,10 +25939,16 @@ For single bits z and 0, bitwise | returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 1 (LSB=0), observes z | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 4 (LSB=0), observes z | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes z | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_06.sv](../tests/gen/ch11/test_gen_xz_or_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 2 (LSB=0), observes z | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 12 (LSB=0), observes z | 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-Z-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and 1, bitwise | returns 1.
 
@@ -25265,10 +25956,16 @@ For single bits z and 1, bitwise | returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_01.sv](../tests/gen/ch11/test_gen_xz_or_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 0 (LSB=0), observes z | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 2 (LSB=0), observes z | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes z | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes z | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 4 (LSB=0), observes z | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 10 (LSB=0), observes z | 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-Z-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and x, bitwise | returns x.
 
@@ -25276,10 +25973,17 @@ For single bits z and x, bitwise | returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_01.sv](../tests/gen/ch11/test_gen_xz_or_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_02.sv](../tests/gen/ch11/test_gen_xz_or_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 2 (LSB=0), observes z | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 6 (LSB=0), observes z | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_04.sv](../tests/gen/ch11/test_gen_xz_or_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 9 (LSB=0), observes z | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_05.sv](../tests/gen/ch11/test_gen_xz_or_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_07.sv](../tests/gen/ch11/test_gen_xz_or_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes z | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 12 (LSB=0), observes z | x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-OR-Z-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and z, bitwise | returns x.
 
@@ -25287,6 +25991,9 @@ For single bits z and z, bitwise | returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_or_01.sv](../tests/gen/ch11/test_gen_xz_or_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes z | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_03.sv](../tests/gen/ch11/test_gen_xz_or_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 3 (LSB=0), observes z | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_or_08.sv](../tests/gen/ch11/test_gen_xz_or_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes z | z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-PER-BIT-OPERATIONS
 
@@ -25334,7 +26041,7 @@ If either binary bitwise operand is unsigned the result is unsigned and shorter 
 
 ### SV2023-11.4.8-EXTRACT-XNOR-0-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and 0, bitwise ^~ or ~^ returns 1.
 
@@ -25342,10 +26049,17 @@ For single bits 0 and 0, bitwise ^~ or ~^ returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_01.sv](../tests/gen/ch11/test_gen_xz_xnor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 0 ~^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_02.sv](../tests/gen/ch11/test_gen_xz_xnor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 1 (LSB=0), observes 0 ~^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 7 (LSB=0), observes 0 ~^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 11 (LSB=0), observes 0 ~^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 3 (LSB=0), observes 0 ~^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 1 (LSB=0), observes 0 ~^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 12 (LSB=0), observes 0 ~^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-0-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and 1, bitwise ^~ or ~^ returns 0.
 
@@ -25353,10 +26067,16 @@ For single bits 0 and 1, bitwise ^~ or ~^ returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_02.sv](../tests/gen/ch11/test_gen_xz_xnor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 3 (LSB=0), observes 0 ~^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 6 (LSB=0), observes 0 ~^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 6 (LSB=0), observes 0 ~^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 2 (LSB=0), observes 0 ~^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 0 ~^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 0 ~^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-0-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and x, bitwise ^~ or ~^ returns x.
 
@@ -25364,10 +26084,14 @@ For single bits 0 and x, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes 0 ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes 0 ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes 0 ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 9 (LSB=0), observes 0 ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-0-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and z, bitwise ^~ or ~^ returns x.
 
@@ -25375,10 +26099,16 @@ For single bits 0 and z, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_02.sv](../tests/gen/ch11/test_gen_xz_xnor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 2 (LSB=0), observes 0 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 6 (LSB=0), observes 0 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 11 (LSB=0), observes 0 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes 0 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 1 (LSB=0), observes 0 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 11 (LSB=0), observes 0 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-1-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and 0, bitwise ^~ or ~^ returns 0.
 
@@ -25386,10 +26116,17 @@ For single bits 1 and 0, bitwise ^~ or ~^ returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_02.sv](../tests/gen/ch11/test_gen_xz_xnor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes 1 ~^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 5 (LSB=0), observes 1 ~^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 12 (LSB=0), observes 1 ~^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_05.sv](../tests/gen/ch11/test_gen_xz_xnor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 1 ~^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 1 (LSB=0), observes 1 ~^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 1 ~^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 11 (LSB=0), observes 1 ~^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-1-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and 1, bitwise ^~ or ~^ returns 1.
 
@@ -25397,10 +26134,17 @@ For single bits 1 and 1, bitwise ^~ or ~^ returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_01.sv](../tests/gen/ch11/test_gen_xz_xnor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 0 (LSB=0), observes 1 ~^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_02.sv](../tests/gen/ch11/test_gen_xz_xnor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes 1 ~^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 1 ~^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 10 (LSB=0), observes 1 ~^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 1 ~^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 6 (LSB=0), observes 1 ~^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 9 (LSB=0), observes 1 ~^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-1-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and x, bitwise ^~ or ~^ returns x.
 
@@ -25408,10 +26152,15 @@ For single bits 1 and x, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 1 (LSB=0), observes 1 ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 8 (LSB=0), observes 1 ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 1 (LSB=0), observes 1 ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 7 (LSB=0), observes 1 ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 10 (LSB=0), observes 1 ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-1-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and z, bitwise ^~ or ~^ returns x.
 
@@ -25419,10 +26168,16 @@ For single bits 1 and z, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_01.sv](../tests/gen/ch11/test_gen_xz_xnor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 1 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes 1 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 3 (LSB=0), observes 1 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_05.sv](../tests/gen/ch11/test_gen_xz_xnor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 1 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 1 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 6 (LSB=0), observes 1 ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-X-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and 0, bitwise ^~ or ~^ returns x.
 
@@ -25430,10 +26185,18 @@ For single bits x and 0, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_01.sv](../tests/gen/ch11/test_gen_xz_xnor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_02.sv](../tests/gen/ch11/test_gen_xz_xnor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 2 (LSB=0), observes x ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 4 (LSB=0), observes x ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes x ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_05.sv](../tests/gen/ch11/test_gen_xz_xnor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes x ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes x ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 11 (LSB=0), observes x ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-X-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and 1, bitwise ^~ or ~^ returns x.
 
@@ -25441,10 +26204,16 @@ For single bits x and 1, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_01.sv](../tests/gen/ch11/test_gen_xz_xnor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes x ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 1 (LSB=0), observes x ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 12 (LSB=0), observes x ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 2 (LSB=0), observes x ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 6 (LSB=0), observes x ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 9 (LSB=0), observes x ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-X-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and x, bitwise ^~ or ~^ returns x.
 
@@ -25452,10 +26221,13 @@ For single bits x and x, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 11 (LSB=0), observes x ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 4 (LSB=0), observes x ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes x ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-X-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and z, bitwise ^~ or ~^ returns x.
 
@@ -25463,10 +26235,12 @@ For single bits x and z, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 6 (LSB=0), observes x ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 4 (LSB=0), observes x ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-Z-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and 0, bitwise ^~ or ~^ returns x.
 
@@ -25474,10 +26248,15 @@ For single bits z and 0, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_02.sv](../tests/gen/ch11/test_gen_xz_xnor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 10 (LSB=0), observes z ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_05.sv](../tests/gen/ch11/test_gen_xz_xnor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes z ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 3 (LSB=0), observes z ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes z ~^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-Z-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and 1, bitwise ^~ or ~^ returns x.
 
@@ -25485,10 +26264,17 @@ For single bits z and 1, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_02.sv](../tests/gen/ch11/test_gen_xz_xnor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 3 (LSB=0), observes z ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 4 (LSB=0), observes z ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 12 (LSB=0), observes z ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_05.sv](../tests/gen/ch11/test_gen_xz_xnor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 0 (LSB=0), observes z ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 3 (LSB=0), observes z ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes z ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 11 (LSB=0), observes z ~^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-Z-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and x, bitwise ^~ or ~^ returns x.
 
@@ -25496,10 +26282,17 @@ For single bits z and x, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_01.sv](../tests/gen/ch11/test_gen_xz_xnor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_02.sv](../tests/gen/ch11/test_gen_xz_xnor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 3 (LSB=0), observes z ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 7 (LSB=0), observes z ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_04.sv](../tests/gen/ch11/test_gen_xz_xnor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 11 (LSB=0), observes z ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_05.sv](../tests/gen/ch11/test_gen_xz_xnor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 4 (LSB=0), observes z ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_08.sv](../tests/gen/ch11/test_gen_xz_xnor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes z ~^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XNOR-Z-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and z, bitwise ^~ or ~^ returns x.
 
@@ -25507,10 +26300,13 @@ For single bits z and z, bitwise ^~ or ~^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xnor_03.sv](../tests/gen/ch11/test_gen_xz_xnor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes z ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_06.sv](../tests/gen/ch11/test_gen_xz_xnor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes z ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xnor_07.sv](../tests/gen/ch11/test_gen_xz_xnor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes z ~^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-0-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and 0, bitwise ^ returns 0.
 
@@ -25518,10 +26314,17 @@ For single bits 0 and 0, bitwise ^ returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 2 (LSB=0), observes 0 ^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 1 (LSB=0), observes 0 ^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 8 (LSB=0), observes 0 ^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_05.sv](../tests/gen/ch11/test_gen_xz_xor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 0 (LSB=0), observes 0 ^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 3 (LSB=0), observes 0 ^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 4 (LSB=0), observes 0 ^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 10 (LSB=0), observes 0 ^ 0 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-0-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and 1, bitwise ^ returns 1.
 
@@ -25529,10 +26332,18 @@ For single bits 0 and 1, bitwise ^ returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_01.sv](../tests/gen/ch11/test_gen_xz_xor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes 0 ^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 3 (LSB=0), observes 0 ^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 0 ^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 10 (LSB=0), observes 0 ^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_05.sv](../tests/gen/ch11/test_gen_xz_xor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 0 ^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 1 (LSB=0), observes 0 ^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 5 (LSB=0), observes 0 ^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 11 (LSB=0), observes 0 ^ 1 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-0-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and x, bitwise ^ returns x.
 
@@ -25540,10 +26351,13 @@ For single bits 0 and x, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 10 (LSB=0), observes 0 ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 6 (LSB=0), observes 0 ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes 0 ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-0-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 0 and z, bitwise ^ returns x.
 
@@ -25551,10 +26365,17 @@ For single bits 0 and z, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_01.sv](../tests/gen/ch11/test_gen_xz_xor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 0 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 2 (LSB=0), observes 0 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 7 (LSB=0), observes 0 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes 0 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 0 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 7 (LSB=0), observes 0 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 12 (LSB=0), observes 0 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-1-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and 0, bitwise ^ returns 1.
 
@@ -25562,10 +26383,18 @@ For single bits 1 and 0, bitwise ^ returns 1.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_01.sv](../tests/gen/ch11/test_gen_xz_xor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 1 ^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 0 (LSB=0), observes 1 ^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 6 (LSB=0), observes 1 ^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 12 (LSB=0), observes 1 ^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_05.sv](../tests/gen/ch11/test_gen_xz_xor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes 1 ^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 2 (LSB=0), observes 1 ^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 6 (LSB=0), observes 1 ^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 12 (LSB=0), observes 1 ^ 0 = 1; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-1-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and 1, bitwise ^ returns 0.
 
@@ -25573,10 +26402,16 @@ For single bits 1 and 1, bitwise ^ returns 0.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 1 (LSB=0), observes 1 ^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes 1 ^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 9 (LSB=0), observes 1 ^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 1 (LSB=0), observes 1 ^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 7 (LSB=0), observes 1 ^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 1, bit 6 (LSB=0), observes 1 ^ 1 = 0; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-1-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and x, bitwise ^ returns x.
 
@@ -25584,10 +26419,15 @@ For single bits 1 and x, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes 1 ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 5 (LSB=0), observes 1 ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 3 (LSB=0), observes 1 ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 1 (LSB=0), observes 1 ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 6 (LSB=0), observes 1 ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-1-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits 1 and z, bitwise ^ returns x.
 
@@ -25595,10 +26435,14 @@ For single bits 1 and z, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 12 (LSB=0), observes 1 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_05.sv](../tests/gen/ch11/test_gen_xz_xor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 0 (LSB=0), observes 1 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 3 (LSB=0), observes 1 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 3, bit 1 (LSB=0), observes 1 ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-X-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and 0, bitwise ^ returns x.
 
@@ -25606,10 +26450,15 @@ For single bits x and 0, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 4 (LSB=0), observes x ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 11 (LSB=0), observes x ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 5 (LSB=0), observes x ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 9 (LSB=0), observes x ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-X-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and 1, bitwise ^ returns x.
 
@@ -25617,10 +26466,17 @@ For single bits x and 1, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_01.sv](../tests/gen/ch11/test_gen_xz_xor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 3 (LSB=0), observes x ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 7 (LSB=0), observes x ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 5 (LSB=0), observes x ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_05.sv](../tests/gen/ch11/test_gen_xz_xor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 0 (LSB=0), observes x ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 1 (LSB=0), observes x ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 2, bit 10 (LSB=0), observes x ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-X-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and x, bitwise ^ returns x.
 
@@ -25628,10 +26484,12 @@ For single bits x and x, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 12 (LSB=0), observes x ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 10 (LSB=0), observes x ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-X-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits x and z, bitwise ^ returns x.
 
@@ -25639,10 +26497,15 @@ For single bits x and z, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 3 (LSB=0), observes x ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes x ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes x ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes x ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes x ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-Z-0
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and 0, bitwise ^ returns x.
 
@@ -25650,10 +26513,16 @@ For single bits z and 0, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_01.sv](../tests/gen/ch11/test_gen_xz_xor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 6, bit 0 (LSB=0), observes z ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 1 (LSB=0), observes z ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 4 (LSB=0), observes z ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes z ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 7 (LSB=0), observes z ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 2 (LSB=0), observes z ^ 0 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-Z-1
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and 1, bitwise ^ returns x.
 
@@ -25661,10 +26530,15 @@ For single bits z and 1, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 4 (LSB=0), observes z ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 2 (LSB=0), observes z ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 2 (LSB=0), observes z ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 0 (LSB=0), observes z ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 7 (LSB=0), observes z ^ 1 = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-Z-X
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and x, bitwise ^ returns x.
 
@@ -25672,10 +26546,17 @@ For single bits z and x, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_01.sv](../tests/gen/ch11/test_gen_xz_xor_01.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_02.sv](../tests/gen/ch11/test_gen_xz_xor_02.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 1 (LSB=0), observes z ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 1 (LSB=0), observes z ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_05.sv](../tests/gen/ch11/test_gen_xz_xor_05.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 0 (LSB=0), observes z ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_06.sv](../tests/gen/ch11/test_gen_xz_xor_06.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 3 (LSB=0), observes z ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_07.sv](../tests/gen/ch11/test_gen_xz_xor_07.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 5, bit 7 (LSB=0), observes z ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 12 (LSB=0), observes z ^ x = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.8-EXTRACT-XOR-Z-Z
 
-11.4.8 / boundary / テスト未対応
+11.4.8 / boundary / 実行確認あり
 
 For single bits z and z, bitwise ^ returns x.
 
@@ -25683,10 +26564,13 @@ For single bits z and z, bitwise ^ returns x.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_xor_03.sv](../tests/gen/ch11/test_gen_xz_xor_03.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 5 (LSB=0), observes z ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_04.sv](../tests/gen/ch11/test_gen_xz_xor_04.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 9 (LSB=0), observes z ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
+- [test_gen_xz_xor_08.sv](../tests/gen/ch11/test_gen_xz_xor_08.sv): Reviewed xz_propagation bitwise template; exact emitted body/oracle match verified. Independently checked each output bit against the 4x4 LRM truth table. Output sample 4, bit 3 (LSB=0), observes z ^ z = x; the full expected output is an anchor and every output line must match. Other truth-table cells are linked only if present in actual operands.
 
 ### SV2023-11.4.9-EXTRACT-INVERTED-REDUCTIONS
 
-11.4.9 / normal / テスト未対応
+11.4.9 / normal / 実行確認あり
 
 Reduction NAND/NOR/XNOR invert the final AND/OR/XOR reduction result respectively.
 
@@ -25694,10 +26578,22 @@ Reduction NAND/NOR/XNOR invert the final AND/OR/XOR reduction result respectivel
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_rnand_01.sv](../tests/gen/ch11/test_gen_xz_rnand_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~& on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rnand_02.sv](../tests/gen/ch11/test_gen_xz_rnand_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~& on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rnand_03.sv](../tests/gen/ch11/test_gen_xz_rnand_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~& on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rnand_04.sv](../tests/gen/ch11/test_gen_xz_rnand_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~& on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rnor_01.sv](../tests/gen/ch11/test_gen_xz_rnor_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~| on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rnor_02.sv](../tests/gen/ch11/test_gen_xz_rnor_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~| on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rnor_03.sv](../tests/gen/ch11/test_gen_xz_rnor_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~| on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rnor_04.sv](../tests/gen/ch11/test_gen_xz_rnor_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~| on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rxnor_01.sv](../tests/gen/ch11/test_gen_xz_rxnor_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~^ on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rxnor_02.sv](../tests/gen/ch11/test_gen_xz_rxnor_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~^ on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rxnor_03.sv](../tests/gen/ch11/test_gen_xz_rxnor_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~^ on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rxnor_04.sv](../tests/gen/ch11/test_gen_xz_rxnor_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ~^ on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
 
 ### SV2023-11.4.9-EXTRACT-REDUCTION-FOLD
 
-11.4.9 / normal / テスト未対応
+11.4.9 / normal / 実行確認あり
 
 Reduction AND/OR/XOR fold the single integral operand bit by bit, combining the prior one-bit result with the next bit according to the reduction truth matrix and returning one bit.
 
@@ -25705,10 +26601,22 @@ Reduction AND/OR/XOR fold the single integral operand bit by bit, combining the 
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_rand_01.sv](../tests/gen/ch11/test_gen_xz_rand_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering & on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rand_02.sv](../tests/gen/ch11/test_gen_xz_rand_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering & on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rand_03.sv](../tests/gen/ch11/test_gen_xz_rand_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering & on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rand_04.sv](../tests/gen/ch11/test_gen_xz_rand_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering & on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_ror_01.sv](../tests/gen/ch11/test_gen_xz_ror_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering | on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_ror_02.sv](../tests/gen/ch11/test_gen_xz_ror_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering | on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_ror_03.sv](../tests/gen/ch11/test_gen_xz_ror_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering | on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_ror_04.sv](../tests/gen/ch11/test_gen_xz_ror_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering | on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rxor_01.sv](../tests/gen/ch11/test_gen_xz_rxor_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ^ on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rxor_02.sv](../tests/gen/ch11/test_gen_xz_rxor_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ^ on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rxor_03.sv](../tests/gen/ch11/test_gen_xz_rxor_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ^ on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
+- [test_gen_xz_rxor_04.sv](../tests/gen/ch11/test_gen_xz_rxor_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Partial member covering ^ on all actual input patterns, folded using Tables11-16..18. The three operators in this requirement are grouped, not independent alternatives; no masked intermediate truth-table cell is credited from the final output alone.
 
 ### SV2023-11.4.10-EXTRACT-ARITH-RIGHT-SIGNED
 
-11.4.10 / normal / テスト未対応
+11.4.10 / normal / 実行確認あり
 
 >>> fills high bits by replicating the left operand sign bit when the result type is signed.
 
@@ -25716,10 +26624,24 @@ Reduction AND/OR/XOR fold the single integral operand bit by bit, combining the 
 
 規定の性質: `mandatory`。
 
+- [test_gen_wide_ops_w63_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w63_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w63_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w63_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w64_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w64_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w64_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w64_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w65_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w65_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w65_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w65_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w127_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w127_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w127_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w127_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w128_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w128_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w128_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w128_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w129_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w129_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w129_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w129_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w200_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w200_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w200_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w200_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
 
 ### SV2023-11.4.10-EXTRACT-ARITH-RIGHT-UNSIGNED
 
-11.4.10 / normal / テスト未対応
+11.4.10 / normal / 実行確認あり
 
 >>> fills high bits with zero when the result type is unsigned.
 
@@ -25727,6 +26649,8 @@ Reduction AND/OR/XOR fold the single integral operand bit by bit, combining the 
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_ashr_01.sv](../tests/gen/ch11/test_gen_xz_ashr_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The left operand/result are unsigned; at least one known count exposes zero fill that differs from erroneously copying the top one/x/z state.
+- [test_gen_xz_ashr_03.sv](../tests/gen/ch11/test_gen_xz_ashr_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The left operand/result are unsigned; at least one known count exposes zero fill that differs from erroneously copying the top one/x/z state.
 
 ### SV2023-11.4.10-EXTRACT-LEFT-SHIFT-ZERO
 
@@ -25741,7 +26665,7 @@ Reduction AND/OR/XOR fold the single integral operand bit by bit, combining the 
 
 ### SV2023-11.4.10-EXTRACT-LOGICAL-RIGHT-ZERO
 
-11.4.10 / normal / テスト未対応
+11.4.10 / normal / 実行確認あり
 
 >> shifts right and fills high bits with zeros.
 
@@ -25749,6 +26673,20 @@ Reduction AND/OR/XOR fold the single integral operand bit by bit, combining the 
 
 規定の性質: `mandatory`。
 
+- [test_gen_wide_ops_w63_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w63_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w63_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w63_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w64_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w64_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w64_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w64_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w65_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w65_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w65_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w65_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w127_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w127_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w127_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w127_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w128_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w128_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w128_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w128_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w129_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w129_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w129_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w129_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w200_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w200_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w200_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w200_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
 
 ### SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT
 
@@ -25763,7 +26701,7 @@ Shift result signedness depends on the left operand and surrounding expression t
 
 ### SV2023-11.4.10-EXTRACT-UNKNOWN-SHIFT-COUNT
 
-11.4.10 / boundary / テスト未対応
+11.4.10 / boundary / 実行確認あり
 
 A shift count containing x/z produces an unknown result.
 
@@ -25771,6 +26709,22 @@ A shift count containing x/z produces an unknown result.
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_shl_01.sv](../tests/gen/ch11/test_gen_xz_shl_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_shl_02.sv](../tests/gen/ch11/test_gen_xz_shl_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_shl_03.sv](../tests/gen/ch11/test_gen_xz_shl_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_shl_04.sv](../tests/gen/ch11/test_gen_xz_shl_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_shr_01.sv](../tests/gen/ch11/test_gen_xz_shr_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_shr_02.sv](../tests/gen/ch11/test_gen_xz_shr_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_shr_03.sv](../tests/gen/ch11/test_gen_xz_shr_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_shr_04.sv](../tests/gen/ch11/test_gen_xz_shr_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_ashl_01.sv](../tests/gen/ch11/test_gen_xz_ashl_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_ashl_02.sv](../tests/gen/ch11/test_gen_xz_ashl_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_ashl_03.sv](../tests/gen/ch11/test_gen_xz_ashl_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_ashl_04.sv](../tests/gen/ch11/test_gen_xz_ashl_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_ashr_01.sv](../tests/gen/ch11/test_gen_xz_ashr_01.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_ashr_02.sv](../tests/gen/ch11/test_gen_xz_ashr_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_ashr_03.sv](../tests/gen/ch11/test_gen_xz_ashr_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
+- [test_gen_xz_ashr_04.sv](../tests/gen/ch11/test_gen_xz_ashr_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. The three-bit count has both x and z samples and each causes all-x results; all known count/data patterns are independently checked as well.
 
 ### SV2023-11.4.10-EXTRACT-UNSIGNED-COUNT
 
@@ -25873,7 +26827,7 @@ Integral branches are extended to equal width under expression typing before the
 
 ### SV2023-11.4.11-EXTRACT-MERGE-0-0
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits 0 and 0 requiring Table 11-20 combination, the result bit is 0.
 
@@ -25881,10 +26835,15 @@ For ambiguous predicate and branch bits 0 and 0 requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_02.sv](../tests/gen/ch11/test_gen_xz_cond_02.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 3 observes ambiguous predicate z and branches 0,0 giving 0. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_03.sv](../tests/gen/ch11/test_gen_xz_cond_03.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 2 observes ambiguous predicate x and branches 0,0 giving 0. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_04.sv](../tests/gen/ch11/test_gen_xz_cond_04.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 8 observes ambiguous predicate x and branches 0,0 giving 0. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_07.sv](../tests/gen/ch11/test_gen_xz_cond_07.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 6 observes ambiguous predicate z and branches 0,0 giving 0. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_08.sv](../tests/gen/ch11/test_gen_xz_cond_08.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 5 observes ambiguous predicate x and branches 0,0 giving 0. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-MERGE-0-1
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits 0 and 1 requiring Table 11-20 combination, the result bit is x.
 
@@ -25892,10 +26851,16 @@ For ambiguous predicate and branch bits 0 and 1 requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_03.sv](../tests/gen/ch11/test_gen_xz_cond_03.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 3 observes ambiguous predicate x and branches 0,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_04.sv](../tests/gen/ch11/test_gen_xz_cond_04.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 12 observes ambiguous predicate x and branches 0,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_05.sv](../tests/gen/ch11/test_gen_xz_cond_05.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 0 observes ambiguous predicate x and branches 0,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_06.sv](../tests/gen/ch11/test_gen_xz_cond_06.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 3 observes ambiguous predicate x and branches 0,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_07.sv](../tests/gen/ch11/test_gen_xz_cond_07.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 2 observes ambiguous predicate x and branches 0,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_08.sv](../tests/gen/ch11/test_gen_xz_cond_08.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 1 observes ambiguous predicate x and branches 0,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-MERGE-0-X
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits 0 and x requiring Table 11-20 combination, the result bit is x.
 
@@ -25903,6 +26868,10 @@ For ambiguous predicate and branch bits 0 and x requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_01.sv](../tests/gen/ch11/test_gen_xz_cond_01.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 5, bit 0 observes ambiguous predicate x and branches 0,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_02.sv](../tests/gen/ch11/test_gen_xz_cond_02.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 2 observes ambiguous predicate z and branches 0,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_03.sv](../tests/gen/ch11/test_gen_xz_cond_03.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 5, bit 4 observes ambiguous predicate x and branches 0,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_04.sv](../tests/gen/ch11/test_gen_xz_cond_04.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 10 observes ambiguous predicate z and branches 0,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-MERGE-0-Z
 
@@ -25917,7 +26886,7 @@ For ambiguous predicate and branch bits 0 and z requiring Table 11-20 combinatio
 
 ### SV2023-11.4.11-EXTRACT-MERGE-1-0
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits 1 and 0 requiring Table 11-20 combination, the result bit is x.
 
@@ -25925,10 +26894,16 @@ For ambiguous predicate and branch bits 1 and 0 requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_02.sv](../tests/gen/ch11/test_gen_xz_cond_02.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 2 observes ambiguous predicate x and branches 1,0 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_03.sv](../tests/gen/ch11/test_gen_xz_cond_03.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 7 observes ambiguous predicate x and branches 1,0 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_04.sv](../tests/gen/ch11/test_gen_xz_cond_04.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 11 observes ambiguous predicate x and branches 1,0 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_06.sv](../tests/gen/ch11/test_gen_xz_cond_06.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 2 observes ambiguous predicate x and branches 1,0 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_07.sv](../tests/gen/ch11/test_gen_xz_cond_07.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 1 observes ambiguous predicate x and branches 1,0 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_08.sv](../tests/gen/ch11/test_gen_xz_cond_08.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 3 observes ambiguous predicate x and branches 1,0 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-MERGE-1-1
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits 1 and 1 requiring Table 11-20 combination, the result bit is 1.
 
@@ -25936,10 +26911,17 @@ For ambiguous predicate and branch bits 1 and 1 requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_01.sv](../tests/gen/ch11/test_gen_xz_cond_01.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 0 observes ambiguous predicate x and branches 1,1 giving 1. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_02.sv](../tests/gen/ch11/test_gen_xz_cond_02.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 3 observes ambiguous predicate x and branches 1,1 giving 1. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_03.sv](../tests/gen/ch11/test_gen_xz_cond_03.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 4 observes ambiguous predicate x and branches 1,1 giving 1. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_04.sv](../tests/gen/ch11/test_gen_xz_cond_04.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 10 observes ambiguous predicate x and branches 1,1 giving 1. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_06.sv](../tests/gen/ch11/test_gen_xz_cond_06.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 5, bit 2 observes ambiguous predicate x and branches 1,1 giving 1. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_07.sv](../tests/gen/ch11/test_gen_xz_cond_07.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 5 observes ambiguous predicate x and branches 1,1 giving 1. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_08.sv](../tests/gen/ch11/test_gen_xz_cond_08.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 8 observes ambiguous predicate x and branches 1,1 giving 1. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-MERGE-1-X
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits 1 and x requiring Table 11-20 combination, the result bit is x.
 
@@ -25947,6 +26929,10 @@ For ambiguous predicate and branch bits 1 and x requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_03.sv](../tests/gen/ch11/test_gen_xz_cond_03.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 5, bit 2 observes ambiguous predicate x and branches 1,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_04.sv](../tests/gen/ch11/test_gen_xz_cond_04.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 4 observes ambiguous predicate z and branches 1,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_05.sv](../tests/gen/ch11/test_gen_xz_cond_05.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 5, bit 0 observes ambiguous predicate x and branches 1,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_06.sv](../tests/gen/ch11/test_gen_xz_cond_06.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 2 observes ambiguous predicate z and branches 1,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-MERGE-1-Z
 
@@ -25961,7 +26947,7 @@ For ambiguous predicate and branch bits 1 and z requiring Table 11-20 combinatio
 
 ### SV2023-11.4.11-EXTRACT-MERGE-X-0
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits x and 0 requiring Table 11-20 combination, the result bit is x.
 
@@ -25969,10 +26955,13 @@ For ambiguous predicate and branch bits x and 0 requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_03.sv](../tests/gen/ch11/test_gen_xz_cond_03.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 5 observes ambiguous predicate z and branches x,0 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_04.sv](../tests/gen/ch11/test_gen_xz_cond_04.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 7 observes ambiguous predicate z and branches x,0 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_06.sv](../tests/gen/ch11/test_gen_xz_cond_06.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 1 observes ambiguous predicate z and branches x,0 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-MERGE-X-1
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits x and 1 requiring Table 11-20 combination, the result bit is x.
 
@@ -25980,10 +26969,14 @@ For ambiguous predicate and branch bits x and 1 requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_02.sv](../tests/gen/ch11/test_gen_xz_cond_02.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 1 observes ambiguous predicate z and branches x,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_03.sv](../tests/gen/ch11/test_gen_xz_cond_03.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 1 observes ambiguous predicate z and branches x,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_04.sv](../tests/gen/ch11/test_gen_xz_cond_04.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 9 observes ambiguous predicate z and branches x,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_06.sv](../tests/gen/ch11/test_gen_xz_cond_06.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 0 observes ambiguous predicate z and branches x,1 giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-MERGE-X-X
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / 実行確認あり
 
 For ambiguous predicate and branch bits x and x requiring Table 11-20 combination, the result bit is x.
 
@@ -25991,6 +26984,12 @@ For ambiguous predicate and branch bits x and x requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_01.sv](../tests/gen/ch11/test_gen_xz_cond_01.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 0 observes ambiguous predicate z and branches x,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_02.sv](../tests/gen/ch11/test_gen_xz_cond_02.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 6, bit 3 observes ambiguous predicate x and branches x,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_03.sv](../tests/gen/ch11/test_gen_xz_cond_03.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 2 observes ambiguous predicate z and branches x,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_04.sv](../tests/gen/ch11/test_gen_xz_cond_04.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 11 observes ambiguous predicate z and branches x,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_05.sv](../tests/gen/ch11/test_gen_xz_cond_05.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 0 observes ambiguous predicate z and branches x,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_06.sv](../tests/gen/ch11/test_gen_xz_cond_06.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 4, bit 3 observes ambiguous predicate z and branches x,x giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-MERGE-X-Z
 
@@ -26038,7 +27037,7 @@ For ambiguous predicate and branch bits z and x requiring Table 11-20 combinatio
 
 ### SV2023-11.4.11-EXTRACT-MERGE-Z-Z
 
-11.4.11 / boundary / テスト未対応
+11.4.11 / boundary / テスト対応あり・実行未確認
 
 For ambiguous predicate and branch bits z and z requiring Table 11-20 combination, the result bit is x.
 
@@ -26046,6 +27045,8 @@ For ambiguous predicate and branch bits z and z requiring Table 11-20 combinatio
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_cond_07.sv](../tests/gen/ch11/test_gen_xz_cond_07.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 7 observes ambiguous predicate x and branches z,z giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
+- [test_gen_xz_cond_08.sv](../tests/gen/ch11/test_gen_xz_cond_08.sv): Exact reviewed conditional template and full expected output verified. Independent Table 11-20 rule keeps equal 0/1 bits and otherwise yields x. Output sample 3, bit 12 observes ambiguous predicate x and branches z,z giving x. A z,z pair is counted only where present and yields x. Branch side effects and absent merge pairs are not inferred.
 
 ### SV2023-11.4.11-EXTRACT-NULL-NULL-RESULT
 
@@ -26115,7 +27116,7 @@ Conditional ?: groups right and has a condition plus two value operands.
 
 ### SV2023-11.4.12-EXTRACT-CONCAT-BRACES
 
-11.4.12 / normal / テスト未対応
+11.4.12 / normal / 実行確認あり
 
 Integral concatenation joins the bits of one or more comma-separated expressions inside braces.
 
@@ -26123,6 +27124,20 @@ Integral concatenation joins the bits of one or more comma-separated expressions
 
 規定の性質: `definition`。
 
+- [test_gen_wide_ops_w63_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w63_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w63_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w63_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w64_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w64_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w64_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w64_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w65_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w65_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w65_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w65_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w127_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w127_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w127_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w127_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w128_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w128_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w128_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w128_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w129_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w129_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w129_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w129_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w200_2state.sv](../tests/gen/ch11/test_gen_wide_ops_w200_2state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
+- [test_gen_wide_ops_w200_4state.sv](../tests/gen/ch11/test_gen_wide_ops_w200_4state.sv): Reviewed wide_paths.ops_case and its four-state mask model. Exact template body and all expected values are verified. Concatenation preserves operand order, logical right shifts zero-fill, and signed arithmetic shifts copy the one/x sign through counts around 64 bits and at/past the operand width. The distinct left-shift forms and replication legality rules are not inferred from this link.
 
 ### SV2023-11.4.12-EXTRACT-CONCAT-NOT-PATTERN
 
@@ -27247,7 +28262,7 @@ Conditional result width is the maximum branch width, with a self-determined con
 
 ### SV2023-11.6.1-EXTRACT-CONTEXT-DETERMINED-SIZE
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 A context-determined expression incorporates its enclosing expression/assignment width, including RHS/LHS size interaction.
 
@@ -27255,6 +28270,13 @@ A context-determined expression incorporates its enclosing expression/assignment
 
 規定の性質: `definition`。
 
+- [test_gen_width_add_02.sv](../tests/gen/ch11/test_gen_width_add_02.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 1000 exceeds both operand widths 129,128; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_add_07.sv](../tests/gen/ch11/test_gen_width_add_07.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 127 exceeds both operand widths 64,65; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_sub_07.sv](../tests/gen/ch11/test_gen_width_sub_07.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 128 exceeds both operand widths 65,64; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_mul_02.sv](../tests/gen/ch11/test_gen_width_mul_02.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 128 exceeds both operand widths 63,65; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_xnor_03.sv](../tests/gen/ch11/test_gen_width_xnor_03.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 128 exceeds both operand widths 64,64; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_xnor_04.sv](../tests/gen/ch11/test_gen_width_xnor_04.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 1000 exceeds both operand widths 65,129; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_div_05.sv](../tests/gen/ch11/test_gen_width_div_05.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 129 exceeds both operand widths 127,65; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
 
 ### SV2023-11.6.1-EXTRACT-EXPRESSION-SIZE
 
@@ -27445,7 +28467,7 @@ A real context-determined operand makes the result real under the applicable ope
 
 ### SV2023-11.8.1-EXTRACT-CONTEXT-SIGNED
 
-11.8.1 / normal / テスト未対応
+11.8.1 / normal / 実行確認あり
 
 If all applicable context-determined operands are signed, the result is signed unless specifically overridden by the operator rule.
 
@@ -27453,10 +28475,16 @@ If all applicable context-determined operands are signed, the result is signed u
 
 規定の性質: `mandatory`。
 
+- [test_gen_width_add_05.sv](../tests/gen/ch11/test_gen_width_add_05.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=128/True, b=1000/True; target width 1000, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xor_01.sv](../tests/gen/ch11/test_gen_width_xor_01.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=128/True, b=127/True; target width 128, expression width 128. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xnor_01.sv](../tests/gen/ch11/test_gen_width_xnor_01.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=1000/True, b=129/True; target width 1000, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_div_05.sv](../tests/gen/ch11/test_gen_width_div_05.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/True, b=65/True; target width 129, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mod_01.sv](../tests/gen/ch11/test_gen_width_mod_01.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=1000/True, b=128/True; target width 127, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mod_05.sv](../tests/gen/ch11/test_gen_width_mod_05.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=128/True, b=63/True; target width 64, expression width 128. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
 
 ### SV2023-11.8.1-EXTRACT-CONTEXT-UNSIGNED
 
-11.8.1 / normal / テスト未対応
+11.8.1 / normal / 実行確認あり
 
 Absent the applicable real result rule, any unsigned context-determined operand makes the result unsigned.
 
@@ -27464,6 +28492,39 @@ Absent the applicable real result rule, any unsigned context-determined operand 
 
 規定の性質: `mandatory`。
 
+- [test_gen_width_add_02.sv](../tests/gen/ch11/test_gen_width_add_02.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=129/True, b=128/False; target width 1000, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_add_07.sv](../tests/gen/ch11/test_gen_width_add_07.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=64/False, b=65/True; target width 127, expression width 127. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_sub_03.sv](../tests/gen/ch11/test_gen_width_sub_03.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=129/False, b=127/True; target width 128, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_sub_06.sv](../tests/gen/ch11/test_gen_width_sub_06.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/True, b=65/False; target width 127, expression width 127. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_sub_07.sv](../tests/gen/ch11/test_gen_width_sub_07.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=65/False, b=64/True; target width 128, expression width 128. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mul_02.sv](../tests/gen/ch11/test_gen_width_mul_02.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=63/True, b=65/False; target width 128, expression width 128. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mul_04.sv](../tests/gen/ch11/test_gen_width_mul_04.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=1000/False, b=128/False; target width 129, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mul_06.sv](../tests/gen/ch11/test_gen_width_mul_06.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=1000/True, b=128/False; target width 129, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mul_07.sv](../tests/gen/ch11/test_gen_width_mul_07.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=1000/False, b=63/True; target width 1000, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_and_04.sv](../tests/gen/ch11/test_gen_width_and_04.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=64/False, b=1000/False; target width 127, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_and_06.sv](../tests/gen/ch11/test_gen_width_and_06.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=129/True, b=65/False; target width 1000, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_or_02.sv](../tests/gen/ch11/test_gen_width_or_02.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=64/True, b=129/False; target width 128, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_or_04.sv](../tests/gen/ch11/test_gen_width_or_04.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=63/False, b=127/False; target width 129, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_or_08.sv](../tests/gen/ch11/test_gen_width_or_08.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/False, b=63/False; target width 1000, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xor_03.sv](../tests/gen/ch11/test_gen_width_xor_03.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=64/False, b=129/True; target width 127, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xor_04.sv](../tests/gen/ch11/test_gen_width_xor_04.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=63/False, b=129/False; target width 65, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xor_06.sv](../tests/gen/ch11/test_gen_width_xor_06.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=65/True, b=64/False; target width 129, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xor_07.sv](../tests/gen/ch11/test_gen_width_xor_07.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=1000/False, b=65/True; target width 127, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xnor_03.sv](../tests/gen/ch11/test_gen_width_xnor_03.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=64/False, b=64/True; target width 128, expression width 128. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xnor_04.sv](../tests/gen/ch11/test_gen_width_xnor_04.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=65/False, b=129/False; target width 1000, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xnor_06.sv](../tests/gen/ch11/test_gen_width_xnor_06.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=63/True, b=65/False; target width 65, expression width 65. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_xnor_07.sv](../tests/gen/ch11/test_gen_width_xnor_07.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/False, b=63/True; target width 65, expression width 127. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_div_03.sv](../tests/gen/ch11/test_gen_width_div_03.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=129/False, b=64/True; target width 129, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_div_04.sv](../tests/gen/ch11/test_gen_width_div_04.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/False, b=64/False; target width 63, expression width 127. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_div_06.sv](../tests/gen/ch11/test_gen_width_div_06.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=129/True, b=64/False; target width 1000, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_div_07.sv](../tests/gen/ch11/test_gen_width_div_07.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/False, b=127/True; target width 127, expression width 127. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_div_08.sv](../tests/gen/ch11/test_gen_width_div_08.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/False, b=127/False; target width 64, expression width 127. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mod_02.sv](../tests/gen/ch11/test_gen_width_mod_02.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=1000/True, b=65/False; target width 63, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mod_03.sv](../tests/gen/ch11/test_gen_width_mod_03.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=129/False, b=129/True; target width 1000, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mod_04.sv](../tests/gen/ch11/test_gen_width_mod_04.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=1000/False, b=1000/False; target width 63, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mod_06.sv](../tests/gen/ch11/test_gen_width_mod_06.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=65/True, b=128/False; target width 64, expression width 128. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mod_07.sv](../tests/gen/ch11/test_gen_width_mod_07.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/False, b=63/True; target width 64, expression width 127. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_gen_width_mod_08.sv](../tests/gen/ch11/test_gen_width_mod_08.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=129/False, b=129/False; target width 129, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
 
 ### SV2023-11.8.1-EXTRACT-DECIMAL-SIGNED
 
@@ -27489,7 +28550,7 @@ Expression type/sign comes from operands rather than the assignment LHS, while w
 
 ### SV2023-11.8.1-EXTRACT-PART-SELECT-UNSIGNED
 
-11.8.1 / normal / テスト未対応
+11.8.1 / normal / 実行確認あり
 
 A part-select result is unsigned even if it selects an entire signed vector.
 
@@ -27497,6 +28558,12 @@ A part-select result is unsigned even if it selects an entire signed vector.
 
 規定の性質: `mandatory`。
 
+- [test_gen_width_partsel_01.sv](../tests/gen/ch11/test_gen_width_partsel_01.sv): Reviewed width_sign.partsel_cases and extension model against 11.8.1. Exact template body and oracle verified. Alternating whole-signed addition and full-width-part-select addition produce at least one different expected result, observing unsigned propagation rather than merely accepting the syntax; all four paired outputs are checked.
+- [test_gen_width_partsel_02.sv](../tests/gen/ch11/test_gen_width_partsel_02.sv): Reviewed width_sign.partsel_cases and extension model against 11.8.1. Exact template body and oracle verified. Alternating whole-signed addition and full-width-part-select addition produce at least one different expected result, observing unsigned propagation rather than merely accepting the syntax; all four paired outputs are checked.
+- [test_gen_width_partsel_03.sv](../tests/gen/ch11/test_gen_width_partsel_03.sv): Reviewed width_sign.partsel_cases and extension model against 11.8.1. Exact template body and oracle verified. Alternating whole-signed addition and full-width-part-select addition produce at least one different expected result, observing unsigned propagation rather than merely accepting the syntax; all four paired outputs are checked.
+- [test_gen_width_partsel_04.sv](../tests/gen/ch11/test_gen_width_partsel_04.sv): Reviewed width_sign.partsel_cases and extension model against 11.8.1. Exact template body and oracle verified. Alternating whole-signed addition and full-width-part-select addition produce at least one different expected result, observing unsigned propagation rather than merely accepting the syntax; all four paired outputs are checked.
+- [test_gen_width_partsel_05.sv](../tests/gen/ch11/test_gen_width_partsel_05.sv): Reviewed width_sign.partsel_cases and extension model against 11.8.1. Exact template body and oracle verified. Alternating whole-signed addition and full-width-part-select addition produce at least one different expected result, observing unsigned propagation rather than merely accepting the syntax; all four paired outputs are checked.
+- [test_gen_width_partsel_06.sv](../tests/gen/ch11/test_gen_width_partsel_06.sv): Reviewed width_sign.partsel_cases and extension model against 11.8.1. Exact template body and oracle verified. Alternating whole-signed addition and full-width-part-select addition produce at least one different expected result, observing unsigned propagation rather than merely accepting the syntax; all four paired outputs are checked.
 
 ### SV2023-11.8.1-EXTRACT-REAL-COERCION-SIGNED
 
@@ -27533,7 +28600,7 @@ Relational/equality operands mutually determine their common maximum width/type 
 
 ### SV2023-11.8.2-EXTRACT-PROPAGATE-CONTEXT
 
-11.8.2 / normal / テスト未対応
+11.8.2 / normal / 実行確認あり
 
 Expression type/size propagate down to context-determined operands, normally giving them the operator result type/size.
 
@@ -27541,6 +28608,13 @@ Expression type/size propagate down to context-determined operands, normally giv
 
 規定の性質: `mandatory`。
 
+- [test_gen_width_add_02.sv](../tests/gen/ch11/test_gen_width_add_02.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 1000 exceeds both operand widths 129,128; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_add_07.sv](../tests/gen/ch11/test_gen_width_add_07.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 127 exceeds both operand widths 64,65; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_sub_07.sv](../tests/gen/ch11/test_gen_width_sub_07.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 128 exceeds both operand widths 65,64; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_mul_02.sv](../tests/gen/ch11/test_gen_width_mul_02.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 128 exceeds both operand widths 63,65; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_xnor_03.sv](../tests/gen/ch11/test_gen_width_xnor_03.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 128 exceeds both operand widths 64,64; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_xnor_04.sv](../tests/gen/ch11/test_gen_width_xnor_04.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 1000 exceeds both operand widths 65,129; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_div_05.sv](../tests/gen/ch11/test_gen_width_div_05.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 129 exceeds both operand widths 127,65; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
 
 ### SV2023-11.8.2-EXTRACT-REAL-PROPAGATION-EXCEPTION
 
@@ -30329,7 +31403,7 @@ A ref object-handle formal can replace the actual handle itself as well as acces
 
 ### SV2023-13.5.2-EXTRACT-OUTDATED-REFERENCE-LIFETIME
 
-13.5.2 / normal / テスト未対応
+13.5.2 / normal / テスト対応あり・実行未確認
 
 A removed/resized variable-array element passed by ref continues to exist for the duration of called subroutines; later changes via its outdated reference do not update a removed array entry.
 
@@ -30337,10 +31411,11 @@ A removed/resized variable-array element passed by ref continues to exist for th
 
 規定の性質: `mandatory`。
 
+- [test_queue_reference_persistence.sv](../tests/ch7/test_queue_reference_persistence.sv): Two automatic tasks retain element refs across deletion/whole assignment. The outdated values continue to exist within each task while their later changes do not affect the current queue.
 
 ### SV2023-13.5.2-EXTRACT-QUEUE-DELETE
 
-13.5.2 / normal / テスト未対応
+13.5.2 / normal / テスト対応あり・実行未確認
 
 Removing a queue element through a method invalidates that element references.
 
@@ -30348,10 +31423,11 @@ Removing a queue element through a method invalidates that element references.
 
 規定の性質: `mandatory`。
 
+- [test_queue_reference_persistence.sv](../tests/ch7/test_queue_reference_persistence.sv): Two automatic tasks retain element refs across deletion/whole assignment. The outdated values continue to exist within each task while their later changes do not affect the current queue.
 
 ### SV2023-13.5.2-EXTRACT-QUEUE-DYNAMIC-ASSIGN
 
-13.5.2 / normal / テスト未対応
+13.5.2 / normal / テスト対応あり・実行未確認
 
 Whole queue/dynamic array assignment invalidates original element references.
 
@@ -30359,6 +31435,7 @@ Whole queue/dynamic array assignment invalidates original element references.
 
 規定の性質: `mandatory`。
 
+- [test_queue_reference_persistence.sv](../tests/ch7/test_queue_reference_persistence.sv): Two automatic tasks retain element refs across deletion/whole assignment. The outdated values continue to exist within each task while their later changes do not affect the current queue.
 
 ### SV2023-13.5.2-EXTRACT-REF-ACTUAL-CATEGORIES
 
@@ -31583,7 +32660,7 @@ The constructor keyCount sets initial available keys; it may be negative, but po
 
 ### SV2023-15.3.1-EXTRACT-NOT-MAXIMUM-COUNT
 
-15.3.1 / normal / テスト未対応
+15.3.1 / normal / 実行確認あり
 
 put may increase a semaphore count beyond its constructor keyCount; that initial count is not a capacity bound.
 
@@ -31591,10 +32668,11 @@ put may increase a semaphore count beyond its constructor keyCount; that initial
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_multiple.sv](../tests/ch15/test_semaphore_multiple.sv): After starting with five keys and draining them, put(10) followed by get(7) and successful try_get(3) proves initial count is not a capacity. A final failed one-key request confirms the ten keys were exactly exhausted. Success is normalized by positive/nonpositive status.
 
 ### SV2023-15.3.1-EXTRACT-SEMAPHORE-HANDLE
 
-15.3.1 / normal / テスト未対応
+15.3.1 / normal / 実行確認あり
 
 Semaphore new returns its constructed object handle.
 
@@ -31602,6 +32680,7 @@ Semaphore new returns its constructed object handle.
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_new.sv](../tests/ch15/test_semaphore_new.sv): Default and explicit zero/one/five/ten/hundred constructors are checked for nonnull semaphore handles; subsequent get and try_get calls use the constructed objects. This observes handle construction only. It does not claim the full initial-count rule, negative-count allowance, default-count signature, or a capacity larger than the initial balance.
 
 ### SV2023-15.3.1-EXTRACT-SIGNATURE
 
@@ -31627,7 +32706,7 @@ A negative semaphore put count produces an error.
 
 ### SV2023-15.3.2-EXTRACT-PUT-KEYS-UNBLOCK
 
-15.3.2 / normal / テスト未対応
+15.3.2 / normal / 実行確認あり
 
 put returns the specified number of keys; waiting acquisition proceeds when sufficient keys become available.
 
@@ -31635,6 +32714,7 @@ put returns the specified number of keys; waiting acquisition proceeds when suff
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_blocking_keys.sv](../tests/ch15/test_semaphore_blocking_keys.sv): A two-key waiter remains blocked after the first returned key at time five, then wakes exactly at ten when the second key is returned.
 
 ### SV2023-15.3.2-EXTRACT-SIGNATURE
 
@@ -31649,7 +32729,7 @@ Semaphore put is a void function with int keyCount default one.
 
 ### SV2023-15.3.3-EXTRACT-GET-SUBTRACT-OR-WAIT
 
-15.3.3 / normal / テスト未対応
+15.3.3 / normal / 実行確認あり
 
 When enough keys are available, get removes its count and returns; otherwise it blocks until acquisition can be satisfied.
 
@@ -31657,6 +32737,7 @@ When enough keys are available, get removes its count and returns; otherwise it 
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_blocking_keys.sv](../tests/ch15/test_semaphore_blocking_keys.sv): Initial two-key get drains the semaphore. The next get blocks through an insufficient one-key balance, then completes at time ten when the request is satisfiable.
 
 ### SV2023-15.3.3-EXTRACT-NO-NEGATIVE-GET
 
@@ -31671,7 +32752,7 @@ A negative get key count is an error.
 
 ### SV2023-15.3.3-EXTRACT-SEMAPHORE-FIFO
 
-15.3.3 / normal / テスト未対応
+15.3.3 / normal / 実行確認あり
 
 The semaphore waiting queue preserves actual arrival order FIFO; it does not impose a deterministic arrival order on concurrently running processes.
 
@@ -31679,6 +32760,7 @@ The semaphore waiting queue preserves actual arrival order FIFO; it does not imp
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_fifo_order.sv](../tests/ch15/test_semaphore_fifo_order.sv): Distinct arrival times C=1,A=2,B=3 avoid concurrent-arrival assumptions. Three single-key returns at ten, twenty and thirty must release waiters in actual arrival order.
 
 ### SV2023-15.3.3-EXTRACT-SIGNATURE
 
@@ -31726,7 +32808,7 @@ A negative try_get request returns zero and produces an error.
 
 ### SV2023-15.3.4-EXTRACT-TRY-GET-SUCCESS
 
-15.3.4 / normal / テスト未対応
+15.3.4 / normal / 実行確認あり
 
 A satisfiable try_get removes its requested keys and returns a positive integer, not a guaranteed exact one.
 
@@ -31734,10 +32816,11 @@ A satisfiable try_get removes its requested keys and returns a positive integer,
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_multiple.sv](../tests/ch15/test_semaphore_multiple.sv): Checks initial remaining two keys can be acquired and the next request fails, then put(10)/get(7)/try_get(3) exhausts exactly the remaining three. Positive status is checked without fixing it to one.
 
 ### SV2023-15.3.4-EXTRACT-TRY-NONBLOCKING
 
-15.3.4 / normal / テスト未対応
+15.3.4 / normal / 実行確認あり
 
 Semaphore try_get never waits for keys.
 
@@ -31745,6 +32828,7 @@ Semaphore try_get never waits for keys.
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_blocking_keys.sv](../tests/ch15/test_semaphore_blocking_keys.sv): An empty semaphore lookup returns to subsequent output despite no future producer that could satisfy it; an implementation blocking there cannot produce the expected completion output.
 
 ### SV2023-15.4-EXTRACT-MAILBOX-BOUNDED-UNBOUNDED
 
@@ -31781,7 +32865,7 @@ A negative mailbox bound is illegal with potentially indeterminate behavior; a w
 
 ### SV2023-15.4.1-EXTRACT-NEW-HANDLE-BOUND
 
-15.4.1 / normal / テスト未対応
+15.4.1 / normal / 実行確認あり
 
 new returns a mailbox handle; zero bound is unbounded and never blocks put for capacity, otherwise the positive bound is queue capacity.
 
@@ -31789,6 +32873,7 @@ new returns a mailbox handle; zero bound is unbounded and never blocks put for c
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_blocking_put_get.sv](../tests/ch15/test_mailbox_blocking_put_get.sv): A constructed bound-one handle blocks its second put until a get. The default unbounded handle accepts fifty messages without any consumer or full result.
 
 ### SV2023-15.4.1-EXTRACT-SIGNATURE
 
@@ -31803,7 +32888,7 @@ Mailbox new is a constructor accepting int bound default zero.
 
 ### SV2023-15.4.2-EXTRACT-MESSAGE-COUNT
 
-15.4.2 / normal / テスト未対応
+15.4.2 / normal / 実行確認あり
 
 num() returns the current queued message count.
 
@@ -31811,6 +32896,7 @@ num() returns the current queued message count.
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_methods.sv](../tests/ch15/test_mailbox_bounded_methods.sv): Counts are observed at capacity two, after peek, after get, after try_get empties the queue and after refilling; failed full try_put does not contribute an entry.
 
 ### SV2023-15.4.2-EXTRACT-SIGNATURE
 
@@ -31825,7 +32911,7 @@ Mailbox num is a no-argument int function.
 
 ### SV2023-15.4.3-EXTRACT-PUT-FIFO
 
-15.4.3 / normal / テスト未対応
+15.4.3 / normal / 実行確認あり
 
 put appends messages in strict FIFO storage order and blocks a bounded sender until capacity is available.
 
@@ -31833,6 +32919,7 @@ put appends messages in strict FIFO storage order and blocks a bounded sender un
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_blocking_put_get.sv](../tests/ch15/test_mailbox_blocking_put_get.sv): The second bound-one put cannot return until the first get at five; retrieval preserves a then b in FIFO order, with second get at ten.
 
 ### SV2023-15.4.3-EXTRACT-SIGNATURE
 
@@ -31891,7 +32978,7 @@ A full try_put returns zero without adding a message; an unbounded mailbox is ne
 
 ### SV2023-15.4.4-EXTRACT-TRY-PUT-SUCCESS
 
-15.4.4 / normal / テスト未対応
+15.4.4 / normal / 実行確認あり
 
 With room, try_put appends in FIFO order and returns a positive integer without waiting.
 
@@ -31899,6 +32986,7 @@ With room, try_put appends in FIFO order and returns a positive integer without 
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_methods.sv](../tests/ch15/test_mailbox_bounded_methods.sv): With room after draining, insertion returns positive and num increments to one; the call returns without a consumer that could unblock a full sender.
 
 ### SV2023-15.4.5-EXTRACT-DYNAMIC-MESSAGE-TYPE
 
@@ -31924,7 +33012,7 @@ If destination and queued message types are not equivalent, get generates a runt
 
 ### SV2023-15.4.5-EXTRACT-MAILBOX-WAITER-FIFO
 
-15.4.5 / normal / テスト未対応
+15.4.5 / normal / 実行確認あり
 
 Mailbox waiting processes preserve actual queue-arrival FIFO; concurrent process arrival order is not guaranteed.
 
@@ -31932,10 +33020,11 @@ Mailbox waiting processes preserve actual queue-arrival FIFO; concurrent process
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_get_waiters_fifo.sv](../tests/ch15/test_mailbox_get_waiters_fifo.sv): Arrival times B=1,C=2,A=3 are separated. Messages inserted at ten, twenty and thirty go to waiters in arrival FIFO rather than source fork order.
 
 ### SV2023-15.4.5-EXTRACT-REMOVE-OR-BLOCK
 
-15.4.5 / normal / テスト未対応
+15.4.5 / normal / 実行確認あり
 
 get removes/retrieves one queued message, blocking if empty until a message is placed.
 
@@ -31943,6 +33032,7 @@ get removes/retrieves one queued message, blocking if empty until a message is p
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_blocking_put_get.sv](../tests/ch15/test_mailbox_blocking_put_get.sv): Queued messages are removed in order, then an empty get waits four time units and returns the delayed late message at fourteen.
 
 ### SV2023-15.4.5-EXTRACT-SIGNATURE
 
@@ -31968,7 +33058,7 @@ A mailbox get destination must be a valid singular lvalue.
 
 ### SV2023-15.4.6-EXTRACT-EMPTY-ZERO
 
-15.4.6 / normal / テスト未対応
+15.4.6 / normal / 実行確認あり
 
 try_get on an empty mailbox returns zero.
 
@@ -31976,10 +33066,11 @@ try_get on an empty mailbox returns zero.
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_methods.sv](../tests/ch15/test_mailbox_bounded_methods.sv): After retrieving both messages, a new nonblocking get returns zero from the empty queue.
 
 ### SV2023-15.4.6-EXTRACT-GET-POSITIVE
 
-15.4.6 / normal / テスト未対応
+15.4.6 / normal / 実行確認あり
 
 With an equivalent queued message, try_get retrieves/removes one message and returns a positive integer.
 
@@ -31987,10 +33078,11 @@ With an equivalent queued message, try_get retrieves/removes one message and ret
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_methods.sv](../tests/ch15/test_mailbox_bounded_methods.sv): The remaining second message is copied into the int destination, return is positive and occupancy decreases from one to zero.
 
 ### SV2023-15.4.6-EXTRACT-MISMATCH-NEGATIVE
 
-15.4.6 / normal / テスト未対応
+15.4.6 / normal / テスト対応あり・実行未確認
 
 try_get returns a negative integer for a nonequivalent destination/message type without successful retrieval.
 
@@ -31998,10 +33090,11 @@ try_get returns a negative integer for a nonequivalent destination/message type 
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_typeless_try_type_check.sv](../tests/ch15/test_mailbox_typeless_try_type_check.sv): String-vs-int, unsigned-vs-signed and four-state-vs-two-state non-equivalent destinations return negative without removal. Later equivalent int/string destinations retrieve each unchanged queued message.
 
 ### SV2023-15.4.6-EXTRACT-NONBLOCKING
 
-15.4.6 / normal / テスト未対応
+15.4.6 / normal / 実行確認あり
 
 Mailbox try_get attempts retrieval without blocking.
 
@@ -32009,6 +33102,7 @@ Mailbox try_get attempts retrieval without blocking.
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_methods.sv](../tests/ch15/test_mailbox_bounded_methods.sv): Empty lookup returns and prints its zero result even though no other process can ever supply a message.
 
 ### SV2023-15.4.6-EXTRACT-SIGNATURE
 
@@ -32034,7 +33128,7 @@ try_get requires a singular valid lvalue destination.
 
 ### SV2023-15.4.7-EXTRACT-PEEK-BLOCKS
 
-15.4.7 / normal / テスト未対応
+15.4.7 / normal / 実行確認あり
 
 peek waits when empty, then copies the queued message without removing it.
 
@@ -32042,10 +33136,11 @@ peek waits when empty, then copies the queued message without removing it.
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_peek_unblocks_all.sv](../tests/ch15/test_mailbox_peek_unblocks_all.sv): Three peeks arrive at one, two and three on an empty mailbox and return only when a message arrives at ten; their copies leave it queued.
 
 ### SV2023-15.4.7-EXTRACT-PEEK-MULTIPLE-WAITERS
 
-15.4.7 / normal / テスト未対応
+15.4.7 / normal / 実行確認あり
 
 While a message remains queued, blocked peek/get processes can become unblocked, so one peeked message can release more than one waiting process under FIFO rules.
 
@@ -32053,10 +33148,11 @@ While a message remains queued, blocked peek/get processes can become unblocked,
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_peek_unblocks_all.sv](../tests/ch15/test_mailbox_peek_unblocks_all.sv): Three differently timed pending peeks all wake from one inserted message at ten. That same message remains available for a following get.
 
 ### SV2023-15.4.7-EXTRACT-PEEK-RETAINS
 
-15.4.7 / normal / テスト未対応
+15.4.7 / normal / 実行確認あり
 
 peek copies a message without removing it from the queue.
 
@@ -32064,6 +33160,7 @@ peek copies a message without removing it from the queue.
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_methods.sv](../tests/ch15/test_mailbox_bounded_methods.sv): Peek copies the oldest message one while num remains two, and the following get still retrieves the same message.
 
 ### SV2023-15.4.7-EXTRACT-PEEK-TYPE-ERROR
 
@@ -32122,7 +33219,7 @@ try_peek requires a singular valid lvalue destination.
 
 ### SV2023-15.4.8-EXTRACT-TRY-PEEK-EMPTY
 
-15.4.8 / normal / テスト未対応
+15.4.8 / normal / 実行確認あり
 
 try_peek returns zero when empty.
 
@@ -32130,10 +33227,11 @@ try_peek returns zero when empty.
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_methods.sv](../tests/ch15/test_mailbox_bounded_methods.sv): An empty try_peek returns zero rather than blocking or claiming success.
 
 ### SV2023-15.4.8-EXTRACT-TRY-PEEK-MISMATCH
 
-15.4.8 / normal / テスト未対応
+15.4.8 / normal / テスト対応あり・実行未確認
 
 try_peek returns a negative integer for nonequivalent destination/message types.
 
@@ -32141,10 +33239,11 @@ try_peek returns a negative integer for nonequivalent destination/message types.
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_typeless_try_type_check.sv](../tests/ch15/test_mailbox_typeless_try_type_check.sv): Peeking an int into a string returns negative with count unchanged; peeking into equivalent signed two-state 32-bit storage succeeds and still preserves count.
 
 ### SV2023-15.4.8-EXTRACT-TRY-PEEK-NONBLOCKING
 
-15.4.8 / normal / テスト未対応
+15.4.8 / normal / 実行確認あり
 
 try_peek attempts a copy without blocking.
 
@@ -32152,10 +33251,11 @@ try_peek attempts a copy without blocking.
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_methods.sv](../tests/ch15/test_mailbox_bounded_methods.sv): Empty lookup returns and the later refill executes although no other process could supply a message to wake a blocking peek.
 
 ### SV2023-15.4.8-EXTRACT-TRY-PEEK-SUCCESS
 
-15.4.8 / normal / テスト未対応
+15.4.8 / normal / 実行確認あり
 
 For an equivalent available message, try_peek copies it without removing it and returns a positive integer.
 
@@ -32163,10 +33263,11 @@ For an equivalent available message, try_peek copies it without removing it and 
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_methods.sv](../tests/ch15/test_mailbox_bounded_methods.sv): With one message, return is positive, copied value is two and num remains one; the subsequent get still retrieves two.
 
 ### SV2023-15.4.9-EXTRACT-DEFAULT-DYNAMIC-MAILBOX
 
-15.4.9 / normal / テスト未対応
+15.4.9 / normal / テスト対応あり・実行未確認
 
 An unspecialized mailbox is dynamically typed and checks message/destination type equivalence at runtime.
 
@@ -32174,6 +33275,7 @@ An unspecialized mailbox is dynamically typed and checks message/destination typ
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_typeless_try_type_check.sv](../tests/ch15/test_mailbox_typeless_try_type_check.sv): An unspecialized mailbox queues mixed int and string messages; runtime type equivalence rejects mismatched destinations without dequeue, then each equivalent destination succeeds.
 
 ### SV2023-15.4.9-EXTRACT-MAILBOX-PARAMETERIZATION
 
@@ -32254,7 +33356,7 @@ Event triggering uses -> followed by an event reference/nonrange select, or ->> 
 
 ### SV2023-15.5.1-EXTRACT-IMMEDIATE-TRIGGER-ALL-WAITERS
 
-15.5.1 / normal / テスト未対応
+15.5.1 / normal / 実行確認あり
 
 -> unblocks all processes currently queued on that event; the trigger occurrence itself is instantaneous, distinct from persistent triggered status.
 
@@ -32262,10 +33364,11 @@ Event triggering uses -> followed by an event reference/nonrange select, or ->> 
 
 規定の性質: `mandatory`。
 
+- [test_event_wait_after_trigger.sv](../tests/ch15/test_event_wait_after_trigger.sv): Three already-waiting processes wake from the first trigger. The triggering process then reaches @ and a later waiter starts at time two; both must wait until the next trigger at five, whose wake times are checked at six.
 
 ### SV2023-15.5.1-EXTRACT-NONBLOCKING-TRIGGER
 
-15.5.1 / normal / テスト未対応
+15.5.1 / normal / テスト対応あり・実行未確認
 
 ->> returns without blocking and schedules event triggering in the NBA region when its delay expires or event control occurs.
 
@@ -32273,10 +33376,11 @@ Event triggering uses -> followed by an event reference/nonrange select, or ->> 
 
 規定の性質: `mandatory`。
 
+- [test_event_nonblocking_trigger.sv](../tests/ch15/test_event_nonblocking_trigger.sv): Immediate ->> schedules NBA and allows the following blocking v=1 before the waiter wakes; #10 and posedge-controlled triggers occur at eleven and five without suspending scheduling of subsequent statements.
 
 ### SV2023-15.5.2-EXTRACT-EVENT-WAIT-FORM
 
-15.5.2 / normal / テスト未対応
+15.5.2 / normal / 実行確認あり
 
 @ event-reference waits for a named event trigger.
 
@@ -32284,10 +33388,11 @@ Event triggering uses -> followed by an event reference/nonrange select, or ->> 
 
 規定の性質: `definition`。
 
+- [test_event_wait_after_trigger.sv](../tests/ch15/test_event_wait_after_trigger.sv): Three already-waiting processes wake from the first trigger. The triggering process then reaches @ and a later waiter starts at time two; both must wait until the next trigger at five, whose wake times are checked at six.
 
 ### SV2023-15.5.2-EXTRACT-WAIT-BEFORE-TRIGGER
 
-15.5.2 / normal / テスト未対応
+15.5.2 / normal / 実行確認あり
 
 @ blocks until a later trigger; it must have executed before -> to observe that trigger, and a prior trigger is not remembered by @.
 
@@ -32295,6 +33400,7 @@ Event triggering uses -> followed by an event reference/nonrange select, or ->> 
 
 規定の性質: `mandatory`。
 
+- [test_event_wait_after_trigger.sv](../tests/ch15/test_event_wait_after_trigger.sv): Three already-waiting processes wake from the first trigger. The triggering process then reaches @ and a later waiter starts at time two; both must wait until the next trigger at five, whose wake times are checked at six.
 
 ### SV2023-15.5.3-EXTRACT-NO-FALLING-TRIGGERED-SENSITIVITY
 
@@ -32331,7 +33437,7 @@ Event triggered is a no-argument bit-returning method.
 
 ### SV2023-15.5.3-EXTRACT-TRIGGERED-PERSISTENCE
 
-15.5.3 / normal / テスト未対応
+15.5.3 / normal / 実行確認あり
 
 An event triggered state persists until simulation time advances, separate from the instantaneous trigger.
 
@@ -32339,10 +33445,11 @@ An event triggered state persists until simulation time advances, separate from 
 
 規定の性質: `mandatory`。
 
+- [test_event_triggered_same_step.sv](../tests/ch15/test_event_triggered_same_step.sv): The event is false before the trigger, true immediately afterwards, visible to a wait in the same time step, and false again after time advances to two.
 
 ### SV2023-15.5.3-EXTRACT-TRIGGERED-RESULT
 
-15.5.3 / normal / テスト未対応
+15.5.3 / normal / テスト対応あり・実行未確認
 
 triggered() returns one if triggered in this time step, otherwise zero; null events return zero.
 
@@ -32350,10 +33457,11 @@ triggered() returns one if triggered in this time step, otherwise zero; null eve
 
 規定の性質: `mandatory`。
 
+- [test_event_null_waiter_queue.sv](../tests/ch15/test_event_null_waiter_queue.sv): The null event reports false; the nonnull event reports false before a trigger and true in the triggering step. A null trigger leaves both false and does not release the pending nonnull waiter.
 
 ### SV2023-15.5.3-EXTRACT-WAIT-TRIGGERED
 
-15.5.3 / normal / テスト未対応
+15.5.3 / normal / 実行確認あり
 
 wait may use the triggered method as its condition.
 
@@ -32361,6 +33469,7 @@ wait may use the triggered method as its condition.
 
 規定の性質: `permission`。
 
+- [test_event_triggered_same_step.sv](../tests/ch15/test_event_triggered_same_step.sv): A wait on the triggered property completes during the trigger time step independent of same-time initial ordering; its recorded release time is one.
 
 ### SV2023-15.5.4-EXTRACT-FIRST-ONLY-PERSISTENT
 
@@ -32430,7 +33539,7 @@ Assigning one event to another shares the source synchronization object/queue be
 
 ### SV2023-15.5.5.1-EXTRACT-MERGED-TRIGGER
 
-15.5.5.1 / normal / テスト未対応
+15.5.5.1 / normal / テスト対応あり・実行未確認
 
 After an event assignment merges two handles, triggering either handle affects processes waiting on the shared object through either handle.
 
@@ -32438,10 +33547,11 @@ After an event assignment merges two handles, triggering either handle affects p
 
 規定の性質: `mandatory`。
 
+- [test_event_merge.sv](../tests/ch15/test_event_merge.sv): After a=b, triggers through a and b each wake both associated waiter processes. A later c=a trigger also wakes a/b.
 
 ### SV2023-15.5.5.1-EXTRACT-NO-RETARGET-EXISTING-WAIT
 
-15.5.5.1 / normal / テスト未対応
+15.5.5.1 / normal / テスト対応あり・実行未確認
 
 An event merger affects subsequent wait/event operations; an already blocked destination-event wait does not transfer to the newly assigned synchronization queue and is not released by triggering the newly merged handles.
 
@@ -32449,6 +33559,7 @@ An event merger affects subsequent wait/event operations; an already blocked des
 
 規定の性質: `mandatory`。
 
+- [test_event_merge.sv](../tests/ch15/test_event_merge.sv): The c process waits again on its old event before c=a. Later triggers through c and a wake a/b but leave the already-blocked old c waiter at count one, proving it was not retargeted.
 
 ### SV2023-15.5.5.2-EXTRACT-NULL-DISASSOCIATES-EVENT
 
@@ -32463,7 +33574,7 @@ Assigning null breaks the event variable association; an underlying synchronizat
 
 ### SV2023-15.5.5.2-EXTRACT-NULL-TRIGGER-NOOP
 
-15.5.5.2 / boundary / テスト未対応
+15.5.5.2 / boundary / テスト対応あり・実行未確認
 
 Triggering null has no effect.
 
@@ -32471,6 +33582,7 @@ Triggering null has no effect.
 
 規定の性質: `mandatory`。
 
+- [test_event_null_waiter_queue.sv](../tests/ch15/test_event_null_waiter_queue.sv): After e1 becomes null, triggering it leaves the still-valid shared event e2 untriggered and its waiter blocked. A later e2 trigger releases that waiter at four.
 
 ### SV2023-15.5.5.2-EXTRACT-NULL-WAIT-UNDEFINED
 
@@ -32485,7 +33597,7 @@ Waiting on null has undefined outcome and may issue a runtime warning; tests can
 
 ### SV2023-15.5.5.3-EXTRACT-EVENT-BOOLEAN
 
-15.5.5.3 / normal / テスト未対応
+15.5.5.3 / normal / テスト対応あり・実行未確認
 
 An event is false if null and true otherwise in Boolean tests, independent of triggered state.
 
@@ -32493,6 +33605,7 @@ An event is false if null and true otherwise in Boolean tests, independent of tr
 
 規定の性質: `mandatory`。
 
+- [test_event_compare_arguments.sv](../tests/ch15/test_event_compare_arguments.sv): Distinct, merged, reassigned and null event handles are compared through ==,!=,===,!== and value-passed function arguments. Nonnull untriggered a is true in a Boolean context and null n1 is false; expected output observes values rather than only legal syntax.
 
 ### SV2023-15.5.5.3-EXTRACT-EVENT-COMPARISON-OPERATORS
 
@@ -46102,7 +47215,7 @@ $time, $stime and $realtime provide current simulation time with no required arg
 
 ### SV2023-20.3.1-EXTRACT-TIME-RESULT
 
-20.3.1 / normal / テスト未対応
+20.3.1 / normal / 実行確認あり
 
 $time returns 64-bit integer time scaled to the invoking module time unit; integer result rounding follows time conversion rules.
 
@@ -46110,10 +47223,11 @@ $time returns 64-bit integer time scaled to the invoking module time unit; integ
 
 規定の性質: `definition`。
 
+- [test_stime_time_units.sv](../tests/ch20/test_stime_time_units.sv): Integer times round 12.6 to 13 and remain above 32 bits; the 10ns child independently scales the same instant to 1.
 
 ### SV2023-20.3.2-EXTRACT-STIME-RESULT
 
-20.3.2 / normal / テスト未対応
+20.3.2 / normal / 実行確認あり
 
 $stime returns unsigned 32-bit integer time scaled to the invoking module time unit; overflow returns the low-order 32 bits.
 
@@ -46121,6 +47235,7 @@ $stime returns unsigned 32-bit integer time scaled to the invoking module time u
 
 規定の性質: `definition`。
 
+- [test_stime_time_units.sv](../tests/ch20/test_stime_time_units.sv): The ns scope rounds to 13 then overflows past 2**32, returning only low bits 17; the child uses its own 10ns units.
 
 ### SV2023-20.3.2-STIME-ROUNDING
 
@@ -46144,7 +47259,7 @@ stime has a 32-bit result.
 
 ### SV2023-20.3.3-EXTRACT-REALTIME-RESULT
 
-20.3.3 / normal / テスト未対応
+20.3.3 / normal / 実行確認あり
 
 $realtime returns real time scaled to the invoking module time unit.
 
@@ -46152,10 +47267,11 @@ $realtime returns real time scaled to the invoking module time unit.
 
 規定の性質: `definition`。
 
+- [test_stime_time_units.sv](../tests/ch20/test_stime_time_units.sv): The same instant prints real 12.6 in ns units and 1.26 in 10ns units, without integer rounding.
 
 ### SV2023-20.4.1-EXTRACT-COMPILATION-SCOPE
 
-20.4.1 / normal / テスト未対応
+20.4.1 / normal / テスト対応あり・実行未確認
 
 With $unit, timescale queries use the compilation-unit unit/precision.
 
@@ -46163,10 +47279,11 @@ With $unit, timescale queries use the compilation-unit unit/precision.
 
 規定の性質: `mandatory`。
 
+- [test_timeunit_unit_root.sv](../tests/ch20/test_timeunit_unit_root.sv): Compilation scope 10ns/1ns differs from the caller 1us/10ns and global finest precision 1ps; the expected results distinguish all three scopes.
 
 ### SV2023-20.4.1-EXTRACT-CURRENT-SCOPE
 
-20.4.1 / normal / テスト未対応
+20.4.1 / normal / テスト対応あり・実行未確認
 
 Without an argument, timescale queries use the current design-element scope.
 
@@ -46174,6 +47291,7 @@ Without an argument, timescale queries use the current design-element scope.
 
 規定の性質: `mandatory`。
 
+- [test_timeunit_timeprecision_functions.sv](../tests/ch20/test_timeunit_timeprecision_functions.sv): The current scope has 1us/10ns and the named child has 1ns/1ps; both query results must match their exact decimal exponents.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-0
 
@@ -46243,7 +47361,7 @@ Table 20-2 timescale exponent -11 denotes 10 ps.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG12
 
-20.4.1 / normal / テスト未対応
+20.4.1 / normal / テスト対応あり・実行未確認
 
 Table 20-2 timescale exponent -12 denotes 1 ps.
 
@@ -46251,6 +47369,7 @@ Table 20-2 timescale exponent -12 denotes 1 ps.
 
 規定の性質: `definition`。
 
+- [test_timeunit_timeprecision_functions.sv](../tests/ch20/test_timeunit_timeprecision_functions.sv): The current scope has 1us/10ns and the named child has 1ns/1ps; both query results must match their exact decimal exponents.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG13
 
@@ -46331,7 +47450,7 @@ Table 20-2 timescale exponent -5 denotes 10 us.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG6
 
-20.4.1 / normal / テスト未対応
+20.4.1 / normal / テスト対応あり・実行未確認
 
 Table 20-2 timescale exponent -6 denotes 1 us.
 
@@ -46339,6 +47458,7 @@ Table 20-2 timescale exponent -6 denotes 1 us.
 
 規定の性質: `definition`。
 
+- [test_timeunit_timeprecision_functions.sv](../tests/ch20/test_timeunit_timeprecision_functions.sv): The current scope has 1us/10ns and the named child has 1ns/1ps; both query results must match their exact decimal exponents.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG7
 
@@ -46353,7 +47473,7 @@ Table 20-2 timescale exponent -7 denotes 100 ns.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG8
 
-20.4.1 / normal / テスト未対応
+20.4.1 / normal / テスト対応あり・実行未確認
 
 Table 20-2 timescale exponent -8 denotes 10 ns.
 
@@ -46361,10 +47481,11 @@ Table 20-2 timescale exponent -8 denotes 10 ns.
 
 規定の性質: `definition`。
 
+- [test_timeunit_timeprecision_functions.sv](../tests/ch20/test_timeunit_timeprecision_functions.sv): The current scope has 1us/10ns and the named child has 1ns/1ps; both query results must match their exact decimal exponents.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-NEG9
 
-20.4.1 / normal / テスト未対応
+20.4.1 / normal / テスト対応あり・実行未確認
 
 Table 20-2 timescale exponent -9 denotes 1 ns.
 
@@ -46372,6 +47493,7 @@ Table 20-2 timescale exponent -9 denotes 1 ns.
 
 規定の性質: `definition`。
 
+- [test_timeunit_timeprecision_functions.sv](../tests/ch20/test_timeunit_timeprecision_functions.sv): The current scope has 1us/10ns and the named child has 1ns/1ps; both query results must match their exact decimal exponents.
 
 ### SV2023-20.4.1-EXTRACT-EXPONENT-RANGE
 
@@ -46386,7 +47508,7 @@ Timescale query results are integers from -15 through 2.
 
 ### SV2023-20.4.1-EXTRACT-NAMED-SCOPE
 
-20.4.1 / normal / テスト未対応
+20.4.1 / normal / テスト対応あり・実行未確認
 
 With a design-element argument, timescale queries use that element.
 
@@ -46394,10 +47516,11 @@ With a design-element argument, timescale queries use that element.
 
 規定の性質: `mandatory`。
 
+- [test_timeunit_timeprecision_functions.sv](../tests/ch20/test_timeunit_timeprecision_functions.sv): The current scope has 1us/10ns and the named child has 1ns/1ps; both query results must match their exact decimal exponents.
 
 ### SV2023-20.4.1-EXTRACT-ROOT-SCOPE
 
-20.4.1 / normal / テスト未対応
+20.4.1 / normal / テスト対応あり・実行未確認
 
 With $root, both timescale queries return the simulation time unit exponent.
 
@@ -46405,6 +47528,7 @@ With $root, both timescale queries return the simulation time unit exponent.
 
 規定の性質: `mandatory`。
 
+- [test_timeunit_unit_root.sv](../tests/ch20/test_timeunit_unit_root.sv): Compilation scope 10ns/1ns differs from the caller 1us/10ns and global finest precision 1ps; the expected results distinguish all three scopes.
 
 ### SV2023-20.4.1-EXTRACT-TIMESCALE-QUERIES
 
@@ -46419,7 +47543,7 @@ $timeunit/$timeprecision return integer time-unit/time-precision exponents for a
 
 ### SV2023-20.4.2-EXTRACT-PRINT-CURRENT
 
-20.4.2 / normal / テスト未対応
+20.4.2 / normal / 実行確認あり
 
 Without an argument, $printtimescale uses its current design-element scope.
 
@@ -46427,10 +47551,11 @@ Without an argument, $printtimescale uses its current design-element scope.
 
 規定の性質: `mandatory`。
 
+- [test_timeunit_with_precision.sv](../tests/ch3/test_timeunit_with_precision.sv): An argumentless printtimescale reports the calling scope name and its local unit/precision using the prescribed output components, despite a preceding different timescale directive.
 
 ### SV2023-20.4.2-EXTRACT-PRINT-FORMAT
 
-20.4.2 / normal / テスト未対応
+20.4.2 / normal / 実行確認あり
 
 $printtimescale output has the format Time scale of (<design_element_name>) is <unit> / <precision>.
 
@@ -46438,6 +47563,7 @@ $printtimescale output has the format Time scale of (<design_element_name>) is <
 
 規定の性質: `mandatory`。
 
+- [test_timeunit_with_precision.sv](../tests/ch3/test_timeunit_with_precision.sv): An argumentless printtimescale reports the calling scope name and its local unit/precision using the prescribed output components, despite a preceding different timescale directive.
 
 ### SV2023-20.4.2-EXTRACT-PRINT-SPECIAL-NAMES
 
@@ -46553,7 +47679,7 @@ $timeformat sets time units, precision, suffix and minimum field width for all d
 
 ### SV2023-20.5-EXTRACT-BITSTOREAL
 
-20.5 / normal / テスト未対応
+20.5 / normal / 実行確認あり
 
 $bitstoreal converts a $realtobits representation into the corresponding real value.
 
@@ -46561,10 +47687,11 @@ $bitstoreal converts a $realtobits representation into the corresponding real va
 
 規定の性質: `definition`。
 
+- [test_realtobits_bitstoreal.sv](../tests/ch20/test_realtobits_bitstoreal.sv): Zero, one and signed IEEE-754 representations plus nonintegral round trips are checked numerically and by exact expected hex/output; the full test must pass.
 
 ### SV2023-20.5-EXTRACT-BITSTOSHORTREAL
 
-20.5 / normal / テスト未対応
+20.5 / normal / 実行確認あり
 
 $bitstoshortreal converts a $shortrealtobits representation into the corresponding shortreal value.
 
@@ -46572,6 +47699,7 @@ $bitstoshortreal converts a $shortrealtobits representation into the correspondi
 
 規定の性質: `definition`。
 
+- [test_realtobits_bitstoreal.sv](../tests/ch20/test_realtobits_bitstoreal.sv): Zero, one and signed IEEE-754 representations plus nonintegral round trips are checked numerically and by exact expected hex/output; the full test must pass.
 
 ### SV2023-20.5-EXTRACT-CONSTANT-CONVERSIONS
 
@@ -46586,7 +47714,7 @@ These conversions may occur in constant expressions subject to 11.2.1.
 
 ### SV2023-20.5-EXTRACT-ITOR
 
-20.5 / normal / テスト未対応
+20.5 / normal / 実行確認あり
 
 $itor(integer) returns the corresponding real numeric value.
 
@@ -46594,10 +47722,11 @@ $itor(integer) returns the corresponding real numeric value.
 
 規定の性質: `definition`。
 
+- [test_conversion_functions.sv](../tests/ch20/test_conversion_functions.sv): The integer 42 converts to real 42.0; equality and formatted output both observe the numeric conversion.
 
 ### SV2023-20.5-EXTRACT-REALTOBITS
 
-20.5 / normal / テスト未対応
+20.5 / normal / 実行確認あり
 
 $realtobits returns the real number 64-bit representation.
 
@@ -46605,10 +47734,11 @@ $realtobits returns the real number 64-bit representation.
 
 規定の性質: `definition`。
 
+- [test_realtobits_bitstoreal.sv](../tests/ch20/test_realtobits_bitstoreal.sv): Zero, one and signed IEEE-754 representations plus nonintegral round trips are checked numerically and by exact expected hex/output; the full test must pass.
 
 ### SV2023-20.5-EXTRACT-RTOI
 
-20.5 / normal / テスト未対応
+20.5 / normal / 実行確認あり
 
 $rtoi(real) returns integer by truncating toward zero, unlike integral casts/assignments that round.
 
@@ -46616,10 +47746,11 @@ $rtoi(real) returns integer by truncating toward zero, unlike integral casts/ass
 
 規定の性質: `definition`。
 
+- [test_conversion_functions.sv](../tests/ch20/test_conversion_functions.sv): Both positive 3.7 and negative -2.9 truncate toward zero, while a separate int cast of 5.9 rounds to 6.
 
 ### SV2023-20.5-EXTRACT-SHORTREALTOBITS
 
-20.5 / normal / テスト未対応
+20.5 / normal / 実行確認あり
 
 $shortrealtobits returns the shortreal number 32-bit representation.
 
@@ -46627,6 +47758,7 @@ $shortrealtobits returns the shortreal number 32-bit representation.
 
 規定の性質: `definition`。
 
+- [test_realtobits_bitstoreal.sv](../tests/ch20/test_realtobits_bitstoreal.sv): Zero, one and signed IEEE-754 representations plus nonintegral round trips are checked numerically and by exact expected hex/output; the full test must pass.
 
 ### SV2023-20.5-EXTRACT-SIGNED-UNSIGNED
 
@@ -46850,7 +47982,7 @@ Array queries accept an array/integral data expression or type; $left/$right/$lo
 
 ### SV2023-20.7-EXTRACT-ASSOCIATIVE-BOUNDS
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 For integral-index associative dimensions, left is 0 and right is the highest possible index value.
 
@@ -46858,10 +47990,11 @@ For integral-index associative dimensions, left is 0 and right is the highest po
 
 規定の性質: `definition`。
 
+- [test_associative_array_query_functions.sv](../tests/ch20/test_associative_array_query_functions.sv): Integral associative index types are unsigned four-bit and signed byte; sparse negative/positive keys distinguish type bounds from allocated extrema/count. Empty int-index storage requires all-x extrema and size zero.
 
 ### SV2023-20.7-EXTRACT-ASSOCIATIVE-COUNT
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 Associative increment is -1 and size is the allocated-element count.
 
@@ -46869,10 +48002,11 @@ Associative increment is -1 and size is the allocated-element count.
 
 規定の性質: `definition`。
 
+- [test_associative_array_query_functions.sv](../tests/ch20/test_associative_array_query_functions.sv): Integral associative index types are unsigned four-bit and signed byte; sparse negative/positive keys distinguish type bounds from allocated extrema/count. Empty int-index storage requires all-x extrema and size zero.
 
 ### SV2023-20.7-EXTRACT-ASSOCIATIVE-EXTREMA
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 Associative low/high are the lowest/highest allocated indices or all x when no elements exist.
 
@@ -46880,6 +48014,7 @@ Associative low/high are the lowest/highest allocated indices or all x when no e
 
 規定の性質: `definition`。
 
+- [test_associative_array_query_functions.sv](../tests/ch20/test_associative_array_query_functions.sv): Integral associative index types are unsigned four-bit and signed byte; sparse negative/positive keys distinguish type bounds from allocated extrema/count. Empty int-index storage requires all-x extrema and size zero.
 
 ### SV2023-20.7-EXTRACT-ASSOCIATIVE-INDEX-TYPE
 
@@ -46971,7 +48106,7 @@ $left returns the dimension left bound, the most significant packed index, or 0 
 
 ### SV2023-20.7-EXTRACT-LOW-HIGH
 
-20.7 / normal / テスト未対応
+20.7 / normal / 実行確認あり
 
 $low returns left for increment -1 and right for increment 1; $high returns the opposite endpoint.
 
@@ -46979,6 +48114,7 @@ $low returns left for increment -1 and right for increment 1; $high returns the 
 
 規定の性質: `definition`。
 
+- [test_sysfunc_high_low.sv](../tests/ch20/test_sysfunc_high_low.sv): Ascending and descending packed/unpacked ranges, two numbered dimensions, nonzero/negative bounds and current dynamic/queue extents all check exact low/high endpoints.
 
 ### SV2023-20.7-EXTRACT-NO-DYNAMIC-TYPE-QUERY
 
@@ -47070,7 +48206,7 @@ $clog2 returns ceiling(log2(argument)); its integer/arbitrarily wide vector argu
 
 ### SV2023-20.8.2-EXTRACT-ACOS
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $acos(x) shall match standard C acos(x) behavior (arccosine).
 
@@ -47078,10 +48214,11 @@ $acos(x) shall match standard C acos(x) behavior (arccosine).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-ACOSH
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $acosh(x) shall match standard C acosh(x) behavior (inverse hyperbolic cosine).
 
@@ -47089,10 +48226,11 @@ $acosh(x) shall match standard C acosh(x) behavior (inverse hyperbolic cosine).
 
 規定の性質: `mandatory`。
 
+- [test_math_acosh.sv](../tests/ch20/test_math_acosh.sv): Normal-operation results are checked at zero or the domain endpoint, ordinary values, and inverse/negative cases as applicable; all printed reference values must match. This is not a proof for every IEEE-754 input.
 
 ### SV2023-20.8.2-EXTRACT-ASIN
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $asin(x) shall match standard C asin(x) behavior (arcsine).
 
@@ -47100,10 +48238,11 @@ $asin(x) shall match standard C asin(x) behavior (arcsine).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-ASINH
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $asinh(x) shall match standard C asinh(x) behavior (inverse hyperbolic sine).
 
@@ -47111,10 +48250,11 @@ $asinh(x) shall match standard C asinh(x) behavior (inverse hyperbolic sine).
 
 規定の性質: `mandatory`。
 
+- [test_math_asinh.sv](../tests/ch20/test_math_asinh.sv): Normal-operation results are checked at zero or the domain endpoint, ordinary values, and inverse/negative cases as applicable; all printed reference values must match. This is not a proof for every IEEE-754 input.
 
 ### SV2023-20.8.2-EXTRACT-ATAN
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $atan(x) shall match standard C atan(x) behavior (arctangent).
 
@@ -47122,10 +48262,11 @@ $atan(x) shall match standard C atan(x) behavior (arctangent).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-ATAN2
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $atan2(y,x) shall match standard C atan2(y,x) behavior (two-argument arctangent with y,x order).
 
@@ -47133,10 +48274,11 @@ $atan2(y,x) shall match standard C atan2(y,x) behavior (two-argument arctangent 
 
 規定の性質: `mandatory`。
 
+- [test_math_atan2.sv](../tests/ch20/test_math_atan2.sv): Five ordered y,x argument pairs check zero and positive/negative axes plus pi/4; using the reversed x,y order changes the checked results.
 
 ### SV2023-20.8.2-EXTRACT-ATANH
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $atanh(x) shall match standard C atanh(x) behavior (inverse hyperbolic tangent).
 
@@ -47144,10 +48286,11 @@ $atanh(x) shall match standard C atanh(x) behavior (inverse hyperbolic tangent).
 
 規定の性質: `mandatory`。
 
+- [test_math_atanh.sv](../tests/ch20/test_math_atanh.sv): Normal-operation results are checked at zero or the domain endpoint, ordinary values, and inverse/negative cases as applicable; all printed reference values must match. This is not a proof for every IEEE-754 input.
 
 ### SV2023-20.8.2-EXTRACT-CEIL
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $ceil(x) shall match standard C ceil(x) behavior (ceiling).
 
@@ -47155,10 +48298,11 @@ $ceil(x) shall match standard C ceil(x) behavior (ceiling).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-COS
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $cos(x) shall match standard C cos(x) behavior (cosine).
 
@@ -47166,10 +48310,11 @@ $cos(x) shall match standard C cos(x) behavior (cosine).
 
 規定の性質: `mandatory`。
 
+- [test_math_cos.sv](../tests/ch20/test_math_cos.sv): Zero, pi/2, pi, 2pi and a negative pi/3 argument check zero, positive/negative one and one half. The full expected output requires each numerical test to pass. These ordinary finite-input observations provide a stronger witness than the zero-only call in the mixed system-function test; they are not an exhaustive IEEE-754/domain proof.
 
 ### SV2023-20.8.2-EXTRACT-COSH
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $cosh(x) shall match standard C cosh(x) behavior (hyperbolic cosine).
 
@@ -47177,10 +48322,11 @@ $cosh(x) shall match standard C cosh(x) behavior (hyperbolic cosine).
 
 規定の性質: `mandatory`。
 
+- [test_math_cosh.sv](../tests/ch20/test_math_cosh.sv): Zero, positive and negative one, two and a fractional half argument check the even hyperbolic cosine at nontrivial values. The full expected output requires each numerical test to pass. These ordinary finite-input observations provide a stronger witness than the zero-only call in the mixed system-function test; they are not an exhaustive IEEE-754/domain proof.
 
 ### SV2023-20.8.2-EXTRACT-EXP
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $exp(x) shall match standard C exp(x) behavior (exponential).
 
@@ -47188,10 +48334,11 @@ $exp(x) shall match standard C exp(x) behavior (exponential).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-FLOOR
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $floor(x) shall match standard C floor(x) behavior (floor).
 
@@ -47199,10 +48346,11 @@ $floor(x) shall match standard C floor(x) behavior (floor).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-HYPOT
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $hypot(x,y) shall match standard C hypot(x,y) behavior (Euclidean hypotenuse).
 
@@ -47210,10 +48358,11 @@ $hypot(x,y) shall match standard C hypot(x,y) behavior (Euclidean hypotenuse).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-LN
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $ln(x) shall match standard C log(x) behavior (natural logarithm).
 
@@ -47221,10 +48370,11 @@ $ln(x) shall match standard C log(x) behavior (natural logarithm).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-LOG10
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $log10(x) shall match standard C log10(x) behavior (base-ten logarithm).
 
@@ -47232,10 +48382,11 @@ $log10(x) shall match standard C log10(x) behavior (base-ten logarithm).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-POW
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $pow(x,y) shall match standard C pow(x,y) behavior (power x**y).
 
@@ -47243,6 +48394,7 @@ $pow(x,y) shall match standard C pow(x,y) behavior (power x**y).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-REAL-MATH-TYPES
 
@@ -47257,7 +48409,7 @@ Table 20-4 real math functions accept real arguments and return real values.
 
 ### SV2023-20.8.2-EXTRACT-SIN
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $sin(x) shall match standard C sin(x) behavior (sine).
 
@@ -47265,10 +48417,11 @@ $sin(x) shall match standard C sin(x) behavior (sine).
 
 規定の性質: `mandatory`。
 
+- [test_math_sin.sv](../tests/ch20/test_math_sin.sv): Zero, pi/2, pi, 3pi/2 and -pi/2 check outputs zero and both signs of one with 0.0001 tolerance. The full expected output requires each numerical test to pass. These ordinary finite-input observations provide a stronger witness than the zero-only call in the mixed system-function test; they are not an exhaustive IEEE-754/domain proof.
 
 ### SV2023-20.8.2-EXTRACT-SINH
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $sinh(x) shall match standard C sinh(x) behavior (hyperbolic sine).
 
@@ -47276,10 +48429,11 @@ $sinh(x) shall match standard C sinh(x) behavior (hyperbolic sine).
 
 規定の性質: `mandatory`。
 
+- [test_math_sinh.sv](../tests/ch20/test_math_sinh.sv): Zero, positive and negative one, two, and the odd-function identity at +/-1.5 are checked. The full expected output requires each numerical test to pass. These ordinary finite-input observations provide a stronger witness than the zero-only call in the mixed system-function test; they are not an exhaustive IEEE-754/domain proof.
 
 ### SV2023-20.8.2-EXTRACT-SQRT
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $sqrt(x) shall match standard C sqrt(x) behavior (square root).
 
@@ -47287,10 +48441,11 @@ $sqrt(x) shall match standard C sqrt(x) behavior (square root).
 
 規定の性質: `mandatory`。
 
+- [test_math_system_functions.sv](../tests/ch20/test_math_system_functions.sv): Real-valued function result is compared with the mathematical reference using exact equality or a stated tolerance and then checked by the full expected output. This normal-operation observation does not prove every IEEE-754 input/domain or rounding combination.
 
 ### SV2023-20.8.2-EXTRACT-TAN
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $tan(x) shall match standard C tan(x) behavior (tangent).
 
@@ -47298,10 +48453,11 @@ $tan(x) shall match standard C tan(x) behavior (tangent).
 
 規定の性質: `mandatory`。
 
+- [test_math_tan.sv](../tests/ch20/test_math_tan.sv): Zero, pi/4, pi, -pi/4 and pi/6 check zero, both signs of one and a nontrivial 0.577-range value. The full expected output requires each numerical test to pass. These ordinary finite-input observations provide a stronger witness than the zero-only call in the mixed system-function test; they are not an exhaustive IEEE-754/domain proof.
 
 ### SV2023-20.8.2-EXTRACT-TANH
 
-20.8.2 / normal / テスト未対応
+20.8.2 / normal / 実行確認あり
 
 $tanh(x) shall match standard C tanh(x) behavior (hyperbolic tangent).
 
@@ -47309,6 +48465,7 @@ $tanh(x) shall match standard C tanh(x) behavior (hyperbolic tangent).
 
 規定の性質: `mandatory`。
 
+- [test_math_tanh.sv](../tests/ch20/test_math_tanh.sv): Normal-operation results are checked at zero or the domain endpoint, ordinary values, and inverse/negative cases as applicable; all printed reference values must match. This is not a proof for every IEEE-754 input.
 
 ### SV2023-20.9-EXTRACT-BIT-FUNCTION-TYPES
 
@@ -47356,7 +48513,7 @@ The expression shall be bit-stream typed and is flattened as an equal-width vect
 
 ### SV2023-20.9-EXTRACT-COUNTBITS
 
-20.9 / normal / テスト未対応
+20.9 / normal / 実行確認あり
 
 $countbits(expression,control bits) returns int count of bits matching at least one requested 0/1/x/z value.
 
@@ -47364,6 +48521,7 @@ $countbits(expression,control bits) returns int count of bits matching at least 
 
 規定の性質: `definition`。
 
+- [test_countbits_ieee1800.sv](../tests/ch20/test_countbits_ieee1800.sv): All four logic values are counted alone and in unions over 10xx_zz01, requiring counts 2,4,8 as appropriate; expected output checks values as well as all eight PASS cases.
 
 ### SV2023-20.9-EXTRACT-COUNTONES
 
@@ -48839,7 +49997,7 @@ Stochastic queues provide q_initialize(id,type,max_length,status), q_add(id,job,
 
 ### SV2023-20.15.1-EXTRACT-FIFO
 
-20.15.1 / normal / テスト未対応
+20.15.1 / normal / 実行確認あり
 
 Queue type 1 is first-in first-out.
 
@@ -48847,10 +50005,11 @@ Queue type 1 is first-in first-out.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): FIFO type 1 removes the earliest of jobs 1,2,3.
 
 ### SV2023-20.15.1-EXTRACT-INITIALIZE-QUEUE
 
-20.15.1 / normal / テスト未対応
+20.15.1 / normal / 実行確認あり
 
 $q_initialize creates a queue with an integer identifier unique among existing queues and an integer queue type.
 
@@ -48858,10 +50017,11 @@ $q_initialize creates a queue with an integer identifier unique among existing q
 
 規定の性質: `mandatory`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Queue creation succeeds with unique integer identifiers; repeated identifier 1 is diagnosed by status 6.
 
 ### SV2023-20.15.1-EXTRACT-LIFO
 
-20.15.1 / normal / テスト未対応
+20.15.1 / normal / 実行確認あり
 
 Queue type 2 is last-in first-out.
 
@@ -48869,10 +50029,11 @@ Queue type 2 is last-in first-out.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): LIFO type 2 removes jobs 3 then 2 and preserves each inform_id.
 
 ### SV2023-20.15.1-EXTRACT-QUEUE-CAPACITY
 
-20.15.1 / normal / テスト未対応
+20.15.1 / normal / 実行確認あり
 
 max_length limits queue entries and integer output status reports creation success/failure under 20.15.6.
 
@@ -48880,10 +50041,11 @@ max_length limits queue entries and integer output status reports creation succe
 
 規定の性質: `mandatory`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Capacity three accepts three entries, becomes full, rejects the fourth, and length remains three.
 
 ### SV2023-20.15.2-EXTRACT-ADD-QUEUE
 
-20.15.2 / normal / テスト未対応
+20.15.2 / normal / 実行確認あり
 
 $q_add inserts an entry in the integer q_id queue with integer job_id and user-defined integer inform_id, returning operation status.
 
@@ -48891,10 +50053,11 @@ $q_add inserts an entry in the integer q_id queue with integer job_id and user-d
 
 規定の性質: `mandatory`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Insertion status is zero; subsequent removal verifies both stored job and associated information.
 
 ### SV2023-20.15.3-EXTRACT-REMOVE-QUEUE
 
-20.15.3 / normal / テスト未対応
+20.15.3 / normal / 実行確認あり
 
 $q_remove removes an entry according to its queue ordering, outputs its stored integer job_id/inform_id, and returns status.
 
@@ -48902,10 +50065,11 @@ $q_remove removes an entry according to its queue ordering, outputs its stored i
 
 規定の性質: `mandatory`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): FIFO and LIFO removals verify ordering, both output IDs and success status; an empty removal reports 3.
 
 ### SV2023-20.15.4-EXTRACT-FULL-QUEUE
 
-20.15.4 / normal / テスト未対応
+20.15.4 / normal / 実行確認あり
 
 $q_full returns 0 if room remains and 1 if full, with output status for errors/success.
 
@@ -48913,6 +50077,7 @@ $q_full returns 0 if room remains and 1 if full, with output status for errors/s
 
 規定の性質: `mandatory`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): The full queue returns one before removal and zero afterwards, with success status both times.
 
 ### SV2023-20.15.5-EXTRACT-EXAM-QUEUE
 
@@ -48927,7 +50092,7 @@ $q_exam returns a statistic for q_id in q_stat_value selected by q_stat_code and
 
 ### SV2023-20.15.5-EXTRACT-STAT-1
 
-20.15.5 / normal / テスト未対応
+20.15.5 / normal / 実行確認あり
 
 q_stat_code 1 requests current queue length.
 
@@ -48935,6 +50100,7 @@ q_stat_code 1 requests current queue length.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Statistic selector 1 returns current occupancy three before and one after removals.
 
 ### SV2023-20.15.5-EXTRACT-STAT-2
 
@@ -48949,7 +50115,7 @@ q_stat_code 2 requests mean interarrival time.
 
 ### SV2023-20.15.5-EXTRACT-STAT-3
 
-20.15.5 / normal / テスト未対応
+20.15.5 / normal / 実行確認あり
 
 q_stat_code 3 requests maximum queue length.
 
@@ -48957,6 +50123,7 @@ q_stat_code 3 requests maximum queue length.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Statistic selector 3 reports the highest occupancy three after the capacity limit is reached.
 
 ### SV2023-20.15.5-EXTRACT-STAT-4
 
@@ -49004,7 +50171,7 @@ Every queue-management task/function reports an output status code.
 
 ### SV2023-20.15.6-EXTRACT-STATUS-0
 
-20.15.6 / normal / テスト未対応
+20.15.6 / normal / 実行確認あり
 
 Queue status 0 denotes successful operation.
 
@@ -49012,10 +50179,11 @@ Queue status 0 denotes successful operation.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Successful initialization, insertion, removal and query operations return zero.
 
 ### SV2023-20.15.6-EXTRACT-STATUS-1
 
-20.15.6 / normal / テスト未対応
+20.15.6 / normal / 実行確認あり
 
 Queue status 1 denotes full queue; insertion cannot proceed.
 
@@ -49023,10 +50191,11 @@ Queue status 1 denotes full queue; insertion cannot proceed.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): A fourth insertion into capacity three returns full status 1 and does not change length.
 
 ### SV2023-20.15.6-EXTRACT-STATUS-2
 
-20.15.6 / normal / テスト未対応
+20.15.6 / normal / 実行確認あり
 
 Queue status 2 denotes undefined queue identifier.
 
@@ -49034,10 +50203,11 @@ Queue status 2 denotes undefined queue identifier.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Insertion into never-created identifier nine returns undefined status 2.
 
 ### SV2023-20.15.6-EXTRACT-STATUS-3
 
-20.15.6 / normal / テスト未対応
+20.15.6 / normal / 実行確認あり
 
 Queue status 3 denotes empty queue; removal cannot proceed.
 
@@ -49045,10 +50215,11 @@ Queue status 3 denotes empty queue; removal cannot proceed.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Removal after draining all three stored LIFO entries returns empty status 3.
 
 ### SV2023-20.15.6-EXTRACT-STATUS-4
 
-20.15.6 / normal / テスト未対応
+20.15.6 / normal / 実行確認あり
 
 Queue status 4 denotes unsupported queue type; creation fails.
 
@@ -49056,10 +50227,11 @@ Queue status 4 denotes unsupported queue type; creation fails.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Unsupported type three returns status four.
 
 ### SV2023-20.15.6-EXTRACT-STATUS-5
 
-20.15.6 / normal / テスト未対応
+20.15.6 / normal / 実行確認あり
 
 Queue status 5 denotes nonpositive requested length; creation fails.
 
@@ -49067,10 +50239,11 @@ Queue status 5 denotes nonpositive requested length; creation fails.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Zero requested length is a nonpositive-length boundary case and returns status five.
 
 ### SV2023-20.15.6-EXTRACT-STATUS-6
 
-20.15.6 / normal / テスト未対応
+20.15.6 / normal / 実行確認あり
 
 Queue status 6 denotes duplicate identifier; creation fails.
 
@@ -49078,6 +50251,7 @@ Queue status 6 denotes duplicate identifier; creation fails.
 
 規定の性質: `definition`。
 
+- [test_stochastic_queues.sv](../tests/ch20/test_stochastic_queues.sv): Reusing an existing queue identifier returns duplicate status six.
 
 ### SV2023-20.15.6-EXTRACT-STATUS-7
 
@@ -51895,7 +53069,7 @@ An empty matching remainder stores zero or an empty string, as appropriate.
 
 ### SV2023-21.6-EXTRACT-VALUE-FIRST-PREFIX
 
-21.6 / normal / テスト未対応
+21.6 / normal / 実行確認あり
 
 value-plusargs searches in command-line order and uses only the first plusarg whose prefix matches the query, returning nonzero and converting its remaining text into the destination.
 
@@ -51903,10 +53077,11 @@ value-plusargs searches in command-line order and uses only the first plusarg wh
 
 規定の性質: `mandatory`。
 
+- [test_value_plusargs_first_match.sv](../tests/ch21/test_value_plusargs_first_match.sv): A shorter common prefix is skipped; of two exact-prefix count arguments the first supplies five, with a nonzero return needed to print the checked output.
 
 ### SV2023-21.6-EXTRACT-VALUE-FORMAT-B
 
-21.6 / normal / テスト未対応
+21.6 / normal / 実行確認あり
 
 The value-plusargs b conversion interprets its remainder as binary.
 
@@ -51914,10 +53089,11 @@ The value-plusargs b conversion interprets its remainder as binary.
 
 規定の性質: `mandatory`。
 
+- [test_value_plusargs_radix_formats.sv](../tests/ch21/test_value_plusargs_radix_formats.sv): Declared command-line arguments supply base-specific digits; a successful lookup must convert them to the exact decimal value shown, rather than preserving their decimal spelling.
 
 ### SV2023-21.6-EXTRACT-VALUE-FORMAT-D
 
-21.6 / normal / テスト未対応
+21.6 / normal / 実行確認あり
 
 The value-plusargs d conversion interprets its remainder as decimal.
 
@@ -51925,10 +53101,11 @@ The value-plusargs d conversion interprets its remainder as decimal.
 
 規定の性質: `mandatory`。
 
+- [test_value_plusargs_radix_formats.sv](../tests/ch21/test_value_plusargs_radix_formats.sv): Declared command-line arguments supply base-specific digits; a successful lookup must convert them to the exact decimal value shown, rather than preserving their decimal spelling.
 
 ### SV2023-21.6-EXTRACT-VALUE-FORMAT-E
 
-21.6 / normal / テスト未対応
+21.6 / normal / 実行確認あり
 
 The value-plusargs e conversion interprets its remainder as real exponential.
 
@@ -51936,10 +53113,11 @@ The value-plusargs e conversion interprets its remainder as real exponential.
 
 規定の性質: `mandatory`。
 
+- [test_value_plusargs_string_and_real.sv](../tests/ch21/test_value_plusargs_string_and_real.sv): Declared command-line arguments supply exponential, decimal real and string values; a nonzero lookup must produce the exact checked value for this conversion.
 
 ### SV2023-21.6-EXTRACT-VALUE-FORMAT-F
 
-21.6 / normal / テスト未対応
+21.6 / normal / 実行確認あり
 
 The value-plusargs f conversion interprets its remainder as real decimal.
 
@@ -51947,6 +53125,7 @@ The value-plusargs f conversion interprets its remainder as real decimal.
 
 規定の性質: `mandatory`。
 
+- [test_value_plusargs_string_and_real.sv](../tests/ch21/test_value_plusargs_string_and_real.sv): Declared command-line arguments supply exponential, decimal real and string values; a nonzero lookup must produce the exact checked value for this conversion.
 
 ### SV2023-21.6-EXTRACT-VALUE-FORMAT-G
 
@@ -51972,7 +53151,7 @@ The value-plusargs h-x conversion interprets its remainder as hexadecimal.
 
 ### SV2023-21.6-EXTRACT-VALUE-FORMAT-O
 
-21.6 / normal / テスト未対応
+21.6 / normal / 実行確認あり
 
 The value-plusargs o conversion interprets its remainder as octal.
 
@@ -51980,10 +53159,11 @@ The value-plusargs o conversion interprets its remainder as octal.
 
 規定の性質: `mandatory`。
 
+- [test_value_plusargs_radix_formats.sv](../tests/ch21/test_value_plusargs_radix_formats.sv): Declared command-line arguments supply base-specific digits; a successful lookup must convert them to the exact decimal value shown, rather than preserving their decimal spelling.
 
 ### SV2023-21.6-EXTRACT-VALUE-FORMAT-S
 
-21.6 / normal / テスト未対応
+21.6 / normal / 実行確認あり
 
 The value-plusargs s conversion interprets its remainder as string without conversion.
 
@@ -51991,6 +53171,7 @@ The value-plusargs s conversion interprets its remainder as string without conve
 
 規定の性質: `mandatory`。
 
+- [test_value_plusargs_string_and_real.sv](../tests/ch21/test_value_plusargs_string_and_real.sv): Declared command-line arguments supply exponential, decimal real and string values; a nonzero lookup must produce the exact checked value for this conversion.
 
 ### SV2023-21.6-EXTRACT-VALUE-FORMAT-SYNTAX
 
@@ -53930,7 +55111,7 @@ A defined macro can be used throughout its compilation unit with no additional d
 
 ### SV2023-22.5.1-EXTRACT-MACRO-DEFAULT
 
-22.5.1 / normal / テスト未対応
+22.5.1 / normal / 実行確認あり
 
 An omitted actual argument uses its formal default specified after equals.
 
@@ -53938,6 +55119,7 @@ An omitted actual argument uses its formal default specified after equals.
 
 規定の性質: `mandatory`。
 
+- [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): An omitted trailing actual uses default shift one; an explicit shift four overrides it. Both results must match.
 
 ### SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES
 
@@ -53952,7 +55134,7 @@ Directives inside replacement text are ignored until the containing macro is use
 
 ### SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE
 
-22.5.1 / normal / テスト未対応
+22.5.1 / normal / 実行確認あり
 
 define creates a textual macro inside or outside design elements; a grave-accent name use and its actual arguments are replaced by the macro expansion.
 
@@ -53960,6 +55142,7 @@ define creates a textual macro inside or outside design elements; a grave-accent
 
 規定の性質: `mandatory`。
 
+- [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): Definitions before the module and a later definition inside its source affect the following backtick uses; observed values change from eight to sixteen. Parameterized expansion is checked separately in the same test.
 
 ### SV2023-22.5.1-EXTRACT-MACRO-EMPTY
 
@@ -54183,7 +55366,7 @@ Backslash-newline inside a string literal removes both characters in the expande
 
 ### SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION
 
-22.5.1 / normal / テスト未対応
+22.5.1 / normal / 実行確認あり
 
 Argumentless macros substitute their text as-is; parameterized macro uses substitute actual argument expressions for corresponding formals.
 
@@ -54191,6 +55374,7 @@ Argumentless macros substitute their text as-is; parameterized macro uses substi
 
 規定の性質: `mandatory`。
 
+- [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): Argumentless WIDTH/DEPTH and parameterized ADD/MUL/MAX/MIN substitutions have checked values. Declaration substitution also carries WIDTH into the generated signal.
 
 ### SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER
 
@@ -54227,7 +55411,7 @@ Newlines inside an ordinary triple-quoted string literal do not terminate a macr
 
 ### SV2023-22.5.2-EXTRACT-UNDEFINE
 
-22.5.2 / normal / テスト未対応
+22.5.2 / normal / 実行確認あり
 
 undef removes the named macro defined within the compilation unit, leaving it as never defined.
 
@@ -54235,6 +55419,7 @@ undef removes the named macro defined within the compilation unit, leaving it as
 
 規定の性質: `mandatory`。
 
+- [test_undef.sv](../tests/ch22/test_undef.sv): TEMP_MACRO disappears from ifdef while ANOTHER_MACRO remains defined with value 100; redefining TEMP_MACRO subsequently produces 99.
 
 ### SV2023-22.5.2-EXTRACT-UNDEFINE-WARNING
 
@@ -54270,7 +55455,7 @@ undefineall removes both direct and forwarding text macro definitions.
 
 ### SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION
 
-22.6 / normal / テスト未対応
+22.6 / normal / 実行確認あり
 
 Conditional expressions permit identifiers/logical operators/parentheses; each identifier becomes 1 if a currently defined macro, otherwise 0, then evaluation follows 11.8.
 
@@ -54278,6 +55463,7 @@ Conditional expressions permit identifiers/logical operators/parentheses; each i
 
 規定の性質: `mandatory`。
 
+- [test_ifdef_expression.sv](../tests/ch22/test_ifdef_expression.sv): Defined empty ALPHA and zero-valued BETA both mean true by existence; missing GAMMA/DELTA mean false. Parenthesized &&, !, ||, -> and <-> are exercised with exact selected output lines.
 
 ### SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR
 
@@ -54292,7 +55478,7 @@ A conditional has ifdef/ifndef, optional elsif branches and optional else follow
 
 ### SV2023-22.6-EXTRACT-CONDITIONAL-NESTING
 
-22.6 / normal / テスト未対応
+22.6 / normal / 実行確認あり
 
 Conditional constructs may nest; inner directives affect only their inner construct until its endif.
 
@@ -54300,6 +55486,7 @@ Conditional constructs may nest; inner directives affect only their inner constr
 
 規定の性質: `mandatory`。
 
+- [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): A nested true FEATURE_B branch inside FEATURE_A sets both_features; the following elsif chain remains independently selected, checking nesting boundaries.
 
 ### SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT
 
@@ -54347,7 +55534,7 @@ Compiler directive keywords do not count as defined macros for ifdef/elsif.
 
 ### SV2023-22.6-EXTRACT-FIRST-SUCCESS
 
-22.6 / normal / テスト未対応
+22.6 / normal / 実行確認あり
 
 ifdef tests definition or expression truth; only its successful branch or the first succeeding elsif branch is processed, otherwise else if present, with unsuccessful and later branches ignored.
 
@@ -54355,10 +55542,11 @@ ifdef tests definition or expression truth; only its successful branch or the fi
 
 規定の性質: `mandatory`。
 
+- [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): Undefined MODE_A/MODE_B precede defined FEATURE_A; only its branch yields MODE three. The fallback and unsuccessful branches have distinguishable values.
 
 ### SV2023-22.6-EXTRACT-IFNDEF-NEGATION
 
-22.6 / normal / テスト未対応
+22.6 / normal / 実行確認あり
 
 ifndef of a name or parenthesized expression is equivalent to ifdef of its logical negation.
 
@@ -54366,6 +55554,7 @@ ifndef of a name or parenthesized expression is equivalent to ifdef of its logic
 
 規定の性質: `mandatory`。
 
+- [test_ifdef_expression.sv](../tests/ch22/test_ifdef_expression.sv): ALPHA is defined and GAMMA is absent, so their equivalence is false and ifndef must include its output by negation.
 
 ### SV2023-22.6-EXTRACT-IGNORED-LEXICAL
 
@@ -54577,7 +55766,7 @@ pragma uses a simple-identifier name and optional comma-separated expressions: k
 
 ### SV2023-22.11-EXTRACT-UNKNOWN-PRAGMA
 
-22.11 / boundary / テスト未対応
+22.11 / boundary / 実行確認あり
 
 Unless specified otherwise, an unrecognized pragma name has no effect on source interpretation.
 
@@ -54585,6 +55774,7 @@ Unless specified otherwise, an unrecognized pragma name has no effect on source 
 
 規定の性質: `mandatory`。
 
+- [test_pragma_unrecognized.sv](../tests/ch22/test_pragma_unrecognized.sv): Unknown names before and inside the module, including nested argument values, leave source interpretation and computed 2*21 unchanged.
 
 ### SV2023-22.11.1-EXTRACT-PRAGMA-RESET
 
@@ -54665,7 +55855,7 @@ Includes switch FILE/LINE expansions to included input; returning restores paren
 
 ### SV2023-22.13-EXTRACT-LINE-MACRO
 
-22.13 / normal / テスト未対応
+22.13 / normal / 実行確認あり
 
 __LINE__ expands to the current input line as a simple decimal number.
 
@@ -54673,10 +55863,11 @@ __LINE__ expands to the current input line as a simple decimal number.
 
 規定の性質: `mandatory`。
 
+- [test_line_directive.sv](../tests/ch22/test_line_directive.sv): The line-number macro is used as a decimal expression on consecutive lines after remapping to 500; the second observed value is 501.
 
 ### SV2023-22.13-EXTRACT-LINE-OVERRIDES-MACROS
 
-22.13 / normal / テスト未対応
+22.13 / normal / 実行確認あり
 
 line changes LINE expansion and may change FILE expansion.
 
@@ -54684,6 +55875,7 @@ line changes LINE expansion and may change FILE expansion.
 
 規定の性質: `mandatory`。
 
+- [test_line_directive.sv](../tests/ch22/test_line_directive.sv): A line directive changes both current line and filename macros; the immediately following line prints 500 and the renamed file.
 
 ### SV2023-22.14-EXTRACT-KEYWORD-CUSTOM
 
@@ -61782,7 +62974,7 @@ An ANSI header import requires a following parameter-port list or port-declarati
 
 ### SV2023-26.4-EXTRACT-HEADER-PACKAGE-IMPORT
 
-26.4 / normal / テスト未対応
+26.4 / normal / 実行確認あり
 
 Module/interface/program headers may import packages before parameter/port lists, making imported items visible throughout the design element including parameters and ports.
 
@@ -61790,6 +62982,9 @@ Module/interface/program headers may import packages before parameter/port lists
 
 規定の性質: `mandatory`。
 
+- [test_package_import_module_header.sv](../tests/ch26/test_package_import_module_header.sv): The module header import supplies W to its parameter default and word_t to input/output ports. Runtime output16 and port width6 observe imported parameter/type use in header and body. This is a member of a collective witness; it does not independently cover all three design-element forms.
+- [test_package_import_interface_header.sv](../tests/ch26/test_package_import_interface_header.sv): The interface header import supplies nib_t before port declarations; its body inverts the imported-width input and output c is checked. This is a member of a collective witness; it does not independently cover all three design-element forms.
+- [test_package_import_program_header.sv](../tests/ch26/test_package_import_program_header.sv): The program header import supplies word_t before its port declaration, and a program initial observes value5 and width4. The module remains active until time1. This is a member of a collective witness; it does not independently cover all three design-element forms.
 
 ### SV2023-26.5-EXTRACT-EXPLICIT-EXPLICIT-Q
 
@@ -62157,7 +63352,7 @@ A named generate loop declares a block-instance array indexed by actual genvar v
 
 ### SV2023-27.4-EXTRACT-GENERATE-INDEXED-NAME
 
-27.4 / normal / テスト未対応
+27.4 / normal / テスト対応あり・実行未確認
 
 A generated loop block instance name appends its genvar value in square brackets; multilevel blocks compose these indexed names hierarchically.
 
@@ -62165,6 +63360,7 @@ A generated loop block instance name appends its genvar value in square brackets
 
 規定の性質: `mandatory`。
 
+- [test_genvar_hierarchical_reference.sv](../tests/ch27/test_genvar_hierarchical_reference.sv): Generated names g[0],g[1],g[2] and nested g[1].h[1] select the intended iteration values rather than the final elaboration index.
 
 ### SV2023-27.4-EXTRACT-GENERATE-LOOP-TERMINATION
 
@@ -62234,7 +63430,7 @@ A genvar is an elaboration integer, does not exist in simulation and may only be
 
 ### SV2023-27.4-EXTRACT-GENVAR-LOCALPARAM
 
-27.4 / normal / テスト未対応
+27.4 / normal / テスト対応あり・実行未確認
 
 Each loop block has an implicit integer localparam with the genvar name/type and that iteration value, usable as a normal integer parameter and by hierarchical reference.
 
@@ -62242,6 +63438,7 @@ Each loop block has an implicit integer localparam with the genvar name/type and
 
 規定の性質: `mandatory`。
 
+- [test_genvar_hierarchical_reference.sv](../tests/ch27/test_genvar_hierarchical_reference.sv): Implicit per-iteration i values are read hierarchically and via a continuous assignment; nested j, DEP arithmetic and root-qualified references give distinct expected integers.
 
 ### SV2023-27.4-EXTRACT-GENVAR-SHADOW
 
@@ -62278,7 +63475,7 @@ Unnamed loop-block declarations are hierarchically accessible only from the hier
 
 ### SV2023-27.5-EXTRACT-CONDITIONAL-ELABORATION
 
-27.5 / normal / テスト未対応
+27.5 / normal / 実行確認あり
 
 If/case generate evaluates constant controls at elaboration and instantiates at most one selected alternative.
 
@@ -62286,6 +63483,7 @@ If/case generate evaluates constant controls at elaboration and instantiates at 
 
 規定の性質: `mandatory`。
 
+- [test_generate_case_inside_for_label_minimal.sv](../tests/ch27/test_generate_case_inside_for_label_minimal.sv): Constant cases within four loop instances select C0, C1, CX, CX with parameters 10,11,101,102. Every instance is checked before the sole expected PASS; each case elaborates one distinguishable branch.
 
 ### SV2023-27.5-EXTRACT-CONDITIONAL-NAME-REUSE
 
@@ -63134,7 +64332,7 @@ These gates have one output first followed by one or more input terminals.
 
 ### SV2023-28.4-EXTRACT-TRUTH-AND-0-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input and with inputs 0 and 0 has truth-table result 0.
 
@@ -63142,10 +64340,11 @@ Two-input and with inputs 0 and 0 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input and is instantiated with output first and driven by a,b. The (0,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
 
 ### SV2023-28.4-EXTRACT-TRUTH-AND-0-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input and with inputs 0 and 1 has truth-table result 0.
 
@@ -63153,6 +64352,7 @@ Two-input and with inputs 0 and 1 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input and is instantiated with output first and driven by a,b. The (0,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
 
 ### SV2023-28.4-EXTRACT-TRUTH-AND-0-X
 
@@ -63178,7 +64378,7 @@ Two-input and with inputs 0 and z has truth-table result 0.
 
 ### SV2023-28.4-EXTRACT-TRUTH-AND-1-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input and with inputs 1 and 0 has truth-table result 0.
 
@@ -63186,10 +64386,11 @@ Two-input and with inputs 1 and 0 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input and is instantiated with output first and driven by a,b. The (1,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
 
 ### SV2023-28.4-EXTRACT-TRUTH-AND-1-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input and with inputs 1 and 1 has truth-table result 1.
 
@@ -63197,6 +64398,7 @@ Two-input and with inputs 1 and 1 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input and is instantiated with output first and driven by a,b. The (1,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
 
 ### SV2023-28.4-EXTRACT-TRUTH-AND-1-X
 
@@ -63310,7 +64512,7 @@ Two-input and with inputs z and z has truth-table result x.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NAND-0-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input nand with inputs 0 and 0 has truth-table result 1.
 
@@ -63318,10 +64520,12 @@ Two-input nand with inputs 0 and 0 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input nand is instantiated with output first and driven by a,b. The (0,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_nand_edge_cases.sv](../tests/ch28/test_nand_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input nand instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (0,0) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NAND-0-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input nand with inputs 0 and 1 has truth-table result 1.
 
@@ -63329,6 +64533,8 @@ Two-input nand with inputs 0 and 1 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input nand is instantiated with output first and driven by a,b. The (0,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_nand_edge_cases.sv](../tests/ch28/test_nand_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input nand instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (0,1) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NAND-0-X
 
@@ -63354,7 +64560,7 @@ Two-input nand with inputs 0 and z has truth-table result 1.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NAND-1-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input nand with inputs 1 and 0 has truth-table result 1.
 
@@ -63362,10 +64568,12 @@ Two-input nand with inputs 1 and 0 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input nand is instantiated with output first and driven by a,b. The (1,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_nand_edge_cases.sv](../tests/ch28/test_nand_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input nand instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (1,0) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NAND-1-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input nand with inputs 1 and 1 has truth-table result 0.
 
@@ -63373,6 +64581,8 @@ Two-input nand with inputs 1 and 1 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input nand is instantiated with output first and driven by a,b. The (1,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_nand_edge_cases.sv](../tests/ch28/test_nand_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input nand instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (1,1) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NAND-1-X
 
@@ -63486,7 +64696,7 @@ Two-input nand with inputs z and z has truth-table result x.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NOR-0-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input nor with inputs 0 and 0 has truth-table result 1.
 
@@ -63494,10 +64704,12 @@ Two-input nor with inputs 0 and 0 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input nor is instantiated with output first and driven by a,b. The (0,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_nor_edge_cases.sv](../tests/ch28/test_nor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input nor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (0,0) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NOR-0-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input nor with inputs 0 and 1 has truth-table result 0.
 
@@ -63505,6 +64717,8 @@ Two-input nor with inputs 0 and 1 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input nor is instantiated with output first and driven by a,b. The (0,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_nor_edge_cases.sv](../tests/ch28/test_nor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input nor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (0,1) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NOR-0-X
 
@@ -63530,7 +64744,7 @@ Two-input nor with inputs 0 and z has truth-table result x.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NOR-1-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input nor with inputs 1 and 0 has truth-table result 0.
 
@@ -63538,10 +64752,12 @@ Two-input nor with inputs 1 and 0 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input nor is instantiated with output first and driven by a,b. The (1,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_nor_edge_cases.sv](../tests/ch28/test_nor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input nor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (1,0) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NOR-1-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input nor with inputs 1 and 1 has truth-table result 0.
 
@@ -63549,6 +64765,8 @@ Two-input nor with inputs 1 and 1 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input nor is instantiated with output first and driven by a,b. The (1,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_nor_edge_cases.sv](../tests/ch28/test_nor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input nor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (1,1) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-NOR-1-X
 
@@ -63662,7 +64880,7 @@ Two-input nor with inputs z and z has truth-table result x.
 
 ### SV2023-28.4-EXTRACT-TRUTH-OR-0-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input or with inputs 0 and 0 has truth-table result 0.
 
@@ -63670,10 +64888,11 @@ Two-input or with inputs 0 and 0 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input or is instantiated with output first and driven by a,b. The (0,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
 
 ### SV2023-28.4-EXTRACT-TRUTH-OR-0-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input or with inputs 0 and 1 has truth-table result 1.
 
@@ -63681,6 +64900,7 @@ Two-input or with inputs 0 and 1 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input or is instantiated with output first and driven by a,b. The (0,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
 
 ### SV2023-28.4-EXTRACT-TRUTH-OR-0-X
 
@@ -63706,7 +64926,7 @@ Two-input or with inputs 0 and z has truth-table result x.
 
 ### SV2023-28.4-EXTRACT-TRUTH-OR-1-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input or with inputs 1 and 0 has truth-table result 1.
 
@@ -63714,10 +64934,11 @@ Two-input or with inputs 1 and 0 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input or is instantiated with output first and driven by a,b. The (1,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
 
 ### SV2023-28.4-EXTRACT-TRUTH-OR-1-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input or with inputs 1 and 1 has truth-table result 1.
 
@@ -63725,6 +64946,7 @@ Two-input or with inputs 1 and 1 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input or is instantiated with output first and driven by a,b. The (1,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
 
 ### SV2023-28.4-EXTRACT-TRUTH-OR-1-X
 
@@ -63838,7 +65060,7 @@ Two-input or with inputs z and z has truth-table result x.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XNOR-0-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input xnor with inputs 0 and 0 has truth-table result 1.
 
@@ -63846,10 +65068,11 @@ Two-input xnor with inputs 0 and 0 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_xnor_edge_cases.sv](../tests/ch28/test_xnor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input xnor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (0,0) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XNOR-0-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input xnor with inputs 0 and 1 has truth-table result 0.
 
@@ -63857,6 +65080,7 @@ Two-input xnor with inputs 0 and 1 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_xnor_edge_cases.sv](../tests/ch28/test_xnor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input xnor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (0,1) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XNOR-0-X
 
@@ -63882,7 +65106,7 @@ Two-input xnor with inputs 0 and z has truth-table result x.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XNOR-1-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input xnor with inputs 1 and 0 has truth-table result 0.
 
@@ -63890,10 +65114,11 @@ Two-input xnor with inputs 1 and 0 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_xnor_edge_cases.sv](../tests/ch28/test_xnor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input xnor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (1,0) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XNOR-1-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input xnor with inputs 1 and 1 has truth-table result 1.
 
@@ -63901,6 +65126,7 @@ Two-input xnor with inputs 1 and 1 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_xnor_edge_cases.sv](../tests/ch28/test_xnor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input xnor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (1,1) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XNOR-1-X
 
@@ -64014,7 +65240,7 @@ Two-input xnor with inputs z and z has truth-table result x.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XOR-0-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input xor with inputs 0 and 0 has truth-table result 0.
 
@@ -64022,10 +65248,12 @@ Two-input xor with inputs 0 and 0 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input xor is instantiated with output first and driven by a,b. The (0,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_xor_edge_cases.sv](../tests/ch28/test_xor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input xor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (0,0) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XOR-0-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input xor with inputs 0 and 1 has truth-table result 1.
 
@@ -64033,6 +65261,8 @@ Two-input xor with inputs 0 and 1 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input xor is instantiated with output first and driven by a,b. The (0,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_xor_edge_cases.sv](../tests/ch28/test_xor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input xor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (0,1) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XOR-0-X
 
@@ -64058,7 +65288,7 @@ Two-input xor with inputs 0 and z has truth-table result x.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XOR-1-0
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input xor with inputs 1 and 0 has truth-table result 1.
 
@@ -64066,10 +65296,12 @@ Two-input xor with inputs 1 and 0 has truth-table result 1.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input xor is instantiated with output first and driven by a,b. The (1,0) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_xor_edge_cases.sv](../tests/ch28/test_xor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input xor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (1,0) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XOR-1-1
 
-28.4 / normal / テスト未対応
+28.4 / normal / 実行確認あり
 
 Two-input xor with inputs 1 and 1 has truth-table result 0.
 
@@ -64077,6 +65309,8 @@ Two-input xor with inputs 1 and 1 has truth-table result 0.
 
 規定の性質: `definition`。
 
+- [test_gate_primitives.sv](../tests/ch28/test_gate_primitives.sv): Two-input xor is instantiated with output first and driven by a,b. The (1,1) sample follows #1 settling; its immediate assertion checks this gate output along with the others. Any mismatch calls fatal before the sole expected PASS. No x/z truth cell is inferred.
+- [test_xor_edge_cases.sv](../tests/ch28/test_xor_edge_cases.sv): The first four samples explicitly exercise all known two-input pairs through a two-input xor instance, separate from out3. Each value is checked and printed; full expected output requires all eight cases to match. This link concerns only the (1,1) truth-table cell.
 
 ### SV2023-28.4-EXTRACT-TRUTH-XOR-1-X
 
@@ -64212,7 +65446,7 @@ Multiple-output logic gates use buf or not.
 
 ### SV2023-28.5-EXTRACT-N-OUTPUT-TERMINALS
 
-28.5 / normal / テスト未対応
+28.5 / normal / 実行確認あり
 
 Buf/not have one or more outputs followed by exactly one final input terminal.
 
@@ -64220,10 +65454,11 @@ Buf/not have one or more outputs followed by exactly one final input terminal.
 
 規定の性質: `mandatory`。
 
+- [test_buf_not_multiple_outputs.sv](../tests/ch28/test_buf_not_multiple_outputs.sv): A single buf instance has three output terminals then its input; a single not has two outputs then input. Exact output observes all terminals for both input polarities, distinguishing the final input from output positions.
 
 ### SV2023-28.5-EXTRACT-TRUTH-BUF-0
 
-28.5 / normal / テスト未対応
+28.5 / normal / 実行確認あり
 
 buf with input 0 produces 0 on each output.
 
@@ -64231,10 +65466,11 @@ buf with input 0 produces 0 on each output.
 
 規定の性質: `definition`。
 
+- [test_buf_not_multiple_outputs.sv](../tests/ch28/test_buf_not_multiple_outputs.sv): Three buf outputs and two not outputs are driven by one final data terminal. After a settling delay the full output prints every terminal for both zero and one input; each observed value must match.
 
 ### SV2023-28.5-EXTRACT-TRUTH-BUF-1
 
-28.5 / normal / テスト未対応
+28.5 / normal / 実行確認あり
 
 buf with input 1 produces 1 on each output.
 
@@ -64242,6 +65478,7 @@ buf with input 1 produces 1 on each output.
 
 規定の性質: `definition`。
 
+- [test_buf_not_multiple_outputs.sv](../tests/ch28/test_buf_not_multiple_outputs.sv): Three buf outputs and two not outputs are driven by one final data terminal. After a settling delay the full output prints every terminal for both zero and one input; each observed value must match.
 
 ### SV2023-28.5-EXTRACT-TRUTH-BUF-X
 
@@ -64267,7 +65504,7 @@ buf with input z produces x on each output.
 
 ### SV2023-28.5-EXTRACT-TRUTH-NOT-0
 
-28.5 / normal / テスト未対応
+28.5 / normal / 実行確認あり
 
 not with input 0 produces 1 on each output.
 
@@ -64275,10 +65512,11 @@ not with input 0 produces 1 on each output.
 
 規定の性質: `definition`。
 
+- [test_buf_not_multiple_outputs.sv](../tests/ch28/test_buf_not_multiple_outputs.sv): Three buf outputs and two not outputs are driven by one final data terminal. After a settling delay the full output prints every terminal for both zero and one input; each observed value must match.
 
 ### SV2023-28.5-EXTRACT-TRUTH-NOT-1
 
-28.5 / normal / テスト未対応
+28.5 / normal / 実行確認あり
 
 not with input 1 produces 0 on each output.
 
@@ -64286,6 +65524,7 @@ not with input 1 produces 0 on each output.
 
 規定の性質: `definition`。
 
+- [test_buf_not_multiple_outputs.sv](../tests/ch28/test_buf_not_multiple_outputs.sv): Three buf outputs and two not outputs are driven by one final data terminal. After a settling delay the full output prints every terminal for both zero and one input; each observed value must match.
 
 ### SV2023-28.5-EXTRACT-TRUTH-NOT-X
 
@@ -64355,7 +65594,7 @@ Enabled gates have exactly output, data input and control input in that order.
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-0
 
-28.6 / normal / テスト未対応
+28.6 / normal / 実行確認あり
 
 bufif0 with data 0 and control 0 has Table 28-5 result 0, with H/L interpreted by the ambiguity rule.
 
@@ -64363,10 +65602,11 @@ bufif0 with data 0 and control 0 has Table 28-5 result 0, with H/L interpreted b
 
 規定の性質: `definition`。
 
+- [test_bufif_edge_cases.sv](../tests/ch28/test_bufif_edge_cases.sv): Both known data polarities are held under control zero then control one. Named case 1 checks the bufif0 output after settling; enabled values use numeric checks and disabled values use case equality to z. All ten checked case outputs must match; unknown-control H/L behavior is not inferred.
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-1
 
-28.6 / normal / テスト未対応
+28.6 / normal / 実行確認あり
 
 bufif0 with data 0 and control 1 has Table 28-5 result z, with H/L interpreted by the ambiguity rule.
 
@@ -64374,6 +65614,7 @@ bufif0 with data 0 and control 1 has Table 28-5 result z, with H/L interpreted b
 
 規定の性質: `definition`。
 
+- [test_bufif_edge_cases.sv](../tests/ch28/test_bufif_edge_cases.sv): Both known data polarities are held under control zero then control one. Named case 8 checks the bufif0 output after settling; enabled values use numeric checks and disabled values use case equality to z. All ten checked case outputs must match; unknown-control H/L behavior is not inferred.
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-X
 
@@ -64399,7 +65640,7 @@ bufif0 with data 0 and control z has Table 28-5 result L, with H/L interpreted b
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-0
 
-28.6 / normal / テスト未対応
+28.6 / normal / 実行確認あり
 
 bufif0 with data 1 and control 0 has Table 28-5 result 1, with H/L interpreted by the ambiguity rule.
 
@@ -64407,10 +65648,11 @@ bufif0 with data 1 and control 0 has Table 28-5 result 1, with H/L interpreted b
 
 規定の性質: `definition`。
 
+- [test_bufif_edge_cases.sv](../tests/ch28/test_bufif_edge_cases.sv): Both known data polarities are held under control zero then control one. Named case 3 checks the bufif0 output after settling; enabled values use numeric checks and disabled values use case equality to z. All ten checked case outputs must match; unknown-control H/L behavior is not inferred.
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-1
 
-28.6 / normal / テスト未対応
+28.6 / normal / 実行確認あり
 
 bufif0 with data 1 and control 1 has Table 28-5 result z, with H/L interpreted by the ambiguity rule.
 
@@ -64418,6 +65660,7 @@ bufif0 with data 1 and control 1 has Table 28-5 result z, with H/L interpreted b
 
 規定の性質: `definition`。
 
+- [test_bufif_edge_cases.sv](../tests/ch28/test_bufif_edge_cases.sv): Both known data polarities are held under control zero then control one. Named case 6 checks the bufif0 output after settling; enabled values use numeric checks and disabled values use case equality to z. All ten checked case outputs must match; unknown-control H/L behavior is not inferred.
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-X
 
@@ -64531,7 +65774,7 @@ bufif0 with data z and control z has Table 28-5 result x, with H/L interpreted b
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-0
 
-28.6 / normal / テスト未対応
+28.6 / normal / 実行確認あり
 
 bufif1 with data 0 and control 0 has Table 28-5 result z, with H/L interpreted by the ambiguity rule.
 
@@ -64539,10 +65782,11 @@ bufif1 with data 0 and control 0 has Table 28-5 result z, with H/L interpreted b
 
 規定の性質: `definition`。
 
+- [test_bufif_edge_cases.sv](../tests/ch28/test_bufif_edge_cases.sv): Both known data polarities are held under control zero then control one. Named case 2 checks the bufif1 output after settling; enabled values use numeric checks and disabled values use case equality to z. All ten checked case outputs must match; unknown-control H/L behavior is not inferred.
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-1
 
-28.6 / normal / テスト未対応
+28.6 / normal / 実行確認あり
 
 bufif1 with data 0 and control 1 has Table 28-5 result 0, with H/L interpreted by the ambiguity rule.
 
@@ -64550,6 +65794,7 @@ bufif1 with data 0 and control 1 has Table 28-5 result 0, with H/L interpreted b
 
 規定の性質: `definition`。
 
+- [test_bufif_edge_cases.sv](../tests/ch28/test_bufif_edge_cases.sv): Both known data polarities are held under control zero then control one. Named case 7 checks the bufif1 output after settling; enabled values use numeric checks and disabled values use case equality to z. All ten checked case outputs must match; unknown-control H/L behavior is not inferred.
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-X
 
@@ -64575,7 +65820,7 @@ bufif1 with data 0 and control z has Table 28-5 result L, with H/L interpreted b
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-0
 
-28.6 / normal / テスト未対応
+28.6 / normal / 実行確認あり
 
 bufif1 with data 1 and control 0 has Table 28-5 result z, with H/L interpreted by the ambiguity rule.
 
@@ -64583,10 +65828,11 @@ bufif1 with data 1 and control 0 has Table 28-5 result z, with H/L interpreted b
 
 規定の性質: `definition`。
 
+- [test_bufif_edge_cases.sv](../tests/ch28/test_bufif_edge_cases.sv): Both known data polarities are held under control zero then control one. Named case 4 checks the bufif1 output after settling; enabled values use numeric checks and disabled values use case equality to z. All ten checked case outputs must match; unknown-control H/L behavior is not inferred.
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-1
 
-28.6 / normal / テスト未対応
+28.6 / normal / 実行確認あり
 
 bufif1 with data 1 and control 1 has Table 28-5 result 1, with H/L interpreted by the ambiguity rule.
 
@@ -64594,6 +65840,7 @@ bufif1 with data 1 and control 1 has Table 28-5 result 1, with H/L interpreted b
 
 規定の性質: `definition`。
 
+- [test_bufif_edge_cases.sv](../tests/ch28/test_bufif_edge_cases.sv): Both known data polarities are held under control zero then control one. Named case 5 checks the bufif1 output after settling; enabled values use numeric checks and disabled values use case equality to z. All ten checked case outputs must match; unknown-control H/L behavior is not inferred.
 
 ### SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-X
 
@@ -65708,7 +66955,7 @@ The strength-level encoding of medium1 is 2.
 
 ### SV2023-28.11-EXTRACT-LEVEL-PULL0
 
-28.11 / normal / テスト未対応
+28.11 / normal / 実行確認あり
 
 The strength-level encoding of pull0 is 5.
 
@@ -65716,10 +66963,30 @@ The strength-level encoding of pull0 is 5.
 
 規定の性質: `definition`。
 
+- [test_gen_strength_wire_07.sv](../tests/gen/ch28/test_gen_strength_wire_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_13.sv](../tests/gen/ch28/test_gen_strength_wire_13.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_22.sv](../tests/gen/ch28/test_gen_strength_wire_22.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_03.sv](../tests/gen/ch28/test_gen_strength_tri_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_05.sv](../tests/gen/ch28/test_gen_strength_tri_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_13.sv](../tests/gen/ch28/test_gen_strength_tri_13.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_14.sv](../tests/gen/ch28/test_gen_strength_tri_14.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_19.sv](../tests/gen/ch28/test_gen_strength_tri_19.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_20.sv](../tests/gen/ch28/test_gen_strength_tri_20.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_21.sv](../tests/gen/ch28/test_gen_strength_tri_21.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_22.sv](../tests/gen/ch28/test_gen_strength_tri_22.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_01.sv](../tests/gen/ch28/test_gen_strength_wand_01.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_02.sv](../tests/gen/ch28/test_gen_strength_wand_02.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_03.sv](../tests/gen/ch28/test_gen_strength_wand_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_03.sv](../tests/gen/ch28/test_gen_strength_triand_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_04.sv](../tests/gen/ch28/test_gen_strength_triand_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_07.sv](../tests/gen/ch28/test_gen_strength_wor_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_08.sv](../tests/gen/ch28/test_gen_strength_wor_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_04.sv](../tests/gen/ch28/test_gen_strength_trior_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_07.sv](../tests/gen/ch28/test_gen_strength_trior_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 0 directly observes level 5 for pull0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
 
 ### SV2023-28.11-EXTRACT-LEVEL-PULL1
 
-28.11 / normal / テスト未対応
+28.11 / normal / 実行確認あり
 
 The strength-level encoding of pull1 is 5.
 
@@ -65727,6 +66994,27 @@ The strength-level encoding of pull1 is 5.
 
 規定の性質: `definition`。
 
+- [test_gen_strength_wire_01.sv](../tests/gen/ch28/test_gen_strength_wire_01.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_04.sv](../tests/gen/ch28/test_gen_strength_wire_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_06.sv](../tests/gen/ch28/test_gen_strength_wire_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_08.sv](../tests/gen/ch28/test_gen_strength_wire_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_09.sv](../tests/gen/ch28/test_gen_strength_wire_09.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_10.sv](../tests/gen/ch28/test_gen_strength_wire_10.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_11.sv](../tests/gen/ch28/test_gen_strength_wire_11.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_12.sv](../tests/gen/ch28/test_gen_strength_wire_12.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_13.sv](../tests/gen/ch28/test_gen_strength_wire_13.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_15.sv](../tests/gen/ch28/test_gen_strength_wire_15.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_16.sv](../tests/gen/ch28/test_gen_strength_wire_16.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_04.sv](../tests/gen/ch28/test_gen_strength_tri_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_09.sv](../tests/gen/ch28/test_gen_strength_tri_09.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_17.sv](../tests/gen/ch28/test_gen_strength_tri_17.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_18.sv](../tests/gen/ch28/test_gen_strength_tri_18.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_05.sv](../tests/gen/ch28/test_gen_strength_wand_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_08.sv](../tests/gen/ch28/test_gen_strength_wand_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_03.sv](../tests/gen/ch28/test_gen_strength_wor_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_06.sv](../tests/gen/ch28/test_gen_strength_wor_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_03.sv](../tests/gen/ch28/test_gen_strength_trior_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_07.sv](../tests/gen/ch28/test_gen_strength_trior_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 1 directly observes level 5 for pull1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
 
 ### SV2023-28.11-EXTRACT-LEVEL-SMALL0
 
@@ -65752,7 +67040,7 @@ The strength-level encoding of small1 is 1.
 
 ### SV2023-28.11-EXTRACT-LEVEL-STRONG0
 
-28.11 / normal / テスト未対応
+28.11 / normal / 実行確認あり
 
 The strength-level encoding of strong0 is 6.
 
@@ -65760,10 +67048,35 @@ The strength-level encoding of strong0 is 6.
 
 規定の性質: `definition`。
 
+- [test_gen_strength_wire_01.sv](../tests/gen/ch28/test_gen_strength_wire_01.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_08.sv](../tests/gen/ch28/test_gen_strength_wire_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_11.sv](../tests/gen/ch28/test_gen_strength_wire_11.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_13.sv](../tests/gen/ch28/test_gen_strength_wire_13.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_14.sv](../tests/gen/ch28/test_gen_strength_wire_14.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_15.sv](../tests/gen/ch28/test_gen_strength_wire_15.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_17.sv](../tests/gen/ch28/test_gen_strength_wire_17.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_18.sv](../tests/gen/ch28/test_gen_strength_wire_18.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_20.sv](../tests/gen/ch28/test_gen_strength_wire_20.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_21.sv](../tests/gen/ch28/test_gen_strength_wire_21.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_02.sv](../tests/gen/ch28/test_gen_strength_tri_02.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_04.sv](../tests/gen/ch28/test_gen_strength_tri_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_05.sv](../tests/gen/ch28/test_gen_strength_tri_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_06.sv](../tests/gen/ch28/test_gen_strength_tri_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_10.sv](../tests/gen/ch28/test_gen_strength_tri_10.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_17.sv](../tests/gen/ch28/test_gen_strength_tri_17.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_18.sv](../tests/gen/ch28/test_gen_strength_tri_18.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_06.sv](../tests/gen/ch28/test_gen_strength_wand_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_08.sv](../tests/gen/ch28/test_gen_strength_wand_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_05.sv](../tests/gen/ch28/test_gen_strength_triand_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_08.sv](../tests/gen/ch28/test_gen_strength_triand_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_03.sv](../tests/gen/ch28/test_gen_strength_wor_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_04.sv](../tests/gen/ch28/test_gen_strength_wor_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_06.sv](../tests/gen/ch28/test_gen_strength_wor_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_03.sv](../tests/gen/ch28/test_gen_strength_trior_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'pull'); %v prints numeric range 65X. Its digit for polarity 0 directly observes level 6 for strong0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
 
 ### SV2023-28.11-EXTRACT-LEVEL-STRONG1
 
-28.11 / normal / テスト未対応
+28.11 / normal / 実行確認あり
 
 The strength-level encoding of strong1 is 6.
 
@@ -65771,10 +67084,35 @@ The strength-level encoding of strong1 is 6.
 
 規定の性質: `definition`。
 
+- [test_gen_strength_wire_03.sv](../tests/gen/ch28/test_gen_strength_wire_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_04.sv](../tests/gen/ch28/test_gen_strength_wire_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_06.sv](../tests/gen/ch28/test_gen_strength_wire_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_08.sv](../tests/gen/ch28/test_gen_strength_wire_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_11.sv](../tests/gen/ch28/test_gen_strength_wire_11.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_22.sv](../tests/gen/ch28/test_gen_strength_wire_22.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_02.sv](../tests/gen/ch28/test_gen_strength_tri_02.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_03.sv](../tests/gen/ch28/test_gen_strength_tri_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_06.sv](../tests/gen/ch28/test_gen_strength_tri_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_09.sv](../tests/gen/ch28/test_gen_strength_tri_09.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_12.sv](../tests/gen/ch28/test_gen_strength_tri_12.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_20.sv](../tests/gen/ch28/test_gen_strength_tri_20.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_21.sv](../tests/gen/ch28/test_gen_strength_tri_21.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_02.sv](../tests/gen/ch28/test_gen_strength_wand_02.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_03.sv](../tests/gen/ch28/test_gen_strength_wand_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_04.sv](../tests/gen/ch28/test_gen_strength_wand_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_02.sv](../tests/gen/ch28/test_gen_strength_triand_02.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_04.sv](../tests/gen/ch28/test_gen_strength_triand_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_07.sv](../tests/gen/ch28/test_gen_strength_triand_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_08.sv](../tests/gen/ch28/test_gen_strength_triand_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_04.sv](../tests/gen/ch28/test_gen_strength_wor_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_05.sv](../tests/gen/ch28/test_gen_strength_wor_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_08.sv](../tests/gen/ch28/test_gen_strength_wor_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'strong'); %v prints numeric range 56X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_04.sv](../tests/gen/ch28/test_gen_strength_trior_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_08.sv](../tests/gen/ch28/test_gen_strength_trior_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 1 directly observes level 6 for strong1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
 
 ### SV2023-28.11-EXTRACT-LEVEL-SUPPLY0
 
-28.11 / normal / テスト未対応
+28.11 / normal / 実行確認あり
 
 The strength-level encoding of supply0 is 7.
 
@@ -65782,10 +67120,28 @@ The strength-level encoding of supply0 is 7.
 
 規定の性質: `definition`。
 
+- [test_gen_strength_wire_03.sv](../tests/gen/ch28/test_gen_strength_wire_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_04.sv](../tests/gen/ch28/test_gen_strength_wire_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_08.sv](../tests/gen/ch28/test_gen_strength_wire_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_19.sv](../tests/gen/ch28/test_gen_strength_wire_19.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_20.sv](../tests/gen/ch28/test_gen_strength_wire_20.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_06.sv](../tests/gen/ch28/test_gen_strength_tri_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_09.sv](../tests/gen/ch28/test_gen_strength_tri_09.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_10.sv](../tests/gen/ch28/test_gen_strength_tri_10.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_11.sv](../tests/gen/ch28/test_gen_strength_tri_11.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_12.sv](../tests/gen/ch28/test_gen_strength_tri_12.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_15.sv](../tests/gen/ch28/test_gen_strength_tri_15.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_16.sv](../tests/gen/ch28/test_gen_strength_tri_16.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_03.sv](../tests/gen/ch28/test_gen_strength_wand_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_04.sv](../tests/gen/ch28/test_gen_strength_triand_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_07.sv](../tests/gen/ch28/test_gen_strength_triand_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_04.sv](../tests/gen/ch28/test_gen_strength_wor_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_05.sv](../tests/gen/ch28/test_gen_strength_wor_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_04.sv](../tests/gen/ch28/test_gen_strength_trior_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'strong'); %v prints numeric range 76X. Its digit for polarity 0 directly observes level 7 for supply0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
 
 ### SV2023-28.11-EXTRACT-LEVEL-SUPPLY1
 
-28.11 / normal / テスト未対応
+28.11 / normal / 実行確認あり
 
 The strength-level encoding of supply1 is 7.
 
@@ -65793,10 +67149,18 @@ The strength-level encoding of supply1 is 7.
 
 規定の性質: `definition`。
 
+- [test_gen_strength_wire_14.sv](../tests/gen/ch28/test_gen_strength_wire_14.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 1 directly observes level 7 for supply1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_18.sv](../tests/gen/ch28/test_gen_strength_wire_18.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 1 directly observes level 7 for supply1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_21.sv](../tests/gen/ch28/test_gen_strength_wire_21.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 1 directly observes level 7 for supply1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_02.sv](../tests/gen/ch28/test_gen_strength_tri_02.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 1 directly observes level 7 for supply1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_05.sv](../tests/gen/ch28/test_gen_strength_tri_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 1 directly observes level 7 for supply1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_08.sv](../tests/gen/ch28/test_gen_strength_triand_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 1 directly observes level 7 for supply1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_04.sv](../tests/gen/ch28/test_gen_strength_wor_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 1 directly observes level 7 for supply1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_06.sv](../tests/gen/ch28/test_gen_strength_wor_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'supply'); %v prints numeric range 67X. Its digit for polarity 1 directly observes level 7 for supply1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
 
 ### SV2023-28.11-EXTRACT-LEVEL-WEAK0
 
-28.11 / normal / テスト未対応
+28.11 / normal / 実行確認あり
 
 The strength-level encoding of weak0 is 3.
 
@@ -65804,10 +67168,29 @@ The strength-level encoding of weak0 is 3.
 
 規定の性質: `definition`。
 
+- [test_gen_strength_wire_03.sv](../tests/gen/ch28/test_gen_strength_wire_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_04.sv](../tests/gen/ch28/test_gen_strength_wire_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_06.sv](../tests/gen/ch28/test_gen_strength_wire_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_09.sv](../tests/gen/ch28/test_gen_strength_wire_09.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_10.sv](../tests/gen/ch28/test_gen_strength_wire_10.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_11.sv](../tests/gen/ch28/test_gen_strength_wire_11.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_12.sv](../tests/gen/ch28/test_gen_strength_wire_12.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_15.sv](../tests/gen/ch28/test_gen_strength_wire_15.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_16.sv](../tests/gen/ch28/test_gen_strength_wire_16.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_22.sv](../tests/gen/ch28/test_gen_strength_wire_22.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_02.sv](../tests/gen/ch28/test_gen_strength_tri_02.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_03.sv](../tests/gen/ch28/test_gen_strength_tri_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_09.sv](../tests/gen/ch28/test_gen_strength_tri_09.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_04.sv](../tests/gen/ch28/test_gen_strength_wand_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_05.sv](../tests/gen/ch28/test_gen_strength_wand_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_02.sv](../tests/gen/ch28/test_gen_strength_triand_02.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_08.sv](../tests/gen/ch28/test_gen_strength_triand_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_07.sv](../tests/gen/ch28/test_gen_strength_trior_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'pull'); %v prints numeric range 35X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_08.sv](../tests/gen/ch28/test_gen_strength_trior_08.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('weak', 'strong'); %v prints numeric range 36X. Its digit for polarity 0 directly observes level 3 for weak0. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
 
 ### SV2023-28.11-EXTRACT-LEVEL-WEAK1
 
-28.11 / normal / テスト未対応
+28.11 / normal / 実行確認あり
 
 The strength-level encoding of weak1 is 3.
 
@@ -65815,6 +67198,32 @@ The strength-level encoding of weak1 is 3.
 
 規定の性質: `definition`。
 
+- [test_gen_strength_wire_07.sv](../tests/gen/ch28/test_gen_strength_wire_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_13.sv](../tests/gen/ch28/test_gen_strength_wire_13.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_15.sv](../tests/gen/ch28/test_gen_strength_wire_15.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_17.sv](../tests/gen/ch28/test_gen_strength_wire_17.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_18.sv](../tests/gen/ch28/test_gen_strength_wire_18.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_19.sv](../tests/gen/ch28/test_gen_strength_wire_19.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wire_20.sv](../tests/gen/ch28/test_gen_strength_wire_20.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_03.sv](../tests/gen/ch28/test_gen_strength_tri_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_05.sv](../tests/gen/ch28/test_gen_strength_tri_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_06.sv](../tests/gen/ch28/test_gen_strength_tri_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_10.sv](../tests/gen/ch28/test_gen_strength_tri_10.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_11.sv](../tests/gen/ch28/test_gen_strength_tri_11.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_13.sv](../tests/gen/ch28/test_gen_strength_tri_13.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_14.sv](../tests/gen/ch28/test_gen_strength_tri_14.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_15.sv](../tests/gen/ch28/test_gen_strength_tri_15.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_16.sv](../tests/gen/ch28/test_gen_strength_tri_16.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('supply', 'weak'); %v prints numeric range 73X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_17.sv](../tests/gen/ch28/test_gen_strength_tri_17.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_19.sv](../tests/gen/ch28/test_gen_strength_tri_19.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_tri_22.sv](../tests/gen/ch28/test_gen_strength_tri_22.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_01.sv](../tests/gen/ch28/test_gen_strength_wand_01.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wand_06.sv](../tests/gen/ch28/test_gen_strength_wand_06.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_03.sv](../tests/gen/ch28/test_gen_strength_triand_03.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_triand_05.sv](../tests/gen/ch28/test_gen_strength_triand_05.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('strong', 'weak'); %v prints numeric range 63X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_wor_07.sv](../tests/gen/ch28/test_gen_strength_wor_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_04.sv](../tests/gen/ch28/test_gen_strength_trior_04.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
+- [test_gen_strength_trior_07.sv](../tests/gen/ch28/test_gen_strength_trior_07.sv): Exact reviewed strength template/oracle. With the other explicit driver high impedance, the asymmetric x driver has declared strengths ('pull', 'weak'); %v prints numeric range 53X. Its digit for polarity 1 directly observes level 3 for weak1. The encoded value is observed, not inferred from only a mnemonic or successful compilation.
 
 ### SV2023-28.11-EXTRACT-NO-BOTH-HIGHZ
 
@@ -65884,7 +67293,7 @@ User-defined nettypes have no strength levels, ignore driver strengths and combi
 
 ### SV2023-28.12.1-EXTRACT-LIKE-VALUE-MAXIMUM
 
-28.12.1 / normal / テスト未対応
+28.12.1 / normal / 実行確認あり
 
 Like-valued drivers resolve to that value at their greatest strength; identical value/strength drivers leave the same signal.
 
@@ -65892,10 +67301,24 @@ Like-valued drivers resolve to that value at their greatest strength; identical 
 
 規定の性質: `mandatory`。
 
+- [test_gen_strength_wire_03.sv](../tests/gen/ch28/test_gen_strength_wire_03.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_wire_06.sv](../tests/gen/ch28/test_gen_strength_wire_06.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_wire_12.sv](../tests/gen/ch28/test_gen_strength_wire_12.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_wire_18.sv](../tests/gen/ch28/test_gen_strength_wire_18.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_wire_20.sv](../tests/gen/ch28/test_gen_strength_wire_20.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_wire_21.sv](../tests/gen/ch28/test_gen_strength_wire_21.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_wire_22.sv](../tests/gen/ch28/test_gen_strength_wire_22.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_tri_10.sv](../tests/gen/ch28/test_gen_strength_tri_10.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_tri_11.sv](../tests/gen/ch28/test_gen_strength_tri_11.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_tri_14.sv](../tests/gen/ch28/test_gen_strength_tri_14.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_tri_16.sv](../tests/gen/ch28/test_gen_strength_tri_16.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_tri_17.sv](../tests/gen/ch28/test_gen_strength_tri_17.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_tri_21.sv](../tests/gen/ch28/test_gen_strength_tri_21.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
+- [test_gen_strength_tri_22.sv](../tests/gen/ch28/test_gen_strength_tri_22.sv): Exact reviewed strength template/oracle. Both like-valued zero/zero and one/one observations match the greatest driver strength. One polarity has equal strengths (idempotence) and the other unequal strengths (maximum selection), so both parts of this source obligation are observed.
 
 ### SV2023-28.12.1-EXTRACT-STRONGER-KNOWN-DRIVER
 
-28.12.1 / normal / テスト未対応
+28.12.1 / normal / 実行確認あり
 
 Among known unambiguous drivers of unequal strength on an ordinary wired connection, the strongest determines the resolved value/strength.
 
@@ -65903,6 +67326,46 @@ Among known unambiguous drivers of unequal strength on an ordinary wired connect
 
 規定の性質: `mandatory`。
 
+- [test_gen_strength_wire_01.sv](../tests/gen/ch28/test_gen_strength_wire_01.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su1 1'), ('1', '0', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_03.sv](../tests/gen/ch28/test_gen_strength_wire_03.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St1 1'), ('1', '0', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_04.sv](../tests/gen/ch28/test_gen_strength_wire_04.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St1 1'), ('1', '0', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_05.sv](../tests/gen/ch28/test_gen_strength_wire_05.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su0 0'), ('1', '0', 'Su1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_06.sv](../tests/gen/ch28/test_gen_strength_wire_06.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Pu1 1'), ('1', '0', 'St1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_07.sv](../tests/gen/ch28/test_gen_strength_wire_07.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('1', '0', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_08.sv](../tests/gen/ch28/test_gen_strength_wire_08.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_09.sv](../tests/gen/ch28/test_gen_strength_wire_09.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Pu1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_10.sv](../tests/gen/ch28/test_gen_strength_wire_10.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su0 0'), ('1', '0', 'Su1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_11.sv](../tests/gen/ch28/test_gen_strength_wire_11.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Pu1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_12.sv](../tests/gen/ch28/test_gen_strength_wire_12.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('1', '0', 'Pu1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_13.sv](../tests/gen/ch28/test_gen_strength_wire_13.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('1', '0', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_14.sv](../tests/gen/ch28/test_gen_strength_wire_14.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_15.sv](../tests/gen/ch28/test_gen_strength_wire_15.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_16.sv](../tests/gen/ch28/test_gen_strength_wire_16.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_18.sv](../tests/gen/ch28/test_gen_strength_wire_18.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St0 0'), ('1', '0', 'Su1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_19.sv](../tests/gen/ch28/test_gen_strength_wire_19.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_20.sv](../tests/gen/ch28/test_gen_strength_wire_20.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su0 0'), ('1', '0', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_21.sv](../tests/gen/ch28/test_gen_strength_wire_21.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('1', '0', 'Su1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_wire_22.sv](../tests/gen/ch28/test_gen_strength_wire_22.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St1 1'), ('1', '0', 'St1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_01.sv](../tests/gen/ch28/test_gen_strength_tri_01.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_02.sv](../tests/gen/ch28/test_gen_strength_tri_02.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_03.sv](../tests/gen/ch28/test_gen_strength_tri_03.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_04.sv](../tests/gen/ch28/test_gen_strength_tri_04.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('1', '0', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_05.sv](../tests/gen/ch28/test_gen_strength_tri_05.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St0 0'), ('1', '0', 'Su1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_06.sv](../tests/gen/ch28/test_gen_strength_tri_06.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('1', '0', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_08.sv](../tests/gen/ch28/test_gen_strength_tri_08.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St0 0'), ('1', '0', 'St1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_09.sv](../tests/gen/ch28/test_gen_strength_tri_09.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St1 1'), ('1', '0', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_10.sv](../tests/gen/ch28/test_gen_strength_tri_10.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su0 0'), ('1', '0', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_11.sv](../tests/gen/ch28/test_gen_strength_tri_11.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_12.sv](../tests/gen/ch28/test_gen_strength_tri_12.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_13.sv](../tests/gen/ch28/test_gen_strength_tri_13.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su1 1'), ('1', '0', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_14.sv](../tests/gen/ch28/test_gen_strength_tri_14.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Pu0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_15.sv](../tests/gen/ch28/test_gen_strength_tri_15.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Su0 0'), ('1', '0', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_16.sv](../tests/gen/ch28/test_gen_strength_tri_16.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('1', '0', 'Su0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_17.sv](../tests/gen/ch28/test_gen_strength_tri_17.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St0 0'), ('1', '0', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_19.sv](../tests/gen/ch28/test_gen_strength_tri_19.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'St0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_20.sv](../tests/gen/ch28/test_gen_strength_tri_20.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('0', '1', 'Pu0 0'), ('1', '0', 'St1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_21.sv](../tests/gen/ch28/test_gen_strength_tri_21.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('1', '0', 'St1 1')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
+- [test_gen_strength_tri_22.sv](../tests/gen/ch28/test_gen_strength_tri_22.sv): Reviewed strength.net_cases and exact emitted body/oracle. Known opposite-value unequal non-highz drivers are checked independently by declared strength ranks, requiring the stronger value and its %v strength. Observations: [('1', '0', 'Pu0 0')]. Only ordinary wire/tri resolution is used for this link; ambiguous-strength cases are not used to approve it.
 
 ### SV2023-28.12.2-EXTRACT-AMBIGUOUS-CLASSES
 
@@ -66018,7 +67481,7 @@ Ambiguous wired-logic resolution considers every combination of individual stren
 
 ### SV2023-28.12.4-EXTRACT-WIRED-EQUAL-STRENGTH
 
-28.12.4 / normal / テスト未対応
+28.12.4 / normal / テスト対応あり・実行未確認
 
 Equal-strength wired-AND/OR drivers use the corresponding and/or truth function and retain that common strength.
 
@@ -66026,10 +67489,11 @@ Equal-strength wired-AND/OR drivers use the corresponding and/or truth function 
 
 規定の性質: `mandatory`。
 
+- [test_wired_logic_strength.sv](../tests/ch28/test_wired_logic_strength.sv): Equal weak and pull drivers with opposing values resolve by the appropriate AND/OR truth function and retain weak/pull strength. All four wire kinds are observed by %v.
 
 ### SV2023-28.12.4-EXTRACT-WIRED-LOGIC-CONFLICT
 
-28.12.4 / normal / テスト未対応
+28.12.4 / normal / テスト対応あり・実行未確認
 
 Triand/wand and trior/wor resolve equal-strength driver conflicts using their respective logical functions.
 
@@ -66037,6 +67501,7 @@ Triand/wand and trior/wor resolve equal-strength driver conflicts using their re
 
 規定の性質: `mandatory`。
 
+- [test_wired_logic_strength.sv](../tests/ch28/test_wired_logic_strength.sv): Equal-strength opposing known drivers exercise wand/triand AND and wor/trior OR. Exact %v output requires zero for AND nets and one for OR nets; unequal-strength examples separately check dominant values.
 
 ### SV2023-28.13-EXTRACT-NONRESISTIVE-MOS-STRENGTH
 
@@ -66095,7 +67560,7 @@ A resistive primitive transforms medium strength to small.
 
 ### SV2023-28.14-EXTRACT-REDUCE-PULL
 
-28.14 / normal / テスト未対応
+28.14 / normal / 実行確認あり
 
 A resistive primitive transforms pull strength to weak.
 
@@ -66103,6 +67568,7 @@ A resistive primitive transforms pull strength to weak.
 
 規定の性質: `definition`。
 
+- [test_rtran_reduction_table.sv](../tests/ch28/test_rtran_reduction_table.sv): Three resistive channels carry known one then zero at strong, pull and weak strength. Exact %v input/output observations check the Table 28-8 transformations for both polarities, separately from the logic value.
 
 ### SV2023-28.14-EXTRACT-REDUCE-SMALL
 
@@ -66117,7 +67583,7 @@ A resistive primitive transforms small strength to small.
 
 ### SV2023-28.14-EXTRACT-REDUCE-STRONG
 
-28.14 / normal / テスト未対応
+28.14 / normal / 実行確認あり
 
 A resistive primitive transforms strong strength to pull.
 
@@ -66125,6 +67591,7 @@ A resistive primitive transforms strong strength to pull.
 
 規定の性質: `definition`。
 
+- [test_rtran_reduction_table.sv](../tests/ch28/test_rtran_reduction_table.sv): Three resistive channels carry known one then zero at strong, pull and weak strength. Exact %v input/output observations check the Table 28-8 transformations for both polarities, separately from the logic value.
 
 ### SV2023-28.14-EXTRACT-REDUCE-SUPPLY
 
@@ -66139,7 +67606,7 @@ A resistive primitive transforms supply strength to pull.
 
 ### SV2023-28.14-EXTRACT-REDUCE-WEAK
 
-28.14 / normal / テスト未対応
+28.14 / normal / 実行確認あり
 
 A resistive primitive transforms weak strength to medium.
 
@@ -66147,6 +67614,7 @@ A resistive primitive transforms weak strength to medium.
 
 規定の性質: `definition`。
 
+- [test_rtran_reduction_table.sv](../tests/ch28/test_rtran_reduction_table.sv): Three resistive channels carry known one then zero at strong, pull and weak strength. Exact %v input/output observations check the Table 28-8 transformations for both polarities, separately from the logic value.
 
 ### SV2023-28.14-EXTRACT-RESISTIVE-DEVICES
 

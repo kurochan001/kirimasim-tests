@@ -3,7 +3,7 @@
 :description: Test: Dynamic array edge cases
 :tags: ch7
 :type: simulation
-:lrm: 1800-2023 7.5
+:lrm: 1800-2023 7.5 7.5.1 7.5.2 7.5.3
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: yes

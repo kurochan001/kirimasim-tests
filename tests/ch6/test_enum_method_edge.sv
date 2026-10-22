@@ -3,7 +3,7 @@
 :description: Enum methods first, last, num, next, prev and name on contiguous, non-contiguous, single-member and sparse enums
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.19.5
+:lrm: 1800-2023 6.19.5 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

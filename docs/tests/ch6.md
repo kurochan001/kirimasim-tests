@@ -209,11 +209,11 @@
 | [`test_enum_comprehensive`](../../tests/ch6/test_enum_comprehensive.sv) | Enum methods first, last, num, name, next and prev, with wrap-around | 6.19.5 | Icarus Verilog 13.0 |  |
 | [`test_enum_edge`](../../tests/ch6/test_enum_edge.sv) | Enum edge cases | 6.19.5 6.19.4 | Icarus Verilog 13.0 |  |
 | [`test_enum_first_last`](../../tests/ch6/test_enum_first_last.sv) | Test enum first/last | 6.19.5 | Icarus Verilog 13.0 |  |
-| [`test_enum_method_edge`](../../tests/ch6/test_enum_method_edge.sv) | Enum methods first, last, num, next, prev and name on contiguous, non-contiguous, single-member and sparse enums | 6.19.5 | Icarus Verilog 13.0 |  |
+| [`test_enum_method_edge`](../../tests/ch6/test_enum_method_edge.sv) | Enum methods first, last, num, next, prev and name on contiguous, non-contiguous, single-member and sparse enums | 6.19.5 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 | Icarus Verilog 13.0 |  |
 | [`test_enum_methods`](../../tests/ch6/test_enum_methods.sv) | Test for enum extension methods | 6.19.5 | Icarus Verilog 13.0 |  |
 | [`test_enum_methods_2`](../../tests/ch6/test_enum_methods_2.sv) | Enum Methods Tests | 6.19.5 | Icarus Verilog 13.0 |  |
-| [`test_enum_methods_name_num`](../../tests/ch6/test_enum_methods_name_num.sv) | Enumerated types | 6.19.5 | Icarus Verilog 13.0 |  |
-| [`test_enum_methods_navigation`](../../tests/ch6/test_enum_methods_navigation.sv) | Enumerated types | 6.19.5 | Icarus Verilog 13.0 |  |
+| [`test_enum_methods_name_num`](../../tests/ch6/test_enum_methods_name_num.sv) | Enumerated types | 6.19.5 6.19.5.5 6.19.5.6 | Icarus Verilog 13.0 |  |
+| [`test_enum_methods_navigation`](../../tests/ch6/test_enum_methods_navigation.sv) | Enumerated types | 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.6 | Icarus Verilog 13.0 |  |
 | [`test_enum_non_sequential`](../../tests/ch6/test_enum_non_sequential.sv) | Enum methods on an enum whose values are not consecutive | 6.19.5 | Icarus Verilog 13.0 |  |
 | [`test_enum_ops_2`](../../tests/ch6/test_enum_ops_2.sv) | Enum next(), prev() and name() | 6.19.5 | Icarus Verilog 13.0 |  |
 | [`test_enum_xz_member_methods`](../../tests/ch6/test_enum_xz_member_methods.sv) | Enumeration methods of a 4-state enumeration that has a member with an x bit | 6.19.5 6.19 | Icarus Verilog 13.0 | x/z |
@@ -274,7 +274,7 @@
 | [`test_illegal_anonymous_struct_not_equivalent`](../../tests/ch6/test_illegal_anonymous_struct_not_equivalent.sv) | Anonymous unpacked structures from different declarations are not equivalent, so one cannot be assigned to the other | 6.22.2 6.22.3 | standard only | illegal design |
 | [`test_type_equivalent_arrays`](../../tests/ch6/test_type_equivalent_arrays.sv) | Unpacked arrays whose element types are equivalent, such as packed types of the same size, state and signedness, can be assigned to each other whatever their ranges, element by element from the left | 6.22.2 7.6 7.4.2 | Verilator 5.052 |  |
 | [`test_type_assignment_cast_compatible`](../../tests/ch6/test_type_assignment_cast_compatible.sv) | Assignment-compatible types convert implicitly, an enum to an integer and between integral types with truncation or a real with rounding, while an integer becomes an enum only through a cast | 6.22.3 6.22.4 6.24.1 6.12.1 | Icarus Verilog 13.0 |  |
-| [`test_enum_explicit_cast_and_failed_dynamic_cast`](../../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv) | An explicit enum cast permits an integral value and a failed dynamic cast leaves the destination unchanged | 6.22.4 | Verilator 5.052 |  |
+| [`test_enum_explicit_cast_and_failed_dynamic_cast`](../../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv) | An explicit enum cast permits an integral value and a failed dynamic cast leaves the destination unchanged | 6.22.4 6.24.2 | Verilator 5.052 |  |
 | [`test_illegal_class_handle_to_int`](../../tests/ch6/test_illegal_class_handle_to_int.sv) | A class handle is type incompatible with every other type and cannot be assigned to an int | 6.22.5 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_handle_to_real_cast`](../../tests/ch6/test_illegal_handle_to_real_cast.sv) | A class handle cannot be converted to a real even by an explicit cast | 6.22.5 | Icarus Verilog 13.0 | illegal design |
 | [`test_nettype_rename_matches`](../../tests/ch6/test_nettype_rename_matches.sv) | A nettype declared as a new name for a user-defined nettype matches it, so a net of the new name connects to a port of the original nettype | 6.22.6 6.6.7 23.3.3 | standard only |  |

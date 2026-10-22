@@ -119,8 +119,8 @@
 | [`test_dynamic_arr_edge_cases`](../../tests/ch7/test_dynamic_arr_edge_cases.sv) | Dynamic array edge cases | 7.5 | Icarus Verilog 13.0 |  |
 | [`test_dynamic_array`](../../tests/ch7/test_dynamic_array.sv) | Dynamic Arrays (§7.5) | 7.5 | Icarus Verilog 13.0 |  |
 | [`test_dynamic_array_2`](../../tests/ch7/test_dynamic_array_2.sv) | Dynamic array new[], resize with copy, size() and delete() | 7.5 | Icarus Verilog 13.0 |  |
-| [`test_dynamic_array_corner`](../../tests/ch7/test_dynamic_array_corner.sv) | Tests dynamic array operations, resizing, and methods | 7.5 7.12 | Verilator 5.052 |  |
-| [`test_dynamic_array_edge_cases`](../../tests/ch7/test_dynamic_array_edge_cases.sv) | Test: Dynamic array edge cases | 7.5 | Icarus Verilog 13.0 | x/z |
+| [`test_dynamic_array_corner`](../../tests/ch7/test_dynamic_array_corner.sv) | Tests dynamic array operations, resizing, and methods | 7.5 7.12 7.5.1 | Verilator 5.052 |  |
+| [`test_dynamic_array_edge_cases`](../../tests/ch7/test_dynamic_array_edge_cases.sv) | Test: Dynamic array edge cases | 7.5 7.5.1 7.5.2 7.5.3 | Icarus Verilog 13.0 | x/z |
 | [`test_dynamic_array_methods`](../../tests/ch7/test_dynamic_array_methods.sv) | Test for IEEE 1800-2023 §7.5-7.6: Dynamic array methods | 7.5 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 |  |
 | [`test_dynamic_array_ops`](../../tests/ch7/test_dynamic_array_ops.sv) | Test for dynamic array operations | 7.5 7.5.1 | Icarus Verilog 13.0 |  |
 | [`test_sv_dynamic_array`](../../tests/ch7/test_sv_dynamic_array.sv) | Dynamic arrays: new[], resize with copy, size() and delete() | 7.5 7.5.1 7.5.3 | Icarus Verilog 13.0 |  |

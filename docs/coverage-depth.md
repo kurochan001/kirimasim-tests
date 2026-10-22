@@ -12,7 +12,7 @@
 | Clauses with a direct test | 932/932 |
 | Clauses with at least two direct tests | 932/932 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 437 |
+| Clauses with two tests or fewer | 430 |
 | Clauses with only standard-only tests | 239 |
 | Clauses with one test and only a standard-only test | 0 |
 

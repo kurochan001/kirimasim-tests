@@ -4,6 +4,7 @@ import copy
 import contextlib
 import io
 import json
+import shutil
 import sys
 import tempfile
 import unittest
@@ -99,6 +100,185 @@ class BehaviorCoverageTests(unittest.TestCase):
         after = {**before, "source_reviewed_sections": []}
         with self.assertRaisesRegex(coverage.InvalidCoverage, "source review regression"):
             coverage.check_baseline(before, after)
+
+    def measured(self, rows=None, source_complete=True, reviewed=False, executed=None):
+        sections, fixture = self.validated()
+        return coverage.measurement(sections, rows or fixture,
+                                    {"executed": executed or []},
+                                    {"source_review_complete": source_complete}, reviewed, "inventory")
+
+    def test_provisional_denominator_keeps_holds_and_unmapped_rows(self):
+        _, rows = self.validated()
+        held = {**rows[0], "id": "HELD", "mapped": False, "checks": [],
+                "interpretation_issue": "CONFLICT"}
+        missing = {**held, "id": "MISSING"}
+        missing.pop("interpretation_issue")
+        stats = self.measured(rows + [held, missing], executed=[rows[0]["id"]])
+        self.assertAlmostEqual(stats["provisional_design_percent"], 100 / 3)
+        self.assertAlmostEqual(stats["provisional_execution_percent"], 100 / 3)
+        self.assertEqual(stats["whole_standard_status"], "provisional")
+        self.assertEqual(stats["requirement_status_counts"], {
+            "pass": 1, "mapped_without_pass": 0, "unmapped": 1, "interpretation_pending": 1})
+
+    def test_partial_source_cannot_be_reported_as_provisional_full_scope(self):
+        result = self.measured(source_complete=False)
+        self.assertEqual(result["whole_standard_status"], "source_incomplete")
+        self.assertIsNone(result["provisional_design_percent"])
+        self.assertIsNone(result["provisional_execution_percent"])
+
+    def test_linked_file_count_deduplicates_requirements_without_inferring_unlinked_tests(self):
+        _, rows = self.validated()
+        linked = coverage.ROOT / rows[0]["checks"][0]["test"]
+        unlinked = coverage.ROOT / "tests/ch6/test_string_len.sv"
+        second = {**rows[0], "id": "SECOND"}
+        with mock.patch.object(suite_results, "find_tests", return_value=[linked, unlinked]):
+            result = self.measured(rows + [second])
+        self.assertEqual(result["test_mapping"], {
+            "suite_test_files": 2, "linked_test_files": 1, "unlinked_test_files": 1})
+        self.assertEqual(result["requirement_status_counts"]["mapped_without_pass"], 2)
+
+    def test_denominator_identity_ignores_mapping_and_run_progress(self):
+        _, rows = self.validated()
+        original = self.measured(rows)["denominator"]["sha256"]
+        rows[0]["mapped"] = False
+        rows[0]["checks"] = []
+        self.assertEqual(self.measured(rows, executed=[])["denominator"]["sha256"], original)
+        rows[0]["acceptance"] += " An additional observable requirement."
+        self.assertNotEqual(self.measured(rows)["denominator"]["sha256"], original)
+
+    def test_outcome_partition_preserves_nonpassing_reasons(self):
+        for status in ("pass", "fail", "known", "unsupported"):
+            with self.subTest(status=status):
+                runs, _ = self.execute(self.result(status))
+                run = runs["snapshots"][0]
+                self.assertEqual(run["status_counts"][status], 1)
+                self.assertEqual(sum(run["status_counts"].values()), 1)
+
+    def grouped_fixture(self):
+        row = self.reg["requirements"][0]
+        other = coverage.ROOT / "tests/ch4/test_sched_intra_assignment_target.sv"
+        fields = suite_results.header(other)
+        expected = other.parent / fields["expected_stdout"][1:]
+        row["checks"].append({**row["checks"][0],
+                              "test": other.relative_to(coverage.ROOT).as_posix(),
+                              "inputs_sha256": suite_results.input_digest(other),
+                              "evidence": [{"file": other.relative_to(coverage.ROOT).as_posix(),
+                                            "contains": "module"},
+                                           {"file": expected.relative_to(coverage.ROOT).as_posix(),
+                                            "contains": expected.read_text().strip()}]})
+        row["check_groups"] = [{"id": "joint-observations",
+                                "tests": [c["test"] for c in row["checks"]],
+                                "reviewer": "unit-test fixture", "reviewed_on": "2026-10-22",
+                                "observation": "Both fixture observations are required together."}]
+        return row
+
+    def test_collective_witness_requires_every_member_to_pass(self):
+        row = self.grouped_fixture()
+        second = coverage.ROOT / row["checks"][1]["test"]
+        for state in (None, "known", "unsupported", "fail", "pass"):
+            with self.subTest(state=state):
+                result = self.result()
+                if state:
+                    result["tests"][suite_results.test_id(second)] = {
+                        "status": state, "inputs_sha256": suite_results.input_digest(second)}
+                runs, _ = self.execute(result)
+                self.assertEqual(bool(runs["executed"]), state == "pass")
+                self.assertEqual(runs["snapshots"][0]["outcomes"][row["id"]], state or "not_run")
+
+    def test_ungrouped_checks_remain_independent_alternatives(self):
+        row = self.grouped_fixture()
+        del row["check_groups"]
+        self.assertEqual(len(self.execute(self.result())[0]["executed"]), 1)
+
+    def test_collective_witness_cannot_merge_partial_runs(self):
+        row = self.grouped_fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            paths = []
+            for index, check in enumerate(row["checks"]):
+                result = self.result()
+                test = coverage.ROOT / check["test"]
+                result["tests"] = {suite_results.test_id(test): {
+                    "status": "pass", "inputs_sha256": suite_results.input_digest(test)}}
+                path = Path(directory) / f"partial-{index}.json"
+                path.write_text(json.dumps(result))
+                paths.append(path)
+            runs, _ = coverage.execution(self.validated()[1], paths)
+        self.assertEqual(runs["executed"], [])
+
+    def test_collective_review_rejects_missing_and_unknown_members(self):
+        row = self.grouped_fixture()
+        group = row["check_groups"][0]
+        original = group["tests"][:]
+        group["tests"] = original[:1]
+        self.assert_invalid("ungrouped test")
+        group["tests"] = original + ["tests/ch4/missing.sv"]
+        self.assert_invalid("unknown/duplicate check group member")
+        group["tests"] = original
+        del group["observation"]
+        self.assert_invalid("collective review")
+
+    def test_baseline_prevents_dropping_collective_requirement(self):
+        row = self.grouped_fixture()
+        sections, rows = self.validated()
+        previous = coverage.baseline(sections, rows)
+        del row["check_groups"]
+        sections, rows = self.validated()
+        with self.assertRaisesRegex(coverage.InvalidCoverage, "collective witness changed"):
+            coverage.check_baseline(previous, coverage.baseline(sections, rows))
+
+    def test_stale_pass_and_absent_result_have_distinct_outcomes(self):
+        stale = self.result()
+        next(iter(stale["tests"].values()))["inputs_sha256"] = "old"
+        absent = self.result()
+        absent["tests"].clear()
+        self.assertEqual(self.execute(stale)[0]["snapshots"][0]["status_counts"]["stale"], 1)
+        self.assertEqual(self.execute(absent)[0]["snapshots"][0]["status_counts"]["not_run"], 1)
+
+    def test_a_simulator_cannot_inherit_another_simulators_pass(self):
+        _, rows = self.validated()
+        other = copy.deepcopy(next(r for r in self.registry["requirements"]
+                                   if r["id"] == "SV2023-6.22.5-NO-HANDLE-REAL"))
+        other["mapped"] = True
+        with tempfile.TemporaryDirectory() as directory:
+            paths = []
+            for simulator, version, passing in [
+                    ("icarus", "Icarus Verilog version 13.0", rows[0]),
+                    ("verilator", "Verilator 5.052", other)]:
+                result = self.result(simulator=simulator, row=passing)
+                result["version"] = version
+                path = Path(directory) / (simulator + ".json")
+                path.write_text(json.dumps(result))
+                paths.append(path)
+            runs, _ = coverage.execution(rows + [other], paths)
+        self.assertEqual(len(runs["executed"]), 2)
+        self.assertEqual([len(s["executed"]) for s in runs["snapshots"]], [1, 1])
+
+    def test_compact_artifacts_and_history_are_reproducible_and_checked(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            data_folder = folder / "coverage"
+            shutil.copytree(coverage.DATA, data_folder)
+            common = ["--output", str(folder / "full.md"), "--summary-output", str(folder / "short.md"),
+                      "--summary-json", str(folder / "short.json")]
+            def run(args):
+                with (mock.patch.object(coverage, "DATA", data_folder),
+                      mock.patch.object(sys, "argv", ["coverage", *args, *common]),
+                      contextlib.redirect_stdout(io.StringIO()),
+                      contextlib.redirect_stderr(io.StringIO())):
+                    return coverage.main()
+            self.assertEqual(run(["--update", "--history", str(folder / "history.json")]), 0)
+            self.assertEqual(run(["--check"]), 0)
+            data = json.loads((folder / "short.json").read_text())
+            history = json.loads((folder / "history.json").read_text())["runs"][0]
+            self.assertNotIn("generated_at", data)
+            self.assertIn("generated_at", history)
+            self.assertEqual(data["denominator"], history["denominator"])
+            self.assertNotIn("outcomes", history["execution"]["snapshots"][0])
+            (folder / "short.md").write_text("stale\n")
+            self.assertEqual(run(["--check"]), 1)
+            self.assertEqual(run(["--update"]), 0)
+            (folder / "short.json").write_text("{}\n")
+            self.assertEqual(run(["--check"]), 1)
 
     def test_parent_introductions_are_not_completed_by_children(self):
         sections, rows = self.validated()

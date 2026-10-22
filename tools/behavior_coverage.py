@@ -16,6 +16,7 @@ import argparse
 import datetime
 import hashlib
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -25,6 +26,10 @@ import suite_results
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "coverage"
 REPORT = ROOT / "docs" / "behavior-coverage.md"
+SUMMARY_REPORT = ROOT / "docs" / "behavior-coverage-summary.md"
+SUMMARY_JSON = DATA / "behavior-summary.json"
+METRIC_POLICY_VERSION = 3
+OUTCOME_PRIORITY = ("pass", "fail", "known", "unsupported", "unreviewed_oracle", "stale", "not_run")
 REVIEWS = {"unreviewed", "in_progress", "complete", "no_behavior"}
 KINDS = {"normal", "boundary", "error"}
 SIMULATORS = {"icarus", "verilator", "kirimasim", "sukimasim"}
@@ -132,6 +137,24 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
                 require(a.get("contains") and a["contains"] in path.read_text(encoding="utf-8"),
                         f"missing observation anchor: {rid} in {a['file']}")
             checks.append(c)
+        groups = r.get("check_groups", [])
+        require(isinstance(groups, list), f"invalid check groups: {rid}")
+        if groups:
+            group_ids, members = set(), set()
+            for group in groups:
+                require(isinstance(group.get("id"), str)
+                        and re.fullmatch(r"[A-Za-z0-9_.-]+", group["id"])
+                        and group["id"] not in group_ids,
+                        f"duplicate/empty check group: {rid}")
+                group_ids.add(group["id"])
+                require(group.get("reviewer") and group.get("observation")
+                        and re.fullmatch(r"\d{4}-\d{2}-\d{2}", group.get("reviewed_on", "")),
+                        f"check group needs collective review: {rid}")
+                tests = group.get("tests", [])
+                require(isinstance(tests, list) and tests and len(tests) == len(set(tests))
+                        and set(tests) <= seen, f"unknown/duplicate check group member: {rid}")
+                members.update(tests)
+            require(members == seen, f"check group leaves an ungrouped test: {rid}")
         rows.append({**r, "mapped": bool(checks)})
     for number, s in sections.items():
         if s["review"] == "complete":
@@ -163,6 +186,9 @@ def baseline(sections: dict, rows: list, source: dict | None = None) -> dict:
             "contracts": {r["id"]: hashlib.sha256(json.dumps(
                 {k: r[k] for k in ("clause", "kind", "behavior", "acceptance", "source_note")},
                 sort_keys=True).encode()).hexdigest() for r in rows},
+            "witness_groups": {r["id"]: hashlib.sha256(json.dumps(
+                {"groups": r["check_groups"], "checks": r["checks"]},
+                sort_keys=True).encode()).hexdigest() for r in rows if r.get("check_groups")},
             "mapped": sorted(r["id"] for r in rows if r["mapped"]),
             "audited_sections": sorted((n for n, s in sections.items()
                                         if s["review"] in ("complete", "no_behavior")),
@@ -185,6 +211,9 @@ def check_baseline(before: dict, after: dict) -> None:
     for rid, digest in before["contracts"].items():
         require(after["contracts"].get(rid) == digest,
                 f"behavior contract changed: {rid}; review and explain a baseline update")
+    for rid, digest in before.get("witness_groups", {}).items():
+        require(after.get("witness_groups", {}).get(rid) == digest,
+                f"collective witness changed: {rid}; review and explain a baseline update")
 
 
 def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
@@ -201,22 +230,31 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
                 or data.get("runner_sha256") != suite_results.runner_digest(simulator)):
             ignored.append(f"{path.name}: legacy, unknown, or stale runner provenance")
             continue
-        executed, stale = set(), 0
+        executed, stale, outcomes = set(), 0, {}
         for r in rows:
-            if not r["mapped"]:
+            if r.get("interpretation_issue"):
+                outcomes[r["id"]] = "interpretation_pending"
                 continue
+            if not r["mapped"]:
+                outcomes[r["id"]] = "unmapped"
+                continue
+            by_test = {}
             for c in r["checks"]:
                 test = ROOT / c["test"]
                 result = data.get("tests", {}).get(suite_results.test_id(test), {})
                 if not result:
+                    by_test[c["test"]] = "not_run"
                     continue
                 if c["test"] not in digests:
                     digests[c["test"]] = suite_results.input_digest(test)
                 if (result.get("inputs_changed")
                         or result.get("inputs_sha256") != digests[c["test"]]):
                     stale += 1
+                    by_test[c["test"]] = "stale"
                     continue
                 if result.get("status") != "pass":
+                    by_test[c["test"]] = (result["status"] if result.get("status") in
+                                           ("fail", "known", "unsupported") else "not_run")
                     continue
                 # Unsupported syntax can accidentally satisfy an illegal-test
                 # line regexp. Only a reviewed, pinned negative oracle counts.
@@ -226,12 +264,25 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
                     token, version = oracle.get(simulator, ("", r"(?!)"))
                     if (token not in suite_results.header(test).get("oracle", "").split()
                             or not re.search(version, data["version"])):
+                        by_test[c["test"]] = "unreviewed_oracle"
                         continue
+                by_test[c["test"]] = "pass"
+            groups = ([g["tests"] for g in r["check_groups"]] if r.get("check_groups")
+                      else [[c["test"]] for c in r["checks"]])
+            observed = set()
+            for group in groups:
+                states = {by_test[name] for name in group}
+                observed.add("pass" if states == {"pass"} else
+                             next(s for s in OUTCOME_PRIORITY[1:] if s in states))
+            outcomes[r["id"]] = next((s for s in OUTCOME_PRIORITY if s in observed), "not_run")
+            if outcomes[r["id"]] == "pass":
                 executed.add(r["id"])
-                break
         snapshots.append({"file": path.name, "simulator": simulator,
                           "version": data["version"], "generated_at": data["generated_at"],
-                          "executed": sorted(executed), "stale_links": stale})
+                          "executed": sorted(executed), "stale_links": stale,
+                          "outcomes": outcomes,
+                          "status_counts": {s: sum(v == s for v in outcomes.values())
+                                            for s in (*OUTCOME_PRIORITY, "unmapped", "interpretation_pending")}})
     return {"snapshots": snapshots,
             "executed": sorted({rid for s in snapshots for rid in s["executed"]})}, ignored
 
@@ -252,6 +303,132 @@ def summarize(sections: dict, rows: list, runs: dict, denominator_reviewed: bool
             "registered_percent": 100 * mapped / len(rows) if rows else None}
 
 
+def measurement(sections: dict, rows: list, runs: dict, source_audit: dict,
+                denominator_reviewed: bool, inventory_sha256: str) -> dict:
+    """Publish a provisional full-inventory metric without certifying its units.
+
+    Every registered row remains in the denominator, including interpretation
+    holds and unmapped rows. Partial source extraction never becomes a full-scope
+    provisional percentage. The denominator identity excludes test mappings and
+    run outcomes so ordinary testing progress remains comparable over time.
+    """
+    stats = summarize(sections, rows, runs, denominator_reviewed)
+    complete_source = source_audit["source_review_complete"]
+    executed = set(runs["executed"])
+    partition = {"pass": 0, "mapped_without_pass": 0, "unmapped": 0, "interpretation_pending": 0}
+    chapters = []
+    for r in rows:
+        partition[requirement_status(r, executed)] += 1
+    for root in sorted((n for n in sections if "." not in n), key=section_key):
+        group = [r for r in rows if r["clause"].split(".")[0] == root]
+        total = len(group)
+        mapped = sum(r["mapped"] for r in group)
+        passed = sum(r["id"] in executed for r in group)
+        chapters.append({"clause": root, "title": sections[root]["title"],
+                         "registered": total, "mapped": mapped, "executed": passed,
+                         "design_percent": 100 * mapped / total if total else None,
+                         "execution_percent": 100 * passed / total if total else None,
+                         "interpretation_pending": sum(bool(r.get("interpretation_issue")) for r in group)})
+    identity = {"metric_policy_version": METRIC_POLICY_VERSION,
+                "inventory_sha256": inventory_sha256,
+                "contracts": baseline(sections, rows)["contracts"]}
+    linked_tests = {check["test"] for row in rows for check in row["checks"]}
+    suite_tests = {test.relative_to(ROOT).as_posix() for test in suite_results.find_tests()}
+    return {"metric_policy_version": METRIC_POLICY_VERSION,
+            "whole_standard_status": ("confirmed" if stats["whole_standard_percent"] is not None
+                                      else "provisional" if complete_source else "source_incomplete"),
+            "provisional_design_percent": stats["registered_percent"] if complete_source else None,
+            "provisional_execution_percent": (100 * len(executed) / len(rows)
+                                               if complete_source and rows else None),
+            "denominator": {"count": len(rows), "unit": "registered_requirement_condition_or_observation",
+                            "sha256": hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest(),
+                            "reviewed": denominator_reviewed, "source_review_complete": complete_source,
+                            "interpretation_pending": partition["interpretation_pending"]},
+            "test_mapping": {"suite_test_files": len(suite_tests),
+                             "linked_test_files": len(linked_tests & suite_tests),
+                             "unlinked_test_files": len(suite_tests - linked_tests)},
+            "collective_requirement_count": sum(bool(r.get("check_groups")) for r in rows),
+            "requirement_status_counts": partition, "chapters": chapters}
+
+
+def requirement_status(row: dict, executed: set) -> str:
+    if row.get("interpretation_issue"):
+        return "interpretation_pending"
+    if not row["mapped"]:
+        return "unmapped"
+    return "pass" if row["id"] in executed else "mapped_without_pass"
+
+
+def compact_report(snapshot: dict, source_url: str | None = None,
+                   detailed_report: str = "behavior-coverage.md") -> str:
+    """A small, generated entry point; the full report retains each obligation."""
+    def percent(value):
+        return "未確定" if value is None else f"{value:.2f}%"
+    def ratio(count, total):
+        return f"{count}/{total} ({100 * count / total:.2f}%)" if total else "対象項目なし"
+    link = lambda p: f"{source_url.rstrip('/')}/{p}" if source_url else f"../{p}"
+    total = snapshot["registered"]
+    counts = snapshot["requirement_status_counts"]
+    scope = snapshot["denominator"]
+    test_mapping = snapshot["test_mapping"]
+    lines = ["# IEEE 1800-2023 動作カバレッジ集計", "",
+             f"[全項目の詳細]({detailed_report}) / "
+             f"[管理手順]({link('coverage/README.md')}) / "
+             f"[解釈保留の根拠]({link('docs/requirement-extraction-notes.md')})", "",
+             "## 全規格の要求台帳に対する暫定値", "",
+             f"- テスト設計網羅率: **{percent(snapshot['provisional_design_percent'])}** "
+             f"({snapshot['mapped']}/{total})。",
+             f"- 実行確認率: **{percent(snapshot['provisional_execution_percent'])}** "
+             f"({snapshot['executed']}/{total})。複数環境の成功の和集合。",
+             "- 分母には解釈保留と未対応も含みます。未実装・未対応を除外していません。",
+             "- 登録単位は要求の出現箇所・条件・初期の観測ケースであり、意味の重複整理前の暫定値です。",
+             "  全プログラム・全入力の組み合わせを試した割合や、単一シミュレータの規格適合率ではありません。", "",
+             "## 既存テストの集計状況", "",
+             f"- 全 {test_mapping['suite_test_files']} 本のうち、要求との対応を登録済みのテストは "
+             f"{test_mapping['linked_test_files']} 本。未登録は {test_mapping['unlinked_test_files']} 本です。",
+             "- 上記の網羅率は、刺激と期待結果を確認して要求との対応を登録した分だけを計上しています。",
+             "  未登録の既存テストも検証に役立ちますが、その貢献はまだ割合に反映できていません。",
+             "- 登録済み本数は少なくとも一つの要求との対応がある本数で、テスト全体のレビュー完了数ではありません。", "",
+             f"- 複数テストで分担する要求は {snapshot['collective_requirement_count']} 行。"
+             "各グループの全テストが同じ実行回で成功した場合だけ、要求全体の実行成功に数えます。", "",
+             "## 確定値", "",
+             f"- 規格全動作のテスト設計網羅率: {percent(snapshot['whole_standard_percent'])}。",
+             f"- 規格全動作の実行確認率: {percent(snapshot['whole_standard_executed_percent'])}。",
+             f"- 分母の承認: {'承認済み' if scope['reviewed'] else '未承認'}。"
+             f"計測状態: `{snapshot['whole_standard_status']}`。",
+             "- 資料確認、保留解釈の解決、要求単位の重複整理、分母のレビューを経て確定します。", "",
+             "## 残件", "",
+             f"- 新鮮な成功証跡あり: {counts['pass']} 行。",
+             f"- 対応済み・成功証跡なし: {counts['mapped_without_pass']} 行。",
+             f"- テスト対応未確認（解釈保留以外）: {counts['unmapped']} 行。",
+             f"- 解釈保留: {counts['interpretation_pending']} 行。",
+             "", "未対応は、既存テストが存在しないという判定ではありません。", "",
+             "## シミュレータ別の実行確認率", ""]
+    for run in snapshot["execution"]["snapshots"]:
+        detail = run["status_counts"]
+        lines += [f"- `{run['simulator']}` / {run['version']}: {ratio(len(run['executed']), total)}。",
+                  f"  計測元: {run['generated_at']} / `{run['file']}`。",
+                  f"  失敗 {detail['fail']}、既知不一致 {detail['known']}、未対応 {detail['unsupported']}、"
+                  f"未実行 {detail['not_run']}、古い証跡 {detail['stale']}、"
+                  f"違法系の判定根拠未承認 {detail['unreviewed_oracle']} 行。"]
+    if not snapshot["execution"]["snapshots"]:
+        lines.append("採用可能な実行証跡なし。")
+    lines += [f"- 不採用の結果ファイル: {len(snapshot['ignored_results'])} 件。", "",
+              "## 章・附属書別（登録項目に対する割合）", ""]
+    for chapter in snapshot["chapters"]:
+        lines.append(f"- {chapter['clause']} {chapter['title']}: "
+                     f"設計 {ratio(chapter['mapped'], chapter['registered'])}、"
+                     f"実行 {ratio(chapter['executed'], chapter['registered'])}、"
+                     f"解釈保留 {chapter['interpretation_pending']} 行。")
+    lines += ["", "## 分母と履歴", "",
+              f"- 分母SHA-256: `{scope['sha256']}`。",
+              f"- 計測規則の版: {snapshot['metric_policy_version']}。",
+              "- 履歴には分母の識別子、暫定値と確定値、環境別の状態内訳を保存します。",
+              "  分母が異なる回の割合を、そのまま改善・悪化として比較しません。",
+              "- この集計は保存済み実行証跡から再生成されます。上記の計測元時刻が実行時刻です。"]
+    return "\n".join(lines) + "\n"
+
+
 def append_history(path: Path, entry: dict) -> None:
     """Keep the denominator identity beside counts so scope changes stay visible."""
     data = json.loads(path.read_text()) if path.is_file() else {"schema": 1, "runs": []}
@@ -262,9 +439,17 @@ def append_history(path: Path, entry: dict) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 
 
+def summary_data(snapshot: dict, keep_timestamp: bool = False) -> dict:
+    """Keep per-item outcomes in the detailed JSON, not every history entry."""
+    result = {k: v for k, v in snapshot.items() if k != "generated_at" or keep_timestamp}
+    result["execution"] = {"snapshots": [{k: v for k, v in run.items() if k != "outcomes"}
+                                         for run in snapshot["execution"]["snapshots"]]}
+    return result
+
+
 def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: list,
            source_url: str | None = None, source_audit: dict | None = None,
-           denominator_reviewed: bool = False) -> str:
+           denominator_reviewed: bool = False, measured: dict | None = None) -> str:
     stats = summarize(sections, rows, runs, denominator_reviewed)
     total = stats["registered"]
     pct = lambda n: f"{n}/{total} ({100*n/total:.2f}%)" if total else "0/0 (undefined)"
@@ -276,6 +461,7 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
     link = lambda path: f"{source_url.rstrip('/')}/{path}" if source_url else f"../{path}"
     lines = ["# IEEE 1800-2023 動作カバレッジ", "",
              "`tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。",
+             f"[集計概要]({link('docs/behavior-coverage-summary.md')}) / "
              f"[全要求の抽出結果]({link('docs/requirement-extraction.md')}) / "
              f"[管理手順]({link('coverage/README.md')}) / "
              f"[節の引用数]({link('docs/coverage-depth.md')})", "",
@@ -298,6 +484,15 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
              "成功は対応テストの全期待出力／診断の一致を意味します。`known`、`unsupported`、",
              "`fail`、来歴なし、入力／ランナー変更後の結果は成功に数えません。複数の結果の和集合は",
              "独立した検証環境での確認数であり、一つのシミュレータの適合率ではありません。", ""]
+    lines += ["複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で",
+              "グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。", ""]
+    if measured:
+        provisional = measured["provisional_design_percent"]
+        execution_pct = measured["provisional_execution_percent"]
+        display = lambda value: "未確定" if value is None else f"{value:.2f}%"
+        lines[6:6] = [f"**全規格の要求台帳ベース（暫定）: 設計 {display(provisional)}、"
+                      f"実行 {display(execution_pct)}。**",
+                      "解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。", ""]
     if source_audit:
         position = lines.index(f"- 規格棚卸し: 本文1–41章と附属書A–Q、計 {stats['sections']} 見出し。") + 1
         lines[position:position] = [
@@ -355,6 +550,8 @@ def main() -> int:
     ap.add_argument("--output", type=Path, default=REPORT)
     ap.add_argument("--source-url", help="repository blob URL for links in an exported report")
     ap.add_argument("--json", type=Path, help="also write a machine-readable summary")
+    ap.add_argument("--summary-output", type=Path, help="compact Markdown; defaults beside the standard report")
+    ap.add_argument("--summary-json", type=Path, help="compact JSON; defaults to coverage/behavior-summary.json")
     ap.add_argument("--history", type=Path, help="append counts and denominator identities to history")
     ap.add_argument("--require-complete", action="store_true",
                     help="require an audited whole-standard denominator and all behaviors mapped/executed")
@@ -415,21 +612,26 @@ def main() -> int:
         runs, ignored = execution(rows, args.results if args.results is not None
                                   else list((DATA / "results").glob("*.json")))
         denominator_reviewed = registry.get("denominator_review", {}).get("state") == "approved"
-        text = report(inventory, sections, rows, runs, ignored, args.source_url, audit_stats,
-                      denominator_reviewed)
         stats = summarize(sections, rows, runs, denominator_reviewed)
+        measured = measurement(sections, rows, runs, audit_stats, denominator_reviewed,
+                               current["inventory_sha256"])
+        text = report(inventory, sections, rows, runs, ignored, args.source_url, audit_stats,
+                      denominator_reviewed, measured)
         snapshot = {"schema": 1, "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
                     "inventory_sha256": current["inventory_sha256"],
                     "registry_sha256": hashlib.sha256((DATA / "behaviors.json").read_bytes()).hexdigest(),
                     "source_url": args.source_url,
                     "source_audit": audit_stats,
-                    **stats, "execution": runs, "ignored_results": ignored}
+                    **stats, **measured, "execution": runs, "ignored_results": ignored}
         if args.json:
+            executed_ids = set(runs["executed"])
             args.json.parent.mkdir(parents=True, exist_ok=True)
             args.json.write_text(json.dumps({**snapshot,
                                              "requirements": [{"id": r["id"],
+                                                               "clause": r["clause"],
                                                                "mapped": r["mapped"],
-                                                               "executed": r["id"] in runs["executed"]}
+                                                               "executed": r["id"] in executed_ids,
+                                                               "status": requirement_status(r, executed_ids)}
                                                               for r in rows]},
                                             ensure_ascii=False, indent=2) + "\n")
         if args.check:
@@ -441,6 +643,21 @@ def main() -> int:
             print(f"wrote {args.output}")
         else:
             print(text, end="")
+        compact = summary_data(snapshot)
+        summary_output = args.summary_output or (SUMMARY_REPORT if args.output == REPORT else None)
+        summary_json = args.summary_json or (SUMMARY_JSON if args.output == REPORT else None)
+        detail_link = os.path.relpath(args.output, summary_output.parent) if summary_output else args.output.name
+        artifacts = [(summary_output, compact_report(compact, args.source_url, detail_link)),
+                     (summary_json, json.dumps(compact, ensure_ascii=False, indent=2) + "\n")]
+        for path, content in artifacts:
+            if path is None:
+                continue
+            if args.check:
+                require(path.is_file() and path.read_text() == content,
+                        f"stale coverage summary: {path}; run --update")
+            elif args.update or args.output != REPORT:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(content)
         if args.require_complete:
             require(stats["whole_standard_percent"] == stats["whole_standard_executed_percent"] == 100,
                     "whole-standard denominator is incomplete or behaviors lack tests/fresh passes")
@@ -448,7 +665,8 @@ def main() -> int:
             require(audit_stats["source_review_complete"],
                     "some sections lack a complete source-block classification")
         if args.history:
-            append_history(args.history, snapshot)
+            require(not args.check, "--check cannot append measurement history")
+            append_history(args.history, summary_data(snapshot, keep_timestamp=True))
     except (InvalidCoverage, KeyError, TypeError, OSError, ValueError) as exc:
         print(f"behavior coverage: {exc}", file=sys.stderr)
         return 1

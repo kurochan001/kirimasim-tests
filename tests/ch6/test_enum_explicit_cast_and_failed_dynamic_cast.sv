@@ -3,7 +3,7 @@
 :description: An explicit enum cast permits an integral value and a failed dynamic cast leaves the destination unchanged (IEEE 1800-2023 Section 6.22.4)
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.22.4
+:lrm: 1800-2023 6.22.4 6.24.2
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

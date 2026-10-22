@@ -1,0 +1,760 @@
+{
+  "schema": 1,
+  "note": "Scoped reasons for withheld mappings. Neither review completion nor coverage approval; source definitions remain in behaviors.json.",
+  "reviews": [
+    {
+      "test": "tests/ch13/test_illegal_ref_in_static_function.sv",
+      "inputs_sha256": "f67482c9179826bfed3feac35948bedf9782168c66a8c2af2bbb1865828341b4",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-13.5.2-EXTRACT-NO-STATIC-SUBROUTINE-REF"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M06: Icarusはref引数自体の未対応/非input引数の拒否でpassになり、静的寿命を判定した根拠にはならない。Verilatorは受理。固定版承認oracleなし。",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_ref_in_static_function.sv",
+              "contains": "function int twice(ref int v);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_illegal_ref_in_static_task.sv",
+      "inputs_sha256": "4173c044d8eaa57f383471764fe1483a68816fb1e5e180ecd7bd60533e8ae524",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-13.5.2-EXTRACT-NO-STATIC-SUBROUTINE-REF"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "IcarusはReference ports not supported yetで拒否し、Verilatorは受理。静的寿命の制約を実際に検査した診断としては未承認。",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_ref_in_static_task.sv",
+              "contains": "task bump(ref int x);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch15/test_semaphore_blocking_keys.sv",
+      "inputs_sha256": "09d40fe48674d18f2fa4d131f8c851b998a033c9bac0eab86de1e4887806faf5",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-15.3.1-EXTRACT-NOT-MAXIMUM-COUNT",
+            "SV2023-15.3.4-EXTRACT-TRY-GET-SUCCESS",
+            "SV2023-15.3.4-EXTRACT-TRY-GET-FAILURE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M03: 取得後の残り1鍵を直接確認していない。初期容量2へ切り詰める、成功時に全3鍵を消費する、失敗時に残り1鍵を消費する誤実装も同じ出力になり得る。待機・解除などの別要求の登録は維持。",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_semaphore_blocking_keys.sv",
+              "contains": "s.put(3);"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_blocking_keys.expected",
+              "contains": "try_get of 2 with 1 key: 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch15/test_semaphore_multiple.sv",
+      "inputs_sha256": "b2012769cdab5322d564c90021c906434997a143cd573d635aadba13756d43d4",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-15.3.4-EXTRACT-TRY-GET-FAILURE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "引用を具体化し、容量が初期数を超えられることと成功時の鍵の正確な消費は別要求へ登録した。一方、このファイルの失敗要求は残数ゼロで行われるため、残数が正だが不足する場合に鍵を消費しないという条件は未観測。",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_semaphore_multiple.sv",
+              "contains": "sem.put(10);"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_multiple.expected",
+              "contains": "TEST PASSED: Multiple key semaphore tests passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_system_isunbounded.sv",
+      "inputs_sha256": "41cc19bbb9e8caa8f23e87fae7e9af8280ca7956955b8ffcb64882849801e7cb",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.6.3-EXTRACT-ISUNBOUNDED"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M01: 正常系で数値リテラルを渡しているが、規格はパラメータ名を要求する。正しい拒否を不合格にするため、ファイルの承認を保留。",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_system_isunbounded.sv",
+              "contains": "result = $isunbounded(100);"
+            },
+            {
+              "file": "tests/ch20/test_system_isunbounded.expected",
+              "contains": "PASS: $isunbounded(100) = 0 (literal is bounded)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch22/test_macro_advanced.sv",
+      "inputs_sha256": "ed8e57581b874e4b4e2e067b1096164d251bcf5760b3fac44a7453c9789441ed",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
+            "SV2023-22.5.1-EXTRACT-MACRO-QUOTE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M02: CONCATとSTRINGIFYが呼ばれていないため、この2機能に対応付けない。算術・既定引数・条件コンパイルは別の観測。",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_macro_advanced.sv",
+              "contains": "`define CONCAT(a, b) a``b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch22/test_macro_concat.sv",
+      "inputs_sha256": "b22c4e66b04807bbf3546d4942609c50d077716390c8e230666108d6ef61f5b7",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M02: MAKE_NAMEは定義のみで呼ばれていない。実行されるSTRINGIFYや宣言マクロの検証価値はあるが、識別子連結の観測にはならない。",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_macro_concat.sv",
+              "contains": "`define MAKE_NAME(base)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch22/test_resetall_default_nettype.sv",
+      "inputs_sha256": "c69ab93678970f3ffc762ec0f2811c840461d4d17c5079b8ac9a4d719e247dcd",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M03: reset後の幅1の暗黙wireを観測する正常系。要求行にはnoneによる禁止とエラーも混在しており、一行全体を承認するには要求単位の整理が必要。",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_resetall_default_nettype.sv",
+              "contains": "`resetall"
+            },
+            {
+              "file": "tests/ch22/test_resetall_default_nettype.expected",
+              "contains": "y_implicit = 1, width 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch26/test_package_export_named_wildcard.sv",
+      "inputs_sha256": "464ca41b14342a6522089c8b11d339a4f7c9f152d5fd6e0896f54127b3213874",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-26.6-EXTRACT-EXPORT-WILDCARD"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "exportされたga/gb/gsumの可視性は確認するが、他パッケージgoや未参照候補の非公開性を確認しない。要求全体のwildcard絞り込みの証拠には足りない。",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_package_export_named_wildcard.sv",
+              "contains": "export ew_g::*;"
+            },
+            {
+              "file": "tests/ch26/test_package_export_named_wildcard.expected",
+              "contains": "ga=1 gb=2 gm=3 gsum=3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch26/test_std_package_access.sv",
+      "inputs_sha256": "62b1637a774b6a3a547a5ee502eb844595db49d539111ed49469ab27ef4fe06a",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-26.7-EXTRACT-STD-IMPLICIT-IMPORT",
+            "SV2023-26.7-EXTRACT-STD-QUALIFIER"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M04: std参照とユーザー名による隠蔽は観測するが、try_get成功の正確な1を期待しているためファイル全体の現在の期待値を承認しない。",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_std_package_access.sv",
+              "contains": "s1.try_get(), s2.try_get()"
+            },
+            {
+              "file": "tests/ch26/test_std_package_access.expected",
+              "contains": "semaphore: 1, std::semaphore: 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch3/test_time_value_rounding.sv",
+      "inputs_sha256": "70ae9fb8dd5bc0ecd296452823dfe4dc850e525c8adca4e9c2094eba308e69d5",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-3.14.1-EXTRACT-ROUND-LOCAL-PRECISION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "要求の合格基準は2.75の中間値丸めと単位=精度の場合を指定している。2.74の丸めや異なる精度の観測はあるが、それだけではこの行全体を満たさない。",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_time_value_rounding.sv",
+              "contains": "#2.74 $display"
+            },
+            {
+              "file": "tests/ch3/test_time_value_rounding.expected",
+              "contains": "coarse: after #2.74, 2.7000"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_cast_const.sv",
+      "inputs_sha256": "209f20fd24f075a2eaaacf9b2188b26907661da0309a3e26a1fb1c6028131d32",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.24.1-EXTRACT-CONST-CAST"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "名前にconstを含むが実際は定数・パラメータに対する幅/符号/type cast。constキーワードcastは一度も呼び出しておらず、const castの型保存には対応付けない。",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_cast_const.sv",
+              "contains": "result = 32'(PARAM_BYTE);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_enum_first_last_num.sv",
+      "inputs_sha256": "9c6a615fac401e288bbea251d3b9ed22c7a4ed78a22400d39f29153feeee0d56",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.19.5.2-EXTRACT-DECLARATION-ORDER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "lastの結果6は同時に最大値なので、宣言末尾と数値最大を区別できない。first=3は最小値1と異なるため、first要求の対応は登録した。",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_enum_first_last_num.sv",
+              "contains": "l = s.last();"
+            },
+            {
+              "file": "tests/ch6/test_enum_first_last_num.expected",
+              "contains": "first=S_A(3) last=S_C(6) num=3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_illegal_interconnect_data_type.sv",
+      "inputs_sha256": "3dd9ef95c4c76ff6b8bc2b19aa946f3351dce7cbcef10a53e1acebafaa8f0915",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.7.1-EXTRACT-INTERCONNECT-NO-EXPLICIT-TYPE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M06: Icarusの構文エラーとVerilatorのUnsupported: interconnect/構文エラーを確認。行番号一致だけのpassは、この型禁止を実装した証拠にしない。固定版承認oracleもない。",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_illegal_interconnect_data_type.sv",
+              "contains": "interconnect logic [3:0] bus;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_string_getc_is_byte.sv",
+      "inputs_sha256": "cf3fb9a1b0c904361a04fe7ecf33a688dfbde1144c78b188bdfe5b460e6f72ec",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.16.3-EXTRACT-SIGNATURE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "8ビット幅と符号付きbyteの値は確認するが、intインデックス引数を含む完全なメソッドシグネチャを検証していない。",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_getc_is_byte.sv",
+              "contains": "$bits(s.getc(0))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_string_methods_extended.sv",
+      "inputs_sha256": "b169938374f4b6d62cfa3fd3ee60b5a25e8a29f8fd12d88ae86588cbdd1f1008",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.16.6-EXTRACT-LEXICAL-COMPARE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M05: 非ゼロ値をそのまま表示して-1に固定している。内部判定も符号を確認しない。他の観測もファイル単位で承認を保留。",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_methods_extended.sv",
+              "contains": "if (cmp_result != 0)"
+            },
+            {
+              "file": "tests/ch6/test_string_methods_extended.expected",
+              "contains": "Test 7 PASS: compare=-1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_string_putc.sv",
+      "inputs_sha256": "24d77b21a2e5a8fc4d3b177ac05a917e205c36fdc12f176c16aa57dd74912ced",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.16.2-EXTRACT-NO-RESIZE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "有効位置の非ゼロ文字置換は確認する。負位置・長さ以上・ゼロ文字について長さ不変を確認していないため、never-resize要求全体への独立証拠とはしない。",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_putc.sv",
+              "contains": "s.putc("
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_string_putc_2.sv",
+      "inputs_sha256": "5605927d512f4d2b4d5a928a22d2c7eed7abb776cb499c5b96ebe5c0ee7d8777",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.16.2-EXTRACT-NO-RESIZE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "有効位置の非ゼロ文字置換は確認する。負位置・長さ以上・ゼロ文字について長さ不変を確認していないため、never-resize要求全体への独立証拠とはしない。",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_putc_2.sv",
+              "contains": "s.putc("
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_string_putc_getc.sv",
+      "inputs_sha256": "943de16a7a2a15410aee7dd9d5c55d8be2f84168b3993744e481450f6e088eb9",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.16.2-EXTRACT-NO-RESIZE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "有効位置の非ゼロ文字置換は確認する。負位置・長さ以上・ゼロ文字について長さ不変を確認していないため、never-resize要求全体への独立証拠とはしない。",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_putc_getc.sv",
+              "contains": "s.putc("
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_dyn_array_new.sv",
+      "inputs_sha256": "a91dfe316ff57dde3fde99bb238037ea15331d94e091bf38824938a4e92005c1",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.5.1-EXTRACT-NEW-DESTRUCTIVE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "new後のサイズだけを確認し、古い42が破棄されたかや既存要素参照の無効化を確認しない。構文の正常利用だけを別要求へ登録。",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_dyn_array_new.sv",
+              "contains": "arr = new[10];"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_dynamic_array_edge.sv",
+      "inputs_sha256": "6ad92580e16afb86abff1fc08ba4a196a299a3d8bc78cfbc6675904c0201d7e7",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.5.1-EXTRACT-SELF-INITIALIZER-PRESERVES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "拡大時の既存値と縮小時の保持は確認するが、拡大で追加された要素の既定値を確認しない。全体条件は既定値も確認するtest_dynamic_resizeで登録。",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_dynamic_array_edge.sv",
+              "contains": "dyn_arr = new[10](dyn_arr);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_illegal_iterator_argument_without_with.sv",
+      "inputs_sha256": "ea537458ee960b1d48f8e05d1022dba33969889191a84fc6aea44148de8c6c1d",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.12-EXTRACT-ITERATOR-REQUIRES-WITH"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "違法刺激の位置は適切だが、Icarusはsumメソッド未対応、Verilatorは未定義vの診断。with欠如という意図した制約を確認する固定版oracleとしては未承認。",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_illegal_iterator_argument_without_with.sv",
+              "contains": "s = q.sum(v);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_queue_edge_2.sv",
+      "inputs_sha256": "af799299eb5aca381d9e3d97154aa8672b10e0add1eaea933f84ae00375d9782",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.10.2.4-EXTRACT-POP",
+            "SV2023-7.10.2.5-EXTRACT-POP"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "キュー操作を観測するが、メソッドの引用は親節7.10.2まで。7.10.1のsliceと上限など直接引用のある要求への対応を登録した。",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_queue_edge_2.sv",
+              "contains": "val = q.pop_back();"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-7.10.5-EXTRACT-BOUND-DISCARD",
+            "SV2023-7.10.5-EXTRACT-BOUND-WARNING"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "上限超過後のサイズのみ確認し、正確な保持値や必須警告を確認しない。size制限の要求だけを登録。",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_queue_edge_2.sv",
+              "contains": "if (bounded_q.size() > 11)"
+            },
+            {
+              "file": "tests/ch7/test_queue_edge_2.expected",
+              "contains": "PASS: Queue edge cases"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_queue_method_edges.sv",
+      "inputs_sha256": "a7192f46c357397d2bd2da336c8b9eb8fb6d1409f04c4b5084558ae97274f0c6",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.10.2.2-EXTRACT-INVALID-INSERT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "負位置・size超過・xは確認するがzを確認しない。正常挿入・空popなどの別要求への対応は登録。",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_queue_method_edges.sv",
+              "contains": "q.insert(bad, 9);"
+            },
+            {
+              "file": "tests/ch7/test_queue_method_edges.expected",
+              "contains": "after inserts: 0 1 2 3, size=4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_queue_ops_adv_edge_cases.sv",
+      "inputs_sha256": "5de4b4116bf37f8af3f0a9b909c8349928bdb9a6e86ee645ea484e70faf62546",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.10.5-EXTRACT-BOUND-DISCARD",
+            "SV2023-7.10.5-EXTRACT-BOUND-WARNING"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "最大インデックス3のキューに4要素を入れるため、上限超過を発生させていない。正常に上限まで保持できることは確認するが、超過時の破棄・警告は未観測。",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_queue_ops_adv_edge_cases.sv",
+              "contains": "int bq[$:3];"
+            },
+            {
+              "file": "tests/ch7/test_queue_ops_adv_edge_cases.expected",
+              "contains": "[PASS] Queue bounded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_queue_write_at_size_appends.sv",
+      "inputs_sha256": "f9926b5168649e7706a5c7466e26e91a98bde1771ff973bd6a4a1c4811a122ab",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.10.1-EXTRACT-INVALID-WRITE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "離れた位置への書き込みでサイズ不変は観測するが、全要素不変・x/z・負位置や必須の実行時警告を確認しない。last+oneへの正常追加のみ登録。",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_queue_write_at_size_appends.sv",
+              "contains": "q[5] = 7;"
+            },
+            {
+              "file": "tests/ch7/test_queue_write_at_size_appends.expected",
+              "contains": "after q[5] = 7: size 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_final_method_overridden.sv",
+      "inputs_sha256": "f8abd23036cb201b3fe1c011be06329d8ce2d0d2dd9a566579f456ef2e11734c",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.20-EXTRACT-FINAL-NO-OVERRIDE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "virtualなfinalメソッドのoverride拒否はVerilatorで確認した。要求には非virtualでも禁止する条件があり、その分岐をこのファイルだけでは観測できない。",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_final_method_overridden.sv",
+              "contains": "virtual function :final int id();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_final_pure_virtual.sv",
+      "inputs_sha256": "e9c960210e629dcf79253592555b68f5a36c9c01e01ca99247094693665a7586",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.20-EXTRACT-PURE-NOT-FINAL"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarusはclass item構文エラー、Verilatorは受理。pure virtualとfinalの組み合わせ禁止を実際に実装した診断は確認できず固定版oracle未承認。",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_final_pure_virtual.sv",
+              "contains": "pure virtual function :final int id();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_instance_constant_assigned_in_method.sv",
+      "inputs_sha256": "7ca8cbf1c394c7d76f6205abd3589695a1838b664dd823b5dbe79916cfc68495",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.19-EXTRACT-INSTANCE-CONSTRUCTOR-ONCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "コンストラクタ外resizeでの書き込みを拒否する診断は両ツールで確認。要求行にはコンストラクタ内で一度だけという別制約も含まれ、その重複代入の検証はこのファイルにない。",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_instance_constant_assigned_in_method.sv",
+              "contains": "size = n;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_static_instance_constant.sv",
+      "inputs_sha256": "7c4ed3f2838109886a961319c2fea45a2732eb811e2d6c29e56b29ba4b95175c",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.19-EXTRACT-NO-STATIC-INSTANCE-CONST"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarusはclass item構文エラー、Verilatorは受理。instance constのstatic禁止を判定する固定版oracleは未承認。",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_static_instance_constant.sv",
+              "contains": "static const int size;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_super_new_default_without_default.sv",
+      "inputs_sha256": "34b111a45b7cc491978e242fc8361dc216fca10239e9cd990597c773f1e47d81",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.17-EXTRACT-SUPER-DEFAULT-REQUIRES-EXPANSION"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Icarus/Verilatorともdefault構文を受理できない診断。この構文の正常系対応と、この条件だけを拒否することを確認するまで承認しない。",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_super_new_default_without_default.sv",
+              "contains": "super.new(default);"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch15/test_semaphore_multiple": {
+   "status": "pass",
+   "inputs_sha256": "b2012769cdab5322d564c90021c906434997a143cd573d635aadba13756d43d4"
+  },
+  "ch6/test_enum_explicit_cast_and_failed_dynamic_cast": {
+   "status": "pass",
+   "inputs_sha256": "21f4c25d485c589aa856e6706fad119d95404b55f8112a2875f4f7671042b5c9"
+  },
+  "ch6/test_enum_method_edge": {
+   "status": "pass",
+   "inputs_sha256": "f6f26274bfa49b392404c515f817b79b7284e709fbd6f81509363de9bb103a7b"
+  },
+  "ch6/test_enum_methods_name_num": {
+   "status": "pass",
+   "inputs_sha256": "e880a3d6a35b0596e8f1275ace5d0c476398a0d50e68eab5bf05b8fcbb16a463"
+  },
+  "ch6/test_enum_methods_navigation": {
+   "status": "pass",
+   "inputs_sha256": "67f6e2144acc34925587956a3840e9154f6f38e05ecaf087efba44deed7a9987"
+  },
+  "ch7/test_dynamic_array_corner": {
+   "status": "pass",
+   "inputs_sha256": "131496b69b2fe0f5a5a69de07dc3a0a0bc3e15e6a08d53e97598e44185fa2e17"
+  },
+  "ch7/test_dynamic_array_edge_cases": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_dynamic_array_edge_cases.sv:95:18: Unsupported LHS tristate construct: CMETHODHARD 'atWrite'",
+   "inputs_sha256": "18a00170bc577073d111f81f540e32fc8a4b82c7e81018817d80971297fcdcc3"
+  }
+ },
+ "generated_at": "2026-10-22T14:29:34.097194+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

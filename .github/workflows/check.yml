@@ -203,6 +203,7 @@ jobs:
         run: |
           python3 -m unittest discover -s tools -p 'test_*.py'
           python3 tools/behavior_coverage.py --check --require-source-reviewed
+          python3 tools/requirement_matching.py --check
 
       # Problems of existing tests listed in tools/lint_baseline.txt are known.
       - name: Check the metadata of the tests

@@ -3,7 +3,7 @@
 :description: Tests dynamic array operations, resizing, and methods
 :tags: ch7
 :type: simulation
-:lrm: 1800-2023 7.5 7.12
+:lrm: 1800-2023 7.5 7.12 7.5.1
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

@@ -3,7 +3,7 @@
 :description: Semaphore get, put and try_get with several keys at a time
 :tags: ch15
 :type: simulation
-:lrm: 1800-2023 15.3
+:lrm: 1800-2023 15.3 15.3.1 15.3.2 15.3.3 15.3.4
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no
