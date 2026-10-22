@@ -29,8 +29,9 @@ program p_clk(input logic clk, input logic d, output logic q);
 
   initial begin
     @(cb);
-    $display("%0d: d=%b q=%b", $time, cb.d, q);
+    $display("%0d: d=%b", $time, cb.d);
     cb.q <= 1;
+    #3 $display("%0d: q=%b", $time, q);
     @(cb);
     $display("%0d: d=%b q=%b", $time, cb.d, q);
     $finish;
@@ -40,7 +41,7 @@ endprogram
 module test_program_clocking_default_skew;
   logic clk = 0;
   logic d = 0;
-  logic q = 0;
+  logic q;
 
   always #5 clk = ~clk;
 

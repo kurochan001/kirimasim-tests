@@ -7,13 +7,13 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
 | 3 | [Design and verification building blocks](ch3.md) | 27 |  |
-| 4 | [Scheduling semantics](ch4.md) | 382 | 325 |
+| 4 | [Scheduling semantics](ch4.md) | 381 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 35 |  |
 | 6 | [Data types](ch6.md) | 303 | 7 |
 | 7 | [Aggregate data types](ch7.md) | 309 | 14 |
 | 8 | [Classes](ch8.md) | 154 |  |
 | 9 | [Processes](ch9.md) | 114 |  |
-| 10 | [Assignment statements](ch10.md) | 106 |  |
+| 10 | [Assignment statements](ch10.md) | 107 |  |
 | 11 | [Operators and expressions](ch11.md) | 704 | 316 |
 | 12 | [Procedural programming statements](ch12.md) | 120 |  |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 126 | 14 |

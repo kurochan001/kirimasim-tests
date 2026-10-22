@@ -25,6 +25,9 @@ program cov_prog;
     #1 d = 1;
     #1 d = 0;
   end
+
+  // Keep the program alive until the module's coverage calls at 5.
+  initial #10;
 endprogram
 
 module test_coverage_control_program_scope;

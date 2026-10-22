@@ -18,8 +18,9 @@
 // c_visit at 0. Threads 1 and 2 wait in sv_wait_level on a wait statement
 // (9.4.3) for level to reach 1 and 2, set at 5 and 10; thread 3 waits in
 // sv_wait_event on an event control (9.4.2) for go, triggered at 15. The
-// static variable active counts the calls under way, and each call keeps its
-// own local value, which it reports through the exported sv_back (35.8).
+// static variable active counts the calls under way, and the automatic task
+// keeps each call's own argument and local value, which it reports through
+// sv_back (35.8).
 
 `timescale 1ns/1ns
 
@@ -32,7 +33,7 @@ module test_dpi_import_task_reentrant_wait;
   event go;
   int level;
 
-  task sv_wait_level(input int n);
+  task automatic sv_wait_level(input int n);
     wait (level >= n);
   endtask
 

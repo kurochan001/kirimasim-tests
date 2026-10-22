@@ -138,9 +138,12 @@ static void aliases_and_members(void)
     int n = 0, i;
 
     if (t != NULL) {
+        char tn[64], an[64];
         alias = vpi_handle(vpiTypedefAlias, t);
-        vpi_printf((PLI_BYTE8 *)"when: %s, name %s, alias: %s, name %s\n", kind(t), name_of(t),
-                   kind(alias), name_of(alias));
+        snprintf(tn, sizeof tn, "%s", name_of(t));
+        snprintf(an, sizeof an, "%s", name_of(alias));
+        vpi_printf((PLI_BYTE8 *)"when: %s, name %s, alias: %s, name %s\n", kind(t), tn,
+                   kind(alias), an);
     }
     if (ds != NULL) {
         it = vpi_iterate(vpiTypespecMember, ds);

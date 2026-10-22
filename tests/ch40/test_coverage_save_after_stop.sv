@@ -22,7 +22,7 @@
 
 module test_coverage_save_after_stop;
   logic [3:0] d = 0;
-  int stopped, before, after, saved, merged;
+  int stopped, value_before, value_after, saved, merged;
 
   initial begin
     #1 d = 4'b0101;
@@ -30,13 +30,13 @@ module test_coverage_save_after_stop;
     #1;
     stopped = $coverage_control(`SV_COV_STOP, `SV_COV_TOGGLE, `SV_COV_HIER,
                                 test_coverage_save_after_stop);
-    before = $coverage_get(`SV_COV_TOGGLE, `SV_COV_HIER, test_coverage_save_after_stop);
+    value_before = $coverage_get(`SV_COV_TOGGLE, `SV_COV_HIER, test_coverage_save_after_stop);
     #1 d = 4'b1111;
-    after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_HIER, test_coverage_save_after_stop);
+    value_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_HIER, test_coverage_save_after_stop);
     saved = $coverage_save(`SV_COV_TOGGLE, "test_coverage_save_after_stop_db");
     merged = $coverage_merge(`SV_COV_TOGGLE, "test_coverage_save_after_stop_db");
     $display("stop gives OK: %0d", stopped == `SV_COV_OK);
-    $display("stopped coverage does not change: %0d", after == before);
+    $display("stopped coverage does not change: %0d", value_after == value_before);
     $display("save after stop gives OK or NOCOV: %0d",
              saved inside {`SV_COV_OK, `SV_COV_NOCOV});
     $display("merge after save gives OK: %0d",

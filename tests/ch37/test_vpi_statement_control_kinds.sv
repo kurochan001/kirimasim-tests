@@ -35,7 +35,7 @@ module test_vpi_statement_control_kinds;
     wait (en);
     forever ;
     if (en) ; else ;
-    expect (en);
+    expect (@(posedge en) en);
     for (int i = 0; i < 1; i++) ;
     disable stmts;
     return;

@@ -40,10 +40,14 @@ static void flush_sorted(void)
      vpiHandle it = top ? vpi_iterate(vpiVirtualInterfaceVar, top) : NULL, v;
 
      (void)user_data;
-     while (it != NULL && (v = vpi_scan(it)) != NULL && n_lines < 16)
-         snprintf(lines[n_lines++], 160, "%s: expr %s, actual %s, modport %d", name_of(v),
-                  name_of(vpi_handle(vpiExpr, v)), name_of(vpi_handle(vpiActual, v)),
-                  (int)vpi_get(vpiIsModPort, v));
+     while (it != NULL && (v = vpi_scan(it)) != NULL && n_lines < 16) {
+         char vn[64], en[64], an[64];
+         snprintf(vn, sizeof vn, "%s", name_of(v));
+         snprintf(en, sizeof en, "%s", name_of(vpi_handle(vpiExpr, v)));
+         snprintf(an, sizeof an, "%s", name_of(vpi_handle(vpiActual, v)));
+         snprintf(lines[n_lines++], 160, "%s: expr %s, actual %s, modport %d", vn,
+                  en, an, (int)vpi_get(vpiIsModPort, v));
+     }
      flush_sorted();
      return 0;
  }

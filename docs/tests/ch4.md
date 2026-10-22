@@ -1,6 +1,6 @@
 # Clause 4: Scheduling semantics
 
-[All chapters](README.md). 382 tests, 325 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 381 tests, 325 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -55,7 +55,6 @@
 | [`test_range_select_lhs`](../../tests/ch4/test_range_select_lhs.sv) | Part-select assignment with variable bounds | 4.9 11.5.1 | Icarus Verilog 13.0 |  |
 | [`test_sched_contassign_zero_delay`](../../tests/ch4/test_sched_contassign_zero_delay.sv) | A continuous assignment is evaluated at time zero and updated in the Active region, before a process waiting on #0 resumes | 4.9.1 4.4.2.2 4.4.2.3 10.3.2 | Icarus Verilog 13.0 |  |
 | [`test_sched_procedural_assign_deassign`](../../tests/ch4/test_sched_procedural_assign_deassign.sv) | A procedural continuous assignment follows its right-hand side and overrides procedural assignments until deassign | 4.9.2 10.6.1 | standard only |  |
-| [`test_sched_procedural_assign_part_select`](../../tests/ch4/test_sched_procedural_assign_part_select.sv) | A procedural continuous assignment to a part-select drives only those bits, overrides procedural writes to them until deassign, and leaves the other bits to procedural writes | 4.9.2 10.6.1 | Icarus Verilog 13.0 |  |
 | [`test_sched_intra_assignment_target`](../../tests/ch4/test_sched_intra_assignment_target.sv) | With an intra-assignment timing control the right-hand side is evaluated first; a blocking assignment picks its target when it resumes, a nonblocking one when it executes | 4.9.3 4.9.4 9.4.5 10.4.1 10.4.2 | Icarus Verilog 13.0 |  |
 | [`test_switch_x_gate_resolution`](../../tests/ch4/test_switch_x_gate_resolution.sv) | A node on the far side of a bidirectional switch whose gate is x takes a known value only when the switch being on and being off give it the same value | 4.9.5 28.8 28.12 | Icarus Verilog 13.0 | x/z |
 | [`test_sched_subroutine_copy_out`](../../tests/ch4/test_sched_subroutine_copy_out.sv) | Output and inout arguments are copied out when a task returns, while a ref argument is written at once | 4.9.7 13.3 13.5.1 13.5.2 | Verilator 5.052 |  |

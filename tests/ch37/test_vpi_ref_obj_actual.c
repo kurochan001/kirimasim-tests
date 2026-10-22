@@ -41,11 +41,15 @@ static PLI_INT32 ref_calltf(PLI_BYTE8 *user_data)
     while (it != NULL && (port = vpi_scan(it)) != NULL) {
         vpiHandle low = vpi_handle(vpiLowConn, port);
         vpiHandle actual = low ? vpi_handle(vpiActual, low) : NULL;
+        char pname[64], lname[64], aname[128];
+        snprintf(pname, sizeof pname, "%s", name_of(port));
+        snprintf(lname, sizeof lname, "%s", name_of(low));
+        snprintf(aname, sizeof aname, "%s",
+                 actual ? vpi_get_str(vpiFullName, actual) : "none");
         vpi_printf((PLI_BYTE8 *)"port %s: low connection is %s named %s, actual %s = %d\n",
-                   name_of(port),
+                   pname,
                    low && vpi_get(vpiType, low) == vpiRefObj ? "a ref obj" : "another object",
-                   name_of(low), actual ? vpi_get_str(vpiFullName, actual) : "none",
-                   actual ? int_value(actual) : -1);
+                   lname, aname, actual ? int_value(actual) : -1);
     }
     return 0;
 }

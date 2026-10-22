@@ -41,22 +41,22 @@ The suite has **3801 tests** in 37 chapters. 812 of them are generated (`tests/g
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2526 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 773 |
-| The standard only, where neither simulator follows it | 502 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2528 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 770 |
+| The standard only, where neither simulator follows it | 503 |
 
-568 tests depend on x or z values (`:fourstate: yes`). 208 tests come with C code: 29 DPI tests (`:dpi_c:`) and 179 VPI tests (`:vpi_c:`). 172 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+568 tests depend on x or z values (`:fourstate: yes`). 208 tests come with C code: 29 DPI tests (`:dpi_c:`) and 179 VPI tests (`:vpi_c:`). 173 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 27 | 21 | 4 | 2 |
-| 4 | Scheduling semantics | 382 | 373 | 4 | 5 |
+| 3 | Design and verification building blocks | 27 | 22 | 3 | 2 |
+| 4 | Scheduling semantics | 381 | 372 | 4 | 5 |
 | 5 | Lexical conventions | 35 | 30 | 4 | 1 |
 | 6 | Data types | 303 | 220 | 64 | 19 |
 | 7 | Aggregate data types | 309 | 130 | 169 | 10 |
 | 8 | Classes | 154 | 34 | 101 | 19 |
 | 9 | Processes | 114 | 97 | 8 | 9 |
-| 10 | Assignment statements | 106 | 86 | 16 | 4 |
+| 10 | Assignment statements | 107 | 86 | 16 | 5 |
 | 11 | Operators and expressions | 704 | 641 | 57 | 6 |
 | 12 | Procedural programming statements | 120 | 102 | 16 | 2 |
 | 13 | Tasks and functions (subroutines) | 126 | 68 | 54 | 4 |
@@ -72,7 +72,7 @@ The suite has **3801 tests** in 37 chapters. 812 of them are generated (`tests/g
 | 23 | Modules and hierarchy | 72 | 55 | 9 | 8 |
 | 24 | Programs | 29 | 13 | 3 | 13 |
 | 25 | Interfaces | 50 | 11 | 35 | 4 |
-| 26 | Packages | 39 | 28 | 10 | 1 |
+| 26 | Packages | 39 | 30 | 8 | 1 |
 | 27 | Generate constructs | 68 | 63 | 4 | 1 |
 | 28 | Gate-level and switch-level modeling | 176 | 139 | 3 | 34 |
 | 29 | User-defined primitives | 40 | 31 | 6 | 3 |

@@ -52,10 +52,12 @@ static void ref_obj(vpiHandle decl)
     actual = vpi_handle(vpiActual, ref);
     type = actual ? vpi_get(vpiType, actual) : 0;
     if (type == vpiInterface || type == vpiModport) {
+        char aname[128], dname[64];
+        snprintf(aname, sizeof aname, "%s",
+                 type == vpiInterface ? str(vpiFullName, actual) : str(vpiName, actual));
+        snprintf(dname, sizeof dname, "%s", str(vpiDefName, ref));
         vpi_printf((PLI_BYTE8 *)", actual %s %s, def name %s",
-                   type == vpiInterface ? "interface" : "modport",
-                   type == vpiInterface ? str(vpiFullName, actual) : str(vpiName, actual),
-                   str(vpiDefName, ref));
+                   type == vpiInterface ? "interface" : "modport", aname, dname);
         if (type == vpiInterface)
             vpi_printf((PLI_BYTE8 *)", generic %d", (int)vpi_get(vpiGeneric, ref));
         vpi_printf((PLI_BYTE8 *)", typespec NULL %d\n", vpi_handle(vpiTypespec, ref) == NULL);
@@ -113,10 +115,15 @@ static void bit_target(vpiHandle u)
     }
     parent = vpi_handle(vpiParent, lhs);
     actual = vpi_handle(vpiActual, lhs);
-    vpi_printf((PLI_BYTE8 *)"link[4]: ref obj %d, parent is ref obj %s %d, actual %s, var bit %d\n",
-               vpi_get(vpiType, lhs) == vpiRefObj, str(vpiName, parent),
-               parent != NULL && vpi_get(vpiType, parent) == vpiRefObj, str(vpiFullName, actual),
-               actual != NULL && vpi_get(vpiType, actual) == vpiVarBit);
+    {
+        char pname[64], aname[128];
+        snprintf(pname, sizeof pname, "%s", str(vpiName, parent));
+        snprintf(aname, sizeof aname, "%s", str(vpiFullName, actual));
+        vpi_printf((PLI_BYTE8 *)"link[4]: ref obj %d, parent is ref obj %s %d, actual %s, var bit %d\n",
+                   vpi_get(vpiType, lhs) == vpiRefObj, pname,
+                   parent != NULL && vpi_get(vpiType, parent) == vpiRefObj, aname,
+                   actual != NULL && vpi_get(vpiType, actual) == vpiVarBit);
+    }
 }
 
 static PLI_INT32 io_calltf(PLI_BYTE8 *user_data)

@@ -40,9 +40,13 @@ static void flush_sorted(void)
      vpiHandle it = top ? vpi_iterate(vpiNettypeDecl, top) : NULL, nt;
 
      (void)user_data;
-     while (it != NULL && (nt = vpi_scan(it)) != NULL && n_lines < 16)
-         snprintf(lines[n_lines++], 160, "%s: resolved by %s, alias of %s", name_of(nt),
-                  name_of(vpi_handle(vpiWith, nt)), name_of(vpi_handle(vpiNetTypedefAlias, nt)));
+     while (it != NULL && (nt = vpi_scan(it)) != NULL && n_lines < 16) {
+         char nn[64], wn[64], an[64];
+         snprintf(nn, sizeof nn, "%s", name_of(nt));
+         snprintf(wn, sizeof wn, "%s", name_of(vpi_handle(vpiWith, nt)));
+         snprintf(an, sizeof an, "%s", name_of(vpi_handle(vpiNetTypedefAlias, nt)));
+         snprintf(lines[n_lines++], 160, "%s: resolved by %s, alias of %s", nn, wn, an);
+     }
      if (n_lines == 0)
          vpi_printf((PLI_BYTE8 *)"no nettype declarations\n");
      flush_sorted();

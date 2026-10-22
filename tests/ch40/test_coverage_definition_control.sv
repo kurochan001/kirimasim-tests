@@ -66,7 +66,7 @@ module test_coverage_definition_control;
     c1_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     c2_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u2);
     show("reset of u1 clears u1 and leaves u2 unchanged",
-         reset_u1 != `SV_COV_OK || (c1_after == 0 && c2_after == c2));
+         reset_u1 == `SV_COV_OK && c1_after == 0 && c2_after == c2);
     #1;                             // 6
     stop_def = $coverage_control(`SV_COV_STOP, `SV_COV_TOGGLE, `SV_COV_MODULE,
                                  "test_coverage_definition_control_leaf");
@@ -78,7 +78,7 @@ module test_coverage_definition_control;
     u1_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     u2_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u2);
     show("while the definition is stopped, neither instance changes",
-         stop_def != `SV_COV_OK || (u1_after == u1_before && u2_after == u2_before));
+         stop_def == `SV_COV_OK && u1_after == u1_before && u2_after == u2_before);
     start_u1 = $coverage_control(`SV_COV_START, `SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     max_u1 = $coverage_get_max(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     x1_before = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
@@ -89,8 +89,8 @@ module test_coverage_definition_control;
     x1_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     x2_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u2);
     show("starting the instance u1 lets u1 collect",
-         start_u1 != `SV_COV_OK || max_u1 <= 0 || x1_after > x1_before);
+         start_u1 == `SV_COV_OK && max_u1 > 0 && x1_after > x1_before);
     show("u2 stays stopped after starting u1",
-         start_u1 != `SV_COV_OK || x2_after == x2_before);
+         start_u1 == `SV_COV_OK && x2_after == x2_before);
   end
 endmodule

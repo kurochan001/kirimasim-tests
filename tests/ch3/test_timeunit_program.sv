@@ -4,7 +4,7 @@
 :tags: ch3
 :type: simulation
 :lrm: 1800-2023 3.14.2.3 3.14.2.2 3.14.1 24.3
-:oracle: spec verilator@5.052
+:oracle: spec iverilog@13.0 verilator@5.052
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
@@ -15,8 +15,8 @@
 // #1 waits 10 ns before it drives q. §24.3: the program is instantiated in the
 // module. The module declares 1 ns and 1 ps (§3.14.2.2), so at 10.5 (§3.14.1)
 // it sees q high and prints its own $realtime as 10.500.
-// Icarus Verilog 13.0 rejects the assignment to the output port of the
-// program, because it treats the port as continuously assigned.
+// The program keeps a second initial procedure waiting at 20 ns, so it is
+// still alive when the module observes q at 10.5 ns.
 
 `timescale 1ns/1ps
 
@@ -27,10 +27,13 @@ program p_time(output logic q);
   initial begin
     #1 q = 1;
   end
+
+  // Keep the program alive past the module observation at 10.5 ns.
+  initial #2;
 endprogram
 
 module test_timeunit_program;
-  logic q = 0;
+  logic q;
 
   p_time p(.q(q));
 

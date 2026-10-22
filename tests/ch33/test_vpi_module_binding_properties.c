@@ -11,6 +11,11 @@ extern "C" {
 
 #define TOP "test_vpi_module_binding_properties"
 
+static void copy_str(char *dst, size_t size, const char *src)
+{
+    snprintf(dst, size, "%s", src != NULL ? src : "");
+}
+
 static PLI_INT32 report_calltf(PLI_BYTE8 *user_data)
 {
     vpiHandle top = vpi_handle_by_name((PLI_BYTE8 *)TOP, NULL);
@@ -24,17 +29,17 @@ static PLI_INT32 report_calltf(PLI_BYTE8 *user_data)
     }
     it = vpi_iterate(vpiModule, top);
     while (it != NULL && (m = vpi_scan(it)) != NULL) {
-        const char *name = vpi_get_str(vpiName, m);
-        const char *lib = vpi_get_str(vpiLibrary, m);
-        const char *cell = vpi_get_str(vpiCell, m);
-        const char *config = vpi_get_str(vpiConfig, m);
-        if (name == NULL || strcmp(name, "u") != 0)
+        char name[64], lib[64], cell[64], config[64];
+        copy_str(name, sizeof name, vpi_get_str(vpiName, m));
+        copy_str(lib, sizeof lib, vpi_get_str(vpiLibrary, m));
+        copy_str(cell, sizeof cell, vpi_get_str(vpiCell, m));
+        copy_str(config, sizeof config, vpi_get_str(vpiConfig, m));
+        if (strcmp(name, "u") != 0)
             continue;
         found = 1;
-        vpi_printf("u library work: %d\n", lib != NULL && strcmp(lib, "work") == 0);
-        vpi_printf("u cell leaf: %d\n", cell != NULL && strcmp(cell, "leaf") == 0);
-        vpi_printf("u config is set: %d\n",
-                   config != NULL && config[0] != '\0');
+        vpi_printf("u library work: %d\n", strcmp(lib, "work") == 0);
+        vpi_printf("u cell leaf: %d\n", strcmp(cell, "leaf") == 0);
+        vpi_printf("u config is set: %d\n", config[0] != '\0');
     }
     if (!found)
         vpi_printf("u not found\n");

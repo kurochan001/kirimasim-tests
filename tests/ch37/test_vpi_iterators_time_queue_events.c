@@ -174,8 +174,10 @@ static void alias_statements(void)
     it = top != NULL ? vpi_iterate(vpiAliasStmt, top) : NULL;
     while (it != NULL && (h = vpi_scan(it)) != NULL) {
         if (n < MAX) {
-            snprintf(list[n], sizeof list[n], "%s=%s", name_of(vpi_handle(vpiLhs, h)),
-                     name_of(vpi_handle(vpiRhs, h)));
+            char lhs[32], rhs[32];
+            snprintf(lhs, sizeof lhs, "%s", name_of(vpi_handle(vpiLhs, h)));
+            snprintf(rhs, sizeof rhs, "%s", name_of(vpi_handle(vpiRhs, h)));
+            snprintf(list[n], sizeof list[n], "%s=%s", lhs, rhs);
             n++;
         }
         in_top += same(vpi_handle(vpiInstance, h), top);

@@ -26,14 +26,13 @@ program p_clk(input logic clk, output logic q);
   initial begin
     @(cb);
     cb.q <= 1;
-    #1 $display("%0d: q=%b", $time, q);
-    #2 $display("%0d: q=%b", $time, q);
+    #3 $display("%0d: q=%b", $time, q);
   end
 endprogram
 
 module test_program_clocking_output;
   logic clk = 0;
-  logic q = 0;
+  logic q;
 
   always #5 clk = ~clk;
 

@@ -1,23 +1,21 @@
 /*
 :name: test_package_export_named_wildcard
-:description: export pkg::* re-exports only the names that a package imported from that one package, not names imported from another package (IEEE 1800-2023 Section 26.5)
+:description: export pkg::* re-exports only the names that a package imported from that one package, not names imported from another package (IEEE 1800-2023 Section 26.6)
 :tags: ch26
 :type: simulation
-:lrm: 1800-2023 26.5 26.6 26.3
-:oracle: spec verilator@5.052
+:lrm: 1800-2023 26.6 26.3
+:oracle: spec iverilog@13.0 verilator@5.052
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_package_export_named_wildcard.expected
 */
-// IEEE 1800-2023 §26.5: "export ew_g::*;" exports every name that the package
-// imported from ew_g, while names it imported from other packages and does not
-// export stay its own. §26.6: a module that imports the middle package gets
+// IEEE 1800-2023 §26.6: "export ew_g::*;" exports every name that the package
+// actually imported from ew_g; names imported from other packages and not
+// exported stay its own. A module that imports the middle package gets
 // ga, gb and gsum that the export makes visible, and gm that the package
 // declares. The test does not name go, which the middle package imports but
-// does not export, so the reference stays legal (26.3). Icarus Verilog 13.0
-// does not bind the names of a named wildcard export, so the expected output
-// is recorded with Verilator 5.052.
+// does not export, so the reference stays legal (26.3).
 
 package ew_g;
   int ga = 1;
@@ -33,7 +31,9 @@ package ew_other;
 endpackage
 
 package ew_mid;
-  import ew_g::*;
+  import ew_g::ga;
+  import ew_g::gb;
+  import ew_g::gsum;
   import ew_other::go;
 
   export ew_g::*;

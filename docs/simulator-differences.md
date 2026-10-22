@@ -39,7 +39,6 @@ of the test as well.
 | 24.3 | When a program's initial procedures end, the threads they forked go on running; they have to end with the program. | `ch24/test_program_end_kills_descendants` |
 | 24.5, 24.3.1 | A program's thread, and a module task it calls, run in the Active region with the module's processes instead of in the Reactive region: the call sees a variable before the nonblocking update of its time step, and runs before the module's own processes of the time step it resumes in. | `ch24/test_program_calls_module_task` |
 | 24.3.1 | A program's process sees the values from before the nonblocking updates of its time step (Verilator 5.052 too). | `ch24/test_program_reactive_sees_nba`, `ch24/test_program_stimulus_after_clock_edge` |
-| 26.5 | It does not bind the names of a named wildcard export, `export pkg::*;`, so the names it re-exports are not visible to an importer. | `ch26/test_package_export_named_wildcard` |
 | 10.6.1, 4.9.2 | `assign` (procedural continuous) evaluates its right-hand side once, so the variable does not follow later changes (it warns about this; Verilator 5.052 does the same). | `ch4/test_sched_procedural_assign_deassign` |
 | 11.5.2, 7.4.5 | Reading a 2-state memory at an invalid address gives x instead of the default value 0. | `ch11/test_memory_invalid_address_2state` |
 | 22.5.3 | It does not know `` `undefineall `` and treats it as an empty macro, so the macros stay defined. | `ch22/test_undefineall` |
@@ -81,6 +80,7 @@ of the test as well.
 
 | Clause | Design | Tests |
 | --- | --- | --- |
+| 10.6.1 | A procedural assign statement to a part-select of a variable | `ch10/test_sched_procedural_assign_part_select` |
 | 9.2.2.2 to 9.2.2.4 | A variable of always_ff, always_comb or always_latch written by another process, also through a function | `ch9/test_illegal_always_ff_other_writer`, `ch9/test_illegal_always_comb_other_writer`, `ch9/test_illegal_always_latch_other_writer`, `ch9/test_illegal_always_ff_written_via_function` |
 | 6.5 | An input port declared as a variable and assigned by its module | `ch6/test_illegal_input_port_variable_assigned` |
 | 25.5 | A modport that names a signal its interface does not declare | `ch25/test_illegal_modport_undeclared_name` |
@@ -182,6 +182,7 @@ not parse the modport in an interface port of a module.
 
 | Clause | Design | Tests |
 | --- | --- | --- |
+| 10.6.1 | A procedural assign statement to a part-select of a variable | `ch10/test_sched_procedural_assign_part_select` |
 | 9.2.2.2 to 9.2.2.4 | A variable of always_ff, always_comb or always_latch written by another process (it only warns, MULTIDRIVEN) | `ch9/test_illegal_always_ff_other_writer`, `ch9/test_illegal_always_comb_other_writer`, `ch9/test_illegal_always_latch_other_writer`, `ch9/test_illegal_always_ff_written_via_function` |
 | 9.2.2.4 | always_ff with a delay or a second event control | `ch9/test_illegal_always_ff_delay`, `ch9/test_illegal_always_ff_two_event_controls` |
 | 6.6.2 | A uwire net with two drivers | `ch6/test_illegal_uwire_two_drivers` |

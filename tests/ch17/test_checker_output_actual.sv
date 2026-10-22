@@ -30,7 +30,7 @@ endchecker
 
 module test_checker_output_actual;
   logic clk = 0, d = 0;
-  logic [1:0] qv = 2'b00;
+  logic [1:0] qv;
   logic seen = 0;
 
   always #5 clk = ~clk;

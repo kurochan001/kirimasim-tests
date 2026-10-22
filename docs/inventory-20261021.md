@@ -984,12 +984,44 @@ properties. `tools/clauses.txt` has the eleven clauses again. The depth
 report therefore counts eleven new one-test spec-only clauses; a second
 test for them needs a VPI-capable simulator.
 
+### Review fixes of 2026-10-22
+
+The content review in [test-content-review-20261022.md](test-content-review-20261022.md)
+found twelve problems in twenty-four tests. They are fixed:
+
+- F01: the procedural assign to a part-select is now an illegal design in
+  `ch10/test_sched_procedural_assign_part_select`; the clause list and the
+  simulator differences say that Icarus Verilog 13.0 and Verilator 5.052
+  accept it.
+- F02: the two package export tests now import the names they re-export
+  explicitly; both releases reproduce them, and they cite 26.6.
+- F03: the output-driven variables of the program and checker tests no
+  longer have declaration initializers.
+- F04: the program tests keep a second initial procedure alive past the
+  module observation, so the implicit finish of 24.3 does not cut it off.
+- F05: `before`, a reserved word, is renamed to `value_before` in the
+  coverage save test.
+- F06: the expect statement in the VPI statement test has an explicit
+  `@(posedge en)` clock.
+- F07: the fast checker in the context test keeps `fast_ok` low through
+  the edge at 42.
+- F08: the nine VPI C files copy each `vpi_get_str()` result before the
+  next call, as 38.11 requires.
+- F09: the exported wait task of the reentrant DPI test is automatic.
+- F10: the setup violation is reported at the reference edge, 10, not at
+  the data change, 7.
+- F11: the recrem checks use `(d, posedge clk, ...)`, and the RECREM entry
+  annotates the separate `$removal` check too; the expected notifiers are
+  updated.
+- F12: the coverage definition test requires every control and query to
+  succeed; an all-ERROR implementation can no longer pass.
+
 ### Current state
 
 After these commits the suite has 3801 tests in 37 chapters, 812 of them
-generated. By `:oracle:`, 2526 list Icarus Verilog 13.0, 773 list
-Verilator 5.052, and 502 follow the standard only. 568 tests depend on
-x or z values, 208 have C code (29 DPI and 179 VPI), 172 are illegal
+generated. By `:oracle:`, 2528 list Icarus Verilog 13.0, 770 list
+Verilator 5.052, and 503 follow the standard only. 568 tests depend on
+x or z values, 208 have C code (29 DPI and 179 VPI), 173 are illegal
 designs, and 5 set an expected exit code.
 
 ### Tests added in this work

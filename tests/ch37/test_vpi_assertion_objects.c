@@ -79,11 +79,14 @@ static const char *base_name(const char *path)
 
 static void details(vpiHandle h, vpiHandle top)
 {
-    const char *name = name_of(h);
+    char name[64];
     char ev[48];
     vpiHandle inst, spec, by_name_h;
-    int own_clock = strcmp(name, "a_expl") == 0 || strcmp(name, "c_prop") == 0
-                    || strcmp(name, "r_prop") == 0;
+    int own_clock;
+
+    snprintf(name, sizeof name, "%s", name_of(h));
+    own_clock = strcmp(name, "a_expl") == 0 || strcmp(name, "c_prop") == 0
+                || strcmp(name, "r_prop") == 0;
 
     event_text(vpi_handle(vpiClockingEvent, h), ev, sizeof ev);
     vpi_printf((PLI_BYTE8 *)"%s: %s", name, kind(h));
@@ -105,14 +108,17 @@ static void details(vpiHandle h, vpiHandle top)
     }
     vpi_printf((PLI_BYTE8 *)"\n");
     if (strcmp(name, "a_expl") == 0) {
+        char full[128], file[128];
         by_name_h = vpi_handle_by_name((PLI_BYTE8 *)TOP ".a_expl", NULL);
         inst = vpi_handle(vpiInstance, h);
+        snprintf(full, sizeof full, "%s", vpi_get_str(vpiFullName, h));
+        snprintf(file, sizeof file, "%s", vpi_get_str(vpiFile, h));
         vpi_printf((PLI_BYTE8 *)"a_expl: by name the same %d, full name %s, instance is the "
                    "module %d, file %s, lines %d to %d\n",
                    by_name_h != NULL && vpi_compare_objects(by_name_h, h) == 1,
-                   vpi_get_str(vpiFullName, h) ? vpi_get_str(vpiFullName, h) : "none",
+                   full,
                    inst != NULL && top != NULL && vpi_compare_objects(inst, top) == 1,
-                   base_name(vpi_get_str(vpiFile, h)), (int)vpi_get(vpiStartLine, h),
+                   base_name(file), (int)vpi_get(vpiStartLine, h),
                    (int)vpi_get(vpiEndLine, h));
     }
 }

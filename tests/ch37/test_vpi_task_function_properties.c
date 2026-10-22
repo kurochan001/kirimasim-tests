@@ -60,12 +60,15 @@ static void returns(void)
     vpiHandle f = find("make_pair"), ret, ts;
 
     if (f != NULL) {
+        char rname[64], tname[64];
         ret = vpi_handle(vpiReturn, f);
         ts = ret ? vpi_handle(vpiTypespec, ret) : NULL;
+        snprintf(rname, sizeof rname, "%s", str(vpiName, ret));
+        snprintf(tname, sizeof tname, "%s", str(vpiName, ts));
         vpi_printf((PLI_BYTE8 *)"function make_pair: visibility %s, method %d, return variable "
                                 "%s, struct var %d, typespec %s\n",
-                   visibility(f), (int)vpi_get(vpiMethod, f), str(vpiName, ret),
-                   ret != NULL && vpi_get(vpiType, ret) == vpiStructVar, str(vpiName, ts));
+                   visibility(f), (int)vpi_get(vpiMethod, f), rname,
+                   ret != NULL && vpi_get(vpiType, ret) == vpiStructVar, tname);
     } else {
         vpi_printf((PLI_BYTE8 *)"function make_pair: not found\n");
     }
