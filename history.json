@@ -3993,6 +3993,830 @@
      }
     }
    }
+  },
+  {
+   "time": "2026-10-22T23:07:40Z",
+   "suite_commit": "bc1609dc005548ac6dd7848355b705983d7aacd5",
+   "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/39865168055",
+   "tests": 3938,
+   "chapters": {
+    "10": 109,
+    "11": 724,
+    "12": 122,
+    "13": 131,
+    "14": 53,
+    "15": 36,
+    "16": 99,
+    "17": 31,
+    "18": 60,
+    "19": 43,
+    "20": 192,
+    "21": 92,
+    "22": 48,
+    "23": 81,
+    "24": 30,
+    "25": 54,
+    "26": 40,
+    "27": 68,
+    "28": 178,
+    "29": 41,
+    "3": 27,
+    "30": 23,
+    "31": 23,
+    "32": 25,
+    "33": 25,
+    "35": 31,
+    "36": 29,
+    "37": 78,
+    "38": 41,
+    "39": 22,
+    "4": 387,
+    "40": 23,
+    "5": 41,
+    "6": 318,
+    "7": 334,
+    "8": 162,
+    "9": 117
+   },
+   "simulators": {
+    "icarus": {
+     "name": "Icarus Verilog",
+     "version": "Icarus Verilog version 14.0 (devel) (s20260301-638-ge072b333)",
+     "counts": {
+      "pass": 2719,
+      "fail": 0,
+      "known": 1219,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       22,
+       27
+      ],
+      "4": [
+       377,
+       387
+      ],
+      "5": [
+       35,
+       41
+      ],
+      "6": [
+       239,
+       318
+      ],
+      "7": [
+       166,
+       334
+      ],
+      "8": [
+       48,
+       162
+      ],
+      "9": [
+       100,
+       117
+      ],
+      "10": [
+       89,
+       109
+      ],
+      "11": [
+       656,
+       724
+      ],
+      "12": [
+       105,
+       122
+      ],
+      "13": [
+       76,
+       131
+      ],
+      "14": [
+       13,
+       53
+      ],
+      "15": [
+       2,
+       36
+      ],
+      "16": [
+       22,
+       99
+      ],
+      "17": [
+       0,
+       31
+      ],
+      "18": [
+       8,
+       60
+      ],
+      "19": [
+       2,
+       43
+      ],
+      "20": [
+       170,
+       192
+      ],
+      "21": [
+       83,
+       92
+      ],
+      "22": [
+       45,
+       48
+      ],
+      "23": [
+       64,
+       81
+      ],
+      "24": [
+       13,
+       30
+      ],
+      "25": [
+       19,
+       54
+      ],
+      "26": [
+       31,
+       40
+      ],
+      "27": [
+       65,
+       68
+      ],
+      "28": [
+       144,
+       178
+      ],
+      "29": [
+       32,
+       41
+      ],
+      "30": [
+       19,
+       23
+      ],
+      "31": [
+       4,
+       23
+      ],
+      "32": [
+       11,
+       25
+      ],
+      "33": [
+       7,
+       25
+      ],
+      "35": [
+       1,
+       31
+      ],
+      "36": [
+       20,
+       29
+      ],
+      "37": [
+       6,
+       78
+      ],
+      "38": [
+       24,
+       41
+      ],
+      "39": [
+       0,
+       22
+      ],
+      "40": [
+       1,
+       23
+      ]
+     },
+     "changes": {
+      "passing": 2,
+      "failing": 0,
+      "passing_tests": [
+       "ch26/test_package_export_all",
+       "ch3/test_timeunit_program"
+      ],
+      "failing_tests": [],
+      "added": 220,
+      "added_passing": 106,
+      "removed": 1
+     }
+    },
+    "verilator": {
+     "name": "Verilator",
+     "version": "Verilator 5.053 devel rev v5.052-550-gbb916d05",
+     "counts": {
+      "pass": 2802,
+      "fail": 1,
+      "known": 1135,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       20,
+       27
+      ],
+      "4": [
+       316,
+       387
+      ],
+      "5": [
+       35,
+       41
+      ],
+      "6": [
+       258,
+       318
+      ],
+      "7": [
+       305,
+       334
+      ],
+      "8": [
+       145,
+       162
+      ],
+      "9": [
+       90,
+       117
+      ],
+      "10": [
+       98,
+       109
+      ],
+      "11": [
+       529,
+       724
+      ],
+      "12": [
+       112,
+       122
+      ],
+      "13": [
+       119,
+       131
+      ],
+      "14": [
+       49,
+       53
+      ],
+      "15": [
+       28,
+       36
+      ],
+      "16": [
+       45,
+       99
+      ],
+      "17": [
+       12,
+       31
+      ],
+      "18": [
+       46,
+       60
+      ],
+      "19": [
+       20,
+       43
+      ],
+      "20": [
+       145,
+       192
+      ],
+      "21": [
+       74,
+       92
+      ],
+      "22": [
+       45,
+       48
+      ],
+      "23": [
+       66,
+       81
+      ],
+      "24": [
+       16,
+       30
+      ],
+      "25": [
+       50,
+       54
+      ],
+      "26": [
+       35,
+       40
+      ],
+      "27": [
+       57,
+       68
+      ],
+      "28": [
+       25,
+       178
+      ],
+      "29": [
+       17,
+       41
+      ],
+      "30": [
+       0,
+       23
+      ],
+      "31": [
+       1,
+       23
+      ],
+      "32": [
+       0,
+       25
+      ],
+      "33": [
+       11,
+       25
+      ],
+      "35": [
+       23,
+       31
+      ],
+      "36": [
+       1,
+       29
+      ],
+      "37": [
+       0,
+       78
+      ],
+      "38": [
+       7,
+       41
+      ],
+      "39": [
+       0,
+       22
+      ],
+      "40": [
+       2,
+       23
+      ]
+     },
+     "changes": {
+      "passing": 3,
+      "failing": 0,
+      "passing_tests": [
+       "ch18/test_foreach_dynamic_multidim_constraint",
+       "ch20/test_math_advanced",
+       "ch20/test_math_hyperbolic_special_values"
+      ],
+      "failing_tests": [],
+      "added": 220,
+      "added_passing": 141,
+      "removed": 1
+     }
+    },
+    "kirimasim": {
+     "name": "kirimasim",
+     "version": "kirimasim 0.0.0 (commit 499198369a07), built with GNU 13.3.0",
+     "counts": {
+      "pass": 2660,
+      "fail": 21,
+      "known": 0,
+      "unsupported": 1257
+     },
+     "chapters": {
+      "3": [
+       24,
+       27
+      ],
+      "4": [
+       374,
+       387
+      ],
+      "5": [
+       36,
+       41
+      ],
+      "6": [
+       289,
+       318
+      ],
+      "7": [
+       116,
+       334
+      ],
+      "8": [
+       22,
+       162
+      ],
+      "9": [
+       104,
+       117
+      ],
+      "10": [
+       96,
+       109
+      ],
+      "11": [
+       704,
+       724
+      ],
+      "12": [
+       111,
+       122
+      ],
+      "13": [
+       112,
+       131
+      ],
+      "14": [
+       14,
+       53
+      ],
+      "15": [
+       7,
+       36
+      ],
+      "16": [
+       23,
+       99
+      ],
+      "17": [
+       11,
+       31
+      ],
+      "18": [
+       11,
+       60
+      ],
+      "19": [
+       1,
+       43
+      ],
+      "20": [
+       169,
+       192
+      ],
+      "21": [
+       84,
+       92
+      ],
+      "22": [
+       47,
+       48
+      ],
+      "23": [
+       71,
+       81
+      ],
+      "24": [
+       4,
+       30
+      ],
+      "25": [
+       35,
+       54
+      ],
+      "26": [
+       36,
+       40
+      ],
+      "27": [
+       66,
+       68
+      ],
+      "28": [
+       24,
+       178
+      ],
+      "29": [
+       41,
+       41
+      ],
+      "30": [
+       3,
+       23
+      ],
+      "31": [
+       3,
+       23
+      ],
+      "32": [
+       0,
+       25
+      ],
+      "33": [
+       18,
+       25
+      ],
+      "35": [
+       2,
+       31
+      ],
+      "36": [
+       0,
+       29
+      ],
+      "37": [
+       0,
+       78
+      ],
+      "38": [
+       0,
+       41
+      ],
+      "39": [
+       0,
+       22
+      ],
+      "40": [
+       2,
+       23
+      ]
+     },
+     "changes": {
+      "passing": 2,
+      "failing": 0,
+      "passing_tests": [
+       "ch11/test_mintypmax_expressions",
+       "ch26/test_package_export_all"
+      ],
+      "failing_tests": [],
+      "added": 220,
+      "added_passing": 106,
+      "removed": 1
+     }
+    },
+    "sukimasim": {
+     "name": "sukimasim",
+     "version": "sukimasim version 0.9.9.2 (commit 1c55957496d3)",
+     "counts": {
+      "pass": 3351,
+      "fail": 587,
+      "known": 0,
+      "unsupported": 0
+     },
+     "chapters": {
+      "3": [
+       21,
+       27
+      ],
+      "4": [
+       371,
+       387
+      ],
+      "5": [
+       38,
+       41
+      ],
+      "6": [
+       298,
+       318
+      ],
+      "7": [
+       306,
+       334
+      ],
+      "8": [
+       151,
+       162
+      ],
+      "9": [
+       103,
+       117
+      ],
+      "10": [
+       102,
+       109
+      ],
+      "11": [
+       714,
+       724
+      ],
+      "12": [
+       121,
+       122
+      ],
+      "13": [
+       121,
+       131
+      ],
+      "14": [
+       39,
+       53
+      ],
+      "15": [
+       29,
+       36
+      ],
+      "16": [
+       46,
+       99
+      ],
+      "17": [
+       13,
+       31
+      ],
+      "18": [
+       37,
+       60
+      ],
+      "19": [
+       18,
+       43
+      ],
+      "20": [
+       188,
+       192
+      ],
+      "21": [
+       77,
+       92
+      ],
+      "22": [
+       47,
+       48
+      ],
+      "23": [
+       74,
+       81
+      ],
+      "24": [
+       17,
+       30
+      ],
+      "25": [
+       50,
+       54
+      ],
+      "26": [
+       37,
+       40
+      ],
+      "27": [
+       67,
+       68
+      ],
+      "28": [
+       86,
+       178
+      ],
+      "29": [
+       36,
+       41
+      ],
+      "30": [
+       15,
+       23
+      ],
+      "31": [
+       18,
+       23
+      ],
+      "32": [
+       11,
+       25
+      ],
+      "33": [
+       7,
+       25
+      ],
+      "35": [
+       20,
+       31
+      ],
+      "36": [
+       10,
+       29
+      ],
+      "37": [
+       17,
+       78
+      ],
+      "38": [
+       16,
+       41
+      ],
+      "39": [
+       13,
+       22
+      ],
+      "40": [
+       17,
+       23
+      ]
+     },
+     "changes": {
+      "passing": 90,
+      "failing": 0,
+      "passing_tests": [
+       "ch16/test_assertions_in_interface_and_program",
+       "ch20/test_array_query_fixed_dimensions",
+       "ch20/test_assert_action_control_tasks",
+       "ch20/test_assertcontrol",
+       "ch20/test_fatal_finish_number_zero",
+       "ch20/test_timeunit_timeprecision_functions",
+       "ch20/test_timeunit_unit_root",
+       "ch21/test_format_p_struct",
+       "ch24/test_anonymous_program",
+       "ch24/test_program_calls_module_task",
+       "ch24/test_program_end_kills_descendants",
+       "ch27/test_generate_instances_param",
+       "ch29/test_udp_initial_value_not_delayed",
+       "ch31/test_illegal_width_notifier_without_threshold",
+       "ch32/test_sdf_default_scope",
+       "ch32/test_sdf_device_all_paths",
+       "ch32/test_sdf_device_primitive_without_paths",
+       "ch32/test_sdf_iopath_absolute",
+       "ch32/test_sdf_iopath_all_conditional_paths",
+       "ch32/test_sdf_iopath_turnoff_values",
+       "ch32/test_sdf_scope_argument",
+       "ch32/test_sdf_separate_setup_hold",
+       "ch32/test_sdf_width_period_limits",
+       "ch35/test_dpi_packed_canonical",
+       "ch36/test_vpi_chk_error_callbacks",
+       "ch36/test_vpi_systf_in_always",
+       "ch37/test_vpi_active_time_format",
+       "ch37/test_vpi_callback_objects",
+       "ch37/test_vpi_class_definitions",
+       "ch37/test_vpi_class_obj_id",
+       "ch37/test_vpi_clocking_blocks",
+       "ch37/test_vpi_constraint_items",
+       "ch37/test_vpi_frames_and_threads",
+       "ch37/test_vpi_iterator_objects",
+       "ch37/test_vpi_named_events",
+       "ch37/test_vpi_nettype_declarations",
+       "ch37/test_vpi_property_sequence_decls",
+       "ch37/test_vpi_property_sequence_exprs",
+       "ch37/test_vpi_ref_obj_actual",
+       "ch37/test_vpi_time_queue",
+       "ch37/test_vpi_virtual_interface_vars",
+       "ch38/test_vpi_get_cb_info",
+       "ch38/test_vpi_get_cb_info_value_change",
+       "ch38/test_vpi_get_systf_info_function_types",
+       "ch38/test_vpi_handle_multi_intermod_path",
+       "ch38/test_vpi_vprintf_flush_mcd",
+       "ch39/test_vpi_assertion_callbacks",
+       "ch39/test_vpi_assertion_control",
+       "ch39/test_vpi_assertion_gclk_future_callback",
+       "ch39/test_vpi_assertion_kill_reset",
+       "ch39/test_vpi_assertion_step_callbacks",
+       "ch39/test_vpi_assertion_system_control",
+       "ch39/test_vpi_assertion_system_lock_reset",
+       "ch39/test_vpi_assertion_system_vacuous_actions",
+       "ch4/test_reactive_region_set_order",
+       "ch4/test_sched_nba_delays_same_time_keep_order",
+       "ch40/test_coverage_api_minimum_types",
+       "ch40/test_coverage_control_program_scope",
+       "ch40/test_coverage_control_results",
+       "ch40/test_coverage_get_values",
+       "ch40/test_coverage_reset_and_stop",
+       "ch40/test_coverage_root_hierarchy",
+       "ch40/test_coverage_save_after_stop",
+       "ch40/test_coverage_save_merge",
+       "ch40/test_coverage_save_merge_all_types",
+       "ch40/test_coverage_scope_sums",
+       "ch40/test_vpi_fsm_from_pragmas",
+       "ch6/test_illegal_mixed_continuous_procedural",
+       "ch6/test_net_declaration_drive_strength",
+       "ch7/test_queue_write_at_size_appends",
+       "ch9/test_intra_assignment_repeat_nonblocking",
+       "gen/ch11/test_gen_xz_cond_07",
+       "gen/ch11/test_gen_xz_cond_08",
+       "gen/ch11/test_gen_xz_weq_02",
+       "gen/ch11/test_gen_xz_wne_01",
+       "gen/ch4/test_gen_sched_assign_monitor_interface_delay1",
+       "gen/ch4/test_gen_sched_assign_wait_always_delay0",
+       "gen/ch4/test_gen_sched_blocking_monitor_interface_delay1",
+       "gen/ch4/test_gen_sched_blocking_wait_always_delay0",
+       "gen/ch4/test_gen_sched_blocking_wait_interface_delay0",
+       "gen/ch4/test_gen_sched_blocking_wait_interface_delay1",
+       "gen/ch4/test_gen_sched_force_wait_always_delay0",
+       "gen/ch4/test_gen_sched_nba_wait_always_delay0",
+       "gen/ch4/test_gen_sched_nba_wait_always_nodelay",
+       "gen/ch4/test_gen_sched_nbadelay_monitor_interface_delay0",
+       "gen/ch4/test_gen_sched_nbadelay_monitor_interface_delay1",
+       "gen/ch4/test_gen_sched_nbadelay_monitor_interface_nodelay",
+       "gen/ch4/test_gen_sched_nbadelay_wait_interface_delay0",
+       "gen/ch4/test_gen_sched_nbadelay_wait_interface_delay1",
+       "gen/ch4/test_gen_sched_nbadelay_wait_interface_nodelay"
+      ],
+      "failing_tests": [],
+      "added": 220,
+      "added_passing": 152,
+      "removed": 1
+     }
+    }
+   }
   }
  ]
 }

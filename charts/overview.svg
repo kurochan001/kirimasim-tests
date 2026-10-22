@@ -6,19 +6,19 @@
 <text x="20.0" y="48.0" class="muted" text-anchor="start">Each night, every test of the suite&#x27;s main branch, with each simulator</text>
 <line class="line c-icarus" x1="20" x2="38" y1="70" y2="70"/>
 <circle class="mk c-icarus" cx="29.0" cy="70.0" r="7.5"/>
-<text x="44.0" y="74.0" text-anchor="start">Icarus Verilog 14.0 devel ce98681: 2611</text>
+<text x="44.0" y="74.0" text-anchor="start">Icarus Verilog 14.0 devel e072b33: 2719</text>
 <line class="line c-verilator" x1="329" x2="347" y1="70" y2="70"/>
 <rect class="mk c-verilator" x="333.5" y="65.5" width="9" height="9"/>
-<text x="353.0" y="74.0" text-anchor="start">Verilator 5.053 devel 019f1ca: 2659</text>
+<text x="353.0" y="74.0" text-anchor="start">Verilator 5.053 devel bb916d0: 2802</text>
 <line class="line c-kirimasim" x1="610" x2="628" y1="70" y2="70"/>
 <polygon class="mk c-kirimasim" points="619.0,66.5 622.5,70.0 619.0,73.5 615.5,70.0"/>
-<text x="634.0" y="74.0" text-anchor="start">kirimasim b27968d1f: 2552</text>
+<text x="634.0" y="74.0" text-anchor="start">kirimasim 499198369: 2660</text>
 <line class="line c-sukimasim" x1="20" x2="38" y1="90" y2="90"/>
 <polygon class="mk c-sukimasim" points="29.0,86.5 32.2,92.5 25.8,92.5"/>
-<text x="44.0" y="94.0" text-anchor="start">sukimasim 5321c9d45: 3109</text>
+<text x="44.0" y="94.0" text-anchor="start">sukimasim 1c5595749: 3351</text>
 <line class="line dashed c-total" x1="231" x2="249" y1="90" y2="90"/>
 <circle class="c-total" cx="240.0" cy="90.0" r="2.5"/>
-<text x="255.0" y="94.0" text-anchor="start">tests in the suite: 3719</text>
+<text x="255.0" y="94.0" text-anchor="start">tests in the suite: 3938</text>
 <line class="grid" x1="64" x2="852" y1="360.0" y2="360.0"/>
 <text x="56.0" y="364.0" class="muted" text-anchor="end">0</text>
 <line class="grid" x1="64" x2="852" y1="310.4" y2="310.4"/>
@@ -32,35 +32,41 @@
 <line class="grid" x1="64" x2="852" y1="112.0" y2="112.0"/>
 <text x="56.0" y="116.0" class="muted" text-anchor="end">5000</text>
 <line class="axis" x1="64" x2="852" y1="360" y2="360"/>
-<line class="axis" x1="281.9" x2="281.9" y1="360" y2="364"/>
-<text x="281.9" y="378.0" class="muted" text-anchor="middle">10-20</text>
-<line class="axis" x1="675.4" x2="675.4" y1="360" y2="364"/>
-<text x="675.4" y="378.0" class="muted" text-anchor="middle">10-21</text>
-<polyline class="line c-icarus" points="64.0,284.5 167.5,281.7 213.4,281.7 495.8,239.2 503.6,237.4 852.0,230.5"/>
-<polyline class="line c-verilator" points="64.0,269.5 167.5,264.4"/>
-<polyline class="line c-verilator" points="495.8,237.1 503.6,235.4 852.0,228.1"/>
-<polyline class="line c-kirimasim" points="64.0,284.1 167.5,281.1 213.4,281.1 495.8,243.7 503.6,240.7 852.0,233.4"/>
-<polyline class="line c-sukimasim" points="213.4,258.7 495.8,233.3 503.6,232.2 852.0,205.8"/>
-<polyline class="line dashed c-total" points="64.0,252.1 167.5,244.6 213.4,244.6 495.8,194.7 503.6,191.2 852.0,175.5"/>
+<line class="axis" x1="208.6" x2="208.6" y1="360" y2="364"/>
+<text x="208.6" y="378.0" class="muted" text-anchor="middle">10-20</text>
+<line class="axis" x1="469.8" x2="469.8" y1="360" y2="364"/>
+<text x="469.8" y="378.0" class="muted" text-anchor="middle">10-21</text>
+<line class="axis" x1="730.9" x2="730.9" y1="360" y2="364"/>
+<text x="730.9" y="378.0" class="muted" text-anchor="middle">10-22</text>
+<polyline class="line c-icarus" points="64.0,284.5 132.7,281.7 163.1,281.7 350.6,239.2 355.7,237.4 586.9,230.5 852.0,225.1"/>
+<polyline class="line c-verilator" points="64.0,269.5 132.7,264.4"/>
+<polyline class="line c-verilator" points="350.6,237.1 355.7,235.4 586.9,228.1 852.0,221.0"/>
+<polyline class="line c-kirimasim" points="64.0,284.1 132.7,281.1 163.1,281.1 350.6,243.7 355.7,240.7 586.9,233.4 852.0,228.1"/>
+<polyline class="line c-sukimasim" points="163.1,258.7 350.6,233.3 355.7,232.2 586.9,205.8 852.0,193.8"/>
+<polyline class="line dashed c-total" points="64.0,252.1 132.7,244.6 163.1,244.6 350.6,194.7 355.7,191.2 586.9,175.5 852.0,164.7"/>
 <circle class="mk c-icarus" cx="64.0" cy="284.5" r="7.5"/>
-<circle class="mk c-icarus" cx="167.5" cy="281.7" r="7.5"/>
-<circle class="mk c-icarus" cx="213.4" cy="281.7" r="7.5"/>
-<circle class="mk c-icarus" cx="495.8" cy="239.2" r="7.5"/>
-<circle class="mk c-icarus" cx="503.6" cy="237.4" r="7.5"/>
-<circle class="mk c-icarus" cx="852.0" cy="230.5" r="7.5"/>
+<circle class="mk c-icarus" cx="132.7" cy="281.7" r="7.5"/>
+<circle class="mk c-icarus" cx="163.1" cy="281.7" r="7.5"/>
+<circle class="mk c-icarus" cx="350.6" cy="239.2" r="7.5"/>
+<circle class="mk c-icarus" cx="355.7" cy="237.4" r="7.5"/>
+<circle class="mk c-icarus" cx="586.9" cy="230.5" r="7.5"/>
+<circle class="mk c-icarus" cx="852.0" cy="225.1" r="7.5"/>
 <rect class="mk c-verilator" x="59.5" y="265.0" width="9" height="9"/>
-<rect class="mk c-verilator" x="163.0" y="259.9" width="9" height="9"/>
-<rect class="mk c-verilator" x="491.3" y="232.6" width="9" height="9"/>
-<rect class="mk c-verilator" x="499.1" y="230.9" width="9" height="9"/>
-<rect class="mk c-verilator" x="847.5" y="223.6" width="9" height="9"/>
+<rect class="mk c-verilator" x="128.2" y="259.9" width="9" height="9"/>
+<rect class="mk c-verilator" x="346.1" y="232.6" width="9" height="9"/>
+<rect class="mk c-verilator" x="351.2" y="230.9" width="9" height="9"/>
+<rect class="mk c-verilator" x="582.4" y="223.6" width="9" height="9"/>
+<rect class="mk c-verilator" x="847.5" y="216.5" width="9" height="9"/>
 <polygon class="mk c-kirimasim" points="64.0,280.6 67.5,284.1 64.0,287.6 60.5,284.1"/>
-<polygon class="mk c-kirimasim" points="167.5,277.6 171.0,281.1 167.5,284.6 164.0,281.1"/>
-<polygon class="mk c-kirimasim" points="213.4,277.6 216.9,281.1 213.4,284.6 209.9,281.1"/>
-<polygon class="mk c-kirimasim" points="495.8,240.2 499.3,243.7 495.8,247.2 492.3,243.7"/>
-<polygon class="mk c-kirimasim" points="503.6,237.2 507.1,240.7 503.6,244.2 500.1,240.7"/>
-<polygon class="mk c-kirimasim" points="852.0,229.9 855.5,233.4 852.0,236.9 848.5,233.4"/>
-<polygon class="mk c-sukimasim" points="213.4,255.2 216.6,261.2 210.2,261.2"/>
-<polygon class="mk c-sukimasim" points="495.8,229.8 499.0,235.8 492.6,235.8"/>
-<polygon class="mk c-sukimasim" points="503.6,228.7 506.8,234.7 500.4,234.7"/>
-<polygon class="mk c-sukimasim" points="852.0,202.3 855.2,208.3 848.8,208.3"/>
+<polygon class="mk c-kirimasim" points="132.7,277.6 136.2,281.1 132.7,284.6 129.2,281.1"/>
+<polygon class="mk c-kirimasim" points="163.1,277.6 166.6,281.1 163.1,284.6 159.6,281.1"/>
+<polygon class="mk c-kirimasim" points="350.6,240.2 354.1,243.7 350.6,247.2 347.1,243.7"/>
+<polygon class="mk c-kirimasim" points="355.7,237.2 359.2,240.7 355.7,244.2 352.2,240.7"/>
+<polygon class="mk c-kirimasim" points="586.9,229.9 590.4,233.4 586.9,236.9 583.4,233.4"/>
+<polygon class="mk c-kirimasim" points="852.0,224.6 855.5,228.1 852.0,231.6 848.5,228.1"/>
+<polygon class="mk c-sukimasim" points="163.1,255.2 166.3,261.2 159.9,261.2"/>
+<polygon class="mk c-sukimasim" points="350.6,229.8 353.8,235.8 347.4,235.8"/>
+<polygon class="mk c-sukimasim" points="355.7,228.7 358.9,234.7 352.5,234.7"/>
+<polygon class="mk c-sukimasim" points="586.9,202.3 590.1,208.3 583.7,208.3"/>
+<polygon class="mk c-sukimasim" points="852.0,190.3 855.2,196.3 848.8,196.3"/>
 </svg>
