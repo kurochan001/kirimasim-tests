@@ -965,10 +965,10 @@ corrections to the metadata:
 
 ### Current state
 
-After these commits the suite has 3793 tests in 37 chapters, 812 of them
-generated. By `:oracle:`, 2526 list Icarus Verilog 13.0, 768 list
+After these commits the suite has 3798 tests in 37 chapters, 812 of them
+generated. By `:oracle:`, 2526 list Icarus Verilog 13.0, 773 list
 Verilator 5.052, and 499 follow the standard only. 568 tests depend on
-x or z values, 205 have C code (29 DPI and 176 VPI), 167 are illegal
+x or z values, 205 have C code (29 DPI and 176 VPI), 172 are illegal
 designs, and 5 set an expected exit code.
 
 ### Tests added in this work
@@ -988,5 +988,13 @@ designs, and 5 set an expected exit code.
 | 40 | 7 |
 | **All** | **100** |
 
-The 12 second tests in the depth follow-up, and the `%L` test, bring the
-total added in this work to 113.
+The 12 second tests in the depth follow-up, the `%L` test, and the
+five illegal clocking tests bring the total added in this work to 118.
+
+### 14.7 illegal placements
+
+The clause text also fixes where a clocking block may be declared. Five
+illegal designs add the missing negative cases: in a function, in a task,
+in a package, nested in another clocking block, and at the compilation-unit
+scope. Verilator 5.052 rejects each at the named line; Icarus Verilog
+13.0 rejects them too, but because it does not support clocking blocks.
