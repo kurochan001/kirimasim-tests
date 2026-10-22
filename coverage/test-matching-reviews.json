@@ -755,6 +755,521 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch9/test_edge_detection.sv",
+      "inputs_sha256": "6a3fb9ce19989c0bafa300042460cb5e30fc56d7ab4f815bbdf00fe37bfbe574",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.4.2-EXTRACT-EDGE-0-1",
+            "SV2023-9.4.2-EXTRACT-EDGE-1-0"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M07: sig/rst_nを操作するTest5–7には対応するイベント監視や検出数の判定がなく、固定PASS表示のみ。この3シナリオはエッジ/リセット検証として計上しない。別のclk監視まで否定する判断ではない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_edge_detection.sv",
+              "contains": "$display(\"Test 7 PASS\");"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_disable_stmt_edge_cases.sv",
+      "inputs_sha256": "877b4dce1672a18441c68f2ad15ea93cf07233e2adcac5ff19d9598225a9b299",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.6.2-EXTRACT-DISABLE-RESUME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M07: accum_blockのsumを観測せず、ブロック後でcount=10を代入して固定PASSを表示する。この累積シナリオは未検証。別のpreserve_blockなどの値判定は登録グループの証拠として採用。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_stmt_edge_cases.sv",
+              "contains": "count = 10;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_timing_edge_cases.sv",
+      "inputs_sha256": "30d62fda67f6a4d60c895a1d7ef62f072dbba1551d4788e13ce49cb40291fb07",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.4.1-EXTRACT-PROCEDURAL-DELAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M08: 数値遅延の前後時刻や別プロセスからの途中状態を観測しない。遅延を無視しても同じ定数代入の確認と固定PASSが出せるため、遅延時間の証拠として保留。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_timing_edge_cases.sv",
+              "contains": "delay_val = 10;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-9.4.5-EXTRACT-INTRA-RHS-BEFORE-CONTROL",
+            "SV2023-9.4.5-EXTRACT-BLOCKING-DELAY-EQUIVALENCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M08: intra-assignmentの右辺は定数で、待機前に値を保存することと待機後に評価することを区別できない。遅延の経過時間も判定していない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_timing_edge_cases.sv",
+              "contains": "data = #5 8'hAA;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_edge_event_never_changes.sv",
+      "inputs_sha256": "9613d12b917e75b40b0cbd7fe86c536ec14fdd93375a6a0456eded0c9983076c",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.4.2-EXTRACT-EITHER-EDGE",
+            "SV2023-9.4.2-EXTRACT-EDGE-DIRECTIONS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "edge busyの合計2回はx→1と1→zの一部遷移のみ。posedge/negedgeを別に数えず、16セルや全方向の等価性の要求全体には対応付けない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_edge_event_never_changes.sv",
+              "contains": "#5 busy = 1'bz;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_wait_on_array_size.sv",
+      "inputs_sha256": "1f37e72d69552e7c19b54489ad4177e295d8d345a945457fc1baacb4af59e56b",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.4.2-EXTRACT-METHOD-DEPENDENCY-REEVALUATION"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "size()を含むwait条件の再評価を直接観測しているが、現ヘッダーに要求の9.4.2がない。9.4.3の待機要求には既に集合証拠として登録。9.4.2への引用具体化と新しい入力での再実行を伴う対応は残件。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_wait_on_array_size.sv",
+              "contains": "wait (q.size() != 0);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_multi_sensitivity_list.sv",
+      "inputs_sha256": "c0124bb500a7535d9081a38d2bbc714a72521652e73a386045172f9b4f0b2ccd",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.4.2.1-EXTRACT-EVENT-OR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "複数感度を扱う刺激があるが、現ヘッダーは9.4.2までで子節9.4.2.1への明示引用がない。子節引用の具体化と入力ハッシュ更新後の再実行は残件。今回登録した混在or/comma専用テストとは別扱い。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_multi_sensitivity_list.sv",
+              "contains": "always @(posedge a or posedge b)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_sens_multi.sv",
+      "inputs_sha256": "5c072e8a6e8aa919bbb7da0a09e3b6b0f5e85872a68bb360f851773c0c4cef3a",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.4.2.1-EXTRACT-EVENT-OR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "複数感度を扱う刺激があるが、現ヘッダーは9.4.2までで子節9.4.2.1への明示引用がない。子節引用の具体化と入力ハッシュ更新後の再実行は残件。今回登録した混在or/comma専用テストとは別扱い。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_sens_multi.sv",
+              "contains": "always @(posedge clk or negedge rst_n)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_sens_level.sv",
+      "inputs_sha256": "72c26fd11927990537cabec71b29cf1cb2abb5c05a2984be9cbe6bd9cd6f6bf1",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.4.2.1-EXTRACT-EVENT-OR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "複数感度を扱う刺激があるが、現ヘッダーは9.4.2までで子節9.4.2.1への明示引用がない。子節引用の具体化と入力ハッシュ更新後の再実行は残件。今回登録した混在or/comma専用テストとは別扱い。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_sens_level.sv",
+              "contains": "always @(x or y)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_final_block_2.sv",
+      "inputs_sha256": "7d17cfe11c486841f77632fe2c681bb2d684b748086fc73e6b2520755798c345",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.2.3-EXTRACT-FINAL-ORDER",
+            "SV2023-9.2.3-EXTRACT-FINAL-AT-MOST-ONCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "final_orderはfinal前に0を確認するだけで、二つのfinal実行後の値や再現性を観測しない。片方のfinalには出力がなく、この出力だけで両finalの実行順・一度限り実行を確認したとは扱わない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_final_block_2.sv",
+              "contains": "final_order++;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_final_edge_cases.sv",
+      "inputs_sha256": "346a37b5212777832b76e68ce512668e908d6cd523c1c9e5d3ee8b5e4f46221c",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.2.3-EXTRACT-FINAL-END-NO-DELAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "final実行の表示はあるが、終了時刻とfinal内時刻を観測しないため、時間を消費しないという要求の証拠は保留。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_final_edge_cases.sv",
+              "contains": "final begin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_process_await_from_fork_child.sv",
+      "inputs_sha256": "c4f6f5689277909ca19713ffa31ae6c5cbb324d56a5545cecffe1c49b6546909",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.7-EXTRACT-AWAIT-END"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M03: 別プロセスの正常終了待ちには有効な時刻観測があるが、このkind:errorの要求行には強制終了待ちと自分自身へのawait禁止も混在する。正常終了待ちだけで行全体を承認しない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_await_from_fork_child.sv",
+              "contains": "pa.await();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_process_suspend_resume_await.sv",
+      "inputs_sha256": "a32459318575afcdbf2a15ffa047a6938c56c09e89166521f138f1ae8d15418c",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.7-EXTRACT-AWAIT-END"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M03: 別プロセスの正常終了待ちには有効な時刻観測があるが、このkind:errorの要求行には強制終了待ちと自分自身へのawait禁止も混在する。正常終了待ちだけで行全体を承認しない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.sv",
+              "contains": "p_done.await();"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-9.7-EXTRACT-RESUME-WAITING",
+            "SV2023-9.7-EXTRACT-SUSPEND-BEFORE-RETURN"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "待機中の遅延を停止し、元期限を過ぎてから再開する一形態を観測する。suspend直後やresumeと同時刻の継続を観測せず、イベント/条件再感度も分担していないため、この二行全体は保留。SUSPENDED状態や遅延満了への非感応は別要求へ登録。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.sv",
+              "contains": "p_susp.resume();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_process_class_control.sv",
+      "inputs_sha256": "aa8354070df1f7bbdf0cc930848bbf49266f6255008867b91a967ce1c31c4d70",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.7-EXTRACT-KILL-TREE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "killによる対象自身の停止とKILLED状態は確認するが、対象の子孫を生成していない。子孫全体をkill復帰前に止める要求へは単独で対応付けない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_class_control.sv",
+              "contains": "p_kill.kill();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_process_kill_self.sv",
+      "inputs_sha256": "9bd7ce3bbea5432585c771ab9a37ee004879658a579e99838eeca0fb2a6b2e83",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.7-EXTRACT-KILL-TREE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "killによる対象自身の停止とKILLED状態は確認するが、対象の子孫を生成していない。子孫全体をkill復帰前に止める要求へは単独で対応付けない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_kill_self.sv",
+              "contains": "p.kill();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_named_block_scope_hierarchical.sv",
+      "inputs_sha256": "913d9d49b7f6f8995b76891184834c5a9dc402c5d75c8e7b7fb3a9169db6a08a",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.3.4-EXTRACT-NAMED-SCOPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "名前付きbeginの変数参照は確認するが、この複合行に含まれるfork、parameter、named eventの階層参照やdisable対象化までは観測しない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_named_block_scope_hierarchical.sv",
+              "contains": "outer_block.x"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_begin_end.sv",
+      "inputs_sha256": "01df334a42a72f3715c87b2ec768ba805ce1c726a7c0d44bebf00b3fec209548",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.3.1-EXTRACT-SEQUENTIAL-ORDER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "逐次文の値やブロック終了後の継続は観測するが、要求に含まれる各遅延の直前文に対する相対時刻を検査する刺激がない。時間観測を持つ別テストとの分担または引用具体化が必要。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_begin_end.sv",
+              "contains": "c = a + b;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_stmt_begin_end.sv",
+      "inputs_sha256": "7fa17eac11c88cbe41cf717436deb367b341112aedca4c9dda21fe71a79b23c3",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.3.1-EXTRACT-SEQUENTIAL-ORDER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "逐次文の値やブロック終了後の継続は観測するが、要求に含まれる各遅延の直前文に対する相対時刻を検査する刺激がない。時間観測を持つ別テストとの分担または引用具体化が必要。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_stmt_begin_end.sv",
+              "contains": "a = a + 4;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_block_begin.sv",
+      "inputs_sha256": "f554eb8e66f767031caebffd86ddf496545668069172cc3ab47eab633d9ff544",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.3.1-EXTRACT-SEQUENTIAL-ORDER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "逐次文の値やブロック終了後の継続は観測するが、要求に含まれる各遅延の直前文に対する相対時刻を検査する刺激がない。時間観測を持つ別テストとの分担または引用具体化が必要。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_block_begin.sv",
+              "contains": "a = a + 1;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_begin_end_2.sv",
+      "inputs_sha256": "d29b4434c36ab0234ec1611b64d75ecaeb5bd9ac901ee7956efa34d78b0dbaa0",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.3.1-EXTRACT-SEQUENTIAL-ORDER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "逐次文の値やブロック終了後の継続は観測するが、要求に含まれる各遅延の直前文に対する相対時刻を検査する刺激がない。時間観測を持つ別テストとの分担または引用具体化が必要。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_begin_end_2.sv",
+              "contains": "begin : my_block"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_always_comb_sens.sv",
+      "inputs_sha256": "ce0b4d5e6781b23c04b72f032f85bbd9a4683a8fe5ff1dae2679ddb031fdd292",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.2.2.2-EXTRACT-INFERRED-SENSITIVITY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "a/bの独立変更には値観測がある。一方、c単独変更がなく、out5は計算されるだけで観測されない。最長静的prefixや関数読みの規則まで含む行全体をこのファイルだけで承認しない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_always_comb_sens.sv",
+              "contains": "out5 = (x & y) | (z ^ 4'hF);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_implicit_event.sv",
+      "inputs_sha256": "a2d953134322c206e37e37279d9c7e94d0c34d38207202204dc1f4bc53a8a15d",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.4.2.2-EXTRACT-STAR-READ-SENSITIVITY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "aを単独変更する場面ではb=c=0で結果が変わらず、trigger_countを観測しない。後続も同時変更があり、aを感度から漏らす誤実装を確実に検出できない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_implicit_event.sv",
+              "contains": "trigger_count = trigger_count + 1;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_task_disable_2.sv",
+      "inputs_sha256": "c0f4b20eb500b9c3e8e7a1d9bb6c576145c271e7ee0040b9adb9f465b16d56bd",
+      "reviewed_on": "2026-10-22",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.6.2-EXTRACT-DISABLE-RESUME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "search_with_disableのfound=1はdisableを無視しても後続で書き換えない。nested_searchも対象値が一度だけ現れるため、探索継続が同じrow/colを残す。conditional_processはdisableに入らない入力50しか渡さない。returnの有効観測をdisableの証拠へ流用しない。",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_task_disable_2.sv",
+              "contains": "conditional_process(50, processed);"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -3441,6 +3441,23 @@
               "contains": "t=0 B sees 22\n"
             }
           ]
+        },
+        {
+          "test": "tests/ch9/test_fork_child_zero_delay.sv",
+          "observation": "Parallel branches update a shared sequence after zero, one and two explicit #0 controls. They observe positions1,2,3 while simulation time remains0, distinguishing successive inactive-to-active iterations from synchronous execution or advancing time.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a628e48b603580f85bfe16866c9a6318b037c0250ddc2e121d7ceebac8a3e415",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_child_zero_delay.sv",
+              "contains": "#0;\n        #0;"
+            },
+            {
+              "file": "tests/ch9/test_fork_child_zero_delay.expected",
+              "contains": "t=0 no delay ran 1, #0 ran 2, #0 #0 ran 3"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -3798,6 +3815,23 @@
             {
               "file": "tests/gen/ch4/test_gen_sched_force_wait_generate_delay0.expected",
               "contains": "t=0 B sees 22\n"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_fork_child_zero_delay.sv",
+          "observation": "Parallel branches update a shared sequence after zero, one and two explicit #0 controls. They observe positions1,2,3 while simulation time remains0, distinguishing successive inactive-to-active iterations from synchronous execution or advancing time.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a628e48b603580f85bfe16866c9a6318b037c0250ddc2e121d7ceebac8a3e415",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_child_zero_delay.sv",
+              "contains": "#0;\n        #0;"
+            },
+            {
+              "file": "tests/ch9/test_fork_child_zero_delay.expected",
+              "contains": "t=0 no delay ran 1, #0 ran 2, #0 #0 ran 3"
             }
           ]
         }
@@ -38890,7 +38924,25 @@
       "acceptance": "General always models repeated behavior, including clock/combinational/latched/sequential descriptions with suitable timing control.",
       "source_note": "IEEE 1800-2023 9.2.2.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_always_parallel_block_finish.sv",
+          "observation": "A repeating delay-controlled always increments on2,4,6 while a separate fork joins at5 and the parent continues to7; the two observations require continued iterations under explicit timing control.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "5979357a7918f13058822e9337b1590826b6376c39e20bd4028f392206ac3a17",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_always_parallel_block_finish.sv",
+              "contains": "always #2 ticks++;"
+            },
+            {
+              "file": "tests/ch9/test_always_parallel_block_finish.expected",
+              "contains": "joined=5 ticks=2 done=1,1\nlater=7 ticks=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2.2.1",
@@ -39034,7 +39086,25 @@
       "acceptance": "Assertion action-block expressions do not contribute to always_comb sensitivity.",
       "source_note": "IEEE 1800-2023 9.2.2.2.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+          "observation": "Changing only action-block input verbose must not retrigger; unchanged runs3 verifies exclusion without invoking a failing assertion.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9f4bbf763237ad935d9106cbd79987464bb5dab22b6f07bc971e51ec431b0748",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+              "contains": "else if (verbose != 0) reports++;"
+            },
+            {
+              "file": "tests/ch9/test_always_comb_sensitivity_exceptions.expected",
+              "contains": "verbose changed: runs 3, y 7, reports 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2.2.2.1",
@@ -39052,7 +39122,25 @@
       "acceptance": "An immediate assertion condition in always_comb or its called functions contributes sensitivity like an if condition.",
       "source_note": "IEEE 1800-2023 9.2.2.2.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+          "observation": "Changing only immediate-assertion condition input e retriggers the procedure, observed through runs while y remains7.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9f4bbf763237ad935d9106cbd79987464bb5dab22b6f07bc971e51ec431b0748",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+              "contains": "ia: assert (y != e)"
+            },
+            {
+              "file": "tests/ch9/test_always_comb_sensitivity_exceptions.expected",
+              "contains": "e changed: runs 3, y 7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2.2.2.1",
@@ -39160,7 +39248,25 @@
       "acceptance": "Task calls are allowed in always_comb subject to no-blocking rules; their arguments contribute sensitivity but their bodies do not.",
       "source_note": "IEEE 1800-2023 9.2.2.2.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+          "observation": "Changing a task-only global hidden does not retrigger, whereas changing argument a does and observes the new hidden value.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9f4bbf763237ad935d9106cbd79987464bb5dab22b6f07bc971e51ec431b0748",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+              "contains": "add_hidden(a, y);"
+            },
+            {
+              "file": "tests/ch9/test_always_comb_sensitivity_exceptions.expected",
+              "contains": "hidden changed: runs 1, y 1\na changed: runs 2, y 7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2.2.2.1",
@@ -39196,7 +39302,25 @@
       "acceptance": "always_comb includes applicable called-function reads while @* includes function argument reads only.",
       "source_note": "IEEE 1800-2023 9.2.2.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_always_comb_vs_always_star.sv",
+          "observation": "An argument-only change updates both processes; a function-body-only global g change updates only always_comb; a later argument change updates both using the new global.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a7fb9f5357ab24967492d574c625d2ab33939705ee42cbc1e15945d1a8fe0c55",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_always_comb_vs_always_star.sv",
+              "contains": "g = 8'd10;"
+            },
+            {
+              "file": "tests/ch9/test_always_comb_vs_always_star.expected",
+              "contains": "t2 y_comb=7 y_star=7\nt3 y_comb=12 y_star=7\nt4 y_comb=13 y_star=13"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2.2.2.2",
@@ -39214,7 +39338,25 @@
       "acceptance": "always_comb executes once at time zero while always @* initially waits for a sensitivity change.",
       "source_note": "IEEE 1800-2023 9.2.2.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_always_comb_vs_always_star.sv",
+          "observation": "Inputs are declaration-initialized before processes start. Before any later input write, always_comb has produced6 while @* remainsx; delayed changes then cause both to update.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a7fb9f5357ab24967492d574c625d2ab33939705ee42cbc1e15945d1a8fe0c55",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_always_comb_vs_always_star.sv",
+              "contains": "always_comb y_comb = f(k);"
+            },
+            {
+              "file": "tests/ch9/test_always_comb_vs_always_star.expected",
+              "contains": "t1 y_comb=6 y_star=x"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2.2.2.2",
@@ -39376,7 +39518,25 @@
       "acceptance": "Final procedures execute before PLI end-of-simulation callbacks.",
       "source_note": "IEEE 1800-2023 9.2.3; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_end_of_simulation_after_final.sv",
+          "observation": "An inspected C VPI startup routine registers cbEndOfSimulation and its callback prints the simulator time. The complete ordered stdout requires final before the callback, both at10.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "157f6eb64dcfddc10e98942f1bdd3f8bcf263c7ebc41710578ac952628dfb700",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_end_of_simulation_after_final.sv",
+              "contains": "final $display"
+            },
+            {
+              "file": "tests/ch36/test_vpi_end_of_simulation_after_final.expected",
+              "contains": "final procedure at 10\ncbEndOfSimulation at 10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2.3",
@@ -39467,13 +39627,60 @@
       "acceptance": "An explicit or implicit $finish ending simulation causes final execution.",
       "source_note": "IEEE 1800-2023 9.2.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_final.sv",
+          "observation": "Explicit $finish follows the checks; exactly the final summary follows in the complete expected output. Grouped with implicit simulation termination.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a7ae442db175b780875ad9529d3c9eb002e00423d016b7502beaa85f02401f87",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_final.sv",
+              "contains": "final begin"
+            },
+            {
+              "file": "tests/ch9/test_final.expected",
+              "contains": "TEST PASSED: final comprehensive tests completed\nFinal block executed\nCount at end: 10"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch35/test_dpi_import_function_zero_time_callers.sv",
+          "observation": "All scheduled initial work completes at16 with no explicit $finish and no remaining future activity. The final procedure then emits90 from the inspected native c_scale function. Grouped with an explicit-finish witness.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "d354d6b14586612b0a9a9cbfaaef9580a2bcc6b0a6cb63ff94513a7740fdffec",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_function_zero_time_callers.sv",
+              "contains": "final $display"
+            },
+            {
+              "file": "tests/ch35/test_dpi_import_function_zero_time_callers.expected",
+              "contains": "final: 90"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.2.3",
           "blocks": [
             "B004"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "explicit-and-implicit-finish",
+          "tests": [
+            "tests/ch9/test_final.sv",
+            "tests/ch35/test_dpi_import_function_zero_time_callers.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Both explicit $finish and no-future-activity implicit termination must execute final; require both tests in one snapshot."
         }
       ]
     },
@@ -39593,7 +39800,25 @@
       "acceptance": "Forked children do not begin execution until the parent process blocks or terminates.",
       "source_note": "IEEE 1800-2023 9.3.2; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_join_none_children_start_after_parent_blocks.sv",
+          "observation": "Parent completes all loop iterations and its immediate display before any child executes. All children see final shared i=3 and run at time0 only after parent blocks on #1; identical child lines avoid relying on their relative order.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "db0182ca3edbe5455d8f43a466aef438724b8b390242de99ab0ffddfd86976ee",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_join_none_children_start_after_parent_blocks.sv",
+              "contains": "for (i = 0; i < 3; i++)"
+            },
+            {
+              "file": "tests/ch9/test_join_none_children_start_after_parent_blocks.expected",
+              "contains": "t=0 parent after the loop, i=3\nt=0 child sees i=3\nt=0 child sees i=3\nt=0 child sees i=3\nt=1 parent after #1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.3.2",
@@ -39611,7 +39836,25 @@
       "acceptance": "A fork block item variable initializer executes on scope entry before any children are spawned.",
       "source_note": "IEEE 1800-2023 9.3.2; complete own-body source review, blocks B022. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_fork_automatic_declaration_per_iteration.sv",
+          "observation": "Fork declaration initializer captures each loop iteration before children start; delayed children output the per-entry0..2,10..12,20..22 values. Sorting removes unspecified same-time sibling order.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "e347f4a9c6abd997eb39c4a6a875f506c8561375972abb40744063c929eae683",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_automatic_declaration_per_iteration.sv",
+              "contains": "automatic int k = i;"
+            },
+            {
+              "file": "tests/ch9/test_fork_automatic_declaration_per_iteration.expected",
+              "contains": "for: 0 1 2\nwhile: 10 11 12\ndo-while: 20 21 22"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.3.2",
@@ -39647,7 +39890,25 @@
       "acceptance": "The parent at join waits until all spawned children terminate.",
       "source_note": "IEEE 1800-2023 9.3.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_fork_join_block_timing.sv",
+          "observation": "Parent resumes at30 only after the longest branch; earlier branches finish at5/10/15. The whole ordered timestamp trace is the oracle.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2722575978d6b0f85cac21439217d15f66b8400e07bfb7349570aac2b50285ac",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.sv",
+              "contains": "join\n    $display"
+            },
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.expected",
+              "contains": "5: fork 1, inner block, first\n10: fork 1, #10\n15: fork 1, inner block, second\n30: fork 1, #30\n30: after join\n32: fork 2, #2\n32: after join_any\n32: after join_none\n33: fork 3, #1\n40: fork 2, #10\n52: end"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.3.2",
@@ -39665,7 +39926,25 @@
       "acceptance": "The parent at join-any waits until any spawned child terminates.",
       "source_note": "IEEE 1800-2023 9.3.2; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_fork_join_block_timing.sv",
+          "observation": "Second fork starts at30 and parent resumes at32 after the2-unit branch while10-unit sibling remains active to40. The whole ordered timestamp trace is the oracle.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2722575978d6b0f85cac21439217d15f66b8400e07bfb7349570aac2b50285ac",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.sv",
+              "contains": "join_any"
+            },
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.expected",
+              "contains": "5: fork 1, inner block, first\n10: fork 1, #10\n15: fork 1, inner block, second\n30: fork 1, #30\n30: after join\n32: fork 2, #2\n32: after join_any\n32: after join_none\n33: fork 3, #1\n40: fork 2, #10\n52: end"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.3.2",
@@ -39701,7 +39980,42 @@
       "acceptance": "The parent at join-none continues concurrently without waiting for spawned children.",
       "source_note": "IEEE 1800-2023 9.3.2; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_join_none_children_start_after_parent_blocks.sv",
+          "observation": "Parent continues through every fork without waiting for child completion and reaches the final shared index before the children run.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "db0182ca3edbe5455d8f43a466aef438724b8b390242de99ab0ffddfd86976ee",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_join_none_children_start_after_parent_blocks.sv",
+              "contains": "join_none"
+            },
+            {
+              "file": "tests/ch9/test_join_none_children_start_after_parent_blocks.expected",
+              "contains": "t=0 parent after the loop, i=3"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_fork_join_block_timing.sv",
+          "observation": "Parent prints after join_none at32, before its one-unit child prints at33. The whole ordered timestamp trace is the oracle.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2722575978d6b0f85cac21439217d15f66b8400e07bfb7349570aac2b50285ac",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.sv",
+              "contains": "join_none"
+            },
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.expected",
+              "contains": "5: fork 1, inner block, first\n10: fork 1, #10\n15: fork 1, inner block, second\n30: fork 1, #30\n30: after join\n32: fork 2, #2\n32: after join_any\n32: after join_none\n33: fork 3, #1\n40: fork 2, #10\n52: end"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.3.2",
@@ -39755,7 +40069,25 @@
       "acceptance": "Each parallel statement spawns a concurrent process, with its delay measured from block entry rather than a preceding branch; textual delay order need not be chronological.",
       "source_note": "IEEE 1800-2023 9.3.2; complete own-body source review, blocks B002, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_fork_join_block_timing.sv",
+          "observation": "Fork branches with textual delays30,10 and a sequential5+10 execute at30,10,5/15 relative to one common fork entry. The whole ordered timestamp trace is the oracle.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2722575978d6b0f85cac21439217d15f66b8400e07bfb7349570aac2b50285ac",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.sv",
+              "contains": "#30 $display"
+            },
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.expected",
+              "contains": "5: fork 1, inner block, first\n10: fork 1, #10\n15: fork 1, inner block, second\n30: fork 1, #30\n30: after join\n32: fork 2, #2\n32: after join_any\n32: after join_none\n33: fork 3, #1\n40: fork 2, #10\n52: end"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.3.2",
@@ -39774,7 +40106,25 @@
       "acceptance": "A begin/end group used as one fork branch is one child process and executes its contained statements sequentially.",
       "source_note": "IEEE 1800-2023 9.3.2; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_fork_join_block_timing.sv",
+          "observation": "The begin/end fork branch performs delays5 then10 sequentially, giving5 then15, while other branches execute concurrently. The whole ordered timestamp trace is the oracle.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2722575978d6b0f85cac21439217d15f66b8400e07bfb7349570aac2b50285ac",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.sv",
+              "contains": "#10 $display(\"%0d: fork 1, inner block, second\", $time);"
+            },
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.expected",
+              "contains": "5: fork 1, inner block, first\n10: fork 1, #10\n15: fork 1, inner block, second\n30: fork 1, #30\n30: after join\n32: fork 2, #2\n32: after join_any\n32: after join_none\n33: fork 3, #1\n40: fork 2, #10\n52: end"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.3.2",
@@ -39792,7 +40142,25 @@
       "acceptance": "Sequential start/finish is first/last statement execution; parallel branches share start time and the join kind determines block completion.",
       "source_note": "IEEE 1800-2023 9.3.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_fork_join_block_timing.sv",
+          "observation": "Nested sequential branch delay5+10 yields15 while sibling delays remain relative to fork entry. Following statements occur at all-child, first-child or immediate completion times according to join/join_any/join_none.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2722575978d6b0f85cac21439217d15f66b8400e07bfb7349570aac2b50285ac",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.sv",
+              "contains": "fork\n      #30"
+            },
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.expected",
+              "contains": "30: after join\n32: fork 2, #2\n32: after join_any\n32: after join_none"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.3.3",
@@ -39810,7 +40178,25 @@
       "acceptance": "Sequential/parallel blocks may nest; execution of the following parent statement waits until the nested block completes under its join semantics.",
       "source_note": "IEEE 1800-2023 9.3.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_fork_join_block_timing.sv",
+          "observation": "Nested sequential branch delay5+10 yields15 while sibling delays remain relative to fork entry. Following statements occur at all-child, first-child or immediate completion times according to join/join_any/join_none.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2722575978d6b0f85cac21439217d15f66b8400e07bfb7349570aac2b50285ac",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.sv",
+              "contains": "fork\n      #30"
+            },
+            {
+              "file": "tests/ch9/test_fork_join_block_timing.expected",
+              "contains": "30: after join\n32: fork 2, #2\n32: after join_any\n32: after join_none"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.3.3",
@@ -40190,7 +40576,25 @@
       "acceptance": "A delay defers the following procedural statement relative to execution of the preceding procedural statement.",
       "source_note": "IEEE 1800-2023 9.4.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_assign_delay_edge_cases.sv",
+          "observation": "The first checked #3 statement advances time by3; the subsequent #1/#2/#3 sequence checks total elapsed6 and final data3. Repeated delays also check5 and8 elapsed units, proving delays relative to preceding execution rather than absolute times. The #0 subcase is not used to claim inactive-queue ordering.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "8c1c3a5db478919c1fe29340e11c3efec927c139f844a9330931e9b75e957352",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_assign_delay_edge_cases.sv",
+              "contains": "#1 data = 1;\n            #2 data = 2;\n            #3 data = 3;"
+            },
+            {
+              "file": "tests/ch9/test_assign_delay_edge_cases.expected",
+              "contains": "  [PASS] Sequential delays"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.1",
@@ -40280,7 +40684,42 @@
       "acceptance": "A scalar 0-to-1 transition produces a posedge event.",
       "source_note": "IEEE 1800-2023 9.4.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_event_control_posedge.sv",
+          "observation": "Registers waits before the first known0-to1 transition, then checks three specific resume times with falling edges between them. A spurious falling-edge wake or failure to wait changes the checked timestamps.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "009a61aaabe13597ccaff2b9ddee1a6de1a59604c0ddbea5d0f3f5fc213c505c",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_event_control_posedge.sv",
+              "contains": "@(posedge clk)"
+            },
+            {
+              "file": "tests/ch9/test_event_control_posedge.expected",
+              "contains": "Time 1: After first posedge - counter = 1, data = 10\nTime 3: After second posedge - counter = 2, data = 20\nTime 5: After third posedge - counter = 3, data = 30"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_zero_width_pulse_wakes_edge_control.sv",
+          "observation": "Separate posedge/negedge listeners each record their one matching transition within the same timestep; the end-of-step value zero must not erase the detected rising edge.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "5629f347d78c3092b18354f4a82b6d145219510f8de6b0f337e152a4f8fe63bb",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_zero_width_pulse_wakes_edge_control.sv",
+              "contains": "clk = 1;\n    clk = 0;"
+            },
+            {
+              "file": "tests/ch9/test_zero_width_pulse_wakes_edge_control.expected",
+              "contains": "clk=0 posedges seen: 1, negedges seen: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.2",
@@ -40334,7 +40773,25 @@
       "acceptance": "A scalar 1-to-0 transition produces a negedge event.",
       "source_note": "IEEE 1800-2023 9.4.2; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_zero_width_pulse_wakes_edge_control.sv",
+          "observation": "Separate posedge/negedge listeners each record their one matching transition within the same timestep; the end-of-step value zero must not erase the detected rising edge.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "5629f347d78c3092b18354f4a82b6d145219510f8de6b0f337e152a4f8fe63bb",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_zero_width_pulse_wakes_edge_control.sv",
+              "contains": "clk = 1;\n    clk = 0;"
+            },
+            {
+              "file": "tests/ch9/test_zero_width_pulse_wakes_edge_control.expected",
+              "contains": "clk=0 posedges seen: 1, negedges seen: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.2",
@@ -40695,7 +41152,42 @@
       "acceptance": "A nonedge expression event triggers on any result value change; an operand change with an unchanged result is not an event.",
       "source_note": "IEEE 1800-2023 9.4.2; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_event_control_on_expression.sv",
+          "observation": "Independently checked sequence0,1,5,6,10,12,3: mask results0,1,1,2,2,0,3 change four times; comparison false,false,false,true,true,true,false changes twice; a changes six times. This distinguishes expression-result changes from operand writes.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2047e87c409c2a7df4160e6fdacca1bbd931fd81c756d04efd4829b8152fa1b7",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_event_control_on_expression.sv",
+              "contains": "always @(a & 4'b0011) n_mask++;"
+            },
+            {
+              "file": "tests/ch9/test_event_control_on_expression.expected",
+              "contains": "@(a & 4'b0011): 4, @(a > 5): 2, @(a): 6"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_event_nested_struct_member.sv",
+          "observation": "Checks nested packed-member and aggregate expression events on actual changes, excludes unrelated/sibling fields, and explicitly verifies rewriting the identical member value does not trigger.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "6ba72343e6d67612abf6687865af2365994ba02720618a796357311402fe5801",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_event_nested_struct_member.sv",
+              "contains": "always @(s.inner.f)      n_nested++;"
+            },
+            {
+              "file": "tests/ch9/test_event_nested_struct_member.expected",
+              "contains": "n_nested=2 n_deep=1 n_mid=4 n_lvl1=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.2",
@@ -40731,7 +41223,25 @@
       "acceptance": "Any one event in an event-OR triggers the controlled statement; or and comma are synonymous and may be mixed.",
       "source_note": "IEEE 1800-2023 9.4.2.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_event_or_mixed_comma_forms.sv",
+          "observation": "Each of a,b,c changes in a separate slot, then a changes again. Comma-only and mixed or/comma expressions each trigger four times, exercising all three sources.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b0017ff8a577b4dd7a6fd25685f39887aef9fb81dc953cc2537c6bd8e5577bed",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_event_or_mixed_comma_forms.sv",
+              "contains": "always @(a or b, c) mixed_count++;"
+            },
+            {
+              "file": "tests/ch9/test_event_or_mixed_comma_forms.expected",
+              "contains": "counts=4,4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.2.1",
@@ -40821,7 +41331,25 @@
       "acceptance": "Changing only an iff qualifier does not trigger its underlying event expression.",
       "source_note": "IEEE 1800-2023 9.4.2.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_event_or_iff.sv",
+          "observation": "Changing en from0 to1 while a remains1 must not trigger the qualified event; exact final counts include only the later rising edge. The complete expected counters are checked after separately timed changes and a final repeated same-value write.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4f5dce6c26d3483806428701232e023ec1b479193f6511ae5e0520460a5124ec",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_event_or_iff.sv",
+              "contains": "#1 en = 1;"
+            },
+            {
+              "file": "tests/ch9/test_event_or_iff.expected",
+              "contains": "n_or=4 n_comma=4 n_iff=1 n_iff_or=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.2.3",
@@ -40839,7 +41367,25 @@
       "acceptance": "iff binds more tightly than event or.",
       "source_note": "IEEE 1800-2023 9.4.2.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_event_or_iff.sv",
+          "observation": "A b rising edge with en=0 still triggers the OR event, distinguishing tighter iff binding from applying en to the whole OR. The complete expected counters are checked after separately timed changes and a final repeated same-value write.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4f5dce6c26d3483806428701232e023ec1b479193f6511ae5e0520460a5124ec",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_event_or_iff.sv",
+              "contains": "always @(posedge a iff en or posedge b) n_iff_or++;"
+            },
+            {
+              "file": "tests/ch9/test_event_or_iff.expected",
+              "contains": "n_or=4 n_comma=4 n_iff=1 n_iff_or=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.2.3",
@@ -40857,7 +41403,25 @@
       "acceptance": "An @ event may be qualified by iff.",
       "source_note": "IEEE 1800-2023 9.4.2.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_event_or_iff.sv",
+          "observation": "Uses an iff-qualified edge and observes only the enabled rising edge. The complete expected counters are checked after separately timed changes and a final repeated same-value write.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4f5dce6c26d3483806428701232e023ec1b479193f6511ae5e0520460a5124ec",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_event_or_iff.sv",
+              "contains": "always @(posedge a iff en) n_iff++;"
+            },
+            {
+              "file": "tests/ch9/test_event_or_iff.expected",
+              "contains": "n_or=4 n_comma=4 n_iff=1 n_iff_or=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.2.3",
@@ -40875,7 +41439,25 @@
       "acceptance": "An iff event triggers only when its qualifier is true under 12.4 at the underlying event occurrence.",
       "source_note": "IEEE 1800-2023 9.4.2.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_event_or_iff.sv",
+          "observation": "One rising edge with en=0 is suppressed, and the later rising edge with en=1 triggers exactly once. The complete expected counters are checked after separately timed changes and a final repeated same-value write.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4f5dce6c26d3483806428701232e023ec1b479193f6511ae5e0520460a5124ec",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_event_or_iff.sv",
+              "contains": "always @(posedge a iff en) n_iff++;"
+            },
+            {
+              "file": "tests/ch9/test_event_or_iff.expected",
+              "contains": "n_or=4 n_comma=4 n_iff=1 n_iff_or=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.2.3",
@@ -40983,7 +41565,42 @@
       "acceptance": "wait tests its condition immediately and blocks only while it is not true under 12.4; it resumes when true rather than requiring a future change if already true.",
       "source_note": "IEEE 1800-2023 9.4.3; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_disable_wait.sv",
+          "observation": "The flag is already1 on wait entry; execution must proceed without a future flag event. This alone does not cover initially-false blocking, so the array-size test is a required collective member.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "7dc8fde7342a5c00cfb0fe9c9cb82d06599771739f2eae421cb542563f61b243",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_wait.sv",
+              "contains": "wait (flag == 1);"
+            },
+            {
+              "file": "tests/ch9/test_disable_wait.expected",
+              "contains": "PASS: wait with immediate true - passed immediately"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_wait_on_array_size.sv",
+          "observation": "Queue and dynamic-array conditions start false and resume only when push/new make them true at1/2. Grouped with an already-true condition witness.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "1f37e72d69552e7c19b54489ad4177e295d8d345a945457fc1baacb4af59e56b",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_wait_on_array_size.sv",
+              "contains": "wait (q.size() != 0);"
+            },
+            {
+              "file": "tests/ch9/test_wait_on_array_size.expected",
+              "contains": "t=1 wait (q.size() != 0) resumes, size 1\nt=2 wait (d.size() == 2) resumes"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.3",
@@ -40991,6 +41608,18 @@
             "B002",
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "already-true-and-later-true",
+          "tests": [
+            "tests/ch9/test_disable_wait.sv",
+            "tests/ch9/test_wait_on_array_size.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Require immediate progress for an already true condition and blocking until initially false method conditions become true. Both tests must pass in one snapshot."
         }
       ]
     },
@@ -41146,7 +41775,25 @@
       "acceptance": "Intra-assignment timing evaluates the RHS before its delay/event wait but updates the LHS after that timing control.",
       "source_note": "IEEE 1800-2023 9.4.5; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_intra_assignment_repeat_nonblocking.sv",
+          "observation": "Schedules an update from data11 at time1, immediately changes data22, and observes the saved11 assigned only on the third posedge at25; subsequent operations produce22 at45 and33 at51.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "518bde9fc5cb9c402c9a5ecc425b53369a8bdeffe5b617d1077cf8441428f79c",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_intra_assignment_repeat_nonblocking.sv",
+              "contains": "#1 a <= repeat (3) @(posedge clk) data;\n    data = 8'h22;"
+            },
+            {
+              "file": "tests/ch9/test_intra_assignment_repeat_nonblocking.expected",
+              "contains": "25: a = 11"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.5",
@@ -41183,7 +41830,25 @@
       "acceptance": "A repeat event count is evaluated once before scheduling; later changes to the count expression inputs do not affect the scheduled count.",
       "source_note": "IEEE 1800-2023 9.4.5; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_intra_assignment_repeat_nonblocking.sv",
+          "observation": "Schedules at time31 with n=2, immediately rewrites n=5, and observes the update on the second later posedge at45. Live reevaluation would postpone it and violate the timestamp trace.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "518bde9fc5cb9c402c9a5ecc425b53369a8bdeffe5b617d1077cf8441428f79c",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_intra_assignment_repeat_nonblocking.sv",
+              "contains": "a <= repeat (n) @(posedge clk) data;\n    n = 5;"
+            },
+            {
+              "file": "tests/ch9/test_intra_assignment_repeat_nonblocking.expected",
+              "contains": "45: a = 22"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.4.5",
@@ -41327,7 +41992,59 @@
       "acceptance": "wait fork blocks until every immediate child of the current process has terminated; it does not directly wait for deeper descendants.",
       "source_note": "IEEE 1800-2023 9.6.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_wait_fork_ignores_grandchildren.sv",
+          "observation": "One child spawns a longer-lived grandchild, then ends at2. Parent wait fork returns at2, before the grandchild ends at5; thus it waits for its immediate child but not all descendants.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "d0b50dd2a51fdca784795d25fa26997a92ed7cad3c60ccb0515cdcefa4c62330",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_wait_fork_ignores_grandchildren.sv",
+              "contains": "wait fork;"
+            },
+            {
+              "file": "tests/ch9/test_wait_fork_ignores_grandchildren.expected",
+              "contains": "t=2 child ends\nt=2 wait fork returned\nt=5 grandchild ends"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_wait_fork_without_children.sv",
+          "observation": "With no own children, wait fork returns immediately despite another initial process having an outstanding child; after spawning its own child it waits for that child only.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "04956eabc70aac1bcad122077d01760412211c0fda4886e2055b455110ef2aae",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_wait_fork_without_children.sv",
+              "contains": "#1 wait fork;"
+            },
+            {
+              "file": "tests/ch9/test_wait_fork_without_children.expected",
+              "contains": "t=1 wait fork without children returns\nt=4 wait fork returns after the process's own child\nt=50 the child of the first process ends"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_wait_fork_disable_fork.sv",
+          "observation": "Parent waits for its longest immediate child at5, not the20-unit grandchild spawned by the other child; later observes that grandchild completing normally.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "299d9d6661153b1504dbf0fa5754b2b7a9697c64f509aa5c1a8cc785a0ef2dda",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_wait_fork_disable_fork.sv",
+              "contains": "wait fork;"
+            },
+            {
+              "file": "tests/ch9/test_wait_fork_disable_fork.expected",
+              "contains": "5: wait fork returned, grandchild_done=0\n25: grandchild_done=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.6.1",
@@ -41363,7 +42080,25 @@
       "acceptance": "Disabling a task terminates every concurrent activation of that task, not only the calling activation.",
       "source_note": "IEEE 1800-2023 9.6.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_disable_task_from_another_process.sv",
+          "observation": "An external disable terminates two simultaneous activations begun at0 and1, resumes both at2, and prevents both delayed increments. A fresh later call still succeeds.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "852711940284c41930d66d9d795fad90ae306943803038f446a9e887ee560b95",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_task_from_another_process.sv",
+              "contains": "disable wait_then_mark;"
+            },
+            {
+              "file": "tests/ch9/test_disable_task_from_another_process.expected",
+              "contains": "callers resumed at 2 and 2, finished=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.6.2",
@@ -41381,13 +42116,60 @@
       "acceptance": "Disabling a task/block terminates all activity it enabled, including nested task enables.",
       "source_note": "IEEE 1800-2023 9.6.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_disable_enclosing_task.sv",
+          "observation": "An inner task disables its enclosing caller task. Neither remaining inner+100 nor outer+1000 executes; execution resumes in the initial after the call with c11. Grouped with fork descendants of a named block.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "1ed9f823355e22eac4c045f7b81edb66dde1a9e9ba725ea3a4aeec24f2de14b5",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_enclosing_task.sv",
+              "contains": "disable t_outer;"
+            },
+            {
+              "file": "tests/ch9/test_disable_enclosing_task.expected",
+              "contains": "after t_outer: c=11"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_disable_named_block_with_forks.sv",
+          "observation": "Disabling a named block from one fork branch terminates the other branch and prevents parent continuation; independent named-child disable also prevents its delayed mark. Observe beyond all original deadlines. Grouped with nested task-chain termination.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "8e229764dfb502421cbe997c865dbc8a04f679349c39a57549a50ce103d6fe64",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_named_block_with_forks.sv",
+              "contains": "#5 disable outer;"
+            },
+            {
+              "file": "tests/ch9/test_disable_named_block_with_forks.expected",
+              "contains": "child_done=0 sibling_done=0 after_join=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.6.2",
           "blocks": [
             "B004"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "nested-tasks-and-block-forks",
+          "tests": [
+            "tests/ch9/test_disable_enclosing_task.sv",
+            "tests/ch9/test_disable_named_block_with_forks.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Observe downward cancellation for both nested task enables and a named block containing parallel descendants in one snapshot."
         }
       ]
     },
@@ -41435,13 +42217,303 @@
       "acceptance": "Disabling a named block/task terminates its activity and resumes execution after the block or its enabling task call.",
       "source_note": "IEEE 1800-2023 9.6.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_disable_block.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "7982c1e4e9c8896349be8cd8603723f964c5094fe5bc67cf35ee4a1c3bc7ce3b",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_block.sv",
+              "contains": "disable outer;"
+            },
+            {
+              "file": "tests/ch9/test_disable_block.expected",
+              "contains": "Test 2: Disable nested block PASS"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_disable_advanced.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "6ddb81619ec5c3abeace6218ce156ba98611ed77ec51bedb3aeb83aac6b94508",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_advanced.sv",
+              "contains": "disable level2;"
+            },
+            {
+              "file": "tests/ch9/test_disable_advanced.expected",
+              "contains": "Test 8 PASS: multiple nested disable, level=13"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_disable_stmt_2.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "33d84b6be7027058a13016fe9f1268e09b7ee28701060bc6ac7abbb57de126b5",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_stmt_2.sv",
+              "contains": "disable inner;"
+            },
+            {
+              "file": "tests/ch9/test_disable_stmt_2.expected",
+              "contains": "Test 3 PASS"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_disable_stmt_3.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "8a6d3719a51ddb03f21b32f302f97496a4c26119bf19d10dcd5ecb7fd7d4619c",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_stmt_3.sv",
+              "contains": "disable inner;"
+            },
+            {
+              "file": "tests/ch9/test_disable_stmt_3.expected",
+              "contains": "PASS: disable_stmt (8/8)"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_disable_stmt_edge_cases.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "877b4dce1672a18441c68f2ad15ea93cf07233e2adcac5ff19d9598225a9b299",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_stmt_edge_cases.sv",
+              "contains": "disable preserve_block;"
+            },
+            {
+              "file": "tests/ch9/test_disable_stmt_edge_cases.expected",
+              "contains": "  [PASS] Preserve state"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_disable_wait.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "7dc8fde7342a5c00cfb0fe9c9cb82d06599771739f2eae421cb542563f61b243",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_wait.sv",
+              "contains": "disable block_b;"
+            },
+            {
+              "file": "tests/ch9/test_disable_wait.expected",
+              "contains": "PASS: multiple block disables - counter = 3"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_stmt_disable.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "15663e5a89b67dceef60e895e50486ffa25ee4559bcea414af3bcb70e6b2e54d",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_stmt_disable.sv",
+              "contains": "disable inner;"
+            },
+            {
+              "file": "tests/ch9/test_stmt_disable.expected",
+              "contains": "PASS: Disable statement"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_stmt_disable_2.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "17b65a55f8a69b9494ce7b4e19bd561854a55b3f987c52a6d6ec298116272a81",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_stmt_disable_2.sv",
+              "contains": "disable inner;"
+            },
+            {
+              "file": "tests/ch9/test_stmt_disable_2.expected",
+              "contains": "PASS"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_named_block_disable.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "26776aa2b964aa5ca816075df15edd4ae5628cc53eb7cc40c17533edcd0fc54a",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_named_block_disable.sv",
+              "contains": "disable inner_block;"
+            },
+            {
+              "file": "tests/ch9/test_named_block_disable.expected",
+              "contains": "PASS: Basic named block disable"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_task_disable.sv",
+          "observation": "Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "edcd1c94d4e1b5caa025ab0d8f0273002b79da7ef1f60224aa8be2f552ca6ecd",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_task_disable.sv",
+              "contains": "disable outer_block;"
+            },
+            {
+              "file": "tests/ch9/test_task_disable.expected",
+              "contains": "PASS: Test 2 - First positive = 5"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_disable_task_from_another_process.sv",
+          "observation": "Two callers begin the same task at0/1. An external disable at2 resumes both callers at2, prevents completion increments, and does not prevent a later fresh call from finishing at17. Grouped with named-block continuation cases.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "852711940284c41930d66d9d795fad90ae306943803038f446a9e887ee560b95",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_task_from_another_process.sv",
+              "contains": "disable wait_then_mark;"
+            },
+            {
+              "file": "tests/ch9/test_disable_task_from_another_process.expected",
+              "contains": "callers resumed at 2 and 2, finished=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.6.2",
           "blocks": [
             "B004"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "block-disable_block-and-task",
+          "tests": [
+            "tests/ch9/test_disable_block.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
+        },
+        {
+          "id": "block-disable_advanced-and-task",
+          "tests": [
+            "tests/ch9/test_disable_advanced.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
+        },
+        {
+          "id": "block-disable_stmt_2-and-task",
+          "tests": [
+            "tests/ch9/test_disable_stmt_2.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
+        },
+        {
+          "id": "block-disable_stmt_3-and-task",
+          "tests": [
+            "tests/ch9/test_disable_stmt_3.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
+        },
+        {
+          "id": "block-disable_stmt_edge_cases-and-task",
+          "tests": [
+            "tests/ch9/test_disable_stmt_edge_cases.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
+        },
+        {
+          "id": "block-disable_wait-and-task",
+          "tests": [
+            "tests/ch9/test_disable_wait.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
+        },
+        {
+          "id": "block-stmt_disable-and-task",
+          "tests": [
+            "tests/ch9/test_stmt_disable.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
+        },
+        {
+          "id": "block-stmt_disable_2-and-task",
+          "tests": [
+            "tests/ch9/test_stmt_disable_2.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
+        },
+        {
+          "id": "block-named_block_disable-and-task",
+          "tests": [
+            "tests/ch9/test_named_block_disable.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
+        },
+        {
+          "id": "block-task_disable-and-task",
+          "tests": [
+            "tests/ch9/test_task_disable.sv",
+            "tests/ch9/test_disable_task_from_another_process.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "Named-block continuation plus task-call continuation; both must pass together. Different block tests are alternate collective witnesses, not standalone full-acceptance checks."
         }
       ]
     },
@@ -41525,13 +42597,60 @@
       "acceptance": "disable fork ends every descendant of the calling process, including descendants whose intermediate parent already terminated.",
       "source_note": "IEEE 1800-2023 9.6.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_wait_fork_disable_fork.sv",
+          "observation": "After an intermediate child returns, its outstanding grandchild and a direct child remain. disable fork ends both; the later observation is beyond both original completion deadlines and both flags remain zero.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "299d9d6661153b1504dbf0fa5754b2b7a9697c64f509aa5c1a8cc785a0ef2dda",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_wait_fork_disable_fork.sv",
+              "contains": "disable fork;"
+            },
+            {
+              "file": "tests/ch9/test_wait_fork_disable_fork.expected",
+              "contains": "56: long_done=0 desc_done=0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_disable_fork_ends_loops_and_class_tasks.sv",
+          "observation": "Kills direct branches running while/for loops and a class task after the25-unit winner; counters stop through time125. A separate test witnesses descendants of already-ended intermediate parents.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "e9204d7c38b40af653a9a58969aa482145a403565641635bbf824259c8069934",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_disable_fork_ends_loops_and_class_tasks.sv",
+              "contains": "disable fork;"
+            },
+            {
+              "file": "tests/ch9/test_disable_fork_ends_loops_and_class_tasks.expected",
+              "contains": "t=25 c_while=0 c_for=0 hits=12\nt=125 c_while=0 c_for=0 hits=12"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.6.3",
           "blocks": [
             "B002"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "direct-and-ended-parent-descendants",
+          "tests": [
+            "tests/ch9/test_wait_fork_disable_fork.sv",
+            "tests/ch9/test_disable_fork_ends_loops_and_class_tasks.sv"
+          ],
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "One file observes direct loop/class-task children; the other observes a grandchild whose intermediate parent has ended. Both are required in a single run, not OR alternatives."
         }
       ]
     },
@@ -41634,7 +42753,59 @@
       "acceptance": "status() returns FINISHED when the process is terminated normally.",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_class_control.sv",
+          "observation": "A separate child ends normally at time3 and is reported FINISHED at time4.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "aa8354070df1f7bbdf0cc930848bbf49266f6255008867b91a967ce1c31c4d70",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_class_control.sv",
+              "contains": "p_done.status() == process::FINISHED"
+            },
+            {
+              "file": "tests/ch9/test_process_class_control.expected",
+              "contains": "4: finished=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_process_suspend_resume_await.sv",
+          "observation": "After a child normally ends at time3, await returns and the explicit enum comparison observes FINISHED.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a32459318575afcdbf2a15ffa047a6938c56c09e89166521f138f1ae8d15418c",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.sv",
+              "contains": "p_done.await();"
+            },
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.expected",
+              "contains": "3: await returned, finished=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_process_threads_distinct.sv",
+          "observation": "After fork-join completion the retained branch handle reports FINISHED; checked from final after time1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b7825b0d7c79dd9449107800067d7586bce4a757b7afdf09af6214375dae2272",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_threads_distinct.sv",
+              "contains": "p_first.status() == process::FINISHED"
+            },
+            {
+              "file": "tests/ch9/test_process_threads_distinct.expected",
+              "contains": "always waiting: 1, fork branch finished: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",
@@ -41724,7 +42895,42 @@
       "acceptance": "status() returns KILLED when the process is forcibly terminated by kill/disable.",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_class_control.sv",
+          "observation": "Immediately after kill returns, status is KILLED; the later time14 observation also excludes execution beyond the original delay.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "aa8354070df1f7bbdf0cc930848bbf49266f6255008867b91a967ce1c31c4d70",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_class_control.sv",
+              "contains": "p_kill.kill();"
+            },
+            {
+              "file": "tests/ch9/test_process_class_control.expected",
+              "contains": "1: killed=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_process_kill_self.sv",
+          "observation": "A child kills itself without executing its following assignment; the parent separately kills another waiting child. Both status names are KILLED beyond the second original deadline.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9bd7ce3bbea5432585c771ab9a37ee004879658a579e99838eeca0fb2a6b2e83",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_kill_self.sv",
+              "contains": "p.kill();"
+            },
+            {
+              "file": "tests/ch9/test_process_kill_self.expected",
+              "contains": "self-killed: after_self=0 status=KILLED\nkilled by another: after_other=0 status=KILLED"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",
@@ -41922,7 +43128,25 @@
       "acceptance": "process::self() returns the handle of the calling process.",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_threads_distinct.sv",
+          "observation": "Captures self handles from an initial, an always, two fork-join branches and a join_none child. A function counts five distinct non-null handles; subsequent comparisons confirm the always is waiting and the first fork branch is finished. No claim about requiring a new concurrent final process is made.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b7825b0d7c79dd9449107800067d7586bce4a757b7afdf09af6214375dae2272",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_threads_distinct.sv",
+              "contains": "p_first = process::self();"
+            },
+            {
+              "file": "tests/ch9/test_process_threads_distinct.expected",
+              "contains": "distinct threads: 5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",
@@ -42030,7 +43254,25 @@
       "acceptance": "Suspending a waiting process removes its sensitivity to its event, condition or delay expiration.",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_suspend_resume_await.sv",
+          "observation": "Suspends at time3 a child blocked until time4; after that original expiration its continuation remains unexecuted through time8. This is a delay-expiration witness, not evidence for every event/wait-condition variation.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a32459318575afcdbf2a15ffa047a6938c56c09e89166521f138f1ae8d15418c",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.sv",
+              "contains": "p_susp.suspend();"
+            },
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.expected",
+              "contains": "8: suspended=1 reached=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",
@@ -42084,7 +43326,25 @@
       "acceptance": "status() returns SUSPENDED when the process is stopped awaiting resume.",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_suspend_resume_await.sv",
+          "observation": "A child formerly waiting on its time4 delay is still stopped and explicitly reports SUSPENDED at time8, before resume.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a32459318575afcdbf2a15ffa047a6938c56c09e89166521f138f1ae8d15418c",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.sv",
+              "contains": "p_susp.suspend();"
+            },
+            {
+              "file": "tests/ch9/test_process_suspend_resume_await.expected",
+              "contains": "8: suspended=1 reached=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",
@@ -42102,7 +43362,42 @@
       "acceptance": "status() returns WAITING when the process is blocked in a blocking statement.",
       "source_note": "IEEE 1800-2023 9.7; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_class_control.sv",
+          "observation": "The child handle is captured before its ten-unit delay; at time1 the parent observes WAITING.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "aa8354070df1f7bbdf0cc930848bbf49266f6255008867b91a967ce1c31c4d70",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_class_control.sv",
+              "contains": "p_kill.status() == process::WAITING"
+            },
+            {
+              "file": "tests/ch9/test_process_class_control.expected",
+              "contains": "1: waiting=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_process_threads_distinct.sv",
+          "observation": "An always process blocked indefinitely on wait(false) retains WAITING status when simulation otherwise ends.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b7825b0d7c79dd9449107800067d7586bce4a757b7afdf09af6214375dae2272",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_threads_distinct.sv",
+              "contains": "wait (1'b0);"
+            },
+            {
+              "file": "tests/ch9/test_process_threads_distinct.expected",
+              "contains": "always waiting: 1, fork branch finished: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "9.7",

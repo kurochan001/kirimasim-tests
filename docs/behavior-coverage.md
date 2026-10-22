@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 4.00%、実行 3.64%。**
+**全規格の要求台帳ベース（暫定）: 設計 4.33%、実行 3.92%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 46 論点、42 節、49 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1661/1703 見出し (97.53%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 493/12319 (4.00%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 448/12319 (3.64%)。
-- 登録済みだがテスト未対応: 11826 動作。
+- 登録済み動作に対するテスト設計網羅率: 533/12319 (4.33%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 483/12319 (3.92%)。
+- 登録済みだがテスト未対応: 11786 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -38,8 +38,8 @@
 
 - `citation-refinement-icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T14:29:24.878016+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
 - `citation-refinement-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:29:34.097194+00:00 / 16/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 355/12319 動作確認、古い入力との対応 28 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 272/12319 動作確認、古い入力との対応 28 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 379/12319 動作確認、古い入力との対応 28 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 301/12319 動作確認、古い入力との対応 28 件。
 
 ## 章・附属書別の調査状態
 
@@ -53,7 +53,7 @@
 - 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 93。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 53。
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 7。
-- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 1。
+- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 41。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 6。
 - 11 Operators and expressions: 解釈保留なし 54/55、登録 461、テスト対応 121。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 2。
@@ -1962,6 +1962,7 @@ Inactive events are eligible only after the current Active work has been process
 - [test_gen_sched_force_wait_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_fork_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
 - [test_gen_sched_force_wait_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_interface_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
 - [test_gen_sched_force_wait_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_generate_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_fork_child_zero_delay.sv](../tests/ch9/test_fork_child_zero_delay.sv): Parallel branches update a shared sequence after zero, one and two explicit #0 controls. They observe positions1,2,3 while simulation time remains0, distinguishing successive inactive-to-active iterations from synchronous execution or advancing time.
 
 ### SV2023-4.4.2.3-EXTRACT-ZERO-DELAY-INACTIVE
 
@@ -1993,6 +1994,7 @@ An explicit #0 executed in the active-region set suspends the process into the c
 - [test_gen_sched_force_wait_fork_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_fork_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
 - [test_gen_sched_force_wait_interface_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_interface_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
 - [test_gen_sched_force_wait_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_force_wait_generate_delay0.sv): Reviewed scheduling body and allowed-case model. Exact template/oracle verified. A distinct process starts waiting for the change in Active at time0; the writer resumes after #0 and changes the value in the same slot, reliably waking that waiter. Cases lacking this ordering-sensitive separate observation are not used as witnesses for Inactive scheduling.
+- [test_fork_child_zero_delay.sv](../tests/ch9/test_fork_child_zero_delay.sv): Parallel branches update a shared sequence after zero, one and two explicit #0 controls. They observe positions1,2,3 while simulation time remains0, distinguishing successive inactive-to-active iterations from synchronous execution or advancing time.
 
 ### SV2023-4.4.2.4-EXTRACT-ACTIVE-NBA-SCHEDULE
 
@@ -19659,7 +19661,7 @@ always, always_comb, always_latch and always_ff are repeating procedure forms wi
 
 ### SV2023-9.2.2.1-EXTRACT-GENERAL-ALWAYS
 
-9.2.2.1 / normal / テスト未対応
+9.2.2.1 / normal / 実行確認あり
 
 General always models repeated behavior, including clock/combinational/latched/sequential descriptions with suitable timing control.
 
@@ -19667,6 +19669,7 @@ General always models repeated behavior, including clock/combinational/latched/s
 
 規定の性質: `definition`。
 
+- [test_always_parallel_block_finish.sv](../tests/ch9/test_always_parallel_block_finish.sv): A repeating delay-controlled always increments on2,4,6 while a separate fork joins at5 and the parent continues to7; the two observations require continued iterations under explicit timing control.
 
 ### SV2023-9.2.2.1-EXTRACT-ZERO-TIME-DEADLOCK
 
@@ -19747,7 +19750,7 @@ Hierarchical/package functions and ::-qualified static method functions are anal
 
 ### SV2023-9.2.2.2.1-EXTRACT-ASSERTION-ACTION-EXCLUDED
 
-9.2.2.2.1 / normal / テスト未対応
+9.2.2.2.1 / normal / テスト対応あり・実行未確認
 
 Assertion action-block expressions do not contribute to always_comb sensitivity.
 
@@ -19755,10 +19758,11 @@ Assertion action-block expressions do not contribute to always_comb sensitivity.
 
 規定の性質: `mandatory`。
 
+- [test_always_comb_sensitivity_exceptions.sv](../tests/ch9/test_always_comb_sensitivity_exceptions.sv): Changing only action-block input verbose must not retrigger; unchanged runs3 verifies exclusion without invoking a failing assertion.
 
 ### SV2023-9.2.2.2.1-EXTRACT-ASSERTION-CONDITION-SENSITIVE
 
-9.2.2.2.1 / normal / テスト未対応
+9.2.2.2.1 / normal / テスト対応あり・実行未確認
 
 An immediate assertion condition in always_comb or its called functions contributes sensitivity like an if condition.
 
@@ -19766,6 +19770,7 @@ An immediate assertion condition in always_comb or its called functions contribu
 
 規定の性質: `mandatory`。
 
+- [test_always_comb_sensitivity_exceptions.sv](../tests/ch9/test_always_comb_sensitivity_exceptions.sv): Changing only immediate-assertion condition input e retriggers the procedure, observed through runs while y remains7.
 
 ### SV2023-9.2.2.2.1-EXTRACT-EXCLUDE-LOCAL
 
@@ -19824,7 +19829,7 @@ always_comb sensitivity includes longest static prefix expansions of net/variabl
 
 ### SV2023-9.2.2.2.1-EXTRACT-TASK-ARGUMENTS-ONLY
 
-9.2.2.2.1 / normal / テスト未対応
+9.2.2.2.1 / normal / テスト対応あり・実行未確認
 
 Task calls are allowed in always_comb subject to no-blocking rules; their arguments contribute sensitivity but their bodies do not.
 
@@ -19832,6 +19837,7 @@ Task calls are allowed in always_comb subject to no-blocking rules; their argume
 
 規定の性質: `mandatory`。
 
+- [test_always_comb_sensitivity_exceptions.sv](../tests/ch9/test_always_comb_sensitivity_exceptions.sv): Changing a task-only global hidden does not retrigger, whereas changing argument a does and observes the new hidden value.
 
 ### SV2023-9.2.2.2.2-EXTRACT-COMB-ASSERTION-VS-STAR
 
@@ -19846,7 +19852,7 @@ always_comb includes immediate assertion conditions in called functions while @*
 
 ### SV2023-9.2.2.2.2-EXTRACT-COMB-FUNCTION-BODY-VS-STAR
 
-9.2.2.2.2 / normal / テスト未対応
+9.2.2.2.2 / normal / 実行確認あり
 
 always_comb includes applicable called-function reads while @* includes function argument reads only.
 
@@ -19854,10 +19860,11 @@ always_comb includes applicable called-function reads while @* includes function
 
 規定の性質: `mandatory`。
 
+- [test_always_comb_vs_always_star.sv](../tests/ch9/test_always_comb_vs_always_star.sv): An argument-only change updates both processes; a function-body-only global g change updates only always_comb; a later argument change updates both using the new global.
 
 ### SV2023-9.2.2.2.2-EXTRACT-COMB-TIME-ZERO-VS-STAR
 
-9.2.2.2.2 / normal / テスト未対応
+9.2.2.2.2 / normal / 実行確認あり
 
 always_comb executes once at time zero while always @* initially waits for a sensitivity change.
 
@@ -19865,6 +19872,7 @@ always_comb executes once at time zero while always @* initially waits for a sen
 
 規定の性質: `mandatory`。
 
+- [test_always_comb_vs_always_star.sv](../tests/ch9/test_always_comb_vs_always_star.sv): Inputs are declaration-initialized before processes start. Before any later input write, always_comb has produced6 while @* remainsx; delayed changes then cause both to update.
 
 ### SV2023-9.2.2.2.2-EXTRACT-COMB-WRITER-VS-STAR
 
@@ -19956,7 +19964,7 @@ A final procedure can trigger only once per simulation.
 
 ### SV2023-9.2.3-EXTRACT-FINAL-BEFORE-END-CALLBACK
 
-9.2.3 / normal / テスト未対応
+9.2.3 / normal / 実行確認あり
 
 Final procedures execute before PLI end-of-simulation callbacks.
 
@@ -19964,6 +19972,7 @@ Final procedures execute before PLI end-of-simulation callbacks.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_end_of_simulation_after_final.sv](../tests/ch36/test_vpi_end_of_simulation_after_final.sv): An inspected C VPI startup routine registers cbEndOfSimulation and its callback prints the simulator time. The complete ordered stdout requires final before the callback, both at10.
 
 ### SV2023-9.2.3-EXTRACT-FINAL-END-NO-DELAY
 
@@ -20011,7 +20020,7 @@ Calling $finish, tf_dofinish or vpi_control(vpiFinish,...) inside final ends sim
 
 ### SV2023-9.2.3-EXTRACT-FINISH-TRIGGERS-FINAL
 
-9.2.3 / normal / テスト未対応
+9.2.3 / normal / 実行確認あり
 
 An explicit or implicit $finish ending simulation causes final execution.
 
@@ -20019,6 +20028,8 @@ An explicit or implicit $finish ending simulation causes final execution.
 
 規定の性質: `mandatory`。
 
+- [test_final.sv](../tests/ch9/test_final.sv): Explicit $finish follows the checks; exactly the final summary follows in the complete expected output. Grouped with implicit simulation termination.
+- [test_dpi_import_function_zero_time_callers.sv](../tests/ch35/test_dpi_import_function_zero_time_callers.sv): All scheduled initial work completes at16 with no explicit $finish and no remaining future activity. The final procedure then emits90 from the inspected native c_scale function. Grouped with an explicit-finish witness.
 
 ### SV2023-9.2.3-EXTRACT-NO-POSTFINAL-EVENTS
 
@@ -20088,7 +20099,7 @@ A sequential block executes statements one after another, with each delay measur
 
 ### SV2023-9.3.2-EXTRACT-DEFER-CHILD-START
 
-9.3.2 / normal / テスト未対応
+9.3.2 / normal / 実行確認あり
 
 Forked children do not begin execution until the parent process blocks or terminates.
 
@@ -20096,10 +20107,11 @@ Forked children do not begin execution until the parent process blocks or termin
 
 規定の性質: `mandatory`。
 
+- [test_join_none_children_start_after_parent_blocks.sv](../tests/ch9/test_join_none_children_start_after_parent_blocks.sv): Parent completes all loop iterations and its immediate display before any child executes. All children see final shared i=3 and run at time0 only after parent blocks on #1; identical child lines avoid relying on their relative order.
 
 ### SV2023-9.3.2-EXTRACT-FORK-DECLARATION-INITIALIZATION
 
-9.3.2 / normal / テスト未対応
+9.3.2 / normal / 実行確認あり
 
 A fork block item variable initializer executes on scope entry before any children are spawned.
 
@@ -20107,6 +20119,7 @@ A fork block item variable initializer executes on scope entry before any childr
 
 規定の性質: `mandatory`。
 
+- [test_fork_automatic_declaration_per_iteration.sv](../tests/ch9/test_fork_automatic_declaration_per_iteration.sv): Fork declaration initializer captures each loop iteration before children start; delayed children output the per-entry0..2,10..12,20..22 values. Sorting removes unspecified same-time sibling order.
 
 ### SV2023-9.3.2-EXTRACT-FUNCTION-FORK-RESTRICTIONS
 
@@ -20121,7 +20134,7 @@ Parallel block use within functions follows the restrictions of 13.4.
 
 ### SV2023-9.3.2-EXTRACT-JOIN
 
-9.3.2 / normal / テスト未対応
+9.3.2 / normal / 実行確認あり
 
 The parent at join waits until all spawned children terminate.
 
@@ -20129,10 +20142,11 @@ The parent at join waits until all spawned children terminate.
 
 規定の性質: `mandatory`。
 
+- [test_fork_join_block_timing.sv](../tests/ch9/test_fork_join_block_timing.sv): Parent resumes at30 only after the longest branch; earlier branches finish at5/10/15. The whole ordered timestamp trace is the oracle.
 
 ### SV2023-9.3.2-EXTRACT-JOIN-ANY
 
-9.3.2 / normal / テスト未対応
+9.3.2 / normal / 実行確認あり
 
 The parent at join-any waits until any spawned child terminates.
 
@@ -20140,6 +20154,7 @@ The parent at join-any waits until any spawned child terminates.
 
 規定の性質: `mandatory`。
 
+- [test_fork_join_block_timing.sv](../tests/ch9/test_fork_join_block_timing.sv): Second fork starts at30 and parent resumes at32 after the2-unit branch while10-unit sibling remains active to40. The whole ordered timestamp trace is the oracle.
 
 ### SV2023-9.3.2-EXTRACT-JOIN-ANY-NONE-REF
 
@@ -20154,7 +20169,7 @@ A fork-join_any/join_none cannot refer to a ref formal except within fork declar
 
 ### SV2023-9.3.2-EXTRACT-JOIN-NONE
 
-9.3.2 / normal / テスト未対応
+9.3.2 / normal / 実行確認あり
 
 The parent at join-none continues concurrently without waiting for spawned children.
 
@@ -20162,6 +20177,8 @@ The parent at join-none continues concurrently without waiting for spawned child
 
 規定の性質: `mandatory`。
 
+- [test_join_none_children_start_after_parent_blocks.sv](../tests/ch9/test_join_none_children_start_after_parent_blocks.sv): Parent continues through every fork without waiting for child completion and reaches the final shared index before the children run.
+- [test_fork_join_block_timing.sv](../tests/ch9/test_fork_join_block_timing.sv): Parent prints after join_none at32, before its one-unit child prints at33. The whole ordered timestamp trace is the oracle.
 
 ### SV2023-9.3.2-EXTRACT-NO-RETURN-FROM-FORK
 
@@ -20187,7 +20204,7 @@ A fork block permits optional names, declarations before parallel statement-or-n
 
 ### SV2023-9.3.2-EXTRACT-PARALLEL-STATEMENTS
 
-9.3.2 / normal / テスト未対応
+9.3.2 / normal / 実行確認あり
 
 Each parallel statement spawns a concurrent process, with its delay measured from block entry rather than a preceding branch; textual delay order need not be chronological.
 
@@ -20195,10 +20212,11 @@ Each parallel statement spawns a concurrent process, with its delay measured fro
 
 規定の性質: `mandatory`。
 
+- [test_fork_join_block_timing.sv](../tests/ch9/test_fork_join_block_timing.sv): Fork branches with textual delays30,10 and a sequential5+10 execute at30,10,5/15 relative to one common fork entry. The whole ordered timestamp trace is the oracle.
 
 ### SV2023-9.3.2-EXTRACT-SEQUENTIAL-BRANCH
 
-9.3.2 / normal / テスト未対応
+9.3.2 / normal / 実行確認あり
 
 A begin/end group used as one fork branch is one child process and executes its contained statements sequentially.
 
@@ -20206,10 +20224,11 @@ A begin/end group used as one fork branch is one child process and executes its 
 
 規定の性質: `mandatory`。
 
+- [test_fork_join_block_timing.sv](../tests/ch9/test_fork_join_block_timing.sv): The begin/end fork branch performs delays5 then10 sequentially, giving5 then15, while other branches execute concurrently. The whole ordered timestamp trace is the oracle.
 
 ### SV2023-9.3.3-EXTRACT-BLOCK-START-FINISH
 
-9.3.3 / normal / テスト未対応
+9.3.3 / normal / 実行確認あり
 
 Sequential start/finish is first/last statement execution; parallel branches share start time and the join kind determines block completion.
 
@@ -20217,10 +20236,11 @@ Sequential start/finish is first/last statement execution; parallel branches sha
 
 規定の性質: `definition`。
 
+- [test_fork_join_block_timing.sv](../tests/ch9/test_fork_join_block_timing.sv): Nested sequential branch delay5+10 yields15 while sibling delays remain relative to fork entry. Following statements occur at all-child, first-child or immediate completion times according to join/join_any/join_none.
 
 ### SV2023-9.3.3-EXTRACT-NESTED-BLOCK-COMPLETION
 
-9.3.3 / normal / テスト未対応
+9.3.3 / normal / 実行確認あり
 
 Sequential/parallel blocks may nest; execution of the following parent statement waits until the nested block completes under its join semantics.
 
@@ -20228,6 +20248,7 @@ Sequential/parallel blocks may nest; execution of the following parent statement
 
 規定の性質: `mandatory`。
 
+- [test_fork_join_block_timing.sv](../tests/ch9/test_fork_join_block_timing.sv): Nested sequential branch delay5+10 yields15 while sibling delays remain relative to fork entry. Following statements occur at all-child, first-child or immediate completion times according to join/join_any/join_none.
 
 ### SV2023-9.3.4-EXTRACT-CLOSING-NAME-MATCH
 
@@ -20453,7 +20474,7 @@ A negative delay is interpreted as a two-complement unsigned integer of time-var
 
 ### SV2023-9.4.1-EXTRACT-PROCEDURAL-DELAY
 
-9.4.1 / normal / テスト未対応
+9.4.1 / normal / 実行確認あり
 
 A delay defers the following procedural statement relative to execution of the preceding procedural statement.
 
@@ -20461,6 +20482,7 @@ A delay defers the following procedural statement relative to execution of the p
 
 規定の性質: `mandatory`。
 
+- [test_assign_delay_edge_cases.sv](../tests/ch9/test_assign_delay_edge_cases.sv): The first checked #3 statement advances time by3; the subsequent #1/#2/#3 sequence checks total elapsed6 and final data3. Repeated delays also check5 and8 elapsed units, proving delays relative to preceding execution rather than absolute times. The #0 subcase is not used to claim inactive-queue ordering.
 
 ### SV2023-9.4.1-EXTRACT-SPECPARAM-DELAY-SDF
 
@@ -20508,7 +20530,7 @@ A scalar 0-to-0 transition produces no posedge/negedge event.
 
 ### SV2023-9.4.2-EXTRACT-EDGE-0-1
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / 実行確認あり
 
 A scalar 0-to-1 transition produces a posedge event.
 
@@ -20516,6 +20538,8 @@ A scalar 0-to-1 transition produces a posedge event.
 
 規定の性質: `mandatory`。
 
+- [test_event_control_posedge.sv](../tests/ch9/test_event_control_posedge.sv): Registers waits before the first known0-to1 transition, then checks three specific resume times with falling edges between them. A spurious falling-edge wake or failure to wait changes the checked timestamps.
+- [test_zero_width_pulse_wakes_edge_control.sv](../tests/ch9/test_zero_width_pulse_wakes_edge_control.sv): Separate posedge/negedge listeners each record their one matching transition within the same timestep; the end-of-step value zero must not erase the detected rising edge.
 
 ### SV2023-9.4.2-EXTRACT-EDGE-0-X
 
@@ -20541,7 +20565,7 @@ A scalar 0-to-z transition produces a posedge event.
 
 ### SV2023-9.4.2-EXTRACT-EDGE-1-0
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / 実行確認あり
 
 A scalar 1-to-0 transition produces a negedge event.
 
@@ -20549,6 +20573,7 @@ A scalar 1-to-0 transition produces a negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_zero_width_pulse_wakes_edge_control.sv](../tests/ch9/test_zero_width_pulse_wakes_edge_control.sv): Separate posedge/negedge listeners each record their one matching transition within the same timestep; the end-of-step value zero must not erase the detected rising edge.
 
 ### SV2023-9.4.2-EXTRACT-EDGE-1-1
 
@@ -20763,7 +20788,7 @@ Nonvirtual object methods and built-in aggregate methods/system functions may ap
 
 ### SV2023-9.4.2-EXTRACT-NONEDGE-RESULT-CHANGE
 
-9.4.2 / normal / テスト未対応
+9.4.2 / normal / 実行確認あり
 
 A nonedge expression event triggers on any result value change; an operand change with an unchanged result is not an event.
 
@@ -20771,6 +20796,8 @@ A nonedge expression event triggers on any result value change; an operand chang
 
 規定の性質: `mandatory`。
 
+- [test_event_control_on_expression.sv](../tests/ch9/test_event_control_on_expression.sv): Independently checked sequence0,1,5,6,10,12,3: mask results0,1,1,2,2,0,3 change four times; comparison false,false,false,true,true,true,false changes twice; a changes six times. This distinguishes expression-result changes from operand writes.
+- [test_event_nested_struct_member.sv](../tests/ch9/test_event_nested_struct_member.sv): Checks nested packed-member and aggregate expression events on actual changes, excludes unrelated/sibling fields, and explicitly verifies rewriting the identical member value does not trigger.
 
 ### SV2023-9.4.2-EXTRACT-SINGULAR-EVENT-RESULT
 
@@ -20785,7 +20812,7 @@ An event expression must yield a singular value; aggregate/object selections are
 
 ### SV2023-9.4.2.1-EXTRACT-EVENT-OR
 
-9.4.2.1 / normal / テスト未対応
+9.4.2.1 / normal / 実行確認あり
 
 Any one event in an event-OR triggers the controlled statement; or and comma are synonymous and may be mixed.
 
@@ -20793,6 +20820,7 @@ Any one event in an event-OR triggers the controlled statement; or and comma are
 
 規定の性質: `mandatory`。
 
+- [test_event_or_mixed_comma_forms.sv](../tests/ch9/test_event_or_mixed_comma_forms.sv): Each of a,b,c changes in a separate slot, then a changes again. Comma-only and mixed or/comma expressions each trigger four times, exercising all three sources.
 
 ### SV2023-9.4.2.2-EXTRACT-STAR-INCLUDED-CONTEXTS
 
@@ -20840,7 +20868,7 @@ Identifiers appearing only as the variable identifier written on an assignment L
 
 ### SV2023-9.4.2.3-EXTRACT-IFF-NOT-OWN-SENSITIVITY
 
-9.4.2.3 / normal / テスト未対応
+9.4.2.3 / normal / 実行確認あり
 
 Changing only an iff qualifier does not trigger its underlying event expression.
 
@@ -20848,10 +20876,11 @@ Changing only an iff qualifier does not trigger its underlying event expression.
 
 規定の性質: `mandatory`。
 
+- [test_event_or_iff.sv](../tests/ch9/test_event_or_iff.sv): Changing en from0 to1 while a remains1 must not trigger the qualified event; exact final counts include only the later rising edge. The complete expected counters are checked after separately timed changes and a final repeated same-value write.
 
 ### SV2023-9.4.2.3-EXTRACT-IFF-PRECEDENCE
 
-9.4.2.3 / normal / テスト未対応
+9.4.2.3 / normal / 実行確認あり
 
 iff binds more tightly than event or.
 
@@ -20859,10 +20888,11 @@ iff binds more tightly than event or.
 
 規定の性質: `mandatory`。
 
+- [test_event_or_iff.sv](../tests/ch9/test_event_or_iff.sv): A b rising edge with en=0 still triggers the OR event, distinguishing tighter iff binding from applying en to the whole OR. The complete expected counters are checked after separately timed changes and a final repeated same-value write.
 
 ### SV2023-9.4.2.3-EXTRACT-IFF-QUALIFIER
 
-9.4.2.3 / normal / テスト未対応
+9.4.2.3 / normal / 実行確認あり
 
 An @ event may be qualified by iff.
 
@@ -20870,10 +20900,11 @@ An @ event may be qualified by iff.
 
 規定の性質: `permission`。
 
+- [test_event_or_iff.sv](../tests/ch9/test_event_or_iff.sv): Uses an iff-qualified edge and observes only the enabled rising edge. The complete expected counters are checked after separately timed changes and a final repeated same-value write.
 
 ### SV2023-9.4.2.3-EXTRACT-IFF-TRUE-ONLY
 
-9.4.2.3 / normal / テスト未対応
+9.4.2.3 / normal / 実行確認あり
 
 An iff event triggers only when its qualifier is true under 12.4 at the underlying event occurrence.
 
@@ -20881,6 +20912,7 @@ An iff event triggers only when its qualifier is true under 12.4 at the underlyi
 
 規定の性質: `mandatory`。
 
+- [test_event_or_iff.sv](../tests/ch9/test_event_or_iff.sv): One rising edge with en=0 is suppressed, and the later rising edge with en=1 triggers exactly once. The complete expected counters are checked after separately timed changes and a final repeated same-value write.
 
 ### SV2023-9.4.2.4-EXTRACT-SEQUENCE-EVENT
 
@@ -20939,7 +20971,7 @@ Wait syntax permits expression plus statement-or-null, wait fork and wait_order 
 
 ### SV2023-9.4.3-EXTRACT-WAIT-LEVEL
 
-9.4.3 / normal / テスト未対応
+9.4.3 / normal / 実行確認あり
 
 wait tests its condition immediately and blocks only while it is not true under 12.4; it resumes when true rather than requiring a future change if already true.
 
@@ -20947,6 +20979,8 @@ wait tests its condition immediately and blocks only while it is not true under 
 
 規定の性質: `mandatory`。
 
+- [test_disable_wait.sv](../tests/ch9/test_disable_wait.sv): The flag is already1 on wait entry; execution must proceed without a future flag event. This alone does not cover initially-false blocking, so the array-size test is a required collective member.
+- [test_wait_on_array_size.sv](../tests/ch9/test_wait_on_array_size.sv): Queue and dynamic-array conditions start false and resume only when push/new make them true at1/2. Grouped with an already-true condition witness.
 
 ### SV2023-9.4.4-EXTRACT-SEQUENCE-TRIGGERED-RESULT
 
@@ -21038,7 +21072,7 @@ Blocking and nonblocking assignments support delay/event/repeat controls in the 
 
 ### SV2023-9.4.5-EXTRACT-INTRA-RHS-BEFORE-CONTROL
 
-9.4.5 / normal / テスト未対応
+9.4.5 / normal / 実行確認あり
 
 Intra-assignment timing evaluates the RHS before its delay/event wait but updates the LHS after that timing control.
 
@@ -21046,6 +21080,7 @@ Intra-assignment timing evaluates the RHS before its delay/event wait but update
 
 規定の性質: `mandatory`。
 
+- [test_intra_assignment_repeat_nonblocking.sv](../tests/ch9/test_intra_assignment_repeat_nonblocking.sv): Schedules an update from data11 at time1, immediately changes data22, and observes the saved11 assigned only on the third posedge at25; subsequent operations produce22 at45 and33 at51.
 
 ### SV2023-9.4.5-EXTRACT-NONPOSITIVE-UNKNOWN-REPEAT
 
@@ -21060,7 +21095,7 @@ A repeat count at/below zero or containing x/z at evaluation produces assignment
 
 ### SV2023-9.4.5-EXTRACT-REPEAT-COUNT-EVALUATED-ONCE
 
-9.4.5 / normal / テスト未対応
+9.4.5 / normal / 実行確認あり
 
 A repeat event count is evaluated once before scheduling; later changes to the count expression inputs do not affect the scheduled count.
 
@@ -21068,6 +21103,7 @@ A repeat event count is evaluated once before scheduling; later changes to the c
 
 規定の性質: `mandatory`。
 
+- [test_intra_assignment_repeat_nonblocking.sv](../tests/ch9/test_intra_assignment_repeat_nonblocking.sv): Schedules at time31 with n=2, immediately rewrites n=5, and observes the update on the second later posedge at45. Live reevaluation would postpone it and violate the timestamp trace.
 
 ### SV2023-9.5-EXTRACT-CONTINUOUS-THREAD-MODEL
 
@@ -21148,7 +21184,7 @@ wait fork is a semicolon-terminated statement.
 
 ### SV2023-9.6.1-EXTRACT-WAIT-IMMEDIATE-CHILDREN
 
-9.6.1 / normal / テスト未対応
+9.6.1 / normal / 実行確認あり
 
 wait fork blocks until every immediate child of the current process has terminated; it does not directly wait for deeper descendants.
 
@@ -21156,6 +21192,9 @@ wait fork blocks until every immediate child of the current process has terminat
 
 規定の性質: `mandatory`。
 
+- [test_wait_fork_ignores_grandchildren.sv](../tests/ch9/test_wait_fork_ignores_grandchildren.sv): One child spawns a longer-lived grandchild, then ends at2. Parent wait fork returns at2, before the grandchild ends at5; thus it waits for its immediate child but not all descendants.
+- [test_wait_fork_without_children.sv](../tests/ch9/test_wait_fork_without_children.sv): With no own children, wait fork returns immediately despite another initial process having an outstanding child; after spawning its own child it waits for that child only.
+- [test_wait_fork_disable_fork.sv](../tests/ch9/test_wait_fork_disable_fork.sv): Parent waits for its longest immediate child at5, not the20-unit grandchild spawned by the other child; later observes that grandchild completing normally.
 
 ### SV2023-9.6.2-EXTRACT-AUTOMATIC-DISABLE-ALL
 
@@ -21170,7 +21209,7 @@ Disabling an automatic task or its block follows ordinary task disable semantics
 
 ### SV2023-9.6.2-EXTRACT-DISABLE-ALL-ACTIVATIONS
 
-9.6.2 / normal / テスト未対応
+9.6.2 / normal / 実行確認あり
 
 Disabling a task terminates every concurrent activation of that task, not only the calling activation.
 
@@ -21178,10 +21217,11 @@ Disabling a task terminates every concurrent activation of that task, not only t
 
 規定の性質: `mandatory`。
 
+- [test_disable_task_from_another_process.sv](../tests/ch9/test_disable_task_from_another_process.sv): An external disable terminates two simultaneous activations begun at0 and1, resumes both at2, and prevents both delayed increments. A fresh later call still succeeds.
 
 ### SV2023-9.6.2-EXTRACT-DISABLE-DOWNWARD-ACTIVITY
 
-9.6.2 / normal / テスト未対応
+9.6.2 / normal / 実行確認あり
 
 Disabling a task/block terminates all activity it enabled, including nested task enables.
 
@@ -21189,6 +21229,8 @@ Disabling a task/block terminates all activity it enabled, including nested task
 
 規定の性質: `mandatory`。
 
+- [test_disable_enclosing_task.sv](../tests/ch9/test_disable_enclosing_task.sv): An inner task disables its enclosing caller task. Neither remaining inner+100 nor outer+1000 executes; execution resumes in the initial after the call with c11. Grouped with fork descendants of a named block.
+- [test_disable_named_block_with_forks.sv](../tests/ch9/test_disable_named_block_with_forks.sv): Disabling a named block from one fork branch terminates the other branch and prevents parent continuation; independent named-child disable also prevents its delayed mark. Observe beyond all original deadlines. Grouped with nested task-chain termination.
 
 ### SV2023-9.6.2-EXTRACT-DISABLE-LABELED-ASSERTION
 
@@ -21214,7 +21256,7 @@ A task self-disable ends all its active executions rather than acting as a singl
 
 ### SV2023-9.6.2-EXTRACT-DISABLE-RESUME
 
-9.6.2 / normal / テスト未対応
+9.6.2 / normal / 実行確認あり
 
 Disabling a named block/task terminates its activity and resumes execution after the block or its enabling task call.
 
@@ -21222,6 +21264,17 @@ Disabling a named block/task terminates its activity and resumes execution after
 
 規定の性質: `mandatory`。
 
+- [test_disable_block.sv](../tests/ch9/test_disable_block.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_disable_advanced.sv](../tests/ch9/test_disable_advanced.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_disable_stmt_2.sv](../tests/ch9/test_disable_stmt_2.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_disable_stmt_3.sv](../tests/ch9/test_disable_stmt_3.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_disable_stmt_edge_cases.sv](../tests/ch9/test_disable_stmt_edge_cases.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_disable_wait.sv](../tests/ch9/test_disable_wait.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_stmt_disable.sv](../tests/ch9/test_stmt_disable.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_stmt_disable_2.sv](../tests/ch9/test_stmt_disable_2.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_named_block_disable.sv](../tests/ch9/test_named_block_disable.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_task_disable.sv](../tests/ch9/test_task_disable.sv): Checks the value preserved by skipping the remainder of the disabled named block and continuing after it. Paired with the concurrent task-disable witness, which observes caller continuation at the disable time. Only checked subcases are credited; unrelated unguarded PASS labels are not evidence.
+- [test_disable_task_from_another_process.sv](../tests/ch9/test_disable_task_from_another_process.sv): Two callers begin the same task at0/1. An external disable at2 resumes both callers at2, prevents completion increments, and does not prevent a later fresh call from finishing at17. Grouped with named-block continuation cases.
 
 ### SV2023-9.6.2-EXTRACT-DISABLED-OUTPUT-UNSPECIFIED
 
@@ -21269,7 +21322,7 @@ A task/block may disable itself; named blocks inside functions can be disabled b
 
 ### SV2023-9.6.3-EXTRACT-DISABLE-ALL-DESCENDANTS
 
-9.6.3 / normal / テスト未対応
+9.6.3 / normal / 実行確認あり
 
 disable fork ends every descendant of the calling process, including descendants whose intermediate parent already terminated.
 
@@ -21277,6 +21330,8 @@ disable fork ends every descendant of the calling process, including descendants
 
 規定の性質: `mandatory`。
 
+- [test_wait_fork_disable_fork.sv](../tests/ch9/test_wait_fork_disable_fork.sv): After an intermediate child returns, its outstanding grandchild and a direct child remain. disable fork ends both; the later observation is beyond both original completion deadlines and both flags remain zero.
+- [test_disable_fork_ends_loops_and_class_tasks.sv](../tests/ch9/test_disable_fork_ends_loops_and_class_tasks.sv): Kills direct branches running while/for loops and a class task after the25-unit winner; counters stop through time125. A separate test witnesses descendants of already-ended intermediate parents.
 
 ### SV2023-9.6.3-EXTRACT-DISABLE-FORK-SYNTAX
 
@@ -21335,7 +21390,7 @@ kill/await/suspend/resume can target only processes created by initial/always pr
 
 ### SV2023-9.7-EXTRACT-FINISHED-STATE
 
-9.7 / normal / テスト未対応
+9.7 / normal / 実行確認あり
 
 status() returns FINISHED when the process is terminated normally.
 
@@ -21343,6 +21398,9 @@ status() returns FINISHED when the process is terminated normally.
 
 規定の性質: `mandatory`。
 
+- [test_process_class_control.sv](../tests/ch9/test_process_class_control.sv): A separate child ends normally at time3 and is reported FINISHED at time4.
+- [test_process_suspend_resume_await.sv](../tests/ch9/test_process_suspend_resume_await.sv): After a child normally ends at time3, await returns and the explicit enum comparison observes FINISHED.
+- [test_process_threads_distinct.sv](../tests/ch9/test_process_threads_distinct.sv): After fork-join completion the retained branch handle reports FINISHED; checked from final after time1.
 
 ### SV2023-9.7-EXTRACT-GET-RANDSTATE-SIGNATURE
 
@@ -21390,7 +21448,7 @@ kill() terminates its target and all descendants before returning, allowing a ra
 
 ### SV2023-9.7-EXTRACT-KILLED-STATE
 
-9.7 / normal / テスト未対応
+9.7 / normal / 実行確認あり
 
 status() returns KILLED when the process is forcibly terminated by kill/disable.
 
@@ -21398,6 +21456,8 @@ status() returns KILLED when the process is forcibly terminated by kill/disable.
 
 規定の性質: `mandatory`。
 
+- [test_process_class_control.sv](../tests/ch9/test_process_class_control.sv): Immediately after kill returns, status is KILLED; the later time14 observation also excludes execution beyond the original delay.
+- [test_process_kill_self.sv](../tests/ch9/test_process_kill_self.sv): A child kills itself without executing its following assignment; the parent separately kills another waiting child. Both status names are KILLED beyond the second original deadline.
 
 ### SV2023-9.7-EXTRACT-NO-FUNCTION-SELF-SUSPEND
 
@@ -21511,7 +21571,7 @@ status() returns RUNNING when the process is executing outside a blocking statem
 
 ### SV2023-9.7-EXTRACT-SELF-HANDLE
 
-9.7 / normal / テスト未対応
+9.7 / normal / 実行確認あり
 
 process::self() returns the handle of the calling process.
 
@@ -21519,6 +21579,7 @@ process::self() returns the handle of the calling process.
 
 規定の性質: `mandatory`。
 
+- [test_process_threads_distinct.sv](../tests/ch9/test_process_threads_distinct.sv): Captures self handles from an initial, an always, two fork-join branches and a join_none child. A function counts five distinct non-null handles; subsequent comparisons confirm the always is waiting and the first fork branch is finished. No claim about requiring a new concurrent final process is made.
 
 ### SV2023-9.7-EXTRACT-SELF-SIGNATURE
 
@@ -21577,7 +21638,7 @@ suspend() suspends the target before returning unless it ends during the call; i
 
 ### SV2023-9.7-EXTRACT-SUSPEND-DESENSITIZE
 
-9.7 / normal / テスト未対応
+9.7 / normal / テスト対応あり・実行未確認
 
 Suspending a waiting process removes its sensitivity to its event, condition or delay expiration.
 
@@ -21585,6 +21646,7 @@ Suspending a waiting process removes its sensitivity to its event, condition or 
 
 規定の性質: `mandatory`。
 
+- [test_process_suspend_resume_await.sv](../tests/ch9/test_process_suspend_resume_await.sv): Suspends at time3 a child blocked until time4; after that original expiration its continuation remains unexecuted through time8. This is a delay-expiration witness, not evidence for every event/wait-condition variation.
 
 ### SV2023-9.7-EXTRACT-SUSPEND-INACTIVE-NOOP
 
@@ -21610,7 +21672,7 @@ The process API declares function void suspend().
 
 ### SV2023-9.7-EXTRACT-SUSPENDED-STATE
 
-9.7 / normal / テスト未対応
+9.7 / normal / テスト対応あり・実行未確認
 
 status() returns SUSPENDED when the process is stopped awaiting resume.
 
@@ -21618,10 +21680,11 @@ status() returns SUSPENDED when the process is stopped awaiting resume.
 
 規定の性質: `mandatory`。
 
+- [test_process_suspend_resume_await.sv](../tests/ch9/test_process_suspend_resume_await.sv): A child formerly waiting on its time4 delay is still stopped and explicitly reports SUSPENDED at time8, before resume.
 
 ### SV2023-9.7-EXTRACT-WAITING-STATE
 
-9.7 / normal / テスト未対応
+9.7 / normal / 実行確認あり
 
 status() returns WAITING when the process is blocked in a blocking statement.
 
@@ -21629,6 +21692,8 @@ status() returns WAITING when the process is blocked in a blocking statement.
 
 規定の性質: `mandatory`。
 
+- [test_process_class_control.sv](../tests/ch9/test_process_class_control.sv): The child handle is captured before its ten-unit delay; at time1 the parent observes WAITING.
+- [test_process_threads_distinct.sv](../tests/ch9/test_process_threads_distinct.sv): An always process blocked indefinitely on wait(false) retains WAITING status when simulation otherwise ends.
 
 ### SV2023-10.2-EXTRACT-ASSIGNMENT-KINDS
 
