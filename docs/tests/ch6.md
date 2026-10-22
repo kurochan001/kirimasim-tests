@@ -1,6 +1,6 @@
 # Clause 6: Data types
 
-[All chapters](README.md). 317 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 318 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -110,7 +110,7 @@
 | [`test_chandle_edge_cases`](../../tests/ch6/test_chandle_edge_cases.sv) | Test: Chandle edge cases | 6.14 | Verilator 5.052 |  |
 | [`test_chandle_ops`](../../tests/ch6/test_chandle_ops.sv) | Test chandle null checks and operations | 6.14 | Verilator 5.052 |  |
 | [`test_comb_string_compare`](../../tests/ch6/test_comb_string_compare.sv) | Test: String comparison operators and methods | 6.16 | Verilator 5.052 |  |
-| [`test_edge_assoc_array_keys`](../../tests/ch6/test_edge_assoc_array_keys.sv) | String keys with "\0" in associative arrays: "\0" is removed from string literals | 6.16 7.8.1 | Verilator 5.052 |  |
+| [`test_edge_assoc_array_keys`](../../tests/ch6/test_edge_assoc_array_keys.sv) | String keys with "\0" in associative arrays: "\0" is removed from string literals | 6.16 7.8.2 | Verilator 5.052 |  |
 | [`test_edge_case_strings`](../../tests/ch6/test_edge_case_strings.sv) | Corner case tests for string operations | 6.16 | Verilator 5.052 |  |
 | [`test_expr_string`](../../tests/ch6/test_expr_string.sv) | String expressions test | 6.16 11.4.12 | Verilator 5.052 |  |
 | [`test_string_basic`](../../tests/ch6/test_string_basic.sv) | String Basic Tests | 6.16 | Icarus Verilog 13.0 |  |
@@ -306,6 +306,7 @@
 | [`test_cast_string_literal_to_narrower_type`](../../tests/ch6/test_cast_string_literal_to_narrower_type.sv) | Casting a string literal to a narrower integral type keeps its rightmost characters | 6.24.1 5.9 | Icarus Verilog 13.0 |  |
 | [`test_cast_to_enum_truncates`](../../tests/ch6/test_cast_to_enum_truncates.sv) | A cast to an enumerated type converts the value to the width of the base type, also when the result is not a member | 6.24.1 6.19.4 | Verilator 5.052 |  |
 | [`test_signed_cast`](../../tests/ch6/test_signed_cast.sv) | Test signed cast | 6.24.1 | Icarus Verilog 13.0 |  |
+| [`test_size_cast_intermediate_context`](../../tests/ch6/test_size_cast_intermediate_context.sv) | Use real size casts to resize arithmetic intermediates and preserve operand signing | 6.24.1 11.6 11.6.1 20.6.2 20.7 | Verilator 5.052 |  |
 | [`test_type_casting`](../../tests/ch6/test_type_casting.sv) | Corner Case: Type Casting | 6.24.1 6.12.1 10.7 11.7 | Icarus Verilog 13.0 |  |
 | [`test_cast_dynamic_array`](../../tests/ch6/test_cast_dynamic_array.sv) | $cast to array elements | 6.24.2 7.5 7.10 | Verilator 5.052 |  |
 | [`test_cast_function`](../../tests/ch6/test_cast_function.sv) | Test for IEEE 1800-2023 §6.24.2: $cast system function | 6.24.2 8.16 | Verilator 5.052 |  |

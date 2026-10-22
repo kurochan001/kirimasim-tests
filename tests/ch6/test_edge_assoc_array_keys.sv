@@ -3,7 +3,7 @@
 :description: String keys with "\0" in associative arrays: "\0" is removed from string literals
 :tags: ch6
 :type: simulation
-:lrm: 1800-2023 6.16 7.8.1
+:lrm: 1800-2023 6.16 7.8.2
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

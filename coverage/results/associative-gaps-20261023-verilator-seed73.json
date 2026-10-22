@@ -1,0 +1,80 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch7/test_assoc_assignment_copies_every_entry": {
+   "status": "pass",
+   "inputs_sha256": "7f6597a62d0505324bf623455b8768ef7c0848a215e6dba52be8fac7bc9e67e0"
+  },
+  "ch7/test_assoc_class_key_order_is_stable": {
+   "status": "pass",
+   "inputs_sha256": "397e8d9c6308e18f06d99797c5cdbc23c6b6c00b387e9ab95214f64125ee41e7"
+  },
+  "ch7/test_assoc_composite_empty_null_key_order": {
+   "status": "pass",
+   "inputs_sha256": "06839414b6e8667366f8018caf3197db839ad370e8a4b8352f7b6016f1e2e0a3"
+  },
+  "ch7/test_assoc_count_expression_types": {
+   "status": "pass",
+   "inputs_sha256": "b8ef9c663c4b5d1ecf38ad4644005f82ad5ecbe8d4b8b576317c36d51fe18ec9"
+  },
+  "ch7/test_assoc_default_and_delete_silent": {
+   "status": "pass",
+   "inputs_sha256": "47c0d0a75cb19bfd9da43f22f29727ef56b28470e1124e9acbf3f2f0b31ec8dc"
+  },
+  "ch7/test_assoc_integral_index_cast_context": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'unsigned: size=3 one=20 sixteen=0 zero=1 ff=77', expected 'unsigned: size=3 one=20 sixteen=31 zero=0 ff=77'",
+   "inputs_sha256": "48b294abd08f1ef8f40e98e7e95690aa2fdcfd90ee9b38c678d812e033809114"
+  },
+  "ch7/test_assoc_invalid_write_reports_diagnostic": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'size=2 retained=17 exists=1', expected 'size=1 retained=17 exists=1'",
+   "inputs_sha256": "0a5991678a35818e4badba21c87536a782a123dc9b3bc3b54d4ea6daf0ba0427"
+  },
+  "ch7/test_assoc_method_expression_types": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'types: int int logic[31:0] integer integer integer integer', expected 'types: int int int int int int int'",
+   "inputs_sha256": "01b0f67023e50071d4465a4865593ad376f4a13b1bbe3f2f1c09ea5bd1c5937a"
+  },
+  "ch7/test_assoc_missing_read_reports_diagnostic": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'missing=a4f6abc0 size=1 present=17 absent=0', expected 'missing=xxxxxxxx size=1 present=17 absent=0'",
+   "inputs_sha256": "9bb3932ad20a2c89ed808812341ca33a97ebd96c7e8506dc0d24d9739fc4bf32"
+  },
+  "ch7/test_assoc_read_modify_defaults_without_ref": {
+   "status": "pass",
+   "inputs_sha256": "f2811a2ed1a98aee81f67623c13d0bfc32a31e6c455dc976193a339979c2dc6f"
+  },
+  "ch7/test_assoc_ref_allocates_before_callee_write": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch7/test_assoc_ref_allocates_before_callee_write.sv:26:14: Function/task ref argument is not of allowed type",
+   "inputs_sha256": "f5c31f7b05d0b76513f72976c559ed2bed12ed702d5d35b51b9132dedeceaa12"
+  },
+  "ch7/test_assoc_signed_and_unsigned_key_order": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'signed: 0=3', expected 'signed: -128=1'",
+   "inputs_sha256": "be45265a4ce077de584efe4ea4bb5fc5e24273589f84db07a28dc226a5ffcf14"
+  },
+  "ch7/test_assoc_traversal_gaps_and_preserved_keys": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'next gap=0,20', expected 'next gap=1,30'",
+   "inputs_sha256": "ccbfff71b20ec23aed21b2b49fbd51de388b9036773ad621880ea1569982f53a"
+  },
+  "ch7/test_assoc_wildcard_string_literal_bits": {
+   "status": "pass",
+   "inputs_sha256": "19b190ea5cf98a64604ab503b6d2c4ec76c0b744b1b7d897338584203b9c6905"
+  },
+  "ch7/test_assoc_wildcard_width_and_sign_aliases": {
+   "status": "pass",
+   "inputs_sha256": "ab32f69654ac02d8a715927b2c8fbd157b2a7139eb77187c7b115321aab7128f"
+  }
+ },
+ "generated_at": "2026-10-22T21:57:41.445004+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

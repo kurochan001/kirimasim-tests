@@ -1,0 +1,4 @@
+default=17 size=1 missing=0 live=9
+delete missing: size=1 live=9
+delete present: size=0 exists=0
+delete empty: size=0

@@ -1,0 +1,5 @@
+before: num=0 exists=0
+entry before formal read: num=1 exists=1
+formal default=0
+after no write: num=1 exists=1 value=0
+assignment: num=2 exists=1 value=9

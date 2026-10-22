@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 4.33%、実行 3.92%。**
+**全規格の要求台帳ベース（暫定）: 設計 6.43%、実行 5.68%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 46 論点、42 節、49 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1661/1703 見出し (97.53%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 533/12319 (4.33%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 483/12319 (3.92%)。
-- 登録済みだがテスト未対応: 11786 動作。
+- 登録済み動作に対するテスト設計網羅率: 792/12319 (6.43%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 700/12319 (5.68%)。
+- 登録済みだがテスト未対応: 11527 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -36,10 +36,28 @@
 複数テストで一つの要求を分担する `check_groups` は、同じ実行環境・実行回で
 グループ内の全テストが成功した場合に限り成功とします。未指定の対応は独立した代替証拠です。
 
+- `associative-count-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:03:58.531565+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `associative-count-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:04:02.952792+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `associative-count-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:04:02.961719+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `associative-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T21:57:27.232690+00:00 / 0/12319 動作確認、古い入力との対応 4 件。
+- `associative-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T21:57:41.445007+00:00 / 8/12319 動作確認、古い入力との対応 4 件。
+- `associative-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T21:57:41.445004+00:00 / 8/12319 動作確認、古い入力との対応 4 件。
+- `associative-matching-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T21:44:20.971033+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `associative-matching-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T21:44:56.002490+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
+- `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `citation-refinement-icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T14:29:24.878016+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
 - `citation-refinement-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:29:34.097194+00:00 / 16/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 379/12319 動作確認、古い入力との対応 28 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 301/12319 動作確認、古い入力との対応 28 件。
+- `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
+- `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 33/12319 動作確認、古い入力との対応 0 件。
+- `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 33/12319 動作確認、古い入力との対応 0 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 470/12319 動作確認、古い入力との対応 57 件。
+- `subroutine-citation-refinement-20261023-icarus.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-22T16:11:50.000804+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
+- `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
+- `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
+- `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 447/12319 動作確認、古い入力との対応 57 件。
 
 ## 章・附属書別の調査状態
 
@@ -48,16 +66,16 @@
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 6。
-- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 6。
+- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 12。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 4。
-- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 93。
-- 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 53。
-- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 7。
-- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 41。
-- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 6。
-- 11 Operators and expressions: 解釈保留なし 54/55、登録 461、テスト対応 121。
-- 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 2。
-- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 5。
+- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 96。
+- 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 120。
+- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 36。
+- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 42。
+- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 42。
+- 11 Operators and expressions: 解釈保留なし 54/55、登録 461、テスト対応 190。
+- 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 27。
+- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 28。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 0。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 36。
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 0。
@@ -2537,7 +2555,7 @@ Implicit continuous assignments arising from port connections also receive the p
 
 ### SV2023-4.9.2-EXTRACT-PROCEDURAL-CONTINUOUS-SENSITIVITY
 
-4.9.2 / normal / テスト未対応
+4.9.2 / normal / テスト対応あり・実行未確認
 
 While an assign/force procedural continuous assignment is active, its process is sensitive to source elements of its expression.
 
@@ -2545,6 +2563,7 @@ While an assign/force procedural continuous assignment is active, its process is
 
 規定の性質: `mandatory`。
 
+- [test_sched_procedural_assign_deassign.sv](../tests/ch4/test_sched_procedural_assign_deassign.sv): An active procedural assign tracks changes of d through d+1; later d changes after deassign do not trigger assignment.
 
 ### SV2023-4.9.2-EXTRACT-PROCEDURAL-CONTINUOUS-UPDATE
 
@@ -2559,7 +2578,7 @@ A value change in an active assign/force expression schedules an active target u
 
 ### SV2023-4.9.2-EXTRACT-PROCEDURAL-DEACTIVATION
 
-4.9.2 / normal / テスト未対応
+4.9.2 / normal / テスト対応あり・実行未確認
 
 deassign or release deactivates the corresponding procedural assign or force operation under its defining rules.
 
@@ -2567,10 +2586,11 @@ deassign or release deactivates the corresponding procedural assign or force ope
 
 規定の性質: `mandatory`。
 
+- [test_sched_procedural_assign_deassign.sv](../tests/ch4/test_sched_procedural_assign_deassign.sv): A deassign deactivates the current procedural continuous driver, observable through no propagation and renewed ordinary writes. This observes the assign/deassign route.
 
 ### SV2023-4.9.3-EXTRACT-BLOCKING-DELAY-SUSPENSION
 
-4.9.3 / normal / テスト未対応
+4.9.3 / normal / 実行確認あり
 
 An intra-assignment blocking delay suspends the assigning process until its scheduled resumption.
 
@@ -2578,6 +2598,7 @@ An intra-assignment blocking delay suspends the assigning process until its sche
 
 規定の性質: `mandatory`。
 
+- [test_blocking_delayed_target_after_index_change.sv](../tests/ch4/test_blocking_delayed_target_after_index_change.sv): The assignment saves source7, permits another process to change source99/index1 at1 while suspended, then updates selected a[1] on resumption. The following display requires the assigning process to wait.
 
 ### SV2023-4.9.3-EXTRACT-BLOCKING-UPDATE-SENSITIVITY
 
@@ -2645,7 +2666,7 @@ A zero-delay nonblocking update targets the current time slot; a nonzero delay t
 
 ### SV2023-4.9.4-EXTRACT-NBA-LHS-SAMPLE
 
-4.9.4 / normal / テスト未対応
+4.9.4 / normal / 実行確認あり
 
 A nonblocking assignment selects its LHS target using values in effect when the update is scheduled.
 
@@ -2653,10 +2674,11 @@ A nonblocking assignment selects its LHS target using values in effect when the 
 
 規定の性質: `mandatory`。
 
+- [test_sched_intra_assignment_target.sv](../tests/ch4/test_sched_intra_assignment_target.sv): A delayed NBA targets the pre-delay index0 even after i changes to1.
 
 ### SV2023-4.9.4-EXTRACT-NBA-RHS-SAMPLE
 
-4.9.4 / normal / テスト未対応
+4.9.4 / normal / 実行確認あり
 
 A nonblocking assignment computes the value to be stored when it schedules the update.
 
@@ -2664,6 +2686,7 @@ A nonblocking assignment computes the value to be stored when it schedules the u
 
 規定の性質: `mandatory`。
 
+- [test_sched_intra_assignment_target.sv](../tests/ch4/test_sched_intra_assignment_target.sv): The NBA stores the original b5 even though b becomes7 before update time2.
 
 ### SV2023-4.9.5-EXTRACT-BIDIRECTIONAL-NET-TYPES
 
@@ -2843,7 +2866,7 @@ By-value argument copy-out on return has blocking-assignment scheduling semantic
 
 ### SV2023-4.9.7-EXTRACT-VALUE-COPY-IN
 
-4.9.7 / normal / テスト未対応
+4.9.7 / normal / 実行確認あり
 
 By-value input/inout argument values are captured on subroutine invocation under the argument-direction rules.
 
@@ -2851,6 +2874,7 @@ By-value input/inout argument values are captured on subroutine invocation under
 
 規定の性質: `mandatory`。
 
+- [test_sched_subroutine_copy_out.sv](../tests/ch4/test_sched_subroutine_copy_out.sv): The call captures inout y2 before an outside assignment100 while suspended; the copy-out remains12, proving a preserved call-time local value.
 
 ### SV2023-4.9.7-INOUT-DEFERRED
 
@@ -11731,7 +11755,7 @@ An initialized static declaration need not spell static where automatic lifetime
 
 ### SV2023-6.21-EXTRACT-STATIC-OVERRIDE
 
-6.21 / normal / テスト未対応
+6.21 / normal / 実行確認あり
 
 An explicit static variable in an automatic task/function/block retains static lifetime.
 
@@ -11739,6 +11763,8 @@ An explicit static variable in an automatic task/function/block retains static l
 
 規定の性質: `mandatory`。
 
+- [test_func_static.sv](../tests/ch13/test_func_static.sv): An explicit static count inside an automatic function retains state1/2/3; other static locals retain accumulated/toggled/tracked values.
+- [test_task_static.sv](../tests/ch13/test_task_static.sv): An explicit static local counter inside an automatic task persists across calls; history/static accumulators are checked as additional examples.
 
 ### SV2023-6.21-EXTRACT-UNIT-STATIC
 
@@ -12382,10 +12408,11 @@ A valid constant size cast pads or truncates to the specified bit count.
 - [test_cast_expr.sv](../tests/ch6/test_cast_expr.sv): Checks zero-extension of AB and truncation of 12AB to AB.
 - [test_type_casts.sv](../tests/ch6/test_type_casts.sv): Checks narrowing ABCD1234 to34 and widening FF to000000FF.
 - [test_cast_expr_2.sv](../tests/ch6/test_cast_expr_2.sv): Checks padding and truncation, including width-one least-significant-bit casts on both an odd and an even source.
+- [test_size_cast_intermediate_context.sv](../tests/ch6/test_size_cast_intermediate_context.sv): Actual four/twelve-bit size casts truncate FF, pad unsigned FF, and pad signed -1 with ones; direct $bits checks the specified return width.
 
 ### SV2023-6.24.1-EXTRACT-SIZE-CAST-SIGN-PRESERVED
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 A size cast retains the operand self-determined signedness.
 
@@ -12393,6 +12420,7 @@ A size cast retains the operand self-determined signedness.
 
 規定の性質: `mandatory`。
 
+- [test_size_cast_intermediate_context.sv](../tests/ch6/test_size_cast_intermediate_context.sv): Resized signed -1 remains negative while resized unsigned FF remains positive, using comparisons of the cast expressions themselves before destination conversion.
 
 ### SV2023-6.24.1-EXTRACT-SIZE-CAST-STATE
 
@@ -12407,7 +12435,7 @@ A size cast has bit elements for a two-state operand and logic elements for a fo
 
 ### SV2023-6.24.1-EXTRACT-SIZE-CAST-VECTOR
 
-6.24.1 / normal / テスト未対応
+6.24.1 / normal / 実行確認あり
 
 A size cast behaves as assignment to a single packed [n-1:0] vector of the requested width.
 
@@ -12415,6 +12443,7 @@ A size cast behaves as assignment to a single packed [n-1:0] vector of the reque
 
 規定の性質: `mandatory`。
 
+- [test_size_cast_intermediate_context.sv](../tests/ch6/test_size_cast_intermediate_context.sv): A twelve-bit size cast is queried as one packed dimension with bounds 11:0 and no unpacked dimensions; resizing values independently distinguish padding/truncation and sign preservation.
 
 ### SV2023-6.24.1-EXTRACT-SIZE-SIGN-INTEGRAL
 
@@ -14653,7 +14682,7 @@ An unsized dynamic/queue/import-DPI formal dimension matches any size of the cor
 
 ### SV2023-7.8-EXTRACT-ASSIGNMENT-ALLOCATION
 
-7.8 / normal / テスト未対応
+7.8 / normal / テスト対応あり・実行未確認
 
 A missing associative entry is allocated when used as an assignment target or actual passed by reference.
 
@@ -14661,6 +14690,7 @@ A missing associative entry is allocated when used as an assignment target or ac
 
 規定の性質: `mandatory`。
 
+- [test_assoc_ref_allocates_before_callee_write.sv](../tests/ch7/test_assoc_ref_allocates_before_callee_write.sv): calleeがref formalを読む前、かつ一度も書くことなく、呼出時点ですでにmissing actual elementがnum1/exists1であることを観測する。通常assignmentへの確保はその後のa[3]=9とnum2で対照する。
 
 ### SV2023-7.8-EXTRACT-ASSOCIATIVE-DECLARATION
 
@@ -14675,7 +14705,7 @@ An associative array declares an element type legal for fixed arrays, an identif
 
 ### SV2023-7.8-EXTRACT-LOOKUP-KEY-ORDER
 
-7.8 / normal / テスト未対応
+7.8 / normal / 実行確認あり
 
 An associative array uses its declared index type as the lookup key and entry-order basis.
 
@@ -14683,10 +14713,24 @@ An associative array uses its declared index type as the lookup key and entry-or
 
 規定の性質: `definition`。
 
+- [test_assoc_array_iterate.sv](../tests/ch7/test_assoc_array_iterate.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_associative_array_corner.sv](../tests/ch7/test_associative_array_corner.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_2d_assoc_methods.sv](../tests/ch7/test_2d_assoc_methods.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_methods.sv](../tests/ch7/test_assoc_array_methods.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_value_assoc.sv](../tests/ch7/test_value_assoc.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_assign.sv](../tests/ch7/test_assoc_array_assign.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_key.sv](../tests/ch7/test_assoc_key.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_ops.sv](../tests/ch7/test_assoc_array_ops.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_int_key.sv](../tests/ch7/test_assoc_int_key.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_extended.sv](../tests/ch7/test_assoc_array_extended.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array.sv](../tests/ch7/test_assoc_array.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_2.sv](../tests/ch7/test_assoc_array_2.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_basic.sv](../tests/ch7/test_assoc_basic.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_edge_cases.sv](../tests/ch7/test_assoc_array_edge_cases.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
 
 ### SV2023-7.8-EXTRACT-RETAIN-ENTRIES-AND-ORDER
 
-7.8 / normal / テスト未対応
+7.8 / normal / 実行確認あり
 
 An associative array retains allocated assigned entries and their order according to the index-type rules.
 
@@ -14694,10 +14738,24 @@ An associative array retains allocated assigned entries and their order accordin
 
 規定の性質: `mandatory`。
 
+- [test_assoc_array_iterate.sv](../tests/ch7/test_assoc_array_iterate.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_associative_array_corner.sv](../tests/ch7/test_associative_array_corner.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_2d_assoc_methods.sv](../tests/ch7/test_2d_assoc_methods.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_methods.sv](../tests/ch7/test_assoc_array_methods.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_value_assoc.sv](../tests/ch7/test_value_assoc.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_assign.sv](../tests/ch7/test_assoc_array_assign.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_key.sv](../tests/ch7/test_assoc_key.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_ops.sv](../tests/ch7/test_assoc_array_ops.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_int_key.sv](../tests/ch7/test_assoc_int_key.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_extended.sv](../tests/ch7/test_assoc_array_extended.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array.sv](../tests/ch7/test_assoc_array.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_2.sv](../tests/ch7/test_assoc_array_2.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_basic.sv](../tests/ch7/test_assoc_basic.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
+- [test_assoc_array_edge_cases.sv](../tests/ch7/test_assoc_array_edge_cases.sv): keyごとの値・更新後の保持または走査順を観測する。一般のlookupとretention/orderは、stringの全順・値とintegralの全順・値を観測する共通メンバーを含む集合にして扱う。
 
 ### SV2023-7.8-EXTRACT-SPARSE-DEFAULT
 
-7.8 / normal / テスト未対応
+7.8 / normal / 実行確認あり
 
 Associative array storage is allocated on use rather than preallocated for its index space.
 
@@ -14705,6 +14763,10 @@ Associative array storage is allocated on use rather than preallocated for its i
 
 規定の性質: `definition`。
 
+- [test_assoc_array_edge.sv](../tests/ch7/test_assoc_array_edge.sv): 未使用時size0、10/20/30で3、delete後0、負数2個と百万単位2個のsparse keyで4を検査する。index空間の大きさではなくpresent entriesを数える。
+- [test_assoc_array_edge_2.sv](../tests/ch7/test_assoc_array_edge_2.sv): 未使用時0から書込みで3へ増え、delete後0、wildcardの1/1000は2 entriesとなる。
+- [test_assoc_array_edge_cases_3.sv](../tests/ch7/test_assoc_array_edge_cases_3.sv): 未使用時num/size0と、同じkeyへの3回書込みでもsize1を保持することを観測する。
+- [test_sv_assoc_array.sv](../tests/ch7/test_sv_assoc_array.sv): 初期0、挿入後3、削除後2/0と書き込んだentriesに応じた存在数を検査する。
 
 ### SV2023-7.8-EXTRACT-UNPACKED-ELEMENT-EXPRESSION
 
@@ -14719,7 +14781,7 @@ Associative arrays are unpacked; apart from supported whole-copy/comparison oper
 
 ### SV2023-7.8-EXTRACT-WILDCARD-ARBITRARY-WIDTH
 
-7.8 / normal / テスト未対応
+7.8 / normal / 実行確認あり
 
 A wildcard associative array accepts integral indices of arbitrary size under wildcard normalization rules.
 
@@ -14727,10 +14789,11 @@ A wildcard associative array accepts integral indices of arbitrary size under wi
 
 規定の性質: `definition`。
 
+- [test_assoc_wildcard_width_and_sign_aliases.sv](../tests/ch7/test_assoc_wildcard_width_and_sign_aliases.sv): 8/64/128bitの数値1は同じentry、64bitを超えるkeyと隣接値は別entry。8bit signed ffはunsigned255として登録され、後続writeで上書きする前に値66と32bit all-ones keyの非存在を検査する。
 
 ### SV2023-7.8.1-EXTRACT-LITERAL-WILDCARD-BITS
 
-7.8.1 / normal / テスト未対応
+7.8.1 / normal / 実行確認あり
 
 A string literal wildcard index converts to an equally wide bit vector.
 
@@ -14738,10 +14801,11 @@ A string literal wildcard index converts to an equally wide bit vector.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_wildcard_string_literal_bits.sv](../tests/ch7/test_assoc_wildcard_string_literal_bits.sv): string literal AB/Aと等幅16bit4142/8bit41が同じentryを上書きし、2entriesのままであることを全lookup値で確認する。
 
 ### SV2023-7.8.1-EXTRACT-MINIMAL-UNSIGNED-KEY
 
-7.8.1 / normal / テスト未対応
+7.8.1 / normal / 実行確認あり
 
 Wildcard indices are self-determined unsigned integral values normalized by removing leading zeros to their minimal-length representation, so equal unsigned numerical values of different widths identify the same entry.
 
@@ -14749,6 +14813,7 @@ Wildcard indices are self-determined unsigned integral values normalized by remo
 
 規定の性質: `mandatory`。
 
+- [test_assoc_wildcard_width_and_sign_aliases.sv](../tests/ch7/test_assoc_wildcard_width_and_sign_aliases.sv): 8/64/128bitの数値1は同じentry、64bitを超えるkeyと隣接値は別entry。8bit signed ffはunsigned255として登録され、後続writeで上書きする前に値66と32bit all-ones keyの非存在を検査する。
 
 ### SV2023-7.8.1-EXTRACT-NO-NONINTEGRAL-WILDCARD
 
@@ -14817,7 +14882,7 @@ The empty string is a valid associative-array string index.
 
 ### SV2023-7.8.2-EXTRACT-EMPTY-KEY
 
-7.8.2 / boundary / テスト未対応
+7.8.2 / boundary / 実行確認あり
 
 An empty string is a valid associative key.
 
@@ -14825,10 +14890,12 @@ An empty string is a valid associative key.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_string_empty_and_reverse_order.sv](../tests/ch7/test_assoc_string_empty_and_reverse_order.sv): 空文字列keyへ値2を書き、b→aa→空文字列までprevが成功する。単にmissing readのdefault値を読むだけのケースではない。
+- [test_edge_assoc_array_keys.sv](../tests/ch6/test_edge_assoc_array_keys.sv): 空文字列keyとNULを除去した空文字列が同じentryを指し、num1/value2/existsを検査する。引用を7.8.2へ訂正し再実行する。
 
 ### SV2023-7.8.2-EXTRACT-LEXICAL-ORDER
 
-7.8.2 / normal / テスト未対応
+7.8.2 / normal / 実行確認あり
 
 String associative keys are ordered lexicographically from lesser to greater.
 
@@ -14836,6 +14903,8 @@ String associative keys are ordered lexicographically from lesser to greater.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_string_empty_and_reverse_order.sv](../tests/ch7/test_assoc_string_empty_and_reverse_order.sv): 空文字列/aa/bの逆走査をstatus/文字列で検査する。長さ順ではなく辞書順を区別する。
+- [test_edge_queue_assoc.sv](../tests/ch7/test_edge_queue_assoc.sv): fooより後に挿入したbarがfirstとなることを検査し、挿入順との違いを確認する。
 
 ### SV2023-7.8.2-EXTRACT-STRING-ONLY
 
@@ -14860,7 +14929,7 @@ String associative indices are traversed in lexical order.
 
 ### SV2023-7.8.3-EXTRACT-ARBITRARY-DETERMINISTIC-ORDER
 
-7.8.3 / normal / テスト未対応
+7.8.3 / normal / 実行確認あり
 
 Class associative index ordering is deterministic but arbitrary; no numeric/address ordering is guaranteed.
 
@@ -14868,6 +14937,7 @@ Class associative index ordering is deterministic but arbitrary; no numeric/addr
 
 規定の性質: `mandatory`。
 
+- [test_assoc_class_key_order_is_stable.sv](../tests/ch7/test_assoc_class_key_order_is_stable.sv): 同じclass key集合（nullを含む）を変更せず2回走査し、全handle列を比較する。全3keyのmembershipとvalueも検査し、特定のaddress/生成順は期待しない。
 
 ### SV2023-7.8.3-EXTRACT-CLASS-OR-DERIVED
 
@@ -14882,7 +14952,7 @@ A class-index array accepts handles of its declared class or derived classes; ot
 
 ### SV2023-7.8.3-EXTRACT-NULL-KEY
 
-7.8.3 / boundary / テスト未対応
+7.8.3 / boundary / 実行確認あり
 
 null is a valid class associative key.
 
@@ -14890,10 +14960,11 @@ null is a valid class associative key.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_class_null_and_alias_keys.sv](../tests/ch7/test_assoc_class_null_and_alias_keys.sv): null keyをbase/derived objectとは別entryとして保持する。aliasは同じbase keyを上書きし、nullは5のまま、全sizeは3。
 
 ### SV2023-7.8.4-EXTRACT-INTEGRAL-KEY-CAST
 
-7.8.4 / normal / テスト未対応
+7.8.4 / normal / テスト対応あり・実行未確認
 
 A declared integral associative index evaluates the index expression in a cast-to-index-type context.
 
@@ -14901,6 +14972,7 @@ A declared integral associative index evaluates the index expression in a cast-t
 
 規定の性質: `mandatory`。
 
+- [test_assoc_integral_index_cast_context.sv](../tests/ch7/test_assoc_integral_index_cast_context.sv): 16bitの0101と8bitの01のalias、-1/ffのalias、4bit加算への8bit index cast contextを確認する。加算後の4bit overflowではkey0となり、key16/exists0が一致しない。
 
 ### SV2023-7.8.4-EXTRACT-NO-IMPLICIT-REAL-KEY
 
@@ -14915,7 +14987,7 @@ An integral associative index cannot implicitly cast a real/shortreal expression
 
 ### SV2023-7.8.4-EXTRACT-SIGNEDNESS-ORDER
 
-7.8.4 / normal / テスト未対応
+7.8.4 / normal / テスト対応あり・実行未確認
 
 Integral associative keys use increasing signed or unsigned numerical ordering according to index type signedness.
 
@@ -14923,6 +14995,7 @@ Integral associative keys use increasing signed or unsigned numerical ordering a
 
 規定の性質: `mandatory`。
 
+- [test_assoc_signed_and_unsigned_key_order.sv](../tests/ch7/test_assoc_signed_and_unsigned_key_order.sv): 同じ80/ff/00というkey patternをsigned/unsignedの配列へ入れ、全順-128/-1/0と0/128/255、および全valueを表示して区別する。
 
 ### SV2023-7.8.4-EXTRACT-XZ-KEY-INVALID
 
@@ -14947,7 +15020,7 @@ Signed integral associative indices are ordered by signed value.
 
 ### SV2023-7.8.5-EXTRACT-EMPTY-NULL-VALID
 
-7.8.5 / boundary / テスト未対応
+7.8.5 / boundary / 実行確認あり
 
 Empty/null values in index elements do not by themselves invalidate the key.
 
@@ -14955,6 +15028,7 @@ Empty/null values in index elements do not by themselves invalidate the key.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_composite_empty_null_key_order.sv](../tests/ch7/test_assoc_composite_empty_null_key_order.sv): empty string/null handleを含むunpacked struct keyと通常keyを格納し、全2entryの値/membershipと、集合を変えない2回の全走査列の同一性を観測する。relational field順は規定しない。
 
 ### SV2023-7.8.5-EXTRACT-EQUALITY-REQUIRED
 
@@ -14980,7 +15054,7 @@ An associative index type cannot be real/shortreal or contain either type.
 
 ### SV2023-7.8.5-EXTRACT-NONRELATIONAL-STABLE-ORDER
 
-7.8.5 / normal / テスト未対応
+7.8.5 / normal / 実行確認あり
 
 Without relational ordering, relative key order may vary across runs but must remain unchanged within one run while no keys are added or deleted.
 
@@ -14988,6 +15062,7 @@ Without relational ordering, relative key order may vary across runs but must re
 
 規定の性質: `mandatory`。
 
+- [test_assoc_composite_empty_null_key_order.sv](../tests/ch7/test_assoc_composite_empty_null_key_order.sv): empty string/null handleを含むunpacked struct keyと通常keyを格納し、全2entryの値/membershipと、集合を変えない2回の全走査列の同一性を観測する。relational field順は規定しない。
 
 ### SV2023-7.8.5-EXTRACT-RECURSIVE-XZ-INVALID
 
@@ -15023,7 +15098,7 @@ An associative index type may not contain a real member.
 
 ### SV2023-7.8.6-EXTRACT-DEFAULT-READ-NO-WARNING
 
-7.8.6 / normal / テスト未対応
+7.8.6 / normal / 実行確認あり
 
 A user-specified associative default yields its specified value for the relevant nonexistent read without a warning.
 
@@ -15031,10 +15106,11 @@ A user-specified associative default yields its specified value for the relevant
 
 規定の性質: `mandatory`。
 
+- [test_assoc_default_and_delete_silent.sv](../tests/ch7/test_assoc_default_and_delete_silent.sv): missing readはuser default17を返し、entryを作らない。expected_stderr_regexをraw全runtime messagesへ適用し、warningが出ればnormalized stdoutが正しくても不合格とする。
 
 ### SV2023-7.8.6-EXTRACT-INVALID-WRITE-WARNING
 
-7.8.6 / normal / テスト未対応
+7.8.6 / normal / テスト対応あり・実行未確認
 
 An invalid associative index write is ignored and issues a warning.
 
@@ -15042,6 +15118,7 @@ An invalid associative index write is ignored and issues a warning.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_invalid_write_reports_diagnostic.sv](../tests/ch7/test_assoc_invalid_write_reports_diagnostic.sv): invalid four-state indexのwrite無視とwarningの両方を、値/numおよびraw expected_stderr_regexで検査する。現行ツールのknownをpassに換算しない。
 
 ### SV2023-7.8.6-EXTRACT-MISSING-READ-WARNING
 
@@ -15066,25 +15143,27 @@ An associative write with an x or z in the index does not create or overwrite a 
 
 ### SV2023-7.8.6-INVALID-WRITE-WARNING
 
-7.8.6 / boundary / テスト未対応
+7.8.6 / boundary / テスト対応あり・実行未確認
 
 An invalid associative-array write issues a warning.
 
 合格基準: Observe a warning attributable to the invalid index rather than checking only array contents.
 
+- [test_assoc_invalid_write_reports_diagnostic.sv](../tests/ch7/test_assoc_invalid_write_reports_diagnostic.sv): 唯一のinvalid key writeが無視され、既存entryを保持し、新規entryも増えず、raw runtime warningが出ることを同時に要求する。
 
 ### SV2023-7.8.6-MISSING-READ-WARNING
 
-7.8.6 / boundary / テスト未対応
+7.8.6 / boundary / テスト対応あり・実行未確認
 
 A missing associative-array read without a user default issues a warning and returns the type default.
 
 合格基準: Check both the returned value and the required warning.
 
+- [test_assoc_missing_read_reports_diagnostic.sv](../tests/ch7/test_assoc_missing_read_reports_diagnostic.sv): missing readのTable 7-1の4-state値、entry不確保、元entry保持に加えraw runtime warningを要求する。一つだけの診断対象操作であり、warningがない変種はmessage oracleで失敗する。
 
 ### SV2023-7.8.7-EXTRACT-ALLOCATE-ON-WRITE-REF
 
-7.8.7 / normal / テスト未対応
+7.8.7 / normal / テスト対応あり・実行未確認
 
 A missing associative element is allocated on assignment-target or by-reference-actual use.
 
@@ -15092,10 +15171,11 @@ A missing associative element is allocated on assignment-target or by-reference-
 
 規定の性質: `mandatory`。
 
+- [test_assoc_ref_allocates_before_callee_write.sv](../tests/ch7/test_assoc_ref_allocates_before_callee_write.sv): calleeがref formalを読む前、かつ一度も書くことなく、呼出時点ですでにmissing actual elementがnum1/exists1であることを観測する。通常assignmentへの確保はその後のa[3]=9とnum2で対照する。
 
 ### SV2023-7.8.7-EXTRACT-INITIALIZE-BEFORE-READ-MODIFY
 
-7.8.7 / normal / テスト未対応
+7.8.7 / normal / 実行確認あり
 
 For combined read/write operations on a nonexistent entry, allocate it with its type or user-specified default before any reference to its value.
 
@@ -15103,10 +15183,13 @@ For combined read/write operations on a nonexistent entry, allocate it with its 
 
 規定の性質: `mandatory`。
 
+- [test_assoc_allocate_on_write.sv](../tests/ch7/test_assoc_allocate_on_write.sv): 未存在entryのuser default10から+=5で15を作る。structのhiだけを書いた後もlo3を保持する。ref actualの呼出時点での確保は別の保留。
+- [test_assoc_allocate_on_write_types.sv](../tests/ch7/test_assoc_allocate_on_write_types.sv): type default0から+=3と++で3/1を作り、structの未更新member y2とstring既定値からabとなる結果も観測する。
+- [test_assoc_read_modify_defaults_without_ref.sv](../tests/ch7/test_assoc_read_modify_defaults_without_ref.sv): user default10から+=5と++で15/11、type default0から3/1、struct全体初期化で未更新lo3を同じfileで観測する。ref supportに依存せず両defaultカテゴリを判定する。
 
 ### SV2023-7.9.1-EXTRACT-NUM-COUNT
 
-7.9.1 / normal / テスト未対応
+7.9.1 / normal / 実行確認あり
 
 Associative-array num() returns the number of present entries, including zero when empty.
 
@@ -15114,10 +15197,16 @@ Associative-array num() returns the number of present entries, including zero wh
 
 規定の性質: `mandatory`。
 
+- [test_assoc_num.sv](../tests/ch7/test_assoc_num.sv): present entriesの数を観測する。emptyの0も含む要求なので、emptyを観測しないメンバーにはtest_assoc_numの境界証拠を必要とする。
+- [test_assoc_array_methods.sv](../tests/ch7/test_assoc_array_methods.sv): present entriesの数を観測する。emptyの0も含む要求なので、emptyを観測しないメンバーにはtest_assoc_numの境界証拠を必要とする。
+- [test_assoc_allocate_on_write.sv](../tests/ch7/test_assoc_allocate_on_write.sv): present entriesの数を観測する。emptyの0も含む要求なので、emptyを観測しないメンバーにはtest_assoc_numの境界証拠を必要とする。
+- [test_assoc_allocate_on_write_types.sv](../tests/ch7/test_assoc_allocate_on_write_types.sv): present entriesの数を観測する。emptyの0も含む要求なので、emptyを観測しないメンバーにはtest_assoc_numの境界証拠を必要とする。
+- [test_assoc_array.sv](../tests/ch7/test_assoc_array.sv): present entriesの数を観測する。emptyの0も含む要求なので、emptyを観測しないメンバーにはtest_assoc_numの境界証拠を必要とする。
+- [test_builtin_method_optional_parens.sv](../tests/ch5/test_builtin_method_optional_parens.sv): present entriesの数を観測する。emptyの0も含む要求なので、emptyを観測しないメンバーにはtest_assoc_numの境界証拠を必要とする。
 
 ### SV2023-7.9.1-EXTRACT-NUM-SIGNATURE
 
-7.9.1 / normal / テスト未対応
+7.9.1 / normal / 実行確認あり
 
 Associative-array num takes no arguments and returns int.
 
@@ -15125,10 +15214,11 @@ Associative-array num takes no arguments and returns int.
 
 規定の性質: `definition`。
 
+- [test_assoc_count_expression_types.sv](../tests/ch7/test_assoc_count_expression_types.sv): no-argument num/size式そのものを$typename/$bitsでint/32bitと確認し、空0/非空3/全削除後0の戻り値も検査する。他のmethodの型不一致に依存しないfileへ分離した。
 
 ### SV2023-7.9.1-EXTRACT-SIZE-COUNT
 
-7.9.1 / normal / テスト未対応
+7.9.1 / normal / 実行確認あり
 
 Associative-array size() returns the number of present entries, including zero when empty.
 
@@ -15136,10 +15226,13 @@ Associative-array size() returns the number of present entries, including zero w
 
 規定の性質: `mandatory`。
 
+- [test_assoc_array_edge.sv](../tests/ch7/test_assoc_array_edge.sv): 初期0、書込み後3、削除後2/0、sparse key4のsizeを検査する。numとの一致だけでなく絶対値も観測する。
+- [test_assoc_array_methods.sv](../tests/ch7/test_assoc_array_methods.sv): 非空size3を観測する。empty boundaryの別メンバーと集合で扱う。
+- [test_assoc_array_literal_default.sv](../tests/ch7/test_assoc_array_literal_default.sv): user defaultのmissing readでsizeが増えず2、literal置換で1を観測する。empty boundaryの別メンバーと集合で扱う。
 
 ### SV2023-7.9.1-EXTRACT-SIZE-SIGNATURE
 
-7.9.1 / normal / テスト未対応
+7.9.1 / normal / 実行確認あり
 
 Associative-array size takes no arguments and returns int.
 
@@ -15147,10 +15240,11 @@ Associative-array size takes no arguments and returns int.
 
 規定の性質: `definition`。
 
+- [test_assoc_count_expression_types.sv](../tests/ch7/test_assoc_count_expression_types.sv): no-argument num/size式そのものを$typename/$bitsでint/32bitと確認し、空0/非空3/全削除後0の戻り値も検査する。他のmethodの型不一致に依存しないfileへ分離した。
 
 ### SV2023-7.9.2-EXTRACT-DELETE-ALL
 
-7.9.2 / normal / テスト未対応
+7.9.2 / normal / 実行確認あり
 
 delete() without an index removes every array element.
 
@@ -15158,10 +15252,13 @@ delete() without an index removes every array element.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_delete.sv](../tests/ch7/test_assoc_delete.sv): 複数entriesを持つ連想配列のdelete()後にsize/numが0となることを検査する。missing-key削除の無警告条件とは区別する。
+- [test_assoc_delete_2.sv](../tests/ch7/test_assoc_delete_2.sv): 複数entriesを持つ連想配列のdelete()後にsize/numが0となることを検査する。missing-key削除の無警告条件とは区別する。
+- [test_assoc_array_methods.sv](../tests/ch7/test_assoc_array_methods.sv): 複数entriesを持つ連想配列のdelete()後にsize/numが0となることを検査する。missing-key削除の無警告条件とは区別する。
 
 ### SV2023-7.9.2-EXTRACT-DELETE-ENTRY
 
-7.9.2 / normal / テスト未対応
+7.9.2 / normal / 実行確認あり
 
 delete(index) removes the specified entry; deleting a missing entry issues no warning.
 
@@ -15169,6 +15266,7 @@ delete(index) removes the specified entry; deleting a missing entry issues no wa
 
 規定の性質: `mandatory`。
 
+- [test_assoc_default_and_delete_silent.sv](../tests/ch7/test_assoc_default_and_delete_silent.sv): present key削除と、非空/空でのmissing key削除を行い、全内容・個数とraw warning非発生を同時に検査する。
 
 ### SV2023-7.9.2-EXTRACT-SIGNATURE
 
@@ -15183,7 +15281,7 @@ Associative delete returns void and accepts an optional input index appropriate 
 
 ### SV2023-7.9.3-EXTRACT-EXISTS-RESULT
 
-7.9.3 / normal / テスト未対応
+7.9.3 / normal / 実行確認あり
 
 exists(index) returns one exactly when the entry is present, otherwise zero.
 
@@ -15191,10 +15289,11 @@ exists(index) returns one exactly when the entry is present, otherwise zero.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_array_methods.sv](../tests/ch7/test_assoc_array_methods.sv): presentの1とmissingの0をint resultへ受けて==1/==0と表示で検査する。単なるtruthinessと1という固定文字列だけを根拠にしない。
 
 ### SV2023-7.9.3-EXTRACT-SIGNATURE
 
-7.9.3 / normal / テスト未対応
+7.9.3 / normal / テスト対応あり・実行未確認
 
 Associative exists takes one input index of the appropriate index type and returns int.
 
@@ -15202,10 +15301,11 @@ Associative exists takes one input index of the appropriate index type and retur
 
 規定の性質: `definition`。
 
+- [test_assoc_method_expression_types.sv](../tests/ch7/test_assoc_method_expression_types.sv): method式自体の$typename=int、$bits=32を観測する。actualの型を合わせて実際の呼出しを行い、existsの正確な1/0、first/last/next/prevのstatus1とref key更新も表示する。受け側intへの変換だけを型の根拠にしない。
 
 ### SV2023-7.9.4-EXTRACT-EMPTY-RESULT
 
-7.9.4 / boundary / テスト未対応
+7.9.4 / boundary / 実行確認あり
 
 first() returns zero for an empty array.
 
@@ -15213,10 +15313,13 @@ first() returns zero for an empty array.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_first.sv](../tests/ch7/test_assoc_first.sv): empty連想配列のfirstが0を返すことを観測する。empty時のindex変数の値は規定以上に固定しない。
+- [test_assoc_first_2.sv](../tests/ch7/test_assoc_first_2.sv): empty連想配列のfirstが0を返すことを観測する。empty時のindex変数の値は規定以上に固定しない。
+- [test_assoc_array_iterate.sv](../tests/ch7/test_assoc_array_iterate.sv): empty連想配列のfirstが0を返すことを観測する。empty時のindex変数の値は規定以上に固定しない。
 
 ### SV2023-7.9.4-EXTRACT-INDEX-RESULT
 
-7.9.4 / normal / テスト未対応
+7.9.4 / normal / テスト対応あり・実行未確認
 
 first(index) assigns the first (smallest) present key and returns one for a nonempty array, subject to the traversal truncation rule.
 
@@ -15224,6 +15327,8 @@ first(index) assigns the first (smallest) present key and returns one for a none
 
 規定の性質: `mandatory`。
 
+- [test_assoc_first_2.sv](../tests/ch7/test_assoc_first_2.sv): 非空時のfirstについてstring/integral keyとstatus1を明示比較する。narrow引数の例外は集合の別メンバー。
+- [test_assoc_traversal_narrow_index.sv](../tests/ch7/test_assoc_traversal_narrow_index.sv): 幅8の引数でkey1000/2000が切り詰められstatus-1となり、wideでは元keyと1となる。通常時の別メンバーと集合で扱う。
 
 ### SV2023-7.9.4-EXTRACT-NO-WILDCARD
 
@@ -15238,7 +15343,7 @@ first() requires an appropriate index-typed argument and cannot be called on a w
 
 ### SV2023-7.9.4-EXTRACT-SIGNATURE
 
-7.9.4 / normal / テスト未対応
+7.9.4 / normal / テスト対応あり・実行未確認
 
 Associative first takes an index variable by ref and returns int.
 
@@ -15246,10 +15351,11 @@ Associative first takes an index variable by ref and returns int.
 
 規定の性質: `definition`。
 
+- [test_assoc_method_expression_types.sv](../tests/ch7/test_assoc_method_expression_types.sv): method式自体の$typename=int、$bits=32を観測する。actualの型を合わせて実際の呼出しを行い、existsの正確な1/0、first/last/next/prevのstatus1とref key更新も表示する。受け側intへの変換だけを型の根拠にしない。
 
 ### SV2023-7.9.5-EXTRACT-EMPTY-RESULT
 
-7.9.5 / boundary / テスト未対応
+7.9.5 / boundary / 実行確認あり
 
 last() returns zero for an empty array.
 
@@ -15257,10 +15363,12 @@ last() returns zero for an empty array.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_last.sv](../tests/ch7/test_assoc_last.sv): empty連想配列のlastが0を返すことを観測する。empty時のindex変数の値は規定以上に固定しない。
+- [test_assoc_last_2.sv](../tests/ch7/test_assoc_last_2.sv): empty連想配列のlastが0を返すことを観測する。empty時のindex変数の値は規定以上に固定しない。
 
 ### SV2023-7.9.5-EXTRACT-INDEX-RESULT
 
-7.9.5 / normal / テスト未対応
+7.9.5 / normal / テスト対応あり・実行未確認
 
 last(index) assigns the last (largest) present key and returns one for a nonempty array, subject to the traversal truncation rule.
 
@@ -15268,6 +15376,8 @@ last(index) assigns the last (largest) present key and returns one for a nonempt
 
 規定の性質: `mandatory`。
 
+- [test_assoc_last_2.sv](../tests/ch7/test_assoc_last_2.sv): 非空時のlastについてstring/integral keyとstatus1を明示比較する。narrow引数の例外は集合の別メンバー。
+- [test_assoc_traversal_narrow_index.sv](../tests/ch7/test_assoc_traversal_narrow_index.sv): 幅8の引数でkey1000/2000が切り詰められstatus-1となり、wideでは元keyと1となる。通常時の別メンバーと集合で扱う。
 
 ### SV2023-7.9.5-EXTRACT-NO-WILDCARD
 
@@ -15282,7 +15392,7 @@ last() requires an appropriate index-typed argument and cannot be called on a wi
 
 ### SV2023-7.9.5-EXTRACT-SIGNATURE
 
-7.9.5 / normal / テスト未対応
+7.9.5 / normal / テスト対応あり・実行未確認
 
 Associative last takes an index variable by ref and returns int.
 
@@ -15290,10 +15400,11 @@ Associative last takes an index variable by ref and returns int.
 
 規定の性質: `definition`。
 
+- [test_assoc_method_expression_types.sv](../tests/ch7/test_assoc_method_expression_types.sv): method式自体の$typename=int、$bits=32を観測する。actualの型を合わせて実際の呼出しを行い、existsの正確な1/0、first/last/next/prevのstatus1とref key更新も表示する。受け側intへの変換だけを型の根拠にしない。
 
 ### SV2023-7.9.6-EXTRACT-FAILURE-PRESERVE
 
-7.9.6 / boundary / テスト未対応
+7.9.6 / boundary / 実行確認あり
 
 Without a successor, next returns zero and leaves the index argument unchanged.
 
@@ -15301,6 +15412,8 @@ Without a successor, next returns zero and leaves the index argument unchanged.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_array_iter_minimal.sv](../tests/ch7/test_assoc_array_iter_minimal.sv): 最後のkey cでnextを呼び、戻り値0とkがcのままの両方を検査する。
+- [test_assoc_traversal_gaps_and_preserved_keys.sv](../tests/ch7/test_assoc_traversal_gaps_and_preserved_keys.sv): 非空の終端nextと空のnextについて、status0と入力key30/17の保持をともに表示する。gap探索・prevも同じfileで対照する。
 
 ### SV2023-7.9.6-EXTRACT-NO-WILDCARD
 
@@ -15315,7 +15428,7 @@ next() requires an appropriate index argument and is unavailable for wildcard-in
 
 ### SV2023-7.9.6-EXTRACT-SIGNATURE
 
-7.9.6 / normal / テスト未対応
+7.9.6 / normal / テスト対応あり・実行未確認
 
 Associative next takes an index variable by ref and returns int.
 
@@ -15323,10 +15436,11 @@ Associative next takes an index variable by ref and returns int.
 
 規定の性質: `definition`。
 
+- [test_assoc_method_expression_types.sv](../tests/ch7/test_assoc_method_expression_types.sv): method式自体の$typename=int、$bits=32を観測する。actualの型を合わせて実際の呼出しを行い、existsの正確な1/0、first/last/next/prevのstatus1とref key更新も表示する。受け側intへの変換だけを型の根拠にしない。
 
 ### SV2023-7.9.6-EXTRACT-STRICT-SUCCESSOR
 
-7.9.6 / normal / テスト未対応
+7.9.6 / normal / テスト対応あり・実行未確認
 
 next(index) finds the smallest present key strictly greater than the input key, whether or not the input key itself exists.
 
@@ -15334,10 +15448,13 @@ next(index) finds the smallest present key strictly greater than the input key, 
 
 規定の性質: `mandatory`。
 
+- [test_assoc_next_2.sv](../tests/ch7/test_assoc_next_2.sv): 存在する10から直後20を選び、stringのapple→banana→cherryも検査する。input keyが未存在の場合は別メンバー。
+- [test_assoc_narrow_prev_next_overflow.sv](../tests/ch7/test_assoc_narrow_prev_next_overflow.sv): 未存在のinput0から、負のkey-300を飛ばして正の600を選ぶ。600の切り詰め88/status-1を観測し、inputの存在を要求しないことを示す。
+- [test_assoc_traversal_gaps_and_preserved_keys.sv](../tests/ch7/test_assoc_traversal_gaps_and_preserved_keys.sv): present input10とabsent input20から最小のstrict successor30を選ぶ。prevにも同じgap条件を置き、失敗時のstatus/key保持を検査する。
 
 ### SV2023-7.9.6-EXTRACT-SUCCESS-UPDATE
 
-7.9.6 / normal / テスト未対応
+7.9.6 / normal / テスト対応あり・実行未確認
 
 When a successor exists, next updates the index argument and returns one subject to truncation rules.
 
@@ -15345,10 +15462,12 @@ When a successor exists, next updates the index argument and returns one subject
 
 規定の性質: `mandatory`。
 
+- [test_assoc_next_2.sv](../tests/ch7/test_assoc_next_2.sv): 通常の成功status1とindex refの更新を確認する。狭い引数のstatus-1は別メンバー。
+- [test_assoc_narrow_prev_next_overflow.sv](../tests/ch7/test_assoc_narrow_prev_next_overflow.sv): narrow引数へ600を88として格納してstatus-1となる、truncation例外を観測する。
 
 ### SV2023-7.9.7-EXTRACT-PREV-PROTOTYPE
 
-7.9.7 / normal / テスト未対応
+7.9.7 / normal / テスト対応あり・実行未確認
 
 Associative-array prev is an int-returning method whose index argument is passed by reference.
 
@@ -15356,6 +15475,7 @@ Associative-array prev is an int-returning method whose index argument is passed
 
 規定の性質: `definition`。
 
+- [test_assoc_method_expression_types.sv](../tests/ch7/test_assoc_method_expression_types.sv): method式自体の$typename=int、$bits=32を観測する。actualの型を合わせて実際の呼出しを行い、existsの正確な1/0、first/last/next/prevのstatus1とref key更新も表示する。受け側intへの変換だけを型の根拠にしない。
 
 ### SV2023-7.9.7-INDEX-ARGUMENT-TYPE
 
@@ -15397,7 +15517,7 @@ prev() finds the greatest key strictly below the supplied index, updates it and 
 
 ### SV2023-7.9.8-EXTRACT-NARROW-INDEX-TRUNCATION
 
-7.9.8 / normal / テスト未対応
+7.9.8 / normal / テスト対応あり・実行未確認
 
 If a traversal argument integral type is narrower than the index type, the returned index is truncated to fit and the function returns minus one.
 
@@ -15405,6 +15525,8 @@ If a traversal argument integral type is narrower than the index type, the retur
 
 規定の性質: `mandatory`。
 
+- [test_assoc_traversal_narrow_index.sv](../tests/ch7/test_assoc_traversal_narrow_index.sv): first/lastで1000/2000の8bit切り詰め232/208とstatus-1を観測し、wideのstatus1と対照する。
+- [test_assoc_narrow_prev_next_overflow.sv](../tests/ch7/test_assoc_narrow_prev_next_overflow.sv): next/prevで600/-300の8bit切り詰め88/212とstatus-1を観測する。
 
 ### SV2023-7.9.8-EXTRACT-TRAVERSAL-ASSIGNMENT-COMPATIBLE
 
@@ -15450,7 +15572,7 @@ Whole associative-array assignment requires a compatible associative source/targ
 
 ### SV2023-7.9.9-EXTRACT-CLEAR-AND-COPY
 
-7.9.9 / normal / テスト未対応
+7.9.9 / normal / 実行確認あり
 
 Associative-array assignment clears all old target entries then copies every source entry.
 
@@ -15458,6 +15580,7 @@ Associative-array assignment clears all old target entries then copies every sou
 
 規定の性質: `mandatory`。
 
+- [test_assoc_assignment_copies_every_entry.sv](../tests/ch7/test_assoc_assignment_copies_every_entry.sv): copy先のold key9の消失、重複key2の上書き、sourceの全3entryの値を検査し、source変更後も全3値を保持する。空sourceのcopyで全keyが消えることも確認する。
 
 ### SV2023-7.9.9-REPLACE-NOT-MERGE
 
@@ -15492,7 +15615,7 @@ An associative actual/formal pair must have compatible types and the same index 
 
 ### SV2023-7.9.10-EXTRACT-ASSOCIATIVE-VALUE-COPY
 
-7.9.10 / normal / テスト未対応
+7.9.10 / normal / 実行確認あり
 
 Passing an associative array by value creates a local copy.
 
@@ -15500,6 +15623,7 @@ Passing an associative array by value creates a local copy.
 
 規定の性質: `mandatory`。
 
+- [test_assoc_assignment_clears_and_detaches.sv](../tests/ch7/test_assoc_assignment_clears_and_detaches.sv): inputのlocal copyをdeleteしてkey99だけへ置換してもcallerのbはnum2/key2=4を保持する。refでcallerを変更する誤動作ならcount/valueが変わる。
 
 ### SV2023-7.9.10-VALUE-FORMAL-COPY
 
@@ -15523,7 +15647,7 @@ Reading a user-default value does not allocate an associative entry.
 
 ### SV2023-7.9.11-EXTRACT-DEFAULT-NO-METHOD-EFFECT
 
-7.9.11 / normal / テスト未対応
+7.9.11 / normal / 実行確認あり
 
 Specifying a default does not change associative method behavior or cause nonexistent entries to count as allocated entries.
 
@@ -15531,10 +15655,12 @@ Specifying a default does not change associative method behavior or cause nonexi
 
 規定の性質: `mandatory`。
 
+- [test_assoc_string_empty_and_reverse_order.sv](../tests/ch7/test_assoc_string_empty_and_reverse_order.sv): user defaultのmissing read後も、last/prevのstatusと割当済み3keyの順・num3を保持する。warning不発生はこのstdoutだけでは主張しない。
+- [test_assoc_array_literal_default.sv](../tests/ch7/test_assoc_array_literal_default.sv): default7のmissing readがsize2に数えられず、copy/existsでold keyの消失とaの存在を観測する。warning不発生は保留。
 
 ### SV2023-7.9.11-EXTRACT-LITERAL-MAPPING
 
-7.9.11 / normal / テスト未対応
+7.9.11 / normal / 実行確認あり
 
 Associative array literals use apostrophe-braced index:value mappings with optional default; a literal may replace all array contents, while entries can also be written individually.
 
@@ -15542,10 +15668,13 @@ Associative array literals use apostrophe-braced index:value mappings with optio
 
 規定の性質: `definition`。
 
+- [test_assoc_array_literal_default.sv](../tests/ch7/test_assoc_array_literal_default.sv): index:value/defaultのliteralでa1/b2/default7を設定し、別literalのx9で元の全contentsを置換する。individual entry writeは別メンバー。
+- [test_assoc_allocate_on_write.sv](../tests/ch7/test_assoc_allocate_on_write.sv): default-only literalにindividual entry writeでx/newを追加し、default自体はentryにならず2個だけとなる。全置換literalの別メンバーと集合で扱う。
+- [test_assoc_string_empty_and_reverse_order.sv](../tests/ch7/test_assoc_string_empty_and_reverse_order.sv): default-only literalから個別の3entryを書き込む形式を観測する。index:value literalの全置換を確認する別メンバーと合わせる。
 
 ### SV2023-7.9.11-EXTRACT-USER-DEFAULT-READ
 
-7.9.11 / normal / テスト未対応
+7.9.11 / normal / テスト対応あり・実行未確認
 
 Reading a nonexistent entry returns its user-specified default without a warning, or the Table 7-1 value when no user default exists.
 
@@ -15553,6 +15682,8 @@ Reading a nonexistent entry returns its user-specified default without a warning
 
 規定の性質: `mandatory`。
 
+- [test_assoc_default_and_delete_silent.sv](../tests/ch7/test_assoc_default_and_delete_silent.sv): user-specified defaultの値17とwarning非発生を確認する。defaultなしのTable 7-1値/診断は別メンバー。
+- [test_assoc_missing_read_reports_diagnostic.sv](../tests/ch7/test_assoc_missing_read_reports_diagnostic.sv): defaultなしの4-state elementのTable 7-1値とwarningを確認する。user defaultの例外は別メンバー。
 
 ### SV2023-7.9.11-USER-DEFAULT
 
@@ -16181,7 +16312,7 @@ The optional index argument names the iterator index query method; its default i
 
 ### SV2023-7.12-EXTRACT-ITERATION-ELEMENT
 
-7.12 / normal / テスト未対応
+7.12 / normal / 実行確認あり
 
 Array manipulation evaluates its with expression using each iterated array element.
 
@@ -16189,6 +16320,8 @@ Array manipulation evaluates its with expression using each iterated array eleme
 
 規定の性質: `mandatory`。
 
+- [test_array_map_method.sv](../tests/ch7/test_array_map_method.sv): with式が各元要素3/1/4で評価されて30/10/40になる。固定配列/associativeの各elementに対する評価も表示する。
+- [test_comb_queue_with_clause.sv](../tests/ch7/test_comb_queue_with_clause.sv): 各要素1/2/3を2/3/4へprojectして積24にする。predicateとして元値を選ぶだけなら6となり区別できる。
 
 ### SV2023-7.12-EXTRACT-ITERATOR-NAME-SCOPE
 
@@ -16258,7 +16391,7 @@ An array manipulation with clause encloses an expression in parentheses, unlike 
 
 ### SV2023-7.12.1-EXTRACT-DEFAULT-IDENTITY-WITH
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 When a permitted locator with clause is omitted, it behaves as with(item).
 
@@ -16266,6 +16399,9 @@ When a permitted locator with clause is omitted, it behaves as with(item).
 
 規定の性質: `mandatory`。
 
+- [test_array_min_max.sv](../tests/ch7/test_array_min_max.sv): withを省略したmin/maxが元要素の値による1と9を各1個返し、単要素では42を返す。
+- [test_real_queue_sort_min_max.sv](../tests/ch7/test_real_queue_sort_min_max.sv): with省略のreal min/maxが整数化せず元要素1.10/1.90を選ぶ。queueサイズやtieの規則は別途保留。
+- [test_array_unique_methods.sv](../tests/ch7/test_array_unique_methods.sv): with省略のunique/unique_indexは元要素値を同値類として扱い、sortした全代表値で確認する。
 
 ### SV2023-7.12.1-EXTRACT-FIND-BOOLEAN-WITH
 
@@ -16280,7 +16416,7 @@ All find/find_index/find_first/find_first_index/find_last/find_last_index method
 
 ### SV2023-7.12.1-EXTRACT-FIND-FIRST-INDEX-RESULT
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 find_first_index returns a queue containing the first matching index under the locator order rules.
 
@@ -16288,10 +16424,16 @@ find_first_index returns a queue containing the first matching index under the l
 
 規定の性質: `mandatory`。
 
+- [test_array_find_methods.sv](../tests/ch7/test_array_find_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods.sv](../tests/ch7/test_array_locator_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_find.sv](../tests/ch7/test_array_find.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods_2.sv](../tests/ch7/test_array_locator_methods_2.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_comb_dynarray_locator.sv](../tests/ch7/test_comb_dynarray_locator.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_comb_queue_with_clause.sv](../tests/ch7/test_comb_queue_with_clause.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
 
 ### SV2023-7.12.1-EXTRACT-FIND-FIRST-RESULT
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 find_first returns a queue containing the first matching element under the locator order rules.
 
@@ -16299,10 +16441,20 @@ find_first returns a queue containing the first matching element under the locat
 
 規定の性質: `mandatory`。
 
+- [test_array_find_methods.sv](../tests/ch7/test_array_find_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods.sv](../tests/ch7/test_array_locator_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_find.sv](../tests/ch7/test_array_find.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods_2.sv](../tests/ch7/test_array_locator_methods_2.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator.sv](../tests/ch7/test_array_locator.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_comb_dynarray_locator.sv](../tests/ch7/test_comb_dynarray_locator.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_comb_queue_with_clause.sv](../tests/ch7/test_comb_queue_with_clause.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_ieee1800_2023_array_method_corner.sv](../tests/ch7/test_ieee1800_2023_array_method_corner.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_find_first.sv](../tests/ch7/test_array_find_first.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_method_corner.sv](../tests/ch7/test_array_method_corner.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
 
 ### SV2023-7.12.1-EXTRACT-FIND-INDEX-RESULT
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 find_index returns a queue containing all matching indices under the locator order rules.
 
@@ -16310,10 +16462,19 @@ find_index returns a queue containing all matching indices under the locator ord
 
 規定の性質: `mandatory`。
 
+- [test_array_find_methods.sv](../tests/ch7/test_array_find_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods.sv](../tests/ch7/test_array_locator_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_find.sv](../tests/ch7/test_array_find.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods_2.sv](../tests/ch7/test_array_locator_methods_2.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator.sv](../tests/ch7/test_array_locator.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_comb_dynarray_locator.sv](../tests/ch7/test_comb_dynarray_locator.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_ieee1800_2023_array_method_corner.sv](../tests/ch7/test_ieee1800_2023_array_method_corner.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_find_index.sv](../tests/ch7/test_array_find_index.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_methods_2.sv](../tests/ch7/test_array_methods_2.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
 
 ### SV2023-7.12.1-EXTRACT-FIND-LAST-INDEX-RESULT
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 find_last_index returns a queue containing the last matching index under the locator order rules.
 
@@ -16321,10 +16482,16 @@ find_last_index returns a queue containing the last matching index under the loc
 
 規定の性質: `mandatory`。
 
+- [test_array_find_methods.sv](../tests/ch7/test_array_find_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods.sv](../tests/ch7/test_array_locator_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_find.sv](../tests/ch7/test_array_find.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods_2.sv](../tests/ch7/test_array_locator_methods_2.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_comb_dynarray_locator.sv](../tests/ch7/test_comb_dynarray_locator.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_comb_queue_with_clause.sv](../tests/ch7/test_comb_queue_with_clause.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
 
 ### SV2023-7.12.1-EXTRACT-FIND-LAST-RESULT
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 find_last returns a queue containing the last matching element under the locator order rules.
 
@@ -16332,10 +16499,18 @@ find_last returns a queue containing the last matching element under the locator
 
 規定の性質: `mandatory`。
 
+- [test_array_find.sv](../tests/ch7/test_array_find.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods_2.sv](../tests/ch7/test_array_locator_methods_2.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator.sv](../tests/ch7/test_array_locator.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_comb_dynarray_locator.sv](../tests/ch7/test_comb_dynarray_locator.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_comb_queue_with_clause.sv](../tests/ch7/test_comb_queue_with_clause.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_ieee1800_2023_array_method_corner.sv](../tests/ch7/test_ieee1800_2023_array_method_corner.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_find_last.sv](../tests/ch7/test_array_find_last.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_method_corner.sv](../tests/ch7/test_array_method_corner.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
 
 ### SV2023-7.12.1-EXTRACT-FIND-RESULT
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 find returns a queue containing all matching elements under the locator order rules.
 
@@ -16343,6 +16518,12 @@ find returns a queue containing all matching elements under the locator order ru
 
 規定の性質: `mandatory`。
 
+- [test_array_find_methods.sv](../tests/ch7/test_array_find_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods.sv](../tests/ch7/test_array_locator_methods.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_find.sv](../tests/ch7/test_array_find.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator_methods_2.sv](../tests/ch7/test_array_locator_methods_2.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_locator.sv](../tests/ch7/test_array_locator.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
+- [test_array_find_2.sv](../tests/ch7/test_array_find_2.sv): 刺激中のpredicateに対応する全要素/添字または規定のfirst/lastを、要素数と値で観測する。複数の異なるfind結果はsort後に比較し、first/lastは位置で選ぶ。重複値のfind_lastだけでは位置を区別できないケースは採用しない。
 
 ### SV2023-7.12.1-EXTRACT-FIRST-LAST-DEFINITION
 
@@ -16368,7 +16549,7 @@ Index locators return a queue of int except associative arrays, for which the qu
 
 ### SV2023-7.12.1-EXTRACT-LOCATOR-EMPTY
 
-7.12.1 / boundary / テスト未対応
+7.12.1 / boundary / 実行確認あり
 
 No matching elements or an empty source produces an empty queue.
 
@@ -16376,10 +16557,12 @@ No matching elements or an empty source produces an empty queue.
 
 規定の性質: `mandatory`。
 
+- [test_array_find_methods.sv](../tests/ch7/test_array_find_methods.sv): 非空配列でpredicateに一致がない場合のempty queueを検査する。空source側は別の集合メンバー。
+- [test_array_unique_methods.sv](../tests/ch7/test_array_unique_methods.sv): 未初期化dynamic arrayのempty sourceにuniqueを実行してempty queueを検査する。no-match側は別の集合メンバー。
 
 ### SV2023-7.12.1-EXTRACT-LOCATOR-UNPACKED
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 Locator methods operate on unpacked arrays and return a queue of selected elements or their indices.
 
@@ -16387,10 +16570,13 @@ Locator methods operate on unpacked arrays and return a queue of selected elemen
 
 規定の性質: `definition`。
 
+- [test_array_find.sv](../tests/ch7/test_array_find.sv): 固定unpacked array、dynamic array、queueを分担し、locatorの全要素/添字をqueueへ受けて観測する。返却結果の型そのものの詳細はINDEX-RESULT-TYPE等の別要求として保留。
+- [test_array_locator_methods.sv](../tests/ch7/test_array_locator_methods.sv): 固定unpacked array、dynamic array、queueを分担し、locatorの全要素/添字をqueueへ受けて観測する。返却結果の型そのものの詳細はINDEX-RESULT-TYPE等の別要求として保留。
+- [test_array_locator_methods_2.sv](../tests/ch7/test_array_locator_methods_2.sv): 固定unpacked array、dynamic array、queueを分担し、locatorの全要素/添字をqueueへ受けて観測する。返却結果の型そのものの詳細はINDEX-RESULT-TYPE等の別要求として保留。
 
 ### SV2023-7.12.1-EXTRACT-LOCATOR-UNSPECIFIED-TRAVERSAL
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 Locator traversal order is unspecified; an oracle must not impose arbitrary find-result traversal order.
 
@@ -16398,10 +16584,12 @@ Locator traversal order is unspecified; an oracle must not impose arbitrary find
 
 規定の性質: `mandatory`。
 
+- [test_array_find.sv](../tests/ch7/test_array_find.sv): 異なる値25/25/30/40をsortして比較し、locatorの未規定順をoracleへ持ち込まない。
+- [test_array_unique_methods.sv](../tests/ch7/test_array_unique_methods.sv): uniqueの結果をsortし、unique_indexの代表添字は元値へ変換後にsortして比較する。結果順/duplicate representativeの自由を保持する。
 
 ### SV2023-7.12.1-EXTRACT-MAXIMUM
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 max() returns one source element whose with expression is maximum, even when multiple elements tie.
 
@@ -16409,6 +16597,8 @@ max() returns one source element whose with expression is maximum, even when mul
 
 規定の性質: `mandatory`。
 
+- [test_array_reduction_methods_2.sv](../tests/ch7/test_array_reduction_methods_2.sv): 最大値8が2回現れても戻り値size1/値8である。projectionで選ぶ元要素の証拠と集合にする。
+- [test_comb_queue_with_clause.sv](../tests/ch7/test_comb_queue_with_clause.sv): squareが最大の元要素-10を返す。square値100自体を返したり、通常の最大値7を選んだりすると失敗する。tieでsize1を確認する別メンバーと集合にする。
 
 ### SV2023-7.12.1-EXTRACT-MINIMUM
 
@@ -16445,7 +16635,7 @@ min/max/unique/unique_index can omit with only when <, > and == are defined on t
 
 ### SV2023-7.12.1-EXTRACT-UNIQUE
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 unique() returns exactly one representative source element per distinct with expression value, with no original-order guarantee.
 
@@ -16453,10 +16643,14 @@ unique() returns exactly one representative source element per distinct with exp
 
 規定の性質: `mandatory`。
 
+- [test_array_unique_methods.sv](../tests/ch7/test_array_unique_methods.sv): uniqueの全値をsortして10/20/30/40と照合し、unique_indexも選択した元値をsortして各値一つずつ確認する。重複のどの添字を代表にするかは固定しない。
+- [test_array_unique.sv](../tests/ch7/test_array_unique.sv): sort後に全3値を検査し、全同値/全別値も確認する。
+- [test_array_unique_2.sv](../tests/ch7/test_array_unique_2.sv): size4と4種類の存在を順序に依存せず確認し、同値/singletonも観測する。
+- [test_array_reduction_methods_2.sv](../tests/ch7/test_array_reduction_methods_2.sv): uniqueのsize5とsort後の全5値を検査する。
 
 ### SV2023-7.12.1-EXTRACT-UNIQUE-INDEX
 
-7.12.1 / normal / テスト未対応
+7.12.1 / normal / 実行確認あり
 
 unique_index() returns one representative source index per distinct with expression value; duplicate representative choice and result order are not constrained to original order.
 
@@ -16464,6 +16658,7 @@ unique_index() returns one representative source index per distinct with express
 
 規定の性質: `mandatory`。
 
+- [test_array_unique_methods.sv](../tests/ch7/test_array_unique_methods.sv): size4と、返った添字が選ぶ元値のmultiset10/20/30/40を検査する。元の重複の任意の代表添字と結果順を許容する。
 
 ### SV2023-7.12.2-EXTRACT-ORDERING-NO-ASSOCIATIVE
 
@@ -16555,7 +16750,7 @@ sort requires <, > and == on the chosen with-expression type or, without with, o
 
 ### SV2023-7.12.3-EXTRACT-AND-REDUCE
 
-7.12.3 / normal / テスト未対応
+7.12.3 / normal / 実行確認あり
 
 and() returns the bitwise AND of all element values or all per-element with-expression values.
 
@@ -16563,6 +16758,15 @@ and() returns the bitwise AND of all element values or all per-element with-expr
 
 規定の性質: `mandatory`。
 
+- [test_array_and.sv](../tests/ch7/test_array_and.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction.sv](../tests/ch7/test_array_reduction.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_2.sv](../tests/ch7/test_array_reduction_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduce.sv](../tests/ch7/test_array_reduce.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_method_sum.sv](../tests/ch7/test_array_method_sum.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_comb_array_reduce_sort.sv](../tests/ch7/test_comb_array_reduce_sort.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_ieee1800_2023_array_method_corner.sv](../tests/ch7/test_ieee1800_2023_array_method_corner.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_methods_2.sv](../tests/ch7/test_array_reduction_methods_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_and_or_xor_with.sv](../tests/ch7/test_array_reduction_and_or_xor_with.sv): 各要素を非identityのwith値へ変換してからreductionする結果を観測する。withを無視した場合、locator filterとして解釈した場合と異なる値になる。
 
 ### SV2023-7.12.3-EXTRACT-OPERATOR-DEFINED
 
@@ -16577,7 +16781,7 @@ Omitting with requires the corresponding operation on element type; supplying wi
 
 ### SV2023-7.12.3-EXTRACT-OR-REDUCE
 
-7.12.3 / normal / テスト未対応
+7.12.3 / normal / 実行確認あり
 
 or() returns the bitwise OR of all element values or all per-element with-expression values.
 
@@ -16585,10 +16789,18 @@ or() returns the bitwise OR of all element values or all per-element with-expres
 
 規定の性質: `mandatory`。
 
+- [test_array_or.sv](../tests/ch7/test_array_or.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction.sv](../tests/ch7/test_array_reduction.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_2.sv](../tests/ch7/test_array_reduction_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_method_sum.sv](../tests/ch7/test_array_method_sum.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_comb_array_reduce_sort.sv](../tests/ch7/test_comb_array_reduce_sort.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_ieee1800_2023_array_method_corner.sv](../tests/ch7/test_ieee1800_2023_array_method_corner.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_methods_2.sv](../tests/ch7/test_array_reduction_methods_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_and_or_xor_with.sv](../tests/ch7/test_array_reduction_and_or_xor_with.sv): 各要素を非identityのwith値へ変換してからreductionする結果を観測する。withを無視した場合、locator filterとして解釈した場合と異なる値になる。
 
 ### SV2023-7.12.3-EXTRACT-PRODUCT-REDUCE
 
-7.12.3 / normal / テスト未対応
+7.12.3 / normal / 実行確認あり
 
 product() returns the product of all element values or all per-element with-expression values.
 
@@ -16596,10 +16808,23 @@ product() returns the product of all element values or all per-element with-expr
 
 規定の性質: `mandatory`。
 
+- [test_array_reduction.sv](../tests/ch7/test_array_reduction.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_2.sv](../tests/ch7/test_array_reduction_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_with_clause.sv](../tests/ch7/test_array_reduction_with_clause.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_method_sum.sv](../tests/ch7/test_array_method_sum.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_product.sv](../tests/ch7/test_array_product.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduce.sv](../tests/ch7/test_array_reduce.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_method_corner.sv](../tests/ch7/test_array_method_corner.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_methods_edge_cases.sv](../tests/ch7/test_array_methods_edge_cases.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_ieee1800_2023_array_method_corner.sv](../tests/ch7/test_ieee1800_2023_array_method_corner.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_comb_array_reduce_sort.sv](../tests/ch7/test_comb_array_reduce_sort.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_methods_2.sv](../tests/ch7/test_array_methods_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_methods_2.sv](../tests/ch7/test_array_reduction_methods_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_comb_queue_with_clause.sv](../tests/ch7/test_comb_queue_with_clause.sv): 各要素を非identityのwith値へ変換してからreductionする結果を観測する。withを無視した場合、locator filterとして解釈した場合と異なる値になる。
 
 ### SV2023-7.12.3-EXTRACT-REDUCE-VALUES
 
-7.12.3 / normal / テスト未対応
+7.12.3 / normal / 実行確認あり
 
 Array reductions operate on unpacked integral array values, reducing each element or its with-projected value to one result; with is a value projection rather than a locator filter.
 
@@ -16607,6 +16832,9 @@ Array reductions operate on unpacked integral array values, reducing each elemen
 
 規定の性質: `definition`。
 
+- [test_array_reduction_with_clause.sv](../tests/ch7/test_array_reduction_with_clause.sv): with式の各要素での値をscalarへreduceする。元値をfilterして残すだけでは得られない平方和/積を確認する。
+- [test_comb_queue_with_clause.sv](../tests/ch7/test_comb_queue_with_clause.sv): with式の各要素での値をscalarへreduceする。元値をfilterして残すだけでは得られない平方和/積を確認する。
+- [test_comb_dynarray_locator.sv](../tests/ch7/test_comb_dynarray_locator.sv): with式の各要素での値をscalarへreduceする。元値をfilterして残すだけでは得られない平方和/積を確認する。
 
 ### SV2023-7.12.3-EXTRACT-REDUCTION-SIGNATURE
 
@@ -16632,7 +16860,7 @@ A reduction result has the element type without with, or the with expression typ
 
 ### SV2023-7.12.3-EXTRACT-SUM-REDUCE
 
-7.12.3 / normal / テスト未対応
+7.12.3 / normal / 実行確認あり
 
 sum() returns the sum of all element values or all per-element with-expression values.
 
@@ -16640,6 +16868,19 @@ sum() returns the sum of all element values or all per-element with-expression v
 
 規定の性質: `mandatory`。
 
+- [test_array_reduction.sv](../tests/ch7/test_array_reduction.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_2.sv](../tests/ch7/test_array_reduction_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_with_clause.sv](../tests/ch7/test_array_reduction_with_clause.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_method_sum.sv](../tests/ch7/test_array_method_sum.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_sum.sv](../tests/ch7/test_array_sum.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduce.sv](../tests/ch7/test_array_reduce.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_method_corner.sv](../tests/ch7/test_array_method_corner.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_methods_edge_cases.sv](../tests/ch7/test_array_methods_edge_cases.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_ieee1800_2023_array_method_corner.sv](../tests/ch7/test_ieee1800_2023_array_method_corner.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_methods.sv](../tests/ch7/test_array_methods.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_comb_array_reduce_sort.sv](../tests/ch7/test_comb_array_reduce_sort.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_methods_2.sv](../tests/ch7/test_array_methods_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_methods_2.sv](../tests/ch7/test_array_reduction_methods_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
 
 ### SV2023-7.12.3-EXTRACT-WITH-RESULT-WIDTH
 
@@ -16654,7 +16895,7 @@ Reduction result width equals the with expression width when with is present; a 
 
 ### SV2023-7.12.3-EXTRACT-XOR-REDUCE
 
-7.12.3 / normal / テスト未対応
+7.12.3 / normal / 実行確認あり
 
 xor() returns the bitwise XOR of all element values or all per-element with-expression values.
 
@@ -16662,6 +16903,14 @@ xor() returns the bitwise XOR of all element values or all per-element with-expr
 
 規定の性質: `mandatory`。
 
+- [test_array_xor.sv](../tests/ch7/test_array_xor.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction.sv](../tests/ch7/test_array_reduction.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_2.sv](../tests/ch7/test_array_reduction_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_method_sum.sv](../tests/ch7/test_array_method_sum.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_comb_array_reduce_sort.sv](../tests/ch7/test_comb_array_reduce_sort.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_ieee1800_2023_array_method_corner.sv](../tests/ch7/test_ieee1800_2023_array_method_corner.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_methods_2.sv](../tests/ch7/test_array_reduction_methods_2.sv): with省略時の全元要素のreductionを観測する。非identity with projectionの別メンバーと集合にし、一方だけの成功でこの要求全体を実行済みとしない。
+- [test_array_reduction_and_or_xor_with.sv](../tests/ch7/test_array_reduction_and_or_xor_with.sv): 各要素を非identityのwith値へ変換してからreductionする結果を観測する。withを無視した場合、locator filterとして解釈した場合と異なる値になる。
 
 ### SV2023-7.12.4-EXTRACT-DIMENSION-NUMBERING
 
@@ -16676,7 +16925,7 @@ Index query dimensions start with the slowest-varying at one and increase toward
 
 ### SV2023-7.12.4-EXTRACT-INDEX-QUERY
 
-7.12.4 / normal / テスト未対応
+7.12.4 / normal / 実行確認あり
 
 The iterator index query returns the current array index for a requested dimension.
 
@@ -16684,6 +16933,7 @@ The iterator index query returns the current array index for a requested dimensi
 
 規定の性質: `mandatory`。
 
+- [test_array_reduction_with_clause.sv](../tests/ch7/test_array_reduction_with_clause.sv): 元値1..5の和15ではなくindex0..4の和10を観測する。一つの次元のqueryで、複数次元番号やassociative index型までは確認しない。
 
 ### SV2023-7.12.4-EXTRACT-INDEX-RENAME
 
@@ -16929,7 +17179,7 @@ Object === and !== have the same semantics as == and != respectively.
 
 ### SV2023-8.4-EXTRACT-DEFAULT-NULL
 
-8.4 / normal / テスト未対応
+8.4 / normal / 実行確認あり
 
 An object handle without an initializer starts null and can be tested against null.
 
@@ -16937,10 +17187,13 @@ An object handle without an initializer starts null and can be tested against nu
 
 規定の性質: `mandatory`。
 
+- [test_class_null_comparison.sv](../tests/ch8/test_class_null_comparison.sv): 未初期化のobj1とobj2がnullで、new後のobj1はnonnullとなる分岐を期待出力全体で検査する。
+- [test_static_method_through_null_handle.sv](../tests/ch8/test_static_method_through_null_handle.sv): 未初期化handleとnullの比較結果1を表示してからstatic methodを呼び、期待出力全体で検査する。
+- [test_class_basic_edge_cases.sv](../tests/ch8/test_class_basic_edge_cases.sv): block内で宣言のみのc3がnullであることを検査する。default引数で呼ぶ明示constructorとは区別する。
 
 ### SV2023-8.4-EXTRACT-HANDLE-ASSIGNMENT
 
-8.4 / normal / テスト未対応
+8.4 / normal / 実行確認あり
 
 An object handle can receive a handle of an assignment-compatible class type or null.
 
@@ -16948,6 +17201,8 @@ An object handle can receive a handle of an assignment-compatible class type or 
 
 規定の性質: `permission`。
 
+- [test_class_null_comparison.sv](../tests/ch8/test_class_null_comparison.sv): 同型handleの代入とnullへの再代入を行い、残るhandleの値42とnonnull、最後のnullを確認する。aliasの更新共有はこのテスト単独では主張しない。
+- [test_class_basics.sv](../tests/ch8/test_class_basics.sv): handle代入後にp1.id=99と変更し、p2.id=99を確認する。同じ内容の値コピーだけでは通らないalias観測。nullへの代入は別の証拠との集合で確認する。
 
 ### SV2023-8.4-EXTRACT-HANDLE-COMPARE-COMPATIBILITY
 
@@ -17061,7 +17316,7 @@ Unreferenced class objects are garbage collected; chandle-held foreign pointers 
 
 ### SV2023-8.4-EXTRACT-OBJECT-HANDLE-ALLOCATION
 
-8.4 / normal / テスト未対応
+8.4 / normal / 実行確認あり
 
 A class variable holds an object handle; declaring it does not construct an object, while new creates an instance assigned through that handle.
 
@@ -17069,6 +17324,7 @@ A class variable holds an object handle; declaring it does not construct an obje
 
 規定の性質: `definition`。
 
+- [test_class_null_comparison.sv](../tests/ch8/test_class_null_comparison.sv): 宣言直後のnull、new後のnonnullとvalue42を順に検査し、宣言と実体生成を区別する。
 
 ### SV2023-8.4-EXTRACT-RESTRICTED-HANDLE-CAST
 
@@ -17138,7 +17394,7 @@ A class method has automatic lifetime; an explicit static subroutine lifetime on
 
 ### SV2023-8.6-EXTRACT-INSTANCE-METHOD-CONTEXT
 
-8.6 / normal / テスト未対応
+8.6 / normal / 実行確認あり
 
 A nonstatic method accesses class members associated with its current object without an explicit object parameter.
 
@@ -17146,10 +17402,15 @@ A nonstatic method accesses class members associated with its current object wit
 
 規定の性質: `mandatory`。
 
+- [test_scope_nesting.sv](../tests/ch13/test_scope_nesting.sv): A method reads member_var25 of its constructed object and returns50 without passing that object as an explicit argument.
+- [test_class_compare.sv](../tests/ch8/test_class_compare.sv): 異なるobjectだが同内容のo1/o2と、同じhandleのo1/o3をinstance method経由で判別する。thisとunqualified propertyは呼出objectに属する。
+- [test_class_basic.sv](../tests/ch8/test_class_basic.sv): objのhandleをmethod名へ修飾してsetter/getterを呼び、暗黙のcurrent objectのvalueが10から20へ変わることを確認する。
+- [test_class_basic_edge_cases.sv](../tests/ch8/test_class_basic_edge_cases.sv): 非static methodが呼出先c1のpropertyだけを更新し、c2は10を保つ。
+- [test_method_class.sv](../tests/ch8/test_method_class.sv): object-qualified呼出しに加え、同じcurrent objectからunqualified member methodを呼び、value56の2倍112を得る。
 
 ### SV2023-8.6-EXTRACT-METHOD-DOT
 
-8.6 / normal / テスト未対応
+8.6 / normal / 実行確認あり
 
 An object method is invoked by qualifying the method name with the object handle.
 
@@ -17157,10 +17418,16 @@ An object method is invoked by qualifying the method name with the object handle
 
 規定の性質: `definition`。
 
+- [test_scope_nesting.sv](../tests/ch13/test_scope_nesting.sv): The object-qualified dot call executes its method and the returned50 is compared.
+- [test_recursive_class_task_ref_argument.sv](../tests/ch13/test_recursive_class_task_ref_argument.sv): Object-qualified task and function calls execute recursively and their final values4/4/5 are observed.
+- [test_class_compare.sv](../tests/ch8/test_class_compare.sv): 異なるobjectだが同内容のo1/o2と、同じhandleのo1/o3をinstance method経由で判別する。thisとunqualified propertyは呼出objectに属する。
+- [test_class_basic.sv](../tests/ch8/test_class_basic.sv): objのhandleをmethod名へ修飾してsetter/getterを呼び、暗黙のcurrent objectのvalueが10から20へ変わることを確認する。
+- [test_class_basic_edge_cases.sv](../tests/ch8/test_class_basic_edge_cases.sv): 非static methodが呼出先c1のpropertyだけを更新し、c2は10を保つ。
+- [test_method_class.sv](../tests/ch8/test_method_class.sv): object-qualified呼出しに加え、同じcurrent objectからunqualified member methodを呼び、value56の2倍112を得る。
 
 ### SV2023-8.7-EXTRACT-BASE-CONSTRUCTOR-FIRST
 
-8.7 / normal / テスト未対応
+8.7 / normal / 実行確認あり
 
 A derived constructor first calls its base constructor; only after that returns are the properties declared in the derived class initialized.
 
@@ -17168,6 +17435,7 @@ A derived constructor first calls its base constructor; only after that returns 
 
 規定の性質: `mandatory`。
 
+- [test_property_initializer_after_super_new.sv](../tests/ch8/test_property_initializer_after_super_new.sv): baseのb=1をconstructorで41とし、その後derived property c=b+2で43、その後bodyで430とする。初期化をsuper.newより前へ移すと結果が変わる。
 
 ### SV2023-8.7-EXTRACT-CONSTRUCTOR-ACCESS
 
@@ -17182,7 +17450,7 @@ A constructor may be local or protected.
 
 ### SV2023-8.7-EXTRACT-CONSTRUCTOR-ARGUMENTS
 
-8.7 / normal / テスト未対応
+8.7 / normal / 実行確認あり
 
 Constructor calls accept runtime arguments using ordinary subroutine argument rules, including default values.
 
@@ -17190,10 +17458,12 @@ Constructor calls accept runtime arguments using ordinary subroutine argument ru
 
 規定の性質: `permission`。
 
+- [test_class_new_args.sv](../tests/ch8/test_class_new_args.sv): 全actual指定の1,2,3と、後ろ二つを省略した100,10,20を比較する。runtime property actualの証拠と合わせて扱う。
+- [test_class_copy_2.sv](../tests/ch8/test_class_copy_2.sv): copy関数内からruntime property x,yをconstructorへ渡し、10,20を持つ別Pointを作る。省略defaultの別テストと合わせて扱い、built-in shallow copyの証拠にはしない。
 
 ### SV2023-8.7-EXTRACT-CONSTRUCTOR-INVOKED
 
-8.7 / normal / テスト未対応
+8.7 / normal / 実行確認あり
 
 Creating a class instance with new invokes that class constructor to perform specialized initialization.
 
@@ -17201,6 +17471,14 @@ Creating a class instance with new invokes that class constructor to perform spe
 
 規定の性質: `mandatory`。
 
+- [test_class_new_args.sv](../tests/ch8/test_class_new_args.sv): newのbodyがvalue42を設定する結果と引数による各property設定を観測する。
+- [test_class_construct.sv](../tests/ch8/test_class_construct.sv): constructorが指定された100とtestをpropertiesへ設定する結果を検査する。
+- [test_class_basic_edge_cases.sv](../tests/ch8/test_class_basic_edge_cases.sv): new(10)とnew(100)のbodyによる初期値と独立したobject更新を検査する。
+- [test_class_object.sv](../tests/ch8/test_class_object.sv): 異なるactual値100/300と名前のconstructor反映を検査する。PASS条件>=6だけでなくexpectedの7/7完全一致を根拠にする。
+- [test_class_basic_2.sv](../tests/ch8/test_class_basic_2.sv): constructorで42/alphaと99/betaを設定し、別objectの値が保持される。
+- [test_class_copy_2.sv](../tests/ch8/test_class_copy_2.sv): 自作copyがnew(x,y)を呼び、runtime値10/20で初期化する。
+- [test_class_copy_3.sv](../tests/ch8/test_class_copy_3.sv): 明示constructorによるvalue100と配列初期化を観測する。自作copyと規格のnew sourceを同一視しない。
+- [test_method_class.sv](../tests/ch8/test_method_class.sv): constructor bodyがinitial_val=10をinstanceへ反映し、getterで確認する。
 
 ### SV2023-8.7-EXTRACT-CONSTRUCTOR-NO-TIMING
 
@@ -17226,7 +17504,7 @@ The implicit default constructor has no additional effect after required supercl
 
 ### SV2023-8.7-EXTRACT-IMPLICIT-CONSTRUCTOR
 
-8.7 / normal / テスト未対応
+8.7 / normal / 実行確認あり
 
 A class without an explicit new method receives an implicit constructor.
 
@@ -17234,6 +17512,7 @@ A class without an explicit new method receives an implicit constructor.
 
 規定の性質: `mandatory`。
 
+- [test_method_class.sv](../tests/ch8/test_method_class.sv): newを宣言しないCalculatorをnew()で実体化し、そのmethodの結果20まで観測する。明示constructorのdefault引数呼び出しとは区別する。
 
 ### SV2023-8.7-EXTRACT-NO-STATIC-VIRTUAL-CONSTRUCTOR
 
@@ -17270,7 +17549,7 @@ Each class property receives its declared default or its type uninitialized defa
 
 ### SV2023-8.7-EXTRACT-UNTYPED-TARGET-TYPE
 
-8.7 / normal / テスト未対応
+8.7 / normal / 実行確認あり
 
 An ordinary untyped new result has the type determined by its assignment target.
 
@@ -17278,6 +17557,7 @@ An ordinary untyped new result has the type determined by its assignment target.
 
 規定の性質: `mandatory`。
 
+- [test_class_new_args.sv](../tests/ch8/test_class_new_args.sv): class scopeを指定しないnewがNoArgs/BasicArgs/StringArgs/ArrayArgsの各target classを構築し、型固有のproperty/配列と引数を観測する。
 
 ### SV2023-8.8-EXTRACT-CLASS-NEW-FORMS
 
@@ -17303,7 +17583,7 @@ A shallow-copy new expression must evaluate to an object handle.
 
 ### SV2023-8.8-EXTRACT-TYPED-NEW-INITIALIZATION
 
-8.8 / normal / テスト未対応
+8.8 / normal / 実行確認あり
 
 A typed constructor creates/initializes the specified class using ordinary constructor sequencing and supports appropriate constructor arguments.
 
@@ -17311,6 +17591,7 @@ A typed constructor creates/initializes the specified class using ordinary const
 
 規定の性質: `mandatory`。
 
+- [test_typed_constructor_into_base_handle.sv](../tests/ch8/test_typed_constructor_into_base_handle.sv): base型targetに対するchild::newがchild constructorで7+10を設定し、childのvirtual readで34を返す。target型に基づくbase生成では一致しない。
 
 ### SV2023-8.8-EXTRACT-TYPED-NEW-SPECIALIZATION
 
@@ -17336,7 +17617,7 @@ A class scope before new selects the constructed class independently of the targ
 
 ### SV2023-8.9-EXTRACT-STATIC-ONE-INITIALIZATION
 
-8.9 / normal / テスト未対応
+8.9 / normal / 実行確認あり
 
 A static class property is created/initialized once, then shared by all class objects.
 
@@ -17344,10 +17625,14 @@ A static class property is created/initialized once, then shared by all class ob
 
 規定の性質: `mandatory`。
 
+- [test_class_static_members.sv](../tests/ch8/test_class_static_members.sv): 三つのnew後にcount3、instance id0/1/2、c1.count=10が他二つにも見えることを確認する。
+- [test_class_static.sv](../tests/ch8/test_class_static.sv): newごとのcount増分を累積3まで保持し、c1.id1とc3.id3の別storageを観測する。
+- [test_class_static_2.sv](../tests/ch8/test_class_static_2.sv): 実体生成前0、生成ごと1/3、各id1/2/3を観測し、newごとのstatic再初期化とinstance property共有を区別する。
+- [test_parameterized_class_static_per_specialization.sv](../tests/ch8/test_parameterized_class_static_per_specialization.sv): 同じspecializationのa/b/default dはcountを共有し、別specialization cは別count。self_idは1/2/1/3でobjectごとに保持する。
 
 ### SV2023-8.9-EXTRACT-STATIC-SHARED-PROPERTY
 
-8.9 / normal / テスト未対応
+8.9 / normal / 実行確認あり
 
 A static class property has one shared storage instance for all objects of that class specialization; instance properties have separate storage per object.
 
@@ -17355,10 +17640,14 @@ A static class property has one shared storage instance for all objects of that 
 
 規定の性質: `definition`。
 
+- [test_class_static_members.sv](../tests/ch8/test_class_static_members.sv): 三つのnew後にcount3、instance id0/1/2、c1.count=10が他二つにも見えることを確認する。
+- [test_class_static.sv](../tests/ch8/test_class_static.sv): newごとのcount増分を累積3まで保持し、c1.id1とc3.id3の別storageを観測する。
+- [test_class_static_2.sv](../tests/ch8/test_class_static_2.sv): 実体生成前0、生成ごと1/3、各id1/2/3を観測し、newごとのstatic再初期化とinstance property共有を区別する。
+- [test_parameterized_class_static_per_specialization.sv](../tests/ch8/test_parameterized_class_static_per_specialization.sv): 同じspecializationのa/b/default dはcountを共有し、別specialization cは別count。self_idは1/2/1/3でobjectごとに保持する。
 
 ### SV2023-8.9-EXTRACT-STATIC-WITHOUT-OBJECT
 
-8.9 / normal / テスト未対応
+8.9 / normal / 実行確認あり
 
 A static property can be used without constructing a class object.
 
@@ -17366,6 +17655,9 @@ A static property can be used without constructing a class object.
 
 規定の性質: `permission`。
 
+- [test_static_method_through_null_handle.sv](../tests/ch8/test_static_method_through_null_handle.sv): obj=nullのままstatic methodを2回呼び、instanceなしにstatic calls2を参照する。
+- [test_class_static_corner.sv](../tests/ch8/test_class_static_corner.sv): Configを一度もnewせずstatic const VERSION/NAMEを読み、InitTestもnewせずinitializerの値42を読む。
+- [test_class_static_2.sv](../tests/ch8/test_class_static_2.sv): 一つ目のCounterをnewする前にstatic method経由でcount0を読み出す。
 
 ### SV2023-8.10-EXTRACT-NO-STATIC-INSTANCE-ACCESS
 
@@ -17392,7 +17684,7 @@ A static method cannot be virtual.
 
 ### SV2023-8.10-EXTRACT-STATIC-METHOD-CALL
 
-8.10 / normal / テスト未対応
+8.10 / normal / 実行確認あり
 
 A static method follows class scope/access rules but may be called without a class instance.
 
@@ -17400,10 +17692,15 @@ A static method follows class scope/access rules but may be called without a cla
 
 規定の性質: `permission`。
 
+- [test_static_method_through_null_handle.sv](../tests/ch8/test_static_method_through_null_handle.sv): null handleのstatic pingとleaf::pingはどちらも37を返し、同じstatic callsへ累積する。
+- [test_class_static_corner.sv](../tests/ch8/test_class_static_corner.sv): 最初のCounter生成前にresetを呼び、他のstatic methodもclass scopeから呼び出して結果を検査する。
+- [test_class_static_method.sv](../tests/ch8/test_class_static_method.sv): MathUtilsをnewせず演算し、static call_count4を検査する。Calculator static methodからdo_add/do_sub/do_mulへ直接呼び、13/7/30を検査する。
+- [test_method_static.sv](../tests/ch8/test_method_static.sv): 実体生成前にresetし、MathUtilsは一度もnewせず20/100の演算結果を返す。Counterのstatic getterは共有total60を返す。
+- [test_class_static_2.sv](../tests/ch8/test_class_static_2.sv): 生成前のclass-scope呼び出し、生成後のinstance経由呼び出しとresetでstatic stateを観測する。
 
 ### SV2023-8.10-EXTRACT-STATIC-METHOD-MEMBERS
 
-8.10 / normal / テスト未対応
+8.10 / normal / 実行確認あり
 
 A static method may directly use static properties/methods of its class.
 
@@ -17411,6 +17708,11 @@ A static method may directly use static properties/methods of its class.
 
 規定の性質: `mandatory`。
 
+- [test_static_method_through_null_handle.sv](../tests/ch8/test_static_method_through_null_handle.sv): null handleのstatic pingとleaf::pingはどちらも37を返し、同じstatic callsへ累積する。
+- [test_class_static_corner.sv](../tests/ch8/test_class_static_corner.sv): 最初のCounter生成前にresetを呼び、他のstatic methodもclass scopeから呼び出して結果を検査する。
+- [test_class_static_method.sv](../tests/ch8/test_class_static_method.sv): MathUtilsをnewせず演算し、static call_count4を検査する。Calculator static methodからdo_add/do_sub/do_mulへ直接呼び、13/7/30を検査する。
+- [test_method_static.sv](../tests/ch8/test_method_static.sv): 実体生成前にresetし、MathUtilsは一度もnewせず20/100の演算結果を返す。Counterのstatic getterは共有total60を返す。
+- [test_class_static_2.sv](../tests/ch8/test_class_static_2.sv): 生成前のclass-scope呼び出し、生成後のinstance経由呼び出しとresetでstatic stateを観測する。
 
 ### SV2023-8.10-EXTRACT-STATIC-METHOD-NOT-LIFETIME
 
@@ -17425,7 +17727,7 @@ The static class-method qualifier does not give static lifetime to its arguments
 
 ### SV2023-8.11-EXTRACT-INNER-SCOPE-SHADOW
 
-8.11 / normal / テスト未対応
+8.11 / normal / 実行確認あり
 
 An unqualified name resolves in the innermost applicable scope; this-qualified selection accesses the object property when a local/formal shadows it.
 
@@ -17433,6 +17735,7 @@ An unqualified name resolves in the innermost applicable scope; this-qualified s
 
 規定の性質: `mandatory`。
 
+- [test_class_this.sv](../tests/ch8/test_class_this.sv): formal x/yと同名のpropertyをthis.x/this.yで書き分け、10/20、set後5/5、別instance8/8を観測する。
 
 ### SV2023-8.11-EXTRACT-THIS-CONTEXT
 
@@ -17458,7 +17761,7 @@ this is the predefined handle to the object used to invoke the current method an
 
 ### SV2023-8.12-EXTRACT-CHAINED-QUALIFICATION
 
-8.12 / normal / テスト未対応
+8.12 / normal / 実行確認あり
 
 Instance qualifications can be chained through object properties to reach nested members under normal access/null rules.
 
@@ -17466,6 +17769,8 @@ Instance qualifications can be chained through object properties to reach nested
 
 規定の性質: `permission`。
 
+- [test_class_copy_2.sv](../tests/ch8/test_class_copy_2.sv): 自作shallow/deep-copy後にr2.top_left.xを変更し、r1のnested propertyも変わることとdeep copyの独立性を検査する。new source自体の証拠にはしない。
+- [test_class_copy_corner.sv](../tests/ch8/test_class_copy_corner.sv): 自作copyで入れ子handleを共有し、chained member selectionからの更新が元のnested objectへ見えることを確認する。
 
 ### SV2023-8.12-EXTRACT-COPY-COVERAGE-HANDLES
 
@@ -17513,7 +17818,7 @@ Shallow copy includes RNG state, constraint_mode, rand_mode and randc cyclic sta
 
 ### SV2023-8.12-EXTRACT-COPY-RESULT-ASSIGNMENT
 
-8.12 / normal / テスト未対応
+8.12 / normal / 実行確認あり
 
 The handle of the newly allocated shallow-copy object is assigned to the target.
 
@@ -17521,10 +17826,13 @@ The handle of the newly allocated shallow-copy object is assigned to the target.
 
 規定の性質: `mandatory`。
 
+- [test_class_copy.sv](../tests/ch8/test_class_copy.sv): new sourceで作ったp2はp1と異なるhandleで、値をコピーした後のp2変更はp1へ影響しない。
+- [test_shallow_copy_array_properties.sv](../tests/ch8/test_shallow_copy_array_properties.sv): new aのbを変更してもaのdynamic array/queue/fixed arrayが1/5/3を保つ。nested class handle共有は別要求の未観測部分として残す。
+- [test_class_vs_struct_assignment.sv](../tests/ch8/test_class_vs_struct_assignment.sv): alias c2とnew source c3の両方を作り、元を10へ変更した後の10/10/1とhandle等価性を対照する。
 
 ### SV2023-8.12-EXTRACT-DECLARATION-NO-OBJECT
 
-8.12 / normal / テスト未対応
+8.12 / normal / 実行確認あり
 
 Declaring a class variable creates a handle variable initially null, not an object.
 
@@ -17532,6 +17840,7 @@ Declaring a class variable creates a handle variable initially null, not an obje
 
 規定の性質: `mandatory`。
 
+- [test_class_null_comparison.sv](../tests/ch8/test_class_null_comparison.sv): 宣言だけのobj1/obj2がnullで、new後に初めてvalueを持つことを観測する。
 
 ### SV2023-8.12-EXTRACT-NO-TYPED-SHALLOW
 
@@ -17568,7 +17877,7 @@ A class declared with colon final cannot be extended; attempting to derive from 
 
 ### SV2023-8.13-EXTRACT-INHERIT-MEMBERS
 
-8.13 / normal / テスト未対応
+8.13 / normal / 実行確認あり
 
 A derived subclass extends a base class and inherits its members in addition to its newly declared members under visibility/hiding rules.
 
@@ -17576,10 +17885,19 @@ A derived subclass extends a base class and inherits its members in addition to 
 
 規定の性質: `definition`。
 
+- [test_class_inherit_edge_cases.sv](../tests/ch8/test_class_inherit_edge_cases.sv): base property/method、derived property/methodと合計50、継承propertyの更新100を観測する。
+- [test_class_multilevel_inheritance.sv](../tests/ch8/test_class_multilevel_inheritance.sv): 三段階の継承でvalue/extra/thirdと継承methodを読み、sum60/total30/compute20を区別する。constructor順の観測にはしない。
+- [test_class_inheritance_virtual_super.sv](../tests/ch8/test_class_inheritance_virtual_super.sv): base addr/data/idと新規burst properties/methodを組み合わせた出力を確認する。
+- [test_class_super.sv](../tests/ch8/test_class_super.sv): base value/nameとderived multiplier/offset、Workerの継承stateと追加stateを実際のmethod結果で確認する。
+- [test_class_inheritance_3.sv](../tests/ch8/test_class_inheritance_3.sv): 継承したname/age/get_infoに加えbreedとPuppyの多段継承結果を確認する。
+- [test_class_inheritance_2.sv](../tests/ch8/test_class_inheritance_2.sv): base xと新規yがderived computeで10+20=30となり、base実体では10となる。
+- [test_class_extends_2.sv](../tests/ch8/test_class_extends_2.sv): SportsCarがVehicle.brand、Car.num_doors、新規horsepowerを持ち、継承methodの動作も観測する。
+- [test_class_inheritance_corner.sv](../tests/ch8/test_class_inheritance_corner.sv): Dogがbase name/ageと追加breedを保持し、Puppyもそれらを継承する。
+- [test_class_inheritance.sv](../tests/ch8/test_class_inheritance.sv): baseのset_valをderivedから呼び、base property30と新規property5、override結果35を確認する。
 
 ### SV2023-8.13-EXTRACT-OVERRIDE-METHOD
 
-8.13 / normal / テスト未対応
+8.13 / normal / 実行確認あり
 
 A derived class may override a base method under the method overriding constraints.
 
@@ -17587,6 +17905,13 @@ A derived class may override a base method under the method overriding constrain
 
 規定の性質: `permission`。
 
+- [test_class_inheritance_virtual_super.sv](../tests/ch8/test_class_inheritance_virtual_super.sv): base/derivedの異なるmethod bodyを実行し、同じprototypeでoverrideした結果を観測する。違法overrideを拒否する規則の証拠には換算しない。
+- [test_class_super.sv](../tests/ch8/test_class_super.sv): base/derivedの異なるmethod bodyを実行し、同じprototypeでoverrideした結果を観測する。違法overrideを拒否する規則の証拠には換算しない。
+- [test_class_inheritance_3.sv](../tests/ch8/test_class_inheritance_3.sv): base/derivedの異なるmethod bodyを実行し、同じprototypeでoverrideした結果を観測する。違法overrideを拒否する規則の証拠には換算しない。
+- [test_class_inheritance_2.sv](../tests/ch8/test_class_inheritance_2.sv): base/derivedの異なるmethod bodyを実行し、同じprototypeでoverrideした結果を観測する。違法overrideを拒否する規則の証拠には換算しない。
+- [test_class_extends_2.sv](../tests/ch8/test_class_extends_2.sv): base/derivedの異なるmethod bodyを実行し、同じprototypeでoverrideした結果を観測する。違法overrideを拒否する規則の証拠には換算しない。
+- [test_class_inheritance_corner.sv](../tests/ch8/test_class_inheritance_corner.sv): base/derivedの異なるmethod bodyを実行し、同じprototypeでoverrideした結果を観測する。違法overrideを拒否する規則の証拠には換算しない。
+- [test_class_inheritance.sv](../tests/ch8/test_class_inheritance.sv): base/derivedの異なるmethod bodyを実行し、同じprototypeでoverrideした結果を観測する。違法overrideを拒否する規則の証拠には換算しない。
 
 ### SV2023-8.13-EXTRACT-SINGLE-BASE
 
@@ -17601,7 +17926,7 @@ A class extends a single base class; multiple class inheritance is not supported
 
 ### SV2023-8.14-EXTRACT-DERIVED-TO-BASE
 
-8.14 / normal / テスト未対応
+8.14 / normal / 実行確認あり
 
 A derived object handle may be assigned to a base-class variable.
 
@@ -17609,6 +17934,8 @@ A derived object handle may be assigned to a base-class variable.
 
 規定の性質: `permission`。
 
+- [test_virt_method.sv](../tests/ch8/test_virt_method.sv): Rectangleとさらに派生したSquareをShape handleへ代入し、20/36の動作を確認する。
+- [test_class_extends_2.sv](../tests/ch8/test_class_extends_2.sv): SportsCar objectをVehicle handleへ代入し、基底property speed40と派生typeを読む。
 
 ### SV2023-8.14-EXTRACT-STATIC-HANDLE-MEMBERS
 
@@ -17699,6 +18026,8 @@ For a source static type that is an ancestor of the destination or an interface 
 
 - [test_cast_function.sv](../tests/ch6/test_cast_function.sv): The source has static BaseClass type but holds a DerivedClass object; a successful checked downcast exposes its derived member200 and inherited100.
 - [test_member_access_cast.sv](../tests/ch6/test_member_access_cast.sv): Downcasts a base handle holding a derived object and observes both inherited and derived members.
+- [test_class_cast_edge_cases.sv](../tests/ch8/test_class_cast_edge_cases.sv): base静的型のsourceが実際にはderived objectを保持するとき$castが成功し、derived propertyへアクセスできる。edge-case側は元の更新15がcast先にも見える。
+- [test_dynamic_cast.sv](../tests/ch8/test_dynamic_cast.sv): base静的型のsourceが実際にはderived objectを保持するとき$castが成功し、derived propertyへアクセスできる。edge-case側は元の更新15がcast先にも見える。
 
 ### SV2023-8.16-EXTRACT-CAST-FORMS
 
@@ -17778,6 +18107,8 @@ An expression of derived class type can always assign to an ancestor class handl
 規定の性質: `mandatory`。
 
 - [test_cast_function.sv](../tests/ch6/test_cast_function.sv): Directly assigns a derived object to an ancestor handle, then checks inherited and derived properties via the checked downcast.
+- [test_class_cast_edge_cases.sv](../tests/ch8/test_class_cast_edge_cases.sv): derived handleをbase handleへ直接代入し、元objectのbase propertyとcast後のderived propertyを確認する。
+- [test_dynamic_cast.sv](../tests/ch8/test_dynamic_cast.sv): derived handleをbase handleへ直接代入し、元objectのbase propertyとcast後のderived propertyを確認する。
 
 ### SV2023-8.17-EXTRACT-AFTER-DEFAULT-ARGUMENT
 
@@ -17803,7 +18134,7 @@ Required superclass constructor arguments can be supplied by an explicit super.n
 
 ### SV2023-8.17-EXTRACT-CHAIN-ROOT-FIRST
 
-8.17 / normal / テスト未対応
+8.17 / normal / 実行確認あり
 
 Subclass construction invokes all superclass constructors before its own body, beginning at the root and applying property initialization at each level under 8.7.
 
@@ -17811,6 +18142,7 @@ Subclass construction invokes all superclass constructors before its own body, b
 
 規定の性質: `mandatory`。
 
+- [test_property_initializer_after_super_new.sv](../tests/ch8/test_property_initializer_after_super_new.sv): 二段階のroot base constructor、derived property initializer、derived bodyの順を41→43→430で区別する。単に全propertyをbodyで上書きする多段継承例とは異なる。
 
 ### SV2023-8.17-EXTRACT-DEFAULT-EXPANSION
 
@@ -18079,7 +18411,7 @@ const class properties are read-only and have global-declaration and per-instanc
 
 ### SV2023-8.20-EXTRACT-EXTENDS-IMPLIES-VIRTUAL
 
-8.20 / normal / テスト未対応
+8.20 / normal / 実行確認あり
 
 The method extends specifier implies virtual, making an explicit virtual keyword optional.
 
@@ -18087,6 +18419,7 @@ The method extends specifier implies virtual, making an explicit virtual keyword
 
 規定の性質: `mandatory`。
 
+- [test_method_initial_extends.sv](../tests/ch8/test_method_initial_extends.sv): virtual keywordを省略した:extends whoがbase型handleからderivedへdispatchし、nonvirtual plainはbaseを選ぶ。
 
 ### SV2023-8.20-EXTRACT-EXTENDS-REQUIRES-VIRTUAL-OVERRIDE
 
@@ -18211,7 +18544,7 @@ A pure virtual method cannot be final.
 
 ### SV2023-8.20-EXTRACT-VIRTUAL-KEYWORD-OPTIONAL
 
-8.20 / normal / テスト未対応
+8.20 / normal / 実行確認あり
 
 A derived override of a virtual method remains virtual even if it omits virtual.
 
@@ -18219,10 +18552,14 @@ A derived override of a virtual method remains virtual even if it omits virtual.
 
 規定の性質: `mandatory`。
 
+- [test_class_inheritance_2.sv](../tests/ch8/test_class_inheritance_2.sv): baseがvirtualで、derived overrideはvirtual keywordを省略する。base型handleから派生bodyを選ぶ実際の呼び出しと期待結果がある。
+- [test_class_virtual_2.sv](../tests/ch8/test_class_virtual_2.sv): baseがvirtualで、derived overrideはvirtual keywordを省略する。base型handleから派生bodyを選ぶ実際の呼び出しと期待結果がある。
+- [test_virt_method.sv](../tests/ch8/test_virt_method.sv): baseがvirtualで、derived overrideはvirtual keywordを省略する。base型handleから派生bodyを選ぶ実際の呼び出しと期待結果がある。
+- [test_virtual_method.sv](../tests/ch8/test_virtual_method.sv): baseがvirtualで、derived overrideはvirtual keywordを省略する。base型handleから派生bodyを選ぶ実際の呼び出しと期待結果がある。
 
 ### SV2023-8.20-EXTRACT-VIRTUAL-LATEST-OVERRIDE
 
-8.20 / normal / テスト未対応
+8.20 / normal / 実行確認あり
 
 Virtual dispatch selects the latest derived overriding implementation through the relevant base-class hierarchy; nonvirtual method selection follows its static class/descendant visibility rules.
 
@@ -18230,6 +18567,8 @@ Virtual dispatch selects the latest derived overriding implementation through th
 
 規定の性質: `mandatory`。
 
+- [test_method_virtual.sv](../tests/ch8/test_method_virtual.sv): base AnimalからDog/Bird/Parrotへdispatchし、Parrotはsoundを再override、legsはBirdの最新overrideを継承する。nonvirtualの静的選択は別テストと合わせる。
+- [test_method_initial_extends.sv](../tests/ch8/test_method_initial_extends.sv): base/derivedの同名nonvirtual plainを異なる静的型で選び、virtual whoのdynamic dispatchと対照する。多段の最新overrideは別テストと合わせる。
 
 ### SV2023-8.20-EXTRACT-VIRTUAL-PROTOTYPE
 
@@ -18278,7 +18617,7 @@ An abstract class cannot be directly constructed; its constructor may run only t
 
 ### SV2023-8.21-EXTRACT-PURE-PROTOTYPE
 
-8.21 / normal / テスト未対応
+8.21 / normal / 実行確認あり
 
 An abstract class virtual method may be pure, declared as a prototype with no implementation body; a derived override may supply its implementation.
 
@@ -18286,6 +18625,9 @@ An abstract class virtual method may be pure, declared as a prototype with no im
 
 規定の性質: `permission`。
 
+- [test_class_virtual_2.sv](../tests/ch8/test_class_virtual_2.sv): abstract classのpure prototypeにbodyはなく、派生classが実装し、実際に呼び出した結果を確認する。直接abstract classをnewしないだけでは禁止規則の証拠にしない。
+- [test_class_virtual.sv](../tests/ch8/test_class_virtual.sv): abstract classのpure prototypeにbodyはなく、派生classが実装し、実際に呼び出した結果を確認する。直接abstract classをnewしないだけでは禁止規則の証拠にしない。
+- [test_class_inheritance_corner.sv](../tests/ch8/test_class_inheritance_corner.sv): abstract classのpure prototypeにbodyはなく、派生classが実装し、実際に呼び出した結果を確認する。直接abstract classをnewしないだけでは禁止規則の証拠にしない。
 
 ### SV2023-8.21-EXTRACT-VIRTUAL-CLASS-ABSTRACT
 
@@ -18311,7 +18653,7 @@ An abstract class may be used as a variable/array element type holding compatibl
 
 ### SV2023-8.22-EXTRACT-RUNTIME-DISPATCH
 
-8.22 / normal / テスト未対応
+8.22 / normal / 実行確認あり
 
 A virtual method called through a superclass handle binds at runtime to the appropriate implementation for the actual referenced derived object.
 
@@ -18319,6 +18661,9 @@ A virtual method called through a superclass handle binds at runtime to the appr
 
 規定の性質: `mandatory`。
 
+- [test_class_polymorphic_access.sv](../tests/ch8/test_class_polymorphic_access.sv): 基底型handleに派生objectを代入してvirtual methodを呼び、基底bodyと異なる派生bodyの結果を確認する。
+- [test_class_extends_2.sv](../tests/ch8/test_class_extends_2.sv): 基底型handleに派生objectを代入してvirtual methodを呼び、基底bodyと異なる派生bodyの結果を確認する。
+- [test_class_inheritance.sv](../tests/ch8/test_class_inheritance.sv): 基底型handleに派生objectを代入してvirtual methodを呼び、基底bodyと異なる派生bodyの結果を確認する。
 
 ### SV2023-8.23-EXTRACT-BASE-PROTECTED-SCOPE
 
@@ -20397,7 +20742,7 @@ A begin/fork cannot have both a preceding statement label and a following block 
 
 ### SV2023-9.3.5-EXTRACT-STATEMENT-LABEL
 
-9.3.5 / normal / テスト未対応
+9.3.5 / normal / 実行確認あり
 
 A label before any procedural nondeclaration statement uses identifier colon and identifies that statement.
 
@@ -20405,6 +20750,7 @@ A label before any procedural nondeclaration statement uses identifier colon and
 
 規定の性質: `definition`。
 
+- [test_label_stmt.sv](../tests/ch12/test_label_stmt.sv): Identifier-colon labels precede assignment, begin/end, for and if statements, which execute their checked values. Scope equivalence, disable behavior and illegal closer labels are separate unobserved rules.
 
 ### SV2023-9.4-EXTRACT-COMMA-ACTUAL-PARENTHESES
 
@@ -21081,6 +21427,8 @@ Intra-assignment timing evaluates the RHS before its delay/event wait but update
 規定の性質: `mandatory`。
 
 - [test_intra_assignment_repeat_nonblocking.sv](../tests/ch9/test_intra_assignment_repeat_nonblocking.sv): Schedules an update from data11 at time1, immediately changes data22, and observes the saved11 assigned only on the third posedge at25; subsequent operations produce22 at45 and33 at51.
+- [test_sched_intra_assignment_target.sv](../tests/ch4/test_sched_intra_assignment_target.sv): Blocking and nonblocking intra-assignment delays both sample b5 before the time1 change to7 and update after delay2. The repeat case separately samples7 before b8.
+- [test_nba_intra_assignment_event_control.sv](../tests/ch10/test_nba_intra_assignment_event_control.sv): Schedules RHS3 before changing b4, waits for posedge10 before updating a; early and late values bracket the control.
 
 ### SV2023-9.4.5-EXTRACT-NONPOSITIVE-UNKNOWN-REPEAT
 
@@ -21104,6 +21452,7 @@ A repeat event count is evaluated once before scheduling; later changes to the c
 規定の性質: `mandatory`。
 
 - [test_intra_assignment_repeat_nonblocking.sv](../tests/ch9/test_intra_assignment_repeat_nonblocking.sv): Schedules at time31 with n=2, immediately rewrites n=5, and observes the update on the second later posedge at45. Live reevaluation would postpone it and violate the timestamp trace.
+- [test_sched_intra_assignment_target.sv](../tests/ch4/test_sched_intra_assignment_target.sv): The blocking repeat schedules three edges with n3 at2, ignores the change to n1 at3, and updates only on the third posedge25; outputs before/after that edge confirm the count.
 
 ### SV2023-9.5-EXTRACT-CONTINUOUS-THREAD-MODEL
 
@@ -21796,7 +22145,7 @@ Standalone assign uses net assignments with optional drive strength/delay3 or va
 
 ### SV2023-10.3-EXTRACT-CONTINUOUS-RHS-DRIVE
 
-10.3 / normal / テスト未対応
+10.3 / normal / 実行確認あり
 
 Continuous assignments drive scalar/packed net or variable targets whenever their RHS value changes.
 
@@ -21804,6 +22153,9 @@ Continuous assignments drive scalar/packed net or variable targets whenever thei
 
 規定の性質: `mandatory`。
 
+- [test_assign_net.sv](../tests/ch10/test_assign_net.sv): Scalar gates and vector arithmetic/concatenation outputs are checked after operand changes; changing mux select alone switches0F to10.
+- [test_continuous_assignment.sv](../tests/ch10/test_continuous_assignment.sv): Independent a then b changes update a continuous-assigned variable to30,25,1A, with assertions checking all three.
+- [test_continuous_assign_2.sv](../tests/ch10/test_continuous_assign_2.sv): Checks scalar reduction/gate outputs and vector arithmetic/muxes plus two complete cascaded updates to01/02/03 and11/12/13.
 
 ### SV2023-10.3-EXTRACT-NET-DECLARATION-GRAMMAR
 
@@ -21829,7 +22181,7 @@ Charge strength may be specified only with trireg.
 
 ### SV2023-10.3.1-EXTRACT-NET-DECLARATION-DRIVER
 
-10.3.1 / normal / テスト未対応
+10.3.1 / normal / 実行確認あり
 
 A net declaration assignment is a continuous driver declared together with the net.
 
@@ -21837,6 +22189,7 @@ A net declaration assignment is a continuous driver declared together with the n
 
 規定の性質: `definition`。
 
+- [test_net_decl_assign_resolution.sv](../tests/ch10/test_net_decl_assign_resolution.sv): A declaration assignment remains a live resolved net driver: dyn goes11→01 conflict→1z as a/b change. Multiple other declaration drivers are checked against standalone drivers and strength resolution.
 
 ### SV2023-10.3.1-EXTRACT-NO-INTERCONNECT-INITIALIZER
 
@@ -21899,6 +22252,9 @@ A continuous assignment reevaluates its whole RHS when an operand changes and dr
 - [test_gen_sched_assign_monitor_fork_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_fork_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
 - [test_gen_sched_assign_monitor_interface_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_interface_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
 - [test_gen_sched_assign_monitor_generate_delay1.sv](../tests/gen/ch4/test_gen_sched_assign_monitor_generate_delay1.sv): Exact reviewed scheduling template/oracle. The initial continuous value11 is observed at the end of time0, src changes at time1, and monitor must observe the driven value22 that same slot. This uses delayed input change to distinguish a functioning reevaluating continuous assignment from an initial-value-only observation.
+- [test_contassign_system_function_operand.sv](../tests/ch10/test_contassign_system_function_operand.sv): Changes p from unknown through10,01,11 and compares signed/unsigned extension, countones and isunknown outputs, demonstrating automatic whole-RHS reevaluation through system functions.
+- [test_continuous_assign.sv](../tests/ch10/test_continuous_assign.sv): Observed arithmetic updates under changed a/b and a separately changed mux selector require whole-expression reevaluation.
+- [test_assign_statements.sv](../tests/ch10/test_assign_statements.sv): The complete expected stdout observes add results30,70 and four loop-dependent results00/18/30/48. Fixed PASS labels alone are not credited.
 
 ### SV2023-10.3.2-EXTRACT-VARIABLE-DECLARED-FIRST
 
@@ -21924,7 +22280,7 @@ A variable may have only one continuous/primitive-output/module-output driver an
 
 ### SV2023-10.3.3-EXTRACT-CONTINUOUS-PROPAGATION-DELAY
 
-10.3.3 / normal / テスト未対応
+10.3.3 / normal / 実行確認あり
 
 A continuous delay separates an RHS operand change from target update; scalar net transition delays follow gate-delay rules.
 
@@ -21932,6 +22288,7 @@ A continuous delay separates an RHS operand change from target update; scalar ne
 
 規定の性質: `mandatory`。
 
+- [test_continuous_assign_rise_fall_delay.sv](../tests/ch10/test_continuous_assign_rise_fall_delay.sv): Rising/falling changes at10/20 propagate at12/26; short pulses30..31 (delay2) and41..43 (delay4) are suppressed when the RHS returns to current0. The complete transition trace excludes propagation of canceled1 pulses. Absence of an internal no-op queue event is not directly measured.
 
 ### SV2023-10.3.3-EXTRACT-DECLARATION-ASSIGNMENT-DELAY
 
@@ -21946,7 +22303,7 @@ A delay accompanying a net declaration assignment belongs to that driver, not th
 
 ### SV2023-10.3.3-EXTRACT-INERTIAL-CANCEL-DIFFERENT
 
-10.3.3 / normal / テスト未対応
+10.3.3 / normal / 実行確認あり
 
 If the reevaluated RHS differs from the pending target value, cancel that pending propagation.
 
@@ -21954,6 +22311,7 @@ If the reevaluated RHS differs from the pending target value, cancel that pendin
 
 規定の性質: `mandatory`。
 
+- [test_continuous_assign_rise_fall_delay.sv](../tests/ch10/test_continuous_assign_rise_fall_delay.sv): Rising/falling changes at10/20 propagate at12/26; short pulses30..31 (delay2) and41..43 (delay4) are suppressed when the RHS returns to current0. The complete transition trace excludes propagation of canceled1 pulses. Absence of an internal no-op queue event is not directly measured.
 
 ### SV2023-10.3.3-EXTRACT-INERTIAL-NO-REDUNDANT-EVENT
 
@@ -21968,7 +22326,7 @@ If the reevaluated RHS equals current LHS value, do not schedule a new propagati
 
 ### SV2023-10.3.3-EXTRACT-INERTIAL-REEVALUATE
 
-10.3.3 / normal / テスト未対応
+10.3.3 / normal / 実行確認あり
 
 If a continuous RHS changes during pending propagation, reevaluate its RHS.
 
@@ -21976,6 +22334,7 @@ If a continuous RHS changes during pending propagation, reevaluate its RHS.
 
 規定の性質: `mandatory`。
 
+- [test_continuous_assign_rise_fall_delay.sv](../tests/ch10/test_continuous_assign_rise_fall_delay.sv): Rising/falling changes at10/20 propagate at12/26; short pulses30..31 (delay2) and41..43 (delay4) are suppressed when the RHS returns to current0. The complete transition trace excludes propagation of canceled1 pulses. Absence of an internal no-op queue event is not directly measured.
 
 ### SV2023-10.3.3-EXTRACT-INERTIAL-RESCHEDULE
 
@@ -21990,7 +22349,7 @@ If the reevaluated RHS differs from current LHS, compute delay from current LHS/
 
 ### SV2023-10.3.3-EXTRACT-NET-DELAY-ALL-DRIVERS
 
-10.3.3 / normal / テスト未対応
+10.3.3 / normal / テスト対応あり・実行未確認
 
 A net declaration delay without an assignment delays value changes driven by other statements before they take effect.
 
@@ -21998,6 +22357,8 @@ A net declaration delay without an assignment delays value changes driven by oth
 
 規定の性質: `mandatory`。
 
+- [test_net_declaration_delay.sv](../tests/ch10/test_net_declaration_delay.sv): Net delays3 and continuous statement delay4 compose on n2: a rises10 and n2 is still0 at16 but1 at18, while undelayed-driver n1 has changed by14.
+- [test_net_delay_port_driver_and_undriven.sv](../tests/ch10/test_net_delay_port_driver_and_undriven.sv): A module output variable changes at10, but the connected net delay5 retains0 at12 and shows1 at16. This observes a port driver rather than only standalone assign.
 
 ### SV2023-10.3.3-EXTRACT-USER-NETTYPE-ONE-DELAY
 
@@ -22133,7 +22494,7 @@ The zero-value strengths are supply0/strong0/pull0/weak0/highz0.
 
 ### SV2023-10.4-EXTRACT-PROCEDURAL-FLOW-TRIGGER
 
-10.4 / normal / テスト未対応
+10.4 / normal / 実行確認あり
 
 A procedural assignment is evaluated when procedural execution flow reaches it under surrounding controls.
 
@@ -22141,10 +22502,11 @@ A procedural assignment is evaluated when procedural execution flow reaches it u
 
 規定の性質: `definition`。
 
+- [test_assignment_deep.sv](../tests/ch10/test_assignment_deep.sv): The guarded procedural assignment updates a toFF and preserves b0 in the untaken branch; separate called tasks also check sequential and nested loop updates when flow reaches them.
 
 ### SV2023-10.4-EXTRACT-PROCEDURAL-FORMS
 
-10.4 / normal / テスト未対応
+10.4 / normal / 実行確認あり
 
 Procedural assignments include blocking, nonblocking and compound assignment operator forms with their distinct sequential flow semantics.
 
@@ -22152,6 +22514,7 @@ Procedural assignments include blocking, nonblocking and compound assignment ope
 
 規定の性質: `definition`。
 
+- [test_assignment_kinds.sv](../tests/ch10/test_assignment_kinds.sv): One test observes blocking assignment immediately, nonblocking clocked storage on later cycles, and compound +=/-= updates, alongside an independently checked continuous driver.
 
 ### SV2023-10.4-EXTRACT-VARIABLE-ONLY-PROCEDURAL
 
@@ -22188,7 +22551,7 @@ Blocking syntax includes timed variable assignment, dynamic new, class new with 
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-LVALUE-TIMING
 
-10.4.1 / normal / テスト未対応
+10.4.1 / normal / 実行確認あり
 
 With intra-assignment timing, LHS index/handle/virtual-interface evaluation occurs at the timing-control-specified assignment time.
 
@@ -22196,6 +22559,7 @@ With intra-assignment timing, LHS index/handle/virtual-interface evaluation occu
 
 規定の性質: `mandatory`。
 
+- [test_sched_intra_assignment_target.sv](../tests/ch4/test_sched_intra_assignment_target.sv): The index changes0-to1 at time1 during an intra-assignment delay2, and the blocking assignment updates ab[1] rather than ab[0]. The adjacent NBA explicitly distinguishes capture timing.
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-SEQUENTIAL
 
@@ -22276,7 +22640,7 @@ The order of the location and RHS evaluations within a nonblocking assignment is
 
 ### SV2023-10.4.2-EXTRACT-NBA-GRAMMAR
 
-10.4.2 / normal / テスト未対応
+10.4.2 / normal / 実行確認あり
 
 A nonblocking assignment uses variable_lvalue <= optional-delay-or-event-control expression.
 
@@ -22284,10 +22648,16 @@ A nonblocking assignment uses variable_lvalue <= optional-delay-or-event-control
 
 規定の性質: `definition`。
 
+- [test_nba_complex_lhs.sv](../tests/ch10/test_nba_complex_lhs.sv): Uses bit/part/member compound LHS forms and checks the resulting 8001,CDAB,FF/A,81,CDEF values after NBA updates.
+- [test_nba_complex_lhs_extended.sv](../tests/ch10/test_nba_complex_lhs_extended.sv): Checks fixed-array elements, struct member arrays and mixed nested paths as NBA destinations. idx stays2, so this is not a location-capture timing witness.
+- [test_nba_nested_array.sv](../tests/ch10/test_nba_nested_array.sv): Uses static 2D/3D unpacked arrays and packed slices as NBA destinations; varying loop selectors/RHS are subsequently checked at four distinct array locations.
+- [test_nba_interface_array_element.sv](../tests/ch10/test_nba_interface_array_element.sv): Checks NBA assignment syntax to constant/variable indexed interface arrays in two instances and from an enclosing module, with explicit independent expected values.
+- [test_nba_part_select.sv](../tests/ch10/test_nba_part_select.sv): Checks disjoint packed-part NBA destinations, including selects inside unpacked elements; unaffected bits and merged44332211 are observed.
+- [test_assignment_forms.sv](../tests/ch7/test_assignment_forms.sv): Checks simple, static array, packed member and computed-index NBA forms; actual post-update values are compared, without claiming unobserved selector reevaluation timing.
 
 ### SV2023-10.4.2-EXTRACT-NBA-LOCATION-CAPTURE
 
-10.4.2 / normal / テスト未対応
+10.4.2 / normal / 実行確認あり
 
 A nonblocking assignment evaluates its LHS location/index/handle/virtual-interface reference at the same time as the RHS, before the deferred update.
 
@@ -22295,10 +22665,12 @@ A nonblocking assignment evaluates its LHS location/index/handle/virtual-interfa
 
 規定の性質: `mandatory`。
 
+- [test_sched_nonblocking_target_index_at_execution.sv](../tests/ch4/test_sched_nonblocking_target_index_at_execution.sv): Index0 and RHS7 are captured together before both are changed to1/9; deferred execution cannot redirect the update to a[1].
+- [test_sched_intra_assignment_target.sv](../tests/ch4/test_sched_intra_assignment_target.sv): A delayed NBA captures index0 at scheduling time0, unlike the parallel blocking delayed assignment whose index is evaluated on resume.
 
 ### SV2023-10.4.2-EXTRACT-NBA-TRIGGERED-WORK
 
-10.4.2 / normal / テスト未対応
+10.4.2 / normal / 実行確認あり
 
 An NBA update can trigger additional blocking work, which is processed after the scheduled nonblocking work under the iterative region rules; NBA is not necessarily the final event in the time slot.
 
@@ -22306,6 +22678,7 @@ An NBA update can trigger additional blocking work, which is processed after the
 
 規定の性質: `mandatory`。
 
+- [test_nba_then_event_control_same_step.sv](../tests/ch10/test_nba_then_event_control_same_step.sv): After NBA scheduling, blocking event waits are installed. Each NBA change wakes the procedure within the same timestep5/6/15, demonstrating that procedural work can follow NBA updates before time advances.
 
 ### SV2023-10.4.2-EXTRACT-NO-AUTOMATIC-DYNAMIC-NBA
 
@@ -22364,10 +22737,13 @@ A nonblocking assignment evaluates/schedules its update without delaying executi
 - [test_gen_sched_nbadelay_same_generate_nodelay.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_generate_nodelay.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
 - [test_gen_sched_nbadelay_same_generate_delay0.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_generate_delay0.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
 - [test_gen_sched_nbadelay_same_generate_delay1.sv](../tests/gen/ch4/test_gen_sched_nbadelay_same_generate_delay1.sv): Reviewed scheduling.body/expected against sequential flow and NBA scheduling. Exact template output is verified. The immediately following display executes at the original scheduling time and sees old value11, even for a delayed NBA; a blocking delayed implementation or an immediate destination update changes the checked timestamp/value. Only this nonblocking-flow property is linked, not RHS/LHS capture from immutable literals.
+- [test_nba_intra_assignment_event_control.sv](../tests/ch10/test_nba_intra_assignment_event_control.sv): The scheduling process prints at0 while another process observes a0 at9 and a3 at11; it cannot wait for the posedge as a blocking assignment would.
+- [test_intra_assignment_delay_nba_concatenation.sv](../tests/ch10/test_intra_assignment_delay_nba_concatenation.sv): Both delay2 assignments return immediately so the following #2 reaches time2, rather than accumulating the two intra-assignment delays.
+- [test_sched_nba_delays_ordered_by_time.sv](../tests/ch4/test_sched_nba_delays_ordered_by_time.sv): Both scheduled delays are relative to time0 because NBA scheduling does not block execution; updates occur at1 and2 in temporal order.
 
 ### SV2023-10.4.2-EXTRACT-ORDERED-NBA-UPDATES
 
-10.4.2 / normal / テスト未対応
+10.4.2 / normal / 実行確認あり
 
 When nonblocking assignment executions have a defined order, their updates to a given destination at the same update time preserve that order.
 
@@ -22375,10 +22751,15 @@ When nonblocking assignment executions have a defined order, their updates to a 
 
 規定の性質: `mandatory`。
 
+- [test_nba_ordering.sv](../tests/ch10/test_nba_ordering.sv): Three ordered same-destination executions update in that order; the final33 is observed at the next edge.
+- [test_nba_eval.sv](../tests/ch10/test_nba_eval.sv): Two consecutive NBA executions for reg_a end with the last scheduled value2 at #1.
+- [test_nba_assignments.sv](../tests/ch10/test_nba_assignments.sv): Ordered consecutive same-destination NBA executions leave3 after the slot.
+- [test_sched_nba_delays_same_time_keep_order.sv](../tests/ch4/test_sched_nba_delays_same_time_keep_order.sv): The second execution occurs later at1 yet shares update time2; it must remain last in the NBA update order.
+- [test_array_element_noop_nba_keeps_override_order.sv](../tests/ch4/test_array_element_noop_nba_keeps_override_order.sv): After no-op element updates, two later ordered updates to arr[0] must leave the sampled arr[1]=34, not the earlier5a.
 
 ### SV2023-10.4.2-EXTRACT-TWO-PHASE-NBA
 
-10.4.2 / normal / テスト未対応
+10.4.2 / normal / 実行確認あり
 
 Nonblocking assignment separates value evaluation/scheduling from the later destination update under Chapter 4 event regions.
 
@@ -22386,10 +22767,18 @@ Nonblocking assignment separates value evaluation/scheduling from the later dest
 
 規定の性質: `mandatory`。
 
+- [test_nba_eval.sv](../tests/ch10/test_nba_eval.sv): Swap11/22 and a three-register rotation must use old RHS values, not execute as blocking assignments; later #1 checks observe each resulting permutation.
+- [test_sched_nonblocking_reads_old_values.sv](../tests/ch4/test_sched_nonblocking_reads_old_values.sv): Rotates initial1/2/3 using three NBA executions with no intervening suspension; the post-slot values require the old RHS samples.
+- [test_nonblocking_assignment.sv](../tests/ch10/test_nonblocking_assignment.sv): Two pipeline rotations check all a/b/c values after NBA updates. Assertions distinguish the saved old inputs from immediate blocking evaluation.
+- [test_nba_assignments.sv](../tests/ch10/test_nba_assignments.sv): Checks z10 immediately after scheduling20 and z20 at a later clock, alongside an old-a dependency check.
+- [test_nba_ordering.sv](../tests/ch10/test_nba_ordering.sv): The immediate assertion checks the old0 value and the next edge checksAA. The displayed phrase same time slot is imprecise: the actual observation is before returning to the scheduler, not throughout that slot.
+- [test_sched_nonblocking_overrides_later_blocking.sv](../tests/ch4/test_sched_nonblocking_overrides_later_blocking.sv): The later blocking write2 is visible immediately, then the previously scheduled NBA1 overwrites it after the active work.
+- [test_intra_assignment_delay_nba_concatenation.sv](../tests/ch10/test_intra_assignment_delay_nba_concatenation.sv): Delayed scalar and concatenated targets retain their old values in Active and after #0 at the update time2, then contain the expected split values at3.
+- [test_nba_intra_assignment_event_control.sv](../tests/ch10/test_nba_intra_assignment_event_control.sv): The scheduling process continues at0, before the posedge10; RHS changes3-to4 immediately afterward, but the deferred update stores3 after the event.
 
 ### SV2023-10.5-EXTRACT-INITIALIZATION-NOT-DRIVER
 
-10.5 / normal / テスト未対応
+10.5 / normal / 実行確認あり
 
 A variable declaration assignment initializes storage and does not establish an implicit continuous driver.
 
@@ -22397,6 +22786,7 @@ A variable declaration assignment initializes storage and does not establish an 
 
 規定の性質: `mandatory`。
 
+- [test_declaration_initialization_is_not_driver.sv](../tests/ch10/test_declaration_initialization_is_not_driver.sv): Declaration initialization computes captured7 before entry; later source40 does not continuously recompute it.
 
 ### SV2023-10.5-EXTRACT-INITIALIZED-STORAGE-RETAINS
 
@@ -22411,7 +22801,7 @@ A variable declaration initializer sets a value retained until a subsequent assi
 
 ### SV2023-10.5-EXTRACT-STATIC-BEFORE-PROCEDURES
 
-10.5 / normal / テスト未対応
+10.5 / normal / 実行確認あり
 
 A static variable declaration initializer, including static class members, is applied before any initial/always procedures start.
 
@@ -22419,6 +22809,7 @@ A static variable declaration initializer, including static class members, is ap
 
 規定の性質: `mandatory`。
 
+- [test_declaration_initialization_is_not_driver.sv](../tests/ch10/test_declaration_initialization_is_not_driver.sv): The first initial statement, with no delay or scheduler yield, reads the fully evaluated module-scope static initializer7. Declaration order supplies source5 first; this is a module-variable witness, not an observation of static class member initialization.
 
 ### SV2023-10.5-INITIALIZE-ONCE
 
@@ -22465,7 +22856,7 @@ While procedural assign/force remains active, changes to RHS input expressions c
 
 ### SV2023-10.6.1-EXTRACT-ASSIGN-OVERRIDE
 
-10.6.1 / normal / テスト未対応
+10.6.1 / normal / テスト対応あり・実行未確認
 
 Procedural assign overrides ordinary procedural assignments to its variable until deassign.
 
@@ -22473,6 +22864,7 @@ Procedural assign overrides ordinary procedural assignments to its variable unti
 
 規定の性質: `mandatory`。
 
+- [test_sched_procedural_assign_deassign.sv](../tests/ch4/test_sched_procedural_assign_deassign.sv): With assign q=d+1 active and d5, an ordinary write99 cannot change q6; after deassign a write3 does take effect.
 
 ### SV2023-10.6.1-EXTRACT-ASSIGN-TARGET
 
@@ -22487,7 +22879,7 @@ Procedural assign requires a singular whole variable or concatenation of variabl
 
 ### SV2023-10.6.1-EXTRACT-DEASSIGN-RETENTION
 
-10.6.1 / normal / テスト未対応
+10.6.1 / normal / 実行確認あり
 
 deassign ends the procedural continuous driver; the variable retains its current value until a subsequent permitted assignment.
 
@@ -22495,6 +22887,8 @@ deassign ends the procedural continuous driver; the variable retains its current
 
 規定の性質: `mandatory`。
 
+- [test_sched_procedural_assign_deassign.sv](../tests/ch4/test_sched_procedural_assign_deassign.sv): After deassign, q retains6, ignores later source d7, and accepts an ordinary write3.
+- [test_assign_deassign_2.sv](../tests/ch10/test_assign_deassign_2.sv): Checks value retentionAB across deassign and a source changeCD, then observes an ordinary write99.
 
 ### SV2023-10.6.1-EXTRACT-REASSIGN-REPLACES
 
@@ -22586,7 +22980,7 @@ A net release immediately restores the value determined by its drivers.
 
 ### SV2023-10.6.2-EXTRACT-RELEASE-UNDRIVEN-RETAINS
 
-10.6.2 / normal / テスト未対応
+10.6.2 / normal / 実行確認あり
 
 After release, a variable without an active continuous/procedural-assign driver retains its forced value until the next procedural assignment.
 
@@ -22594,6 +22988,7 @@ After release, a variable without an active continuous/procedural-assign driver 
 
 規定の性質: `mandatory`。
 
+- [test_force_edge_cases.sv](../tests/ch10/test_force_edge_cases.sv): sig has no active continuous/procedural-assign driver. A conflicting write0 while forced is ignored; release must retain1. bus similarly retains55, and later ordinary writes restore sig1/busff. Unguarded labels alone are not the evidence; their printed values are checked by the external oracle.
 
 ### SV2023-10.7-EXTRACT-DETERMINE-SIZES
 
@@ -22634,6 +23029,7 @@ A signed RHS smaller than the destination is sign extended.
 - [test_gen_wide_values_w128.sv](../tests/gen/ch6/test_gen_wide_values_w128.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 - [test_gen_wide_values_w129.sv](../tests/gen/ch6/test_gen_wide_values_w129.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 - [test_gen_wide_values_w200.sv](../tests/gen/ch6/test_gen_wide_values_w200.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_sign_extend_edge_cases.sv](../tests/ch10/test_sign_extend_edge_cases.sv): Checks positive, negative, minimum, maximum, zero and -1 extension, explicit upperFF/00 bits, and chained8→16→32 signed extension.
 
 ### SV2023-10.7-EXTRACT-SIZE-DIAGNOSTIC-OPTIONAL
 
@@ -22681,6 +23077,7 @@ An unsigned RHS smaller than the destination is padded under 11.6.1.
 - [test_gen_wide_values_w128.sv](../tests/gen/ch6/test_gen_wide_values_w128.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 - [test_gen_wide_values_w129.sv](../tests/gen/ch6/test_gen_wide_values_w129.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
 - [test_gen_wide_values_w200.sv](../tests/gen/ch6/test_gen_wide_values_w200.sv): Reviewed wide_paths.values_case and its bit-mask model against 6.11.2/10.7. This emitted body and every expected line match the reviewed template exactly. Known negative and x sign bits, unsigned top-one values, x/z-to-zero conversion and truncation have separate checked hex outputs; values span 63,64,65,127,128,129,200-bit families. This link observes the named conversion property.
+- [test_width_mismatch.sv](../tests/ch10/test_width_mismatch.sv): Unsigned FF extends to00FF, a one bit extends to64-bit1, and concatenated12-bitABC pads to0ABC.
 
 ### SV2023-10.8-EXTRACT-ASSIGNMENT-CONTEXT
 
@@ -22717,7 +23114,7 @@ Module/interface/program input or output port connection is an assignment-like c
 
 ### SV2023-10.8-EXTRACT-PATTERN-NONDEFAULT-CONTEXT
 
-10.8 / normal / テスト未対応
+10.8 / normal / テスト対応あり・実行未確認
 
 Nondefault assignment-pattern expression correspondence is an assignment-like context.
 
@@ -22725,6 +23122,7 @@ Nondefault assignment-pattern expression correspondence is an assignment-like co
 
 規定の性質: `definition`。
 
+- [test_assignment_like_contexts.sv](../tests/ch10/test_assignment_like_contexts.sv): The nondefault positional correspondences in the input/return patterns obtain each member type from pair_t; the returned swapped fields are observed.
 
 ### SV2023-10.8-EXTRACT-PROPAGATED-CONTEXT
 
@@ -22739,7 +23137,7 @@ Within a RHS assignment-like context, assignment context propagates through pare
 
 ### SV2023-10.8-EXTRACT-RETURN-CONTEXT
 
-10.8 / normal / テスト未対応
+10.8 / normal / テスト対応あり・実行未確認
 
 Function return statement is an assignment-like context.
 
@@ -22747,10 +23145,11 @@ Function return statement is an assignment-like context.
 
 規定の性質: `definition`。
 
+- [test_assignment_like_contexts.sv](../tests/ch10/test_assignment_like_contexts.sv): A function returning pair_t supplies the contextual member types to an untyped return pattern; runtime output20/10 observes the returned values.
 
 ### SV2023-10.8-EXTRACT-STATIC-CAST-CONTEXT
 
-10.8 / normal / テスト未対応
+10.8 / normal / テスト対応あり・実行未確認
 
 Static cast as assignment to the cast target type is an assignment-like context.
 
@@ -22758,6 +23157,7 @@ Static cast as assignment to the cast target type is an assignment-like context.
 
 規定の性質: `definition`。
 
+- [test_assignment_like_contexts.sv](../tests/ch10/test_assignment_like_contexts.sv): A static cast supplies the pair_t assignment context to its untyped pattern argument and the output checks both resulting members.
 
 ### SV2023-10.8-EXTRACT-TAGGED-CONTEXT
 
@@ -22827,7 +23227,7 @@ An assignment pattern expression cannot be used in a module/interface/program de
 
 ### SV2023-10.9-EXTRACT-PATTERN-CORRESPONDENCE
 
-10.9 / normal / テスト未対応
+10.9 / normal / テスト対応あり・実行未確認
 
 An apostrophe-braced assignment pattern maps expressions to structure fields/array elements, has no self-determined type and needs an assignment-like opposite side with a self-determined type.
 
@@ -22835,6 +23235,7 @@ An apostrophe-braced assignment pattern maps expressions to structure fields/arr
 
 規定の性質: `definition`。
 
+- [test_assignment_like_contexts.sv](../tests/ch10/test_assignment_like_contexts.sv): Apostrophe-braced untyped patterns acquire correspondence/type from the function argument and return assignment-like contexts; observed members confirm positional mapping.
 
 ### SV2023-10.9-EXTRACT-PATTERN-GRAMMAR
 
@@ -22849,7 +23250,7 @@ Pattern grammar supports positional, member-keyed, index-keyed and constant-repl
 
 ### SV2023-10.9-EXTRACT-POSITIONAL-PATTERN
 
-10.9 / normal / テスト未対応
+10.9 / normal / テスト対応あり・実行未確認
 
 A pattern may use positional values without keys.
 
@@ -22857,6 +23258,7 @@ A pattern may use positional values without keys.
 
 規定の性質: `permission`。
 
+- [test_assignment_like_contexts.sv](../tests/ch10/test_assignment_like_contexts.sv): A keyless positional pattern supplies swapped member values in pair_t declaration order.
 
 ### SV2023-10.9-EXTRACT-TYPED-LHS-PATTERN
 
@@ -22904,7 +23306,7 @@ Every array element must be supplied by the pattern matching rules.
 
 ### SV2023-10.9.1-EXTRACT-ARRAY-DEFAULT-KEY
 
-10.9.1 / normal / テスト未対応
+10.9.1 / normal / 実行確認あり
 
 An array default key may fill unmatched elements without enumerating all their indices.
 
@@ -22912,10 +23314,12 @@ An array default key may fill unmatched elements without enumerating all their i
 
 規定の性質: `permission`。
 
+- [test_assignment_pattern.sv](../tests/ch10/test_assignment_pattern.sv): All four array elements are checked after a default-only pattern; another default -1 case checks both elements.
+- [test_assignment_patterns.sv](../tests/ch10/test_assignment_patterns.sv): A default-only pattern assigns the full ten-element array; checked endpoint/middle locations observe42.
 
 ### SV2023-10.9.1-EXTRACT-ARRAY-PATTERN-CONTEXT
 
-10.9.1 / normal / テスト未対応
+10.9.1 / normal / 実行確認あり
 
 Assignment context determines the pattern braces interpretation.
 
@@ -22923,6 +23327,7 @@ Assignment context determines the pattern braces interpretation.
 
 規定の性質: `mandatory`。
 
+- [test_assignment_pattern.sv](../tests/ch10/test_assignment_pattern.sv): A fixed int array supplies the contextual interpretation of positional braces; all four values are checked, alongside packed structure patterns in the same test.
 
 ### SV2023-10.9.1-EXTRACT-ARRAY-PATTERN-SHAPE
 
@@ -22981,7 +23386,7 @@ For a simple-vector, matching-self-type or nonarray/nonstruct target, the defaul
 
 ### SV2023-10.9.1-EXTRACT-INDEX-KEY-CONTEXT
 
-10.9.1 / normal / テスト未対応
+10.9.1 / normal / 実行確認あり
 
 An index key explicitly sets that element using its assignment context and a value castable to the element type.
 
@@ -22989,6 +23394,7 @@ An index key explicitly sets that element using its assignment context and a val
 
 規定の性質: `mandatory`。
 
+- [test_assignment_pattern.sv](../tests/ch10/test_assignment_pattern.sv): The explicit index0 receives999 and each other index1..3 is checked0; separate indexed values100..400 also check index mapping.
 
 ### SV2023-10.9.1-EXTRACT-NO-DUPLICATE-INDEX-KEY
 
@@ -23135,7 +23541,7 @@ Unmatched nested structures and arrays recursively apply their respective type/d
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-PATTERN-CONTEXT
 
-10.9.2 / normal / テスト未対応
+10.9.2 / normal / 実行確認あり
 
 Assignment context determines the structure pattern braces interpretation.
 
@@ -23143,10 +23549,11 @@ Assignment context determines the structure pattern braces interpretation.
 
 規定の性質: `mandatory`。
 
+- [test_assignment_pattern.sv](../tests/ch10/test_assignment_pattern.sv): The structure destination interprets named pattern braces by member name rather than textual order; a/b/c are independently checked00/55/FF.
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-POSITIONAL
 
-10.9.2 / normal / テスト未対応
+10.9.2 / normal / 実行確認あり
 
 A positional structure pattern supplies members in declaration order, with each expression evaluated in its corresponding member assignment context.
 
@@ -23154,6 +23561,8 @@ A positional structure pattern supplies members in declaration order, with each 
 
 規定の性質: `mandatory`。
 
+- [test_assignment_pattern.sv](../tests/ch10/test_assignment_pattern.sv): Checks all three member values in declaration order and also a mixed-type packed/unpacked set of named patterns.
+- [test_assignment_patterns.sv](../tests/ch10/test_assignment_patterns.sv): Checks each x/y/z member against its position in an untyped structure pattern.
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-REPLICATION-COUNT
 
@@ -23201,7 +23610,7 @@ A matching structure type key overrides the generic default for members of that 
 
 ### SV2023-10.10-EXTRACT-ARRAY-ITEM-FLATTEN
 
-10.10 / normal / テスト未対応
+10.10 / normal / テスト対応あり・実行未確認
 
 An unpacked array item with compatible outer element type contributes all its outer elements in its left-to-right order.
 
@@ -23209,6 +23618,7 @@ An unpacked array item with compatible outer element type contributes all its ou
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_array_concat_rules.sv](../tests/ch10/test_unpacked_array_concat_rules.sv): A fixed array, scalar, repeated array and typed array pattern contribute3/1/3/3/1 elements respectively. The complete11-value output checks flattening and order.
 
 ### SV2023-10.10-EXTRACT-BOUNDED-CONCAT-OVERFLOW
 
@@ -23223,7 +23633,7 @@ Elements beyond a bounded queue destination upper bound are discarded and a warn
 
 ### SV2023-10.10-EXTRACT-CONCAT-LEFT-TO-RIGHT
 
-10.10 / normal / テスト未対応
+10.10 / normal / 実行確認あり
 
 Unpacked concatenation appends the represented elements in left-to-right item order.
 
@@ -23231,10 +23641,12 @@ Unpacked concatenation appends the represented elements in left-to-right item or
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_array_concat_rules.sv](../tests/ch10/test_unpacked_array_concat_rules.sv): Every output position is printed for a mixed sequence of scalar and array-valued items with distinguishable boundary values.
+- [test_unpacked_concatenation_to_subarray.sv](../tests/ch10/test_unpacked_concatenation_to_subarray.sv): For descending unpacked ranges, the leftmost concatenation item goes to the leftmost/high index: subarray[1]=7/[0]=9. Further two-element fixed arrays compare ordinary concatenation and pattern values.
 
 ### SV2023-10.10-EXTRACT-EMPTY-CONCAT
 
-10.10 / normal / テスト未対応
+10.10 / normal / テスト対応あり・実行未確認
 
 A comma-separated braced list of zero items denotes an array with zero elements.
 
@@ -23242,6 +23654,7 @@ A comma-separated braced list of zero items denotes an array with zero elements.
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_array_concat_rules.sv](../tests/ch10/test_unpacked_array_concat_rules.sv): An initially nonempty queue {7} is assigned an empty concatenation and its size is observed0, preventing reliance on its default empty initialization.
 
 ### SV2023-10.10-EXTRACT-FIXED-COUNT-MATCH
 
@@ -23267,7 +23680,7 @@ Every other item type or item without a self-determined type is illegal except l
 
 ### SV2023-10.10-EXTRACT-SINGLE-ELEMENT-ITEM
 
-10.10 / normal / テスト未対応
+10.10 / normal / テスト対応あり・実行未確認
 
 A self-determined concatenation item assignment compatible with the target element type contributes one element.
 
@@ -23275,6 +23688,7 @@ A self-determined concatenation item assignment compatible with the target eleme
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_array_concat_rules.sv](../tests/ch10/test_unpacked_array_concat_rules.sv): A string item contributes one string element to a string array instead of bytes; scalar nibbles similarly contribute separate03/0a byte array elements.
 
 ### SV2023-10.10-EXTRACT-UNPACKED-CONCAT-CONTEXT
 
@@ -23300,7 +23714,7 @@ Unpacked array concatenation does not support pattern-style replication, default
 
 ### SV2023-10.10.1-EXTRACT-PATTERN-ELEMENT-CONTEXT
 
-10.10.1 / normal / テスト未対応
+10.10.1 / normal / テスト対応あり・実行未確認
 
 Array assignment pattern values represent individual target elements with the required target element type/context rather than flattening an array-valued item into several target elements.
 
@@ -23308,10 +23722,11 @@ Array assignment pattern values represent individual target elements with the re
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_array_concat_rules.sv](../tests/ch10/test_unpacked_array_concat_rules.sv): The outer assignment pattern yields three queue elements of sizes1/3/2, retaining a three-item typed queue as one element rather than flattening it into the outer queue.
 
 ### SV2023-10.10.2-EXTRACT-CONCAT-TYPE-CONTEXT
 
-10.10.2 / normal / テスト未対応
+10.10.2 / normal / テスト対応あり・実行未確認
 
 An assignment-like unpacked-array target makes braces an unpacked array concatenation without a self-determined type; otherwise braces use self-determined vector/string concatenation rules.
 
@@ -23319,6 +23734,7 @@ An assignment-like unpacked-array target makes braces an unpacked array concaten
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_array_concat_rules.sv](../tests/ch10/test_unpacked_array_concat_rules.sv): Identical braces with the same source items yield joined abcd versus two strings ab/cd, and packed byte3a versus two byte elements03/0a, depending on the assignment target context.
 
 ### SV2023-10.10.3-EXTRACT-CONCAT-IN-NONDEFAULT-PATTERN
 
@@ -23344,7 +23760,7 @@ An unpacked concatenation cannot directly contain another unpacked concatenation
 
 ### SV2023-10.10.3-EXTRACT-TYPED-PATTERN-AS-CONCAT-ITEM
 
-10.10.3 / normal / テスト未対応
+10.10.3 / normal / テスト対応あり・実行未確認
 
 A self-determined typed array pattern expression can be a concatenation item and contributes its array elements under the flattening rules.
 
@@ -23352,6 +23768,7 @@ A self-determined typed array pattern expression can be a concatenation item and
 
 規定の性質: `permission`。
 
+- [test_unpacked_concat_typed_array_and_string_item.sv](../tests/ch10/test_unpacked_concat_typed_array_and_string_item.sv): The nested untyped braces form one self-determined string midpost, whereas a typed queue pattern contributes two separately observed elements mid/post to the outer concatenation.
 
 ### SV2023-10.11-EXTRACT-ALIAS-BIDIRECTIONAL
 
@@ -23927,7 +24344,7 @@ A real conditional condition does not promote integral branch result types.
 
 ### SV2023-11.3.1-EXTRACT-REAL-BOOLEAN-RESULT
 
-11.3.1 / normal / テスト未対応
+11.3.1 / normal / 実行確認あり
 
 Logical/relational/inside operations on real operands return a one-bit result.
 
@@ -23935,6 +24352,8 @@ Logical/relational/inside operations on real operands return a one-bit result.
 
 規定の性質: `mandatory`。
 
+- [test_real_operand_result_types.sv](../tests/ch11/test_real_operand_result_types.sv): Logical, relational and inside operations on real operands each report a one-bit expression; the corresponding values are also printed.
+- [test_real_boolean_results_without_shortreal.sv](../tests/ch11/test_real_boolean_results_without_shortreal.sv): Real relational, logical and inside expressions directly report one-bit widths and expected truth values in a test independent of shortreal support.
 
 ### SV2023-11.3.1-EXTRACT-REAL-MEMBER-ARRAY
 
@@ -23949,7 +24368,7 @@ Real values may be selected as structure/union members or array elements under t
 
 ### SV2023-11.3.1-EXTRACT-REAL-PROMOTION
 
-11.3.1 / normal / テスト未対応
+11.3.1 / normal / 実行確認あり
 
 For other permitted operators, a real operand yields a real result, except that a conditional first operand does not participate in this result-type promotion.
 
@@ -23957,10 +24376,12 @@ For other permitted operators, a real operand yields a real result, except that 
 
 規定の性質: `mandatory`。
 
+- [test_real_operand_result_types.sv](../tests/ch11/test_real_operand_result_types.sv): Direct expression widths distinguish real arithmetic/mixed shortreal-real promotion and real conditional branches (64 bits) from a real condition with integral branches (32 bits); the converted chosen integral branch prints 3.0.
+- [test_real_operator_result_and_condition.sv](../tests/ch11/test_real_operator_result_and_condition.sv): Fractional real/integer sum and selected real branch retain real values; a real condition alone leaves integral branch result width at 32.
 
 ### SV2023-11.3.1-EXTRACT-SHORTREAL-PROMOTION
 
-11.3.1 / normal / テスト未対応
+11.3.1 / normal / テスト対応あり・実行未確認
 
 Absent a relevant real operand, a shortreal operand yields shortreal for the other permitted operators, excluding conditional first operand from promotion.
 
@@ -23968,6 +24389,7 @@ Absent a relevant real operand, a shortreal operand yields shortreal for the oth
 
 規定の性質: `mandatory`。
 
+- [test_shortreal_result_and_condition_types.sv](../tests/ch11/test_shortreal_result_and_condition_types.sv): Shortreal arithmetic/branches retain 32-bit result width unless a real operand promotes to 64 bits. A shortreal condition alone leaves four-bit integral branches at four bits, distinguishing mistaken promotion to 32-bit shortreal. Standard-derived expectation is retained despite both reference-tool differences.
 
 ### SV2023-11.3.1-REAL-PROMOTION
 
@@ -23992,7 +24414,7 @@ Same-precedence operators follow the specified left grouping except conditional/
 
 ### SV2023-11.3.2-EXTRACT-HIGHER-PRECEDENCE-FIRST
 
-11.3.2 / normal / テスト未対応
+11.3.2 / normal / 実行確認あり
 
 Higher-precedence operators group before lower-precedence operators; operators in one table row have equal precedence.
 
@@ -24000,10 +24422,12 @@ Higher-precedence operators group before lower-precedence operators; operators i
 
 規定の性質: `mandatory`。
 
+- [test_operator_precedence.sv](../tests/ch11/test_operator_precedence.sv): Multiplication/division group before addition/subtraction; the mixed additive chain also distinguishes unequal + versus - precedence. Separate 1 << 2 + 1 yields 8, distinguishing addition-before-shift.
+- [test_precedence_distinguishing_values.sv](../tests/ch11/test_precedence_distinguishing_values.sv): Distinguishing logical, unary/arithmetic and comparison/bitwise pairs give different results for a deliberately wrong grouping; /,% and * also share precedence in the observed left-grouped chain.
 
 ### SV2023-11.3.2-EXTRACT-PARENTHESES-OVERRIDE
 
-11.3.2 / normal / テスト未対応
+11.3.2 / normal / 実行確認あり
 
 Parentheses may explicitly change expression grouping/precedence.
 
@@ -24011,6 +24435,9 @@ Parentheses may explicitly change expression grouping/precedence.
 
 規定の性質: `permission`。
 
+- [test_expression_precedence_basic.sv](../tests/ch11/test_expression_precedence_basic.sv): Parentheses force addition before multiplication; the observed result differs from the unparenthesized expression.
+- [test_operator_precedence.sv](../tests/ch11/test_operator_precedence.sv): Parentheses force addition before multiplication; the observed result differs from the unparenthesized expression.
+- [test_precedence_distinguishing_values.sv](../tests/ch11/test_precedence_distinguishing_values.sv): Parenthesized alternatives force different groupings for logical, unary/arithmetic, bitwise/comparison and nested conditional expressions; all paired results differ.
 
 ### SV2023-11.3.2-EXTRACT-PRECEDENCE-1
 
@@ -24069,7 +24496,7 @@ Table 11-2 precedence level 13 from highest to lowest contains ||; within-group 
 
 ### SV2023-11.3.2-EXTRACT-PRECEDENCE-14
 
-11.3.2 / normal / テスト未対応
+11.3.2 / normal / 実行確認あり
 
 Table 11-2 precedence level 14 from highest to lowest contains ?:; within-group associativity is right. Operators in a group have equal precedence.
 
@@ -24077,10 +24504,11 @@ Table 11-2 precedence level 14 from highest to lowest contains ?:; within-group 
 
 規定の性質: `definition`。
 
+- [test_precedence_distinguishing_values.sv](../tests/ch11/test_precedence_distinguishing_values.sv): Nested conditionals distinguish right grouping from left grouping; a conditional expression binds before the neighboring lower-precedence implication, with different explicit grouping as control.
 
 ### SV2023-11.3.2-EXTRACT-PRECEDENCE-15
 
-11.3.2 / normal / テスト未対応
+11.3.2 / normal / 実行確認あり
 
 Table 11-2 precedence level 15 from highest to lowest contains -> <->; within-group associativity is right. Operators in a group have equal precedence.
 
@@ -24088,6 +24516,7 @@ Table 11-2 precedence level 15 from highest to lowest contains -> <->; within-gr
 
 規定の性質: `definition`。
 
+- [test_precedence_distinguishing_values.sv](../tests/ch11/test_precedence_distinguishing_values.sv): Implication and mixed implication/equivalence chains use shared precedence and right grouping. A preceding conditional expression binds first, giving 1 instead of the explicit conditional-over-implication alternative 0.
 
 ### SV2023-11.3.2-EXTRACT-PRECEDENCE-16
 
@@ -24201,7 +24630,7 @@ Table 11-2 precedence level 9 from highest to lowest contains binary &; within-g
 
 ### SV2023-11.3.3-EXTRACT-BASED-UNSIGNED
 
-11.3.3 / normal / テスト未対応
+11.3.3 / normal / 実行確認あり
 
 An integer using an unsigned base specifier remains unsigned despite the numerical appearance of its two-complement bits.
 
@@ -24209,10 +24638,12 @@ An integer using an unsigned base specifier remains unsigned despite the numeric
 
 規定の性質: `mandatory`。
 
+- [test_literal_base_sign_division.sv](../tests/ch11/test_literal_base_sign_division.sv): Negated unsigned based 20 keeps unsigned interpretation: quotient 858993455 differs from signed -4 despite matching two-complement bits.
+- [test_literal_unsigned_division_and_remainder.sv](../tests/ch11/test_literal_unsigned_division_and_remainder.sv): Unsigned based f9 divides as positive 249, yielding 83 and zero remainder; signed -7 yields -2,-1.
 
 ### SV2023-11.3.3-EXTRACT-INTEGER-LITERAL-FORMS
 
-11.3.3 / normal / テスト未対応
+11.3.3 / normal / 実行確認あり
 
 Expression operands may be unsized unbased, unsized based or sized based integer literals under 5.7.1.
 
@@ -24220,10 +24651,11 @@ Expression operands may be unsized unbased, unsized based or sized based integer
 
 規定の性質: `permission`。
 
+- [test_literal_base_sign_division.sv](../tests/ch11/test_literal_base_sign_division.sv): Exercises unsized unbased, unsized based signed/unsigned and sized based operands, with division results distinguishing their interpretations and unary-negation sizing.
 
 ### SV2023-11.3.3-EXTRACT-UNBASED-SIGNED
 
-11.3.3 / normal / テスト未対応
+11.3.3 / normal / 実行確認あり
 
 An unbased decimal integer with a negative unary sign is a signed two-complement value.
 
@@ -24231,10 +24663,11 @@ An unbased decimal integer with a negative unary sign is a signed two-complement
 
 規定の性質: `mandatory`。
 
+- [test_literal_base_sign_division.sv](../tests/ch11/test_literal_base_sign_division.sv): Unbased decimal -20 divides as signed two-complement, producing -4; the adjacent unsigned based case produces a large positive quotient.
 
 ### SV2023-11.3.4-EXTRACT-FOUR-STATE-OPERATION
 
-11.3.4 / normal / テスト未対応
+11.3.4 / normal / 実行確認あり
 
 Operations on two-state or mixed two/four-state inputs are evaluated with four-state semantics; even all-two-state operands can produce x, for example division by zero, before destination coercion.
 
@@ -24242,6 +24675,7 @@ Operations on two-state or mixed two/four-state inputs are evaluated with four-s
 
 規定の性質: `mandatory`。
 
+- [test_two_state_operations.sv](../tests/ch11/test_two_state_operations.sv): Mixed int/four-state bitwise input is coerced only after evaluation; all-two-state division by zero remains unknown in the expression and integer destination, but coerces to zero in int destination.
 
 ### SV2023-11.3.4-TWO-STATE-CONVERSION
 
@@ -24315,7 +24749,7 @@ A true conditional condition skips the false alternative.
 
 ### SV2023-11.3.5-EXTRACT-OBSERVABLE-OPTIMIZATION
 
-11.3.5 / normal / テスト未対応
+11.3.5 / normal / 実行確認あり
 
 An implementation may omit internal work only if behavior including side effects matches the specified evaluation rules.
 
@@ -24323,10 +24757,11 @@ An implementation may omit internal work only if behavior including side effects
 
 規定の性質: `permission`。
 
+- [test_short_circuit_side_effects.sv](../tests/ch11/test_short_circuit_side_effects.sv): Checks externally observable side effects of otherwise redundant bitwise operands and the absence of effects in short-circuited operands; optimization must preserve these counts.
 
 ### SV2023-11.3.5-EXTRACT-SHORT-CIRCUIT-ONLY
 
-11.3.5 / normal / テスト未対応
+11.3.5 / normal / 実行確認あり
 
 &&, ||, -> and ?: use their specified short-circuit rules; all other operators evaluate all operand expressions.
 
@@ -24334,10 +24769,11 @@ An implementation may omit internal work only if behavior including side effects
 
 規定の性質: `mandatory`。
 
+- [test_short_circuit_side_effects.sv](../tests/ch11/test_short_circuit_side_effects.sv): Exact call counts distinguish skipping for &&, ||, -> and both conditional branches from mandatory evaluation of bitwise & and |, even when their result is already determined.
 
 ### SV2023-11.3.5-EXTRACT-SKIPPED-EFFECTS
 
-11.3.5 / normal / テスト未対応
+11.3.5 / normal / 実行確認あり
 
 A short-circuited operand is not evaluated and its side effects or evaluation-time errors do not occur.
 
@@ -24345,6 +24781,7 @@ A short-circuited operand is not evaluated and its side effects or evaluation-ti
 
 規定の性質: `mandatory`。
 
+- [test_short_circuit_suppresses_fatal_operand.sv](../tests/ch11/test_short_circuit_suppresses_fatal_operand.sv): All five skipped logical/conditional operands would increment a counter and terminate with $fatal if evaluated; reaching the final calls=0 observation establishes suppression of both side effects and the explicit run-time fatal error.
 
 ### SV2023-11.3.5-IMPLIES-EVALUATE
 
@@ -24416,7 +24853,7 @@ An assignment expression with concatenated LHS returns an unsigned integral resu
 
 ### SV2023-11.3.6-EXTRACT-ASSIGNMENT-EXPRESSION-VALUE
 
-11.3.6 / normal / テスト未対応
+11.3.6 / normal / 実行確認あり
 
 An assignment expression evaluates RHS, casts to LHS type, saves that value, updates LHS and returns the saved LHS-typed value.
 
@@ -24424,6 +24861,8 @@ An assignment expression evaluates RHS, casts to LHS type, saves that value, upd
 
 規定の性質: `mandatory`。
 
+- [test_assignment_expression_returns_converted_value.sv](../tests/ch11/test_assignment_expression_returns_converted_value.sv): Assignment expression returns the converted four-bit stored value 14 rather than the preconversion RHS 254.
+- [test_assignment_in_expression.sv](../tests/ch11/test_assignment_in_expression.sv): Inner assignment stores and returns 8-bit converted 300 (44); subsequent arithmetic, if and while use returned values and updated destinations.
 
 ### SV2023-11.3.6-EXTRACT-CONCAT-LHS-RESULT
 
@@ -24534,6 +24973,9 @@ Binary + computes addition under operand type/width and special-case rules.
 - [test_gen_xz_add_02.sv](../tests/gen/ch11/test_gen_xz_add_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
 - [test_gen_xz_add_03.sv](../tests/gen/ch11/test_gen_xz_add_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
 - [test_gen_xz_add_04.sv](../tests/gen/ch11/test_gen_xz_add_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_add_expr.sv](../tests/ch11/test_add_expr.sv): Observed arithmetic values include overflow boundaries, signed negatives or high bits above bit 63, with full expected-output/counter matching; no inference from labels alone.
+- [test_overflow_arith.sv](../tests/ch11/test_overflow_arith.sv): Observed arithmetic values include overflow boundaries, signed negatives or high bits above bit 63, with full expected-output/counter matching; no inference from labels alone.
+- [test_signed_overflow.sv](../tests/ch11/test_signed_overflow.sv): Signed 8-bit 127+1 and -128+-1 wrap to -128 and 127, with wider int/shortint/longint addition controls. Self-negation of minimum value is not used to establish unary-minus behavior.
 
 ### SV2023-11.4.3-EXTRACT-ARITHMETIC-XZ
 
@@ -24581,10 +25023,11 @@ Binary / computes division under operand type/width and special-case rules.
 規定の性質: `definition`。
 
 - [test_gen_xz_div_03.sv](../tests/gen/ch11/test_gen_xz_div_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_arithmetic_wider_than_64_bits.sv](../tests/ch11/test_arithmetic_wider_than_64_bits.sv): Observed arithmetic values include overflow boundaries, signed negatives or high bits above bit 63, with full expected-output/counter matching; no inference from labels alone.
 
 ### SV2023-11.4.3-EXTRACT-DIV-TRUNCATES-ZERO
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Integer division discards the fractional quotient toward zero.
 
@@ -24592,10 +25035,13 @@ Integer division discards the fractional quotient toward zero.
 
 規定の性質: `mandatory`。
 
+- [test_literal_base_sign_division.sv](../tests/ch11/test_literal_base_sign_division.sv): Negative fractional integral division is observed rounding toward zero, differing from floor division; expected values and executed branches/counters reviewed.
+- [test_arithmetic_wider_than_64_bits.sv](../tests/ch11/test_arithmetic_wider_than_64_bits.sv): Negative fractional integral division is observed rounding toward zero, differing from floor division; expected values and executed branches/counters reviewed.
+- [test_ieee1800_2023_arithmetic_edge.sv](../tests/ch11/test_ieee1800_2023_arithmetic_edge.sv): Negative fractional integral division is observed rounding toward zero, differing from floor division; expected values and executed branches/counters reviewed.
 
 ### SV2023-11.4.3-EXTRACT-EXPONENT-SELF-DETERMINED
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 The exponent operand is always self-determined.
 
@@ -24603,10 +25049,11 @@ The exponent operand is always self-determined.
 
 規定の性質: `mandatory`。
 
+- [test_shift_power_self_determined_count.sv](../tests/ch11/test_shift_power_self_determined_count.sv): Unsigned base two to self-determined signed four-bit -1 gives zero; propagating the unsigned base type into that exponent would reinterpret it as positive fifteen and give 32768.
 
 ### SV2023-11.4.3-EXTRACT-INTEGRAL-POWER-TYPE
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Power without a real operand follows the expression type/length rules of 11.6.1/11.8.1.
 
@@ -24614,6 +25061,8 @@ Power without a real operand follows the expression type/length rules of 11.6.1/
 
 規定の性質: `mandatory`。
 
+- [test_power_signed_base.sv](../tests/ch11/test_power_signed_base.sv): Signed negative power is observed as -8, retains sign in >>>, relational/modulo uses and wide longint assignment; unsigned and positive controls and negative-base zero exponent are checked.
+- [test_arithmetic_wider_than_64_bits.sv](../tests/ch11/test_arithmetic_wider_than_64_bits.sv): Unsigned 96-bit base two raised to 70 keeps bit 70, unlike fixed 32/64-bit power evaluation. Together with the signed-base controls this covers size and signing.
 
 ### SV2023-11.4.3-EXTRACT-MOD
 
@@ -24627,10 +25076,11 @@ Binary % computes remainder under operand type/width and special-case rules.
 
 - [test_gen_xz_mod_03.sv](../tests/gen/ch11/test_gen_xz_mod_03.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
 - [test_gen_xz_mod_04.sv](../tests/gen/ch11/test_gen_xz_mod_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_arithmetic_wider_than_64_bits.sv](../tests/ch11/test_arithmetic_wider_than_64_bits.sv): Observed arithmetic values include overflow boundaries, signed negatives or high bits above bit 63, with full expected-output/counter matching; no inference from labels alone.
 
 ### SV2023-11.4.3-EXTRACT-MOD-REMAINDER-SIGN
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Modulus is the division remainder, zero for an exact division, with the sign of the first operand.
 
@@ -24638,6 +25088,7 @@ Modulus is the division remainder, zero for an exact division, with the sign of 
 
 規定の性質: `mandatory`。
 
+- [test_ieee1800_2023_arithmetic_edge.sv](../tests/ch11/test_ieee1800_2023_arithmetic_edge.sv): -17%5=-2 and 17%-5=2 follow dividend sign; equal-value modulo yields zero. Counter/expected output require all cases.
 
 ### SV2023-11.4.3-EXTRACT-MUL
 
@@ -24651,10 +25102,13 @@ Binary * computes multiplication under operand type/width and special-case rules
 
 - [test_gen_xz_mul_02.sv](../tests/gen/ch11/test_gen_xz_mul_02.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
 - [test_gen_xz_mul_04.sv](../tests/gen/ch11/test_gen_xz_mul_04.sv): Reviewed generator family and every emitted stimulus/expected line; an independent literal-level calculation matches the whole oracle. Known unsigned operands yield an independently checked nonzero arithmetic result; unknown operands and zero divisors where applicable also follow their separate rules. Width here is the equal declared operand/result width.
+- [test_arithmetic_overflow.sv](../tests/ch11/test_arithmetic_overflow.sv): Observed arithmetic values include overflow boundaries, signed negatives or high bits above bit 63, with full expected-output/counter matching; no inference from labels alone.
+- [test_multiplier_edge_cases.sv](../tests/ch11/test_multiplier_edge_cases.sv): Observed arithmetic values include overflow boundaries, signed negatives or high bits above bit 63, with full expected-output/counter matching; no inference from labels alone.
+- [test_arithmetic_wider_than_64_bits.sv](../tests/ch11/test_arithmetic_wider_than_64_bits.sv): Observed arithmetic values include overflow boundaries, signed negatives or high bits above bit 63, with full expected-output/counter matching; no inference from labels alone.
 
 ### SV2023-11.4.3-EXTRACT-POW
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Binary ** computes exponentiation under operand type/width and special-case rules.
 
@@ -24662,10 +25116,13 @@ Binary ** computes exponentiation under operand type/width and special-case rule
 
 規定の性質: `definition`。
 
+- [test_power_ops_edge_cases.sv](../tests/ch11/test_power_ops_edge_cases.sv): Executed integral exponentiation checks multiple known bases/exponents; the exact count is included in expected output even when the final PASS threshold alone is weaker.
+- [test_power_expr.sv](../tests/ch11/test_power_expr.sv): Executed integral exponentiation checks multiple known bases/exponents; the exact count is included in expected output even when the final PASS threshold alone is weaker.
+- [test_power_op.sv](../tests/ch11/test_power_op.sv): Executed integral exponentiation checks multiple known bases/exponents; the exact count is included in expected output even when the final PASS threshold alone is weaker.
 
 ### SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-NEG-BIG
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base less than minus one and a negative exponent, the result is zero under expression width/sign rules.
 
@@ -24673,10 +25130,11 @@ For known integral power operands with base less than minus one and a negative e
 
 規定の性質: `mandatory`。
 
+- [test_power_negative_exponent.sv](../tests/ch11/test_power_negative_exponent.sv): Runtime int operands exercise the integral power table; both odd/even exponents of -1 and X for zero to a negative exponent are directly printed.
 
 ### SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-NEG-ONE
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base minus one and a negative exponent, the result is minus one for an odd exponent and one for an even exponent under expression width/sign rules.
 
@@ -24684,10 +25142,11 @@ For known integral power operands with base minus one and a negative exponent, t
 
 規定の性質: `mandatory`。
 
+- [test_power_negative_exponent.sv](../tests/ch11/test_power_negative_exponent.sv): Runtime int operands exercise the integral power table; both odd/even exponents of -1 and X for zero to a negative exponent are directly printed.
 
 ### SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-ONE
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base one and a negative exponent, the result is one under expression width/sign rules.
 
@@ -24695,10 +25154,11 @@ For known integral power operands with base one and a negative exponent, the res
 
 規定の性質: `mandatory`。
 
+- [test_power_negative_exponent.sv](../tests/ch11/test_power_negative_exponent.sv): Runtime int operands exercise the integral power table; both odd/even exponents of -1 and X for zero to a negative exponent are directly printed.
 
 ### SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-POS-BIG
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base greater than one and a negative exponent, the result is zero under expression width/sign rules.
 
@@ -24706,10 +25166,11 @@ For known integral power operands with base greater than one and a negative expo
 
 規定の性質: `mandatory`。
 
+- [test_power_negative_exponent.sv](../tests/ch11/test_power_negative_exponent.sv): Runtime int operands exercise the integral power table; both odd/even exponents of -1 and X for zero to a negative exponent are directly printed.
 
 ### SV2023-11.4.3-EXTRACT-POWER-NEGATIVE-ZERO
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base zero and a negative exponent, the result is all x bits under expression width/sign rules.
 
@@ -24717,10 +25178,11 @@ For known integral power operands with base zero and a negative exponent, the re
 
 規定の性質: `mandatory`。
 
+- [test_power_negative_exponent.sv](../tests/ch11/test_power_negative_exponent.sv): Runtime int operands exercise the integral power table; both odd/even exponents of -1 and X for zero to a negative exponent are directly printed.
 
 ### SV2023-11.4.3-EXTRACT-POWER-POSITIVE-NEG-BIG
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base less than minus one and a positive exponent, the result is the integer power of the base under expression width/sign rules.
 
@@ -24728,6 +25190,7 @@ For known integral power operands with base less than minus one and a positive e
 
 規定の性質: `mandatory`。
 
+- [test_power_signed_base.sv](../tests/ch11/test_power_signed_base.sv): Signed negative power is observed as -8, retains sign in >>>, relational/modulo uses and wide longint assignment; unsigned and positive controls and negative-base zero exponent are checked.
 
 ### SV2023-11.4.3-EXTRACT-POWER-POSITIVE-NEG-ONE
 
@@ -24742,7 +25205,7 @@ For known integral power operands with base minus one and a positive exponent, t
 
 ### SV2023-11.4.3-EXTRACT-POWER-POSITIVE-ONE
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base one and a positive exponent, the result is one under expression width/sign rules.
 
@@ -24750,10 +25213,11 @@ For known integral power operands with base one and a positive exponent, the res
 
 規定の性質: `mandatory`。
 
+- [test_power_ops_edge_cases.sv](../tests/ch11/test_power_ops_edge_cases.sv): Known integral base zero/one and positive exponent are evaluated and result checked on the executed path.
 
 ### SV2023-11.4.3-EXTRACT-POWER-POSITIVE-POS-BIG
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base greater than one and a positive exponent, the result is the integer power of the base under expression width/sign rules.
 
@@ -24761,10 +25225,11 @@ For known integral power operands with base greater than one and a positive expo
 
 規定の性質: `mandatory`。
 
+- [test_power_signed_base.sv](../tests/ch11/test_power_signed_base.sv): Signed negative power is observed as -8, retains sign in >>>, relational/modulo uses and wide longint assignment; unsigned and positive controls and negative-base zero exponent are checked.
 
 ### SV2023-11.4.3-EXTRACT-POWER-POSITIVE-ZERO
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base zero and a positive exponent, the result is zero under expression width/sign rules.
 
@@ -24772,10 +25237,12 @@ For known integral power operands with base zero and a positive exponent, the re
 
 規定の性質: `mandatory`。
 
+- [test_power_ops_edge_cases.sv](../tests/ch11/test_power_ops_edge_cases.sv): Known integral base zero/one and positive exponent are evaluated and result checked on the executed path.
+- [test_ieee1800_2023_arithmetic_edge.sv](../tests/ch11/test_ieee1800_2023_arithmetic_edge.sv): Executed zero-base positive-exponent result is zero; exact expected counter requires the check to pass.
 
 ### SV2023-11.4.3-EXTRACT-POWER-ZERO-NEG-BIG
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base less than minus one and a zero exponent, the result is one under expression width/sign rules.
 
@@ -24783,6 +25250,7 @@ For known integral power operands with base less than minus one and a zero expon
 
 規定の性質: `mandatory`。
 
+- [test_power_signed_base.sv](../tests/ch11/test_power_signed_base.sv): Signed negative power is observed as -8, retains sign in >>>, relational/modulo uses and wide longint assignment; unsigned and positive controls and negative-base zero exponent are checked.
 
 ### SV2023-11.4.3-EXTRACT-POWER-ZERO-NEG-ONE
 
@@ -24808,7 +25276,7 @@ For known integral power operands with base one and a zero exponent, the result 
 
 ### SV2023-11.4.3-EXTRACT-POWER-ZERO-POS-BIG
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base greater than one and a zero exponent, the result is one under expression width/sign rules.
 
@@ -24816,10 +25284,11 @@ For known integral power operands with base greater than one and a zero exponent
 
 規定の性質: `mandatory`。
 
+- [test_power_negative_exponent.sv](../tests/ch11/test_power_negative_exponent.sv): Runtime int operands exercise the integral power table; both odd/even exponents of -1 and X for zero to a negative exponent are directly printed.
 
 ### SV2023-11.4.3-EXTRACT-POWER-ZERO-ZERO
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 For known integral power operands with base zero and a zero exponent, the result is one under expression width/sign rules.
 
@@ -24827,6 +25296,7 @@ For known integral power operands with base zero and a zero exponent, the result
 
 規定の性質: `mandatory`。
 
+- [test_power_negative_exponent.sv](../tests/ch11/test_power_negative_exponent.sv): Runtime int operands exercise the integral power table; both odd/even exponents of -1 and X for zero to a negative exponent are directly printed.
 
 ### SV2023-11.4.3-EXTRACT-REAL-POWER-TYPE
 
@@ -24866,7 +25336,7 @@ Binary - computes subtraction under operand type/width and special-case rules.
 
 ### SV2023-11.4.3-EXTRACT-UNARY-MINUS
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Unary minus negates its operand under expression width and signedness rules.
 
@@ -24874,6 +25344,7 @@ Unary minus negates its operand under expression width and signedness rules.
 
 規定の性質: `mandatory`。
 
+- [test_ieee1800_2023_arithmetic_edge.sv](../tests/ch11/test_ieee1800_2023_arithmetic_edge.sv): Unary minus of unsigned 8-bit five produces FB in the 8-bit destination; directly checked result.
 
 ### SV2023-11.4.3-EXTRACT-UNARY-PLUS
 
@@ -24888,7 +25359,7 @@ Unary plus returns its operand value under expression typing.
 
 ### SV2023-11.4.3-EXTRACT-UNARY-PRECEDENCE
 
-11.4.3 / normal / テスト未対応
+11.4.3 / normal / 実行確認あり
 
 Unary arithmetic operators group before binary operators under the precedence rules.
 
@@ -24896,6 +25367,7 @@ Unary arithmetic operators group before binary operators under the precedence ru
 
 規定の性質: `mandatory`。
 
+- [test_precedence_distinguishing_values.sv](../tests/ch11/test_precedence_distinguishing_values.sv): Unary minus of three binds before addition of ten; explicitly negating the whole sum instead produces -13, so the input distinguishes grouping unlike -3*2.
 
 ### SV2023-11.4.3-EXTRACT-ZERO-DIVISOR
 
@@ -24918,7 +25390,7 @@ Division or modulus by zero produces an all-x integral result.
 
 ### SV2023-11.4.3-EXTRACT-ZERO-EXPONENT
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 A known integral base raised to zero gives one, including zero to zero.
 
@@ -24926,10 +25398,11 @@ A known integral base raised to zero gives one, including zero to zero.
 
 規定の性質: `mandatory`。
 
+- [test_power_negative_exponent.sv](../tests/ch11/test_power_negative_exponent.sv): Runtime int operands exercise the integral power table; both odd/even exponents of -1 and X for zero to a negative exponent are directly printed.
 
 ### SV2023-11.4.3-EXTRACT-ZERO-NEGATIVE-POWER
 
-11.4.3 / boundary / テスト未対応
+11.4.3 / boundary / 実行確認あり
 
 Integral zero raised to a negative exponent is all x.
 
@@ -24937,6 +25410,7 @@ Integral zero raised to a negative exponent is all x.
 
 規定の性質: `mandatory`。
 
+- [test_power_negative_exponent.sv](../tests/ch11/test_power_negative_exponent.sv): Runtime int operands exercise the integral power table; both odd/even exponents of -1 and X for zero to a negative exponent are directly printed.
 
 ### SV2023-11.4.3.1-DIVIDE-TRUNCATES
 
@@ -25005,7 +25479,7 @@ Arithmetic interprets a signed net as signed two-complement.
 
 ### SV2023-11.4.3.1-EXTRACT-SIGNED-VAR-INTERPRETATION
 
-11.4.3.1 / normal / テスト未対応
+11.4.3.1 / normal / 実行確認あり
 
 Arithmetic interprets a signed integral variable as signed two-complement.
 
@@ -25013,6 +25487,7 @@ Arithmetic interprets a signed integral variable as signed two-complement.
 
 規定の性質: `definition`。
 
+- [test_literal_base_sign_division.sv](../tests/ch11/test_literal_base_sign_division.sv): Signed two-complement -3 divided by two produces -1, while the same eight-bit pattern in unsigned storage divides as positive 253.
 
 ### SV2023-11.4.3.1-EXTRACT-UNSIGNED-NET-INTERPRETATION
 
@@ -25027,7 +25502,7 @@ Arithmetic interprets a unsigned net as unsigned.
 
 ### SV2023-11.4.3.1-EXTRACT-UNSIGNED-VAR-INTERPRETATION
 
-11.4.3.1 / normal / テスト未対応
+11.4.3.1 / normal / 実行確認あり
 
 Arithmetic interprets a unsigned variable as unsigned.
 
@@ -25035,6 +25510,7 @@ Arithmetic interprets a unsigned variable as unsigned.
 
 規定の性質: `definition`。
 
+- [test_literal_base_sign_division.sv](../tests/ch11/test_literal_base_sign_division.sv): Identical stored eight-bit patterns are interpreted as unsigned 253 or signed -3 during division.
 
 ### SV2023-11.4.3.1-REMAINDER-SIGN
 
@@ -26719,7 +27195,7 @@ Reduction AND/OR/XOR fold the single integral operand bit by bit, combining the 
 
 ### SV2023-11.4.10-EXTRACT-LEFT-SHIFT-ZERO
 
-11.4.10 / normal / テスト未対応
+11.4.10 / normal / 実行確認あり
 
 << and <<< shift left by the requested count and fill vacated low bits with zeros.
 
@@ -26727,6 +27203,7 @@ Reduction AND/OR/XOR fold the single integral operand bit by bit, combining the 
 
 規定の性質: `mandatory`。
 
+- [test_shift_power_self_determined_count.sv](../tests/ch11/test_shift_power_self_determined_count.sv): Logical and arithmetic left shifts of four-bit two by two both yield 1000, shifting by the specified count and filling low positions with zeros; count sixteen loses all bits.
 
 ### SV2023-11.4.10-EXTRACT-LOGICAL-RIGHT-ZERO
 
@@ -26793,7 +27270,7 @@ A shift count containing x/z produces an unknown result.
 
 ### SV2023-11.4.10-EXTRACT-UNSIGNED-COUNT
 
-11.4.10 / normal / テスト未対応
+11.4.10 / normal / 実行確認あり
 
 The shift count is treated as unsigned and does not determine result signedness.
 
@@ -26801,6 +27278,7 @@ The shift count is treated as unsigned and does not determine result signedness.
 
 規定の性質: `mandatory`。
 
+- [test_shift_power_self_determined_count.sv](../tests/ch11/test_shift_power_self_determined_count.sv): Signed four-bit -1 is treated as unsigned shift count fifteen; the signed count does not turn the unsigned high-bit value into a signed arithmetic-shift result.
 
 ### SV2023-11.4.11-EXTRACT-AMBIGUOUS-ARRAY-ELEMENTS
 
@@ -28261,7 +28739,7 @@ An indexing select is static when its prefix is static and its selection express
 
 ### SV2023-11.6-EXTRACT-ADDITION-MAX-WIDTH
 
-11.6 / normal / テスト未対応
+11.6 / normal / 実行確認あり
 
 A context-determined addition uses the maximum operand width including an assignment destination where applicable.
 
@@ -28269,10 +28747,11 @@ A context-determined addition uses the maximum operand width including an assign
 
 規定の性質: `mandatory`。
 
+- [test_size_cast_intermediate_context.sv](../tests/ch6/test_size_cast_intermediate_context.sv): Eight-bit FF plus 01 retains carry in a sixteen-bit assignment, loses it inside an eight-bit cast, and retains it with a sixteen-bit cast.
 
 ### SV2023-11.6-EXTRACT-SIZE-OPERANDS-CONTEXT
 
-11.6 / normal / テスト未対応
+11.6 / normal / 実行確認あり
 
 Expression width depends on its operands/context; a cast can set intermediate sizing context.
 
@@ -28280,10 +28759,11 @@ Expression width depends on its operands/context; a cast can set intermediate si
 
 規定の性質: `mandatory`。
 
+- [test_size_cast_intermediate_context.sv](../tests/ch6/test_size_cast_intermediate_context.sv): The same operands yield distinct sums under direct sixteen-bit context, eight-bit intermediate cast context, and sixteen-bit cast context; cast boundaries govern where carry is lost.
 
 ### SV2023-11.6.1-EXTRACT-BINARY-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Self-determined binary +,-,*,/,%,&,|,^,^~,~^ width is the maximum operand width.
 
@@ -28291,10 +28771,11 @@ Self-determined binary +,-,*,/,%,&,|,^,^~,~^ width is the maximum operand width.
 
 規定の性質: `definition`。
 
+- [test_self_determined_operator_widths.sv](../tests/ch11/test_self_determined_operator_widths.sv): Directly queries all ten listed binary operators on four/nine-bit operands; all return the maximum nine-bit width.
 
 ### SV2023-11.6.1-EXTRACT-COMPARE-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Relational/case/logical equality result width is one; compared operands are sized to their maximum width.
 
@@ -28302,10 +28783,11 @@ Relational/case/logical equality result width is one; compared operands are size
 
 規定の性質: `definition`。
 
+- [test_comparison_operand_context_width.sv](../tests/ch11/test_comparison_operand_context_width.sv): All eight relational/equality results have one bit. Four-bit F and nine-bit 10F compare unequal despite identical low four bits, distinguishing common maximum-width comparison.
 
 ### SV2023-11.6.1-EXTRACT-CONCAT-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Integral concatenation width is the sum of self-determined component widths.
 
@@ -28313,10 +28795,11 @@ Integral concatenation width is the sum of self-determined component widths.
 
 規定の性質: `definition`。
 
+- [test_concat_replication_conditional_widths.sv](../tests/ch11/test_concat_replication_conditional_widths.sv): Four-bit self-determined a+a plus nine-bit b form a thirteen-bit concatenation; the 64-bit target cannot enlarge the inner sum and recover its carry.
 
 ### SV2023-11.6.1-EXTRACT-CONDITIONAL-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Conditional result width is the maximum branch width, with a self-determined condition.
 
@@ -28324,6 +28807,7 @@ Conditional result width is the maximum branch width, with a self-determined con
 
 規定の性質: `definition`。
 
+- [test_concat_replication_conditional_widths.sv](../tests/ch11/test_concat_replication_conditional_widths.sv): Swapping four/nine-bit branches leaves a nine-bit result; a 64-bit nonzero condition neither widens branches nor truncates to its zero low bit.
 
 ### SV2023-11.6.1-EXTRACT-CONTEXT-DETERMINED-SIZE
 
@@ -28342,10 +28826,16 @@ A context-determined expression incorporates its enclosing expression/assignment
 - [test_gen_width_xnor_03.sv](../tests/gen/ch11/test_gen_width_xnor_03.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 128 exceeds both operand widths 64,64; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
 - [test_gen_width_xnor_04.sv](../tests/gen/ch11/test_gen_width_xnor_04.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 1000 exceeds both operand widths 65,129; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
 - [test_gen_width_div_05.sv](../tests/gen/ch11/test_gen_width_div_05.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 129 exceeds both operand widths 127,65; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_expression_width.sv](../tests/ch11/test_expression_width.sv): The wider destination changes evaluation before storing: the expected high result bit would disappear with a narrower operand-sized intermediate.
+- [test_multiplier_edge_cases.sv](../tests/ch11/test_multiplier_edge_cases.sv): The wider destination changes evaluation before storing: the expected high result bit would disappear with a narrower operand-sized intermediate.
+- [test_shift_wider_than_64_bits.sv](../tests/ch11/test_shift_wider_than_64_bits.sv): The wider destination changes evaluation before storing: the expected high result bit would disappear with a narrower operand-sized intermediate.
+- [test_gen_width_carry_03.sv](../tests/gen/ch11/test_gen_width_carry_03.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
+- [test_gen_width_carry_07.sv](../tests/gen/ch11/test_gen_width_carry_07.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
+- [test_gen_width_carry_08.sv](../tests/gen/ch11/test_gen_width_carry_08.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
 
 ### SV2023-11.6.1-EXTRACT-EXPRESSION-SIZE
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Expression size is determined by operand and context rules.
 
@@ -28353,10 +28843,13 @@ Expression size is determined by operand and context rules.
 
 規定の性質: `definition`。
 
+- [test_gen_width_carry_03.sv](../tests/gen/ch11/test_gen_width_carry_03.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
+- [test_gen_width_carry_07.sv](../tests/gen/ch11/test_gen_width_carry_07.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
+- [test_gen_width_carry_08.sv](../tests/gen/ch11/test_gen_width_carry_08.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
 
 ### SV2023-11.6.1-EXTRACT-LOGICAL-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 &&,||,->,<-> result width is one and their operands are self-determined.
 
@@ -28364,10 +28857,11 @@ Expression size is determined by operand and context rules.
 
 規定の性質: `definition`。
 
+- [test_logical_reduction_expression_widths.sv](../tests/ch11/test_logical_reduction_expression_widths.sv): All four logical result widths are one. Nonzero operands with zero low bits remain true, distinguishing self-determined operands from erroneous narrowing to one bit.
 
 ### SV2023-11.6.1-EXTRACT-REDUCE-NOT-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Reduction and logical ! result width is one and operands are self-determined.
 
@@ -28375,10 +28869,11 @@ Reduction and logical ! result width is one and operands are self-determined.
 
 規定の性質: `definition`。
 
+- [test_logical_reduction_expression_widths.sv](../tests/ch11/test_logical_reduction_expression_widths.sv): All seven reduction forms and logical not return one bit. Values from 0010 distinguish retaining the complete operand from truncating to its low bit.
 
 ### SV2023-11.6.1-EXTRACT-REPLICATION-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Integral replication width is its multiplier times the sum of self-determined inner component widths.
 
@@ -28386,10 +28881,11 @@ Integral replication width is its multiplier times the sum of self-determined in
 
 規定の性質: `definition`。
 
+- [test_concat_replication_conditional_widths.sv](../tests/ch11/test_concat_replication_conditional_widths.sv): Replication width is three times the thirteen-bit concatenation of independently sized components; marker bits in each repetition and direct $bits distinguish padding or context leakage.
 
 ### SV2023-11.6.1-EXTRACT-SELF-DETERMINED-SIZE
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 A self-determined expression derives bit length solely from itself, independent of surrounding expression width.
 
@@ -28397,10 +28893,11 @@ A self-determined expression derives bit length solely from itself, independent 
 
 規定の性質: `definition`。
 
+- [test_self_determined_operator_widths.sv](../tests/ch11/test_self_determined_operator_widths.sv): The self-determined concatenation component overflows at nine bits despite a 64-bit destination, while a direct sum preserves the carry in the enclosing context.
 
 ### SV2023-11.6.1-EXTRACT-SHIFT-POWER-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Shift and power expression width is the first operand width, with a self-determined second operand.
 
@@ -28408,10 +28905,11 @@ Shift and power expression width is the first operand width, with a self-determi
 
 規定の性質: `definition`。
 
+- [test_shift_power_self_determined_count.sv](../tests/ch11/test_shift_power_self_determined_count.sv): All four shifts and power return four-bit left-operand width despite a 64-bit right operand. Shift count 16 is not truncated to zero; negative signed exponent remains negative rather than inheriting the unsigned base type.
 
 ### SV2023-11.6.1-EXTRACT-SIZED-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 A sized constant number has its specified width.
 
@@ -28419,10 +28917,11 @@ A sized constant number has its specified width.
 
 規定の性質: `definition`。
 
+- [test_self_determined_operator_widths.sv](../tests/ch11/test_self_determined_operator_widths.sv): Sized constants report exactly three and sixty-five bits, including a width above the host integer size.
 
 ### SV2023-11.6.1-EXTRACT-UNARY-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Unary +,-,~ width is the operand width.
 
@@ -28430,10 +28929,11 @@ Unary +,-,~ width is the operand width.
 
 規定の性質: `definition`。
 
+- [test_self_determined_operator_widths.sv](../tests/ch11/test_self_determined_operator_widths.sv): All three unary expressions retain the four-bit operand width and report their four-bit values.
 
 ### SV2023-11.6.1-EXTRACT-UNSIZED-WIDTH
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 An ordinary unsized constant number has at least 32 bits.
 
@@ -28441,10 +28941,11 @@ An ordinary unsized constant number has at least 32 bits.
 
 規定の性質: `definition`。
 
+- [test_self_determined_operator_widths.sv](../tests/ch11/test_self_determined_operator_widths.sv): Unsized decimal and based constants are checked for at least 32 bits without imposing a nonportable exact width.
 
 ### SV2023-11.6.1-EXTRACT-WIDE-MULTIPLY-CONTEXT
 
-11.6.1 / normal / テスト未対応
+11.6.1 / normal / 実行確認あり
 
 Assigning a multiplication result into a sufficiently wide context can preserve all product overflow bits under context-propagation rules.
 
@@ -28452,10 +28953,12 @@ Assigning a multiplication result into a sufficiently wide context can preserve 
 
 規定の性質: `mandatory`。
 
+- [test_expression_width.sv](../tests/ch11/test_expression_width.sv): Two 8-bit operands 0x10 multiply to 0x0100 in a 16-bit context; an 8-bit intermediate would lose the observed high bit.
+- [test_multiplier_edge_cases.sv](../tests/ch11/test_multiplier_edge_cases.sv): Continuous 16-bit destination preserves all bits of 8-bit FF times FF (FE01), also checking 10 times 10 at the 8-bit overflow boundary.
 
 ### SV2023-11.6.2-EXTRACT-INTERMEDIATE-CONTEXT-WIDTH
 
-11.6.2 / normal / テスト未対応
+11.6.2 / normal / 実行確認あり
 
 Context-determined intermediate results use the largest applicable operand width including the destination; narrower intermediates can lose carry before later operations.
 
@@ -28463,10 +28966,13 @@ Context-determined intermediate results use the largest applicable operand width
 
 規定の性質: `mandatory`。
 
+- [test_gen_width_carry_03.sv](../tests/gen/ch11/test_gen_width_carry_03.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
+- [test_gen_width_carry_07.sv](../tests/gen/ch11/test_gen_width_carry_07.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
+- [test_gen_width_carry_08.sv](../tests/gen/ch11/test_gen_width_carry_08.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
 
 ### SV2023-11.7-EXTRACT-SIGNED-SYSTEM-CAST
 
-11.7 / normal / テスト未対応
+11.7 / normal / 実行確認あり
 
 $signed/$unsigned return a one-dimensional packed array retaining the evaluated operand bit count/value with signed/unsigned interpretation respectively.
 
@@ -28474,6 +28980,7 @@ $signed/$unsigned return a one-dimensional packed array retaining the evaluated 
 
 規定の性質: `mandatory`。
 
+- [test_signed_system_cast_shape_and_value.sv](../tests/ch11/test_signed_system_cast_shape_and_value.sv): Both functions retain eight/sixty-five-bit patterns and one packed [n-1:0] dimension. Direct queries, marker concatenations, signed/unsigned comparisons, wide assignments and an overflowing input expression expose value, shape, width and signedness independently.
 
 ### SV2023-11.8.1-EXTRACT-BASED-SIGN
 
@@ -28488,7 +28995,7 @@ Based numbers are unsigned unless their base specifier contains s.
 
 ### SV2023-11.8.1-EXTRACT-BIT-SELECT-UNSIGNED
 
-11.8.1 / normal / テスト未対応
+11.8.1 / normal / 実行確認あり
 
 A bit-select result is unsigned regardless of its source.
 
@@ -28496,10 +29003,11 @@ A bit-select result is unsigned regardless of its source.
 
 規定の性質: `mandatory`。
 
+- [test_concat_replication_conditional_widths.sv](../tests/ch11/test_concat_replication_conditional_widths.sv): Selecting a bit, the entire part, or concatenating a signed all-one four-bit source produces unsigned values; a sixteen-bit target exposes zero extension instead of erroneous sign extension.
 
 ### SV2023-11.8.1-EXTRACT-COMPARE-REDUCE-UNSIGNED
 
-11.8.1 / normal / テスト未対応
+11.8.1 / normal / 実行確認あり
 
 Comparison and reduction results are unsigned regardless of operand signing.
 
@@ -28507,10 +29015,11 @@ Comparison and reduction results are unsigned regardless of operand signing.
 
 規定の性質: `mandatory`。
 
+- [test_logical_reduction_expression_widths.sv](../tests/ch11/test_logical_reduction_expression_widths.sv): True comparison and reduction of signed -1 both widen to unsigned 0001, not signed FFFF.
 
 ### SV2023-11.8.1-EXTRACT-CONCAT-UNSIGNED
 
-11.8.1 / normal / テスト未対応
+11.8.1 / normal / 実行確認あり
 
 Concatenation results are unsigned regardless of component signing.
 
@@ -28518,6 +29027,7 @@ Concatenation results are unsigned regardless of component signing.
 
 規定の性質: `mandatory`。
 
+- [test_concat_replication_conditional_widths.sv](../tests/ch11/test_concat_replication_conditional_widths.sv): Selecting a bit, the entire part, or concatenating a signed all-one four-bit source produces unsigned values; a sixteen-bit target exposes zero extension instead of erroneous sign extension.
 
 ### SV2023-11.8.1-EXTRACT-CONTEXT-REAL
 
@@ -28546,6 +29056,7 @@ If all applicable context-determined operands are signed, the result is signed u
 - [test_gen_width_div_05.sv](../tests/gen/ch11/test_gen_width_div_05.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/True, b=65/True; target width 129, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
 - [test_gen_width_mod_01.sv](../tests/gen/ch11/test_gen_width_mod_01.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=1000/True, b=128/True; target width 127, expression width 1000. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
 - [test_gen_width_mod_05.sv](../tests/gen/ch11/test_gen_width_mod_05.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=128/True, b=63/True; target width 64, expression width 128. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_propagated_operand_sign.sv](../tests/ch11/test_propagated_operand_sign.sv): Signed-only addition produces -2; unsigned mixing controls produce 510. Conditional signed branches widen a signed one-bit -1 to 255, unlike the unsigned-branch case yielding 1.
 
 ### SV2023-11.8.1-EXTRACT-CONTEXT-UNSIGNED
 
@@ -28590,6 +29101,8 @@ Absent the applicable real result rule, any unsigned context-determined operand 
 - [test_gen_width_mod_06.sv](../tests/gen/ch11/test_gen_width_mod_06.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=65/True, b=128/False; target width 64, expression width 128. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
 - [test_gen_width_mod_07.sv](../tests/gen/ch11/test_gen_width_mod_07.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=127/False, b=63/True; target width 64, expression width 127. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
 - [test_gen_width_mod_08.sv](../tests/gen/ch11/test_gen_width_mod_08.sv): Exact reviewed width_sign binary template and all output lines verified. Independent arbitrary-width integer evaluation with LRM sign/zero extension and truncating signed division matches the oracle. Operand widths/signs are a=129/False, b=129/False; target width 129, expression width 129. Reversing the required expression signedness changes at least one checked result, so this link observes signedness rather than declaration/compilation alone.
+- [test_propagated_operand_sign.sv](../tests/ch11/test_propagated_operand_sign.sv): Mixed unsigned/signed operands are zero-extended according to unsigned propagated expression type, yielding 2**32 in a 64-bit context instead of zero from sign extension.
+- [test_assignment_extension_steps.sv](../tests/ch11/test_assignment_extension_steps.sv): Same 8-bit unsigned destinations receive signed -8, unsigned 1000, $unsigned(-8), and signed/unsigned sum: extension follows the RHS type, and unsigned mixed addition zero-extends operands before evaluation.
 
 ### SV2023-11.8.1-EXTRACT-DECIMAL-SIGNED
 
@@ -28604,7 +29117,7 @@ Unbased decimal numbers are signed.
 
 ### SV2023-11.8.1-EXTRACT-OPERAND-TYPE
 
-11.8.1 / normal / テスト未対応
+11.8.1 / normal / 実行確認あり
 
 Expression type/sign comes from operands rather than the assignment LHS, while width can still be context determined.
 
@@ -28612,6 +29125,8 @@ Expression type/sign comes from operands rather than the assignment LHS, while w
 
 規定の性質: `mandatory`。
 
+- [test_propagated_operand_sign.sv](../tests/ch11/test_propagated_operand_sign.sv): Unsigned u plus signed s yields 510 in both signed and unsigned destinations; a signed LHS must not force signed addition. Signed-only and cast controls distinguish the cases.
+- [test_assignment_extension_steps.sv](../tests/ch11/test_assignment_extension_steps.sv): Same 8-bit unsigned destinations receive signed -8, unsigned 1000, $unsigned(-8), and signed/unsigned sum: extension follows the RHS type, and unsigned mixed addition zero-extends operands before evaluation.
 
 ### SV2023-11.8.1-EXTRACT-PART-SELECT-UNSIGNED
 
@@ -28629,6 +29144,7 @@ A part-select result is unsigned even if it selects an entire signed vector.
 - [test_gen_width_partsel_04.sv](../tests/gen/ch11/test_gen_width_partsel_04.sv): Reviewed width_sign.partsel_cases and extension model against 11.8.1. Exact template body and oracle verified. Alternating whole-signed addition and full-width-part-select addition produce at least one different expected result, observing unsigned propagation rather than merely accepting the syntax; all four paired outputs are checked.
 - [test_gen_width_partsel_05.sv](../tests/gen/ch11/test_gen_width_partsel_05.sv): Reviewed width_sign.partsel_cases and extension model against 11.8.1. Exact template body and oracle verified. Alternating whole-signed addition and full-width-part-select addition produce at least one different expected result, observing unsigned propagation rather than merely accepting the syntax; all four paired outputs are checked.
 - [test_gen_width_partsel_06.sv](../tests/gen/ch11/test_gen_width_partsel_06.sv): Reviewed width_sign.partsel_cases and extension model against 11.8.1. Exact template body and oracle verified. Alternating whole-signed addition and full-width-part-select addition produce at least one different expected result, observing unsigned propagation rather than merely accepting the syntax; all four paired outputs are checked.
+- [test_concat_replication_conditional_widths.sv](../tests/ch11/test_concat_replication_conditional_widths.sv): Selecting a bit, the entire part, or concatenating a signed all-one four-bit source produces unsigned values; a sixteen-bit target exposes zero extension instead of erroneous sign extension.
 
 ### SV2023-11.8.1-EXTRACT-REAL-COERCION-SIGNED
 
@@ -28654,7 +29170,7 @@ Self-determined operands have sign/size independent of the enclosing expression.
 
 ### SV2023-11.8.2-EXTRACT-COMPARISON-CONTEXT-EXCEPTION
 
-11.8.2 / normal / テスト未対応
+11.8.2 / normal / 実行確認あり
 
 Relational/equality operands mutually determine their common maximum width/type independent of the rest of the expression; the comparison result is always one-bit unsigned.
 
@@ -28662,6 +29178,7 @@ Relational/equality operands mutually determine their common maximum width/type 
 
 規定の性質: `mandatory`。
 
+- [test_comparison_operand_context_width.sv](../tests/ch11/test_comparison_operand_context_width.sv): Comparison operands mutually use nine-bit width and wrap 511+1 before equality; propagating the external 64-bit destination into operands would instead compare 512 with zero. The one-bit true result zero-extends.
 
 ### SV2023-11.8.2-EXTRACT-PROPAGATE-CONTEXT
 
@@ -28680,6 +29197,10 @@ Expression type/size propagate down to context-determined operands, normally giv
 - [test_gen_width_xnor_03.sv](../tests/gen/ch11/test_gen_width_xnor_03.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 128 exceeds both operand widths 64,64; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
 - [test_gen_width_xnor_04.sv](../tests/gen/ch11/test_gen_width_xnor_04.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 1000 exceeds both operand widths 65,129; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
 - [test_gen_width_div_05.sv](../tests/gen/ch11/test_gen_width_div_05.sv): Exact reviewed template/oracle and independent width/sign evaluation verified. Target width 129 exceeds both operand widths 127,65; computing at operand-only width changes a checked result. The output therefore observes LHS sizing context propagated before the binary operation, rather than merely widening/truncating afterwards. No real-expression or comparison exception is inferred.
+- [test_gen_width_carry_03.sv](../tests/gen/ch11/test_gen_width_carry_03.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
+- [test_gen_width_carry_07.sv](../tests/gen/ch11/test_gen_width_carry_07.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
+- [test_gen_width_carry_08.sv](../tests/gen/ch11/test_gen_width_carry_08.sv): The addition inside (a+b)>>1 must use the wider destination context before shifting; expected output distinguishes lost carry or premature signed-width truncation. Full four-case stimulus/output reviewed, not just generated labels.
+- [test_propagated_operand_sign.sv](../tests/ch11/test_propagated_operand_sign.sv): Mixed-sign 8/32-bit operands are converted using the enclosing 16/64-bit expression width and unsigned expression type, with signed/cast controls; results discriminate sign-extension before propagation.
 
 ### SV2023-11.8.2-EXTRACT-REAL-PROPAGATION-EXCEPTION
 
@@ -28694,7 +29215,7 @@ A nonreal context-determined operand of a real-result operator evaluates self-de
 
 ### SV2023-11.8.2-EXTRACT-SIMPLE-OPERAND-CONVERSION
 
-11.8.2 / normal / テスト未対応
+11.8.2 / normal / 実行確認あり
 
 At a simple operand, convert to propagated type/size and sign extend only when the propagated type is signed.
 
@@ -28702,10 +29223,15 @@ At a simple operand, convert to propagated type/size and sign extend only when t
 
 規定の性質: `mandatory`。
 
+- [test_propagated_operand_sign.sv](../tests/ch11/test_propagated_operand_sign.sv): Mixed-sign 8/32-bit operands are converted using the enclosing 16/64-bit expression width and unsigned expression type, with signed/cast controls; results discriminate sign-extension before propagation.
+- [test_assignment_extension_steps.sv](../tests/ch11/test_assignment_extension_steps.sv): Same 8-bit unsigned destinations receive signed -8, unsigned 1000, $unsigned(-8), and signed/unsigned sum: extension follows the RHS type, and unsigned mixed addition zero-extends operands before evaluation.
+- [test_edge_sign_ext.sv](../tests/ch11/test_edge_sign_ext.sv): Equal four-bit all-one patterns widen to signed int -1 or +15 according to the source expression signing, with case-inequality fatal checks.
+- [test_sign_extension.sv](../tests/ch11/test_sign_extension.sv): Negative 8/16-bit operands widen before 32-bit addition; signed widening and unsigned cast widening controls distinguish conversion choices.
+- [test_value_ops_edge_cases.sv](../tests/ch11/test_value_ops_edge_cases.sv): A signed -1 widens to FFFF while unsigned AB widens to 00AB; comparison-context shifts also distinguish unsigned and signed propagated types.
 
 ### SV2023-11.8.2-EXTRACT-SIZE-THEN-SIGN
 
-11.8.2 / normal / テスト未対応
+11.8.2 / normal / 実行確認あり
 
 Expression evaluation determines width and then sign under 11.6/11.8.1.
 
@@ -28713,10 +29239,11 @@ Expression evaluation determines width and then sign under 11.6/11.8.1.
 
 規定の性質: `mandatory`。
 
+- [test_propagated_operand_sign.sv](../tests/ch11/test_propagated_operand_sign.sv): Mixed-sign 8/32-bit operands are converted using the enclosing 16/64-bit expression width and unsigned expression type, with signed/cast controls; results discriminate sign-extension before propagation.
 
 ### SV2023-11.8.3-EXTRACT-ASSIGNMENT-SIZE-EXTENSION
 
-11.8.3 / normal / テスト未対応
+11.8.3 / normal / 実行確認あり
 
 Determine assignment RHS width under 11.6, then extend if needed, using sign extension if and only if its RHS type is signed.
 
@@ -28724,6 +29251,8 @@ Determine assignment RHS width under 11.6, then extend if needed, using sign ext
 
 規定の性質: `mandatory`。
 
+- [test_assignment_extension_steps.sv](../tests/ch11/test_assignment_extension_steps.sv): Same 8-bit unsigned destinations receive signed -8, unsigned 1000, $unsigned(-8), and signed/unsigned sum: extension follows the RHS type, and unsigned mixed addition zero-extends operands before evaluation.
+- [test_signed_unknown_extension_and_unsigned_padding.sv](../tests/ch11/test_signed_unknown_extension_and_unsigned_padding.sv): Widened signed X/Z sign bits replicate while an unsigned X top bit is padded with zeros; the common unsigned destination type does not override RHS signing.
 
 ### SV2023-11.8.3-UNSIGNED-ZERO-EXTEND
 
@@ -28737,7 +29266,7 @@ An unsigned source is zero-extended even if its high bit is unknown.
 
 ### SV2023-11.8.4-EXTRACT-EXTEND-X-SIGN
 
-11.8.4 / normal / テスト未対応
+11.8.4 / normal / 実行確認あり
 
 Widening a signed x-sign-bit operand into a larger signed width extends with x bits.
 
@@ -28745,10 +29274,11 @@ Widening a signed x-sign-bit operand into a larger signed width extends with x b
 
 規定の性質: `mandatory`。
 
+- [test_signed_extend_xz_sign_bit.sv](../tests/ch11/test_signed_extend_xz_sign_bit.sv): Signed four-bit X/Z sign extension is printed in a wider signed destination; unsigned and known-sign controls and all-X signed addition are separately observable.
 
 ### SV2023-11.8.4-EXTRACT-EXTEND-Z-SIGN
 
-11.8.4 / normal / テスト未対応
+11.8.4 / normal / 実行確認あり
 
 Widening a signed z-sign-bit operand into a larger signed width extends with z bits.
 
@@ -28756,10 +29286,11 @@ Widening a signed z-sign-bit operand into a larger signed width extends with z b
 
 規定の性質: `mandatory`。
 
+- [test_signed_extend_xz_sign_bit.sv](../tests/ch11/test_signed_extend_xz_sign_bit.sv): Signed four-bit X/Z sign extension is printed in a wider signed destination; unsigned and known-sign controls and all-X signed addition are separately observable.
 
 ### SV2023-11.8.4-EXTRACT-SIGNED-UNKNOWN-OPERATION
 
-11.8.4 / normal / テスト未対応
+11.8.4 / normal / 実行確認あり
 
 The signed unknown-value rule states that a nonlogical operation involving a signed value containing x/z yields an all-x value with its expression result type; operator-specific logical/bitwise rules remain applicable.
 
@@ -28767,6 +29298,7 @@ The signed unknown-value rule states that a nonlogical operation involving a sig
 
 規定の性質: `mandatory`。
 
+- [test_signed_extend_xz_sign_bit.sv](../tests/ch11/test_signed_extend_xz_sign_bit.sv): Signed four-bit X/Z sign extension is printed in a wider signed destination; unsigned and known-sign controls and all-X signed addition are separately observable.
 
 ### SV2023-11.8.4-X-SIGN-EXTEND
 
@@ -29184,7 +29716,7 @@ An else associates with the nearest preceding if lacking an else.
 
 ### SV2023-12.4-EXTRACT-IF-FALSE-ELSE
 
-12.4 / normal / テスト未対応
+12.4 / normal / 実行確認あり
 
 If the predicate is not true and else exists, execute the else statement; otherwise execute no branch.
 
@@ -29192,6 +29724,8 @@ If the predicate is not true and else exists, execute the else statement; otherw
 
 規定の性質: `mandatory`。
 
+- [test_if_else_edge_cases.sv](../tests/ch12/test_if_else_edge_cases.sv): With val=3 the no-else if leaves result at zero, while a separate false if-else selects zero; both paths are checked and included in the exact pass count.
+- [test_conditions_edge_cases.sv](../tests/ch12/test_conditions_edge_cases.sv): A false no-else predicate leaves sentinel 99 unchanged, whereas a false if-else predicate selects result two; both expected observations are required.
 
 ### SV2023-12.4-EXTRACT-IF-GRAMMAR
 
@@ -29217,7 +29751,7 @@ A condition that is logically true/nonzero takes the true statement; zero or amb
 
 ### SV2023-12.4-EXTRACT-NONZERO-TEST
 
-12.4 / normal / テスト未対応
+12.4 / normal / 実行確認あり
 
 An if expression test has the same decision effect as testing that expression not equal to zero.
 
@@ -29225,10 +29759,12 @@ An if expression test has the same decision effect as testing that expression no
 
 規定の性質: `mandatory`。
 
+- [test_if_edge_cases.sv](../tests/ch12/test_if_edge_cases.sv): Nonzero integer five selects the true statement, while zero selects else and the no-else nonzero case executes its statement; truth is not restricted to equality with one.
+- [test_real_operand_truth_value.sv](../tests/ch11/test_real_operand_truth_value.sv): Positive/negative fractional nonzero real values take true, while both signed zeros take false, distinguishing a nonzero decision from integer rounding before the predicate.
 
 ### SV2023-12.4.1-EXTRACT-CHAIN-PERMITTED
 
-12.4.1 / normal / テスト未対応
+12.4.1 / normal / 実行確認あり
 
 if/else may be chained as an else-if multiway decision.
 
@@ -29236,6 +29772,10 @@ if/else may be chained as an else-if multiway decision.
 
 規定の性質: `permission`。
 
+- [test_if_else_chain_2.sv](../tests/ch12/test_if_else_chain_2.sv): Executed else-if chains select their expected numeric/string result; full stimulus and expected output reviewed. This records permitted chained decisions, not unobserved predicate side-effect counts.
+- [test_if_else_if_string.sv](../tests/ch12/test_if_else_if_string.sv): Executed else-if chains select their expected numeric/string result; full stimulus and expected output reviewed. This records permitted chained decisions, not unobserved predicate side-effect counts.
+- [test_stmt_if_else_2.sv](../tests/ch12/test_stmt_if_else_2.sv): Executed else-if chains select their expected numeric/string result; full stimulus and expected output reviewed. This records permitted chained decisions, not unobserved predicate side-effect counts.
+- [test_if_else_stmt_2.sv](../tests/ch12/test_if_else_stmt_2.sv): Executed else-if chains select their expected numeric/string result; full stimulus and expected output reviewed. This records permitted chained decisions, not unobserved predicate side-effect counts.
 
 ### SV2023-12.4.1-EXTRACT-FIRST-TRUE
 
@@ -29470,7 +30010,7 @@ The controlling expression and all item expressions extend to the maximum width 
 
 ### SV2023-12.5-EXTRACT-CASE-DECISION
 
-12.5 / normal / テスト未対応
+12.5 / normal / 実行確認あり
 
 case makes a multiway decision by comparing its controlling value against item expressions.
 
@@ -29478,10 +30018,21 @@ case makes a multiway decision by comparing its controlling value against item e
 
 規定の性質: `definition`。
 
+- [test_case_expr.sv](../tests/ch12/test_case_expr.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_case_stmt_edge_cases.sv](../tests/ch12/test_case_stmt_edge_cases.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_case_statement.sv](../tests/ch12/test_case_statement.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_case_statements.sv](../tests/ch12/test_case_statements.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_case_edge.sv](../tests/ch12/test_case_edge.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_case_edge_cases_2.sv](../tests/ch12/test_case_edge_cases_2.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_stmt_case_2.sv](../tests/ch12/test_stmt_case_2.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_case_default.sv](../tests/ch12/test_case_default.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_control_flow.sv](../tests/ch12/test_control_flow.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_control_flow_2.sv](../tests/ch12/test_control_flow_2.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
+- [test_control_flow_4.sv](../tests/ch12/test_control_flow_4.sv): Controller values select distinct item/default assignments or returned values, with expected results and exact counters checked; no coverage is inferred for diagnostic or evaluation-count rules.
 
 ### SV2023-12.5-EXTRACT-CASE-EXACT-STATES
 
-12.5 / normal / テスト未対応
+12.5 / normal / 実行確認あり
 
 Ordinary case requires corresponding bits to match exactly including x/z.
 
@@ -29489,6 +30040,7 @@ Ordinary case requires corresponding bits to match exactly including x/z.
 
 規定の性質: `mandatory`。
 
+- [test_case_exact_xz_match.sv](../tests/ch12/test_case_exact_xz_match.sv): Ordinary case matches identical X/Z patterns, all-X and known patterns, while X must not match a known differing bit. Explicit result checks distinguish ordinary case from wildcard or logical equality matching.
 
 ### SV2023-12.5-EXTRACT-CASE-GRAMMAR
 
@@ -29547,7 +30099,7 @@ A case default is optional and cannot occur more than once.
 
 ### SV2023-12.5-EXTRACT-RUNTIME-CASE-EXPRESSIONS
 
-12.5 / normal / テスト未対応
+12.5 / normal / 実行確認あり
 
 The controlling case expression and item expressions need not be constants.
 
@@ -29555,10 +30107,11 @@ The controlling case expression and item expressions need not be constants.
 
 規定の性質: `permission`。
 
+- [test_case_exact_xz_match.sv](../tests/ch12/test_case_exact_xz_match.sv): Both controller and item are variable expressions, including a four-state X-bearing variable item; self-match and literal match/mismatch controls verify the result. They are not constant-expression syntax.
 
 ### SV2023-12.5.1-EXTRACT-BOTH-SIDES-WILDCARD
 
-12.5.1 / normal / テスト未対応
+12.5.1 / normal / 実行確認あり
 
 casez/casex ignore wildcard positions appearing on either controlling or item expression, unlike asymmetric inside/==?.
 
@@ -29566,10 +30119,11 @@ casez/casex ignore wildcard positions appearing on either controlling or item ex
 
 規定の性質: `mandatory`。
 
+- [test_casex_casez_wildcard.sv](../tests/ch12/test_casex_casez_wildcard.sv): Wildcard bits occur separately in the controlling value and in item literals for casez/casex; selector-side Z/X matching and item-side ?/X matching each affect the checked result.
 
 ### SV2023-12.5.1-EXTRACT-CASEZ-CASEX
 
-12.5.1 / normal / テスト未対応
+12.5.1 / normal / 実行確認あり
 
 casez treats z as wildcard, while casex treats x and z as wildcards.
 
@@ -29577,10 +30131,12 @@ casez treats z as wildcard, while casex treats x and z as wildcards.
 
 規定の性質: `definition`。
 
+- [test_casex_casez_wildcard.sv](../tests/ch12/test_casex_casez_wildcard.sv): Covers casez Z and casex X/Z wildcards in both selector and item forms. Must be combined with the separate casez-X-not-wildcard control in the same snapshot.
+- [test_x_z_propagation.sv](../tests/ch11/test_x_z_propagation.sv): Despite the display label, casez must not ignore the X selector bit: 01 must fail, while ?1 masks that position through the item Z and selects result two. Combined with the positive casez/casex wildcard cases.
 
 ### SV2023-12.5.1-EXTRACT-QUESTION-AS-Z
 
-12.5.1 / normal / テスト未対応
+12.5.1 / normal / 実行確認あり
 
 A ? digit in a literal denotes z for case wildcard use.
 
@@ -29588,6 +30144,12 @@ A ? digit in a literal denotes z for case wildcard use.
 
 規定の性質: `mandatory`。
 
+- [test_casex_casez_wildcard.sv](../tests/ch12/test_casex_casez_wildcard.sv): Known controller bits match casez item question-mark digits at differing positions; treating ? as a nonwildcard X would not produce the observed result.
+- [test_casex_casez_edge_cases.sv](../tests/ch12/test_casex_casez_edge_cases.sv): Known controller bits match casez item question-mark digits at differing positions; treating ? as a nonwildcard X would not produce the observed result.
+- [test_case_statements.sv](../tests/ch12/test_case_statements.sv): Known controller bits match casez item question-mark digits at differing positions; treating ? as a nonwildcard X would not produce the observed result.
+- [test_control_flow.sv](../tests/ch12/test_control_flow.sv): Known controller bits match casez item question-mark digits at differing positions; treating ? as a nonwildcard X would not produce the observed result.
+- [test_control_flow_4.sv](../tests/ch12/test_control_flow_4.sv): Known controller bits match casez item question-mark digits at differing positions; treating ? as a nonwildcard X would not produce the observed result.
+- [test_stmt_ext.sv](../tests/ch12/test_stmt_ext.sv): Known controller bits match casez item question-mark digits at differing positions; treating ? as a nonwildcard X would not produce the observed result.
 
 ### SV2023-12.5.2-CASEX-DEFAULT
 
@@ -29776,7 +30338,7 @@ A case inside item matches only when inside yields one; zero/x do not match, and
 
 ### SV2023-12.6-EXTRACT-CONSTANT-MATCH
 
-12.6 / normal / テスト未対応
+12.6 / normal / テスト対応あり・実行未確認
 
 A constant pattern succeeds exactly when the matched value equals its constant under the enclosing construct matching rules.
 
@@ -29784,10 +30346,11 @@ A constant pattern succeeds exactly when the matched value equals its constant u
 
 規定の性質: `mandatory`。
 
+- [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): Constant zero matches Num zero; negative and nonzero Num values miss that item and reach later patterns. The complete table of case/if/conditional outputs was reviewed; no claim is made for unobserved X/Z or rejection rules.
 
 ### SV2023-12.6-EXTRACT-IDENTIFIER-WILDCARD-MATCH
 
-12.6 / normal / テスト未対応
+12.6 / normal / テスト対応あり・実行未確認
 
 An identifier pattern always succeeds and binds its value; .* always succeeds without binding.
 
@@ -29795,10 +30358,11 @@ An identifier pattern always succeeds and binds its value; .* always succeeds wi
 
 規定の性質: `mandatory`。
 
+- [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): Wildcard accepts the varying low member while identifier binders extract numeric, pair and nested command values used in outputs. The complete table of case/if/conditional outputs was reviewed; no claim is made for unobserved X/Z or rejection rules.
 
 ### SV2023-12.6-EXTRACT-PATTERN-CONTEXTS
 
-12.6 / normal / テスト未対応
+12.6 / normal / テスト対応あり・実行未確認
 
 Pattern matching may select structure/tagged-union/constant data in case, if/else and conditional expressions.
 
@@ -29806,10 +30370,11 @@ Pattern matching may select structure/tagged-union/constant data in case, if/els
 
 規定の性質: `permission`。
 
+- [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): Observed structure/tagged/constant patterns select case items, if/else branches and conditional expression results. The complete table of case/if/conditional outputs was reviewed; no claim is made for unobserved X/Z or rejection rules.
 
 ### SV2023-12.6-EXTRACT-PATTERN-GRAMMAR
 
-12.6 / normal / テスト未対応
+12.6 / normal / テスト対応あり・実行未確認
 
 Patterns may parenthesize/nest identifiers, wildcard .*, integral constants, tagged members or positional/named structure patterns; void tagged members omit a nested pattern.
 
@@ -29817,6 +30382,7 @@ Patterns may parenthesize/nest identifiers, wildcard .*, integral constants, tag
 
 規定の性質: `definition`。
 
+- [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): Exercises parenthesized nested tagged patterns, void tags, identifier/constant/wildcard leaves and positional/named structure patterns, with distinct expected results. The complete table of case/if/conditional outputs was reviewed; no claim is made for unobserved X/Z or rejection rules.
 
 ### SV2023-12.6-EXTRACT-PATTERN-KNOWN-RESULT
 
@@ -29853,7 +30419,7 @@ Each pattern introduces a scope with implicit position-typed variables whose ide
 
 ### SV2023-12.6-EXTRACT-STRUCT-PATTERN-MATCH
 
-12.6 / normal / テスト未対応
+12.6 / normal / テスト対応あり・実行未確認
 
 A structure pattern recursively matches corresponding members; named pattern member order is irrelevant and omitted members are ignored.
 
@@ -29861,10 +30427,11 @@ A structure pattern recursively matches corresponding members; named pattern mem
 
 規定の性質: `mandatory`。
 
+- [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): Reversed textual named-member order extracts lo=3,hi=4 correctly; an if pattern omitting hi matches both hi=0 and hi=4. The complete table of case/if/conditional outputs was reviewed; no claim is made for unobserved X/Z or rejection rules.
 
 ### SV2023-12.6-EXTRACT-TAGGED-PATTERN-MATCH
 
-12.6 / normal / テスト未対応
+12.6 / normal / テスト対応あり・実行未確認
 
 A tagged pattern requires the same tag plus a recursive match of its selected member value.
 
@@ -29872,10 +30439,11 @@ A tagged pattern requires the same tag plus a recursive match of its selected me
 
 規定の性質: `mandatory`。
 
+- [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): Void/data tags and nested Stop/Go tags select distinct outputs; a nested Go value nine is recursively bound. The complete table of case/if/conditional outputs was reviewed; no claim is made for unobserved X/Z or rejection rules.
 
 ### SV2023-12.6.1-EXTRACT-MATCHES-CASE-SCOPE
 
-12.6.1 / normal / テスト未対応
+12.6.1 / normal / テスト対応あり・実行未確認
 
 case matches items contain a pattern with optional &&& Boolean filter; bound identifiers scope over that item filter and statement, allowing reuse in other items.
 
@@ -29883,6 +30451,8 @@ case matches items contain a pattern with optional &&& Boolean filter; bound ide
 
 規定の性質: `mandatory`。
 
+- [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): The same binder name is reused in separate Num case items, used in the current item filter and statement; negative and positive payloads must bind the correct per-item value.
+- [test_pattern_filters_and_conditional_fallback.sv](../tests/ch12/test_pattern_filters_and_conditional_fallback.sv): Independent case items reuse .n and use it inside their filters; the checked selection two and separately bound if value four require valid bindings.
 
 ### SV2023-12.6.1-EXTRACT-MATCHES-CASE-SEARCH
 
@@ -29930,7 +30500,7 @@ Pattern case priority requires some item selected, and unique requires exactly o
 
 ### SV2023-12.6.1-EXTRACT-PATTERN-THEN-FILTER
 
-12.6.1 / normal / テスト未対応
+12.6.1 / normal / テスト対応あり・実行未確認
 
 An item selects only after successful pattern binding and then a true Boolean filter when present.
 
@@ -29938,6 +30508,8 @@ An item selects only after successful pattern binding and then a true Boolean fi
 
 規定の性質: `mandatory`。
 
+- [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): Num -5 selects the filtered item; Num 7 matches its pattern but fails the filter and falls through to the unfiltered Num item.
+- [test_pattern_filters_and_conditional_fallback.sv](../tests/ch12/test_pattern_filters_and_conditional_fallback.sv): Both items match Number four structurally, but the first filter rejects four and the second accepts it; incorrect selection before checking the filter would produce one.
 
 ### SV2023-12.6.2-EXTRACT-PATTERN-IF-AMBIGUOUS-FILTER
 
@@ -30172,7 +30744,7 @@ foreach creates an implicit automatic local loop-variable scope, optionally name
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-DIMENSION-ORDER
 
-12.7.3 / normal / テスト未対応
+12.7.3 / normal / 実行確認あり
 
 Foreach maps dimension numbers by 20.7 and nests lower-numbered dimensions outside higher-numbered/faster-varying ones.
 
@@ -30180,6 +30752,7 @@ Foreach maps dimension numbers by 20.7 and nests lower-numbered dimensions outsi
 
 規定の性質: `mandatory`。
 
+- [test_comb_foreach_3d_break.sv](../tests/ch12/test_comb_foreach_3d_break.sv): Early termination exposes which index changes fastest: the first matching value is at [1][2], while reversing the dimension nesting would find [2][1]. Other 2D/3D break counts reinforce the required order.
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-INDEX-COUNT
 
@@ -30260,7 +30833,7 @@ A function call cannot be used as an implicit-variable declaration in the foreac
 
 ### SV2023-12.7.4-EXTRACT-WHILE-PRETEST
 
-12.7.4 / normal / テスト未対応
+12.7.4 / normal / 実行確認あり
 
 while tests before the body and repeats only while true under 12.4; an initially nontrue condition executes zero iterations.
 
@@ -30268,10 +30841,13 @@ while tests before the body and repeats only while true under 12.4; an initially
 
 規定の性質: `mandatory`。
 
+- [test_while_loop_forms.sv](../tests/ch12/test_while_loop_forms.sv): Ordinary repeated while cases and an initially-false case are both checked; the latter leaves the sentinel/count unchanged, distinguishing pre-test from do-while.
+- [test_while_loop_basic.sv](../tests/ch12/test_while_loop_basic.sv): Ordinary repeated while cases and an initially-false case are both checked; the latter leaves the sentinel/count unchanged, distinguishing pre-test from do-while.
+- [test_while_edge_cases.sv](../tests/ch12/test_while_edge_cases.sv): Ordinary repeated while cases and an initially-false case are both checked; the latter leaves the sentinel/count unchanged, distinguishing pre-test from do-while.
 
 ### SV2023-12.7.5-EXTRACT-DO-WHILE-POSTTEST
 
-12.7.5 / normal / テスト未対応
+12.7.5 / normal / 実行確認あり
 
 do-while executes its body before evaluating a Boolean-compatible condition, then repeats when true, so it executes at least once on normal entry.
 
@@ -30279,6 +30855,10 @@ do-while executes its body before evaluating a Boolean-compatible condition, the
 
 規定の性質: `mandatory`。
 
+- [test_do_while_edge_cases.sv](../tests/ch12/test_do_while_edge_cases.sv): Initially-false control still permits one body execution, alongside repeated and changing-condition cases; exact expected counts distinguish pre-test or skipped-body behavior.
+- [test_do_while_2.sv](../tests/ch12/test_do_while_2.sv): Initially-false control still permits one body execution, alongside repeated and changing-condition cases; exact expected counts distinguish pre-test or skipped-body behavior.
+- [test_do_while_loop.sv](../tests/ch12/test_do_while_loop.sv): Initially-false control still permits one body execution, alongside repeated and changing-condition cases; exact expected counts distinguish pre-test or skipped-body behavior.
+- [test_do_while_stmt.sv](../tests/ch12/test_do_while_stmt.sv): Initially-false control still permits one body execution, alongside repeated and changing-condition cases; exact expected counts distinguish pre-test or skipped-body behavior.
 
 ### SV2023-12.7.6-EXTRACT-FOREVER-AVOID-DEADLOCK
 
@@ -30293,7 +30873,7 @@ A forever loop should suspend/advance time or provide an exit mechanism to avoid
 
 ### SV2023-12.7.6-EXTRACT-FOREVER-REPEATS
 
-12.7.6 / normal / テスト未対応
+12.7.6 / normal / 実行確認あり
 
 forever repeats its statement without an implicit iteration bound.
 
@@ -30301,10 +30881,13 @@ forever repeats its statement without an implicit iteration bound.
 
 規定の性質: `mandatory`。
 
+- [test_forever_loop.sv](../tests/ch12/test_forever_loop.sv): The forever body repeats to several explicitly observed exit thresholds; it does not finish after one implicit iteration. Only finite observed behavior is claimed, not a proof of infinite execution.
+- [test_forever_stmt.sv](../tests/ch12/test_forever_stmt.sv): The forever body repeats to several explicitly observed exit thresholds; it does not finish after one implicit iteration. Only finite observed behavior is claimed, not a proof of infinite execution.
+- [test_stmt_ext.sv](../tests/ch12/test_stmt_ext.sv): The forever body repeats to several explicitly observed exit thresholds; it does not finish after one implicit iteration. Only finite observed behavior is claimed, not a proof of infinite execution.
 
 ### SV2023-12.8-EXTRACT-BREAK-ENTIRE-FOREACH
 
-12.8 / normal / テスト未対応
+12.8 / normal / 実行確認あり
 
 break exits its loop; in multidimensional foreach it exits the entire construct rather than only the current dimension.
 
@@ -30312,6 +30895,7 @@ break exits its loop; in multidimensional foreach it exits the entire construct 
 
 規定の性質: `mandatory`。
 
+- [test_comb_foreach_3d_break.sv](../tests/ch12/test_comb_foreach_3d_break.sv): Three-dimensional break after the first two k values yields sum one; breaking just the inner dimension would accumulate later rows and planes. A 2D count and terminal indices also distinguish entire-construct exit.
 
 ### SV2023-12.8-EXTRACT-CONTINUE-FOREACH
 
@@ -30326,7 +30910,7 @@ A foreach continue advances past the body for the current complete set of loop v
 
 ### SV2023-12.8-EXTRACT-CONTINUE-STEP
 
-12.8 / normal / テスト未対応
+12.8 / normal / 実行確認あり
 
 continue skips the remaining current loop body and executes its loop control/step when present.
 
@@ -30334,10 +30918,21 @@ continue skips the remaining current loop body and executes its loop control/ste
 
 規定の性質: `mandatory`。
 
+- [test_continue_edge_cases.sv](../tests/ch12/test_continue_edge_cases.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_break_continue_4.sv](../tests/ch12/test_break_continue_4.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_break_continue_2.sv](../tests/ch12/test_break_continue_2.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_break_continue_3.sv](../tests/ch12/test_break_continue_3.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_break_cont.sv](../tests/ch12/test_break_cont.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_break_edge_cases.sv](../tests/ch12/test_break_edge_cases.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_for_loop_adv_edge_cases.sv](../tests/ch12/test_for_loop_adv_edge_cases.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_loop_control_forms.sv](../tests/ch12/test_loop_control_forms.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_control_flow_2.sv](../tests/ch12/test_control_flow_2.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_while_edge_cases.sv](../tests/ch12/test_while_edge_cases.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
+- [test_do_while_edge_cases.sv](../tests/ch12/test_do_while_edge_cases.sv): Checks skipped tail effects and subsequent loop progress: for cases require advancing the step despite continue, while/do-while cases skip remaining body effects before retesting. Full exact counts and any extra FAIL output are required.
 
 ### SV2023-12.8-EXTRACT-JUMP-GRAMMAR
 
-12.8 / normal / テスト未対応
+12.8 / normal / 実行確認あり
 
 Jump syntax is semicolon-terminated return with optional expression, break or continue.
 
@@ -30345,6 +30940,8 @@ Jump syntax is semicolon-terminated return with optional expression, break or co
 
 規定の性質: `definition`。
 
+- [test_return_stmt.sv](../tests/ch13/test_return_stmt.sv): Exercises semicolon-terminated return expression and bare task return; combined with the loop break/continue syntax witness.
+- [test_control_flow_2.sv](../tests/ch12/test_control_flow_2.sv): Exercises semicolon-terminated break and continue with checked loop effects; combined with both return syntax forms.
 
 ### SV2023-12.8-EXTRACT-LOOP-ONLY-BREAK-CONTINUE
 
@@ -30370,7 +30967,7 @@ A fork child cannot use break/continue to control a loop outside that fork block
 
 ### SV2023-12.8-EXTRACT-RETURN-FORMS
 
-12.8 / normal / テスト未対応
+12.8 / normal / 実行確認あり
 
 A value-returning function uses return expression, while a task/void function returns without a value under subroutine rules.
 
@@ -30378,6 +30975,8 @@ A value-returning function uses return expression, while a task/void function re
 
 規定の性質: `definition`。
 
+- [test_return_stmt.sv](../tests/ch13/test_return_stmt.sv): Value-returning functions terminate early with checked values. The task bare return leaves caller-observable result 100 unchanged, and its nonreturning control call changes result to 50. Requires a separate void-function return witness.
+- [test_stmt_return_2.sv](../tests/ch13/test_stmt_return_2.sv): Void function process returns before overwriting output zero for negative input and otherwise yields twenty; ordinary value-returning functions also exit before later returns. Requires the task witness in the same run.
 
 ### SV2023-12.8-EXTRACT-RETURN-SUBROUTINE-ONLY
 
@@ -30436,7 +31035,7 @@ Tasks and functions are collectively subroutines.
 
 ### SV2023-13.3-EXTRACT-ARRAY-FORMAL
 
-13.3 / normal / テスト未対応
+13.3 / normal / 実行確認あり
 
 A task formal may be an array under array argument rules.
 
@@ -30444,6 +31043,7 @@ A task formal may be an array under array argument rules.
 
 規定の性質: `permission`。
 
+- [test_task_args.sv](../tests/ch13/test_task_args.sv): A fixed-array input is copied into a task formal and every element contributes to the observed100 sum.
 
 ### SV2023-13.3-EXTRACT-DIRECTION-INHERITANCE
 
@@ -30480,7 +31080,7 @@ An omitted task formal type defaults to logic for the first argument or an expli
 
 ### SV2023-13.3-EXTRACT-INOUT-DIRECTION
 
-13.3 / normal / テスト未対応
+13.3 / normal / 実行確認あり
 
 An inout task argument copies in at call and out at return.
 
@@ -30488,10 +31088,11 @@ An inout task argument copies in at call and out at return.
 
 規定の性質: `mandatory`。
 
+- [test_sched_subroutine_copy_out.sv](../tests/ch4/test_sched_subroutine_copy_out.sv): bump captures actual y2 at call, computes local12, then suspends. A caller-side write100 at1 does not replace that local12; copy-out at2 restores12. This distinguishes immediate ref aliasing.
 
 ### SV2023-13.3-EXTRACT-INPUT-DIRECTION
 
-13.3 / normal / テスト未対応
+13.3 / normal / 実行確認あり
 
 An input task argument copies its value in at call.
 
@@ -30499,10 +31100,13 @@ An input task argument copies its value in at call.
 
 規定の性質: `mandatory`。
 
+- [test_task_args.sv](../tests/ch13/test_task_args.sv): Task input7 is used to compute the copied-out49; other calls use multiple input arithmetic values and a fixed input array.
+- [test_task_formal_direction_then_type.sv](../tests/ch13/test_task_formal_direction_then_type.sv): Body-declared input ports with separately redeclared scalar/vector types receive the passed1/42 values; a mixed task receives9 and returns18.
+- [test_task_basic_2.sv](../tests/ch13/test_task_basic_2.sv): Default-direction ANSI inputs receive15 and25 and compute40; separately explicit input value42 reaches its task body.
 
 ### SV2023-13.3-EXTRACT-OUTPUT-DIRECTION
 
-13.3 / normal / テスト未対応
+13.3 / normal / 実行確認あり
 
 An output task argument copies its final value out at return.
 
@@ -30510,6 +31114,7 @@ An output task argument copies its final value out at return.
 
 規定の性質: `mandatory`。
 
+- [test_sched_subroutine_copy_out.sv](../tests/ch4/test_sched_subroutine_copy_out.sv): produce writes formal5 before suspending, but actual x stays1 at time1; its final6 is copied out only when the task returns at2.
 
 ### SV2023-13.3-EXTRACT-OVERRIDE-METHOD-ONLY
 
@@ -30535,7 +31140,7 @@ A ref task argument refers to the actual variable under 13.5.2.
 
 ### SV2023-13.3-EXTRACT-TASK-CALL-RETURNS-AFTER-COMPLETION
 
-13.3 / normal / テスト未対応
+13.3 / normal / 実行確認あり
 
 A task enable transfers arguments/control and returns to the caller only after the enabled synchronous task chain completes; timing controls may separate call and return times.
 
@@ -30543,6 +31148,7 @@ A task enable transfers arguments/control and returns to the caller only after t
 
 規定の性質: `mandatory`。
 
+- [test_task_edge_cases.sv](../tests/ch13/test_task_edge_cases.sv): The caller records t0 immediately before the call and checks done1 plus time=t0+5 immediately after return. This observes synchronous completion of a timed task; no unbounded nesting claim is made.
 
 ### SV2023-13.3-EXTRACT-TASK-ENABLE-NAME
 
@@ -30557,7 +31163,7 @@ A task call is also termed a task enable.
 
 ### SV2023-13.3-EXTRACT-TASK-EXIT
 
-13.3 / normal / テスト未対応
+13.3 / normal / 実行確認あり
 
 A task returns at endtask or an earlier return statement.
 
@@ -30565,6 +31171,7 @@ A task returns at endtask or an earlier return statement.
 
 規定の性質: `mandatory`。
 
+- [test_task_disable_2.sv](../tests/ch9/test_task_disable_2.sv): A task returns early when accumulated sum first exceeds50, yielding55 instead of continuing to210. Other task calls return at endtask and their outputs are checked. This credits the return statements, not the ineffective disable scenarios documented separately.
 
 ### SV2023-13.3-EXTRACT-TASK-GRAMMAR
 
@@ -30612,7 +31219,7 @@ Task body statements execute sequentially; an empty task body is legal.
 
 ### SV2023-13.3-EXTRACT-TWO-ARGUMENT-DECLARATION-STYLES
 
-13.3 / normal / テスト未対応
+13.3 / normal / 実行確認あり
 
 Task formals may be declared in ANSI parentheses or separate body direction/type declarations.
 
@@ -30620,6 +31227,8 @@ Task formals may be declared in ANSI parentheses or separate body direction/type
 
 規定の性質: `permission`。
 
+- [test_task_args.sv](../tests/ch13/test_task_args.sv): ANSI form declares a typed input and output and produces49; grouped with separate body direction/type declarations.
+- [test_task_formal_direction_then_type.sv](../tests/ch13/test_task_formal_direction_then_type.sv): Body direction declarations followed by int/logic redeclarations preserve the signed output-7 and four-bit input9; grouped with ANSI task formals.
 
 ### SV2023-13.3.1-EXTRACT-CLASS-TASK-AUTOMATIC
 
@@ -30656,7 +31265,7 @@ Automatic task items cannot be hierarchically accessed, while the task may be ca
 
 ### SV2023-13.3.1-EXTRACT-TASK-AUTOMATIC-STORAGE
 
-13.3.1 / normal / テスト未対応
+13.3.1 / normal / 実行確認あり
 
 Automatic task formals/locals have per-invocation dynamically allocated storage, except explicitly static local overrides.
 
@@ -30664,6 +31273,7 @@ Automatic task formals/locals have per-invocation dynamically allocated storage,
 
 規定の性質: `mandatory`。
 
+- [test_static_task_shared_activation.sv](../tests/ch13/test_static_task_shared_activation.sv): Two overlapping explicit automatic activations preserve distinct formal values10/20 while waiting; the corresponding unqualified task shares20. This is a formal-storage concurrency witness.
 
 ### SV2023-13.3.1-EXTRACT-TASK-LOCAL-LIFETIME-OVERRIDE
 
@@ -30678,7 +31288,7 @@ A static task may declare automatic locals and an automatic task may declare sta
 
 ### SV2023-13.3.1-EXTRACT-TASK-STATIC-DEFAULT
 
-13.3.1 / normal / テスト未対応
+13.3.1 / normal / 実行確認あり
 
 Tasks in module/interface/program/package scopes default static; their default static items are shared by concurrent calls in that instance.
 
@@ -30686,6 +31296,7 @@ Tasks in module/interface/program/package scopes default static; their default s
 
 規定の性質: `mandatory`。
 
+- [test_static_task_shared_activation.sv](../tests/ch13/test_static_task_shared_activation.sv): Overlapping unqualified module task calls share input v: the second20 replaces the first10 while both wait. Explicit automatic calls retain separate10/20. The witness concerns module scope; it does not enumerate every enclosing design-element category.
 
 ### SV2023-13.3.2-AUTOMATIC-FRESH
 
@@ -30699,7 +31310,7 @@ An automatic task local is initialized for each activation.
 
 ### SV2023-13.3.2-EXTRACT-AUTOMATIC-TASK-INITIALIZATION
 
-13.3.2 / normal / テスト未対応
+13.3.2 / normal / 実行確認あり
 
 Automatic locals/output formals initialize on every entry; input/inout formals receive the supplied actual values.
 
@@ -30707,6 +31318,8 @@ Automatic locals/output formals initialize on every entry; input/inout formals r
 
 規定の性質: `mandatory`。
 
+- [test_task_output_formal_initial_value.sv](../tests/ch13/test_task_output_formal_initial_value.sv): Actuals start100: automatic output formals start0 and produce5, inout copies100 and produces105, while unqualified static output storage retains5 then10. Grouped with a local counter witness.
+- [test_task_static_and_automatic_retention.sv](../tests/ch13/test_task_static_and_automatic_retention.sv): Uninitialized int locals begin0: a static local counter retains state across calls1/2, an automatic local initializes fresh1/1. Grouped with output-formal and copy-in initialization observations.
 
 ### SV2023-13.3.2-EXTRACT-CONCURRENT-TASK-STORAGE
 
@@ -30765,7 +31378,7 @@ Automatic task variables cannot be traced by tasks such as $monitor/$dumpvars.
 
 ### SV2023-13.3.2-EXTRACT-STATIC-TASK-RETENTION
 
-13.3.2 / normal / テスト未対応
+13.3.2 / normal / 実行確認あり
 
 Static task variables/formals retain storage values between calls and receive type-default initial values under 6.8, subject to call input/inout copy-in.
 
@@ -30773,6 +31386,9 @@ Static task variables/formals retain storage values between calls and receive ty
 
 規定の性質: `mandatory`。
 
+- [test_task_output_formal_initial_value.sv](../tests/ch13/test_task_output_formal_initial_value.sv): Actuals start100: automatic output formals start0 and produce5, inout copies100 and produces105, while unqualified static output storage retains5 then10. Grouped with a local counter witness.
+- [test_task_static_and_automatic_retention.sv](../tests/ch13/test_task_static_and_automatic_retention.sv): Uninitialized int locals begin0: a static local counter retains state across calls1/2, an automatic local initializes fresh1/1. Grouped with output-formal and copy-in initialization observations.
+- [test_static_task_shared_activation.sv](../tests/ch13/test_static_task_shared_activation.sv): A default-static local counter advances1/2/3; this is an additional local-storage member, grouped with output-formal retention rather than treated as a standalone full-row witness.
 
 ### SV2023-13.3.2-STATIC-RETENTION
 
@@ -30962,7 +31578,7 @@ Using a call as an implicit variable always requires parentheses, even with no a
 
 ### SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-RESULT
 
-13.4.1 / normal / テスト未対応
+13.4.1 / normal / 実行確認あり
 
 A nonvoid function call can act as an implicit expression variable of its return type.
 
@@ -30970,6 +31586,19 @@ A nonvoid function call can act as an implicit expression variable of its return
 
 規定の性質: `mandatory`。
 
+- [test_func_return.sv](../tests/ch13/test_func_return.sv): Nested return values supply the outer argument and the resulting10 is compared, along with arithmetic and conditional calls.
+- [test_func_return_2.sv](../tests/ch13/test_func_return_2.sv): Observed int,16-bit unsigned,real,32-bit logic and string call results retain their declared representations. Uncalled shortint/byte/enum functions are not credited.
+- [test_function_return.sv](../tests/ch13/test_function_return.sv): A declared16-bit function call yieldsABCD and conditional int functions return-1/0/20; failure lines are excluded by the complete expected stdout.
+- [test_return_statement.sv](../tests/ch13/test_return_statement.sv): An int call supplies its returned first positive value5 to an expression; other checked return values include abs/clamp and multiplication.
+- [test_return_stmt_edge_cases.sv](../tests/ch13/test_return_stmt_edge_cases.sv): Two function results feed another call, giving7; additional int and8-bit return results are compared.
+- [test_function_early_return.sv](../tests/ch13/test_function_early_return.sv): String-valued calls are direct equality operands; int calls return values to conditions and nested algorithms, all guarded by nine comparisons.
+- [test_function_early_return_2.sv](../tests/ch13/test_function_early_return_2.sv): A function call supplies the first even4 as an equality operand; missing,classification and count results are also observed.
+- [test_function_calls.sv](../tests/ch13/test_function_calls.sv): Three call values are summed as expression operands and compared to21; other checks cover nested calls and a return with output argument.
+- [test_func_output.sv](../tests/ch13/test_func_output.sv): A nonvoid function returns6 as the assignment expression value while separately copying output10; further calls check negative and chained returned values.
+- [test_return_ops_edge_cases.sv](../tests/ch12/test_return_ops_edge_cases.sv): Nonvoid function calls supply checked integral expression values, including early, nested or arithmetic uses. This does not establish task/void return forms or illegal-return rejection.
+- [test_return_edge_cases.sv](../tests/ch12/test_return_edge_cases.sv): Nonvoid function calls supply checked integral expression values, including early, nested or arithmetic uses. This does not establish task/void return forms or illegal-return rejection.
+- [test_return_stmt_3.sv](../tests/ch12/test_return_stmt_3.sv): Nonvoid function calls supply checked integral expression values, including early, nested or arithmetic uses. This does not establish task/void return forms or illegal-return rejection.
+- [test_stmt_return.sv](../tests/ch13/test_stmt_return.sv): Value-returning add and early_return calls yield seven, minus one, zero and ten in caller expressions; unobserved local effects of the void call are not used as evidence.
 
 ### SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-INDEX-RANGE
 
@@ -31160,7 +31789,7 @@ A constant call depending directly/indirectly on a defparam-affected value has u
 
 ### SV2023-13.4.3-EXTRACT-IGNORE-SYSTEM-TASKS
 
-13.4.3 / normal / テスト未対応
+13.4.3 / normal / 実行確認あり
 
 During constant evaluation, system task calls are ignored except elaboration severity tasks.
 
@@ -31168,6 +31797,7 @@ During constant evaluation, system task calls are ignored except elaboration sev
 
 規定の性質: `mandatory`。
 
+- [test_constant_function_ignores_display.sv](../tests/ch13/test_constant_function_ignores_display.sv): Calls next at elaboration twice to produce LP1/P4 but their display effects must be absent; a later runtime call prints next10 and produces11. This observes ignoring an ordinary system task, not suppression of elaboration severity tasks.
 
 ### SV2023-13.4.3-EXTRACT-INPUT-ONLY
 
@@ -31281,7 +31911,7 @@ A function scheduling post-return work requires a side-effect-allowed context in
 
 ### SV2023-13.4.4-EXTRACT-BACKGROUND-TASK-STATEMENTS
 
-13.4.4 / normal / テスト未対応
+13.4.4 / normal / 実行確認あり
 
 A function fork-join_none child may contain any task-legal statements, including timing/task enables otherwise forbidden directly in the function body.
 
@@ -31289,6 +31919,7 @@ A function fork-join_none child may contain any task-legal statements, including
 
 規定の性質: `permission`。
 
+- [test_sched_fork_join_none_in_function.sv](../tests/ch4/test_sched_fork_join_none_in_function.sv): A function fork-join_none child executes a task-legal #1 delay and displays, while the enabling initial returns from the function at0 before the child starts.
 
 ### SV2023-13.4.4-EXTRACT-FUNCTION-NO-DELAY
 
@@ -31325,7 +31956,7 @@ Tasks/void functions call as procedural statements; nonvoid functions may be exp
 
 ### SV2023-13.5-EXTRACT-CALL-COPY-TIMING
 
-13.5 / normal / テスト未対応
+13.5 / normal / 実行確認あり
 
 Input/inout copy-in occurs on the call and output/inout copy-out on subroutine return.
 
@@ -31333,6 +31964,7 @@ Input/inout copy-in occurs on the call and output/inout copy-out on subroutine r
 
 規定の性質: `mandatory`。
 
+- [test_sched_subroutine_copy_out.sv](../tests/ch4/test_sched_subroutine_copy_out.sv): During delayed calls the output actual remains1 while ref z already becomes33. inout y copies2 at entry and12 at return despite an intervening actual100, covering both copy-in and deferred copy-out.
 
 ### SV2023-13.5-EXTRACT-CALL-PARENTHESES-RESTRICTIONS
 
@@ -31380,7 +32012,7 @@ Calls support task/function, system, method and std randomize forms, optional at
 
 ### SV2023-13.5.1-EXTRACT-DEFAULT-BY-VALUE
 
-13.5.1 / normal / テスト未対応
+13.5.1 / normal / 実行確認あり
 
 Argument passing defaults to value-copy; automatic subroutines use local stack copies and modifications remain local until any direction-specific copy-out.
 
@@ -31388,6 +32020,7 @@ Argument passing defaults to value-copy; automatic subroutines use local stack c
 
 規定の性質: `mandatory`。
 
+- [test_array_args_by_value_ref.sv](../tests/ch7/test_array_args_by_value_ref.sv): Unqualified automatic function inputs are copied: fixed-array formal x[0]=100 leaves caller fixed[0]=1. Further dynamic/queue/associative formal mutations leave original array values/size unchanged, all explicitly printed.
 
 ### SV2023-13.5.2-EXTRACT-ASSOCIATIVE-DELETE
 
@@ -31548,7 +32181,7 @@ A ref actual must have an equivalent type; casting is not permitted.
 
 ### SV2023-13.5.2-EXTRACT-REF-IMMEDIATE-VISIBILITY
 
-13.5.2 / normal / テスト未対応
+13.5.2 / normal / 実行確認あり
 
 Caller/callee ref accesses share storage and observe each other changes immediately, before subroutine return.
 
@@ -31556,10 +32189,11 @@ Caller/callee ref accesses share storage and observe each other changes immediat
 
 規定の性質: `mandatory`。
 
+- [test_sched_subroutine_copy_out.sv](../tests/ch4/test_sched_subroutine_copy_out.sv): bump_ref changes actual z3 to33 before a two-unit suspension. Another process sees33 at1 while the task is still active; output x remains1. A value-copy/inout implementation would still show z3.
 
 ### SV2023-13.5.2-EXTRACT-REF-NO-COPY
 
-13.5.2 / normal / テスト未対応
+13.5.2 / normal / 実行確認あり
 
 ref passes access to actual storage rather than a copied value.
 
@@ -31567,6 +32201,7 @@ ref passes access to actual storage rather than a copied value.
 
 規定の性質: `mandatory`。
 
+- [test_sched_subroutine_copy_out.sv](../tests/ch4/test_sched_subroutine_copy_out.sv): bump_ref changes actual z3 to33 before a two-unit suspension. Another process sees33 at1 while the task is still active; output x remains1. A value-copy/inout implementation would still show z3.
 
 ### SV2023-13.5.2-EXTRACT-REF-STATIC-ACTUALS
 
@@ -31592,7 +32227,7 @@ Default arguments are permitted only with ANSI formal declarations.
 
 ### SV2023-13.5.3-EXTRACT-DEFAULT-ARGUMENT-DECLARATION
 
-13.5.3 / normal / テスト未対応
+13.5.3 / normal / 実行確認あり
 
 A subroutine singular argument may specify an optional default expression in its ANSI declaration.
 
@@ -31600,10 +32235,24 @@ A subroutine singular argument may specify an optional default expression in its
 
 規定の性質: `permission`。
 
+- [test_default_args.sv](../tests/ch13/test_default_args.sv): Calls with omitted and supplied numeric/string singular formals compare15/25,6/12/8 and Hello, World.
+- [test_default_arg_edge_cases.sv](../tests/ch13/test_default_arg_edge_cases.sv): Checked calls exercise all defaults, partial/full overrides, zero and negative defaults.
+- [test_func_default.sv](../tests/ch13/test_func_default.sv): A parameter expression supplies16; other singular default formals and explicit overrides are observed. Uncalled weighted_sum/greet definitions are not evidence.
+- [test_default_value_expressions.sv](../tests/ch13/test_default_value_expressions.sv): Actual checks cover parameter/string/expression defaults, placeholders and named task output with an omitted default input.
+- [test_default_argument_declaring_scope.sv](../tests/ch13/test_default_argument_declaring_scope.sv): The optional singular argument obtains the current owner variable value8 then9, overriding caller a100.
+- [test_expr_func_call.sv](../tests/ch13/test_expr_func_call.sv): The default2 and explicit3 yield10 and15 for the same first actual5.
+- [test_function_call.sv](../tests/ch13/test_function_call.sv): A default10 and supplied20 yield15/25; internal comparisons check both outputs.
+- [test_function_call_2.sv](../tests/ch13/test_function_call_2.sv): Omitting both optional formals yields35 and overriding only b15 yields40; all mismatches increment fails.
+- [test_function_call_patterns.sv](../tests/ch13/test_function_call_patterns.sv): Default and explicit argument use are compared against15 and25 independently.
+- [test_function_args.sv](../tests/ch13/test_function_args.sv): The call with default must produce15 and an explicit override25; failures appear in the complete stdout oracle.
+- [test_func_args.sv](../tests/ch13/test_func_args.sv): Default10 and explicit20 calls are both checked against15 and25.
+- [test_function_corner.sv](../tests/ch13/test_function_corner.sv): The same input5 yields10 with default2 and15 with explicit3.
+- [test_task_recursion.sv](../tests/ch13/test_task_recursion.sv): sum_tail(10) omits acc, recursive calls explicitly pass accumulated values, and the final55 is checked.
+- [test_optional_parentheses_calls.sv](../tests/ch13/test_optional_parentheses_calls.sv): An argumentless spelling of a task with default5 adds5 to n2; an explicit2 then adds2 and default100 void function adds100.
 
 ### SV2023-13.5.3-EXTRACT-DEFAULT-DECLARATION-SCOPE
 
-13.5.3 / normal / テスト未対応
+13.5.3 / normal / 実行確認あり
 
 A used default expression evaluates in the subroutine declaration containing scope each call, not the caller scope.
 
@@ -31611,6 +32260,7 @@ A used default expression evaluates in the subroutine declaration containing sco
 
 規定の性質: `mandatory`。
 
+- [test_default_argument_declaring_scope.sv](../tests/ch13/test_default_argument_declaring_scope.sv): A caller variable a100 shadows the owner identifier. Class/modeled-module defaults read their owner7/8, explicit2 bypasses the default, and a later owner change9 is reevaluated on the next call.
 
 ### SV2023-13.5.3-EXTRACT-OMITTED-DEFAULT-INSERTED
 
@@ -31636,7 +32286,7 @@ If an actual is supplied, the corresponding default expression is not evaluated.
 
 ### SV2023-13.5.4-EXTRACT-NAMED-BINDING
 
-13.5.4 / normal / テスト未対応
+13.5.4 / normal / 実行確認あり
 
 Task/function actuals may bind by name, allowing defaulted arguments to be omitted without positional placeholders.
 
@@ -31644,6 +32294,8 @@ Task/function actuals may bind by name, allowing defaulted arguments to be omitt
 
 規定の性質: `permission`。
 
+- [test_function_corner.sv](../tests/ch13/test_function_corner.sv): Named b3 then a10 reverse declaration order; quotient3 excludes positional interpretation yielding0. Grouped with omission of a default argument in a named task call.
+- [test_default_value_expressions.sv](../tests/ch13/test_default_value_expressions.sv): A name binds the required output while skipping default input val100; the checked output is200. Grouped with a reversed-order function call.
 
 ### SV2023-13.5.4-EXTRACT-POSITIONAL-BEFORE-NAMED
 
@@ -31702,7 +32354,7 @@ DPI imported foreign subroutines are called like SV subroutines, and SV tasks/fu
 
 ### SV2023-13.7-EXTRACT-SUBROUTINE-FORWARD-LOOKUP
 
-13.7 / normal / テスト未対応
+13.7 / normal / 実行確認あり
 
 Task/function names use modified upward hierarchical resolution even as simple names, permitting forward declarations later in the same/enclosing scope under 23.8.1.
 
@@ -31710,10 +32362,12 @@ Task/function names use modified upward hierarchical resolution even as simple n
 
 規定の性質: `mandatory`。
 
+- [test_forward_function_in_enclosing_scope.sv](../tests/ch13/test_forward_function_in_enclosing_scope.sv): A named initial block calls a function textually declared later in the enclosing module scope and observes18.
+- [test_subroutine_forward_reference.sv](../tests/ch13/test_subroutine_forward_reference.sv): Forward function and task lookups in a named block resolve to the module; a child resolves its own later scale before using the enclosing later tenfold, with distinguishable10/15/50 results.
 
 ### SV2023-13.8-EXTRACT-PARAMETERIZED-STATIC-METHOD
 
-13.8 / normal / テスト未対応
+13.8 / normal / 実行確認あり
 
 Parameterized subroutines use static methods in parameterized classes; a virtual containing class may prevent object construction while retaining static method use.
 
@@ -31721,6 +32375,8 @@ Parameterized subroutines use static methods in parameterized classes; a virtual
 
 規定の性質: `definition`。
 
+- [test_parameterized_subroutines.sv](../tests/ch13/test_parameterized_subroutines.sv): Static methods in virtual parameterized classes use width8/32 and type int/byte/shortint specializations; outputs check parameter-dependent result widths, reversal, and modular signed arithmetic.
+- [test_parameterized_function_width_truncation.sv](../tests/ch13/test_parameterized_function_width_truncation.sv): Static method calls through width4/8 specializations of a virtual containing class produce0/16 from the same15 input, with no class object constructed.
 
 ### SV2023-14.2-EXTRACT-CLOCK-RELATIVE-OPERATIONS
 

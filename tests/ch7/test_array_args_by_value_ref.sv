@@ -3,7 +3,7 @@
 :description: Arrays passed by value are copied, also dynamic arrays, queues and associative arrays, while a ref argument is the caller's array (IEEE 1800-2023 Section 7.7)
 :tags: ch7
 :type: simulation
-:lrm: 1800-2023 7.7 7.9.10 13.5.2
+:lrm: 1800-2023 7.7 7.9.10 13.5.2 13.5.1
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

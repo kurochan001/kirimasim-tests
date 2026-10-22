@@ -5,7 +5,7 @@
 IEEE 1800-2023 の本文1–41章と附属書A–Q、1,740見出しを調査台帳に登録しています。
 **全1,740節の資料確認・要求抽出は完了しました。確定値の分母は未承認です。**
 [抽出結果](../docs/requirement-extraction.md)に確認範囲と残る解釈・分母整理を記録しています。
-初期登録の105件は規格全動作の分母ではありません。既存3,912本の全テストについて
+初期登録の105件は規格全動作の分母ではありません。現在3,938本の全テストについて
 動作との対応確認を終えたという意味でもありません。
 
 ## 計測の意味
@@ -75,6 +75,17 @@ IEEE 1800-2023 の本文1–41章と附属書A–Q、1,740見出しを調査台�
   `results/citation-refinement-*.json`は、引用メタデータを変更した7本の再実行です。
   全スイートの結果を部分実行で上書き・合成せず、別の実行回として保持します。
   更新前の入力ハッシュは古い証跡と判定し、複合証拠も同じ実行回の全成功だけを採用します。
+- `results/expression-gaps-20261023-*.json`: 式レビュー後に追加した11本の実行結果。
+  Icarus 13.0とVerilator 5.052のseed 1/73をそれぞれ別の実行回として保存します。
+  以前の全3,912本の結果を保持し、部分実行を全件実行と扱いません。
+- `results/associative-matching-20261023-*.json`: 連想配列の引用修正7本と集合メンバー等を含む40本の再実行。
+  Verilator 5.052は37 pass・3 known、Icarus 13.0は40 knownです。knownは実行成功へ含めません。
+  [照合結果](../docs/existing-test-matching-associative-arrays-20261023.md)に、対応範囲と集合証拠の不足を記録しています。
+- `results/associative-gaps-20261023-*.json`: 連想配列レビュー後に追加した15本の実行結果。
+  その後変更したwildcard/count各1本は、`associative-wildcard-refinement-20261023-*.json`と
+  `associative-count-refinement-20261023-*.json`へ別実行として保存しました。
+  現在の入力ではVerilator 5.052のseed 1/73とも8 pass・7 known、Icarus 13.0は15 knownです。
+  [追加内容と残件](../docs/associative-gap-tests-20261023.md)を参照してください。
 - `behavior-summary.json`: 現在の暫定値・確定値、章別の割合、分母SHA-256、
   シミュレータごとの失敗・既知不一致・未対応・未実行・古い証跡などの内訳。
   `--update`で概要Markdownとともに再生成し、`--check`で両方の鮮度を検査します。

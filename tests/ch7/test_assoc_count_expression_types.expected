@@ -1,0 +1,4 @@
+types=int,int bits=32,32
+empty=0,0
+present=3,3
+cleared=0,0

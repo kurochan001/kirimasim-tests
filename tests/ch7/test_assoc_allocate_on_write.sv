@@ -3,7 +3,7 @@
 :description: A nonexistent associative array element is allocated when it is assigned or passed by reference, and an increment or member write first allocates it with its default or initial value (IEEE 1800-2023 Section 7.8.7)
 :tags: ch7
 :type: simulation
-:lrm: 1800-2023 7.8.7 7.9.11 7.9.1 13.5.2
+:lrm: 1800-2023 7.8.7 7.9.11 7.9.1 13.5.2 7.8
 :oracle: spec
 :spec_check: ai
 :fourstate: no

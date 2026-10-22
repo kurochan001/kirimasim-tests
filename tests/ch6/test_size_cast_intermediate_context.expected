@@ -1,0 +1,4 @@
+sums=0100 0000 0100
+resize=000f 00ff ffff
+widths=4 12 signedness=1 0
+shape=1 0 bounds=11:0

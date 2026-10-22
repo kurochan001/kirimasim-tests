@@ -3,7 +3,7 @@
 :description: Test for IEEE 1800-2023 §7.8: Associative array methods
 :tags: ch7
 :type: simulation
-:lrm: 1800-2023 7.8 7.9
+:lrm: 1800-2023 7.8 7.9 7.9.1 7.9.2 7.9.3 7.9.4 7.9.5 7.9.6 7.9.7
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

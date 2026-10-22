@@ -1,0 +1,30 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch13/test_static_task_shared_activation": {
+   "status": "pass",
+   "inputs_sha256": "d83dc85c96348c10285599a1a5cf02642b878337e403c0711bb10fa88919636d"
+  },
+  "ch13/test_task_output_formal_initial_value": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'static output, first call: 5, second call: 5', expected 'static output, first call: 5, second call: 10'",
+   "inputs_sha256": "04138950259543c10e8e1d2aa48229deac434d99638a2f5c4795d96eef04a423"
+  },
+  "ch4/test_sched_subroutine_copy_out": {
+   "status": "pass",
+   "inputs_sha256": "946b9b1c0e17e731b9d4022a72669a962866934695e72ff3efddfadf6f553b46"
+  },
+  "ch7/test_array_args_by_value_ref": {
+   "status": "pass",
+   "inputs_sha256": "7e8912447c5a0bf2208b47117c4b71b58326dead3dbc9f28fc836b909ca7585b"
+  }
+ },
+ "generated_at": "2026-10-22T16:11:54.837539+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

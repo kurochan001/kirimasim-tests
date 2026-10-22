@@ -3,7 +3,7 @@
 :description: Next and prev report truncation when a discovered key does not fit their narrow output index (IEEE 1800-2023 Section 7.9.8)
 :tags: ch7
 :type: simulation
-:lrm: 1800-2023 7.9.8
+:lrm: 1800-2023 7.9.8 7.9.6 7.9.7
 :oracle: spec
 :spec_check: ai
 :fourstate: no

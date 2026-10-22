@@ -1,0 +1,17 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch7/test_assoc_count_expression_types": {
+   "status": "pass",
+   "inputs_sha256": "8bfaf5eca7bc1da9ef1ed5b99ee66706c7e69140ce6d02dc399c35cfce9ad591"
+  }
+ },
+ "generated_at": "2026-10-22T22:04:02.952792+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

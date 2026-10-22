@@ -1,0 +1,9 @@
+logical=1 grouped=0
+unary=7 grouped=-13
+compare=0 grouped=1
+additive=8 grouped=6
+multiplicative=6 grouped=8
+conditional=0 grouped=3
+implication=1 grouped=0
+mixed=1 grouped=0
+conditional_before_implies=1 grouped=0

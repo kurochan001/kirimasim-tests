@@ -1,0 +1,4 @@
+bits=4 4 4 4 4
+values=8 0 8 0 4
+wide_count=0 0
+signed_count=00008000 negative_exponent=00000000 unsigned_shift=00010000

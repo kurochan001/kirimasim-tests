@@ -1,0 +1,211 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch5/test_builtin_method_optional_parens": {
+   "status": "known",
+   "reason": "compile failed: tests/ch5/test_builtin_method_optional_parens.sv:24: error: Type names are not valid expressions here.",
+   "inputs_sha256": "47a4900ddad8742979c0e67a6bd0e78ba916f4a35aa9a03642d7df64faefe282"
+  },
+  "ch6/test_edge_assoc_array_keys": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_edge_assoc_array_keys.sv:18: error: Type names are not valid expressions here.",
+   "inputs_sha256": "21ce8377953a16fa6560e36e8a975b674b5a51e641e591523b12d69bb274001f"
+  },
+  "ch7/test_2d_assoc_methods": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_2d_assoc_methods.sv:17: error: Type names are not valid expressions here.",
+   "inputs_sha256": "f6a39f22a2bd197dca9e83f37bf2bc965dfe17002a259d71fdae39fb316d902f"
+  },
+  "ch7/test_assoc_allocate_on_write": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_allocate_on_write.sv:23: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "52c8f6ca6e2febe9d3737a44fc10870ebf37f15f3c90c5bde981acd5c21d626e"
+  },
+  "ch7/test_assoc_allocate_on_write_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_allocate_on_write_types.sv:27: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "0af9509286de0cbe0da640da516533155b91fce2455191518e6a621c911f5c01"
+  },
+  "ch7/test_assoc_array": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array.sv:15: error: Type names are not valid expressions here.",
+   "inputs_sha256": "2ebb9dd9a41834e1d33dbd4b390ab6dc41946b7296ebd2116205886a37d05af8"
+  },
+  "ch7/test_assoc_array_2": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_2.sv:15: error: Type names are not valid expressions here.",
+   "inputs_sha256": "6cd907f8e02f4ac165cc10bb043581353777a2df92bc526c0c26ceaaa1523aa8"
+  },
+  "ch7/test_assoc_array_assign": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_assign.sv:25: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "6c843e68d6f6e7c0d2775c9b3be68ac267c4837be3049563d8f1cd739aa2e336"
+  },
+  "ch7/test_assoc_array_edge": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_edge.sv:19: syntax error",
+   "inputs_sha256": "1c7756f24714b5308ae6efd1968d7bd1911c900f60c9cfdce37ca41e962c68cd"
+  },
+  "ch7/test_assoc_array_edge_2": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_edge_2.sv:20: syntax error",
+   "inputs_sha256": "02fd2a4c6fcf554b1e5e097918843a2eaf21a6d3302cc1bd27ca4674fd90abee"
+  },
+  "ch7/test_assoc_array_edge_cases": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_edge_cases.sv:22: syntax error",
+   "inputs_sha256": "ddd0c25fb88afccb9e7a41430a40e1c1587b300f95d93b09331374d66110738b"
+  },
+  "ch7/test_assoc_array_edge_cases_3": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_edge_cases_3.sv:27: syntax error",
+   "inputs_sha256": "7461c69bee755a8dbccca31f9831f8fe06f748a48efa29ea41a71e6b6bb9f71b"
+  },
+  "ch7/test_assoc_array_extended": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_extended.sv:16: error: Type names are not valid expressions here.",
+   "inputs_sha256": "9214f7607d12518457cfd64f91596f9442d500e82941ca97057dfcdc3754aab5"
+  },
+  "ch7/test_assoc_array_iter_minimal": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_iter_minimal.sv:17: error: Type names are not valid expressions here.",
+   "inputs_sha256": "23780557bf947ce701204f1b84a28abc6db004867c704c77592a3715a63d30db"
+  },
+  "ch7/test_assoc_array_iterate": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_iterate.sv:23: syntax error",
+   "inputs_sha256": "8e479885c304a6b4f61075f45b0a8714cad6cc630a26925da3fde0e01a7c5a60"
+  },
+  "ch7/test_assoc_array_literal_default": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_literal_default.sv:25: syntax error",
+   "inputs_sha256": "01754929af7d7cba5d0139b26d9a5686be3bcbfe959c4d7dc5f882f5e1f7608b"
+  },
+  "ch7/test_assoc_array_methods": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_methods.sv:16: error: Type names are not valid expressions here.",
+   "inputs_sha256": "6c1aa61f34573d09082b00c6bae3093a4b0ee63c62cd87c3a36da4586d2f4356"
+  },
+  "ch7/test_assoc_array_ops": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_array_ops.sv:19: error: Type names are not valid expressions here.",
+   "inputs_sha256": "3c2c1f300ff3de7ce90e921ca4d2f78dc0c52a10648f6946472c31c9530ae4d6"
+  },
+  "ch7/test_assoc_assignment_clears_and_detaches": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_assignment_clears_and_detaches.sv:19: error: Type names are not valid expressions here.",
+   "inputs_sha256": "bf811afae5011d0b5b301ab6b8c4da7bd0b738035f28ed83b0bdad7bfb79e84b"
+  },
+  "ch7/test_assoc_basic": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_basic.sv:18: error: Type names are not valid expressions here.",
+   "inputs_sha256": "bb4a831428420c3039345a814c1739f5c1b22c54adc0c93d1a72b458cc1ba32c"
+  },
+  "ch7/test_assoc_class_null_and_alias_keys": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_class_null_and_alias_keys.sv:21: error: Type names are not valid expressions here.",
+   "inputs_sha256": "6c18a7886b40b6f7309eb5671316bf151860cdab462a59c8c9d856e5947b1fc6"
+  },
+  "ch7/test_assoc_delete": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_delete.sv:16: error: Type names are not valid expressions here.",
+   "inputs_sha256": "7719075e79d8679e4a42e80c4c6d6603c230e50ef7f3fd6d59e39edc7a7c9ae2"
+  },
+  "ch7/test_assoc_delete_2": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_delete_2.sv:15: error: Type names are not valid expressions here.",
+   "inputs_sha256": "15ee4aef4e04e7f6b06506dcf3335be50fea7086584e85fb399737ccb9bf599a"
+  },
+  "ch7/test_assoc_first": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_first.sv:16: error: Type names are not valid expressions here.",
+   "inputs_sha256": "521c2f1c0369fdb8c111b1728c3121e62c6978d2b08481c8f77f46520c5f5021"
+  },
+  "ch7/test_assoc_first_2": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_first_2.sv:15: error: Type names are not valid expressions here.",
+   "inputs_sha256": "9aa36165415e1b5cb422d28ccb7ab3732fd99a2407c1c62c62e61724205ed374"
+  },
+  "ch7/test_assoc_int_key": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_int_key.sv:16: error: Type names are not valid expressions here.",
+   "inputs_sha256": "e9c43c2cc95ff031e92254d4c95418caa0672e0cd9a14ebc7ed277e9b91c71a8"
+  },
+  "ch7/test_assoc_key": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_key.sv:19: error: Type names are not valid expressions here.",
+   "inputs_sha256": "b05356ec5a6b3748ca55c69b538c36465162eaedacb5c0d91de24dd8059a2730"
+  },
+  "ch7/test_assoc_last": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_last.sv:16: error: Type names are not valid expressions here.",
+   "inputs_sha256": "c385e22bb07a8509c0a395374917ee08cdcd6383af710d1d77d9b50489cd8698"
+  },
+  "ch7/test_assoc_last_2": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_last_2.sv:15: error: Type names are not valid expressions here.",
+   "inputs_sha256": "b48c2998c6d7f04f93ecc8c31b8ca402e8e77b90ef79affa9947ad791a29382b"
+  },
+  "ch7/test_assoc_narrow_prev_next_overflow": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_narrow_prev_next_overflow.sv:19: error: Type names are not valid expressions here.",
+   "inputs_sha256": "a86736251a25475abee609af0b443d7d070fbeb506db519251a45eda2a94df74"
+  },
+  "ch7/test_assoc_next": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_next.sv:16: error: Type names are not valid expressions here.",
+   "inputs_sha256": "ce3bf621f93824431f24fd20ddbebccf0f4493da9dfb05a35d8c2489926fb1da"
+  },
+  "ch7/test_assoc_next_2": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_next_2.sv:15: error: Type names are not valid expressions here.",
+   "inputs_sha256": "3d140ae63c41bc8c8e355eae02eaea2e1ed36bf158844394388d4a4b637f6fbe"
+  },
+  "ch7/test_assoc_num": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_num.sv:15: error: Type names are not valid expressions here.",
+   "inputs_sha256": "4cab5b9cf1a281244c018931665508df13d6d20423366ebab3807b846b3f13d0"
+  },
+  "ch7/test_assoc_prev": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_prev.sv:16: error: Type names are not valid expressions here.",
+   "inputs_sha256": "44916320a3081704f8a06485c7fc40001ac2706aba0e7c266cf0a1cc60e468cb"
+  },
+  "ch7/test_assoc_string_empty_and_reverse_order": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_string_empty_and_reverse_order.sv:20: syntax error",
+   "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0"
+  },
+  "ch7/test_assoc_traversal_narrow_index": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_traversal_narrow_index.sv:23: error: Type names are not valid expressions here.",
+   "inputs_sha256": "eae42ec98334add682e74f567cb3c5125eed0af4d5fb5c724767fdadca10144b"
+  },
+  "ch7/test_associative_array_corner": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_associative_array_corner.sv:220: syntax error",
+   "inputs_sha256": "7dfbf5f204ff9a930df348088e0936337c08784960a387bc59761b7d82cf9094"
+  },
+  "ch7/test_edge_queue_assoc": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_edge_queue_assoc.sv:15: error: Type names are not valid expressions here.",
+   "inputs_sha256": "8e0bd9cdfdc96d0d28d1a30393d6da0d852d716db6bf9113aded11e5361060ea"
+  },
+  "ch7/test_sv_assoc_array": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_sv_assoc_array.sv:19: error: Type names are not valid expressions here.",
+   "inputs_sha256": "fd27ae3cf497117c11e51ea46ed860564e754f15bf58a99d30a33e2f3feddc10"
+  },
+  "ch7/test_value_assoc": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_value_assoc.sv:19: error: Type names are not valid expressions here.",
+   "inputs_sha256": "c930fc6f40b61085c11ca0305f1ea7852e7e87419f6580346e0289da4070dc3d"
+  }
+ },
+ "generated_at": "2026-10-22T21:44:20.971033+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

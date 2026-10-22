@@ -1,0 +1,8 @@
+types: int int int int int int int
+bits: 32 32 32 32 32 32 32
+empty: num=0 size=0 exists=0
+present: num=3 size=3 exists=1 missing=0
+first=1,10
+last=1,30
+next=1,20
+prev=1,20

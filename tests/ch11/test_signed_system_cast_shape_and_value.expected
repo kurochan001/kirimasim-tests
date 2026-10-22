@@ -1,0 +1,8 @@
+bits=8 8 wide_bits=65 65
+dimensions=1 1 unpacked=0 0
+bounds=7:0 7:0
+packed_values=1f2 1f2
+wide_values=10000000000000001 10000000000000001
+interpretation=1 1
+extension=fff9 00f9
+evaluated_input_bits=4 value=0

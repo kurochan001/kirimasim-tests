@@ -1,0 +1,58 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch11/test_comparison_operand_context_width": {
+   "status": "pass",
+   "inputs_sha256": "53721e0f2588e500c5e28914ac76fb51425f070640d430ab9e703a3141e1e26b"
+  },
+  "ch11/test_concat_replication_conditional_widths": {
+   "status": "pass",
+   "inputs_sha256": "c1fbd51d83c6f65ce48972df8d9f767837e45ab124fa2871330c2323741f4f59"
+  },
+  "ch11/test_logical_reduction_expression_widths": {
+   "status": "pass",
+   "inputs_sha256": "c98b3f3e7b4902e00da65edf48877d927c6d5f56be0196a6f8fcada70e9aa7e1"
+  },
+  "ch11/test_precedence_distinguishing_values": {
+   "status": "pass",
+   "inputs_sha256": "7a59db6442153dc45643a163fa730af2cbd92a019a4d46e20854bc921439585e"
+  },
+  "ch11/test_real_boolean_results_without_shortreal": {
+   "status": "pass",
+   "inputs_sha256": "74915543805ffdbc533ef24e584c7ac0cd7cb66dcd5ee599e08e2ad49dc1418c"
+  },
+  "ch11/test_self_determined_operator_widths": {
+   "status": "pass",
+   "inputs_sha256": "8a3cbd9ff214508e5b2830c280521c6375d7aa2f18b84ac7cfee9e96dc1e29f8"
+  },
+  "ch11/test_shift_power_self_determined_count": {
+   "status": "pass",
+   "inputs_sha256": "0b0b43c66899d2a38a5c64b801c274d6d2671dd344435fe8e5ef41af601fc6b4"
+  },
+  "ch11/test_short_circuit_suppresses_fatal_operand": {
+   "status": "pass",
+   "inputs_sha256": "19d824a974d532daac20cba6220f61043d189113381e6f39b545f3a7062cfb79"
+  },
+  "ch11/test_shortreal_result_and_condition_types": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'arithmetic_bits=64 64 real_mix=64', expected 'arithmetic_bits=32 32 real_mix=64'",
+   "inputs_sha256": "97028d074ceb2a440679dd5f39c44fe16630de7f0fa02f29b3a996f0fe1281ae"
+  },
+  "ch11/test_signed_system_cast_shape_and_value": {
+   "status": "pass",
+   "inputs_sha256": "c54ddd445c8bee795b6ef1b4556f4f0c68bdf73892b7e5d625589512811d2bf4"
+  },
+  "ch6/test_size_cast_intermediate_context": {
+   "status": "pass",
+   "inputs_sha256": "7de26aef35f6240e19c08d7f37fe3bd503d3816a413b035d42beea4c45733f01"
+  }
+ },
+ "generated_at": "2026-10-22T16:53:54.690416+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

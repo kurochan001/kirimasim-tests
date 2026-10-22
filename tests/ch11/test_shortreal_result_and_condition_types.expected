@@ -1,0 +1,3 @@
+arithmetic_bits=32 32 real_mix=64
+conditional_bits=32 32 control_only=4
+values=3.50 3.00 1.75 control=2

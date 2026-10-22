@@ -3,7 +3,7 @@
 :description: Output and inout arguments are copied out when a task returns, while a ref argument is written at once (IEEE 1800-2023 Section 4.9.7)
 :tags: ch4
 :type: simulation
-:lrm: 1800-2023 4.9.7 13.3 13.5.1 13.5.2
+:lrm: 1800-2023 4.9.7 13.3 13.5.1 13.5.2 13.5
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

@@ -1,0 +1,5 @@
+logical_bits=1 1 1 1
+logical_values=1 1 0 1
+reduction_bits=1 1 1 1 1 1 1 1
+reduction_values=0 1 1 0 1 0 0 0
+unsigned_results=0001 0001

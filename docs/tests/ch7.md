@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 319 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 334 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -138,19 +138,19 @@
 | [`test_array_assign_2`](../../tests/ch7/test_array_assign_2.sv) | Test array assignments | 7.6 7.5 10.9.1 | Verilator 5.052 |  |
 | [`test_array_copy`](../../tests/ch7/test_array_copy.sv) | Array Copy Tests | 7.6 7.4 | Verilator 5.052 |  |
 | [`test_assign_array`](../../tests/ch7/test_assign_array.sv) | Array assignments | 7.6 10.4.1 | Verilator 5.052 |  |
-| [`test_array_args_by_value_ref`](../../tests/ch7/test_array_args_by_value_ref.sv) | Arrays passed by value are copied, also dynamic arrays, queues and associative arrays, while a ref argument is the caller's array | 7.7 7.9.10 13.5.2 | Verilator 5.052 |  |
+| [`test_array_args_by_value_ref`](../../tests/ch7/test_array_args_by_value_ref.sv) | Arrays passed by value are copied, also dynamic arrays, queues and associative arrays, while a ref argument is the caller's array | 7.7 7.9.10 13.5.2 13.5.1 | Verilator 5.052 |  |
 | [`test_2d_assoc_methods`](../../tests/ch7/test_2d_assoc_methods.sv) | Test: 2D associative array methods (.exists, .first, .next, .delete) | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array`](../../tests/ch7/test_assoc_array.sv) | Associative arrays | 7.8 7.9.1 7.9.2 7.9.3 | Verilator 5.052 |  |
 | [`test_assoc_array_2`](../../tests/ch7/test_assoc_array_2.sv) | Associative array with string and int keys: lookup, size, exists, delete | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array_assign`](../../tests/ch7/test_assoc_array_assign.sv) | Test: Associative array assignment | 7.8 7.8.1 7.8.2 | Verilator 5.052 |  |
-| [`test_assoc_array_edge`](../../tests/ch7/test_assoc_array_edge.sv) | Associative array edge cases | 7.8 7.9 | Verilator 5.052 |  |
+| [`test_assoc_array_edge`](../../tests/ch7/test_assoc_array_edge.sv) | Associative array edge cases | 7.8 7.9 7.9.1 | Verilator 5.052 |  |
 | [`test_assoc_array_edge_2`](../../tests/ch7/test_assoc_array_edge_2.sv) | Test: Associative array edge cases | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array_edge_cases`](../../tests/ch7/test_assoc_array_edge_cases.sv) | Associative array edge cases | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array_edge_cases_2`](../../tests/ch7/test_assoc_array_edge_cases_2.sv) | Test: Associative array edge cases | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array_edge_cases_3`](../../tests/ch7/test_assoc_array_edge_cases_3.sv) | Test: Associative array edge cases | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array_extended`](../../tests/ch7/test_assoc_array_extended.sv) | Test associative arrays | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array_iterate`](../../tests/ch7/test_assoc_array_iterate.sv) | Test for associative array iteration | 7.8 7.9 7.9.4 7.9.5 | Verilator 5.052 |  |
-| [`test_assoc_array_methods`](../../tests/ch7/test_assoc_array_methods.sv) | Test for IEEE 1800-2023 §7.8: Associative array methods | 7.8 7.9 | Verilator 5.052 |  |
+| [`test_assoc_array_methods`](../../tests/ch7/test_assoc_array_methods.sv) | Test for IEEE 1800-2023 §7.8: Associative array methods | 7.8 7.9 7.9.1 7.9.2 7.9.3 7.9.4 7.9.5 7.9.6 7.9.7 | Verilator 5.052 |  |
 | [`test_assoc_array_ops`](../../tests/ch7/test_assoc_array_ops.sv) | Associative Array Operations Tests | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_assoc_basic`](../../tests/ch7/test_assoc_basic.sv) | Associative Array Basic Tests | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_assoc_int_key`](../../tests/ch7/test_assoc_int_key.sv) | Test associative array with int key | 7.8 7.9 | Verilator 5.052 |  |
@@ -160,19 +160,32 @@
 | [`test_associative_array_corner`](../../tests/ch7/test_associative_array_corner.sv) | Tests associative array operations with various index types | 7.8 7.9 7.8.1 7.8.3 | Verilator 5.052 |  |
 | [`test_sv_assoc_array`](../../tests/ch7/test_sv_assoc_array.sv) | Test: Associative array: int map[string], exists(), first(), next(), delete(), num() | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_value_assoc`](../../tests/ch7/test_value_assoc.sv) | Test for associative array value operations | 7.8 7.9 | Verilator 5.052 |  |
+| [`test_assoc_wildcard_string_literal_bits`](../../tests/ch7/test_assoc_wildcard_string_literal_bits.sv) | String literal wildcard keys alias equally wide packed integral values | 7.8.1 | Verilator 5.052 | exit code |
+| [`test_assoc_wildcard_width_and_sign_aliases`](../../tests/ch7/test_assoc_wildcard_width_and_sign_aliases.sv) | Wildcard keys normalize leading zeros and preserve arbitrary-width unsigned values | 7.8.1 7.8 | Verilator 5.052 | exit code |
 | [`test_assoc_string_empty_and_reverse_order`](../../tests/ch7/test_assoc_string_empty_and_reverse_order.sv) | String associative keys include the empty string and prev follows reverse lexical order | 7.8.2 7.9.7 7.9.11 | Verilator 5.052 |  |
+| [`test_assoc_class_key_order_is_stable`](../../tests/ch7/test_assoc_class_key_order_is_stable.sv) | Class key traversal repeats for a fixed set without prescribing address order | 7.8.3 | Verilator 5.052 | exit code |
 | [`test_assoc_class_null_and_alias_keys`](../../tests/ch7/test_assoc_class_null_and_alias_keys.sv) | A class indexed associative array accepts null and aliases identify the same object key | 7.8.3 | Verilator 5.052 |  |
+| [`test_assoc_integral_index_cast_context`](../../tests/ch7/test_assoc_integral_index_cast_context.sv) | Typed indices apply cast width and sign context before arithmetic truncation | 7.8.4 | standard only | exit code |
+| [`test_assoc_signed_and_unsigned_key_order`](../../tests/ch7/test_assoc_signed_and_unsigned_key_order.sv) | Equal high-bit key patterns have different signed and unsigned traversal orders | 7.8.4 | standard only | exit code |
 | [`test_assoc_signed_boundary_order`](../../tests/ch7/test_assoc_signed_boundary_order.sv) | Signed integral associative keys iterate in signed numerical order across zero | 7.8.4 | standard only |  |
 | [`test_associative_array_edge_cases`](../../tests/ch7/test_associative_array_edge_cases.sv) | Associative array edge cases | 7.8.4 7.9 | Verilator 5.052 |  |
+| [`test_assoc_composite_empty_null_key_order`](../../tests/ch7/test_assoc_composite_empty_null_key_order.sv) | Empty strings and null handles in composite keys are valid with stable order | 7.8.5 | Verilator 5.052 | exit code |
 | [`test_assoc_foreach_struct_key`](../../tests/ch7/test_assoc_foreach_struct_key.sv) | Test associative array foreach with struct keys | 7.8.5 12.7.3 | Verilator 5.052 |  |
 | [`test_illegal_assoc_real_member_key`](../../tests/ch7/test_illegal_assoc_real_member_key.sv) | An associative index type cannot contain a real member | 7.8.5 | standard only | illegal design |
 | [`test_assoc_array_unknown_index`](../../tests/ch7/test_assoc_array_unknown_index.sv) | An index with x or z bits is invalid for an associative array: a read gives the element type's default and a write does nothing | 7.8.6 7.4.5 | standard only | x/z |
+| [`test_assoc_default_and_delete_silent`](../../tests/ch7/test_assoc_default_and_delete_silent.sv) | Defaults and deleting missing keys produce no warning and no new entries | 7.8.6 7.9.11 7.9.2 | Verilator 5.052 | exit code |
+| [`test_assoc_invalid_write_reports_diagnostic`](../../tests/ch7/test_assoc_invalid_write_reports_diagnostic.sv) | An invalid four-state key write is ignored with a warning | 7.8.6 7.8.4 | standard only | exit code, x/z |
+| [`test_assoc_missing_read_reports_diagnostic`](../../tests/ch7/test_assoc_missing_read_reports_diagnostic.sv) | A missing read returns the four-state default with a warning and no allocation | 7.8.6 7.4.5 7.9.11 | standard only | exit code, x/z |
 | [`test_assoc_unknown_write_does_not_allocate`](../../tests/ch7/test_assoc_unknown_write_does_not_allocate.sv) | Writing through an unknown associative key neither creates an element nor corrupts a known entry | 7.8.6 7.8.4 | standard only | x/z |
-| [`test_assoc_allocate_on_write`](../../tests/ch7/test_assoc_allocate_on_write.sv) | A nonexistent associative array element is allocated when it is assigned or passed by reference, and an increment or member write first allocates it with its default or initial value | 7.8.7 7.9.11 7.9.1 13.5.2 | standard only |  |
+| [`test_assoc_allocate_on_write`](../../tests/ch7/test_assoc_allocate_on_write.sv) | A nonexistent associative array element is allocated when it is assigned or passed by reference, and an increment or member write first allocates it with its default or initial value | 7.8.7 7.9.11 7.9.1 13.5.2 7.8 | standard only |  |
 | [`test_assoc_allocate_on_write_types`](../../tests/ch7/test_assoc_allocate_on_write_types.sv) | A write to a nonexistent associative array element allocates it first, with the default or initial value of the element type or with a nested array, for an increment, a member write, a string concatenation and a ref argument | 7.8.7 7.9.1 13.5.2 | Verilator 5.052 |  |
+| [`test_assoc_read_modify_defaults_without_ref`](../../tests/ch7/test_assoc_read_modify_defaults_without_ref.sv) | Read-modify-write uses user and type defaults without ref support | 7.8.7 | Verilator 5.052 | exit code |
+| [`test_assoc_ref_allocates_before_callee_write`](../../tests/ch7/test_assoc_ref_allocates_before_callee_write.sv) | A missing ref actual is allocated before a callee that never writes | 7.8.7 7.8 13.5.2 | standard only | exit code |
 | [`test_assoc_array_methods_basic`](../../tests/ch7/test_assoc_array_methods_basic.sv) | Associative array methods: exists/first/next/delete | 7.9 | Verilator 5.052 |  |
 | [`test_assoc_array_ops_2`](../../tests/ch7/test_assoc_array_ops_2.sv) | Test: Associative array exists, first, last, next, prev, delete operations | 7.9 7.9.3 7.9.4 7.9.5 7.9.6 | Verilator 5.052 |  |
 | [`test_assoc_method_edge_cases`](../../tests/ch7/test_assoc_method_edge_cases.sv) | Associative array method edge cases | 7.9 | Verilator 5.052 |  |
+| [`test_assoc_count_expression_types`](../../tests/ch7/test_assoc_count_expression_types.sv) | Count method types are checked independently of traversal method support | 7.9.1 20.6.1 20.6.2 | Verilator 5.052 | exit code |
+| [`test_assoc_method_expression_types`](../../tests/ch7/test_assoc_method_expression_types.sv) | Associative method expression types are int and statuses are exact integers | 7.9.1 7.9.3 7.9.4 7.9.5 7.9.6 7.9.7 20.6.1 20.6.2 | standard only | exit code |
 | [`test_assoc_num`](../../tests/ch7/test_assoc_num.sv) | Test: Associative array num method | 7.9.1 | Verilator 5.052 |  |
 | [`test_assoc_delete`](../../tests/ch7/test_assoc_delete.sv) | Test associative array delete | 7.9.2 | Verilator 5.052 |  |
 | [`test_assoc_delete_2`](../../tests/ch7/test_assoc_delete_2.sv) | Test: Associative array delete method | 7.9.2 | Verilator 5.052 |  |
@@ -182,16 +195,18 @@
 | [`test_exists_method_2`](../../tests/ch7/test_exists_method_2.sv) | Test for exists() method implementation | 7.9.3 7.8.1 | Verilator 5.052 |  |
 | [`test_assoc_first`](../../tests/ch7/test_assoc_first.sv) | Test associative array first | 7.9.4 | Verilator 5.052 |  |
 | [`test_assoc_first_2`](../../tests/ch7/test_assoc_first_2.sv) | Test: Associative array first method | 7.9.4 | Verilator 5.052 |  |
+| [`test_assoc_next`](../../tests/ch7/test_assoc_next.sv) | Test associative array next | 7.9.4 7.9.6 | Verilator 5.052 |  |
 | [`test_assoc_last`](../../tests/ch7/test_assoc_last.sv) | Test associative array last | 7.9.5 | Verilator 5.052 |  |
 | [`test_assoc_last_2`](../../tests/ch7/test_assoc_last_2.sv) | Test: Associative array last method | 7.9.5 | Verilator 5.052 |  |
-| [`test_assoc_next`](../../tests/ch7/test_assoc_next.sv) | Test associative array next | 7.9.5 | Verilator 5.052 |  |
+| [`test_assoc_prev`](../../tests/ch7/test_assoc_prev.sv) | Test associative array prev | 7.9.5 7.9.7 | Verilator 5.052 |  |
 | [`test_assoc_array_iter_minimal`](../../tests/ch7/test_assoc_array_iter_minimal.sv) | Associative array minimal: first/next/last/num/size | 7.9.6 7.9.4 7.9.5 | Verilator 5.052 |  |
 | [`test_assoc_next_2`](../../tests/ch7/test_assoc_next_2.sv) | Test: Associative array next method | 7.9.6 7.9.4 | Verilator 5.052 |  |
-| [`test_assoc_prev`](../../tests/ch7/test_assoc_prev.sv) | Test associative array prev | 7.9.6 | Verilator 5.052 |  |
+| [`test_assoc_traversal_gaps_and_preserved_keys`](../../tests/ch7/test_assoc_traversal_gaps_and_preserved_keys.sv) | Traversal accepts absent input keys and preserves the argument on failure | 7.9.6 7.9.7 | standard only | exit code |
 | [`test_assoc_prev_2`](../../tests/ch7/test_assoc_prev_2.sv) | Test: Associative array prev method | 7.9.7 7.9.5 | Verilator 5.052 |  |
-| [`test_assoc_narrow_prev_next_overflow`](../../tests/ch7/test_assoc_narrow_prev_next_overflow.sv) | Next and prev report truncation when a discovered key does not fit their narrow output index | 7.9.8 | standard only |  |
+| [`test_assoc_narrow_prev_next_overflow`](../../tests/ch7/test_assoc_narrow_prev_next_overflow.sv) | Next and prev report truncation when a discovered key does not fit their narrow output index | 7.9.8 7.9.6 7.9.7 | standard only |  |
 | [`test_assoc_traversal_narrow_index`](../../tests/ch7/test_assoc_traversal_narrow_index.sv) | An associative array traversal method given an index variable too narrow for the key returns -1 and keeps the low bits of the key | 7.9.8 7.9.4 7.9.5 | standard only |  |
 | [`test_assoc_assignment_clears_and_detaches`](../../tests/ch7/test_assoc_assignment_clears_and_detaches.sv) | Associative assignment removes old destination keys and passing by value makes an independent local copy | 7.9.9 7.9.10 | Verilator 5.052 |  |
+| [`test_assoc_assignment_copies_every_entry`](../../tests/ch7/test_assoc_assignment_copies_every_entry.sv) | Whole assignment clears old entries and copies every scalar value independently | 7.9.9 | Verilator 5.052 | exit code |
 | [`test_assoc_array_literal_default`](../../tests/ch7/test_assoc_array_literal_default.sv) | Associative array literals with a default value, and assignment of a whole associative array | 7.9.11 7.9.9 7.9.1 | Verilator 5.052 |  |
 | [`test_assign_queue`](../../tests/ch7/test_assign_queue.sv) | Test for queue assignment | 7.10 7.10.2 | Icarus Verilog 13.0 |  |
 | [`test_builtin_methods_mixed`](../../tests/ch7/test_builtin_methods_mixed.sv) | Built-in methods of queues, dynamic arrays, associative arrays and strings | 7.10 7.5 7.9 6.16 | Verilator 5.052 |  |

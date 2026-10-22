@@ -3,7 +3,7 @@
 :description: Test associative array prev (IEEE 1800-2023 Section 7.8)
 :tags: ch7
 :type: simulation
-:lrm: 1800-2023 7.9.6
+:lrm: 1800-2023 7.9.5 7.9.7
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

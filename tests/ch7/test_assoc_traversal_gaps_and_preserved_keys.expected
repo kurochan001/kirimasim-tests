@@ -1,0 +1,8 @@
+next present=1,30
+next gap=1,30
+prev present=1,10
+prev gap=1,10
+next end=0,30
+prev end=0,-5
+next empty=0,17
+prev empty=0,-9

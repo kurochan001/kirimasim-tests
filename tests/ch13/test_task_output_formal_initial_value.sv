@@ -3,7 +3,7 @@
 :description: An output formal starts from its own initial value, not from the caller's argument, in automatic and static tasks (IEEE 1800-2023 Section 13.3)
 :tags: ch13
 :type: simulation
-:lrm: 1800-2023 13.3 6.21 13.3.1
+:lrm: 1800-2023 13.3 6.21 13.3.1 13.3.2
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

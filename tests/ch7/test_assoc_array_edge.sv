@@ -3,7 +3,7 @@
 :description: Associative array edge cases
 :tags: ch7
 :type: simulation
-:lrm: 1800-2023 7.8 7.9
+:lrm: 1800-2023 7.8 7.9 7.9.1
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

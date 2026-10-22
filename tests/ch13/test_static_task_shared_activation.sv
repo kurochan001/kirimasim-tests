@@ -3,7 +3,7 @@
 :description: Concurrent calls of a static task share its variables and arguments, while an automatic task gets new ones for each call (IEEE 1800-2023 Section 13.3.2)
 :tags: ch13
 :type: simulation
-:lrm: 1800-2023 13.3.2 13.3 6.8
+:lrm: 1800-2023 13.3.2 13.3 6.8 13.3.1
 :oracle: spec iverilog@13.0 verilator@5.052
 :spec_check: ai
 :fourstate: no

@@ -269,3 +269,66 @@ independent oracle confirmations. The following observable differences remain:
   boundary cases (32.4.3, 32.7):
   [test_sdf_label_recomputes_delay_expression](../tests/ch32/test_sdf_label_recomputes_delay_expression.sv),
   [test_sdf_pulse_limit_near_delay_boundary](../tests/ch32/test_sdf_pulse_limit_near_delay_boundary.sv).
+
+## Cases added after the 2026-10-23 expression review
+
+- IEEE 11.7, 6.24.1 and 20.7: Icarus 13.0 stops with a segmentation fault
+  compiling array queries on cast expressions in
+  `ch11/test_signed_system_cast_shape_and_value` and
+  `ch6/test_size_cast_intermediate_context`. The queries are legal on
+  fixed-size integral expressions; Verilator 5.052 matches both tests.
+- IEEE 11.3.5: Icarus 13.0 evaluates a forbidden operand and executes its
+  `$fatal` in `ch11/test_short_circuit_suppresses_fatal_operand`.
+  The selected operands require no call, side effect or run-time error.
+  Verilator 5.052 skips all five calls and matches the expected output.
+- IEEE 11.3.1 and 6.12: in
+  `ch11/test_shortreal_result_and_condition_types`, Icarus 13.0 reports
+  arithmetic expression widths of 1 instead of 32 for shortreal and 64 for
+  a mixed-real result. Verilator 5.052 instead reports 64 for shortreal
+  arithmetic and branches because it promotes shortreal to real. The
+  expected output retains the standard's 32-bit shortreal requirements;
+  neither release is recorded as an oracle for this test.
+
+The new `ch11/test_real_boolean_results_without_shortreal` isolates the
+one-bit real logical/relational/inside results. It matches Verilator 5.052
+without requiring shortreal support. Icarus 13.0 rejects `inside` as
+unsupported; that compilation failure is not evidence of execution success.
+
+## Cases added after the 2026-10-23 associative array review
+
+The new cases retain expectations derived from IEEE 1800-2023. Verilator
+5.052 (2026-09-05, vUNKNOWN-built20260905) matches eight of the fifteen
+cases with initialization seeds 1 and 73. The following seven differences
+remain; none is counted as execution success:
+
+- IEEE 7.9.3–7.9.7: `ch7/test_assoc_method_expression_types` reports
+  `logic[31:0]` for `exists()` and `integer` for first/last/next/prev,
+  instead of `int` for each method expression. The separate
+  `ch7/test_assoc_count_expression_types` matches num/size types and counts.
+- IEEE 7.9.6: `ch7/test_assoc_traversal_gaps_and_preserved_keys` returns
+  status 0 and unchanged key 20 for `next()` from an absent key between
+  present keys 10 and 30. It must return 1 and key 30.
+- IEEE 7.8.7: `ch7/test_assoc_ref_allocates_before_callee_write` is rejected
+  with “Function/task ref argument is not of allowed type” for the
+  associative element actual. The test observes allocation before any
+  callee read or write; the unsupported call does not prove allocation.
+- IEEE 7.8.4: `ch7/test_assoc_signed_and_unsigned_key_order` visits signed
+  8-bit key 0 before -128. Signed ordering must be -128, -1, 0.
+- IEEE 7.8.4: `ch7/test_assoc_integral_index_cast_context` evaluates
+  `4'hf + 4'h1` as key 0, instead of key 16 in the 8-bit index cast context.
+- IEEE 7.8.6 and Table 7-1: `ch7/test_assoc_missing_read_reports_diagnostic`
+  reads a known initialized bit pattern instead of `xxxxxxxx` from a
+  missing `integer` element (for example, `f7df13e4` with seed 1).
+  This output mismatch alone does not establish the separate warning check.
+- IEEE 7.8.6: `ch7/test_assoc_invalid_write_reports_diagnostic` creates a
+  second entry for a key containing X. The write must be ignored with a
+  warning, leaving the original single entry.
+
+Icarus Verilog 13.0 stable (v13_0-dirty) fails compilation of all fifteen
+cases because of unsupported associative arrays or unpacked structs.
+These actual compile attempts are recorded as known differences, not passes.
+
+See [the test addition report](associative-gap-tests-20261023.md) for all
+inputs, mutation checks, result snapshots and coverage changes. The original
+fifteen-case runs and the later one-case wildcard/count refinements are kept
+as separate snapshots; partial successes are not merged into one run.
