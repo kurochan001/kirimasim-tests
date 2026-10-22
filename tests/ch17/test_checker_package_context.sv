@@ -66,6 +66,6 @@ module test_checker_package_context;
     #9 slow_ok = 1;      // 20
     #11 fast_ok = 0;     // 31
     #20 fast_ok = 1;     // 51
-    #20 $finish;         // 60
+    #20 $finish;         // 71
   end
 endmodule

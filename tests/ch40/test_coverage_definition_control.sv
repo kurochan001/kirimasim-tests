@@ -20,9 +20,9 @@
 // resets only u1: u1 becomes zero and u2 keeps its value. It stops the
 // definition again and toggles bit 1 of both, which changes neither. It starts
 // only u1 and toggles bit 2 of both: u1 covers the new bit, and u2, still
-// stopped, does not change. Which items have coverage depends on the tool, so
-// each line is an implication that holds also when a control fails or when the
-// tool has no toggle coverage.
+// stopped, does not change. A tool with no toggle coverage may answer NOCOV;
+// that is not ERROR. Every control must succeed or answer NOCOV/PARTIAL, and
+// every query must be a value, not ERROR, before the comparisons are made.
 
 `timescale 1ns/1ns
 
@@ -66,7 +66,10 @@ module test_coverage_definition_control;
     c1_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     c2_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u2);
     show("reset of u1 clears u1 and leaves u2 unchanged",
-         reset_u1 == `SV_COV_OK && c1_after == 0 && c2_after == c2);
+         stop_all == `SV_COV_OK && start_all != `SV_COV_ERROR &&
+         reset_u1 == `SV_COV_OK && c2 != `SV_COV_ERROR &&
+         c1_after != `SV_COV_ERROR && c2_after != `SV_COV_ERROR &&
+         c1_after == 0 && c2_after == c2);
     #1;                             // 6
     stop_def = $coverage_control(`SV_COV_STOP, `SV_COV_TOGGLE, `SV_COV_MODULE,
                                  "test_coverage_definition_control_leaf");
@@ -78,7 +81,10 @@ module test_coverage_definition_control;
     u1_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     u2_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u2);
     show("while the definition is stopped, neither instance changes",
-         stop_def == `SV_COV_OK && u1_after == u1_before && u2_after == u2_before);
+         stop_def == `SV_COV_OK && u1_before != `SV_COV_ERROR &&
+         u1_after != `SV_COV_ERROR && u2_before != `SV_COV_ERROR &&
+         u2_after != `SV_COV_ERROR && u1_after == u1_before &&
+         u2_after == u2_before);
     start_u1 = $coverage_control(`SV_COV_START, `SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     max_u1 = $coverage_get_max(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     x1_before = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
@@ -89,8 +95,11 @@ module test_coverage_definition_control;
     x1_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u1);
     x2_after = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, u2);
     show("starting the instance u1 lets u1 collect",
-         start_u1 == `SV_COV_OK && max_u1 > 0 && x1_after > x1_before);
+         start_u1 != `SV_COV_ERROR && max_u1 != `SV_COV_ERROR &&
+         x1_before != `SV_COV_ERROR && x1_after != `SV_COV_ERROR &&
+         (start_u1 == `SV_COV_NOCOV || (max_u1 > 0 && x1_after > x1_before)));
     show("u2 stays stopped after starting u1",
-         start_u1 == `SV_COV_OK && x2_after == x2_before);
+         start_u1 != `SV_COV_ERROR && x2_before != `SV_COV_ERROR &&
+         x2_after != `SV_COV_ERROR && x2_after == x2_before);
   end
 endmodule

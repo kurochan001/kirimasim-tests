@@ -20,7 +20,7 @@
 
 `timescale 1ns/1ns
 
-program p_clk(input logic clk, input logic d, output logic q);
+program p_clk(input logic clk, input logic d, output logic q = 0);
   clocking cb @(posedge clk);
     default input #1 output #2;
     input d;
@@ -29,9 +29,10 @@ program p_clk(input logic clk, input logic d, output logic q);
 
   initial begin
     @(cb);
-    $display("%0d: d=%b", $time, cb.d);
+    $display("%0d: d=%b q=%b", $time, cb.d, q);
     cb.q <= 1;
-    #3 $display("%0d: q=%b", $time, q);
+    #1 $display("%0d: q=%b", $time, q);
+    #2 $display("%0d: q=%b", $time, q);
     @(cb);
     $display("%0d: d=%b q=%b", $time, cb.d, q);
     $finish;

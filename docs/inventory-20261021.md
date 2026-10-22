@@ -1013,8 +1013,21 @@ found twelve problems in twenty-four tests. They are fixed:
 - F11: the recrem checks use `(d, posedge clk, ...)`, and the RECREM entry
   annotates the separate `$removal` check too; the expected notifiers are
   updated.
-- F12: the coverage definition test requires every control and query to
-  succeed; an all-ERROR implementation can no longer pass.
+- F12: the coverage definition test rejects `SV_COV_ERROR` from every
+  control and query; `SV_COV_NOCOV` and `SV_COV_PARTIAL` stay allowed.
+  An all-ERROR implementation can no longer pass.
+
+The follow-up review in
+[test-content-review-followup-20261022.md](test-content-review-followup-20261022.md)
+found three remaining points, all fixed:
+
+- R01: the two program clocking tests give the program output formal a
+  default initial value, so they see q=0 at 6 and q=1 at 8 again.
+- R02: the coverage definition test accepts NOCOV/PARTIAL from START and
+  only fails on ERROR.
+- R03: its comparisons check that both query values are not ERROR before
+  comparing them; the start and stop of the whole definition are checked
+  too.
 
 ### Current state
 
