@@ -136,6 +136,7 @@ partial successes from separate runs are not combined into a successful requirem
 
 The 2026-10-23 updates are documented in the
 [matching progress and findings](docs/existing-test-matching-review-20261022.md),
+the [compiler-directive review](docs/existing-test-matching-preprocessor-20261023.md),
 the [11 expression gap tests](docs/expression-gap-tests-20261023.md) and the
 [15 associative-array gap tests](docs/associative-gap-tests-20261023.md).
 The addition reports record the observations, standard-derived expectations,

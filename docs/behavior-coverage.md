@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 6.43%、実行 5.68%。**
+**全規格の要求台帳ベース（暫定）: 設計 6.58%、実行 5.83%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 46 論点、42 節、49 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1661/1703 見出し (97.53%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 792/12319 (6.43%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 700/12319 (5.68%)。
-- 登録済みだがテスト未対応: 11527 動作。
+- 登録済み動作に対するテスト設計網羅率: 810/12319 (6.58%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 718/12319 (5.83%)。
+- 登録済みだがテスト未対応: 11509 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -52,12 +52,12 @@
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 33/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 33/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 470/12319 動作確認、古い入力との対応 57 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 488/12319 動作確認、古い入力との対応 57 件。
 - `subroutine-citation-refinement-20261023-icarus.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-22T16:11:50.000804+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 9/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 447/12319 動作確認、古い入力との対応 57 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 459/12319 動作確認、古い入力との対応 57 件。
 
 ## 章・附属書別の調査状態
 
@@ -82,9 +82,9 @@
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 0。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 0。
 - 19 Functional coverage: 解釈保留なし 30/34、登録 272、テスト対応 0。
-- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 65。
+- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 66。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 11。
-- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 13。
+- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 30。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 3。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 1。
 - 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 0。
@@ -48299,7 +48299,7 @@ $printtimescale labels $unit/$root arguments literally as $unit/$root in output.
 
 ### SV2023-20.4.2-EXTRACT-PRINT-TIMESCALE
 
-20.4.2 / normal / テスト未対応
+20.4.2 / normal / 実行確認あり
 
 $printtimescale optionally accepts a hierarchical design-element identifier and displays its unit/precision.
 
@@ -48307,6 +48307,7 @@ $printtimescale optionally accepts a hierarchical design-element identifier and 
 
 規定の性質: `definition`。
 
+- [test_printtimescale_other_module.sv](../tests/ch20/test_printtimescale_other_module.sv): 引数なしのcurrent1ns/1psとhierarchical child10ns/1nsの両方を表示して、引数が無視される誤りを区別する。
 
 ### SV2023-20.4.2-EXTRACT-PRINT-UNIT-ROOT
 
@@ -55733,7 +55734,7 @@ Include nesting must be finite; an implementation may limit depth but shall supp
 
 ### SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH
 
-22.4 / normal / テスト未対応
+22.4 / normal / 実行確認あり
 
 A quoted relative include path is searched from compiler working directory and optionally user-specified locations; full or relative filenames are supported.
 
@@ -55741,10 +55742,13 @@ A quoted relative include path is searched from compiler working directory and o
 
 規定の性質: `mandatory`。
 
+- [test_include_from_incdirs.sv](../tests/ch22/test_include_from_incdirs.sv): quoted relative filenameをmetadataのincdirsへ置き、runnerが渡す検索先から実際に解決した値を観測する。標準が固定しない検索順やangle/absoluteの別条件を推測しない。
+- [test_include_nested_in_incdir.sv](../tests/ch22/test_include_nested_in_incdir.sv): quoted relative filenameをmetadataのincdirsへ置き、runnerが渡す検索先から実際に解決した値を観測する。標準が固定しない検索順やangle/absoluteの別条件を推測しない。
+- [test_define_selects_included_file.sv](../tests/ch22/test_define_selects_included_file.sv): quoted relative filenameをmetadataのincdirsへ置き、runnerが渡す検索先から実際に解決した値を観測する。標準が固定しない検索順やangle/absoluteの別条件を推測しない。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION
 
-22.4 / normal / テスト未対応
+22.4 / normal / 実行確認あり
 
 include inserts the entire source file contents in place of the directive during compilation.
 
@@ -55752,6 +55756,13 @@ include inserts the entire source file contents in place of the directive during
 
 規定の性質: `mandatory`。
 
+- [test_include_file_declarations.sv](../tests/ch22/test_include_file_declarations.sv): include先のtypedefとfunctionを宣言位置へ挿入し、両memberと関数結果を確認する。
+- [test_include_from_incdirs.sv](../tests/ch22/test_include_from_incdirs.sv): include先の2macroが値12と文字列で展開される。
+- [test_include_guard_twice.sv](../tests/ch22/test_include_guard_twice.sv): 同じincludeを2回読み、guardによりparameterが重複せずdepth6とguard定義を観測する。
+- [test_include_guard_two_files.sv](../tests/ch22/test_include_guard_two_files.sv): main/helperの両ファイルで同じinclude由来macro7が使え、3倍21を両方で観測する。compilation unitの構成は固定しない。
+- [test_include_nested.sv](../tests/ch22/test_include_nested.sv): outerがincludeするinnerのparameter5とouterの計算値10を両方確認する。
+- [test_include_nested_in_incdir.sv](../tests/ch22/test_include_nested_in_incdir.sv): outerとその内部includeの両macroの1/2を観測する。
+- [test_define_selects_included_file.sv](../tests/ch22/test_define_selects_included_file.sv): 選択されたincludeの内容fastと、非選択側slowを区別する。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-SYNTAX
 
@@ -55821,7 +55832,7 @@ Comments are excluded from substituted macro text; a continued line comment ends
 
 ### SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE
 
-22.5.1 / normal / テスト未対応
+22.5.1 / normal / 実行確認あり
 
 A defined macro can be used throughout its compilation unit with no additional design scope restrictions.
 
@@ -55829,6 +55840,7 @@ A defined macro can be used throughout its compilation unit with no additional d
 
 規定の性質: `mandatory`。
 
+- [test_directive_effect_from_read_point.sv](../tests/ch5/test_directive_effect_from_read_point.sv): 最初のmodule内部でdefineしたLEVEL3を別moduleで使い、再定義後5とundef後0も観測する。moduleを跨ぐmacro scopeであり、別compilation unitの分離は主張しない。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-DEFAULT
 
@@ -55841,6 +55853,8 @@ An omitted actual argument uses its formal default specified after equals.
 規定の性質: `mandatory`。
 
 - [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): An omitted trailing actual uses default shift one; an explicit shift four overrides it. Both results must match.
+- [test_macro_args.sv](../tests/ch22/test_macro_args.sv): 省略したtrailing actualがdefault2/10を使い、明示actual3/2では15/10になることをif分岐と期待出力で検査する。
+- [test_directive_corner_cases.sv](../tests/ch22/test_directive_corner_cases.sv): 省略したtrailing actualがdefault2/10を使い、明示actual3/2では15/10になることをif分岐と期待出力で検査する。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES
 
@@ -55864,10 +55878,23 @@ define creates a textual macro inside or outside design elements; a grave-accent
 規定の性質: `mandatory`。
 
 - [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): Definitions before the module and a later definition inside its source affect the following backtick uses; observed values change from eight to sixteen. Parameterized expansion is checked separately in the same test.
+- [test_compiler_directives.sv](../tests/ch22/test_compiler_directives.sv): DATA_WIDTHを実際の宣言幅へ展開し、$bitsと出力8を照合する。定義だけの機能は含めない。
+- [test_compiler_directives_comprehensive.sv](../tests/ch22/test_compiler_directives_comprehensive.sv): 定数DATA_WIDTH=8とMAX/MINの100/50を検査し、内部で再定義したDATA_WIDTH=16も観測する。
+- [test_conditional_compilation_2.sv](../tests/ch22/test_conditional_compilation_2.sv): WIDTH=8、VERSION=2の展開値と、繰返し連結を通したffを期待出力で照合する。固定PASS表示のみを根拠にしない。
+- [test_define_value_in_parameters.sv](../tests/ch22/test_define_value_in_parameters.sv): metadataのDEPTH=4をrunnerが定義し、使用箇所でD8/宣言幅16になることを観測する。CLI定義手順そのものの規格化は主張しない。
+- [test_define_with_args.sv](../tests/ch22/test_define_with_args.sv): module内部のparameterized macroを実際に呼び、式引数の11、入れ子の14、生成宣言の値をif/期待出力で検査する。
+- [test_directive_corner_cases.sv](../tests/ch22/test_directive_corner_cases.sv): SIMPLE_MACRO42の代入と加算50、parameterized30/50/10をifで区別する。後半の固定表示からは対応を増やさない。
+- [test_directive_nested.sv](../tests/ch22/test_directive_nested.sv): OUTER8/INNER4/SUM8/DOUBLED14を実値で出力する。assertが無効でも誤った値が表示されれば期待出力と一致しない。
+- [test_ieee_ch22_directives_edge.sv](../tests/ch22/test_ieee_ch22_directives_edge.sv): WIDTH/DEPTHの宣言利用と、引数の式全体を使う加算14を条件比較する。未使用STR_MACRO/CONCAT_MACROは根拠にしない。
+- [test_macro_concat.sv](../tests/ch22/test_macro_concat.sv): 呼び出すDECLARE_SIGNAL、WIDTH、DOUBLE_WIDTH、OUTERを観測する。MAKE_NAMEは呼ばれないため識別子連結には対応しない。
+- [test_macro_redefine_string_literal.sv](../tests/ch22/test_macro_redefine_string_literal.sv): 最初のV=1と再定義V=2をa/bのifと$fatalで区別する。別の保留で文字列の長さだけの弱さを記録する。
+- [test_directive_effect_from_read_point.sv](../tests/ch5/test_directive_effect_from_read_point.sv): module内のdefineを読み順で使い、後続moduleでも3、再定義後5になることを実値で確認する。
+- [test_directive_redefinition_read_order.sv](../tests/ch5/test_directive_redefinition_read_order.sv): 既に読み取ったA13とundef/再定義後B27を同時に表示する。undef単体の有効性はこの観測だけから承認しない。
+- [test_literals_macros_specify.sv](../tests/ch5/test_literals_macros_specify.sv): MACRO_VAL100とMACRO_FUNC(5)=10が異なればFAIL行が追加されるため、定数/引数付き双方を期待出力全体で照合できる。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-EMPTY
 
-22.5.1 / boundary / テスト未対応
+22.5.1 / boundary / 実行確認あり
 
 A blank macro is defined and expands to no text.
 
@@ -55875,6 +55902,8 @@ A blank macro is defined and expands to no text.
 
 規定の性質: `mandatory`。
 
+- [test_directive_corner_cases.sv](../tests/ch22/test_directive_corner_cases.sv): 空定義EMPTY_MACROをstatement境界で実際に展開し、その後の出力まで到達する。定義だけを参照したものではない。
+- [test_ieee_ch22_directives_edge.sv](../tests/ch22/test_ieee_ch22_directives_edge.sv): 空のdefineがundefinedと異なりifdefで真であることを確認する。実際のempty展開は別メンバーで確認する。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL
 
@@ -55944,7 +55973,7 @@ Formal parentheses immediately follow a simple macro name without whitespace; an
 
 ### SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SYNTAX
 
-22.5.1 / normal / テスト未対応
+22.5.1 / normal / 実行確認あり
 
 Macros may declare comma-separated simple-identifier formals with optional equals/default text.
 
@@ -55952,10 +55981,13 @@ Macros may declare comma-separated simple-identifier formals with optional equal
 
 規定の性質: `definition`。
 
+- [test_define_with_args.sv](../tests/ch22/test_define_with_args.sv): comma区切りのsimple formalを定義して呼び出す。既定値なしの引数と、明示/既定の引数値を使う観測を確認した。formal spacingの違法系とは別。
+- [test_macro_args.sv](../tests/ch22/test_macro_args.sv): comma区切りのsimple formalを定義して呼び出す。既定値なしの引数と、明示/既定の引数値を使う観測を確認した。formal spacingの違法系とは別。
+- [test_directive_corner_cases.sv](../tests/ch22/test_directive_corner_cases.sv): comma区切りのsimple formalを定義して呼び出す。既定値なしの引数と、明示/既定の引数値を使う観測を確認した。formal spacingの違法系とは別。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-LINE-CONTINUATION
 
-22.5.1 / normal / テスト未対応
+22.5.1 / normal / 実行確認あり
 
 Macro text continues across backslash-newline, replacing that sequence with a newline; an unescaped newline outside a triple-quoted string or block comment terminates the definition.
 
@@ -55963,6 +55995,7 @@ Macro text continues across backslash-newline, replacing that sequence with a ne
 
 規定の性質: `mandatory`。
 
+- [test_macro_concat.sv](../tests/ch22/test_macro_concat.sv): backslash-newlineを含むDECLARE_SIGNALの後続行が実際の宣言になり、生成された両信号へ書いた値を検査する。未使用local tempだけのMULTI_LINEとは区別する。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-LITERAL-ACTUAL
 
@@ -56096,6 +56129,10 @@ Argumentless macros substitute their text as-is; parameterized macro uses substi
 規定の性質: `mandatory`。
 
 - [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): Argumentless WIDTH/DEPTH and parameterized ADD/MUL/MAX/MIN substitutions have checked values. Declaration substitution also carries WIDTH into the generated signal.
+- [test_compiler_directives_comprehensive.sv](../tests/ch22/test_compiler_directives_comprehensive.sv): argumentless定数とparameterizedな複数formalの実際の展開を同じファイルで観測する。nested expansionの展開時期までは推定しない。
+- [test_directive_nested.sv](../tests/ch22/test_directive_nested.sv): argumentless定数とparameterizedな複数formalの実際の展開を同じファイルで観測する。nested expansionの展開時期までは推定しない。
+- [test_ieee_ch22_directives_edge.sv](../tests/ch22/test_ieee_ch22_directives_edge.sv): argumentless定数とparameterizedな複数formalの実際の展開を同じファイルで観測する。nested expansionの展開時期までは推定しない。
+- [test_directive_corner_cases.sv](../tests/ch22/test_directive_corner_cases.sv): argumentless定数とparameterizedな複数formalの実際の展開を同じファイルで観測する。nested expansionの展開時期までは推定しない。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER
 
@@ -56141,6 +56178,7 @@ undef removes the named macro defined within the compilation unit, leaving it as
 規定の性質: `mandatory`。
 
 - [test_undef.sv](../tests/ch22/test_undef.sv): TEMP_MACRO disappears from ifdef while ANOTHER_MACRO remains defined with value 100; redefining TEMP_MACRO subsequently produces 99.
+- [test_directive_effect_from_read_point.sv](../tests/ch5/test_directive_effect_from_read_point.sv): 再定義5をundefした後のifdefが偽になりD0と出る。直ちに再定義するだけのケースと区別する。
 
 ### SV2023-22.5.2-EXTRACT-UNDEFINE-WARNING
 
@@ -56155,7 +56193,7 @@ Undefining a macro not previously defined may issue a warning.
 
 ### SV2023-22.5.3-EXTRACT-UNDEFINE-ALL
 
-22.5.3 / normal / テスト未対応
+22.5.3 / normal / 実行確認あり
 
 Argumentless undefineall removes every macro previously defined by define within the compilation unit and may appear anywhere in source.
 
@@ -56163,6 +56201,8 @@ Argumentless undefineall removes every macro previously defined by define within
 
 規定の性質: `mandatory`。
 
+- [test_undefineall.sv](../tests/ch22/test_undefineall.sv): module内のdirectiveで既存2macroが両方消えることと、その後の再定義10を確認する。
+- [test_undefineall_clears_nested_macro_expansion.sv](../tests/ch22/test_undefineall_clears_nested_macro_expansion.sv): module外でinner/forwarding outerの両定義が消える観測。module内配置は別のメンバー。
 
 ### SV2023-22.5.3-UNDEFINE-ALL
 
@@ -56208,10 +56248,18 @@ Conditional constructs may nest; inner directives affect only their inner constr
 規定の性質: `mandatory`。
 
 - [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): A nested true FEATURE_B branch inside FEATURE_A sets both_features; the following elsif chain remains independently selected, checking nesting boundaries.
+- [test_compiler_directives.sv](../tests/ch22/test_compiler_directives.sv): inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。
+- [test_compiler_directives_comprehensive.sv](../tests/ch22/test_compiler_directives_comprehensive.sv): inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。
+- [test_conditional_compilation_2.sv](../tests/ch22/test_conditional_compilation_2.sv): inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。
+- [test_directive_corner_cases.sv](../tests/ch22/test_directive_corner_cases.sv): inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。
+- [test_directive_nested.sv](../tests/ch22/test_directive_nested.sv): inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。
+- [test_ieee_ch22_directives_edge.sv](../tests/ch22/test_ieee_ch22_directives_edge.sv): inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。
+- [test_ifdef_nested.sv](../tests/ch22/test_ifdef_nested.sv): inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。
+- [test_conditional_compilation.sv](../tests/ch22/test_conditional_compilation.sv): ifdef/ifndef/elsifとnested branchを累積値11/31/39で検査する。実際のsource変種で最初の加算を10から00へ変えるとIcarus13とVerilator5.052の両runnerで最終PASSが消えることを確認し、表示だけの成功とは区別した。
 
 ### SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT
 
-22.6 / normal / テスト未対応
+22.6 / normal / 実行確認あり
 
 Conditional compilation may select source text anywhere in the description.
 
@@ -56219,6 +56267,9 @@ Conditional compilation may select source text anywhere in the description.
 
 規定の性質: `permission`。
 
+- [test_define_selects_included_file.sv](../tests/ch22/test_define_selects_included_file.sv): module外の条件付きincludeで、fast/slowの内容を区別する。
+- [test_compiler_directives.sv](../tests/ch22/test_compiler_directives.sv): moduleの宣言領域で条件に応じた宣言が使える。
+- [test_ifdef_nested.sv](../tests/ch22/test_ifdef_nested.sv): initial内の手続き文を条件付きで選択する。
 
 ### SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION
 
@@ -56264,6 +56315,16 @@ ifdef tests definition or expression truth; only its successful branch or the fi
 規定の性質: `mandatory`。
 
 - [test_macro_advanced.sv](../tests/ch22/test_macro_advanced.sv): Undefined MODE_A/MODE_B precede defined FEATURE_A; only its branch yields MODE three. The fallback and unsuccessful branches have distinguishable values.
+- [test_compiler_directives.sv](../tests/ch22/test_compiler_directives.sv): 定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。
+- [test_compiler_directives_comprehensive.sv](../tests/ch22/test_compiler_directives_comprehensive.sv): 定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。
+- [test_conditional_compilation_2.sv](../tests/ch22/test_conditional_compilation_2.sv): 定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。
+- [test_define_selects_included_file.sv](../tests/ch22/test_define_selects_included_file.sv): 定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。
+- [test_defines_from_metadata.sv](../tests/ch22/test_defines_from_metadata.sv): 定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。
+- [test_directive_corner_cases.sv](../tests/ch22/test_directive_corner_cases.sv): 定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。
+- [test_directive_nested.sv](../tests/ch22/test_directive_nested.sv): 定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。
+- [test_ieee_ch22_directives_edge.sv](../tests/ch22/test_ieee_ch22_directives_edge.sv): 定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。
+- [test_ifdef_nested.sv](../tests/ch22/test_ifdef_nested.sv): 定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。
+- [test_conditional_compilation.sv](../tests/ch22/test_conditional_compilation.sv): ifdef/ifndef/elsifとnested branchを累積値11/31/39で検査する。実際のsource変種で最初の加算を10から00へ変えるとIcarus13とVerilator5.052の両runnerで最終PASSが消えることを確認し、表示だけの成功とは区別した。
 
 ### SV2023-22.6-EXTRACT-IFNDEF-NEGATION
 
@@ -56276,6 +56337,16 @@ ifndef of a name or parenthesized expression is equivalent to ifdef of its logic
 規定の性質: `mandatory`。
 
 - [test_ifdef_expression.sv](../tests/ch22/test_ifdef_expression.sv): ALPHA is defined and GAMMA is absent, so their equivalence is false and ifndef must include its output by negation.
+- [test_compiler_directives.sv](../tests/ch22/test_compiler_directives.sv): identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。
+- [test_compiler_directives_comprehensive.sv](../tests/ch22/test_compiler_directives_comprehensive.sv): identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。
+- [test_conditional_compilation_2.sv](../tests/ch22/test_conditional_compilation_2.sv): identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。
+- [test_define_tool_option_skips_default.sv](../tests/ch22/test_define_tool_option_skips_default.sv): identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。
+- [test_defines_from_metadata.sv](../tests/ch22/test_defines_from_metadata.sv): identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。
+- [test_directive_corner_cases.sv](../tests/ch22/test_directive_corner_cases.sv): identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。
+- [test_directive_nested.sv](../tests/ch22/test_directive_nested.sv): identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。
+- [test_ieee_ch22_directives_edge.sv](../tests/ch22/test_ieee_ch22_directives_edge.sv): identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。
+- [test_ifdef_nested.sv](../tests/ch22/test_ifdef_nested.sv): identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。
+- [test_conditional_compilation.sv](../tests/ch22/test_conditional_compilation.sv): ifdef/ifndef/elsifとnested branchを累積値11/31/39で検査する。実際のsource変種で最初の加算を10から00へ変えるとIcarus13とVerilator5.052の両runnerで最終PASSが消えることを確認し、表示だけの成功とは区別した。
 
 ### SV2023-22.6-EXTRACT-IGNORED-LEXICAL
 
@@ -56290,7 +56361,7 @@ Even ignored conditional source shall follow Clause 5 lexical conventions.
 
 ### SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT
 
-22.7 / normal / テスト未対応
+22.7 / normal / 実行確認あり
 
 timescale supplies following design elements with default time/delay unit and delay rounding precision until superseded, subject to explicit timeunit/timeprecision precedence.
 
@@ -56298,6 +56369,10 @@ timescale supplies following design elements with default time/delay unit and de
 
 規定の性質: `mandatory`。
 
+- [test_timescale_child_units_in_parent.sv](../tests/ch22/test_timescale_child_units_in_parent.sv): 後続moduleへ指定unit/precisionが作用する観測。異なるunitの関係と実際のdelay丸めを他メンバーと併せる。
+- [test_timescale_delay_rounded_to_precision.sv](../tests/ch22/test_timescale_delay_rounded_to_precision.sv): 後続moduleへ指定unit/precisionが作用する観測。異なるunitの関係と実際のdelay丸めを他メンバーと併せる。
+- [test_timescale_replaced_by_next.sv](../tests/ch3/test_timescale_replaced_by_next.sv): 後続moduleへ新しいunitが作用し、先に宣言したmoduleのunitは変えない。全4出力の順序も照合する。
+- [test_timeunit_with_precision.sv](../tests/ch3/test_timeunit_with_precision.sv): 前のtimescale1ns/1nsより明示local100ps/10psが優先し、単位と丸めを観測する。
 
 ### SV2023-22.7-EXTRACT-TIMESCALE-PLACEMENT
 
@@ -56378,7 +56453,7 @@ default_nettype accepts wire, tri, tri0, tri1, wand, triand, wor, trior, trireg,
 
 ### SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING
 
-22.9 / normal / テスト未対応
+22.9 / normal / 実行確認あり
 
 Pairing unconnected_drive with nounconnected_drive is advisable but not required; they are independent directives.
 
@@ -56386,6 +56461,8 @@ Pairing unconnected_drive with nounconnected_drive is advisable but not required
 
 規定の性質: `recommendation`。
 
+- [test_unconnected_drive.sv](../tests/ch22/test_unconnected_drive.sv): 明示的なpairとpull1からpull0へ直接切替するunpaired条件を2ファイルで併せ、optional pairingの許可と独立した制御を観測する。
+- [test_unconnected_drive_instances_restore.sv](../tests/ch22/test_unconnected_drive_instances_restore.sv): 明示的なpairとpull1からpull0へ直接切替するunpaired条件を2ファイルで併せ、optional pairingの許可と独立した制御を観測する。
 
 ### SV2023-22.9-EXTRACT-UNCONNECTED-PULL
 
@@ -56421,7 +56498,7 @@ Unconnected-drive directives apply at module declaration and affect every bit of
 
 ### SV2023-22.10-EXTRACT-CELL-PAIRING
 
-22.10 / normal / テスト未対応
+22.10 / normal / 実行確認あり
 
 Pairing celldefine and endcelldefine is advisable but not mandatory.
 
@@ -56429,6 +56506,7 @@ Pairing celldefine and endcelldefine is advisable but not mandatory.
 
 規定の性質: `recommendation`。
 
+- [test_vpi_celldefine.sv](../tests/ch22/test_vpi_celldefine.sv): 最初はendcelldefineとpair、2回目はendcelldefineなしでresetallへ進む有効な使用を観測する。 Cのvpi_handle_by_name/vpi_get(vpiCellInstance)と全5出力を確認した。
 
 ### SV2023-22.10-EXTRACT-CELL-PLACEMENT
 
@@ -56443,7 +56521,7 @@ Cell tagging directives may appear anywhere, though placement outside design ele
 
 ### SV2023-22.10-EXTRACT-CELL-RESET
 
-22.10 / normal / テスト未対応
+22.10 / normal / 実行確認あり
 
 resetall has the effect of endcelldefine.
 
@@ -56451,10 +56529,12 @@ resetall has the effect of endcelldefine.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_celldefine.sv](../tests/ch22/test_vpi_celldefine.sv): resetall後のcd_afterのcell flagが0、直前のcd_cell2は1のままを観測する。 Cのvpi_handle_by_name/vpi_get(vpiCellInstance)と全5出力を確認した。
+- [test_system_function_names_cell_reset_and_attributes.sv](../tests/ch5/test_system_function_names_cell_reset_and_attributes.sv): C helperが100*cellflag+weightを計算するためmarked105/plain9でresetallによるcell解除を区別する。oracle未承認の成功には換算しない。
 
 ### SV2023-22.10-EXTRACT-CELL-TAG
 
-22.10 / normal / テスト未対応
+22.10 / normal / 実行確認あり
 
 celldefine/endcelldefine independently enable/disable cell-module tagging; the latest occurrence controls and multiple pairs are allowed.
 
@@ -56462,6 +56542,7 @@ celldefine/endcelldefine independently enable/disable cell-module tagging; the l
 
 規定の性質: `mandatory`。
 
+- [test_vpi_celldefine.sv](../tests/ch22/test_vpi_celldefine.sv): 2回のcelldefineとendcelldefine/resetallによりVPI cell flagが1/0/1/0になる。 Cのvpi_handle_by_name/vpi_get(vpiCellInstance)と全5出力を確認した。
 
 ### SV2023-22.11-EXTRACT-NONSTANDARD-PRAGMA
 
@@ -56476,7 +56557,7 @@ Nonstandard pragmas have implementation-specific effects on source interpretatio
 
 ### SV2023-22.11-EXTRACT-PRAGMA-GRAMMAR
 
-22.11 / normal / テスト未対応
+22.11 / normal / 実行確認あり
 
 pragma uses a simple-identifier name and optional comma-separated expressions: keywords, keyword=value or values; values permit nested expression lists, numbers, strings or identifiers.
 
@@ -56484,6 +56565,7 @@ pragma uses a simple-identifier name and optional comma-separated expressions: k
 
 規定の性質: `definition`。
 
+- [test_pragma_unrecognized.sv](../tests/ch22/test_pragma_unrecognized.sv): 空のexpression list、keyword/value、nested list、number/string/identifierを含む構文を実際に読み、設計の計算結果42が維持される。非標準pragmaの固有効果を推定しない。
 
 ### SV2023-22.11-EXTRACT-UNKNOWN-PRAGMA
 
@@ -58052,7 +58134,7 @@ The 1364-2001 keyword mode reserves the full 1364-1995 keyword set plus its list
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-CELL
 
-22.14.4 / normal / テスト未対応
+22.14.4 / normal / 実行確認あり
 
 Keyword mode 1364-2001-noconfig excludes cell from the reserved set.
 
@@ -58060,10 +58142,11 @@ Keyword mode 1364-2001-noconfig excludes cell from the reserved set.
 
 規定の性質: `definition`。
 
+- [test_begin_keywords_versions.sv](../tests/ch22/test_begin_keywords_versions.sv): noconfigで除外される語をreg identifierとして宣言・代入・参照し、値5/6/7を実際に表示する。9種類の全keyword集合やstack復元はこの3行へ含めない。
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-CONFIG
 
-22.14.4 / normal / テスト未対応
+22.14.4 / normal / 実行確認あり
 
 Keyword mode 1364-2001-noconfig excludes config from the reserved set.
 
@@ -58071,10 +58154,11 @@ Keyword mode 1364-2001-noconfig excludes config from the reserved set.
 
 規定の性質: `definition`。
 
+- [test_begin_keywords_versions.sv](../tests/ch22/test_begin_keywords_versions.sv): noconfigで除外される語をreg identifierとして宣言・代入・参照し、値5/6/7を実際に表示する。9種類の全keyword集合やstack復元はこの3行へ含めない。
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-DESIGN
 
-22.14.4 / normal / テスト未対応
+22.14.4 / normal / 実行確認あり
 
 Keyword mode 1364-2001-noconfig excludes design from the reserved set.
 
@@ -58082,6 +58166,7 @@ Keyword mode 1364-2001-noconfig excludes design from the reserved set.
 
 規定の性質: `definition`。
 
+- [test_begin_keywords_versions.sv](../tests/ch22/test_begin_keywords_versions.sv): noconfigで除外される語をreg identifierとして宣言・代入・参照し、値5/6/7を実際に表示する。9種類の全keyword集合やstack復元はこの3行へ含めない。
 
 ### SV2023-22.14.4-EXTRACT-EXCLUDE-ENDCONFIG
 

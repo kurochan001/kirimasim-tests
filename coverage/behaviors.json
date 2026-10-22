@@ -110625,7 +110625,25 @@
       "acceptance": "$printtimescale optionally accepts a hierarchical design-element identifier and displays its unit/precision.",
       "source_note": "IEEE 1800-2023 20.4.2; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_printtimescale_other_module.sv",
+          "observation": "引数なしのcurrent1ns/1psとhierarchical child10ns/1nsの両方を表示して、引数が無視される誤りを区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2333a95b0d6fa77d96f4ddf1415f22762d34add32d9652201b0bb6fb84666025",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_printtimescale_other_module.sv",
+              "contains": "$printtimescale(test_printtimescale_other_module.c);"
+            },
+            {
+              "file": "tests/ch20/test_printtimescale_other_module.expected",
+              "contains": "Time scale of (test_printtimescale_other_module.c) is 10ns / 1ns"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.4.2",
@@ -123876,7 +123894,59 @@
       "acceptance": "A quoted relative include path is searched from compiler working directory and optionally user-specified locations; full or relative filenames are supported.",
       "source_note": "IEEE 1800-2023 22.4; complete own-body source review, blocks B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_include_from_incdirs.sv",
+          "observation": "quoted relative filenameをmetadataのincdirsへ置き、runnerが渡す検索先から実際に解決した値を観測する。標準が固定しない検索順やangle/absoluteの別条件を推測しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "759b0394791d6e792e442b05cf262943403adacf4d8e0ab88144c37da5f9f243",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_include_from_incdirs.sv",
+              "contains": "`include \"incdirs_values.svh\""
+            },
+            {
+              "file": "tests/ch22/test_include_from_incdirs.expected",
+              "contains": "WIDTH=12 NAME=found in the include directory"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_include_nested_in_incdir.sv",
+          "observation": "quoted relative filenameをmetadataのincdirsへ置き、runnerが渡す検索先から実際に解決した値を観測する。標準が固定しない検索順やangle/absoluteの別条件を推測しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b53e704a3abfd6f2c4dabc7a6ecf99119b6f1aaf2cd9b79d544d28a55bacce97",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_include_nested_in_incdir.sv",
+              "contains": "`include \"incdirs_nested_outer.svh\""
+            },
+            {
+              "file": "tests/ch22/test_include_nested_in_incdir.expected",
+              "contains": "outer=1 inner=2"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_define_selects_included_file.sv",
+          "observation": "quoted relative filenameをmetadataのincdirsへ置き、runnerが渡す検索先から実際に解決した値を観測する。標準が固定しない検索順やangle/absoluteの別条件を推測しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "f46054d7c4bd0d729a7f8334151b22e1d81d8590dcda5100bd2964cdd021db6b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_define_selects_included_file.sv",
+              "contains": "`include \"select_fast.svh\""
+            },
+            {
+              "file": "tests/ch22/test_define_selects_included_file.expected",
+              "contains": "speed=fast"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.4",
@@ -123895,7 +123965,127 @@
       "acceptance": "include inserts the entire source file contents in place of the directive during compilation.",
       "source_note": "IEEE 1800-2023 22.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_include_file_declarations.sv",
+          "observation": "include先のtypedefとfunctionを宣言位置へ挿入し、両memberと関数結果を確認する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "ccad5d4f13f4923f7b0fd6d74b2dec8b57a42d96d51c7238a53f9c92e1184a0b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_include_file_declarations.sv",
+              "contains": "`include \"include_file_declarations.svh\""
+            },
+            {
+              "file": "tests/ch22/test_include_file_declarations.expected",
+              "contains": "hi=3 lo=10 sum=13"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_include_from_incdirs.sv",
+          "observation": "include先の2macroが値12と文字列で展開される。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "759b0394791d6e792e442b05cf262943403adacf4d8e0ab88144c37da5f9f243",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_include_from_incdirs.sv",
+              "contains": "`include \"incdirs_values.svh\""
+            },
+            {
+              "file": "tests/ch22/test_include_from_incdirs.expected",
+              "contains": "WIDTH=12 NAME=found in the include directory"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_include_guard_twice.sv",
+          "observation": "同じincludeを2回読み、guardによりparameterが重複せずdepth6とguard定義を観測する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "ccad5d4f13f4923f7b0fd6d74b2dec8b57a42d96d51c7238a53f9c92e1184a0b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_include_guard_twice.sv",
+              "contains": "`include \"include_guard_twice.svh\""
+            },
+            {
+              "file": "tests/ch22/test_include_guard_twice.expected",
+              "contains": "depth=6"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_include_guard_two_files.sv",
+          "observation": "main/helperの両ファイルで同じinclude由来macro7が使え、3倍21を両方で観測する。compilation unitの構成は固定しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "ccad5d4f13f4923f7b0fd6d74b2dec8b57a42d96d51c7238a53f9c92e1184a0b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_include_guard_two_files.sv",
+              "contains": "`include \"include_guard_two_files.svh\""
+            },
+            {
+              "file": "tests/ch22/test_include_guard_two_files.expected",
+              "contains": "helper=21 here=21"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_include_nested.sv",
+          "observation": "outerがincludeするinnerのparameter5とouterの計算値10を両方確認する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "ccad5d4f13f4923f7b0fd6d74b2dec8b57a42d96d51c7238a53f9c92e1184a0b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_include_nested.sv",
+              "contains": "`include \"include_nested_outer.svh\""
+            },
+            {
+              "file": "tests/ch22/test_include_nested.expected",
+              "contains": "inner=5 outer=10"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_include_nested_in_incdir.sv",
+          "observation": "outerとその内部includeの両macroの1/2を観測する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b53e704a3abfd6f2c4dabc7a6ecf99119b6f1aaf2cd9b79d544d28a55bacce97",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_include_nested_in_incdir.sv",
+              "contains": "`include \"incdirs_nested_outer.svh\""
+            },
+            {
+              "file": "tests/ch22/test_include_nested_in_incdir.expected",
+              "contains": "outer=1 inner=2"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_define_selects_included_file.sv",
+          "observation": "選択されたincludeの内容fastと、非選択側slowを区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "f46054d7c4bd0d729a7f8334151b22e1d81d8590dcda5100bd2964cdd021db6b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_define_selects_included_file.sv",
+              "contains": "`include \"select_fast.svh\""
+            },
+            {
+              "file": "tests/ch22/test_define_selects_included_file.expected",
+              "contains": "speed=fast"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.4",
@@ -124022,7 +124212,25 @@
       "acceptance": "A defined macro can be used throughout its compilation unit with no additional design scope restrictions.",
       "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B051. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch5/test_directive_effect_from_read_point.sv",
+          "observation": "最初のmodule内部でdefineしたLEVEL3を別moduleで使い、再定義後5とundef後0も観測する。moduleを跨ぐmacro scopeであり、別compilation unitの分離は主張しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b087c3b65cd21edb44ccf9e55c2bdc9ebcd1daae8133800d70708526c091c336",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_directive_effect_from_read_point.sv",
+              "contains": "localparam int B = `LEVEL;"
+            },
+            {
+              "file": "tests/ch5/test_directive_effect_from_read_point.expected",
+              "contains": "second: B=3 C=5 defined at the end: 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.1",
@@ -124055,6 +124263,40 @@
             {
               "file": "tests/ch22/test_macro_advanced.expected",
               "contains": "PASS: SHIFT_LEFT with default argument"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_macro_args.sv",
+          "observation": "省略したtrailing actualがdefault2/10を使い、明示actual3/2では15/10になることをif分岐と期待出力で検査する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d2fae3f2eb2202e2bba287ff5bc6df2e1c805deeb71f27acf47f5a27e94b5dc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_macro_args.sv",
+              "contains": "c = `SCALE(5);"
+            },
+            {
+              "file": "tests/ch22/test_macro_args.expected",
+              "contains": "PASS: Macro arguments edge cases"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_corner_cases.sv",
+          "observation": "省略したtrailing actualがdefault2/10を使い、明示actual3/2では15/10になることをif分岐と期待出力で検査する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "005d0064bdec595b1412446db7d1c69b284dd30dbe8e07bd3c3a28b75b3202cc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_corner_cases.sv",
+              "contains": "result = `MACRO_WITH_DEFAULT(5);"
+            },
+            {
+              "file": "tests/ch22/test_directive_corner_cases.expected",
+              "contains": "PASS: Test 3 - Macro with default argument"
             }
           ]
         }
@@ -124111,6 +124353,227 @@
               "contains": "PASS: undef/redefine WIDTH=16"
             }
           ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives.sv",
+          "observation": "DATA_WIDTHを実際の宣言幅へ展開し、$bitsと出力8を照合する。定義だけの機能は含めない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54ff6816364c27c65688d3208a9ae8091f7bf8f13db656e63ca72e444fa9b946",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives.sv",
+              "contains": "logic [`DATA_WIDTH-1:0] data_with_macro;"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives.expected",
+              "contains": "PASS: Test 1 - `define DATA_WIDTH = 8 bits"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives_comprehensive.sv",
+          "observation": "定数DATA_WIDTH=8とMAX/MINの100/50を検査し、内部で再定義したDATA_WIDTH=16も観測する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dde764be616de79d2a03cbb57b37c5eeb81e59c5288e449abaeb146d8c48f63d",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.sv",
+              "contains": "localparam MAX_VAL = `MAX(100, 50);"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.expected",
+              "contains": "PASS: Macro with arguments MAX=100, MIN=50"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_conditional_compilation_2.sv",
+          "observation": "WIDTH=8、VERSION=2の展開値と、繰返し連結を通したffを期待出力で照合する。固定PASS表示のみを根拠にしない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dd1d1440be1ebc3247e9f444fa89c27002698945483804fb6ecffb0b66cbf833",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_conditional_compilation_2.sv",
+              "contains": "data = {`WIDTH{1'b1}};"
+            },
+            {
+              "file": "tests/ch22/test_conditional_compilation_2.expected",
+              "contains": "  data with all 1s=ff"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_define_value_in_parameters.sv",
+          "observation": "metadataのDEPTH=4をrunnerが定義し、使用箇所でD8/宣言幅16になることを観測する。CLI定義手順そのものの規格化は主張しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "5b67c542ecbe0f5bdc375f5a1e6a4ae479479415c52acd0ab1cfa67f4d5ad38b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_define_value_in_parameters.sv",
+              "contains": "localparam int D = `DEPTH * 2;"
+            },
+            {
+              "file": "tests/ch22/test_define_value_in_parameters.expected",
+              "contains": "wide: D=8 bits=16"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_define_with_args.sv",
+          "observation": "module内部のparameterized macroを実際に呼び、式引数の11、入れ子の14、生成宣言の値をif/期待出力で検査する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dce265ad63657cb9e3117d3b52e3c90829cdab255886166c27517581f09fb55f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_define_with_args.sv",
+              "contains": "a = `DOUBLE(7);"
+            },
+            {
+              "file": "tests/ch22/test_define_with_args.expected",
+              "contains": "PASS: DOUBLE(7) = 14"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_corner_cases.sv",
+          "observation": "SIMPLE_MACRO42の代入と加算50、parameterized30/50/10をifで区別する。後半の固定表示からは対応を増やさない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "005d0064bdec595b1412446db7d1c69b284dd30dbe8e07bd3c3a28b75b3202cc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_corner_cases.sv",
+              "contains": "result = `SIMPLE_MACRO + 8;"
+            },
+            {
+              "file": "tests/ch22/test_directive_corner_cases.expected",
+              "contains": "PASS: Test 13 - Macro in expression"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_nested.sv",
+          "observation": "OUTER8/INNER4/SUM8/DOUBLED14を実値で出力する。assertが無効でも誤った値が表示されれば期待出力と一致しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54b79276e0754b238177d22986cbe983d2ad787812802e797961e9bb2acbe157",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_nested.sv",
+              "contains": "localparam int DOUBLED = `NESTED_MACRO(7);"
+            },
+            {
+              "file": "tests/ch22/test_directive_nested.expected",
+              "contains": "Test 4: Nested invocation = 14"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+          "observation": "WIDTH/DEPTHの宣言利用と、引数の式全体を使う加算14を条件比較する。未使用STR_MACRO/CONCAT_MACROは根拠にしない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "296decd5c8df3456d8f3d1aca517ab3af016881351c8254b73cf1d86b956d621",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+              "contains": "result = `FUNC_MACRO(a * 2, b + 1);"
+            },
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.expected",
+              "contains": "Test 3 PASS: Macro with expressions"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_macro_concat.sv",
+          "observation": "呼び出すDECLARE_SIGNAL、WIDTH、DOUBLE_WIDTH、OUTERを観測する。MAKE_NAMEは呼ばれないため識別子連結には対応しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b22c4e66b04807bbf3546d4942609c50d077716390c8e230666108d6ef61f5b7",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_macro_concat.sv",
+              "contains": "`DECLARE_SIGNAL(test_signal);"
+            },
+            {
+              "file": "tests/ch22/test_macro_concat.expected",
+              "contains": "PASS: Nested macro OUTER = 15"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_macro_redefine_string_literal.sv",
+          "observation": "最初のV=1と再定義V=2をa/bのifと$fatalで区別する。別の保留で文字列の長さだけの弱さを記録する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "d6f48fb502f99941bc7be9a8b729e8d0686f583aa36b42138c2d73bfdd35a494",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_macro_redefine_string_literal.sv",
+              "contains": "int b = `V;"
+            },
+            {
+              "file": "tests/ch22/test_macro_redefine_string_literal.expected",
+              "contains": "ALL CHECKS OK"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch5/test_directive_effect_from_read_point.sv",
+          "observation": "module内のdefineを読み順で使い、後続moduleでも3、再定義後5になることを実値で確認する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b087c3b65cd21edb44ccf9e55c2bdc9ebcd1daae8133800d70708526c091c336",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_directive_effect_from_read_point.sv",
+              "contains": "localparam int C = `LEVEL;"
+            },
+            {
+              "file": "tests/ch5/test_directive_effect_from_read_point.expected",
+              "contains": "second: B=3 C=5 defined at the end: 0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch5/test_directive_redefinition_read_order.sv",
+          "observation": "既に読み取ったA13とundef/再定義後B27を同時に表示する。undef単体の有効性はこの観測だけから承認しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "bf354f2fc30a121f6a7453aee2cc7cb8aeeb3bfa50f917bce5e2ef50349a1553",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_directive_redefinition_read_order.sv",
+              "contains": "localparam int B = `DEPTH_VALUE;"
+            },
+            {
+              "file": "tests/ch5/test_directive_redefinition_read_order.expected",
+              "contains": "expanded=13,27"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch5/test_literals_macros_specify.sv",
+          "observation": "MACRO_VAL100とMACRO_FUNC(5)=10が異なればFAIL行が追加されるため、定数/引数付き双方を期待出力全体で照合できる。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "899b25e931bd4b2b47b764181f9d9dabfb19aaf65e937574470bab76c99997c6",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_literals_macros_specify.sv",
+              "contains": "if (`MACRO_FUNC(5) != 10)"
+            },
+            {
+              "file": "tests/ch5/test_literals_macros_specify.expected",
+              "contains": "TEST PASSED"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -124130,13 +124593,60 @@
       "acceptance": "A blank macro is defined and expands to no text.",
       "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B030. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_directive_corner_cases.sv",
+          "observation": "空定義EMPTY_MACROをstatement境界で実際に展開し、その後の出力まで到達する。定義だけを参照したものではない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "005d0064bdec595b1412446db7d1c69b284dd30dbe8e07bd3c3a28b75b3202cc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_corner_cases.sv",
+              "contains": "        `EMPTY_MACRO"
+            },
+            {
+              "file": "tests/ch22/test_directive_corner_cases.expected",
+              "contains": "PASS: Test 5 - Empty macro"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+          "observation": "空のdefineがundefinedと異なりifdefで真であることを確認する。実際のempty展開は別メンバーで確認する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "296decd5c8df3456d8f3d1aca517ab3af016881351c8254b73cf1d86b956d621",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+              "contains": "`ifdef EMPTY"
+            },
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.expected",
+              "contains": "Test 7 PASS: Empty macro defined"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.1",
           "blocks": [
             "B030"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "empty-definition-existence-and-empty-expansion",
+          "tests": [
+            "tests/ch22/test_directive_corner_cases.sv",
+            "tests/ch22/test_ieee_ch22_directives_edge.sv"
+          ],
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "空マクロのdefined状態と実際の空展開を両方観測し、undefined macroを空にするツールの動作だけで行全体を成功にしない。"
         }
       ]
     },
@@ -124256,7 +124766,59 @@
       "acceptance": "Macros may declare comma-separated simple-identifier formals with optional equals/default text.",
       "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B004, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_define_with_args.sv",
+          "observation": "comma区切りのsimple formalを定義して呼び出す。既定値なしの引数と、明示/既定の引数値を使う観測を確認した。formal spacingの違法系とは別。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dce265ad63657cb9e3117d3b52e3c90829cdab255886166c27517581f09fb55f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_define_with_args.sv",
+              "contains": "b = `ADD(3, 4);"
+            },
+            {
+              "file": "tests/ch22/test_define_with_args.expected",
+              "contains": "PASS: ADD(3, 4) = 7"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_macro_args.sv",
+          "observation": "comma区切りのsimple formalを定義して呼び出す。既定値なしの引数と、明示/既定の引数値を使う観測を確認した。formal spacingの違法系とは別。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d2fae3f2eb2202e2bba287ff5bc6df2e1c805deeb71f27acf47f5a27e94b5dc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_macro_args.sv",
+              "contains": "d = `SCALE(5, 3);"
+            },
+            {
+              "file": "tests/ch22/test_macro_args.expected",
+              "contains": "PASS: Macro arguments edge cases"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_corner_cases.sv",
+          "observation": "comma区切りのsimple formalを定義して呼び出す。既定値なしの引数と、明示/既定の引数値を使う観測を確認した。formal spacingの違法系とは別。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "005d0064bdec595b1412446db7d1c69b284dd30dbe8e07bd3c3a28b75b3202cc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_corner_cases.sv",
+              "contains": "result = `MACRO_WITH_DEFAULT(5);"
+            },
+            {
+              "file": "tests/ch22/test_directive_corner_cases.expected",
+              "contains": "PASS: Test 3 - Macro with default argument"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.1",
@@ -124275,7 +124837,25 @@
       "acceptance": "Macro text continues across backslash-newline, replacing that sequence with a newline; an unescaped newline outside a triple-quoted string or block comment terminates the definition.",
       "source_note": "IEEE 1800-2023 22.5.1; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_macro_concat.sv",
+          "observation": "backslash-newlineを含むDECLARE_SIGNALの後続行が実際の宣言になり、生成された両信号へ書いた値を検査する。未使用local tempだけのMULTI_LINEとは区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b22c4e66b04807bbf3546d4942609c50d077716390c8e230666108d6ef61f5b7",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_macro_concat.sv",
+              "contains": "`DECLARE_SIGNAL(another_signal);"
+            },
+            {
+              "file": "tests/ch22/test_macro_concat.expected",
+              "contains": "PASS: Multiple DECLARE_SIGNAL macros work"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.1",
@@ -124509,6 +125089,74 @@
               "contains": "PASS: Basic macro WIDTH=8, DEPTH=16"
             }
           ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives_comprehensive.sv",
+          "observation": "argumentless定数とparameterizedな複数formalの実際の展開を同じファイルで観測する。nested expansionの展開時期までは推定しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dde764be616de79d2a03cbb57b37c5eeb81e59c5288e449abaeb146d8c48f63d",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.sv",
+              "contains": "data = `MAX(`DATA_WIDTH, 4);"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.expected",
+              "contains": "PASS: Macro in expression"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_nested.sv",
+          "observation": "argumentless定数とparameterizedな複数formalの実際の展開を同じファイルで観測する。nested expansionの展開時期までは推定しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54b79276e0754b238177d22986cbe983d2ad787812802e797961e9bb2acbe157",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_nested.sv",
+              "contains": "localparam int SUM = `MACRO_WITH_ARGS(3, 5);"
+            },
+            {
+              "file": "tests/ch22/test_directive_nested.expected",
+              "contains": "Test 3: Macro args = 8"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+          "observation": "argumentless定数とparameterizedな複数formalの実際の展開を同じファイルで観測する。nested expansionの展開時期までは推定しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "296decd5c8df3456d8f3d1aca517ab3af016881351c8254b73cf1d86b956d621",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+              "contains": "static int result = `FUNC_MACRO(10, 20);"
+            },
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.expected",
+              "contains": "Test 2 PASS: Function-like macro"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_corner_cases.sv",
+          "observation": "argumentless定数とparameterizedな複数formalの実際の展開を同じファイルで観測する。nested expansionの展開時期までは推定しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "005d0064bdec595b1412446db7d1c69b284dd30dbe8e07bd3c3a28b75b3202cc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_corner_cases.sv",
+              "contains": "result = `SIMPLE_MACRO;"
+            },
+            {
+              "file": "tests/ch22/test_directive_corner_cases.expected",
+              "contains": "PASS: Test 2 - Macro with arguments"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -124600,6 +125248,23 @@
               "contains": "PASS: TEMP_MACRO is correctly undefined after undef"
             }
           ]
+        },
+        {
+          "test": "tests/ch5/test_directive_effect_from_read_point.sv",
+          "observation": "再定義5をundefした後のifdefが偽になりD0と出る。直ちに再定義するだけのケースと区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b087c3b65cd21edb44ccf9e55c2bdc9ebcd1daae8133800d70708526c091c336",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_directive_effect_from_read_point.sv",
+              "contains": "`undef LEVEL"
+            },
+            {
+              "file": "tests/ch5/test_directive_effect_from_read_point.expected",
+              "contains": "second: B=3 C=5 defined at the end: 0"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -124639,13 +125304,60 @@
       "acceptance": "Argumentless undefineall removes every macro previously defined by define within the compilation unit and may appear anywhere in source.",
       "source_note": "IEEE 1800-2023 22.5.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_undefineall.sv",
+          "observation": "module内のdirectiveで既存2macroが両方消えることと、その後の再定義10を確認する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "329ef59881d67cf11d2c9dfea6a522f703579891a3bea70efc0bfcbb9df38eac",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_undefineall.sv",
+              "contains": "`undefineall"
+            },
+            {
+              "file": "tests/ch22/test_undefineall.expected",
+              "contains": "sum_first=3 one_defined=0 two_defined=0 redefined=10"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_undefineall_clears_nested_macro_expansion.sv",
+          "observation": "module外でinner/forwarding outerの両定義が消える観測。module内配置は別のメンバー。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "06db8abe7ed70bf889ad7a33f5ab56d5e3038682afae52e053161e88568bf34f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_undefineall_clears_nested_macro_expansion.sv",
+              "contains": "`undefineall"
+            },
+            {
+              "file": "tests/ch22/test_undefineall_clears_nested_macro_expansion.expected",
+              "contains": "outer=absent"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.5.3",
           "blocks": [
             "B002"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "inside-and-outside-design-element-undefineall",
+          "tests": [
+            "tests/ch22/test_undefineall.sv",
+            "tests/ch22/test_undefineall_clears_nested_macro_expansion.sv"
+          ],
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "module内/外の全undefと再定義を同じ実行回で確認する。Icarusの未対応を成功にしない。"
         }
       ]
     },
@@ -124757,6 +125469,142 @@
               "contains": "PASS: Nested ifdef (FEATURE_A && FEATURE_B)"
             }
           ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives.sv",
+          "observation": "inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54ff6816364c27c65688d3208a9ae8091f7bf8f13db656e63ca72e444fa9b946",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives.sv",
+              "contains": "if (nested_both == 1)"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives.expected",
+              "contains": "PASS: Test 4 - Nested `ifdef both conditions true"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives_comprehensive.sv",
+          "observation": "inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dde764be616de79d2a03cbb57b37c5eeb81e59c5288e449abaeb146d8c48f63d",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.sv",
+              "contains": "if (DEBUG_DATA_WIDTH == 8)"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.expected",
+              "contains": "PASS: Nested ifdef worked, DEBUG_DATA_WIDTH=8"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_conditional_compilation_2.sv",
+          "observation": "inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dd1d1440be1ebc3247e9f444fa89c27002698945483804fb6ecffb0b66cbf833",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_conditional_compilation_2.sv",
+              "contains": "`ifdef ENABLE_FEATURE1"
+            },
+            {
+              "file": "tests/ch22/test_conditional_compilation_2.expected",
+              "contains": "  Both ENABLE_FEATURE1 and WIDTH are defined"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_corner_cases.sv",
+          "observation": "inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "005d0064bdec595b1412446db7d1c69b284dd30dbe8e07bd3c3a28b75b3202cc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_corner_cases.sv",
+              "contains": "`ifndef FEATURE_B"
+            },
+            {
+              "file": "tests/ch22/test_directive_corner_cases.expected",
+              "contains": "PASS: Test 9 - Nested conditional"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_nested.sv",
+          "observation": "inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54b79276e0754b238177d22986cbe983d2ad787812802e797961e9bb2acbe157",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_nested.sv",
+              "contains": "`ifndef GUARD_TEST_DIRECTIVE"
+            },
+            {
+              "file": "tests/ch22/test_directive_nested.expected",
+              "contains": "Test 5: Guard defined correctly"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+          "observation": "inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "296decd5c8df3456d8f3d1aca517ab3af016881351c8254b73cf1d86b956d621",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+              "contains": "    `ifdef DEPTH"
+            },
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.expected",
+              "contains": "Test 6 PASS: Nested ifdef"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ifdef_nested.sv",
+          "observation": "inner endifを抜けた後も外側の選択と後続出力が維持されることを、選択された値または出力行で観測する。全期待出力で余分/欠落する枝も区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fc99d3764e493e08478461b5d4f3404aebeda078a9d5eec38b5f1e587e81609c",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ifdef_nested.sv",
+              "contains": "test3_value = 3;"
+            },
+            {
+              "file": "tests/ch22/test_ifdef_nested.expected",
+              "contains": "PASS: Complex nested condition (A && !C && B)"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_conditional_compilation.sv",
+          "observation": "ifdef/ifndef/elsifとnested branchを累積値11/31/39で検査する。実際のsource変種で最初の加算を10から00へ変えるとIcarus13とVerilator5.052の両runnerで最終PASSが消えることを確認し、表示だけの成功とは区別した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a9fa701182becf6a8ac8537f3bc3f0395df2300bf33482e4cd21f66fb7ffef8e",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_conditional_compilation.sv",
+              "contains": "assert(result == 8'h39)"
+            },
+            {
+              "file": "tests/ch22/test_conditional_compilation.expected",
+              "contains": "PASS: Conditional compilation directives test completed"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -124776,13 +125624,78 @@
       "acceptance": "Conditional compilation may select source text anywhere in the description.",
       "source_note": "IEEE 1800-2023 22.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_define_selects_included_file.sv",
+          "observation": "module外の条件付きincludeで、fast/slowの内容を区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "f46054d7c4bd0d729a7f8334151b22e1d81d8590dcda5100bd2964cdd021db6b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_define_selects_included_file.sv",
+              "contains": "`include \"select_fast.svh\""
+            },
+            {
+              "file": "tests/ch22/test_define_selects_included_file.expected",
+              "contains": "speed=fast"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives.sv",
+          "observation": "moduleの宣言領域で条件に応じた宣言が使える。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54ff6816364c27c65688d3208a9ae8091f7bf8f13db656e63ca72e444fa9b946",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives.sv",
+              "contains": "logic nested_both = 1;"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives.expected",
+              "contains": "PASS: Test 4 - Nested `ifdef both conditions true"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ifdef_nested.sv",
+          "observation": "initial内の手続き文を条件付きで選択する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fc99d3764e493e08478461b5d4f3404aebeda078a9d5eec38b5f1e587e81609c",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ifdef_nested.sv",
+              "contains": "test1_value = 1;"
+            },
+            {
+              "file": "tests/ch22/test_ifdef_nested.expected",
+              "contains": "PASS: ifdef FEATURE_A correctly selected"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.6",
           "blocks": [
             "B002"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "outside-declaration-and-procedural-placement",
+          "tests": [
+            "tests/ch22/test_define_selects_included_file.sv",
+            "tests/ch22/test_compiler_directives.sv",
+            "tests/ch22/test_ifdef_nested.sv"
+          ],
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "module外のinclude、module宣言領域、initial内の文を併せ、同じ実行回の全成功を必要とする。"
         }
       ]
     },
@@ -124865,6 +125778,176 @@
               "contains": "PASS: elsif chain selected FEATURE_A branch"
             }
           ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives.sv",
+          "observation": "定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54ff6816364c27c65688d3208a9ae8091f7bf8f13db656e63ca72e444fa9b946",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives.sv",
+              "contains": "if (MODE == 3)"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives.expected",
+              "contains": "PASS: Test 5 - `elsif selected correct branch (MODE=3)"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives_comprehensive.sv",
+          "observation": "定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dde764be616de79d2a03cbb57b37c5eeb81e59c5288e449abaeb146d8c48f63d",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.sv",
+              "contains": "if (MODE == 0)"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.expected",
+              "contains": "PASS: elsif chain - default MODE=0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_conditional_compilation_2.sv",
+          "observation": "定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dd1d1440be1ebc3247e9f444fa89c27002698945483804fb6ecffb0b66cbf833",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_conditional_compilation_2.sv",
+              "contains": "`ifdef ENABLE_FEATURE1"
+            },
+            {
+              "file": "tests/ch22/test_conditional_compilation_2.expected",
+              "contains": "  ENABLE_FEATURE1 is defined"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_define_selects_included_file.sv",
+          "observation": "定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "f46054d7c4bd0d729a7f8334151b22e1d81d8590dcda5100bd2964cdd021db6b",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_define_selects_included_file.sv",
+              "contains": "`ifdef USE_FAST"
+            },
+            {
+              "file": "tests/ch22/test_define_selects_included_file.expected",
+              "contains": "speed=fast"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_defines_from_metadata.sv",
+          "observation": "定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9b77485815ef200fe9197957601a7fb07f88808057e4dad97c334a57c9a3e2e9",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_defines_from_metadata.sv",
+              "contains": "`ifdef FAST"
+            },
+            {
+              "file": "tests/ch22/test_defines_from_metadata.expected",
+              "contains": "FAST is defined"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_corner_cases.sv",
+          "observation": "定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "005d0064bdec595b1412446db7d1c69b284dd30dbe8e07bd3c3a28b75b3202cc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_corner_cases.sv",
+              "contains": "`elsif FEATURE_A"
+            },
+            {
+              "file": "tests/ch22/test_directive_corner_cases.expected",
+              "contains": "PASS: Test 10 - elsif branch"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_nested.sv",
+          "observation": "定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54b79276e0754b238177d22986cbe983d2ad787812802e797961e9bb2acbe157",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_nested.sv",
+              "contains": "`ifdef GUARD_TEST_DIRECTIVE"
+            },
+            {
+              "file": "tests/ch22/test_directive_nested.expected",
+              "contains": "Test 5: Guard defined correctly"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+          "observation": "定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "296decd5c8df3456d8f3d1aca517ab3af016881351c8254b73cf1d86b956d621",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+              "contains": "`ifdef UNDEFINED"
+            },
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.expected",
+              "contains": "Test 10 PASS: Conditional else branch"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ifdef_nested.sv",
+          "observation": "定義/未定義のマクロで選択した枝が、別の値または別の出力になる。選択された行だけでなく期待出力全体を比較する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fc99d3764e493e08478461b5d4f3404aebeda078a9d5eec38b5f1e587e81609c",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ifdef_nested.sv",
+              "contains": "`elsif FEATURE_B"
+            },
+            {
+              "file": "tests/ch22/test_ifdef_nested.expected",
+              "contains": "PASS: elsif chain correctly selected FEATURE_B"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_conditional_compilation.sv",
+          "observation": "ifdef/ifndef/elsifとnested branchを累積値11/31/39で検査する。実際のsource変種で最初の加算を10から00へ変えるとIcarus13とVerilator5.052の両runnerで最終PASSが消えることを確認し、表示だけの成功とは区別した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a9fa701182becf6a8ac8537f3bc3f0395df2300bf33482e4cd21f66fb7ffef8e",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_conditional_compilation.sv",
+              "contains": "assert(result == 8'h39)"
+            },
+            {
+              "file": "tests/ch22/test_conditional_compilation.expected",
+              "contains": "PASS: Conditional compilation directives test completed"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -124899,6 +125982,176 @@
             {
               "file": "tests/ch22/test_ifdef_expression.expected",
               "contains": "not ALPHA <-> GAMMA"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives.sv",
+          "observation": "identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54ff6816364c27c65688d3208a9ae8091f7bf8f13db656e63ca72e444fa9b946",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives.sv",
+              "contains": "if (has_feature_a == 1)"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives.expected",
+              "contains": "PASS: Test 3 - `ifndef selected else path for defined macro"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_compiler_directives_comprehensive.sv",
+          "observation": "identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dde764be616de79d2a03cbb57b37c5eeb81e59c5288e449abaeb146d8c48f63d",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.sv",
+              "contains": "if (feature_enabled == 1)"
+            },
+            {
+              "file": "tests/ch22/test_compiler_directives_comprehensive.expected",
+              "contains": "PASS: ifndef DISABLE_FEATURE worked"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_conditional_compilation_2.sv",
+          "observation": "identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dd1d1440be1ebc3247e9f444fa89c27002698945483804fb6ecffb0b66cbf833",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_conditional_compilation_2.sv",
+              "contains": "`ifndef UNDEFINED_MACRO"
+            },
+            {
+              "file": "tests/ch22/test_conditional_compilation_2.expected",
+              "contains": "  UNDEFINED_MACRO is not defined (correct)"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_define_tool_option_skips_default.sv",
+          "observation": "identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "5b2cc11adbdd4972ea162597aaabf77713fd19cf3df9bfaedf13a2fab9bd7542",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_define_tool_option_skips_default.sv",
+              "contains": "`ifndef LEVEL"
+            },
+            {
+              "file": "tests/ch22/test_define_tool_option_skips_default.expected",
+              "contains": "LEVEL=2 DEPTH=8"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_defines_from_metadata.sv",
+          "observation": "identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9b77485815ef200fe9197957601a7fb07f88808057e4dad97c334a57c9a3e2e9",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_defines_from_metadata.sv",
+              "contains": "`ifndef SLOW"
+            },
+            {
+              "file": "tests/ch22/test_defines_from_metadata.expected",
+              "contains": "SLOW is not defined"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_corner_cases.sv",
+          "observation": "identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "005d0064bdec595b1412446db7d1c69b284dd30dbe8e07bd3c3a28b75b3202cc",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_corner_cases.sv",
+              "contains": "`ifndef FEATURE_B"
+            },
+            {
+              "file": "tests/ch22/test_directive_corner_cases.expected",
+              "contains": "PASS: Test 8 - ifndef FEATURE_B"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_directive_nested.sv",
+          "observation": "identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "54b79276e0754b238177d22986cbe983d2ad787812802e797961e9bb2acbe157",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_directive_nested.sv",
+              "contains": "`ifndef UNDEFINED_MACRO"
+            },
+            {
+              "file": "tests/ch22/test_directive_nested.expected",
+              "contains": "Test 6: Undefined macro check OK"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+          "observation": "identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "296decd5c8df3456d8f3d1aca517ab3af016881351c8254b73cf1d86b956d621",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+              "contains": "`ifndef UNDEFINED_MACRO"
+            },
+            {
+              "file": "tests/ch22/test_ieee_ch22_directives_edge.expected",
+              "contains": "Test 5 PASS: ifndef UNDEFINED_MACRO"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_ifdef_nested.sv",
+          "observation": "identifier形式のifndefが未定義時に真/定義時に偽となる観測を登録する。親括弧式の観測は既存の専用テストに保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fc99d3764e493e08478461b5d4f3404aebeda078a9d5eec38b5f1e587e81609c",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_ifdef_nested.sv",
+              "contains": "`ifndef FEATURE_C"
+            },
+            {
+              "file": "tests/ch22/test_ifdef_nested.expected",
+              "contains": "PASS: ifndef FEATURE_C correctly selected"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_conditional_compilation.sv",
+          "observation": "ifdef/ifndef/elsifとnested branchを累積値11/31/39で検査する。実際のsource変種で最初の加算を10から00へ変えるとIcarus13とVerilator5.052の両runnerで最終PASSが消えることを確認し、表示だけの成功とは区別した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a9fa701182becf6a8ac8537f3bc3f0395df2300bf33482e4cd21f66fb7ffef8e",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_conditional_compilation.sv",
+              "contains": "assert(result == 8'h39)"
+            },
+            {
+              "file": "tests/ch22/test_conditional_compilation.expected",
+              "contains": "PASS: Conditional compilation directives test completed"
             }
           ]
         }
@@ -124938,7 +126191,76 @@
       "acceptance": "timescale supplies following design elements with default time/delay unit and delay rounding precision until superseded, subject to explicit timeunit/timeprecision precedence.",
       "source_note": "IEEE 1800-2023 22.7; complete own-body source review, blocks B002, B005, B009, B011, B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_timescale_child_units_in_parent.sv",
+          "observation": "後続moduleへ指定unit/precisionが作用する観測。異なるunitの関係と実際のdelay丸めを他メンバーと併せる。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "87a0e2d6a57e2d6b58347a6120c7ecc69d843a427c0251f16c7ed93cd387dd59",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_timescale_child_units_in_parent.sv",
+              "contains": "@(c.done)"
+            },
+            {
+              "file": "tests/ch22/test_timescale_child_units_in_parent.expected",
+              "contains": "parent: time=30 after the child's event"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_timescale_delay_rounded_to_precision.sv",
+          "observation": "後続moduleへ指定unit/precisionが作用する観測。異なるunitの関係と実際のdelay丸めを他メンバーと併せる。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b38517292a67735eb68c9e18a277a9397cfc9461833b5b78a47833ef1593c755",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_timescale_delay_rounded_to_precision.sv",
+              "contains": "#1.26"
+            },
+            {
+              "file": "tests/ch22/test_timescale_delay_rounded_to_precision.expected",
+              "contains": "after #1.26: 1.30"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch3/test_timescale_replaced_by_next.sv",
+          "observation": "後続moduleへ新しいunitが作用し、先に宣言したmoduleのunitは変えない。全4出力の順序も照合する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a1cca5a57467084e8f8b26a93d7614b9a835afbc25ccb36e785e8e9ddf517efe",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_timescale_replaced_by_next.sv",
+              "contains": "`timescale 10ns / 1ns"
+            },
+            {
+              "file": "tests/ch3/test_timescale_replaced_by_next.expected",
+              "contains": "c: $time=2"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch3/test_timeunit_with_precision.sv",
+          "observation": "前のtimescale1ns/1nsより明示local100ps/10psが優先し、単位と丸めを観測する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2d03156abd95623396fd4872ffa2dc161e39c0131801dc64aca8ad26f45dca89",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_timeunit_with_precision.sv",
+              "contains": "timeunit 100ps / 10ps;"
+            },
+            {
+              "file": "tests/ch3/test_timeunit_with_precision.expected",
+              "contains": "realtime=3.3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.7",
@@ -124949,6 +126271,20 @@
             "B011",
             "B012"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "directive-units-rounding-replacement-and-local-precedence",
+          "tests": [
+            "tests/ch22/test_timescale_child_units_in_parent.sv",
+            "tests/ch22/test_timescale_delay_rounded_to_precision.sv",
+            "tests/ch3/test_timescale_replaced_by_next.sv",
+            "tests/ch3/test_timeunit_with_precision.sv"
+          ],
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "unitの相対尺度、precision丸め、directiveの置換、local宣言の優先を4本で併せ、同じ実行回の全成功を必要とする。"
         }
       ]
     },
@@ -125086,13 +126422,60 @@
       "acceptance": "Pairing unconnected_drive with nounconnected_drive is advisable but not required; they are independent directives.",
       "source_note": "IEEE 1800-2023 22.9; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "recommendation",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_unconnected_drive.sv",
+          "observation": "明示的なpairとpull1からpull0へ直接切替するunpaired条件を2ファイルで併せ、optional pairingの許可と独立した制御を観測する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "ac6f0b552b1033be94c11a66627bc1aef73a6ae05d3008e8ce8d22b54ae0ff7d",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_unconnected_drive.sv",
+              "contains": "`unconnected_drive pull1"
+            },
+            {
+              "file": "tests/ch22/test_unconnected_drive.expected",
+              "contains": "pull1: 1  pull0: 0  none: z"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch22/test_unconnected_drive_instances_restore.sv",
+          "observation": "明示的なpairとpull1からpull0へ直接切替するunpaired条件を2ファイルで併せ、optional pairingの許可と独立した制御を観測する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dd374e7251b4ba86eb92bfdf29ed2179326d059447fc0c01c5adc6add6578462",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_unconnected_drive_instances_restore.sv",
+              "contains": "`unconnected_drive pull0"
+            },
+            {
+              "file": "tests/ch22/test_unconnected_drive_instances_restore.expected",
+              "contains": "inputs=111,000,zzz"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.9",
           "blocks": [
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "paired-and-unpaired-unconnected-drive",
+          "tests": [
+            "tests/ch22/test_unconnected_drive.sv",
+            "tests/ch22/test_unconnected_drive_instances_restore.sv"
+          ],
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "observation": "両方をpairにするscalarケースとpull1をnounなしでpull0へ切替するvectorケースを同じ実行回で確認する。"
         }
       ]
     },
@@ -125168,7 +126551,25 @@
       "acceptance": "Pairing celldefine and endcelldefine is advisable but not mandatory.",
       "source_note": "IEEE 1800-2023 22.10; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "recommendation",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_vpi_celldefine.sv",
+          "observation": "最初はendcelldefineとpair、2回目はendcelldefineなしでresetallへ進む有効な使用を観測する。 Cのvpi_handle_by_name/vpi_get(vpiCellInstance)と全5出力を確認した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3cfd26251c23005112cbf27a743b83d9db5be760f8d42329cd38ff394d23bebd",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_vpi_celldefine.sv",
+              "contains": "`resetall"
+            },
+            {
+              "file": "tests/ch22/test_vpi_celldefine.expected",
+              "contains": "test_vpi_celldefine.r1: cell instance 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.10",
@@ -125204,7 +126605,42 @@
       "acceptance": "resetall has the effect of endcelldefine.",
       "source_note": "IEEE 1800-2023 22.10; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_vpi_celldefine.sv",
+          "observation": "resetall後のcd_afterのcell flagが0、直前のcd_cell2は1のままを観測する。 Cのvpi_handle_by_name/vpi_get(vpiCellInstance)と全5出力を確認した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3cfd26251c23005112cbf27a743b83d9db5be760f8d42329cd38ff394d23bebd",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_vpi_celldefine.sv",
+              "contains": "`resetall"
+            },
+            {
+              "file": "tests/ch22/test_vpi_celldefine.expected",
+              "contains": "test_vpi_celldefine.r1: cell instance 0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch5/test_system_function_names_cell_reset_and_attributes.sv",
+          "observation": "C helperが100*cellflag+weightを計算するためmarked105/plain9でresetallによるcell解除を区別する。oracle未承認の成功には換算しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "ce5ff33b80b59347870407473447b88abb26ff464b2297951f7fd6fc6cfa40bd",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_system_function_names_cell_reset_and_attributes.sv",
+              "contains": "`resetall"
+            },
+            {
+              "file": "tests/ch5/test_system_function_names_cell_reset_and_attributes.expected",
+              "contains": "marked=105 plain=9"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.10",
@@ -125222,7 +126658,25 @@
       "acceptance": "celldefine/endcelldefine independently enable/disable cell-module tagging; the latest occurrence controls and multiple pairs are allowed.",
       "source_note": "IEEE 1800-2023 22.10; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_vpi_celldefine.sv",
+          "observation": "2回のcelldefineとendcelldefine/resetallによりVPI cell flagが1/0/1/0になる。 Cのvpi_handle_by_name/vpi_get(vpiCellInstance)と全5出力を確認した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3cfd26251c23005112cbf27a743b83d9db5be760f8d42329cd38ff394d23bebd",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_vpi_celldefine.sv",
+              "contains": "`resetall"
+            },
+            {
+              "file": "tests/ch22/test_vpi_celldefine.expected",
+              "contains": "test_vpi_celldefine.r1: cell instance 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.10",
@@ -125258,7 +126712,25 @@
       "acceptance": "pragma uses a simple-identifier name and optional comma-separated expressions: keywords, keyword=value or values; values permit nested expression lists, numbers, strings or identifiers.",
       "source_note": "IEEE 1800-2023 22.11; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_pragma_unrecognized.sv",
+          "observation": "空のexpression list、keyword/value、nested list、number/string/identifierを含む構文を実際に読み、設計の計算結果42が維持される。非標準pragmaの固有効果を推定しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "1e309ba1160a83a58befd591cceb27835da3d300afc9ba7b49110ae1102d1951",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_pragma_unrecognized.sv",
+              "contains": "`pragma kt_made_up_hint level = 3, (alpha, \"beta\"), 12, mode"
+            },
+            {
+              "file": "tests/ch22/test_pragma_unrecognized.expected",
+              "contains": "n = 42"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.11",
@@ -127888,7 +129360,25 @@
       "acceptance": "Keyword mode 1364-2001-noconfig excludes cell from the reserved set.",
       "source_note": "IEEE 1800-2023 22.14.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_begin_keywords_versions.sv",
+          "observation": "noconfigで除外される語をreg identifierとして宣言・代入・参照し、値5/6/7を実際に表示する。9種類の全keyword集合やstack復元はこの3行へ含めない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "5bd38796b10921a00beaef7d99b06c20b059dc846dee9ddc41a0671601987c23",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_begin_keywords_versions.sv",
+              "contains": "cell = 6;"
+            },
+            {
+              "file": "tests/ch22/test_begin_keywords_versions.expected",
+              "contains": "1364-2001-noconfig: config=5 cell=6 design=7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.4",
@@ -127906,7 +129396,25 @@
       "acceptance": "Keyword mode 1364-2001-noconfig excludes config from the reserved set.",
       "source_note": "IEEE 1800-2023 22.14.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_begin_keywords_versions.sv",
+          "observation": "noconfigで除外される語をreg identifierとして宣言・代入・参照し、値5/6/7を実際に表示する。9種類の全keyword集合やstack復元はこの3行へ含めない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "5bd38796b10921a00beaef7d99b06c20b059dc846dee9ddc41a0671601987c23",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_begin_keywords_versions.sv",
+              "contains": "config = 5;"
+            },
+            {
+              "file": "tests/ch22/test_begin_keywords_versions.expected",
+              "contains": "1364-2001-noconfig: config=5 cell=6 design=7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.4",
@@ -127924,7 +129432,25 @@
       "acceptance": "Keyword mode 1364-2001-noconfig excludes design from the reserved set.",
       "source_note": "IEEE 1800-2023 22.14.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_begin_keywords_versions.sv",
+          "observation": "noconfigで除外される語をreg identifierとして宣言・代入・参照し、値5/6/7を実際に表示する。9種類の全keyword集合やstack復元はこの3行へ含めない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "5bd38796b10921a00beaef7d99b06c20b059dc846dee9ddc41a0671601987c23",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_begin_keywords_versions.sv",
+              "contains": "design = 7;"
+            },
+            {
+              "file": "tests/ch22/test_begin_keywords_versions.expected",
+              "contains": "1364-2001-noconfig: config=5 cell=6 design=7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.14.4",

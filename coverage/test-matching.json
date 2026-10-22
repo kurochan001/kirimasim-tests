@@ -3,8 +3,8 @@
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
   "test_files": 3938,
-  "linked_test_files": 943,
-  "unlinked_test_files": 2995,
+  "linked_test_files": 975,
+  "unlinked_test_files": 2963,
   "chapters": [
     {
       "chapter": "ch3",
@@ -21,8 +21,8 @@
     {
       "chapter": "ch5",
       "test_files": 41,
-      "linked_test_files": 3,
-      "unlinked_test_files": 38
+      "linked_test_files": 6,
+      "unlinked_test_files": 35
     },
     {
       "chapter": "ch6",
@@ -111,8 +111,8 @@
     {
       "chapter": "ch20",
       "test_files": 192,
-      "linked_test_files": 22,
-      "unlinked_test_files": 170
+      "linked_test_files": 23,
+      "unlinked_test_files": 169
     },
     {
       "chapter": "ch21",
@@ -123,8 +123,8 @@
     {
       "chapter": "ch22",
       "test_files": 48,
-      "linked_test_files": 7,
-      "unlinked_test_files": 41
+      "linked_test_files": 35,
+      "unlinked_test_files": 13
     },
     {
       "chapter": "ch23",
@@ -53654,13 +53654,14 @@
         "22.7"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-20.4.2-EXTRACT-PRINT-TIMESCALE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-20.4.2-EXTRACT-PRINT-CURRENT",
         "SV2023-20.4.2-EXTRACT-PRINT-FORMAT",
         "SV2023-20.4.2-EXTRACT-PRINT-SPECIAL-NAMES",
-        "SV2023-20.4.2-EXTRACT-PRINT-TIMESCALE",
         "SV2023-20.4.2-EXTRACT-PRINT-UNIT-ROOT",
         "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT"
@@ -59758,7 +59759,32 @@
           "clause": "22.14",
           "descendant_requirement_count": 266
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch22/test_begin_keywords_1364_2005.sv",
+        "inputs_sha256": "9964f7aae61d6af4c200d96d05af229866c7ed99292ecfb1adfcc882cbd42aa1",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.14.5-EXTRACT-VERSION-SET",
+              "SV2023-22.14-EXTRACT-KEYWORDS-ONLY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M58: logic/bit/intをidentifierにする許可と合計12を観測するが、1364-2005が予約すべき全集合や言語機能不変の観測ではない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_begin_keywords_1364_2005.sv",
+                "contains": "integer int;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_begin_keywords_versions.sv",
@@ -59775,7 +59801,11 @@
         "22.14.9"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-CELL",
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-CONFIG",
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-DESIGN"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.14-EXTRACT-KEYWORD-DEFAULT",
@@ -59907,9 +59937,6 @@
         "SV2023-22.14.3-EXTRACT-RESERVED-UNSIGNED",
         "SV2023-22.14.3-EXTRACT-RESERVED-USE",
         "SV2023-22.14.3-EXTRACT-VERSION-SET",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-CELL",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-CONFIG",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-DESIGN",
         "SV2023-22.14.4-EXTRACT-EXCLUDE-ENDCONFIG",
         "SV2023-22.14.4-EXTRACT-EXCLUDE-INCDIR",
         "SV2023-22.14.4-EXTRACT-EXCLUDE-INCLUDE",
@@ -60060,7 +60087,48 @@
           "clause": "22.14",
           "descendant_requirement_count": 266
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch22/test_begin_keywords_versions.sv",
+        "inputs_sha256": "5bd38796b10921a00beaef7d99b06c20b059dc846dee9ddc41a0671601987c23",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.14-EXTRACT-KEYWORD-STACK"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M58: nested pair後のkw_2001_afterはlogic/uwireを使うが両語とも1364-1995/2001の双方で非keyword。復元先を誤って1995とするsource変種でも全出力が一致した。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_begin_keywords_versions.sv",
+                "contains": "reg [3:0] logic, uwire;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.14-EXTRACT-KEYWORD-VERSIONS",
+              "SV2023-22.14-EXTRACT-KEYWORDS-ONLY",
+              "SV2023-22.14.9-EXTRACT-CURRENT-KEYWORD-SET"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M58: 実際のbegin_keywordsに1800-2012/2017はなく、2023部分は固定done表示。全9指定・全keyword集合・非keyword言語機能の維持は検査しない。noconfigのconfig/cell/designだけは個別行へ採用。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_begin_keywords_versions.sv",
+                "contains": "initial #7 $display(\"1800-2023: done\");"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_compiler_directives.sv",
@@ -60072,15 +60140,22 @@
         "22.8"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -60103,13 +60178,9 @@
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
         "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION",
         "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT"
       ],
@@ -60129,7 +60200,31 @@
         "SV2023-22.8-EXTRACT-NETTYPE-SCOPE",
         "SV2023-22.8-EXTRACT-NETTYPE-VALUES"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_compiler_directives.sv",
+        "inputs_sha256": "54ff6816364c27c65688d3208a9ae8091f7bf8f13db656e63ca72e444fa9b946",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56: default_nettype wireは書くがimplicit net自体を作らない。noneによる拒否やreset後のwireを含む複合要求を、明示logic宣言だけから承認しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_compiler_directives.sv",
+                "contains": "`default_nettype wire"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_compiler_directives_comprehensive.sv",
@@ -60141,7 +60236,13 @@
         "22.7"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
+        "SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -60149,7 +60250,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -60166,7 +60266,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-ORDINARY-STRING",
         "SV2023-22.5.1-EXTRACT-MACRO-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-STRING-CONTINUATION",
-        "SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION",
         "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
@@ -60174,13 +60273,10 @@
         "SV2023-22.5.2-EXTRACT-UNDEFINE-WARNING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
         "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION",
         "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT"
       ],
@@ -60197,7 +60293,47 @@
         "SV2023-22.7-EXTRACT-TIMESCALE-PRECISION",
         "SV2023-22.7-EXTRACT-TIMESCALE-VALUES"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_compiler_directives_comprehensive.sv",
+        "inputs_sha256": "dde764be616de79d2a03cbb57b37c5eeb81e59c5288e449abaeb146d8c48f63d",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
+              "SV2023-22.5.1-EXTRACT-MACRO-QUOTE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M52: REG_NAME/STRINGIFYは定義だけで呼び出さない。通常のmacro展開の採用からtoken連結やquoteへ推定しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_compiler_directives_comprehensive.sv",
+                "contains": "`define REG_NAME(prefix, num) prefix``num"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.5.2-EXTRACT-UNDEFINE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M54: undef直後に同じDATA_WIDTHを16へ再定義するため、undefを無視しても後続defineの値16と同じ出力になる。undef後・再定義前の観測がない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_compiler_directives_comprehensive.sv",
+                "contains": "`undef DATA_WIDTH"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_conditional_compilation.sv",
@@ -60206,18 +60342,19 @@
         "22.6"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
-        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -60233,7 +60370,12 @@
         "22.6"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -60241,7 +60383,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -60264,13 +60405,10 @@
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
-        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -60293,13 +60431,18 @@
         "22.5.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
+        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH",
         "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
-        "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
-        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
         "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX",
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
@@ -60330,11 +60473,9 @@
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
         "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
         "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
         "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
       ],
       "interpretation_pending_ids": [],
@@ -60359,7 +60500,9 @@
         "22.5.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -60395,8 +60538,7 @@
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
         "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -60419,7 +60561,9 @@
         "27.5"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -60427,7 +60571,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -60490,7 +60633,10 @@
         "22.5.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
+        "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SYNTAX"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -60498,14 +60644,12 @@
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-ESCAPED-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-FORCE-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SCOPE",
-        "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SYNTAX",
         "SV2023-22.5.1-EXTRACT-MACRO-LINE-CONTINUATION",
         "SV2023-22.5.1-EXTRACT-MACRO-LITERAL-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-MIXED-QUOTES",
@@ -60529,7 +60673,31 @@
         "SV2023-22.5.1-EXTRACT-MACRO-NO-SPLIT",
         "SV2023-22.5.1-EXTRACT-MACRO-RECURSION"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_define_with_args.sv",
+        "inputs_sha256": "dce265ad63657cb9e3117d3b52e3c90829cdab255886166c27517581f09fb55f",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M52: コメントはdefault valuesにも言及するが、実際のformalにdefault指定がなく、全actualを明示する。ADD_ONEの定数1はformal defaultではない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_define_with_args.sv",
+                "contains": "`define ADD_ONE(x) ((x) + 1)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_defines_from_metadata.sv",
@@ -60539,7 +60707,10 @@
         "22.6"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -60574,9 +60745,7 @@
         "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
-        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -60599,8 +60768,19 @@
         "22.13"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
+        "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
+        "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SYNTAX",
+        "SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-EMPTY"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-22.13-EXTRACT-FILE-MACRO",
         "SV2023-22.13-EXTRACT-INCLUDE-LOCATION-MACROS",
@@ -60609,16 +60789,12 @@
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
-        "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-ESCAPED-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-FORCE-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SCOPE",
-        "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SYNTAX",
         "SV2023-22.5.1-EXTRACT-MACRO-LINE-CONTINUATION",
         "SV2023-22.5.1-EXTRACT-MACRO-LITERAL-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-MIXED-QUOTES",
@@ -60628,19 +60804,15 @@
         "SV2023-22.5.1-EXTRACT-MACRO-ORDINARY-STRING",
         "SV2023-22.5.1-EXTRACT-MACRO-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-STRING-CONTINUATION",
-        "SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION",
         "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
-        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -60652,7 +60824,93 @@
         "SV2023-22.5.1-EXTRACT-MACRO-RECURSION",
         "SV2023-22.6-EXTRACT-IGNORED-LEXICAL"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_directive_corner_cases.sv",
+        "inputs_sha256": "005d0064bdec595b1412446db7d1c69b284dd30dbe8e07bd3c3a28b75b3202cc",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
+              "SV2023-22.5.1-EXTRACT-MACRO-QUOTE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M52: CONCAT/STRINGIFYは未使用。token concatenation conceptはvar1を直接読むため、連結を壊しても同じ出力になる。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_directive_corner_cases.sv",
+                "contains": "result = var1;  // Using var1 directly"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-LINE-CONTINUATION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M53: MULTI_LINEのtempは書くだけで未観測。呼出しを削除したsource変種でもVerilatorで全期待出力が一致した。宣言に使う別のmulti-line macroは別ファイルへ登録。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_directive_corner_cases.sv",
+                "contains": "        `MULTI_LINE"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-RECURSION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M52: recursive macroもその呼出しもなく、正常系が固定PASSを表示するだけ。direct/indirect recursionの拒否やactualで許可されるself-useを確認できない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_directive_corner_cases.sv",
+                "contains": "PASS: Test 18 - Recursive macro prevention"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M52: timescaleはendmoduleの後にあり、遅延も観測しない。simulation runningというコメントと固定PASSだけで、unit/precision/defaultを確認できない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_directive_corner_cases.sv",
+                "contains": "PASS: Test 17 - Timescale directive (implicit)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.13-EXTRACT-FILE-MACRO",
+              "SV2023-22.13-EXTRACT-LINE-MACRO"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M53: filename非空かつline>0だけでは、誤った名前や行番号も通る。正確なline remapを表示する専用テストの既存対応は保持する。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_directive_corner_cases.sv",
+                "contains": "if (file_name.len() > 0 && line_num > 0)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_directive_nested.sv",
@@ -60662,7 +60920,13 @@
         "22.6"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
+        "SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -60670,7 +60934,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -60687,19 +60950,15 @@
         "SV2023-22.5.1-EXTRACT-MACRO-ORDINARY-STRING",
         "SV2023-22.5.1-EXTRACT-MACRO-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-STRING-CONTINUATION",
-        "SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION",
         "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
-        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -60711,7 +60970,31 @@
         "SV2023-22.5.1-EXTRACT-MACRO-RECURSION",
         "SV2023-22.6-EXTRACT-IGNORED-LEXICAL"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_directive_nested.sv",
+        "inputs_sha256": "54b79276e0754b238177d22986cbe983d2ad787812802e797961e9bb2acbe157",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-NESTED-EXPANSION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M55: INNER_WIDTHはOUTER_WIDTH定義後に作り、後からOUTER_WIDTHを変えない。早期の値8の取り込みでもINNER4となる。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_directive_nested.sv",
+                "contains": "`define INNER_WIDTH (`OUTER_WIDTH / 2)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_ieee_ch22_directives_edge.sv",
@@ -60721,16 +61004,23 @@
         "22.6"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
+        "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
+        "SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-EMPTY"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
-        "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-ESCAPED-QUOTE",
@@ -60746,19 +61036,15 @@
         "SV2023-22.5.1-EXTRACT-MACRO-ORDINARY-STRING",
         "SV2023-22.5.1-EXTRACT-MACRO-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-STRING-CONTINUATION",
-        "SV2023-22.5.1-EXTRACT-MACRO-SUBSTITUTION",
         "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
         "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
-        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -60770,7 +61056,32 @@
         "SV2023-22.5.1-EXTRACT-MACRO-RECURSION",
         "SV2023-22.6-EXTRACT-IGNORED-LEXICAL"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+        "inputs_sha256": "296decd5c8df3456d8f3d1aca517ab3af016881351c8254b73cf1d86b956d621",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
+              "SV2023-22.5.1-EXTRACT-MACRO-QUOTE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M52: STR_MACRO/CONCAT_MACROは定義されるが未使用。FUNC_MACROや通常定数の成功から両機能を推定しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_ieee_ch22_directives_edge.sv",
+                "contains": "`define CONCAT_MACRO(a, b) a``b"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_ifdef_expression.sv",
@@ -60849,18 +61160,21 @@
         "22.6"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
+        "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
+        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
+        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-NESTING",
-        "SV2023-22.6-EXTRACT-CONDITIONAL-PLACEMENT",
         "SV2023-22.6-EXTRACT-CONDITIONAL-TERMINATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-WHITESPACE",
-        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED",
-        "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
-        "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
+        "SV2023-22.6-EXTRACT-DIRECTIVES-NOT-DEFINED"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -60884,7 +61198,32 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_default_nettype_none_assign.sv",
+        "inputs_sha256": "63fecda01cd8e130cc270234a3f5df06ad9eb233b22b092a6fafc9559e26f5c5",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
+              "SV2023-22.8-EXTRACT-NETTYPE-SCOPE"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M03: noneでのundeclared net拒否を検査する有効な違法系だが、同じ要求行の既定wire/resetやdirective配置・上書き条件は観測しない。normal/errorを混在させた台帳単位を変えず、全体への対応は保留。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_default_nettype_none_assign.sv",
+                "contains": "assign b = a;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_default_nettype_none_gate_terminal.sv",
@@ -60909,7 +61248,32 @@
         "SV2023-6.10-EXTRACT-IMPLICIT-NET-LOCAL-SCOPE",
         "SV2023-6.10-EXTRACT-IMPLICIT-PORT-EXPRESSION"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_default_nettype_none_gate_terminal.sv",
+        "inputs_sha256": "8dc473630df131251687e55bf5126787a2ce1ff12522ee14d86cf3850b2499f5",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
+              "SV2023-22.8-EXTRACT-NETTYPE-SCOPE"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M03: noneでのundeclared net拒否を検査する有効な違法系だが、同じ要求行の既定wire/resetやdirective配置・上書き条件は観測しない。normal/errorを混在させた台帳単位を変えず、全体への対応は保留。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_default_nettype_none_gate_terminal.sv",
+                "contains": "and g(y, a, b);"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_default_nettype_none_port.sv",
@@ -60934,7 +61298,32 @@
         "SV2023-6.10-EXTRACT-IMPLICIT-NET-LOCAL-SCOPE",
         "SV2023-6.10-EXTRACT-IMPLICIT-PORT-EXPRESSION"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_default_nettype_none_port.sv",
+        "inputs_sha256": "3ea50f9c0a435959d40dded2298223b1be828f1a02f07f39f19a268dd9921019",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE",
+              "SV2023-22.8-EXTRACT-NETTYPE-SCOPE"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M03: noneでのundeclared net拒否を検査する有効な違法系だが、同じ要求行の既定wire/resetやdirective配置・上書き条件は観測しない。normal/errorを混在させた台帳単位を変えず、全体への対応は保留。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_default_nettype_none_port.sv",
+                "contains": "sub u(.a(x), .y(n));"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_ifdef_expression_operator.sv",
@@ -60970,7 +61359,31 @@
         "SV2023-22.6-EXTRACT-FIRST-SUCCESS",
         "SV2023-22.6-EXTRACT-IFNDEF-NEGATION"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_ifdef_expression_operator.sv",
+        "inputs_sha256": "7fe4f1a62ef1a6c9860c52ac6198aea8fa10a9b4bcc0987160a8e42c5f4acc31",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56: arithmetic +の拒否を検査する違法系だが、候補行は正常系の全grammar。kindを変えず、通常のconditional構文への対応として成功を転用しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_ifdef_expression_operator.sv",
+                "contains": "`ifdef (ALPHA + BETA)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_keyword_identifier_noconfig.sv",
@@ -60996,7 +61409,31 @@
         "SV2023-22.14.4-EXTRACT-EXCLUDE-USE",
         "SV2023-22.14.4-EXTRACT-NOCONFIG-BASE"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_keyword_identifier_noconfig.sv",
+        "inputs_sha256": "d1f19ffb159bc3a010d86492d092f53a2e9f8ff2c2d68e3ec750bdab11ce8322",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.14.4-EXTRACT-NOCONFIG-BASE"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M58: 指定versionのreserved identifierを拒否する違法系。候補のkeyword台帳行はkind:normalで、normal/errorの対応単位が一致しないため定義を変えず保留する。診断位置にerrorがあるだけで他の全keyword集合まで証明した扱いにしない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_keyword_identifier_noconfig.sv",
+                "contains": "wire generate;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_keyword_identifier_sv2005.sv",
@@ -61109,7 +61546,31 @@
         "SV2023-22.14.6-EXTRACT-RESERVED-WITHIN",
         "SV2023-22.14.6-EXTRACT-VERSION-SET"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_keyword_identifier_sv2005.sv",
+        "inputs_sha256": "c32eca48eea485f0925b04de8eb5188719b90ec702ffc4aaaa0817b097bfd937",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.14.6-EXTRACT-RESERVED-LOGIC"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M58: 指定versionのreserved identifierを拒否する違法系。候補のkeyword台帳行はkind:normalで、normal/errorの対応単位が一致しないため定義を変えず保留する。診断位置にerrorがあるだけで他の全keyword集合まで証明した扱いにしない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_keyword_identifier_sv2005.sv",
+                "contains": "wire logic;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_keyword_identifier_sv2009.sv",
@@ -61148,7 +61609,31 @@
         "SV2023-22.14.7-EXTRACT-RESERVED-WEAK",
         "SV2023-22.14.7-EXTRACT-VERSION-SET"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_keyword_identifier_sv2009.sv",
+        "inputs_sha256": "a63015f911dc1b051b2917c9891d4892477166edfea16d0c079c2d88f79f201f",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.14.7-EXTRACT-RESERVED-UNIQUE0"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M58: 指定versionのreserved identifierを拒否する違法系。候補のkeyword台帳行はkind:normalで、normal/errorの対応単位が一致しないため定義を変えず保留する。診断位置にerrorがあるだけで他の全keyword集合まで証明した扱いにしない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_keyword_identifier_sv2009.sv",
+                "contains": "wire unique0;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_keyword_identifier_sv2012.sv",
@@ -61168,7 +61653,31 @@
         "SV2023-22.14.8-EXTRACT-RESERVED-SOFT",
         "SV2023-22.14.8-EXTRACT-VERSION-SET"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_keyword_identifier_sv2012.sv",
+        "inputs_sha256": "e16cb77bcd0bca56ed7a12964497419df69464e3a4ca086559af666fe63e24fb",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.14.8-EXTRACT-RESERVED-NETTYPE"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M58: 指定versionのreserved identifierを拒否する違法系。候補のkeyword台帳行はkind:normalで、normal/errorの対応単位が一致しないため定義を変えず保留する。診断位置にerrorがあるだけで他の全keyword集合まで証明した扱いにしない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_keyword_identifier_sv2012.sv",
+                "contains": "wire nettype;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_keyword_identifier_sv2023.sv",
@@ -61184,7 +61693,31 @@
       "different_case_kind_ids": [
         "SV2023-22.14.9-EXTRACT-CURRENT-KEYWORD-SET"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_keyword_identifier_sv2023.sv",
+        "inputs_sha256": "2dcf95797eb1b6d787b0ec66078e0d0e1bde0e09e52bc368c82d4a3824c4e54b",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.14.9-EXTRACT-CURRENT-KEYWORD-SET"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M58: 指定versionのreserved identifierを拒否する違法系。候補のkeyword台帳行はkind:normalで、normal/errorの対応単位が一致しないため定義を変えず保留する。診断位置にerrorがあるだけで他の全keyword集合まで証明した扱いにしない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_keyword_identifier_sv2023.sv",
+                "contains": "wire soft;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_keyword_identifier_v1995.sv",
@@ -61302,7 +61835,31 @@
         "SV2023-22.14.2-EXTRACT-RESERVED-XOR",
         "SV2023-22.14.2-EXTRACT-VERSION-SET"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_keyword_identifier_v1995.sv",
+        "inputs_sha256": "267955e9e6a73a74406b37444afba7184e670f5980af60c162546ff7a305c893",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.14.2-EXTRACT-RESERVED-MODULE"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M58: 指定versionのreserved identifierを拒否する違法系。候補のkeyword台帳行はkind:normalで、normal/errorの対応単位が一致しないため定義を変えず保留する。診断位置にerrorがあるだけで他の全keyword集合まで証明した扱いにしない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_keyword_identifier_v1995.sv",
+                "contains": "wire module;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_illegal_keyword_identifier_v2001.sv",
@@ -61339,7 +61896,31 @@
         "SV2023-22.14.3-EXTRACT-RESERVED-USE",
         "SV2023-22.14.3-EXTRACT-VERSION-SET"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_illegal_keyword_identifier_v2001.sv",
+        "inputs_sha256": "be6d33880bf6ed245ca334a89244a7d8d236f6c8680e365c24d221c6ee1a266a",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.14.3-EXTRACT-RESERVED-LOCALPARAM"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56/M58: 指定versionのreserved identifierを拒否する違法系。候補のkeyword台帳行はkind:normalで、normal/errorの対応単位が一致しないため定義を変えず保留する。診断位置にerrorがあるだけで他の全keyword集合まで証明した扱いにしない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_illegal_keyword_identifier_v2001.sv",
+                "contains": "wire localparam;"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_include_file_declarations.sv",
@@ -61348,13 +61929,14 @@
         "22.4"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH",
         "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
         "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
-        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
         "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
       ],
       "interpretation_pending_ids": [],
@@ -61372,13 +61954,14 @@
         "22.5.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
+        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH",
         "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
-        "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
-        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
         "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX",
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
@@ -61429,13 +62012,14 @@
         "22.5.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH",
         "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
         "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
-        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
         "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX",
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
@@ -61496,13 +62080,14 @@
         "3.12.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH",
         "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
         "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
-        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
         "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX",
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
@@ -61563,7 +62148,31 @@
         "SV2023-3.12.1-EXTRACT-UNIT-PREFIX-NO-FORWARD",
         "SV2023-3.12.1-EXTRACT-UNIT-PRIVATE-NAMES"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_include_guard_two_files.sv",
+        "inputs_sha256": "ccad5d4f13f4923f7b0fd6d74b2dec8b57a42d96d51c7238a53f9c92e1184a0b",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.6.4-EXTRACT-DIRECTIVE-UNIT-EXTENT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M57: helper/mainを同一unitとしても別unitとしても同じ21/21となる設計。macroが独立unitへ漏れないことを検査する対照にはならない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_include_guard_two_files.sv",
+                "contains": "3 * `INCLUDE_GUARD_TWO_FILES_SCALE"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
@@ -61572,13 +62181,14 @@
         "22.4"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH",
         "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
         "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
-        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
         "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
       ],
       "interpretation_pending_ids": [],
@@ -61586,7 +62196,31 @@
         "SV2023-22.4-EXTRACT-INCLUDE-ABSOLUTE",
         "SV2023-22.4-EXTRACT-INCLUDE-LINE"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_include_nested.sv",
+        "inputs_sha256": "ccad5d4f13f4923f7b0fd6d74b2dec8b57a42d96d51c7238a53f9c92e1184a0b",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.4-EXTRACT-INCLUDE-NESTING"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M57: outer/innerという2階層のincludeは動作するが、規格が最低保証する15階層に達しない。include内容の置換は別要求へ採用し、最低depthへの対応は保留。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_include_nested.sv",
+                "contains": "`include \"include_nested_outer.svh\""
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_include_nested_in_incdir.sv",
@@ -61595,13 +62229,14 @@
         "22.4"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
+        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH",
         "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
-        "SV2023-22.4-EXTRACT-INCLUDE-QUOTED-SEARCH",
-        "SV2023-22.4-EXTRACT-INCLUDE-SUBSTITUTION",
         "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
       ],
       "interpretation_pending_ids": [],
@@ -61609,7 +62244,31 @@
         "SV2023-22.4-EXTRACT-INCLUDE-ABSOLUTE",
         "SV2023-22.4-EXTRACT-INCLUDE-LINE"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_include_nested_in_incdir.sv",
+        "inputs_sha256": "b53e704a3abfd6f2c4dabc7a6ecf99119b6f1aaf2cd9b79d544d28a55bacce97",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.4-EXTRACT-INCLUDE-NESTING"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M57: outer/innerという2階層のincludeは動作するが、規格が最低保証する15階層に達しない。include内容の置換は別要求へ採用し、最低depthへの対応は保留。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_include_nested_in_incdir.sv",
+                "contains": "`include \"incdirs_nested_outer.svh\""
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_line_directive.sv",
@@ -61635,7 +62294,32 @@
         "SV2023-22.12-EXTRACT-LINE-ARGUMENTS",
         "SV2023-22.12-EXTRACT-LINE-DIRECTIVE"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_line_directive.sv",
+        "inputs_sha256": "9118486242346543d92263abe746d6bfbd90bbe744793168de905d88b53c0d91",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.12-EXTRACT-LINE-DIRECTIVE",
+              "SV2023-22.12-EXTRACT-LINE-TRACKING"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M57: 500/501とremapped filenameは既存行へ採用済み。kind:error行のplacement/引数制約や、includeでのsave/restore、resetall後の維持、library search非影響はこのファイルでは確認しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_line_directive.sv",
+                "contains": "`line 500 \"renamed_source.sv\" 0"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_macro_advanced.sv",
@@ -61716,6 +62400,21 @@
                 "contains": "`define CONCAT(a, b) a``b"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-NESTED-EXPANSION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M55: ADD/MULのactualは不変であり、定義時展開と使用時展開を区別する再定義がない。入れ子の計算が正しいことから展開時期までは推定しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_macro_advanced.sv",
+                "contains": "if (`ADD(`MUL(2, 3), `MUL(4, 5)) == 26)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
           }
         ]
       }
@@ -61727,13 +62426,15 @@
         "22.5.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
+        "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SYNTAX"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
@@ -61742,7 +62443,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-ESCAPED-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-FORCE-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SCOPE",
-        "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SYNTAX",
         "SV2023-22.5.1-EXTRACT-MACRO-LINE-CONTINUATION",
         "SV2023-22.5.1-EXTRACT-MACRO-LITERAL-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-MIXED-QUOTES",
@@ -61766,7 +62466,64 @@
         "SV2023-22.5.1-EXTRACT-MACRO-NO-SPLIT",
         "SV2023-22.5.1-EXTRACT-MACRO-RECURSION"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_macro_args.sv",
+        "inputs_sha256": "0d2fae3f2eb2202e2bba287ff5bc6df2e1c805deeb71f27acf47f5a27e94b5dc",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
+              "SV2023-22.5.1-EXTRACT-MACRO-QUOTE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M52: CONCATは定義のみで呼び出されず、string変数sにも結果を与えない。算術・defaultの成功と区別する。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_macro_args.sv",
+                "contains": "`define CONCAT(a, b)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
+              "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
+              "SV2023-22.5.1-EXTRACT-MACRO-FORCE-EMPTY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M52: empty argument handlingというコメントに対し、MAYBEの3actualはすべて非空。defaultを持つSCALEのtrailing省略は別要求として採用し、empty/whitespace-onlyやempty defaultは推定しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_macro_args.sv",
+                "contains": "b = `MAYBE(1, 100, 200);"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-NO-RESUBSTITUTION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M55: 入れ子ADDのactualは数値定数のみで、内側から導入された外側formal同名identifierを再置換する誤りを区別できない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_macro_args.sv",
+                "contains": "b = `ADD(`ADD(1, 2), `ADD(3, 4));"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_macro_concat.sv",
@@ -61775,7 +62532,10 @@
         "22.5.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
+        "SV2023-22.5.1-EXTRACT-MACRO-LINE-CONTINUATION"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -61783,7 +62543,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -61791,7 +62550,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-FORCE-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-FORMAL-SYNTAX",
-        "SV2023-22.5.1-EXTRACT-MACRO-LINE-CONTINUATION",
         "SV2023-22.5.1-EXTRACT-MACRO-LITERAL-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-MIXED-QUOTES",
         "SV2023-22.5.1-EXTRACT-MACRO-NAMESPACE",
@@ -61834,6 +62592,36 @@
                 "contains": "`define MAKE_NAME(base)"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-QUOTE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M55: STRINGIFY(hello_world)はformal置換だけを観測する。quote内のembedded macroの展開はなく、当該行の両側を満たす根拠にしない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_macro_concat.sv",
+                "contains": "`STRINGIFY(hello_world)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-NESTED-EXPANSION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M55: INNER10の定義後にOUTERを定義し、再定義を挟まず15を読むため、OUTER定義時の早期展開でも同じ値になる。展開時期とdefault/actualの全条件を証明しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_macro_concat.sv",
+                "contains": "`define OUTER (`INNER + 5)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
           }
         ]
       }
@@ -61845,7 +62633,9 @@
         "22.5.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -61853,7 +62643,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -61884,7 +62673,46 @@
         "SV2023-22.5.1-EXTRACT-MACRO-NO-SPLIT",
         "SV2023-22.5.1-EXTRACT-MACRO-RECURSION"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_macro_redefine_string_literal.sv",
+        "inputs_sha256": "d6f48fb502f99941bc7be9a8b729e8d0686f583aa36b42138c2d73bfdd35a494",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-ORDINARY-STRING"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M53: s.len()==14だけを検査し、文字列全体やformalを含むordinary literalの非置換を検査しない。文字列の`Vを同じ長さの22へ変えるsource変種もVerilatorでALL CHECKS OKとなった。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_macro_redefine_string_literal.sv",
+                "contains": "if (s.len() != 14)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.5.1-EXTRACT-MACRO-NAMESPACE"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56: macro名と通常function名dblの共存とVの再定義は観測する。一方、directive keywordを通常identifierへ使う許可や、それをmacro名にする禁止を同じnormal行に含むため、その全体への対応は保留。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_macro_redefine_string_literal.sv",
+                "contains": "function int dbl(int x)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_pragma_unrecognized.sv",
@@ -61894,12 +62722,12 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-22.11-EXTRACT-PRAGMA-GRAMMAR",
         "SV2023-22.11-EXTRACT-UNKNOWN-PRAGMA"
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-22.11-EXTRACT-NONSTANDARD-PRAGMA",
-        "SV2023-22.11-EXTRACT-PRAGMA-GRAMMAR"
+        "SV2023-22.11-EXTRACT-NONSTANDARD-PRAGMA"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
@@ -61960,6 +62788,21 @@
                 "contains": "y_implicit = 1, width 1"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-22.3-EXTRACT-RESET-DEFAULTS"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56: reset後のimplicit wireは確認するが、defaultを持たないdefine/includeが維持される観測はない。all-directive reset行全体には対応しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_resetall_default_nettype.sv",
+                "contains": "y_implicit, $bits(y_implicit)"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
           }
         ]
       }
@@ -61973,11 +62816,14 @@
         "20.3.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-20.3.1-EXTRACT-TIME-RESULT",
-        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT",
         "SV2023-3.14.2.3-EXTRACT-IMPLEMENTATION-TIME-DEFAULT",
         "SV2023-3.14.2.3-EXTRACT-TIME-PRECISION-PRECEDENCE",
@@ -62002,11 +62848,14 @@
         "20.3.3"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-20.3.3-EXTRACT-REALTIME-RESULT",
-        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT"
       ],
       "interpretation_pending_ids": [],
@@ -62024,10 +62873,13 @@
         "22.9"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING"
+      ],
       "unapproved_candidate_ids": [
-        "SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING",
         "SV2023-22.9-EXTRACT-UNCONNECTED-RESET",
         "SV2023-22.9-PULL-DECLARATION"
       ],
@@ -62035,7 +62887,31 @@
       "different_case_kind_ids": [
         "SV2023-22.9-EXTRACT-UNCONNECTED-PULL"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_unconnected_drive.sv",
+        "inputs_sha256": "ac6f0b552b1033be94c11a66627bc1aef73a6ae05d3008e8ce8d22b54ae0ff7d",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.9-EXTRACT-UNCONNECTED-PULL"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "M56: pull1/0とfloatingを出力する正常系。当該行はprogram/interfaceやdesign element内部での配置禁止を含むkind:errorであり、正常系をそのまま承認できない。optional pairingは別の集合証拠へ採用。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_unconnected_drive.sv",
+                "contains": "initial #1 $display(\"pull1:"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_unconnected_drive_instances_restore.sv",
@@ -62045,18 +62921,44 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING",
         "SV2023-22.9-PULL-DECLARATION"
       ],
-      "collective_requirement_ids": [],
+      "collective_requirement_ids": [
+        "SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING"
+      ],
       "unapproved_candidate_ids": [
-        "SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING",
         "SV2023-22.9-EXTRACT-UNCONNECTED-RESET"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-22.9-EXTRACT-UNCONNECTED-PULL"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_unconnected_drive_instances_restore.sv",
+        "inputs_sha256": "dd374e7251b4ba86eb92bfdf29ed2179326d059447fc0c01c5adc6add6578462",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.9-EXTRACT-UNCONNECTED-RESET"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M57: nounconnected_driveへの復帰は観測するがresetallは呼ばない。文言が似ていてもresetallの効果へは計上しない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_unconnected_drive_instances_restore.sv",
+                "contains": "`nounconnected_drive"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch22/test_undef.sv",
@@ -62097,8 +62999,12 @@
         "22.6"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.3-EXTRACT-UNDEFINE-ALL"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-22.5.3-EXTRACT-UNDEFINE-ALL"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
@@ -62126,7 +63032,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
-        "SV2023-22.5.3-EXTRACT-UNDEFINE-ALL",
         "SV2023-22.5.3-UNDEFINE-ALL",
         "SV2023-22.6-EXTRACT-CONDITIONAL-EVALUATION",
         "SV2023-22.6-EXTRACT-CONDITIONAL-GRAMMAR",
@@ -62158,12 +63063,13 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-22.5.3-EXTRACT-UNDEFINE-ALL",
         "SV2023-22.5.3-UNDEFINE-ALL"
       ],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
+      "collective_requirement_ids": [
         "SV2023-22.5.3-EXTRACT-UNDEFINE-ALL"
       ],
+      "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
@@ -62177,13 +63083,14 @@
         "37.10"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.10-EXTRACT-CELL-PAIRING",
+        "SV2023-22.10-EXTRACT-CELL-RESET",
+        "SV2023-22.10-EXTRACT-CELL-TAG"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-22.10-EXTRACT-CELL-PAIRING",
         "SV2023-22.10-EXTRACT-CELL-PLACEMENT",
-        "SV2023-22.10-EXTRACT-CELL-RESET",
-        "SV2023-22.10-EXTRACT-CELL-TAG",
         "SV2023-22.3-EXTRACT-RESET-DEFAULTS",
         "SV2023-37.10-EXTRACT-DEFINITION-LINE",
         "SV2023-37.10-EXTRACT-DIAGRAM-001",
@@ -62273,7 +63180,32 @@
         "SV2023-22.3-EXTRACT-RESET-PLACEMENT",
         "SV2023-37.10-EXTRACT-NO-NAME-LOOKUP"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch22/test_vpi_celldefine.sv",
+        "inputs_sha256": "3cfd26251c23005112cbf27a743b83d9db5be760f8d42329cd38ff394d23bebd",
+        "reviewed_on": "2026-10-23",
+        "reviewer": "Codex (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.3-EXTRACT-RESET-DEFAULTS",
+              "SV2023-22.10-EXTRACT-CELL-PLACEMENT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M56: cellのresetと複数pairはVPI全出力で観測する。一方macro等を含むresetall一般則や、design element内でもcell directiveを許可する観測はない。",
+            "evidence": [
+              {
+                "file": "tests/ch22/test_vpi_celldefine.sv",
+                "contains": "module cd_after(input wire a, output wire y);"
+              }
+            ],
+            "reviewed_on": "2026-10-23",
+            "reviewer": "Codex (AI); not an independent human review"
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch23/test_bind_assertion_basic.sv",
@@ -77148,13 +78080,15 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-3.14.2.1-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-3.14.2.1-EXTRACT-TIMESCALE-REPLACEMENT"
       ],
-      "collective_requirement_ids": [],
+      "collective_requirement_ids": [
+        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-20.3.1-EXTRACT-TIME-RESULT",
-        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT",
         "SV2023-3.14.2.1-EXTRACT-TIMESCALE-ARGUMENTS",
         "SV2023-3.14.2.1-EXTRACT-TIMESCALE-UNIT-BOUNDARY"
@@ -77532,14 +78466,16 @@
       "registered_requirement_ids": [
         "SV2023-20.4.2-EXTRACT-PRINT-CURRENT",
         "SV2023-20.4.2-EXTRACT-PRINT-FORMAT",
+        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-3.14.2.2-EXTRACT-COMBINED-TIMEUNIT"
       ],
-      "collective_requirement_ids": [],
+      "collective_requirement_ids": [
+        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-20.4.2-EXTRACT-PRINT-SPECIAL-NAMES",
         "SV2023-20.4.2-EXTRACT-PRINT-TIMESCALE",
         "SV2023-20.4.2-EXTRACT-PRINT-UNIT-ROOT",
-        "SV2023-22.7-EXTRACT-TIMESCALE-DEFAULT",
         "SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT",
         "SV2023-3.14.2.2-EXTRACT-LOCAL-TIME-DECLARATIONS",
         "SV2023-3.14.2.2-EXTRACT-LOCAL-TIME-INDEPENDENCE",
@@ -104261,15 +105197,17 @@
         "22.5.2"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
+        "SV2023-22.5.2-EXTRACT-UNDEFINE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
         "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
-        "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -104290,7 +105228,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-TOKEN-DELIMITER",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-QUOTE",
         "SV2023-22.5.1-EXTRACT-MACRO-TRIPLE-STRING",
-        "SV2023-22.5.2-EXTRACT-UNDEFINE",
         "SV2023-22.5.2-EXTRACT-UNDEFINE-WARNING",
         "SV2023-5.6.4-DIRECTIVE-READ-ORDER",
         "SV2023-5.6.4-EXTRACT-DIRECTIVE-INTRODUCER",
@@ -104317,6 +105254,7 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-5.6.4-DIRECTIVE-READ-ORDER"
       ],
       "collective_requirement_ids": [],
@@ -104326,7 +105264,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -105371,7 +106308,9 @@
         "6.20.5"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
@@ -105379,7 +106318,6 @@
         "SV2023-22.5.1-EXTRACT-MACRO-COMPILATION-SCOPE",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFAULT",
         "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
-        "SV2023-22.5.1-EXTRACT-MACRO-DEFINE-USE",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-ACTUAL",
         "SV2023-22.5.1-EXTRACT-MACRO-EMPTY-DEFAULT",
@@ -105732,12 +106670,13 @@
         "38.37.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-22.10-EXTRACT-CELL-RESET"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-22.10-EXTRACT-CELL-PAIRING",
         "SV2023-22.10-EXTRACT-CELL-PLACEMENT",
-        "SV2023-22.10-EXTRACT-CELL-RESET",
         "SV2023-22.10-EXTRACT-CELL-TAG",
         "SV2023-37.83-EXTRACT-DIAGRAM-001",
         "SV2023-37.83-EXTRACT-DIAGRAM-002",
@@ -200017,14 +200956,14 @@
       "broader_citations": []
     }
   ],
-  "scoped_review_test_files": 317,
+  "scoped_review_test_files": 345,
   "review_disposition_counts": {
     "citation_refinement": 19,
-    "compound_requirement": 69,
+    "compound_requirement": 85,
     "oracle_issue": 19,
-    "partial_observation": 317
+    "partial_observation": 342
   },
-  "registry_sha256": "fbacf152a2e812749299b88761379e93f31b25e67fb30431f8dd0111c7c30937",
+  "registry_sha256": "3b0298bbc62a7035eee09a0be523721366623cb75bff44fe7932722d94767bf6",
   "inventory_sha256": "f2310368323bb8190b51085451d52193b49083a2defa150607f5785382e88050",
-  "review_ledger_sha256": "b2c9d727a4d2b6557d7fa5528b679c80b58f578bf14f6f252058efbbc673ad8d"
+  "review_ledger_sha256": "8bb78e92ce90365fca9b0cd17f1585b938e9e12a06d06cdc0207a84b0076a71a"
 }

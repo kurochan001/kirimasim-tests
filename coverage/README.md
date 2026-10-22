@@ -8,6 +8,9 @@ IEEE 1800-2023 の本文1–41章と附属書A–Q、1,740見出しを調査台�
 初期登録の105件は規格全動作の分母ではありません。現在3,938本の全テストについて
 動作との対応確認を終えたという意味でもありません。
 
+[コンパイラ指令の照合結果](../docs/existing-test-matching-preprocessor-20261023.md)に、
+直近の対応追加、集合証拠、観測不足と要求単位の整理が必要な箇所を記録しています。
+
 ## mainの集計とNightlyの集計
 
 `main`の`docs/behavior-coverage-summary.md`は、`coverage/results/`に保存した証跡を使います。
