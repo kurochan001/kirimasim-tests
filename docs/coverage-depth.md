@@ -8,7 +8,7 @@
 | --- | ---: |
 | Tests | 3798 |
 | Clauses in scope | 921 |
-| Clauses out of scope | 198 |
+| Clauses out of scope | 227 |
 | Clauses with one test | 175 |
 | Clauses with two tests or fewer | 434 |
 | Clauses with only standard-only tests | 247 |

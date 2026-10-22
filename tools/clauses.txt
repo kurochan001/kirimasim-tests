@@ -14,6 +14,7 @@
 #             own form, and VPI objects that the standard gives no way to
 #             reach, such as the delay devices of 37.45
 #   dump      the content of VCD files, which the tests do not read back
+
 3
 3.1 none
 3.2 none
@@ -893,6 +894,7 @@
 25.1 none
 25.2 none
 25.3
+25.3.1 none
 25.3.2 none
 25.3.3
 25.4
@@ -1095,59 +1097,85 @@
 34.4 excluded
 34.5 excluded
 34.5.1 excluded
+34.5.1.1 excluded
 34.5.1.2 excluded
 34.5.2 excluded
+34.5.2.1 excluded
 34.5.2.2 excluded
 34.5.3 excluded
+34.5.3.1 excluded
 34.5.3.2 excluded
 34.5.4 excluded
+34.5.4.1 excluded
 34.5.4.2 excluded
 34.5.5 excluded
+34.5.5.1 excluded
 34.5.5.2 excluded
 34.5.6 excluded
+34.5.6.1 excluded
 34.5.6.2 excluded
 34.5.7 excluded
+34.5.7.1 excluded
 34.5.7.2 excluded
 34.5.8 excluded
+34.5.8.1 excluded
 34.5.8.2 excluded
 34.5.9 excluded
 34.5.9.1 excluded
 34.5.9.2 excluded
 34.5.10 excluded
+34.5.10.1 excluded
 34.5.10.2 excluded
 34.5.11 excluded
+34.5.11.1 excluded
 34.5.11.2 excluded
 34.5.12 excluded
+34.5.12.1 excluded
 34.5.12.2 excluded
 34.5.13 excluded
+34.5.13.1 excluded
 34.5.13.2 excluded
 34.5.14 excluded
+34.5.14.1 excluded
 34.5.14.2 excluded
 34.5.15 excluded
+34.5.15.1 excluded
 34.5.15.2 excluded
 34.5.16 excluded
+34.5.16.1 excluded
 34.5.16.2 excluded
 34.5.17 excluded
+34.5.17.1 excluded
 34.5.17.2 excluded
 34.5.18 excluded
+34.5.18.1 excluded
 34.5.18.2 excluded
 34.5.19 excluded
+34.5.19.1 excluded
 34.5.19.2 excluded
 34.5.20 excluded
+34.5.20.1 excluded
 34.5.20.2 excluded
 34.5.21 excluded
+34.5.21.1 excluded
 34.5.21.2 excluded
 34.5.22 excluded
+34.5.22.1 excluded
 34.5.22.2 excluded
 34.5.23 excluded
+34.5.23.1 excluded
 34.5.23.2 excluded
 34.5.24 excluded
+34.5.24.1 excluded
 34.5.24.2 excluded
 34.5.25 excluded
+34.5.25.1 excluded
 34.5.25.2 excluded
 34.5.26 excluded
+34.5.26.1 excluded
 34.5.26.2 excluded
 34.5.27 excluded
+34.5.27.1 excluded
 34.5.27.2 excluded
 34.5.28 excluded
 34.5.28.1 excluded
@@ -1156,8 +1184,10 @@
 34.5.29.1 excluded
 34.5.29.2 excluded
 34.5.30 excluded
+34.5.30.1 excluded
 34.5.30.2 excluded
 34.5.31 excluded
+34.5.31.1 excluded
 34.5.31.2 excluded
 34.5.32 excluded
 34.5.32.1 excluded

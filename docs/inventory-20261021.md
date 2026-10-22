@@ -969,6 +969,24 @@ corrections to the metadata:
 - `25.7.2` and `25.7.3` are examples of tasks in modports and of
   exporting tasks, not behavior. The two tests that cited them now cite
   25.5 instead.
+- `25.3.1` is an example without interfaces and `34.5.x.1` are the
+  syntax subclauses of the excluded clause 34; both are in the clause
+  list now, tagged `none` and `excluded`.
+
+### Known gaps from the clause text
+
+Two gaps need a VPI-capable simulator or a deliberate spec-only test:
+
+- The eleven VPI object-model clauses 37.55, 37.62, 37.66, 37.67,
+  37.70, 37.71, 37.73, 37.74, 37.77, 37.78 and 37.83 are in the PDF but
+  not in `tools/clauses.txt`, and no test cites them. Icarus Verilog
+  13.0 and Verilator 5.052 do not expose these statement objects, and
+  the local sukimasim build does not expose tasks or functions through
+  VPI, so a test cannot be verified with the releases of the suite.
+- The VPI properties of 33.7, `vpiLibrary`, `vpiCell` and `vpiConfig`,
+  are not covered. The same builds return null for them, so only a
+  spec-only test is possible.
+
 
 
 
