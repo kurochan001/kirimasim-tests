@@ -3,7 +3,7 @@
 :description: Each instance of a program has its own variables and initial procedures, and a parameter gives each instance its own initial value (IEEE 1800-2023 Section 24.3)
 :tags: ch24
 :type: simulation
-:lrm: 1800-2023 24.3 24.2 6.20
+:lrm: 1800-2023 24.3 6.20
 :oracle: spec iverilog@13.0 verilator@5.052
 :spec_check: ai
 :fourstate: no

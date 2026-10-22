@@ -3,7 +3,7 @@
 :description: Chapter 24: Programs - Comprehensive Test
 :tags: ch24
 :type: simulation
-:lrm: 1800-2023 24.3 24.2 4.4
+:lrm: 1800-2023 24.3 4.4
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

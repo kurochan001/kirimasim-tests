@@ -961,6 +961,15 @@ corrections to the metadata:
 - `21.7.2.1` to `21.7.2.3` and `21.7.5` are VCD content clauses that
   `test_vcd_dump_readback` does read back, so their `dump` tag goes as
   well. The README says that these four are in scope.
+- `8.30.1` is an overview, but it also says that the parameter type of
+  `weak_reference` shall be a class type, which is behavior. Its `none`
+  tag goes. `25.3.3` is called an example, but it also says that a
+  generic interface reference in a non-ANSI port list is illegal; its
+  `none` tag goes too.
+- `25.7.2` and `25.7.3` are examples of tasks in modports and of
+  exporting tasks, not behavior. The two tests that cited them now cite
+  25.5 instead.
+
 
 
 ### Current state

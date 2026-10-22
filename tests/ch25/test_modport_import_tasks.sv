@@ -3,7 +3,7 @@
 :description: Tasks and functions of an interface used through modports that import them (IEEE 1800-2023 Section 25.7.2)
 :tags: ch25
 :type: simulation
-:lrm: 1800-2023 25.7.2 25.7.1 25.5
+:lrm: 1800-2023 25.5
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

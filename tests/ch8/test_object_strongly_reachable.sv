@@ -3,7 +3,7 @@
 :description: An object stays strongly reachable, so its weak references are not cleared, while a handle in an active scope refers to it or a nonblocking assignment to one of its members is pending (IEEE 1800-2023 Section 8.29)
 :tags: ch8
 :type: simulation
-:lrm: 1800-2023 8.29 8.30.1 8.30.3
+:lrm: 1800-2023 8.29 8.30.3
 :oracle: spec
 :spec_check: ai
 :fourstate: no

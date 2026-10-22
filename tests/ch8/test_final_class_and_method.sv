@@ -3,7 +3,7 @@
 :description: A class declared :final can extend another class and be used, and a method declared :final is inherited and called as any other (IEEE 1800-2023 Section 8.13)
 :tags: ch8
 :type: simulation
-:lrm: 1800-2023 8.13 8.20 8.3
+:lrm: 1800-2023 8.13 8.20
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

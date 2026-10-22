@@ -3,7 +3,7 @@
 :description: A port of the generic interface type can be connected to instances of different interfaces, while a port of a named interface type takes that interface (IEEE 1800-2023 Section 23.3.3.4)
 :tags: ch23
 :type: simulation
-:lrm: 1800-2023 23.3.3.4 25.3.3 25.3.2
+:lrm: 1800-2023 23.3.3.4
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

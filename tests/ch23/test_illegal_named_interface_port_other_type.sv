@@ -3,7 +3,7 @@
 :description: A port of a named interface type cannot be connected to an instance of another interface (IEEE 1800-2023 Section 23.3.3.4)
 :tags: ch23
 :type: elaboration
-:lrm: 1800-2023 23.3.3.4 25.3.2
+:lrm: 1800-2023 23.3.3.4
 :oracle: spec
 :spec_check: ai
 :fourstate: no

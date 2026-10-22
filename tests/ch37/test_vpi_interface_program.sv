@@ -3,7 +3,7 @@
 :description: a module gives its interface instances; an interface gives its modports, each with its io declarations, and its interface task and function declarations with their access type and task or function; a program instance is a vpiProgram with its processes (IEEE 1800-2023 Sections 37.6, 37.7, 37.8, 37.9)
 :tags: ch37
 :type: simulation
-:lrm: 1800-2023 37.6 37.7 37.8 37.9 25.5 25.7.4 24.3
+:lrm: 1800-2023 37.6 37.7 37.8 37.9 25.5 24.3
 :oracle: spec
 :spec_check: ai
 :fourstate: no

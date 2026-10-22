@@ -3,7 +3,7 @@
 :description: The design statement of a config names the top-level module, and other uninstantiated modules in the source are not elaborated (IEEE 1800-2023 Section 33.4.1.1)
 :tags: ch33
 :type: simulation
-:lrm: 1800-2023 33.4.1.1 33.5.4 33.3.1 23.3.1
+:lrm: 1800-2023 33.4.1.1 33.3.1 23.3.1
 :oracle: spec
 :spec_check: ai
 :fourstate: no

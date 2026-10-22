@@ -3,7 +3,7 @@
 :description: When the top-level module is named, a module of another source file that nothing instantiates is not elaborated, while the modules the top instantiates are (IEEE 1800-2023 Section 23.3.1)
 :tags: ch23
 :type: simulation
-:lrm: 1800-2023 23.3.1 33.5.3 3.12.1
+:lrm: 1800-2023 23.3.1 3.12.1
 :oracle: spec iverilog@13.0 verilator@5.052
 :spec_check: ai
 :fourstate: no

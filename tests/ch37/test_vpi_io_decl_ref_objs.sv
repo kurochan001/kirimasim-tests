@@ -3,7 +3,7 @@
 :description: the io declarations of a module give the range of a vector port as written, vpiRef for a ref port, and a ref obj as the expression of ref, interface, modport and generic interface ports, whose actual, definition name, generic flag and typespec follow the kind of port; a ref obj that selects a bit of a ref port has that port's ref obj as parent and the bit of the actual as actual (IEEE 1800-2023 Section 37.13)
 :tags: ch37
 :type: simulation
-:lrm: 1800-2023 37.13 37.15 37.63 37.64 23.2.2.2 23.2.2.3 23.3.3.4 25.3.3 25.5
+:lrm: 1800-2023 37.13 37.15 37.63 37.64 23.2.2.2 23.2.2.3 23.3.3.4 25.5
 :oracle: spec
 :spec_check: ai
 :fourstate: no

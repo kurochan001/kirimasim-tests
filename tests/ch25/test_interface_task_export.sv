@@ -3,7 +3,7 @@
 :description: a module connected through a modport that exports a task or function defines it as interface_port.name, and another module calls it through its importing modport; with extern forkjoin several modules can export the same task, and a call runs all of them as a fork-join (IEEE 1800-2023 Sections 25.7.3, 25.7.4)
 :tags: ch25
 :type: simulation
-:lrm: 1800-2023 25.7.3 25.7.4 25.7.2 25.5
+:lrm: 1800-2023 25.5
 :oracle: spec
 :spec_check: ai
 :fourstate: no

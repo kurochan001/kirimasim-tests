@@ -3,7 +3,7 @@
 :description: The design statement of a config can name more than one cell, and each becomes a top-level module, while another uninstantiated module does not; a cell named without a library is looked up in the config's library (IEEE 1800-2023 Section 33.4.1.1)
 :tags: ch33
 :type: simulation
-:lrm: 1800-2023 33.4.1.1 33.5.4 33.3.1 23.3.1
+:lrm: 1800-2023 33.4.1.1 33.3.1 23.3.1
 :oracle: spec
 :spec_check: ai
 :fourstate: no

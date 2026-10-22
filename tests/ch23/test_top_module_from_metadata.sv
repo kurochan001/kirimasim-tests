@@ -3,7 +3,7 @@
 :description: When the tool is told the top-level module, only that module and what it instantiates are elaborated, not another module that nothing instantiates (IEEE 1800-2023 Section 23.3.1)
 :tags: ch23
 :type: simulation
-:lrm: 1800-2023 23.3.1 33.5.3
+:lrm: 1800-2023 23.3.1
 :oracle: spec iverilog@13.0 verilator@5.052
 :spec_check: ai
 :fourstate: no

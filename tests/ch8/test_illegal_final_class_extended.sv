@@ -3,7 +3,7 @@
 :description: A class declared :final cannot be extended (IEEE 1800-2023 Section 8.13)
 :tags: ch8
 :type: elaboration
-:lrm: 1800-2023 8.13 8.3
+:lrm: 1800-2023 8.13
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

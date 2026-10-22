@@ -3,7 +3,7 @@
 :description: The static get_id() of weak_reference returns 0 for null and a nonzero value for an object, the same at every call and through every class type of the handle, and different for different objects (IEEE 1800-2023 Section 8.30.5)
 :tags: ch8
 :type: simulation
-:lrm: 1800-2023 8.30.5 8.30.1 7.8
+:lrm: 1800-2023 8.30.5 7.8
 :oracle: spec
 :spec_check: ai
 :fourstate: no

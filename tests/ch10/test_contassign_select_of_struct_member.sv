@@ -3,7 +3,7 @@
 :description: Continuous assignments to bit-selects and part-selects of a member of a packed structure variable drive those bits (IEEE 1800-2023 Section 10.3)
 :tags: ch10
 :type: simulation
-:lrm: 1800-2023 10.3 10.2 11.5.1 7.2.1
+:lrm: 1800-2023 10.3 11.5.1 7.2.1
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

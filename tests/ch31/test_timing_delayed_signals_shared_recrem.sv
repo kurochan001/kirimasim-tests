@@ -3,7 +3,7 @@
 :description: With limits that are not negative, the delayed signals of $recrem and $setuphold checks, a delayed clock among them that three checks share, are plain copies of their signals, so a flip-flop with an asynchronous reset built on them works as one built on the originals (IEEE 1800-2023 Section 31.9.1)
 :tags: ch31
 :type: simulation
-:lrm: 1800-2023 31.9.1 31.3.6 31.3.3 31.9.4
+:lrm: 1800-2023 31.9.1 31.3.6 31.3.3
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

@@ -3,7 +3,7 @@
 :description: user-defined cross bins select cross products with binsof, intersect, !, && and ||, the automatically generated bins are kept only for the products no user-defined bin selects, ignore_bins removes products even from user-defined bins, and the cross coverage is the covered bins over the auto bins plus the significant user bins (IEEE 1800-2023 Sections 19.6.1, 19.6.2, 19.11.2)
 :tags: ch19
 :type: simulation
-:lrm: 1800-2023 19.6.1 19.6.1.1 19.6.2 19.11.2 19.8
+:lrm: 1800-2023 19.6.1 19.6.2 19.11.2 19.8
 :oracle: spec
 :spec_check: ai
 :fourstate: no

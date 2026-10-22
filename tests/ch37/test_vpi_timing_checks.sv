@@ -3,7 +3,7 @@
 :description: a module gives its timing checks with their type, reference and data terms, the edges and terminals of those terms, the notifier and the limit (IEEE 1800-2023 Section 37.40)
 :tags: ch37
 :type: simulation
-:lrm: 1800-2023 37.40 38.10 31.2 31.3.1 31.3.2 31.3.5
+:lrm: 1800-2023 37.40 38.10 31.3.1 31.3.2 31.3.5
 :oracle: spec
 :spec_check: ai
 :fourstate: no

@@ -3,7 +3,7 @@
 :description: A weak_reference returns its referent from get() until clear() is called on it, after which get() returns null; two weak references to one object are different objects with the same referent (IEEE 1800-2023 Section 8.30.3)
 :tags: ch8
 :type: simulation
-:lrm: 1800-2023 8.30.3 8.30.2 8.30.4 8.30.1 26.7
+:lrm: 1800-2023 8.30.3 8.30.2 8.30.4 26.7
 :oracle: spec
 :spec_check: ai
 :fourstate: no

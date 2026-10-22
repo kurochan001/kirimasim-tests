@@ -3,7 +3,7 @@
 :description: a modport leads to its interface and an io declaration of a modport to the modport; an interface gives a nested interface, its default clocking block and its continuous assignments and processes, whose vpiInstance is the interface; the declaration of a plain extern task has the extern access type and leads to a task with its argument; a typedef of a specialized virtual interface gives the parameter values, and the element of an array of a modport interface type is a modport typespec (IEEE 1800-2023 Sections 37.7, 37.6, 37.8 and 37.30)
 :tags: ch37
 :type: simulation
-:lrm: 1800-2023 37.7 37.6 37.8 37.30 37.13 37.41 37.28 25.5 25.7.3 25.7.4 25.9
+:lrm: 1800-2023 37.7 37.6 37.8 37.30 37.13 37.41 37.28 25.5 25.9
 :oracle: spec
 :spec_check: ai
 :fourstate: no

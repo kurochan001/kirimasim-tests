@@ -3,7 +3,7 @@
 :description: The delayed reference and data signals named in a $setuphold with positive limits are not delayed, so a flip-flop built on them works as one built on the original signals (IEEE 1800-2023 Section 31.9.1)
 :tags: ch31
 :type: simulation
-:lrm: 1800-2023 31.9.1 31.9.4 31.3.3
+:lrm: 1800-2023 31.9.1 31.3.3
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no
