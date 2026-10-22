@@ -19,6 +19,9 @@ on:
       - "tools/**"
       - "generators/**"
       - "docs/tests/**"
+      - "coverage/**"
+      - "docs/behavior-coverage.md"
+      - "docs/coverage-depth.md"
       - "README.md"
       - ".github/workflows/check.yml"
   pull_request:
@@ -27,6 +30,9 @@ on:
       - "tools/**"
       - "generators/**"
       - "docs/tests/**"
+      - "coverage/**"
+      - "docs/behavior-coverage.md"
+      - "docs/coverage-depth.md"
       - "README.md"
       - ".github/workflows/check.yml"
   workflow_dispatch:
@@ -188,10 +194,15 @@ jobs:
 
       - name: Check the coverage depth report
         run: |
-          python3 tools/coverage_depth.py --check || {
-            echo "::error::docs/coverage-depth.md is out of date: run python3 tools/coverage_depth.py --update"
+          python3 tools/coverage_depth.py --check --minimum-tests 2 || {
+            echo "::error::coverage depth is below two direct tests per clause, or the report is out of date"
             exit 1
           }
+
+      - name: Check behavioral coverage and its regression tests
+        run: |
+          python3 -m unittest discover -s tools -p 'test_*.py'
+          python3 tools/behavior_coverage.py --check
 
       # Problems of existing tests listed in tools/lint_baseline.txt are known.
       - name: Check the metadata of the tests

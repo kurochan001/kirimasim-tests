@@ -1,0 +1,201 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch10/test_declaration_initialization_is_not_driver": {
+   "status": "pass",
+   "inputs_sha256": "eb97cb5a24d8daf48df7b68a2926f2be741ed9a4b896642feaae4093c7b3c238"
+  },
+  "ch11/test_assignment_expression_returns_converted_value": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_assignment_expression_returns_converted_value.sv:21: syntax error",
+   "inputs_sha256": "9e38633dfff87d8a85c39da4b295043c173fdf786bdd8ff117272f32809b0d96"
+  },
+  "ch11/test_literal_unsigned_division_and_remainder": {
+   "status": "pass",
+   "inputs_sha256": "7cbe858f96e70a1b043d065d089c2643fde5bb9f8a21063ba8c8fd9436b4cccd"
+  },
+  "ch11/test_real_operator_result_and_condition": {
+   "status": "pass",
+   "inputs_sha256": "9b69c27f3f8fb3a1dd3fd96debde5ebfe919166f4e78d779be5d9582a9edd36e"
+  },
+  "ch11/test_short_circuit_side_effects": {
+   "status": "pass",
+   "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5"
+  },
+  "ch11/test_signed_unknown_extension_and_unsigned_padding": {
+   "status": "pass",
+   "inputs_sha256": "b3d3aeb906e4f76b578f54df2508c98191b295cc9d470e18d667c5201f853306"
+  },
+  "ch11/test_string_concat_empty_replication": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_string_concat_empty_replication.sv:22: error: A reference to a net or variable (`n') is not allowed in a constant expression.",
+   "inputs_sha256": "6dddb4c1cfdde616db442f2b31f11828e1964f5a23bcd5ea7d63d1a9a57e3344"
+  },
+  "ch11/test_string_integral_truncation_and_lexical_compare": {
+   "status": "pass",
+   "inputs_sha256": "95147457058cdd86b8a7b64eab0a4751176d64f78341f5de3f33cab56fa075e4"
+  },
+  "ch11/test_two_state_conversion_before_bitwise": {
+   "status": "pass",
+   "inputs_sha256": "1977266defa6ca38446d61b38172df73d52f2032d079ec8b12247c8e321cab18"
+  },
+  "ch12/test_casex_first_wildcard_item": {
+   "status": "pass",
+   "inputs_sha256": "b5d474e56adb5bb5669cbb0bfb3081e07d1a88fc160239786718a77798ece347"
+  },
+  "ch13/test_task_static_and_automatic_retention": {
+   "status": "pass",
+   "inputs_sha256": "bd92e317d4d8733bc24583e4dd5eb1877b25b6abaced4ea1193c6f808476d777"
+  },
+  "ch20/test_distribution_seed_replay_and_singleton_range": {
+   "status": "pass",
+   "inputs_sha256": "42d49d3458ee70e30e3bd3fa881fb6ea83f1662e5a0475da12495b2a5728a0d1"
+  },
+  "ch20/test_stime_rounding_with_local_unit": {
+   "status": "pass",
+   "inputs_sha256": "c62edd2b20ee57bb5460fad8efb4aef856e1d8ea56eafbc459957cca01bcda84"
+  },
+  "ch21/test_fread_partial_word_and_eof": {
+   "status": "pass",
+   "inputs_sha256": "b26ccc4e89002a7d6f0cb1ec405892770e6380dd2959bea670e677204147f28b"
+  },
+  "ch21/test_fseek_cancels_ungetc_and_clears_error": {
+   "status": "pass",
+   "inputs_sha256": "97776f9dd0717ec6ec4f82846cadda35dd1f335db38b7cfe848fc21de7f71be8"
+  },
+  "ch22/test_unconnected_drive_instances_restore": {
+   "status": "pass",
+   "inputs_sha256": "dd374e7251b4ba86eb92bfdf29ed2179326d059447fc0c01c5adc6add6578462"
+  },
+  "ch22/test_undefineall_clears_nested_macro_expansion": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'inner=present', expected 'inner=absent'",
+   "inputs_sha256": "06db8abe7ed70bf889ad7a33f5ab56d5e3038682afae52e053161e88568bf34f"
+  },
+  "ch23/test_bind_only_selected_instance": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_bind_only_selected_instance.sv:25: syntax error",
+   "inputs_sha256": "70b343aacd48baa365ab29fbe2398987438e0a74b663f6e0f69abb8d6d5549cd"
+  },
+  "ch23/test_signed_port_extension_uses_local_declaration": {
+   "status": "pass",
+   "inputs_sha256": "4530b24d732e54b6229587d7da8434d8fda480d885b454d7c3a9220a76b5c997"
+  },
+  "ch23/test_wildcard_ports_explicit_override": {
+   "status": "pass",
+   "inputs_sha256": "fbc217895b178b3dca890f8a4b9e9a16bee30b8f5919791480e1f17c21976a79"
+  },
+  "ch24/test_program_output_after_module_nba_chain": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'source=3 output=c module_state=0', expected 'source=3 output=c module_state=1'",
+   "inputs_sha256": "e8224524292200b7f6e698c5bc68329865b01e48018c5d4987990b52f81dc037"
+  },
+  "ch26/test_package_scoped_name_avoids_wildcard_conflict": {
+   "status": "known",
+   "reason": "compile failed: tests/ch26/test_package_scoped_name_avoids_wildcard_conflict.sv:25: syntax error",
+   "inputs_sha256": "4d200e887b6d2ce49902db0dad5f08d8372171632cbdaee9cfb5906bf194c099"
+  },
+  "ch28/test_gate_array_scalar_broadcast_and_instances": {
+   "status": "pass",
+   "inputs_sha256": "ef6b9639f91cf7bce118eeafd0e7607ea01548f5db2f3dab4f9f7e5113d820ad"
+  },
+  "ch29/test_udp_level_preset_over_falling_capture": {
+   "status": "pass",
+   "inputs_sha256": "87ca466d39a4afeeac331cfe21acb219a3c547d34afe9696383067b1e8485c6d"
+  },
+  "ch4/test_blocking_delayed_target_after_index_change": {
+   "status": "pass",
+   "inputs_sha256": "3f23cfb6909a7beb28571fc6bf8295b312e6621a525768f271e6b2dadd02ffaf"
+  },
+  "ch4/test_subroutine_output_copy_only_at_return": {
+   "status": "pass",
+   "inputs_sha256": "3855e647ba902f655dc3a891025063dde7788c156a54a534089496729ab9128c"
+  },
+  "ch5/test_directive_redefinition_read_order": {
+   "status": "pass",
+   "inputs_sha256": "bf354f2fc30a121f6a7453aee2cc7cb8aeeb3bfa50f917bce5e2ef50349a1553"
+  },
+  "ch5/test_free_format_layout": {
+   "status": "pass",
+   "inputs_sha256": "a6fe1792cea7574580ff7435aab5f81768626723d9f2fb0e92d0ebdcf82c6628"
+  },
+  "ch6/test_bitstream_array_to_packed_order": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_bitstream_array_to_packed_order.sv:26: error: Array bytes needs an array index here.",
+   "inputs_sha256": "844e593fa0c7464767f6f7709924030ebe60ddae95985e909f06056707bddbdf"
+  },
+  "ch6/test_enum_descending_names_and_wrap": {
+   "status": "pass",
+   "inputs_sha256": "4e6faa2c02365ad2bd2f906736c2f59b56b5251ab53f2ac22cc84c49c22d2f4a"
+  },
+  "ch6/test_enum_explicit_cast_and_failed_dynamic_cast": {
+   "status": "known",
+   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp5f6ra...', expected 'failed=0 retained=8'",
+   "inputs_sha256": "b69bf1724417fbf5826f4d38dd2b6c8cadd8fd1132c6167d55946e4757516357"
+  },
+  "ch6/test_illegal_handle_to_real_cast": {
+   "status": "pass",
+   "inputs_sha256": "0a653d8be298f4bf43d93c0ea5a357d04e651df3add71219154e2c2979f326ff"
+  },
+  "ch6/test_integer_atom_defaults_and_widths": {
+   "status": "pass",
+   "inputs_sha256": "2ec225514f5b136c650678e220dba2b3b57ec71387e6d143381933aa21783aa0"
+  },
+  "ch6/test_string_binary_octal_round_trip": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_string_binary_octal_round_trip.sv:32: error: Method atobin is not a string method.",
+   "inputs_sha256": "fb482644bd50a613e1497bdf89b0ecfbe3e6b534d2dc3d97c4c7baeaba7769a8"
+  },
+  "ch6/test_unbounded_queue_tail_after_resize": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_unbounded_queue_tail_after_resize.sv:22: syntax error",
+   "inputs_sha256": "3e526a6483bb6999a17977156d90f832e8ca409c934cf9effe3a6482637d6d62"
+  },
+  "ch7/test_assoc_assignment_clears_and_detaches": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_assignment_clears_and_detaches.sv:19: error: Type names are not valid expressions here.",
+   "inputs_sha256": "bf811afae5011d0b5b301ab6b8c4da7bd0b738035f28ed83b0bdad7bfb79e84b"
+  },
+  "ch7/test_assoc_narrow_prev_next_overflow": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_narrow_prev_next_overflow.sv:19: error: Type names are not valid expressions here.",
+   "inputs_sha256": "385e75281378cb95bafa333eaf9ac725ab0cc61afaf598a55faebd49daed3106"
+  },
+  "ch7/test_assoc_signed_boundary_order": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_signed_boundary_order.sv:20: error: Type names are not valid expressions here.",
+   "inputs_sha256": "c446b4bbe709a4317a49fa9e8baf665fca2563092536b4b7f4fea13dd43c4e18"
+  },
+  "ch7/test_assoc_string_empty_and_reverse_order": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_string_empty_and_reverse_order.sv:20: syntax error",
+   "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0"
+  },
+  "ch7/test_assoc_unknown_write_does_not_allocate": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_unknown_write_does_not_allocate.sv:19: error: Type names are not valid expressions here.",
+   "inputs_sha256": "76b91aeadbf3d7a08173d7390db51a78fe2ae4b49128fb22eec6cc92d3a2c0b2"
+  },
+  "ch7/test_illegal_assoc_real_member_key": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_assoc_real_member_key\\\\.sv:(?:21)(?::|\\\\s)'",
+   "inputs_sha256": "1ff533714f0df1bfa08f6ee9bf79651df01e64feef899ff269e93bf205422b9d"
+  },
+  "ch7/test_queue_size_wait_after_pop": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'empty=0 woke=0', expected 'empty=0 woke=1'",
+   "inputs_sha256": "da7e67573a1c0aeb050c25726356670ba933175c79efb9570dba0a05628fc847"
+  },
+  "ch8/test_illegal_interface_class_construction": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interface_class_construction\\\\.sv:(?:21)(?::|\\\\s)'; the first is: tests/ch8/test_illegal_interface_class_construction.sv:19: syntax error",
+   "inputs_sha256": "f91f2ba8606279532a3d45ffefba9415c2a5103072449a07b7187ef76404e731"
+  }
+ },
+ "generated_at": "2026-10-22T07:18:10.878145+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

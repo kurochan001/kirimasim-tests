@@ -52,6 +52,8 @@ NORMALIZE = ROOT / "tools" / "normalize_output.py"
 # standard leaves to the tool: Icarus Verilog prints "ERROR: <file>:<line>:
 # <message>" and then a line with the time and the scope.
 SEVERITY = re.compile(r"^(?:(?:INFO|WARNING|ERROR|FATAL): \S+:\d+: |\s+Time: \d+\s+Scope: )")
+# This diagnostic announces the output file; it is not part of the HDL output.
+VCD_BANNER = re.compile(r"^VCD info: dumpfile .+ opened for output\.$")
 
 
 def header_field(test: Path, name: str) -> str | None:
@@ -111,7 +113,8 @@ def run(test: Path, bindir: Path | None) -> tuple[bool, str]:
                                timeout=60)
         except subprocess.TimeoutExpired:
             return False, "timed out"
-    raw = "".join(l + "\n" for l in r.stdout.splitlines() if not SEVERITY.match(l))
+    raw = "".join(l + "\n" for l in r.stdout.splitlines()
+                  if not SEVERITY.match(l) and not VCD_BANNER.match(l))
     norm = subprocess.run([sys.executable, str(NORMALIZE)], input=raw,
                           capture_output=True, text=True).stdout
     want = expected_output(test)
@@ -135,6 +138,8 @@ def main() -> int:
     if args.iverilog_bin:
         args.iverilog_bin = args.iverilog_bin.resolve()   # iverilog-vpi runs in another directory
     tests = args.tests or suite_results.find_tests()
+    inputs = suite_results.fingerprints(tests) if args.json else None
+    runner_hash = suite_results.runner_digest("icarus") if args.json else None
     failed = known = 0
     statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
@@ -156,7 +161,8 @@ def main() -> int:
     if args.json:
         iverilog = str(args.iverilog_bin / "iverilog") if args.iverilog_bin else "iverilog"
         suite_results.write(args.json, "icarus", "Icarus Verilog",
-                            suite_results.tool_version([iverilog, "-V"]), statuses)
+                            suite_results.tool_version([iverilog, "-V"]), statuses,
+                            inputs=inputs, runner_sha256=runner_hash)
     return 1 if failed else 0
 
 

@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 309 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 319 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -104,6 +104,7 @@
 | [`test_unpack_arr`](../../tests/ch7/test_unpack_arr.sv) | Unpacked Array Tests | 7.4.2 | Icarus Verilog 13.0 |  |
 | [`test_unpacked_2d`](../../tests/ch7/test_unpacked_2d.sv) | 2D unpacked arrays | 7.4.2 | Icarus Verilog 13.0 |  |
 | [`test_unpacked_3d`](../../tests/ch7/test_unpacked_3d.sv) | 3D unpacked arrays | 7.4.2 | Icarus Verilog 13.0 |  |
+| [`test_memory_descending_word_indices`](../../tests/ch7/test_memory_descending_word_indices.sv) | A memory with negative descending indices retains independently addressed packed words | 7.4.3 | Icarus Verilog 13.0 |  |
 | [`test_memory_words`](../../tests/ch7/test_memory_words.sv) | A one-dimensional array of logic, bit or reg elements is a memory: each element is a word written and read by its address, and a part of a word can be selected after the address | 7.4.3 7.4.1 7.4.6 | Icarus Verilog 13.0 | x/z |
 | [`test_copy_row_of_unpacked_struct_array`](../../tests/ch7/test_copy_row_of_unpacked_struct_array.sv) | A row of a two-dimensional array of unpacked structures is an array that can be read and written as a whole | 7.4.4 7.6 | Verilator 5.052 |  |
 | [`test_array_index_wider_than_64_bits`](../../tests/ch7/test_array_index_wider_than_64_bits.sv) | An index of an unpacked array that is wider than 64 bits selects by its whole value | 7.4.5 11.4.10 | standard only |  |
@@ -159,9 +160,14 @@
 | [`test_associative_array_corner`](../../tests/ch7/test_associative_array_corner.sv) | Tests associative array operations with various index types | 7.8 7.9 7.8.1 7.8.3 | Verilator 5.052 |  |
 | [`test_sv_assoc_array`](../../tests/ch7/test_sv_assoc_array.sv) | Test: Associative array: int map[string], exists(), first(), next(), delete(), num() | 7.8 7.9 | Verilator 5.052 |  |
 | [`test_value_assoc`](../../tests/ch7/test_value_assoc.sv) | Test for associative array value operations | 7.8 7.9 | Verilator 5.052 |  |
+| [`test_assoc_string_empty_and_reverse_order`](../../tests/ch7/test_assoc_string_empty_and_reverse_order.sv) | String associative keys include the empty string and prev follows reverse lexical order | 7.8.2 7.9.7 7.9.11 | Verilator 5.052 |  |
+| [`test_assoc_class_null_and_alias_keys`](../../tests/ch7/test_assoc_class_null_and_alias_keys.sv) | A class indexed associative array accepts null and aliases identify the same object key | 7.8.3 | Verilator 5.052 |  |
+| [`test_assoc_signed_boundary_order`](../../tests/ch7/test_assoc_signed_boundary_order.sv) | Signed integral associative keys iterate in signed numerical order across zero | 7.8.4 | standard only |  |
 | [`test_associative_array_edge_cases`](../../tests/ch7/test_associative_array_edge_cases.sv) | Associative array edge cases | 7.8.4 7.9 | Verilator 5.052 |  |
 | [`test_assoc_foreach_struct_key`](../../tests/ch7/test_assoc_foreach_struct_key.sv) | Test associative array foreach with struct keys | 7.8.5 12.7.3 | Verilator 5.052 |  |
+| [`test_illegal_assoc_real_member_key`](../../tests/ch7/test_illegal_assoc_real_member_key.sv) | An associative index type cannot contain a real member | 7.8.5 | standard only | illegal design |
 | [`test_assoc_array_unknown_index`](../../tests/ch7/test_assoc_array_unknown_index.sv) | An index with x or z bits is invalid for an associative array: a read gives the element type's default and a write does nothing | 7.8.6 7.4.5 | standard only | x/z |
+| [`test_assoc_unknown_write_does_not_allocate`](../../tests/ch7/test_assoc_unknown_write_does_not_allocate.sv) | Writing through an unknown associative key neither creates an element nor corrupts a known entry | 7.8.6 7.8.4 | standard only | x/z |
 | [`test_assoc_allocate_on_write`](../../tests/ch7/test_assoc_allocate_on_write.sv) | A nonexistent associative array element is allocated when it is assigned or passed by reference, and an increment or member write first allocates it with its default or initial value | 7.8.7 7.9.11 7.9.1 13.5.2 | standard only |  |
 | [`test_assoc_allocate_on_write_types`](../../tests/ch7/test_assoc_allocate_on_write_types.sv) | A write to a nonexistent associative array element allocates it first, with the default or initial value of the element type or with a nested array, for an increment, a member write, a string concatenation and a ref argument | 7.8.7 7.9.1 13.5.2 | Verilator 5.052 |  |
 | [`test_assoc_array_methods_basic`](../../tests/ch7/test_assoc_array_methods_basic.sv) | Associative array methods: exists/first/next/delete | 7.9 | Verilator 5.052 |  |
@@ -183,7 +189,9 @@
 | [`test_assoc_next_2`](../../tests/ch7/test_assoc_next_2.sv) | Test: Associative array next method | 7.9.6 7.9.4 | Verilator 5.052 |  |
 | [`test_assoc_prev`](../../tests/ch7/test_assoc_prev.sv) | Test associative array prev | 7.9.6 | Verilator 5.052 |  |
 | [`test_assoc_prev_2`](../../tests/ch7/test_assoc_prev_2.sv) | Test: Associative array prev method | 7.9.7 7.9.5 | Verilator 5.052 |  |
+| [`test_assoc_narrow_prev_next_overflow`](../../tests/ch7/test_assoc_narrow_prev_next_overflow.sv) | Next and prev report truncation when a discovered key does not fit their narrow output index | 7.9.8 | standard only |  |
 | [`test_assoc_traversal_narrow_index`](../../tests/ch7/test_assoc_traversal_narrow_index.sv) | An associative array traversal method given an index variable too narrow for the key returns -1 and keeps the low bits of the key | 7.9.8 7.9.4 7.9.5 | standard only |  |
+| [`test_assoc_assignment_clears_and_detaches`](../../tests/ch7/test_assoc_assignment_clears_and_detaches.sv) | Associative assignment removes old destination keys and passing by value makes an independent local copy | 7.9.9 7.9.10 | Verilator 5.052 |  |
 | [`test_assoc_array_literal_default`](../../tests/ch7/test_assoc_array_literal_default.sv) | Associative array literals with a default value, and assignment of a whole associative array | 7.9.11 7.9.9 7.9.1 | Verilator 5.052 |  |
 | [`test_assign_queue`](../../tests/ch7/test_assign_queue.sv) | Test for queue assignment | 7.10 7.10.2 | Icarus Verilog 13.0 |  |
 | [`test_builtin_methods_mixed`](../../tests/ch7/test_builtin_methods_mixed.sv) | Built-in methods of queues, dynamic arrays, associative arrays and strings | 7.10 7.5 7.9 6.16 | Verilator 5.052 |  |
@@ -236,6 +244,8 @@
 | [`test_queue_delete`](../../tests/ch7/test_queue_delete.sv) | Test queue delete | 7.10.2.3 7.10.4 | Icarus Verilog 13.0 |  |
 | [`test_queue_pop_front_order`](../../tests/ch7/test_queue_pop_front_order.sv) | pop_front() removes and returns the first element and shifts the others, for queues of string and int, until the queue is empty | 7.10.2.4 7.10.2.1 | Icarus Verilog 13.0 |  |
 | [`test_queue_pop_back_order`](../../tests/ch7/test_queue_pop_back_order.sv) | pop_back() removes and returns the last element and leaves the others in order, for queues of string and int, until the queue is empty | 7.10.2.5 7.10.2.1 | Icarus Verilog 13.0 |  |
+| [`test_queue_size_wait_after_pop`](../../tests/ch7/test_queue_size_wait_after_pop.sv) | Queue size changes unblock a wait when a pop makes the queue empty | 7.10.2.7 | Verilator 5.052 |  |
+| [`test_queue_ref_survives_unrelated_pop`](../../tests/ch7/test_queue_ref_survives_unrelated_pop.sv) | Popping the last queue element preserves a reference to the first element | 7.10.3 13.5.2 | Verilator 5.052 |  |
 | [`test_queue_reference_persistence`](../../tests/ch7/test_queue_reference_persistence.sv) | A reference to a queue element held by a task stays on that element when other methods change the queue, and becomes outdated when the element is deleted or the whole queue is assigned | 7.10.3 13.5.2 7.10.2 | standard only |  |
 | [`test_array_method_corner`](../../tests/ch7/test_array_method_corner.sv) | Tests find, sort, sum, min, max, unique methods | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 |  |
 | [`test_array_method_index_argument`](../../tests/ch7/test_array_method_index_argument.sv) | The second argument of an array method names the index method of its iterator, also where an element has a member named index | 7.12 7.12.4 7.12.1 | standard only |  |

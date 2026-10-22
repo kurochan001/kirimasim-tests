@@ -18,6 +18,11 @@ of:
     unsupported  the simulator reported a construct it does not support yet,
                  or it cannot run this kind of test
 
+New runner JSON also records generated_at, runner_sha256, runner_changed and
+configuration. Each test has inputs_sha256 only when its input fingerprint is
+unchanged between the start and end of execution; otherwise inputs_changed is
+true. Consumers that only need statuses can continue to read older JSON.
+
 It also holds what the runners share about the tests: how they are found,
 and the metadata fields that change how a test is run and judged
 (:should_fail_because:, :expected_exit:, :expected_stderr_regex:, :args:,
@@ -25,6 +30,8 @@ and the metadata fields that change how a test is run and judged
 README.md).
 """
 
+import datetime
+import hashlib
 import json
 import re
 import subprocess
@@ -151,13 +158,92 @@ def first_difference(got: str, want: str) -> str:
     return "the line ends differ"
 
 
+def input_files(test: Path) -> list[Path]:
+    """The design, declared helpers/data, literal includes and expectation.
+
+    Macro-selected includes and externally supplied data must be declared in
+    :files:. Include directory contents are hashed conservatively, so changing
+    an include's search precedence also invalidates old execution evidence.
+    Missing declared files are hashed as missing, rather than silently omitted.
+    """
+    test = test.resolve()
+    fields = header(test)
+    paths = {test}
+    for name in fields.get("files", "").split():
+        paths.add((test.parent / name).resolve())
+    for field in ("dpi_c", "vpi_c"):
+        value = fields.get(field, "")
+        if value:
+            paths.add((test.parent / value.removeprefix("@")).resolve())
+    expected = fields.get("expected_stdout", "")
+    if expected.startswith("@"):
+        paths.add((test.parent / expected[1:]).resolve())
+    _, include_dirs = files(test)
+    for directory in include_dirs:
+        if directory.is_dir():
+            paths.update(p.resolve() for p in directory.rglob("*") if p.is_file())
+    pending = list(paths)
+    while pending:
+        source = pending.pop()
+        if not source.is_file() or source.suffix not in (".sv", ".v", ".svh", ".vh", ".c", ".h"):
+            continue
+        for name in re.findall(r'(?:`include|#\s*include)\s*"([^"\n]+)"',
+                               source.read_text(encoding="utf-8", errors="replace")):
+            candidates = [source.parent / name, *(d / name for d in include_dirs)]
+            included = next((p.resolve() for p in candidates if p.is_file()), None)
+            if included is not None and included not in paths:
+                paths.add(included)
+                pending.append(included)
+    return sorted(paths)
+
+
+def input_digest(test: Path) -> str:
+    """Hash input names and contents, independent of the checkout directory."""
+    digest = hashlib.sha256()
+    for path in input_files(test):
+        # Repository-relative names keep the digest portable between CI/local.
+        name = path.relative_to(ROOT).as_posix()
+        digest.update(name.encode() + b"\0")
+        digest.update(hashlib.sha256(path.read_bytes()).digest() if path.is_file()
+                      else b"MISSING")
+    return digest.hexdigest()
+
+
+def runner_digest(simulator: str) -> str:
+    """Invalidate result evidence when the runner or normalization changes."""
+    digest = hashlib.sha256()
+    for name in (f"run_{simulator}.py", "suite_results.py", "normalize_output.py"):
+        path = ROOT / "tools" / name
+        digest.update(name.encode() + b"\0")
+        digest.update(path.read_bytes())
+    return digest.hexdigest()
+
+
+def fingerprints(tests: list[Path]) -> dict[str, str]:
+    """Capture inputs before execution; write() checks them again afterward."""
+    return {test_id(t): input_digest(t) for t in tests}
+
+
 def write(path: Path, simulator: str, name: str, version: str,
-          results: dict[str, tuple[str, str]]) -> None:
+          results: dict[str, tuple[str, str]], *,
+          inputs: dict[str, str] | None = None, configuration: dict | None = None,
+          runner_sha256: str | None = None) -> None:
     """results maps a test id to its status and the reason for it."""
     tests = {}
     for test, (status, reason) in sorted(results.items()):
         assert status in STATUSES, status
         tests[test] = {"status": status, **({"reason": reason} if reason else {})}
+        if inputs is not None:
+            current = input_digest(ROOT / "tests" / (test + ".sv"))
+            if inputs.get(test) == current:
+                tests[test]["inputs_sha256"] = current
+            else:
+                tests[test]["inputs_changed"] = True
     data = {"simulator": simulator, "name": name, "version": version, "tests": tests}
+    if inputs is not None:
+        data.update({"generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                     "runner_sha256": runner_sha256,
+                     "runner_changed": runner_sha256 != runner_digest(simulator),
+                     "configuration": configuration or {}})
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")

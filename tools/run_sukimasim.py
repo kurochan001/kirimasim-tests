@@ -196,6 +196,8 @@ def main() -> int:
         include = guess if (guess / "svdpi.h").is_file() else None
 
     tests = args.tests or suite_results.find_tests()
+    inputs = suite_results.fingerprints(tests) if args.json else None
+    runner_hash = suite_results.runner_digest("sukimasim") if args.json else None
     failed = 0
     statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
@@ -210,7 +212,9 @@ def main() -> int:
     print(f"{len(tests) - failed}/{len(tests)} tests match")
     if args.json:
         suite_results.write(args.json, "sukimasim", "sukimasim",
-                            suite_results.tool_version([exe, "--version"]), statuses)
+                            suite_results.tool_version([exe, "--version"]), statuses,
+                            inputs=inputs, runner_sha256=runner_hash,
+                            configuration={"strip_diagnostics": args.strip_diagnostics})
     return 1 if failed else 0
 
 

@@ -7,6 +7,8 @@ Usage:
     python3 tools/coverage_depth.py            print the file it would write
     python3 tools/coverage_depth.py --update   rewrite docs/coverage-depth.md
     python3 tools/coverage_depth.py --check    exit with 1 if it is out of date
+    python3 tools/coverage_depth.py --check --minimum-tests 2
+                                             also enforce direct test depth
 
 The report counts a clause as covered by a test when the test cites the
 clause in :lrm:. A clause can be cited by several tests, and a test can
@@ -71,6 +73,18 @@ def clause_list(items: list[str]) -> str:
     return ", ".join(sorted(items, key=suite_catalog.clause_key))
 
 
+def shallow_clauses(data: dict, minimum: int) -> list[str]:
+    """In-scope leaf clauses without enough directly citing tests.
+
+    A parent citation does not count as a direct test of its children.
+    Include missing clauses instead of measuring only the cited ones.
+    """
+    return sorted((c for row in data["coverage"]["chapters"].values()
+                   for kind in ("cited", "parent", "missing") for c in row[kind]
+                   if len(data["by_clause"].get(c, [])) < minimum),
+                  key=suite_catalog.clause_key)
+
+
 def report(data: dict) -> str:
     coverage = data["coverage"]
     by_clause = data["by_clause"]
@@ -105,6 +119,9 @@ def report(data: dict) -> str:
         f"| Tests | {len(tests)} |",
         f"| Clauses in scope | {in_scope} |",
         f"| Clauses out of scope | {out_scope} |",
+        f"| Clauses with a direct test | {in_scope - len(shallow_clauses(data, 1))}/{in_scope} |",
+        f"| Clauses with at least two direct tests | "
+        f"{in_scope - len(shallow_clauses(data, 2))}/{in_scope} |",
         f"| Clauses with one test | {len(single)} |",
         f"| Clauses with two tests or fewer | "
         f"{sum(1 for c in cited if len(by_clause[c]) <= 2)} |",
@@ -181,16 +198,25 @@ def main() -> int:
     ap.add_argument("--update", action="store_true", help="write docs/coverage-depth.md")
     ap.add_argument("--check", action="store_true",
                     help="exit with 1 if docs/coverage-depth.md is out of date")
+    ap.add_argument("--minimum-tests", type=int,
+                    help="require this many directly citing tests per in-scope leaf clause")
     args = ap.parse_args()
-    text = report(collect())
+    if args.minimum_tests is not None and args.minimum_tests < 1:
+        ap.error("--minimum-tests must be positive")
+    data = collect()
+    text = report(data)
+    shallow = shallow_clauses(data, args.minimum_tests) if args.minimum_tests else []
+    if shallow:
+        print(f"{len(shallow)} clauses have fewer than {args.minimum_tests} direct tests: "
+              + clause_list(shallow), file=sys.stderr)
     if args.check:
-        return 0 if DEPTH.is_file() and DEPTH.read_text() == text else 1
+        return 0 if not shallow and DEPTH.is_file() and DEPTH.read_text() == text else 1
     if args.update:
         DEPTH.write_text(text)
         print(f"wrote {DEPTH.relative_to(ROOT)}")
     else:
         print(text, end="")
-    return 0
+    return 1 if shallow else 0
 
 
 if __name__ == "__main__":

@@ -124,6 +124,8 @@ def main() -> int:
     exe = str(Path(exe).resolve())   # the tests run in other directories
 
     tests = args.tests or suite_results.find_tests()
+    inputs = suite_results.fingerprints(tests) if args.json else None
+    runner_hash = suite_results.runner_digest("kirimasim") if args.json else None
     failed = unsupported = 0
     statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
@@ -141,7 +143,8 @@ def main() -> int:
           + (f"; {unsupported} use what kirimasim does not support yet" if unsupported else ""))
     if args.json:
         suite_results.write(args.json, "kirimasim", "kirimasim",
-                            suite_results.tool_version([exe, "--version"]), statuses)
+                            suite_results.tool_version([exe, "--version"]), statuses,
+                            inputs=inputs, runner_sha256=runner_hash)
     return 1 if failed or unsupported else 0
 
 

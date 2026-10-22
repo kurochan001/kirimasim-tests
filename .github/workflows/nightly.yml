@@ -349,6 +349,18 @@ jobs:
             --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
             "${files[@]}" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Measure behavioral coverage with this run's results
+        run: |
+          shopt -s nullglob
+          files=(results/*.json)
+          python3 tools/behavior_coverage.py --results "${files[@]}" \
+            --output history/behavior-coverage.md --json history/behavior-coverage.json \
+            --source-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/$GITHUB_SHA" \
+            --history history/behavior-history.json
+          sed -n '6,15p' history/behavior-coverage.md >> "$GITHUB_STEP_SUMMARY"
+          printf '\n[動作カバレッジ](%s/%s/blob/results/behavior-coverage.md)\n' \
+            "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Push the results branch
         working-directory: history
         run: |

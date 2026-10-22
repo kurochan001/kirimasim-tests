@@ -217,3 +217,55 @@ not parse the modport in an interface port of a module.
 | 26.3 | A local declaration of a name that a wildcard import has already made visible | `ch26/test_illegal_local_declaration_after_import` |
 | 8.20 | A pure virtual method declared :final | `ch8/test_illegal_final_pure_virtual` |
 | 35.5.1.3, 35.5.4 | An imported task declared pure | `ch35/test_illegal_dpi_pure_import_task` |
+
+## Cases added by the 2026-10-22 depth extension
+
+These cases strengthen clauses that previously had one directly citing test.
+The expected results were derived before the release runs. Unsupported
+constructs are described in the source comments rather than treated as
+independent oracle confirmations. The following observable differences remain:
+
+- Icarus 13.0 does not wake a wait on queue size when the final element is
+  popped (7.10.2.7):
+  [test_queue_size_wait_after_pop](../tests/ch7/test_queue_size_wait_after_pop.sv).
+- Icarus 13.0 constructs the derived object through a typed constructor but
+  calls the base virtual method through the base handle (8.8, 8.20):
+  [test_typed_constructor_into_base_handle](../tests/ch8/test_typed_constructor_into_base_handle.sv).
+- Icarus 13.0 keeps source macro definitions after `undefineall` (22.5.3):
+  [test_undefineall_clears_nested_macro_expansion](../tests/ch22/test_undefineall_clears_nested_macro_expansion.sv).
+- Icarus 13.0 accepts a value argument to the argumentless `$stacktrace`
+  call (20.17.2):
+  [test_illegal_stacktrace_argument](../tests/ch20/test_illegal_stacktrace_argument.sv).
+- Both releases propagate a program continuous output before a module NBA
+  reaction to its input has completed (24.3.2):
+  [test_program_output_after_module_nba_chain](../tests/ch24/test_program_output_after_module_nba_chain.sv).
+- The 5.052 release orders signed associative keys as unsigned values
+  across zero (7.8.4):
+  [test_assoc_signed_boundary_order](../tests/ch7/test_assoc_signed_boundary_order.sv).
+- The 5.052 release accepts an associative key type containing a real
+  member (7.8.5):
+  [test_illegal_assoc_real_member_key](../tests/ch7/test_illegal_assoc_real_member_key.sv).
+- The 5.052 release expands an inner string concatenation into two queue
+  elements instead of keeping it as one string item (10.10.3):
+  [test_unpacked_concat_typed_array_and_string_item](../tests/ch10/test_unpacked_concat_typed_array_and_string_item.sv).
+- The 5.052 release loses the prototype default when an out-of-block
+  method definition legally omits it (8.24):
+  [test_extern_method_scoped_return_type](../tests/ch8/test_extern_method_scoped_return_type.sv).
+- The 5.052 release runs the mixed event sensitivity processes at time zero
+  as well as at the four later input changes (9.4.2.1, 6.8):
+  [test_event_or_mixed_comma_forms](../tests/ch9/test_event_or_mixed_comma_forms.sv).
+- The 5.052 release accepts a checker covergroup referencing a formal
+  whose actual is constant (17.6):
+  [test_illegal_checker_covergroup_constant_actual](../tests/ch17/test_illegal_checker_covergroup_constant_actual.sv).
+- The 5.052 release observes a different position after seeking with a
+  pushed-back character and does not clear the error text after a successful
+  I/O operation (21.3.5, 21.3.7):
+  [test_fseek_cancels_ungetc_and_clears_error](../tests/ch21/test_fseek_cancels_ungetc_and_clears_error.sv).
+- The 5.052 release prints the sampled value for the live reference in an
+  assertion pass action after the NBA update (4.4.2.5, 16.5.1):
+  [test_preponed_sample_observed_before_action](../tests/ch4/test_preponed_sample_observed_before_action.sv).
+- LABEL annotation is unavailable in Icarus 13.0; the 5.052 release ignores
+  SDF annotation, including the new dependent label expression and pulse
+  boundary cases (32.4.3, 32.7):
+  [test_sdf_label_recomputes_delay_expression](../tests/ch32/test_sdf_label_recomputes_delay_expression.sv),
+  [test_sdf_pulse_limit_near_delay_boundary](../tests/ch32/test_sdf_pulse_limit_near_delay_boundary.sv).

@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 154 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 162 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -46,6 +46,7 @@
 | [`test_class_new`](../../tests/ch8/test_class_new.sv) | Class Constructor Tests | 8.7 13.5.3 | Verilator 5.052 |  |
 | [`test_class_new_args`](../../tests/ch8/test_class_new_args.sv) | Test: Class constructor with various argument types | 8.7 13.5.3 | Verilator 5.052 |  |
 | [`test_property_initializer_after_super_new`](../../tests/ch8/test_property_initializer_after_super_new.sv) | The initializers of a derived class's properties run after the base class constructor and before the rest of the derived constructor | 8.7 8.17 | Icarus Verilog 13.0 |  |
+| [`test_typed_constructor_into_base_handle`](../../tests/ch8/test_typed_constructor_into_base_handle.sv) | A typed constructor builds a derived object directly into a base handle | 8.8 | Verilator 5.052 |  |
 | [`test_class_scope_access`](../../tests/ch8/test_class_scope_access.sv) | Static class properties test | 8.9 8.10 8.23 | Verilator 5.052 |  |
 | [`test_class_singleton`](../../tests/ch8/test_class_singleton.sv) | Test: Singleton pattern | 8.9 8.10 8.7 | Verilator 5.052 |  |
 | [`test_class_static`](../../tests/ch8/test_class_static.sv) | Static class property counting constructed objects, read through a static method | 8.9 8.10 | Verilator 5.052 |  |
@@ -124,6 +125,7 @@
 | [`test_illegal_abstract_class_new`](../../tests/ch8/test_illegal_abstract_class_new.sv) | An object of an abstract (virtual) class cannot be constructed | 8.21 | Icarus Verilog 13.0 | illegal design |
 | [`test_nested_class_access`](../../tests/ch8/test_nested_class_access.sv) | A class declared inside another class is used from outside through the scope resolution operator, can use the static and local members of its outer class (non-static ones through a handle), and two outer classes may each have a nested class of the same name | 8.23 8.18 | Verilator 5.052 |  |
 | [`test_class_extern`](../../tests/ch8/test_class_extern.sv) | Test: Extern method declaration | 8.24 8.20 | Verilator 5.052 |  |
+| [`test_extern_method_scoped_return_type`](../../tests/ch8/test_extern_method_scoped_return_type.sv) | An out of block method can use a class typedef as its return type and omit a prototype default | 8.24 | standard only |  |
 | [`test_class_bounded_fifo`](../../tests/ch8/test_class_bounded_fifo.sv) | A parameterized class FIFO with a size limit, try_put and try_get | 8.25 7.10 13.5.2 | Verilator 5.052 |  |
 | [`test_class_param`](../../tests/ch8/test_class_param.sv) | Test: Parameterized class | 8.25 | Verilator 5.052 |  |
 | [`test_class_param_2`](../../tests/ch8/test_class_param_2.sv) | Test: Parameterized class, instantiation with different types | 8.25 | Verilator 5.052 |  |
@@ -140,21 +142,27 @@
 | [`test_interface_class_methods`](../../tests/ch8/test_interface_class_methods.sv) | Interface class method implementation test | 8.26 | Verilator 5.052 |  |
 | [`test_interface_impl`](../../tests/ch8/test_interface_impl.sv) | Test: Interface class implementation | 8.26 8.26.2 | Verilator 5.052 |  |
 | [`test_interface_simple_2`](../../tests/ch8/test_interface_simple_2.sv) | Simplified interface class test - IEEE 1800-2023 Ch.8.26 | 8.26 | Verilator 5.052 |  |
+| [`test_interface_class_shared_method_implementation`](../../tests/ch8/test_interface_class_shared_method_implementation.sv) | One implementation satisfies matching pure virtual methods from two interface classes | 8.26.1 8.26.6.1 | Verilator 5.052 |  |
 | [`test_illegal_interface_class_unqualified_type`](../../tests/ch8/test_illegal_interface_class_unqualified_type.sv) | A class that implements an interface class does not inherit its typedefs, so it cannot use one without the class scope | 8.26.3 | Verilator 5.052 | illegal design |
 | [`test_interface_class_type_access`](../../tests/ch8/test_interface_class_type_access.sv) | Parameters and typedefs of an interface class are inherited by an interface class that extends it but not by a class that implements it, which reaches them with the class scope resolution operator | 8.26.3 8.26.2 8.23 | Verilator 5.052 |  |
 | [`test_illegal_class_implements_type_parameter`](../../tests/ch8/test_illegal_class_implements_type_parameter.sv) | A class cannot implement a type parameter, even one whose value is an interface class | 8.26.4 | standard only | illegal design |
 | [`test_illegal_implements_forward_typedef`](../../tests/ch8/test_illegal_implements_forward_typedef.sv) | A class cannot implement an interface class that is only declared by a forward typedef at that point | 8.26.4 | standard only | illegal design |
+| [`test_illegal_interface_class_construction`](../../tests/ch8/test_illegal_interface_class_construction.sv) | An interface class handle cannot construct an interface class object | 8.26.5 | Verilator 5.052 | illegal design |
 | [`test_interface_class_cast`](../../tests/ch8/test_interface_class_cast.sv) | $cast between interface class handles and class handles succeeds only when the object implements the destination type | 8.26.5 8.16 8.26 8.20 | standard only |  |
 | [`test_interface_class_diamond`](../../tests/ch8/test_interface_class_diamond.sv) | One method implements the methods of the same name that a class gets from several interface classes, also through a diamond of extends | 8.26.6.1 8.26.6.3 8.26.2 | Verilator 5.052 |  |
 | [`test_illegal_interface_class_typedef_conflict`](../../tests/ch8/test_illegal_interface_class_typedef_conflict.sv) | An interface class that inherits the same typedef name from two interface classes without declaring the name itself is an error | 8.26.6.2 | standard only | illegal design |
 | [`test_interface_class_typedef_conflict_resolved`](../../tests/ch8/test_interface_class_typedef_conflict_resolved.sv) | An interface class that inherits the same typedef name from two interface classes resolves the collision by declaring the name itself | 8.26.6.2 8.26.3 8.26.6 | standard only |  |
+| [`test_interface_diamond_inherited_parameter`](../../tests/ch8/test_interface_diamond_inherited_parameter.sv) | The same interface parameter inherited along a diamond is a single declaration | 8.26.6.3 | Verilator 5.052 |  |
 | [`test_interface_class_partial_virtual`](../../tests/ch8/test_interface_class_partial_virtual.sv) | A virtual class can implement an interface class partly, declaring the rest pure, and a derived class completes it | 8.26.7 8.21 8.26.8 | Verilator 5.052 |  |
+| [`test_interface_partial_default_argument`](../../tests/ch8/test_interface_partial_default_argument.sv) | A partial virtual implementation can complete its remaining method in a subclass while preserving constant defaults | 8.26.7 8.26.8 | Verilator 5.052 |  |
 | [`test_illegal_interface_class_constraint`](../../tests/ch8/test_illegal_interface_class_constraint.sv) | An interface class cannot declare a constraint block | 8.26.9 | Verilator 5.052 | illegal design |
 | [`test_interface_class_randomize`](../../tests/ch8/test_interface_class_randomize.sv) | randomize() can be called through an interface class handle; interface classes have built-in pre_randomize and post_randomize methods that the class can override, without a name conflict between two interface classes | 8.26.9 18.6.2 18.6.1 | standard only |  |
 | [`test_class_typedef`](../../tests/ch8/test_class_typedef.sv) | Test: typedef class forward declaration, mutual references | 8.27 | Verilator 5.052 |  |
+| [`test_forward_class_cycle_and_struct_value`](../../tests/ch8/test_forward_class_cycle_and_struct_value.sv) | Forward class declarations permit cyclic handles while a struct assignment copies its value | 8.27 8.28 | Verilator 5.052 |  |
 | [`test_class_vs_struct_assignment`](../../tests/ch8/test_class_vs_struct_assignment.sv) | Assigning a class handle shares one object, while assigning a structure copies its value | 8.28 8.12 7.2 | Verilator 5.052 |  |
 | [`test_object_strongly_reachable`](../../tests/ch8/test_object_strongly_reachable.sv) | An object stays strongly reachable, so its weak references are not cleared, while a handle in an active scope refers to it or a nonblocking assignment to one of its members is pending | 8.29 8.30.3 | standard only |  |
 | [`test_illegal_weak_reference_non_class`](../../tests/ch8/test_illegal_weak_reference_non_class.sv) | The parameter of weak_reference has to be a class type | 8.30.1 | standard only | illegal design |
+| [`test_weak_reference_id_alias_after_clear`](../../tests/ch8/test_weak_reference_id_alias_after_clear.sv) | Clearing one weak wrapper leaves another wrapper and the ownerly held object identity unchanged | 8.30.1 8.30.2 8.30.5 8.29 | standard only |  |
 | [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) | A weak_reference returns its referent from get() until clear() is called on it, after which get() returns null; two weak references to one object are different objects with the same referent | 8.30.3 8.30.2 8.30.4 26.7 | standard only |  |
 | [`test_weak_reference_wait_cleared`](../../tests/ch8/test_weak_reference_wait_cleared.sv) | A wait on weak_reference get() becoming null resumes when another process clears the reference | 8.30.3 8.30.4 9.4.3 | standard only |  |
 | [`test_weak_reference_get_id`](../../tests/ch8/test_weak_reference_get_id.sv) | The static get_id() of weak_reference returns 0 for null and a nonzero value for an object, the same at every call and through every class type of the handle, and different for different objects | 8.30.5 7.8 | standard only |  |

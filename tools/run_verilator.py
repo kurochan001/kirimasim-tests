@@ -147,6 +147,8 @@ def main() -> int:
                            if args.all
                            or "verilator@5.052" in (header_field(t, "oracle") or "").split()]
     failed = known = 0
+    inputs = suite_results.fingerprints(tests) if args.json else None
+    runner_hash = suite_results.runner_digest("verilator") if args.json else None
     statuses = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
         results = pool.map(lambda t: run(t, args.verilator, args.seed), tests)
@@ -167,7 +169,9 @@ def main() -> int:
           + (f"; {known} other tests not counted" if known else ""))
     if args.json:
         suite_results.write(args.json, "verilator", "Verilator",
-                            suite_results.tool_version([args.verilator, "--version"]), statuses)
+                            suite_results.tool_version([args.verilator, "--version"]), statuses,
+                            inputs=inputs, runner_sha256=runner_hash,
+                            configuration={"seed": args.seed})
     return 1 if failed else 0
 
 

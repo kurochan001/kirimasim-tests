@@ -1,0 +1,7 @@
+create=0
+full=1 status=0
+overfill=1
+removed=11,111 status=0
+reused_length=1 status=0
+reused_entry=33,333
+empty_status=3

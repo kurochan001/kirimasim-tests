@@ -1,13 +1,16 @@
 # Clause 6: Data types
 
-[All chapters](README.md). 303 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 317 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_local_var_edge_cases`](../../tests/ch6/test_local_var_edge_cases.sv) | Local variable edge cases | 6 | Icarus Verilog 13.0 |  |
 | [`test_logic_basic`](../../tests/ch6/test_logic_basic.sv) | Logic Basic Tests | 6.3.1 6.11 | Icarus Verilog 13.0 |  |
 | [`test_value_logic`](../../tests/ch6/test_value_logic.sv) | Test for logic value operations | 6.3.1 11.4.8 | Icarus Verilog 13.0 | x/z |
+| [`test_trireg_retention_decay_and_recharge`](../../tests/ch6/test_trireg_retention_decay_and_recharge.sv) | A trireg retains charge after disconnection decays to unknown and can be recharged | 6.3.2.1 6.6.4.1 6.6.4.2 28.15.2 28.16.2.2 | standard only | x/z |
 | [`test_net_declaration_drive_strength`](../../tests/ch6/test_net_declaration_drive_strength.sv) | A net declaration that assigns the net can give the drive strength of that continuous assignment, which then drives the net | 6.3.2.2 10.3.1 10.3.4 21.2.1.4 | Icarus Verilog 13.0 | x/z |
+| [`test_net_strength_and_scalared_select`](../../tests/ch6/test_net_strength_and_scalared_select.sv) | Scalared net part selects resolve asymmetric driver strengths independently | 6.3.2.2 6.9.2 | Icarus Verilog 13.0 |  |
+| [`test_singular_and_aggregate_value_copy`](../../tests/ch6/test_singular_and_aggregate_value_copy.sv) | Packed singular values and unpacked aggregate values copy independently into subroutines | 6.4 7.7 | Verilator 5.052 |  |
 | [`test_illegal_input_port_variable_assigned`](../../tests/ch6/test_illegal_input_port_variable_assigned.sv) | A module cannot assign to its own input port when the port is a variable | 6.5 23.2.2.3 | Verilator 5.052 | illegal design |
 | [`test_illegal_mixed_continuous_procedural`](../../tests/ch6/test_illegal_mixed_continuous_procedural.sv) | A variable that a continuous assignment writes cannot also be written by a procedural assignment | 6.5 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_output_port_variable_also_assigned`](../../tests/ch6/test_illegal_output_port_variable_also_assigned.sv) | A variable connected to an output port of an instance cannot also be assigned elsewhere | 6.5 23.3.3 | Icarus Verilog 13.0 | illegal design |
@@ -50,6 +53,7 @@
 | [`test_illegal_net_type_then_reg`](../../tests/ch6/test_illegal_net_type_then_reg.sv) | A net type keyword cannot be followed directly by the keyword reg in a declaration | 6.7.1 | standard only | illegal design |
 | [`test_net_declaration_data_types`](../../tests/ch6/test_net_declaration_data_types.sv) | A net can have any 4-state integral data type, a typedef or a packed structure, a net without one is logic, and undriven nets hold z in every bit | 6.7.1 6.11.1 7.2.1 | Icarus Verilog 13.0 | x/z |
 | [`test_trireg_default_value_strength`](../../tests/ch6/test_trireg_default_value_strength.sv) | Before any driver drives them, a trireg net holds x with the charge strength of its size, medium by default, while other nets hold z | 6.7.1 6.3.2.1 21.2.1.4 | standard only | x/z |
+| [`test_nettype_alias_resolution_and_empty_drivers`](../../tests/ch6/test_nettype_alias_resolution_and_empty_drivers.sv) | A chain of nettype aliases merges port drivers and undriven resolved nets evaluate their empty driver set | 6.7.2 6.7.3 6.22.6 | standard only |  |
 | [`test_nettype_initial_value_resolution`](../../tests/ch6/test_nettype_initial_value_resolution.sv) | A net of a user-defined nettype starts with the default value of its data type, struct member initializers included, logic being x rather than z, and a resolved nettype resolves at time zero even without drivers | 6.7.3 6.7.2 6.6.7 | standard only | x/z |
 | [`test_class_static_init_order`](../../tests/ch6/test_class_static_init_order.sv) | The declaration initializers of static class properties and of package variables take effect before any initial procedure starts, so updates made at time 0 build on them instead of being overwritten | 6.8 8.9 26.2 | Verilator 5.052 |  |
 | [`test_enum_default_and_invalid_index`](../../tests/ch6/test_enum_default_and_invalid_index.sv) | An enum variable starts at the default of its base type, and so does a read of an enum array with an invalid index | 6.8 6.19 7.4.5 8.7 | standard only | x/z |
@@ -84,6 +88,7 @@
 | [`test_type`](../../tests/ch6/test_type.sv) | Assignments between integral types, real conversion and string conversion methods | 6.11 6.16.9 20.5 | Icarus Verilog 13.0 |  |
 | [`test_ieee_compliance_dimensions_twostate`](../../tests/ch6/test_ieee_compliance_dimensions_twostate.sv) | Compliance Test - $dimensions and 2-state conversion | 6.11.2 7.4.1 8 20.7 | Icarus Verilog 13.0 | x/z |
 | [`test_longint_edge_cases`](../../tests/ch6/test_longint_edge_cases.sv) | Longint edge cases | 6.11.2 | Icarus Verilog 13.0 |  |
+| [`test_integer_atom_defaults_and_widths`](../../tests/ch6/test_integer_atom_defaults_and_widths.sv) | Integer atom types have fixed widths and signed default arithmetic | 6.11.3 6.11 6.8 | Icarus Verilog 13.0 | x/z |
 | [`test_illegal_real_bit_select`](../../tests/ch6/test_illegal_real_bit_select.sv) | A bit-select of a real variable is not allowed | 6.12 11.5.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_real_edge_event`](../../tests/ch6/test_illegal_real_edge_event.sv) | An edge event control on a real variable is not allowed | 6.12 9.4.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_real_edge_cases`](../../tests/ch6/test_real_edge_cases.sv) | real, shortreal and realtime arithmetic, casts and comparisons | 6.12 6.12.1 | Icarus Verilog 13.0 |  |
@@ -101,6 +106,7 @@
 | [`test_real_conversion_wide_and_unknown`](../../tests/ch6/test_real_conversion_wide_and_unknown.sv) | Conversion to real of vectors wider than 64 bits, of a negative signed vector and of a vector with x and z bits | 6.12.1 | Icarus Verilog 13.0 | x/z |
 | [`test_type_casts`](../../tests/ch6/test_type_casts.sv) | Type casting | 6.12.1 6.24.1 | Icarus Verilog 13.0 |  |
 | [`test_void_function_and_cast`](../../tests/ch6/test_void_function_and_cast.sv) | A function with the void return type returns no value and is called as a statement, and casting a function call to void discards its result | 6.13 13.4.1 6.24.1 | Icarus Verilog 13.0 |  |
+| [`test_void_return_and_discard_side_effect`](../../tests/ch6/test_void_return_and_discard_side_effect.sv) | Void functions can return early and a void cast discards a value without discarding its side effect | 6.13 | Icarus Verilog 13.0 |  |
 | [`test_chandle_edge_cases`](../../tests/ch6/test_chandle_edge_cases.sv) | Test: Chandle edge cases | 6.14 | Verilator 5.052 |  |
 | [`test_chandle_ops`](../../tests/ch6/test_chandle_ops.sv) | Test chandle null checks and operations | 6.14 | Verilator 5.052 |  |
 | [`test_comb_string_compare`](../../tests/ch6/test_comb_string_compare.sv) | Test: String comparison operators and methods | 6.16 | Verilator 5.052 |  |
@@ -164,7 +170,9 @@
 | [`test_string_atoreal_2`](../../tests/ch6/test_string_atoreal_2.sv) | Test string atoreal method | 6.16.10 | Icarus Verilog 13.0 |  |
 | [`test_string_itoa_2`](../../tests/ch6/test_string_itoa_2.sv) | Test string itoa method | 6.16.11 | Icarus Verilog 13.0 |  |
 | [`test_string_hextoa`](../../tests/ch6/test_string_hextoa.sv) | Test: String hextoa method | 6.16.12 | Verilator 5.052 |  |
+| [`test_string_binary_octal_round_trip`](../../tests/ch6/test_string_binary_octal_round_trip.sv) | Binary and octal conversion methods replace an existing string and round trip zero and a high positive integer | 6.16.13 6.16.14 | Verilator 5.052 |  |
 | [`test_string_realtoa`](../../tests/ch6/test_string_realtoa.sv) | Test: String realtoa method | 6.16.15 6.16.10 | Icarus Verilog 13.0 |  |
+| [`test_event_rebinding_retains_old_wait`](../../tests/ch6/test_event_rebinding_retains_old_wait.sv) | Rebinding an event variable does not retarget a process already blocked on its old synchronization object | 6.17 15.5.5.1 | standard only |  |
 | [`test_event_variable_alias_null`](../../tests/ch6/test_event_variable_alias_null.sv) | An event variable declared without an initializer gets a new synchronization object, one assigned from another event shares that object, and one assigned null has none | 6.17 15.5.5 15.5.1 | standard only |  |
 | [`test_type_def`](../../tests/ch6/test_type_def.sv) | Typedef Tests | 6.18 20.6.2 | Verilator 5.052 |  |
 | [`test_typedef`](../../tests/ch6/test_typedef.sv) | typedef of vectors, an enum and a packed struct | 6.18 | Icarus Verilog 13.0 |  |
@@ -194,6 +202,7 @@
 | [`test_illegal_enum_increment_overflow`](../../tests/ch6/test_illegal_enum_increment_overflow.sv) | Automatic increment past the largest value of the base type of an enumeration is an error | 6.19 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_enum_sized_literal_width`](../../tests/ch6/test_illegal_enum_sized_literal_width.sv) | A sized literal that sets an enum value must have the width of the base type | 6.19 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_enum_value_out_of_range`](../../tests/ch6/test_illegal_enum_value_out_of_range.sv) | An enum value cannot lie outside the range of the base type | 6.19 | Icarus Verilog 13.0 | illegal design |
+| [`test_enum_descending_names_and_wrap`](../../tests/ch6/test_enum_descending_names_and_wrap.sv) | Descending enum name ranges preserve declaration order for first last num and prev | 6.19.1 6.19.2 6.19.5.1 6.19.5.2 6.19.5.4 6.19.5.5 6.19.5.7 | Icarus Verilog 13.0 |  |
 | [`test_enum_named_ranges`](../../tests/ch6/test_enum_named_ranges.sv) | In an enumeration, name[N] generates N names numbered from 0 and name[N:M] the names numbered from N to M, counting up or down, each taking consecutive values, starting from an assigned constant if there is one | 6.19.2 6.19.1 6.19.5 | Icarus Verilog 13.0 |  |
 | [`test_illegal_enum_from_int`](../../tests/ch6/test_illegal_enum_from_int.sv) | An int value cannot be assigned to an enum variable without a cast | 6.19.3 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_enum_from_other_enum`](../../tests/ch6/test_illegal_enum_from_other_enum.sv) | A member of one enum type cannot be assigned to a variable of another enum type | 6.19.3 | Icarus Verilog 13.0 | illegal design |
@@ -244,6 +253,7 @@
 | [`test_const_ops_edge_cases`](../../tests/ch6/test_const_ops_edge_cases.sv) | Test: Const operations edge cases | 6.20.6 6.21 | Icarus Verilog 13.0 |  |
 | [`test_illegal_const_assigned`](../../tests/ch6/test_illegal_const_assigned.sv) | A const variable cannot be assigned after its declaration | 6.20.6 | Icarus Verilog 13.0 | illegal design |
 | [`test_dollar_parameter_unbounded`](../../tests/ch6/test_dollar_parameter_unbounded.sv) | $ can be the value of a parameter, which $isunbounded then reports, also through another parameter, and $ stands for the open end of a value range and the last element of a queue | 6.20.7 20.6.3 11.4.13 7.10.1 | Verilator 5.052 |  |
+| [`test_unbounded_queue_tail_after_resize`](../../tests/ch6/test_unbounded_queue_tail_after_resize.sv) | The dollar queue index tracks the new last element after pushes and pops | 6.20.7 | Verilator 5.052 |  |
 | [`test_automatic_var`](../../tests/ch6/test_automatic_var.sv) | Test automatic variables | 6.21 13.4.2 | Icarus Verilog 13.0 |  |
 | [`test_automatic_variable_in_static_subroutine`](../../tests/ch6/test_automatic_variable_in_static_subroutine.sv) | An automatic variable in a static function or task is initialized again on every call, while a static one keeps its value | 6.21 13.3.1 13.4.2 | Verilator 5.052 |  |
 | [`test_illegal_automatic_variable_nonblocking`](../../tests/ch6/test_illegal_automatic_variable_nonblocking.sv) | An automatic variable cannot be written with a nonblocking assignment | 6.21 10.4.2 | Verilator 5.052 | illegal design |
@@ -264,7 +274,9 @@
 | [`test_illegal_anonymous_struct_not_equivalent`](../../tests/ch6/test_illegal_anonymous_struct_not_equivalent.sv) | Anonymous unpacked structures from different declarations are not equivalent, so one cannot be assigned to the other | 6.22.2 6.22.3 | standard only | illegal design |
 | [`test_type_equivalent_arrays`](../../tests/ch6/test_type_equivalent_arrays.sv) | Unpacked arrays whose element types are equivalent, such as packed types of the same size, state and signedness, can be assigned to each other whatever their ranges, element by element from the left | 6.22.2 7.6 7.4.2 | Verilator 5.052 |  |
 | [`test_type_assignment_cast_compatible`](../../tests/ch6/test_type_assignment_cast_compatible.sv) | Assignment-compatible types convert implicitly, an enum to an integer and between integral types with truncation or a real with rounding, while an integer becomes an enum only through a cast | 6.22.3 6.22.4 6.24.1 6.12.1 | Icarus Verilog 13.0 |  |
+| [`test_enum_explicit_cast_and_failed_dynamic_cast`](../../tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv) | An explicit enum cast permits an integral value and a failed dynamic cast leaves the destination unchanged | 6.22.4 | Verilator 5.052 |  |
 | [`test_illegal_class_handle_to_int`](../../tests/ch6/test_illegal_class_handle_to_int.sv) | A class handle is type incompatible with every other type and cannot be assigned to an int | 6.22.5 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_handle_to_real_cast`](../../tests/ch6/test_illegal_handle_to_real_cast.sv) | A class handle cannot be converted to a real even by an explicit cast | 6.22.5 | Icarus Verilog 13.0 | illegal design |
 | [`test_nettype_rename_matches`](../../tests/ch6/test_nettype_rename_matches.sv) | A nettype declared as a new name for a user-defined nettype matches it, so a net of the new name connects to a port of the original nettype | 6.22.6 6.6.7 23.3.3 | standard only |  |
 | [`test_type_operator_matching_types`](../../tests/ch6/test_type_operator_matching_types.sv) | type(a) == type(b) is true for matching types such as byte and bit signed [7:0], in procedural code as in a constant | 6.23 6.22.1 | standard only |  |
 | [`test_cast_edge_cases`](../../tests/ch6/test_cast_edge_cases.sv) | Cast edge cases | 6.24 | Icarus Verilog 13.0 |  |
@@ -299,7 +311,9 @@
 | [`test_cast_function`](../../tests/ch6/test_cast_function.sv) | Test for IEEE 1800-2023 §6.24.2: $cast system function | 6.24.2 8.16 | Verilator 5.052 |  |
 | [`test_cast_packed_struct_member`](../../tests/ch6/test_cast_packed_struct_member.sv) | , Section 7.2 - $cast with packed struct member access | 6.24.2 7.2.1 | Verilator 5.052 |  |
 | [`test_member_access_cast`](../../tests/ch6/test_member_access_cast.sv) | Test $cast with member access expressions | 6.24.2 8.16 | Verilator 5.052 |  |
+| [`test_bitstream_array_to_packed_order`](../../tests/ch6/test_bitstream_array_to_packed_order.sv) | Bit stream casts place the first unpacked element at the most significant end | 6.24.3 | standard only |  |
 | [`test_parameterized_data_types`](../../tests/ch6/test_parameterized_data_types.sv) | Type definitions in a parameterized virtual class give parameterized data types, specialized by the class parameters where they are used through the class scope operator | 6.25 8.25 8.23 | Verilator 5.052 |  |
+| [`test_parameterized_typedef_specializations`](../../tests/ch6/test_parameterized_typedef_specializations.sv) | Class parameter specializations create different typedef widths and expose explicit default parameters | 6.25 8.25.1 | Verilator 5.052 |  |
 
 ## Generated by `generators/wide_paths.py`
 

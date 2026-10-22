@@ -1,0 +1,3 @@
+value=0 roundtrip=1,1 format=1
+value=1 roundtrip=1,1 format=1
+value=1073741825 roundtrip=1,1 format=1

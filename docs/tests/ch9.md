@@ -1,6 +1,6 @@
 # Clause 9: Processes
 
-[All chapters](README.md). 114 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 117 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -10,6 +10,7 @@
 | [`test_initial_final`](../../tests/ch9/test_initial_final.sv) | Initial and final procedures | 9.2.1 9.2.3 | Icarus Verilog 13.0 |  |
 | [`test_always_at_signal_before_nonzero_delay`](../../tests/ch9/test_always_at_signal_before_nonzero_delay.sv) | An always procedure with @(signal) wakes on each change and updates its output before a later delay ends | 9.2.2 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_always_body_event_control`](../../tests/ch9/test_always_body_event_control.sv) | An always procedure whose body starts with an event control counts every event | 9.2.2 9.4.2 15.5.1 | Icarus Verilog 13.0 |  |
+| [`test_always_parallel_block_finish`](../../tests/ch9/test_always_parallel_block_finish.sv) | Always repeats with elapsed time while a nested parallel block waits for its slowest branch | 9.2.2.1 9.3.3 9.5 | Icarus Verilog 13.0 |  |
 | [`test_sequential_logic`](../../tests/ch9/test_sequential_logic.sv) | Counter and register in always procedures with event controls | 9.2.2.1 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_always_blocks`](../../tests/ch9/test_always_blocks.sv) | Clock generation | 9.2.2.2 9.2.2.4 | Icarus Verilog 13.0 |  |
 | [`test_always_comb`](../../tests/ch9/test_always_comb.sv) | always_comb | 9.2.2.2 | Icarus Verilog 13.0 |  |
@@ -89,10 +90,12 @@
 | [`test_value_history_clocked`](../../tests/ch9/test_value_history_clocked.sv) | Keeping the previous value of a variable across clock edges in one process | 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_zero_width_pulse_wakes_edge_control`](../../tests/ch9/test_zero_width_pulse_wakes_edge_control.sv) | A variable that goes from 0 to 1 and back within one time step wakes both a posedge and a negedge event control | 9.4.2 4.3 | Icarus Verilog 13.0 |  |
 | [`test_event_or_iff`](../../tests/ch9/test_event_or_iff.sv) | The or and comma event operators, and iff conditions that are checked only when the event occurs | 9.4.2.1 9.4.2.3 9.4.2 | Verilator 5.052 |  |
+| [`test_event_or_mixed_comma_forms`](../../tests/ch9/test_event_or_mixed_comma_forms.sv) | Mixed comma and or sensitivity forms wake on the same separate input transitions | 9.4.2.1 | Icarus Verilog 13.0 |  |
 | [`test_always_star_for_loop_ieee`](../../tests/ch9/test_always_star_for_loop_ieee.sv) | Test: For loop variables must NOT be in sensitivity list | 9.4.2.2 | Icarus Verilog 13.0 |  |
 | [`test_implicit_event`](../../tests/ch9/test_implicit_event.sv) | Test for @* (implicit event control) - IEEE 1800-2023 §9.4.2.2 | 9.4.2.2 | Icarus Verilog 13.0 |  |
 | [`test_sequence_as_event_control`](../../tests/ch9/test_sequence_as_event_control.sv) | A named sequence used as an event control resumes the process at the end of a match | 9.4.2.4 16.8 | Verilator 5.052 |  |
 | [`test_wait_on_array_size`](../../tests/ch9/test_wait_on_array_size.sv) | wait on the size() of a queue and of a dynamic array resumes when push_back or new[] changes it | 9.4.3 7.10.2.7 7.5.1 | Icarus Verilog 13.0 |  |
+| [`test_wait_sequence_same_slot_twice`](../../tests/ch9/test_wait_sequence_same_slot_twice.sv) | A second wait on an already triggered sequence completes in the same time step | 9.4.4 16.13.5 | standard only |  |
 | [`test_wait_sequence_triggered`](../../tests/ch9/test_wait_sequence_triggered.sv) | A wait statement on the triggered method of a named sequence unblocks in the time step in which the sequence reaches its end point, and triggered is false again once time advances | 9.4.4 16.9.11 16.13.6 9.4.3 | standard only |  |
 | [`test_intra_assignment_repeat_nonblocking`](../../tests/ch9/test_intra_assignment_repeat_nonblocking.sv) | A nonblocking assignment with an intra-assignment repeat event control takes the right-hand value when it executes and assigns it after the given number of events; the count is evaluated once, and a count of zero or less assigns without waiting | 9.4.5 10.4.2 | Icarus Verilog 13.0 |  |
 | [`test_process_threads_distinct`](../../tests/ch9/test_process_threads_distinct.sv) | Each initial, always and final procedure, each parallel statement of a fork and each process started by fork-join_none runs as a thread of its own | 9.5 9.7 9.3.2 | Verilator 5.052 |  |

@@ -37,55 +37,55 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3801 tests** in 37 chapters. 812 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **3912 tests** in 37 chapters. 812 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2528 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 770 |
-| The standard only, where neither simulator follows it | 503 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2581 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 801 |
+| The standard only, where neither simulator follows it | 530 |
 
-568 tests depend on x or z values (`:fourstate: yes`). 208 tests come with C code: 29 DPI tests (`:dpi_c:`) and 179 VPI tests (`:vpi_c:`). 173 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+579 tests depend on x or z values (`:fourstate: yes`). 214 tests come with C code: 30 DPI tests (`:dpi_c:`) and 184 VPI tests (`:vpi_c:`). 185 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 5 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 27 | 22 | 3 | 2 |
-| 4 | Scheduling semantics | 381 | 372 | 4 | 5 |
-| 5 | Lexical conventions | 35 | 30 | 4 | 1 |
-| 6 | Data types | 303 | 220 | 64 | 19 |
-| 7 | Aggregate data types | 309 | 130 | 169 | 10 |
-| 8 | Classes | 154 | 34 | 101 | 19 |
-| 9 | Processes | 114 | 97 | 8 | 9 |
-| 10 | Assignment statements | 107 | 86 | 16 | 5 |
-| 11 | Operators and expressions | 704 | 641 | 57 | 6 |
-| 12 | Procedural programming statements | 120 | 102 | 16 | 2 |
-| 13 | Tasks and functions (subroutines) | 126 | 68 | 54 | 4 |
+| 4 | Scheduling semantics | 387 | 377 | 4 | 6 |
+| 5 | Lexical conventions | 41 | 33 | 6 | 2 |
+| 6 | Data types | 317 | 225 | 69 | 23 |
+| 7 | Aggregate data types | 319 | 131 | 174 | 14 |
+| 8 | Classes | 162 | 34 | 107 | 21 |
+| 9 | Processes | 117 | 99 | 8 | 10 |
+| 10 | Assignment statements | 109 | 87 | 16 | 6 |
+| 11 | Operators and expressions | 714 | 648 | 60 | 6 |
+| 12 | Procedural programming statements | 122 | 103 | 16 | 3 |
+| 13 | Tasks and functions (subroutines) | 131 | 71 | 56 | 4 |
 | 14 | Clocking blocks | 53 |  | 48 | 5 |
 | 15 | Interprocess synchronization and communication | 36 | 2 | 26 | 8 |
 | 16 | Assertions | 99 | 16 | 20 | 63 |
-| 17 | Checkers | 29 |  | 10 | 19 |
+| 17 | Checkers | 31 |  | 10 | 21 |
 | 18 | Constrained random value generation | 60 | 1 | 43 | 16 |
 | 19 | Functional coverage | 43 |  | 11 | 32 |
-| 20 | Utility system tasks and system functions | 187 | 166 | 11 | 10 |
-| 21 | Input/output system tasks and system functions | 86 | 77 | 5 | 4 |
-| 22 | Compiler directives | 39 | 36 | 3 |  |
-| 23 | Modules and hierarchy | 72 | 55 | 9 | 8 |
-| 24 | Programs | 29 | 13 | 3 | 13 |
-| 25 | Interfaces | 50 | 11 | 35 | 4 |
-| 26 | Packages | 39 | 30 | 8 | 1 |
+| 20 | Utility system tasks and system functions | 192 | 169 | 12 | 11 |
+| 21 | Input/output system tasks and system functions | 92 | 82 | 6 | 4 |
+| 22 | Compiler directives | 48 | 44 | 4 |  |
+| 23 | Modules and hierarchy | 81 | 60 | 10 | 11 |
+| 24 | Programs | 30 | 13 | 3 | 14 |
+| 25 | Interfaces | 54 | 11 | 38 | 5 |
+| 26 | Packages | 40 | 30 | 9 | 1 |
 | 27 | Generate constructs | 68 | 63 | 4 | 1 |
-| 28 | Gate-level and switch-level modeling | 176 | 139 | 3 | 34 |
-| 29 | User-defined primitives | 40 | 31 | 6 | 3 |
+| 28 | Gate-level and switch-level modeling | 178 | 141 | 3 | 34 |
+| 29 | User-defined primitives | 41 | 32 | 6 | 3 |
 | 30 | Specify blocks | 23 | 18 |  | 5 |
 | 31 | Timing checks | 23 | 4 |  | 19 |
-| 32 | Backannotation using the standard delay format | 23 | 9 |  | 14 |
+| 32 | Backannotation using the standard delay format | 25 | 10 |  | 15 |
 | 33 | Configuring the contents of a design | 25 | 4 | 5 | 16 |
 | 34 | Protected envelopes | — | | | |
 | 35 | Direct programming interface | 31 |  | 21 | 10 |
 | 36 | Programming language interface (PLI/VPI) overview | 29 | 20 |  | 9 |
-| 37 | VPI object model diagrams | 76 | 6 |  | 70 |
+| 37 | VPI object model diagrams | 78 | 6 |  | 72 |
 | 38 | VPI routine definitions | 41 | 24 | 2 | 15 |
-| 39 | Assertion API | 21 |  |  | 21 |
+| 39 | Assertion API | 22 |  |  | 22 |
 | 40 | Code coverage control and API | 23 | 1 | 1 | 21 |
 <!-- suite-stats:end -->
 
@@ -95,12 +95,32 @@ with what it checks and the clauses it cites, and
 which clauses of the standard the tests cite. The
 [depth report](docs/coverage-depth.md) counts the tests behind each clause
 and lists the clauses that one test covers with a standard-only expected
-output. Every clause from 3 to 40 that
-sets out behavior a test can observe is cited by at least one test; the page
+output. Every in-scope leaf clause from 3 to 40 is directly cited by at
+least two tests; the page
 lists the others and why they are left out (the tags of `tools/clauses.txt`):
 general text, clause 34, behavior left to the tool, and the content of VCD
 files, except the parts that `test_vcd_dump_readback` reads back (21.7.2.1
 to 21.7.2.3 and 21.7.5).
+
+This is clause citation coverage, not proof that every requirement or
+combination in IEEE 1800-2023 is exercised. The scope remains the 932 leaf
+clauses in the existing catalog; annexes and the explicitly excluded clauses
+are not silently included in a claim about the entire standard. The
+[2026-10-22 extension](docs/coverage-strengthening-20261022.md) adds distinct
+cases for all 187 clauses that previously had one test. CI enforces the
+two-test floor with `tools/coverage_depth.py --check --minimum-tests 2`;
+parent-clause citations do not satisfy that floor for a child clause.
+
+The separate [behavior report](docs/behavior-coverage.md) measures explicitly
+reviewed requirements and observable test outcomes. Its
+[registry and workflow](coverage/README.md) inventory clauses 1–41 and annexes
+A–Q, including parent introductions and previously excluded material. The
+whole-standard behavior percentage remains undefined until the normative
+requirements have all been extracted. Registered-requirement coverage,
+execution evidence and investigation progress are reported separately; they
+do not imply that every behavior of the standard is already tested. CI checks
+the registry and prevents silent coverage regressions. Nightly records the
+counts and denominator identities on the `results` branch.
 
 Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
@@ -551,7 +571,8 @@ suite has a problem:
   (`tools/suite_stats.py --check`), that the generated tests are what the
   generators write (`generators/generate.py --check`), that the catalog
   in `docs/tests/` is up to date (`tools/suite_catalog.py --check`), that
-  `docs/coverage-depth.md` is up to date (`tools/coverage_depth.py --check`),
+  `docs/coverage-depth.md` is up to date and every in-scope leaf clause has
+  two direct tests (`tools/coverage_depth.py --check --minimum-tests 2`),
   and that no test breaks a rule of the metadata or of "Contributing" that
   `tools/lint_metadata.py` checks, other than the known problems of existing
   tests in `tools/lint_baseline.txt`.
@@ -630,6 +651,11 @@ A new test should:
   [docs/simulator-differences.md](docs/simulator-differences.md) and the
   comment of the test says so.
 
+For each newly reviewed behavior, record its requirement and observation in
+[`coverage/behaviors.json`](coverage/behaviors.json), including boundary and illegal
+cases. Keep unreviewed requirements visible rather than inferring behavioral
+coverage from the clause citation.
+
 After adding tests, update the tables of this README, the catalog of the
 tests and the page of the clauses they cite, and check the metadata, as the
 check workflow does:
@@ -637,6 +663,8 @@ check workflow does:
 ```sh
 python3 tools/suite_stats.py --update
 python3 tools/suite_catalog.py --update
+python3 tools/coverage_depth.py --update
+python3 tools/behavior_coverage.py --update
 python3 tools/lint_metadata.py
 ```
 

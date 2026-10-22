@@ -1,0 +1,2644 @@
+{
+  "schema": 1,
+  "standard": "IEEE 1800-2023",
+  "review_note": "Initial, non-exhaustive AI review of specific observable obligations. Unmapped rows are known obligations without reviewed test links; existing suite tests may still exercise them. Source notes are paraphrases, not normative quotations.",
+  "requirements": [
+    {
+      "id": "SV2023-4.9.3-RHS-SAMPLED",
+      "clause": "4.9.3",
+      "kind": "normal",
+      "behavior": "An intra-assignment blocking delay samples its RHS before suspension.",
+      "acceptance": "The saved source value is 7, despite source becoming 99 while suspended.",
+      "source_note": "Reviewed IEEE 1800-2023 4.9.3: An intra-assignment blocking delay samples its RHS before suspension. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch4/test_blocking_delayed_target_after_index_change.sv",
+          "observation": "The saved source value is 7, despite source becoming 99 while suspended.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3f23cfb6909a7beb28571fc6bf8295b312e6621a525768f271e6b2dadd02ffaf",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_blocking_delayed_target_after_index_change.sv",
+              "contains": "a[index] = #4 source;"
+            },
+            {
+              "file": "tests/ch4/test_blocking_delayed_target_after_index_change.expected",
+              "contains": "array=10,7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-4.9.3-LHS-ON-RESUME",
+      "clause": "4.9.3",
+      "kind": "normal",
+      "behavior": "An intra-assignment blocking delay selects the destination when the process resumes.",
+      "acceptance": "The write goes to a[1]; a[0] retains 10 after index changes during the delay.",
+      "source_note": "Reviewed IEEE 1800-2023 4.9.3: An intra-assignment blocking delay selects the destination when the process resumes. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch4/test_blocking_delayed_target_after_index_change.sv",
+          "observation": "The write goes to a[1]; a[0] retains 10 after index changes during the delay.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3f23cfb6909a7beb28571fc6bf8295b312e6621a525768f271e6b2dadd02ffaf",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_blocking_delayed_target_after_index_change.sv",
+              "contains": "#1 index = 1; source = 99;"
+            },
+            {
+              "file": "tests/ch4/test_blocking_delayed_target_after_index_change.expected",
+              "contains": "array=10,7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-4.9.7-OUTPUT-DEFERRED",
+      "clause": "4.9.7",
+      "kind": "normal",
+      "behavior": "Writes to a by-value output formal are copied to the actual only at return.",
+      "acceptance": "The actual a remains 1 during the call and becomes 9 after return.",
+      "source_note": "Reviewed IEEE 1800-2023 4.9.7: Writes to a by-value output formal are copied to the actual only at return. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch4/test_subroutine_output_copy_only_at_return.sv",
+          "observation": "The actual a remains 1 during the call and becomes 9 after return.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3855e647ba902f655dc3a891025063dde7788c156a54a534089496729ab9128c",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_subroutine_output_copy_only_at_return.sv",
+              "contains": "x = 7; y = 8;"
+            },
+            {
+              "file": "tests/ch4/test_subroutine_output_copy_only_at_return.expected",
+              "contains": "during=1,2\nafter=9,8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-4.9.7-INOUT-DEFERRED",
+      "clause": "4.9.7",
+      "kind": "normal",
+      "behavior": "Writes to a by-value inout formal are copied back only at return.",
+      "acceptance": "The actual b remains 2 during the call and becomes 8 after return.",
+      "source_note": "Reviewed IEEE 1800-2023 4.9.7: Writes to a by-value inout formal are copied back only at return. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch4/test_subroutine_output_copy_only_at_return.sv",
+          "observation": "The actual b remains 2 during the call and becomes 8 after return.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3855e647ba902f655dc3a891025063dde7788c156a54a534089496729ab9128c",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_subroutine_output_copy_only_at_return.sv",
+              "contains": "task automatic change(output int x, inout int y);"
+            },
+            {
+              "file": "tests/ch4/test_subroutine_output_copy_only_at_return.expected",
+              "contains": "during=1,2\nafter=9,8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-5.3-TOKEN-SEPARATION",
+      "clause": "5.3",
+      "kind": "normal",
+      "behavior": "Spaces, tabs, newlines and formfeeds separate tokens without changing their meaning.",
+      "acceptance": "The free-format computation yields total=42.",
+      "source_note": "Reviewed IEEE 1800-2023 5.3: Spaces, tabs, newlines and formfeeds separate tokens without changing their meaning. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch5/test_free_format_layout.sv",
+          "observation": "The free-format computation yields total=42.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a6fe1792cea7574580ff7435aab5f81768626723d9f2fb0e92d0ebdcf82c6628",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_free_format_layout.sv",
+              "contains": "total\t=\ttotal\t*\t21"
+            },
+            {
+              "file": "tests/ch5/test_free_format_layout.expected",
+              "contains": "total=42"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-5.3-STRING-BLANKS",
+      "clause": "5.3",
+      "kind": "boundary",
+      "behavior": "Blanks inside a string literal are significant.",
+      "acceptance": "The string retains both adjacent blanks and has length 6.",
+      "source_note": "Reviewed IEEE 1800-2023 5.3: Blanks inside a string literal are significant. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch5/test_free_format_layout.sv",
+          "observation": "The string retains both adjacent blanks and has length 6.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a6fe1792cea7574580ff7435aab5f81768626723d9f2fb0e92d0ebdcf82c6628",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_free_format_layout.sv",
+              "contains": "string s = \"a  b\tc\";"
+            },
+            {
+              "file": "tests/ch5/test_free_format_layout.expected",
+              "contains": "len=6 blanks at 1 and 2: 1, tab at 4: 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-5.3-STRING-TABS",
+      "clause": "5.3",
+      "kind": "boundary",
+      "behavior": "Tabs inside a string literal are significant.",
+      "acceptance": "The literal tab remains byte 9 at index 4.",
+      "source_note": "Reviewed IEEE 1800-2023 5.3: Tabs inside a string literal are significant. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch5/test_free_format_layout.sv",
+          "observation": "The literal tab remains byte 9 at index 4.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "a6fe1792cea7574580ff7435aab5f81768626723d9f2fb0e92d0ebdcf82c6628",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_free_format_layout.sv",
+              "contains": "s[4] == 8'd9"
+            },
+            {
+              "file": "tests/ch5/test_free_format_layout.expected",
+              "contains": "len=6 blanks at 1 and 2: 1, tab at 4: 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-5.3-EOF-SEPARATOR",
+      "clause": "5.3",
+      "kind": "boundary",
+      "behavior": "End of file is a white-space boundary.",
+      "acceptance": "A complete source ending at a token without a final newline is accepted and yields the specified output.",
+      "source_note": "Reviewed IEEE 1800-2023 5.3: End of file is a white-space boundary. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-5.6.4-DIRECTIVE-READ-ORDER",
+      "clause": "5.6.4",
+      "kind": "normal",
+      "behavior": "A compiler directive takes effect at its position in the input stream.",
+      "acceptance": "The earlier and later expansions retain 13 and 27 respectively.",
+      "source_note": "Reviewed IEEE 1800-2023 5.6.4: A compiler directive takes effect at its position in the input stream. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch5/test_directive_redefinition_read_order.sv",
+          "observation": "The earlier and later expansions retain 13 and 27 respectively.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "bf354f2fc30a121f6a7453aee2cc7cb8aeeb3bfa50f917bce5e2ef50349a1553",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_directive_redefinition_read_order.sv",
+              "contains": "localparam int B = `DEPTH_VALUE;"
+            },
+            {
+              "file": "tests/ch5/test_directive_redefinition_read_order.expected",
+              "contains": "expanded=13,27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.11-INTEGER-WIDTHS",
+      "clause": "6.11",
+      "kind": "normal",
+      "behavior": "The integer atom types have their prescribed fixed widths.",
+      "acceptance": "byte, shortint, int, longint, integer and time have widths 8,16,32,64,32,64.",
+      "source_note": "Reviewed IEEE 1800-2023 6.11: The integer atom types have their prescribed fixed widths. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
+          "observation": "byte, shortint, int, longint, integer and time have widths 8,16,32,64,32,64.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2ec225514f5b136c650678e220dba2b3b57ec71387e6d143381933aa21783aa0",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
+              "contains": "$bits(b), $bits(s), $bits(i)"
+            },
+            {
+              "file": "tests/ch6/test_integer_atom_defaults_and_widths.expected",
+              "contains": "bits=8,16,32,64,32,64"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.8-TWO-STATE-DEFAULT",
+      "clause": "6.8",
+      "kind": "normal",
+      "behavior": "Uninitialized two-state integer atoms start at zero.",
+      "acceptance": "byte, shortint, int and longint each report zero.",
+      "source_note": "Reviewed IEEE 1800-2023 6.8: Uninitialized two-state integer atoms start at zero. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
+          "observation": "byte, shortint, int and longint each report zero.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2ec225514f5b136c650678e220dba2b3b57ec71387e6d143381933aa21783aa0",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
+              "contains": "byte b;"
+            },
+            {
+              "file": "tests/ch6/test_integer_atom_defaults_and_widths.expected",
+              "contains": "defaults=0,0,0,0 unknown=1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.8-FOUR-STATE-DEFAULT",
+      "clause": "6.8",
+      "kind": "normal",
+      "behavior": "Uninitialized four-state integer and time variables start unknown.",
+      "acceptance": "Both integer and time are reported unknown.",
+      "source_note": "Reviewed IEEE 1800-2023 6.8: Uninitialized four-state integer and time variables start unknown. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
+          "observation": "Both integer and time are reported unknown.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2ec225514f5b136c650678e220dba2b3b57ec71387e6d143381933aa21783aa0",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
+              "contains": "$isunknown(j), $isunknown(t)"
+            },
+            {
+              "file": "tests/ch6/test_integer_atom_defaults_and_widths.expected",
+              "contains": "defaults=0,0,0,0 unknown=1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.11.3-SIGNED-ATOMS",
+      "clause": "6.11.3",
+      "kind": "normal",
+      "behavior": "byte and shortint are signed unless declared otherwise.",
+      "acceptance": "All-one assignments are interpreted as -1 for both types.",
+      "source_note": "Reviewed IEEE 1800-2023 6.11.3: byte and shortint are signed unless declared otherwise. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
+          "observation": "All-one assignments are interpreted as -1 for both types.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "2ec225514f5b136c650678e220dba2b3b57ec71387e6d143381933aa21783aa0",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_integer_atom_defaults_and_widths.sv",
+              "contains": "b = 8'hff; s = 16'hffff;"
+            },
+            {
+              "file": "tests/ch6/test_integer_atom_defaults_and_widths.expected",
+              "contains": "signed=-1,-1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.16.13-OCTAL-ZERO",
+      "clause": "6.16.13",
+      "kind": "boundary",
+      "behavior": "octtoa overwrites the receiver with an ASCII representation of zero.",
+      "acceptance": "The text contains only base-appropriate digits and atooct recovers the original value.",
+      "source_note": "Reviewed IEEE 1800-2023 6.16.13: octtoa overwrites the receiver with an ASCII representation of zero. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_binary_octal_round_trip.sv",
+          "observation": "The text contains only base-appropriate digits and atooct recovers the original value.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fb482644bd50a613e1497bdf89b0ecfbe3e6b534d2dc3d97c4c7baeaba7769a8",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.sv",
+              "contains": "octtoa(values[i])"
+            },
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
+              "contains": "value=0 roundtrip=1,1 format=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.16.13-OCTAL-ONE",
+      "clause": "6.16.13",
+      "kind": "normal",
+      "behavior": "octtoa overwrites the receiver with an ASCII representation of one.",
+      "acceptance": "The text contains only base-appropriate digits and atooct recovers the original value.",
+      "source_note": "Reviewed IEEE 1800-2023 6.16.13: octtoa overwrites the receiver with an ASCII representation of one. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_binary_octal_round_trip.sv",
+          "observation": "The text contains only base-appropriate digits and atooct recovers the original value.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fb482644bd50a613e1497bdf89b0ecfbe3e6b534d2dc3d97c4c7baeaba7769a8",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.sv",
+              "contains": "octtoa(values[i])"
+            },
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
+              "contains": "value=1 roundtrip=1,1 format=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.16.13-OCTAL-HIGH",
+      "clause": "6.16.13",
+      "kind": "boundary",
+      "behavior": "octtoa overwrites the receiver with an ASCII representation of a high positive integer.",
+      "acceptance": "The text contains only base-appropriate digits and atooct recovers the original value.",
+      "source_note": "Reviewed IEEE 1800-2023 6.16.13: octtoa overwrites the receiver with an ASCII representation of a high positive integer. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_binary_octal_round_trip.sv",
+          "observation": "The text contains only base-appropriate digits and atooct recovers the original value.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fb482644bd50a613e1497bdf89b0ecfbe3e6b534d2dc3d97c4c7baeaba7769a8",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.sv",
+              "contains": "octtoa(values[i])"
+            },
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
+              "contains": "value=1073741825 roundtrip=1,1 format=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.16.13-OCTAL-NEGATIVE",
+      "clause": "6.16.13",
+      "kind": "boundary",
+      "behavior": "octtoa accepts an integer argument, including negative values.",
+      "acceptance": "After converting -1, the inverse parsing method recovers -1 and the receiver no longer contains its previous text.",
+      "source_note": "Reviewed IEEE 1800-2023 6.16.13: octtoa accepts an integer argument, including negative values. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-6.16.14-BINARY-ZERO",
+      "clause": "6.16.14",
+      "kind": "boundary",
+      "behavior": "bintoa overwrites the receiver with an ASCII representation of zero.",
+      "acceptance": "The text contains only base-appropriate digits and atobin recovers the original value.",
+      "source_note": "Reviewed IEEE 1800-2023 6.16.14: bintoa overwrites the receiver with an ASCII representation of zero. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_binary_octal_round_trip.sv",
+          "observation": "The text contains only base-appropriate digits and atobin recovers the original value.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fb482644bd50a613e1497bdf89b0ecfbe3e6b534d2dc3d97c4c7baeaba7769a8",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.sv",
+              "contains": "bintoa(values[i])"
+            },
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
+              "contains": "value=0 roundtrip=1,1 format=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.16.14-BINARY-ONE",
+      "clause": "6.16.14",
+      "kind": "normal",
+      "behavior": "bintoa overwrites the receiver with an ASCII representation of one.",
+      "acceptance": "The text contains only base-appropriate digits and atobin recovers the original value.",
+      "source_note": "Reviewed IEEE 1800-2023 6.16.14: bintoa overwrites the receiver with an ASCII representation of one. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_binary_octal_round_trip.sv",
+          "observation": "The text contains only base-appropriate digits and atobin recovers the original value.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fb482644bd50a613e1497bdf89b0ecfbe3e6b534d2dc3d97c4c7baeaba7769a8",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.sv",
+              "contains": "bintoa(values[i])"
+            },
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
+              "contains": "value=1 roundtrip=1,1 format=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.16.14-BINARY-HIGH",
+      "clause": "6.16.14",
+      "kind": "boundary",
+      "behavior": "bintoa overwrites the receiver with an ASCII representation of a high positive integer.",
+      "acceptance": "The text contains only base-appropriate digits and atobin recovers the original value.",
+      "source_note": "Reviewed IEEE 1800-2023 6.16.14: bintoa overwrites the receiver with an ASCII representation of a high positive integer. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_string_binary_octal_round_trip.sv",
+          "observation": "The text contains only base-appropriate digits and atobin recovers the original value.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fb482644bd50a613e1497bdf89b0ecfbe3e6b534d2dc3d97c4c7baeaba7769a8",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.sv",
+              "contains": "bintoa(values[i])"
+            },
+            {
+              "file": "tests/ch6/test_string_binary_octal_round_trip.expected",
+              "contains": "value=1073741825 roundtrip=1,1 format=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.16.14-BINARY-NEGATIVE",
+      "clause": "6.16.14",
+      "kind": "boundary",
+      "behavior": "bintoa accepts an integer argument, including negative values.",
+      "acceptance": "After converting -1, the inverse parsing method recovers -1 and the receiver no longer contains its previous text.",
+      "source_note": "Reviewed IEEE 1800-2023 6.16.14: bintoa accepts an integer argument, including negative values. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-6.19.2-DESCENDING-NAMES",
+      "clause": "6.19.2",
+      "kind": "normal",
+      "behavior": "A descending generated enum name range still receives increasing values.",
+      "acceptance": "SLOT2, SLOT1 and SLOT0 have values 7,8,9.",
+      "source_note": "Reviewed IEEE 1800-2023 6.19.2: A descending generated enum name range still receives increasing values. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+          "observation": "SLOT2, SLOT1 and SLOT0 have values 7,8,9.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4e6faa2c02365ad2bd2f906736c2f59b56b5251ab53f2ac22cc84c49c22d2f4a",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+              "contains": "SLOT[2:0] = 7"
+            },
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.expected",
+              "contains": "range=7,8,9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.19.5.1-FIRST-DECLARED",
+      "clause": "6.19.5.1",
+      "kind": "normal",
+      "behavior": "Enum first() returns the first declared member.",
+      "acceptance": "The first value is 7.",
+      "source_note": "Reviewed IEEE 1800-2023 6.19.5.1: Enum first() returns the first declared member. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+          "observation": "The first value is 7.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4e6faa2c02365ad2bd2f906736c2f59b56b5251ab53f2ac22cc84c49c22d2f4a",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+              "contains": "s.first()"
+            },
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.expected",
+              "contains": "bounds=7,20 count=4 prev=20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.19.5.2-LAST-DECLARED",
+      "clause": "6.19.5.2",
+      "kind": "normal",
+      "behavior": "Enum last() returns the last declared member.",
+      "acceptance": "The last value is 20.",
+      "source_note": "Reviewed IEEE 1800-2023 6.19.5.2: Enum last() returns the last declared member. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+          "observation": "The last value is 20.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4e6faa2c02365ad2bd2f906736c2f59b56b5251ab53f2ac22cc84c49c22d2f4a",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+              "contains": "s.last()"
+            },
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.expected",
+              "contains": "bounds=7,20 count=4 prev=20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.19.5.4-PREV-WRAP",
+      "clause": "6.19.5.4",
+      "kind": "boundary",
+      "behavior": "Enum prev() wraps in declaration order across value gaps.",
+      "acceptance": "One step before SLOT2 is DONE=20, and two steps before SLOT2 is SLOT0=9.",
+      "source_note": "Reviewed IEEE 1800-2023 6.19.5.4: Enum prev() wraps in declaration order across value gaps. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+          "observation": "One step before SLOT2 is DONE=20, and two steps before SLOT2 is SLOT0=9.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4e6faa2c02365ad2bd2f906736c2f59b56b5251ab53f2ac22cc84c49c22d2f4a",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+              "contains": "s = s.prev(2);"
+            },
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.expected",
+              "contains": "two_back=SLOT0 value=9 range=7,8,9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.19.5.5-NUM-MEMBERS",
+      "clause": "6.19.5.5",
+      "kind": "normal",
+      "behavior": "Enum num() counts members rather than the numeric value span.",
+      "acceptance": "The enum reports four members despite its gap from 9 to 20.",
+      "source_note": "Reviewed IEEE 1800-2023 6.19.5.5: Enum num() counts members rather than the numeric value span. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+          "observation": "The enum reports four members despite its gap from 9 to 20.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4e6faa2c02365ad2bd2f906736c2f59b56b5251ab53f2ac22cc84c49c22d2f4a",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.sv",
+              "contains": "s.num()"
+            },
+            {
+              "file": "tests/ch6/test_enum_descending_names_and_wrap.expected",
+              "contains": "bounds=7,20 count=4 prev=20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.20.7-QUEUE-LAST-AFTER-PUSH",
+      "clause": "6.20.7",
+      "kind": "normal",
+      "behavior": "A queue dollar index reflects the current last element after growth.",
+      "acceptance": "After push_back(9), q[$] is 9 and q[1:$] is 4,9.",
+      "source_note": "Reviewed IEEE 1800-2023 6.20.7: A queue dollar index reflects the current last element after growth. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_unbounded_queue_tail_after_resize.sv",
+          "observation": "After push_back(9), q[$] is 9 and q[1:$] is 4,9.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3e526a6483bb6999a17977156d90f832e8ca409c934cf9effe3a6482637d6d62",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_unbounded_queue_tail_after_resize.sv",
+              "contains": "q.push_back(9); tail = q[1:$];"
+            },
+            {
+              "file": "tests/ch6/test_unbounded_queue_tail_after_resize.expected",
+              "contains": "pushed_last=9 slice=4,9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.20.7-QUEUE-LAST-AFTER-POP",
+      "clause": "6.20.7",
+      "kind": "normal",
+      "behavior": "A queue dollar index is recomputed after shrinkage.",
+      "acceptance": "After removing 9, q[$] is 4.",
+      "source_note": "Reviewed IEEE 1800-2023 6.20.7: A queue dollar index is recomputed after shrinkage. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_unbounded_queue_tail_after_resize.sv",
+          "observation": "After removing 9, q[$] is 4.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "3e526a6483bb6999a17977156d90f832e8ca409c934cf9effe3a6482637d6d62",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_unbounded_queue_tail_after_resize.sv",
+              "contains": "removed = q.pop_back();"
+            },
+            {
+              "file": "tests/ch6/test_unbounded_queue_tail_after_resize.expected",
+              "contains": "popped=9 new_last=4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.22.4-ENUM-CAST-FAIL",
+      "clause": "6.22.4",
+      "kind": "boundary",
+      "behavior": "An unsuccessful function-form dynamic enum cast leaves its destination unchanged.",
+      "acceptance": "Casting 99 fails with status 0 and preserves HIGH=8.",
+      "source_note": "Reviewed IEEE 1800-2023 6.22.4: An unsuccessful function-form dynamic enum cast leaves its destination unchanged. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv",
+          "observation": "Casting 99 fails with status 0 and preserves HIGH=8.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b69bf1724417fbf5826f4d38dd2b6c8cadd8fd1132c6167d55946e4757516357",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv",
+              "contains": "ok = $cast(level, 99);"
+            },
+            {
+              "file": "tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.expected",
+              "contains": "failed=0 retained=8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.22.4-ENUM-CAST-PASS",
+      "clause": "6.22.4",
+      "kind": "normal",
+      "behavior": "A dynamic enum cast succeeds for a declared member value.",
+      "acceptance": "Casting 3 succeeds with status 1 and stores LOW=3.",
+      "source_note": "Reviewed IEEE 1800-2023 6.22.4: A dynamic enum cast succeeds for a declared member value. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv",
+          "observation": "Casting 3 succeeds with status 1 and stores LOW=3.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b69bf1724417fbf5826f4d38dd2b6c8cadd8fd1132c6167d55946e4757516357",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.sv",
+              "contains": "ok = $cast(level, 3);"
+            },
+            {
+              "file": "tests/ch6/test_enum_explicit_cast_and_failed_dynamic_cast.expected",
+              "contains": "success=1 value=3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.22.5-NO-HANDLE-REAL",
+      "clause": "6.22.5",
+      "kind": "error",
+      "behavior": "A class handle cannot be converted to an incompatible real type.",
+      "acceptance": "Compilation rejects the real cast at the intended source line.",
+      "source_note": "Reviewed IEEE 1800-2023 6.22.5: A class handle cannot be converted to an incompatible real type. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_illegal_handle_to_real_cast.sv",
+          "observation": "Compilation rejects the real cast at the intended source line.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0a653d8be298f4bf43d93c0ea5a357d04e651df3add71219154e2c2979f326ff",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_illegal_handle_to_real_cast.sv",
+              "contains": "real'(obj)"
+            },
+            {
+              "file": "tests/ch6/test_illegal_handle_to_real_cast.sv",
+              "contains": ":expected_stderr_regex: test_illegal_handle_to_real_cast\\.sv:(?:21)(?::|\\s)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.24.3-ARRAY-TO-BITS",
+      "clause": "6.24.3",
+      "kind": "normal",
+      "behavior": "Bit-stream casting a fixed unpacked array puts its leftmost element in the most significant bits.",
+      "acceptance": "The descending array containing 12,ab,34 casts to packed 12ab34.",
+      "source_note": "Reviewed IEEE 1800-2023 6.24.3: Bit-stream casting a fixed unpacked array puts its leftmost element in the most significant bits. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_bitstream_array_to_packed_order.sv",
+          "observation": "The descending array containing 12,ab,34 casts to packed 12ab34.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "844e593fa0c7464767f6f7709924030ebe60ddae95985e909f06056707bddbdf",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_bitstream_array_to_packed_order.sv",
+              "contains": "packed_word = word_t'(bytes);"
+            },
+            {
+              "file": "tests/ch6/test_bitstream_array_to_packed_order.expected",
+              "contains": "packed=12ab34 restored=fe,dc,ba"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.24.3-BITS-TO-ARRAY",
+      "clause": "6.24.3",
+      "kind": "normal",
+      "behavior": "Bit-stream casting to a fixed unpacked array fills elements in declared left-to-right order.",
+      "acceptance": "fedcba fills array indices 2,1,0 with fe,dc,ba.",
+      "source_note": "Reviewed IEEE 1800-2023 6.24.3: Bit-stream casting to a fixed unpacked array fills elements in declared left-to-right order. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch6/test_bitstream_array_to_packed_order.sv",
+          "observation": "fedcba fills array indices 2,1,0 with fe,dc,ba.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "844e593fa0c7464767f6f7709924030ebe60ddae95985e909f06056707bddbdf",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_bitstream_array_to_packed_order.sv",
+              "contains": "restored = bytes_t'(24'hfedcba);"
+            },
+            {
+              "file": "tests/ch6/test_bitstream_array_to_packed_order.expected",
+              "contains": "packed=12ab34 restored=fe,dc,ba"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.8.2-EMPTY-STRING-KEY",
+      "clause": "7.8.2",
+      "kind": "boundary",
+      "behavior": "The empty string is a valid associative-array string index.",
+      "acceptance": "Reverse traversal reaches an allocated key of length zero.",
+      "source_note": "Reviewed IEEE 1800-2023 7.8.2: The empty string is a valid associative-array string index. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+          "observation": "Reverse traversal reaches an allocated key of length zero.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+              "contains": "a[\"\"] = 2;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
+              "contains": "empty=1,0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.8.2-LEXICAL-ORDER",
+      "clause": "7.8.2",
+      "kind": "normal",
+      "behavior": "String associative indices are traversed in lexical order.",
+      "acceptance": "Descending traversal visits b, aa, then the empty string.",
+      "source_note": "Reviewed IEEE 1800-2023 7.8.2: String associative indices are traversed in lexical order. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+          "observation": "Descending traversal visits b, aa, then the empty string.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+              "contains": "status = a.prev(k);"
+            },
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
+              "contains": "last=1,b missing=-7\nprev=1,aa\nempty=1,0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.8.4-SIGNED-ORDER",
+      "clause": "7.8.4",
+      "kind": "normal",
+      "behavior": "Signed integral associative indices are ordered by signed value.",
+      "acceptance": "Traversal visits -3,0,2 in that order.",
+      "source_note": "Reviewed IEEE 1800-2023 7.8.4: Signed integral associative indices are ordered by signed value. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_signed_boundary_order.sv",
+          "observation": "Traversal visits -3,0,2 in that order.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "c446b4bbe709a4317a49fa9e8baf665fca2563092536b4b7f4fea13dd43c4e18",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_signed_boundary_order.sv",
+              "contains": "a[2] = 20; a[-3] = 30;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_signed_boundary_order.expected",
+              "contains": "key=-3 value=31\nkey=0 value=40\nkey=2 value=20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.8.5-NO-REAL-MEMBER",
+      "clause": "7.8.5",
+      "kind": "error",
+      "behavior": "An associative index type may not contain a real member.",
+      "acceptance": "Compilation rejects an associative declaration indexed by an unpacked struct containing real.",
+      "source_note": "Reviewed IEEE 1800-2023 7.8.5: An associative index type may not contain a real member. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_illegal_assoc_real_member_key.sv",
+          "observation": "Compilation rejects an associative declaration indexed by an unpacked struct containing real.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "1ff533714f0df1bfa08f6ee9bf79651df01e64feef899ff269e93bf205422b9d",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_illegal_assoc_real_member_key.sv",
+              "contains": "int entries[key_t];"
+            },
+            {
+              "file": "tests/ch7/test_illegal_assoc_real_member_key.sv",
+              "contains": ":expected_stderr_regex: test_illegal_assoc_real_member_key\\.sv:(?:21)(?::|\\s)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.8.6-IGNORE-UNKNOWN-WRITE",
+      "clause": "7.8.6",
+      "kind": "boundary",
+      "behavior": "An associative write with an x or z in the index does not create or overwrite a valid entry.",
+      "acceptance": "After both invalid writes, size remains 1 and the known key retains 17.",
+      "source_note": "Reviewed IEEE 1800-2023 7.8.6: An associative write with an x or z in the index does not create or overwrite a valid entry. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_unknown_write_does_not_allocate.sv",
+          "observation": "After both invalid writes, size remains 1 and the known key retains 17.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "76b91aeadbf3d7a08173d7390db51a78fe2ae4b49128fb22eec6cc92d3a2c0b2",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_unknown_write_does_not_allocate.sv",
+              "contains": "key_value = 4'bx011; values[key_value] = 99;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_unknown_write_does_not_allocate.expected",
+              "contains": "size=1 retained=17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.8.6-INVALID-WRITE-WARNING",
+      "clause": "7.8.6",
+      "kind": "boundary",
+      "behavior": "An invalid associative-array write issues a warning.",
+      "acceptance": "Observe a warning attributable to the invalid index rather than checking only array contents.",
+      "source_note": "Reviewed IEEE 1800-2023 7.8.6: An invalid associative-array write issues a warning. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-7.8.6-MISSING-READ-WARNING",
+      "clause": "7.8.6",
+      "kind": "boundary",
+      "behavior": "A missing associative-array read without a user default issues a warning and returns the type default.",
+      "acceptance": "Check both the returned value and the required warning.",
+      "source_note": "Reviewed IEEE 1800-2023 7.8.6: A missing associative-array read without a user default issues a warning and returns the type default. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-7.9.7-PREDECESSOR",
+      "clause": "7.9.7",
+      "kind": "normal",
+      "behavior": "prev() finds the greatest key strictly below the supplied index, updates it and returns 1.",
+      "acceptance": "Starting from b, the predecessor is aa with status 1.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.7: prev() finds the greatest key strictly below the supplied index, updates it and returns 1. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+          "observation": "Starting from b, the predecessor is aa with status 1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+              "contains": "status = a.prev(k);"
+            },
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
+              "contains": "prev=1,aa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.9.7-NO-PREDECESSOR",
+      "clause": "7.9.7",
+      "kind": "boundary",
+      "behavior": "When no predecessor exists, prev() returns 0 and preserves its index argument.",
+      "acceptance": "At the empty-string key the status is 0 and the key remains empty.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.7: When no predecessor exists, prev() returns 0 and preserves its index argument. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+          "observation": "At the empty-string key the status is 0 and the key remains empty.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+              "contains": "status = a.prev(k); $display(\"end="
+            },
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
+              "contains": "end=0,0 size=3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.9.7-NO-WILDCARD",
+      "clause": "7.9.7",
+      "kind": "error",
+      "behavior": "prev() is not allowed on a wildcard-indexed associative array.",
+      "acceptance": "Reject the traversal on the intended declaration/call rather than an unrelated unsupported feature.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.7: prev() is not allowed on a wildcard-indexed associative array. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-7.9.7-INDEX-ARGUMENT-TYPE",
+      "clause": "7.9.7",
+      "kind": "error",
+      "behavior": "The prev() reference argument has an index type appropriate to the associative array.",
+      "acceptance": "Passing a real reference argument to prev() on a string-indexed associative array is rejected at the call.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.7: The prev() reference argument has an index type appropriate to the associative array. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-7.9.8-NEXT-TRUNCATION",
+      "clause": "7.9.8",
+      "kind": "boundary",
+      "behavior": "A narrow traversal output argument causes next() to return -1 and copy truncated index bits.",
+      "acceptance": "Key 600 is reported as status -1 and eight-bit value 88.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.8: A narrow traversal output argument causes next() to return -1 and copy truncated index bits. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_narrow_prev_next_overflow.sv",
+          "observation": "Key 600 is reported as status -1 and eight-bit value 88.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "385e75281378cb95bafa333eaf9ac725ab0cc61afaf598a55faebd49daed3106",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_narrow_prev_next_overflow.sv",
+              "contains": "k = 0; status = a.next(k);"
+            },
+            {
+              "file": "tests/ch7/test_assoc_narrow_prev_next_overflow.expected",
+              "contains": "next=-1 key=88"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.9.8-PREV-TRUNCATION",
+      "clause": "7.9.8",
+      "kind": "boundary",
+      "behavior": "A narrow traversal output argument causes prev() to return -1 and copy truncated index bits.",
+      "acceptance": "Key -300 is reported as status -1 and eight-bit value 212.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.8: A narrow traversal output argument causes prev() to return -1 and copy truncated index bits. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_narrow_prev_next_overflow.sv",
+          "observation": "Key -300 is reported as status -1 and eight-bit value 212.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "385e75281378cb95bafa333eaf9ac725ab0cc61afaf598a55faebd49daed3106",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_narrow_prev_next_overflow.sv",
+              "contains": "k = 0; status = a.prev(k);"
+            },
+            {
+              "file": "tests/ch7/test_assoc_narrow_prev_next_overflow.expected",
+              "contains": "prev=-1 key=212"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.9.9-REPLACE-NOT-MERGE",
+      "clause": "7.9.9",
+      "kind": "normal",
+      "behavior": "Associative assignment clears old destination entries before copying source entries.",
+      "acceptance": "The old key 9 disappears and destination size becomes 2.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.9: Associative assignment clears old destination entries before copying source entries. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_assignment_clears_and_detaches.sv",
+          "observation": "The old key 9 disappears and destination size becomes 2.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "bf811afae5011d0b5b301ab6b8c4da7bd0b738035f28ed83b0bdad7bfb79e84b",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.sv",
+              "contains": "b = a; a[2] = 40;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.expected",
+              "contains": "dest=2 old_key=0 copied=4 source=40"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.9.9-VALUE-COPY",
+      "clause": "7.9.9",
+      "kind": "normal",
+      "behavior": "Associative assignment copies entries rather than aliases their storage.",
+      "acceptance": "Changing source key 2 to 40 leaves copied destination key 2 at 4.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.9: Associative assignment copies entries rather than aliases their storage. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_assignment_clears_and_detaches.sv",
+          "observation": "Changing source key 2 to 40 leaves copied destination key 2 at 4.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "bf811afae5011d0b5b301ab6b8c4da7bd0b738035f28ed83b0bdad7bfb79e84b",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.sv",
+              "contains": "b = a; a[2] = 40;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.expected",
+              "contains": "dest=2 old_key=0 copied=4 source=40"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.9.10-VALUE-FORMAL-COPY",
+      "clause": "7.9.10",
+      "kind": "normal",
+      "behavior": "A by-value associative formal is a local copy.",
+      "acceptance": "Deleting and replacing the formal leaves the caller array with its two original entries.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.10: A by-value associative formal is a local copy. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_assignment_clears_and_detaches.sv",
+          "observation": "Deleting and replacing the formal leaves the caller array with its two original entries.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "bf811afae5011d0b5b301ab6b8c4da7bd0b738035f28ed83b0bdad7bfb79e84b",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.sv",
+              "contains": "local_copy.delete(); local_copy[99] = 8;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_assignment_clears_and_detaches.expected",
+              "contains": "local=1,8\ndest=2 old_key=0 copied=4 source=40"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.9.11-USER-DEFAULT",
+      "clause": "7.9.11",
+      "kind": "boundary",
+      "behavior": "A missing associative entry returns its explicitly specified default.",
+      "acceptance": "Reading absent returns -7 rather than an implicit integer default.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.11: A missing associative entry returns its explicitly specified default. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+          "observation": "Reading absent returns -7 rather than an implicit integer default.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+              "contains": "int a[string] = '{default: -7};"
+            },
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
+              "contains": "last=1,b missing=-7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.9.11-DEFAULT-NO-ALLOCATION",
+      "clause": "7.9.11",
+      "kind": "boundary",
+      "behavior": "Reading a user-default value does not allocate an associative entry.",
+      "acceptance": "After a missing read and traversal, size remains 3.",
+      "source_note": "Reviewed IEEE 1800-2023 7.9.11: Reading a user-default value does not allocate an associative entry. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+          "observation": "After a missing read and traversal, size remains 3.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0392c3cd953edfd133b01ff079cd2515eaad90cc04a2156a331b0b4ae41c23f0",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.sv",
+              "contains": "a[\"absent\"]"
+            },
+            {
+              "file": "tests/ch7/test_assoc_string_empty_and_reverse_order.expected",
+              "contains": "end=0,0 size=3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.10.2.7-SIZE-WAIT-BLOCKED",
+      "clause": "7.10.2.7",
+      "kind": "normal",
+      "behavior": "A size-dependent wait remains blocked while its condition is false.",
+      "acceptance": "After the first pop, size is 1 and the waiter has not run.",
+      "source_note": "Reviewed IEEE 1800-2023 7.10.2.7: A size-dependent wait remains blocked while its condition is false. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_queue_size_wait_after_pop.sv",
+          "observation": "After the first pop, size is 1 and the waiter has not run.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "da7e67573a1c0aeb050c25726356670ba933175c79efb9570dba0a05628fc847",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_queue_size_wait_after_pop.sv",
+              "contains": "wait(q.size() == 0);"
+            },
+            {
+              "file": "tests/ch7/test_queue_size_wait_after_pop.expected",
+              "contains": "one_left=1 woke=0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-7.10.2.7-SIZE-WAIT-WAKES",
+      "clause": "7.10.2.7",
+      "kind": "boundary",
+      "behavior": "A size-dependent wait is re-evaluated when queue size changes.",
+      "acceptance": "Removing the last element makes the waiter run.",
+      "source_note": "Reviewed IEEE 1800-2023 7.10.2.7: A size-dependent wait is re-evaluated when queue size changes. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch7/test_queue_size_wait_after_pop.sv",
+          "observation": "Removing the last element makes the waiter run.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "da7e67573a1c0aeb050c25726356670ba933175c79efb9570dba0a05628fc847",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_queue_size_wait_after_pop.sv",
+              "contains": "value = q.pop_back();"
+            },
+            {
+              "file": "tests/ch7/test_queue_size_wait_after_pop.expected",
+              "contains": "empty=0 woke=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-8.26.5-NO-INTERFACE-NEW",
+      "clause": "8.26.5",
+      "kind": "error",
+      "behavior": "An interface class cannot be constructed.",
+      "acceptance": "Compilation rejects new on the interface class at the intended source line.",
+      "source_note": "Reviewed IEEE 1800-2023 8.26.5: An interface class cannot be constructed. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch8/test_illegal_interface_class_construction.sv",
+          "observation": "Compilation rejects new on the interface class at the intended source line.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "f91f2ba8606279532a3d45ffefba9415c2a5103072449a07b7187ef76404e731",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_interface_class_construction.sv",
+              "contains": "initial handle = new;"
+            },
+            {
+              "file": "tests/ch8/test_illegal_interface_class_construction.sv",
+              "contains": ":expected_stderr_regex: test_illegal_interface_class_construction\\.sv:(?:21)(?::|\\s)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-10.5-INITIALIZE-ONCE",
+      "clause": "10.5",
+      "kind": "normal",
+      "behavior": "A declaration initializer is a one-time procedural initialization.",
+      "acceptance": "The captured variable stays 7 after its source changes to 40.",
+      "source_note": "Reviewed IEEE 1800-2023 10.5: A declaration initializer is a one-time procedural initialization. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch10/test_declaration_initialization_is_not_driver.sv",
+          "observation": "The captured variable stays 7 after its source changes to 40.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "eb97cb5a24d8daf48df7b68a2926f2be741ed9a4b896642feaae4093c7b3c238",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_declaration_initialization_is_not_driver.sv",
+              "contains": "source = 40;"
+            },
+            {
+              "file": "tests/ch10/test_declaration_initialization_is_not_driver.expected",
+              "contains": "entry=7\nafter_source_change=7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.1-REAL-PROMOTION",
+      "clause": "11.3.1",
+      "kind": "normal",
+      "behavior": "A real arithmetic operand promotes an arithmetic expression to real.",
+      "acceptance": "2.5 plus integer 3 yields real 5.5.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.1: A real arithmetic operand promotes an arithmetic expression to real. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_real_operator_result_and_condition.sv",
+          "observation": "2.5 plus integer 3 yields real 5.5.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9b69c27f3f8fb3a1dd3fd96debde5ebfe919166f4e78d779be5d9582a9edd36e",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_real_operator_result_and_condition.sv",
+              "contains": "r+n"
+            },
+            {
+              "file": "tests/ch11/test_real_operator_result_and_condition.expected",
+              "contains": "sum=5.5 conditional=2.5 compare_bits=1 condition_bits=32"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.1-COMPARISON-WIDTH",
+      "clause": "11.3.1",
+      "kind": "normal",
+      "behavior": "A comparison involving real values still has a one-bit result.",
+      "acceptance": "The real comparison has bit width 1.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.1: A comparison involving real values still has a one-bit result. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_real_operator_result_and_condition.sv",
+          "observation": "The real comparison has bit width 1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9b69c27f3f8fb3a1dd3fd96debde5ebfe919166f4e78d779be5d9582a9edd36e",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_real_operator_result_and_condition.sv",
+              "contains": "$bits(r < n)"
+            },
+            {
+              "file": "tests/ch11/test_real_operator_result_and_condition.expected",
+              "contains": "compare_bits=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.1-CONDITION-NO-PROMOTION",
+      "clause": "11.3.1",
+      "kind": "normal",
+      "behavior": "A real conditional condition does not promote integral branch result types.",
+      "acceptance": "Integral alternatives under a real condition retain a 32-bit result.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.1: A real conditional condition does not promote integral branch result types. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_real_operator_result_and_condition.sv",
+          "observation": "Integral alternatives under a real condition retain a 32-bit result.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9b69c27f3f8fb3a1dd3fd96debde5ebfe919166f4e78d779be5d9582a9edd36e",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_real_operator_result_and_condition.sv",
+              "contains": "$bits(r ? 1 : 2)"
+            },
+            {
+              "file": "tests/ch11/test_real_operator_result_and_condition.expected",
+              "contains": "condition_bits=32"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.4-TWO-STATE-CONVERSION",
+      "clause": "11.3.4",
+      "kind": "boundary",
+      "behavior": "Converting a four-state value to bit maps x and z bits to zero before later operations.",
+      "acceptance": "1xz0 converts to 1000, whose inversion is 0111.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.4: Converting a four-state value to bit maps x and z bits to zero before later operations. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_two_state_conversion_before_bitwise.sv",
+          "observation": "1xz0 converts to 1000, whose inversion is 0111.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "1977266defa6ca38446d61b38172df73d52f2032d079ec8b12247c8e321cab18",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_two_state_conversion_before_bitwise.sv",
+              "contains": "converted = source;"
+            },
+            {
+              "file": "tests/ch11/test_two_state_conversion_before_bitwise.expected",
+              "contains": "converted=1000 inverted=0111 source_unknown=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-AND-SKIP",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "Logical AND skips RHS evaluation when the LHS is false.",
+      "acceptance": "The result and the exact call count match: 0 && f: r=0 calls=0.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: Logical AND skips RHS evaluation when the LHS is false. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 0 && f: r=0 calls=0.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "0 && touch(1)"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "0 && f: r=0 calls=0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-OR-SKIP",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "Logical OR skips RHS evaluation when the LHS is true.",
+      "acceptance": "The result and the exact call count match: 1 || f: r=1 calls=0.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: Logical OR skips RHS evaluation when the LHS is true. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 1 || f: r=1 calls=0.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "1 || touch(0)"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "1 || f: r=1 calls=0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-AND-EVALUATE",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "Logical AND evaluates a needed RHS including its side effects.",
+      "acceptance": "The result and the exact call count match: 1 && f: r=1 calls=1.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: Logical AND evaluates a needed RHS including its side effects. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 1 && f: r=1 calls=1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "1 && touch(1)"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "1 && f: r=1 calls=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-OR-EVALUATE",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "Logical OR evaluates a needed RHS including its side effects.",
+      "acceptance": "The result and the exact call count match: 0 || f: r=1 calls=1.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: Logical OR evaluates a needed RHS including its side effects. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 0 || f: r=1 calls=1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "0 || touch(1)"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "0 || f: r=1 calls=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-IMPLIES-SKIP",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "Logical implication skips RHS evaluation for a false antecedent.",
+      "acceptance": "The result and the exact call count match: 0 -> f: r=1 calls=0.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: Logical implication skips RHS evaluation for a false antecedent. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 0 -> f: r=1 calls=0.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "0 -> touch(0)"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "0 -> f: r=1 calls=0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-IMPLIES-EVALUATE",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "Logical implication evaluates its RHS for a true antecedent.",
+      "acceptance": "The result and the exact call count match: 1 -> f: r=0 calls=1.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: Logical implication evaluates its RHS for a true antecedent. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 1 -> f: r=0 calls=1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "1 -> touch(0)"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "1 -> f: r=0 calls=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-CONDITIONAL-TRUE",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "A true conditional condition skips the false alternative.",
+      "acceptance": "The result and the exact call count match: 1 ? 5 : f: t=5 calls=0.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: A true conditional condition skips the false alternative. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 1 ? 5 : f: t=5 calls=0.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "1 ? 5 : touch(1)"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "1 ? 5 : f: t=5 calls=0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-CONDITIONAL-FALSE",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "A false conditional condition skips the true alternative.",
+      "acceptance": "The result and the exact call count match: 0 ? f : 7: t=7 calls=0.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: A false conditional condition skips the true alternative. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 0 ? f : 7: t=7 calls=0.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "0 ? touch(1) : 7"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "0 ? f : 7: t=7 calls=0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-BITWISE-AND",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "Bitwise AND does not skip operand side effects even when zero determines the bit value.",
+      "acceptance": "The result and the exact call count match: 0 & f: r=0 calls=1.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: Bitwise AND does not skip operand side effects even when zero determines the bit value. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 0 & f: r=0 calls=1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "0 & touch(1)"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "0 & f: r=0 calls=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-BITWISE-OR",
+      "clause": "11.3.5",
+      "kind": "normal",
+      "behavior": "Bitwise OR does not skip operand side effects even when one determines the bit value.",
+      "acceptance": "The result and the exact call count match: 1 | f: r=1 calls=1.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.5: Bitwise OR does not skip operand side effects even when one determines the bit value. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_short_circuit_side_effects.sv",
+          "observation": "The result and the exact call count match: 1 | f: r=1 calls=1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "0d07bee7f64e4c7f0f00469e22e22ce6e13f2638df37726840485f442594dff5",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.sv",
+              "contains": "1 | touch(0)"
+            },
+            {
+              "file": "tests/ch11/test_short_circuit_side_effects.expected",
+              "contains": "1 | f: r=1 calls=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.5-UNKNOWN-CONDITION",
+      "clause": "11.3.5",
+      "kind": "boundary",
+      "behavior": "With an unknown LHS, logical AND evaluates a needed RHS; a false RHS determines a false result.",
+      "acceptance": "For X && touch(0), the function is called once and the result is 0.",
+      "source_note": "IEEE 1800-2023 11.3.5 requires evaluation when an operand is needed, together with the four-state logical-AND result rule in 11.4.7. This is the X-LHS/false-RHS boundary only.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-11.3.6-ASSIGNMENT-RESULT",
+      "clause": "11.3.6",
+      "kind": "normal",
+      "behavior": "An assignment expression returns the value converted to its destination type.",
+      "acceptance": "Assigning fe to a four-bit target stores e and returns integer value 14.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.6: An assignment expression returns the value converted to its destination type. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_assignment_expression_returns_converted_value.sv",
+          "observation": "Assigning fe to a four-bit target stores e and returns integer value 14.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "9e38633dfff87d8a85c39da4b295043c173fdf786bdd8ff117272f32809b0d96",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_assignment_expression_returns_converted_value.sv",
+              "contains": "result = (narrow = 8'hfe);"
+            },
+            {
+              "file": "tests/ch11/test_assignment_expression_returns_converted_value.expected",
+              "contains": "stored=e expression=14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.3.6-NO-TIMING-CONTROL",
+      "clause": "11.3.6",
+      "kind": "error",
+      "behavior": "An assignment used within an expression may not contain timing control.",
+      "acceptance": "Reject an intra-assignment delay inside an enclosing expression.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.6: An assignment used within an expression may not contain timing control. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-11.3.6-PARENTHESES",
+      "clause": "11.3.6",
+      "kind": "error",
+      "behavior": "An assignment within an expression must be enclosed in parentheses.",
+      "acceptance": "Reject an unparenthesized assignment in an expression.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.6: An assignment within an expression must be enclosed in parentheses. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-11.3.6-CONCATENATION-TYPE",
+      "clause": "11.3.6",
+      "kind": "boundary",
+      "behavior": "An assignment expression with concatenated LHS returns an unsigned integral result of the combined width.",
+      "acceptance": "Check signedness and bit width as well as the returned value for a concatenated destination.",
+      "source_note": "Reviewed IEEE 1800-2023 11.3.6: An assignment expression with concatenated LHS returns an unsigned integral result of the combined width. This records this specific obligation only, not completion of the section.",
+      "checks": []
+    },
+    {
+      "id": "SV2023-11.4.3.1-DIVIDE-TRUNCATES",
+      "clause": "11.4.3.1",
+      "kind": "normal",
+      "behavior": "Signed integer division truncates toward zero.",
+      "acceptance": "-7 divided by 3 produces -2.",
+      "source_note": "Reviewed IEEE 1800-2023 11.4.3.1: Signed integer division truncates toward zero. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_literal_unsigned_division_and_remainder.sv",
+          "observation": "-7 divided by 3 produces -2.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "7cbe858f96e70a1b043d065d089c2643fde5bb9f8a21063ba8c8fd9436b4cccd",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_literal_unsigned_division_and_remainder.sv",
+              "contains": "-8'sd7 / 8'sd3"
+            },
+            {
+              "file": "tests/ch11/test_literal_unsigned_division_and_remainder.expected",
+              "contains": "signed=-2,-1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.4.3.1-REMAINDER-SIGN",
+      "clause": "11.4.3.1",
+      "kind": "normal",
+      "behavior": "A signed integer remainder follows the dividend sign.",
+      "acceptance": "-7 modulo 3 produces -1.",
+      "source_note": "Reviewed IEEE 1800-2023 11.4.3.1: A signed integer remainder follows the dividend sign. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_literal_unsigned_division_and_remainder.sv",
+          "observation": "-7 modulo 3 produces -1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "7cbe858f96e70a1b043d065d089c2643fde5bb9f8a21063ba8c8fd9436b4cccd",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_literal_unsigned_division_and_remainder.sv",
+              "contains": "-8'sd7 % 8'sd3"
+            },
+            {
+              "file": "tests/ch11/test_literal_unsigned_division_and_remainder.expected",
+              "contains": "signed=-2,-1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.4.12.2-STRING-REPEAT",
+      "clause": "11.4.12.2",
+      "kind": "normal",
+      "behavior": "A string repetition count may be determined at run time.",
+      "acceptance": "A runtime count of 3 produces QQQ followed by ! and length 4.",
+      "source_note": "Reviewed IEEE 1800-2023 11.4.12.2: A string repetition count may be determined at run time. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_string_concat_empty_replication.sv",
+          "observation": "A runtime count of 3 produces QQQ followed by ! and length 4.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "6dddb4c1cfdde616db442f2b31f11828e1964f5a23bcd5ea7d63d1a9a57e3344",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_string_concat_empty_replication.sv",
+              "contains": "{n{s}}"
+            },
+            {
+              "file": "tests/ch11/test_string_concat_empty_replication.expected",
+              "contains": "value=QQQ! length=4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.8.4-X-SIGN-EXTEND",
+      "clause": "11.8.4",
+      "kind": "boundary",
+      "behavior": "A signed unknown sign bit is replicated when extending width.",
+      "acceptance": "Signed x10 extends to xxxxxx10.",
+      "source_note": "Reviewed IEEE 1800-2023 11.8.4: A signed unknown sign bit is replicated when extending width. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.sv",
+          "observation": "Signed x10 extends to xxxxxx10.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b3d3aeb906e4f76b578f54df2508c98191b295cc9d470e18d667c5201f853306",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.sv",
+              "contains": "a = sx;"
+            },
+            {
+              "file": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.expected",
+              "contains": "signed_x=xxxxxx10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.8.4-Z-SIGN-EXTEND",
+      "clause": "11.8.4",
+      "kind": "boundary",
+      "behavior": "A signed high-impedance sign bit is replicated when extending width.",
+      "acceptance": "Signed z01 extends to zzzzzz01.",
+      "source_note": "Reviewed IEEE 1800-2023 11.8.4: A signed high-impedance sign bit is replicated when extending width. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.sv",
+          "observation": "Signed z01 extends to zzzzzz01.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b3d3aeb906e4f76b578f54df2508c98191b295cc9d470e18d667c5201f853306",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.sv",
+              "contains": "b = sz;"
+            },
+            {
+              "file": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.expected",
+              "contains": "signed_z=zzzzzz01"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.8.3-UNSIGNED-ZERO-EXTEND",
+      "clause": "11.8.3",
+      "kind": "boundary",
+      "behavior": "An unsigned source is zero-extended even if its high bit is unknown.",
+      "acceptance": "Unsigned x10 extends to 00000x10.",
+      "source_note": "Reviewed IEEE 1800-2023 11.8.3: An unsigned source is zero-extended even if its high bit is unknown. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.sv",
+          "observation": "Unsigned x10 extends to 00000x10.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b3d3aeb906e4f76b578f54df2508c98191b295cc9d470e18d667c5201f853306",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.sv",
+              "contains": "c = ux;"
+            },
+            {
+              "file": "tests/ch11/test_signed_unknown_extension_and_unsigned_padding.expected",
+              "contains": "unsigned=00000x10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-6.16-STRING-LEFT-TRUNCATE",
+      "clause": "6.16",
+      "kind": "normal",
+      "behavior": "An integral target too short for a string literal discards leftmost characters.",
+      "acceptance": "WXYZ stored in 16 bits becomes 595a.",
+      "source_note": "Reviewed IEEE 1800-2023 6.16: An integral target too short for a string literal discards leftmost characters. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_string_integral_truncation_and_lexical_compare.sv",
+          "observation": "WXYZ stored in 16 bits becomes 595a.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "95147457058cdd86b8a7b64eab0a4751176d64f78341f5de3f33cab56fa075e4",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_string_integral_truncation_and_lexical_compare.sv",
+              "contains": "short_text = \"WXYZ\";"
+            },
+            {
+              "file": "tests/ch11/test_string_integral_truncation_and_lexical_compare.expected",
+              "contains": "short=595a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.10.2-STRING-ZERO-PAD",
+      "clause": "11.10.2",
+      "kind": "normal",
+      "behavior": "An integral target wider than a string literal is zero padded on the left.",
+      "acceptance": "K stored in 32 bits becomes 0000004b.",
+      "source_note": "Reviewed IEEE 1800-2023 11.10.2: An integral target wider than a string literal is zero padded on the left. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_string_integral_truncation_and_lexical_compare.sv",
+          "observation": "K stored in 32 bits becomes 0000004b.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "95147457058cdd86b8a7b64eab0a4751176d64f78341f5de3f33cab56fa075e4",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_string_integral_truncation_and_lexical_compare.sv",
+              "contains": "wide_text = \"K\";"
+            },
+            {
+              "file": "tests/ch11/test_string_integral_truncation_and_lexical_compare.expected",
+              "contains": "wide=0000004b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-11.10.3-EMPTY-STRING-VALUE",
+      "clause": "11.10.3",
+      "kind": "boundary",
+      "behavior": "An empty string literal converted to an integral value is zero.",
+      "acceptance": "Eight-bit casts distinguish empty=0 from zero_character=48.",
+      "source_note": "Reviewed IEEE 1800-2023 11.10.3: An empty string literal converted to an integral value is zero. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch11/test_string_integral_truncation_and_lexical_compare.sv",
+          "observation": "Eight-bit casts distinguish empty=0 from zero_character=48.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "95147457058cdd86b8a7b64eab0a4751176d64f78341f5de3f33cab56fa075e4",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_string_integral_truncation_and_lexical_compare.sv",
+              "contains": "8'(\"\")"
+            },
+            {
+              "file": "tests/ch11/test_string_integral_truncation_and_lexical_compare.expected",
+              "contains": "empty=0 zero_character=48"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-12.5.2-CASEX-FIRST-MATCH",
+      "clause": "12.5.2",
+      "kind": "boundary",
+      "behavior": "casex executes only the first matching wildcard item.",
+      "acceptance": "Selector 1x01 matches overlapping patterns but selects the first item.",
+      "source_note": "Reviewed IEEE 1800-2023 12.5.2: casex executes only the first matching wildcard item. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch12/test_casex_first_wildcard_item.sv",
+          "observation": "Selector 1x01 matches overlapping patterns but selects the first item.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b5d474e56adb5bb5669cbb0bfb3081e07d1a88fc160239786718a77798ece347",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_casex_first_wildcard_item.sv",
+              "contains": "selector = 4'b1x01;"
+            },
+            {
+              "file": "tests/ch12/test_casex_first_wildcard_item.expected",
+              "contains": "ambiguous=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-12.5.2-CASEX-DEFAULT",
+      "clause": "12.5.2",
+      "kind": "boundary",
+      "behavior": "casex takes default when no wildcard item matches.",
+      "acceptance": "Selector 0000 selects default item 3.",
+      "source_note": "Reviewed IEEE 1800-2023 12.5.2: casex takes default when no wildcard item matches. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch12/test_casex_first_wildcard_item.sv",
+          "observation": "Selector 0000 selects default item 3.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b5d474e56adb5bb5669cbb0bfb3081e07d1a88fc160239786718a77798ece347",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_casex_first_wildcard_item.sv",
+              "contains": "selector = 4'b0000;"
+            },
+            {
+              "file": "tests/ch12/test_casex_first_wildcard_item.expected",
+              "contains": "default=3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-13.3.2-STATIC-RETENTION",
+      "clause": "13.3.2",
+      "kind": "normal",
+      "behavior": "A static task local retains its value between calls.",
+      "acceptance": "Two sequential calls produce counts 1 and 2.",
+      "source_note": "Reviewed IEEE 1800-2023 13.3.2: A static task local retains its value between calls. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch13/test_task_static_and_automatic_retention.sv",
+          "observation": "Two sequential calls produce counts 1 and 2.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "bd92e317d4d8733bc24583e4dd5eb1877b25b6abaced4ea1193c6f808476d777",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_task_static_and_automatic_retention.sv",
+              "contains": "task static count_static"
+            },
+            {
+              "file": "tests/ch13/test_task_static_and_automatic_retention.expected",
+              "contains": "static=1,2 automatic=1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-13.3.2-AUTOMATIC-FRESH",
+      "clause": "13.3.2",
+      "kind": "normal",
+      "behavior": "An automatic task local is initialized for each activation.",
+      "acceptance": "Two sequential calls each produce count 1.",
+      "source_note": "Reviewed IEEE 1800-2023 13.3.2: An automatic task local is initialized for each activation. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch13/test_task_static_and_automatic_retention.sv",
+          "observation": "Two sequential calls each produce count 1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "bd92e317d4d8733bc24583e4dd5eb1877b25b6abaced4ea1193c6f808476d777",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_task_static_and_automatic_retention.sv",
+              "contains": "task automatic count_auto"
+            },
+            {
+              "file": "tests/ch13/test_task_static_and_automatic_retention.expected",
+              "contains": "static=1,2 automatic=1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-20.3.2-STIME-ROUNDING",
+      "clause": "20.3.2",
+      "kind": "boundary",
+      "behavior": "stime rounds simulation time to the local time unit.",
+      "acceptance": "At 1.6 local units, stime returns 2 while realtime remains 1.6.",
+      "source_note": "Reviewed IEEE 1800-2023 20.3.2: stime rounds simulation time to the local time unit. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch20/test_stime_rounding_with_local_unit.sv",
+          "observation": "At 1.6 local units, stime returns 2 while realtime remains 1.6.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "c62edd2b20ee57bb5460fad8efb4aef856e1d8ea56eafbc459957cca01bcda84",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_stime_rounding_with_local_unit.sv",
+              "contains": "#1.6 $display"
+            },
+            {
+              "file": "tests/ch20/test_stime_rounding_with_local_unit.expected",
+              "contains": "stime=2 bits=32 realtime=1.6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-20.3.2-STIME-WIDTH",
+      "clause": "20.3.2",
+      "kind": "normal",
+      "behavior": "stime has a 32-bit result.",
+      "acceptance": "The returned value has bit width 32.",
+      "source_note": "Reviewed IEEE 1800-2023 20.3.2: stime has a 32-bit result. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch20/test_stime_rounding_with_local_unit.sv",
+          "observation": "The returned value has bit width 32.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "c62edd2b20ee57bb5460fad8efb4aef856e1d8ea56eafbc459957cca01bcda84",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_stime_rounding_with_local_unit.sv",
+              "contains": "$bits($stime)"
+            },
+            {
+              "file": "tests/ch20/test_stime_rounding_with_local_unit.expected",
+              "contains": "bits=32"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-20.14.2-DIST-SEED-REPLAY",
+      "clause": "20.14.2",
+      "kind": "normal",
+      "behavior": "Identical incoming seeds produce identical distribution values and updated seeds.",
+      "acceptance": "Ten paired dist_normal calls retain equal values and seed states.",
+      "source_note": "Reviewed IEEE 1800-2023 20.14.2: Identical incoming seeds produce identical distribution values and updated seeds. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch20/test_distribution_seed_replay_and_singleton_range.sv",
+          "observation": "Ten paired dist_normal calls retain equal values and seed states.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "42d49d3458ee70e30e3bd3fa881fb6ea83f1662e5a0475da12495b2a5728a0d1",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_distribution_seed_replay_and_singleton_range.sv",
+              "contains": "a = $dist_normal(seed_a, 10, 3);"
+            },
+            {
+              "file": "tests/ch20/test_distribution_seed_replay_and_singleton_range.expected",
+              "contains": "seed_replay=1 singleton=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-20.14.2-UNIFORM-SINGLETON",
+      "clause": "20.14.2",
+      "kind": "boundary",
+      "behavior": "A uniform distribution with equal bounds can produce only that bound.",
+      "acceptance": "Ten calls with bounds -4,-4 all return -4.",
+      "source_note": "Reviewed IEEE 1800-2023 20.14.2: A uniform distribution with equal bounds can produce only that bound. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch20/test_distribution_seed_replay_and_singleton_range.sv",
+          "observation": "Ten calls with bounds -4,-4 all return -4.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "42d49d3458ee70e30e3bd3fa881fb6ea83f1662e5a0475da12495b2a5728a0d1",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_distribution_seed_replay_and_singleton_range.sv",
+              "contains": "a = $dist_uniform(seed_a, -4, -4);"
+            },
+            {
+              "file": "tests/ch20/test_distribution_seed_replay_and_singleton_range.expected",
+              "contains": "singleton=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-21.3.4.4-FREAD-PARTIAL",
+      "clause": "21.3.4.4",
+      "kind": "boundary",
+      "behavior": "Binary fread fills the most significant byte positions first and returns bytes read.",
+      "acceptance": "Two available bytes fill the upper sixteen bits of a 24-bit variable and the count is 2.",
+      "source_note": "Reviewed IEEE 1800-2023 21.3.4.4: Binary fread fills the most significant byte positions first and returns bytes read. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch21/test_fread_partial_word_and_eof.sv",
+          "observation": "Two available bytes fill the upper sixteen bits of a 24-bit variable and the count is 2.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b26ccc4e89002a7d6f0cb1ec405892770e6380dd2959bea670e677204147f28b",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fread_partial_word_and_eof.sv",
+              "contains": "count = $fread(word_value, fd);"
+            },
+            {
+              "file": "tests/ch21/test_fread_partial_word_and_eof.expected",
+              "contains": "read=2 prefix=1234"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-21.3.4.4-FREAD-EOF",
+      "clause": "21.3.4.4",
+      "kind": "boundary",
+      "behavior": "Binary fread returns zero when no bytes remain.",
+      "acceptance": "A second read at EOF returns 0 without asserting unspecified unread bits.",
+      "source_note": "Reviewed IEEE 1800-2023 21.3.4.4: Binary fread returns zero when no bytes remain. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch21/test_fread_partial_word_and_eof.sv",
+          "observation": "A second read at EOF returns 0 without asserting unspecified unread bits.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "b26ccc4e89002a7d6f0cb1ec405892770e6380dd2959bea670e677204147f28b",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fread_partial_word_and_eof.sv",
+              "contains": "$display(\"eof_read=%0d\", count);"
+            },
+            {
+              "file": "tests/ch21/test_fread_partial_word_and_eof.expected",
+              "contains": "eof_read=0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-21.3.5-SEEK-CANCELS-PUSHBACK",
+      "clause": "21.3.5",
+      "kind": "normal",
+      "behavior": "File repositioning cancels a previous ungetc.",
+      "acceptance": "After pushback of Z and seek to offset 2, the next character is c, not Z.",
+      "source_note": "Reviewed IEEE 1800-2023 21.3.5: File repositioning cancels a previous ungetc. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.sv",
+          "observation": "After pushback of Z and seek to offset 2, the next character is c, not Z.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "97776f9dd0717ec6ec4f82846cadda35dd1f335db38b7cfe848fc21de7f71be8",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.sv",
+              "contains": "rc = $fseek(fd, 2, 0);"
+            },
+            {
+              "file": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.expected",
+              "contains": "char=c position=3 error=0 empty=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-21.3.7-FERROR-NO-ERROR",
+      "clause": "21.3.7",
+      "kind": "normal",
+      "behavior": "ferror returns zero and clears its string argument when no error exists.",
+      "acceptance": "After successful operations the error code is 0 and stale error text is empty.",
+      "source_note": "Reviewed IEEE 1800-2023 21.3.7: ferror returns zero and clears its string argument when no error exists. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.sv",
+          "observation": "After successful operations the error code is 0 and stale error text is empty.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "97776f9dd0717ec6ec4f82846cadda35dd1f335db38b7cfe848fc21de7f71be8",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.sv",
+              "contains": "error_code = $ferror(fd, error_text);"
+            },
+            {
+              "file": "tests/ch21/test_fseek_cancels_ungetc_and_clears_error.expected",
+              "contains": "error=0 empty=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-22.5.3-UNDEFINE-ALL",
+      "clause": "22.5.3",
+      "kind": "normal",
+      "behavior": "undefineall removes both direct and forwarding text macro definitions.",
+      "acceptance": "Both source-defined macros are absent after the directive.",
+      "source_note": "Reviewed IEEE 1800-2023 22.5.3: undefineall removes both direct and forwarding text macro definitions. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch22/test_undefineall_clears_nested_macro_expansion.sv",
+          "observation": "Both source-defined macros are absent after the directive.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "06db8abe7ed70bf889ad7a33f5ab56d5e3038682afae52e053161e88568bf34f",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_undefineall_clears_nested_macro_expansion.sv",
+              "contains": "`undefineall"
+            },
+            {
+              "file": "tests/ch22/test_undefineall_clears_nested_macro_expansion.expected",
+              "contains": "inner=absent\nouter=absent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-22.9-PULL-DECLARATION",
+      "clause": "22.9",
+      "kind": "normal",
+      "behavior": "Unconnected-drive directives apply at module declaration and affect every bit of open input vectors.",
+      "acceptance": "Modules declared under pull1/pull0 receive 111/000; nounconnected_drive restores zzz.",
+      "source_note": "Reviewed IEEE 1800-2023 22.9: Unconnected-drive directives apply at module declaration and affect every bit of open input vectors. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch22/test_unconnected_drive_instances_restore.sv",
+          "observation": "Modules declared under pull1/pull0 receive 111/000; nounconnected_drive restores zzz.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "dd374e7251b4ba86eb92bfdf29ed2179326d059447fc0c01c5adc6add6578462",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_unconnected_drive_instances_restore.sv",
+              "contains": "vector_pull_one one(.a(), .y(a));"
+            },
+            {
+              "file": "tests/ch22/test_unconnected_drive_instances_restore.expected",
+              "contains": "inputs=111,000,zzz"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-23.3.2.3-EXPLICIT-OVERRIDE",
+      "clause": "23.3.2.3",
+      "kind": "normal",
+      "behavior": "An explicit named port connection takes precedence over a wildcard connection.",
+      "acceptance": "Explicit data=c is used despite same-named local data=3, so inverted output is 3.",
+      "source_note": "Reviewed IEEE 1800-2023 23.3.2.3: An explicit named port connection takes precedence over a wildcard connection. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch23/test_wildcard_ports_explicit_override.sv",
+          "observation": "Explicit data=c is used despite same-named local data=3, so inverted output is 3.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "fbc217895b178b3dca890f8a4b9e9a16bee30b8f5919791480e1f17c21976a79",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_wildcard_ports_explicit_override.sv",
+              "contains": "wildcard_leaf u(.data(4'hc), .*);"
+            },
+            {
+              "file": "tests/ch23/test_wildcard_ports_explicit_override.expected",
+              "contains": "local=3 result=3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-23.3.3.8-PORT-SIGNEDNESS",
+      "clause": "23.3.3.8",
+      "kind": "normal",
+      "behavior": "The port declaration determines the signedness of values used inside the module.",
+      "acceptance": "The same actual bits extend as fe through a signed formal and 0e through an unsigned formal.",
+      "source_note": "Reviewed IEEE 1800-2023 23.3.3.8: The port declaration determines the signedness of values used inside the module. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch23/test_signed_port_extension_uses_local_declaration.sv",
+          "observation": "The same actual bits extend as fe through a signed formal and 0e through an unsigned formal.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4530b24d732e54b6229587d7da8434d8fda480d885b454d7c3a9220a76b5c997",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_signed_port_extension_uses_local_declaration.sv",
+              "contains": "signed_port_leaf s(actual, signed_result);"
+            },
+            {
+              "file": "tests/ch23/test_signed_port_extension_uses_local_declaration.expected",
+              "contains": "signed=fe unsigned=0e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-23.11-SELECTIVE-BIND",
+      "clause": "23.11",
+      "kind": "normal",
+      "behavior": "Binding to a selected instance does not bind to its sibling instances.",
+      "acceptance": "Only the selected right-hand instance emits bound_flag=1.",
+      "source_note": "Reviewed IEEE 1800-2023 23.11: Binding to a selected instance does not bind to its sibling instances. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch23/test_bind_only_selected_instance.sv",
+          "observation": "Only the selected right-hand instance emits bound_flag=1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "70b343aacd48baa365ab29fbe2398987438e0a74b663f6e0f69abb8d6d5549cd",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_bind_only_selected_instance.sv",
+              "contains": "bind bind_target : test_bind_only_selected_instance.right"
+            },
+            {
+              "file": "tests/ch23/test_bind_only_selected_instance.expected",
+              "contains": "bound_flag=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-24.3.2-PROGRAM-CA-REGION",
+      "clause": "24.3.2",
+      "kind": "normal",
+      "behavior": "A program continuous assignment evaluates after the module active-region set settles.",
+      "acceptance": "The output observer sees the completed module NBA state 1 along with the new program output c.",
+      "source_note": "Reviewed IEEE 1800-2023 24.3.2: A program continuous assignment evaluates after the module active-region set settles. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch24/test_program_output_after_module_nba_chain.sv",
+          "observation": "The output observer sees the completed module NBA state 1 along with the new program output c.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "e8224524292200b7f6e698c5bc68329865b01e48018c5d4987990b52f81dc037",
+          "evidence": [
+            {
+              "file": "tests/ch24/test_program_output_after_module_nba_chain.sv",
+              "contains": "assign y = ~a;"
+            },
+            {
+              "file": "tests/ch24/test_program_output_after_module_nba_chain.expected",
+              "contains": "source=3 output=c module_state=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-26.5-SCOPED-PACKAGE-NAME",
+      "clause": "26.5",
+      "kind": "normal",
+      "behavior": "Explicit package qualification selects a name despite competing wildcard candidates.",
+      "acceptance": "Qualified writes/readbacks affect left::value=13 while right::value remains 29.",
+      "source_note": "Reviewed IEEE 1800-2023 26.5: Explicit package qualification selects a name despite competing wildcard candidates. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch26/test_package_scoped_name_avoids_wildcard_conflict.sv",
+          "observation": "Qualified writes/readbacks affect left::value=13 while right::value remains 29.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "4d200e887b6d2ce49902db0dad5f08d8372171632cbdaee9cfb5906bf194c099",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_package_scoped_name_avoids_wildcard_conflict.sv",
+              "contains": "scope_left::value = 13;"
+            },
+            {
+              "file": "tests/ch26/test_package_scoped_name_avoids_wildcard_conflict.expected",
+              "contains": "left=13 right=29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-28.3.1-MULTIPLE-INSTANCES",
+      "clause": "28.3.1",
+      "kind": "normal",
+      "behavior": "One gate instantiation may declare multiple named instances.",
+      "acceptance": "The two buffer instances produce scalar values 1 and 0.",
+      "source_note": "Reviewed IEEE 1800-2023 28.3.1: One gate instantiation may declare multiple named instances. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch28/test_gate_array_scalar_broadcast_and_instances.sv",
+          "observation": "The two buffer instances produce scalar values 1 and 0.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "ef6b9639f91cf7bce118eeafd0e7607ea01548f5db2f3dab4f9f7e5113d820ad",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_gate_array_scalar_broadcast_and_instances.sv",
+              "contains": "buf first(a, 1'b1), second(b, 1'b0);"
+            },
+            {
+              "file": "tests/ch28/test_gate_array_scalar_broadcast_and_instances.expected",
+              "contains": "disabled=0000 scalar=1,0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-28.3.2-SCALAR-BROADCAST",
+      "clause": "28.3.2",
+      "kind": "normal",
+      "behavior": "A scalar gate-array input is shared across the gate instances.",
+      "acceptance": "Shared enable=0 clears every output, and enable=1 reproduces data=1010.",
+      "source_note": "Reviewed IEEE 1800-2023 28.3.2: A scalar gate-array input is shared across the gate instances. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch28/test_gate_array_scalar_broadcast_and_instances.sv",
+          "observation": "Shared enable=0 clears every output, and enable=1 reproduces data=1010.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "ef6b9639f91cf7bce118eeafd0e7607ea01548f5db2f3dab4f9f7e5113d820ad",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_gate_array_scalar_broadcast_and_instances.sv",
+              "contains": "and gates[3:0](result, data, enable);"
+            },
+            {
+              "file": "tests/ch28/test_gate_array_scalar_broadcast_and_instances.expected",
+              "contains": "disabled=0000 scalar=1,0\nenabled=1010"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SV2023-29.9-LEVEL-OVER-EDGE",
+      "clause": "29.9",
+      "kind": "boundary",
+      "behavior": "A sequential UDP level-sensitive entry takes priority over an overlapping edge-sensitive entry.",
+      "acceptance": "A falling edge captures 0 without preset, but overlapping asserted preset yields 1.",
+      "source_note": "Reviewed IEEE 1800-2023 29.9: A sequential UDP level-sensitive entry takes priority over an overlapping edge-sensitive entry. This records this specific obligation only, not completion of the section.",
+      "checks": [
+        {
+          "test": "tests/ch29/test_udp_level_preset_over_falling_capture.sv",
+          "observation": "A falling edge captures 0 without preset, but overlapping asserted preset yields 1.",
+          "reviewed_on": "2026-10-22",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "87ca466d39a4afeeac331cfe21acb219a3c547d34afe9696383067b1e8485c6d",
+          "evidence": [
+            {
+              "file": "tests/ch29/test_udp_level_preset_over_falling_capture.sv",
+              "contains": "f 0 ? : ? : 0;"
+            },
+            {
+              "file": "tests/ch29/test_udp_level_preset_over_falling_capture.expected",
+              "contains": "captured=0\npreset_over_edge=1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
