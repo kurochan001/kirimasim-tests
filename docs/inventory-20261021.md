@@ -973,29 +973,23 @@ corrections to the metadata:
   syntax subclauses of the excluded clause 34; both are in the clause
   list now, tagged `none` and `excluded`.
 
-### Known gaps from the clause text
+### VPI object model and binding properties
 
-Two gaps need a VPI-capable simulator or a deliberate spec-only test:
-
-- The eleven VPI object-model clauses 37.55, 37.62, 37.66, 37.67,
-  37.70, 37.71, 37.73, 37.74, 37.77, 37.78 and 37.83 are in the PDF but
-  not in `tools/clauses.txt`, and no test cites them. Icarus Verilog
-  13.0 and Verilator 5.052 do not expose these statement objects, and
-  the local sukimasim build does not expose tasks or functions through
-  VPI, so a test cannot be verified with the releases of the suite.
-- The VPI properties of 33.7, `vpiLibrary`, `vpiCell` and `vpiConfig`,
-  are not covered. The same builds return null for them, so only a
-  spec-only test is possible.
-
-
-
+The eleven VPI statement clauses 37.55, 37.62, 37.66, 37.67, 37.70,
+37.71, 37.73, 37.74, 37.77, 37.78 and 37.83, and the 33.7 properties
+`vpiLibrary`, `vpiCell` and `vpiConfig`, have no release that can run
+them. They are covered by three spec-only tests: one lists the statement
+types, one reads an attribute object, and one reads the three module
+properties. `tools/clauses.txt` has the eleven clauses again. The depth
+report therefore counts eleven new one-test spec-only clauses; a second
+test for them needs a VPI-capable simulator.
 
 ### Current state
 
-After these commits the suite has 3798 tests in 37 chapters, 812 of them
+After these commits the suite has 3801 tests in 37 chapters, 812 of them
 generated. By `:oracle:`, 2526 list Icarus Verilog 13.0, 773 list
-Verilator 5.052, and 499 follow the standard only. 568 tests depend on
-x or z values, 205 have C code (29 DPI and 176 VPI), 172 are illegal
+Verilator 5.052, and 502 follow the standard only. 568 tests depend on
+x or z values, 208 have C code (29 DPI and 179 VPI), 172 are illegal
 designs, and 5 set an expected exit code.
 
 ### Tests added in this work
@@ -1015,8 +1009,9 @@ designs, and 5 set an expected exit code.
 | 40 | 7 |
 | **All** | **100** |
 
-The 12 second tests in the depth follow-up, the `%L` test, and the
-five illegal clocking tests bring the total added in this work to 118.
+The 12 second tests in the depth follow-up, the `%L` test, the five
+illegal clocking tests, and the three spec-only VPI tests bring the
+total added in this work to 121.
 
 ### 14.7 illegal placements
 

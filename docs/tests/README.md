@@ -36,11 +36,11 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 30 | [Specify blocks](ch30.md) | 23 |  |
 | 31 | [Timing checks](ch31.md) | 23 |  |
 | 32 | [Backannotation using the standard delay format](ch32.md) | 23 |  |
-| 33 | [Configuring the contents of a design](ch33.md) | 24 |  |
+| 33 | [Configuring the contents of a design](ch33.md) | 25 |  |
 | 34 | Protected envelopes | — | |
 | 35 | [Direct programming interface](ch35.md) | 31 |  |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 29 |  |
-| 37 | [VPI object model diagrams](ch37.md) | 74 |  |
+| 37 | [VPI object model diagrams](ch37.md) | 76 |  |
 | 38 | [VPI routine definitions](ch38.md) | 41 |  |
 | 39 | [Assertion API](ch39.md) | 21 |  |
 | 40 | [Code coverage control and API](ch40.md) | 23 |  |

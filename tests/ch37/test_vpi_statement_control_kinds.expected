@@ -1,0 +1,14 @@
+disable
+event
+expect
+for
+forever
+if
+immediate assert
+immediate assume
+immediate cover
+repeat
+return
+wait
+while
+statements: 13

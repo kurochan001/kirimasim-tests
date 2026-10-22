@@ -2,7 +2,7 @@
 
 [All chapters](README.md). For each clause of IEEE 1800-2023 from 3 to 40, this page counts the clauses without subclauses of its own, the numbers in `tools/clauses.txt`, by whether a test cites them in `:lrm:`. A clause can also be cited only through a parent clause, which says less about what is tested. Clauses that set out no behavior of their own, clause 34, behavior left to the tool or its setup, and the content of VCD files are out of scope (the tags of `tools/clauses.txt`). The page is written by `tools/suite_catalog.py`.
 
-Of 921 clauses in scope, 921 are cited by a test, 0 only through a parent clause, and 0 not at all; 227 are out of scope.
+Of 932 clauses in scope, 932 are cited by a test, 0 only through a parent clause, and 0 not at all; 227 are out of scope.
 
 | Clause | Title | Cited | Only through a parent | Not cited | Out of scope |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -40,7 +40,7 @@ Of 921 clauses in scope, 921 are cited by a test, 0 only through a parent clause
 | 34 | Protected envelopes | 0 |  |  | 69 |
 | 35 | Direct programming interface | 17 |  |  | 5 |
 | 36 | Programming language interface (PLI/VPI) overview | 13 |  |  | 9 |
-| 37 | VPI object model diagrams | 81 |  |  | 5 |
+| 37 | VPI object model diagrams | 92 |  |  | 5 |
 | 38 | VPI routine definitions | 44 |  |  | 3 |
 | 39 | Assertion API | 7 |  |  | 2 |
 | 40 | Code coverage control and API | 18 |  |  | 2 |
