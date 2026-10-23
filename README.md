@@ -38,21 +38,21 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3986 tests** in 37 chapters. 812 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **4482 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2588 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3084 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 830 |
 | The standard only, where neither simulator follows it | 568 |
 
-581 tests depend on x or z values (`:fourstate: yes`). 262 tests come with C code: 33 DPI tests (`:dpi_c:`) and 229 VPI tests (`:vpi_c:`). 185 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 20 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+581 tests depend on x or z values (`:fourstate: yes`). 262 tests come with C code: 33 DPI tests (`:dpi_c:`) and 229 VPI tests (`:vpi_c:`). 681 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 20 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 27 | 22 | 3 | 2 |
 | 4 | Scheduling semantics | 387 | 377 | 4 | 6 |
-| 5 | Lexical conventions | 41 | 33 | 6 | 2 |
+| 5 | Lexical conventions | 289 | 281 | 6 | 2 |
 | 6 | Data types | 318 | 225 | 70 | 23 |
 | 7 | Aggregate data types | 334 | 131 | 182 | 21 |
 | 8 | Classes | 162 | 34 | 107 | 21 |
@@ -69,7 +69,7 @@ The suite has **3986 tests** in 37 chapters. 812 of them are generated (`tests/g
 | 19 | Functional coverage | 43 |  | 11 | 32 |
 | 20 | Utility system tasks and system functions | 192 | 169 | 12 | 11 |
 | 21 | Input/output system tasks and system functions | 92 | 82 | 6 | 4 |
-| 22 | Compiler directives | 48 | 44 | 4 |  |
+| 22 | Compiler directives | 296 | 292 | 4 |  |
 | 23 | Modules and hierarchy | 81 | 60 | 10 | 11 |
 | 24 | Programs | 30 | 13 | 3 | 14 |
 | 25 | Interfaces | 54 | 11 | 38 | 5 |
@@ -143,11 +143,14 @@ the [11 expression gap tests](docs/expression-gap-tests-20261023.md),
 the [15 associative-array gap tests](docs/associative-gap-tests-20261023.md) and the
 [header and VPI model tests with further matching](docs/header-vpi-tests-and-matching-20261023.md),
 which add 24 tests of the C headers of Annexes I, K, L and M and 24 VPI tests of
-clause 37. Provisional design coverage is **31.569121% (3,889/12,319)**;
-provisional execution coverage is **19.449631% (2,396/12,319)**. Most of the
-increase is in the header annexes, whose constants are one registered row each:
-clauses 1 to 40 alone are at 29.30% (2,779/9,486). Confirmed values
-remain undefined. The full existing-test semantic review is still incomplete.
+clause 37. On 2026-10-24 the [requirement extraction](docs/requirement-extraction.md)
+recast the keyword-reservation rows as error cases and resolved 27 interpretation
+issues, and the [generated keyword tests](docs/keyword-tests-20261024.md) add 496
+illegal designs that use a reserved keyword as a name. Provisional design coverage
+is **35.603539% (4,386/12,319)**; provisional execution coverage is
+**23.484049% (2,893/12,319)**. Much of the increase is in annexes whose rows are
+one constant or keyword each: clauses 1 to 40 alone are at 31.92% (3,028/9,486).
+Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.
 
@@ -441,6 +444,7 @@ outputs, and it writes many small variations of one kind of test:
 | `xz_propagation` | 11 | Operands with x and z bits for every operator of 11.4 that has rules for them |
 | `strength` | 28 | Two drivers of a net with different strengths and values, on wire, tri, wand, triand, wor, trior, tri0 and tri1 nets and through bufif gates, shown with `%v` |
 | `wide_paths` | 6, 7, 11, 13 | Values of 63, 64, 65, 127, 128, 129 and 200 bits, 2-state and 4-state with x and z above bit 64, signed and unsigned, on the paths a value takes: assignments to wider, narrower and 2-state targets, part-selects and slices of packed arrays and writes to them, concatenation, replication, shifts past the width, comparisons and `?:` with an x condition, `$bits`, and function results, task inputs, output and ref arguments; shown with `%h`, `%b` and `%0d` |
+| `keywords` | 5, 22 | Illegal designs: each reserved keyword of IEEE 1800-2023 (Annex B) declared as a variable name under ``begin_keywords "1800-2023"``, and each keyword that a version of 22.14 adds declared so under ``begin_keywords`` of that version; a tool has to reject the declaration |
 
 The docstring of each generator says which rules its model follows and which
 combinations it leaves out because the standard does not decide them. A

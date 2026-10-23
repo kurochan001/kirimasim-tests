@@ -358,3 +358,22 @@ The 24 new VPI tests of clause 37 (`ch37/test_vpi_*` added the same day)
 use constants that Icarus Verilog 13.0's headers lack and system tasks
 registered with vpi_register_systf, which Verilator 5.052 cannot call; one
 of them matches Icarus Verilog 13.0 and the others have `:oracle: spec`.
+
+## Cases added by the 2026-10-24 keyword tests
+
+The generated tests of `generators/keywords.py` declare each reserved
+keyword as a variable name inside a `begin_keywords` region of a version
+that reserves it. Both releases reject 493 of the 496 at the declaration.
+
+- IEEE 5.6, Annex B, 22.14.7: Verilator 5.052 accepts `global` as a
+  variable name under `begin_keywords "1800-2023"` and
+  `begin_keywords "1800-2009"`, which reserve it.
+  `gen/ch5/test_gen_kw_2023_global`, `gen/ch22/test_gen_kw_1800_2009_global`
+- IEEE 5.6, 22.14.2: Verilator 5.052 accepts `ifnone` as a variable name
+  under `begin_keywords "1364-1995"`, which reserves it.
+  `gen/ch22/test_gen_kw_1364_1995_ifnone`
+- IEEE 22.14: Icarus Verilog 13.0 does not know the version strings
+  "1800-2017" and "1800-2023": it prints that it ignores them and keeps its
+  default keyword set, where 22.14 lists both as standard versions and makes
+  an unrecognized one an error. Its default set reserves every keyword of
+  Annex B, so the 248 `gen/ch5/test_gen_kw_2023_*` tests still match it.

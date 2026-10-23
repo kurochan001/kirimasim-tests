@@ -8,7 +8,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | ---: | --- | ---: | ---: |
 | 3 | [Design and verification building blocks](ch3.md) | 27 |  |
 | 4 | [Scheduling semantics](ch4.md) | 387 | 325 |
-| 5 | [Lexical conventions](ch5.md) | 41 |  |
+| 5 | [Lexical conventions](ch5.md) | 289 | 248 |
 | 6 | [Data types](ch6.md) | 318 | 7 |
 | 7 | [Aggregate data types](ch7.md) | 334 | 14 |
 | 8 | [Classes](ch8.md) | 162 |  |
@@ -25,7 +25,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 19 | [Functional coverage](ch19.md) | 43 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 192 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 92 |  |
-| 22 | [Compiler directives](ch22.md) | 48 |  |
+| 22 | [Compiler directives](ch22.md) | 296 | 248 |
 | 23 | [Modules and hierarchy](ch23.md) | 81 |  |
 | 24 | [Programs](ch24.md) | 30 |  |
 | 25 | [Interfaces](ch25.md) | 54 |  |

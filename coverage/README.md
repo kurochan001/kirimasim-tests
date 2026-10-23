@@ -107,6 +107,9 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/header-vpi-tests-20261023-*.json`: 附属書I/K/L/MのCヘッダを検証する24本と、37章のVPIテスト24本の実行結果。
   Icarus 13.0（v13_0-dirty）は1 pass・47 known、Verilator 5.052はseed 1/73とも17 pass・31 knownです。
   [追加内容と照合結果](../docs/header-vpi-tests-and-matching-20261023.md)を参照してください。
+- `results/keyword-tests-20261024-*.json`: `generators/keywords.py`が生成する予約語の違法系テスト496本の実行結果。
+  Icarus 13.0は496 pass、Verilator 5.052はseed 1/73とも493 pass・3 knownです。
+  [生成内容と対応](../docs/keyword-tests-20261024.md)を参照してください。
 - `behavior-summary.json`: 現在の暫定値・確定値、章別の割合、分母SHA-256、
   シミュレータごとの失敗・既知不一致・未対応・未実行・古い証跡などの内訳。
   `--update`で概要Markdownとともに再生成し、`--check`で両方の鮮度を検査します。

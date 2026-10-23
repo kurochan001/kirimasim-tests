@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 31.57%、実行 19.45%。**
+**全規格の要求台帳ベース（暫定）: 設計 35.60%、実行 23.48%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 3889/12319 (31.57%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 2396/12319 (19.45%)。
-- 登録済みだがテスト未対応: 8430 動作。
+- 登録済み動作に対するテスト設計網羅率: 4386/12319 (35.60%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 2893/12319 (23.48%)。
+- 登録済みだがテスト未対応: 7933 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -56,6 +56,9 @@
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 896/12319 動作確認、古い入力との対応 61 件。
+- `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
+- `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `keyword-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:16.559292+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-icarus.json`: Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376) / 2026-10-22T16:11:50.000804+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
@@ -87,7 +90,7 @@
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 46。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 113。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 82。
-- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 30。
+- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 279。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 17。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 6。
 - 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 7。
@@ -108,7 +111,7 @@
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 36。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
 - A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 0。
-- B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 0。
+- B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 0。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
@@ -57499,7 +57502,7 @@ Keyword directives change only which identifiers are reserved, without changing 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ALWAYS
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves always: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57507,10 +57510,11 @@ Keyword mode 1364-1995 reserves always: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_always.sv](../tests/gen/ch22/test_gen_kw_1364_1995_always.sv): begin_keywords "1364-1995" の範囲で reg always; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_always.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で always を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-AND
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves and: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57518,10 +57522,11 @@ Keyword mode 1364-1995 reserves and: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_and.sv](../tests/gen/ch22/test_gen_kw_1364_1995_and.sv): begin_keywords "1364-1995" の範囲で reg and; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_and.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で and を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ASSIGN
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves assign: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57529,10 +57534,11 @@ Keyword mode 1364-1995 reserves assign: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_assign.sv](../tests/gen/ch22/test_gen_kw_1364_1995_assign.sv): begin_keywords "1364-1995" の範囲で reg assign; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_assign.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で assign を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-BEGIN
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves begin: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57540,10 +57546,11 @@ Keyword mode 1364-1995 reserves begin: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_begin.sv](../tests/gen/ch22/test_gen_kw_1364_1995_begin.sv): begin_keywords "1364-1995" の範囲で reg begin; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_begin.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で begin を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-BUF
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves buf: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57551,10 +57558,11 @@ Keyword mode 1364-1995 reserves buf: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_buf.sv](../tests/gen/ch22/test_gen_kw_1364_1995_buf.sv): begin_keywords "1364-1995" の範囲で reg buf; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_buf.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で buf を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-BUFIF0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves bufif0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57562,10 +57570,11 @@ Keyword mode 1364-1995 reserves bufif0: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_bufif0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_bufif0.sv): begin_keywords "1364-1995" の範囲で reg bufif0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_bufif0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で bufif0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-BUFIF1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves bufif1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57573,10 +57582,11 @@ Keyword mode 1364-1995 reserves bufif1: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_bufif1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_bufif1.sv): begin_keywords "1364-1995" の範囲で reg bufif1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_bufif1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で bufif1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-CASE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves case: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57584,10 +57594,11 @@ Keyword mode 1364-1995 reserves case: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_case.sv](../tests/gen/ch22/test_gen_kw_1364_1995_case.sv): begin_keywords "1364-1995" の範囲で reg case; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_case.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で case を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-CASEX
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves casex: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57595,10 +57606,11 @@ Keyword mode 1364-1995 reserves casex: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_casex.sv](../tests/gen/ch22/test_gen_kw_1364_1995_casex.sv): begin_keywords "1364-1995" の範囲で reg casex; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_casex.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で casex を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-CASEZ
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves casez: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57606,10 +57618,11 @@ Keyword mode 1364-1995 reserves casez: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_casez.sv](../tests/gen/ch22/test_gen_kw_1364_1995_casez.sv): begin_keywords "1364-1995" の範囲で reg casez; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_casez.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で casez を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-CMOS
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves cmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57617,10 +57630,11 @@ Keyword mode 1364-1995 reserves cmos: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_cmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_cmos.sv): begin_keywords "1364-1995" の範囲で reg cmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_cmos.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で cmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-DEASSIGN
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves deassign: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57628,10 +57642,11 @@ Keyword mode 1364-1995 reserves deassign: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_deassign.sv](../tests/gen/ch22/test_gen_kw_1364_1995_deassign.sv): begin_keywords "1364-1995" の範囲で reg deassign; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_deassign.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で deassign を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-DEFAULT
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves default: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57639,10 +57654,11 @@ Keyword mode 1364-1995 reserves default: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_default.sv](../tests/gen/ch22/test_gen_kw_1364_1995_default.sv): begin_keywords "1364-1995" の範囲で reg default; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_default.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で default を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-DEFPARAM
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves defparam: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57650,10 +57666,11 @@ Keyword mode 1364-1995 reserves defparam: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_defparam.sv](../tests/gen/ch22/test_gen_kw_1364_1995_defparam.sv): begin_keywords "1364-1995" の範囲で reg defparam; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_defparam.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で defparam を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-DISABLE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves disable: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57661,10 +57678,11 @@ Keyword mode 1364-1995 reserves disable: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_disable.sv](../tests/gen/ch22/test_gen_kw_1364_1995_disable.sv): begin_keywords "1364-1995" の範囲で reg disable; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_disable.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で disable を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-EDGE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves edge: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57672,10 +57690,11 @@ Keyword mode 1364-1995 reserves edge: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_edge.sv](../tests/gen/ch22/test_gen_kw_1364_1995_edge.sv): begin_keywords "1364-1995" の範囲で reg edge; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_edge.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で edge を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ELSE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves else: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57683,10 +57702,11 @@ Keyword mode 1364-1995 reserves else: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_else.sv](../tests/gen/ch22/test_gen_kw_1364_1995_else.sv): begin_keywords "1364-1995" の範囲で reg else; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_else.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で else を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-END
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves end: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57694,10 +57714,11 @@ Keyword mode 1364-1995 reserves end: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_end.sv](../tests/gen/ch22/test_gen_kw_1364_1995_end.sv): begin_keywords "1364-1995" の範囲で reg end; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_end.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で end を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDCASE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves endcase: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57705,10 +57726,11 @@ Keyword mode 1364-1995 reserves endcase: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_endcase.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endcase.sv): begin_keywords "1364-1995" の範囲で reg endcase; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_endcase.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で endcase を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDFUNCTION
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves endfunction: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57716,10 +57738,11 @@ Keyword mode 1364-1995 reserves endfunction: within a begin_keywords "1364-1995"
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_endfunction.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endfunction.sv): begin_keywords "1364-1995" の範囲で reg endfunction; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_endfunction.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で endfunction を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDMODULE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves endmodule: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57727,10 +57750,11 @@ Keyword mode 1364-1995 reserves endmodule: within a begin_keywords "1364-1995" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_endmodule.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endmodule.sv): begin_keywords "1364-1995" の範囲で reg endmodule; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_endmodule.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で endmodule を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDPRIMITIVE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves endprimitive: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57738,10 +57762,11 @@ Keyword mode 1364-1995 reserves endprimitive: within a begin_keywords "1364-1995
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_endprimitive.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endprimitive.sv): begin_keywords "1364-1995" の範囲で reg endprimitive; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_endprimitive.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で endprimitive を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDSPECIFY
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves endspecify: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57749,10 +57774,11 @@ Keyword mode 1364-1995 reserves endspecify: within a begin_keywords "1364-1995" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_endspecify.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endspecify.sv): begin_keywords "1364-1995" の範囲で reg endspecify; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_endspecify.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で endspecify を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDTABLE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves endtable: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57760,10 +57786,11 @@ Keyword mode 1364-1995 reserves endtable: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_endtable.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endtable.sv): begin_keywords "1364-1995" の範囲で reg endtable; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_endtable.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で endtable を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDTASK
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves endtask: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57771,10 +57798,11 @@ Keyword mode 1364-1995 reserves endtask: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_endtask.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endtask.sv): begin_keywords "1364-1995" の範囲で reg endtask; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_endtask.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で endtask を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-EVENT
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves event: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57782,10 +57810,11 @@ Keyword mode 1364-1995 reserves event: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_event.sv](../tests/gen/ch22/test_gen_kw_1364_1995_event.sv): begin_keywords "1364-1995" の範囲で reg event; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_event.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で event を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FOR
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves for: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57793,10 +57822,11 @@ Keyword mode 1364-1995 reserves for: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_for.sv](../tests/gen/ch22/test_gen_kw_1364_1995_for.sv): begin_keywords "1364-1995" の範囲で reg for; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_for.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で for を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FORCE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves force: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57804,10 +57834,11 @@ Keyword mode 1364-1995 reserves force: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_force.sv](../tests/gen/ch22/test_gen_kw_1364_1995_force.sv): begin_keywords "1364-1995" の範囲で reg force; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_force.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で force を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FOREVER
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves forever: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57815,10 +57846,11 @@ Keyword mode 1364-1995 reserves forever: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_forever.sv](../tests/gen/ch22/test_gen_kw_1364_1995_forever.sv): begin_keywords "1364-1995" の範囲で reg forever; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_forever.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で forever を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FORK
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves fork: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57826,10 +57858,11 @@ Keyword mode 1364-1995 reserves fork: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_fork.sv](../tests/gen/ch22/test_gen_kw_1364_1995_fork.sv): begin_keywords "1364-1995" の範囲で reg fork; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_fork.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で fork を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FUNCTION
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves function: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57837,10 +57870,11 @@ Keyword mode 1364-1995 reserves function: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_function.sv](../tests/gen/ch22/test_gen_kw_1364_1995_function.sv): begin_keywords "1364-1995" の範囲で reg function; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_function.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で function を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-HIGHZ0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves highz0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57848,10 +57882,11 @@ Keyword mode 1364-1995 reserves highz0: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_highz0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_highz0.sv): begin_keywords "1364-1995" の範囲で reg highz0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_highz0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で highz0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-HIGHZ1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves highz1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57859,10 +57894,11 @@ Keyword mode 1364-1995 reserves highz1: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_highz1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_highz1.sv): begin_keywords "1364-1995" の範囲で reg highz1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_highz1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で highz1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-IF
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves if: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57870,10 +57906,11 @@ Keyword mode 1364-1995 reserves if: within a begin_keywords "1364-1995" region i
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_if.sv](../tests/gen/ch22/test_gen_kw_1364_1995_if.sv): begin_keywords "1364-1995" の範囲で reg if; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_if.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で if を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-IFNONE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves ifnone: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57881,10 +57918,11 @@ Keyword mode 1364-1995 reserves ifnone: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_ifnone.sv](../tests/gen/ch22/test_gen_kw_1364_1995_ifnone.sv): begin_keywords "1364-1995" の範囲で reg ifnone; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_ifnone.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で ifnone を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-INITIAL
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves initial: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57892,10 +57930,11 @@ Keyword mode 1364-1995 reserves initial: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_initial.sv](../tests/gen/ch22/test_gen_kw_1364_1995_initial.sv): begin_keywords "1364-1995" の範囲で reg initial; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_initial.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で initial を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-INOUT
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves inout: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57903,10 +57942,11 @@ Keyword mode 1364-1995 reserves inout: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_inout.sv](../tests/gen/ch22/test_gen_kw_1364_1995_inout.sv): begin_keywords "1364-1995" の範囲で reg inout; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_inout.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で inout を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-INPUT
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves input: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57914,10 +57954,11 @@ Keyword mode 1364-1995 reserves input: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_input.sv](../tests/gen/ch22/test_gen_kw_1364_1995_input.sv): begin_keywords "1364-1995" の範囲で reg input; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_input.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で input を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-INTEGER
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves integer: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57925,10 +57966,11 @@ Keyword mode 1364-1995 reserves integer: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_integer.sv](../tests/gen/ch22/test_gen_kw_1364_1995_integer.sv): begin_keywords "1364-1995" の範囲で reg integer; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_integer.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で integer を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-JOIN
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves join: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57936,10 +57978,11 @@ Keyword mode 1364-1995 reserves join: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_join.sv](../tests/gen/ch22/test_gen_kw_1364_1995_join.sv): begin_keywords "1364-1995" の範囲で reg join; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_join.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で join を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-LARGE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves large: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57947,10 +57990,11 @@ Keyword mode 1364-1995 reserves large: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_large.sv](../tests/gen/ch22/test_gen_kw_1364_1995_large.sv): begin_keywords "1364-1995" の範囲で reg large; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_large.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で large を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-MACROMODULE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves macromodule: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57958,10 +58002,11 @@ Keyword mode 1364-1995 reserves macromodule: within a begin_keywords "1364-1995"
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_macromodule.sv](../tests/gen/ch22/test_gen_kw_1364_1995_macromodule.sv): begin_keywords "1364-1995" の範囲で reg macromodule; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_macromodule.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で macromodule を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-MEDIUM
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves medium: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57969,10 +58014,11 @@ Keyword mode 1364-1995 reserves medium: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_medium.sv](../tests/gen/ch22/test_gen_kw_1364_1995_medium.sv): begin_keywords "1364-1995" の範囲で reg medium; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_medium.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で medium を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-MODULE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves module: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57980,10 +58026,11 @@ Keyword mode 1364-1995 reserves module: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_module.sv](../tests/gen/ch22/test_gen_kw_1364_1995_module.sv): begin_keywords "1364-1995" の範囲で reg module; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_module.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で module を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NAND
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves nand: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -57991,10 +58038,11 @@ Keyword mode 1364-1995 reserves nand: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_nand.sv](../tests/gen/ch22/test_gen_kw_1364_1995_nand.sv): begin_keywords "1364-1995" の範囲で reg nand; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_nand.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で nand を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NEGEDGE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves negedge: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58002,10 +58050,11 @@ Keyword mode 1364-1995 reserves negedge: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_negedge.sv](../tests/gen/ch22/test_gen_kw_1364_1995_negedge.sv): begin_keywords "1364-1995" の範囲で reg negedge; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_negedge.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で negedge を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NMOS
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves nmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58013,10 +58062,11 @@ Keyword mode 1364-1995 reserves nmos: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_nmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_nmos.sv): begin_keywords "1364-1995" の範囲で reg nmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_nmos.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で nmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NOR
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves nor: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58024,10 +58074,11 @@ Keyword mode 1364-1995 reserves nor: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_nor.sv](../tests/gen/ch22/test_gen_kw_1364_1995_nor.sv): begin_keywords "1364-1995" の範囲で reg nor; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_nor.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で nor を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NOT
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves not: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58035,10 +58086,11 @@ Keyword mode 1364-1995 reserves not: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_not.sv](../tests/gen/ch22/test_gen_kw_1364_1995_not.sv): begin_keywords "1364-1995" の範囲で reg not; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_not.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で not を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NOTIF0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves notif0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58046,10 +58098,11 @@ Keyword mode 1364-1995 reserves notif0: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_notif0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_notif0.sv): begin_keywords "1364-1995" の範囲で reg notif0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_notif0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で notif0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NOTIF1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves notif1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58057,10 +58110,11 @@ Keyword mode 1364-1995 reserves notif1: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_notif1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_notif1.sv): begin_keywords "1364-1995" の範囲で reg notif1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_notif1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で notif1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-OR
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves or: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58068,10 +58122,11 @@ Keyword mode 1364-1995 reserves or: within a begin_keywords "1364-1995" region i
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_or.sv](../tests/gen/ch22/test_gen_kw_1364_1995_or.sv): begin_keywords "1364-1995" の範囲で reg or; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_or.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で or を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-OUTPUT
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves output: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58079,10 +58134,11 @@ Keyword mode 1364-1995 reserves output: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_output.sv](../tests/gen/ch22/test_gen_kw_1364_1995_output.sv): begin_keywords "1364-1995" の範囲で reg output; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_output.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で output を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PARAMETER
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves parameter: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58090,10 +58146,11 @@ Keyword mode 1364-1995 reserves parameter: within a begin_keywords "1364-1995" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_parameter.sv](../tests/gen/ch22/test_gen_kw_1364_1995_parameter.sv): begin_keywords "1364-1995" の範囲で reg parameter; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_parameter.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で parameter を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PMOS
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves pmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58101,10 +58158,11 @@ Keyword mode 1364-1995 reserves pmos: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_pmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pmos.sv): begin_keywords "1364-1995" の範囲で reg pmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_pmos.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で pmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-POSEDGE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves posedge: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58112,10 +58170,11 @@ Keyword mode 1364-1995 reserves posedge: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_posedge.sv](../tests/gen/ch22/test_gen_kw_1364_1995_posedge.sv): begin_keywords "1364-1995" の範囲で reg posedge; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_posedge.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で posedge を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PRIMITIVE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves primitive: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58123,10 +58182,11 @@ Keyword mode 1364-1995 reserves primitive: within a begin_keywords "1364-1995" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_primitive.sv](../tests/gen/ch22/test_gen_kw_1364_1995_primitive.sv): begin_keywords "1364-1995" の範囲で reg primitive; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_primitive.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で primitive を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PULL0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves pull0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58134,10 +58194,11 @@ Keyword mode 1364-1995 reserves pull0: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_pull0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pull0.sv): begin_keywords "1364-1995" の範囲で reg pull0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_pull0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で pull0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PULL1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves pull1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58145,10 +58206,11 @@ Keyword mode 1364-1995 reserves pull1: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_pull1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pull1.sv): begin_keywords "1364-1995" の範囲で reg pull1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_pull1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で pull1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PULLDOWN
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves pulldown: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58156,10 +58218,11 @@ Keyword mode 1364-1995 reserves pulldown: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_pulldown.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pulldown.sv): begin_keywords "1364-1995" の範囲で reg pulldown; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_pulldown.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で pulldown を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PULLUP
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves pullup: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58167,10 +58230,11 @@ Keyword mode 1364-1995 reserves pullup: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_pullup.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pullup.sv): begin_keywords "1364-1995" の範囲で reg pullup; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_pullup.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で pullup を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RCMOS
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves rcmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58178,10 +58242,11 @@ Keyword mode 1364-1995 reserves rcmos: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_rcmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rcmos.sv): begin_keywords "1364-1995" の範囲で reg rcmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_rcmos.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で rcmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-REAL
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves real: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58189,10 +58254,11 @@ Keyword mode 1364-1995 reserves real: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_real.sv](../tests/gen/ch22/test_gen_kw_1364_1995_real.sv): begin_keywords "1364-1995" の範囲で reg real; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_real.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で real を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-REALTIME
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves realtime: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58200,10 +58266,11 @@ Keyword mode 1364-1995 reserves realtime: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_realtime.sv](../tests/gen/ch22/test_gen_kw_1364_1995_realtime.sv): begin_keywords "1364-1995" の範囲で reg realtime; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_realtime.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で realtime を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-REG
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves reg: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58211,10 +58278,11 @@ Keyword mode 1364-1995 reserves reg: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_reg.sv](../tests/gen/ch22/test_gen_kw_1364_1995_reg.sv): begin_keywords "1364-1995" の範囲で reg reg; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_reg.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で reg を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RELEASE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves release: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58222,10 +58290,11 @@ Keyword mode 1364-1995 reserves release: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_release.sv](../tests/gen/ch22/test_gen_kw_1364_1995_release.sv): begin_keywords "1364-1995" の範囲で reg release; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_release.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で release を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-REPEAT
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves repeat: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58233,10 +58302,11 @@ Keyword mode 1364-1995 reserves repeat: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_repeat.sv](../tests/gen/ch22/test_gen_kw_1364_1995_repeat.sv): begin_keywords "1364-1995" の範囲で reg repeat; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_repeat.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で repeat を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RNMOS
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves rnmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58244,10 +58314,11 @@ Keyword mode 1364-1995 reserves rnmos: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_rnmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rnmos.sv): begin_keywords "1364-1995" の範囲で reg rnmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_rnmos.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で rnmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RPMOS
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves rpmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58255,10 +58326,11 @@ Keyword mode 1364-1995 reserves rpmos: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_rpmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rpmos.sv): begin_keywords "1364-1995" の範囲で reg rpmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_rpmos.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で rpmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RTRAN
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves rtran: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58266,10 +58338,11 @@ Keyword mode 1364-1995 reserves rtran: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_rtran.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rtran.sv): begin_keywords "1364-1995" の範囲で reg rtran; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_rtran.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で rtran を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RTRANIF0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves rtranif0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58277,10 +58350,11 @@ Keyword mode 1364-1995 reserves rtranif0: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_rtranif0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rtranif0.sv): begin_keywords "1364-1995" の範囲で reg rtranif0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_rtranif0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で rtranif0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RTRANIF1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves rtranif1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58288,10 +58362,11 @@ Keyword mode 1364-1995 reserves rtranif1: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_rtranif1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rtranif1.sv): begin_keywords "1364-1995" の範囲で reg rtranif1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_rtranif1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で rtranif1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SCALARED
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves scalared: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58299,10 +58374,11 @@ Keyword mode 1364-1995 reserves scalared: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_scalared.sv](../tests/gen/ch22/test_gen_kw_1364_1995_scalared.sv): begin_keywords "1364-1995" の範囲で reg scalared; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_scalared.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で scalared を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SMALL
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves small: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58310,10 +58386,11 @@ Keyword mode 1364-1995 reserves small: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_small.sv](../tests/gen/ch22/test_gen_kw_1364_1995_small.sv): begin_keywords "1364-1995" の範囲で reg small; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_small.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で small を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SPECIFY
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves specify: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58321,10 +58398,11 @@ Keyword mode 1364-1995 reserves specify: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_specify.sv](../tests/gen/ch22/test_gen_kw_1364_1995_specify.sv): begin_keywords "1364-1995" の範囲で reg specify; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_specify.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で specify を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SPECPARAM
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves specparam: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58332,10 +58410,11 @@ Keyword mode 1364-1995 reserves specparam: within a begin_keywords "1364-1995" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_specparam.sv](../tests/gen/ch22/test_gen_kw_1364_1995_specparam.sv): begin_keywords "1364-1995" の範囲で reg specparam; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_specparam.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で specparam を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-STRONG0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves strong0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58343,10 +58422,11 @@ Keyword mode 1364-1995 reserves strong0: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_strong0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_strong0.sv): begin_keywords "1364-1995" の範囲で reg strong0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_strong0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で strong0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-STRONG1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves strong1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58354,10 +58434,11 @@ Keyword mode 1364-1995 reserves strong1: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_strong1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_strong1.sv): begin_keywords "1364-1995" の範囲で reg strong1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_strong1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で strong1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SUPPLY0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves supply0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58365,10 +58446,11 @@ Keyword mode 1364-1995 reserves supply0: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_supply0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_supply0.sv): begin_keywords "1364-1995" の範囲で reg supply0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_supply0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で supply0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SUPPLY1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves supply1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58376,10 +58458,11 @@ Keyword mode 1364-1995 reserves supply1: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_supply1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_supply1.sv): begin_keywords "1364-1995" の範囲で reg supply1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_supply1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で supply1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TABLE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves table: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58387,10 +58470,11 @@ Keyword mode 1364-1995 reserves table: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_table.sv](../tests/gen/ch22/test_gen_kw_1364_1995_table.sv): begin_keywords "1364-1995" の範囲で reg table; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_table.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で table を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TASK
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves task: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58398,10 +58482,11 @@ Keyword mode 1364-1995 reserves task: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_task.sv](../tests/gen/ch22/test_gen_kw_1364_1995_task.sv): begin_keywords "1364-1995" の範囲で reg task; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_task.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で task を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TIME
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves time: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58409,10 +58494,11 @@ Keyword mode 1364-1995 reserves time: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_time.sv](../tests/gen/ch22/test_gen_kw_1364_1995_time.sv): begin_keywords "1364-1995" の範囲で reg time; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_time.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で time を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRAN
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves tran: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58420,10 +58506,11 @@ Keyword mode 1364-1995 reserves tran: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_tran.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tran.sv): begin_keywords "1364-1995" の範囲で reg tran; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_tran.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で tran を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRANIF0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves tranif0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58431,10 +58518,11 @@ Keyword mode 1364-1995 reserves tranif0: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_tranif0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tranif0.sv): begin_keywords "1364-1995" の範囲で reg tranif0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_tranif0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で tranif0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRANIF1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves tranif1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58442,10 +58530,11 @@ Keyword mode 1364-1995 reserves tranif1: within a begin_keywords "1364-1995" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_tranif1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tranif1.sv): begin_keywords "1364-1995" の範囲で reg tranif1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_tranif1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で tranif1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRI
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves tri: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58453,10 +58542,11 @@ Keyword mode 1364-1995 reserves tri: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_tri.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tri.sv): begin_keywords "1364-1995" の範囲で reg tri; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_tri.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で tri を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRI0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves tri0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58464,10 +58554,11 @@ Keyword mode 1364-1995 reserves tri0: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_tri0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tri0.sv): begin_keywords "1364-1995" の範囲で reg tri0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_tri0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で tri0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRI1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves tri1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58475,10 +58566,11 @@ Keyword mode 1364-1995 reserves tri1: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_tri1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tri1.sv): begin_keywords "1364-1995" の範囲で reg tri1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_tri1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で tri1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRIAND
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves triand: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58486,10 +58578,11 @@ Keyword mode 1364-1995 reserves triand: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_triand.sv](../tests/gen/ch22/test_gen_kw_1364_1995_triand.sv): begin_keywords "1364-1995" の範囲で reg triand; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_triand.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で triand を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRIOR
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves trior: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58497,10 +58590,11 @@ Keyword mode 1364-1995 reserves trior: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_trior.sv](../tests/gen/ch22/test_gen_kw_1364_1995_trior.sv): begin_keywords "1364-1995" の範囲で reg trior; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_trior.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で trior を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRIREG
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves trireg: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58508,10 +58602,11 @@ Keyword mode 1364-1995 reserves trireg: within a begin_keywords "1364-1995" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_trireg.sv](../tests/gen/ch22/test_gen_kw_1364_1995_trireg.sv): begin_keywords "1364-1995" の範囲で reg trireg; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_trireg.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で trireg を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-VECTORED
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves vectored: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58519,10 +58614,11 @@ Keyword mode 1364-1995 reserves vectored: within a begin_keywords "1364-1995" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_vectored.sv](../tests/gen/ch22/test_gen_kw_1364_1995_vectored.sv): begin_keywords "1364-1995" の範囲で reg vectored; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_vectored.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で vectored を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WAIT
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves wait: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58530,10 +58626,11 @@ Keyword mode 1364-1995 reserves wait: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_wait.sv](../tests/gen/ch22/test_gen_kw_1364_1995_wait.sv): begin_keywords "1364-1995" の範囲で reg wait; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_wait.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で wait を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WAND
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves wand: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58541,10 +58638,11 @@ Keyword mode 1364-1995 reserves wand: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_wand.sv](../tests/gen/ch22/test_gen_kw_1364_1995_wand.sv): begin_keywords "1364-1995" の範囲で reg wand; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_wand.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で wand を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WEAK0
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves weak0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58552,10 +58650,11 @@ Keyword mode 1364-1995 reserves weak0: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_weak0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_weak0.sv): begin_keywords "1364-1995" の範囲で reg weak0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_weak0.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で weak0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WEAK1
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves weak1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58563,10 +58662,11 @@ Keyword mode 1364-1995 reserves weak1: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_weak1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_weak1.sv): begin_keywords "1364-1995" の範囲で reg weak1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_weak1.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で weak1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WHILE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves while: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58574,10 +58674,11 @@ Keyword mode 1364-1995 reserves while: within a begin_keywords "1364-1995" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_while.sv](../tests/gen/ch22/test_gen_kw_1364_1995_while.sv): begin_keywords "1364-1995" の範囲で reg while; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_while.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で while を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WIRE
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves wire: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58585,10 +58686,11 @@ Keyword mode 1364-1995 reserves wire: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_wire.sv](../tests/gen/ch22/test_gen_kw_1364_1995_wire.sv): begin_keywords "1364-1995" の範囲で reg wire; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_wire.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で wire を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WOR
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves wor: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58596,10 +58698,11 @@ Keyword mode 1364-1995 reserves wor: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_wor.sv](../tests/gen/ch22/test_gen_kw_1364_1995_wor.sv): begin_keywords "1364-1995" の範囲で reg wor; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_wor.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で wor を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-XNOR
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves xnor: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58607,10 +58710,11 @@ Keyword mode 1364-1995 reserves xnor: within a begin_keywords "1364-1995" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_xnor.sv](../tests/gen/ch22/test_gen_kw_1364_1995_xnor.sv): begin_keywords "1364-1995" の範囲で reg xnor; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_xnor.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で xnor を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-XOR
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves xor: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
@@ -58618,10 +58722,11 @@ Keyword mode 1364-1995 reserves xor: within a begin_keywords "1364-1995" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_xor.sv](../tests/gen/ch22/test_gen_kw_1364_1995_xor.sv): begin_keywords "1364-1995" の範囲で reg xor; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_1995_xor.sv の行）でエラーになることを照合する。 区別: 1364-1995 の予約語集合で xor を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.2-EXTRACT-VERSION-SET
 
-22.14.2 / error / テスト未対応
+22.14.2 / error / 実行確認あり
 
 Keyword mode 1364-1995 reserves every keyword of its listed set: within a begin_keywords "1364-1995" region none of them can be used as an unescaped simple identifier.
 
@@ -58629,10 +58734,112 @@ Keyword mode 1364-1995 reserves every keyword of its listed set: within a begin_
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_1995_always.sv](../tests/gen/ch22/test_gen_kw_1364_1995_always.sv): begin_keywords "1364-1995" で reg always; を拒否させる。
+- [test_gen_kw_1364_1995_and.sv](../tests/gen/ch22/test_gen_kw_1364_1995_and.sv): begin_keywords "1364-1995" で reg and; を拒否させる。
+- [test_gen_kw_1364_1995_assign.sv](../tests/gen/ch22/test_gen_kw_1364_1995_assign.sv): begin_keywords "1364-1995" で reg assign; を拒否させる。
+- [test_gen_kw_1364_1995_begin.sv](../tests/gen/ch22/test_gen_kw_1364_1995_begin.sv): begin_keywords "1364-1995" で reg begin; を拒否させる。
+- [test_gen_kw_1364_1995_buf.sv](../tests/gen/ch22/test_gen_kw_1364_1995_buf.sv): begin_keywords "1364-1995" で reg buf; を拒否させる。
+- [test_gen_kw_1364_1995_bufif0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_bufif0.sv): begin_keywords "1364-1995" で reg bufif0; を拒否させる。
+- [test_gen_kw_1364_1995_bufif1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_bufif1.sv): begin_keywords "1364-1995" で reg bufif1; を拒否させる。
+- [test_gen_kw_1364_1995_case.sv](../tests/gen/ch22/test_gen_kw_1364_1995_case.sv): begin_keywords "1364-1995" で reg case; を拒否させる。
+- [test_gen_kw_1364_1995_casex.sv](../tests/gen/ch22/test_gen_kw_1364_1995_casex.sv): begin_keywords "1364-1995" で reg casex; を拒否させる。
+- [test_gen_kw_1364_1995_casez.sv](../tests/gen/ch22/test_gen_kw_1364_1995_casez.sv): begin_keywords "1364-1995" で reg casez; を拒否させる。
+- [test_gen_kw_1364_1995_cmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_cmos.sv): begin_keywords "1364-1995" で reg cmos; を拒否させる。
+- [test_gen_kw_1364_1995_deassign.sv](../tests/gen/ch22/test_gen_kw_1364_1995_deassign.sv): begin_keywords "1364-1995" で reg deassign; を拒否させる。
+- [test_gen_kw_1364_1995_default.sv](../tests/gen/ch22/test_gen_kw_1364_1995_default.sv): begin_keywords "1364-1995" で reg default; を拒否させる。
+- [test_gen_kw_1364_1995_defparam.sv](../tests/gen/ch22/test_gen_kw_1364_1995_defparam.sv): begin_keywords "1364-1995" で reg defparam; を拒否させる。
+- [test_gen_kw_1364_1995_disable.sv](../tests/gen/ch22/test_gen_kw_1364_1995_disable.sv): begin_keywords "1364-1995" で reg disable; を拒否させる。
+- [test_gen_kw_1364_1995_edge.sv](../tests/gen/ch22/test_gen_kw_1364_1995_edge.sv): begin_keywords "1364-1995" で reg edge; を拒否させる。
+- [test_gen_kw_1364_1995_else.sv](../tests/gen/ch22/test_gen_kw_1364_1995_else.sv): begin_keywords "1364-1995" で reg else; を拒否させる。
+- [test_gen_kw_1364_1995_end.sv](../tests/gen/ch22/test_gen_kw_1364_1995_end.sv): begin_keywords "1364-1995" で reg end; を拒否させる。
+- [test_gen_kw_1364_1995_endcase.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endcase.sv): begin_keywords "1364-1995" で reg endcase; を拒否させる。
+- [test_gen_kw_1364_1995_endfunction.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endfunction.sv): begin_keywords "1364-1995" で reg endfunction; を拒否させる。
+- [test_gen_kw_1364_1995_endmodule.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endmodule.sv): begin_keywords "1364-1995" で reg endmodule; を拒否させる。
+- [test_gen_kw_1364_1995_endprimitive.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endprimitive.sv): begin_keywords "1364-1995" で reg endprimitive; を拒否させる。
+- [test_gen_kw_1364_1995_endspecify.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endspecify.sv): begin_keywords "1364-1995" で reg endspecify; を拒否させる。
+- [test_gen_kw_1364_1995_endtable.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endtable.sv): begin_keywords "1364-1995" で reg endtable; を拒否させる。
+- [test_gen_kw_1364_1995_endtask.sv](../tests/gen/ch22/test_gen_kw_1364_1995_endtask.sv): begin_keywords "1364-1995" で reg endtask; を拒否させる。
+- [test_gen_kw_1364_1995_event.sv](../tests/gen/ch22/test_gen_kw_1364_1995_event.sv): begin_keywords "1364-1995" で reg event; を拒否させる。
+- [test_gen_kw_1364_1995_for.sv](../tests/gen/ch22/test_gen_kw_1364_1995_for.sv): begin_keywords "1364-1995" で reg for; を拒否させる。
+- [test_gen_kw_1364_1995_force.sv](../tests/gen/ch22/test_gen_kw_1364_1995_force.sv): begin_keywords "1364-1995" で reg force; を拒否させる。
+- [test_gen_kw_1364_1995_forever.sv](../tests/gen/ch22/test_gen_kw_1364_1995_forever.sv): begin_keywords "1364-1995" で reg forever; を拒否させる。
+- [test_gen_kw_1364_1995_fork.sv](../tests/gen/ch22/test_gen_kw_1364_1995_fork.sv): begin_keywords "1364-1995" で reg fork; を拒否させる。
+- [test_gen_kw_1364_1995_function.sv](../tests/gen/ch22/test_gen_kw_1364_1995_function.sv): begin_keywords "1364-1995" で reg function; を拒否させる。
+- [test_gen_kw_1364_1995_highz0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_highz0.sv): begin_keywords "1364-1995" で reg highz0; を拒否させる。
+- [test_gen_kw_1364_1995_highz1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_highz1.sv): begin_keywords "1364-1995" で reg highz1; を拒否させる。
+- [test_gen_kw_1364_1995_if.sv](../tests/gen/ch22/test_gen_kw_1364_1995_if.sv): begin_keywords "1364-1995" で reg if; を拒否させる。
+- [test_gen_kw_1364_1995_ifnone.sv](../tests/gen/ch22/test_gen_kw_1364_1995_ifnone.sv): begin_keywords "1364-1995" で reg ifnone; を拒否させる。
+- [test_gen_kw_1364_1995_initial.sv](../tests/gen/ch22/test_gen_kw_1364_1995_initial.sv): begin_keywords "1364-1995" で reg initial; を拒否させる。
+- [test_gen_kw_1364_1995_inout.sv](../tests/gen/ch22/test_gen_kw_1364_1995_inout.sv): begin_keywords "1364-1995" で reg inout; を拒否させる。
+- [test_gen_kw_1364_1995_input.sv](../tests/gen/ch22/test_gen_kw_1364_1995_input.sv): begin_keywords "1364-1995" で reg input; を拒否させる。
+- [test_gen_kw_1364_1995_integer.sv](../tests/gen/ch22/test_gen_kw_1364_1995_integer.sv): begin_keywords "1364-1995" で reg integer; を拒否させる。
+- [test_gen_kw_1364_1995_join.sv](../tests/gen/ch22/test_gen_kw_1364_1995_join.sv): begin_keywords "1364-1995" で reg join; を拒否させる。
+- [test_gen_kw_1364_1995_large.sv](../tests/gen/ch22/test_gen_kw_1364_1995_large.sv): begin_keywords "1364-1995" で reg large; を拒否させる。
+- [test_gen_kw_1364_1995_macromodule.sv](../tests/gen/ch22/test_gen_kw_1364_1995_macromodule.sv): begin_keywords "1364-1995" で reg macromodule; を拒否させる。
+- [test_gen_kw_1364_1995_medium.sv](../tests/gen/ch22/test_gen_kw_1364_1995_medium.sv): begin_keywords "1364-1995" で reg medium; を拒否させる。
+- [test_gen_kw_1364_1995_module.sv](../tests/gen/ch22/test_gen_kw_1364_1995_module.sv): begin_keywords "1364-1995" で reg module; を拒否させる。
+- [test_gen_kw_1364_1995_nand.sv](../tests/gen/ch22/test_gen_kw_1364_1995_nand.sv): begin_keywords "1364-1995" で reg nand; を拒否させる。
+- [test_gen_kw_1364_1995_negedge.sv](../tests/gen/ch22/test_gen_kw_1364_1995_negedge.sv): begin_keywords "1364-1995" で reg negedge; を拒否させる。
+- [test_gen_kw_1364_1995_nmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_nmos.sv): begin_keywords "1364-1995" で reg nmos; を拒否させる。
+- [test_gen_kw_1364_1995_nor.sv](../tests/gen/ch22/test_gen_kw_1364_1995_nor.sv): begin_keywords "1364-1995" で reg nor; を拒否させる。
+- [test_gen_kw_1364_1995_not.sv](../tests/gen/ch22/test_gen_kw_1364_1995_not.sv): begin_keywords "1364-1995" で reg not; を拒否させる。
+- [test_gen_kw_1364_1995_notif0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_notif0.sv): begin_keywords "1364-1995" で reg notif0; を拒否させる。
+- [test_gen_kw_1364_1995_notif1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_notif1.sv): begin_keywords "1364-1995" で reg notif1; を拒否させる。
+- [test_gen_kw_1364_1995_or.sv](../tests/gen/ch22/test_gen_kw_1364_1995_or.sv): begin_keywords "1364-1995" で reg or; を拒否させる。
+- [test_gen_kw_1364_1995_output.sv](../tests/gen/ch22/test_gen_kw_1364_1995_output.sv): begin_keywords "1364-1995" で reg output; を拒否させる。
+- [test_gen_kw_1364_1995_parameter.sv](../tests/gen/ch22/test_gen_kw_1364_1995_parameter.sv): begin_keywords "1364-1995" で reg parameter; を拒否させる。
+- [test_gen_kw_1364_1995_pmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pmos.sv): begin_keywords "1364-1995" で reg pmos; を拒否させる。
+- [test_gen_kw_1364_1995_posedge.sv](../tests/gen/ch22/test_gen_kw_1364_1995_posedge.sv): begin_keywords "1364-1995" で reg posedge; を拒否させる。
+- [test_gen_kw_1364_1995_primitive.sv](../tests/gen/ch22/test_gen_kw_1364_1995_primitive.sv): begin_keywords "1364-1995" で reg primitive; を拒否させる。
+- [test_gen_kw_1364_1995_pull0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pull0.sv): begin_keywords "1364-1995" で reg pull0; を拒否させる。
+- [test_gen_kw_1364_1995_pull1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pull1.sv): begin_keywords "1364-1995" で reg pull1; を拒否させる。
+- [test_gen_kw_1364_1995_pulldown.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pulldown.sv): begin_keywords "1364-1995" で reg pulldown; を拒否させる。
+- [test_gen_kw_1364_1995_pullup.sv](../tests/gen/ch22/test_gen_kw_1364_1995_pullup.sv): begin_keywords "1364-1995" で reg pullup; を拒否させる。
+- [test_gen_kw_1364_1995_rcmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rcmos.sv): begin_keywords "1364-1995" で reg rcmos; を拒否させる。
+- [test_gen_kw_1364_1995_real.sv](../tests/gen/ch22/test_gen_kw_1364_1995_real.sv): begin_keywords "1364-1995" で reg real; を拒否させる。
+- [test_gen_kw_1364_1995_realtime.sv](../tests/gen/ch22/test_gen_kw_1364_1995_realtime.sv): begin_keywords "1364-1995" で reg realtime; を拒否させる。
+- [test_gen_kw_1364_1995_reg.sv](../tests/gen/ch22/test_gen_kw_1364_1995_reg.sv): begin_keywords "1364-1995" で reg reg; を拒否させる。
+- [test_gen_kw_1364_1995_release.sv](../tests/gen/ch22/test_gen_kw_1364_1995_release.sv): begin_keywords "1364-1995" で reg release; を拒否させる。
+- [test_gen_kw_1364_1995_repeat.sv](../tests/gen/ch22/test_gen_kw_1364_1995_repeat.sv): begin_keywords "1364-1995" で reg repeat; を拒否させる。
+- [test_gen_kw_1364_1995_rnmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rnmos.sv): begin_keywords "1364-1995" で reg rnmos; を拒否させる。
+- [test_gen_kw_1364_1995_rpmos.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rpmos.sv): begin_keywords "1364-1995" で reg rpmos; を拒否させる。
+- [test_gen_kw_1364_1995_rtran.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rtran.sv): begin_keywords "1364-1995" で reg rtran; を拒否させる。
+- [test_gen_kw_1364_1995_rtranif0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rtranif0.sv): begin_keywords "1364-1995" で reg rtranif0; を拒否させる。
+- [test_gen_kw_1364_1995_rtranif1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_rtranif1.sv): begin_keywords "1364-1995" で reg rtranif1; を拒否させる。
+- [test_gen_kw_1364_1995_scalared.sv](../tests/gen/ch22/test_gen_kw_1364_1995_scalared.sv): begin_keywords "1364-1995" で reg scalared; を拒否させる。
+- [test_gen_kw_1364_1995_small.sv](../tests/gen/ch22/test_gen_kw_1364_1995_small.sv): begin_keywords "1364-1995" で reg small; を拒否させる。
+- [test_gen_kw_1364_1995_specify.sv](../tests/gen/ch22/test_gen_kw_1364_1995_specify.sv): begin_keywords "1364-1995" で reg specify; を拒否させる。
+- [test_gen_kw_1364_1995_specparam.sv](../tests/gen/ch22/test_gen_kw_1364_1995_specparam.sv): begin_keywords "1364-1995" で reg specparam; を拒否させる。
+- [test_gen_kw_1364_1995_strong0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_strong0.sv): begin_keywords "1364-1995" で reg strong0; を拒否させる。
+- [test_gen_kw_1364_1995_strong1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_strong1.sv): begin_keywords "1364-1995" で reg strong1; を拒否させる。
+- [test_gen_kw_1364_1995_supply0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_supply0.sv): begin_keywords "1364-1995" で reg supply0; を拒否させる。
+- [test_gen_kw_1364_1995_supply1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_supply1.sv): begin_keywords "1364-1995" で reg supply1; を拒否させる。
+- [test_gen_kw_1364_1995_table.sv](../tests/gen/ch22/test_gen_kw_1364_1995_table.sv): begin_keywords "1364-1995" で reg table; を拒否させる。
+- [test_gen_kw_1364_1995_task.sv](../tests/gen/ch22/test_gen_kw_1364_1995_task.sv): begin_keywords "1364-1995" で reg task; を拒否させる。
+- [test_gen_kw_1364_1995_time.sv](../tests/gen/ch22/test_gen_kw_1364_1995_time.sv): begin_keywords "1364-1995" で reg time; を拒否させる。
+- [test_gen_kw_1364_1995_tran.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tran.sv): begin_keywords "1364-1995" で reg tran; を拒否させる。
+- [test_gen_kw_1364_1995_tranif0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tranif0.sv): begin_keywords "1364-1995" で reg tranif0; を拒否させる。
+- [test_gen_kw_1364_1995_tranif1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tranif1.sv): begin_keywords "1364-1995" で reg tranif1; を拒否させる。
+- [test_gen_kw_1364_1995_tri.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tri.sv): begin_keywords "1364-1995" で reg tri; を拒否させる。
+- [test_gen_kw_1364_1995_tri0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tri0.sv): begin_keywords "1364-1995" で reg tri0; を拒否させる。
+- [test_gen_kw_1364_1995_tri1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_tri1.sv): begin_keywords "1364-1995" で reg tri1; を拒否させる。
+- [test_gen_kw_1364_1995_triand.sv](../tests/gen/ch22/test_gen_kw_1364_1995_triand.sv): begin_keywords "1364-1995" で reg triand; を拒否させる。
+- [test_gen_kw_1364_1995_trior.sv](../tests/gen/ch22/test_gen_kw_1364_1995_trior.sv): begin_keywords "1364-1995" で reg trior; を拒否させる。
+- [test_gen_kw_1364_1995_trireg.sv](../tests/gen/ch22/test_gen_kw_1364_1995_trireg.sv): begin_keywords "1364-1995" で reg trireg; を拒否させる。
+- [test_gen_kw_1364_1995_vectored.sv](../tests/gen/ch22/test_gen_kw_1364_1995_vectored.sv): begin_keywords "1364-1995" で reg vectored; を拒否させる。
+- [test_gen_kw_1364_1995_wait.sv](../tests/gen/ch22/test_gen_kw_1364_1995_wait.sv): begin_keywords "1364-1995" で reg wait; を拒否させる。
+- [test_gen_kw_1364_1995_wand.sv](../tests/gen/ch22/test_gen_kw_1364_1995_wand.sv): begin_keywords "1364-1995" で reg wand; を拒否させる。
+- [test_gen_kw_1364_1995_weak0.sv](../tests/gen/ch22/test_gen_kw_1364_1995_weak0.sv): begin_keywords "1364-1995" で reg weak0; を拒否させる。
+- [test_gen_kw_1364_1995_weak1.sv](../tests/gen/ch22/test_gen_kw_1364_1995_weak1.sv): begin_keywords "1364-1995" で reg weak1; を拒否させる。
+- [test_gen_kw_1364_1995_while.sv](../tests/gen/ch22/test_gen_kw_1364_1995_while.sv): begin_keywords "1364-1995" で reg while; を拒否させる。
+- [test_gen_kw_1364_1995_wire.sv](../tests/gen/ch22/test_gen_kw_1364_1995_wire.sv): begin_keywords "1364-1995" で reg wire; を拒否させる。
+- [test_gen_kw_1364_1995_wor.sv](../tests/gen/ch22/test_gen_kw_1364_1995_wor.sv): begin_keywords "1364-1995" で reg wor; を拒否させる。
+- [test_gen_kw_1364_1995_xnor.sv](../tests/gen/ch22/test_gen_kw_1364_1995_xnor.sv): begin_keywords "1364-1995" で reg xnor; を拒否させる。
+- [test_gen_kw_1364_1995_xor.sv](../tests/gen/ch22/test_gen_kw_1364_1995_xor.sv): begin_keywords "1364-1995" で reg xor; を拒否させる。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-AUTOMATIC
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves automatic: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58640,10 +58847,11 @@ Keyword mode 1364-2001 reserves automatic: within a begin_keywords "1364-2001" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_automatic.sv](../tests/gen/ch22/test_gen_kw_1364_2001_automatic.sv): begin_keywords "1364-2001" の範囲で reg automatic; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_automatic.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で automatic を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-CELL
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves cell: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58651,10 +58859,11 @@ Keyword mode 1364-2001 reserves cell: within a begin_keywords "1364-2001" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_cell.sv](../tests/gen/ch22/test_gen_kw_1364_2001_cell.sv): begin_keywords "1364-2001" の範囲で reg cell; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_cell.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で cell を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-CONFIG
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves config: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58662,10 +58871,11 @@ Keyword mode 1364-2001 reserves config: within a begin_keywords "1364-2001" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_config.sv](../tests/gen/ch22/test_gen_kw_1364_2001_config.sv): begin_keywords "1364-2001" の範囲で reg config; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_config.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で config を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-DESIGN
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves design: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58673,10 +58883,11 @@ Keyword mode 1364-2001 reserves design: within a begin_keywords "1364-2001" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_design.sv](../tests/gen/ch22/test_gen_kw_1364_2001_design.sv): begin_keywords "1364-2001" の範囲で reg design; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_design.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で design を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-ENDCONFIG
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves endconfig: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58684,10 +58895,11 @@ Keyword mode 1364-2001 reserves endconfig: within a begin_keywords "1364-2001" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_endconfig.sv](../tests/gen/ch22/test_gen_kw_1364_2001_endconfig.sv): begin_keywords "1364-2001" の範囲で reg endconfig; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_endconfig.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で endconfig を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-ENDGENERATE
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves endgenerate: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58695,10 +58907,11 @@ Keyword mode 1364-2001 reserves endgenerate: within a begin_keywords "1364-2001"
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_endgenerate.sv](../tests/gen/ch22/test_gen_kw_1364_2001_endgenerate.sv): begin_keywords "1364-2001" の範囲で reg endgenerate; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_endgenerate.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で endgenerate を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-GENERATE
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves generate: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58706,10 +58919,11 @@ Keyword mode 1364-2001 reserves generate: within a begin_keywords "1364-2001" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_generate.sv](../tests/gen/ch22/test_gen_kw_1364_2001_generate.sv): begin_keywords "1364-2001" の範囲で reg generate; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_generate.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で generate を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-GENVAR
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves genvar: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58717,10 +58931,11 @@ Keyword mode 1364-2001 reserves genvar: within a begin_keywords "1364-2001" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_genvar.sv](../tests/gen/ch22/test_gen_kw_1364_2001_genvar.sv): begin_keywords "1364-2001" の範囲で reg genvar; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_genvar.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で genvar を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-INCDIR
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves incdir: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58728,10 +58943,11 @@ Keyword mode 1364-2001 reserves incdir: within a begin_keywords "1364-2001" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_incdir.sv](../tests/gen/ch22/test_gen_kw_1364_2001_incdir.sv): begin_keywords "1364-2001" の範囲で reg incdir; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_incdir.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で incdir を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-INCLUDE
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves include: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58739,10 +58955,11 @@ Keyword mode 1364-2001 reserves include: within a begin_keywords "1364-2001" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_include.sv](../tests/gen/ch22/test_gen_kw_1364_2001_include.sv): begin_keywords "1364-2001" の範囲で reg include; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_include.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で include を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-INSTANCE
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves instance: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58750,10 +58967,11 @@ Keyword mode 1364-2001 reserves instance: within a begin_keywords "1364-2001" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_instance.sv](../tests/gen/ch22/test_gen_kw_1364_2001_instance.sv): begin_keywords "1364-2001" の範囲で reg instance; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_instance.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で instance を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-LIBLIST
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves liblist: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58761,10 +58979,11 @@ Keyword mode 1364-2001 reserves liblist: within a begin_keywords "1364-2001" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_liblist.sv](../tests/gen/ch22/test_gen_kw_1364_2001_liblist.sv): begin_keywords "1364-2001" の範囲で reg liblist; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_liblist.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で liblist を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-LIBRARY
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves library: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58772,10 +58991,11 @@ Keyword mode 1364-2001 reserves library: within a begin_keywords "1364-2001" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_library.sv](../tests/gen/ch22/test_gen_kw_1364_2001_library.sv): begin_keywords "1364-2001" の範囲で reg library; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_library.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で library を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-LOCALPARAM
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves localparam: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58783,10 +59003,11 @@ Keyword mode 1364-2001 reserves localparam: within a begin_keywords "1364-2001" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_localparam.sv](../tests/gen/ch22/test_gen_kw_1364_2001_localparam.sv): begin_keywords "1364-2001" の範囲で reg localparam; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_localparam.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で localparam を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-NOSHOWCANCELLED
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves noshowcancelled: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58794,10 +59015,11 @@ Keyword mode 1364-2001 reserves noshowcancelled: within a begin_keywords "1364-2
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_noshowcancelled.sv](../tests/gen/ch22/test_gen_kw_1364_2001_noshowcancelled.sv): begin_keywords "1364-2001" の範囲で reg noshowcancelled; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_noshowcancelled.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で noshowcancelled を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-PULSESTYLE-ONDETECT
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves pulsestyle_ondetect: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58805,10 +59027,11 @@ Keyword mode 1364-2001 reserves pulsestyle_ondetect: within a begin_keywords "13
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_pulsestyle_ondetect.sv](../tests/gen/ch22/test_gen_kw_1364_2001_pulsestyle_ondetect.sv): begin_keywords "1364-2001" の範囲で reg pulsestyle_ondetect; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_pulsestyle_ondetect.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で pulsestyle_ondetect を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-PULSESTYLE-ONEVENT
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves pulsestyle_onevent: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58816,10 +59039,11 @@ Keyword mode 1364-2001 reserves pulsestyle_onevent: within a begin_keywords "136
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_pulsestyle_onevent.sv](../tests/gen/ch22/test_gen_kw_1364_2001_pulsestyle_onevent.sv): begin_keywords "1364-2001" の範囲で reg pulsestyle_onevent; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_pulsestyle_onevent.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で pulsestyle_onevent を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-SHOWCANCELLED
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves showcancelled: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58827,10 +59051,11 @@ Keyword mode 1364-2001 reserves showcancelled: within a begin_keywords "1364-200
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_showcancelled.sv](../tests/gen/ch22/test_gen_kw_1364_2001_showcancelled.sv): begin_keywords "1364-2001" の範囲で reg showcancelled; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_showcancelled.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で showcancelled を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-SIGNED
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves signed: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58838,10 +59063,11 @@ Keyword mode 1364-2001 reserves signed: within a begin_keywords "1364-2001" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_signed.sv](../tests/gen/ch22/test_gen_kw_1364_2001_signed.sv): begin_keywords "1364-2001" の範囲で reg signed; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_signed.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で signed を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-UNSIGNED
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves unsigned: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58849,10 +59075,11 @@ Keyword mode 1364-2001 reserves unsigned: within a begin_keywords "1364-2001" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_unsigned.sv](../tests/gen/ch22/test_gen_kw_1364_2001_unsigned.sv): begin_keywords "1364-2001" の範囲で reg unsigned; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_unsigned.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で unsigned を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-USE
 
-22.14.3 / error / テスト未対応
+22.14.3 / error / 実行確認あり
 
 Keyword mode 1364-2001 reserves use: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
@@ -58860,6 +59087,7 @@ Keyword mode 1364-2001 reserves use: within a begin_keywords "1364-2001" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2001_use.sv](../tests/gen/ch22/test_gen_kw_1364_2001_use.sv): begin_keywords "1364-2001" の範囲で reg use; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2001_use.sv の行）でエラーになることを照合する。 区別: 1364-2001 の予約語集合で use を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.3-EXTRACT-VERSION-SET
 
@@ -58998,7 +59226,7 @@ Keyword mode 1364-2001-noconfig reserves every keyword of the 1364-2001 set exce
 
 ### SV2023-22.14.5-EXTRACT-RESERVED-UWIRE
 
-22.14.5 / error / テスト未対応
+22.14.5 / error / 実行確認あり
 
 Keyword mode 1364-2005 reserves uwire: within a begin_keywords "1364-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59006,6 +59234,7 @@ Keyword mode 1364-2005 reserves uwire: within a begin_keywords "1364-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1364_2005_uwire.sv](../tests/gen/ch22/test_gen_kw_1364_2005_uwire.sv): begin_keywords "1364-2005" の範囲で reg uwire; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1364_2005_uwire.sv の行）でエラーになることを照合する。 区別: 1364-2005 の予約語集合で uwire を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.5-EXTRACT-VERSION-SET
 
@@ -59020,7 +59249,7 @@ Keyword mode 1364-2005 reserves every keyword of the full 1364-2001 keyword set 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ALIAS
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves alias: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59028,10 +59257,11 @@ Keyword mode 1800-2005 reserves alias: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_alias.sv](../tests/gen/ch22/test_gen_kw_1800_2005_alias.sv): begin_keywords "1800-2005" の範囲で reg alias; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_alias.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で alias を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ALWAYS-COMB
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves always_comb: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59039,10 +59269,11 @@ Keyword mode 1800-2005 reserves always_comb: within a begin_keywords "1800-2005"
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_always_comb.sv](../tests/gen/ch22/test_gen_kw_1800_2005_always_comb.sv): begin_keywords "1800-2005" の範囲で reg always_comb; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_always_comb.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で always_comb を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ALWAYS-FF
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves always_ff: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59050,10 +59281,11 @@ Keyword mode 1800-2005 reserves always_ff: within a begin_keywords "1800-2005" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_always_ff.sv](../tests/gen/ch22/test_gen_kw_1800_2005_always_ff.sv): begin_keywords "1800-2005" の範囲で reg always_ff; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_always_ff.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で always_ff を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ALWAYS-LATCH
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves always_latch: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59061,10 +59293,11 @@ Keyword mode 1800-2005 reserves always_latch: within a begin_keywords "1800-2005
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_always_latch.sv](../tests/gen/ch22/test_gen_kw_1800_2005_always_latch.sv): begin_keywords "1800-2005" の範囲で reg always_latch; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_always_latch.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で always_latch を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ASSERT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves assert: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59072,10 +59305,11 @@ Keyword mode 1800-2005 reserves assert: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_assert.sv](../tests/gen/ch22/test_gen_kw_1800_2005_assert.sv): begin_keywords "1800-2005" の範囲で reg assert; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_assert.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で assert を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ASSUME
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves assume: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59083,10 +59317,11 @@ Keyword mode 1800-2005 reserves assume: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_assume.sv](../tests/gen/ch22/test_gen_kw_1800_2005_assume.sv): begin_keywords "1800-2005" の範囲で reg assume; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_assume.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で assume を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BEFORE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves before: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59094,10 +59329,11 @@ Keyword mode 1800-2005 reserves before: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_before.sv](../tests/gen/ch22/test_gen_kw_1800_2005_before.sv): begin_keywords "1800-2005" の範囲で reg before; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_before.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で before を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BIND
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves bind: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59105,10 +59341,11 @@ Keyword mode 1800-2005 reserves bind: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_bind.sv](../tests/gen/ch22/test_gen_kw_1800_2005_bind.sv): begin_keywords "1800-2005" の範囲で reg bind; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_bind.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で bind を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BINS
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves bins: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59116,10 +59353,11 @@ Keyword mode 1800-2005 reserves bins: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_bins.sv](../tests/gen/ch22/test_gen_kw_1800_2005_bins.sv): begin_keywords "1800-2005" の範囲で reg bins; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_bins.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で bins を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BINSOF
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves binsof: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59127,10 +59365,11 @@ Keyword mode 1800-2005 reserves binsof: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_binsof.sv](../tests/gen/ch22/test_gen_kw_1800_2005_binsof.sv): begin_keywords "1800-2005" の範囲で reg binsof; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_binsof.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で binsof を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BIT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves bit: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59138,10 +59377,11 @@ Keyword mode 1800-2005 reserves bit: within a begin_keywords "1800-2005" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_bit.sv](../tests/gen/ch22/test_gen_kw_1800_2005_bit.sv): begin_keywords "1800-2005" の範囲で reg bit; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_bit.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で bit を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BREAK
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves break: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59149,10 +59389,11 @@ Keyword mode 1800-2005 reserves break: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_break.sv](../tests/gen/ch22/test_gen_kw_1800_2005_break.sv): begin_keywords "1800-2005" の範囲で reg break; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_break.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で break を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BYTE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves byte: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59160,10 +59401,11 @@ Keyword mode 1800-2005 reserves byte: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_byte.sv](../tests/gen/ch22/test_gen_kw_1800_2005_byte.sv): begin_keywords "1800-2005" の範囲で reg byte; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_byte.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で byte を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CHANDLE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves chandle: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59171,10 +59413,11 @@ Keyword mode 1800-2005 reserves chandle: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_chandle.sv](../tests/gen/ch22/test_gen_kw_1800_2005_chandle.sv): begin_keywords "1800-2005" の範囲で reg chandle; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_chandle.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で chandle を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CLASS
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves class: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59182,10 +59425,11 @@ Keyword mode 1800-2005 reserves class: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_class.sv](../tests/gen/ch22/test_gen_kw_1800_2005_class.sv): begin_keywords "1800-2005" の範囲で reg class; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_class.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で class を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CLOCKING
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves clocking: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59193,10 +59437,11 @@ Keyword mode 1800-2005 reserves clocking: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_clocking.sv](../tests/gen/ch22/test_gen_kw_1800_2005_clocking.sv): begin_keywords "1800-2005" の範囲で reg clocking; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_clocking.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で clocking を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CONST
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves const: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59204,10 +59449,11 @@ Keyword mode 1800-2005 reserves const: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_const.sv](../tests/gen/ch22/test_gen_kw_1800_2005_const.sv): begin_keywords "1800-2005" の範囲で reg const; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_const.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で const を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CONSTRAINT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves constraint: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59215,10 +59461,11 @@ Keyword mode 1800-2005 reserves constraint: within a begin_keywords "1800-2005" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_constraint.sv](../tests/gen/ch22/test_gen_kw_1800_2005_constraint.sv): begin_keywords "1800-2005" の範囲で reg constraint; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_constraint.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で constraint を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CONTEXT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves context: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59226,10 +59473,11 @@ Keyword mode 1800-2005 reserves context: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_context.sv](../tests/gen/ch22/test_gen_kw_1800_2005_context.sv): begin_keywords "1800-2005" の範囲で reg context; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_context.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で context を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CONTINUE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves continue: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59237,10 +59485,11 @@ Keyword mode 1800-2005 reserves continue: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_continue.sv](../tests/gen/ch22/test_gen_kw_1800_2005_continue.sv): begin_keywords "1800-2005" の範囲で reg continue; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_continue.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で continue を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-COVER
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves cover: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59248,10 +59497,11 @@ Keyword mode 1800-2005 reserves cover: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_cover.sv](../tests/gen/ch22/test_gen_kw_1800_2005_cover.sv): begin_keywords "1800-2005" の範囲で reg cover; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_cover.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で cover を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-COVERGROUP
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves covergroup: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59259,10 +59509,11 @@ Keyword mode 1800-2005 reserves covergroup: within a begin_keywords "1800-2005" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_covergroup.sv](../tests/gen/ch22/test_gen_kw_1800_2005_covergroup.sv): begin_keywords "1800-2005" の範囲で reg covergroup; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_covergroup.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で covergroup を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-COVERPOINT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves coverpoint: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59270,10 +59521,11 @@ Keyword mode 1800-2005 reserves coverpoint: within a begin_keywords "1800-2005" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_coverpoint.sv](../tests/gen/ch22/test_gen_kw_1800_2005_coverpoint.sv): begin_keywords "1800-2005" の範囲で reg coverpoint; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_coverpoint.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で coverpoint を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CROSS
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves cross: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59281,10 +59533,11 @@ Keyword mode 1800-2005 reserves cross: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_cross.sv](../tests/gen/ch22/test_gen_kw_1800_2005_cross.sv): begin_keywords "1800-2005" の範囲で reg cross; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_cross.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で cross を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-DIST
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves dist: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59292,10 +59545,11 @@ Keyword mode 1800-2005 reserves dist: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_dist.sv](../tests/gen/ch22/test_gen_kw_1800_2005_dist.sv): begin_keywords "1800-2005" の範囲で reg dist; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_dist.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で dist を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-DO
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves do: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59303,10 +59557,11 @@ Keyword mode 1800-2005 reserves do: within a begin_keywords "1800-2005" region i
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_do.sv](../tests/gen/ch22/test_gen_kw_1800_2005_do.sv): begin_keywords "1800-2005" の範囲で reg do; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_do.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で do を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDCLASS
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves endclass: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59314,10 +59569,11 @@ Keyword mode 1800-2005 reserves endclass: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_endclass.sv](../tests/gen/ch22/test_gen_kw_1800_2005_endclass.sv): begin_keywords "1800-2005" の範囲で reg endclass; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_endclass.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で endclass を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDCLOCKING
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves endclocking: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59325,10 +59581,11 @@ Keyword mode 1800-2005 reserves endclocking: within a begin_keywords "1800-2005"
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_endclocking.sv](../tests/gen/ch22/test_gen_kw_1800_2005_endclocking.sv): begin_keywords "1800-2005" の範囲で reg endclocking; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_endclocking.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で endclocking を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDGROUP
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves endgroup: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59336,10 +59593,11 @@ Keyword mode 1800-2005 reserves endgroup: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_endgroup.sv](../tests/gen/ch22/test_gen_kw_1800_2005_endgroup.sv): begin_keywords "1800-2005" の範囲で reg endgroup; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_endgroup.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で endgroup を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDINTERFACE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves endinterface: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59347,10 +59605,11 @@ Keyword mode 1800-2005 reserves endinterface: within a begin_keywords "1800-2005
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_endinterface.sv](../tests/gen/ch22/test_gen_kw_1800_2005_endinterface.sv): begin_keywords "1800-2005" の範囲で reg endinterface; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_endinterface.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で endinterface を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDPACKAGE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves endpackage: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59358,10 +59617,11 @@ Keyword mode 1800-2005 reserves endpackage: within a begin_keywords "1800-2005" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_endpackage.sv](../tests/gen/ch22/test_gen_kw_1800_2005_endpackage.sv): begin_keywords "1800-2005" の範囲で reg endpackage; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_endpackage.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で endpackage を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDPROGRAM
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves endprogram: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59369,10 +59629,11 @@ Keyword mode 1800-2005 reserves endprogram: within a begin_keywords "1800-2005" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_endprogram.sv](../tests/gen/ch22/test_gen_kw_1800_2005_endprogram.sv): begin_keywords "1800-2005" の範囲で reg endprogram; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_endprogram.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で endprogram を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDPROPERTY
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves endproperty: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59380,10 +59641,11 @@ Keyword mode 1800-2005 reserves endproperty: within a begin_keywords "1800-2005"
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_endproperty.sv](../tests/gen/ch22/test_gen_kw_1800_2005_endproperty.sv): begin_keywords "1800-2005" の範囲で reg endproperty; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_endproperty.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で endproperty を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDSEQUENCE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves endsequence: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59391,10 +59653,11 @@ Keyword mode 1800-2005 reserves endsequence: within a begin_keywords "1800-2005"
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_endsequence.sv](../tests/gen/ch22/test_gen_kw_1800_2005_endsequence.sv): begin_keywords "1800-2005" の範囲で reg endsequence; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_endsequence.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で endsequence を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENUM
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves enum: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59402,10 +59665,11 @@ Keyword mode 1800-2005 reserves enum: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_enum.sv](../tests/gen/ch22/test_gen_kw_1800_2005_enum.sv): begin_keywords "1800-2005" の範囲で reg enum; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_enum.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で enum を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-EXPECT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves expect: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59413,10 +59677,11 @@ Keyword mode 1800-2005 reserves expect: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_expect.sv](../tests/gen/ch22/test_gen_kw_1800_2005_expect.sv): begin_keywords "1800-2005" の範囲で reg expect; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_expect.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で expect を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-EXPORT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves export: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59424,10 +59689,11 @@ Keyword mode 1800-2005 reserves export: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_export.sv](../tests/gen/ch22/test_gen_kw_1800_2005_export.sv): begin_keywords "1800-2005" の範囲で reg export; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_export.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で export を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-EXTENDS
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves extends: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59435,10 +59701,11 @@ Keyword mode 1800-2005 reserves extends: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_extends.sv](../tests/gen/ch22/test_gen_kw_1800_2005_extends.sv): begin_keywords "1800-2005" の範囲で reg extends; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_extends.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で extends を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-EXTERN
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves extern: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59446,10 +59713,11 @@ Keyword mode 1800-2005 reserves extern: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_extern.sv](../tests/gen/ch22/test_gen_kw_1800_2005_extern.sv): begin_keywords "1800-2005" の範囲で reg extern; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_extern.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で extern を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-FINAL
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves final: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59457,10 +59725,11 @@ Keyword mode 1800-2005 reserves final: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_final.sv](../tests/gen/ch22/test_gen_kw_1800_2005_final.sv): begin_keywords "1800-2005" の範囲で reg final; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_final.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で final を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-FIRST-MATCH
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves first_match: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59468,10 +59737,11 @@ Keyword mode 1800-2005 reserves first_match: within a begin_keywords "1800-2005"
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_first_match.sv](../tests/gen/ch22/test_gen_kw_1800_2005_first_match.sv): begin_keywords "1800-2005" の範囲で reg first_match; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_first_match.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で first_match を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-FOREACH
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves foreach: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59479,10 +59749,11 @@ Keyword mode 1800-2005 reserves foreach: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_foreach.sv](../tests/gen/ch22/test_gen_kw_1800_2005_foreach.sv): begin_keywords "1800-2005" の範囲で reg foreach; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_foreach.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で foreach を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-FORKJOIN
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves forkjoin: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59490,10 +59761,11 @@ Keyword mode 1800-2005 reserves forkjoin: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_forkjoin.sv](../tests/gen/ch22/test_gen_kw_1800_2005_forkjoin.sv): begin_keywords "1800-2005" の範囲で reg forkjoin; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_forkjoin.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で forkjoin を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-IFF
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves iff: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59501,10 +59773,11 @@ Keyword mode 1800-2005 reserves iff: within a begin_keywords "1800-2005" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_iff.sv](../tests/gen/ch22/test_gen_kw_1800_2005_iff.sv): begin_keywords "1800-2005" の範囲で reg iff; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_iff.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で iff を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-IGNORE-BINS
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves ignore_bins: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59512,10 +59785,11 @@ Keyword mode 1800-2005 reserves ignore_bins: within a begin_keywords "1800-2005"
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_ignore_bins.sv](../tests/gen/ch22/test_gen_kw_1800_2005_ignore_bins.sv): begin_keywords "1800-2005" の範囲で reg ignore_bins; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_ignore_bins.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で ignore_bins を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ILLEGAL-BINS
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves illegal_bins: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59523,10 +59797,11 @@ Keyword mode 1800-2005 reserves illegal_bins: within a begin_keywords "1800-2005
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_illegal_bins.sv](../tests/gen/ch22/test_gen_kw_1800_2005_illegal_bins.sv): begin_keywords "1800-2005" の範囲で reg illegal_bins; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_illegal_bins.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で illegal_bins を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-IMPORT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves import: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59534,10 +59809,11 @@ Keyword mode 1800-2005 reserves import: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_import.sv](../tests/gen/ch22/test_gen_kw_1800_2005_import.sv): begin_keywords "1800-2005" の範囲で reg import; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_import.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で import を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-INSIDE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves inside: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59545,10 +59821,11 @@ Keyword mode 1800-2005 reserves inside: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_inside.sv](../tests/gen/ch22/test_gen_kw_1800_2005_inside.sv): begin_keywords "1800-2005" の範囲で reg inside; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_inside.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で inside を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-INT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves int: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59556,10 +59833,11 @@ Keyword mode 1800-2005 reserves int: within a begin_keywords "1800-2005" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_int.sv](../tests/gen/ch22/test_gen_kw_1800_2005_int.sv): begin_keywords "1800-2005" の範囲で reg int; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_int.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で int を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-INTERFACE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves interface: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59567,10 +59845,11 @@ Keyword mode 1800-2005 reserves interface: within a begin_keywords "1800-2005" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_interface.sv](../tests/gen/ch22/test_gen_kw_1800_2005_interface.sv): begin_keywords "1800-2005" の範囲で reg interface; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_interface.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で interface を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-INTERSECT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves intersect: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59578,10 +59857,11 @@ Keyword mode 1800-2005 reserves intersect: within a begin_keywords "1800-2005" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_intersect.sv](../tests/gen/ch22/test_gen_kw_1800_2005_intersect.sv): begin_keywords "1800-2005" の範囲で reg intersect; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_intersect.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で intersect を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-JOIN-ANY
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves join_any: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59589,10 +59869,11 @@ Keyword mode 1800-2005 reserves join_any: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_join_any.sv](../tests/gen/ch22/test_gen_kw_1800_2005_join_any.sv): begin_keywords "1800-2005" の範囲で reg join_any; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_join_any.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で join_any を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-JOIN-NONE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves join_none: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59600,10 +59881,11 @@ Keyword mode 1800-2005 reserves join_none: within a begin_keywords "1800-2005" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_join_none.sv](../tests/gen/ch22/test_gen_kw_1800_2005_join_none.sv): begin_keywords "1800-2005" の範囲で reg join_none; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_join_none.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で join_none を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-LOCAL
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves local: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59611,10 +59893,11 @@ Keyword mode 1800-2005 reserves local: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_local.sv](../tests/gen/ch22/test_gen_kw_1800_2005_local.sv): begin_keywords "1800-2005" の範囲で reg local; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_local.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で local を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-LOGIC
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves logic: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59622,10 +59905,11 @@ Keyword mode 1800-2005 reserves logic: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_logic.sv](../tests/gen/ch22/test_gen_kw_1800_2005_logic.sv): begin_keywords "1800-2005" の範囲で reg logic; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_logic.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で logic を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-LONGINT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves longint: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59633,10 +59917,11 @@ Keyword mode 1800-2005 reserves longint: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_longint.sv](../tests/gen/ch22/test_gen_kw_1800_2005_longint.sv): begin_keywords "1800-2005" の範囲で reg longint; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_longint.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で longint を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-MATCHES
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves matches: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59644,10 +59929,11 @@ Keyword mode 1800-2005 reserves matches: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_matches.sv](../tests/gen/ch22/test_gen_kw_1800_2005_matches.sv): begin_keywords "1800-2005" の範囲で reg matches; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_matches.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で matches を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-MODPORT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves modport: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59655,10 +59941,11 @@ Keyword mode 1800-2005 reserves modport: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_modport.sv](../tests/gen/ch22/test_gen_kw_1800_2005_modport.sv): begin_keywords "1800-2005" の範囲で reg modport; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_modport.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で modport を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-NEW
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves new: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59666,10 +59953,11 @@ Keyword mode 1800-2005 reserves new: within a begin_keywords "1800-2005" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_new.sv](../tests/gen/ch22/test_gen_kw_1800_2005_new.sv): begin_keywords "1800-2005" の範囲で reg new; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_new.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で new を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-NULL
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves null: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59677,10 +59965,11 @@ Keyword mode 1800-2005 reserves null: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_null.sv](../tests/gen/ch22/test_gen_kw_1800_2005_null.sv): begin_keywords "1800-2005" の範囲で reg null; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_null.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で null を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PACKAGE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves package: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59688,10 +59977,11 @@ Keyword mode 1800-2005 reserves package: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_package.sv](../tests/gen/ch22/test_gen_kw_1800_2005_package.sv): begin_keywords "1800-2005" の範囲で reg package; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_package.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で package を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PACKED
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves packed: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59699,10 +59989,11 @@ Keyword mode 1800-2005 reserves packed: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_packed.sv](../tests/gen/ch22/test_gen_kw_1800_2005_packed.sv): begin_keywords "1800-2005" の範囲で reg packed; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_packed.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で packed を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PRIORITY
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves priority: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59710,10 +60001,11 @@ Keyword mode 1800-2005 reserves priority: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_priority.sv](../tests/gen/ch22/test_gen_kw_1800_2005_priority.sv): begin_keywords "1800-2005" の範囲で reg priority; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_priority.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で priority を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PROGRAM
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves program: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59721,10 +60013,11 @@ Keyword mode 1800-2005 reserves program: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_program.sv](../tests/gen/ch22/test_gen_kw_1800_2005_program.sv): begin_keywords "1800-2005" の範囲で reg program; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_program.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で program を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PROPERTY
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves property: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59732,10 +60025,11 @@ Keyword mode 1800-2005 reserves property: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_property.sv](../tests/gen/ch22/test_gen_kw_1800_2005_property.sv): begin_keywords "1800-2005" の範囲で reg property; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_property.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で property を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PROTECTED
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves protected: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59743,10 +60037,11 @@ Keyword mode 1800-2005 reserves protected: within a begin_keywords "1800-2005" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_protected.sv](../tests/gen/ch22/test_gen_kw_1800_2005_protected.sv): begin_keywords "1800-2005" の範囲で reg protected; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_protected.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で protected を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PURE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves pure: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59754,10 +60049,11 @@ Keyword mode 1800-2005 reserves pure: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_pure.sv](../tests/gen/ch22/test_gen_kw_1800_2005_pure.sv): begin_keywords "1800-2005" の範囲で reg pure; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_pure.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で pure を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RAND
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves rand: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59765,10 +60061,11 @@ Keyword mode 1800-2005 reserves rand: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_rand.sv](../tests/gen/ch22/test_gen_kw_1800_2005_rand.sv): begin_keywords "1800-2005" の範囲で reg rand; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_rand.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で rand を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RANDC
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves randc: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59776,10 +60073,11 @@ Keyword mode 1800-2005 reserves randc: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_randc.sv](../tests/gen/ch22/test_gen_kw_1800_2005_randc.sv): begin_keywords "1800-2005" の範囲で reg randc; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_randc.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で randc を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RANDCASE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves randcase: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59787,10 +60085,11 @@ Keyword mode 1800-2005 reserves randcase: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_randcase.sv](../tests/gen/ch22/test_gen_kw_1800_2005_randcase.sv): begin_keywords "1800-2005" の範囲で reg randcase; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_randcase.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で randcase を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RANDSEQUENCE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves randsequence: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59798,10 +60097,11 @@ Keyword mode 1800-2005 reserves randsequence: within a begin_keywords "1800-2005
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_randsequence.sv](../tests/gen/ch22/test_gen_kw_1800_2005_randsequence.sv): begin_keywords "1800-2005" の範囲で reg randsequence; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_randsequence.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で randsequence を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-REF
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves ref: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59809,10 +60109,11 @@ Keyword mode 1800-2005 reserves ref: within a begin_keywords "1800-2005" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_ref.sv](../tests/gen/ch22/test_gen_kw_1800_2005_ref.sv): begin_keywords "1800-2005" の範囲で reg ref; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_ref.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で ref を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RETURN
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves return: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59820,10 +60121,11 @@ Keyword mode 1800-2005 reserves return: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_return.sv](../tests/gen/ch22/test_gen_kw_1800_2005_return.sv): begin_keywords "1800-2005" の範囲で reg return; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_return.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で return を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SEQUENCE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves sequence: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59831,10 +60133,11 @@ Keyword mode 1800-2005 reserves sequence: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_sequence.sv](../tests/gen/ch22/test_gen_kw_1800_2005_sequence.sv): begin_keywords "1800-2005" の範囲で reg sequence; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_sequence.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で sequence を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SHORTINT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves shortint: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59842,10 +60145,11 @@ Keyword mode 1800-2005 reserves shortint: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_shortint.sv](../tests/gen/ch22/test_gen_kw_1800_2005_shortint.sv): begin_keywords "1800-2005" の範囲で reg shortint; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_shortint.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で shortint を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SHORTREAL
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves shortreal: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59853,10 +60157,11 @@ Keyword mode 1800-2005 reserves shortreal: within a begin_keywords "1800-2005" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_shortreal.sv](../tests/gen/ch22/test_gen_kw_1800_2005_shortreal.sv): begin_keywords "1800-2005" の範囲で reg shortreal; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_shortreal.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で shortreal を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SOLVE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves solve: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59864,10 +60169,11 @@ Keyword mode 1800-2005 reserves solve: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_solve.sv](../tests/gen/ch22/test_gen_kw_1800_2005_solve.sv): begin_keywords "1800-2005" の範囲で reg solve; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_solve.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で solve を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-STATIC
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves static: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59875,10 +60181,11 @@ Keyword mode 1800-2005 reserves static: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_static.sv](../tests/gen/ch22/test_gen_kw_1800_2005_static.sv): begin_keywords "1800-2005" の範囲で reg static; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_static.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で static を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-STRING
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves string: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59886,10 +60193,11 @@ Keyword mode 1800-2005 reserves string: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_string.sv](../tests/gen/ch22/test_gen_kw_1800_2005_string.sv): begin_keywords "1800-2005" の範囲で reg string; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_string.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で string を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-STRUCT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves struct: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59897,10 +60205,11 @@ Keyword mode 1800-2005 reserves struct: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_struct.sv](../tests/gen/ch22/test_gen_kw_1800_2005_struct.sv): begin_keywords "1800-2005" の範囲で reg struct; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_struct.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で struct を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SUPER
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves super: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59908,10 +60217,11 @@ Keyword mode 1800-2005 reserves super: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_super.sv](../tests/gen/ch22/test_gen_kw_1800_2005_super.sv): begin_keywords "1800-2005" の範囲で reg super; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_super.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で super を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TAGGED
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves tagged: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59919,10 +60229,11 @@ Keyword mode 1800-2005 reserves tagged: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_tagged.sv](../tests/gen/ch22/test_gen_kw_1800_2005_tagged.sv): begin_keywords "1800-2005" の範囲で reg tagged; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_tagged.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で tagged を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-THIS
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves this: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59930,10 +60241,11 @@ Keyword mode 1800-2005 reserves this: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_this.sv](../tests/gen/ch22/test_gen_kw_1800_2005_this.sv): begin_keywords "1800-2005" の範囲で reg this; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_this.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で this を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-THROUGHOUT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves throughout: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59941,10 +60253,11 @@ Keyword mode 1800-2005 reserves throughout: within a begin_keywords "1800-2005" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_throughout.sv](../tests/gen/ch22/test_gen_kw_1800_2005_throughout.sv): begin_keywords "1800-2005" の範囲で reg throughout; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_throughout.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で throughout を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TIMEPRECISION
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves timeprecision: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59952,10 +60265,11 @@ Keyword mode 1800-2005 reserves timeprecision: within a begin_keywords "1800-200
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_timeprecision.sv](../tests/gen/ch22/test_gen_kw_1800_2005_timeprecision.sv): begin_keywords "1800-2005" の範囲で reg timeprecision; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_timeprecision.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で timeprecision を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TIMEUNIT
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves timeunit: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59963,10 +60277,11 @@ Keyword mode 1800-2005 reserves timeunit: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_timeunit.sv](../tests/gen/ch22/test_gen_kw_1800_2005_timeunit.sv): begin_keywords "1800-2005" の範囲で reg timeunit; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_timeunit.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で timeunit を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TYPE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves type: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59974,10 +60289,11 @@ Keyword mode 1800-2005 reserves type: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_type.sv](../tests/gen/ch22/test_gen_kw_1800_2005_type.sv): begin_keywords "1800-2005" の範囲で reg type; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_type.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で type を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TYPEDEF
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves typedef: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59985,10 +60301,11 @@ Keyword mode 1800-2005 reserves typedef: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_typedef.sv](../tests/gen/ch22/test_gen_kw_1800_2005_typedef.sv): begin_keywords "1800-2005" の範囲で reg typedef; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_typedef.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で typedef を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-UNION
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves union: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -59996,10 +60313,11 @@ Keyword mode 1800-2005 reserves union: within a begin_keywords "1800-2005" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_union.sv](../tests/gen/ch22/test_gen_kw_1800_2005_union.sv): begin_keywords "1800-2005" の範囲で reg union; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_union.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で union を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-UNIQUE
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves unique: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -60007,10 +60325,11 @@ Keyword mode 1800-2005 reserves unique: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_unique.sv](../tests/gen/ch22/test_gen_kw_1800_2005_unique.sv): begin_keywords "1800-2005" の範囲で reg unique; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_unique.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で unique を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-VAR
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves var: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -60018,10 +60337,11 @@ Keyword mode 1800-2005 reserves var: within a begin_keywords "1800-2005" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_var.sv](../tests/gen/ch22/test_gen_kw_1800_2005_var.sv): begin_keywords "1800-2005" の範囲で reg var; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_var.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で var を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-VIRTUAL
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves virtual: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -60029,10 +60349,11 @@ Keyword mode 1800-2005 reserves virtual: within a begin_keywords "1800-2005" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_virtual.sv](../tests/gen/ch22/test_gen_kw_1800_2005_virtual.sv): begin_keywords "1800-2005" の範囲で reg virtual; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_virtual.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で virtual を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-VOID
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves void: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -60040,10 +60361,11 @@ Keyword mode 1800-2005 reserves void: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_void.sv](../tests/gen/ch22/test_gen_kw_1800_2005_void.sv): begin_keywords "1800-2005" の範囲で reg void; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_void.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で void を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-WAIT-ORDER
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves wait_order: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -60051,10 +60373,11 @@ Keyword mode 1800-2005 reserves wait_order: within a begin_keywords "1800-2005" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_wait_order.sv](../tests/gen/ch22/test_gen_kw_1800_2005_wait_order.sv): begin_keywords "1800-2005" の範囲で reg wait_order; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_wait_order.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で wait_order を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-WILDCARD
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves wildcard: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -60062,10 +60385,11 @@ Keyword mode 1800-2005 reserves wildcard: within a begin_keywords "1800-2005" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_wildcard.sv](../tests/gen/ch22/test_gen_kw_1800_2005_wildcard.sv): begin_keywords "1800-2005" の範囲で reg wildcard; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_wildcard.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で wildcard を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-WITH
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves with: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -60073,10 +60397,11 @@ Keyword mode 1800-2005 reserves with: within a begin_keywords "1800-2005" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_with.sv](../tests/gen/ch22/test_gen_kw_1800_2005_with.sv): begin_keywords "1800-2005" の範囲で reg with; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_with.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で with を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-WITHIN
 
-22.14.6 / error / テスト未対応
+22.14.6 / error / 実行確認あり
 
 Keyword mode 1800-2005 reserves within: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
@@ -60084,6 +60409,7 @@ Keyword mode 1800-2005 reserves within: within a begin_keywords "1800-2005" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2005_within.sv](../tests/gen/ch22/test_gen_kw_1800_2005_within.sv): begin_keywords "1800-2005" の範囲で reg within; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2005_within.sv の行）でエラーになることを照合する。 区別: 1800-2005 の予約語集合で within を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.6-EXTRACT-VERSION-SET
 
@@ -60098,7 +60424,7 @@ Keyword mode 1800-2005 reserves every keyword of the full 1364-2005 keyword set 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-ACCEPT-ON
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves accept_on: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60106,10 +60432,11 @@ Keyword mode 1800-2009 reserves accept_on: within a begin_keywords "1800-2009" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_accept_on.sv](../tests/gen/ch22/test_gen_kw_1800_2009_accept_on.sv): begin_keywords "1800-2009" の範囲で reg accept_on; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_accept_on.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で accept_on を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-CHECKER
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves checker: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60117,10 +60444,11 @@ Keyword mode 1800-2009 reserves checker: within a begin_keywords "1800-2009" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_checker.sv](../tests/gen/ch22/test_gen_kw_1800_2009_checker.sv): begin_keywords "1800-2009" の範囲で reg checker; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_checker.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で checker を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-ENDCHECKER
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves endchecker: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60128,10 +60456,11 @@ Keyword mode 1800-2009 reserves endchecker: within a begin_keywords "1800-2009" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_endchecker.sv](../tests/gen/ch22/test_gen_kw_1800_2009_endchecker.sv): begin_keywords "1800-2009" の範囲で reg endchecker; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_endchecker.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で endchecker を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-EVENTUALLY
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves eventually: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60139,10 +60468,11 @@ Keyword mode 1800-2009 reserves eventually: within a begin_keywords "1800-2009" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_eventually.sv](../tests/gen/ch22/test_gen_kw_1800_2009_eventually.sv): begin_keywords "1800-2009" の範囲で reg eventually; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_eventually.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で eventually を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-GLOBAL
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves global: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60150,10 +60480,11 @@ Keyword mode 1800-2009 reserves global: within a begin_keywords "1800-2009" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_global.sv](../tests/gen/ch22/test_gen_kw_1800_2009_global.sv): begin_keywords "1800-2009" の範囲で reg global; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_global.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で global を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-IMPLIES
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves implies: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60161,10 +60492,11 @@ Keyword mode 1800-2009 reserves implies: within a begin_keywords "1800-2009" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_implies.sv](../tests/gen/ch22/test_gen_kw_1800_2009_implies.sv): begin_keywords "1800-2009" の範囲で reg implies; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_implies.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で implies を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-LET
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves let: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60172,10 +60504,11 @@ Keyword mode 1800-2009 reserves let: within a begin_keywords "1800-2009" region 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_let.sv](../tests/gen/ch22/test_gen_kw_1800_2009_let.sv): begin_keywords "1800-2009" の範囲で reg let; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_let.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で let を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-NEXTTIME
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves nexttime: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60183,10 +60516,11 @@ Keyword mode 1800-2009 reserves nexttime: within a begin_keywords "1800-2009" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_nexttime.sv](../tests/gen/ch22/test_gen_kw_1800_2009_nexttime.sv): begin_keywords "1800-2009" の範囲で reg nexttime; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_nexttime.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で nexttime を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-REJECT-ON
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves reject_on: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60194,10 +60528,11 @@ Keyword mode 1800-2009 reserves reject_on: within a begin_keywords "1800-2009" r
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_reject_on.sv](../tests/gen/ch22/test_gen_kw_1800_2009_reject_on.sv): begin_keywords "1800-2009" の範囲で reg reject_on; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_reject_on.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で reject_on を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-RESTRICT
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves restrict: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60205,10 +60540,11 @@ Keyword mode 1800-2009 reserves restrict: within a begin_keywords "1800-2009" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_restrict.sv](../tests/gen/ch22/test_gen_kw_1800_2009_restrict.sv): begin_keywords "1800-2009" の範囲で reg restrict; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_restrict.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で restrict を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-ALWAYS
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves s_always: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60216,10 +60552,11 @@ Keyword mode 1800-2009 reserves s_always: within a begin_keywords "1800-2009" re
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_s_always.sv](../tests/gen/ch22/test_gen_kw_1800_2009_s_always.sv): begin_keywords "1800-2009" の範囲で reg s_always; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_s_always.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で s_always を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-EVENTUALLY
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves s_eventually: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60227,10 +60564,11 @@ Keyword mode 1800-2009 reserves s_eventually: within a begin_keywords "1800-2009
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_s_eventually.sv](../tests/gen/ch22/test_gen_kw_1800_2009_s_eventually.sv): begin_keywords "1800-2009" の範囲で reg s_eventually; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_s_eventually.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で s_eventually を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-NEXTTIME
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves s_nexttime: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60238,10 +60576,11 @@ Keyword mode 1800-2009 reserves s_nexttime: within a begin_keywords "1800-2009" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_s_nexttime.sv](../tests/gen/ch22/test_gen_kw_1800_2009_s_nexttime.sv): begin_keywords "1800-2009" の範囲で reg s_nexttime; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_s_nexttime.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で s_nexttime を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-UNTIL
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves s_until: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60249,10 +60588,11 @@ Keyword mode 1800-2009 reserves s_until: within a begin_keywords "1800-2009" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_s_until.sv](../tests/gen/ch22/test_gen_kw_1800_2009_s_until.sv): begin_keywords "1800-2009" の範囲で reg s_until; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_s_until.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で s_until を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-UNTIL-WITH
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves s_until_with: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60260,10 +60600,11 @@ Keyword mode 1800-2009 reserves s_until_with: within a begin_keywords "1800-2009
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_s_until_with.sv](../tests/gen/ch22/test_gen_kw_1800_2009_s_until_with.sv): begin_keywords "1800-2009" の範囲で reg s_until_with; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_s_until_with.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で s_until_with を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-STRONG
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves strong: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60271,10 +60612,11 @@ Keyword mode 1800-2009 reserves strong: within a begin_keywords "1800-2009" regi
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_strong.sv](../tests/gen/ch22/test_gen_kw_1800_2009_strong.sv): begin_keywords "1800-2009" の範囲で reg strong; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_strong.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で strong を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-SYNC-ACCEPT-ON
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves sync_accept_on: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60282,10 +60624,11 @@ Keyword mode 1800-2009 reserves sync_accept_on: within a begin_keywords "1800-20
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_sync_accept_on.sv](../tests/gen/ch22/test_gen_kw_1800_2009_sync_accept_on.sv): begin_keywords "1800-2009" の範囲で reg sync_accept_on; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_sync_accept_on.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で sync_accept_on を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-SYNC-REJECT-ON
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves sync_reject_on: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60293,10 +60636,11 @@ Keyword mode 1800-2009 reserves sync_reject_on: within a begin_keywords "1800-20
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_sync_reject_on.sv](../tests/gen/ch22/test_gen_kw_1800_2009_sync_reject_on.sv): begin_keywords "1800-2009" の範囲で reg sync_reject_on; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_sync_reject_on.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で sync_reject_on を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-UNIQUE0
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves unique0: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60304,10 +60648,11 @@ Keyword mode 1800-2009 reserves unique0: within a begin_keywords "1800-2009" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_unique0.sv](../tests/gen/ch22/test_gen_kw_1800_2009_unique0.sv): begin_keywords "1800-2009" の範囲で reg unique0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_unique0.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で unique0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-UNTIL
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves until: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60315,10 +60660,11 @@ Keyword mode 1800-2009 reserves until: within a begin_keywords "1800-2009" regio
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_until.sv](../tests/gen/ch22/test_gen_kw_1800_2009_until.sv): begin_keywords "1800-2009" の範囲で reg until; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_until.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で until を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-UNTIL-WITH
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves until_with: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60326,10 +60672,11 @@ Keyword mode 1800-2009 reserves until_with: within a begin_keywords "1800-2009" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_until_with.sv](../tests/gen/ch22/test_gen_kw_1800_2009_until_with.sv): begin_keywords "1800-2009" の範囲で reg until_with; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_until_with.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で until_with を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-UNTYPED
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves untyped: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60337,10 +60684,11 @@ Keyword mode 1800-2009 reserves untyped: within a begin_keywords "1800-2009" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_untyped.sv](../tests/gen/ch22/test_gen_kw_1800_2009_untyped.sv): begin_keywords "1800-2009" の範囲で reg untyped; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_untyped.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で untyped を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-WEAK
 
-22.14.7 / error / テスト未対応
+22.14.7 / error / 実行確認あり
 
 Keyword mode 1800-2009 reserves weak: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
@@ -60348,6 +60696,7 @@ Keyword mode 1800-2009 reserves weak: within a begin_keywords "1800-2009" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2009_weak.sv](../tests/gen/ch22/test_gen_kw_1800_2009_weak.sv): begin_keywords "1800-2009" の範囲で reg weak; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2009_weak.sv の行）でエラーになることを照合する。 区別: 1800-2009 の予約語集合で weak を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.7-EXTRACT-VERSION-SET
 
@@ -60362,7 +60711,7 @@ Keyword mode 1800-2009 reserves every keyword of the full 1800-2005 keyword set 
 
 ### SV2023-22.14.8-EXTRACT-RESERVED-IMPLEMENTS
 
-22.14.8 / error / テスト未対応
+22.14.8 / error / 実行確認あり
 
 Keyword mode 1800-2012 reserves implements: within a begin_keywords "1800-2012" region it cannot be used as an unescaped simple identifier.
 
@@ -60370,10 +60719,11 @@ Keyword mode 1800-2012 reserves implements: within a begin_keywords "1800-2012" 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2012_implements.sv](../tests/gen/ch22/test_gen_kw_1800_2012_implements.sv): begin_keywords "1800-2012" の範囲で reg implements; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2012_implements.sv の行）でエラーになることを照合する。 区別: 1800-2012 の予約語集合で implements を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.8-EXTRACT-RESERVED-INTERCONNECT
 
-22.14.8 / error / テスト未対応
+22.14.8 / error / 実行確認あり
 
 Keyword mode 1800-2012 reserves interconnect: within a begin_keywords "1800-2012" region it cannot be used as an unescaped simple identifier.
 
@@ -60381,10 +60731,11 @@ Keyword mode 1800-2012 reserves interconnect: within a begin_keywords "1800-2012
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2012_interconnect.sv](../tests/gen/ch22/test_gen_kw_1800_2012_interconnect.sv): begin_keywords "1800-2012" の範囲で reg interconnect; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2012_interconnect.sv の行）でエラーになることを照合する。 区別: 1800-2012 の予約語集合で interconnect を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.8-EXTRACT-RESERVED-NETTYPE
 
-22.14.8 / error / テスト未対応
+22.14.8 / error / 実行確認あり
 
 Keyword mode 1800-2012 reserves nettype: within a begin_keywords "1800-2012" region it cannot be used as an unescaped simple identifier.
 
@@ -60392,10 +60743,11 @@ Keyword mode 1800-2012 reserves nettype: within a begin_keywords "1800-2012" reg
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2012_nettype.sv](../tests/gen/ch22/test_gen_kw_1800_2012_nettype.sv): begin_keywords "1800-2012" の範囲で reg nettype; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2012_nettype.sv の行）でエラーになることを照合する。 区別: 1800-2012 の予約語集合で nettype を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.8-EXTRACT-RESERVED-SOFT
 
-22.14.8 / error / テスト未対応
+22.14.8 / error / 実行確認あり
 
 Keyword mode 1800-2012 reserves soft: within a begin_keywords "1800-2012" region it cannot be used as an unescaped simple identifier.
 
@@ -60403,6 +60755,7 @@ Keyword mode 1800-2012 reserves soft: within a begin_keywords "1800-2012" region
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_1800_2012_soft.sv](../tests/gen/ch22/test_gen_kw_1800_2012_soft.sv): begin_keywords "1800-2012" の範囲で reg soft; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_1800_2012_soft.sv の行）でエラーになることを照合する。 区別: 1800-2012 の予約語集合で soft を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-22.14.8-EXTRACT-VERSION-SET
 
@@ -117661,7 +118014,7 @@ A class-constructor argument list contains default at most once.
 
 ### SV2023-B-EXTRACT-KEYWORD-ACCEPT-ON
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, accept_on is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117669,10 +118022,11 @@ Under the IEEE 1800-2023 keyword set, accept_on is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_accept_on.sv](../tests/gen/ch5/test_gen_kw_2023_accept_on.sv): begin_keywords "1800-2023" の範囲で reg accept_on; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_accept_on.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で accept_on を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ALIAS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, alias is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117680,10 +118034,11 @@ Under the IEEE 1800-2023 keyword set, alias is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_alias.sv](../tests/gen/ch5/test_gen_kw_2023_alias.sv): begin_keywords "1800-2023" の範囲で reg alias; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_alias.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で alias を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ALWAYS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, always is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117691,10 +118046,11 @@ Under the IEEE 1800-2023 keyword set, always is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_always.sv](../tests/gen/ch5/test_gen_kw_2023_always.sv): begin_keywords "1800-2023" の範囲で reg always; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_always.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で always を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ALWAYS-COMB
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, always_comb is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117702,10 +118058,11 @@ Under the IEEE 1800-2023 keyword set, always_comb is a reserved keyword: it cann
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_always_comb.sv](../tests/gen/ch5/test_gen_kw_2023_always_comb.sv): begin_keywords "1800-2023" の範囲で reg always_comb; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_always_comb.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で always_comb を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ALWAYS-FF
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, always_ff is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117713,10 +118070,11 @@ Under the IEEE 1800-2023 keyword set, always_ff is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_always_ff.sv](../tests/gen/ch5/test_gen_kw_2023_always_ff.sv): begin_keywords "1800-2023" の範囲で reg always_ff; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_always_ff.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で always_ff を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ALWAYS-LATCH
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, always_latch is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117724,10 +118082,11 @@ Under the IEEE 1800-2023 keyword set, always_latch is a reserved keyword: it can
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_always_latch.sv](../tests/gen/ch5/test_gen_kw_2023_always_latch.sv): begin_keywords "1800-2023" の範囲で reg always_latch; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_always_latch.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で always_latch を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-AND
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, and is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117735,10 +118094,11 @@ Under the IEEE 1800-2023 keyword set, and is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_and.sv](../tests/gen/ch5/test_gen_kw_2023_and.sv): begin_keywords "1800-2023" の範囲で reg and; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_and.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で and を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ASSERT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, assert is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117746,10 +118106,11 @@ Under the IEEE 1800-2023 keyword set, assert is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_assert.sv](../tests/gen/ch5/test_gen_kw_2023_assert.sv): begin_keywords "1800-2023" の範囲で reg assert; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_assert.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で assert を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ASSIGN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, assign is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117757,10 +118118,11 @@ Under the IEEE 1800-2023 keyword set, assign is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_assign.sv](../tests/gen/ch5/test_gen_kw_2023_assign.sv): begin_keywords "1800-2023" の範囲で reg assign; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_assign.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で assign を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ASSUME
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, assume is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117768,10 +118130,11 @@ Under the IEEE 1800-2023 keyword set, assume is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_assume.sv](../tests/gen/ch5/test_gen_kw_2023_assume.sv): begin_keywords "1800-2023" の範囲で reg assume; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_assume.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で assume を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-AUTOMATIC
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, automatic is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117779,10 +118142,11 @@ Under the IEEE 1800-2023 keyword set, automatic is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_automatic.sv](../tests/gen/ch5/test_gen_kw_2023_automatic.sv): begin_keywords "1800-2023" の範囲で reg automatic; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_automatic.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で automatic を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BEFORE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, before is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117790,10 +118154,11 @@ Under the IEEE 1800-2023 keyword set, before is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_before.sv](../tests/gen/ch5/test_gen_kw_2023_before.sv): begin_keywords "1800-2023" の範囲で reg before; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_before.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で before を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BEGIN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, begin is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117801,10 +118166,11 @@ Under the IEEE 1800-2023 keyword set, begin is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_begin.sv](../tests/gen/ch5/test_gen_kw_2023_begin.sv): begin_keywords "1800-2023" の範囲で reg begin; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_begin.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で begin を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BIND
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, bind is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117812,10 +118178,11 @@ Under the IEEE 1800-2023 keyword set, bind is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_bind.sv](../tests/gen/ch5/test_gen_kw_2023_bind.sv): begin_keywords "1800-2023" の範囲で reg bind; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_bind.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で bind を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BINS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, bins is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117823,10 +118190,11 @@ Under the IEEE 1800-2023 keyword set, bins is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_bins.sv](../tests/gen/ch5/test_gen_kw_2023_bins.sv): begin_keywords "1800-2023" の範囲で reg bins; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_bins.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で bins を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BINSOF
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, binsof is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117834,10 +118202,11 @@ Under the IEEE 1800-2023 keyword set, binsof is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_binsof.sv](../tests/gen/ch5/test_gen_kw_2023_binsof.sv): begin_keywords "1800-2023" の範囲で reg binsof; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_binsof.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で binsof を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BIT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, bit is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117845,10 +118214,11 @@ Under the IEEE 1800-2023 keyword set, bit is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_bit.sv](../tests/gen/ch5/test_gen_kw_2023_bit.sv): begin_keywords "1800-2023" の範囲で reg bit; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_bit.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で bit を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BREAK
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, break is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117856,10 +118226,11 @@ Under the IEEE 1800-2023 keyword set, break is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_break.sv](../tests/gen/ch5/test_gen_kw_2023_break.sv): begin_keywords "1800-2023" の範囲で reg break; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_break.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で break を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BUF
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, buf is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117867,10 +118238,11 @@ Under the IEEE 1800-2023 keyword set, buf is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_buf.sv](../tests/gen/ch5/test_gen_kw_2023_buf.sv): begin_keywords "1800-2023" の範囲で reg buf; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_buf.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で buf を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BUFIF0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, bufif0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117878,10 +118250,11 @@ Under the IEEE 1800-2023 keyword set, bufif0 is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_bufif0.sv](../tests/gen/ch5/test_gen_kw_2023_bufif0.sv): begin_keywords "1800-2023" の範囲で reg bufif0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_bufif0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で bufif0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BUFIF1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, bufif1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117889,10 +118262,11 @@ Under the IEEE 1800-2023 keyword set, bufif1 is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_bufif1.sv](../tests/gen/ch5/test_gen_kw_2023_bufif1.sv): begin_keywords "1800-2023" の範囲で reg bufif1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_bufif1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で bufif1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-BYTE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, byte is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117900,10 +118274,11 @@ Under the IEEE 1800-2023 keyword set, byte is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_byte.sv](../tests/gen/ch5/test_gen_kw_2023_byte.sv): begin_keywords "1800-2023" の範囲で reg byte; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_byte.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で byte を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CASE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, case is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117911,10 +118286,11 @@ Under the IEEE 1800-2023 keyword set, case is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_case.sv](../tests/gen/ch5/test_gen_kw_2023_case.sv): begin_keywords "1800-2023" の範囲で reg case; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_case.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で case を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CASEX
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, casex is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117922,10 +118298,11 @@ Under the IEEE 1800-2023 keyword set, casex is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_casex.sv](../tests/gen/ch5/test_gen_kw_2023_casex.sv): begin_keywords "1800-2023" の範囲で reg casex; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_casex.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で casex を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CASEZ
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, casez is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117933,10 +118310,11 @@ Under the IEEE 1800-2023 keyword set, casez is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_casez.sv](../tests/gen/ch5/test_gen_kw_2023_casez.sv): begin_keywords "1800-2023" の範囲で reg casez; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_casez.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で casez を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CELL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, cell is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117944,10 +118322,11 @@ Under the IEEE 1800-2023 keyword set, cell is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_cell.sv](../tests/gen/ch5/test_gen_kw_2023_cell.sv): begin_keywords "1800-2023" の範囲で reg cell; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_cell.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で cell を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CHANDLE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, chandle is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117955,10 +118334,11 @@ Under the IEEE 1800-2023 keyword set, chandle is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_chandle.sv](../tests/gen/ch5/test_gen_kw_2023_chandle.sv): begin_keywords "1800-2023" の範囲で reg chandle; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_chandle.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で chandle を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CHECKER
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, checker is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117966,10 +118346,11 @@ Under the IEEE 1800-2023 keyword set, checker is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_checker.sv](../tests/gen/ch5/test_gen_kw_2023_checker.sv): begin_keywords "1800-2023" の範囲で reg checker; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_checker.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で checker を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CLASS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, class is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117977,10 +118358,11 @@ Under the IEEE 1800-2023 keyword set, class is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_class.sv](../tests/gen/ch5/test_gen_kw_2023_class.sv): begin_keywords "1800-2023" の範囲で reg class; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_class.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で class を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CLOCKING
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, clocking is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117988,10 +118370,11 @@ Under the IEEE 1800-2023 keyword set, clocking is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_clocking.sv](../tests/gen/ch5/test_gen_kw_2023_clocking.sv): begin_keywords "1800-2023" の範囲で reg clocking; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_clocking.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で clocking を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CMOS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, cmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -117999,10 +118382,11 @@ Under the IEEE 1800-2023 keyword set, cmos is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_cmos.sv](../tests/gen/ch5/test_gen_kw_2023_cmos.sv): begin_keywords "1800-2023" の範囲で reg cmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_cmos.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で cmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CONFIG
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, config is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118010,10 +118394,11 @@ Under the IEEE 1800-2023 keyword set, config is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_config.sv](../tests/gen/ch5/test_gen_kw_2023_config.sv): begin_keywords "1800-2023" の範囲で reg config; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_config.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で config を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CONST
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, const is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118021,10 +118406,11 @@ Under the IEEE 1800-2023 keyword set, const is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_const.sv](../tests/gen/ch5/test_gen_kw_2023_const.sv): begin_keywords "1800-2023" の範囲で reg const; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_const.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で const を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CONSTRAINT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, constraint is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118032,10 +118418,11 @@ Under the IEEE 1800-2023 keyword set, constraint is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_constraint.sv](../tests/gen/ch5/test_gen_kw_2023_constraint.sv): begin_keywords "1800-2023" の範囲で reg constraint; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_constraint.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で constraint を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CONTEXT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, context is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118043,10 +118430,11 @@ Under the IEEE 1800-2023 keyword set, context is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_context.sv](../tests/gen/ch5/test_gen_kw_2023_context.sv): begin_keywords "1800-2023" の範囲で reg context; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_context.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で context を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CONTINUE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, continue is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118054,10 +118442,11 @@ Under the IEEE 1800-2023 keyword set, continue is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_continue.sv](../tests/gen/ch5/test_gen_kw_2023_continue.sv): begin_keywords "1800-2023" の範囲で reg continue; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_continue.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で continue を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-COVER
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, cover is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118065,10 +118454,11 @@ Under the IEEE 1800-2023 keyword set, cover is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_cover.sv](../tests/gen/ch5/test_gen_kw_2023_cover.sv): begin_keywords "1800-2023" の範囲で reg cover; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_cover.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で cover を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-COVERGROUP
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, covergroup is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118076,10 +118466,11 @@ Under the IEEE 1800-2023 keyword set, covergroup is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_covergroup.sv](../tests/gen/ch5/test_gen_kw_2023_covergroup.sv): begin_keywords "1800-2023" の範囲で reg covergroup; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_covergroup.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で covergroup を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-COVERPOINT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, coverpoint is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118087,10 +118478,11 @@ Under the IEEE 1800-2023 keyword set, coverpoint is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_coverpoint.sv](../tests/gen/ch5/test_gen_kw_2023_coverpoint.sv): begin_keywords "1800-2023" の範囲で reg coverpoint; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_coverpoint.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で coverpoint を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-CROSS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, cross is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118098,10 +118490,11 @@ Under the IEEE 1800-2023 keyword set, cross is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_cross.sv](../tests/gen/ch5/test_gen_kw_2023_cross.sv): begin_keywords "1800-2023" の範囲で reg cross; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_cross.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で cross を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-DEASSIGN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, deassign is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118109,10 +118502,11 @@ Under the IEEE 1800-2023 keyword set, deassign is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_deassign.sv](../tests/gen/ch5/test_gen_kw_2023_deassign.sv): begin_keywords "1800-2023" の範囲で reg deassign; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_deassign.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で deassign を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-DEFAULT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, default is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118120,10 +118514,11 @@ Under the IEEE 1800-2023 keyword set, default is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_default.sv](../tests/gen/ch5/test_gen_kw_2023_default.sv): begin_keywords "1800-2023" の範囲で reg default; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_default.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で default を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-DEFPARAM
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, defparam is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118131,10 +118526,11 @@ Under the IEEE 1800-2023 keyword set, defparam is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_defparam.sv](../tests/gen/ch5/test_gen_kw_2023_defparam.sv): begin_keywords "1800-2023" の範囲で reg defparam; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_defparam.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で defparam を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-DESIGN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, design is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118142,10 +118538,11 @@ Under the IEEE 1800-2023 keyword set, design is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_design.sv](../tests/gen/ch5/test_gen_kw_2023_design.sv): begin_keywords "1800-2023" の範囲で reg design; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_design.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で design を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-DISABLE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, disable is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118153,10 +118550,11 @@ Under the IEEE 1800-2023 keyword set, disable is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_disable.sv](../tests/gen/ch5/test_gen_kw_2023_disable.sv): begin_keywords "1800-2023" の範囲で reg disable; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_disable.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で disable を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-DIST
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, dist is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118164,10 +118562,11 @@ Under the IEEE 1800-2023 keyword set, dist is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_dist.sv](../tests/gen/ch5/test_gen_kw_2023_dist.sv): begin_keywords "1800-2023" の範囲で reg dist; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_dist.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で dist を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-DO
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, do is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118175,10 +118574,11 @@ Under the IEEE 1800-2023 keyword set, do is a reserved keyword: it cannot be use
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_do.sv](../tests/gen/ch5/test_gen_kw_2023_do.sv): begin_keywords "1800-2023" の範囲で reg do; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_do.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で do を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-EDGE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, edge is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118186,10 +118586,11 @@ Under the IEEE 1800-2023 keyword set, edge is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_edge.sv](../tests/gen/ch5/test_gen_kw_2023_edge.sv): begin_keywords "1800-2023" の範囲で reg edge; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_edge.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で edge を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ELSE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, else is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118197,10 +118598,11 @@ Under the IEEE 1800-2023 keyword set, else is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_else.sv](../tests/gen/ch5/test_gen_kw_2023_else.sv): begin_keywords "1800-2023" の範囲で reg else; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_else.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で else を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-END
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, end is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118208,10 +118610,11 @@ Under the IEEE 1800-2023 keyword set, end is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_end.sv](../tests/gen/ch5/test_gen_kw_2023_end.sv): begin_keywords "1800-2023" の範囲で reg end; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_end.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で end を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCASE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endcase is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118219,10 +118622,11 @@ Under the IEEE 1800-2023 keyword set, endcase is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endcase.sv](../tests/gen/ch5/test_gen_kw_2023_endcase.sv): begin_keywords "1800-2023" の範囲で reg endcase; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endcase.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endcase を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCHECKER
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endchecker is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118230,10 +118634,11 @@ Under the IEEE 1800-2023 keyword set, endchecker is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endchecker.sv](../tests/gen/ch5/test_gen_kw_2023_endchecker.sv): begin_keywords "1800-2023" の範囲で reg endchecker; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endchecker.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endchecker を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCLASS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endclass is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118241,10 +118646,11 @@ Under the IEEE 1800-2023 keyword set, endclass is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endclass.sv](../tests/gen/ch5/test_gen_kw_2023_endclass.sv): begin_keywords "1800-2023" の範囲で reg endclass; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endclass.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endclass を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCLOCKING
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endclocking is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118252,10 +118658,11 @@ Under the IEEE 1800-2023 keyword set, endclocking is a reserved keyword: it cann
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endclocking.sv](../tests/gen/ch5/test_gen_kw_2023_endclocking.sv): begin_keywords "1800-2023" の範囲で reg endclocking; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endclocking.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endclocking を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCONFIG
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endconfig is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118263,10 +118670,11 @@ Under the IEEE 1800-2023 keyword set, endconfig is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endconfig.sv](../tests/gen/ch5/test_gen_kw_2023_endconfig.sv): begin_keywords "1800-2023" の範囲で reg endconfig; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endconfig.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endconfig を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDFUNCTION
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endfunction is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118274,10 +118682,11 @@ Under the IEEE 1800-2023 keyword set, endfunction is a reserved keyword: it cann
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endfunction.sv](../tests/gen/ch5/test_gen_kw_2023_endfunction.sv): begin_keywords "1800-2023" の範囲で reg endfunction; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endfunction.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endfunction を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDGENERATE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endgenerate is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118285,10 +118694,11 @@ Under the IEEE 1800-2023 keyword set, endgenerate is a reserved keyword: it cann
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endgenerate.sv](../tests/gen/ch5/test_gen_kw_2023_endgenerate.sv): begin_keywords "1800-2023" の範囲で reg endgenerate; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endgenerate.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endgenerate を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDGROUP
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endgroup is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118296,10 +118706,11 @@ Under the IEEE 1800-2023 keyword set, endgroup is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endgroup.sv](../tests/gen/ch5/test_gen_kw_2023_endgroup.sv): begin_keywords "1800-2023" の範囲で reg endgroup; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endgroup.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endgroup を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDINTERFACE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endinterface is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118307,10 +118718,11 @@ Under the IEEE 1800-2023 keyword set, endinterface is a reserved keyword: it can
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endinterface.sv](../tests/gen/ch5/test_gen_kw_2023_endinterface.sv): begin_keywords "1800-2023" の範囲で reg endinterface; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endinterface.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endinterface を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDMODULE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endmodule is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118318,10 +118730,11 @@ Under the IEEE 1800-2023 keyword set, endmodule is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endmodule.sv](../tests/gen/ch5/test_gen_kw_2023_endmodule.sv): begin_keywords "1800-2023" の範囲で reg endmodule; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endmodule.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endmodule を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDPACKAGE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endpackage is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118329,10 +118742,11 @@ Under the IEEE 1800-2023 keyword set, endpackage is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endpackage.sv](../tests/gen/ch5/test_gen_kw_2023_endpackage.sv): begin_keywords "1800-2023" の範囲で reg endpackage; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endpackage.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endpackage を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDPRIMITIVE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endprimitive is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118340,10 +118754,11 @@ Under the IEEE 1800-2023 keyword set, endprimitive is a reserved keyword: it can
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endprimitive.sv](../tests/gen/ch5/test_gen_kw_2023_endprimitive.sv): begin_keywords "1800-2023" の範囲で reg endprimitive; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endprimitive.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endprimitive を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDPROGRAM
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endprogram is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118351,10 +118766,11 @@ Under the IEEE 1800-2023 keyword set, endprogram is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endprogram.sv](../tests/gen/ch5/test_gen_kw_2023_endprogram.sv): begin_keywords "1800-2023" の範囲で reg endprogram; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endprogram.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endprogram を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDPROPERTY
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endproperty is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118362,10 +118778,11 @@ Under the IEEE 1800-2023 keyword set, endproperty is a reserved keyword: it cann
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endproperty.sv](../tests/gen/ch5/test_gen_kw_2023_endproperty.sv): begin_keywords "1800-2023" の範囲で reg endproperty; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endproperty.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endproperty を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDSEQUENCE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endsequence is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118373,10 +118790,11 @@ Under the IEEE 1800-2023 keyword set, endsequence is a reserved keyword: it cann
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endsequence.sv](../tests/gen/ch5/test_gen_kw_2023_endsequence.sv): begin_keywords "1800-2023" の範囲で reg endsequence; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endsequence.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endsequence を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDSPECIFY
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endspecify is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118384,10 +118802,11 @@ Under the IEEE 1800-2023 keyword set, endspecify is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endspecify.sv](../tests/gen/ch5/test_gen_kw_2023_endspecify.sv): begin_keywords "1800-2023" の範囲で reg endspecify; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endspecify.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endspecify を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDTABLE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endtable is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118395,10 +118814,11 @@ Under the IEEE 1800-2023 keyword set, endtable is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endtable.sv](../tests/gen/ch5/test_gen_kw_2023_endtable.sv): begin_keywords "1800-2023" の範囲で reg endtable; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endtable.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endtable を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDTASK
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, endtask is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118406,10 +118826,11 @@ Under the IEEE 1800-2023 keyword set, endtask is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_endtask.sv](../tests/gen/ch5/test_gen_kw_2023_endtask.sv): begin_keywords "1800-2023" の範囲で reg endtask; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_endtask.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で endtask を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ENUM
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, enum is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118417,10 +118838,11 @@ Under the IEEE 1800-2023 keyword set, enum is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_enum.sv](../tests/gen/ch5/test_gen_kw_2023_enum.sv): begin_keywords "1800-2023" の範囲で reg enum; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_enum.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で enum を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-EVENT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, event is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118428,10 +118850,11 @@ Under the IEEE 1800-2023 keyword set, event is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_event.sv](../tests/gen/ch5/test_gen_kw_2023_event.sv): begin_keywords "1800-2023" の範囲で reg event; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_event.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で event を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-EVENTUALLY
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, eventually is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118439,10 +118862,11 @@ Under the IEEE 1800-2023 keyword set, eventually is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_eventually.sv](../tests/gen/ch5/test_gen_kw_2023_eventually.sv): begin_keywords "1800-2023" の範囲で reg eventually; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_eventually.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で eventually を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-EXPECT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, expect is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118450,10 +118874,11 @@ Under the IEEE 1800-2023 keyword set, expect is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_expect.sv](../tests/gen/ch5/test_gen_kw_2023_expect.sv): begin_keywords "1800-2023" の範囲で reg expect; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_expect.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で expect を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-EXPORT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, export is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118461,10 +118886,11 @@ Under the IEEE 1800-2023 keyword set, export is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_export.sv](../tests/gen/ch5/test_gen_kw_2023_export.sv): begin_keywords "1800-2023" の範囲で reg export; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_export.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で export を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-EXTENDS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, extends is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118472,10 +118898,11 @@ Under the IEEE 1800-2023 keyword set, extends is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_extends.sv](../tests/gen/ch5/test_gen_kw_2023_extends.sv): begin_keywords "1800-2023" の範囲で reg extends; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_extends.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で extends を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-EXTERN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, extern is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118483,10 +118910,11 @@ Under the IEEE 1800-2023 keyword set, extern is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_extern.sv](../tests/gen/ch5/test_gen_kw_2023_extern.sv): begin_keywords "1800-2023" の範囲で reg extern; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_extern.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で extern を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-FINAL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, final is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118494,10 +118922,11 @@ Under the IEEE 1800-2023 keyword set, final is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_final.sv](../tests/gen/ch5/test_gen_kw_2023_final.sv): begin_keywords "1800-2023" の範囲で reg final; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_final.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で final を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-FIRST-MATCH
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, first_match is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118505,10 +118934,11 @@ Under the IEEE 1800-2023 keyword set, first_match is a reserved keyword: it cann
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_first_match.sv](../tests/gen/ch5/test_gen_kw_2023_first_match.sv): begin_keywords "1800-2023" の範囲で reg first_match; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_first_match.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で first_match を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-FOR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, for is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118516,10 +118946,11 @@ Under the IEEE 1800-2023 keyword set, for is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_for.sv](../tests/gen/ch5/test_gen_kw_2023_for.sv): begin_keywords "1800-2023" の範囲で reg for; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_for.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で for を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-FORCE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, force is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118527,10 +118958,11 @@ Under the IEEE 1800-2023 keyword set, force is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_force.sv](../tests/gen/ch5/test_gen_kw_2023_force.sv): begin_keywords "1800-2023" の範囲で reg force; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_force.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で force を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-FOREACH
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, foreach is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118538,10 +118970,11 @@ Under the IEEE 1800-2023 keyword set, foreach is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_foreach.sv](../tests/gen/ch5/test_gen_kw_2023_foreach.sv): begin_keywords "1800-2023" の範囲で reg foreach; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_foreach.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で foreach を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-FOREVER
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, forever is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118549,10 +118982,11 @@ Under the IEEE 1800-2023 keyword set, forever is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_forever.sv](../tests/gen/ch5/test_gen_kw_2023_forever.sv): begin_keywords "1800-2023" の範囲で reg forever; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_forever.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で forever を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-FORK
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, fork is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118560,10 +118994,11 @@ Under the IEEE 1800-2023 keyword set, fork is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_fork.sv](../tests/gen/ch5/test_gen_kw_2023_fork.sv): begin_keywords "1800-2023" の範囲で reg fork; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_fork.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で fork を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-FORKJOIN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, forkjoin is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118571,10 +119006,11 @@ Under the IEEE 1800-2023 keyword set, forkjoin is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_forkjoin.sv](../tests/gen/ch5/test_gen_kw_2023_forkjoin.sv): begin_keywords "1800-2023" の範囲で reg forkjoin; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_forkjoin.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で forkjoin を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-FUNCTION
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, function is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118582,10 +119018,11 @@ Under the IEEE 1800-2023 keyword set, function is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_function.sv](../tests/gen/ch5/test_gen_kw_2023_function.sv): begin_keywords "1800-2023" の範囲で reg function; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_function.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で function を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-GENERATE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, generate is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118593,10 +119030,11 @@ Under the IEEE 1800-2023 keyword set, generate is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_generate.sv](../tests/gen/ch5/test_gen_kw_2023_generate.sv): begin_keywords "1800-2023" の範囲で reg generate; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_generate.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で generate を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-GENVAR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, genvar is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118604,10 +119042,11 @@ Under the IEEE 1800-2023 keyword set, genvar is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_genvar.sv](../tests/gen/ch5/test_gen_kw_2023_genvar.sv): begin_keywords "1800-2023" の範囲で reg genvar; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_genvar.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で genvar を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-GLOBAL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, global is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118615,10 +119054,11 @@ Under the IEEE 1800-2023 keyword set, global is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_global.sv](../tests/gen/ch5/test_gen_kw_2023_global.sv): begin_keywords "1800-2023" の範囲で reg global; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_global.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で global を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-HIGHZ0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, highz0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118626,10 +119066,11 @@ Under the IEEE 1800-2023 keyword set, highz0 is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_highz0.sv](../tests/gen/ch5/test_gen_kw_2023_highz0.sv): begin_keywords "1800-2023" の範囲で reg highz0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_highz0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で highz0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-HIGHZ1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, highz1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118637,10 +119078,11 @@ Under the IEEE 1800-2023 keyword set, highz1 is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_highz1.sv](../tests/gen/ch5/test_gen_kw_2023_highz1.sv): begin_keywords "1800-2023" の範囲で reg highz1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_highz1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で highz1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-IF
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, if is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118648,10 +119090,11 @@ Under the IEEE 1800-2023 keyword set, if is a reserved keyword: it cannot be use
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_if.sv](../tests/gen/ch5/test_gen_kw_2023_if.sv): begin_keywords "1800-2023" の範囲で reg if; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_if.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で if を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-IFF
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, iff is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118659,10 +119102,11 @@ Under the IEEE 1800-2023 keyword set, iff is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_iff.sv](../tests/gen/ch5/test_gen_kw_2023_iff.sv): begin_keywords "1800-2023" の範囲で reg iff; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_iff.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で iff を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-IFNONE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, ifnone is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118670,10 +119114,11 @@ Under the IEEE 1800-2023 keyword set, ifnone is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_ifnone.sv](../tests/gen/ch5/test_gen_kw_2023_ifnone.sv): begin_keywords "1800-2023" の範囲で reg ifnone; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_ifnone.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で ifnone を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-IGNORE-BINS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, ignore_bins is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118681,10 +119126,11 @@ Under the IEEE 1800-2023 keyword set, ignore_bins is a reserved keyword: it cann
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_ignore_bins.sv](../tests/gen/ch5/test_gen_kw_2023_ignore_bins.sv): begin_keywords "1800-2023" の範囲で reg ignore_bins; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_ignore_bins.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で ignore_bins を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ILLEGAL-BINS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, illegal_bins is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118692,10 +119138,11 @@ Under the IEEE 1800-2023 keyword set, illegal_bins is a reserved keyword: it can
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_illegal_bins.sv](../tests/gen/ch5/test_gen_kw_2023_illegal_bins.sv): begin_keywords "1800-2023" の範囲で reg illegal_bins; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_illegal_bins.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で illegal_bins を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-IMPLEMENTS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, implements is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118703,10 +119150,11 @@ Under the IEEE 1800-2023 keyword set, implements is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_implements.sv](../tests/gen/ch5/test_gen_kw_2023_implements.sv): begin_keywords "1800-2023" の範囲で reg implements; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_implements.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で implements を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-IMPLIES
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, implies is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118714,10 +119162,11 @@ Under the IEEE 1800-2023 keyword set, implies is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_implies.sv](../tests/gen/ch5/test_gen_kw_2023_implies.sv): begin_keywords "1800-2023" の範囲で reg implies; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_implies.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で implies を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-IMPORT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, import is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118725,10 +119174,11 @@ Under the IEEE 1800-2023 keyword set, import is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_import.sv](../tests/gen/ch5/test_gen_kw_2023_import.sv): begin_keywords "1800-2023" の範囲で reg import; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_import.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で import を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INCDIR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, incdir is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118736,10 +119186,11 @@ Under the IEEE 1800-2023 keyword set, incdir is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_incdir.sv](../tests/gen/ch5/test_gen_kw_2023_incdir.sv): begin_keywords "1800-2023" の範囲で reg incdir; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_incdir.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で incdir を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INCLUDE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, include is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118747,10 +119198,11 @@ Under the IEEE 1800-2023 keyword set, include is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_include.sv](../tests/gen/ch5/test_gen_kw_2023_include.sv): begin_keywords "1800-2023" の範囲で reg include; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_include.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で include を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INITIAL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, initial is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118758,10 +119210,11 @@ Under the IEEE 1800-2023 keyword set, initial is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_initial.sv](../tests/gen/ch5/test_gen_kw_2023_initial.sv): begin_keywords "1800-2023" の範囲で reg initial; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_initial.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で initial を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INOUT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, inout is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118769,10 +119222,11 @@ Under the IEEE 1800-2023 keyword set, inout is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_inout.sv](../tests/gen/ch5/test_gen_kw_2023_inout.sv): begin_keywords "1800-2023" の範囲で reg inout; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_inout.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で inout を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INPUT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, input is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118780,10 +119234,11 @@ Under the IEEE 1800-2023 keyword set, input is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_input.sv](../tests/gen/ch5/test_gen_kw_2023_input.sv): begin_keywords "1800-2023" の範囲で reg input; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_input.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で input を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INSIDE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, inside is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118791,10 +119246,11 @@ Under the IEEE 1800-2023 keyword set, inside is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_inside.sv](../tests/gen/ch5/test_gen_kw_2023_inside.sv): begin_keywords "1800-2023" の範囲で reg inside; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_inside.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で inside を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INSTANCE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, instance is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118802,10 +119258,11 @@ Under the IEEE 1800-2023 keyword set, instance is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_instance.sv](../tests/gen/ch5/test_gen_kw_2023_instance.sv): begin_keywords "1800-2023" の範囲で reg instance; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_instance.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で instance を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, int is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118813,10 +119270,11 @@ Under the IEEE 1800-2023 keyword set, int is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_int.sv](../tests/gen/ch5/test_gen_kw_2023_int.sv): begin_keywords "1800-2023" の範囲で reg int; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_int.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で int を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INTEGER
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, integer is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118824,10 +119282,11 @@ Under the IEEE 1800-2023 keyword set, integer is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_integer.sv](../tests/gen/ch5/test_gen_kw_2023_integer.sv): begin_keywords "1800-2023" の範囲で reg integer; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_integer.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で integer を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INTERCONNECT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, interconnect is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118835,10 +119294,11 @@ Under the IEEE 1800-2023 keyword set, interconnect is a reserved keyword: it can
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_interconnect.sv](../tests/gen/ch5/test_gen_kw_2023_interconnect.sv): begin_keywords "1800-2023" の範囲で reg interconnect; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_interconnect.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で interconnect を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INTERFACE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, interface is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118846,10 +119306,11 @@ Under the IEEE 1800-2023 keyword set, interface is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_interface.sv](../tests/gen/ch5/test_gen_kw_2023_interface.sv): begin_keywords "1800-2023" の範囲で reg interface; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_interface.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で interface を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-INTERSECT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, intersect is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118857,10 +119318,11 @@ Under the IEEE 1800-2023 keyword set, intersect is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_intersect.sv](../tests/gen/ch5/test_gen_kw_2023_intersect.sv): begin_keywords "1800-2023" の範囲で reg intersect; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_intersect.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で intersect を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-JOIN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, join is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118868,10 +119330,11 @@ Under the IEEE 1800-2023 keyword set, join is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_join.sv](../tests/gen/ch5/test_gen_kw_2023_join.sv): begin_keywords "1800-2023" の範囲で reg join; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_join.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で join を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-JOIN-ANY
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, join_any is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118879,10 +119342,11 @@ Under the IEEE 1800-2023 keyword set, join_any is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_join_any.sv](../tests/gen/ch5/test_gen_kw_2023_join_any.sv): begin_keywords "1800-2023" の範囲で reg join_any; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_join_any.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で join_any を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-JOIN-NONE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, join_none is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118890,10 +119354,11 @@ Under the IEEE 1800-2023 keyword set, join_none is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_join_none.sv](../tests/gen/ch5/test_gen_kw_2023_join_none.sv): begin_keywords "1800-2023" の範囲で reg join_none; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_join_none.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で join_none を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-LARGE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, large is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118901,10 +119366,11 @@ Under the IEEE 1800-2023 keyword set, large is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_large.sv](../tests/gen/ch5/test_gen_kw_2023_large.sv): begin_keywords "1800-2023" の範囲で reg large; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_large.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で large を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-LET
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, let is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118912,10 +119378,11 @@ Under the IEEE 1800-2023 keyword set, let is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_let.sv](../tests/gen/ch5/test_gen_kw_2023_let.sv): begin_keywords "1800-2023" の範囲で reg let; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_let.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で let を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-LIBLIST
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, liblist is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118923,10 +119390,11 @@ Under the IEEE 1800-2023 keyword set, liblist is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_liblist.sv](../tests/gen/ch5/test_gen_kw_2023_liblist.sv): begin_keywords "1800-2023" の範囲で reg liblist; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_liblist.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で liblist を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-LIBRARY
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, library is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118934,10 +119402,11 @@ Under the IEEE 1800-2023 keyword set, library is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_library.sv](../tests/gen/ch5/test_gen_kw_2023_library.sv): begin_keywords "1800-2023" の範囲で reg library; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_library.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で library を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-LOCAL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, local is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118945,10 +119414,11 @@ Under the IEEE 1800-2023 keyword set, local is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_local.sv](../tests/gen/ch5/test_gen_kw_2023_local.sv): begin_keywords "1800-2023" の範囲で reg local; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_local.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で local を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-LOCALPARAM
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, localparam is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118956,10 +119426,11 @@ Under the IEEE 1800-2023 keyword set, localparam is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_localparam.sv](../tests/gen/ch5/test_gen_kw_2023_localparam.sv): begin_keywords "1800-2023" の範囲で reg localparam; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_localparam.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で localparam を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-LOGIC
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, logic is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118967,10 +119438,11 @@ Under the IEEE 1800-2023 keyword set, logic is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_logic.sv](../tests/gen/ch5/test_gen_kw_2023_logic.sv): begin_keywords "1800-2023" の範囲で reg logic; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_logic.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で logic を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-LONGINT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, longint is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118978,10 +119450,11 @@ Under the IEEE 1800-2023 keyword set, longint is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_longint.sv](../tests/gen/ch5/test_gen_kw_2023_longint.sv): begin_keywords "1800-2023" の範囲で reg longint; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_longint.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で longint を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-MACROMODULE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, macromodule is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -118989,10 +119462,11 @@ Under the IEEE 1800-2023 keyword set, macromodule is a reserved keyword: it cann
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_macromodule.sv](../tests/gen/ch5/test_gen_kw_2023_macromodule.sv): begin_keywords "1800-2023" の範囲で reg macromodule; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_macromodule.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で macromodule を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-MATCHES
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, matches is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119000,10 +119474,11 @@ Under the IEEE 1800-2023 keyword set, matches is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_matches.sv](../tests/gen/ch5/test_gen_kw_2023_matches.sv): begin_keywords "1800-2023" の範囲で reg matches; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_matches.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で matches を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-MEDIUM
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, medium is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119011,10 +119486,11 @@ Under the IEEE 1800-2023 keyword set, medium is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_medium.sv](../tests/gen/ch5/test_gen_kw_2023_medium.sv): begin_keywords "1800-2023" の範囲で reg medium; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_medium.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で medium を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-MODPORT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, modport is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119022,10 +119498,11 @@ Under the IEEE 1800-2023 keyword set, modport is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_modport.sv](../tests/gen/ch5/test_gen_kw_2023_modport.sv): begin_keywords "1800-2023" の範囲で reg modport; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_modport.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で modport を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-MODULE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, module is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119033,10 +119510,11 @@ Under the IEEE 1800-2023 keyword set, module is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_module.sv](../tests/gen/ch5/test_gen_kw_2023_module.sv): begin_keywords "1800-2023" の範囲で reg module; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_module.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で module を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NAND
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, nand is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119044,10 +119522,11 @@ Under the IEEE 1800-2023 keyword set, nand is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_nand.sv](../tests/gen/ch5/test_gen_kw_2023_nand.sv): begin_keywords "1800-2023" の範囲で reg nand; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_nand.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で nand を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NEGEDGE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, negedge is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119055,10 +119534,11 @@ Under the IEEE 1800-2023 keyword set, negedge is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_negedge.sv](../tests/gen/ch5/test_gen_kw_2023_negedge.sv): begin_keywords "1800-2023" の範囲で reg negedge; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_negedge.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で negedge を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NETTYPE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, nettype is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119066,10 +119546,11 @@ Under the IEEE 1800-2023 keyword set, nettype is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_nettype.sv](../tests/gen/ch5/test_gen_kw_2023_nettype.sv): begin_keywords "1800-2023" の範囲で reg nettype; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_nettype.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で nettype を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NEW
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, new is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119077,10 +119558,11 @@ Under the IEEE 1800-2023 keyword set, new is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_new.sv](../tests/gen/ch5/test_gen_kw_2023_new.sv): begin_keywords "1800-2023" の範囲で reg new; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_new.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で new を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NEXTTIME
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, nexttime is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119088,10 +119570,11 @@ Under the IEEE 1800-2023 keyword set, nexttime is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_nexttime.sv](../tests/gen/ch5/test_gen_kw_2023_nexttime.sv): begin_keywords "1800-2023" の範囲で reg nexttime; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_nexttime.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で nexttime を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NMOS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, nmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119099,10 +119582,11 @@ Under the IEEE 1800-2023 keyword set, nmos is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_nmos.sv](../tests/gen/ch5/test_gen_kw_2023_nmos.sv): begin_keywords "1800-2023" の範囲で reg nmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_nmos.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で nmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NOR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, nor is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119110,10 +119594,11 @@ Under the IEEE 1800-2023 keyword set, nor is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_nor.sv](../tests/gen/ch5/test_gen_kw_2023_nor.sv): begin_keywords "1800-2023" の範囲で reg nor; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_nor.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で nor を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NOSHOWCANCELLED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, noshowcancelled is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119121,10 +119606,11 @@ Under the IEEE 1800-2023 keyword set, noshowcancelled is a reserved keyword: it 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_noshowcancelled.sv](../tests/gen/ch5/test_gen_kw_2023_noshowcancelled.sv): begin_keywords "1800-2023" の範囲で reg noshowcancelled; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_noshowcancelled.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で noshowcancelled を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NOT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, not is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119132,10 +119618,11 @@ Under the IEEE 1800-2023 keyword set, not is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_not.sv](../tests/gen/ch5/test_gen_kw_2023_not.sv): begin_keywords "1800-2023" の範囲で reg not; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_not.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で not を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NOTIF0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, notif0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119143,10 +119630,11 @@ Under the IEEE 1800-2023 keyword set, notif0 is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_notif0.sv](../tests/gen/ch5/test_gen_kw_2023_notif0.sv): begin_keywords "1800-2023" の範囲で reg notif0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_notif0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で notif0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NOTIF1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, notif1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119154,10 +119642,11 @@ Under the IEEE 1800-2023 keyword set, notif1 is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_notif1.sv](../tests/gen/ch5/test_gen_kw_2023_notif1.sv): begin_keywords "1800-2023" の範囲で reg notif1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_notif1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で notif1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-NULL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, null is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119165,10 +119654,11 @@ Under the IEEE 1800-2023 keyword set, null is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_null.sv](../tests/gen/ch5/test_gen_kw_2023_null.sv): begin_keywords "1800-2023" の範囲で reg null; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_null.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で null を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-OR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, or is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119176,10 +119666,11 @@ Under the IEEE 1800-2023 keyword set, or is a reserved keyword: it cannot be use
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_or.sv](../tests/gen/ch5/test_gen_kw_2023_or.sv): begin_keywords "1800-2023" の範囲で reg or; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_or.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で or を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-OUTPUT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, output is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119187,10 +119678,11 @@ Under the IEEE 1800-2023 keyword set, output is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_output.sv](../tests/gen/ch5/test_gen_kw_2023_output.sv): begin_keywords "1800-2023" の範囲で reg output; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_output.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で output を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PACKAGE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, package is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119198,10 +119690,11 @@ Under the IEEE 1800-2023 keyword set, package is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_package.sv](../tests/gen/ch5/test_gen_kw_2023_package.sv): begin_keywords "1800-2023" の範囲で reg package; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_package.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で package を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PACKED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, packed is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119209,10 +119702,11 @@ Under the IEEE 1800-2023 keyword set, packed is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_packed.sv](../tests/gen/ch5/test_gen_kw_2023_packed.sv): begin_keywords "1800-2023" の範囲で reg packed; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_packed.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で packed を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PARAMETER
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, parameter is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119220,10 +119714,11 @@ Under the IEEE 1800-2023 keyword set, parameter is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_parameter.sv](../tests/gen/ch5/test_gen_kw_2023_parameter.sv): begin_keywords "1800-2023" の範囲で reg parameter; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_parameter.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で parameter を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PMOS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, pmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119231,10 +119726,11 @@ Under the IEEE 1800-2023 keyword set, pmos is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_pmos.sv](../tests/gen/ch5/test_gen_kw_2023_pmos.sv): begin_keywords "1800-2023" の範囲で reg pmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_pmos.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で pmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-POSEDGE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, posedge is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119242,10 +119738,11 @@ Under the IEEE 1800-2023 keyword set, posedge is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_posedge.sv](../tests/gen/ch5/test_gen_kw_2023_posedge.sv): begin_keywords "1800-2023" の範囲で reg posedge; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_posedge.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で posedge を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PRIMITIVE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, primitive is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119253,10 +119750,11 @@ Under the IEEE 1800-2023 keyword set, primitive is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_primitive.sv](../tests/gen/ch5/test_gen_kw_2023_primitive.sv): begin_keywords "1800-2023" の範囲で reg primitive; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_primitive.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で primitive を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PRIORITY
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, priority is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119264,10 +119762,11 @@ Under the IEEE 1800-2023 keyword set, priority is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_priority.sv](../tests/gen/ch5/test_gen_kw_2023_priority.sv): begin_keywords "1800-2023" の範囲で reg priority; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_priority.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で priority を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PROGRAM
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, program is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119275,10 +119774,11 @@ Under the IEEE 1800-2023 keyword set, program is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_program.sv](../tests/gen/ch5/test_gen_kw_2023_program.sv): begin_keywords "1800-2023" の範囲で reg program; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_program.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で program を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PROPERTY
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, property is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119286,10 +119786,11 @@ Under the IEEE 1800-2023 keyword set, property is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_property.sv](../tests/gen/ch5/test_gen_kw_2023_property.sv): begin_keywords "1800-2023" の範囲で reg property; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_property.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で property を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PROTECTED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, protected is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119297,10 +119798,11 @@ Under the IEEE 1800-2023 keyword set, protected is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_protected.sv](../tests/gen/ch5/test_gen_kw_2023_protected.sv): begin_keywords "1800-2023" の範囲で reg protected; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_protected.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で protected を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PULL0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, pull0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119308,10 +119810,11 @@ Under the IEEE 1800-2023 keyword set, pull0 is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_pull0.sv](../tests/gen/ch5/test_gen_kw_2023_pull0.sv): begin_keywords "1800-2023" の範囲で reg pull0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_pull0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で pull0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PULL1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, pull1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119319,10 +119822,11 @@ Under the IEEE 1800-2023 keyword set, pull1 is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_pull1.sv](../tests/gen/ch5/test_gen_kw_2023_pull1.sv): begin_keywords "1800-2023" の範囲で reg pull1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_pull1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で pull1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PULLDOWN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, pulldown is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119330,10 +119834,11 @@ Under the IEEE 1800-2023 keyword set, pulldown is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_pulldown.sv](../tests/gen/ch5/test_gen_kw_2023_pulldown.sv): begin_keywords "1800-2023" の範囲で reg pulldown; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_pulldown.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で pulldown を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PULLUP
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, pullup is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119341,10 +119846,11 @@ Under the IEEE 1800-2023 keyword set, pullup is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_pullup.sv](../tests/gen/ch5/test_gen_kw_2023_pullup.sv): begin_keywords "1800-2023" の範囲で reg pullup; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_pullup.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で pullup を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PULSESTYLE-ONDETECT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, pulsestyle_ondetect is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119352,10 +119858,11 @@ Under the IEEE 1800-2023 keyword set, pulsestyle_ondetect is a reserved keyword:
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_pulsestyle_ondetect.sv](../tests/gen/ch5/test_gen_kw_2023_pulsestyle_ondetect.sv): begin_keywords "1800-2023" の範囲で reg pulsestyle_ondetect; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_pulsestyle_ondetect.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で pulsestyle_ondetect を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PULSESTYLE-ONEVENT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, pulsestyle_onevent is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119363,10 +119870,11 @@ Under the IEEE 1800-2023 keyword set, pulsestyle_onevent is a reserved keyword: 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_pulsestyle_onevent.sv](../tests/gen/ch5/test_gen_kw_2023_pulsestyle_onevent.sv): begin_keywords "1800-2023" の範囲で reg pulsestyle_onevent; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_pulsestyle_onevent.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で pulsestyle_onevent を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-PURE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, pure is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119374,10 +119882,11 @@ Under the IEEE 1800-2023 keyword set, pure is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_pure.sv](../tests/gen/ch5/test_gen_kw_2023_pure.sv): begin_keywords "1800-2023" の範囲で reg pure; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_pure.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で pure を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RAND
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, rand is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119385,10 +119894,11 @@ Under the IEEE 1800-2023 keyword set, rand is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_rand.sv](../tests/gen/ch5/test_gen_kw_2023_rand.sv): begin_keywords "1800-2023" の範囲で reg rand; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_rand.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で rand を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RANDC
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, randc is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119396,10 +119906,11 @@ Under the IEEE 1800-2023 keyword set, randc is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_randc.sv](../tests/gen/ch5/test_gen_kw_2023_randc.sv): begin_keywords "1800-2023" の範囲で reg randc; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_randc.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で randc を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RANDCASE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, randcase is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119407,10 +119918,11 @@ Under the IEEE 1800-2023 keyword set, randcase is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_randcase.sv](../tests/gen/ch5/test_gen_kw_2023_randcase.sv): begin_keywords "1800-2023" の範囲で reg randcase; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_randcase.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で randcase を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RANDSEQUENCE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, randsequence is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119418,10 +119930,11 @@ Under the IEEE 1800-2023 keyword set, randsequence is a reserved keyword: it can
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_randsequence.sv](../tests/gen/ch5/test_gen_kw_2023_randsequence.sv): begin_keywords "1800-2023" の範囲で reg randsequence; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_randsequence.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で randsequence を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RCMOS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, rcmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119429,10 +119942,11 @@ Under the IEEE 1800-2023 keyword set, rcmos is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_rcmos.sv](../tests/gen/ch5/test_gen_kw_2023_rcmos.sv): begin_keywords "1800-2023" の範囲で reg rcmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_rcmos.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で rcmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-REAL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, real is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119440,10 +119954,11 @@ Under the IEEE 1800-2023 keyword set, real is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_real.sv](../tests/gen/ch5/test_gen_kw_2023_real.sv): begin_keywords "1800-2023" の範囲で reg real; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_real.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で real を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-REALTIME
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, realtime is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119451,10 +119966,11 @@ Under the IEEE 1800-2023 keyword set, realtime is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_realtime.sv](../tests/gen/ch5/test_gen_kw_2023_realtime.sv): begin_keywords "1800-2023" の範囲で reg realtime; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_realtime.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で realtime を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-REF
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, ref is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119462,10 +119978,11 @@ Under the IEEE 1800-2023 keyword set, ref is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_ref.sv](../tests/gen/ch5/test_gen_kw_2023_ref.sv): begin_keywords "1800-2023" の範囲で reg ref; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_ref.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で ref を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-REG
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, reg is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119473,10 +119990,11 @@ Under the IEEE 1800-2023 keyword set, reg is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_reg.sv](../tests/gen/ch5/test_gen_kw_2023_reg.sv): begin_keywords "1800-2023" の範囲で reg reg; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_reg.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で reg を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-REJECT-ON
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, reject_on is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119484,10 +120002,11 @@ Under the IEEE 1800-2023 keyword set, reject_on is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_reject_on.sv](../tests/gen/ch5/test_gen_kw_2023_reject_on.sv): begin_keywords "1800-2023" の範囲で reg reject_on; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_reject_on.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で reject_on を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RELEASE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, release is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119495,10 +120014,11 @@ Under the IEEE 1800-2023 keyword set, release is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_release.sv](../tests/gen/ch5/test_gen_kw_2023_release.sv): begin_keywords "1800-2023" の範囲で reg release; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_release.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で release を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-REPEAT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, repeat is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119506,10 +120026,11 @@ Under the IEEE 1800-2023 keyword set, repeat is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_repeat.sv](../tests/gen/ch5/test_gen_kw_2023_repeat.sv): begin_keywords "1800-2023" の範囲で reg repeat; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_repeat.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で repeat を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RESTRICT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, restrict is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119517,10 +120038,11 @@ Under the IEEE 1800-2023 keyword set, restrict is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_restrict.sv](../tests/gen/ch5/test_gen_kw_2023_restrict.sv): begin_keywords "1800-2023" の範囲で reg restrict; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_restrict.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で restrict を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RETURN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, return is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119528,10 +120050,11 @@ Under the IEEE 1800-2023 keyword set, return is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_return.sv](../tests/gen/ch5/test_gen_kw_2023_return.sv): begin_keywords "1800-2023" の範囲で reg return; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_return.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で return を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RNMOS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, rnmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119539,10 +120062,11 @@ Under the IEEE 1800-2023 keyword set, rnmos is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_rnmos.sv](../tests/gen/ch5/test_gen_kw_2023_rnmos.sv): begin_keywords "1800-2023" の範囲で reg rnmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_rnmos.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で rnmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RPMOS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, rpmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119550,10 +120074,11 @@ Under the IEEE 1800-2023 keyword set, rpmos is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_rpmos.sv](../tests/gen/ch5/test_gen_kw_2023_rpmos.sv): begin_keywords "1800-2023" の範囲で reg rpmos; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_rpmos.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で rpmos を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RTRAN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, rtran is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119561,10 +120086,11 @@ Under the IEEE 1800-2023 keyword set, rtran is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_rtran.sv](../tests/gen/ch5/test_gen_kw_2023_rtran.sv): begin_keywords "1800-2023" の範囲で reg rtran; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_rtran.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で rtran を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RTRANIF0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, rtranif0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119572,10 +120098,11 @@ Under the IEEE 1800-2023 keyword set, rtranif0 is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_rtranif0.sv](../tests/gen/ch5/test_gen_kw_2023_rtranif0.sv): begin_keywords "1800-2023" の範囲で reg rtranif0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_rtranif0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で rtranif0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-RTRANIF1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, rtranif1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119583,10 +120110,11 @@ Under the IEEE 1800-2023 keyword set, rtranif1 is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_rtranif1.sv](../tests/gen/ch5/test_gen_kw_2023_rtranif1.sv): begin_keywords "1800-2023" の範囲で reg rtranif1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_rtranif1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で rtranif1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-S-ALWAYS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, s_always is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119594,10 +120122,11 @@ Under the IEEE 1800-2023 keyword set, s_always is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_s_always.sv](../tests/gen/ch5/test_gen_kw_2023_s_always.sv): begin_keywords "1800-2023" の範囲で reg s_always; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_s_always.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で s_always を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-S-EVENTUALLY
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, s_eventually is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119605,10 +120134,11 @@ Under the IEEE 1800-2023 keyword set, s_eventually is a reserved keyword: it can
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_s_eventually.sv](../tests/gen/ch5/test_gen_kw_2023_s_eventually.sv): begin_keywords "1800-2023" の範囲で reg s_eventually; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_s_eventually.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で s_eventually を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-S-NEXTTIME
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, s_nexttime is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119616,10 +120146,11 @@ Under the IEEE 1800-2023 keyword set, s_nexttime is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_s_nexttime.sv](../tests/gen/ch5/test_gen_kw_2023_s_nexttime.sv): begin_keywords "1800-2023" の範囲で reg s_nexttime; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_s_nexttime.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で s_nexttime を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-S-UNTIL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, s_until is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119627,10 +120158,11 @@ Under the IEEE 1800-2023 keyword set, s_until is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_s_until.sv](../tests/gen/ch5/test_gen_kw_2023_s_until.sv): begin_keywords "1800-2023" の範囲で reg s_until; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_s_until.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で s_until を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-S-UNTIL-WITH
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, s_until_with is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119638,10 +120170,11 @@ Under the IEEE 1800-2023 keyword set, s_until_with is a reserved keyword: it can
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_s_until_with.sv](../tests/gen/ch5/test_gen_kw_2023_s_until_with.sv): begin_keywords "1800-2023" の範囲で reg s_until_with; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_s_until_with.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で s_until_with を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SCALARED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, scalared is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119649,10 +120182,11 @@ Under the IEEE 1800-2023 keyword set, scalared is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_scalared.sv](../tests/gen/ch5/test_gen_kw_2023_scalared.sv): begin_keywords "1800-2023" の範囲で reg scalared; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_scalared.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で scalared を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SEQUENCE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, sequence is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119660,10 +120194,11 @@ Under the IEEE 1800-2023 keyword set, sequence is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_sequence.sv](../tests/gen/ch5/test_gen_kw_2023_sequence.sv): begin_keywords "1800-2023" の範囲で reg sequence; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_sequence.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で sequence を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SHORTINT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, shortint is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119671,10 +120206,11 @@ Under the IEEE 1800-2023 keyword set, shortint is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_shortint.sv](../tests/gen/ch5/test_gen_kw_2023_shortint.sv): begin_keywords "1800-2023" の範囲で reg shortint; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_shortint.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で shortint を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SHORTREAL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, shortreal is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119682,10 +120218,11 @@ Under the IEEE 1800-2023 keyword set, shortreal is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_shortreal.sv](../tests/gen/ch5/test_gen_kw_2023_shortreal.sv): begin_keywords "1800-2023" の範囲で reg shortreal; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_shortreal.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で shortreal を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SHOWCANCELLED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, showcancelled is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119693,10 +120230,11 @@ Under the IEEE 1800-2023 keyword set, showcancelled is a reserved keyword: it ca
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_showcancelled.sv](../tests/gen/ch5/test_gen_kw_2023_showcancelled.sv): begin_keywords "1800-2023" の範囲で reg showcancelled; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_showcancelled.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で showcancelled を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SIGNED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, signed is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119704,10 +120242,11 @@ Under the IEEE 1800-2023 keyword set, signed is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_signed.sv](../tests/gen/ch5/test_gen_kw_2023_signed.sv): begin_keywords "1800-2023" の範囲で reg signed; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_signed.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で signed を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SMALL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, small is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119715,10 +120254,11 @@ Under the IEEE 1800-2023 keyword set, small is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_small.sv](../tests/gen/ch5/test_gen_kw_2023_small.sv): begin_keywords "1800-2023" の範囲で reg small; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_small.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で small を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SOFT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, soft is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119726,10 +120266,11 @@ Under the IEEE 1800-2023 keyword set, soft is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_soft.sv](../tests/gen/ch5/test_gen_kw_2023_soft.sv): begin_keywords "1800-2023" の範囲で reg soft; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_soft.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で soft を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SOLVE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, solve is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119737,10 +120278,11 @@ Under the IEEE 1800-2023 keyword set, solve is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_solve.sv](../tests/gen/ch5/test_gen_kw_2023_solve.sv): begin_keywords "1800-2023" の範囲で reg solve; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_solve.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で solve を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SPECIFY
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, specify is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119748,10 +120290,11 @@ Under the IEEE 1800-2023 keyword set, specify is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_specify.sv](../tests/gen/ch5/test_gen_kw_2023_specify.sv): begin_keywords "1800-2023" の範囲で reg specify; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_specify.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で specify を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SPECPARAM
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, specparam is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119759,10 +120302,11 @@ Under the IEEE 1800-2023 keyword set, specparam is a reserved keyword: it cannot
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_specparam.sv](../tests/gen/ch5/test_gen_kw_2023_specparam.sv): begin_keywords "1800-2023" の範囲で reg specparam; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_specparam.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で specparam を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-STATIC
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, static is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119770,10 +120314,11 @@ Under the IEEE 1800-2023 keyword set, static is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_static.sv](../tests/gen/ch5/test_gen_kw_2023_static.sv): begin_keywords "1800-2023" の範囲で reg static; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_static.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で static を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-STRING
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, string is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119781,10 +120326,11 @@ Under the IEEE 1800-2023 keyword set, string is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_string.sv](../tests/gen/ch5/test_gen_kw_2023_string.sv): begin_keywords "1800-2023" の範囲で reg string; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_string.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で string を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-STRONG
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, strong is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119792,10 +120338,11 @@ Under the IEEE 1800-2023 keyword set, strong is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_strong.sv](../tests/gen/ch5/test_gen_kw_2023_strong.sv): begin_keywords "1800-2023" の範囲で reg strong; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_strong.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で strong を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-STRONG0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, strong0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119803,10 +120350,11 @@ Under the IEEE 1800-2023 keyword set, strong0 is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_strong0.sv](../tests/gen/ch5/test_gen_kw_2023_strong0.sv): begin_keywords "1800-2023" の範囲で reg strong0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_strong0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で strong0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-STRONG1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, strong1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119814,10 +120362,11 @@ Under the IEEE 1800-2023 keyword set, strong1 is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_strong1.sv](../tests/gen/ch5/test_gen_kw_2023_strong1.sv): begin_keywords "1800-2023" の範囲で reg strong1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_strong1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で strong1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-STRUCT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, struct is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119825,10 +120374,11 @@ Under the IEEE 1800-2023 keyword set, struct is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_struct.sv](../tests/gen/ch5/test_gen_kw_2023_struct.sv): begin_keywords "1800-2023" の範囲で reg struct; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_struct.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で struct を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SUPER
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, super is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119836,10 +120386,11 @@ Under the IEEE 1800-2023 keyword set, super is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_super.sv](../tests/gen/ch5/test_gen_kw_2023_super.sv): begin_keywords "1800-2023" の範囲で reg super; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_super.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で super を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SUPPLY0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, supply0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119847,10 +120398,11 @@ Under the IEEE 1800-2023 keyword set, supply0 is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_supply0.sv](../tests/gen/ch5/test_gen_kw_2023_supply0.sv): begin_keywords "1800-2023" の範囲で reg supply0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_supply0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で supply0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SUPPLY1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, supply1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119858,10 +120410,11 @@ Under the IEEE 1800-2023 keyword set, supply1 is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_supply1.sv](../tests/gen/ch5/test_gen_kw_2023_supply1.sv): begin_keywords "1800-2023" の範囲で reg supply1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_supply1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で supply1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SYNC-ACCEPT-ON
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, sync_accept_on is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119869,10 +120422,11 @@ Under the IEEE 1800-2023 keyword set, sync_accept_on is a reserved keyword: it c
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_sync_accept_on.sv](../tests/gen/ch5/test_gen_kw_2023_sync_accept_on.sv): begin_keywords "1800-2023" の範囲で reg sync_accept_on; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_sync_accept_on.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で sync_accept_on を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-SYNC-REJECT-ON
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, sync_reject_on is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119880,10 +120434,11 @@ Under the IEEE 1800-2023 keyword set, sync_reject_on is a reserved keyword: it c
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_sync_reject_on.sv](../tests/gen/ch5/test_gen_kw_2023_sync_reject_on.sv): begin_keywords "1800-2023" の範囲で reg sync_reject_on; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_sync_reject_on.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で sync_reject_on を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TABLE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, table is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119891,10 +120446,11 @@ Under the IEEE 1800-2023 keyword set, table is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_table.sv](../tests/gen/ch5/test_gen_kw_2023_table.sv): begin_keywords "1800-2023" の範囲で reg table; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_table.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で table を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TAGGED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, tagged is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119902,10 +120458,11 @@ Under the IEEE 1800-2023 keyword set, tagged is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_tagged.sv](../tests/gen/ch5/test_gen_kw_2023_tagged.sv): begin_keywords "1800-2023" の範囲で reg tagged; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_tagged.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で tagged を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TASK
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, task is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119913,10 +120470,11 @@ Under the IEEE 1800-2023 keyword set, task is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_task.sv](../tests/gen/ch5/test_gen_kw_2023_task.sv): begin_keywords "1800-2023" の範囲で reg task; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_task.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で task を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-THIS
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, this is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119924,10 +120482,11 @@ Under the IEEE 1800-2023 keyword set, this is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_this.sv](../tests/gen/ch5/test_gen_kw_2023_this.sv): begin_keywords "1800-2023" の範囲で reg this; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_this.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で this を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-THROUGHOUT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, throughout is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119935,10 +120494,11 @@ Under the IEEE 1800-2023 keyword set, throughout is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_throughout.sv](../tests/gen/ch5/test_gen_kw_2023_throughout.sv): begin_keywords "1800-2023" の範囲で reg throughout; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_throughout.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で throughout を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TIME
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, time is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119946,10 +120506,11 @@ Under the IEEE 1800-2023 keyword set, time is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_time.sv](../tests/gen/ch5/test_gen_kw_2023_time.sv): begin_keywords "1800-2023" の範囲で reg time; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_time.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で time を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TIMEPRECISION
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, timeprecision is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119957,10 +120518,11 @@ Under the IEEE 1800-2023 keyword set, timeprecision is a reserved keyword: it ca
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_timeprecision.sv](../tests/gen/ch5/test_gen_kw_2023_timeprecision.sv): begin_keywords "1800-2023" の範囲で reg timeprecision; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_timeprecision.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で timeprecision を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TIMEUNIT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, timeunit is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119968,10 +120530,11 @@ Under the IEEE 1800-2023 keyword set, timeunit is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_timeunit.sv](../tests/gen/ch5/test_gen_kw_2023_timeunit.sv): begin_keywords "1800-2023" の範囲で reg timeunit; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_timeunit.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で timeunit を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TRAN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, tran is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119979,10 +120542,11 @@ Under the IEEE 1800-2023 keyword set, tran is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_tran.sv](../tests/gen/ch5/test_gen_kw_2023_tran.sv): begin_keywords "1800-2023" の範囲で reg tran; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_tran.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で tran を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TRANIF0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, tranif0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -119990,10 +120554,11 @@ Under the IEEE 1800-2023 keyword set, tranif0 is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_tranif0.sv](../tests/gen/ch5/test_gen_kw_2023_tranif0.sv): begin_keywords "1800-2023" の範囲で reg tranif0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_tranif0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で tranif0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TRANIF1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, tranif1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120001,10 +120566,11 @@ Under the IEEE 1800-2023 keyword set, tranif1 is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_tranif1.sv](../tests/gen/ch5/test_gen_kw_2023_tranif1.sv): begin_keywords "1800-2023" の範囲で reg tranif1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_tranif1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で tranif1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TRI
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, tri is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120012,10 +120578,11 @@ Under the IEEE 1800-2023 keyword set, tri is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_tri.sv](../tests/gen/ch5/test_gen_kw_2023_tri.sv): begin_keywords "1800-2023" の範囲で reg tri; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_tri.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で tri を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TRI0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, tri0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120023,10 +120590,11 @@ Under the IEEE 1800-2023 keyword set, tri0 is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_tri0.sv](../tests/gen/ch5/test_gen_kw_2023_tri0.sv): begin_keywords "1800-2023" の範囲で reg tri0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_tri0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で tri0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TRI1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, tri1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120034,10 +120602,11 @@ Under the IEEE 1800-2023 keyword set, tri1 is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_tri1.sv](../tests/gen/ch5/test_gen_kw_2023_tri1.sv): begin_keywords "1800-2023" の範囲で reg tri1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_tri1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で tri1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TRIAND
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, triand is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120045,10 +120614,11 @@ Under the IEEE 1800-2023 keyword set, triand is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_triand.sv](../tests/gen/ch5/test_gen_kw_2023_triand.sv): begin_keywords "1800-2023" の範囲で reg triand; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_triand.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で triand を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TRIOR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, trior is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120056,10 +120626,11 @@ Under the IEEE 1800-2023 keyword set, trior is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_trior.sv](../tests/gen/ch5/test_gen_kw_2023_trior.sv): begin_keywords "1800-2023" の範囲で reg trior; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_trior.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で trior を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TRIREG
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, trireg is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120067,10 +120638,11 @@ Under the IEEE 1800-2023 keyword set, trireg is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_trireg.sv](../tests/gen/ch5/test_gen_kw_2023_trireg.sv): begin_keywords "1800-2023" の範囲で reg trireg; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_trireg.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で trireg を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TYPE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, type is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120078,10 +120650,11 @@ Under the IEEE 1800-2023 keyword set, type is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_type.sv](../tests/gen/ch5/test_gen_kw_2023_type.sv): begin_keywords "1800-2023" の範囲で reg type; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_type.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で type を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-TYPEDEF
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, typedef is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120089,10 +120662,11 @@ Under the IEEE 1800-2023 keyword set, typedef is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_typedef.sv](../tests/gen/ch5/test_gen_kw_2023_typedef.sv): begin_keywords "1800-2023" の範囲で reg typedef; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_typedef.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で typedef を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-UNION
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, union is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120100,10 +120674,11 @@ Under the IEEE 1800-2023 keyword set, union is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_union.sv](../tests/gen/ch5/test_gen_kw_2023_union.sv): begin_keywords "1800-2023" の範囲で reg union; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_union.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で union を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-UNIQUE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, unique is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120111,10 +120686,11 @@ Under the IEEE 1800-2023 keyword set, unique is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_unique.sv](../tests/gen/ch5/test_gen_kw_2023_unique.sv): begin_keywords "1800-2023" の範囲で reg unique; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_unique.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で unique を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-UNIQUE0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, unique0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120122,10 +120698,11 @@ Under the IEEE 1800-2023 keyword set, unique0 is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_unique0.sv](../tests/gen/ch5/test_gen_kw_2023_unique0.sv): begin_keywords "1800-2023" の範囲で reg unique0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_unique0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で unique0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-UNSIGNED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, unsigned is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120133,10 +120710,11 @@ Under the IEEE 1800-2023 keyword set, unsigned is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_unsigned.sv](../tests/gen/ch5/test_gen_kw_2023_unsigned.sv): begin_keywords "1800-2023" の範囲で reg unsigned; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_unsigned.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で unsigned を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-UNTIL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, until is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120144,10 +120722,11 @@ Under the IEEE 1800-2023 keyword set, until is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_until.sv](../tests/gen/ch5/test_gen_kw_2023_until.sv): begin_keywords "1800-2023" の範囲で reg until; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_until.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で until を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-UNTIL-WITH
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, until_with is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120155,10 +120734,11 @@ Under the IEEE 1800-2023 keyword set, until_with is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_until_with.sv](../tests/gen/ch5/test_gen_kw_2023_until_with.sv): begin_keywords "1800-2023" の範囲で reg until_with; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_until_with.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で until_with を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-UNTYPED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, untyped is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120166,10 +120746,11 @@ Under the IEEE 1800-2023 keyword set, untyped is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_untyped.sv](../tests/gen/ch5/test_gen_kw_2023_untyped.sv): begin_keywords "1800-2023" の範囲で reg untyped; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_untyped.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で untyped を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-USE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, use is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120177,10 +120758,11 @@ Under the IEEE 1800-2023 keyword set, use is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_use.sv](../tests/gen/ch5/test_gen_kw_2023_use.sv): begin_keywords "1800-2023" の範囲で reg use; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_use.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で use を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-UWIRE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, uwire is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120188,10 +120770,11 @@ Under the IEEE 1800-2023 keyword set, uwire is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_uwire.sv](../tests/gen/ch5/test_gen_kw_2023_uwire.sv): begin_keywords "1800-2023" の範囲で reg uwire; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_uwire.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で uwire を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-VAR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, var is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120199,10 +120782,11 @@ Under the IEEE 1800-2023 keyword set, var is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_var.sv](../tests/gen/ch5/test_gen_kw_2023_var.sv): begin_keywords "1800-2023" の範囲で reg var; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_var.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で var を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-VECTORED
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, vectored is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120210,10 +120794,11 @@ Under the IEEE 1800-2023 keyword set, vectored is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_vectored.sv](../tests/gen/ch5/test_gen_kw_2023_vectored.sv): begin_keywords "1800-2023" の範囲で reg vectored; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_vectored.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で vectored を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-VIRTUAL
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, virtual is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120221,10 +120806,11 @@ Under the IEEE 1800-2023 keyword set, virtual is a reserved keyword: it cannot b
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_virtual.sv](../tests/gen/ch5/test_gen_kw_2023_virtual.sv): begin_keywords "1800-2023" の範囲で reg virtual; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_virtual.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で virtual を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-VOID
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, void is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120232,10 +120818,11 @@ Under the IEEE 1800-2023 keyword set, void is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_void.sv](../tests/gen/ch5/test_gen_kw_2023_void.sv): begin_keywords "1800-2023" の範囲で reg void; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_void.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で void を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WAIT
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, wait is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120243,10 +120830,11 @@ Under the IEEE 1800-2023 keyword set, wait is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_wait.sv](../tests/gen/ch5/test_gen_kw_2023_wait.sv): begin_keywords "1800-2023" の範囲で reg wait; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_wait.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で wait を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WAIT-ORDER
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, wait_order is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120254,10 +120842,11 @@ Under the IEEE 1800-2023 keyword set, wait_order is a reserved keyword: it canno
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_wait_order.sv](../tests/gen/ch5/test_gen_kw_2023_wait_order.sv): begin_keywords "1800-2023" の範囲で reg wait_order; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_wait_order.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で wait_order を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WAND
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, wand is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120265,10 +120854,11 @@ Under the IEEE 1800-2023 keyword set, wand is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_wand.sv](../tests/gen/ch5/test_gen_kw_2023_wand.sv): begin_keywords "1800-2023" の範囲で reg wand; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_wand.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で wand を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WEAK
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, weak is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120276,10 +120866,11 @@ Under the IEEE 1800-2023 keyword set, weak is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_weak.sv](../tests/gen/ch5/test_gen_kw_2023_weak.sv): begin_keywords "1800-2023" の範囲で reg weak; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_weak.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で weak を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WEAK0
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, weak0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120287,10 +120878,11 @@ Under the IEEE 1800-2023 keyword set, weak0 is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_weak0.sv](../tests/gen/ch5/test_gen_kw_2023_weak0.sv): begin_keywords "1800-2023" の範囲で reg weak0; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_weak0.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で weak0 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WEAK1
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, weak1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120298,10 +120890,11 @@ Under the IEEE 1800-2023 keyword set, weak1 is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_weak1.sv](../tests/gen/ch5/test_gen_kw_2023_weak1.sv): begin_keywords "1800-2023" の範囲で reg weak1; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_weak1.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で weak1 を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WHILE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, while is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120309,10 +120902,11 @@ Under the IEEE 1800-2023 keyword set, while is a reserved keyword: it cannot be 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_while.sv](../tests/gen/ch5/test_gen_kw_2023_while.sv): begin_keywords "1800-2023" の範囲で reg while; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_while.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で while を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WILDCARD
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, wildcard is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120320,10 +120914,11 @@ Under the IEEE 1800-2023 keyword set, wildcard is a reserved keyword: it cannot 
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_wildcard.sv](../tests/gen/ch5/test_gen_kw_2023_wildcard.sv): begin_keywords "1800-2023" の範囲で reg wildcard; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_wildcard.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で wildcard を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WIRE
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, wire is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120331,10 +120926,11 @@ Under the IEEE 1800-2023 keyword set, wire is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_wire.sv](../tests/gen/ch5/test_gen_kw_2023_wire.sv): begin_keywords "1800-2023" の範囲で reg wire; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_wire.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で wire を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WITH
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, with is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120342,10 +120938,11 @@ Under the IEEE 1800-2023 keyword set, with is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_with.sv](../tests/gen/ch5/test_gen_kw_2023_with.sv): begin_keywords "1800-2023" の範囲で reg with; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_with.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で with を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WITHIN
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, within is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120353,10 +120950,11 @@ Under the IEEE 1800-2023 keyword set, within is a reserved keyword: it cannot be
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_within.sv](../tests/gen/ch5/test_gen_kw_2023_within.sv): begin_keywords "1800-2023" の範囲で reg within; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_within.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で within を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-WOR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, wor is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120364,10 +120962,11 @@ Under the IEEE 1800-2023 keyword set, wor is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_wor.sv](../tests/gen/ch5/test_gen_kw_2023_wor.sv): begin_keywords "1800-2023" の範囲で reg wor; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_wor.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で wor を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-XNOR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, xnor is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120375,10 +120974,11 @@ Under the IEEE 1800-2023 keyword set, xnor is a reserved keyword: it cannot be u
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_xnor.sv](../tests/gen/ch5/test_gen_kw_2023_xnor.sv): begin_keywords "1800-2023" の範囲で reg xnor; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_xnor.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で xnor を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-B-EXTRACT-KEYWORD-XOR
 
-B / error / テスト未対応
+B / error / 実行確認あり
 
 Under the IEEE 1800-2023 keyword set, xor is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
@@ -120386,6 +120986,7 @@ Under the IEEE 1800-2023 keyword set, xor is a reserved keyword: it cannot be us
 
 規定の性質: `mandatory`。
 
+- [test_gen_kw_2023_xor.sv](../tests/gen/ch5/test_gen_kw_2023_xor.sv): begin_keywords "1800-2023" の範囲で reg xor; と宣言し、その行（:expected_stderr_regex: が示す test_gen_kw_2023_xor.sv の行）でエラーになることを照合する。 区別: 1800-2023 の予約語集合で xor を予約しない実装は宣言を受理し、エラーが出ないため照合に失敗する。別の行のエラー（構文の取り違えなど）も正規表現の行番号に一致しない。
 
 ### SV2023-C.2.2-EXTRACT-SAMPLED-CLOCKLESS
 

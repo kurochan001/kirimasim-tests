@@ -13,13 +13,14 @@ import argparse
 import sys
 
 import common
+import keywords
 import scheduling
 import strength
 import wide_paths
 import width_sign
 import xz_propagation
 
-GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths]
+GENERATORS = [scheduling, width_sign, xz_propagation, strength, wide_paths, keywords]
 
 
 def main() -> int:

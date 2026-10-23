@@ -6,20 +6,20 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 3986 |
+| Tests | 4482 |
 | Clauses in scope | 935 |
 | Clauses out of scope | 224 |
 | Clauses with a direct test | 935/935 |
 | Clauses with at least two direct tests | 935/935 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 410 |
+| Clauses with two tests or fewer | 404 |
 | Clauses with only standard-only tests | 239 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 216 |
-| Icarus Verilog 13.0 only | 2372 |
+| Icarus Verilog 13.0 only | 2868 |
 | Verilator 5.052 only | 830 |
 | standard only | 568 |
 
@@ -29,7 +29,7 @@
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 27 | 7 | 3.9 | 0 | 2 |
 | 4 | Scheduling semantics | 387 | 27 | 14.3 | 0 | 6 |
-| 5 | Lexical conventions | 41 | 16 | 2.6 | 0 | 2 |
+| 5 | Lexical conventions | 289 | 16 | 18.1 | 0 | 2 |
 | 6 | Data types | 318 | 74 | 4.3 | 0 | 23 |
 | 7 | Aggregate data types | 334 | 49 | 6.8 | 0 | 21 |
 | 8 | Classes | 162 | 42 | 3.9 | 0 | 21 |
@@ -46,7 +46,7 @@
 | 19 | Functional coverage | 43 | 22 | 2.0 | 0 | 32 |
 | 20 | Utility system tasks and system functions | 192 | 31 | 6.2 | 0 | 11 |
 | 21 | Input/output system tasks and system functions | 92 | 36 | 2.6 | 0 | 4 |
-| 22 | Compiler directives | 48 | 20 | 2.4 | 0 | 0 |
+| 22 | Compiler directives | 296 | 20 | 14.8 | 0 | 0 |
 | 23 | Modules and hierarchy | 81 | 32 | 2.5 | 0 | 11 |
 | 24 | Programs | 30 | 6 | 5.0 | 0 | 14 |
 | 25 | Interfaces | 54 | 9 | 6.0 | 0 | 5 |
