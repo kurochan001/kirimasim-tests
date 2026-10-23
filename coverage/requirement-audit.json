@@ -20931,11 +20931,11 @@
       }
     },
     "11.2.1": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "2a2b5978a5efbbc6afce2a1b572b82cf635b6315c86acbbec14e80d02b227886",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "All constant operand, elaboration/purity/family/query and receiver-dependence rules are extracted. The timescale API name mismatch with 20.4 remains open, so this subsection is not closed.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "All constant operand, elaboration/purity/family/query and receiver-dependence rules are extracted. The parenthetical $timescale is read as $timeunit because 11.2.1 cites the timescale functions listed in 20.4, whose only system functions are $timeunit and $timeprecision (20.4 B002, 20.4.1 B002/B004), and no $timescale system function exists in the standard.",
       "visual_review": "No normative figure/table in this own-body section; examples are informative under 1.10.",
       "blocks": {
         "B001": {
@@ -46652,11 +46652,11 @@
       }
     },
     "19.7": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "77823e524666c4cc79674bab8a49e10e5cc11788aa65d278e0c8438335636231",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "All 11 instance option rows/defaults and 33 level cells reviewed; cross_retain_auto_bins prose/table scope mismatch held.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "All 11 instance option rows/defaults and 33 level cells reviewed. cross_retain_auto_bins is read as a definition-only option set at the covergroup or cross level, because Table 19-2 (B038) and the 19.10 option structures place it in covergroup/cross options and not in the coverpoint option, so B025's coverpoint wording applies only to auto_bin_max and detect_overlap.",
       "visual_review": "Rendered physical PDF pages 607 and 609 inspected: every Table 19-1 default/description and Table 19-2 Yes/No cell confirmed, including cross_retain_auto_bins group/cross permissions.",
       "blocks": {
         "B001": {
@@ -47631,11 +47631,11 @@
       }
     },
     "19.11.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "789c13ad99785af3588e000afc6b1cc5ca2a408fd99091c1e9fd68fd10598d0f",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Entire source reviewed; automatic-bin expression versus the new retention option remains held.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Entire source reviewed; Bc is the number of auto-cross bins actually present (B005), equal to product minus user products while automatic bins are retained and zero when cross_retain_auto_bins is false with an explicit cross bin (Table 19-1 B014).",
       "visual_review": "Rendered physical PDF page 617 inspected: both cross formulas, product-minus-user term and zero-denominator cases confirmed.",
       "blocks": {
         "B001": {
@@ -64302,11 +64302,11 @@
       }
     },
     "27.3": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "239f024a2ab688daa5873419e02b8c0b7b46d2e428b7099b94c0a2c8473acfcf",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Entire generate grammar, elaboration semantics, optional regions, nonnesting and item-context footnote extracted; container wording held against explicit program/interface grammars.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Entire generate grammar, elaboration semantics, optional regions, nonnesting and item-context footnote extracted. The directly-within-a-module wording is read as covering every container whose item grammar lists generate_region (module, interface, program, checker: 23.2.4 B003, 25.3 B002, 24.3 B005, 17.2 B003), keeping the direct-placement and nonnesting limits.",
       "visual_review": "No normative figure/table in this own-body section; examples are informative under 1.10.",
       "blocks": {
         "B001": {
@@ -72720,11 +72720,11 @@
       }
     },
     "31.6": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "5671dfa4b909159b8cfbc6a81c3b63fd945135aac0571d6d30ba3a87016b062b",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Local/optional notifier and all four state transitions extracted; last-argument generalization held against extended check signatures.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Local/optional notifier and all four state transitions extracted; the overview's last-argument wording is read as the per-check notifier position, since Syntax 31-1/A.7.5.1, Tables 31-3/31-6/31-8/31-9 and 31.9.2 B005 consistently place optional arguments after the notifier in $setuphold, $recrem, $timeskew and $fullskew.",
       "visual_review": "Rendered physical page 916; verified all Table 31-13 transitions including nondeterministic x initialization and unchanged z.",
       "blocks": {
         "B001": {
@@ -77708,11 +77708,11 @@
       }
     },
     "34.5.12.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "610d777cd3c11b076bf6b73fda227885e2f581292a4cff575c96e809289f5291",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete input, output and decryption behavior; each operation is scoped to the stated tool mode.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete input, output and decryption behavior; each operation is scoped to the stated tool mode. The encryption-output self-combination of data_keyname is read as combination with data_keyowner, as required by B002/B005 of this clause, 34.5.10.2 B002 and the parallel wording of 34.5.18.2 B003 and 34.5.25.2 B003.",
       "visual_review": "No normative figure/table in this own-body section; examples are informative under 1.10.",
       "blocks": {
         "B001": {
@@ -78115,11 +78115,11 @@
       }
     },
     "34.5.22.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "29493dd70103bd3ba06ec01c5db91d52384705a267dc98ac3a9f95982f806e06",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete input, output and decryption behavior; each operation is scoped to the stated tool mode.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete input, output and decryption behavior; each operation is scoped to the stated tool mode. The undefined digest_key_keyowner selector is read as digest_keyowner, the only digest key-owner keyword in Table 34-1 and the selector that 34.5.16.2 B002 assigns to digest_block key selection.",
       "visual_review": "No normative figure/table in this own-body section; examples are informative under 1.10.",
       "blocks": {
         "B001": {
@@ -78588,11 +78588,11 @@
       }
     },
     "34.5.25.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "ffac7c136a61222ef1451dbff453b5118abfea4d8dafee74d160694d904cc751",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete mode-specific input/output/decryption requirements and qualifications.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete mode-specific input/output/decryption requirements and qualifications. The decryption-input target is read as key_block, as fixed by B002 of this clause, Table 34-1 and 34.5.23.2 B004, 34.5.24.2 B004 and 34.5.26.2 B004; data_block decryption keys are selected by the data_* keywords.",
       "visual_review": "No normative figure/table in this own-body section; examples are informative under 1.10.",
       "blocks": {
         "B001": {
@@ -81707,11 +81707,11 @@
       }
     },
     "37.2.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "9617f0631a839f5c35b7eaea0306f073032b10602661efea38feef2fecb10677",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete own-body source reviewed, including handle lifetime, API and diagram interpretation rules.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete own-body source reviewed, including handle lifetime, API and diagram interpretation rules. The handle-release list's vpi_remove_callback() is read as vpi_remove_cb(), the only callback-removal routine in Table 36-1, 38.36, 38.39 and the K.2 vpi_user.h declarations.",
       "visual_review": "No normative figure/table in this own-body section; examples are informative under 1.10.",
       "blocks": {
         "B001": {
@@ -93941,11 +93941,11 @@
       }
     },
     "37.82": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "fe55468fa5f285fa83d5db12393fcb7ca006b41aed730721f92a50680a9a9303",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete diagram membership, property types, directed relationship cardinalities and all numbered semantic details reviewed.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete diagram membership, property types, directed relationship cardinalities and all numbered semantic details reviewed. The detail's vpiActiveFormat is read as vpiActiveTimeFormat, the tag in the 37.82 diagram and the only such constant defined in vpi_user.h (K.2 B043).",
       "visual_review": "Rendered PDF physical pages 1084 inspected; enclosure grouping, arrow direction/cardinality, relation tags and property ownership checked against layout text. Each diagram obligation is linked to the full diagram source block range, while numbered details have their specific blocks.",
       "blocks": {
         "B001": {
@@ -97197,11 +97197,11 @@
       }
     },
     "38.15": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "b03c37b51dc9754eef6e4f1d045ab1bb83d44e7d3a6864f478694b8616849401",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete own-body value retrieval syntax, representations, allocation and semantic restrictions reviewed.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete own-body value retrieval syntax, representations, allocation and semantic restrictions reviewed. The scalar vpiObjTypeVal formats vpiScalar/vpiStrength are read as vpiScalarVal/vpiStrengthVal, the format-field values of Figure 38-7, Table 38-3 and the K.2 value-format list (vpiStrength is undefined and vpiScalar is a net/port property). Complete own-body value retrieval syntax, representations, allocation and semantic restrictions reviewed. UDP symbol order is read at two-byte granularity on the aval/bval fields of Figure 38-8: B041's four-symbols-per-element array size and two bytes per symbol make the four listed positions the upper/lower 16 bits of aval then bval, first character in the more significant byte; the B050-B058 example output agrees but is not relied on.",
       "visual_review": "Rendered PDF pages 1102–1103 inspected: Figures 38-7/8/9 field declarations, Table 38-3 format/member mappings and x/z case distinction checked; UDP packing paragraph reviewed in layout text.",
       "blocks": {
         "B001": {
@@ -97541,11 +97541,11 @@
       }
     },
     "38.16": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "1797387757d31f30fe1d08a2dee08c34fb36c9ae5d6e01c1a419260769ad1e4e",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Entire own-body signature, return/argument, layout and semantic conditions reviewed.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Entire own-body signature, return/argument, layout and semantic conditions reviewed. The vpiShortRealVal member named shortrealvals in B018 is read as float *shortreals, the only float member declared in B016 and in the K.2 s_vpi_arrayvalue definition.",
       "visual_review": "Rendered PDF page 1108 inspected: all raw/numeric array formats and field-name discrepancy checked; full allocation/index/traversal continuation reviewed in text.",
       "blocks": {
         "B001": {
@@ -99582,11 +99582,11 @@
       }
     },
     "38.35": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "0305a5789ecedd43048ee5f218f84a6a9a3b5b6e5afeec1a604f98649b8d55a3",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete own-body update modes, legal targets/types, returned state, storage and error conditions reviewed.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete own-body update modes, legal targets/types, returned state, storage and error conditions reviewed. The vpiShortRealVal member named shortrealvals in B017 is read as float *shortreals, as declared in B015, in 38.16 and in the K.2 s_vpi_arrayvalue definition.",
       "visual_review": "Rendered PDF page 1130 inspected: array structure and every raw/numeric format definition checked; flags and traversal continuation fully reviewed in layout text.",
       "blocks": {
         "B001": {
@@ -101261,7 +101261,7 @@
       "source_sha256": "a47979fb005e4796a0c27ce8eb15cb3ba69e93d13b645875964f427ee2b2e155",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
-      "scope_note": "Complete own-body assertion API signature, control/callback semantics and exceptional conditions reviewed.",
+      "scope_note": "Complete own-body assertion API signature, control/callback semantics and exceptional conditions reviewed. On 2026-10-24 the ASSERTION-SYSTEM-FAIL-ACTION-EVENT wording was resolved: Complete own-body assertion API signature, control/callback semantics and exceptional conditions reviewed; cbAssertionSysEnableFailAction/cbAssertionSysDisableFailAction are read as the system-level fail-action enable/disable events, the 'vacuous and nonvacuous success' qualifier being a carry-over from the pass-action entries, since 39.5.1 B003, 39.4.2 B008 and 20.11 B035 consistently define fail-action control without it.",
       "visual_review": "Textual API signatures, fields and control lists reviewed completely; any explicitly introduced examples remain informative.",
       "blocks": {
         "B001": {
@@ -101840,11 +101840,11 @@
       }
     },
     "40.3.2.1": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "7c461209b374a239f2c720c6cbcbba376c8f3a36bd59d02469c68aec4b74af92",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete coverage API definitions, valid operations, statuses, scope rules and FSM description syntax reviewed.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete coverage API definitions, valid operations, statuses, scope rules and FSM description syntax reviewed; the SV_MODULE_COV spelling in the scope prose (B013, B014) is read as `SV_COV_MODULE, the macro defined in 40.3.1 B005 and used consistently by Table 40-2 (B018) and the B032 examples.",
       "visual_review": "Rendered PDF pages 1159–1160 inspected: all Table 40-1 statuses including dash cells and the four Table 40-2 scope/selector combinations checked. Figure 40-1 is explicitly illustrative.",
       "blocks": {
         "B001": {
@@ -102073,11 +102073,11 @@
       }
     },
     "40.3.2.3": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "143cc41ea50f700260ce35e5e0808a42a97b930b89e6b19a88293f395d94345f",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete coverage API definitions, valid operations, statuses, scope rules and FSM description syntax reviewed.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete coverage API definitions, valid operations, statuses, scope rules and FSM description syntax reviewed; the positive-return bullet (B007) is read with B005's substitution, so pos_num is the current covered-item count consistent with B003 and the percentage formula in B004, not the 40.3.2.2 maximum.",
       "visual_review": "Textual function/pragmas and definitions reviewed completely; explicitly introduced examples remain informative.",
       "blocks": {
         "B001": {
@@ -102610,11 +102610,11 @@
       }
     },
     "40.5.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "9d243d9fabccc4b1c0df0b9adbdb50fb1717d0ca10c4637ca3f29e9251bcb39f",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete own-body VPI coverage constants, query results, control targets and API contracts reviewed.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete own-body VPI coverage constants, query results, control targets and API contracts reviewed; the FSM-state value call (B044) is read as vpi_get_value(fsm_state_handle, value_p), because 38.15 B004-B009 and the K.2 B162 prototype fix the second argument as p_vpi_value.",
       "visual_review": "Textual VPI calls/property lists reviewed; the only table is explicitly an example and imposes no new normative behavior.",
       "blocks": {
         "B001": {
@@ -102900,11 +102900,11 @@
       }
     },
     "40.5.3": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "6a88e6b3b0d9d77fe8e4740db78c55d73f64d09e11c2ee04edafd056387df30c",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "Complete own-body VPI coverage constants, query results, control targets and API contracts reviewed.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "Complete own-body VPI coverage constants, query results, control targets and API contracts reviewed; coverageSave in B006 is read as vpiCoverageSave, the constant that B007 itself refers to in 40.5.1 B002 and that M.2 B068 defines, consistent with vpiCoverageMerge in B009.",
       "visual_review": "Textual VPI calls/property lists reviewed; the only table is explicitly an example and imposes no new normative behavior.",
       "blocks": {
         "B001": {
@@ -108090,11 +108090,11 @@
       }
     },
     "F.4.1.1": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "d45d9bc8f03b7184b27f1a566afbe574b9cbb720428b94ff49d9fa9928702ac2",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the B008 remark is read as restating 16.8.2 B012 (distinct actuals for inout or output local formals), the only reading that supports its conclusion about the 6(b)/6(c) copy-out assignments, and no restriction is added for input formals.",
       "visual_review": "Formal notation inspected in rendered PDF physical pages 1244; text and surrounding definitions checked together.",
       "blocks": {
         "B001": {
@@ -108667,11 +108667,11 @@
       }
     },
     "F.5.3.3": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "63bb903446bf6e8d1ff2dcf7898f1f40344d7cce2bb8bdebbb6a8c2e9a6136c3",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the nexttime equation in B002 (printed 'nextime' with an unbound index) is read with suffix index 1, matching nexttime neutral satisfaction in F.5.3.1 B013.",
       "visual_review": "Formal notation inspected in rendered PDF physical pages 1251, 1252; text and surrounding definitions checked together.",
       "blocks": {
         "B001": {
@@ -108888,11 +108888,11 @@
       }
     },
     "F.5.6.1": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "84a25bf89e1fa0db8cb3e517a7a51395daac738a0a7ed2158ba1c60dc0d7fe8e",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the second accept_on branch in B007 is read as w^{0,i-1}T^omega, L0 satisfying P, the only completion defined for unclocked P and consistent with the first branch and the disable iff rules in B004/B005. All own-body definitions, quantified conditions, equations and boundaries reviewed; the (t v; P) equation in B007 is read with ordinary satisfaction on the right-hand side, because the d relation is defined only for top-level properties and never holds for T = P (B005), while the top-level and vacuity forms (B004, B005, F.5.6.3 B002) use the same relation on both sides.",
       "visual_review": "Formal notation inspected in rendered PDF physical pages 1254, 1255; text and surrounding definitions checked together.",
       "blocks": {
         "B001": {
@@ -109036,11 +109036,11 @@
       }
     },
     "F.6.2": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "b3d8a8c84af2de3c9eb37957a14421f7d283db92e0fbb06da70a6e40d7435296",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the $past equation in B002 is read as ((c && e2) ##1 (c && e2)[=n-1] ##1 1), the meaning shared by every well-formed restoration of the missing parenthesis (goto repetition applies only to a Boolean, F.3.4.2.3), and it matches 16.9.3 B029/B041. All own-body definitions, quantified conditions, equations and boundaries reviewed; the $past_gclk clause is read as j>0 giving e[w^{j-1}], since j=0 is covered separately and 16.9.4 B002/B006 with F.3.1 B004 reduce the general $past rule to the immediately preceding letter.",
       "visual_review": "Formal notation inspected in rendered PDF physical pages 1256; text and surrounding definitions checked together.",
       "blocks": {
         "B001": {
@@ -109059,11 +109059,11 @@
       }
     },
     "F.6.3": {
-      "state": "in_progress",
+      "state": "complete",
       "source_sha256": "0d2e5c71f3b047f4cc38ecf372aeea3319b72079087ed59eb45c699997afdaa2",
-      "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
-      "reviewed_on": "2026-10-22",
-      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors.",
+      "reviewer": "Claude Opus 5.5 (AI); interpretation reviewed against the standard text, no independent human approval implied",
+      "reviewed_on": "2026-10-24",
+      "scope_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the RHS index is read as j+1, the next letter, per 16.9.4 B008 and F.3.1 B004, which also fits the bound 0<=j<|w|-1 and the undefined final position.",
       "visual_review": "Formal notation inspected in rendered PDF physical pages 1256; text and surrounding definitions checked together.",
       "blocks": {
         "B001": {
@@ -112544,7 +112544,7 @@
       "source_sha256": "9c699f3f97ea3246bc069a1c2b3d6b5061e540f34f157115e4ae9937d417e8a6",
       "reviewer": "Codex (AI); source reviewed, no independent human approval implied",
       "reviewed_on": "2026-10-22",
-      "scope_note": "All header declarations,types,macros and normative comments reviewed; platform type-definition example and optional deprecated region distinguished; 66 current and 33 legacy API declarations recorded.",
+      "scope_note": "All header declarations,types,macros and normative comments reviewed; platform type-definition example and optional deprecated region distinguished; 66 current and 33 legacy API declarations recorded. On 2026-10-24 the DPI-GET-USER-DATA-RETURN wording was resolved: All header declarations,types,macros and normative comments reviewed; the svGetUserData comment's '0 upon success' (B047) is read per H.9.3 B017 as returning the stored non-NULL user data pointer, consistent with the retrieval purpose stated in B047 and the NULL-userData caution in B046.",
       "visual_review": "Textual C header reviewed; no normative visual diagram/table. Typed macros/comments were compared with Annex H.",
       "blocks": {
         "B001": {

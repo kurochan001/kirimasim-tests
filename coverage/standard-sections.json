@@ -3264,9 +3264,9 @@
       "title": "Constant expressions",
       "pdf_page": 271,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "All constant operand, elaboration/purity/family/query and receiver-dependence rules are extracted. The timescale API name mismatch with 20.4 remains open, so this subsection is not closed."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "All constant operand, elaboration/purity/family/query and receiver-dependence rules are extracted. The parenthetical $timescale is read as $timeunit because 11.2.1 cites the timescale functions listed in 20.4, whose only system functions are $timeunit and $timeprecision (20.4 B002, 20.4.1 B002/B004), and no $timescale system function exists in the standard."
     },
     {
       "id": "11.2.2",
@@ -6171,9 +6171,9 @@
       "title": "Specifying coverage options",
       "pdf_page": 606,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "All 11 instance option rows/defaults and 33 level cells reviewed; cross_retain_auto_bins prose/table scope mismatch held."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "All 11 instance option rows/defaults and 33 level cells reviewed. cross_retain_auto_bins is read as a definition-only option set at the covergroup or cross level, because Table 19-2 (B038) and the 19.10 option structures place it in covergroup/cross options and not in the coverpoint option, so B025's coverpoint wording applies only to auto_bin_max and detect_overlap."
     },
     {
       "id": "19.7.1",
@@ -6243,9 +6243,9 @@
       "title": "Cross coverage computation",
       "pdf_page": 617,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Entire source reviewed; automatic-bin expression versus the new retention option remains held."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Entire source reviewed; Bc is the number of auto-cross bins actually present (B005), equal to product minus user products while automatic bins are retained and zero when cross_retain_auto_bins is false with an explicit cross bin (Table 19-1 B014)."
     },
     {
       "id": "19.11.3",
@@ -8340,9 +8340,9 @@
       "title": "Generate construct syntax",
       "pdf_page": 819,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Entire generate grammar, elaboration semantics, optional regions, nonnesting and item-context footnote extracted; container wording held against explicit program/interface grammars."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Entire generate grammar, elaboration semantics, optional regions, nonnesting and item-context footnote extracted. The directly-within-a-module wording is read as covering every container whose item grammar lists generate_region (module, interface, program, checker: 23.2.4 B003, 25.3 B002, 24.3 B005, 17.2 B003), keeping the direct-placement and nonnesting limits."
     },
     {
       "id": "27.4",
@@ -9276,9 +9276,9 @@
       "title": "Notifiers: user-defined responses to timing violations",
       "pdf_page": 916,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Local/optional notifier and all four state transitions extracted; last-argument generalization held against extended check signatures."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Local/optional notifier and all four state transitions extracted; the overview's last-argument wording is read as the per-check notifier position, since Syntax 31-1/A.7.5.1, Tables 31-3/31-6/31-8/31-9 and 31.9.2 B005 consistently place optional arguments after the notifier in $setuphold, $recrem, $timeskew and $fullskew."
     },
     {
       "id": "31.7",
@@ -10185,9 +10185,9 @@
       "title": "Description",
       "pdf_page": 959,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete input, output and decryption behavior; each operation is scoped to the stated tool mode."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete input, output and decryption behavior; each operation is scoped to the stated tool mode. The encryption-output self-combination of data_keyname is read as combination with data_keyowner, as required by B002/B005 of this clause, 34.5.10.2 B002 and the parallel wording of 34.5.18.2 B003 and 34.5.25.2 B003."
     },
     {
       "id": "34.5.13",
@@ -10455,9 +10455,9 @@
       "title": "Description",
       "pdf_page": 964,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete input, output and decryption behavior; each operation is scoped to the stated tool mode."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete input, output and decryption behavior; each operation is scoped to the stated tool mode. The undefined digest_key_keyowner selector is read as digest_keyowner, the only digest key-owner keyword in Table 34-1 and the selector that 34.5.16.2 B002 assigns to digest_block key selection."
     },
     {
       "id": "34.5.23",
@@ -10536,9 +10536,9 @@
       "title": "Description",
       "pdf_page": 965,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete mode-specific input/output/decryption requirements and qualifications."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete mode-specific input/output/decryption requirements and qualifications. The decryption-input target is read as key_block, as fixed by B002 of this clause, Table 34-1 and 34.5.23.2 B004, 34.5.24.2 B004 and 34.5.26.2 B004; data_block decryption keys are selected by the data_* keywords."
     },
     {
       "id": "34.5.26",
@@ -11310,9 +11310,9 @@
       "title": "Handle release",
       "pdf_page": 999,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete own-body source reviewed, including handle lifetime, API and diagram interpretation rules."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete own-body source reviewed, including handle lifetime, API and diagram interpretation rules. The handle-release list's vpi_remove_callback() is read as vpi_remove_cb(), the only callback-removal routine in Table 36-1, 38.36, 38.39 and the K.2 vpi_user.h declarations."
     },
     {
       "id": "37.2.3",
@@ -12147,9 +12147,9 @@
       "title": "Active time format",
       "pdf_page": 1084,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete diagram membership, property types, directed relationship cardinalities and all numbered semantic details reviewed."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete diagram membership, property types, directed relationship cardinalities and all numbered semantic details reviewed. The detail's vpiActiveFormat is read as vpiActiveTimeFormat, the tag in the 37.82 diagram and the only such constant defined in vpi_user.h (K.2 B043)."
     },
     {
       "id": "37.83",
@@ -12318,18 +12318,18 @@
       "title": "vpi_get_value()",
       "pdf_page": 1101,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete own-body value retrieval syntax, representations, allocation and semantic restrictions reviewed."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete own-body value retrieval syntax, representations, allocation and semantic restrictions reviewed. The scalar vpiObjTypeVal formats vpiScalar/vpiStrength are read as vpiScalarVal/vpiStrengthVal, the format-field values of Figure 38-7, Table 38-3 and the K.2 value-format list (vpiStrength is undefined and vpiScalar is a net/port property). Complete own-body value retrieval syntax, representations, allocation and semantic restrictions reviewed. UDP symbol order is read at two-byte granularity on the aval/bval fields of Figure 38-8: B041's four-symbols-per-element array size and two bytes per symbol make the four listed positions the upper/lower 16 bits of aval then bval, first character in the more significant byte; the B050-B058 example output agrees but is not relied on."
     },
     {
       "id": "38.16",
       "title": "vpi_get_value_array()",
       "pdf_page": 1107,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Entire own-body signature, return/argument, layout and semantic conditions reviewed."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Entire own-body signature, return/argument, layout and semantic conditions reviewed. The vpiShortRealVal member named shortrealvals in B018 is read as float *shortreals, the only float member declared in B016 and in the K.2 s_vpi_arrayvalue definition."
     },
     {
       "id": "38.17",
@@ -12498,9 +12498,9 @@
       "title": "vpi_put_value_array()",
       "pdf_page": 1129,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete own-body update modes, legal targets/types, returned state, storage and error conditions reviewed."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete own-body update modes, legal targets/types, returned state, storage and error conditions reviewed. The vpiShortRealVal member named shortrealvals in B017 is read as float *shortreals, as declared in B015, in 38.16 and in the K.2 s_vpi_arrayvalue definition."
     },
     {
       "id": "38.36",
@@ -12707,7 +12707,7 @@
       "kind": "normative",
       "review": "in_progress",
       "reviewed_on": "2026-10-22",
-      "review_note": "Complete own-body assertion API signature, control/callback semantics and exceptional conditions reviewed."
+      "review_note": "Complete own-body assertion API signature, control/callback semantics and exceptional conditions reviewed. On 2026-10-24 the ASSERTION-SYSTEM-FAIL-ACTION-EVENT wording was resolved: Complete own-body assertion API signature, control/callback semantics and exceptional conditions reviewed; cbAssertionSysEnableFailAction/cbAssertionSysDisableFailAction are read as the system-level fail-action enable/disable events, the 'vacuous and nonvacuous success' qualifier being a carry-over from the pass-action entries, since 39.5.1 B003, 39.4.2 B008 and 20.11 B035 consistently define fail-action control without it."
     },
     {
       "id": "39.4.2",
@@ -12840,9 +12840,9 @@
       "title": "$coverage_control",
       "pdf_page": 1158,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete coverage API definitions, valid operations, statuses, scope rules and FSM description syntax reviewed."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete coverage API definitions, valid operations, statuses, scope rules and FSM description syntax reviewed; the SV_MODULE_COV spelling in the scope prose (B013, B014) is read as `SV_COV_MODULE, the macro defined in 40.3.1 B005 and used consistently by Table 40-2 (B018) and the B032 examples."
     },
     {
       "id": "40.3.2.2",
@@ -12858,9 +12858,9 @@
       "title": "$coverage_get",
       "pdf_page": 1162,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete coverage API definitions, valid operations, statuses, scope rules and FSM description syntax reviewed."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete coverage API definitions, valid operations, statuses, scope rules and FSM description syntax reviewed; the positive-return bullet (B007) is read with B005's substitution, so pos_num is the current covered-item count consistent with B003 and the percentage formula in B004, not the 40.3.2.2 maximum."
     },
     {
       "id": "40.3.2.4",
@@ -12984,18 +12984,18 @@
       "title": "Obtaining coverage information",
       "pdf_page": 1167,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete own-body VPI coverage constants, query results, control targets and API contracts reviewed."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete own-body VPI coverage constants, query results, control targets and API contracts reviewed; the FSM-state value call (B044) is read as vpi_get_value(fsm_state_handle, value_p), because 38.15 B004-B009 and the K.2 B162 prototype fix the second argument as p_vpi_value."
     },
     {
       "id": "40.5.3",
       "title": "Controlling coverage",
       "pdf_page": 1169,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "Complete own-body VPI coverage constants, query results, control targets and API contracts reviewed."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "Complete own-body VPI coverage constants, query results, control targets and API contracts reviewed; coverageSave in B006 is read as vpiCoverageSave, the constant that B007 itself refers to in 40.5.1 B002 and that M.2 B068 defines, consistent with vpiCoverageMerge in B009."
     },
     {
       "id": "41",
@@ -14415,9 +14415,9 @@
       "title": "The rewriting algorithm",
       "pdf_page": 1242,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the B008 remark is read as restating 16.8.2 B012 (distinct actuals for inout or output local formals), the only reading that supports its conclusion about the 6(b)/6(c) copy-out assignments, and no restriction is added for input formals."
     },
     {
       "id": "F.4.2",
@@ -14523,9 +14523,9 @@
       "title": "Vacuity",
       "pdf_page": 1250,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the nexttime equation in B002 (printed 'nextime' with an unbound index) is read with suffix index 1, matching nexttime neutral satisfaction in F.5.3.1 B013."
     },
     {
       "id": "F.5.4",
@@ -14559,9 +14559,9 @@
       "title": "Neutral satisfaction",
       "pdf_page": 1254,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the second accept_on branch in B007 is read as w^{0,i-1}T^omega, L0 satisfying P, the only completion defined for unclocked P and consistent with the first branch and the disable iff rules in B004/B005. All own-body definitions, quantified conditions, equations and boundaries reviewed; the (t v; P) equation in B007 is read with ordinary satisfaction on the right-hand side, because the d relation is defined only for top-level properties and never holds for T = P (B005), while the top-level and vacuity forms (B004, B005, F.5.6.3 B002) use the same relation on both sides."
     },
     {
       "id": "F.5.6.2",
@@ -14604,18 +14604,18 @@
       "title": "Past",
       "pdf_page": 1256,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the $past equation in B002 is read as ((c && e2) ##1 (c && e2)[=n-1] ##1 1), the meaning shared by every well-formed restoration of the missing parenthesis (goto repetition applies only to a Boolean, F.3.4.2.3), and it matches 16.9.3 B029/B041. All own-body definitions, quantified conditions, equations and boundaries reviewed; the $past_gclk clause is read as j>0 giving e[w^{j-1}], since j=0 is covered separately and 16.9.4 B002/B006 with F.3.1 B004 reduce the general $past rule to the immediately preceding letter."
     },
     {
       "id": "F.6.3",
       "title": "Future",
       "pdf_page": 1256,
       "kind": "normative",
-      "review": "in_progress",
-      "reviewed_on": "2026-10-22",
-      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed. These are formal semantic obligations, not a separate count of unique implementation behaviors."
+      "review": "complete",
+      "reviewed_on": "2026-10-24",
+      "review_note": "All own-body definitions, quantified conditions, equations and boundaries reviewed; the RHS index is read as j+1, the next letter, per 16.9.4 B008 and F.3.1 B004, which also fits the bound 0<=j<|w|-1 and the undefined final position."
     },
     {
       "id": "F.7",
@@ -15380,7 +15380,7 @@
       "kind": "normative",
       "review": "in_progress",
       "reviewed_on": "2026-10-22",
-      "review_note": "All header declarations,types,macros and normative comments reviewed; platform type-definition example and optional deprecated region distinguished; 66 current and 33 legacy API declarations recorded."
+      "review_note": "All header declarations,types,macros and normative comments reviewed; platform type-definition example and optional deprecated region distinguished; 66 current and 33 legacy API declarations recorded. On 2026-10-24 the DPI-GET-USER-DATA-RETURN wording was resolved: All header declarations,types,macros and normative comments reviewed; the svGetUserData comment's '0 upon success' (B047) is read per H.9.3 B017 as returning the stored non-NULL user data pointer, consistent with the retrieval purpose stated in B047 and the NULL-userData caution in B046."
     },
     {
       "id": "J",

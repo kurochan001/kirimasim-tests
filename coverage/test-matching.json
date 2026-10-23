@@ -10526,6 +10526,7 @@
         "SV2023-11.2.1-EXTRACT-CONSTANT-METHOD-PURE",
         "SV2023-11.2.1-EXTRACT-CONSTANT-METHOD-RECEIVER",
         "SV2023-11.2.1-EXTRACT-CONSTANT-SYSTEM-PURE",
+        "SV2023-11.2.1-EXTRACT-CONSTANT-TIMESCALE-NAME",
         "SV2023-20.6.2-EXTRACT-BITS-CONSTANT",
         "SV2023-20.6.2-EXTRACT-BITS-EMPTY-DYNAMIC",
         "SV2023-20.6.2-EXTRACT-BITS-RESULT",
@@ -10541,9 +10542,7 @@
         "SV2023-6.20.2-EXTRACT-SPECPARAM-DEPENDENCY",
         "SV2023-6.20.2-EXTRACT-UNSIZED-IMPLIED-RANGE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-11.2.1-EXTRACT-CONSTANT-TIMESCALE-NAME"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-11.2.1-EXTRACT-CONSTANT-OPERANDS",
         "SV2023-20.6.2-EXTRACT-BITS-DYNAMIC-TYPE-ERROR",
@@ -10572,6 +10571,7 @@
         "SV2023-11.2.1-EXTRACT-CONSTANT-METHOD-PURE",
         "SV2023-11.2.1-EXTRACT-CONSTANT-METHOD-RECEIVER",
         "SV2023-11.2.1-EXTRACT-CONSTANT-SYSTEM-PURE",
+        "SV2023-11.2.1-EXTRACT-CONSTANT-TIMESCALE-NAME",
         "SV2023-6.20.2-EXTRACT-AGGREGATE-MEMBER-READ",
         "SV2023-6.20.2-EXTRACT-AGGREGATE-TYPES",
         "SV2023-6.20.2-EXTRACT-EXPLICIT-TYPE",
@@ -10584,9 +10584,7 @@
         "SV2023-6.20.2-EXTRACT-SPECPARAM-DEPENDENCY",
         "SV2023-6.20.2-EXTRACT-UNSIZED-IMPLIED-RANGE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-11.2.1-EXTRACT-CONSTANT-TIMESCALE-NAME"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-11.2.1-EXTRACT-CONSTANT-OPERANDS",
         "SV2023-6.20.2-EXTRACT-AGGREGATE-WHOLE-OVERRIDE",
@@ -46957,6 +46955,7 @@
         "SV2023-19.11.1-EXTRACT-MERGED-AT-LEAST",
         "SV2023-19.11.1-EXTRACT-ZERO-POINT-EXCLUSION",
         "SV2023-19.11.1-EXTRACT-ZERO-POINT-RESULT",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERPOINT",
@@ -47005,8 +47004,7 @@
         "SV2023-19.7-EXTRACT-OPTION-WEIGHT"
       ],
       "interpretation_pending_ids": [
-        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT",
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
+        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
@@ -47063,6 +47061,7 @@
         "SV2023-19.5.6-EXTRACT-ILLEGAL-ERROR",
         "SV2023-19.5.6-EXTRACT-ILLEGAL-SEQUENCES",
         "SV2023-19.5.6-EXTRACT-ILLEGAL-VALUES",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -47112,8 +47111,7 @@
         "SV2023-19.7-EXTRACT-OPTION-WEIGHT"
       ],
       "interpretation_pending_ids": [
-        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT",
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
+        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-19.5.5-EXTRACT-IGNORE-BOUNDED",
@@ -47158,6 +47156,7 @@
         "SV2023-19.5.3-EXTRACT-AUTO-NAMES",
         "SV2023-19.5.3-EXTRACT-AUTO-TWO-STATE",
         "SV2023-19.5.3-EXTRACT-AUTO-WHEN-NO-NORMAL",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -47206,8 +47205,7 @@
         "SV2023-19.7-EXTRACT-OPTION-WEIGHT"
       ],
       "interpretation_pending_ids": [
-        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT",
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
+        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
@@ -47668,6 +47666,7 @@
         "SV2023-19.11-EXTRACT-ZERO-GROUP-EXCLUSION",
         "SV2023-19.11-EXTRACT-ZERO-GROUP-NONZERO-WEIGHT",
         "SV2023-19.11-EXTRACT-ZERO-GROUP-ZERO-WEIGHT",
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
         "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
@@ -47677,9 +47676,7 @@
         "SV2023-19.6-EXTRACT-CROSS-IFF",
         "SV2023-19.6-EXTRACT-CROSS-LABEL-SCOPE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.6-EXTRACT-CROSS-ITEMS",
         "SV2023-19.6-EXTRACT-CROSS-VISIBILITY",
@@ -47709,6 +47706,7 @@
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
         "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
@@ -47720,9 +47718,7 @@
         "SV2023-19.6.1-EXTRACT-SELECT-LOGICAL",
         "SV2023-19.6.3-EXTRACT-ILLEGAL-CROSS"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [
         {
@@ -47743,6 +47739,7 @@
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
         "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
@@ -47751,9 +47748,7 @@
         "SV2023-19.6.1.2-EXTRACT-CROSS-WITH-SIDE-EFFECTS",
         "SV2023-19.6.3-EXTRACT-ILLEGAL-CROSS"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY",
         "SV2023-19.6.1.2-EXTRACT-SELF-CROSS"
@@ -47778,6 +47773,7 @@
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
         "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
@@ -47795,9 +47791,7 @@
         "SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY",
         "SV2023-19.8-EXTRACT-STOP"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [
         {
@@ -47823,6 +47817,7 @@
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
         "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
@@ -47836,9 +47831,7 @@
         "SV2023-19.6.1.4-EXTRACT-CROSS-SET-EXPRESSION",
         "SV2023-19.6.1.4-EXTRACT-CROSS-SET-MATCHES"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY",
         "SV2023-19.6.1.2-EXTRACT-SELF-CROSS",
@@ -47860,6 +47853,7 @@
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
         "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
@@ -47879,9 +47873,7 @@
         "SV2023-19.6.1.4-EXTRACT-CROSS-SET-EXPRESSION",
         "SV2023-19.6.1.4-EXTRACT-CROSS-SET-MATCHES"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY",
         "SV2023-19.6.1.2-EXTRACT-SELF-CROSS",
@@ -47907,6 +47899,7 @@
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
         "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
@@ -47921,9 +47914,7 @@
         "SV2023-19.6.1.2-EXTRACT-CROSS-WITH-SIDE-EFFECTS",
         "SV2023-19.6.2-EXTRACT-IGNORE-CROSS"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY",
         "SV2023-19.6.1.2-EXTRACT-SELF-CROSS"
@@ -48323,6 +48314,7 @@
         "SV2023-19.11.1-EXTRACT-MERGED-AT-LEAST",
         "SV2023-19.11.1-EXTRACT-ZERO-POINT-EXCLUSION",
         "SV2023-19.11.1-EXTRACT-ZERO-POINT-RESULT",
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
         "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
@@ -48333,6 +48325,7 @@
         "SV2023-19.4.1-EXTRACT-INHERIT-COMPONENTS",
         "SV2023-19.4.1-EXTRACT-OVERRIDE-OPTIONS",
         "SV2023-19.4.1-EXTRACT-REPLACE-INSTANCE",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -48384,9 +48377,7 @@
         "SV2023-19.8.1-EXTRACT-SAMPLE-LOOKUP"
       ],
       "interpretation_pending_ids": [
-        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT",
-        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
+        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-19.4-EXTRACT-CONSTRUCTOR-ONLY",
@@ -48440,6 +48431,7 @@
         "SV2023-19.11.1-EXTRACT-MERGED-AT-LEAST",
         "SV2023-19.11.1-EXTRACT-ZERO-POINT-EXCLUSION",
         "SV2023-19.11.1-EXTRACT-ZERO-POINT-RESULT",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -48488,8 +48480,7 @@
         "SV2023-19.7-EXTRACT-OPTION-WEIGHT"
       ],
       "interpretation_pending_ids": [
-        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT",
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
+        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
@@ -48539,6 +48530,7 @@
         "SV2023-19.5.3-EXTRACT-AUTO-PARTITION",
         "SV2023-19.5.3-EXTRACT-AUTO-TWO-STATE",
         "SV2023-19.5.3-EXTRACT-AUTO-WHEN-NO-NORMAL",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -48627,9 +48619,7 @@
         "SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY",
         "SV2023-19.8-EXTRACT-STOP"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
         "SV2023-19.7-EXTRACT-NO-DUPLICATE-OPTION",
@@ -48897,6 +48887,7 @@
         "SV2023-19.11.3-EXTRACT-TRANSITION-IDENTITY",
         "SV2023-19.11.3-EXTRACT-TYPE-COUNTS-CONSISTENCY",
         "SV2023-19.11.3-EXTRACT-TYPE-ITEM-AVERAGE",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -48945,8 +48936,7 @@
         "SV2023-19.7-EXTRACT-OPTION-WEIGHT"
       ],
       "interpretation_pending_ids": [
-        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT",
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
+        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
@@ -49007,6 +48997,7 @@
         "SV2023-19.5.1-EXTRACT-REAL-OPEN-PARTITION",
         "SV2023-19.5.1-EXTRACT-REAL-RANGE",
         "SV2023-19.5.1-EXTRACT-REAL-TOLERANCE",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -49092,9 +49083,7 @@
         "SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY",
         "SV2023-19.8-EXTRACT-STOP"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.5.1-EXTRACT-REAL-DEFAULT-NO-ARRAY",
         "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
@@ -49468,6 +49457,7 @@
         "SV2023-19.10-EXTRACT-GROUP-TYPE-OPTION-STRUCT",
         "SV2023-19.10-EXTRACT-POINT-OPTION-STRUCT",
         "SV2023-19.10-EXTRACT-POINT-TYPE-OPTION-STRUCT",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -49547,9 +49537,7 @@
         "SV2023-19.7.1-EXTRACT-TYPE-OPTION-WEIGHT",
         "SV2023-19.7.1-EXTRACT-TYPE-STATIC"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
         "SV2023-19.7-EXTRACT-NO-DUPLICATE-OPTION",
@@ -49584,6 +49572,7 @@
         "SV2023-19.10-EXTRACT-GROUP-TYPE-OPTION-STRUCT",
         "SV2023-19.10-EXTRACT-POINT-OPTION-STRUCT",
         "SV2023-19.10-EXTRACT-POINT-TYPE-OPTION-STRUCT",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
         "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
         "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
         "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
@@ -49660,9 +49649,7 @@
         "SV2023-19.7.1-EXTRACT-TYPE-OPTION-WEIGHT",
         "SV2023-19.7.1-EXTRACT-TYPE-STATIC"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
         "SV2023-19.7-EXTRACT-NO-DUPLICATE-OPTION",
@@ -60667,15 +60654,15 @@
         "SV2023-22.14-EXTRACT-KEYWORD-DEFAULT",
         "SV2023-22.14-EXTRACT-KEYWORD-STACK",
         "SV2023-22.14-EXTRACT-KEYWORD-VERSIONS",
-        "SV2023-22.14-EXTRACT-KEYWORDS-ONLY",
-        "SV2023-22.14.5-EXTRACT-RESERVED-UWIRE",
-        "SV2023-22.14.5-EXTRACT-VERSION-SET"
+        "SV2023-22.14-EXTRACT-KEYWORDS-ONLY"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-22.14-EXTRACT-KEYWORD-CUSTOM",
         "SV2023-22.14-EXTRACT-KEYWORD-PAIR",
-        "SV2023-22.14-EXTRACT-KEYWORD-SCOPE"
+        "SV2023-22.14-EXTRACT-KEYWORD-SCOPE",
+        "SV2023-22.14.5-EXTRACT-RESERVED-UWIRE",
+        "SV2023-22.14.5-EXTRACT-VERSION-SET"
       ],
       "broader_citations": [
         {
@@ -60735,6 +60722,20 @@
         "SV2023-22.14-EXTRACT-KEYWORD-STACK",
         "SV2023-22.14-EXTRACT-KEYWORD-VERSIONS",
         "SV2023-22.14-EXTRACT-KEYWORDS-ONLY",
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-ENDCONFIG",
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-INCDIR",
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-INCLUDE",
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-INSTANCE",
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBLIST",
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-USE",
+        "SV2023-22.14.9-EXTRACT-CURRENT-KEYWORD-SET"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-22.14-EXTRACT-KEYWORD-CUSTOM",
+        "SV2023-22.14-EXTRACT-KEYWORD-PAIR",
+        "SV2023-22.14-EXTRACT-KEYWORD-SCOPE",
         "SV2023-22.14.2-EXTRACT-RESERVED-ALWAYS",
         "SV2023-22.14.2-EXTRACT-RESERVED-AND",
         "SV2023-22.14.2-EXTRACT-RESERVED-ASSIGN",
@@ -60860,13 +60861,6 @@
         "SV2023-22.14.3-EXTRACT-RESERVED-UNSIGNED",
         "SV2023-22.14.3-EXTRACT-RESERVED-USE",
         "SV2023-22.14.3-EXTRACT-VERSION-SET",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-ENDCONFIG",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-INCDIR",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-INCLUDE",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-INSTANCE",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBLIST",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-USE",
         "SV2023-22.14.4-EXTRACT-NOCONFIG-BASE",
         "SV2023-22.14.5-EXTRACT-RESERVED-UWIRE",
         "SV2023-22.14.5-EXTRACT-VERSION-SET",
@@ -60996,14 +60990,7 @@
         "SV2023-22.14.8-EXTRACT-RESERVED-INTERCONNECT",
         "SV2023-22.14.8-EXTRACT-RESERVED-NETTYPE",
         "SV2023-22.14.8-EXTRACT-RESERVED-SOFT",
-        "SV2023-22.14.8-EXTRACT-VERSION-SET",
-        "SV2023-22.14.9-EXTRACT-CURRENT-KEYWORD-SET"
-      ],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
-        "SV2023-22.14-EXTRACT-KEYWORD-CUSTOM",
-        "SV2023-22.14-EXTRACT-KEYWORD-PAIR",
-        "SV2023-22.14-EXTRACT-KEYWORD-SCOPE"
+        "SV2023-22.14.8-EXTRACT-VERSION-SET"
       ],
       "broader_citations": [
         {
@@ -62317,7 +62304,9 @@
       "negative_test": true,
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-22.14.4-EXTRACT-NOCONFIG-BASE"
+      ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-22.14.4-EXTRACT-EXCLUDE-CELL",
@@ -62329,8 +62318,7 @@
         "SV2023-22.14.4-EXTRACT-EXCLUDE-INSTANCE",
         "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBLIST",
         "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
-        "SV2023-22.14.4-EXTRACT-EXCLUDE-USE",
-        "SV2023-22.14.4-EXTRACT-NOCONFIG-BASE"
+        "SV2023-22.14.4-EXTRACT-EXCLUDE-USE"
       ],
       "broader_citations": [],
       "scoped_review": {
@@ -62367,9 +62355,7 @@
       "negative_test": true,
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
+      "unapproved_candidate_ids": [
         "SV2023-22.14.6-EXTRACT-RESERVED-ALIAS",
         "SV2023-22.14.6-EXTRACT-RESERVED-ALWAYS-COMB",
         "SV2023-22.14.6-EXTRACT-RESERVED-ALWAYS-FF",
@@ -62469,6 +62455,8 @@
         "SV2023-22.14.6-EXTRACT-RESERVED-WITHIN",
         "SV2023-22.14.6-EXTRACT-VERSION-SET"
       ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch22/test_illegal_keyword_identifier_sv2005.sv",
@@ -62504,9 +62492,7 @@
       "negative_test": true,
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
+      "unapproved_candidate_ids": [
         "SV2023-22.14.7-EXTRACT-RESERVED-ACCEPT-ON",
         "SV2023-22.14.7-EXTRACT-RESERVED-CHECKER",
         "SV2023-22.14.7-EXTRACT-RESERVED-ENDCHECKER",
@@ -62532,6 +62518,8 @@
         "SV2023-22.14.7-EXTRACT-RESERVED-WEAK",
         "SV2023-22.14.7-EXTRACT-VERSION-SET"
       ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch22/test_illegal_keyword_identifier_sv2009.sv",
@@ -62567,15 +62555,15 @@
       "negative_test": true,
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
+      "unapproved_candidate_ids": [
         "SV2023-22.14.8-EXTRACT-RESERVED-IMPLEMENTS",
         "SV2023-22.14.8-EXTRACT-RESERVED-INTERCONNECT",
         "SV2023-22.14.8-EXTRACT-RESERVED-NETTYPE",
         "SV2023-22.14.8-EXTRACT-RESERVED-SOFT",
         "SV2023-22.14.8-EXTRACT-VERSION-SET"
       ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch22/test_illegal_keyword_identifier_sv2012.sv",
@@ -62651,9 +62639,7 @@
       "negative_test": true,
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
+      "unapproved_candidate_ids": [
         "SV2023-22.14.2-EXTRACT-RESERVED-ALWAYS",
         "SV2023-22.14.2-EXTRACT-RESERVED-AND",
         "SV2023-22.14.2-EXTRACT-RESERVED-ASSIGN",
@@ -62758,6 +62744,8 @@
         "SV2023-22.14.2-EXTRACT-RESERVED-XOR",
         "SV2023-22.14.2-EXTRACT-VERSION-SET"
       ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch22/test_illegal_keyword_identifier_v1995.sv",
@@ -62793,9 +62781,7 @@
       "negative_test": true,
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [],
-      "interpretation_pending_ids": [],
-      "different_case_kind_ids": [
+      "unapproved_candidate_ids": [
         "SV2023-22.14.3-EXTRACT-RESERVED-AUTOMATIC",
         "SV2023-22.14.3-EXTRACT-RESERVED-CELL",
         "SV2023-22.14.3-EXTRACT-RESERVED-CONFIG",
@@ -62819,6 +62805,8 @@
         "SV2023-22.14.3-EXTRACT-RESERVED-USE",
         "SV2023-22.14.3-EXTRACT-VERSION-SET"
       ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch22/test_illegal_keyword_identifier_v2001.sv",
@@ -72476,13 +72464,12 @@
         "SV2023-27.4-EXTRACT-GENVAR-LOCALPARAM",
         "SV2023-27.4-EXTRACT-LOOP-SINGLE-ITEM-SCOPE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-27.3-EXTRACT-GENERATE-REGION-CONTAINER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-27.3-EXTRACT-GENERATE-CONSTANT-ELABORATION",
         "SV2023-27.3-EXTRACT-GENERATE-CONTEXT-ITEMS",
         "SV2023-27.3-EXTRACT-GENERATE-OPTIONAL-REGION",
+        "SV2023-27.3-EXTRACT-GENERATE-REGION-CONTAINER-TEXT",
         "SV2023-27.4-EXTRACT-GENERATE-ARRAY-COLLISION",
         "SV2023-27.4-EXTRACT-GENERATE-LOOP-TERMINATION",
         "SV2023-27.4-EXTRACT-GENERATE-REPEATED-INDEX",
@@ -74562,13 +74549,12 @@
         "SV2023-27.5-EXTRACT-GENERATE-DANGLING-ELSE",
         "SV2023-27.5-EXTRACT-RECURSIVE-MODULE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-27.3-EXTRACT-GENERATE-REGION-CONTAINER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-27.3-EXTRACT-GENERATE-CONSTANT-ELABORATION",
         "SV2023-27.3-EXTRACT-GENERATE-CONTEXT-ITEMS",
         "SV2023-27.3-EXTRACT-GENERATE-OPTIONAL-REGION",
+        "SV2023-27.3-EXTRACT-GENERATE-REGION-CONTAINER-TEXT",
         "SV2023-27.4-EXTRACT-GENERATE-ARRAY-COLLISION",
         "SV2023-27.4-EXTRACT-GENERATE-LOOP-TERMINATION",
         "SV2023-27.4-EXTRACT-GENERATE-REPEATED-INDEX",
@@ -81209,8 +81195,7 @@
         "SV2023-31.4.4-EXTRACT-WIDTH-OPTIONAL-THRESHOLD"
       ],
       "interpretation_pending_ids": [
-        "SV2023-31.4.4-EXTRACT-WIDTH-COINCIDENT-TEXT",
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
+        "SV2023-31.4.4-EXTRACT-WIDTH-COINCIDENT-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-31.4.4-EXTRACT-WIDTH-EVENT-ROLES",
@@ -81222,7 +81207,8 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
       "broader_citations": []
     },
@@ -81274,14 +81260,13 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
         "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT",
         "SV2023-31.7-EXTRACT-CONDITION-LSB",
         "SV2023-31.7-EXTRACT-CONDITIONED-CHECK-GRAMMAR",
         "SV2023-31.7-EXTRACT-DETERMINISTIC-CONDITION-X",
         "SV2023-31.7-EXTRACT-NONDETERMINISTIC-CONDITION-X"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.1-EXTRACT-LIMIT",
         "SV2023-31.7-EXTRACT-COMPOSED-CONDITION-OUTSIDE"
@@ -81426,11 +81411,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.1-EXTRACT-LIMIT",
         "SV2023-31.5-EXTRACT-EDGE-LIST-NO-SPACES"
@@ -81470,11 +81454,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -81503,11 +81486,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.4.6-EXTRACT-NOCHANGE-EDGE-RESTRICTION"
       ],
@@ -81537,11 +81519,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.4.6-EXTRACT-NOCHANGE-EDGE-RESTRICTION"
       ],
@@ -81569,11 +81550,10 @@
         "SV2023-31.3.1-EXTRACT-WINDOW",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-0",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.1-EXTRACT-LIMIT"
       ],
@@ -81627,11 +81607,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.4-EXTRACT-LIMIT",
         "SV2023-31.3.5-EXTRACT-LIMIT",
@@ -81684,11 +81663,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.4-EXTRACT-LIMIT",
         "SV2023-31.3.5-EXTRACT-LIMIT",
@@ -81725,11 +81703,10 @@
         "SV2023-31.3.2-EXTRACT-WINDOW",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.1-EXTRACT-LIMIT",
         "SV2023-31.3.2-EXTRACT-LIMIT"
@@ -81768,11 +81745,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.3-EXTRACT-NEGATIVE-SUM"
       ],
@@ -81842,11 +81818,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [
         {
@@ -81897,11 +81872,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -81937,14 +81911,13 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
         "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT",
         "SV2023-31.7-EXTRACT-CONDITION-LSB",
         "SV2023-31.7-EXTRACT-CONDITIONED-CHECK-GRAMMAR",
         "SV2023-31.7-EXTRACT-DETERMINISTIC-CONDITION-X",
         "SV2023-31.7-EXTRACT-NONDETERMINISTIC-CONDITION-X"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.7-EXTRACT-COMPOSED-CONDITION-OUTSIDE"
       ],
@@ -81973,12 +81946,11 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
         "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT",
         "SV2023-31.8-EXTRACT-VECTOR-EXPANSION-OPTION",
         "SV2023-31.8-EXTRACT-VECTOR-SINGLE-CHECK"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.2-EXTRACT-LIMIT"
       ],
@@ -82007,12 +81979,11 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
         "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT",
         "SV2023-31.8-EXTRACT-VECTOR-EXPANSION-OPTION",
         "SV2023-31.8-EXTRACT-VECTOR-SINGLE-CHECK"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.1-EXTRACT-LIMIT"
       ],
@@ -82042,11 +82013,11 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
       "interpretation_pending_ids": [
-        "SV2023-31.4.4-EXTRACT-WIDTH-COINCIDENT-TEXT",
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
+        "SV2023-31.4.4-EXTRACT-WIDTH-COINCIDENT-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-31.4.4-EXTRACT-WIDTH-OPPOSITE-EDGE",
@@ -82096,11 +82067,10 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-1",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
-        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
         "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.4-EXTRACT-LIMIT",
         "SV2023-31.3.6-EXTRACT-NEGATIVE-SUM"
@@ -82890,6 +82860,7 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
         "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT",
         "SV2023-32.4.2-EXTRACT-MAP-BIDIRECTSKEW",
         "SV2023-32.4.2-EXTRACT-MAP-HOLD",
         "SV2023-32.4.2-EXTRACT-MAP-NOCHANGE",
@@ -82904,9 +82875,7 @@
         "SV2023-32.4.2-EXTRACT-SDF-QUALIFIED-CHECK",
         "SV2023-32.4.2-EXTRACT-SDF-UNQUALIFIED-CHECK"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.4-EXTRACT-LIMIT",
         "SV2023-31.3.6-EXTRACT-NEGATIVE-SUM"
@@ -83008,6 +82977,7 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
         "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT",
         "SV2023-32.4.2-EXTRACT-MAP-BIDIRECTSKEW",
         "SV2023-32.4.2-EXTRACT-MAP-HOLD",
         "SV2023-32.4.2-EXTRACT-MAP-NOCHANGE",
@@ -83022,9 +82992,7 @@
         "SV2023-32.4.2-EXTRACT-SDF-QUALIFIED-CHECK",
         "SV2023-32.4.2-EXTRACT-SDF-UNQUALIFIED-CHECK"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.1-EXTRACT-LIMIT",
         "SV2023-31.3.2-EXTRACT-LIMIT"
@@ -83097,6 +83065,7 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
         "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT",
         "SV2023-32.4.2-EXTRACT-MAP-BIDIRECTSKEW",
         "SV2023-32.4.2-EXTRACT-MAP-HOLD",
         "SV2023-32.4.2-EXTRACT-MAP-NOCHANGE",
@@ -83111,9 +83080,7 @@
         "SV2023-32.4.2-EXTRACT-SDF-QUALIFIED-CHECK",
         "SV2023-32.4.2-EXTRACT-SDF-UNQUALIFIED-CHECK"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-31.3.1-EXTRACT-LIMIT",
         "SV2023-31.3.2-EXTRACT-LIMIT"
@@ -83300,6 +83267,7 @@
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-X",
         "SV2023-31.6-EXTRACT-NOTIFIER-FROM-Z",
         "SV2023-31.6-EXTRACT-NOTIFIER-LOCAL-OPTIONAL",
+        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT",
         "SV2023-32.4.2-EXTRACT-MAP-BIDIRECTSKEW",
         "SV2023-32.4.2-EXTRACT-MAP-HOLD",
         "SV2023-32.4.2-EXTRACT-MAP-NOCHANGE",
@@ -83315,8 +83283,7 @@
         "SV2023-32.4.2-EXTRACT-SDF-UNQUALIFIED-CHECK"
       ],
       "interpretation_pending_ids": [
-        "SV2023-31.4.4-EXTRACT-WIDTH-COINCIDENT-TEXT",
-        "SV2023-31.6-EXTRACT-NOTIFIER-POSITION-TEXT"
+        "SV2023-31.4.4-EXTRACT-WIDTH-COINCIDENT-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-31.4.4-EXTRACT-WIDTH-OPPOSITE-EDGE",
@@ -85966,6 +85933,7 @@
         "SV2023-I.3-EXTRACT-DLL-IMPORT",
         "SV2023-I.3-EXTRACT-ELEMENT-POINTER",
         "SV2023-I.3-EXTRACT-EXTERN",
+        "SV2023-I.3-EXTRACT-GET-DATA-TEXT",
         "SV2023-I.3-EXTRACT-GUARD",
         "SV2023-I.3-EXTRACT-HANDLES",
         "SV2023-I.3-EXTRACT-LEGACY-ALLOC",
@@ -86570,7 +86538,6 @@
         "SV2023-K.2-EXTRACT-WIDE-TYPES"
       ],
       "interpretation_pending_ids": [
-        "SV2023-I.3-EXTRACT-GET-DATA-TEXT",
         "SV2023-I.3-EXTRACT-SIGNED-TEXT"
       ],
       "different_case_kind_ids": [],
@@ -86689,6 +86656,7 @@
         "SV2023-I.3-EXTRACT-DLL-IMPORT",
         "SV2023-I.3-EXTRACT-ELEMENT-POINTER",
         "SV2023-I.3-EXTRACT-EXTERN",
+        "SV2023-I.3-EXTRACT-GET-DATA-TEXT",
         "SV2023-I.3-EXTRACT-HANDLES",
         "SV2023-I.3-EXTRACT-LEGACY-ALLOC",
         "SV2023-I.3-EXTRACT-LEGACY-API-SVGET32BITS",
@@ -86744,7 +86712,6 @@
         "SV2023-I.3-EXTRACT-UNSIGNED"
       ],
       "interpretation_pending_ids": [
-        "SV2023-I.3-EXTRACT-GET-DATA-TEXT",
         "SV2023-I.3-EXTRACT-SIGNED-TEXT"
       ],
       "different_case_kind_ids": [],
@@ -86858,6 +86825,7 @@
         "SV2023-I.3-EXTRACT-DLL-IMPORT",
         "SV2023-I.3-EXTRACT-ELEMENT-POINTER",
         "SV2023-I.3-EXTRACT-EXTERN",
+        "SV2023-I.3-EXTRACT-GET-DATA-TEXT",
         "SV2023-I.3-EXTRACT-GUARD",
         "SV2023-I.3-EXTRACT-HANDLES",
         "SV2023-I.3-EXTRACT-LEGACY-ALLOC",
@@ -86922,7 +86890,6 @@
       ],
       "interpretation_pending_ids": [
         "SV2023-H.10.1.2-EXTRACT-SIGNED-TEXT",
-        "SV2023-I.3-EXTRACT-GET-DATA-TEXT",
         "SV2023-I.3-EXTRACT-SIGNED-TEXT"
       ],
       "different_case_kind_ids": [],
@@ -94613,9 +94580,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -94625,10 +94594,7 @@
         "SV2023-38.15-EXTRACT-VECTOR-STRUCTURE",
         "SV2023-38.15-EXTRACT-VECTOR-WORD-ORDER"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -94709,9 +94675,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -94721,10 +94689,7 @@
         "SV2023-38.15-EXTRACT-VECTOR-STRUCTURE",
         "SV2023-38.15-EXTRACT-VECTOR-WORD-ORDER"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -94765,9 +94730,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -94802,10 +94769,7 @@
         "SV2023-38.34-EXTRACT-SYSTEM-FUNCTION-ACTIVE",
         "SV2023-38.34-EXTRACT-TRANSPORT-MODE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.23-EXTRACT-ITERATOR-PROTECTED",
         "SV2023-38.34-EXTRACT-PUT-FORMAT-ERROR",
@@ -95136,13 +95100,12 @@
         "SV2023-36.9.1-EXTRACT-REGISTER-SYSTF",
         "SV2023-36.9.1-EXTRACT-REGISTRATION-FIELDS"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-27.3-EXTRACT-GENERATE-REGION-CONTAINER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-27.3-EXTRACT-GENERATE-CONSTANT-ELABORATION",
         "SV2023-27.3-EXTRACT-GENERATE-CONTEXT-ITEMS",
-        "SV2023-27.3-EXTRACT-GENERATE-OPTIONAL-REGION"
+        "SV2023-27.3-EXTRACT-GENERATE-OPTIONAL-REGION",
+        "SV2023-27.3-EXTRACT-GENERATE-REGION-CONTAINER-TEXT"
       ],
       "broader_citations": []
     },
@@ -95682,9 +95645,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -95702,10 +95667,7 @@
         "SV2023-38.40-EXTRACT-SCAN-NULL-INVALID",
         "SV2023-38.40-EXTRACT-SCAN-SIGNATURE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.18-EXTRACT-HANDLE-PROTECTED",
         "SV2023-38.23-EXTRACT-ITERATOR-PROTECTED"
@@ -100353,6 +100315,7 @@
         "SV2023-37.42-EXTRACT-PROTECTED-SYSTEM-ARGUMENTS",
         "SV2023-37.42-EXTRACT-SYSTEM-CALL-DECOMPILE",
         "SV2023-37.42-EXTRACT-SYSTEM-REGISTRATION-INFO",
+        "SV2023-37.82-EXTRACT-ACTIVE-FORMAT-NAME-TEXT",
         "SV2023-38.15-EXTRACT-FORMAT-VPIBINSTRVAL",
         "SV2023-38.15-EXTRACT-FORMAT-VPIDECSTRVAL",
         "SV2023-38.15-EXTRACT-FORMAT-VPIHEXSTRVAL",
@@ -100372,8 +100335,10 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -100384,10 +100349,7 @@
         "SV2023-38.15-EXTRACT-VECTOR-WORD-ORDER"
       ],
       "interpretation_pending_ids": [
-        "SV2023-20.4.3-EXTRACT-FORMAT-PRECISION-DOMAIN-TEXT",
-        "SV2023-37.82-EXTRACT-ACTIVE-FORMAT-NAME-TEXT",
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
+        "SV2023-20.4.3-EXTRACT-FORMAT-PRECISION-DOMAIN-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN"
@@ -102508,9 +102470,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -102520,10 +102484,7 @@
         "SV2023-38.15-EXTRACT-VECTOR-STRUCTURE",
         "SV2023-38.15-EXTRACT-VECTOR-WORD-ORDER"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-10.3.1-EXTRACT-NO-INTERCONNECT-INITIALIZER",
         "SV2023-10.3.4-EXTRACT-NO-BOTH-HIGHZ",
@@ -104027,9 +103988,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -104039,10 +104002,7 @@
         "SV2023-38.15-EXTRACT-VECTOR-STRUCTURE",
         "SV2023-38.15-EXTRACT-VECTOR-WORD-ORDER"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-37.3.5-EXTRACT-PROPERTY-EFFECT-ERROR",
         "SV2023-37.3.5-EXTRACT-PUT-INDEX-EFFECT-ERROR"
@@ -104320,6 +104280,7 @@
         "SV2023-37.2.1-EXTRACT-CREATE-VPI-HANDLE-BY-MULTI-INDEX",
         "SV2023-37.2.1-EXTRACT-CREATE-VPI-PUT-VALUE",
         "SV2023-37.2.1-EXTRACT-EQUIVALENT-HANDLES",
+        "SV2023-37.2.2-EXTRACT-CALLBACK-RELEASE-TEXT",
         "SV2023-37.2.2-EXTRACT-CLASS-RELEASE",
         "SV2023-37.2.2-EXTRACT-FRAME-THREAD-RELEASE",
         "SV2023-37.2.2-EXTRACT-ITERATOR-RELEASE",
@@ -104393,9 +104354,7 @@
         "SV2023-38.38-EXTRACT-RELEASE-HANDLE-SIGNATURE",
         "SV2023-38.38-EXTRACT-VALID-HANDLE-ONLY"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-37.2.2-EXTRACT-CALLBACK-RELEASE-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.19-EXTRACT-INDEX-PROTECTED",
         "SV2023-38.21-EXTRACT-NAME-PROTECTION"
@@ -105908,11 +105867,10 @@
         "SV2023-38.16-EXTRACT-RAW-BIT-SIGNIFICANCE",
         "SV2023-38.16-EXTRACT-RAW-FOUR-STATE",
         "SV2023-38.16-EXTRACT-RAW-TWO-STATE",
-        "SV2023-38.16-EXTRACT-SHORTINT-ARRAY-FORMAT"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-38.16-EXTRACT-SHORTINT-ARRAY-FORMAT",
         "SV2023-38.16-EXTRACT-SHORTREAL-ARRAY-FIELD-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-37.3.6-EXTRACT-PROTECTED-ACCESS",
         "SV2023-38.16-EXTRACT-ARRAY-FORMAT-ERROR"
@@ -105937,6 +105895,7 @@
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
+        "SV2023-37.2.2-EXTRACT-CALLBACK-RELEASE-TEXT",
         "SV2023-37.2.2-EXTRACT-CLASS-RELEASE",
         "SV2023-37.2.2-EXTRACT-FRAME-THREAD-RELEASE",
         "SV2023-37.2.2-EXTRACT-ITERATOR-RELEASE",
@@ -105962,9 +105921,7 @@
         "SV2023-38.37-EXTRACT-SYSTF-CALLBACK-PHASES",
         "SV2023-38.37-EXTRACT-SYSTF-REGISTER-STRUCTURE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-37.2.2-EXTRACT-CALLBACK-RELEASE-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.21-EXTRACT-NAME-PROTECTION"
       ],
@@ -106024,6 +105981,7 @@
         "SV2023-37.80-EXTRACT-DIAGRAM-001",
         "SV2023-37.80-EXTRACT-DIAGRAM-003",
         "SV2023-37.81-EXTRACT-QUEUE-TIME-ORDER",
+        "SV2023-37.82-EXTRACT-ACTIVE-FORMAT-NAME-TEXT",
         "SV2023-37.82-EXTRACT-DIAGRAM-001",
         "SV2023-37.84-EXTRACT-DIAGRAM-001",
         "SV2023-37.84-EXTRACT-DIAGRAM-002",
@@ -106056,8 +106014,7 @@
       ],
       "interpretation_pending_ids": [
         "SV2023-20.4.3-EXTRACT-FORMAT-PRECISION-DOMAIN-TEXT",
-        "SV2023-37.80-EXTRACT-CALLBACK-ARROW-TEXT",
-        "SV2023-37.82-EXTRACT-ACTIVE-FORMAT-NAME-TEXT"
+        "SV2023-37.80-EXTRACT-CALLBACK-ARROW-TEXT"
       ],
       "different_case_kind_ids": [
         "SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN",
@@ -106398,6 +106355,7 @@
         "SV2023-37.17-EXTRACT-VARIABLE-SELECT-INDEX",
         "SV2023-37.17-EXTRACT-VARIABLE-STRUCT-MEMBER",
         "SV2023-37.17-EXTRACT-VARIABLE-VISIBILITY",
+        "SV2023-37.2.2-EXTRACT-CALLBACK-RELEASE-TEXT",
         "SV2023-37.2.2-EXTRACT-CLASS-RELEASE",
         "SV2023-37.2.2-EXTRACT-FRAME-THREAD-RELEASE",
         "SV2023-37.2.2-EXTRACT-ITERATOR-RELEASE",
@@ -106490,9 +106448,7 @@
         "SV2023-6.21-EXTRACT-STATIC-OVERRIDE",
         "SV2023-6.21-EXTRACT-UNIT-STATIC"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-37.2.2-EXTRACT-CALLBACK-RELEASE-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-23.2.1-EXTRACT-HEADER-IMPORT-FOOTNOTE",
         "SV2023-37.10-EXTRACT-NO-NAME-LOOKUP",
@@ -113164,9 +113120,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -113176,10 +113134,7 @@
         "SV2023-38.15-EXTRACT-VECTOR-STRUCTURE",
         "SV2023-38.15-EXTRACT-VECTOR-WORD-ORDER"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -114932,9 +114887,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-STORAGE-LIFETIME",
         "SV2023-38.15-EXTRACT-VALUE-STRING-BUFFER",
@@ -114965,10 +114922,7 @@
         "SV2023-38.34-EXTRACT-SYSTEM-FUNCTION-ACTIVE",
         "SV2023-38.34-EXTRACT-TRANSPORT-MODE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-29.3-EXTRACT-UDP-DEFINITION-SCOPE",
         "SV2023-37.35-EXTRACT-PRIMITIVE-WRITE",
@@ -116337,9 +116291,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -116362,13 +116318,10 @@
         "SV2023-38.16-EXTRACT-RAW-BIT-SIGNIFICANCE",
         "SV2023-38.16-EXTRACT-RAW-FOUR-STATE",
         "SV2023-38.16-EXTRACT-RAW-TWO-STATE",
-        "SV2023-38.16-EXTRACT-SHORTINT-ARRAY-FORMAT"
-      ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
+        "SV2023-38.16-EXTRACT-SHORTINT-ARRAY-FORMAT",
         "SV2023-38.16-EXTRACT-SHORTREAL-ARRAY-FIELD-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.16-EXTRACT-ARRAY-FORMAT-ERROR"
       ],
@@ -116481,9 +116434,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -116495,10 +116450,7 @@
         "SV2023-38.20-EXTRACT-MULTI-INDEX-ORDER",
         "SV2023-38.20-EXTRACT-MULTI-INDEX-SIGNATURE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.20-EXTRACT-MULTI-INDEX-PROTECTED"
       ],
@@ -116876,9 +116828,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -116903,13 +116857,10 @@
         "SV2023-38.35-EXTRACT-PUT-RAW-FOUR",
         "SV2023-38.35-EXTRACT-PUT-RAW-SIGNIFICANCE",
         "SV2023-38.35-EXTRACT-PUT-RAW-TWO",
-        "SV2023-38.35-EXTRACT-PUT-SHORTINT-FORMAT"
-      ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
+        "SV2023-38.35-EXTRACT-PUT-SHORTINT-FORMAT",
         "SV2023-38.35-EXTRACT-PUT-SHORTREAL-FIELD-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.35-EXTRACT-PUT-ARRAY-NO-DELAY",
         "SV2023-38.35-EXTRACT-PUT-ARRAY-UNSUPPORTED-FORMAT"
@@ -116953,9 +116904,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -116975,13 +116928,10 @@
         "SV2023-38.35-EXTRACT-PUT-NET-ARRAY-DEPOSIT",
         "SV2023-38.35-EXTRACT-PUT-RAW-COMPATIBILITY",
         "SV2023-38.35-EXTRACT-PUT-RAW-FOUR",
-        "SV2023-38.35-EXTRACT-PUT-RAW-SIGNIFICANCE"
-      ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
+        "SV2023-38.35-EXTRACT-PUT-RAW-SIGNIFICANCE",
         "SV2023-38.35-EXTRACT-PUT-SHORTREAL-FIELD-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.35-EXTRACT-PUT-ARRAY-NO-DELAY",
         "SV2023-38.35-EXTRACT-PUT-ARRAY-UNSUPPORTED-FORMAT"
@@ -117015,11 +116965,10 @@
         "SV2023-38.35-EXTRACT-PUT-RAW-FOUR",
         "SV2023-38.35-EXTRACT-PUT-RAW-SIGNIFICANCE",
         "SV2023-38.35-EXTRACT-PUT-RAW-TWO",
-        "SV2023-38.35-EXTRACT-PUT-SHORTINT-FORMAT"
-      ],
-      "interpretation_pending_ids": [
+        "SV2023-38.35-EXTRACT-PUT-SHORTINT-FORMAT",
         "SV2023-38.35-EXTRACT-PUT-SHORTREAL-FIELD-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.35-EXTRACT-PUT-ARRAY-NO-DELAY",
         "SV2023-38.35-EXTRACT-PUT-ARRAY-UNSUPPORTED-FORMAT"
@@ -117133,6 +117082,7 @@
       "registered_requirement_ids": [],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
+        "SV2023-37.2.2-EXTRACT-CALLBACK-RELEASE-TEXT",
         "SV2023-37.2.2-EXTRACT-CLASS-RELEASE",
         "SV2023-37.2.2-EXTRACT-FRAME-THREAD-RELEASE",
         "SV2023-37.2.2-EXTRACT-ITERATOR-RELEASE",
@@ -117182,9 +117132,7 @@
         "SV2023-38.38-EXTRACT-RELEASE-HANDLE-SIGNATURE",
         "SV2023-38.38-EXTRACT-VALID-HANDLE-ONLY"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-37.2.2-EXTRACT-CALLBACK-RELEASE-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.36.1-EXTRACT-BITSELECT-CALLBACK-ERROR"
       ],
@@ -117844,9 +117792,11 @@
         "SV2023-38.15-EXTRACT-OBJECT-TYPE-VECTOR",
         "SV2023-38.15-EXTRACT-PRESERVE-VALUE",
         "SV2023-38.15-EXTRACT-REAL-CONVERSION",
+        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
         "SV2023-38.15-EXTRACT-STRENGTH-ARRAY",
         "SV2023-38.15-EXTRACT-STRENGTH-STRUCTURE",
         "SV2023-38.15-EXTRACT-STRING-CONSTANT-FORMATS",
+        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT",
         "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
         "SV2023-38.15-EXTRACT-VALUE-FORMAT",
         "SV2023-38.15-EXTRACT-VALUE-SIGNATURE",
@@ -117901,10 +117851,7 @@
         "SV2023-38.36.1-EXTRACT-RECLAIM-ACCESS",
         "SV2023-38.36.1-EXTRACT-STRENGTH-CALLBACK"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT",
-        "SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-38.36.1-EXTRACT-BITSELECT-CALLBACK-ERROR"
       ],
@@ -119450,6 +119397,8 @@
         "SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSENABLEPASSACTION",
         "SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSLOCK",
         "SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSUNLOCK",
+        "SV2023-39.4.1-EXTRACT-SYSTEM-DISABLE-FAIL-TEXT",
+        "SV2023-39.4.1-EXTRACT-SYSTEM-ENABLE-FAIL-TEXT",
         "SV2023-39.4.1-EXTRACT-SYSTEM-END",
         "SV2023-39.4.1-EXTRACT-SYSTEM-INITIALIZED",
         "SV2023-39.4.1-EXTRACT-SYSTEM-KILL",
@@ -119471,8 +119420,6 @@
         "SV2023-39.5.1-EXTRACT-SYSTEM-CONTROL-SCOPE"
       ],
       "interpretation_pending_ids": [
-        "SV2023-39.4.1-EXTRACT-SYSTEM-DISABLE-FAIL-TEXT",
-        "SV2023-39.4.1-EXTRACT-SYSTEM-ENABLE-FAIL-TEXT",
         "SV2023-39.4.1-EXTRACT-SYSTEM-OFF-CALLBACK-TEXT"
       ],
       "different_case_kind_ids": [
@@ -119507,6 +119454,8 @@
         "SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSDISABLEVACUOUSACTION",
         "SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSENABLENONVACUOUSACTION",
         "SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSENABLEPASSACTION",
+        "SV2023-39.4.1-EXTRACT-SYSTEM-DISABLE-FAIL-TEXT",
+        "SV2023-39.4.1-EXTRACT-SYSTEM-ENABLE-FAIL-TEXT",
         "SV2023-39.4.1-EXTRACT-SYSTEM-END",
         "SV2023-39.4.1-EXTRACT-SYSTEM-INITIALIZED",
         "SV2023-39.4.1-EXTRACT-SYSTEM-KILL",
@@ -119575,8 +119524,6 @@
         "SV2023-39.5.2-EXTRACT-KILL-ONE-ATTEMPT"
       ],
       "interpretation_pending_ids": [
-        "SV2023-39.4.1-EXTRACT-SYSTEM-DISABLE-FAIL-TEXT",
-        "SV2023-39.4.1-EXTRACT-SYSTEM-ENABLE-FAIL-TEXT",
         "SV2023-39.4.1-EXTRACT-SYSTEM-OFF-CALLBACK-TEXT"
       ],
       "different_case_kind_ids": [],
@@ -119809,6 +119756,8 @@
         "SV2023-16.14.1-EXTRACT-ASSERT-SEVERITY",
         "SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSLOCK",
         "SV2023-39.4.1-EXTRACT-SYSTEM-CBASSERTIONSYSUNLOCK",
+        "SV2023-39.4.1-EXTRACT-SYSTEM-DISABLE-FAIL-TEXT",
+        "SV2023-39.4.1-EXTRACT-SYSTEM-ENABLE-FAIL-TEXT",
         "SV2023-39.4.1-EXTRACT-SYSTEM-END",
         "SV2023-39.4.1-EXTRACT-SYSTEM-INITIALIZED",
         "SV2023-39.4.1-EXTRACT-SYSTEM-KILL",
@@ -119830,8 +119779,6 @@
         "SV2023-39.5.1-EXTRACT-SYSTEM-CONTROL-SCOPE"
       ],
       "interpretation_pending_ids": [
-        "SV2023-39.4.1-EXTRACT-SYSTEM-DISABLE-FAIL-TEXT",
-        "SV2023-39.4.1-EXTRACT-SYSTEM-ENABLE-FAIL-TEXT",
         "SV2023-39.4.1-EXTRACT-SYSTEM-OFF-CALLBACK-TEXT"
       ],
       "different_case_kind_ids": [
@@ -122538,6 +122485,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -122555,9 +122503,7 @@
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-OK",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-PARTIAL"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
@@ -122631,6 +122577,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-PARTIAL",
@@ -122649,13 +122596,11 @@
         "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -122690,6 +122635,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -122707,9 +122653,7 @@
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-OK",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-PARTIAL"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-25.3-EXTRACT-ARRAY-INTERFACE-DEFPARAM",
         "SV2023-25.3-EXTRACT-INTERFACE-HIERARCHICAL-ACTUAL",
@@ -122757,6 +122701,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -122774,9 +122719,7 @@
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-OK",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-PARTIAL"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-26.3-EXTRACT-EXPLICIT-IMPORT-COLLISION",
         "SV2023-26.3-EXTRACT-IMPORT-NO-REEXPORT-PATH",
@@ -122823,6 +122766,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -122840,9 +122784,7 @@
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-OK",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-PARTIAL"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-24.3-EXTRACT-PROGRAM-CONTENTS-RESTRICTIONS",
         "SV2023-24.3-EXTRACT-PROGRAM-GENERATE-FOOTNOTE",
@@ -122900,6 +122842,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -122911,9 +122854,7 @@
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-PARTIAL",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-ERROR"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -122945,6 +122886,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -122967,13 +122909,11 @@
         "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -123012,6 +122952,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123034,6 +122975,7 @@
         "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE",
         "SV2023-40.4-EXTRACT-FSM-EXPLICIT-OVERRIDE",
@@ -123048,10 +122990,7 @@
         "SV2023-40.4.6-EXTRACT-FSM-STATE-ENUMERATION",
         "SV2023-40.4.7-EXTRACT-FSM-COMMENT-STYLES"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-40.4.3-EXTRACT-FSM-CONCAT-NO-SELECTS"
       ],
@@ -123165,6 +123104,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123187,15 +123127,13 @@
         "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE",
         "SV2023-40.4-EXTRACT-FSM-EXPLICIT-OVERRIDE",
         "SV2023-40.4-EXTRACT-FSM-IDENTIFICATION"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [
         {
@@ -123261,6 +123199,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123279,13 +123218,11 @@
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-PARTIAL",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
@@ -123338,6 +123275,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123360,6 +123298,7 @@
         "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE",
         "SV2023-40.3.2.4-EXTRACT-MERGE-LOOKUP",
@@ -123370,10 +123309,7 @@
         "SV2023-40.3.2.5-EXTRACT-SAVE-SIGNATURE",
         "SV2023-40.3.2.5-EXTRACT-SAVE-STATUS"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -123402,6 +123338,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123424,13 +123361,11 @@
         "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-23.3.1-EXTRACT-REQUIRE-TOP"
       ],
@@ -123459,6 +123394,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123477,6 +123413,7 @@
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-PARTIAL",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE",
         "SV2023-40.3.2.4-EXTRACT-MERGE-LOOKUP",
@@ -123487,10 +123424,7 @@
         "SV2023-40.3.2.5-EXTRACT-SAVE-SIGNATURE",
         "SV2023-40.3.2.5-EXTRACT-SAVE-STATUS"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -123508,6 +123442,7 @@
       "unapproved_candidate_ids": [
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE",
         "SV2023-40.3.2.4-EXTRACT-MERGE-LOOKUP",
@@ -123518,9 +123453,7 @@
         "SV2023-40.3.2.5-EXTRACT-SAVE-SIGNATURE",
         "SV2023-40.3.2.5-EXTRACT-SAVE-STATUS"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -123553,6 +123486,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123577,9 +123511,7 @@
         "SV2023-40.3.2.5-EXTRACT-SAVE-SIGNATURE",
         "SV2023-40.3.2.5-EXTRACT-SAVE-STATUS"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
     },
@@ -123611,6 +123543,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123633,13 +123566,11 @@
         "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
@@ -123694,6 +123625,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123716,13 +123648,11 @@
         "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-23.3.1-EXTRACT-REQUIRE-TOP"
       ],
@@ -123755,6 +123685,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123802,6 +123733,7 @@
         "SV2023-40.5.2-EXTRACT-COVERED-MAX",
         "SV2023-40.5.2-EXTRACT-FSM-ITERATOR",
         "SV2023-40.5.2-EXTRACT-FSM-STATE-EXPRESSION",
+        "SV2023-40.5.2-EXTRACT-FSM-STATE-VALUE-CALL-TEXT",
         "SV2023-40.5.2-EXTRACT-FSM-STATES-ITERATOR",
         "SV2023-40.5.2-EXTRACT-INSTANCE-COVERAGE-QUERY",
         "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTATTEMPTCOVERED",
@@ -123811,10 +123743,7 @@
         "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTSUCCESSCOVERED",
         "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTVACUOUSSUCCESSCOVERED"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.5.2-EXTRACT-FSM-STATE-VALUE-CALL-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-16.14.1-EXTRACT-ASSERT-ACTION-CONTENT"
       ],
@@ -123875,6 +123804,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123893,6 +123823,7 @@
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-PARTIAL",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE",
         "SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTATTEMPTCOVERED",
@@ -123920,13 +123851,10 @@
         "SV2023-40.5.1-EXTRACT-CONSTANT-VPITOGGLECOVERAGE",
         "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL",
         "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL-TARGETS",
-        "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-MERGE"
-      ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
+        "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-MERGE",
         "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-SAVE-NAME-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
@@ -123977,6 +123905,7 @@
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
         "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
         "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE",
+        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV",
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK",
@@ -123995,6 +123924,7 @@
         "SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-STOP-SV-COV-PARTIAL",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE",
         "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS",
+        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE",
         "SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE",
         "SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTATTEMPTCOVERED",
@@ -124022,13 +123952,10 @@
         "SV2023-40.5.1-EXTRACT-CONSTANT-VPITOGGLECOVERAGE",
         "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL",
         "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL-TARGETS",
-        "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-MERGE"
-      ],
-      "interpretation_pending_ids": [
-        "SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT",
-        "SV2023-40.3.2.3-EXTRACT-CURRENT-VERSUS-MAX-TEXT",
+        "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-MERGE",
         "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-SAVE-NAME-TEXT"
       ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [],
       "scoped_review": {
@@ -124110,6 +124037,7 @@
         "SV2023-40.5.2-EXTRACT-COVERED-COUNT",
         "SV2023-40.5.2-EXTRACT-COVERED-ENTITIES",
         "SV2023-40.5.2-EXTRACT-COVERED-MAX",
+        "SV2023-40.5.2-EXTRACT-FSM-STATE-VALUE-CALL-TEXT",
         "SV2023-40.5.2-EXTRACT-INSTANCE-COVERAGE-QUERY",
         "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTATTEMPTCOVERED",
         "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTDISABLECOVERED",
@@ -124118,9 +124046,7 @@
         "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTSUCCESSCOVERED",
         "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTVACUOUSSUCCESSCOVERED"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-40.5.2-EXTRACT-FSM-STATE-VALUE-CALL-TEXT"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": [
         {
@@ -134172,6 +134098,7 @@
         "SV2023-11.2.1-EXTRACT-CONSTANT-METHOD-PURE",
         "SV2023-11.2.1-EXTRACT-CONSTANT-METHOD-RECEIVER",
         "SV2023-11.2.1-EXTRACT-CONSTANT-SYSTEM-PURE",
+        "SV2023-11.2.1-EXTRACT-CONSTANT-TIMESCALE-NAME",
         "SV2023-6.20.1-EXTRACT-BODY-PARAMETER-LOCAL",
         "SV2023-6.20.1-EXTRACT-CLASS-BODY-LOCAL",
         "SV2023-6.20.1-EXTRACT-DECLARATION-CONTEXTS",
@@ -134188,9 +134115,7 @@
         "SV2023-6.20.4-EXTRACT-LOCALPARAM-STICKINESS",
         "SV2023-6.20.4-EXTRACT-PORT-LOCALPARAM"
       ],
-      "interpretation_pending_ids": [
-        "SV2023-11.2.1-EXTRACT-CONSTANT-TIMESCALE-NAME"
-      ],
+      "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-11.2.1-EXTRACT-CONSTANT-OPERANDS",
         "SV2023-6.20.1-EXTRACT-INSTANCE-MUST-OVERRIDE",
@@ -220904,7 +220829,7 @@
     "oracle_issue": 45,
     "partial_observation": 398
   },
-  "registry_sha256": "4c637ca1d400f39e3b83eb240e6fe650a735877a1ab641ea12af7117f6b254d6",
-  "inventory_sha256": "f2310368323bb8190b51085451d52193b49083a2defa150607f5785382e88050",
+  "registry_sha256": "ef9c651d9e6fb8a18606a6f2455b3833f8e7d07ffce6cf1487b37af77f495c83",
+  "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "ab0ac635673bcbf7c25b27f8bd24b0da8007c26f75ece17e0896d2716d250b68"
 }

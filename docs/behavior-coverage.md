@@ -13,8 +13,8 @@
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
-- 解釈保留: 46 論点、42 節、49 登録行。保留を完了・テスト対応済みに数えません。
-- 規定部分の解釈保留なし: 1661/1703 見出し (97.53%)。資料確認率・動作網羅率とは別です。
+- 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
+- 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対するテスト設計網羅率: 3889/12319 (31.57%)。
 - 登録済み動作のうち、新鮮な実行成功証跡があるもの: 2396/12319 (19.45%)。
 - 登録済みだがテスト未対応: 8430 動作。
@@ -76,7 +76,7 @@
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 72。
 - 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 57。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 46。
-- 11 Operators and expressions: 解釈保留なし 54/55、登録 461、テスト対応 235。
+- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 235。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 27。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 37。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 24。
@@ -84,7 +84,7 @@
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 80。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 7。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 49。
-- 19 Functional coverage: 解釈保留なし 30/34、登録 272、テスト対応 46。
+- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 46。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 113。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 82。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 30。
@@ -92,27 +92,27 @@
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 6。
 - 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 7。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 6。
-- 27 Generate constructs: 解釈保留なし 6/7、登録 32、テスト対応 5。
+- 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 5。
 - 28 Gate-level and switch-level modeling: 解釈保留なし 33/34、登録 384、テスト対応 99。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 16。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 36。
-- 31 Timing checks: 解釈保留なし 24/26、登録 180、テスト対応 85。
+- 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 85。
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 22。
 - 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 7。
-- 34 Protected envelopes: 解釈保留なし 100/104、登録 215、テスト対応 0。
+- 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 52。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 6。
-- 37 VPI object model diagrams: 解釈保留なし 98/101、登録 1757、テスト対応 858。
-- 38 VPI routine definitions: 解釈保留なし 48/51、登録 348、テスト対応 63。
+- 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 858。
+- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 63。
 - 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 46。
-- 40 Code coverage control and API: 解釈保留なし 22/26、登録 128、テスト対応 36。
+- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 36。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
 - A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 0。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 0。
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 0。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
-- F Formal semantics of concurrent assertions: 解釈保留なし 48/53、登録 253、テスト対応 0。
+- F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 0。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 0。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 36。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 77。
@@ -24308,13 +24308,11 @@ A constant system function is pure: its return depends only on its inputs and it
 
 11.2.1 / normal / テスト未対応
 
-The timescale constant-function list in 11.2.1 names $timescale and $timeprecision, while 20.4 lists $timeunit and $timeprecision. The first name is pending source interpretation before accepting a constant-function test.
+Calls to the timescale system functions listed in 20.4, $timeunit and $timeprecision, are constant system function calls when their arguments are constant expressions, and are evaluated at elaboration time; the $timescale spelling in the 11.2.1 parenthetical denotes $timeunit rather than a separate system function.
 
-合格基準: The timescale constant-function list in 11.2.1 names $timescale and $timeprecision, while 20.4 lists $timeunit and $timeprecision. The first name is pending source interpretation before accepting a constant-function test.
+合格基準: Under `timescale 1ns/1ps, argument-free $timeunit and $timeprecision calls are accepted where a constant expression is required (for example localparam int TU = $timeunit; localparam int TP = $timeprecision;) and elaborate to -9 and -12 respectively.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `CONSTANT-TIMESCALE-NAME`（対応承認・節完了を保留）。
 
 
 ### SV2023-11.2.2-EXTRACT-AGGREGATE-COMPARE-EQUIVALENCE
@@ -46955,22 +46953,20 @@ illegal_bins excludes selected products from coverage and issues runtime errors 
 
 19.7 / normal / テスト未対応
 
-19.7 prose groups cross_retain_auto_bins with group/point definition-only options, while Table 19-2 permits group/cross and forbids point; resolve the wording before approving placement/timing tests.
+cross_retain_auto_bins is a definition-only instance option: it can be set only by an option assignment in the covergroup definition, either at the covergroup level (as the default for its crosses) or within a cross, and not within a coverpoint or by procedural assignment after the covergroup is instantiated.
 
-合格基準: 19.7 prose groups cross_retain_auto_bins with group/point definition-only options, while Table 19-2 permits group/cross and forbids point; resolve the wording before approving placement/timing tests.
+合格基準: option.cross_retain_auto_bins assigned in a covergroup body, as the default for its crosses, or in a cross body is accepted and takes effect on the cross bins of instances created afterwards; setting it within a coverpoint or by procedural assignment after construction is the error requirement SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS.
 
 規定の性質: `definition`。
-
-未解決の解釈: `CROSS-RETAIN-OPTION-SCOPE`（対応承認・節完了を保留）。
 
 
 ### SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS
 
 19.7 / error / テスト未対応
 
-per_instance/get_inst_coverage may be set only in the group definition; auto_bin_max/detect_overlap are definition-only group/point options; other instance options can be assigned procedurally subject to the unresolved cross_retain_auto_bins wording.
+per_instance/get_inst_coverage may be set only in the group definition; auto_bin_max/detect_overlap are definition-only group/point options; other instance options can be assigned procedurally; cross_retain_auto_bins is a definition-only covergroup/cross option (Table 19-2), so setting it within a coverpoint or by procedural assignment after construction is rejected.
 
-合格基準: per_instance/get_inst_coverage may be set only in the group definition; auto_bin_max/detect_overlap are definition-only group/point options; other instance options can be assigned procedurally subject to the unresolved cross_retain_auto_bins wording.
+合格基準: per_instance/get_inst_coverage may be set only in the group definition; auto_bin_max/detect_overlap are definition-only group/point options; other instance options can be assigned procedurally; cross_retain_auto_bins is a definition-only covergroup/cross option (Table 19-2), so setting it within a coverpoint or by procedural assignment after construction is rejected.
 
 規定の性質: `mandatory`。
 
@@ -48299,13 +48295,11 @@ For a point with zero denominator, coverage queries return 0.0 when its weight i
 
 19.11.2 / normal / テスト未対応
 
-19.11.2 gives automatic bin count as product(point bin counts) minus user-covered products; reconcile that expression with cross_retain_auto_bins=false removing all automatic bins before approving that option percentage oracle.
+In the 19.11.2 cross coverage equation, Bc is the number of automatic cross bins actually present: product(Bj) minus Bb while automatic bins are retained (cross_retain_auto_bins true, the default), and zero when cross_retain_auto_bins is false and an explicit cross bin is present, so the denominator is then Bu alone.
 
-合格基準: 19.11.2 gives automatic bin count as product(point bin counts) minus user-covered products; reconcile that expression with cross_retain_auto_bins=false removing all automatic bins before approving that option percentage oracle.
+合格基準: With coverpoints i and j of two explicit bins each, option.cross_retain_auto_bins = 0 set at the covergroup level, and cross x2 of i, j declaring only bins i_zero = binsof(i) intersect {0}, x2.get_inst_coverage(covered, total) reports total = 1 and returns 100.0 once i_zero has been hit; with the option at its default the same cross reports total = 3 (i_zero plus two retained automatic bins).
 
 規定の性質: `definition`。
-
-未解決の解釈: `CROSS-AUTO-COVERAGE-DENOMINATOR`（対応承認・節完了を保留）。
 
 
 ### SV2023-19.11.2-EXTRACT-CROSS-FRACTION
@@ -57505,1375 +57499,1375 @@ Keyword directives change only which identifiers are reserved, without changing 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ALWAYS
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier always.
+Keyword mode 1364-1995 reserves always: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier always.
+合格基準: A design that uses always as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-AND
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier and.
+Keyword mode 1364-1995 reserves and: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier and.
+合格基準: A design that uses and as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ASSIGN
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier assign.
+Keyword mode 1364-1995 reserves assign: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier assign.
+合格基準: A design that uses assign as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-BEGIN
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier begin.
+Keyword mode 1364-1995 reserves begin: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier begin.
+合格基準: A design that uses begin as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-BUF
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier buf.
+Keyword mode 1364-1995 reserves buf: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier buf.
+合格基準: A design that uses buf as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-BUFIF0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier bufif0.
+Keyword mode 1364-1995 reserves bufif0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier bufif0.
+合格基準: A design that uses bufif0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-BUFIF1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier bufif1.
+Keyword mode 1364-1995 reserves bufif1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier bufif1.
+合格基準: A design that uses bufif1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-CASE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier case.
+Keyword mode 1364-1995 reserves case: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier case.
+合格基準: A design that uses case as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-CASEX
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier casex.
+Keyword mode 1364-1995 reserves casex: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier casex.
+合格基準: A design that uses casex as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-CASEZ
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier casez.
+Keyword mode 1364-1995 reserves casez: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier casez.
+合格基準: A design that uses casez as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-CMOS
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier cmos.
+Keyword mode 1364-1995 reserves cmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier cmos.
+合格基準: A design that uses cmos as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-DEASSIGN
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier deassign.
+Keyword mode 1364-1995 reserves deassign: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier deassign.
+合格基準: A design that uses deassign as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-DEFAULT
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier default.
+Keyword mode 1364-1995 reserves default: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier default.
+合格基準: A design that uses default as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-DEFPARAM
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier defparam.
+Keyword mode 1364-1995 reserves defparam: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier defparam.
+合格基準: A design that uses defparam as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-DISABLE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier disable.
+Keyword mode 1364-1995 reserves disable: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier disable.
+合格基準: A design that uses disable as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-EDGE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier edge.
+Keyword mode 1364-1995 reserves edge: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier edge.
+合格基準: A design that uses edge as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ELSE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier else.
+Keyword mode 1364-1995 reserves else: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier else.
+合格基準: A design that uses else as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-END
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier end.
+Keyword mode 1364-1995 reserves end: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier end.
+合格基準: A design that uses end as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDCASE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier endcase.
+Keyword mode 1364-1995 reserves endcase: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier endcase.
+合格基準: A design that uses endcase as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDFUNCTION
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier endfunction.
+Keyword mode 1364-1995 reserves endfunction: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier endfunction.
+合格基準: A design that uses endfunction as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDMODULE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier endmodule.
+Keyword mode 1364-1995 reserves endmodule: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier endmodule.
+合格基準: A design that uses endmodule as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDPRIMITIVE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier endprimitive.
+Keyword mode 1364-1995 reserves endprimitive: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier endprimitive.
+合格基準: A design that uses endprimitive as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDSPECIFY
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier endspecify.
+Keyword mode 1364-1995 reserves endspecify: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier endspecify.
+合格基準: A design that uses endspecify as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDTABLE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier endtable.
+Keyword mode 1364-1995 reserves endtable: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier endtable.
+合格基準: A design that uses endtable as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ENDTASK
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier endtask.
+Keyword mode 1364-1995 reserves endtask: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier endtask.
+合格基準: A design that uses endtask as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-EVENT
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier event.
+Keyword mode 1364-1995 reserves event: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier event.
+合格基準: A design that uses event as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FOR
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier for.
+Keyword mode 1364-1995 reserves for: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier for.
+合格基準: A design that uses for as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FORCE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier force.
+Keyword mode 1364-1995 reserves force: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier force.
+合格基準: A design that uses force as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FOREVER
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier forever.
+Keyword mode 1364-1995 reserves forever: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier forever.
+合格基準: A design that uses forever as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FORK
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier fork.
+Keyword mode 1364-1995 reserves fork: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier fork.
+合格基準: A design that uses fork as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-FUNCTION
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier function.
+Keyword mode 1364-1995 reserves function: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier function.
+合格基準: A design that uses function as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-HIGHZ0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier highz0.
+Keyword mode 1364-1995 reserves highz0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier highz0.
+合格基準: A design that uses highz0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-HIGHZ1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier highz1.
+Keyword mode 1364-1995 reserves highz1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier highz1.
+合格基準: A design that uses highz1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-IF
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier if.
+Keyword mode 1364-1995 reserves if: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier if.
+合格基準: A design that uses if as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-IFNONE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier ifnone.
+Keyword mode 1364-1995 reserves ifnone: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier ifnone.
+合格基準: A design that uses ifnone as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-INITIAL
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier initial.
+Keyword mode 1364-1995 reserves initial: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier initial.
+合格基準: A design that uses initial as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-INOUT
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier inout.
+Keyword mode 1364-1995 reserves inout: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier inout.
+合格基準: A design that uses inout as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-INPUT
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier input.
+Keyword mode 1364-1995 reserves input: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier input.
+合格基準: A design that uses input as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-INTEGER
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier integer.
+Keyword mode 1364-1995 reserves integer: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier integer.
+合格基準: A design that uses integer as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-JOIN
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier join.
+Keyword mode 1364-1995 reserves join: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier join.
+合格基準: A design that uses join as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-LARGE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier large.
+Keyword mode 1364-1995 reserves large: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier large.
+合格基準: A design that uses large as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-MACROMODULE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier macromodule.
+Keyword mode 1364-1995 reserves macromodule: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier macromodule.
+合格基準: A design that uses macromodule as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-MEDIUM
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier medium.
+Keyword mode 1364-1995 reserves medium: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier medium.
+合格基準: A design that uses medium as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-MODULE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier module.
+Keyword mode 1364-1995 reserves module: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier module.
+合格基準: A design that uses module as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NAND
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier nand.
+Keyword mode 1364-1995 reserves nand: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier nand.
+合格基準: A design that uses nand as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NEGEDGE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier negedge.
+Keyword mode 1364-1995 reserves negedge: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier negedge.
+合格基準: A design that uses negedge as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NMOS
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier nmos.
+Keyword mode 1364-1995 reserves nmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier nmos.
+合格基準: A design that uses nmos as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NOR
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier nor.
+Keyword mode 1364-1995 reserves nor: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier nor.
+合格基準: A design that uses nor as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NOT
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier not.
+Keyword mode 1364-1995 reserves not: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier not.
+合格基準: A design that uses not as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NOTIF0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier notif0.
+Keyword mode 1364-1995 reserves notif0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier notif0.
+合格基準: A design that uses notif0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-NOTIF1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier notif1.
+Keyword mode 1364-1995 reserves notif1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier notif1.
+合格基準: A design that uses notif1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-OR
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier or.
+Keyword mode 1364-1995 reserves or: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier or.
+合格基準: A design that uses or as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-OUTPUT
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier output.
+Keyword mode 1364-1995 reserves output: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier output.
+合格基準: A design that uses output as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PARAMETER
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier parameter.
+Keyword mode 1364-1995 reserves parameter: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier parameter.
+合格基準: A design that uses parameter as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PMOS
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier pmos.
+Keyword mode 1364-1995 reserves pmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier pmos.
+合格基準: A design that uses pmos as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-POSEDGE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier posedge.
+Keyword mode 1364-1995 reserves posedge: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier posedge.
+合格基準: A design that uses posedge as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PRIMITIVE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier primitive.
+Keyword mode 1364-1995 reserves primitive: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier primitive.
+合格基準: A design that uses primitive as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PULL0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier pull0.
+Keyword mode 1364-1995 reserves pull0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier pull0.
+合格基準: A design that uses pull0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PULL1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier pull1.
+Keyword mode 1364-1995 reserves pull1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier pull1.
+合格基準: A design that uses pull1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PULLDOWN
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier pulldown.
+Keyword mode 1364-1995 reserves pulldown: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier pulldown.
+合格基準: A design that uses pulldown as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-PULLUP
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier pullup.
+Keyword mode 1364-1995 reserves pullup: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier pullup.
+合格基準: A design that uses pullup as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RCMOS
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier rcmos.
+Keyword mode 1364-1995 reserves rcmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier rcmos.
+合格基準: A design that uses rcmos as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-REAL
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier real.
+Keyword mode 1364-1995 reserves real: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier real.
+合格基準: A design that uses real as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-REALTIME
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier realtime.
+Keyword mode 1364-1995 reserves realtime: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier realtime.
+合格基準: A design that uses realtime as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-REG
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier reg.
+Keyword mode 1364-1995 reserves reg: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier reg.
+合格基準: A design that uses reg as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RELEASE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier release.
+Keyword mode 1364-1995 reserves release: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier release.
+合格基準: A design that uses release as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-REPEAT
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier repeat.
+Keyword mode 1364-1995 reserves repeat: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier repeat.
+合格基準: A design that uses repeat as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RNMOS
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier rnmos.
+Keyword mode 1364-1995 reserves rnmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier rnmos.
+合格基準: A design that uses rnmos as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RPMOS
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier rpmos.
+Keyword mode 1364-1995 reserves rpmos: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier rpmos.
+合格基準: A design that uses rpmos as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RTRAN
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier rtran.
+Keyword mode 1364-1995 reserves rtran: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier rtran.
+合格基準: A design that uses rtran as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RTRANIF0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier rtranif0.
+Keyword mode 1364-1995 reserves rtranif0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier rtranif0.
+合格基準: A design that uses rtranif0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-RTRANIF1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier rtranif1.
+Keyword mode 1364-1995 reserves rtranif1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier rtranif1.
+合格基準: A design that uses rtranif1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SCALARED
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier scalared.
+Keyword mode 1364-1995 reserves scalared: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier scalared.
+合格基準: A design that uses scalared as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SMALL
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier small.
+Keyword mode 1364-1995 reserves small: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier small.
+合格基準: A design that uses small as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SPECIFY
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier specify.
+Keyword mode 1364-1995 reserves specify: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier specify.
+合格基準: A design that uses specify as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SPECPARAM
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier specparam.
+Keyword mode 1364-1995 reserves specparam: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier specparam.
+合格基準: A design that uses specparam as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-STRONG0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier strong0.
+Keyword mode 1364-1995 reserves strong0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier strong0.
+合格基準: A design that uses strong0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-STRONG1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier strong1.
+Keyword mode 1364-1995 reserves strong1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier strong1.
+合格基準: A design that uses strong1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SUPPLY0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier supply0.
+Keyword mode 1364-1995 reserves supply0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier supply0.
+合格基準: A design that uses supply0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-SUPPLY1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier supply1.
+Keyword mode 1364-1995 reserves supply1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier supply1.
+合格基準: A design that uses supply1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TABLE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier table.
+Keyword mode 1364-1995 reserves table: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier table.
+合格基準: A design that uses table as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TASK
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier task.
+Keyword mode 1364-1995 reserves task: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier task.
+合格基準: A design that uses task as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TIME
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier time.
+Keyword mode 1364-1995 reserves time: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier time.
+合格基準: A design that uses time as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRAN
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier tran.
+Keyword mode 1364-1995 reserves tran: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier tran.
+合格基準: A design that uses tran as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRANIF0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier tranif0.
+Keyword mode 1364-1995 reserves tranif0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier tranif0.
+合格基準: A design that uses tranif0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRANIF1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier tranif1.
+Keyword mode 1364-1995 reserves tranif1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier tranif1.
+合格基準: A design that uses tranif1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRI
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier tri.
+Keyword mode 1364-1995 reserves tri: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier tri.
+合格基準: A design that uses tri as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRI0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier tri0.
+Keyword mode 1364-1995 reserves tri0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier tri0.
+合格基準: A design that uses tri0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRI1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier tri1.
+Keyword mode 1364-1995 reserves tri1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier tri1.
+合格基準: A design that uses tri1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRIAND
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier triand.
+Keyword mode 1364-1995 reserves triand: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier triand.
+合格基準: A design that uses triand as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRIOR
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier trior.
+Keyword mode 1364-1995 reserves trior: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier trior.
+合格基準: A design that uses trior as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-TRIREG
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier trireg.
+Keyword mode 1364-1995 reserves trireg: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier trireg.
+合格基準: A design that uses trireg as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-VECTORED
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier vectored.
+Keyword mode 1364-1995 reserves vectored: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier vectored.
+合格基準: A design that uses vectored as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WAIT
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier wait.
+Keyword mode 1364-1995 reserves wait: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier wait.
+合格基準: A design that uses wait as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WAND
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier wand.
+Keyword mode 1364-1995 reserves wand: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier wand.
+合格基準: A design that uses wand as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WEAK0
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier weak0.
+Keyword mode 1364-1995 reserves weak0: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier weak0.
+合格基準: A design that uses weak0 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WEAK1
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier weak1.
+Keyword mode 1364-1995 reserves weak1: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier weak1.
+合格基準: A design that uses weak1 as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WHILE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier while.
+Keyword mode 1364-1995 reserves while: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier while.
+合格基準: A design that uses while as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WIRE
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier wire.
+Keyword mode 1364-1995 reserves wire: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier wire.
+合格基準: A design that uses wire as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-WOR
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier wor.
+Keyword mode 1364-1995 reserves wor: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier wor.
+合格基準: A design that uses wor as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-XNOR
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier xnor.
+Keyword mode 1364-1995 reserves xnor: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier xnor.
+合格基準: A design that uses xnor as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-XOR
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-Keyword mode 1364-1995 reserves the identifier xor.
+Keyword mode 1364-1995 reserves xor: within a begin_keywords "1364-1995" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-1995 reserves the identifier xor.
+合格基準: A design that uses xor as an unescaped simple identifier inside a begin_keywords "1364-1995" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.2-EXTRACT-VERSION-SET
 
-22.14.2 / normal / テスト未対応
+22.14.2 / error / テスト未対応
 
-The 1364-1995 keyword mode reserves its listed keyword set.
+Keyword mode 1364-1995 reserves every keyword of its listed set: within a begin_keywords "1364-1995" region none of them can be used as an unescaped simple identifier.
 
-合格基準: The 1364-1995 keyword mode reserves its listed keyword set.
+合格基準: Inside a begin_keywords "1364-1995" region, using any keyword of the 1364-1995 set as an unescaped simple identifier is rejected with an error at that use.
 
 規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-AUTOMATIC
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier automatic.
+Keyword mode 1364-2001 reserves automatic: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier automatic.
+合格基準: A design that uses automatic as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-CELL
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier cell.
+Keyword mode 1364-2001 reserves cell: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier cell.
+合格基準: A design that uses cell as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-CONFIG
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier config.
+Keyword mode 1364-2001 reserves config: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier config.
+合格基準: A design that uses config as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-DESIGN
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier design.
+Keyword mode 1364-2001 reserves design: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier design.
+合格基準: A design that uses design as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-ENDCONFIG
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier endconfig.
+Keyword mode 1364-2001 reserves endconfig: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier endconfig.
+合格基準: A design that uses endconfig as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-ENDGENERATE
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier endgenerate.
+Keyword mode 1364-2001 reserves endgenerate: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier endgenerate.
+合格基準: A design that uses endgenerate as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-GENERATE
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier generate.
+Keyword mode 1364-2001 reserves generate: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier generate.
+合格基準: A design that uses generate as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-GENVAR
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier genvar.
+Keyword mode 1364-2001 reserves genvar: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier genvar.
+合格基準: A design that uses genvar as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-INCDIR
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier incdir.
+Keyword mode 1364-2001 reserves incdir: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier incdir.
+合格基準: A design that uses incdir as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-INCLUDE
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier include.
+Keyword mode 1364-2001 reserves include: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier include.
+合格基準: A design that uses include as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-INSTANCE
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier instance.
+Keyword mode 1364-2001 reserves instance: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier instance.
+合格基準: A design that uses instance as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-LIBLIST
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier liblist.
+Keyword mode 1364-2001 reserves liblist: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier liblist.
+合格基準: A design that uses liblist as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-LIBRARY
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier library.
+Keyword mode 1364-2001 reserves library: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier library.
+合格基準: A design that uses library as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-LOCALPARAM
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier localparam.
+Keyword mode 1364-2001 reserves localparam: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier localparam.
+合格基準: A design that uses localparam as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-NOSHOWCANCELLED
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier noshowcancelled.
+Keyword mode 1364-2001 reserves noshowcancelled: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier noshowcancelled.
+合格基準: A design that uses noshowcancelled as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-PULSESTYLE-ONDETECT
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier pulsestyle_ondetect.
+Keyword mode 1364-2001 reserves pulsestyle_ondetect: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier pulsestyle_ondetect.
+合格基準: A design that uses pulsestyle_ondetect as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-PULSESTYLE-ONEVENT
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier pulsestyle_onevent.
+Keyword mode 1364-2001 reserves pulsestyle_onevent: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier pulsestyle_onevent.
+合格基準: A design that uses pulsestyle_onevent as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-SHOWCANCELLED
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier showcancelled.
+Keyword mode 1364-2001 reserves showcancelled: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier showcancelled.
+合格基準: A design that uses showcancelled as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-SIGNED
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier signed.
+Keyword mode 1364-2001 reserves signed: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier signed.
+合格基準: A design that uses signed as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-UNSIGNED
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier unsigned.
+Keyword mode 1364-2001 reserves unsigned: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier unsigned.
+合格基準: A design that uses unsigned as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-RESERVED-USE
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-Keyword mode 1364-2001 reserves the identifier use.
+Keyword mode 1364-2001 reserves use: within a begin_keywords "1364-2001" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2001 reserves the identifier use.
+合格基準: A design that uses use as an unescaped simple identifier inside a begin_keywords "1364-2001" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.3-EXTRACT-VERSION-SET
 
-22.14.3 / normal / テスト未対応
+22.14.3 / error / テスト未対応
 
-The 1364-2001 keyword mode reserves the full 1364-1995 keyword set plus its listed additions.
+Keyword mode 1364-2001 reserves every keyword of the full 1364-1995 keyword set and of its listed additions: within a begin_keywords "1364-2001" region none of them can be used as an unescaped simple identifier.
 
-合格基準: The 1364-2001 keyword mode reserves the full 1364-1995 keyword set plus its listed additions.
+合格基準: Inside a begin_keywords "1364-2001" region, using any keyword of the 1364-2001 set as an unescaped simple identifier is rejected with an error at that use.
 
 規定の性質: `mandatory`。
 
@@ -58993,1430 +58987,1430 @@ Keyword mode 1364-2001-noconfig excludes use from the reserved set.
 
 ### SV2023-22.14.4-EXTRACT-NOCONFIG-BASE
 
-22.14.4 / normal / テスト未対応
+22.14.4 / error / テスト未対応
 
-1364-2001-noconfig uses the 1364-2001 keyword set except its explicitly excluded configuration words.
+Keyword mode 1364-2001-noconfig reserves every keyword of the 1364-2001 set except its explicitly excluded configuration words: within a begin_keywords "1364-2001-noconfig" region those keywords cannot be used as unescaped simple identifiers.
 
-合格基準: 1364-2001-noconfig uses the 1364-2001 keyword set except its explicitly excluded configuration words.
+合格基準: Inside a begin_keywords "1364-2001-noconfig" region, using a 1364-2001 keyword other than the excluded configuration words as an unescaped simple identifier is rejected with an error at that use; the excluded words are the 22.14.4 EXCLUDE requirements.
 
 規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.5-EXTRACT-RESERVED-UWIRE
 
-22.14.5 / normal / テスト未対応
+22.14.5 / error / テスト未対応
 
-Keyword mode 1364-2005 reserves the identifier uwire.
+Keyword mode 1364-2005 reserves uwire: within a begin_keywords "1364-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1364-2005 reserves the identifier uwire.
+合格基準: A design that uses uwire as an unescaped simple identifier inside a begin_keywords "1364-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.5-EXTRACT-VERSION-SET
 
-22.14.5 / normal / テスト未対応
+22.14.5 / error / テスト未対応
 
-The 1364-2005 keyword mode reserves the full 1364-2001 keyword set plus its listed additions.
+Keyword mode 1364-2005 reserves every keyword of the full 1364-2001 keyword set and of its listed additions: within a begin_keywords "1364-2005" region none of them can be used as an unescaped simple identifier.
 
-合格基準: The 1364-2005 keyword mode reserves the full 1364-2001 keyword set plus its listed additions.
+合格基準: Inside a begin_keywords "1364-2005" region, using any keyword of the 1364-2005 set as an unescaped simple identifier is rejected with an error at that use.
 
 規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ALIAS
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier alias.
+Keyword mode 1800-2005 reserves alias: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier alias.
+合格基準: A design that uses alias as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ALWAYS-COMB
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier always_comb.
+Keyword mode 1800-2005 reserves always_comb: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier always_comb.
+合格基準: A design that uses always_comb as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ALWAYS-FF
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier always_ff.
+Keyword mode 1800-2005 reserves always_ff: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier always_ff.
+合格基準: A design that uses always_ff as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ALWAYS-LATCH
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier always_latch.
+Keyword mode 1800-2005 reserves always_latch: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier always_latch.
+合格基準: A design that uses always_latch as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ASSERT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier assert.
+Keyword mode 1800-2005 reserves assert: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier assert.
+合格基準: A design that uses assert as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ASSUME
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier assume.
+Keyword mode 1800-2005 reserves assume: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier assume.
+合格基準: A design that uses assume as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BEFORE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier before.
+Keyword mode 1800-2005 reserves before: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier before.
+合格基準: A design that uses before as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BIND
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier bind.
+Keyword mode 1800-2005 reserves bind: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier bind.
+合格基準: A design that uses bind as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BINS
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier bins.
+Keyword mode 1800-2005 reserves bins: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier bins.
+合格基準: A design that uses bins as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BINSOF
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier binsof.
+Keyword mode 1800-2005 reserves binsof: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier binsof.
+合格基準: A design that uses binsof as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BIT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier bit.
+Keyword mode 1800-2005 reserves bit: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier bit.
+合格基準: A design that uses bit as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BREAK
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier break.
+Keyword mode 1800-2005 reserves break: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier break.
+合格基準: A design that uses break as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-BYTE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier byte.
+Keyword mode 1800-2005 reserves byte: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier byte.
+合格基準: A design that uses byte as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CHANDLE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier chandle.
+Keyword mode 1800-2005 reserves chandle: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier chandle.
+合格基準: A design that uses chandle as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CLASS
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier class.
+Keyword mode 1800-2005 reserves class: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier class.
+合格基準: A design that uses class as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CLOCKING
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier clocking.
+Keyword mode 1800-2005 reserves clocking: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier clocking.
+合格基準: A design that uses clocking as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CONST
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier const.
+Keyword mode 1800-2005 reserves const: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier const.
+合格基準: A design that uses const as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CONSTRAINT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier constraint.
+Keyword mode 1800-2005 reserves constraint: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier constraint.
+合格基準: A design that uses constraint as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CONTEXT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier context.
+Keyword mode 1800-2005 reserves context: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier context.
+合格基準: A design that uses context as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CONTINUE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier continue.
+Keyword mode 1800-2005 reserves continue: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier continue.
+合格基準: A design that uses continue as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-COVER
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier cover.
+Keyword mode 1800-2005 reserves cover: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier cover.
+合格基準: A design that uses cover as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-COVERGROUP
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier covergroup.
+Keyword mode 1800-2005 reserves covergroup: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier covergroup.
+合格基準: A design that uses covergroup as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-COVERPOINT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier coverpoint.
+Keyword mode 1800-2005 reserves coverpoint: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier coverpoint.
+合格基準: A design that uses coverpoint as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-CROSS
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier cross.
+Keyword mode 1800-2005 reserves cross: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier cross.
+合格基準: A design that uses cross as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-DIST
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier dist.
+Keyword mode 1800-2005 reserves dist: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier dist.
+合格基準: A design that uses dist as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-DO
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier do.
+Keyword mode 1800-2005 reserves do: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier do.
+合格基準: A design that uses do as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDCLASS
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier endclass.
+Keyword mode 1800-2005 reserves endclass: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier endclass.
+合格基準: A design that uses endclass as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDCLOCKING
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier endclocking.
+Keyword mode 1800-2005 reserves endclocking: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier endclocking.
+合格基準: A design that uses endclocking as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDGROUP
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier endgroup.
+Keyword mode 1800-2005 reserves endgroup: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier endgroup.
+合格基準: A design that uses endgroup as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDINTERFACE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier endinterface.
+Keyword mode 1800-2005 reserves endinterface: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier endinterface.
+合格基準: A design that uses endinterface as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDPACKAGE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier endpackage.
+Keyword mode 1800-2005 reserves endpackage: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier endpackage.
+合格基準: A design that uses endpackage as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDPROGRAM
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier endprogram.
+Keyword mode 1800-2005 reserves endprogram: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier endprogram.
+合格基準: A design that uses endprogram as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDPROPERTY
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier endproperty.
+Keyword mode 1800-2005 reserves endproperty: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier endproperty.
+合格基準: A design that uses endproperty as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENDSEQUENCE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier endsequence.
+Keyword mode 1800-2005 reserves endsequence: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier endsequence.
+合格基準: A design that uses endsequence as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ENUM
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier enum.
+Keyword mode 1800-2005 reserves enum: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier enum.
+合格基準: A design that uses enum as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-EXPECT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier expect.
+Keyword mode 1800-2005 reserves expect: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier expect.
+合格基準: A design that uses expect as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-EXPORT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier export.
+Keyword mode 1800-2005 reserves export: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier export.
+合格基準: A design that uses export as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-EXTENDS
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier extends.
+Keyword mode 1800-2005 reserves extends: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier extends.
+合格基準: A design that uses extends as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-EXTERN
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier extern.
+Keyword mode 1800-2005 reserves extern: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier extern.
+合格基準: A design that uses extern as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-FINAL
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier final.
+Keyword mode 1800-2005 reserves final: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier final.
+合格基準: A design that uses final as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-FIRST-MATCH
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier first_match.
+Keyword mode 1800-2005 reserves first_match: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier first_match.
+合格基準: A design that uses first_match as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-FOREACH
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier foreach.
+Keyword mode 1800-2005 reserves foreach: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier foreach.
+合格基準: A design that uses foreach as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-FORKJOIN
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier forkjoin.
+Keyword mode 1800-2005 reserves forkjoin: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier forkjoin.
+合格基準: A design that uses forkjoin as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-IFF
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier iff.
+Keyword mode 1800-2005 reserves iff: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier iff.
+合格基準: A design that uses iff as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-IGNORE-BINS
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier ignore_bins.
+Keyword mode 1800-2005 reserves ignore_bins: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier ignore_bins.
+合格基準: A design that uses ignore_bins as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-ILLEGAL-BINS
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier illegal_bins.
+Keyword mode 1800-2005 reserves illegal_bins: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier illegal_bins.
+合格基準: A design that uses illegal_bins as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-IMPORT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier import.
+Keyword mode 1800-2005 reserves import: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier import.
+合格基準: A design that uses import as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-INSIDE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier inside.
+Keyword mode 1800-2005 reserves inside: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier inside.
+合格基準: A design that uses inside as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-INT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier int.
+Keyword mode 1800-2005 reserves int: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier int.
+合格基準: A design that uses int as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-INTERFACE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier interface.
+Keyword mode 1800-2005 reserves interface: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier interface.
+合格基準: A design that uses interface as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-INTERSECT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier intersect.
+Keyword mode 1800-2005 reserves intersect: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier intersect.
+合格基準: A design that uses intersect as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-JOIN-ANY
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier join_any.
+Keyword mode 1800-2005 reserves join_any: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier join_any.
+合格基準: A design that uses join_any as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-JOIN-NONE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier join_none.
+Keyword mode 1800-2005 reserves join_none: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier join_none.
+合格基準: A design that uses join_none as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-LOCAL
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier local.
+Keyword mode 1800-2005 reserves local: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier local.
+合格基準: A design that uses local as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-LOGIC
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier logic.
+Keyword mode 1800-2005 reserves logic: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier logic.
+合格基準: A design that uses logic as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-LONGINT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier longint.
+Keyword mode 1800-2005 reserves longint: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier longint.
+合格基準: A design that uses longint as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-MATCHES
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier matches.
+Keyword mode 1800-2005 reserves matches: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier matches.
+合格基準: A design that uses matches as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-MODPORT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier modport.
+Keyword mode 1800-2005 reserves modport: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier modport.
+合格基準: A design that uses modport as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-NEW
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier new.
+Keyword mode 1800-2005 reserves new: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier new.
+合格基準: A design that uses new as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-NULL
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier null.
+Keyword mode 1800-2005 reserves null: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier null.
+合格基準: A design that uses null as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PACKAGE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier package.
+Keyword mode 1800-2005 reserves package: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier package.
+合格基準: A design that uses package as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PACKED
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier packed.
+Keyword mode 1800-2005 reserves packed: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier packed.
+合格基準: A design that uses packed as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PRIORITY
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier priority.
+Keyword mode 1800-2005 reserves priority: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier priority.
+合格基準: A design that uses priority as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PROGRAM
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier program.
+Keyword mode 1800-2005 reserves program: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier program.
+合格基準: A design that uses program as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PROPERTY
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier property.
+Keyword mode 1800-2005 reserves property: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier property.
+合格基準: A design that uses property as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PROTECTED
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier protected.
+Keyword mode 1800-2005 reserves protected: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier protected.
+合格基準: A design that uses protected as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-PURE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier pure.
+Keyword mode 1800-2005 reserves pure: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier pure.
+合格基準: A design that uses pure as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RAND
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier rand.
+Keyword mode 1800-2005 reserves rand: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier rand.
+合格基準: A design that uses rand as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RANDC
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier randc.
+Keyword mode 1800-2005 reserves randc: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier randc.
+合格基準: A design that uses randc as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RANDCASE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier randcase.
+Keyword mode 1800-2005 reserves randcase: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier randcase.
+合格基準: A design that uses randcase as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RANDSEQUENCE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier randsequence.
+Keyword mode 1800-2005 reserves randsequence: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier randsequence.
+合格基準: A design that uses randsequence as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-REF
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier ref.
+Keyword mode 1800-2005 reserves ref: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier ref.
+合格基準: A design that uses ref as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-RETURN
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier return.
+Keyword mode 1800-2005 reserves return: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier return.
+合格基準: A design that uses return as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SEQUENCE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier sequence.
+Keyword mode 1800-2005 reserves sequence: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier sequence.
+合格基準: A design that uses sequence as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SHORTINT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier shortint.
+Keyword mode 1800-2005 reserves shortint: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier shortint.
+合格基準: A design that uses shortint as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SHORTREAL
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier shortreal.
+Keyword mode 1800-2005 reserves shortreal: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier shortreal.
+合格基準: A design that uses shortreal as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SOLVE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier solve.
+Keyword mode 1800-2005 reserves solve: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier solve.
+合格基準: A design that uses solve as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-STATIC
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier static.
+Keyword mode 1800-2005 reserves static: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier static.
+合格基準: A design that uses static as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-STRING
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier string.
+Keyword mode 1800-2005 reserves string: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier string.
+合格基準: A design that uses string as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-STRUCT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier struct.
+Keyword mode 1800-2005 reserves struct: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier struct.
+合格基準: A design that uses struct as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-SUPER
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier super.
+Keyword mode 1800-2005 reserves super: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier super.
+合格基準: A design that uses super as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TAGGED
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier tagged.
+Keyword mode 1800-2005 reserves tagged: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier tagged.
+合格基準: A design that uses tagged as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-THIS
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier this.
+Keyword mode 1800-2005 reserves this: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier this.
+合格基準: A design that uses this as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-THROUGHOUT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier throughout.
+Keyword mode 1800-2005 reserves throughout: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier throughout.
+合格基準: A design that uses throughout as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TIMEPRECISION
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier timeprecision.
+Keyword mode 1800-2005 reserves timeprecision: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier timeprecision.
+合格基準: A design that uses timeprecision as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TIMEUNIT
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier timeunit.
+Keyword mode 1800-2005 reserves timeunit: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier timeunit.
+合格基準: A design that uses timeunit as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TYPE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier type.
+Keyword mode 1800-2005 reserves type: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier type.
+合格基準: A design that uses type as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-TYPEDEF
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier typedef.
+Keyword mode 1800-2005 reserves typedef: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier typedef.
+合格基準: A design that uses typedef as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-UNION
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier union.
+Keyword mode 1800-2005 reserves union: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier union.
+合格基準: A design that uses union as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-UNIQUE
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier unique.
+Keyword mode 1800-2005 reserves unique: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier unique.
+合格基準: A design that uses unique as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-VAR
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier var.
+Keyword mode 1800-2005 reserves var: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier var.
+合格基準: A design that uses var as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-VIRTUAL
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier virtual.
+Keyword mode 1800-2005 reserves virtual: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier virtual.
+合格基準: A design that uses virtual as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-VOID
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier void.
+Keyword mode 1800-2005 reserves void: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier void.
+合格基準: A design that uses void as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-WAIT-ORDER
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier wait_order.
+Keyword mode 1800-2005 reserves wait_order: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier wait_order.
+合格基準: A design that uses wait_order as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-WILDCARD
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier wildcard.
+Keyword mode 1800-2005 reserves wildcard: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier wildcard.
+合格基準: A design that uses wildcard as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-WITH
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier with.
+Keyword mode 1800-2005 reserves with: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier with.
+合格基準: A design that uses with as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-RESERVED-WITHIN
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-Keyword mode 1800-2005 reserves the identifier within.
+Keyword mode 1800-2005 reserves within: within a begin_keywords "1800-2005" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2005 reserves the identifier within.
+合格基準: A design that uses within as an unescaped simple identifier inside a begin_keywords "1800-2005" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.6-EXTRACT-VERSION-SET
 
-22.14.6 / normal / テスト未対応
+22.14.6 / error / テスト未対応
 
-The 1800-2005 keyword mode reserves the full 1364-2005 keyword set plus its listed additions.
+Keyword mode 1800-2005 reserves every keyword of the full 1364-2005 keyword set and of its listed additions: within a begin_keywords "1800-2005" region none of them can be used as an unescaped simple identifier.
 
-合格基準: The 1800-2005 keyword mode reserves the full 1364-2005 keyword set plus its listed additions.
+合格基準: Inside a begin_keywords "1800-2005" region, using any keyword of the 1800-2005 set as an unescaped simple identifier is rejected with an error at that use.
 
 規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-ACCEPT-ON
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier accept_on.
+Keyword mode 1800-2009 reserves accept_on: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier accept_on.
+合格基準: A design that uses accept_on as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-CHECKER
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier checker.
+Keyword mode 1800-2009 reserves checker: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier checker.
+合格基準: A design that uses checker as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-ENDCHECKER
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier endchecker.
+Keyword mode 1800-2009 reserves endchecker: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier endchecker.
+合格基準: A design that uses endchecker as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-EVENTUALLY
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier eventually.
+Keyword mode 1800-2009 reserves eventually: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier eventually.
+合格基準: A design that uses eventually as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-GLOBAL
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier global.
+Keyword mode 1800-2009 reserves global: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier global.
+合格基準: A design that uses global as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-IMPLIES
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier implies.
+Keyword mode 1800-2009 reserves implies: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier implies.
+合格基準: A design that uses implies as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-LET
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier let.
+Keyword mode 1800-2009 reserves let: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier let.
+合格基準: A design that uses let as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-NEXTTIME
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier nexttime.
+Keyword mode 1800-2009 reserves nexttime: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier nexttime.
+合格基準: A design that uses nexttime as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-REJECT-ON
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier reject_on.
+Keyword mode 1800-2009 reserves reject_on: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier reject_on.
+合格基準: A design that uses reject_on as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-RESTRICT
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier restrict.
+Keyword mode 1800-2009 reserves restrict: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier restrict.
+合格基準: A design that uses restrict as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-ALWAYS
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier s_always.
+Keyword mode 1800-2009 reserves s_always: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier s_always.
+合格基準: A design that uses s_always as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-EVENTUALLY
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier s_eventually.
+Keyword mode 1800-2009 reserves s_eventually: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier s_eventually.
+合格基準: A design that uses s_eventually as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-NEXTTIME
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier s_nexttime.
+Keyword mode 1800-2009 reserves s_nexttime: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier s_nexttime.
+合格基準: A design that uses s_nexttime as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-UNTIL
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier s_until.
+Keyword mode 1800-2009 reserves s_until: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier s_until.
+合格基準: A design that uses s_until as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-S-UNTIL-WITH
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier s_until_with.
+Keyword mode 1800-2009 reserves s_until_with: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier s_until_with.
+合格基準: A design that uses s_until_with as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-STRONG
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier strong.
+Keyword mode 1800-2009 reserves strong: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier strong.
+合格基準: A design that uses strong as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-SYNC-ACCEPT-ON
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier sync_accept_on.
+Keyword mode 1800-2009 reserves sync_accept_on: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier sync_accept_on.
+合格基準: A design that uses sync_accept_on as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-SYNC-REJECT-ON
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier sync_reject_on.
+Keyword mode 1800-2009 reserves sync_reject_on: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier sync_reject_on.
+合格基準: A design that uses sync_reject_on as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-UNIQUE0
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier unique0.
+Keyword mode 1800-2009 reserves unique0: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier unique0.
+合格基準: A design that uses unique0 as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-UNTIL
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier until.
+Keyword mode 1800-2009 reserves until: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier until.
+合格基準: A design that uses until as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-UNTIL-WITH
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier until_with.
+Keyword mode 1800-2009 reserves until_with: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier until_with.
+合格基準: A design that uses until_with as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-UNTYPED
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier untyped.
+Keyword mode 1800-2009 reserves untyped: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier untyped.
+合格基準: A design that uses untyped as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-RESERVED-WEAK
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-Keyword mode 1800-2009 reserves the identifier weak.
+Keyword mode 1800-2009 reserves weak: within a begin_keywords "1800-2009" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2009 reserves the identifier weak.
+合格基準: A design that uses weak as an unescaped simple identifier inside a begin_keywords "1800-2009" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.7-EXTRACT-VERSION-SET
 
-22.14.7 / normal / テスト未対応
+22.14.7 / error / テスト未対応
 
-The 1800-2009 keyword mode reserves the full 1800-2005 keyword set plus its listed additions.
+Keyword mode 1800-2009 reserves every keyword of the full 1800-2005 keyword set and of its listed additions: within a begin_keywords "1800-2009" region none of them can be used as an unescaped simple identifier.
 
-合格基準: The 1800-2009 keyword mode reserves the full 1800-2005 keyword set plus its listed additions.
+合格基準: Inside a begin_keywords "1800-2009" region, using any keyword of the 1800-2009 set as an unescaped simple identifier is rejected with an error at that use.
 
 規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.8-EXTRACT-RESERVED-IMPLEMENTS
 
-22.14.8 / normal / テスト未対応
+22.14.8 / error / テスト未対応
 
-Keyword mode 1800-2012 reserves the identifier implements.
+Keyword mode 1800-2012 reserves implements: within a begin_keywords "1800-2012" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2012 reserves the identifier implements.
+合格基準: A design that uses implements as an unescaped simple identifier inside a begin_keywords "1800-2012" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.8-EXTRACT-RESERVED-INTERCONNECT
 
-22.14.8 / normal / テスト未対応
+22.14.8 / error / テスト未対応
 
-Keyword mode 1800-2012 reserves the identifier interconnect.
+Keyword mode 1800-2012 reserves interconnect: within a begin_keywords "1800-2012" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2012 reserves the identifier interconnect.
+合格基準: A design that uses interconnect as an unescaped simple identifier inside a begin_keywords "1800-2012" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.8-EXTRACT-RESERVED-NETTYPE
 
-22.14.8 / normal / テスト未対応
+22.14.8 / error / テスト未対応
 
-Keyword mode 1800-2012 reserves the identifier nettype.
+Keyword mode 1800-2012 reserves nettype: within a begin_keywords "1800-2012" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2012 reserves the identifier nettype.
+合格基準: A design that uses nettype as an unescaped simple identifier inside a begin_keywords "1800-2012" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.8-EXTRACT-RESERVED-SOFT
 
-22.14.8 / normal / テスト未対応
+22.14.8 / error / テスト未対応
 
-Keyword mode 1800-2012 reserves the identifier soft.
+Keyword mode 1800-2012 reserves soft: within a begin_keywords "1800-2012" region it cannot be used as an unescaped simple identifier.
 
-合格基準: Keyword mode 1800-2012 reserves the identifier soft.
+合格基準: A design that uses soft as an unescaped simple identifier inside a begin_keywords "1800-2012" region is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-22.14.8-EXTRACT-VERSION-SET
 
-22.14.8 / normal / テスト未対応
+22.14.8 / error / テスト未対応
 
-The 1800-2012 keyword mode reserves the full 1800-2009 keyword set plus its listed additions.
+Keyword mode 1800-2012 reserves every keyword of the full 1800-2009 keyword set and of its listed additions: within a begin_keywords "1800-2012" region none of them can be used as an unescaped simple identifier.
 
-合格基準: The 1800-2012 keyword mode reserves the full 1800-2009 keyword set plus its listed additions.
+合格基準: Inside a begin_keywords "1800-2012" region, using any keyword of the 1800-2012 set as an unescaped simple identifier is rejected with an error at that use.
 
 規定の性質: `mandatory`。
 
@@ -64904,13 +64898,11 @@ Explicit generate/endgenerate regions are optional and do not change module sema
 
 27.3 / error / テスト未対応
 
-The overview restricts explicit generate regions to directly within a module, while program/interface grammars also list generate regions; the intended container scope must be reconciled.
+An explicit generate region (generate ... endgenerate) may occur only directly as an item of a module, interface, program, or checker body, the containers whose item grammars list generate_region; it cannot be placed in any other context, such as a package body or inside a generate block.
 
-合格基準: The overview restricts explicit generate regions to directly within a module, while program/interface grammars also list generate regions; the intended container scope must be reconciled.
+合格基準: A generate region placed outside the direct items of a module, interface, program or checker body, such as in a package body or nested inside a loop or conditional generate block, is rejected with an error; the containers that accept it are the A.1.4, A.1.6, A.1.7 and A.1.8 grammar requirements.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `GENERATE-REGION-CONTAINER`（対応承認・節完了を保留）。
 
 
 ### SV2023-27.4-EXTRACT-GENERATE-ARRAY-COLLISION
@@ -73860,13 +73852,11 @@ A notifier is an optional variable declared in the timing-check module, updated 
 
 31.6 / boundary / テスト未対応
 
-The notifier overview calls it the last argument, while setuphold/recrem/timeskew/fullskew syntax permits further arguments; its statement must be scoped to the applicable check signatures.
+The notifier is passed in the notifier position defined by each timing check's syntax: it is the last argument of $setup, $hold, $recovery, $removal, $skew, $period, $width and $nochange, while in $setuphold/$recrem it may be followed by optional timestamp_condition, timecheck_condition, delayed_reference and delayed_data, and in $timeskew/$fullskew by optional event_based_flag and remain_active_flag.
 
-合格基準: The notifier overview calls it the last argument, while setuphold/recrem/timeskew/fullskew syntax permits further arguments; its statement must be scoped to the applicable check signatures.
+合格基準: A violating $setuphold or $recrem written with arguments after the notifier (e.g. ntfr, , cond, dref, ddata), or a $timeskew/$fullskew with event_based_flag/remain_active_flag after it, is accepted and toggles the notifier variable per Table 31-13; in the other eight checks the final argument is the notifier and is toggled likewise.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `NOTIFIER-ARGUMENT-POSITION`（対応承認・節完了を保留）。
 
 
 ### SV2023-31.7-EXTRACT-COMPOSED-CONDITION-OUTSIDE
@@ -77572,13 +77562,11 @@ The data_keyname pragma has the syntax data_keyname = <string>; string-valued fo
 
 34.5.12.2 / normal / テスト未対応
 
-Encryption-output text requires combining this pragma expression with data_keyname to select the data encryption key; the repeated operand is retained pending interpretation.
+When data_keyname is provided in the encryption input, the encrypting tool combines it with data_keyowner to determine the data encryption key; the repeated data_keyname operand in the text denotes data_keyowner.
 
-合格基準: Encryption-output text requires combining this pragma expression with data_keyname to select the data encryption key; the repeated operand is retained pending interpretation.
+合格基準: Given data_keyowner O and data_keyname N in the encryption input, the data_block is encrypted with the single key identified by the pair (O, N), so decryption that selects the key by the same data_keyname and data_keyowner recovers the plaintext.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `DATA-KEYNAME-COMBINE: 34.5.12.2 repeats data_keyname as both operands in encryption-output selection, whereas its decryption rule uses data_keyowner; do not silently repair the primary text.`（対応承認・節完了を保留）。
 
 
 ### SV2023-34.5.12.2-EXTRACT-NAME-DECRYPT
@@ -78203,13 +78191,11 @@ For the selected CBC digest cipher requiring an IV, prepend its IV cipher block 
 
 34.5.22.2 / normal / テスト未対応
 
-The digest generation paragraph lists digest_key_keyowner among digest key selectors; this undefined spelling is retained pending interpretation.
+Encrypt the generated message digest with the key specified by digest_keyname, digest_keyowner, digest_public_key and digest_decrypt_key; the paragraph's digest_key_keyowner denotes the defined digest_keyowner pragma keyword.
 
-合格基準: The digest generation paragraph lists digest_key_keyowner among digest key selectors; this undefined spelling is retained pending interpretation.
+合格基準: With digest_keyowner and the other digest key selectors set in the encryption input, the digest_block is encrypted under the key they select, using digest_keyowner (Table 34-1, 34.5.16) as the owner selector; no separate digest_key_keyowner keyword is required.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `DIGEST-KEY-OWNER-SPELLING: 34.5.22.2 uses undefined digest_key_keyowner while 34.5.16 defines digest_keyowner. Record the discrepancy without silently changing the normative key selector.`（対応承認・節完了を保留）。
 
 
 ### SV2023-34.5.22.2-EXTRACT-DIGEST-REQUEST
@@ -78337,13 +78323,11 @@ key_keyname identifies the key/pair for key_block decryption; a name not known f
 
 34.5.25.2 / normal / テスト未対応
 
-The decryption-input paragraph combines key_keyname and key_keyowner and says the selected key decrypts data_block; retain the named target pending reconciliation.
+In decryption input, combine key_keyname with key_keyowner to select a single key used to decrypt the key_block; the paragraph's data_block target denotes the key_block.
 
-合格基準: The decryption-input paragraph combines key_keyname and key_keyowner and says the selected key decrypts data_block; retain the named target pending reconciliation.
+合格基準: For a protected envelope carrying key_keyowner O and key_keyname N, the decrypting tool decrypts the key_block with the single key identified by (O, N); an envelope whose key_block was encrypted under that key is decrypted successfully.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `KEY-KEYNAME-DECRYPT-TARGET: 34.5.25.2 names data_block in decryption input, whereas its input definition and 34.5.23/.24/.26 select decryption of key_block. Exact target needs resolution.`（対応承認・節完了を保留）。
 
 
 ### SV2023-34.5.25.2-EXTRACT-KEY-NAME-OUTPUT
@@ -82272,13 +82256,11 @@ Support multiple concurrent VPI applications acquiring handles independently; sh
 
 37.2.2 / normal / テスト未対応
 
-The handle-release list names vpi_remove_callback as releasing the associated callback handle; retain the spelling pending reconciliation with the defined vpi_remove_cb API.
+vpi_remove_cb() releases the associated callback handle as part of its action; the handle-release list's vpi_remove_callback() denotes this defined routine, not a separate API.
 
-合格基準: The handle-release list names vpi_remove_callback as releasing the associated callback handle; retain the spelling pending reconciliation with the defined vpi_remove_cb API.
+合格基準: A VPI test compiled against vpi_user.h removes a registered callback with vpi_remove_cb(cb), which returns 1 and thereby releases cb, so the application need not call vpi_release_handle(cb); no vpi_remove_callback symbol is required.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `REMOVE-CALLBACK-API-NAME: 37.2.2 names vpi_remove_callback, whereas 36.11 and the defined routine 38.39 use vpi_remove_cb. Do not create an unsupported separate API from this spelling.`（対応承認・節完了を保留）。
 
 
 ### SV2023-37.2.2-EXTRACT-CLASS-RELEASE
@@ -100795,13 +100777,11 @@ Time queues iterate in increasing simulation time; vpi_iterate returns NULL when
 
 37.82 / normal / テスト未対応
 
-If $timeformat has not been called, the paragraph specifies vpi_handle(vpiActiveFormat,NULL) returns NULL; this token differs from the diagram tag.
+If $timeformat() has not been called, vpi_handle(vpiActiveTimeFormat, NULL) returns NULL; the detail's vpiActiveFormat denotes the vpiActiveTimeFormat relation of the diagram and vpi_user.h.
 
-合格基準: If $timeformat has not been called, the paragraph specifies vpi_handle(vpiActiveFormat,NULL) returns NULL; this token differs from the diagram tag.
+合格基準: Before any $timeformat() call, vpi_handle(vpiActiveTimeFormat, NULL) returns NULL, using the vpiActiveTimeFormat constant (119) declared in vpi_user.h.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `ACTIVE-TIME-FORMAT-NAME: 37.82 diagram uses vpiActiveTimeFormat but its detail uses vpiActiveFormat. Resolve the defined relation token with the API/header before test mapping.`（対応承認・節完了を保留）。
 
 
 ### SV2023-37.82-EXTRACT-DIAGRAM-001
@@ -103223,13 +103203,11 @@ For a real object, formats other than vpiRealVal/vpiStringVal first round to int
 
 38.15 / normal / テスト未対応
 
-For a scalar vpiObjTypeVal request the text names vpiScalar or vpiStrength as returned format; retain these spellings pending reconciliation with format identifiers.
+For vpiObjTypeVal on a scalar, fill the value and replace format with either vpiScalarVal or vpiStrengthVal; the text's vpiScalar/vpiStrength denote these value-format constants.
 
-合格基準: For a scalar vpiObjTypeVal request the text names vpiScalar or vpiStrength as returned format; retain these spellings pending reconciliation with format identifiers.
+合格基準: After vpi_get_value with format vpiObjTypeVal on a scalar object, value.format is either vpiScalarVal with the value in value.scalar or vpiStrengthVal with the value in value.strength.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `SCALAR-OBJECT-FORMAT-NAMES: 38.15 vpiObjTypeVal scalar mapping names vpiScalar/vpiStrength, while Table 38-3 and the s_vpi_value format enumeration use vpiScalarVal/vpiStrengthVal. Verify format constants before exact mapping.`（対応承認・節完了を保留）。
 
 
 ### SV2023-38.15-EXTRACT-STRENGTH-ARRAY
@@ -103270,13 +103248,11 @@ A vpiStringConst constant must be read using vpiStringVal or vpiVectorVal.
 
 38.15 / normal / テスト未対応
 
-UDP symbol-order text says most significant byte of abit, least significant byte of abit, most significant byte of bbit, then least significant byte of bbit; the field names and byte/word granularity need interpretation before an exact packing oracle.
+UDP table-entry symbols fill each s_vpi_vecval element in the order aval bits 31:16, aval bits 15:0, bval bits 31:16, then bval bits 15:0 (the text's abit/bbit are the aval/bval fields); within each two-byte symbol the first character is the more significant byte, and a single-character symbol has ASCII "\0" as its less significant second byte.
 
-合格基準: UDP symbol-order text says most significant byte of abit, least significant byte of abit, most significant byte of bbit, then least significant byte of bbit; the field names and byte/word granularity need interpretation before an exact packing oracle.
+合格基準: For a UDP table entry read with vpiVectorVal, symbol k (0-based) is in vector element k/4 at aval[31:16], aval[15:0], bval[31:16] or bval[15:0] for k%4 = 0, 1, 2, 3; e.g. symbols 1, 0, 1 give aval = 0x31003000 and bval[31:16] = 0x3100, and an edge symbol (01) occupies one pair as 0x3031.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `UDP-SYMBOL-BYTE-ORDER: 38.15 uses abit/bbit instead of aval/bval and describes four byte positions while each 32-bit-field pair stores four two-byte symbols. Resolve byte-pair versus word granularity without relying on illustrative code as a normative correction.`（対応承認・節完了を保留）。
 
 
 ### SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE
@@ -103574,13 +103550,11 @@ vpiShortIntVal uses num PLI_INT16 shortints and is appropriate only for shortint
 
 38.16 / normal / テスト未対応
 
-vpiShortRealVal returns num floats for shortreal-variable arrays; its prose calls the member shortrealvals, differing from the declared shortreals field.
+vpiShortRealVal retrieves num values as an array of floats through the s_vpi_arrayvalue union member shortreals, the prose name shortrealvals denoting this declared float member; the format is appropriate only for arrays of vpiShortRealVar elements.
 
-合格基準: vpiShortRealVal returns num floats for shortreal-variable arrays; its prose calls the member shortrealvals, differing from the declared shortreals field.
+合格基準: A VPI test compiled against vpi_user.h retrieves a shortreal variable array with format vpiShortRealVal and reads num float values through value.shortreals; no shortrealvals member is required.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `ARRAY-SHORTREAL-FIELD: 38.16 declares float *shortreals in s_vpi_arrayvalue but the vpiShortRealVal description says *shortrealvals. Verify the normative header member before compiling a field-name-specific test.`（対応承認・節完了を保留）。
 
 
 ### SV2023-38.17-EXTRACT-VLOG-ARGUMENTS
@@ -104776,13 +104750,11 @@ vpiShortIntVal uses num shortints values and is appropriate only for shortint/in
 
 38.35 / normal / テスト未対応
 
-vpiShortRealVal uses num float values for shortreal arrays, but its prose names shortrealvals rather than the declared shortreals member.
+vpiShortRealVal supplies num values to set as an array of floats through the s_vpi_arrayvalue union member shortreals, the prose name shortrealvals denoting this declared float member; the format is appropriate only for arrays of vpiShortRealVar elements.
 
-合格基準: vpiShortRealVal uses num float values for shortreal arrays, but its prose names shortrealvals rather than the declared shortreals member.
+合格基準: A VPI test compiled against vpi_user.h writes a shortreal variable array with format vpiShortRealVal from num float values supplied through value.shortreals, and the updated elements read back with those values; no shortrealvals member is required.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `PUT-ARRAY-SHORTREAL-FIELD: 38.35 declares float *shortreals but its vpiShortRealVal text uses *shortrealvals, as in 38.16. Verify the normative header field before mapping a compile test.`（対応承認・節完了を保留）。
 
 
 ### SV2023-38.36-EXTRACT-CALLBACK-CATEGORIES
@@ -106476,26 +106448,22 @@ cbAssertionSysUnlock fires when the system is unlocked.
 
 39.4.1 / normal / テスト未対応
 
-cbAssertionSysDisableFailAction description states fail action is disabled for vacuous and nonvacuous success; retain that event wording pending reconciliation with fail-action controls.
+cbAssertionSysDisableFailAction fires when the fail action is disabled for assertions (e.g., as a result of a system control action); as with vpiAssertionSysDisableFailAction and cbAssertionDisableFailAction, this concerns the fail action executed on failure, not vacuous or nonvacuous success.
 
-合格基準: cbAssertionSysDisableFailAction description states fail action is disabled for vacuous and nonvacuous success; retain that event wording pending reconciliation with fail-action controls.
+合格基準: A callback registered via vpi_register_cb with reason cbAssertionSysDisableFailAction is invoked when execution of assertion fail actions is disabled at the assertion-system level (e.g., by a system control action); its occurrence does not depend on any vacuous or nonvacuous success.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `ASSERTION-SYSTEM-FAIL-ACTION-EVENT: 39.4.1 associates the system fail-action disabling callback with vacuous/nonvacuous success, while 39.5.1 and 39.4.2 distinguish failure action from success actions. Resolve the trigger description.`（対応承認・節完了を保留）。
 
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-ENABLE-FAIL-TEXT
 
 39.4.1 / normal / テスト未対応
 
-cbAssertionSysEnableFailAction description states fail action is enabled for vacuous and nonvacuous success; retain that event wording pending reconciliation with fail-action controls.
+cbAssertionSysEnableFailAction fires when the fail action is enabled for assertions (e.g., as a result of a system control action); as with vpiAssertionSysEnableFailAction and cbAssertionEnableFailAction, this concerns the fail action executed on failure, not vacuous or nonvacuous success.
 
-合格基準: cbAssertionSysEnableFailAction description states fail action is enabled for vacuous and nonvacuous success; retain that event wording pending reconciliation with fail-action controls.
+合格基準: A callback registered via vpi_register_cb with reason cbAssertionSysEnableFailAction is invoked when execution of assertion fail actions is enabled at the assertion-system level (e.g., by a system control action); its occurrence does not depend on any vacuous or nonvacuous success.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `ASSERTION-SYSTEM-FAIL-ACTION-EVENT: 39.4.1 associates the system fail-action enabling callback with vacuous/nonvacuous success, while 39.5.1 and 39.4.2 distinguish failure action from success actions. Resolve the trigger description.`（対応承認・節完了を保留）。
 
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-END
@@ -107738,13 +107706,11 @@ With SV_COV_MODULE, a definition string sums all instances of the module excludi
 
 40.3.2.1 / normal / テスト未対応
 
-The module-local scope prose uses SV_MODULE_COV, whereas the predefined constants and Table 40-2 use SV_COV_MODULE; preserve this spelling discrepancy pending resolution.
+The module-local scope_def named SV_MODULE_COV in the 40.3.2.1 prose is the predefined macro `SV_COV_MODULE (40.3.1, value 10), as used by Table 40-2 and the Figure 40-1 examples; SV_MODULE_COV is not an additional predefined macro.
 
-合格基準: The module-local scope prose uses SV_MODULE_COV, whereas the predefined constants and Table 40-2 use SV_COV_MODULE; preserve this spelling discrepancy pending resolution.
+合格基準: Coverage system functions accept `SV_COV_MODULE as scope_def with module-local semantics (definition-name string: all instances of the module excluding child hierarchy; instance path: only that instance); a conforming tool is not required to predefine `SV_MODULE_COV.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `COVERAGE-MODULE-MACRO-NAME: 40.3.2.1 prose uses SV_MODULE_COV while 40.3.1 and Table 40-2 define/use SV_COV_MODULE. Resolve the accepted public macro spelling without inventing another predefined macro.`（対応承認・節完了を保留）。
 
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR
@@ -108003,13 +107969,11 @@ Return -2 on integer overflow,-1 on error and 0 for no available coverage as sta
 
 40.3.2.3 / normal / テスト未対応
 
-The positive-return bullet calls the result the maximum/sum of all coverable items, while preceding prose defines current covered items; retain the contradictory bullet pending interpretation.
+The positive-return bullet of $coverage_get is read with 40.3.2.3's own rule that the return follows the $coverage_get_max pattern but with pos_num as the current coverage level: a positive result is the number of coverable items of that type covered in the given hierarchy(ies), not the maximum coverable count.
 
-合格基準: The positive-return bullet calls the result the maximum/sum of all coverable items, while preceding prose defines current covered items; retain the contradictory bullet pending interpretation.
+合格基準: When $coverage_get returns a positive value, it equals the number of covered items for the given coverage type and scope; while some coverable items remain uncovered it is smaller than $coverage_get_max for the same arguments, so $coverage_get()/$coverage_get_max()*100 gives the coverage percentage.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `CURRENT-COVERAGE-RETURN-TEXT: 40.3.2.3 defines current covered count and its percent formula, but its positive-return bullet repeats maximum coverable count from 40.3.2.2. Resolve the copied return description before a partial-coverage oracle.`（対応承認・節完了を保留）。
 
 
 ### SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SCOPE
@@ -108630,13 +108594,11 @@ vpi_handle(vpiFsmStateExpression,fsm_handle) returns the signal/expression encod
 
 40.5.2 / normal / テスト未対応
 
-The FSM-state value call is written vpi_get_value(fsm_state_handle,state-handle), returning its value; the second argument naming/type conflicts with the ordinary value-structure API and needs resolution.
+The FSM-state value is retrieved with vpi_get_value(fsm_state_handle, value_p): the FSM state handle is the object argument and the value is placed in the application-allocated s_vpi_value per the 38.15/K.2 prototype; the 'state-handle' second argument in the 40.5.2 text denotes that p_vpi_value.
 
-合格基準: The FSM-state value call is written vpi_get_value(fsm_state_handle,state-handle), returning its value; the second argument naming/type conflicts with the ordinary value-structure API and needs resolution.
+合格基準: Calling vpi_get_value with an FSM state handle (e.g., from vpi_iterate(vpiFsmStates, fsm_handle)) as obj and a p_vpi_value as value_p fills the s_vpi_value with that state's value in the requested format; the call uses the standard (vpiHandle, p_vpi_value) prototype and no handle-typed second argument form exists.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `FSM-STATE-VALUE-ARGUMENT: 40.5.2 writes a state-handle as second vpi_get_value argument, whereas 38.15 requires p_vpi_value. Resolve whether this is a mislabeled output structure before a prototype-specific test.`（対応承認・節完了を保留）。
 
 
 ### SV2023-40.5.2-EXTRACT-FSM-STATES-ITERATOR
@@ -108765,13 +108727,11 @@ vpi_control(vpiCoverageMerge,coverageType,name) merges current-simulation covera
 
 40.5.3 / normal / テスト未対応
 
-Coverage save is written vpi_control(coverageSave,coverageType,name) and otherwise follows $coverage_save; the operation spelling differs from the vpiCoverageSave constant defined in 40.5.1.
+Coverage save uses vpi_control(vpiCoverageSave, coverageType, name), vpiCoverageSave being the coverage-control constant of 40.5.1 (M.2 value 755), and otherwise follows $coverage_save; the coverageSave spelling in 40.5.3 denotes vpiCoverageSave.
 
-合格基準: Coverage save is written vpi_control(coverageSave,coverageType,name) and otherwise follows $coverage_save; the operation spelling differs from the vpiCoverageSave constant defined in 40.5.1.
+合格基準: C code calling vpi_control(vpiCoverageSave, <VPI coverage type property>, name) compiles against sv_vpi_user.h and saves current-simulation coverage with $coverage_save semantics; no separate coverageSave identifier is required.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `VPI-COVERAGE-SAVE-CONSTANT: 40.5.3 uses coverageSave while 40.5.1 defines vpiCoverageSave. Resolve the control constant spelling with the normative header before mapping a compile test.`（対応承認・節完了を保留）。
 
 
 ### SV2023-A-EXTRACT-GRAMMAR-PLUS-PROSE
@@ -117701,2730 +117661,2730 @@ A class-constructor argument list contains default at most once.
 
 ### SV2023-B-EXTRACT-KEYWORD-ACCEPT-ON
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling accept_on is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, accept_on is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling accept_on is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses accept_on as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ALIAS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling alias is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, alias is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling alias is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses alias as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ALWAYS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling always is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, always is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling always is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses always as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ALWAYS-COMB
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling always_comb is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, always_comb is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling always_comb is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses always_comb as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ALWAYS-FF
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling always_ff is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, always_ff is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling always_ff is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses always_ff as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ALWAYS-LATCH
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling always_latch is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, always_latch is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling always_latch is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses always_latch as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-AND
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling and is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, and is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling and is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses and as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ASSERT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling assert is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, assert is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling assert is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses assert as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ASSIGN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling assign is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, assign is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling assign is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses assign as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ASSUME
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling assume is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, assume is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling assume is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses assume as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-AUTOMATIC
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling automatic is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, automatic is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling automatic is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses automatic as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BEFORE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling before is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, before is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling before is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses before as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BEGIN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling begin is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, begin is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling begin is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses begin as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BIND
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling bind is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, bind is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling bind is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses bind as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BINS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling bins is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, bins is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling bins is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses bins as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BINSOF
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling binsof is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, binsof is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling binsof is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses binsof as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BIT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling bit is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, bit is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling bit is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses bit as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BREAK
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling break is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, break is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling break is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses break as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BUF
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling buf is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, buf is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling buf is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses buf as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BUFIF0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling bufif0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, bufif0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling bufif0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses bufif0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BUFIF1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling bufif1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, bufif1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling bufif1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses bufif1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-BYTE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling byte is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, byte is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling byte is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses byte as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CASE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling case is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, case is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling case is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses case as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CASEX
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling casex is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, casex is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling casex is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses casex as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CASEZ
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling casez is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, casez is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling casez is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses casez as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CELL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling cell is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, cell is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling cell is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses cell as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CHANDLE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling chandle is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, chandle is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling chandle is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses chandle as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CHECKER
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling checker is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, checker is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling checker is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses checker as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CLASS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling class is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, class is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling class is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses class as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CLOCKING
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling clocking is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, clocking is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling clocking is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses clocking as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CMOS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling cmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, cmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling cmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses cmos as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CONFIG
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling config is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, config is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling config is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses config as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CONST
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling const is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, const is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling const is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses const as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CONSTRAINT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling constraint is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, constraint is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling constraint is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses constraint as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CONTEXT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling context is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, context is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling context is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses context as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CONTINUE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling continue is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, continue is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling continue is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses continue as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-COVER
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling cover is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, cover is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling cover is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses cover as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-COVERGROUP
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling covergroup is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, covergroup is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling covergroup is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses covergroup as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-COVERPOINT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling coverpoint is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, coverpoint is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling coverpoint is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses coverpoint as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-CROSS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling cross is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, cross is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling cross is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses cross as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-DEASSIGN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling deassign is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, deassign is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling deassign is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses deassign as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-DEFAULT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling default is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, default is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling default is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses default as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-DEFPARAM
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling defparam is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, defparam is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling defparam is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses defparam as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-DESIGN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling design is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, design is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling design is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses design as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-DISABLE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling disable is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, disable is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling disable is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses disable as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-DIST
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling dist is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, dist is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling dist is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses dist as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-DO
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling do is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, do is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling do is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses do as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-EDGE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling edge is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, edge is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling edge is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses edge as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ELSE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling else is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, else is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling else is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses else as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-END
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling end is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, end is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling end is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses end as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCASE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endcase is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endcase is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endcase is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endcase as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCHECKER
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endchecker is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endchecker is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endchecker is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endchecker as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCLASS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endclass is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endclass is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endclass is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endclass as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCLOCKING
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endclocking is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endclocking is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endclocking is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endclocking as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDCONFIG
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endconfig is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endconfig is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endconfig is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endconfig as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDFUNCTION
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endfunction is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endfunction is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endfunction is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endfunction as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDGENERATE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endgenerate is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endgenerate is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endgenerate is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endgenerate as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDGROUP
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endgroup is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endgroup is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endgroup is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endgroup as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDINTERFACE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endinterface is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endinterface is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endinterface is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endinterface as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDMODULE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endmodule is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endmodule is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endmodule is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endmodule as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDPACKAGE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endpackage is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endpackage is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endpackage is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endpackage as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDPRIMITIVE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endprimitive is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endprimitive is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endprimitive is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endprimitive as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDPROGRAM
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endprogram is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endprogram is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endprogram is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endprogram as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDPROPERTY
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endproperty is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endproperty is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endproperty is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endproperty as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDSEQUENCE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endsequence is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endsequence is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endsequence is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endsequence as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDSPECIFY
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endspecify is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endspecify is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endspecify is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endspecify as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDTABLE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endtable is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endtable is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endtable is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endtable as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENDTASK
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling endtask is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, endtask is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling endtask is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses endtask as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ENUM
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling enum is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, enum is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling enum is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses enum as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-EVENT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling event is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, event is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling event is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses event as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-EVENTUALLY
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling eventually is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, eventually is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling eventually is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses eventually as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-EXPECT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling expect is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, expect is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling expect is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses expect as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-EXPORT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling export is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, export is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling export is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses export as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-EXTENDS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling extends is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, extends is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling extends is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses extends as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-EXTERN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling extern is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, extern is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling extern is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses extern as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-FINAL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling final is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, final is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling final is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses final as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-FIRST-MATCH
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling first_match is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, first_match is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling first_match is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses first_match as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-FOR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling for is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, for is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling for is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses for as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-FORCE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling force is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, force is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling force is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses force as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-FOREACH
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling foreach is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, foreach is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling foreach is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses foreach as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-FOREVER
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling forever is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, forever is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling forever is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses forever as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-FORK
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling fork is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, fork is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling fork is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses fork as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-FORKJOIN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling forkjoin is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, forkjoin is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling forkjoin is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses forkjoin as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-FUNCTION
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling function is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, function is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling function is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses function as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-GENERATE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling generate is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, generate is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling generate is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses generate as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-GENVAR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling genvar is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, genvar is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling genvar is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses genvar as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-GLOBAL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling global is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, global is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling global is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses global as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-HIGHZ0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling highz0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, highz0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling highz0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses highz0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-HIGHZ1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling highz1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, highz1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling highz1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses highz1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-IF
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling if is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, if is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling if is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses if as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-IFF
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling iff is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, iff is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling iff is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses iff as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-IFNONE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling ifnone is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, ifnone is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling ifnone is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses ifnone as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-IGNORE-BINS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling ignore_bins is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, ignore_bins is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling ignore_bins is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses ignore_bins as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-ILLEGAL-BINS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling illegal_bins is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, illegal_bins is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling illegal_bins is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses illegal_bins as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-IMPLEMENTS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling implements is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, implements is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling implements is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses implements as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-IMPLIES
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling implies is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, implies is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling implies is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses implies as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-IMPORT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling import is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, import is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling import is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses import as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INCDIR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling incdir is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, incdir is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling incdir is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses incdir as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INCLUDE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling include is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, include is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling include is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses include as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INITIAL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling initial is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, initial is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling initial is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses initial as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INOUT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling inout is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, inout is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling inout is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses inout as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INPUT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling input is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, input is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling input is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses input as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INSIDE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling inside is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, inside is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling inside is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses inside as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INSTANCE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling instance is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, instance is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling instance is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses instance as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling int is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, int is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling int is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses int as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INTEGER
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling integer is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, integer is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling integer is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses integer as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INTERCONNECT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling interconnect is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, interconnect is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling interconnect is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses interconnect as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INTERFACE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling interface is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, interface is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling interface is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses interface as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-INTERSECT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling intersect is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, intersect is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling intersect is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses intersect as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-JOIN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling join is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, join is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling join is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses join as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-JOIN-ANY
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling join_any is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, join_any is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling join_any is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses join_any as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-JOIN-NONE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling join_none is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, join_none is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling join_none is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses join_none as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-LARGE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling large is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, large is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling large is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses large as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-LET
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling let is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, let is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling let is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses let as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-LIBLIST
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling liblist is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, liblist is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling liblist is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses liblist as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-LIBRARY
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling library is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, library is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling library is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses library as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-LOCAL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling local is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, local is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling local is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses local as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-LOCALPARAM
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling localparam is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, localparam is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling localparam is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses localparam as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-LOGIC
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling logic is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, logic is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling logic is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses logic as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-LONGINT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling longint is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, longint is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling longint is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses longint as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-MACROMODULE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling macromodule is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, macromodule is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling macromodule is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses macromodule as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-MATCHES
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling matches is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, matches is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling matches is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses matches as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-MEDIUM
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling medium is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, medium is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling medium is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses medium as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-MODPORT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling modport is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, modport is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling modport is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses modport as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-MODULE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling module is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, module is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling module is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses module as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NAND
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling nand is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, nand is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling nand is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses nand as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NEGEDGE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling negedge is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, negedge is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling negedge is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses negedge as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NETTYPE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling nettype is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, nettype is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling nettype is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses nettype as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NEW
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling new is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, new is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling new is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses new as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NEXTTIME
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling nexttime is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, nexttime is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling nexttime is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses nexttime as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NMOS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling nmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, nmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling nmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses nmos as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NOR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling nor is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, nor is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling nor is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses nor as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NOSHOWCANCELLED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling noshowcancelled is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, noshowcancelled is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling noshowcancelled is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses noshowcancelled as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NOT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling not is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, not is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling not is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses not as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NOTIF0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling notif0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, notif0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling notif0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses notif0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NOTIF1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling notif1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, notif1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling notif1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses notif1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-NULL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling null is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, null is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling null is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses null as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-OR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling or is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, or is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling or is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses or as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-OUTPUT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling output is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, output is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling output is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses output as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PACKAGE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling package is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, package is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling package is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses package as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PACKED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling packed is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, packed is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling packed is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses packed as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PARAMETER
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling parameter is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, parameter is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling parameter is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses parameter as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PMOS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling pmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, pmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling pmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses pmos as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-POSEDGE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling posedge is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, posedge is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling posedge is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses posedge as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PRIMITIVE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling primitive is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, primitive is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling primitive is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses primitive as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PRIORITY
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling priority is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, priority is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling priority is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses priority as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PROGRAM
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling program is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, program is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling program is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses program as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PROPERTY
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling property is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, property is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling property is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses property as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PROTECTED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling protected is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, protected is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling protected is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses protected as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PULL0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling pull0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, pull0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling pull0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses pull0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PULL1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling pull1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, pull1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling pull1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses pull1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PULLDOWN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling pulldown is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, pulldown is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling pulldown is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses pulldown as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PULLUP
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling pullup is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, pullup is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling pullup is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses pullup as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PULSESTYLE-ONDETECT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling pulsestyle_ondetect is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, pulsestyle_ondetect is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling pulsestyle_ondetect is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses pulsestyle_ondetect as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PULSESTYLE-ONEVENT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling pulsestyle_onevent is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, pulsestyle_onevent is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling pulsestyle_onevent is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses pulsestyle_onevent as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-PURE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling pure is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, pure is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling pure is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses pure as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RAND
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling rand is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, rand is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling rand is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses rand as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RANDC
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling randc is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, randc is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling randc is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses randc as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RANDCASE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling randcase is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, randcase is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling randcase is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses randcase as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RANDSEQUENCE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling randsequence is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, randsequence is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling randsequence is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses randsequence as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RCMOS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling rcmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, rcmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling rcmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses rcmos as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-REAL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling real is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, real is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling real is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses real as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-REALTIME
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling realtime is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, realtime is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling realtime is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses realtime as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-REF
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling ref is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, ref is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling ref is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses ref as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-REG
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling reg is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, reg is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling reg is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses reg as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-REJECT-ON
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling reject_on is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, reject_on is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling reject_on is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses reject_on as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RELEASE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling release is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, release is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling release is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses release as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-REPEAT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling repeat is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, repeat is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling repeat is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses repeat as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RESTRICT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling restrict is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, restrict is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling restrict is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses restrict as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RETURN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling return is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, return is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling return is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses return as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RNMOS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling rnmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, rnmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling rnmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses rnmos as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RPMOS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling rpmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, rpmos is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling rpmos is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses rpmos as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RTRAN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling rtran is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, rtran is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling rtran is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses rtran as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RTRANIF0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling rtranif0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, rtranif0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling rtranif0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses rtranif0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-RTRANIF1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling rtranif1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, rtranif1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling rtranif1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses rtranif1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-S-ALWAYS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling s_always is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, s_always is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling s_always is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses s_always as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-S-EVENTUALLY
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling s_eventually is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, s_eventually is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling s_eventually is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses s_eventually as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-S-NEXTTIME
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling s_nexttime is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, s_nexttime is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling s_nexttime is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses s_nexttime as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-S-UNTIL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling s_until is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, s_until is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling s_until is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses s_until as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-S-UNTIL-WITH
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling s_until_with is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, s_until_with is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling s_until_with is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses s_until_with as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SCALARED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling scalared is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, scalared is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling scalared is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses scalared as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SEQUENCE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling sequence is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, sequence is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling sequence is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses sequence as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SHORTINT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling shortint is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, shortint is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling shortint is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses shortint as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SHORTREAL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling shortreal is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, shortreal is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling shortreal is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses shortreal as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SHOWCANCELLED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling showcancelled is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, showcancelled is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling showcancelled is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses showcancelled as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SIGNED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling signed is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, signed is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling signed is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses signed as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SMALL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling small is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, small is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling small is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses small as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SOFT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling soft is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, soft is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling soft is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses soft as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SOLVE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling solve is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, solve is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling solve is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses solve as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SPECIFY
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling specify is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, specify is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling specify is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses specify as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SPECPARAM
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling specparam is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, specparam is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling specparam is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses specparam as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-STATIC
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling static is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, static is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling static is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses static as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-STRING
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling string is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, string is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling string is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses string as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-STRONG
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling strong is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, strong is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling strong is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses strong as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-STRONG0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling strong0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, strong0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling strong0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses strong0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-STRONG1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling strong1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, strong1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling strong1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses strong1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-STRUCT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling struct is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, struct is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling struct is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses struct as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SUPER
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling super is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, super is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling super is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses super as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SUPPLY0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling supply0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, supply0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling supply0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses supply0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SUPPLY1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling supply1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, supply1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling supply1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses supply1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SYNC-ACCEPT-ON
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling sync_accept_on is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, sync_accept_on is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling sync_accept_on is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses sync_accept_on as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-SYNC-REJECT-ON
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling sync_reject_on is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, sync_reject_on is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling sync_reject_on is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses sync_reject_on as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TABLE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling table is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, table is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling table is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses table as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TAGGED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling tagged is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, tagged is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling tagged is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses tagged as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TASK
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling task is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, task is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling task is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses task as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-THIS
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling this is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, this is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling this is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses this as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-THROUGHOUT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling throughout is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, throughout is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling throughout is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses throughout as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TIME
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling time is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, time is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling time is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses time as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TIMEPRECISION
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling timeprecision is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, timeprecision is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling timeprecision is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses timeprecision as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TIMEUNIT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling timeunit is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, timeunit is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling timeunit is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses timeunit as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TRAN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling tran is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, tran is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling tran is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses tran as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TRANIF0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling tranif0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, tranif0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling tranif0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses tranif0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TRANIF1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling tranif1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, tranif1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling tranif1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses tranif1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TRI
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling tri is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, tri is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling tri is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses tri as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TRI0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling tri0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, tri0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling tri0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses tri0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TRI1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling tri1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, tri1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling tri1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses tri1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TRIAND
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling triand is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, triand is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling triand is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses triand as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TRIOR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling trior is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, trior is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling trior is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses trior as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TRIREG
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling trireg is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, trireg is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling trireg is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses trireg as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TYPE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling type is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, type is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling type is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses type as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-TYPEDEF
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling typedef is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, typedef is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling typedef is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses typedef as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-UNION
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling union is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, union is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling union is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses union as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-UNIQUE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling unique is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, unique is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling unique is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses unique as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-UNIQUE0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling unique0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, unique0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling unique0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses unique0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-UNSIGNED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling unsigned is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, unsigned is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling unsigned is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses unsigned as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-UNTIL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling until is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, until is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling until is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses until as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-UNTIL-WITH
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling until_with is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, until_with is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling until_with is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses until_with as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-UNTYPED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling untyped is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, untyped is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling untyped is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses untyped as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-USE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling use is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, use is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling use is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses use as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-UWIRE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling uwire is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, uwire is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling uwire is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses uwire as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-VAR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling var is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, var is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling var is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses var as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-VECTORED
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling vectored is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, vectored is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling vectored is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses vectored as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-VIRTUAL
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling virtual is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, virtual is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling virtual is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses virtual as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-VOID
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling void is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, void is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling void is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses void as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WAIT
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling wait is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, wait is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling wait is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses wait as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WAIT-ORDER
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling wait_order is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, wait_order is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling wait_order is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses wait_order as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WAND
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling wand is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, wand is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling wand is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses wand as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WEAK
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling weak is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, weak is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling weak is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses weak as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WEAK0
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling weak0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, weak0 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling weak0 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses weak0 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WEAK1
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling weak1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, weak1 is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling weak1 is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses weak1 as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WHILE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling while is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, while is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling while is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses while as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WILDCARD
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling wildcard is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, wildcard is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling wildcard is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses wildcard as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WIRE
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling wire is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, wire is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling wire is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses wire as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WITH
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling with is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, with is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling with is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses with as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WITHIN
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling within is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, within is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling within is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses within as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-WOR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling wor is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, wor is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling wor is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses wor as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-XNOR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling xnor is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, xnor is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling xnor is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses xnor as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-B-EXTRACT-KEYWORD-XOR
 
-B / normal / テスト未対応
+B / error / テスト未対応
 
-The spelling xor is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+Under the IEEE 1800-2023 keyword set, xor is a reserved keyword: it cannot be used as an unescaped simple identifier.
 
-合格基準: The spelling xor is a reserved keyword in the IEEE 1800-2023 keyword set; apply keyword-version directives and escaped-identifier rules where applicable.
+合格基準: Within a begin_keywords "1800-2023" region, a design that uses xor as an unescaped simple identifier, such as a declared name, is rejected with an error at that use.
 
-規定の性質: `definition`。
+規定の性質: `mandatory`。
 
 
 ### SV2023-C.2.2-EXTRACT-SAMPLED-CLOCKLESS
@@ -121718,13 +121678,11 @@ Named sequence/nonrecursive-property semantics equals flattened semantics after 
 
 F.4.1.1 / normal / テスト未対応
 
-The explanatory paragraph asserts distinct actuals for distinct inout or input local formals and concludes copyout order independence; retain its stated direction pending reconciliation with 16.8.2.
+The explanatory paragraph restates 16.8.2: distinct local variable formal arguments of direction inout or output have distinct actual arguments (af != af'), so the overall result of the copy-out assignments added in steps 6(b) and 6(c) does not depend on their order; the printed 'input' is read as 'output'.
 
-合格基準: The explanatory paragraph asserts distinct actuals for distinct inout or input local formals and concludes copyout order independence; retain its stated direction pending reconciliation with 16.8.2.
+合格基準: For an instance whose distinct inout/output local formals are bound to distinct local-variable actuals (as 16.8.2 requires), the actual-argument values after a match are the same for any order of the 6(b)/6(c) copy-out assignments; F.4.1.1 is not used to reject an instance that binds the same actual expression to two input local formals.
 
 規定の性質: `definition`。
-
-未解決の解釈: `SEQUENCE-COPYOUT-DIRECTION: F.4.1.1 B008 says inout or input while 16.8.2 B012 prohibits duplicate actuals for inout or output. Do not impose the extra input restriction or infer copyout ordering from the mismatched direction.`（対応承認・節完了を保留）。
 
 
 ### SV2023-F.4.1.1-EXTRACT-PROPERTY-ASSERTION-TYPE
@@ -122776,13 +122734,11 @@ Overlapping implication is nonvacuous iff some nonnegative endpoint has a tight 
 
 F.5.3.3 / normal / テスト未対応
 
-The nextime/nexttime nonvacuity equation requires nonempty word and a nonvacuous suffix written w^i..; its suffix index is unbound in the supplied equation.
+The nexttime nonvacuity equation (printed 'nextime' with an unbound suffix index i) is read with suffix index 1, as in nexttime neutral satisfaction (F.5.3.1): w satisfies nexttime P nonvacuously iff |w| > 0 and the suffix w^1.. satisfies P nonvacuously.
 
-合格基準: The nextime/nexttime nonvacuity equation requires nonempty word and a nonvacuous suffix written w^i..; its suffix index is unbound in the supplied equation.
+合格基準: A vacuity oracle reports nexttime P as nonvacuous on w exactly when |w| > 0 and P is nonvacuous on w^1..; nonvacuity of P on any other suffix does not make nexttime P nonvacuous.
 
 規定の性質: `definition`。
-
-未解決の解釈: `VACUITY-NEXT-INDEX: F.5.3.3 PDF 1251 writes nextime and w^i.. without binding i; nexttime satisfaction in F.5.3.1 uses suffix 1. Do not silently replace the equation when certifying a vacuity oracle.`（対応承認・節完了を保留）。
 
 
 ### SV2023-F.5.3.3-EXTRACT-NONVACUITY
@@ -123108,13 +123064,11 @@ Tight local satisfaction relates finite word,input context,sequence and output c
 
 F.5.6.1 / normal / テスト未対応
 
-Local accept_on passes if operand passes with no abort, or abort at i and prior prefix plus top satisfies P; the second branch omits the local context in its supplied notation.
+Local accept_on passes if the operand passes under L0 with no abort, or b holds at some 0<=i<|w| and the prior prefix extended with top satisfies P under the same incoming context L0; the context omitted from the second branch's notation is L0.
 
-合格基準: Local accept_on passes if operand passes with no abort, or abort at i and prior prefix plus top satisfies P; the second branch omits the local context in its supplied notation.
+合格基準: w, L0 satisfies accept_on(b) P iff either w, L0 satisfies P and no letter of w satisfies b, or for some 0<=i<|w| w^i satisfies b and w^{0,i-1} followed by infinite top satisfies P under L0; the abort branch evaluates P with the same local context L0, not an empty context.
 
 規定の性質: `definition`。
-
-未解決の解釈: `LOCAL-ACCEPT-CONTEXT: F.5.6.1 PDF 1255 accept_on second branch writes satisfaction of P without L0, unlike its first branch and surrounding local-context equations. Record omission and require a justified contextual interpretation before oracle approval.`（対応承認・節完了を保留）。
 
 
 ### SV2023-F.5.6.1-EXTRACT-ASSERTIONS
@@ -123176,13 +123130,11 @@ Local implication requires every dual-prefix tight antecedent match and output c
 
 F.5.6.1 / normal / テスト未対応
 
-The local property declaration equation equates satisfaction of (t v;P) with the disabled relation on P after removing v; the disabled marker is retained for interpretation.
+The local property declaration equation equates satisfaction of (t v;P) under L0 with ordinary neutral satisfaction of P under L0 with v removed; the superscript d printed on the right-hand side is not read as the top-level disabled relation.
 
-合格基準: The local property declaration equation equates satisfaction of (t v;P) with the disabled relation on P after removing v; the disabled marker is retained for interpretation.
+合格基準: w, L0 satisfies (t v; P) exactly when w, L0\v satisfies P; the equation is not evaluated with the disabled relation, which F.5.6.1 defines only for top-level properties and which never holds for T = P.
 
 規定の性質: `definition`。
-
-未解決の解釈: `LOCAL-PROPERTY-DISABLED-MARKER: F.5.6.1 PDF 1255 uses a superscript d on RHS for ordinary P in the local declaration equation, although disabling is defined only for top-level T/U and top-level declaration rules use ordinary satisfaction. Resolve marker before certifying this equation.`（対応承認・節完了を保留）。
 
 
 ### SV2023-F.5.6.1-EXTRACT-NOT
@@ -123310,39 +123262,33 @@ Insufficient $past history evaluates expression using static declaration initial
 
 F.6.2 / normal / テスト未対応
 
-The supplied $past equation for n>=1 locates an earlier index using a clock-and-gate sequence, or returns expression evaluated from initial variable values when no such history exists; retain its written clock/gate grouping for comparison with 16.9.3.
+For n>=1, $past(e1,n,e2,c) at w^j equals e1 at w^i when some 0<=i<j satisfies ((c && e2) ##1 (c && e2)[=n-1] ##1 1) on w^{i,j}, i.e., i is the nth strictly prior letter where the gated clock c && e2 holds (16.9.3); otherwise e1 is evaluated using the initial values of its variables. The [=n-1] repetition applies to c && e2, not to e2 alone.
 
-合格基準: The supplied $past equation for n>=1 locates an earlier index using a clock-and-gate sequence, or returns expression evaluated from initial variable values when no such history exists; retain its written clock/gate grouping for comparison with 16.9.3.
+合格基準: $past(e1,n,e2,c) returns e1 from the nth most recent strictly prior letter at which both c and e2 hold, counting only letters where c && e2 holds; if fewer than n such letters precede j, the result is e1 evaluated from initial variable values.
 
 規定の性質: `definition`。
-
-未解決の解釈: `PAST-GATED-GROUPING: F.6.2 PDF 1256 writes (c && e2[=n-1] ##1 1) with missing closing grouping and repetition apparently on e2 instead of (c && e2). Compare 16.9.3 gated sampled-clock semantics before adopting this formula as oracle.`（対応承認・節完了を保留）。
 
 
 ### SV2023-F.6.2-EXTRACT-PAST-GLOBAL-INDEX-TEXT
 
 F.6.2 / normal / テスト未対応
 
-The supplied $past_gclk clause says if j<0 use e at i-1, while j was restricted nonnegative; at j=0 use initial values.
+For 0<j<|w|, $past_gclk(e) at w^j equals e at w^{j-1}, the immediately preceding letter (previous global clock tick); at j=0 it is e evaluated using the initial values of its variables. The printed condition j<0 and index i-1 are read as j>0 and j-1.
 
-合格基準: The supplied $past_gclk clause says if j<0 use e at i-1, while j was restricted nonnegative; at j=0 use initial values.
+合格基準: $past_gclk(e) evaluated at a global clock tick returns e's value at the immediately preceding global clock tick, consistent with $past(e,,,@$global_clock); at the first letter (j=0) it returns e evaluated from initial variable values.
 
 規定の性質: `definition`。
-
-未解決の解釈: `PAST-GLOBAL-INDEX: F.6.2 PDF 1256 condition j<0 conflicts with 0<=j<length and RHS uses unbound i-1. Compare 16.9.3 before approving a corrected index/condition.`（対応承認・節完了を保留）。
 
 
 ### SV2023-F.6.3-EXTRACT-FUTURE-INDEX-TEXT
 
 F.6.3 / normal / テスト未対応
 
-For 0<=j<length-1, the supplied future-global equation writes e at i+1; for finite-word final position the value is undefined.
+For 0<=j<|w|-1, $future_gclk(e) at w^j equals e at w^{j+1}, the next letter (next global clock tick); the printed unbound index i+1 is read as j+1. For a finite word the value at the final position w^{|w|-1} is undefined.
 
-合格基準: For 0<=j<length-1, the supplied future-global equation writes e at i+1; for finite-word final position the value is undefined.
+合格基準: $future_gclk(e) at a global clock tick returns e's value at the next global clock tick (letter j+1); at the last letter of a finite word no value is defined.
 
 規定の性質: `definition`。
-
-未解決の解釈: `FUTURE-GLOBAL-INDEX: F.6.3 PDF 1256 binds j but RHS uses unbound i+1. Compare 16.9.3 and distinguish a justified j+1 interpretation from the supplied equation.`（対応承認・節完了を保留）。
 
 
 ### SV2023-F.7-EXTRACT-ALL-APPROX
@@ -127285,13 +127231,11 @@ DPI_EXTERN defaults empty only when not already defined.
 
 I.3 / normal / テスト未対応
 
-svGetUserData returns void* and header comment says NULL for errors/absence and 0 upon success; retain contradictory success-return description.
+svGetUserData returns void*: NULL for all error cases and when no prior svPutUserData() was made, and on success the non-NULL user data pointer previously stored by svPutUserData(); the header's '0 upon success' wording is read per H.9.3.
 
-合格基準: svGetUserData returns void* and header comment says NULL for errors/absence and 0 upon success; retain contradictory success-return description.
+合格基準: After svPutUserData(scope, userKey, data) succeeds with non-NULL data, svGetUserData(scope, userKey) returns that data pointer; on error, or when no prior svPutUserData() was made, it returns NULL.
 
 規定の性質: `mandatory`。
-
-未解決の解釈: `DPI-GET-USER-DATA-RETURN: I.3 B047 says 0 upon success while H.9.3 B017 specifies retrieved non-NULL data pointer; adopting zero success would make retrieval unusable. Keep source text and require documented H.9.3 interpretation.`（対応承認・節完了を保留）。
 
 
 ### SV2023-I.3-EXTRACT-GUARD
