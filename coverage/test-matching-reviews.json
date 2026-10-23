@@ -280,6 +280,22 @@
               "contains": "ga=1 gb=2 gm=3 gsum=3"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-26.6-EXTRACT-EXPORT-WILDCARD",
+            "SV2023-26.6-EXTRACT-EXPORT-IDENTITY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M88: ew_gの全対象をexplicit importしているため、単なるwildcard候補を再公開してしまう誤実装を区別しない。ew_other::goを後段で参照/衝突対照に使っておらず、非再公開も直接検証しない。複数経路のidentityを確認する書込み/同一handle比較もない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_package_export_named_wildcard.sv",
+              "contains": "export ew_g::*;"
+            }
+          ]
         }
       ]
     },
@@ -379,6 +395,21 @@
             {
               "file": "tests/ch6/test_enum_first_last_num.expected",
               "contains": "first=S_A(3) last=S_C(6) num=3"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.19.5.2-EXTRACT-DECLARATION-ORDER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M95: enum値は3/1/6の非単調順だが、lastの6が同時にnumeric maximumである。lastを最大値と誤実装しても同じ結果のため、このlast declaration-order対numeric-extremum要求は保留する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_enum_first_last_num.sv",
+              "contains": "typedef enum logic [2:0] {S_A = 3, S_B = 1, S_C = 6} state_t;"
             }
           ]
         }
@@ -9436,6 +9467,1997 @@
           ],
           "reviewed_on": "2026-10-23",
           "reviewer": "Codex (AI); not an independent human review"
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_case_loop_force_stmts.sv",
+      "inputs_sha256": "023b1e863faae1e19c0901d956f68a5269492637c0b2d99d904675a6da511d6b",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.72-EXTRACT-CASE-ITEM-GROUP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M59: case itemの式は個数1/2/0だけ。対象式の値とgrouping、defaultのiterator自体NULLを検査していない。type/qualifier/condition名は個別に採用した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_case_loop_force_stmts.sv",
+              "contains": "default: g = f;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_case_loop_force_stmts.c",
+              "contains": "count(vpiExpr, item)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.75-EXTRACT-DIAGRAM-001"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M60: do-whileのcondition/bodyはpresent表示のみで、正しい条件i>0やbodyの内容・同一性を検査していない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_case_loop_force_stmts.sv",
+              "contains": "do i = i - 1;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_case_loop_force_stmts.c",
+              "contains": "vpi_handle(vpiCondition, s) ? \"present\""
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.75-EXTRACT-DIAGRAM-002"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M64: describe_stmtは全statementにswitch前のLhs queryを行い、Lhsを持たないcase/foreach/do-whileにも問い合わせる。kindに応じた問い合わせへ整理が必要。現照合ではnonNULL body観測を承認しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_case_loop_force_stmts.sv",
+              "contains": "do i = i - 1;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_case_loop_force_stmts.c",
+              "contains": "operand_text(vpi_handle(vpiLhs, s)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.75-EXTRACT-DIAGRAM-001",
+            "SV2023-37.75-EXTRACT-DIAGRAM-002"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M92: do-whileのcondition/bodyを非NULLとだけ比較する。誤ったexpression/statement handleでも通るため、M60と同じ基準で今回の仮追加2行を取り下げた。具体的な値/種類/同一性を検証する他の対応は保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_case_loop_force_stmts.sv",
+              "contains": "do i = i - 1; while (i > 0);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_case_loop_force_stmts.c",
+              "contains": "vpi_handle(vpiCondition, s) ? \"present\" : \"missing\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_class_definitions.sv",
+      "inputs_sha256": "faa4b0e0f9089b6bcf56da95e0cffcd2e9aa1d7441d700b68031bf5f60011701",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.31-EXTRACT-CLASS-DECLARATIONS"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: 基本member名f/t/x/yは読むがstatic/automaticとevent/eventarrayおよびbuilt-in除外の全条件はない。個別relation行を採用した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_definitions.sv",
+              "contains": "class base #(int W = 4);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_definitions.c",
+              "contains": "collect(vpiVariables, base"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.31-EXTRACT-CLASS-EXTENDS"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: extends→base名shapeを確認するが、constructor chaining argument iteratorは未使用。複合行全体は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_definitions.sv",
+              "contains": "class square extends shape;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_definitions.c",
+              "contains": "vpi_handle(vpiExtends, square)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_class_obj_id.sv",
+      "inputs_sha256": "3207b379a6fe9446f15218a77074690d62d0a36ee8de1f5714349593248addf4",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.33-EXTRACT-DIAGRAM-014"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M63: ObjIdは規格では64bitだがCはvpi_getとPLI_INT32を使う。低位比較だけでは64bit値/上位差分の識別を証明せず、Object ID行は未登録。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_obj_id.sv",
+              "contains": "item a, b, c, n;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_obj_id.c",
+              "contains": "ia = vpi_get(vpiObjId, a);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.33-EXTRACT-DECLARED-DYNAMIC-TYPE"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: 全変数のdeclared/creation typeは同じitem。NULL objectを検査してもdeclared typeとdynamic creation typeの相違を証明しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_obj_id.sv",
+              "contains": "a = new();"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_obj_id.c",
+              "contains": "vpi_handle(vpiClassTypespec, a)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.33-EXTRACT-DIAGRAM-001"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M92: null class variableのNULLとnonnull variableの非NULLを比較するが、返class-object handleのtype/identity/creation type/property値を比較しない。別のobject handleを返しても通るため、今回仮追加したone-to-one object relationを監査で取り下げた。旧checksは保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_obj_id.sv",
+              "contains": "a = new();"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_obj_id.c",
+              "contains": "vpi_handle(vpiClassObj, a) ? \"given\" : \"none\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_constraint_items.sv",
+      "inputs_sha256": "8636d5bdacbf5b1ae82ce95e29ea47a1d8f4098347f60bd97b63911ce9072c42",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.34-EXTRACT-CONSTRAINT-EXTERN"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M62: externは定数一致で検査する一方、非externは単にExternAcc以外なら0表示になる。非externの実取得値が厳密に0という規則は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_constraint_items.sv",
+              "contains": "extern constraint c_ext;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_constraint_items.c",
+              "contains": "vpi_get(vpiAccessType, c) == vpiExternAcc"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.38-EXTRACT-DIAGRAM-013"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M60: then/elseは各1件という個数しか読まない。conditionも存在だけで、各式の内容は検査しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_constraint_items.sv",
+              "contains": "if (a > 5) b < 20;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_constraint_items.c",
+              "contains": "count(vpiConstraintExpr, item)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.38-EXTRACT-DIAGRAM-012"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M93: ConstrIfElseのConditionはgiven/noneだけで、正しいconditionの値・operator・対象を比較しない。共通group型/iterationの観測と独立のone-to-one condition relationを区別して保留する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_constraint_items.sv",
+              "contains": "if (a > 5) b < 20; else b < 30;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_constraint_items.c",
+              "contains": "vpi_handle(vpiCondition, item) ? \"given\" : \"none\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_constraint_orderings_dists.sv",
+      "inputs_sha256": "6513908204bfb4fef64772fcae61aca80527fc6f345b9d5bb772035b85e1cdcb",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.38-EXTRACT-CONSTRAINT-EXPR-ORDER"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: implication/ifのoperator順は読むがif-else/foreachは別ファイルで個数のみ。全containing kindの順序契約は未完了。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_constraint_orderings_dists.sv",
+              "contains": "constraint c_impl"
+            },
+            {
+              "file": "tests/ch37/test_vpi_constraint_orderings_dists.c",
+              "contains": "expressions_in_order(item)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_control_statement_child_relations.sv",
+      "inputs_sha256": "b36519c87b7ec59d034072c524208279880ab2da5b21deaf036658150e057603",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.66-EXTRACT-DIAGRAM-004"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M60: body relationは非NULLしか確認しない。誤ったstatement handleも通るため、値3を読むrepeat conditionとtask同一性を読むdisable以外の子関係は個別に保留する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_control_statement_child_relations.sv",
+              "contains": "repeat (3) value = 2;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_control_statement_child_relations.c",
+              "contains": "has(h, vpiStmt)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_delay_expressions.sv",
+      "inputs_sha256": "8044fbd6d34d79d873e0b8ef5e16fb5925ca69c861f299a7cc2330b10f45041e",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.75-EXTRACT-DIAGRAM-001"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "M61: :lrm:37.75をcontinuous assignmentとして説明するが、提供2023版37.75はDo-while/foreach。37.47への引用修正と再検証が必要。既存メタデータは変更しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_delay_expressions.sv",
+              "contains": "assign #4 y3 = a;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_delay_expressions.c",
+              "contains": "vpi_handle(vpiDelay, h)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.80-EXTRACT-DIAGRAM-003"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "M61: :lrm:37.80をprimitiveとして説明するが提供2023版37.80はCallback。primitive37.35と混同して対応登録しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_delay_expressions.sv",
+              "contains": "and #(2, 3) g1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_delay_expressions.c",
+              "contains": "vpi_iterate(vpiPrimitive, top)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_frames_threads_alloc.sv",
+      "inputs_sha256": "1170fe4e2927f1db94c6c14aa4589d3d3eac7e05aaacab6ed3651be6eb4ca7f4",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.43-EXTRACT-DIAGRAM-003"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M60: 親候補は非activeでcurrentと同じthreadであることしか確認しない。別の祖先frameでも同じになる可能性があり、activating frame outerの識別不足。監査で今回の仮対応だけを除外した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_frames_threads_alloc.sv",
+              "contains": "inner(t);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frames_threads_alloc.c",
+              "contains": "vpi_handle(vpiParent, f)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_instance_arrays.sv",
+      "inputs_sha256": "91276c81db9ba68b92a7840cc6f69c5a36aa5daae22375abb9e823ec41dd5443",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.11-EXTRACT-DIAGRAM-014"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M60: module/primitiveのelement iteratorは個数4/2のみ。別handleや重複を排除する名前・型・同一性の検査がなく、全取得対象の正しさは保留。index lookupの実full nameは別に採用した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_instance_arrays.sv",
+              "contains": "leaf u [3:0]"
+            },
+            {
+              "file": "tests/ch37/test_vpi_instance_arrays.c",
+              "contains": "count(element_relation, a)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_interface_typespecs.sv",
+      "inputs_sha256": "e1b7a1b0b341b6683b3ca49b1e5bc2acd631ae94429df8cb50543456eadea548",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.30-EXTRACT-INTERFACE-TYPE-PARENT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M59: parent noneは有効parentのDefName=NULLでも同じになる。modport側の正しいparent定義名は確認できるが、interface側のNULL handle条件が未検証。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interface_typespecs.sv",
+              "contains": "typedef virtual"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_typespecs.c",
+              "contains": "p ? def_name(p) : \"none\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_lifetime_properties.sv",
+      "inputs_sha256": "66c1d3d4d104a155e0bda8cf9cd6d7e6e33115ef2fe8741bffb708733f59542d",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.3.7-EXTRACT-AUTOMATIC-PROPERTY"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: module/task/function/variableのlifetimeは観測するが、class definition/typespecの既定値やdynamic objectの全条件はない。個別property行に限定した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_lifetime_properties.sv",
+              "contains": "module automatic"
+            },
+            {
+              "file": "tests/ch37/test_vpi_lifetime_properties.c",
+              "contains": "vpi_get(vpiAutomatic, h)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_module_hierarchy.sv",
+      "inputs_sha256": "5572870dc0aad2728762f13e58939f83a10de605478ddbe319ac76c6f6760a90",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.10-EXTRACT-DIAGRAM-013"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M60: 取得元はreg rで、APIはModuleを使う。netからInstanceへの別のrelation証明へ転用できない。今回の仮対応のみ除外し、実際のvariable→moduleの対応を維持した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_module_hierarchy.sv",
+              "contains": "vpi_mid m(a, y2);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_module_hierarchy.c",
+              "contains": "vpi_handle(vpiModule, obj)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.10-EXTRACT-DIAGRAM-029"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M60: module handle取得をvpiInstanceによる包含instance取得と同一視しない。今回の仮対応を除外し、37.17の実variable→module relationへ限定した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_module_hierarchy.sv",
+              "contains": "reg [3:0] r;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_module_hierarchy.c",
+              "contains": "vpi_handle(vpiModule, obj)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_named_events.sv",
+      "inputs_sha256": "607d96fdf48468699557b90e3c8c1256072e3cf1be2ff10d713bf53df0e24b0d",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.27-EXTRACT-EVENT-WAITERS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M60: 待機2→0とresume2は観測できるが、返されたthreadの型・同一性とstatic/dynamic双方を検査しない。全waiting process集合の要求行には対応しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_named_events.sv",
+              "contains": "@(go) resumed++;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_events.c",
+              "contains": "count(vpiWaitingProcesses, go)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_nettype_declarations.sv",
+      "inputs_sha256": "204e377a619f29c1aaf5b869f23cc6dc56b932b20050d7a2d228c25e59dfb5f3",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.23-EXTRACT-NO-RESOLUTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M59: noneはNULL handleと有効handleのNULL名を同じにするため、WithがNULLそのものという義務を検証しない。resolver totalという実名の観測は別relationで採用した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_nettype_declarations.sv",
+              "contains": "nettype real plain_t;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_nettype_declarations.c",
+              "contains": "s != NULL ? s : \"none\""
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.23-EXTRACT-NO-RESOLUTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M94: no resolverの期待noneは、vpiWithがNULLのときだけでなく非NULLhandleのvpiNameがNULLでも出る。NULLそのものを判定せず誤った非NULL handleを排除できないため、no-resolution行には計上しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_nettype_declarations.sv",
+              "contains": "nettype real plain_t;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_nettype_declarations.c",
+              "contains": "return s != NULL ? s : \"none\";"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_packed_array_levels.sv",
+      "inputs_sha256": "db6f76ccfd2213bc0bf284679b8e5b0d4ad0bc2c5851c4d82854798ff863f907",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.18-EXTRACT-PACKED-ARRAY-SIZE"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: bit幅48/24/16とleaf8は実取得するが、range sizeの全積からleaf数を求める部分は未検査。複合SIZE行全体を一部のsize表示で承認しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_packed_array_levels.sv",
+              "contains": "pair_t [1:0][2:0] pav"
+            },
+            {
+              "file": "tests/ch37/test_vpi_packed_array_levels.c",
+              "contains": "vpi_get(vpiSize, pav)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_packed_array_vars.sv",
+      "inputs_sha256": "1ea3aa4c3d221f53cc7477c55f5b023bed002daea16e63f7287fd6e315142d30",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.18-EXTRACT-PACKED-ARRAY-REPRESENTATION"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: struct packedarrayの親Packed/Vectorは読むが、全underlying leafの両flagは読まない。enum/union variantもないため表現・flagの複合規則全体は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_packed_array_vars.sv",
+              "contains": "pair_t [2:0] pav"
+            },
+            {
+              "file": "tests/ch37/test_vpi_packed_array_vars.c",
+              "contains": "vpi_get(vpiVector, pav)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_parameters.sv",
+      "inputs_sha256": "0d5d03dfadc5999fdf325a99de5cbe45076655d4046d384ce20de31ae1ed8f71",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.28-EXTRACT-PARAMETER-IMPLICIT-RANGE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M59: no range表示はleft/rightのいずれかがNULLでも通る。暗黙範囲で両handleがNULLという要求には対応しない。明示range/値/LocalParamの個別観測は採用した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_parameters.sv",
+              "contains": "parameter"
+            },
+            {
+              "file": "tests/ch37/test_vpi_parameters.c",
+              "contains": "if (left && right)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_property_sequence_operators.sv",
+      "inputs_sha256": "30324797c338c135ce045530d6730c2678c0504b0f3e87e8df7ba3c4e305a465",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.52-EXTRACT-CASE-PROPERTY-GROUP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M59: case defaultの0件は非NULLの空iteratorでも同じ。各case条件も内容ではなく個数だけであり、正しいcondition集合とNULL iteratorを同時に証明しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_operators.sv",
+              "contains": "default: c;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_operators.c",
+              "contains": "while (eit != NULL && vpi_scan(eit) != NULL)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.52-EXTRACT-PROPERTY-OPERAND-ORDER"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: nexttime/always/untilの順と省略は読むがeventually等の例外が未観測。個別operator/operand relationに限定した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_operators.sv",
+              "contains": "nexttime [2] a;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_operators.c",
+              "contains": "vpi_iterate(vpiOperand, e)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.54-EXTRACT-SEQUENCE-OPERAND-ORDER"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: unary cycle/repeatとnested operation種別は確認するが、binary cycleの全operand順/省略条件は再帰して検査しない。広い規則行は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_operators.sv",
+              "contains": "##2 a;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_operators.c",
+              "contains": "vpi_iterate(vpiOperand, e)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_relationships_and_tags.sv",
+      "inputs_sha256": "c693037d5a10069ca7d7b3375b005183faaaf7249a228586b9e6eeefd5a1c4b1",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.3.1-EXTRACT-TAGGED-EXPRESSION"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: 正常なtagged traversalを読むだけで、無tag式取得を拒否するerror契約の検査ではない。kind/要求定義を変えず保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_relationships_and_tags.sv",
+              "contains": "module test_vpi_relationships_and_tags"
+            },
+            {
+              "file": "tests/ch37/test_vpi_relationships_and_tags.c",
+              "contains": "vpi_handle(vpiModule"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_select_objects_event_arrays.sv",
+      "inputs_sha256": "29eae146961515746592779cd1e8c7d352d8dc0da597481ae0f80246535e316b",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.58-EXTRACT-VECTOR-USES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M60: Useはkind別個数だけをソートして表示する。同じ型の別assignmentや重複への置換を検出しないため、全ての正しいuse集合を検証した扱いにはしない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_select_objects_event_arrays.sv",
+              "contains": "assign y1 = ^u;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_select_objects_event_arrays.c",
+              "contains": "kinds[n++] = k"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_struct_typespecs.sv",
+      "inputs_sha256": "4772d87208630fc3faa20a40690485cf04898685238b6607bbf7e36af67b2e52",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.25-EXTRACT-TYPE-MEMBERS"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: struct側のtypespec memberと型は確認するが、union側は変数Member名だけでtypespec memberを読まない。struct/unionの複合TYPE-MEMBERS行は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_struct_typespecs.sv",
+              "contains": "union packed"
+            },
+            {
+              "file": "tests/ch37/test_vpi_struct_typespecs.c",
+              "contains": "vpi_iterate(vpiTypespecMember, ts)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_task_function_properties.sv",
+      "inputs_sha256": "d95e3d3e6118161d0a371551a10841d1716602941a6212b5df2b363cf55aeb34",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.41-EXTRACT-DPI-ACCESS"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: export/DPI-C/C linkage名は確認するが、import側・pure/context等を含む複合規則は未観測。個別の取得property行に限定した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_task_function_properties.sv",
+              "contains": "export \"DPI-C\""
+            },
+            {
+              "file": "tests/ch37/test_vpi_task_function_properties.c",
+              "contains": "vpi_get(vpiAccessType, h)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.41-EXTRACT-FUNCTION-SIZE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M62: size4はreturn variableから取得している。関数自身size、void0と非評価条件の確認に転用しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_task_function_properties.sv",
+              "contains": "function bit [3:0] nib"
+            },
+            {
+              "file": "tests/ch37/test_vpi_task_function_properties.c",
+              "contains": "vpi_get(vpiSize, ret)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_time_queue.sv",
+      "inputs_sha256": "f8de506c968f04921caf5287c67bd1866b9d7bb1f86f629e76fe2f0e692c4065",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.13-EXTRACT-GET-TIME-SCALE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "M61: timequeueの未来時刻は読むが:lrm:38.11と引用している。提供版get_timeは38.13で、時刻スケール複合要求へ対応するには引用とfresh実行の管理が必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_time_queue.sv",
+              "contains": "initial #5 x = 1;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_time_queue.c",
+              "contains": "vpi_get_time(q, &t)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_type_strings.sv",
+      "inputs_sha256": "b7440f6e49a52b2c67675bc3227d5d6db0e759ff02d3b8a5ef6c329a8e1a26b6",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.3.2-EXTRACT-ADDITIONAL-TYPE"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: 表示Typeの17kindとgetter integer一致は確認するが、ConstType/NetType等の追加type分類を含む広い行の全観測はない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_type_strings.sv",
+              "contains": "module test_vpi_type_strings"
+            },
+            {
+              "file": "tests/ch37/test_vpi_type_strings.c",
+              "contains": "vpi_get(vpiType, h)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_typespec_relations.sv",
+      "inputs_sha256": "bb3ed20367ae7eca542b37949f9225d1924ff7ab7f77e2a03d78cee84dec4aa7",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.25-EXTRACT-ELEMENT-TYPE-UNWIND"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: unpacked/packed logicの多段unwindとname保持/終端NULLを確認する。packedarray struct/union/enumの全終端条件はなく、関係図の該当個別行に限定した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_typespec_relations.sv",
+              "contains": "row_t grid [4:1];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_typespec_relations.c",
+              "contains": "vpi_handle(vpiElemTypespec, t)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.25-EXTRACT-TYPE-RANGE-ORDER"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: arrayの固定/dynamic/associative範囲は確認するがqueueとbit/logic全range順の分担が残る。広い行全体は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_typespec_relations.sv",
+              "contains": "int da [][0:1];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_typespec_relations.c",
+              "contains": "vpi_iterate(vpiRange, t)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_variable_properties.sv",
+      "inputs_sha256": "dbba54ce12347dd59d7f20cd4c80d32fe38b436ba3d196883452abf6aae05ac2",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.17-EXTRACT-VARIABLE-SCALAR-VECTOR"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: 多くの変数種とscalar/vector値を検査するが、enum-base継承・全配列要素型など複合行の全条件は揃わない。個別の取得property行を採用し広い規則行は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_variable_properties.sv",
+              "contains": "module test_vpi_variable_properties"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_properties.c",
+              "contains": "vpiScalar"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.17-EXTRACT-INTEGRAL-SIZE"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M62: 各整数型とbit幅は確認するが、このファイルだけではenum/packed struct/unionを含む複合要求を全て分担しない。別テストとの全条件照合が残る。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_variable_properties.sv",
+              "contains": "module test_vpi_variable_properties"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_properties.c",
+              "contains": "vpiSize"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_virtual_interface_vars.sv",
+      "inputs_sha256": "9128ae027a6dd6c6f69fb0db08fe51987b09a6adde09e83ee6f22bc74510b5c4",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.29-EXTRACT-VIRTUAL-INITIALIZER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M59: Expr noneはNULL handleとNULL-nameを区別しない。初期値なしのNULL義務行は保留し、b1という実取得先と各変数名/flagのみ登録した。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_virtual_interface_vars.sv",
+              "contains": "v_late = b1;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_virtual_interface_vars.c",
+              "contains": "s != NULL ? s : \"none\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
+      "inputs_sha256": "47d6a85f547a1b70f9e9fb0e82116457a1f9301589609bce2035c143090f4b63",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.16-EXTRACT-PLA-OUTPUT-VARIABLE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M65: PLA output_termsはvariable lvalue必須だが、asynchronousをwireと宣言して出力引数に渡している。仕様上正常なsimulation caseとしては承認できない。同期側の値だけを取り出してファイル全体の合法性を見落とさず、入力修正と再実行が必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
+              "contains": "wire [0:1] asynchronous;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch5/test_lexical_strings.sv",
+      "inputs_sha256": "cee5e6151e5f7cca1e567786ab15980c1291e6111c764ec2c42a6eba68605316",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-5.9.1-EXTRACT-NEWLINE",
+            "SV2023-5.9.1-EXTRACT-BACKSLASH",
+            "SV2023-5.9.1-EXTRACT-QUOTE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M66: escapeを含む文字列は主にlenだけを比較しており、変換後文字のASCII値や全内容を確かめていない。同じ長さの誤変換も通るため個別escape値の要求へ加算しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_lexical_strings.sv",
+              "contains": "module test_lexical_strings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_net_resolution_multi.sv",
+      "inputs_sha256": "85ac4eeeac7ea36b9f7d6cad57bd3f4d203ca8c22254c99bcf96b3417b3ef882",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.12-EXTRACT-STRENGTH-RESOLUTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M67: strong overrideと説明するcaseに実際の競合pull driverがない。強いdriverと弱いdriverの競合の証明にはならない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_net_resolution_multi.sv",
+              "contains": "module test_net_resolution_multi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_evaluation_forms.sv",
+      "inputs_sha256": "0c1e78b317646b51cdb1c3257129e98d9fc35b8d6b63c347a34a30cab1ef539e",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.14.8-EXTRACT-NONVACUOUS-D"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M68: not operandの非空失敗45ではnonvacuous passを観測するが、vacuousとnonvacuousを区別すべきnot成功のvacuous側は存在しない。notを常にnonvacuousとする誤分類でも同じpass/fail時刻となるため、継承規則行全体の対応は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_nonvacuous_evaluation_forms.sv",
+              "contains": "a_not: assert property"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_cg_bins_with_set_expr.sv",
+      "inputs_sha256": "abf11c59dd02cb6bc96edfad13725589d5a49a9e863c0775757775e2f7cdee08",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-19.5.1.2-EXTRACT-SET-VISIBILITY-TIME"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M69: new後にvalsを変更してbinが不変である時点条件は観測するが、within-covergroup名の非可視性は検査しない。時点のみで複合行全体へ加算しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_bins_with_set_expr.sv",
+              "contains": "vals = '{1};"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-19.5-EXTRACT-GROUP-EXPRESSION-VARIABLES"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M74: set_covergroup_expressionもcovergroup_expressionであり、19.5は許可変数を定数式/適格なenclosing-class定数/non-ref covergroup引数に限定する。このcaseのbins picked[]=valsはmoduleの可変queueを直接参照する。単にnew後の変更を無視する正常値oracleとして承認せず、引数として渡す等の合法性整理が必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_bins_with_set_expr.sv",
+              "contains": "bins picked[] = vals;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch18/test_urandom_range_bounds.sv",
+      "inputs_sha256": "12b8a5103d83f8b4586a2381a5ef7b6d01cdf8ffb5af760966226fb22921d818",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-18.13.2-EXTRACT-URANDOM-RANGE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M70: inclusive boundsへの逸脱は200回確認するが、戻り値をint unsignedへ代入しており関数自身のunsigned result typeを独立には確認しない。default/reverse個別行だけを登録。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_urandom_range_bounds.sv",
+              "contains": "int unsigned v;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch14/test_clocking_input_step_skew.sv",
+      "inputs_sha256": "a8b378d5b0e764fc70bfa394acf90a697b149777d02981889bd5ee92a2f3936e",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-14.4-EXTRACT-ONE-STEP-IMMEDIATELY-BEFORE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M71: 説明は1stepをObserved/NBA後samplingとするが、14.3/14.4は直前time stepのPostponed値と規定。刺激は4.5/14.999で値を変えるだけで同edgeのNBA差を作らず、期待値自体は両方式で同じになる。説明訂正とregionを区別する刺激が必要。この行には未登録。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_clocking_input_step_skew.sv",
+              "contains": "input #1step d;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch14/test_clocking_drive_between_edges.sv",
+      "inputs_sha256": "e588dfc69d0d2d0d303a05b6714333e2ad73a98b72779f2aa4dc7612151a1b25",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-14.16-EXTRACT-OFF-EVENT-DRIVE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M72: off-event3でRHS1をcaptureし後からr2へ変更することは観測するが、最初のv読出しは7で、次event5より前に出力が変わらないことを見ていない。即時updateする誤動作でも同じ出力になり得るため、次eventまでのdrive待機という行全体は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_clocking_drive_between_edges.sv",
+              "contains": "#3 cb.v <= r;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch14/test_clocking_output_skew_cycle_delay.sv",
+      "inputs_sha256": "4812ad3f056b73b12ddebc10e7b879719ea162f03eac5a26b3da840157e99c95",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-14.16-EXTRACT-DRIVE-SKEW-ALWAYS",
+            "SV2023-14.16-EXTRACT-DRIVE-SNAPSHOT-NONBLOCKING"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "M73: future cycleとoutput skewを組み合わせる観測はあるが、提供2023版の定義節14.16がmetadata引用にない（14.16.1はdriveとNBAの相違）。既存入力/引用を変更せず対応を保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_clocking_output_skew_cycle_delay.sv",
+              "contains": "cb.q <= ##1 0;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch40/test_coverage_api_minimum_types.sv",
+      "inputs_sha256": "98227116a25fd0f2e906fa0cfd67b60f0c08ca1ecc94fb9efe862dda9e868ee3",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-40.2.1-EXTRACT-REQUIRED-ASSERTION",
+            "SV2023-40.2.1-EXTRACT-REQUIRED-FSM-STATE",
+            "SV2023-40.2.1-EXTRACT-REQUIRED-STATEMENT",
+            "SV2023-40.2.1-EXTRACT-REQUIRED-TOGGLE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M75: ERROR以外ならacceptedと表示するだけで、coverage itemsが実際に収集・照会できることは確認しない。NOCOVを返すstubでも通る。APIの引数を受理することを、各coverage種別の実機能supportへ広げない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_api_minimum_types.sv",
+              "contains": "r == `SV_COV_ERROR ? \"an error\" : \"accepted\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch40/test_coverage_scope_sums.sv",
+      "inputs_sha256": "22331d30632596dece81f98abb41ede4ec2661b24fee1bb18a1077d84d3d31b2",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE",
+            "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE",
+            "SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M76: scope和の関係は検査するが、全返値がNOCOV=0でも全てyesとなる。異なるscopeに非零のcoverageを準備し、定義集計/単instance/子階層の違いを観測する前提がないため、scope意味の対応は保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_scope_sums.sv",
+              "contains": "yes_no(hdef == h1 + h2)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch40/test_coverage_reset_and_stop.sv",
+      "inputs_sha256": "87b43f72ae8d07643bc822ecbc132e9526c9b5693a85370127db0d2715b5bd09",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-40.3.2.1-EXTRACT-COVERAGE-RESET",
+            "SV2023-40.3.2.1-EXTRACT-COVERAGE-STOP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M76: reset前の非零収集や、stop前後で新規itemが増える対照を検査しない。coverageが初めから全0の実装でも期待出力となり、reset/stopの効果を独立に証明しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_reset_and_stop.sv",
+              "contains": "toggle1 == toggle0 ? \"yes\" : \"no\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch40/test_vpi_coverage_assertion.sv",
+      "inputs_sha256": "da9093172036d4adae22a9a9685d2db33a457e4c405d90351c31434013d87757",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-40.5.2-EXTRACT-ASSERTION-COVERED-CRITERION",
+            "SV2023-40.5.2-EXTRACT-ASSERTION-IN-PROGRESS",
+            "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTATTEMPTCOVERED",
+            "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTSUCCESSCOVERED",
+            "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTFAILURECOVERED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M77: started!=SV_COV_OKならC側は全ての収集count照会をcontinueで飛ばす。無条件のcovered max=1は確認するが、それ以外は未収集実装でも期待出力を満たすため、assertionの収集結果・非零counterを対応付けない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion.sv",
+              "contains": "#40 $vt_coverage(started == `SV_COV_OK);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion.c",
+              "contains": "if (!collected)\n            continue;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch40/test_coverage_fsm_pragma_states.sv",
+      "inputs_sha256": "15910ba184d16660476be34bea8761d7d6bfd945e5032807306960fc778bcce7",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-40.4.2-EXTRACT-FSM-PARTSELECT-NAME",
+            "SV2023-40.4.2-EXTRACT-FSM-PARTSELECT-SYNTAX"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M77: FSM coverage開始がOK以外なら実coverageの上限・増加・全状態到達を全て成功扱いにする。通常の状態変数の値だけではpragma無視の実装も通るため、FSM認識要求は保留する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_fsm_pragma_states.sv",
+              "contains": "started != `SV_COV_OK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch40/test_vpi_coverage_control.sv",
+      "inputs_sha256": "5a2dad7eb836e1834d7c7ff14c0e908e517d54845975f1a42350a0cba53dbf73",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M78: VPI reset/stop前の非零収集・開始成功を要求せず、coverage_getが常にNOCOV=0を返しても全て期待通りとなる。実際のVPI制御効果と他instanceからの独立性の証拠としては保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_control.sv",
+              "contains": "$vt_cov"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch40/test_vpi_coverage_instance_control.sv",
+      "inputs_sha256": "bf1b7f3b25a7687e40f7a6c5567cee4918071181a0d90ee319e8998243c46c10",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M78: VPI reset/stop前の非零収集・開始成功を要求せず、coverage_getが常にNOCOV=0を返しても全て期待通りとなる。実際のVPI制御効果と他instanceからの独立性の証拠としては保留。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_instance_control.sv",
+              "contains": "$vt_cov_ctl"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_generic_interface_parameterized_instances.sv",
+      "inputs_sha256": "b1e7f4576605a7e6b2e73e3e63a090fa023a113f8874bec08a6f67f541b22f68",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.3.3-EXTRACT-GENERIC-INTERFACE",
+            "SV2023-25.3.3-EXTRACT-GENERIC-NO-IMPLICIT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M79: 25.3.3はgeneric interface referenceの接続にnamed portを要求するが、width_reader first(a, wa), second(b, wb)はordered connectionである。期待値3,7自体は各幅に対応するが、提供本文に沿う正常simulationとして登録せず、named .bus(a)/.bus(b)等へ合法性を整理する必要がある。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_generic_interface_parameterized_instances.sv",
+              "contains": "width_reader first(a, wa), second(b, wb);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_disable_import_task.sv",
+      "inputs_sha256": "fba9cf90ef62663987cebdfbeb9fd6bc423639a0d58440bc0b21e2972b90fefe",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.9-EXTRACT-EXPORT-DISABLE-STATUS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M80: Cはexport taskのstatusを!=0とだけ比較するため、規格の厳密な1に代えて2等の非零を返す誤実装も同じ期待値となる。svIsDisabledState()==1とancestor disableは観測できるが、export return==1の個別要求は保留する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_disable_import_task.sv",
+              "contains": "dpi_tick_loop(5);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_disable_import_task.c",
+              "contains": "if (sv_tick(i) != 0)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_input_inout_semantics.sv",
+      "inputs_sha256": "d62d1a04cbe92352b8c8250879ab2e7c19ccac064b506ec5f039f1eee5d0aca3",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.5.1.2-EXTRACT-INPUT-PROTECTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M81: c_countdownはformal input nをn--で変更し、c_lengthもinput pointer sを進める。35.5.1.2にはinput formalを変更しない義務と、変更時もactualに反映しない規定が併記されている。H.8.7のconst規定との関係も整理するまで、このfileを合法なpositive functionとして入力保護全体に対応付けない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_input_inout_semantics.sv",
+              "contains": "steps = c_countdown(n);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_input_inout_semantics.c",
+              "contains": "n--;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_context_scope.sv",
+      "inputs_sha256": "e11fde046d112c530f130c7b9c302bf47ca0386e889887b3f0dfd615dcf0dff5",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-H.9.3-EXTRACT-LOOKUP",
+            "SV2023-H.9.3-EXTRACT-SET-SCOPE",
+            "SV2023-H.9.3-EXTRACT-PUT-DATA",
+            "SV2023-H.9.3-EXTRACT-GET-DATA"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M82: 有効scope名へのlookup、scope変更、同じkeyのscope別userdataは観測するが、unknown-name NULL、svSetScopeのprevious scope返値そのもの、putの0/-1およびgetの未登録NULLは比較しない。これらを含む複合要求全体は保留し、直接観測するfull name/current scopeだけを登録する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_context_scope.sv",
+              "contains": "dpi_id_of(\"test_dpi_context_scope.u2\")"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_scope.c",
+              "contains": "svScope old = svSetScope(svGetScopeFromName(scope));"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_array_multidim_query.sv",
+      "inputs_sha256": "a9606a2db120a8c4643529417ce150e5df58172063795641f5aa2d5a39d26a5b",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.7-EXTRACT-DIMENSIONS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M83: $dimensions(scalar logic)を0と期待するが20.7はsimple bit vectorに相当するnonarray型について1を定義する。6.11.1はlogic scalarもsimple bit vectorに含める。正常系全体に誤ったoracleが混在するため、このfileの他の正しい配列照会部分も今回の新規網羅根拠には使わない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_multidim_query.sv",
+              "contains": "if (dim_count != 0)"
+            },
+            {
+              "file": "tests/ch20/test_array_multidim_query.expected",
+              "contains": "PASS: $dimensions(scalar) = 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch18/test_soft_priority_layers.sv",
+      "inputs_sha256": "b3cf0754437e9dcb7a70cc541a8d0a2244fb95098848e1ddcfb0cee872d38681",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-18.5.13.1-EXTRACT-HANDLE-ORDER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "later-declared h3がh2より高priorityとなるケースは観測するが、同じobjectを複数handleがaliasしたとき最高priorityのhandle位置を用いる条件は作られていない。独立したalias条件を未観測のため複合要求を未登録とする。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_soft_priority_layers.sv",
+              "contains": "h1 = new; h2 = new; h3 = new;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch18/test_disable_soft_direct_reference.sv",
+      "inputs_sha256": "6d983fe3cc24accc504d210317bbf3917306dfd16580260b68d27ff4d6d2aaf3",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-18.5.13.2-EXTRACT-DIRECT-REFERENCE",
+            "SV2023-18.5.13.2-EXTRACT-DISABLE-NO-CONTRADICTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "disable対象x/array.sizeを直接含む式だけを除去する実例だが、対象がsoft式ではなくenclosing conditionのみに現れる比較例は無い。またc2を残すとc1/c4と矛盾するため、非矛盾の低priority softも破棄することを区別するoracleにならない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_disable_soft_direct_reference.sv",
+              "contains": "constraint c2 { soft x == y; soft a.size() == n; }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_tagged_union_packed.sv",
+      "inputs_sha256": "cba9516b8bb4065f48b092c714d4a289143bc2af53c5fd02b9fec09acf836516",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.3.2-EXTRACT-MINIMUM-TAG-WIDTH",
+            "SV2023-7.3.2-EXTRACT-PACKED-TAGGED-SIZE",
+            "SV2023-7.3.2-EXTRACT-TAG-HIGH-MEMBER-LOW",
+            "SV2023-7.3.2-EXTRACT-TAGGED-UNDEFINED-GAP"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M84: 7.3.2本文はtagの最小幅/MSB配置を規定し、2-memberの図7-2/7-3では0/1を示す。しかしこの3-member testはOff/Small/Bigの符号を00/01/10と固定しており、任意member数でdeclaration-orderに割り当てる一般規則が本文のどこにあるかを確認できていない。符号化の根拠が解決するまでfile全体を新規承認に使わず、payload/tag連動は別のpattern testで照合する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_tagged_union_packed.sv",
+              "contains": "p = tagged Small 4'h9;"
+            },
+            {
+              "file": "tests/ch7/test_tagged_union_packed.expected",
+              "contains": "Off: tag 00\nSmall: tag 01, member 9, p.Small 9\nBig: tag 10, member a5, p.Big a5"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-7.3.2-EXTRACT-MINIMUM-TAG-WIDTH",
+            "SV2023-7.3.2-EXTRACT-PACKED-TAGGED-SIZE",
+            "SV2023-7.3.2-EXTRACT-TAG-HIGH-MEMBER-LOW"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M84 follow-up: 最終監査でも任意の3member tagの00/01/10符号化を固定する既存oracleの保留は未解決である。今回仮追加した幅・配置3行も元に戻し、このfileを新規の承認根拠に使わない。以前の判断・要求定義は保持する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_tagged_union_packed.sv",
+              "contains": "p = tagged Small 4'h9;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch33/test_vpi_module_binding_properties.sv",
+      "inputs_sha256": "be0639c067d77e20c23f8ec20391ec5bd5669eb389e6cd773654e93a853b3283",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-33.7-EXTRACT-VPI-CONFIG"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M85: vpiConfigはconfig[0] != NULで非空を比較するだけで、library.configという正しい識別子を検証しない。work/cellのstrcmpで検証する個別要求は登録したが、configの値を正しく返す要求は保留する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch33/test_vpi_module_binding_properties.sv",
+              "contains": "leaf u();"
+            },
+            {
+              "file": "tests/ch33/test_vpi_module_binding_properties.c",
+              "contains": "config[0] != '\\0'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_global_clocking_sampled_functions.sv",
+      "inputs_sha256": "e1ebb9e370dd4dbe98b42f3f2612db8f4cc88ae8fed013e04e68911f8b9c1517",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.9.4-EXTRACT-FUTURE-GCLK",
+            "SV2023-16.9.4-EXTRACT-RISING-GCLK",
+            "SV2023-16.9.4-EXTRACT-FALLING-GCLK",
+            "SV2023-16.9.4-EXTRACT-STEADY-GCLK",
+            "SV2023-16.9.4-EXTRACT-DELAYED-ACTIONS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M86: future値の評価とactionの次global tickへの遅延を同じqueue時刻だけで比較している。futureをpastへ誤置換すると同時にactionを遅延しない誤実装でも、このglobal clockとassertion clockが同じ刺激では同じqueueになる。future値とreport時刻を独立に判定できる根拠としては保留する。past系とsteady/changing相補性は別行へ登録済み。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_global_clocking_sampled_functions.sv",
+              "contains": "a_future: assert property (@($global_clock) $future_gclk(v) != 2'b01)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch36/test_vpi_chk_error_callbacks.sv",
+      "inputs_sha256": "b63841442e77d82e957304644c176e2ffa33584e55fe61cb791195ac3815524b",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.2-EXTRACT-READWRITE-READONLY-ERROR",
+            "SV2023-38.36.2-EXTRACT-START-ZERO-DELAY-ERROR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M87: この正常終了harnessは意図的な不正APIを呼び、返handle NULLとvpi_chk_error非零を検証し、合法cbReadOnlySynchの成功も対照に持つ。テスト自体はnegative API oracleとして有効だが、現行管理validatorはerror要求をshould_fail_because＋stderr regexのcaseだけに制限するため登録できない。検証形式の明示的な拡張と回帰検査を実施するまでは計上せず、テスト入力を負例metadataへ変更して回避しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_chk_error_callbacks.sv",
+              "contains": "initial #5 $vt_try;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_chk_error_callbacks.c",
+              "contains": "PLI_INT32 first = vpi_chk_error(NULL);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch26/test_package_export_all.sv",
+      "inputs_sha256": "4ded36aae3ea23f929cb02b613bf4279c476d2b14d069086b4cfcfb8192a584d",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-26.6-EXTRACT-EXPORT-GRAMMAR",
+            "SV2023-26.6-EXTRACT-EXPORT-IDENTITY",
+            "SV2023-26.6-EXTRACT-EXPORT-TRANSITIVITY",
+            "SV2023-26.6-EXTRACT-EXPORT-WILDCARD"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M88: export *::*の正側は観測するが、複数packageからの全import、同じoriginへの複数reexport経路、export-before-import、未参照候補が再公開されない条件を区別しない。全機能を含む複合要求には広げず保留する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_package_export_all.sv",
+              "contains": "export *::*;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_bind_assertion_basic.sv",
+      "inputs_sha256": "ae2b103921a970b23433eab9dd26154eaf7ff4c1110914e8bc15a14e09e14d2f",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-23.11-EXTRACT-BOUND-PART-OF-TARGET",
+            "SV2023-23.11-EXTRACT-BIND-SCOPE-ALL-SUBSET",
+            "SV2023-23.11-EXTRACT-BIND-ACTUAL-SCOPE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M89: 出力とpass_countはDUTのreadyだけを検査し、bound instanceの存在・pass/cover件数を検査しない。bindを無視しても期待出力が同じになり得るため、bindの動作要求には計上しない。複数のposedge stimulusにはActive regionの順序依存もあり、binding先の明確なpositive controlが必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_bind_assertion_basic.sv",
+              "contains": "bind dut dut_assertions dut_assert_inst ("
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_trireg_charge_decay.sv",
+      "inputs_sha256": "9f14740a3c1eedd4a68ca6c89d36494ed5fa0953133b95437cf56aa913792d02",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.16.2.1-EXTRACT-DECAY-REDRIVEN"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M90: コメントはdecay満了前のredriveによる取消しを説明するが、実際の最初の解除t10/decay20はt30に満了し、再駆動t40はその後である。次の解除t45/満了t65にも途中再駆動はない。decayの開始/満了は照合したが、pending decayの取消しは未観測。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_trireg_charge_decay.sv",
+              "contains": "trireg #(0, 0, 20) t;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch28/test_gen_strength_tri0_16.sv",
+      "inputs_sha256": "9ca3de3be9c9c5815ceedffe17d8c48465f35a14f64809159e58df347026e603",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.6.5-EXTRACT-TRI0-0-X",
+            "SV2023-6.6.5-EXTRACT-TRI0-1-X",
+            "SV2023-6.6.5-EXTRACT-TRI0-X-0",
+            "SV2023-6.6.5-EXTRACT-TRI0-X-1",
+            "SV2023-6.6.5-EXTRACT-TRI0-X-X",
+            "SV2023-6.6.5-EXTRACT-TRI0-X-Z",
+            "SV2023-6.6.5-EXTRACT-TRI0-Z-X"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M91: この生成済みfixtureは0/1/Zの9組だけを実行し、X driverを入力しない。opposite known strong driversのStX出力は観測するが、それを入力Xの真理値表セルへ流用しない。また各セルのactive strengthが表のstrong条件に合う場合だけ個別登録する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/gen/ch28/test_gen_strength_tri0_16.sv",
+              "contains": "d1 = 1'b1; d2 = 1'b0;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_statement_kinds.sv",
+      "inputs_sha256": "b8f38667bffcc2eda4ca227256e6a4a1947b896605b389254ab16a0ba3d4060b",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.72-EXTRACT-DIAGRAM-014"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M92: tagged patternのnested patternが有る/無いを比較するが、ある場合の正しいnested patternのtype/name/identityを検証しない。親pattern自身など別handleでも通るため、このone-to-one遷移の仮追加を取り下げた。tagged pattern型を観測するgroup membershipとは区別する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_statement_kinds.sv",
+              "contains": "tagged A .n: acc = n;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_statement_kinds.c",
+              "contains": "sub = vpi_handle(vpiPattern, p);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_statement_callbacks.sv",
+      "inputs_sha256": "a67ab977ee5e260ca1c2386a6739ce816b0f836cef8a6c9d60132dcde87d6545",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.1.2-EXTRACT-STMT-VPINAMEDBEGIN",
+            "SV2023-38.36.1.2-EXTRACT-STMT-WHILE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M96: named beginはcallback件数とobj型だけ、whileは3または4回の総件数と型だけを比較する。block内最初のstatementより前、condition評価の副作用より前というタイミングを比較しないため個別のbefore条件の行は保留する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_statement_callbacks.sv",
+              "contains": "while (i < 3)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_statement_callbacks.c",
+              "contains": "while_calls == 3 || while_calls == 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_string_compare.sv",
+      "inputs_sha256": "a2c0a4f822dad5a177e1664e8d748e9b35cc42104f44aa3ebc9d9797578e1755",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Codex (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.16-EXTRACT-STRING-GE",
+            "SV2023-6.16-EXTRACT-STRING-GT",
+            "SV2023-6.16-EXTRACT-STRING-LE",
+            "SV2023-6.16-EXTRACT-STRING-LT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M97: relational operatorの検査はすべて真を期待する分岐だけであり、常に1を返す誤実装を排除しない。<=/>=には等号とstrictの真の対照があるが、偽となる対照までないため、全体のexactly-when規則は保留する。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Codex (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_compare.sv",
+              "contains": "if (s1 >= s2 && s1 >= s3)"
+            }
+          ]
         }
       ]
     }

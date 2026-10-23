@@ -136,9 +136,14 @@ partial successes from separate runs are not combined into a successful requirem
 
 The 2026-10-23 updates are documented in the
 [matching progress and findings](docs/existing-test-matching-review-20261022.md),
+the [matching result exceeding 20% provisional design coverage](docs/existing-test-matching-20percent-20261023.md),
+the [VPI review and 10.08% milestone](docs/existing-test-matching-vpi-20261023.md),
 the [compiler-directive review](docs/existing-test-matching-preprocessor-20261023.md),
 the [11 expression gap tests](docs/expression-gap-tests-20261023.md) and the
 [15 associative-array gap tests](docs/associative-gap-tests-20261023.md).
+Provisional design coverage is **20.009741% (2,465/12,319)** after this matching;
+provisional execution coverage is **10.487864% (1,292/12,319)**. Confirmed values
+remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.
 
