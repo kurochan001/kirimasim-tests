@@ -4,7 +4,7 @@
 2026-10-22〜24の作業（要求の全抽出、20%→35.6%までの照合・テスト追加、台帳の見直し）で使った方法を、別の担当者が同じ結果を再現できる形で書いています。
 作業はまだ途中で、未完了の部分は「既知の限界」に書いています。
 
-関連資料: [要求抽出の結果](requirement-extraction.md) / [未解決事項](requirement-extraction-notes.md) / [計測規則と更新手順](../coverage/README.md) / [テストの書式](../README.md#test-format)
+関連資料: [要求抽出の結果](requirement-extraction.md) / [未解決事項](requirement-extraction-notes.md) / [計測規則と更新手順](../coverage/README.md) / [テストの書式](../README.md#test-format) / [半導体の仕様書への一般化](spec-to-verification-method.md)
 
 ## 1. 前提と原則
 
