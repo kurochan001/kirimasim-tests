@@ -134,6 +134,12 @@ chapter progress and links to the complete candidate worklist and content findin
 Collective witnesses require every member test to pass in one simulator snapshot;
 partial successes from separate runs are not combined into a successful requirement.
 
+The [method from the PDF to tests](docs/requirements-to-tests-method.md) describes,
+step by step, how the requirements were extracted from the standard, how existing
+tests are matched to them and new tests written, how an independent reviewer checks
+both, and how the results are merged and measured, with the
+[matching kit](tools/matching_kit/README.md) that the steps use.
+
 The 2026-10-23 updates are documented in the
 [matching progress and findings](docs/existing-test-matching-review-20261022.md),
 the [matching result exceeding 20% provisional design coverage](docs/existing-test-matching-20percent-20261023.md),
@@ -246,6 +252,7 @@ docs/tests/                     the catalog: every test with what it checks, by 
 docs/tests/clauses.md           which clauses of the standard the tests cite
 docs/coverage-depth.md          how many tests each clause has, and the priority gaps
 docs/behavior-coverage-summary.md provisional and confirmed behavior coverage, by chapter and simulator
+docs/requirements-to-tests-method.md the method from the standard's PDF to requirements, tests and coverage
 coverage/behavior-summary.json  the current behavior measurements and denominator identity
 coverage/behavior-history.json  saved measurement history with denominator identities
 tools/run_icarus.py             runs the suite with Icarus Verilog
@@ -263,6 +270,7 @@ tools/clauses.txt               the clause numbers of the standard, for docs/tes
 tools/lint_metadata.py          checks the metadata and the form of the tests
 tools/lint_baseline.txt         the problems of existing tests that the check reports as known
 tools/new_test.py               writes the skeleton of a new test
+tools/matching_kit/             proposes, checks, judges and merges links between requirements and tests
 .github/workflows/check.yml     checks the expected outputs with the releases
 .github/workflows/nightly.yml   the nightly run
 ```
