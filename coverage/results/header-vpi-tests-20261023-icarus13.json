@@ -1,0 +1,250 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch35/test_svdpi_h_after_vpi_user_h": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_after_vpi_user_h.sv:28: syntax error",
+   "inputs_sha256": "58a8d9302e1e02b4331f66e31159d2c1ad02e8029e0dacd93b3c4b42b4d67a70"
+  },
+  "ch35/test_svdpi_h_declarations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_declarations.sv:33: syntax error",
+   "inputs_sha256": "a08ba105258a7ff9c90b97634248ba03e5ed30ac63e36300c31df366eed31e2f"
+  },
+  "ch35/test_svdpi_h_sv_mask": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_sv_mask.sv:30: syntax error",
+   "inputs_sha256": "bd16d02dd745deeefdcc93993bfcc4c29ac0f667d9aca558d94947ed49c03380"
+  },
+  "ch36/test_sv_vpi_user_h_assertion_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'cbAssertionStart 606'",
+   "inputs_sha256": "492122af5c65b0a20fdfa98433f4ab9bc4a78458a48796e4c79ca3ef1529d50d"
+  },
+  "ch36/test_sv_vpi_user_h_coverage_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'vpiCoverageStart 750'",
+   "inputs_sha256": "7eba03712a6269f20dc4b365b9cef9c0cf0720de24ce2a9879ab8cf7359dc160"
+  },
+  "ch36/test_sv_vpi_user_h_declarations": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "7a75ccece3b372f18c47794779e0553aa8abafd4a82bb018a9946bb0a1678f47"
+  },
+  "ch36/test_sv_vpi_user_h_method_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiBaseTypespec 703', expected 'vpiActual 700'",
+   "inputs_sha256": "39a9acd74225f7c351b3a7a02c0d8dc3d9e9c6eaed597be2c75f9e307cea4803"
+  },
+  "ch36/test_sv_vpi_user_h_object_type_constants": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'vpiLongIntVar 610', expected 'vpiInterfaceArray 603'",
+   "inputs_sha256": "505e26c16509df7cec6bc7818d3610fb7579be8853229bf18d15de7f6f5fa44a"
+  },
+  "ch36/test_sv_vpi_user_h_operator_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiOtherFunc 6', expected 'vpiImplyOp 50'",
+   "inputs_sha256": "725cc37943b5dc2852852a6acd3685a52538439bc52f2a4c82c1238b214845ae"
+  },
+  "ch36/test_sv_vpi_user_h_property_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiArrayType 606', expected 'vpiTop 600'",
+   "inputs_sha256": "ba2414576683c7d2c6c2e0d339cc2ab340aef6513fa776df16e1f4ab02045550"
+  },
+  "ch36/test_vpi_compatibility_h_1364v1995": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "47886358431c6e65cc7efb84c86c75dda2115e55c7758084720bdd90fb832422"
+  },
+  "ch36/test_vpi_compatibility_h_1364v2001": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "830c51dc609a1e7f316548a8805307291f461a72afd289195329287fa5d9e2b6"
+  },
+  "ch36/test_vpi_compatibility_h_1364v2005": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "35a4841e1f6375565f5dcebd59fdbb0da443e8fea191c1dc4404686f0b98eebc"
+  },
+  "ch36/test_vpi_compatibility_h_1800v2005": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "0fbc2cd0bde893f3c1956a58009f0571a6c6d5829f8cb3e116542b8cc5f76551"
+  },
+  "ch36/test_vpi_compatibility_h_1800v2009": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "cb47e6f862e9da762a6f21d33f8bd3d9ba03b049314c9e675f1ff21271feafd9"
+  },
+  "ch36/test_vpi_compatibility_h_1800v2012": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "3ef15b9df99e61610d5b55c34158b188766b9429783c0288cb0ca0985c47a9a0"
+  },
+  "ch36/test_vpi_user_h_callback_reason_constants": {
+   "status": "known",
+   "reason": "output differs: line 25 is 'cbAtEndOfSimTime 31', expected 'cbAssign 25'",
+   "inputs_sha256": "5435bb082a07a3b1a4e737f77be88254c3d5d74e2c77b4723c05cd8611a88de9"
+  },
+  "ch36/test_vpi_user_h_method_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiIndex 78', expected 'vpiCondition 71'",
+   "inputs_sha256": "19d73bd63546829604e0916c6bf3870a30608bd58f9aab0f398d0704d8de0e37"
+  },
+  "ch36/test_vpi_user_h_object_type_constants": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiConstant 7', expected 'vpiAlways 1'",
+   "inputs_sha256": "0aab646ef522a8ba6197625ebfa1507d6f9a4292c758b91202bcd170e8ec75a3"
+  },
+  "ch36/test_vpi_user_h_property_constants": {
+   "status": "known",
+   "reason": "output differs: line 11 is 'vpiTimeUnit 11', expected 'vpiProtected 10'",
+   "inputs_sha256": "14f844620913918d565f4755134137b100d00dfdca3aec81bcf7df056fcba16d"
+  },
+  "ch36/test_vpi_user_h_routine_declarations": {
+   "status": "known",
+   "reason": "VPI build failed: 8 errors generated.",
+   "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d"
+  },
+  "ch36/test_vpi_user_h_structure_constants": {
+   "status": "known",
+   "reason": "output differs: line 22 is 'vpiNoDelay 1', expected 'vpiShortIntVal 14'",
+   "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d"
+  },
+  "ch36/test_vpi_user_h_type_declarations": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "f7448c8d404812323a5670b08cb565c17e3b0a65860e1cadf2447b0bdda61be6"
+  },
+  "ch36/test_vpi_user_h_type_guards": {
+   "status": "known",
+   "reason": "VPI build failed: 8 errors generated.",
+   "inputs_sha256": "b9d04e8d4210dcbb7f32cd8f65fe6842edb0b6055e7cdc1c6f89c073020f6a9d"
+  },
+  "ch37/test_vpi_block_scope_chain": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "f153840ed835d610b3848af18e3912ceb2864da6cb314b72b540a562e8b158ef"
+  },
+  "ch37/test_vpi_def_line_directive": {
+   "status": "pass",
+   "inputs_sha256": "367475e14fe07a5723595f27e551db5308e938d6b94ddbce4c6d2eda9e9e0b31"
+  },
+  "ch37/test_vpi_fork_join_type_stmts": {
+   "status": "known",
+   "reason": "VPI build failed: 9 errors generated.",
+   "inputs_sha256": "fb295fb9af2626f9b3cad1341374d905a855e247fad3138a39293155a91dd3d5"
+  },
+  "ch37/test_vpi_import_referenced_items": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "d183ade4ca18f5689e2b7e86583bb60243a905fc72f7cbabe0500d746c7f9de4"
+  },
+  "ch37/test_vpi_instance_array_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "e1cd8e5cd21864b8a8241115f151f8400c9562ef5fb6b537c2eb33d12a295cf9"
+  },
+  "ch37/test_vpi_instance_directive_properties": {
+   "status": "known",
+   "reason": "VPI build failed: 11 errors generated.",
+   "inputs_sha256": "02ffff230b995e1ffa42f979264ee3efec939035dde1fa09cffda610da0f01ba"
+  },
+  "ch37/test_vpi_instance_enclosure_names": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "d1e929d8c213d935d6631d0546ba7cc2680fc4a11b5df3e63de1a92418181c2f"
+  },
+  "ch37/test_vpi_instance_item_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "b2ad1e3888be46919c10629c1c62e37151a8efd2904a8ccdbdbdc521550cda28"
+  },
+  "ch37/test_vpi_interconnect_net_type_size": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "472d4360e5bf96832ff9eebfd646cece46c281d6e4cc3900078a3a75a7f58cb1"
+  },
+  "ch37/test_vpi_loop_var_scopes": {
+   "status": "known",
+   "reason": "VPI build failed: 6 errors generated.",
+   "inputs_sha256": "7b989eb57c517c86e47b8194418edda6b199bbdc5dfa47629f6e4eb0a6c509da"
+  },
+  "ch37/test_vpi_net_array_elements_indices": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "74da0496335f9d4748044a8822629eebf3927ade2fc0cb42de2c16df6f278830"
+  },
+  "ch37/test_vpi_net_decl_flags_select": {
+   "status": "known",
+   "reason": "VPI build failed: 13 errors generated.",
+   "inputs_sha256": "7b13d841a3e654c7e1904f078afb609ee0f429351c4c88c0cffacea86c275437"
+  },
+  "ch37/test_vpi_net_kinds_ranges_sizes": {
+   "status": "known",
+   "reason": "VPI build failed: 9 errors generated.",
+   "inputs_sha256": "0ba03d6dc8c8104377a1f98672e6f3393bdae4695438574dabc61662f2c2c1d9"
+  },
+  "ch37/test_vpi_net_local_active_connectivity": {
+   "status": "known",
+   "reason": "VPI build failed: 13 errors generated.",
+   "inputs_sha256": "fa7b76d4c934b62e3c501b3ab0531fa403f89237958bbafdd90308c61cfebb12"
+  },
+  "ch37/test_vpi_net_members_elements_parents": {
+   "status": "known",
+   "reason": "VPI build failed: 12 errors generated.",
+   "inputs_sha256": "a2636b8615e9ae92f719ffae55b7c6b2369e6754318726410d9f7fd5f9291269"
+  },
+  "ch37/test_vpi_net_ports_portinst_bits": {
+   "status": "known",
+   "reason": "VPI build failed: 11 errors generated.",
+   "inputs_sha256": "2c0adf22c3b91de43c9f861cf9915bce541ea18a5734708876020b028836fa66"
+  },
+  "ch37/test_vpi_net_terminals_module_typespec": {
+   "status": "known",
+   "reason": "VPI build failed: 16 errors generated.",
+   "inputs_sha256": "59a6ed49d7630fa2d2bc0634a493327a372ce3f018f0b7d7819b390a30228c11"
+  },
+  "ch37/test_vpi_net_variable_bit_select_drivers": {
+   "status": "known",
+   "reason": "VPI build failed: 10 errors generated.",
+   "inputs_sha256": "8470ae6f3987ad90b0b37ef476520efcd9dc84e07221877ba4b84d09fb844271"
+  },
+  "ch37/test_vpi_port_kinds_connections": {
+   "status": "known",
+   "reason": "VPI build failed: 17 errors generated.",
+   "inputs_sha256": "2c70813790ff0c83bccaf8c13dd0941db7bff3fc0ef8eb1e6c9725c9419c9c91"
+  },
+  "ch37/test_vpi_ref_obj_kinds_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 15 errors generated.",
+   "inputs_sha256": "b2acc59bb6850e48b24a00df2d645b160c61fe4d083c31b00574802db3b9eb93"
+  },
+  "ch37/test_vpi_scope_item_back_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 6 errors generated.",
+   "inputs_sha256": "ae2075517fe45da32b31d0e9473c7c971d68323d36d58d3871033f95ce22ac1a"
+  },
+  "ch37/test_vpi_subroutine_body_stmt": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "5e6a52c74e4c7b49696e8708580fd5ca16c47f71117a127b73bf1e57c077e51e"
+  },
+  "ch37/test_vpi_user_defined_net_kinds": {
+   "status": "known",
+   "reason": "VPI build failed: 16 errors generated.",
+   "inputs_sha256": "2206e5137526735b4f5d51dbc3c5416e0e3dc38c8c7bf8ee0eeaf5f9ed8ece8f"
+  },
+  "ch37/test_vpi_virtual_interface_var_iteration": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "fe26a56084643d843f7def447e9c663e6c776ca221f178046f597d306c0a472a"
+  }
+ },
+ "generated_at": "2026-10-23T14:32:27.916089+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

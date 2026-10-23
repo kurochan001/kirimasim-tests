@@ -1,0 +1,11 @@
+prim terms of tn: terminal 1 of test_vpi_net_terminals_module_typespec.l.g
+cont assigns of tn: assignment to test_vpi_net_terminals_module_typespec.l.pout
+prim terms of l.pin: terminal 1 of test_vpi_net_terminals_module_typespec.l.g
+cont assigns of l.pin: assignment to test_vpi_net_terminals_module_typespec.l.pout
+prim terms of l.lv2: none
+prim terms of l.lv2[1]: terminal 1 of test_vpi_net_terminals_module_typespec.l.gv
+path terms of t.a: input path term
+path terms of t.y: output path term
+tchk terms of t.d: tchk term, posedge 0
+tchk terms of t.clk: tchk term, posedge 1
+module of t.a: test_vpi_net_terminals_module_typespec.t, typespec vpiLogicTypespec 1

@@ -332,3 +332,29 @@ See [the test addition report](associative-gap-tests-20261023.md) for all
 inputs, mutation checks, result snapshots and coverage changes. The original
 fifteen-case runs and the later one-case wildcard/count refinements are kept
 as separate snapshots; partial successes are not merged into one run.
+
+## Cases added by the 2026-10-23 header and VPI model tests
+
+The new tests of the normative C headers (Annexes I, K, L and M) compare
+the constants, types, include guards and declarations of the headers that a
+simulator provides with those the annexes give. One header defines
+something differently from the standard:
+
+- IEEE H.10.1.2, I.3: the svdpi.h of Verilator 5.052 defines `SV_MASK(N)`
+  as `~(0xffffffffU << (N))`, an unsigned int, where the standard gives
+  `~(-1 << (N))`, an int; the low bits it sets are the same.
+  `ch35/test_svdpi_h_sv_mask` prints 0 for the text and the type of the
+  macro, so `:oracle:` lists no simulator.
+
+The other differences these tests show are left out as unsupported
+features, as above. Icarus Verilog 13.0's vpi_user.h and sv_vpi_user.h
+define 218 of the 855 constants of K.2 and M.2, all with the values the
+annexes give, and lack most of the declarations of K.2 and M.2, so the
+constant tests miss lines and the declaration tests do not compile with it.
+Neither release provides vpi_compatibility.h (Verilator's copy of vpi_user.h
+has the line that includes it commented out), so the six
+`ch36/test_vpi_compatibility_h_*` tests show the routine names unmapped.
+The 24 new VPI tests of clause 37 (`ch37/test_vpi_*` added the same day)
+use constants that Icarus Verilog 13.0's headers lack and system tasks
+registered with vpi_register_systf, which Verilator 5.052 cannot call; one
+of them matches Icarus Verilog 13.0 and the others have `:oracle: spec`.

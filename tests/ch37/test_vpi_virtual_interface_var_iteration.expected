@@ -1,0 +1,2 @@
+vpiVirtualInterfaceVar: va[0] vpiVirtualInterfaceVar in test_vpi_virtual_interface_var_iteration, va[1] vpiVirtualInterfaceVar in test_vpi_virtual_interface_var_iteration, vs vpiVirtualInterfaceVar in test_vpi_virtual_interface_var_iteration
+vpiVariables: va vpiArrayVar, vs vpiVirtualInterfaceVar

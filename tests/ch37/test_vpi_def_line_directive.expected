@@ -1,0 +1,4 @@
+test_vpi_def_line_directive: test_vpi_def_line_directive.sv line 24
+p: test_vpi_def_line_directive.sv line 32
+m1: cells.v line 40
+m2: other.sv line 7

@@ -1,0 +1,87 @@
+INCLUDED_SVDPI defined and a second include changes nothing 1
+DPI_EXTERN undefined after the header 1
+DPI_PROTOTYPES XXTERN EETERN undefined after the header 1
+uint8_t and uint32_t available with sizes 1 and 4 1
+sv_0 sv_1 sv_z sv_x are 0 1 2 3 1
+svScalar is uint8_t 1
+svBit and svLogic are svScalar 1
+svBitVecVal is uint32_t 1
+VPI_VECVAL defined 1
+t_vpi_vecval aliases s_vpi_vecval p_vpi_vecval 1
+t_vpi_vecval aval bval uint32_t in this order 1
+svLogicVecVal is s_vpi_vecval 1
+SV_PACKED_DATA_NELEMS of 1 32 33 64 65 is 1 1 2 2 3 1
+SV_GET_UNSIGNED_BITS of 0xabcd1234 with 32 8 1 is 0xabcd1234 0x34 0x0 1
+VPI_TIME defined 1
+t_vpi_time aliases s_vpi_time p_vpi_time 1
+t_vpi_time type int32_t high low uint32_t real double in this order 1
+vpiScaledRealTime vpiSimTime vpiSuppressTime are 1 2 3 1
+svTimeVal is s_vpi_time 1
+sv_scaled_real_time sv_sim_time are vpiScaledRealTime vpiSimTime 1
+svAckDisabledState: void (void) 1
+svDimensions: int (const svOpenArrayHandle h) 1
+svDpiVersion: const char* (void) 1
+svGetArrElemPtr: void * (const svOpenArrayHandle, int indx1, ...) 1
+svGetArrElemPtr1: void * (const svOpenArrayHandle, int indx1) 1
+svGetArrElemPtr2: void * (const svOpenArrayHandle, int indx1, int indx2) 1
+svGetArrElemPtr3: void * (const svOpenArrayHandle, int indx1, int indx2, int indx3) 1
+svGetArrayPtr: void * (const svOpenArrayHandle) 1
+svGetBitArrElem: svBit (const svOpenArrayHandle s, int indx1, ...) 1
+svGetBitArrElem1: svBit (const svOpenArrayHandle s, int indx1) 1
+svGetBitArrElem1VecVal: void (svBitVecVal* d, const svOpenArrayHandle s, int indx1) 1
+svGetBitArrElem2: svBit (const svOpenArrayHandle s, int indx1, int indx2) 1
+svGetBitArrElem2VecVal 1
+svGetBitArrElem3: svBit (const svOpenArrayHandle s, int indx1, int indx2, int indx3) 1
+svGetBitArrElem3VecVal 1
+svGetBitArrElemVecVal: void (svBitVecVal* d, const svOpenArrayHandle s, int indx1, ...) 1
+svGetBitselBit: svBit (const svBitVecVal* s, int i) 1
+svGetBitselLogic: svLogic (const svLogicVecVal* s, int i) 1
+svGetCallerInfo: int (const char** fileName, int *lineNumber) 1
+svGetLogicArrElem: svLogic (const svOpenArrayHandle s, int indx1, ...) 1
+svGetLogicArrElem1: svLogic (const svOpenArrayHandle s, int indx1) 1
+svGetLogicArrElem1VecVal: void (svLogicVecVal* d, const svOpenArrayHandle s, int indx1) 1
+svGetLogicArrElem2: svLogic (const svOpenArrayHandle s, int indx1, int indx2) 1
+svGetLogicArrElem2VecVal 1
+svGetLogicArrElem3: svLogic (const svOpenArrayHandle s, int indx1, int indx2, int indx3) 1
+svGetLogicArrElem3VecVal 1
+svGetLogicArrElemVecVal 1
+svGetNameFromScope: const char* (const svScope) 1
+svGetPartselBit: void (svBitVecVal* d, const svBitVecVal* s, int i, int w) 1
+svGetPartselLogic: void (svLogicVecVal* d, const svLogicVecVal* s, int i,int w) 1
+svGetScope: svScope (void) 1
+svGetScopeFromName: svScope (const char* scopeName) 1
+svGetTime: int (const svScope scope, svTimeVal* time) 1
+svGetTimePrecision: int (const svScope scope, int32_t* time_precision) 1
+svGetTimeUnit: int (const svScope scope, int32_t* time_unit) 1
+svGetUserData: void* (const svScope scope, void* userKey) 1
+svHigh: int (const svOpenArrayHandle h, int d) 1
+svIncrement: int (const svOpenArrayHandle h, int d) 1
+svIsDisabledState: int (void) 1
+svLeft: int (const svOpenArrayHandle h, int d) 1
+svLow: int (const svOpenArrayHandle h, int d) 1
+svPutBitArrElem: void (const svOpenArrayHandle d, svBit value, int indx1, ...) 1
+svPutBitArrElem1: void (const svOpenArrayHandle d, svBit value, int indx1) 1
+svPutBitArrElem1VecVal: void (const svOpenArrayHandle d, const svBitVecVal* s, int indx1) 1
+svPutBitArrElem2: void (const svOpenArrayHandle d, svBit value, int indx1, int indx2) 1
+svPutBitArrElem2VecVal 1
+svPutBitArrElem3 1
+svPutBitArrElem3VecVal 1
+svPutBitArrElemVecVal 1
+svPutBitselBit: void (svBitVecVal* d, int i, svBit s) 1
+svPutBitselLogic: void (svLogicVecVal* d, int i, svLogic s) 1
+svPutLogicArrElem: void (const svOpenArrayHandle d, svLogic value, int indx1, ...) 1
+svPutLogicArrElem1: void (const svOpenArrayHandle d, svLogic value, int indx1) 1
+svPutLogicArrElem1VecVal 1
+svPutLogicArrElem2: void (const svOpenArrayHandle d, svLogic value, int indx1, int indx2) 1
+svPutLogicArrElem2VecVal 1
+svPutLogicArrElem3 1
+svPutLogicArrElem3VecVal 1
+svPutLogicArrElemVecVal 1
+svPutPartselBit: void (svBitVecVal* d, const svBitVecVal s, int i, int w) 1
+svPutPartselLogic: void (svLogicVecVal* d, const svLogicVecVal s, int i, int w) 1
+svPutUserData: int (const svScope scope, void *userKey, void* userData) 1
+svRight: int (const svOpenArrayHandle h, int d) 1
+svSetScope: svScope (const svScope scope) 1
+svSize: int (const svOpenArrayHandle h, int d) 1
+svSizeOfArray: int (const svOpenArrayHandle) 1
+svDpiVersion returns 1800-2005 or SV3.1a 1

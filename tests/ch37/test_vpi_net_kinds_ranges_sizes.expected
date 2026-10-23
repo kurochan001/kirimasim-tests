@@ -1,0 +1,16 @@
+s1: logic net, size 1, scalar 1, vector 0, ranges none, type string vpiNet or vpiLogicNet 1
+lv: logic net, size 8, scalar 0, vector 1, ranges 3:0 1:0, left 3 right 0, type string vpiNet or vpiLogicNet 1
+w4: logic net, size 4, scalar 0, vector 1, ranges 3:0, left 3 right 0, type string vpiNet or vpiLogicNet 1
+w4 bits: 4, net bits of size 1, scalar 1, vector 0: 4
+wi: integer net, size 32, scalar 0, vector 1
+wt: time net, size 64, scalar 0, vector 1
+psn: struct net, size 3, scalar 0, vector 1
+usn: struct net, size 2, scalar 0, vector 0
+pun: union net, size 4, scalar 0, vector 1
+enn: enum net, size 3, scalar 0, vector 1
+en1: enum net, size 1, scalar 1, vector 0
+pan: packed array net, size 6, scalar 0, vector 1, ranges 1:0, left 1 right 0
+pae: packed array net, size 6, scalar 0, vector 1, ranges 4:3, left 4 right 3
+an: array net, size 6, scalar 0, vector 1, ranges 0:2 5:4, type string vpiArrayNet or vpiNetArray 1
+sn: array net, size 4, scalar 1, vector 0, ranges 3:0, type string vpiArrayNet or vpiNetArray 1
+apn: array net, size 2, scalar 0, vector 1, ranges 2:3, type string vpiArrayNet or vpiNetArray 1

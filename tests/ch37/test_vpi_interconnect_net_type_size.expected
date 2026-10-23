@@ -1,0 +1,2 @@
+iw: interconnect net 1, net type vpiInterconnect, resolved net type vpiWand, size 4
+ia: interconnect array 1, net type vpiInterconnect, size 3, typespec NULL 1

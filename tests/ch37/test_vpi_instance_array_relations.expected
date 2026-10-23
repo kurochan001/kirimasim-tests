@@ -1,0 +1,14 @@
+ma: vpiModuleArray, name ma, full name test_vpi_instance_array_relations.ma, size 3
+ma connections: vpiListOp 1, operands: ia iy
+ma vpiInstance: test_vpi_instance_array_relations.ma[0] test_vpi_instance_array_relations.ma[1] test_vpi_instance_array_relations.ma[2]; vpiInstanceArray of each: ma
+ma vpiModule: test_vpi_instance_array_relations.ma[0] test_vpi_instance_array_relations.ma[1] test_vpi_instance_array_relations.ma[2]; vpiModuleArray of each: ma
+ifa: vpiInterfaceArray, name ifa, full name test_vpi_instance_array_relations.ifa, size 2
+ifa vpiInstance: test_vpi_instance_array_relations.ifa[0] test_vpi_instance_array_relations.ifa[1]; vpiInstanceArray of each: ifa
+pga: vpiProgramArray, name pga, full name test_vpi_instance_array_relations.pga, size 2
+pga vpiInstance: test_vpi_instance_array_relations.pga[0] test_vpi_instance_array_relations.pga[1]; vpiInstanceArray of each: pga
+gb: vpiGateArray, name gb, full name test_vpi_instance_array_relations.gb, size 2
+gb vpiPrimitive: test_vpi_instance_array_relations.gb[0] test_vpi_instance_array_relations.gb[1]; vpiPrimitiveArray of each: gb
+sw: vpiSwitchArray, name sw, full name test_vpi_instance_array_relations.sw, size 2
+sw vpiPrimitive: test_vpi_instance_array_relations.sw[0] test_vpi_instance_array_relations.sw[1]; vpiPrimitiveArray of each: sw
+uda: vpiUdpArray, name uda, full name test_vpi_instance_array_relations.uda, size 2
+uda vpiPrimitive: test_vpi_instance_array_relations.uda[0] test_vpi_instance_array_relations.uda[1]; vpiPrimitiveArray of each: uda

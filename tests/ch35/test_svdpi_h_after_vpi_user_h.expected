@@ -1,0 +1,3 @@
+svTimeVal is the s_vpi_time of vpi_user.h 1
+svLogicVecVal is the s_vpi_vecval of vpi_user.h 1
+vpiScaledRealTime vpiSimTime vpiSuppressTime are 1 2 3 1

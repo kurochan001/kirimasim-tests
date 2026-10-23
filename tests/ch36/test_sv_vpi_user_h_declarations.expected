@@ -1,0 +1,16 @@
+SV_VPI_USER_H defined and a second include adds nothing 1
+VPI_USER_H defined by including sv_vpi_user.h alone 1
+t_vpi_assertion_step_info aliases s_ and p_vpi_assertion_step_info 1
+t_vpi_assertion_step_info order matched_expression_count matched_exprs stateFrom stateTo 1
+t_vpi_assertion_step_info.matched_expression_count PLI_INT32 1
+t_vpi_assertion_step_info.matched_exprs vpiHandle * 1
+t_vpi_assertion_step_info.stateFrom PLI_INT32 1
+t_vpi_assertion_step_info.stateTo PLI_INT32 1
+t_vpi_attempt_info aliases s_vpi_attempt_info p_vpi_attempt_info 1
+t_vpi_attempt_info field order detail attemptStartTime 1
+t_vpi_attempt_info.detail.failExpr vpiHandle 1
+t_vpi_attempt_info.detail.step p_vpi_assertion_step_info 1
+t_vpi_attempt_info.detail is a union of failExpr and step 1
+t_vpi_attempt_info.attemptStartTime s_vpi_time 1
+vpi_assertion_callback_func: PLI_INT32 (reason, cb_time, assertion, info, user_data) 1
+vpi_register_assertion_cb: vpiHandle (assertion, reason, cb_rtn, user_data) 1

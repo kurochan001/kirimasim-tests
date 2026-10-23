@@ -1,0 +1,6 @@
+i = 0
+  drivers of w[i]: assignment from d0
+  loads of w[i] other than the assignment to y: assignment to z0
+i = 1
+  drivers of w[i]: assignment from d1
+  loads of w[i] other than the assignment to y: assignment to z1

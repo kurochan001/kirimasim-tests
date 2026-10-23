@@ -1,0 +1,13 @@
+use of r: ref obj, name r, full name test_vpi_ref_obj_kinds_relations.m.r, actual logic var test_vpi_ref_obj_kinds_relations.a, generic vpiUndefined, parent NULL, typespec vpiLogicTypespec, instance test_vpi_ref_obj_kinds_relations.m
+use of r[1]: ref obj, actual var bit test_vpi_ref_obj_kinds_relations.a[1], generic vpiUndefined, parent ref obj r
+use of s.v: ref obj, actual logic var test_vpi_ref_obj_kinds_relations.i0.v, generic vpiUndefined, typespec vpiLogicTypespec
+use of t: ref obj, actual int var test_vpi_ref_obj_kinds_relations.m.cnt, generic vpiUndefined, typespec vpiIntTypespec, task func tr
+port s: high conn ref obj, actual interface test_vpi_ref_obj_kinds_relations.i0
+  low conn ref obj, name s, full name test_vpi_ref_obj_kinds_relations.m.s, actual interface test_vpi_ref_obj_kinds_relations.i0, generic 0, def name rok_if, typespec NULL, instance test_vpi_ref_obj_kinds_relations.m, vpiPorts: s
+port g: high conn ref obj, actual interface test_vpi_ref_obj_kinds_relations.i0
+  low conn ref obj, name g, full name test_vpi_ref_obj_kinds_relations.m.g, actual interface test_vpi_ref_obj_kinds_relations.i0, generic 1, def name rok_if, typespec NULL, instance test_vpi_ref_obj_kinds_relations.m, vpiPorts: g
+port r: high conn a
+  low conn ref obj, name r, full name test_vpi_ref_obj_kinds_relations.m.r, actual logic var test_vpi_ref_obj_kinds_relations.a, generic vpiUndefined, typespec vpiLogicTypespec, instance test_vpi_ref_obj_kinds_relations.m, vpiPorts: r
+io decl g: expr ref obj g
+io decl r: expr ref obj r
+io decl s: expr ref obj s

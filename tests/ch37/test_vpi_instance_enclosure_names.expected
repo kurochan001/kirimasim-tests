@@ -1,0 +1,10 @@
+cu_var: full name $unit::cu_var, instance package (vpiUnit 1), module NULL
+pv: full name ie_pkg::pv, instance package ie_pkg (vpiUnit 0), module NULL
+pt: full name ie_pkg::pt, instance package ie_pkg (vpiUnit 0), module NULL
+tv: full name ie_pkg::pt.tv, instance package ie_pkg (vpiUnit 0), module NULL
+lv: full name test_vpi_instance_enclosure_names.u.lv, instance module test_vpi_instance_enclosure_names.u, module test_vpi_instance_enclosure_names.u
+bv: full name test_vpi_instance_enclosure_names.u.blk.bv, instance module test_vpi_instance_enclosure_names.u, module test_vpi_instance_enclosure_names.u
+ie_cls: full name test_vpi_instance_enclosure_names.u.ie_cls, instance module test_vpi_instance_enclosure_names.u, module test_vpi_instance_enclosure_names.u
+cnt: full name test_vpi_instance_enclosure_names.u.ie_cls::cnt, instance module test_vpi_instance_enclosure_names.u, module test_vpi_instance_enclosure_names.u
+iv: full name test_vpi_instance_enclosure_names.ifc.iv, instance interface test_vpi_instance_enclosure_names.ifc
+prv: full name test_vpi_instance_enclosure_names.pr.prv, instance program test_vpi_instance_enclosure_names.pr

@@ -1,0 +1,11 @@
+nb vpiReg: lv; vpiScope: test_vpi_scope_item_back_relations.nb
+nb vpiRegArray: la; vpiScope: test_vpi_scope_item_back_relations.nb
+nb vpiMemory: la; vpiScope: test_vpi_scope_item_back_relations.nb
+nb vpiNamedEvent: ne; vpiScope: test_vpi_scope_item_back_relations.nb
+nb vpiNamedEventArray: nea; vpiScope: test_vpi_scope_item_back_relations.nb
+nb vpiParameter: LP; vpiScope: test_vpi_scope_item_back_relations.nb
+nb vpiTypedef: bt; vpiScope: test_vpi_scope_item_back_relations.nb
+nb vpiLetDecl: lt; vpiScope: test_vpi_scope_item_back_relations.nb
+g vpiPropertyDecl: pd; vpiScope: test_vpi_scope_item_back_relations.g
+g vpiSequenceDecl: sd; vpiScope: test_vpi_scope_item_back_relations.g
+g vpiConcurrentAssertions: ca; vpiScope: test_vpi_scope_item_back_relations.g

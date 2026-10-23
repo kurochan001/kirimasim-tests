@@ -1,0 +1,6 @@
+top: top 1, array member 0, default net type vpiWire, unconnected drive vpiHighZ, delay mode none 1, protected 0
+u1: top 0, array member 0, default net type vpiTri1, unconnected drive vpiPull1, delay mode none 1, protected 0
+arr[1]: top 0, array member 1, default net type vpiTri1, unconnected drive vpiPull1, delay mode none 1, protected 0
+arr[0]: top 0, array member 1, default net type vpiTri1, unconnected drive vpiPull1, delay mode none 1, protected 0
+u0: top 0, array member 0, default net type vpiWand, unconnected drive vpiPull0, delay mode none 1, protected 0
+un: top 0, array member 0, default net type vpiNone, unconnected drive vpiHighZ, delay mode none 1, protected 0

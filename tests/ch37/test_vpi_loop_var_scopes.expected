@@ -1,0 +1,4 @@
+A: call in named begin b; j in the same scope 0, in module test_vpi_loop_var_scopes
+B: call in for (vpiLocalVarDecls 1); i in the same scope 1
+C: call in foreach stmt; k in the same scope 1
+loops of b: for (vpiLocalVarDecls 0) for (vpiLocalVarDecls 1) foreach stmt

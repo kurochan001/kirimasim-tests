@@ -1,0 +1,11 @@
+vpiPorts of u.v: port v of u
+vpiPorts of u.v[1]: port bit of port v
+vpiPorts of u.s: port s of u
+vpiPortInst of tw: port v of u
+vpiPortInst of tw[0]: port bit of port v
+vpiPortInst of tw[3]: none
+vpiPortInst of ts: port s of u
+vpiPortInst of tc: port cx of u
+vpiPortInst of tc[0]: port cx of u
+port v: low conn test_vpi_net_ports_portinst_bits.u.v, high conn test_vpi_net_ports_portinst_bits.tw
+port s: low conn test_vpi_net_ports_portinst_bits.u.s, high conn test_vpi_net_ports_portinst_bits.ts

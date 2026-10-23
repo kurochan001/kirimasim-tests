@@ -1,0 +1,9 @@
+ua port 0 a: vpiPort, conn by name 1, explicit name 0, size 4, scalar 0, vector 1, high conn n4, low conn a, instance test_vpi_port_kinds_connections.ua, module test_vpi_port_kinds_connections.ua, logic typespec 1
+  bits of a: 4, all port bits 1, all with the port as parent 1
+ua port 1 y: vpiPort, conn by name 1, explicit name 0, size 1, scalar 1, vector 0, high conn ny, low conn y, instance test_vpi_port_kinds_connections.ua, module test_vpi_port_kinds_connections.ua, logic typespec 1
+ua port 2 ip: vpiInterfacePort, conn by name 1, explicit name 0, high conn ref obj of interface test_vpi_port_kinds_connections.i0, low conn ref obj of interface test_vpi_port_kinds_connections.i0, instance test_vpi_port_kinds_connections.ua, module test_vpi_port_kinds_connections.ua
+ua port 3 mpp: vpiModportPort, conn by name 1, explicit name 0, high conn ref obj of modport mp, instance test_vpi_port_kinds_connections.ua, module test_vpi_port_kinds_connections.ua
+un port 0 x: vpiPort, conn by name 0, explicit name 0, size 1, scalar 1, vector 0, high conn two, low conn x, instance test_vpi_port_kinds_connections.un, module test_vpi_port_kinds_connections.un
+un port 1 p: vpiPort, conn by name 0, explicit name 1, size 1, scalar 1, vector 0, high conn sq, low conn q, instance test_vpi_port_kinds_connections.un, module test_vpi_port_kinds_connections.un
+un port 2 w: vpiPort, conn by name 0, explicit name 0, size 3, scalar 0, vector 1, high conn s1, low conn w, instance test_vpi_port_kinds_connections.un, module test_vpi_port_kinds_connections.un
+  bits of w: 3, all port bits 1, all with the port as parent 1

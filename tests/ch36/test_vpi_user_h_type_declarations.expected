@@ -1,0 +1,72 @@
+PLI_TYPES defined 1
+PLI_INT32 is int 1
+PLI_UINT32 is unsigned int 1
+PLI_INT16 is short 1
+PLI_UINT16 is unsigned short 1
+PLI_BYTE8 is char 1
+PLI_UBYTE8 is unsigned char 1
+SVPI_TYPES defined 1
+PLI_INT64 is int64_t 1
+PLI_UINT64 is uint64_t 1
+int8_t int32_t int64_t uint8_t uint32_t uint64_t sizes 1 4 8 1
+int8_t int32_t int64_t signed and uint8_t uint32_t uint64_t unsigned 1
+vpiHandle is PLI_UINT32 * 1
+VPI_USER_H defined and a second include adds nothing 1
+stdarg.h included (va_start, va_arg, va_end) 1
+t_vpi_delay aliases s_vpi_delay p_vpi_delay 1
+t_vpi_delay field order da no_of_delays time_type mtm_flag append_flag pulsere_flag 1
+t_vpi_delay.da struct t_vpi_time * 1
+t_vpi_delay.no_of_delays PLI_INT32 1
+t_vpi_delay.time_type PLI_INT32 1
+t_vpi_delay.mtm_flag PLI_INT32 1
+t_vpi_delay.append_flag PLI_INT32 1
+t_vpi_delay.pulsere_flag PLI_INT32 1
+t_vpi_value aliases s_vpi_value p_vpi_value 1
+t_vpi_value field order format value 1
+t_vpi_value.format PLI_INT32 1
+t_vpi_value.value is a union of its eight members 1
+t_vpi_value.value.str PLI_BYTE8 * 1
+t_vpi_value.value.scalar PLI_INT32 1
+t_vpi_value.value.integer PLI_INT32 1
+t_vpi_value.value.real double 1
+t_vpi_value.value.time struct t_vpi_time * 1
+t_vpi_value.value.vector struct t_vpi_vecval * 1
+t_vpi_value.value.strength struct t_vpi_strengthval * 1
+t_vpi_value.value.misc PLI_BYTE8 * 1
+t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1
+t_vpi_arrayvalue field order format flags value 1
+t_vpi_arrayvalue.format PLI_UINT32 1
+t_vpi_arrayvalue.flags PLI_UINT32 1
+t_vpi_arrayvalue.value is a union of its eight members 1
+t_vpi_arrayvalue.value.integers PLI_INT32 * 1
+t_vpi_arrayvalue.value.shortints PLI_INT16 * 1
+t_vpi_arrayvalue.value.longints PLI_INT64 * 1
+t_vpi_arrayvalue.value.rawvals PLI_BYTE8 * 1
+t_vpi_arrayvalue.value.vectors struct t_vpi_vecval * 1
+t_vpi_arrayvalue.value.times struct t_vpi_time * 1
+t_vpi_arrayvalue.value.reals double * 1
+t_vpi_arrayvalue.value.shortreals float * 1
+t_vpi_vlog_info aliases s_vpi_vlog_info p_vpi_vlog_info 1
+t_vpi_vlog_info field order argc argv product version 1
+t_vpi_vlog_info.argc PLI_INT32 1
+t_vpi_vlog_info.argv PLI_BYTE8 ** 1
+t_vpi_vlog_info.product PLI_BYTE8 * 1
+t_vpi_vlog_info.version PLI_BYTE8 * 1
+t_vpi_error_info aliases s_vpi_error_info p_vpi_error_info 1
+t_vpi_error_info field order state level message product code file line 1
+t_vpi_error_info.state PLI_INT32 1
+t_vpi_error_info.level PLI_INT32 1
+t_vpi_error_info.message PLI_BYTE8 * 1
+t_vpi_error_info.product PLI_BYTE8 * 1
+t_vpi_error_info.code PLI_BYTE8 * 1
+t_vpi_error_info.file PLI_BYTE8 * 1
+t_vpi_error_info.line PLI_INT32 1
+t_cb_data aliases s_cb_data p_cb_data 1
+t_cb_data field order reason cb_rtn obj time value index user_data 1
+t_cb_data.reason PLI_INT32 1
+t_cb_data.cb_rtn PLI_INT32 (*)(struct t_cb_data *) 1
+t_cb_data.obj vpiHandle 1
+t_cb_data.time p_vpi_time 1
+t_cb_data.value p_vpi_value 1
+t_cb_data.index PLI_INT32 1
+t_cb_data.user_data PLI_BYTE8 * 1

@@ -1,0 +1,41 @@
+vpi_chk_error: PLI_INT32 (p_vpi_error_info error_info_p) 1
+vpi_compare_objects: PLI_INT32 (vpiHandle object1, vpiHandle object2) 1
+vpi_control: PLI_INT32 (PLI_INT32 operation, ...) 1
+vpi_flush: PLI_INT32 (void) 1
+vpi_free_object: PLI_INT32 (vpiHandle object) 1
+vpi_get: PLI_INT32 (PLI_INT32 property, vpiHandle object) 1
+vpi_get64: PLI_INT64 (PLI_INT32 property, vpiHandle object) 1
+vpi_get_cb_info: void (vpiHandle object, p_cb_data cb_data_p) 1
+vpi_get_data: PLI_INT32 (PLI_INT32 id, PLI_BYTE8 *dataLoc, PLI_INT32 numOfBytes) 1
+vpi_get_delays: void (vpiHandle object, p_vpi_delay delay_p) 1
+vpi_get_str: PLI_BYTE8 * (PLI_INT32 property, vpiHandle object) 1
+vpi_get_systf_info: void (vpiHandle object, p_vpi_systf_data systf_data_p) 1
+vpi_get_time: void (vpiHandle object, p_vpi_time time_p) 1
+vpi_get_userdata: void * (vpiHandle obj) 1
+vpi_get_value: void (vpiHandle expr, p_vpi_value value_p) 1
+vpi_get_value_array 1
+vpi_get_vlog_info: PLI_INT32 (p_vpi_vlog_info vlog_info_p) 1
+vpi_handle: vpiHandle (PLI_INT32 type, vpiHandle refHandle) 1
+vpi_handle_by_index: vpiHandle (vpiHandle object, PLI_INT32 indx) 1
+vpi_handle_by_multi_index 1
+vpi_handle_by_name: vpiHandle (PLI_BYTE8 *name, vpiHandle scope) 1
+vpi_handle_multi 1
+vpi_iterate: vpiHandle (PLI_INT32 type, vpiHandle refHandle) 1
+vpi_mcd_close: PLI_UINT32 (PLI_UINT32 mcd) 1
+vpi_mcd_flush: PLI_INT32 (PLI_UINT32 mcd) 1
+vpi_mcd_name: PLI_BYTE8 * (PLI_UINT32 cd) 1
+vpi_mcd_open: PLI_UINT32 (PLI_BYTE8 *fileName) 1
+vpi_mcd_printf: PLI_INT32 (PLI_UINT32 mcd, PLI_BYTE8 *format, ...) 1
+vpi_mcd_vprintf: PLI_INT32 (PLI_UINT32 mcd, PLI_BYTE8 *format, va_list ap) 1
+vpi_printf: PLI_INT32 (PLI_BYTE8 *format, ...) 1
+vpi_put_data: PLI_INT32 (PLI_INT32 id, PLI_BYTE8 *dataLoc, PLI_INT32 numOfBytes) 1
+vpi_put_delays: void (vpiHandle object, p_vpi_delay delay_p) 1
+vpi_put_userdata: PLI_INT32 (vpiHandle obj, void *userdata) 1
+vpi_put_value 1
+vpi_put_value_array 1
+vpi_register_cb: vpiHandle (p_cb_data cb_data_p) 1
+vpi_register_systf: vpiHandle (p_vpi_systf_data systf_data_p) 1
+vpi_release_handle: PLI_INT32 (vpiHandle object) 1
+vpi_remove_cb: PLI_INT32 (vpiHandle cb_obj) 1
+vpi_scan: vpiHandle (vpiHandle iterator) 1
+vpi_vprintf: PLI_INT32 (PLI_BYTE8 *format, va_list ap) 1

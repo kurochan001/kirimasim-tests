@@ -1,0 +1,7 @@
+statements of p: 6
+named fork fj, vpiJoin, statements: a b
+named fork fa, vpiJoinAny, statements: c
+named fork fn, vpiJoinNone, statements: d e f
+fork, vpiJoin, statements: g
+fork, vpiJoinAny, statements: h i
+fork, vpiJoinNone, statements: j

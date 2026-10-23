@@ -1,0 +1,14 @@
+nsr: vpiShortRealNet, vpiNettypeNet 1
+nr: vpiRealNet, vpiNettypeNet 1
+nb: vpiByteNet, vpiNettypeNet 1, size 8
+nsi: vpiShortIntNet, vpiNettypeNet 1, size 16
+ni: vpiIntNet, vpiNettypeNet 1, size 32
+nli: vpiLongIntNet, vpiNettypeNet 1, size 64
+nig: vpiIntegerNet, vpiNettypeNet 1, size 32
+nt: vpiTimeNet, vpiNettypeNet 1, size 64
+nbit: vpiBitNet, vpiNettypeNet 1, size 4, ranges 5:2, left 5 right 2
+nl: vpiLogicNet, vpiNettypeNet 1, size 3, ranges 3:1, left 3 right 1
+npa: vpiPackedArrayNet, vpiNettypeNet 1, size 6, ranges 1:0, left 1 right 0
+ns: vpiStructNet, vpiNettypeNet 1, size 3
+nu: vpiUnionNet, vpiNettypeNet 1, size 3
+ne: vpiEnumNet, vpiNettypeNet 1, size 2

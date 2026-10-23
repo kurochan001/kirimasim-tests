@@ -1,0 +1,4 @@
+SV_MASK(N) expands to (~(-1 << (N))) 1
+SV_MASK(5) has type int 1
+SV_MASK of 1 5 31 is 0x1 0x1f 0x7fffffff 1
+SV_GET_UNSIGNED_BITS of 0x1234 with 4 is 0x4 1

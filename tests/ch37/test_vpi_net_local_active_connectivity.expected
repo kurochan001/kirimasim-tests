@@ -1,0 +1,16 @@
+local drivers of u.a: port a
+local loads of u.a: cont assign to n, terminal 2 of g1
+local drivers of u.n: cont assign to n
+local loads of u.n: cont assign to y, terminal 1 of g1
+local drivers of u.y: cont assign to y
+local loads of u.y: port y
+local drivers of u.z: port z, terminal 0 of g1
+local loads of u.z: port z
+while in effect
+  drivers of ftgt: cont assign to ftgt, force
+  loads of fsrc: assign stmt, force
+  port o among the drivers of tq: 1
+after release and deassign
+  drivers of ftgt: cont assign to ftgt
+  loads of fsrc: none
+  port o among the drivers of tq: 1

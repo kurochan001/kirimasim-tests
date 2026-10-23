@@ -1,0 +1,6 @@
+imported items: 5
+P: parameter
+a: variable imp_pkg::a
+b: variable imp_pkg::b
+f: function
+two_t: typespec

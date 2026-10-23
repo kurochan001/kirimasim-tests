@@ -1,0 +1,8 @@
+A: named begin n1 < module test_vpi_block_scope_chain; its variables: a1
+B: begin < module test_vpi_block_scope_chain; its variables: k
+C: named begin n2 < begin < module test_vpi_block_scope_chain; its variables: none
+D: module test_vpi_block_scope_chain; its variables: none
+E: named fork nf < module test_vpi_block_scope_chain; its variables: none
+F: fork < module test_vpi_block_scope_chain; its variables: d
+G: module test_vpi_block_scope_chain; its variables: none
+H: named begin tb < task tk < module test_vpi_block_scope_chain; its variables: none

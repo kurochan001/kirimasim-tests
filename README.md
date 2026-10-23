@@ -38,15 +38,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **3938 tests** in 37 chapters. 812 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **3986 tests** in 37 chapters. 812 of them are generated (`tests/gen/`, see "Generated tests"): 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2587 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 813 |
-| The standard only, where neither simulator follows it | 538 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 2588 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 830 |
+| The standard only, where neither simulator follows it | 568 |
 
-581 tests depend on x or z values (`:fourstate: yes`). 214 tests come with C code: 30 DPI tests (`:dpi_c:`) and 184 VPI tests (`:vpi_c:`). 185 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 20 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+581 tests depend on x or z values (`:fourstate: yes`). 262 tests come with C code: 33 DPI tests (`:dpi_c:`) and 229 VPI tests (`:vpi_c:`). 185 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 20 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -82,9 +82,9 @@ The suite has **3938 tests** in 37 chapters. 812 of them are generated (`tests/g
 | 32 | Backannotation using the standard delay format | 25 | 10 |  | 15 |
 | 33 | Configuring the contents of a design | 25 | 4 | 5 | 16 |
 | 34 | Protected envelopes | — | | | |
-| 35 | Direct programming interface | 31 |  | 21 | 10 |
-| 36 | Programming language interface (PLI/VPI) overview | 29 | 20 |  | 9 |
-| 37 | VPI object model diagrams | 78 | 6 |  | 72 |
+| 35 | Direct programming interface | 34 |  | 23 | 11 |
+| 36 | Programming language interface (PLI/VPI) overview | 50 | 20 | 15 | 15 |
+| 37 | VPI object model diagrams | 102 | 7 |  | 95 |
 | 38 | VPI routine definitions | 41 | 24 | 2 | 15 |
 | 39 | Assertion API | 22 |  |  | 22 |
 | 40 | Code coverage control and API | 23 | 1 | 1 | 21 |
@@ -139,10 +139,14 @@ The 2026-10-23 updates are documented in the
 the [matching result exceeding 20% provisional design coverage](docs/existing-test-matching-20percent-20261023.md),
 the [VPI review and 10.08% milestone](docs/existing-test-matching-vpi-20261023.md),
 the [compiler-directive review](docs/existing-test-matching-preprocessor-20261023.md),
-the [11 expression gap tests](docs/expression-gap-tests-20261023.md) and the
-[15 associative-array gap tests](docs/associative-gap-tests-20261023.md).
-Provisional design coverage is **20.009741% (2,465/12,319)** after this matching;
-provisional execution coverage is **10.487864% (1,292/12,319)**. Confirmed values
+the [11 expression gap tests](docs/expression-gap-tests-20261023.md),
+the [15 associative-array gap tests](docs/associative-gap-tests-20261023.md) and the
+[header and VPI model tests with further matching](docs/header-vpi-tests-and-matching-20261023.md),
+which add 24 tests of the C headers of Annexes I, K, L and M and 24 VPI tests of
+clause 37. Provisional design coverage is **31.569121% (3,889/12,319)**;
+provisional execution coverage is **19.449631% (2,396/12,319)**. Most of the
+increase is in the header annexes, whose constants are one registered row each:
+clauses 1 to 40 alone are at 29.30% (2,779/9,486). Confirmed values
 remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.

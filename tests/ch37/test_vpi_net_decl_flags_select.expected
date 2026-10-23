@@ -1,0 +1,14 @@
+w_plain: decl assign 0, explicit scalared 0, explicit vectored 0
+w_assign: decl assign 1, explicit scalared 0, explicit vectored 0
+ws: decl assign 0, explicit scalared 1, explicit vectored 0
+wv: decl assign 0, explicit scalared 0, explicit vectored 1
+ws: net bits 4, each with the vpiExpanded of the net 1
+wv: net bits 4, each with the vpiExpanded of the net 1
+wst: decl assign 1, strength0 vpiStrongDrive, strength1 vpiPullDrive
+tcs: charge strength vpiSmallCharge
+tcl: charge strength vpiLargeCharge
+w_plain: parent NULL 1, constant select 1
+a bit of ws: constant select 1
+an[1] by index: constant select 1
+right-hand side of y1: net 1, constant select 1
+right-hand side of y2: net 1, constant select 0

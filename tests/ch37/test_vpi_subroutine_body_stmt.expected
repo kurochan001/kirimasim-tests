@@ -1,0 +1,8 @@
+t0: scope test_vpi_subroutine_body_stmt, vpiStmt NULL
+t1: scope test_vpi_subroutine_body_stmt, vpiStmt assignment to x
+t2: scope test_vpi_subroutine_body_stmt, vpiStmt begin holding assignment to x, assignment to y
+tn: scope test_vpi_subroutine_body_stmt, vpiStmt named begin nb holding assignment to x
+f0: scope test_vpi_subroutine_body_stmt, vpiStmt NULL
+f1: scope test_vpi_subroutine_body_stmt, vpiStmt return
+f3: scope test_vpi_subroutine_body_stmt, vpiStmt begin holding assignment to x, assignment to y, return
+g.tg: scope test_vpi_subroutine_body_stmt.g, vpiStmt assignment to y

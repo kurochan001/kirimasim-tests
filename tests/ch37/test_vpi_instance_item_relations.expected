@@ -1,0 +1,17 @@
+ua vpiTaskFunc: fn tk; vpiInstance: test_vpi_instance_item_relations.m.ua
+ua vpiNet: n1; vpiInstance: test_vpi_instance_item_relations.m.ua
+ua vpiVariables: sv_anon v1 v2; vpiInstance: test_vpi_instance_item_relations.m.ua
+ua vpiReg: v1; vpiInstance: test_vpi_instance_item_relations.m.ua
+ua vpiNamedEvent: e1; vpiInstance: test_vpi_instance_item_relations.m.ua
+ua vpiParameter: LP P; vpiInstance: test_vpi_instance_item_relations.m.ua
+ua vpiSpecParam: SP; vpiInstance: test_vpi_instance_item_relations.m.ua
+ua vpiTypedef: col_t nib_t; vpiInstance: test_vpi_instance_item_relations.m.ua
+ua vpiAssertion: a1; vpiInstance: test_vpi_instance_item_relations.m.ua
+ua vpiProgram: pg; vpiInstance: test_vpi_instance_item_relations.m.ua
+ub vpiArrayNet: n2; vpiInstance: test_vpi_instance_item_relations.m.ub
+ub vpiVariables: mem; vpiInstance: test_vpi_instance_item_relations.m.ub
+ub vpiRegArray: mem (array variable objects 1); vpiInstance: test_vpi_instance_item_relations.m.ub
+ub vpiMemory: mem (array variable objects 1); vpiInstance: test_vpi_instance_item_relations.m.ub
+ub vpiNamedEventArray: ea; vpiInstance: test_vpi_instance_item_relations.m.ub
+ub vpiProgramArray: pa; vpiInstance: test_vpi_instance_item_relations.m.ub
+ub vpiClassDefn: ii_cls; vpiInstance: test_vpi_instance_item_relations.m.ub

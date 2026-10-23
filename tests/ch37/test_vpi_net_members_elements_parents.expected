@@ -1,0 +1,23 @@
+struct net su, parent NULL, struct/union member 0
+members of su: 3
+  array net am, full name test_vpi_net_members_elements_parents.su.am, decompiled su.am, parent su, struct/union member 1
+  struct net inner, full name test_vpi_net_members_elements_parents.su.inner, decompiled su.inner, parent su, struct/union member 1
+  logic net k, full name test_vpi_net_members_elements_parents.su.k, decompiled su.k, parent su, struct/union member 1
+members of su.inner: 2
+  logic net m, full name test_vpi_net_members_elements_parents.su.inner.m, decompiled su.inner.m, parent inner, struct/union member 1
+  logic net n, full name test_vpi_net_members_elements_parents.su.inner.n, decompiled su.inner.n, parent inner, struct/union member 1
+su.inner.m by full name from the top 1, by decompiled name in the module 1
+members of pu: 2
+  logic net x, parent pu, struct/union member 1
+  logic net y, parent pu, struct/union member 1
+packed array net pa, parent NULL, struct/union member 0, packed array member 0, array member 0
+elements of pa: 3
+  packed array net pa[0], parent pa, struct/union member 0, packed array member 1, array member 0, indices 0
+  packed array net pa[1], parent pa, struct/union member 0, packed array member 1, array member 0, indices 1
+  packed array net pa[2], parent pa, struct/union member 0, packed array member 1, array member 0, indices 2
+elements of pa[1]: 2
+  struct net pa[1][0], full name test_vpi_net_members_elements_parents.pa[1][0], decompiled pa[1][0], parent pa, struct/union member 0, packed array member 1, array member 0, indices 0 1
+  struct net pa[1][1], full name test_vpi_net_members_elements_parents.pa[1][1], decompiled pa[1][1], parent pa, struct/union member 0, packed array member 1, array member 0, indices 1 1
+members of pa[1][0]: 2
+  logic net p, full name test_vpi_net_members_elements_parents.pa[1][0].p, decompiled pa[1][0].p, parent pa[1][0], struct/union member 1
+  logic net q, full name test_vpi_net_members_elements_parents.pa[1][0].q, decompiled pa[1][0].q, parent pa[1][0], struct/union member 1

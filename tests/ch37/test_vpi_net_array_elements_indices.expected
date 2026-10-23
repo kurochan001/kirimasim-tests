@@ -1,0 +1,5 @@
+nets of ma: test_vpi_net_array_elements_indices.ma[1][0] test_vpi_net_array_elements_indices.ma[1][1] test_vpi_net_array_elements_indices.ma[2][0] test_vpi_net_array_elements_indices.ma[2][1]; all array members 1; parents: ma
+element: name ma[2][1], full name test_vpi_net_array_elements_indices.ma[2][1], array member 1, indices 1 2, parent ma
+bits of the element: 4, each with the element as parent 1
+bit: full name test_vpi_net_array_elements_indices.ma[2][1][3], vpiIndex 3, indices 3 1 2, parent ma[2][1]
+lone: array member 0, indices NULL, parent NULL

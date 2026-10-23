@@ -3743,6 +3743,25 @@
               "contains": "$bits(s + i)"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-20.6.2-EXTRACT-BITS-RESULT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M98: 20.6.2 は $bits の合法な型を 6.24.3 の bit-stream type（integral・packed・string とその unpacked/動的集合）に委ねており、real/shortreal はそこに含まれない。このテストは $bits(r + i)=64、$bits(s * r)=64、$bits(s + i)=32、$bits(1 ? 3 : 2.5)=64 と real 型の式に $bits を適用した値を期待しており、規格から導けない（同じスイートの test_bits_2 は「real is not a bit-stream type」として $bits(real) を避けている）。$bits の結果の証拠にできず、この値を根拠に 11.3.1 の結果型を判定している既存リンクも再確認が要る。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_real_operand_result_types.sv",
+              "contains": "$display(\"real: %0d %0d, shortreal: %0d\", $bits(r + i), $bits(s * r), $bits(s + i));"
+            },
+            {
+              "file": "tests/ch11/test_real_operand_result_types.expected",
+              "contains": "real: 64 64, shortreal: 32"
+            }
+          ]
         }
       ]
     },
@@ -10069,6 +10088,27 @@
               "contains": "return s != NULL ? s : \"none\";"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.10-EXTRACT-NETTYPEDEFS",
+            "SV2023-37.10-EXTRACT-DIAGRAM-038",
+            "SV2023-37.10-EXTRACT-DIAGRAM-055"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "M99: 37.10の図と詳細10はinstance→nettype declのiterationをtag vpiNetTypedefで定めるが、Annex Mのsv_vpi_user.hにはvpiNetTypedefの定義がなく（vpiNettypeDecl 523とvpiNetTypedefAlias 705のみ）、テストはvpi_iterate(vpiNettypeDecl, top)で走査している。plain_t/summed_t/alias_tの3名は期待出力で照合されているが、tag名の不一致をどう読むか（vpiNettypeDeclによる走査をvpiNetTypedef iterationの実現とみなせるか）の解釈判断が先に必要なため登録しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_nettype_declarations.c",
+              "contains": "vpiHandle it = top ? vpi_iterate(vpiNettypeDecl, top) : NULL, nt;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_nettype_declarations.sv",
+              "contains": "  nettype plain_t alias_t;"
+            }
+          ]
         }
       ]
     },
@@ -10552,6 +10592,26 @@
               "contains": "wire [0:1] asynchronous;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-20.16.1-EXTRACT-SYNC-EVALUATION",
+            "SV2023-20.16.1-EXTRACT-PLA-NO-DELAY"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M100: 20.16 は PLA タスクの output_terms を variable_lvalue とし「output terms shall only be variables」と定めるが、この正常系テストは $async$and$array の出力に net（wire [0:1] asynchronous）を渡している。規格上違法な構文を含むため、sync/async の比較（changed=00,10 など）を同期評価や無遅延更新の証拠にできない。出力を logic 変数に直すまで照合しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
+              "contains": "  wire [0:1] asynchronous;"
+            },
+            {
+              "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
+              "contains": "    $async$and$array(personality, inputs, asynchronous);"
+            }
+          ]
         }
       ]
     },
@@ -10760,6 +10820,21 @@
             {
               "file": "tests/ch14/test_clocking_output_skew_cycle_delay.sv",
               "contains": "cb.q <= ##1 0;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-14.16-EXTRACT-DRIVE-SKEW-ALWAYS"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "M101: output #2 q に対し時刻5の事象で cb.q <= 1(即時成熟)と cb.q <= ##1 0(次サイクル成熟)を出し、q が 5+2=7 で1、15+2=17 で0になる(6: q=0, 8: q=1, 16: q=1, 18: q=0)ので、今成熟するドライブと将来サイクルで成熟するドライブの両方が出力スキューに従うことを観測している。ただし :lrm: は 14.16.1 14.4 14.11 14.12 で 14.16 を引用していないため DRIVE-SKEW-ALWAYS に登録できない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_clocking_output_skew_cycle_delay.sv",
+              "contains": "    cb.q <= 1;\n    cb.q <= ##1 0;"
             }
           ]
         }
@@ -11456,6 +11531,766 @@
             {
               "file": "tests/ch6/test_string_compare.sv",
               "contains": "if (s1 >= s2 && s1 >= s3)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_final_class_extended.sv",
+      "inputs_sha256": "ff19a0f1470b0e86394f02ebd40a04a456a6418fcd7810e03b5a5c276f1e0a9b",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.13-EXTRACT-FINAL-CLASS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M102: 負テストの構成(19行目class :final、24行目のextendsのみで診断)は要求に合うが、:expected_stderr_regex: がファイル名と行番号24だけである。:final構文未対応のツールが19行目で構文エラーを出した後、基底クラス未定義として24行目にも別エラーを出せば通り得るため、8.20のM34と同じく意味制約(final拡張禁止)の診断を特定しない。診断内容を識別するoracleが必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_final_class_extended.sv",
+              "contains": ":expected_stderr_regex: test_illegal_final_class_extended\\.sv:24:"
+            },
+            {
+              "file": "tests/ch8/test_illegal_final_class_extended.sv",
+              "contains": "class :final test_illegal_final_class_extended_base;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_super_new_default.sv",
+      "inputs_sha256": "97ed99d64ac49bcbedb25d504040be7275a41d141b1778b498a6543f50086e87",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.17-EXTRACT-DEFAULT-EXPANSION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M103: new(5)でb=3(基底の既定値)、new(1,2,4)でa=1 b=2 c=4となり、default展開の順序と既定値の引継ぎは観測できる。しかし基底引数a,bはどちらもint・input・位置指定だけで呼ばれるため、展開後の引数名(名前付き束縛)、方向(output/ref)、型の同一性を区別する刺激がなく、要求の5属性すべては検証しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_super_new_default.sv",
+              "contains": "  function new(int a, int b = 3);"
+            },
+            {
+              "file": "tests/ch8/test_super_new_default.sv",
+              "contains": "  function new(default, int c = 9);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_class_typed_param.sv",
+      "inputs_sha256": "3a81cbd502b6a2eb2537fb268fa89fd3ac503c2c11dbe351f39c2142d1009c04",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.25-EXTRACT-ANY-TYPE-PARAMETER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M104: Wrapper #(SimpleClass) class_wrapper と SimpleClass sc を宣言しているが、本体のテスト1〜5はint/stringのContainer、Pair、TypedQueue、Arrayだけを使い、class型を型パラメータにした特殊化を一度も構築・比較しない(期待出力も5件のみ)。class/struct型パラメータの受理は観測されない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_class_typed_param.sv",
+              "contains": "    Wrapper #(SimpleClass) class_wrapper;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_queue_edge_cases.sv",
+      "inputs_sha256": "edd1f39ab8516a2a5e20f93c13aa5998be5d0049098970ee948ab8c5887a7d29",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.10.5-EXTRACT-BOUND-DISCARD",
+            "SV2023-7.10.5-EXTRACT-BOUND-WARNING"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M105: 上限インデックス5(最大6要素)のbounded_qへ'{1,2,3,4,5}の5要素を代入してsize5を確認するだけで、上限を超える書込みを起こさない。超過要素の破棄も必須warningも刺激されない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_queue_edge_cases.sv",
+              "contains": "        bounded_q = '{1, 2, 3, 4, 5};"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_let_nested.sv",
+      "inputs_sha256": "1c00467a8d75350992f2c3339aa0d83fec7a38dce64dbe48f9ac5db102d4475d",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.12-EXTRACT-LET-SUBSTITUTION"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M106: inc_double(5)=12 と chain(3)=12 は、展開結果を括弧で囲まない文字どおりの置換（5 + 1 * 2 = 7）と区別でき、実引数の置換と括弧付けは観測している。しかし要求の『展開後の本体を合法性検査する』条件は正常系の値比較では観測できず、展開後に違法となる let を診断する負テストとの分担が必要（同じ要求の正常系 group には負テストを入れられない）。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_let_nested.sv",
+              "contains": "        val = inc_double(5); // (5+1)*2 = 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_system_task_control.sv",
+      "inputs_sha256": "415484d3f79d44d8abd0b272070c18b4183769634b9f4e8743d91b6d939ba14c",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTKILL"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M107: Table 20-8 は引数付き $assertkill に cbAssertionReset + cbAssertionDisable を対応させる。このテストの C helper は a1 に cbAssertionDisable を登録しているので、36 の $assertkill(0, a1) では \"36: a1 disable, attempt information NULL\" も出るはずだが、期待出力は \"36: a1 kill\" だけで disable 行がない（cbAssertionReset は未登録で観測もされない）。Table 20-8 準拠の実装はこの期待出力と食い違うため、期待値を見直すまで ASSERTKILL の callback 対応の証拠にできない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_system_task_control.sv",
+              "contains": "#10 $assertkill(0, a1);   // 36"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_system_task_control.c",
+              "contains": "cbAssertionDisable, cbAssertionEnable, cbAssertionKill};"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_system_task_control.expected",
+              "contains": "36: a1 kill, attempt information NULL\n46: a1 enable, attempt information NULL"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol.sv",
+      "inputs_sha256": "09b190a8a3613db7906fc3321102981f3063294714c2255bc54b5bcd983da646",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.11-EXTRACT-UNLOCK",
+            "SV2023-20.11-EXTRACT-CONTROL-CODE-UNLOCK"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M108: $assertcontrol(2, 1, 7, 0, ac) の直後の $asserton は、ロック中も一度も Off にされていない ac を再び On にするだけなので、Unlock が何もしない実装でも最終相は assert failures 2 のままになる。ロック解除後に ac の状態を変える制御（例: 解除後の $assertoff で ac が止まること）を観測しておらず、Unlock の効果は期待出力に現れない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol.sv",
+              "contains": "    $assertcontrol(2, 1, 7, 0, ac);\n    $asserton;\n    phase(\"all on again\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol.expected",
+              "contains": "100: all on again: assert failures 2, assume failures 2, immediate failures 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_monitor_end_of_step.sv",
+      "inputs_sha256": "1d697fc372979731ee187951db1924e9002fff0bb3e00676e47f822ba1b34e11",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.2.3-EXTRACT-MONITORON-DISPLAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M109: $monitoron（時刻5）の直前の $monitoroff 期間中に a=7・b=8 と引数が変わっているため、\"a=7 b=8\" の行は「値の変化がなくても表示する」実装でも「前回表示以降に変化があった場合だけ再開時に表示する」実装でも出る。monitoroff 期間中に引数を変えずに $monitoron を呼ぶ場面がなく、無条件表示は区別できない（test_monitor_strobe も時刻45に counter を変えてから $monitoron を呼ぶ）。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_monitor_end_of_step.sv",
+              "contains": "    a = 7;\n    #1 b = 8;\n    #1 $monitoron;"
+            },
+            {
+              "file": "tests/ch21/test_monitor_end_of_step.expected",
+              "contains": "a=7 b=8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_shortreal_result_and_condition_types.sv",
+      "inputs_sha256": "97028d074ceb2a440679dd5f39c44fe16630de7f0fa02f29b3a996f0fe1281ae",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.6.2-EXTRACT-BITS-RESULT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M110: real/shortreal は 6.24.3 の bit-stream type に含まれないため、20.6.2 は $bits(s+i)=32・$bits(s+r)=64・$bits(1 ? s : i)=32 のような shortreal/real 式の $bits を定義していない。期待値 arithmetic_bits=32 32 real_mix=64 は規格から導けず、$bits の結果の証拠にできない（11.3.1 の shortreal 昇格のリンクもこの値に依存している）。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_shortreal_result_and_condition_types.sv",
+              "contains": "             $bits(s+i), $bits(i*s), $bits(s+r));"
+            },
+            {
+              "file": "tests/ch11/test_shortreal_result_and_condition_types.expected",
+              "contains": "arithmetic_bits=32 32 real_mix=64"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch4/test_reactive_region_set_order.sv",
+      "inputs_sha256": "b9de68864f4a030c7f602223656aee081dae07d8e98e0b27e3e8d9028eb4ace2",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-4.4.2.8-EXTRACT-REACTIVE-NBA-SCHEDULE",
+            "SV2023-4.4.2.8-EXTRACT-RENBA-AFTER-REINACTIVE",
+            "SV2023-4.4.2.7-EXTRACT-ZERO-DELAY-REINACTIVE",
+            "SV2023-4.4.2.7-EXTRACT-REINACTIVE-AFTER-REACTIVE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M111: 期待出力の最後の2行は module: v changed to 1 を program: v changed to 1 より先としているが、4.5 の参照アルゴリズムでは Re-NBA の更新は Reactive 領域へ移されて execute_region(Reactive) 内で実行され、そこで起こされた program の @(v) プロセスは同じ Reactive 領域に入り、同じ反応領域セットのループ内で先に実行される(4.5 B005: 反応領域セットの5領域が空になるまで他の領域の反復は再開しない)。module の always @(v) は Active 領域に入るため、その後になる。規格から導ける順序は program 行が先で、期待出力の順序はこれと矛盾する。前半2行(program: start / after #0, v = 0)自体は妥当だが、テスト全体の期待出力が規格と一致しないため照合しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_reactive_region_set_order.sv",
+              "contains": "  always @(v) log($sformatf(\"module: v changed to %0d\", v));"
+            },
+            {
+              "file": "tests/ch4/test_reactive_region_set_order.sv",
+              "contains": "      @(v);\n      log($sformatf(\"program: v changed to %0d\", v));"
+            },
+            {
+              "file": "tests/ch4/test_reactive_region_set_order.expected",
+              "contains": "module: v changed to 1\nprogram: v changed to 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.sv",
+      "inputs_sha256": "31d6b6317453d615ecd1d317870b67471d89785616cbf0775cb930324a4a9cb2",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-4.4.3.4-EXTRACT-READ-WRITE-CONTROL",
+            "SV2023-4.4.3.2-EXTRACT-READ-WRITE-CONTROL",
+            "SV2023-4.4.3.9-EXTRACT-READ-WRITE-CONTROL",
+            "SV2023-4.4.3.10-EXTRACT-PREPOSTPONED-ITERATION",
+            "SV2023-4.4.3.10-EXTRACT-POSTPONED-READONLY-CALLBACK"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M112: 期待出力 post_nba=10 は cbReadWriteSynch コールバックが時刻5の captured <= value の NBA 更新後(Post-NBA)に実行されることを前提にしている。しかし 4.10 Table 4-1 は cbReadWriteSynch を Pre-NBA or Post-NBA とし、38.36.2 も NBA 処理の前でも後でもよいとしているため、Pre-NBA を選ぶ準拠実装では captured はまだ 0 で post_nba=0 を出す。期待出力の1行目が実装の選択に依存し規格から一意に導けないので、このテストを Post-NBA の書込み制御や後続の反復の証拠として照合しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.c",
+              "contains": "place(cbReadWriteSynch, post_nba);"
+            },
+            {
+              "file": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.sv",
+              "contains": "    #5 captured <= value;"
+            },
+            {
+              "file": "tests/ch4/test_pli_phase_chain_after_nba_and_end_write.expected",
+              "contains": "post_nba=10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch5/test_attrib_module.sv",
+      "inputs_sha256": "178e7cafa3d481c3cf09a00a2857c01004553db1a1a72bc6a94dd1fd162f6f29",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-5.12-EXTRACT-ATTRIBUTE-DEFAULT",
+            "SV2023-5.12-EXTRACT-ATTRIBUTE-EXPRESSION-TYPE",
+            "SV2023-5.12-EXTRACT-ATTRIBUTE-INSTANCE-SYNTAX",
+            "SV2023-5.12-EXTRACT-ATTRIBUTE-PREFIX-PLACEMENT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M113: 属性 (* synthesizable = 1, author = \"test\" *) などは構文として受理されるだけで、検査はテスト内で初期化した定数(static int attr_value = 1 など)を自分自身と比較しているにすぎない。属性の値・型・既定値1を VPI 等で読んでいないため、属性値を誤って保持・型付けする実装でも期待出力は変わらない。観測できるのはモジュール宣言前の属性構文を受理することだけ。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_attrib_module.sv",
+              "contains": "(* synthesizable = 1, author = \"test\" *)"
+            },
+            {
+              "file": "tests/ch5/test_attrib_module.sv",
+              "contains": "            static int attr_value = 1;\n            if (attr_value == 1) begin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_untyped_parameter_width_from_override.sv",
+      "inputs_sha256": "5fbb87069b8d25cbf5b48e23284c3e70e1ec155f83befbdec45311418ebc7616",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.20.2-EXTRACT-INFER-FINAL-TYPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M114: 上書き値 3'b101 と 8'ha5 による整数幅の追従（$bits=3, 8）は観測しているが、実数式で上書きした場合に real 型になる条件と、範囲の LSB が 0（[size-1:0]）である条件を観測していない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_untyped_parameter_width_from_override.sv",
+              "contains": "  assign width = $bits(p);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.20.2-EXTRACT-UNSIZED-IMPLIED-RANGE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M115: 既定値が無サイズリテラル 1 の型なしパラメータについて期待出力は $bits = 32 に固定しているが、6.20.2 では MSB は実装依存で少なくとも 31（幅は32以上）であり、64ビットなどを選ぶ適合実装ではこの行が変わる。実装依存の選択を観測するには $bits(p) >= 32 と LSB=0 の確認にする必要がある。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_untyped_parameter_width_from_override.sv",
+              "contains": "module width_reporter #(p = 1) (output int width, output logic [31:0] value);"
+            },
+            {
+              "file": "tests/ch6/test_untyped_parameter_width_from_override.expected",
+              "contains": "p = 1 (default): $bits = 32, value = 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_dollar_parameter_unbounded.sv",
+      "inputs_sha256": "144038cc15d50f427260ad0ad4cc74282dafa8edf570c88a09ea093ec562b533",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.20.7-EXTRACT-DOLLAR-VALUE-RANGE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M116: [$:6] は範囲外の 7 で偽になることしか確かめておらず、6 以下の値（例: 6 や負の値）が含まれることを観測していない。[$:hi] を常に空集合とする誤実装でも \"7 inside [$:6]: 0\" は変わらない。[5:$] も境界値 5 を含むかは確かめていない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_dollar_parameter_unbounded.sv",
+              "contains": "7 inside {[5:$]}, 7 inside {[$:6]}"
+            },
+            {
+              "file": "tests/ch6/test_dollar_parameter_unbounded.expected",
+              "contains": "7 inside [5:$]: 1, 7 inside [$:6]: 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_illegal_automatic_variable_nonblocking.sv",
+      "inputs_sha256": "b365a9f0dac914f1953db2affe296399136a17d34810a4bb8b4b5407d1acf890",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.21-EXTRACT-NO-AUTOMATIC-NBA"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M117: 要求は自動変数と動的サイズ配列の要素の両方への非ブロッキング代入を禁じるが、このテストは自動変数 count への NBA だけを診断させる。動的配列要素（例: int d[]; d[0] <= 1;）への NBA を診断させる負テストと group にする必要がある。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_illegal_automatic_variable_nonblocking.sv",
+              "contains": "    count <= 1;   // illegal: nonblocking assignment to an automatic variable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_illegal_dynamic_array_element_continuous.sv",
+      "inputs_sha256": "f90d9176a86a3b249124c6e549739a78c85137e87cd13486a4db3090a100c69d",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.21-EXTRACT-NO-AUTOMATIC-CONTINUOUS"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M118: 要求は自動変数と動的サイズ配列の要素の両方への連続代入・手続き的連続代入を禁じるが、このテストは動的配列要素 values[0] への assign だけを診断させる。自動変数への連続代入または手続き的連続代入（assign/force）の負テストと group にする必要がある。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_illegal_dynamic_array_element_continuous.sv",
+              "contains": "  assign values[0] = in;   // illegal: continuous assignment to a dynamic array element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch10/test_comb_strength_multi.sv",
+      "inputs_sha256": "964be4a1723bfe00d984297188bebfcfbf346a097323040ee41ce8422ee004f1",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-10.3.4-EXTRACT-ZERO-STRENGTH-KEYWORDS",
+            "SV2023-10.3.4-EXTRACT-ONE-STRENGTH-KEYWORDS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "M119: highz0 は (highz0, weak1) w5 で strong1 の相手として使われ w5=1 を見るだけで、highz0 を weak0/pull0 として扱う誤実装でも strong1 が勝ち同じ 1 になる。supply0/pull0 は 1 を駆動する側でしか使われず 0 側強度が働かない。highz1 は候補テストのどこにも現れない。キーワード一覧の要求全体には、各強度が結果を変える競合（例: highz0 対 weak1 で 1、pull0 対 weak1 で 0）を持つテストが必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_comb_strength_multi.sv",
+              "contains": "    assign (strong0, strong1) w5 = 1'b1;\n    assign (highz0, weak1) w5 = 1'b0;"
+            },
+            {
+              "file": "tests/ch10/test_comb_strength_multi.sv",
+              "contains": "    assign (supply0, supply1) w4 = 1'b1;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch14/test_illegal_clocking_at_unit_scope.sv",
+      "inputs_sha256": "caab6d075c5dcbf3ee52ac3273cc20d1aff4fc71cdd67b149edd3e418c0533f2",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M120: コンパイル単位の外側 内の clocking cb @(posedge clk) の clk がファイル中のどこにも宣言されておらず、期待する 18 行のエラーは未宣言識別子 clk の診断でも同じ行に出る。clocking をコンパイル単位の外側内に許してしまう誤実装でも未宣言 clk のエラーで負テストが通るため、宣言場所の制限を検出した証拠にならない。clk を宣言して制限違反だけを残す修正が必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_illegal_clocking_at_unit_scope.sv",
+              "contains": "clocking cb @(posedge clk); endclocking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch14/test_illegal_clocking_in_package.sv",
+      "inputs_sha256": "f34858e096ee59ed1f2ef042463934998dc5b5a972caec4c6b3d85a3361d75e7",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M121: package 内の clocking cb @(posedge clk) の clk がファイル中のどこにも宣言されておらず、期待する 19 行のエラーは未宣言識別子 clk の診断でも同じ行に出る。clocking をpackage内に許してしまう誤実装でも未宣言 clk のエラーで負テストが通るため、宣言場所の制限を検出した証拠にならない。clk を宣言して制限違反だけを残す修正が必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_illegal_clocking_in_package.sv",
+              "contains": "clocking cb @(posedge clk); endclocking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch14/test_illegal_clocking_in_function.sv",
+      "inputs_sha256": "05458ca3e762e2ca2f85e008a69e15abab75e0d9e53a13bd10ded6c76b5bb828",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M122: function 内の clocking cb @(posedge clk) の clk がファイル中のどこにも宣言されておらず、期待する 21 行のエラーは未宣言識別子 clk の診断でも同じ行に出る。clocking をfunction内に許してしまう誤実装でも未宣言 clk のエラーで負テストが通るため、宣言場所の制限を検出した証拠にならない。clk を宣言して制限違反だけを残す修正が必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_illegal_clocking_in_function.sv",
+              "contains": "clocking cb @(posedge clk); endclocking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch14/test_illegal_clocking_in_task.sv",
+      "inputs_sha256": "88338db3c7138e9df618ba8465d04f3328bba2ab540d1fc6096cd839b28a2045",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-14.7-EXTRACT-CLOCKING-ALLOWED-SCOPES"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M123: task 内の clocking cb @(posedge clk) の clk がファイル中のどこにも宣言されておらず、期待する 20 行のエラーは未宣言識別子 clk の診断でも同じ行に出る。clocking をtask内に許してしまう誤実装でも未宣言 clk のエラーで負テストが通るため、宣言場所の制限を検出した証拠にならない。clk を宣言して制限違反だけを残す修正が必要。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_illegal_clocking_in_task.sv",
+              "contains": "clocking cb @(posedge clk); endclocking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch15/test_semaphore_edge.sv",
+      "inputs_sha256": "7bb3f78d6c8fe9e509d293c6dd0b5f23d60ad003c834c072a99647002e4870c2",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-15.3.4-EXTRACT-TRY-GET-FAILURE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "M124: 鍵3本から try_get(2) で1本残した状態で try_get(2) が失敗(0)し、直後の try_get(1) が成功、さらに次の try_get(1) が失敗するので、残数が正だが不足する try_get が0を返し鍵を消費しないことを直接観測している(既存保留 M03 や test_semaphore_multiple の保留で欠けていた条件)。ただし :lrm: が 15.3 のみで 15.3.4 を引用していないため登録できない。:lrm: に 15.3.4 を追加すれば TRY-GET-FAILURE の候補になる。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_semaphore_edge.sv",
+              "contains": "    // Test 5: try_get partial (should fail - only 1 key left)\n    if (sem.try_get(2)) begin"
+            },
+            {
+              "file": "tests/ch15/test_semaphore_edge.sv",
+              "contains": "    // Test 6: try_get exactly available\n    if (!sem.try_get(1)) begin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch15/test_mailbox_typeless_try_type_check.sv",
+      "inputs_sha256": "585f5bcbbd38097535fca5dd4f233c251561c2d8e1166bd24b79d3bf023267f5",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-15.4.5-EXTRACT-DYNAMIC-MESSAGE-TYPE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "M125: 型パラメータなしの mailbox に int と string を混在させて入れ、各メッセージの型を保持して宛先型と実行時に等価性検査する(string/bit [31:0]/logic signed [31:0] 宛先は負、int と bit signed [31:0] は正)ことを観測しており DYNAMIC-MESSAGE-TYPE の証拠になり得るが、:lrm: が 15.4.6 15.4.8 15.4.9 15.4.2 6.22.2 で 15.4.5 を引用していないため登録できない。15.4.5 の候補テストはすべて型付き mailbox でこの要求を刺激しない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_mailbox_typeless_try_type_check.sv",
+              "contains": "    m.put(n);                   // an int message\n    m.put(word);                // then a string message"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch14/test_clocking_input_with_expression.sv",
+      "inputs_sha256": "7d673e044f85b776684c4b683e78c539fbf059e50b1d51119ee6e3047cf576fb",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-14.4-EXTRACT-ONE-STEP-IMMEDIATELY-BEFORE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "M126: 既定の 1step 入力スキューで、各立ち上がりの NBA (loc <= loc + 8'h11) によって同じ時刻ステップで loc が更新されるが、cb.x はエッジ直前の値 00, 11, 22 を取る(Observed で標本化すると 11, 22, 33 になる)ため、M71 で不足とされた同一エッジの NBA 差を作る刺激になっている。ただし :lrm: が 14.3 14.13 で 14.4 を引用していないため ONE-STEP-IMMEDIATELY-BEFORE に登録できない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_clocking_input_with_expression.sv",
+              "contains": "  always @(posedge clk) loc <= loc + 8'h11;"
+            },
+            {
+              "file": "tests/ch14/test_clocking_input_with_expression.sv",
+              "contains": "    input x = loc;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_primitives_multi_input.sv",
+      "inputs_sha256": "ebef2edf2c2307d0d9b2f7e0a01a49b7343242fd3bdfb2e7ec64917b7420a7cd",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.4-EXTRACT-N-INPUT-EXTENSION",
+            "SV2023-28.3-EXTRACT-PRIMITIVE-TERMINALS",
+            "SV2023-28.3-EXTRACT-PRIMITIVE-GRAMMAR"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M127: ゲート出力端子に変数（logic y_and3 などモジュールレベルの logic 宣言）を接続している。28.3 の文法では output_terminal ::= net_lvalue であり、変数を n 入力ゲートの出力に接続するのは正常系テストとして違法な構文。出力を wire にしない限り期待出力を規格の根拠にできない。加えて遅延を持つゲートがなく、入力数が伝搬遅延を変えない条件も観測していない。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_primitives_multi_input.sv",
+              "contains": "    logic y_and3, y_and4;"
+            },
+            {
+              "file": "tests/ch28/test_primitives_multi_input.sv",
+              "contains": "    and g_and3(y_and3, a, b, c);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_gate_primitives.sv",
+      "inputs_sha256": "4a87b9f963350d0ff280c3acb8dcd58efec9b8eb5c617c3a85890f0e832d5b4c",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.3-EXTRACT-PRIMITIVE-TERMINALS",
+            "SV2023-28.3-EXTRACT-PRIMITIVE-GRAMMAR"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M128: ゲート出力 out_and などを logic 変数として宣言し、and g1(out_and, a, b) などの出力端子に接続している。28.3 の文法では output_terminal ::= net_lvalue なので、変数をゲート出力に接続する正常系テストは規格上違法な構文を含む。端子の文法・種類に関する要求の証拠にはできない（既存の真理値表リンクも同じ問題を抱える）。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_gate_primitives.sv",
+              "contains": "  logic a, b, out_and, out_or, out_not, out_nand, out_nor, out_xor;"
+            },
+            {
+              "file": "tests/ch28/test_gate_primitives.sv",
+              "contains": "  and g1(out_and, a, b);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_gate_primitives_2.sv",
+      "inputs_sha256": "bfd5ab0279cd1979ec2d4df2e2601c34e1648f28e157bd8230775ac252df4f4e",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.3-EXTRACT-PRIMITIVE-TERMINALS",
+            "SV2023-28.3-EXTRACT-PRIMITIVE-GRAMMAR"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M129: ゲート出力 y_and などを logic 変数として宣言し、and g1(y_and, a, b, c) や buf g8(y_buf, a) の出力端子に接続している。28.3 の文法では output_terminal ::= net_lvalue なので、変数をゲート出力に接続する正常系テストは規格上違法な構文を含む。端子の文法・種類に関する要求の証拠にはできない（既存の N-INPUT-KEYWORDS/N-INPUT-TERMINALS リンクも同じ問題を抱える）。",
+          "reviewed_on": "2026-10-23",
+          "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_gate_primitives_2.sv",
+              "contains": "  logic y_and, y_or, y_nand, y_nor, y_xor, y_xnor;"
+            },
+            {
+              "file": "tests/ch28/test_gate_primitives_2.sv",
+              "contains": "  and  g1(y_and, a, b, c);"
             }
           ]
         }
