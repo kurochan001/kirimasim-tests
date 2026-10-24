@@ -1,0 +1,22 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch16/test_deferred_assertion_default_error": {
+   "status": "known",
+   "reason": "no message matches '(?i)\\\\A(?![\\\\s\\\\S]*test_deferred_assertion_default_error\\\\.sv:34:)(?=[\\\\s\\\\S]*(?:error[^\\\\n]*test_deferred_assertion_default_error\\\\.sv:43:|test_deferred_assertion_default_error\\\\.sv:43:[^\\\\n]*error))(?=[\\\\s\\\\S]*(?:error[^\\\\n]*test_deferred_assertion_default_error\\\\.sv:44:|test_deferred_assertion_default_error\\\\.sv:44:[^\\\\n]*error))(?![\\\\s\\\\S]*test_deferred_assertion_default_error\\\\.sv:45:)'",
+   "inputs_sha256": "3ccc361ac87709b1d5337917823eab95e0f41c66d6891598b9ab5570070c415c"
+  },
+  "ch16/test_immediate_assertion_default_error": {
+   "status": "pass",
+   "inputs_sha256": "4318dc070282b62aac143cc1b8758684a95e99b06f4bfa0eb1e02daf868a71ab"
+  }
+ },
+ "generated_at": "2026-10-24T23:12:35.145250+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

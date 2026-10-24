@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "4933abc4075498a0e6cbc86ba232bf0040c2f609157e39b0d1f74c222d612234",
+  "registry_sha256": "50423d857f5356bed8ece642ac57c72c052719859c7cbd199dc4bca88c1fea58",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -1413,14 +1413,14 @@
           "SV2023-9.6-EXTRACT-PROCESS-CONTROL-RELATIONS",
           "SV2023-9.6.2-EXTRACT-SELF-DISABLE"
         ],
-        "stale_links": 0,
+        "stale_links": 3,
         "status_counts": {
           "pass": 201,
           "fail": 0,
-          "known": 548,
+          "known": 547,
           "unsupported": 0,
           "unreviewed_oracle": 138,
-          "stale": 0,
+          "stale": 1,
           "not_run": 6454,
           "unmapped": 4957,
           "interpretation_pending": 21
@@ -1761,14 +1761,14 @@
           "SV2023-H.9.3-EXTRACT-SET-SCOPE",
           "SV2023-H.9.3-EXTRACT-USER-DATA"
         ],
-        "stale_links": 0,
+        "stale_links": 3,
         "status_counts": {
           "pass": 328,
           "fail": 0,
-          "known": 482,
+          "known": 481,
           "unsupported": 0,
           "unreviewed_oracle": 76,
-          "stale": 0,
+          "stale": 1,
           "not_run": 6455,
           "unmapped": 4957,
           "interpretation_pending": 21
@@ -2109,14 +2109,14 @@
           "SV2023-H.9.3-EXTRACT-SET-SCOPE",
           "SV2023-H.9.3-EXTRACT-USER-DATA"
         ],
-        "stale_links": 0,
+        "stale_links": 3,
         "status_counts": {
           "pass": 328,
           "fail": 0,
-          "known": 482,
+          "known": 481,
           "unsupported": 0,
           "unreviewed_oracle": 76,
-          "stale": 0,
+          "stale": 1,
           "not_run": 6455,
           "unmapped": 4957,
           "interpretation_pending": 21
@@ -7011,6 +7011,63 @@
           "unreviewed_oracle": 493,
           "stale": 0,
           "not_run": 6844,
+          "unmapped": 4957,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "regex-refinement-20261025-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+        "generated_at": "2026-10-24T23:12:32.819720+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 2,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 7339,
+          "unmapped": 4957,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "regex-refinement-20261025-verilator-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-24T23:12:34.091987+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 2,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 7339,
+          "unmapped": 4957,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "regex-refinement-20261025-verilator-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-24T23:12:35.145250+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 2,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 7339,
           "unmapped": 4957,
           "interpretation_pending": 21
         }

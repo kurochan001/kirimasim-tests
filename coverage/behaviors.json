@@ -127045,11 +127045,11 @@
           "observation": "単純即時 assert(29行)と assume(31行)の else なしの失敗、FailOff 中の失敗(34行)、FailOn 後の失敗(36行)、成功(32行)、else 付きの失敗(37行)を並べ、29/31/36 行のエラーがあり 32/34/37 行の報告がないことを照合する。標準出力では after a_fail / a_else: own fail statement / done を比較する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "914875ed0b4a89a9be1b8711415c635e2f3b2ec7e8e30a0417ed4b3a7ac11ced",
+          "inputs_sha256": "4318dc070282b62aac143cc1b8758684a95e99b06f4bfa0eb1e02daf868a71ab",
           "evidence": [
             {
               "file": "tests/ch16/test_immediate_assertion_default_error.sv",
-              "contains": ":expected_stderr_regex: (?i)\\A(?=[\\s\\S]*error[^\\n]*test_immediate_assertion_default_error\\.sv:29:)(?=[\\s\\S]*error[^\\n]*test_immediate_assertion_default_error\\.sv:31:)(?![\\s\\S]*test_immediate_assertion_default_error\\.sv:32:)(?![\\s\\S]*test_immediate_assertion_default_error\\.sv:34:)(?=[\\s\\S]*error[^\\n]*test_immediate_assertion_default_error\\.sv:36:)(?![\\s\\S]*test_immediate_assertion_default_error\\.sv:37:)"
+              "contains": ":expected_stderr_regex: (?i)\\A(?=[\\s\\S]*(?:error[^\\n]*test_immediate_assertion_default_error\\.sv:29:|test_immediate_assertion_default_error\\.sv:29:[^\\n]*error))(?=[\\s\\S]*(?:error[^\\n]*test_immediate_assertion_default_error\\.sv:31:|test_immediate_assertion_default_error\\.sv:31:[^\\n]*error))(?![\\s\\S]*test_immediate_assertion_default_error\\.sv:32:)(?![\\s\\S]*test_immediate_assertion_default_error\\.sv:34:)(?=[\\s\\S]*(?:error[^\\n]*test_immediate_assertion_default_error\\.sv:36:|test_immediate_assertion_default_error\\.sv:36:[^\\n]*error))(?![\\s\\S]*test_immediate_assertion_default_error\\.sv:37:)"
             },
             {
               "file": "tests/ch16/test_immediate_assertion_default_error.sv",
@@ -127070,11 +127070,11 @@
           "observation": "always @(trig) の a_flushed(34行)は時刻1に失敗した後のイベント制御からの再開でフラッシュされ、時刻2の a_kept(43行, assert #0)と u_kept(44行, assume final)は失敗して報告され、a_ok(45行)は成功する。34/45 行の報告がなく 43/44 行のエラーがあることを照合する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cfa115e6cb70170e5187be803277443bee7c07b64469b53dc2b4cba7b5ba8d7d",
+          "inputs_sha256": "3ccc361ac87709b1d5337917823eab95e0f41c66d6891598b9ab5570070c415c",
           "evidence": [
             {
               "file": "tests/ch16/test_deferred_assertion_default_error.sv",
-              "contains": ":expected_stderr_regex: (?i)\\A(?![\\s\\S]*test_deferred_assertion_default_error\\.sv:34:)(?=[\\s\\S]*error[^\\n]*test_deferred_assertion_default_error\\.sv:43:)(?=[\\s\\S]*error[^\\n]*test_deferred_assertion_default_error\\.sv:44:)(?![\\s\\S]*test_deferred_assertion_default_error\\.sv:45:)"
+              "contains": ":expected_stderr_regex: (?i)\\A(?![\\s\\S]*test_deferred_assertion_default_error\\.sv:34:)(?=[\\s\\S]*(?:error[^\\n]*test_deferred_assertion_default_error\\.sv:43:|test_deferred_assertion_default_error\\.sv:43:[^\\n]*error))(?=[\\s\\S]*(?:error[^\\n]*test_deferred_assertion_default_error\\.sv:44:|test_deferred_assertion_default_error\\.sv:44:[^\\n]*error))(?![\\s\\S]*test_deferred_assertion_default_error\\.sv:45:)"
             },
             {
               "file": "tests/ch16/test_deferred_assertion_default_error.sv",
@@ -128049,11 +128049,11 @@
           "observation": "else なしの a_flushed(34行)の失敗はキューに積まれた既定の $error として再開時にフラッシュされて報告されず、a_kept(43行)と u_kept(44行)の既定の $error は成熟して報告される。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cfa115e6cb70170e5187be803277443bee7c07b64469b53dc2b4cba7b5ba8d7d",
+          "inputs_sha256": "3ccc361ac87709b1d5337917823eab95e0f41c66d6891598b9ab5570070c415c",
           "evidence": [
             {
               "file": "tests/ch16/test_deferred_assertion_default_error.sv",
-              "contains": ":expected_stderr_regex: (?i)\\A(?![\\s\\S]*test_deferred_assertion_default_error\\.sv:34:)(?=[\\s\\S]*error[^\\n]*test_deferred_assertion_default_error\\.sv:43:)(?=[\\s\\S]*error[^\\n]*test_deferred_assertion_default_error\\.sv:44:)(?![\\s\\S]*test_deferred_assertion_default_error\\.sv:45:)"
+              "contains": ":expected_stderr_regex: (?i)\\A(?![\\s\\S]*test_deferred_assertion_default_error\\.sv:34:)(?=[\\s\\S]*(?:error[^\\n]*test_deferred_assertion_default_error\\.sv:43:|test_deferred_assertion_default_error\\.sv:43:[^\\n]*error))(?=[\\s\\S]*(?:error[^\\n]*test_deferred_assertion_default_error\\.sv:44:|test_deferred_assertion_default_error\\.sv:44:[^\\n]*error))(?![\\s\\S]*test_deferred_assertion_default_error\\.sv:45:)"
             },
             {
               "file": "tests/ch16/test_deferred_assertion_default_error.sv",

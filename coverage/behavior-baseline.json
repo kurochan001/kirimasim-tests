@@ -28290,11 +28290,11 @@
     "SV2023-14.5-EXTRACT-CLOCKING-PORT-COMPATIBILITY": "4d78d2163c0813422fa86cdd084f53c13694ba6516b7ca86787a5131ef41fbec",
     "SV2023-14.13-EXTRACT-SKEWED-POSTPONED-SAMPLING": "6c68532e4ccc60d02ab3e89036d0fdce4162854368a367820018b324cccb85ad",
     "SV2023-14.16.2-EXTRACT-NO-CONTINUOUS-PRIMITIVE-VARIABLE": "8349400a1d6d11a168daa85a48450f5023fcb89dbfdcba50d185467f7cfdd433",
-    "SV2023-16.3-EXTRACT-DEFAULT-ERROR": "cf3c967c889205274e3e79f8b974c31019075910636e5819a1cae15289b05812",
+    "SV2023-16.3-EXTRACT-DEFAULT-ERROR": "c14b04e7be4ad0f8f9b84faeedfcfc95b8a3eacbcd1e578f0392beb17270ca31",
     "SV2023-16.3-EXTRACT-TRUTH": "bb1cdb2e3f7046a75d93db751cd0280bfff401b7b3e9ff69f073226483206f47",
     "SV2023-16.4-EXTRACT-ARGUMENT-DIRECTIONS": "acd9a31d511706bfa2e25702572f3d3b3acb3d275a857b189eaca011b26c6a11",
     "SV2023-16.4-EXTRACT-NO-AUTOMATIC-REF": "a4e11536aa4661847a71f70ea48bdba65db4fa23758867b5020113fb58f0fd92",
-    "SV2023-16.4.1-EXTRACT-PENDING-QUEUE": "11c45052e399e4db6be1fd1f49d6e2d0f958f16d51e3e8a3983bccad5147992c",
+    "SV2023-16.4.1-EXTRACT-PENDING-QUEUE": "f4343113cef42c8ec052d1d23d29644205a937ebf48b7db191b7943b4c9c1c01",
     "SV2023-16.6-EXTRACT-FUNCTION-ARGS": "59ed3075c47d9134137337494e887f114cf97eac1d53d7b15e71a213e1990fdc",
     "SV2023-16.6-EXTRACT-FUNCTION-STATE": "2bfa46d52813b9dfb235da22a83535258fa02f0ec72fe5408846830cc8fce02d",
     "SV2023-16.6-EXTRACT-NO-NONSTATIC-CLASS": "7bd65294bc4e6ed995b92c8467a620ac4c93641bb6608f89da67360e2a96d788",
@@ -39350,5 +39350,5 @@
     "P",
     "Q"
   ],
-  "reason": "Monotonic additions of requirements, mappings or completed investigations, recorded by --update"
+  "reason": "Regex refinement 2026-10-25: the :expected_stderr_regex: of ch16/test_deferred_assertion_default_error and ch16/test_immediate_assertion_default_error required the word error before the place on a line, the format of Icarus Verilog and Verilator, while 20.10 leaves the form of severity messages to the tool; both now accept either order and still require and forbid the same lines. Their comments say so without moving any line. The evidence anchors that quote the regex line follow it, the input digests are updated, and both tests were re-run (regex-refinement-20261025-*.json): Verilator 5.052 still matches the immediate one, which its :oracle: lists."
 }

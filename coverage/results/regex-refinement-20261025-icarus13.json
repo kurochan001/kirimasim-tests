@@ -1,0 +1,21 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch16/test_deferred_assertion_default_error": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_deferred_assertion_default_error.sv:34: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+   "inputs_sha256": "3ccc361ac87709b1d5337917823eab95e0f41c66d6891598b9ab5570070c415c"
+  },
+  "ch16/test_immediate_assertion_default_error": {
+   "status": "known",
+   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp0egba...', expected 'after a_fail'",
+   "inputs_sha256": "4318dc070282b62aac143cc1b8758684a95e99b06f4bfa0eb1e02daf868a71ab"
+  }
+ },
+ "generated_at": "2026-10-24T23:12:32.819720+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

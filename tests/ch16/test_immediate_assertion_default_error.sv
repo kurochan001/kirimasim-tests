@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_immediate_assertion_default_error.expected
-:expected_stderr_regex: (?i)\A(?=[\s\S]*error[^\n]*test_immediate_assertion_default_error\.sv:29:)(?=[\s\S]*error[^\n]*test_immediate_assertion_default_error\.sv:31:)(?![\s\S]*test_immediate_assertion_default_error\.sv:32:)(?![\s\S]*test_immediate_assertion_default_error\.sv:34:)(?=[\s\S]*error[^\n]*test_immediate_assertion_default_error\.sv:36:)(?![\s\S]*test_immediate_assertion_default_error\.sv:37:)
+:expected_stderr_regex: (?i)\A(?=[\s\S]*(?:error[^\n]*test_immediate_assertion_default_error\.sv:29:|test_immediate_assertion_default_error\.sv:29:[^\n]*error))(?=[\s\S]*(?:error[^\n]*test_immediate_assertion_default_error\.sv:31:|test_immediate_assertion_default_error\.sv:31:[^\n]*error))(?![\s\S]*test_immediate_assertion_default_error\.sv:32:)(?![\s\S]*test_immediate_assertion_default_error\.sv:34:)(?=[\s\S]*(?:error[^\n]*test_immediate_assertion_default_error\.sv:36:|test_immediate_assertion_default_error\.sv:36:[^\n]*error))(?![\s\S]*test_immediate_assertion_default_error\.sv:37:)
 */
 // IEEE 1800-2023 §16.3: when the else clause of an immediate assert or
 // assume is left out, a failure calls $error, unless $assertcontrol
@@ -19,8 +19,8 @@
 // FailOn) fail without an else clause, so the messages of the run have to
 // name those lines with an error; the passing assertion at 32, the failing
 // one at 34 while fail actions are off and the one at 37 with its own else
-// statement must not be reported. The wording of the messages is not
-// compared. Icarus Verilog 13.0 does not know $assertcontrol.
+// statement must not be reported. The wording, and the order of the word
+// error and the place, are not compared. Icarus 13.0 lacks $assertcontrol.
 
 module test_immediate_assertion_default_error;
   int x = 0;

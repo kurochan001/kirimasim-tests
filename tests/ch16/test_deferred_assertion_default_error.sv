@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_deferred_assertion_default_error.expected
-:expected_stderr_regex: (?i)\A(?![\s\S]*test_deferred_assertion_default_error\.sv:34:)(?=[\s\S]*error[^\n]*test_deferred_assertion_default_error\.sv:43:)(?=[\s\S]*error[^\n]*test_deferred_assertion_default_error\.sv:44:)(?![\s\S]*test_deferred_assertion_default_error\.sv:45:)
+:expected_stderr_regex: (?i)\A(?![\s\S]*test_deferred_assertion_default_error\.sv:34:)(?=[\s\S]*(?:error[^\n]*test_deferred_assertion_default_error\.sv:43:|test_deferred_assertion_default_error\.sv:43:[^\n]*error))(?=[\s\S]*(?:error[^\n]*test_deferred_assertion_default_error\.sv:44:|test_deferred_assertion_default_error\.sv:44:[^\n]*error))(?![\s\S]*test_deferred_assertion_default_error\.sv:45:)
 */
 // IEEE 1800-2023 §16.3: a failing assert or assume without an else clause
 // calls $error. §16.4.1: for a deferred assertion that call is queued on
@@ -21,8 +21,8 @@
 // flushed when the procedure resumes at its event control and passes. At 2
 // a_kept (line 43) and u_kept (line 44) fail and are reported, and a_ok
 // (line 45) passes. The messages of the run have to name lines 43 and 44
-// with an error, and must not name lines 34 and 45; their wording is not
-// compared.
+// with an error, and must not name lines 34 and 45; their wording, and
+// whether the word error comes before or after the place, are not compared.
 
 `timescale 1ns/1ns
 
