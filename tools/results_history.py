@@ -44,11 +44,13 @@ SIMULATORS = {
     "icarus": ("#0969da", "#4493f8"),
     "verilator": ("#8250df", "#ab7df8"),
     "kirimasim": ("#1a7f37", "#3fb950"),
+    "nvc": ("#9a6700", "#d29922"),
 }
-OTHER_COLORS = [("#9a6700", "#d29922"), ("#bf3989", "#db61a2"), ("#1b7c83", "#39c5cf")]
+OTHER_COLORS = [("#1b7c83", "#39c5cf"), ("#953800", "#db6d28"), ("#6e7781", "#8c959f")]
 # The shape of each simulator's markers in the line charts. They are drawn as
 # outlines, so that markers of equal or close values stay visible together.
-MARKERS = {"icarus": "circle", "verilator": "square", "kirimasim": "diamond"}
+MARKERS = {"icarus": "circle", "verilator": "square", "kirimasim": "diamond",
+           "nvc": "triangle"}
 OTHER_MARKERS = ["triangle", "circle", "square", "diamond"]
 # Shown in the report under the table of the latest run, for the simulators in
 # that run.

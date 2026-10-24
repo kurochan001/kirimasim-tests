@@ -247,11 +247,90 @@ jobs:
             echo "No previous results of kirimasim: the comparison is skipped."
           fi
 
+  # The latest master of nvc, kept in the cache by its commit. Its Verilog
+  # and SystemVerilog support is experimental, and no expected output was
+  # recorded with it, so every test runs and counts. The libraries that nvc
+  # links are installed whether or not the build comes from the cache.
+  nvc:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Find the latest commit of nvc
+        id: head
+        run: |
+          sha=$(git ls-remote https://github.com/nickg/nvc.git refs/heads/master | cut -f1)
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Install the libraries of nvc
+        run: |
+          sudo apt-get update || echo "::warning::apt-get update failed for some sources"
+          sudo apt-get install -y llvm-dev libdw-dev libffi-dev libzstd-dev zlib1g-dev
+
+      - name: Restore nvc
+        id: cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/nvc
+          key: nvc-${{ steps.head.outputs.sha }}-ubuntu-24.04
+
+      # Cloned with its history, so that the version that nvc --version prints
+      # can name the commit.
+      - name: Build nvc
+        if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          SHA: ${{ steps.head.outputs.sha }}
+        run: |
+          sudo apt-get install -y automake autoconf flex check pkg-config
+          git clone -q --filter=blob:none https://github.com/nickg/nvc.git "$RUNNER_TEMP/nvc"
+          cd "$RUNNER_TEMP/nvc"
+          git checkout -q --detach "$SHA"
+          ./autogen.sh
+          mkdir build
+          cd build
+          ../configure -q --prefix="$HOME/nvc"
+          make -s -j"$(nproc)"
+          make -s install
+
+      - name: Save nvc
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/nvc
+          key: nvc-${{ steps.head.outputs.sha }}-ubuntu-24.04
+
+      # When nvc --version does not name the commit, it is added to the version
+      # in the results.
+      - name: Run the suite
+        env:
+          SHA: ${{ steps.head.outputs.sha }}
+        run: |
+          mkdir -p results
+          python3 tools/run_nvc.py --nvc "$HOME/nvc/bin/nvc" -j "$(nproc)" \
+            --json results/nvc.json > results/nvc.log || true
+          if [ -f results/nvc.json ] &&
+             ! jq -e --arg c "${SHA::7}" '.version | contains($c)' results/nvc.json > /dev/null; then
+            jq --arg c "${SHA::12}" '.version += " (commit \($c))"' results/nvc.json \
+              > "$RUNNER_TEMP/nvc.json"
+            mv "$RUNNER_TEMP/nvc.json" results/nvc.json
+          fi
+          cat results/nvc.log
+          tail -n 1 results/nvc.log >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: results-nvc
+          path: results/
+          if-no-files-found: warn
+
   # Adds the results of the simulators that ran to the history on the results
-  # branch, draws the charts and the report there, and pushes it.
+  # branch, draws the charts and the report there, and pushes it. Only a run
+  # of main publishes; a run started by hand on another branch only reports.
   publish:
-    needs: [icarus, verilator, kirimasim]
-    if: ${{ !cancelled() }}
+    needs: [icarus, verilator, kirimasim, nvc]
+    if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:

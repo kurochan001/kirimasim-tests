@@ -8,7 +8,8 @@
 **日本時間では翌日04:23に開始予定**です。結果の更新時刻は固定ではありません。
 GitHub側の開始遅延、待機中の実行、シミュレータのビルド・テスト時間によって遅くなることがあります。
 
-Icarus、Verilator、kirimasimの3ジョブが終了してから、`publish`が実行されます。
+Icarus、Verilator、kirimasim、nvcの4ジョブが終了してから、`publish`が実行されます。
+`publish`は`main`の実行だけが行います。ほかのブランチで手動実行した場合、結果はartifactとして残るだけで、公開はされません。
 `publish`が結果を集計して`results`ブランチへpushすると、READMEから参照しているグラフと結果レポートが更新されます。
 `main`へのpushと、Nightly結果の公開は別の処理です。
 
