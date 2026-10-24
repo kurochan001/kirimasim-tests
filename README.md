@@ -11,9 +11,8 @@ simulator passes a test when its standard output, normalized, is exactly the
 test's expected output and any specified exit-code and diagnostic checks
 succeed. The tests are written for the
 [kirimasim](https://github.com/kurochan001/kirimasim) simulator, but nothing in
-them is specific to it: runners for Icarus Verilog, Verilator, kirimasim and
-sukimasim (kirimasim's predecessor, which is not public) are included, and the
-metadata format is that of
+them is specific to it: runners for Icarus Verilog, Verilator and kirimasim
+are included, and the metadata format is that of
 [sv-tests](https://github.com/chipsalliance/sv-tests).
 
 What sets the suite apart:
@@ -176,8 +175,8 @@ allows and how the results of the coverage functions relate.
 
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
 every test of `main` with the latest development version of each simulator:
-the `master` branches of Icarus Verilog and Verilator and the `main` branches
-of kirimasim and sukimasim, built that night. It adds the results to the
+the `master` branches of Icarus Verilog and Verilator and the `main` branch
+of kirimasim, built that night. It adds the results to the
 history on the
 [`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)
 branch. The chart below is redrawn after each run; the
@@ -205,14 +204,10 @@ with the current suite.
 ![Tests that match their expected output](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
-Verilator, a diamond for kirimasim and a triangle for sukimasim. The markers
+Verilator and a diamond for kirimasim. The markers
 are drawn as outlines that fit inside each other, so simulators with the same
 or close counts stay visible together, and the legend gives each one's count
 in the latest run.
-
-sukimasim is not public. Its repository is private, and the nightly workflow
-builds it from there with a read-only key; only its results are published.
-Running the suite with sukimasim yourself needs access to that repository.
 
 Each test of a run gets one of these statuses:
 
@@ -260,7 +255,6 @@ coverage/behavior-history.json  saved measurement history with denominator ident
 tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
-tools/run_sukimasim.py          runs the suite with sukimasim
 tools/normalize_output.py       normalizes a simulator's output before it is compared
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
@@ -487,13 +481,13 @@ Every runner needs Python 3.10 or later, and has these options in common:
 Every runner gives the simulator the metadata that sets up a run, in the
 form the simulator takes:
 
-| Field | Icarus Verilog | Verilator | kirimasim | sukimasim |
-| --- | --- | --- | --- | --- |
-| `:files:` (sources) | before the test | before the test | before the test | before the test |
-| `:files:` (include files) and `:incdirs:` | `-I` | `-I` | `+incdir+` | `+incdir+` |
-| `:defines:` | `-D` | `-D` | `+define+` | `+define+` |
-| `:top_module:` | `-s` | `--top-module` | `--top=` | `-top` |
-| `:args:` | to `vvp` | to the model | after the test | after the test |
+| Field | Icarus Verilog | Verilator | kirimasim |
+| --- | --- | --- | --- |
+| `:files:` (sources) | before the test | before the test | before the test |
+| `:files:` (include files) and `:incdirs:` | `-I` | `-I` | `+incdir+` |
+| `:defines:` | `-D` | `-D` | `+define+` |
+| `:top_module:` | `-s` | `--top-module` | `--top=` |
+| `:args:` | to `vvp` | to the model | after the test |
 
 A runner prints one line for each test that does not match (`FAIL`, or
 `KNOWN` for a known difference, `UNSUPPORTED` for kirimasim), and
@@ -573,31 +567,6 @@ yet (exit code 2 with an `error: unsupported:` message) is reported as
 unsupported, and so are the tests with C code, which kirimasim cannot load
 yet. No expected output was recorded with kirimasim, so every test counts.
 
-### sukimasim
-
-```sh
-python3 tools/run_sukimasim.py --sukimasim /path/to/sukimasim
-python3 tools/run_sukimasim.py --strip-diagnostics -j 8
-```
-
-sukimasim is the simulator that came before kirimasim. It is not public: its
-repository is private, so this runner is of use only with access to it (its
-results are in the nightly report). No expected output was recorded with it,
-so every test counts, and none is a known difference or unsupported. Each
-test runs in a temporary directory with `--quiet --quiet-stats --quiet-exit`
-and `SUKIMASIM_FINISH_STRICT_MODE=1`. The lines that sukimasim prints on
-standard output itself are removed before comparing: everything from
-`[sukimasim] Simulation completed` on, the lines that its `--diff` option
-ignores, its `$finish` message, and the messages of the severity tasks, as for
-the other simulators. `TEST PASSED` is removed only as part of
-what follows `[sukimasim] Simulation completed`, because many tests print it
-themselves. With `--strip-diagnostics` the messages that sukimasim prints while
-it runs, such as `[TIMING] ...`, are removed as well. The C file of a test with
-`:dpi_c:` or `:vpi_c:` is built into a shared library against sukimasim's
-include directory (`--include`; by default the `include` directory beside the
-one that holds the executable) and loaded with `--lib`. sukimasim has no
-`sv_vpi_user.h`, so the runner provides one that includes `vpi_user.h`.
-
 ### Other simulators
 
 A runner for another simulator needs to do four things for each test: run it
@@ -658,7 +627,7 @@ suite has a problem:
 started by hand as well; GitHub can start a scheduled run hours late when it
 is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
-only reported, except for the ratchet of the kirimasim job. It has five jobs:
+only reported, except for the ratchet of the kirimasim job. It has four jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every test.
@@ -672,19 +641,12 @@ only reported, except for the ratchet of the kirimasim job. It has five jobs:
   now; tests that are new or unsupported, and a night without previous
   results, do not count. The results are uploaded before, so the night's
   entry has them either way.
-- **sukimasim** checks out the latest `main` of sukimasim from its private
-  repository with a read-only deploy key (the `SUKIMASIM_DEPLOY_KEY` secret),
-  and the `sukimasim-improvements` branch of its parser,
-  [slang-sukimasim](https://github.com/kurochan001/slang-sukimasim), builds
-  it and runs every test. Only the results leave the job: the output of the
-  build is not shown in the log, and nothing of sukimasim is cached. The job
-  runs only in this repository.
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
   `tools/results_history.py update`, measures behavioral coverage using only
   that run's result files, and pushes the branch. The summary of the run
   lists each simulator's counts, tests whose result changed and behavioral
-  coverage. Publishing waits for all four simulator jobs to finish, including
+  coverage. Publishing waits for all three simulator jobs to finish, including
   failed jobs; a successful publish is what updates the chart and report.
 
 A simulator whose nightly job fails before it has results is left out of

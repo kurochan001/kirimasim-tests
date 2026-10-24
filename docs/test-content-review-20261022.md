@@ -28,8 +28,9 @@
   または小さな再現例で裏付けた。全件の規格適合性を形式的に証明したものではない。
 
 一次資料は指定された
-[IEEE Std 1800-2023 PDF](../../sukimasim/IEEE_1800-2023_SystemVerilog/IEEE_Std_1800-2023_SystemVerilog.pdf)
-と[同PDFの抽出テキスト](../../sukimasim/IEEE_1800-2023_SystemVerilog/out/lrm_pdftotext_layout.txt)。
+[IEEE Std 1800-2023 PDF](../../IEEE_1800-2023_SystemVerilog/IEEE_Std_1800-2023_SystemVerilog.pdf)
+と[同PDFの抽出テキスト](../../IEEE_1800-2023_SystemVerilog/out/lrm_pdftotext_layout.txt)
+（どちらもリポジトリの外の資料ディレクトリ）。
 以下の節番号はこの版に対応する。ページ番号を併記した箇所は冊子上の番号。
 
 ## 指摘

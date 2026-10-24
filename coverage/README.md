@@ -230,10 +230,13 @@ python3 tools/behavior_coverage.py --write-baseline --reason '具体的な規格
 `--verify-source`は抽出テキストのハッシュも検査します。PDFから新たに`pdftotext -layout`
 で抽出したテキストと、提供された抽出済みテキストが一致することも初回に確認しています。
 
+資料のディレクトリは、以下ではリポジトリの隣の`IEEE_1800-2023_SystemVerilog`としています。
+`tools/requirement_source.py`の既定値も同じで、環境変数`IEEE1800_SOURCE`で変えられます。
+
 ```sh
 python3 tools/behavior_coverage.py --check \
-  --verify-source ../sukimasim/IEEE_1800-2023_SystemVerilog
-python3 tools/import_standard_sections.py ../sukimasim/IEEE_1800-2023_SystemVerilog --check
+  --verify-source ../IEEE_1800-2023_SystemVerilog
+python3 tools/import_standard_sections.py ../IEEE_1800-2023_SystemVerilog --check
 python3 tools/requirement_source.py --index /tmp/requirement-source-index.json
 ```
 

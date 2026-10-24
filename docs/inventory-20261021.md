@@ -541,8 +541,8 @@ and in the comment of each test.
   `:incdirs:` (directories relative to the test) and `:top_module:` to
   `tools/suite_results.py`, and pass them in every runner: Icarus Verilog
   `-D`, `-I`, `-s`; Verilator `-D`, `-I`, `--top-module`; kirimasim
-  `+define+`, `+incdir+`, `--top=` (its CLI.md lists them); sukimasim as its
-  options allow. `:args:`, `:files:`, `:expected_exit:` and the illegal
+  `+define+`, `+incdir+`, `--top=` (its CLI.md lists them). `:args:`,
+  `:files:`, `:expected_exit:` and the illegal
   designs stay as they are.
 - README.md: the new fields in "Metadata", and how runners use them.
 - One small test for each new field: a macro value from `:defines:`, an

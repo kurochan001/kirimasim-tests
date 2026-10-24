@@ -44,20 +44,15 @@ SIMULATORS = {
     "icarus": ("#0969da", "#4493f8"),
     "verilator": ("#8250df", "#ab7df8"),
     "kirimasim": ("#1a7f37", "#3fb950"),
-    "sukimasim": ("#bc4c00", "#f0883e"),
 }
 OTHER_COLORS = [("#9a6700", "#d29922"), ("#bf3989", "#db61a2"), ("#1b7c83", "#39c5cf")]
 # The shape of each simulator's markers in the line charts. They are drawn as
 # outlines, so that markers of equal or close values stay visible together.
-MARKERS = {"icarus": "circle", "verilator": "square", "kirimasim": "diamond",
-           "sukimasim": "triangle"}
+MARKERS = {"icarus": "circle", "verilator": "square", "kirimasim": "diamond"}
 OTHER_MARKERS = ["triangle", "circle", "square", "diamond"]
 # Shown in the report under the table of the latest run, for the simulators in
 # that run.
-NOTES = {
-    "sukimasim": "sukimasim's repository is private: the nightly workflow builds its latest "
-                 "`main` from there, and only its results are published.",
-}
+NOTES: dict[str, str] = {}
 STATUS_COLORS = {
     "pass": ("#1a7f37", "#3fb950"),
     "fail": ("#cf222e", "#f85149"),

@@ -66,15 +66,15 @@ APIの型・戻り値、数式の境界、Cヘッダ・アルゴリズムも対�
 - [未解決事項](requirement-extraction-notes.md): 46論点の出典と影響、2026-10-24の再検討結果。
 - [管理手順](../coverage/README.md): テスト対応付け、証跡更新、分母の管理方法。
 
-原本は`../sukimasim/IEEE_1800-2023_SystemVerilog/IEEE_Std_1800-2023_SystemVerilog.pdf`です。
+原本は、リポジトリの外の資料ディレクトリ（既定はリポジトリの隣の`IEEE_1800-2023_SystemVerilog`、環境変数`IEEE1800_SOURCE`で変更）にある`IEEE_Std_1800-2023_SystemVerilog.pdf`です。
 PDFの全1,354ページを位置の基準とし、規格本文そのもののキャッシュはリポジトリに複製していません。
 
 検証コマンド:
 
 ```sh
 python3 tools/behavior_coverage.py --check --require-source-reviewed \
-  --verify-source ../sukimasim/IEEE_1800-2023_SystemVerilog
-python3 tools/import_standard_sections.py ../sukimasim/IEEE_1800-2023_SystemVerilog --check
+  --verify-source ../IEEE_1800-2023_SystemVerilog
+python3 tools/import_standard_sections.py ../IEEE_1800-2023_SystemVerilog --check
 python3 -m unittest discover -s tools -p 'test_behavior_coverage.py'
 python3 -m unittest discover -s tools -p 'test_requirement_audit.py'
 ```
