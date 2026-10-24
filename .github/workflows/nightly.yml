@@ -376,6 +376,14 @@ jobs:
           cp -rL bazel-bin/lyra.runfiles "$HOME/lyra/lyra.runfiles"
           du -sh "$HOME/lyra"
 
+      # The runfiles manifest names each file by its place in Bazel's tree,
+      # which a later job that restores the cache does not have. Without the
+      # manifest, Lyra finds the files in the copied directory. A copy kept
+      # in the cache before this step was added still has the manifest, so
+      # it is removed after every restore as well.
+      - name: Drop the runfiles manifest
+        run: rm -f "$HOME/lyra/lyra.runfiles/MANIFEST"
+
       - name: Save Lyra
         if: steps.cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
