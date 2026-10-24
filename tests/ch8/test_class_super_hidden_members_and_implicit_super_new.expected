@@ -1,0 +1,4 @@
+count=3 get=1003 KK=7 super.count=2 super.get=102 super.KK=40
+super.K=4 super.only_top=9
+constructor order: size=2 1 2
+inserted super.new() with default: v=5

@@ -1,0 +1,25 @@
+processes of u1: 3
+  vpiAlways, module test_vpi_module_process_assign_primitive_relations.u1, same instance 1
+  vpiFinal, module test_vpi_module_process_assign_primitive_relations.u1, same instance 1
+  vpiInitial, module test_vpi_module_process_assign_primitive_relations.u1, same instance 1
+processes of u2: 3
+  vpiAlways, module test_vpi_module_process_assign_primitive_relations.u2, same instance 1
+  vpiFinal, module test_vpi_module_process_assign_primitive_relations.u2, same instance 1
+  vpiInitial, module test_vpi_module_process_assign_primitive_relations.u2, same instance 1
+processes of the top module: 0
+continuous assignments of u1: 2
+  assignment to y1, module test_vpi_module_process_assign_primitive_relations.u1, same instance 1
+  assignment to y2, module test_vpi_module_process_assign_primitive_relations.u1, same instance 1
+continuous assignments of u2: 2
+  assignment to y1, module test_vpi_module_process_assign_primitive_relations.u2, same instance 1
+  assignment to y2, module test_vpi_module_process_assign_primitive_relations.u2, same instance 1
+continuous assignments of the top module: 0
+primitives of u1: 2
+  g1 vpiGate, module test_vpi_module_process_assign_primitive_relations.u1, same instance 1
+  p1 vpiUdp, module test_vpi_module_process_assign_primitive_relations.u1, same instance 1
+primitives of u2: 2
+  g1 vpiGate, module test_vpi_module_process_assign_primitive_relations.u2, same instance 1
+  p1 vpiUdp, module test_vpi_module_process_assign_primitive_relations.u2, same instance 1
+primitives of the top module: 0
+primitive arrays of pa: 1
+  ga vpiGateArray, module test_vpi_module_process_assign_primitive_relations.pa, same instance 1

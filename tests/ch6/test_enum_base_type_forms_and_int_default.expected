@@ -1,0 +1,4 @@
+default: bits=32 init=0 I_NEG=-1 I_ZERO=0 I_MAX=2147483647 neg=1
+atoms: bits=8,16,32 U_HI=255 neg=0 S_MIN=-32768 neg=1 init=0,0,xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+vectors: bits=3,5 B7=7 neg=0 V_NEG=-16 neg=1 init=0,xxxxx
+type names: bits=8,4 T200=200 neg=0 N15=15 neg=0

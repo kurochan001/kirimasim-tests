@@ -1,0 +1,6 @@
+property instance p_a in a_pi: declaration p_a, file test_vpi_instance_assertion_members.sv, start line of a_pi 1, instance test_vpi_instance_assertion_members
+sequence instance s_ab in c_si: declaration s_ab, file test_vpi_instance_assertion_members.sv, start line of c_si 1, instance test_vpi_instance_assertion_members
+s_use: first operand of ## is a sequence instance 1, of s_ab
+property instance p_a callbacks: start 4, success 3, failure 1
+sequence instance s_ab callbacks: start 4, success 2, failure 1
+fail actions 1, cover actions 2

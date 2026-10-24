@@ -1,0 +1,10 @@
+t=23 one=0 two=1 three=1 mtm=0
+t=25 one=0 two=1 three=1 mtm=1
+t=27 one=1 two=1 three=1 mtm=1
+t=45 one=1 two=1 three=1 mtm=0
+t=47 one=0 two=1 three=1 mtm=0
+t=49 one=0 two=0 three=0 mtm=0
+t=63 one=0 two=z three=0 mtm=0
+t=65 one=0 two=z three=0 mtm=z
+t=67 one=z two=z three=0 mtm=z
+t=73 one=z two=z three=z mtm=z

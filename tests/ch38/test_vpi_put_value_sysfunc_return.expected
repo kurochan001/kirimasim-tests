@@ -1,0 +1,4 @@
+0: $vt_value(7) returns 7
+0: $vt_nothing returns 0
+5: $vt_nothing returns 0
+10: $vt_value(9) returns 9

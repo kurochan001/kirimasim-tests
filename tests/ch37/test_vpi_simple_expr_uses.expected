@@ -1,0 +1,5 @@
+uses of net v: cont assign to wa, cont assign to wb, cont assign to wc2, cont assign to wd, prim term 1
+uses of variable r: cont assign to wf, prim term 2
+uses of parameter P: cont assign to wg
+uses of specparam SP: cont assign to wsp
+uses of bit-select v[1] (full name test_vpi_simple_expr_uses.v[1]): cont assign to wa, cont assign to wb, cont assign to wc2

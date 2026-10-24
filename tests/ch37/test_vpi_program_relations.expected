@@ -1,0 +1,32 @@
+vpiDefaultClocking of p1: test_vpi_program_relations.p1.cb2
+vpiDefaultClocking of p2: test_vpi_program_relations.p2.cb2
+vpiDefaultClocking of q: NULL
+vpiDefaultDisableIff of p1: rst
+vpiDefaultDisableIff of q: NULL
+continuous assignments of p1: 2
+  assignment to w1, vpiInstance is p1 1
+  assignment to w2, vpiInstance is p1 1
+continuous assignments of p2: 2
+  assignment to w1, vpiInstance is p2 1
+  assignment to w2, vpiInstance is p2 1
+continuous assignments of q: 0
+clocking blocks of p1: 2
+  test_vpi_program_relations.p1.cb1, vpiInstance is p1 1
+  test_vpi_program_relations.p1.cb2, vpiInstance is p1 1
+clocking blocks of p2: 2
+  test_vpi_program_relations.p2.cb1, vpiInstance is p2 1
+  test_vpi_program_relations.p2.cb2, vpiInstance is p2 1
+clocking blocks of q: 0
+processes of p1: 2
+  vpiFinal, vpiInstance is p1 1
+  vpiInitial, vpiInstance is p1 1
+processes of p2: 2
+  vpiFinal, vpiInstance is p2 1
+  vpiInitial, vpiInstance is p2 1
+processes of q: 1
+  vpiInitial, vpiInstance is q 1
+programs of pa: 2
+  test_vpi_program_relations.pa[0]
+  test_vpi_program_relations.pa[1]
+vpiInstanceArray of pa[1]: test_vpi_program_relations.pa
+vpiInstanceArray of p1: NULL

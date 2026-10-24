@@ -1,0 +1,108 @@
+/* VPI application of test_vpi_module_process_assign_primitive_relations (IEEE 1800-2023 37.5). */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "vpi_user.h"
+#include "sv_vpi_user.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define TOP "test_vpi_module_process_assign_primitive_relations"
+#define MAX_ITEMS 8
+
+static char items[MAX_ITEMS][128];
+static int n_items;
+
+static int compare(const void *x, const void *y)
+{
+    return strcmp((const char *)x, (const char *)y);
+}
+
+static vpiHandle find(const char *name)
+{
+    char full[128];
+    snprintf(full, sizeof full, "%s%s%s", TOP, *name ? "." : "", name);
+    return vpi_handle_by_name((PLI_BYTE8 *)full, NULL);
+}
+
+static const char *str_or(const char *s, const char *other)
+{
+    return s != NULL ? s : other;
+}
+
+/* What identifies an object of each kind: the type of a process, the name of
+   the target of a continuous assignment, the name and type of a primitive. */
+static void describe(vpiHandle h, PLI_INT32 type, char *buf, size_t size)
+{
+    char lhs[48];
+
+    if (type == vpiProcess) {
+        snprintf(buf, size, "%s", str_or(vpi_get_str(vpiType, h), "?"));
+    } else if (type == vpiContAssign) {
+        vpiHandle l = vpi_handle(vpiLhs, h);
+        snprintf(lhs, sizeof lhs, "%s", l != NULL ? str_or(vpi_get_str(vpiName, l), "?") : "?");
+        snprintf(buf, size, "assignment to %s", lhs);
+    } else {
+        snprintf(lhs, sizeof lhs, "%s", str_or(vpi_get_str(vpiName, h), "?"));
+        snprintf(buf, size, "%s %s", lhs, str_or(vpi_get_str(vpiType, h), "?"));
+    }
+}
+
+/* Prints the objects of `type` in instance `label`, sorted, each with the
+   full name of its vpiModule and whether that is the same instance. */
+static void show(const char *label, PLI_INT32 type, const char *what)
+{
+    vpiHandle mod = find(label), it, h, back;
+    char text[64], owner[80];
+    int i;
+
+    n_items = 0;
+    it = mod != NULL ? vpi_iterate(type, mod) : NULL;
+    while (it != NULL && (h = vpi_scan(it)) != NULL) {
+        if (n_items == MAX_ITEMS)
+            continue;
+        describe(h, type, text, sizeof text);
+        back = vpi_handle(vpiModule, h);
+        snprintf(owner, sizeof owner, "%s",
+                 back != NULL ? str_or(vpi_get_str(vpiFullName, back), "?") : "NULL");
+        snprintf(items[n_items++], sizeof items[0], "%s, module %s, same instance %d", text,
+                 owner, back != NULL && mod != NULL && vpi_compare_objects(back, mod));
+    }
+    qsort(items, (size_t)n_items, sizeof items[0], compare);
+    vpi_printf((PLI_BYTE8 *)"%s of %s: %d\n", what, *label ? label : "the top module", n_items);
+    for (i = 0; i < n_items; i++)
+        vpi_printf((PLI_BYTE8 *)"  %s\n", items[i]);
+}
+
+static PLI_INT32 start_of_simulation(p_cb_data cb)
+{
+    (void)cb;
+    show("u1", vpiProcess, "processes");
+    show("u2", vpiProcess, "processes");
+    show("", vpiProcess, "processes");
+    show("u1", vpiContAssign, "continuous assignments");
+    show("u2", vpiContAssign, "continuous assignments");
+    show("", vpiContAssign, "continuous assignments");
+    show("u1", vpiPrimitive, "primitives");
+    show("u2", vpiPrimitive, "primitives");
+    show("", vpiPrimitive, "primitives");
+    show("pa", vpiPrimitiveArray, "primitive arrays");
+    return 0;
+}
+
+static void register_all(void)
+{
+    s_cb_data cb;
+    memset(&cb, 0, sizeof cb);
+    cb.reason = cbStartOfSimulation;
+    cb.cb_rtn = start_of_simulation;
+    vpi_register_cb(&cb);
+}
+
+void (*vlog_startup_routines[])(void) = {register_all, 0};
+
+#ifdef __cplusplus
+}
+#endif

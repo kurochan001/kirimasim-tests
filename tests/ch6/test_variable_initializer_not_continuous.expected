@@ -1,0 +1,4 @@
+start: v=10 w=4
+after writes: v=20 w=8
+later: v=20 w=8
+twice(4)=8 twice(9)=18

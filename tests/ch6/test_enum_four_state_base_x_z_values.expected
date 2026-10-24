@@ -1,0 +1,5 @@
+XV=1x0 ZV=z01 IX=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+exact: 1 1 1
+not 2-state: 0 0 0 0
+v=1x0 name=XV num=4
+v=z01 name=ZV

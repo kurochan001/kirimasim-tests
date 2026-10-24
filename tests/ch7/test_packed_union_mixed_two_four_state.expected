@@ -1,0 +1,5 @@
+initial: whole=xxxxxxxx b2=00000000
+after l4 write: l4=1x0z10x1 whole=1x0z10x1 b2=10001001
+unknown bits: whole=1 l4=1 b2=0
+plus 1: b2+1=10001010 l4+1=xxxxxxxx
+after b2 write: l4=10100101 whole=10100101 unknown=0

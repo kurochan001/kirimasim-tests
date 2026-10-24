@@ -1,0 +1,4 @@
+5-bit base: Q=16 R=17
+signed base: S1=-1 S2=0 S3=-56 S4=-55
+unsigned base: U1=14 U2=15 int=14
+signed to int: -1

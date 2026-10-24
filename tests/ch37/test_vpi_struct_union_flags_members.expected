@@ -1,0 +1,14 @@
+vsp: struct var, tagged 0, soft 0, packed 1
+vsu: struct var, tagged 0, soft 0, packed 0
+vup: union var, tagged 0, soft 0, packed 1
+vut: union var, tagged 1, soft 0, packed 0
+vus: union var, tagged 0, soft 1, packed 1
+typespec of vsp: struct typespec, tagged 0, soft 0, packed 1
+typespec of vsu: struct typespec, tagged 0, soft 0, packed 0
+typespec of vup: union typespec, tagged 0, soft 0, packed 1
+typespec of vut: union typespec, tagged 1, soft 0, packed 0
+typespec of vus: union typespec, tagged 0, soft 1, packed 1
+members of su_t (4): pl (int typespec, not random) ra (int typespec, rand) rc (bit typespec, randc) sub (struct typespec named sp_t, not random)
+members of upk_t (2): s (struct typespec named sp_t) w (logic typespec)
+members of ut_t (2): none (void typespec) val (int typespec)
+members of us_t (2): a (logic typespec) b (logic typespec)

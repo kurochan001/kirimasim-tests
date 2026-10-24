@@ -1,0 +1,5 @@
+a=0: (pull0, weak1)=Pu0 (supply1, strong0)=St0
+v4=0110 s=1: y4=0110
+a=1: (pull0, weak1)=We1 (supply1, strong0)=Su1
+v4=0110 s=0: y4=0000
+v4=1001 s=1: y4=1001

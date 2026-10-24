@@ -1,0 +1,6 @@
+qa: posedge: 12 negedge: 22
+qb: posedge: 12 negedge:
+qc: posedge: 12 negedge:
+qd: posedge: negedge: 22
+qe: posedge: negedge:
+qf: posedge: 12 negedge:

@@ -1,0 +1,6 @@
+first vpi_mcd_open of a is nonzero: 1
+second vpi_mcd_open of a returned the first descriptor: 1
+vpi_mcd_open of the file of fm returned fm: 1
+vpi_mcd_open in a missing directory returned 0
+vpi_mcd_flush is PLI_INT32 (*)(PLI_UINT32): 1
+vpi_mcd_flush of a returned 0, of a channel with no file nonzero: 1

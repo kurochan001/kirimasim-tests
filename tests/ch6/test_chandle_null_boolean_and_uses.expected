@@ -1,0 +1,9 @@
+unset: == null 1, === null 1, zero in C 1, Boolean 0
+from C: Boolean a 1 b 1 n 0, n == null 1, a zero in C 0
+a vs a2: == 1 === 1 != 0 !== 0
+a vs b: == 0 === 0 != 1 !== 1
+a vs null: == 0 === 0 != 1 !== 1
+n vs null: == 1 === 1 != 0 !== 0
+class property: null 1
+class property set: value 21 same 1
+associative array: num 2 [a] 101 [b] 200

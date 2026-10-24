@@ -1,0 +1,9 @@
+len=4 bits=8
+s[-1]=00 getc=00 same=1
+s[0]=48 getc=48 same=1
+s[1]=65 getc=65 same=1
+s[2]=79 getc=79 same=1
+s[3]=21 getc=21 same=1
+s[4]=00 getc=00 same=1
+last=21
+empty: len=0 e[0]=00 e[-1]=00

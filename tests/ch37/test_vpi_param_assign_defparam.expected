@@ -1,0 +1,9 @@
+def params of the top module: 1; of u2: 0
+def param: module is the top module 1, lhs parameter, is u2.D 1, rhs 33
+u2.D: value 33
+param assigns of u1: 2
+  T: lhs type parameter, is u1.T 1; rhs shortint typespec; module is u1 1; scope is u1 1
+  W: lhs parameter, is u1.W 1; rhs 12; module is u1 1; scope is u1 1
+param assigns of u2: 0
+param assigns of ifc: 1
+  N: lhs parameter, is ifc.N 1; rhs 7; scope is ifc 1

@@ -1,0 +1,6 @@
+no items: inst 0.00 (0/0), type 0.00 (0/0)
+all excluded: inst 0.00 (0/0), type 0.00 (0/0)
+item weights 0: inst 0.00 (0/0), type 0.00 (0/0)
+weight 0: inst 100.00 (0/0), type 100.00 (0/0)
+partial: inst 25.00 (1/4)
+$get_coverage: 25.00

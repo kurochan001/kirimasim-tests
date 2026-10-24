@@ -1,0 +1,5 @@
+assign: int=3 bit32=3
+cast: 3 3 -3 u32=3
+numeric round trip: 3.000
+bits: 40580000 c0200000
+bits round trip: 3.375

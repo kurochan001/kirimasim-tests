@@ -1,0 +1,5 @@
+bits: c=8 d=16 e=12 f=32 t=16 count=0
+signs: d<0=0 t<0=1
+cast: c=34
+constant: SAME=1 DIFF=1 CSAME=1 dim=4 SEL=1
+override: bits=12

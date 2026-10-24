@@ -1,0 +1,10 @@
+index 1: a="hEllo" b="hEllo" len=5
+index 4: a="hEll!" b="hEll!" len=5
+index -1: a="hEll!" b="hEll!" len=5
+index 5: a="hEll!" b="hEll!" len=5
+index 99: a="hEll!" b="hEll!" len=5
+zero: a="hEll!" b="hEll!" len=5
+16'h0100: a="hEll!" b="hEll!" len=5
+16'h0148: a="HEll!" b="HEll!" len=5
+64'h1_0000_0003: a="HElL!" b="HEll!" len=5
+empty: e="" len=0

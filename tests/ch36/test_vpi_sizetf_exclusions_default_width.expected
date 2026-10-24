@@ -1,0 +1,4 @@
+$vt_real: 2.5
+$vt_wide: 000000123456789a
+$vt_nosize: 000000003456789a
+sizetf calls: $vt_task 0, $vt_real 0

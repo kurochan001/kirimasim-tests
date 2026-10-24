@@ -38,54 +38,54 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **4482 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **5076 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3084 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 830 |
-| The standard only, where neither simulator follows it | 568 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3290 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 940 |
+| The standard only, where neither simulator follows it | 846 |
 
-581 tests depend on x or z values (`:fourstate: yes`). 262 tests come with C code: 33 DPI tests (`:dpi_c:`) and 229 VPI tests (`:vpi_c:`). 681 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 20 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+704 tests depend on x or z values (`:fourstate: yes`). 387 tests come with C code: 46 DPI tests (`:dpi_c:`) and 341 VPI tests (`:vpi_c:`). 818 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 24 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 27 | 22 | 3 | 2 |
 | 4 | Scheduling semantics | 387 | 377 | 4 | 6 |
 | 5 | Lexical conventions | 289 | 281 | 6 | 2 |
-| 6 | Data types | 318 | 225 | 70 | 23 |
-| 7 | Aggregate data types | 334 | 131 | 182 | 21 |
-| 8 | Classes | 162 | 34 | 107 | 21 |
+| 6 | Data types | 447 | 282 | 105 | 60 |
+| 7 | Aggregate data types | 372 | 142 | 191 | 39 |
+| 8 | Classes | 198 | 38 | 135 | 25 |
 | 9 | Processes | 117 | 99 | 8 | 10 |
-| 10 | Assignment statements | 109 | 87 | 16 | 6 |
-| 11 | Operators and expressions | 724 | 654 | 63 | 7 |
+| 10 | Assignment statements | 114 | 87 | 17 | 10 |
+| 11 | Operators and expressions | 766 | 672 | 75 | 19 |
 | 12 | Procedural programming statements | 122 | 103 | 16 | 3 |
 | 13 | Tasks and functions (subroutines) | 131 | 71 | 56 | 4 |
 | 14 | Clocking blocks | 53 |  | 48 | 5 |
 | 15 | Interprocess synchronization and communication | 36 | 2 | 26 | 8 |
 | 16 | Assertions | 99 | 16 | 20 | 63 |
 | 17 | Checkers | 31 |  | 10 | 21 |
-| 18 | Constrained random value generation | 60 | 1 | 43 | 16 |
-| 19 | Functional coverage | 43 |  | 11 | 32 |
-| 20 | Utility system tasks and system functions | 192 | 169 | 12 | 11 |
+| 18 | Constrained random value generation | 64 | 1 | 45 | 18 |
+| 19 | Functional coverage | 84 |  | 14 | 70 |
+| 20 | Utility system tasks and system functions | 196 | 171 | 13 | 12 |
 | 21 | Input/output system tasks and system functions | 92 | 82 | 6 | 4 |
 | 22 | Compiler directives | 296 | 292 | 4 |  |
 | 23 | Modules and hierarchy | 81 | 60 | 10 | 11 |
-| 24 | Programs | 30 | 13 | 3 | 14 |
-| 25 | Interfaces | 54 | 11 | 38 | 5 |
-| 26 | Packages | 40 | 30 | 9 | 1 |
-| 27 | Generate constructs | 68 | 63 | 4 | 1 |
-| 28 | Gate-level and switch-level modeling | 178 | 141 | 3 | 34 |
-| 29 | User-defined primitives | 41 | 32 | 6 | 3 |
-| 30 | Specify blocks | 23 | 18 |  | 5 |
-| 31 | Timing checks | 23 | 4 |  | 19 |
-| 32 | Backannotation using the standard delay format | 25 | 10 |  | 15 |
-| 33 | Configuring the contents of a design | 25 | 4 | 5 | 16 |
+| 24 | Programs | 36 | 18 | 3 | 15 |
+| 25 | Interfaces | 60 | 11 | 42 | 7 |
+| 26 | Packages | 57 | 42 | 11 | 4 |
+| 27 | Generate constructs | 85 | 79 | 4 | 2 |
+| 28 | Gate-level and switch-level modeling | 220 | 173 | 3 | 44 |
+| 29 | User-defined primitives | 67 | 47 | 10 | 10 |
+| 30 | Specify blocks | 37 | 24 |  | 13 |
+| 31 | Timing checks | 34 | 5 |  | 29 |
+| 32 | Backannotation using the standard delay format | 47 | 15 |  | 32 |
+| 33 | Configuring the contents of a design | 33 | 4 | 5 | 24 |
 | 34 | Protected envelopes | — | | | |
-| 35 | Direct programming interface | 34 |  | 23 | 11 |
-| 36 | Programming language interface (PLI/VPI) overview | 50 | 20 | 15 | 15 |
-| 37 | VPI object model diagrams | 102 | 7 |  | 95 |
-| 38 | VPI routine definitions | 41 | 24 | 2 | 15 |
+| 35 | Direct programming interface | 50 |  | 29 | 21 |
+| 36 | Programming language interface (PLI/VPI) overview | 55 | 22 | 15 | 18 |
+| 37 | VPI object model diagrams | 175 | 10 | 1 | 164 |
+| 38 | VPI routine definitions | 73 | 41 | 4 | 28 |
 | 39 | Assertion API | 22 |  |  | 22 |
 | 40 | Code coverage control and API | 23 | 1 | 1 | 21 |
 <!-- suite-stats:end -->
@@ -152,10 +152,11 @@ which add 24 tests of the C headers of Annexes I, K, L and M and 24 VPI tests of
 clause 37. On 2026-10-24 the [requirement extraction](docs/requirement-extraction.md)
 recast the keyword-reservation rows as error cases and resolved 27 interpretation
 issues, and the [generated keyword tests](docs/keyword-tests-20261024.md) add 496
-illegal designs that use a reserved keyword as a name. Provisional design coverage
-is **35.603539% (4,386/12,319)**; provisional execution coverage is
-**23.484049% (2,893/12,319)**. Much of the increase is in annexes whose rows are
-one constant or keyword each: clauses 1 to 40 alone are at 31.92% (3,028/9,486).
+illegal designs that use a reserved keyword as a name. The
+[gap tests](docs/gap-tests-20261024.md) then add 594 independently verified tests
+for requirements that had none. Provisional design coverage
+is **52.195795% (6,430/12,319)**; provisional execution coverage is
+**30.310902% (3,734/12,319)**. Clauses 1 to 40 alone are at 53.47% (5,072/9,486).
 Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.

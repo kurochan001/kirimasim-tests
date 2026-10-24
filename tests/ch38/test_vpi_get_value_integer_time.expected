@@ -1,0 +1,3 @@
+i vpiObjTypeVal: format vpiIntVal, integer -5
+t vpiObjTypeVal: format vpiTimeVal, time type vpiSimTime, high 2 low 7
+t vpiTimeVal: high 2 low 7

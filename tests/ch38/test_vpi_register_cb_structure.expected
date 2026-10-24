@@ -1,0 +1,16 @@
+p_cb_data points to s_cb_data (struct t_cb_data) 1
+reason PLI_INT32 1
+cb_rtn PLI_INT32 (*)(struct t_cb_data *) 1
+obj vpiHandle 1
+time p_vpi_time 1
+value p_vpi_value 1
+index PLI_INT32 1
+user_data PLI_BYTE8 * 1
+order reason cb_rtn obj time value index user_data 1
+vpi_register_cb vpiHandle (*)(p_cb_data) 1
+cbValueChange (simulation event): handle is a vpiCallback 1
+cbAfterDelay (simulation time): handle is a vpiCallback 1
+cbEndOfSimulation (simulator action): handle is a vpiCallback 1
+on_event_or_time: cbAfterDelay 5 at 5
+on_event_or_time: cbValueChange on r at 10
+on_end: cbEndOfSimulation at 20

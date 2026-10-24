@@ -1,0 +1,9 @@
+internal scopes of s1: 3
+  blk vpiNamedBegin, module test_vpi_module_internal_scope_relations.s1, same instance 1
+  f vpiFunction, module test_vpi_module_internal_scope_relations.s1, same instance 1
+  t vpiTask, module test_vpi_module_internal_scope_relations.s1, same instance 1
+internal scopes of s2: 3
+  blk vpiNamedBegin, module test_vpi_module_internal_scope_relations.s2, same instance 1
+  f vpiFunction, module test_vpi_module_internal_scope_relations.s2, same instance 1
+  t vpiTask, module test_vpi_module_internal_scope_relations.s2, same instance 1
+internal scopes of e: 0

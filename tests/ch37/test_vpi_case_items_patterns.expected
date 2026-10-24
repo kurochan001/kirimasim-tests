@@ -1,0 +1,9 @@
+case on s, item with v = 10: expressions 1, 2
+case on s, item with v = 20: expressions 3
+case on s, item with v = 30: expressions NULL
+case on s, item with v = 60: expressions 7
+case on s, item with v = k: expressions .k
+case on u, item with v = 41: expressions tagged Num 5
+case on u, item with v = 42: expressions tagged Empty no pattern
+case on u, item with v = n: expressions tagged Num .n
+case statements: 3, case items: 8

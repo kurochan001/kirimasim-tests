@@ -1,0 +1,7 @@
+typed list: U1=7 U2=14 bits=32
+signed dims: S1=-3 S2=-128 bits=8
+dims only: N1=10 bits=4 neg=0
+array: ARR[1]=20 size=3 MAT[1][0]=3 MAT[0][1]=2
+struct: SP.a=5 SP.b=-2 sum=3
+types: 16 6 32
+selects: W[15]=1 W[3:0]=d W[11 -: 4]=b W[4 +: 8]=bc

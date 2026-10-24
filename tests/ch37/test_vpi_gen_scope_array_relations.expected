@@ -1,0 +1,18 @@
+gen scope arrays of the module: ga gb gc gsp
+gen scope arrays of u_ifc: ig
+gen scope arrays of u_prog: pg
+ga: name ga, full name test_vpi_gen_scope_array_relations.ga, module test_vpi_gen_scope_array_relations, instance test_vpi_gen_scope_array_relations
+gd of gc[1]: name gd, full name test_vpi_gen_scope_array_relations.gc[1].gd, module test_vpi_gen_scope_array_relations, instance test_vpi_gen_scope_array_relations
+ig of u_ifc: name ig, full name test_vpi_gen_scope_array_relations.u_ifc.ig, instance test_vpi_gen_scope_array_relations.u_ifc
+pg of u_prog: name pg, full name test_vpi_gen_scope_array_relations.u_prog.pg, instance test_vpi_gen_scope_array_relations.u_prog
+gen var of ga: name i, full name test_vpi_gen_scope_array_relations.i
+gen scope arrays of the gen var of ga: ga gb gsp
+ga[1]: gen scope array test_vpi_gen_scope_array_relations.ga, vpiArray 1
+gc[1].gd[0]: gen scope array test_vpi_gen_scope_array_relations.gc[1].gd, vpiArray 1
+gif: name gif, gen scope array NULL, vpiArray 0
+gcase: name gcase, gen scope array NULL, vpiArray 0
+ga by index 2: test_vpi_gen_scope_array_relations.ga[2]
+ga by multi-index 1: test_vpi_gen_scope_array_relations.ga[1]
+ga by index 5: NULL
+gsp by index 4: test_vpi_gen_scope_array_relations.gsp[4]
+gsp by index 1: NULL

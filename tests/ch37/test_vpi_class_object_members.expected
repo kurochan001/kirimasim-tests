@@ -1,0 +1,12 @@
+p: declared type of packet, its object created as linked
+n: class obj NULL 1
+variables of the object of q: id s_cnt vif vifs
+vifs as one vpiArrayVar among the variables 1, virtual interface vars 3, vif among them 1
+methods: get sget
+constraints: c_one c_two
+named events: ev s_ev
+named event arrays: evs s_evs
+parameters of the object: K = 3 (local 1), W = 6 (local 0)
+parameters of the class typespec of q: K = 3 (local 1), W = 6 (local 0)
+object ids: q and r equal 1, q p o1 o2 distinct 1, nonzero 1, variable id is its object's id 1, n is 0: 1
+by name test_vpi_class_object_members.q.id: found 1, value 7

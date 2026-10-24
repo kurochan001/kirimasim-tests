@@ -1,0 +1,8 @@
+31: u1 y=0 v=0 z=0 w=0, u0 y=0 v=0 z=0 w=0
+63: u1 y=x v=x z=x w=0, u0 y=x v=x z=0 w=x
+95: u1 y=1 v=1 z=1 w=0, u0 y=1 v=1 z=0 w=1
+125: u1 y=0 v=0 z=0 w=0, u0 y=0 v=0 z=0 w=0
+135: u1 y=1 v=1 z=1 w=0, u0 y=1 v=1 z=0 w=1
+145: u1 y=1 v=1 z=1 w=1, u0 y=1 v=1 z=1 w=1
+175: u1 y=0 v=0 z=0 w=1, u0 y=0 v=0 z=1 w=0
+185: u1 y=0 v=0 z=0 w=0, u0 y=0 v=0 z=0 w=0

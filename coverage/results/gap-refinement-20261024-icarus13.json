@@ -1,0 +1,26 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch30/test_specify_pulse_trailing_edge_limits": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: test_specify_pulse_trailing_edge_limits.sdf:...', expected 'td y: 34:1'",
+   "inputs_sha256": "05d9dfb4d451900401949be6d25119078af16040862b799f1c09b5771cdde2a1"
+  },
+  "ch37/test_vpi_interface_tf_decl_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "cf03d164daa882c9fbfa2f3b9c116382a32b5dc7a49a8aad8946db78a56ba50b"
+  },
+  "ch8/test_param_class_package_vs_module_instance_specializations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_param_class_package_vs_module_instance_specializations.sv:28: syntax error",
+   "inputs_sha256": "75ae8d2bb563a5344d842523da9bbdfd3affa693f02b1d318692ff0dfd95aa61"
+  }
+ },
+ "generated_at": "2026-10-24T01:44:29.848332+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

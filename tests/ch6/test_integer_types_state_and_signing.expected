@@ -1,0 +1,8 @@
+2-state: bit=0 byte=01001000 shortint=0100100011000011 int=00001234 longint=000000000000abcd
+4-state: integer=xxxxzz34 time=zzzz0000xxxxabcd logic=x1z01x0z reg=x1z01x0z
+signed: byte=-1 shortint=-1 int=-1 integer=-1 longint=-1
+unsigned: time=18446744073709551615 bit=1 logic=255 reg=255 packed=255
+below 0: byte=1 integer=1 time=0 reg=0 packed=0
+explicit unsigned: byte=255 int=4294967295
+explicit signed: reg=-1 logic=-1 bit=-1 time=-1
+reg widths: 1 8 10

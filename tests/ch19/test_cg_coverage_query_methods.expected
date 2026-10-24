@@ -1,0 +1,9 @@
+before sampling: g1 0.00 (0/8)
+before sampling: type 0.00 (0/22)
+g1: 66.67 (5/8); cp 100.00, cq 50.00, x 50.00
+g2: 29.17 (3/14)
+g2 cp: 25.00 (1/4)
+g2 x: 12.50 (1/8)
+type cg: 47.92 (8/22), through g1 47.92
+type cp: 62.50 (3/6), through g2 62.50
+type x through g1: 31.25 (3/12), through :: 31.25

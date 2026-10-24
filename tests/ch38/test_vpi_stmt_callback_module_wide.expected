@@ -1,0 +1,10 @@
+callback on u1: one vpiCallback handle yes
+test_vpi_stmt_callback_module_wide.u1: v=4
+test_vpi_stmt_callback_module_wide.u2: v=4
+vpiBegin: 1
+vpiAssignment: 4
+vpiIf: 1
+vpiCase: 1
+vpiDelayControl: 2
+vpiSysTaskCall: 1
+other types: 0, statements not in u1: 0

@@ -1,0 +1,7 @@
+c=1: a=17 b=17
+c=0: a=7 b=10
+c=x: a=7 b=10
+c=z: a=7 b=10
+tran: p=3 q=3
+strong 0 and weak 1: n=1
+strong 0 and weak 1 across a tran: u=1 v=1

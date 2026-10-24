@@ -1,0 +1,4 @@
+t=15 clk2: let 1 direct 1
+t=20 clk1: let 0 direct 0
+t=25 clk2: let 0 direct 0
+t=30 clk1: let 1 direct 1

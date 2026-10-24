@@ -1,0 +1,5 @@
+strobe option: cg_now 0, cg_strobe 1
+no strobe: 1 twice 100, 2 100, 3 0
+strobe: 1 0, 2 0, 3 100, 3 twice 0
+strobe, sample(): 4 100, 5 0
+strobe, block event: 6 100, 7 0

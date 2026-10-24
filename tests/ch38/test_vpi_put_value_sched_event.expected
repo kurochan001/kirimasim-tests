@@ -1,0 +1,9 @@
+10: a 1 at 20 with vpiReturnEvent: a vpiSchedEvent yes, vpiScheduled 1
+10: a 2 at 30 without vpiReturnEvent: NULL
+10: cancel of a 1 at 20 with NULL value_p and time_p: error no
+10: b 5 with vpiNoDelay and vpiReturnEvent: NULL
+12: a=0 b=5 c=0 d=0 e=0
+17: event of c at 15: vpiScheduled 0, cancel: error no
+22: a=0 b=5 c=7 d=9 e=0
+27: a=0 b=5 c=7 d=9 e=0
+35: a=2 b=5 c=7 d=9 e=0

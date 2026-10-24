@@ -1,0 +1,11 @@
+scalars: 1 1 1 1
+widths: 4 4 6 6 1, element 1
+descending: dn[3]=0 dn[0]=1 value=1
+ascending: up[0]=0 up[3]=1 value=1
+negative: neg[-1]=1 neg[0]=1 neg[4]=0 value=48
+mixed: mix[-3]=0 mix[1]=1 mix[2]=1 value=3
+single index: one[5]=1
+modulo: m=0 k=7 p8=44
+below zero: m=15
+signedness: u4=8 below 0 0, s4=-8 below 0 1
+ports: p=-8 q=8

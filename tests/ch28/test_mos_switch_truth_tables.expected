@@ -1,0 +1,16 @@
+data=0 ctrl=0: nmos=HiZ rnmos=HiZ pmos=St0 rpmos=Pu0
+data=0 ctrl=1: nmos=St0 rnmos=Pu0 pmos=HiZ rpmos=HiZ
+data=0 ctrl=x: nmos=StL rnmos=PuL pmos=StL rpmos=PuL
+data=0 ctrl=z: nmos=StL rnmos=PuL pmos=StL rpmos=PuL
+data=1 ctrl=0: nmos=HiZ rnmos=HiZ pmos=St1 rpmos=Pu1
+data=1 ctrl=1: nmos=St1 rnmos=Pu1 pmos=HiZ rpmos=HiZ
+data=1 ctrl=x: nmos=StH rnmos=PuH pmos=StH rpmos=PuH
+data=1 ctrl=z: nmos=StH rnmos=PuH pmos=StH rpmos=PuH
+data=x ctrl=0: nmos=HiZ rnmos=HiZ pmos=StX rpmos=PuX
+data=x ctrl=1: nmos=StX rnmos=PuX pmos=HiZ rpmos=HiZ
+data=x ctrl=x: nmos=StX rnmos=PuX pmos=StX rpmos=PuX
+data=x ctrl=z: nmos=StX rnmos=PuX pmos=StX rpmos=PuX
+data=z ctrl=0: nmos=HiZ rnmos=HiZ pmos=HiZ rpmos=HiZ
+data=z ctrl=1: nmos=HiZ rnmos=HiZ pmos=HiZ rpmos=HiZ
+data=z ctrl=x: nmos=HiZ rnmos=HiZ pmos=HiZ rpmos=HiZ
+data=z ctrl=z: nmos=HiZ rnmos=HiZ pmos=HiZ rpmos=HiZ

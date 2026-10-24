@@ -1,0 +1,14 @@
+su Su1: rtran=Pu1 rtranif0=Pu1 rtranif1=Pu1
+st St1: rtran=Pu1 rtranif0=Pu1 rtranif1=Pu1
+pu Pu1: rtran=We1 rtranif0=We1 rtranif1=We1
+we We1: rtran=Me1 rtranif0=Me1 rtranif1=Me1
+me Me1: rtran=Sm1 rtranif0=Sm1 rtranif1=Sm1
+sm Sm1: rtran=Sm1 rtranif0=Sm1 rtranif1=Sm1
+hz HiZ: rtran=HiZ rtranif0=HiZ rtranif1=HiZ
+su Su0: rtran=Pu0 rtranif0=Pu0 rtranif1=Pu0
+st St0: rtran=Pu0 rtranif0=Pu0 rtranif1=Pu0
+pu Pu0: rtran=We0 rtranif0=We0 rtranif1=We0
+we We0: rtran=Me0 rtranif0=Me0 rtranif1=Me0
+me Me0: rtran=Sm0 rtranif0=Sm0 rtranif1=Sm0
+sm Sm0: rtran=Sm0 rtranif0=Sm0 rtranif1=Sm0
+hz HiZ: rtran=HiZ rtranif0=HiZ rtranif1=HiZ

@@ -1,0 +1,6 @@
+byte d[] from 12 bits: size=2 ab c0
+byte d[] from 16 bits: size=2 12 34
+int q[$] from 40 bits: size=2 11223344 55000000
+integral kinds: 3ce19655
+unpacked array and structure: 0201b2a1
+queue and string: 77884869

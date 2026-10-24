@@ -1,0 +1,6 @@
+signed by default: 1 1 1 1 1
+values: -1 -1 -1 -1 -1
+unsigned by default: 0 0 0 0 0
+values: 255 255 255 18446744073709551615 255
+unsigned qualifier: 0 0 values 255 4294967295
+signed qualifier: 1 1 1 1 values -1 -1 -1 -1

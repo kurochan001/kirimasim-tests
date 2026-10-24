@@ -1,0 +1,3 @@
+pf_a.view port: p.x=1
+interface.view port on pf_a: p.x=1
+interface.view port on pf_b: p.x=7

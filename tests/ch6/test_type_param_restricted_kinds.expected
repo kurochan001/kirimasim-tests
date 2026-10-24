@@ -1,0 +1,2 @@
+test_type_param_restricted_kinds.d: E num=3 S1=16 S2=32 U=16 sides=4
+test_type_param_restricted_kinds.o: E num=2 S1=32 S2=16 U=16 sides=3

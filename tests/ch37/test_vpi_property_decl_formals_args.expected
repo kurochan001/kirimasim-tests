@@ -1,0 +1,11 @@
+a1: instance of p_formals, arguments: a 2 5
+a2: instance of p_formals, arguments: b 7 5
+a3: instance of p_formals, arguments: c 9 5
+formals of p_formals: x (no direction, typespec NULL); n (no direction, int typespec); v (input, int typespec);
+variables of p_vars: cnt flag
+full name of p_vars: test_vpi_property_decl_formals_args.p_vars
+full name of p_gen: test_vpi_property_decl_formals_args.g.p_gen
+p_case: condition sel, items: 3
+  a <- 0 1
+  b <- 2
+  c <- iterator NULL

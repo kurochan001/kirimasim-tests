@@ -1,0 +1,5 @@
+struct: 00001234
+union: 00005678
+two packed dimensions: 00009abc
+logic struct: 000000de
+output struct: hi=a lo=bcd

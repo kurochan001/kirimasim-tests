@@ -1,0 +1,6 @@
+v = 100: for, local variables 0, condition i < j, initializations [i = 0, j = 9], steps [i += 1, j -= 1]
+v = 1: expect, property spec found with clock posedge clk and disable r1, else v = 2
+v = 200: for, local variables 0, condition k < 5, initialization k = 2 [k = 2], step k += 2 [k += 2]
+v = 300: for, local variables 1, condition m < 3, steps [m += 1]
+v = 3: expect, property spec found with clock negedge clk and disable r2, else none
+statements: 5

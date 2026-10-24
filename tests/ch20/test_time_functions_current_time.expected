@@ -1,0 +1,4 @@
+bits: $time 64, $stime 32
+$time=0 $stime=0 $realtime=0.0
+$time=5 $stime=5 $realtime=5.0
+$time=17 $stime=17 $realtime=17.0

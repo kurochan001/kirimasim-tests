@@ -1,0 +1,7 @@
+integer types: int=8 byte=-10
+real type: 3.5
+type names: u3=5 pkg=63 type parameter=44
+size: 31 7 2 constant=5
+signing: -8 4294967292
+string: Hi
+const: ext=11111101 bits=6 real=7.5 constant=6

@@ -1,0 +1,13 @@
+c_ifelse: full name test_vpi_constraint_expr_contents.pkt::c_ifelse, access 0
+  if-else: condition a > 5; then: b < 20, c > 1; else: b < 30, c > 2
+c_if: full name test_vpi_constraint_expr_contents.pkt::c_if, access 0
+  if: condition c == 3; then: a != 4, b != 5
+c_impl: full name test_vpi_constraint_expr_contents.pkt::c_impl, access 0
+  implication: condition b == 7; then: a < 3, c < 4
+c_each: full name test_vpi_constraint_expr_contents.pkt::c_each, access 0
+  foreach: > 0, < 9
+c_dist: full name test_vpi_constraint_expr_contents.pkt::c_dist, access 0
+  distribution of a: dist items leading back to it 2 of 2
+  distribution of b: dist items leading back to it 1 of 1
+c_ext: full name test_vpi_constraint_expr_contents.pkt::c_ext, access vpiExternAcc
+  expression c != 0

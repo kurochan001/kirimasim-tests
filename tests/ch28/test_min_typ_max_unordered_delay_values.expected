@@ -1,0 +1,9 @@
+rise +1: gate=0 assign=0
+rise +10: gate=1 assign=1
+fall +1: gate=1 assign=1
+fall +10: gate=0 assign=0
+turn-off +1: gate=0 assign=0
+turn-off +10: gate=z assign=z
+procedural +1: flag=0
+procedural delay is one of 2, 4, 6: 1
+procedural +10: flag=1

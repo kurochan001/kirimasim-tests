@@ -1,0 +1,7 @@
+after copy: ctor_calls=1 init_calls=1
+a: i=7 s=made q size=2 in.j=50
+b: i=70 s=copy q size=3 in.j=50
+distinct objects=1 shared inner=1
+after second copy: ctor_calls=2 init_calls=2
+c: kind=ext distinct=1 cast=1
+c: extra=99

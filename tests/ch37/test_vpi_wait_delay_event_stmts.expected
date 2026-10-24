@@ -1,0 +1,7 @@
+assignment v = 5: delay control with delay 7, statement none
+delay control: delay dly, statement v = 4
+event statement: named event done, blocking 0
+event statement: named event go, blocking 1
+ordered wait: conditions e1 e2 e3, statement v = 2, else v = 3
+wait: condition ready, statement v = 1
+statements: 6

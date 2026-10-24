@@ -1,0 +1,3 @@
+d=1: Su1 St1 Pu1 We1 | HiZ We1 Pu1 HiZ
+d=0: Su0 St0 Pu0 We0 | St0 HiZ HiZ Su0
+vec=10x1 bits: We1 We0 StX St1

@@ -1,0 +1,22 @@
+delay control: label l_delay; its statement: assignment, label NULL
+disable fork: label l_dfork
+disable: label l_disable
+do-while: label l_do
+event statement: label l_event
+expect: label l_expect
+for: label l_for
+foreach: label l_foreach
+forever: label l_forever
+if-else: label NULL
+if-else: label l_if
+immediate assert: label l_assert
+immediate assume: label l_assume
+immediate cover: label l_cover
+null statement: label NULL
+ordered wait: label l_order
+repeat: label l_repeat; its statement: continue, label l_continue
+return: label l_return
+wait fork: label l_wfork
+wait: label l_wait; its statement: assignment, label NULL
+while: label l_while; its statement: break, label l_break
+statements: 21

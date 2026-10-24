@@ -1,0 +1,4 @@
+enum: bits=2 BLUE=3 name=BLUE
+struct/union: bits=16,16 hi=12 lo=ab
+untyped forward: bits=12 v=fff
+class: id=7 sides=4

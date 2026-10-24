@@ -1,0 +1,7 @@
+bits: rec=20 two=24
+4-state to logic: 1x0z010110100011z1x0
+back: tag=1x0z val=01011010 pair=0011,z1x0
+4-state to bit: 10000101101000110100
+back: tag=1000 val=01011010 pair=0011,0100
+2-state to bit: a12fe7
+back: hi=a mid=12,fe lo=7

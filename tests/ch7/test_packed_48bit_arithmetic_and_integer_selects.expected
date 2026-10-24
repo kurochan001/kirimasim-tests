@@ -1,0 +1,12 @@
+48-bit: max+1=000000000000 2**16*2**16=000100000000
+48-bit: (2**32-1)*(2**16+1)=0000fffeffff
+48-bit signed: s/2=-2 s>>>1=-3 top>max31=1
+byte: [0]=0 [7:1]=7f
+shortint: [15]=1 [14:0]=0001
+int: [31:28]=1 [7:0]=78 [3]=1 [0]=0
+longint: [63]=1 [63:60]=8 [3:0]=1
+integer: [15:0]=beef [31:16]=dead
+time: [9:3]=7d
+int variable select: k[idx]=1 k[idx+:4]=1
+after writes: k=1234ab78 by=126 lg=e000000000000001
+byte widened: part-select=254 whole=-2

@@ -1,0 +1,4 @@
+clock event: 100; no event, before sample(): 0
+block event: 100
+sample(4): x 100, y 100
+no event, after sample(): 100

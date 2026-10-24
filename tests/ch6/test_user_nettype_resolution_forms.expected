@@ -1,0 +1,8 @@
+add: s_add=1000 wire=0xx1 alias=1000 pkg=1000
+2-state or=1010 unpacked struct v=3.50 tag=11 shortreal array 0.75 3.00
+class resolvers: real max=1.50 int max=-3, plain shortreal=0.50
+undriven: plain_nib=xxxx wire=zzzz
+arrays: arr=8 6 parr=0011 0101
+t=11: s_add=6 s_del=3 s_del2=5
+t=14: s_add=6 s_del=1
+t=21: s_add=8 arr=8 6

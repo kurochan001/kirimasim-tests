@@ -1,0 +1,9 @@
+declared: "lit" "" "par" "par+" "" lens 3 0 3 4 0
+literal with NUL: "abcd" len=4
+literal of NULs: "" len=0
+before cast: len=15
+16 bits: "AB" len=2
+32 bits: "ABCD" len=4
+20 bits: len=3 chars 06 42 43
+zero byte inside: "AB" len=2
+all zero: "" len=0

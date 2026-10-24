@@ -1,0 +1,36 @@
+s_vpi_time and p_vpi_time name struct t_vpi_time 1
+s_vpi_time type PLI_INT32 1
+s_vpi_time high PLI_UINT32 1
+s_vpi_time low PLI_UINT32 1
+s_vpi_time real double 1
+s_vpi_time order type high low real 1
+time types vpiScaledRealTime 1 vpiSimTime 2 vpiSuppressTime 3
+s_vpi_delay and p_vpi_delay name struct t_vpi_delay 1
+s_vpi_delay da struct t_vpi_time * 1
+s_vpi_delay no_of_delays time_type mtm_flag append_flag pulsere_flag PLI_INT32 1
+s_vpi_delay order da no_of_delays time_type mtm_flag append_flag pulsere_flag 1
+s_vpi_value and p_vpi_value name struct t_vpi_value 1
+s_vpi_value format PLI_INT32 1
+s_vpi_value value.str PLI_BYTE8 * 1
+s_vpi_value value.scalar PLI_INT32 1
+s_vpi_value value.integer PLI_INT32 1
+s_vpi_value value.real double 1
+s_vpi_value value.time struct t_vpi_time * 1
+s_vpi_value value.vector struct t_vpi_vecval * 1
+s_vpi_value value.strength struct t_vpi_strengthval * 1
+s_vpi_value value.misc PLI_BYTE8 * 1
+s_vpi_value format before value, value a union 1
+s_vpi_vecval and p_vpi_vecval name struct t_vpi_vecval 1
+s_vpi_vecval aval PLI_UINT32 1
+s_vpi_vecval bval PLI_UINT32 1
+s_vpi_vecval order aval bval 1
+s_vpi_strengthval and p_vpi_strengthval name struct t_vpi_strengthval 1
+s_vpi_strengthval logic s0 s1 PLI_INT32 1
+s_vpi_strengthval order logic s0 s1 1
+logic values vpi0 0 vpi1 1 vpiZ 2 vpiX 3
+strengths vpiSupplyDrive 80 vpiStrongDrive 40 vpiPullDrive 20 vpiWeakDrive 08 vpiLargeCharge 10 vpiMediumCharge 04 vpiSmallCharge 02 vpiHiZ 01
+vpi_get_time void (*)(vpiHandle, p_vpi_time) 1
+vpi_get_delays void (*)(vpiHandle, p_vpi_delay) 1
+vpi_put_delays void (*)(vpiHandle, p_vpi_delay) 1
+vpi_get_value void (*)(vpiHandle, p_vpi_value) 1
+vpi_put_value vpiHandle (*)(vpiHandle, p_vpi_value, p_vpi_time, PLI_INT32) 1

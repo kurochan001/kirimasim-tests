@@ -1,0 +1,8 @@
+all 1: abc=111 wire=1 wand=1 wor=1
+assign 0: abc=011 wire=x wand=0 wor=1
+gate 0: abc=101 wire=x wand=0 wor=1
+port 0: abc=110 wire=x wand=0 wor=1
+all 1: abc=111 wire=1 wand=1 wor=1
+forced: abc=111 wire=0 wand=1 wor=1
+forced, a=0: abc=011 wire=0 wand=0 wor=1
+released: abc=011 wire=x wand=0 wor=1

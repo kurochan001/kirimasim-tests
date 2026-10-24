@@ -1,0 +1,12 @@
+atoreal("2.5e3xyz")=2500.000
+atoreal("1_0.2_5")=10.250
+atoreal("3.75")=3.750
+atoreal("12.5.6")=12.500
+atoreal("1.5E-2")=0.015
+atoreal("6e+1")=60.000
+atoreal("23E1x")=230.000
+atoreal("abc")=0.000
+atoreal("")=0.000
+atoreal(".5")=0.000
+atoreal("e5")=0.000
+atoreal(" 1.5")=0.000

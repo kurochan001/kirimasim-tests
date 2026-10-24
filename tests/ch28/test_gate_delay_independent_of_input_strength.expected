@@ -1,0 +1,12 @@
+0->1 buf: supply=+3 strong=+3 pull=+3 weak=+3
+0->1 nmos: supply=+3 St1 strong=+3 St1 pull=+3 Pu1 weak=+3 We1
+1->0 buf: supply=+5 strong=+5 pull=+5 weak=+5
+1->0 nmos: supply=+5 St0 strong=+5 St0 pull=+5 Pu0 weak=+5 We0
+0->x buf: supply=+3 strong=+3 pull=+3 weak=+3
+0->x nmos: supply=+3 StX strong=+3 StX pull=+3 PuX weak=+3 WeX
+x->1 buf: supply=+3 strong=+3 pull=+3 weak=+3
+x->1 nmos: supply=+3 St1 strong=+3 St1 pull=+3 Pu1 weak=+3 We1
+1->x buf: supply=+3 strong=+3 pull=+3 weak=+3
+1->x nmos: supply=+3 StX strong=+3 StX pull=+3 PuX weak=+3 WeX
+x->0 buf: supply=+5 strong=+5 pull=+5 weak=+5
+x->0 nmos: supply=+5 St0 strong=+5 St0 pull=+5 Pu0 weak=+5 We0

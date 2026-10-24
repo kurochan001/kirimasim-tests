@@ -1,0 +1,12 @@
+genblk1.p: found, value 5
+genblk1.q: not found
+lp[1].genblk1.r: found, value 9
+lp[0].genblk1.r: not found
+genblk3.s: not found
+genblk03.s: not found
+genblk003.s: found, value 3
+genblk2.r: not found
+genblk4[0].t: found, value 10
+genblk4[1].t: found, value 11
+genblk3[1].t: not found
+design: done

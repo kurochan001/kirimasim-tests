@@ -1,0 +1,20 @@
+lv: a=0 b=0: lower=x upper=x
+lv: a=0 b=1: lower=x upper=x
+lv: a=0 b=x: lower=0 upper=0
+lv: a=1 b=0: lower=x upper=x
+lv: a=1 b=1: lower=x upper=x
+lv: a=1 b=x: lower=0 upper=0
+lv: a=x b=0: lower=1 upper=1
+lv: a=x b=1: lower=1 upper=1
+lv: a=x b=x: lower=x upper=x
+ed: c=1 d=0: lower=1 upper=1
+ed: c=0 d=0: lower=0 upper=0
+ed: c=1 d=1: lower=1 upper=1
+ed: c=0 d=1: lower=0 upper=0
+ed: c=1 d=x: lower=x upper=x
+k=x: po lower=1 upper=1, vc lower=1 upper=1
+k=0: po lower=0 upper=0, vc lower=0 upper=0
+k=1: po lower=1 upper=1, vc lower=x upper=x
+k=x: po lower=0 upper=0, vc lower=1 upper=1
+k=1: po lower=1 upper=1, vc lower=0 upper=0
+k=0: po lower=0 upper=0, vc lower=x upper=x

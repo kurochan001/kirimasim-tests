@@ -1,0 +1,9 @@
+len: int bits=32 value=8 empty=0 empty-1<0=1
+types: string string int int
+bits: 32 32
+after toupper: up="MIXED 9Z" s="MiXed 9z"
+after tolower: lo="mixed 9z" s="MiXed 9z"
+lengths: 8 8 8
+compare: neg pos zero pos
+icompare: neg pos zero zero
+literal argument: compare=zero icompare=zero

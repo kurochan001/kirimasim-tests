@@ -1,0 +1,3 @@
+array: sides=3,4 base_val=10,20 built=1,1
+poly_c handle: sides=4 base_val=20
+plain_c handles: tri object=10 plain object=1

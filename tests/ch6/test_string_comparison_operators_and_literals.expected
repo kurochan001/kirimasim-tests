@@ -1,0 +1,12 @@
+"abc" vs "abd": == 0 != 1 < 1 <= 1 > 0 >= 0
+"abd" vs "abc": == 0 != 1 < 0 <= 0 > 1 >= 1
+"abc" vs "abc": == 1 != 0 < 0 <= 1 > 0 >= 1
+"ab" vs "abc": == 0 != 1 < 1 <= 1 > 0 >= 0
+"" vs "a": == 0 != 1 < 1 <= 1 > 0 >= 0
+"B" vs "a": == 0 != 1 < 1 <= 1 > 0 >= 0
+string == literal: 1, literals: 0
+string != literal: 0, literals: 1
+string > literal: 1, literals: 0
+string < literal: 0, literals: 1
+literal <= string: 1, literals: 0
+literal >= string: 0, literals: 1

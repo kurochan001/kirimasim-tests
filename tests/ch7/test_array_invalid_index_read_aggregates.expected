@@ -1,0 +1,6 @@
+valid: q=2 d=3 a=1 fx=1,2,3 fi=7,8,9
+valid: st a=5 b=3 c=7 s="q" r=1.5 un l=5a
+out of bounds: q=0 d=0 a=0 fx=x,x,x fi=0,0,0
+out of bounds: st a=0 b=x c=9 s="" r=0.0 un l=xx
+x index: q=0 d=0 a=0 fx=x,x,x fi=0,0,0
+x index: st a=0 b=x c=9 s="" r=0.0 un l=xx

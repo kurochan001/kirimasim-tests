@@ -1,0 +1,10 @@
+snp: struct net, tagged 0, soft 0, packed 1
+  members (2): a (logic net, parent is snp 1) b (logic net, parent is snp 1)
+snu: struct net, tagged 0, soft 0, packed 0
+  members (2): x (logic net, parent is snu 1) y (logic net, parent is snu 1)
+unp: union net, tagged 0, soft 0, packed 1
+  members (2): s (struct net, parent is unp 1) w (logic net, parent is unp 1)
+uns: union net, tagged 0, soft 1, packed 1
+  members (2): p (logic net, parent is uns 1) q (logic net, parent is uns 1)
+unu: union net, tagged 0, soft 0, packed 0
+  members (2): m (logic net, parent is unu 1) n (logic net, parent is unu 1)

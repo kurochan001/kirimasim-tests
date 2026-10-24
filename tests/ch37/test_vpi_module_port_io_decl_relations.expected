@@ -1,0 +1,14 @@
+ports of u1: 3
+  a, module test_vpi_module_port_io_decl_relations.u1, same instance 1
+  y, module test_vpi_module_port_io_decl_relations.u1, same instance 1
+  z, module test_vpi_module_port_io_decl_relations.u1, same instance 1
+ports of u2: 3
+  a, module test_vpi_module_port_io_decl_relations.u2, same instance 1
+  y, module test_vpi_module_port_io_decl_relations.u2, same instance 1
+  z, module test_vpi_module_port_io_decl_relations.u2, same instance 1
+ports of the top module: 0
+io decls of u1: 3
+  a input, module test_vpi_module_port_io_decl_relations.u1, same instance 1
+  y output, module test_vpi_module_port_io_decl_relations.u1, same instance 1
+  z inout, module test_vpi_module_port_io_decl_relations.u1, same instance 1
+io decls of the top module: 0

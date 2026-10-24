@@ -1,0 +1,9 @@
+location of a_net of net w: test_vpi_attribute_ports_params.sv line 46
+location of a_param of param assign P: test_vpi_attribute_ports_params.sv line 44
+location of a_param of param assign Q: test_vpi_attribute_ports_params.sv line 44
+location of a_port of port p: test_vpi_attribute_ports_params.sv line 41
+param assign P: a_param=2 (vpiParent is it: 1)
+param assign Q: a_param=2 (vpiParent is it: 1)
+param assign R: none
+port p: a_port=1 (vpiParent is it: 1)
+port q: none

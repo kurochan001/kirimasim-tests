@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch30/test_specify_pulse_trailing_edge_limits": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'td y: 10:1 12:0 30:1 50:0 56:1', expected 'td y: 34:1'",
+   "inputs_sha256": "05d9dfb4d451900401949be6d25119078af16040862b799f1c09b5771cdde2a1"
+  },
+  "ch37/test_vpi_interface_tf_decl_relations": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_interface_tf_decl_relations.sv:34:3: Unsupported: extern function",
+   "inputs_sha256": "cf03d164daa882c9fbfa2f3b9c116382a32b5dc7a49a8aad8946db78a56ba50b"
+  },
+  "ch8/test_param_class_package_vs_module_instance_specializations": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp1s6bh7g1/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "75ae8d2bb563a5344d842523da9bbdfd3affa693f02b1d318692ff0dfd95aa61"
+  }
+ },
+ "generated_at": "2026-10-24T01:44:32.207355+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

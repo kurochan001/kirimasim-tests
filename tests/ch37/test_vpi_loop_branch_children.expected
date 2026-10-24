@@ -1,0 +1,12 @@
+do-while: condition g, statement v = 10
+foreach: statement v = 11
+forever: statement v = 3
+if-else: condition c, qualifier 0, statement v = 5, else v = 6
+if-else: condition d, qualifier 1, statement v = 7, else v = 8
+if: condition b, qualifier 0, statement v = 4
+if: condition e, qualifier 2, statement v = 9
+repeat: condition 3, statement v = 2
+return: condition none
+while: condition a, statement v = 1
+statements of bodies: 10
+plus_one: return, condition x + 1

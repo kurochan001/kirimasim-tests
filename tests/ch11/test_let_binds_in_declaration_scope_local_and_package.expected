@@ -1,0 +1,4 @@
+block with its own x = 12: 6
+task with its own x = 9: 6
+package lets: 101 6, module base 1
+module lets of the same name: 20 40

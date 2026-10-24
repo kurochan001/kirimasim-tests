@@ -1,0 +1,10 @@
+struct: 01020304
+associative: 113355
+fixed [3:0]: d3d2d1d0
+union: 5ac3
+struct with a union member: 0a0b0c
+associative array of unions: 2277
+unions [1:0]: e1e0
+object: 112233
+null handle: 1122
+2-state, nested, 4-state: 101001011x0z

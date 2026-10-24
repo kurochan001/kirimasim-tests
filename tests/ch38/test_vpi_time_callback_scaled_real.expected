@@ -1,0 +1,3 @@
+cbAfterDelay 3.0 in the top module (1 ns): called at 3
+cbAtStartOfSimTime 2.0 in u_sub (10 ns): called at 20
+cbAfterDelay 3.0 in u_sub (10 ns): called at 30

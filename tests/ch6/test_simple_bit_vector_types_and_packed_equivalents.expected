@@ -1,0 +1,13 @@
+byte: 7 0 1 top=a b0=1
+shortint: 15 0 1 top=a b0=1
+int: 31 0 1 top=a b0=1
+longint: 63 0 1 top=a b0=1
+integer: 31 0 1 top=a b0=1
+time: 63 0 1 top=a b0=1
+logic [5:0]: 5 0 1 top=1010 b0=1
+dimensions: struct 1 union 1 2-d array 2 vector 1
+select [1]: 2-d array 5 vector 1
+ref bit [7:0]: ns.hi=2 ns.lo=3 un.half[1]=4 un.whole=45 pa=67
+ref byte: sv=-5 tag=11 val=3b
+ref logic [7:0]: m8.a=9 m8.b=z10x
+convert: flat=23 back.hi=2 back.lo=3

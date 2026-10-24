@@ -1,0 +1,6 @@
+up_half: vpiIntVal 3, vpiDecStrVal 3
+down_half: vpiIntVal -3, vpiDecStrVal -3
+below_half: vpiIntVal 7, vpiDecStrVal 7
+above_half: vpiIntVal -8, vpiDecStrVal -8
+text_a: vpiStringVal without exponent yes, at most 16 significant digits yes, reads back as 1234.5
+text_b: vpiStringVal without exponent yes, at most 16 significant digits yes, reads back as 0.1

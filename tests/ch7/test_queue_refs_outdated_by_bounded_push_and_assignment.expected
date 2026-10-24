@@ -1,0 +1,8 @@
+t=1: p = 1 2 3 4 m = 1 2 3 4 equal=1 b = 5 10 20
+p[1] holder at 2: r=200
+m[1] holder at 3: r=300
+b[0] holder at 4: r=11
+b[2] holder at 5: r=31
+t=6: p = 1 2 3 4
+t=6: m = 1 300 3 4
+t=6: b = 5 11 20

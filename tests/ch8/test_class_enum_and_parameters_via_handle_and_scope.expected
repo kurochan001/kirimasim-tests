@@ -1,0 +1,4 @@
+via handle: s4.SIDES=4 s4.DOUBLE=8 s3.SIDES=3 s3.DOUBLE=6
+enum via handle: s4.RED=2 s4.GREEN=5 c==s4.GREEN=1
+enum via scope: 2 5
+constants: L=8 bits(vec)=5

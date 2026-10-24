@@ -1,0 +1,21 @@
+int: 9 5 14 3 49
+real: 3.750 2.000 5.000 1.250 6.250
+shortreal: 2.000 1.000 0.750 3.000 2.250
+int and real: 3.500
+unary: -7 7 -2.500 2.500 -1.500 1.500
+int op=: 13 9 18 4
+real op=: 1.750 0.750 3.000 0.375
+shortreal op=: 2.500 1.250 2.500 0.625
+int ++ --: 6 5
+real ++ --: 3.250 2.250 1.250 2.250
+shortreal ++ --: 0.500 -0.500
+!: 0 1 0 1 0 1
+logical int: 0 1 1 0
+logical real: 0 1 1 0 1 0
+logical shortreal: 1 0 1 0
+relational int: 1 0 1 0
+relational real: 1 1 0 0
+relational shortreal: 0 1 1 0
+int vs real: 1 0 1 0
+byte, 4-bit vs real: 1 1 1
+bits: 1 1 1

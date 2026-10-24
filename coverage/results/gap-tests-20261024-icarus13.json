@@ -1,0 +1,2742 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch10/test_alias_bidirectional_shared_drivers": {
+   "status": "known",
+   "reason": "compile failed: tests/ch10/test_alias_bidirectional_shared_drivers.sv:34: syntax error",
+   "inputs_sha256": "d7d5d2cac5f956137feb2e23f87f56edac6fd55a5d1ea808c68615e4f5217b09"
+  },
+  "ch10/test_alias_in_module_and_generate_blocks": {
+   "status": "known",
+   "reason": "compile failed: tests/ch10/test_alias_in_module_and_generate_blocks.sv:29: syntax error",
+   "inputs_sha256": "7df0418f368e8a9a71e89c0d5bf17f640988588ae9fb79c5d5dcb3df550e5527"
+  },
+  "ch10/test_alias_overlapping_statements_accumulate": {
+   "status": "known",
+   "reason": "compile failed: tests/ch10/test_alias_overlapping_statements_accumulate.sv:31: syntax error",
+   "inputs_sha256": "8843b2a6a8f31a502546b3193c8a3dacfe75d7f737a3ffa535be6be8b4a0330e"
+  },
+  "ch10/test_alias_undeclared_name_implicit_net": {
+   "status": "known",
+   "reason": "compile failed: tests/ch10/test_alias_undeclared_name_implicit_net.sv:27: syntax error",
+   "inputs_sha256": "f4d84e8dd252209dcbe8959e96476e09a3055f21b0a99a07cf6da68c73a9280a"
+  },
+  "ch10/test_unpacked_concat_bounded_queue_overflow": {
+   "status": "known",
+   "reason": "compile failed: tests/ch10/test_unpacked_concat_bounded_queue_overflow.sv:42: sorry: Net fa expects 1, but got 0.",
+   "inputs_sha256": "a9f9781917a08e1ee84eea5d5a5cc3677ce5db31076b0c42401d07113e1c4abb"
+  },
+  "ch11/test_arithmetic_interpretation_of_nets_variables_and_reals": {
+   "status": "pass",
+   "inputs_sha256": "86214bf1814e167105da3e51c6cb90e5dbf7a95eb0b69a2148d7e94ebedb080c"
+  },
+  "ch11/test_assignment_expression_concat_target_unsigned_sum_width": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_assignment_expression_concat_target_unsigned_sum_width.sv:35: syntax error",
+   "inputs_sha256": "f8c2d2bab48f27d1a5d89935559b3244f9454cee295ffcc149645b32ec11315c"
+  },
+  "ch11/test_compound_assignment_index_evaluated_once": {
+   "status": "known",
+   "reason": "output differs: line 12 is '>>>= arr[1]=1073741820 arr[2]=99 calls=1', expected '>>>= arr[1]=-4 arr[2]=99 calls=1'",
+   "inputs_sha256": "3b45b258f67a29d2b7cbb9c5abd6dfc5f1d8cb65f1062a9eb28a1bf5bccae094"
+  },
+  "ch11/test_concatenation_pattern_string_operand_and_replication_once": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv:53: syntax error",
+   "inputs_sha256": "ae42123c669f9a8299138e07821c82fcfcb853863665a2b1673cac5585639d5a"
+  },
+  "ch11/test_conditional_class_branches_result_type": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_conditional_class_branches_result_type.sv:62: syntax error",
+   "inputs_sha256": "e2879fa645c4623553833a7afd619bbdf6ca74eefd1be18750c209759f0e3103"
+  },
+  "ch11/test_conditional_real_shortreal_branch_promotion": {
+   "status": "known",
+   "reason": "output differs: line 1 is '3.5 1.5 1.0 16777217.0 16777217.0', expected '3.5 1.5 1.0 16777216.0 16777217.0'",
+   "inputs_sha256": "ac31c3c24291617788ecc9b4c4d9a2ceaec5c79e068082e17618109a8ff36568"
+  },
+  "ch11/test_conditional_unknown_condition_merges_z_and_extends": {
+   "status": "pass",
+   "inputs_sha256": "9b87f9e30c6ec2bb9afeeacd56fbfa52e677f4de82a94253c87e50bf195dfa84"
+  },
+  "ch11/test_constant_builtin_method_calls_at_elaboration": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_constant_builtin_method_calls_at_elaboration.sv:37: error: Unknown or unsupport string method: getc",
+   "inputs_sha256": "d6c57f5534c298e7b9de73a9f01eda72487b5e331d00b50b9fce6a15e5e136e2"
+  },
+  "ch11/test_constant_system_function_calls_at_elaboration": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_constant_system_function_calls_at_elaboration.sv:36: error: Unable to evaluate parameter P_BITS value: $realtobits(1.00000)",
+   "inputs_sha256": "3d6800028a1f92f7454404a5314b2eb5d3a500dc33b53582c298ef08654204b1"
+  },
+  "ch11/test_default_signedness_of_integral_types_and_qualifiers": {
+   "status": "pass",
+   "inputs_sha256": "d0ec92ccbfd195f0092326cbb0fdfa244425d3f3a7d19a44812c617bfeed4f6d"
+  },
+  "ch11/test_equality_class_interface_chandle_handles": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_equality_class_interface_chandle_handles.sv:30: syntax error",
+   "inputs_sha256": "136be2707dc12fb121eaebe1a6edf5bbc06fee6c79123990f01043611abb606f"
+  },
+  "ch11/test_expression_type_bitwise_sign_self_determined_real": {
+   "status": "pass",
+   "inputs_sha256": "3a959d913124c1c62d765a40200e96ccd755a17ebdbee6c72ae6229980eb6659"
+  },
+  "ch11/test_illegal_bit_select_of_real_variable": {
+   "status": "pass",
+   "inputs_sha256": "96c3a781af8c857f89688434fc04666a1391083f0264bb6652e3bed7dc28edfd"
+  },
+  "ch11/test_illegal_bit_select_of_scalar_variable": {
+   "status": "pass",
+   "inputs_sha256": "6b51819ac48fad877190639569de930e6947028031c544fb273575153b51078e"
+  },
+  "ch11/test_illegal_indexed_part_select_nonconstant_width": {
+   "status": "pass",
+   "inputs_sha256": "0a849a23d58ba0bc091c76fe429d825845142918f07e8383798b946dc1134924"
+  },
+  "ch11/test_illegal_indexed_part_select_zero_width": {
+   "status": "pass",
+   "inputs_sha256": "e3759b6334247253ab0f5820cd255dc2b880d4d76a59e55acbc0a1bde9e071ff"
+  },
+  "ch11/test_illegal_part_select_nonconstant_bound": {
+   "status": "pass",
+   "inputs_sha256": "3c45a0c4e860972d6b06341781d3e6d522da1464588ab5f160751c3a171ec27b"
+  },
+  "ch11/test_illegal_part_select_reversed_bounds": {
+   "status": "pass",
+   "inputs_sha256": "961f6db792dfda72a92a732ed088c50326577fa43fb15211307ac5401fc87b15"
+  },
+  "ch11/test_inside_ranges_tolerance_unknown_and_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_inside_ranges_tolerance_unknown_and_types.sv:44: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "50d204c9abac0a10f9dd1c95f531bd82ffaf304af8b9ba1519829e1dce2f56fb"
+  },
+  "ch11/test_integral_only_operators_on_integral_type_kinds": {
+   "status": "pass",
+   "inputs_sha256": "8a26400c009f14213f10cff8805fd5f2aa902248183bb0740dd33284bf908f82"
+  },
+  "ch11/test_let_binds_in_declaration_scope_local_and_package": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_let_binds_in_declaration_scope_local_and_package.sv:29: syntax error",
+   "inputs_sha256": "ba07fc772de4053c928f664e1c8dcf836e60c1f3a0770533bce111c83a1960b3"
+  },
+  "ch11/test_let_declared_in_clocking_block": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_let_declared_in_clocking_block.sv:29: syntax error",
+   "inputs_sha256": "e018296d761f49f470369319fd7e1873c998313947a332d8142f028b2b044aa0"
+  },
+  "ch11/test_let_declared_in_each_kind_of_scope": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_let_declared_in_each_kind_of_scope.sv:26: syntax error",
+   "inputs_sha256": "e327d54554197e923baecc8c1f28a1fad84e886b2e8f73b17bd575c0ec74e7d4"
+  },
+  "ch11/test_let_sampled_value_clock_from_instance_context": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_let_sampled_value_clock_from_instance_context.sv:31: sorry: let declarations (ra) are not currently supported.",
+   "inputs_sha256": "0a6b0350554d046a6e8ccf35f7f32689dd47309d8a942f78af248e24d04dd407"
+  },
+  "ch11/test_logical_operands_evaluated_once_and_unknown_left": {
+   "status": "known",
+   "reason": "output differs: line 11 is '0 -> 0 = 1 nl=1 nr=1', expected '0 -> 0 = 1 nl=1 nr=0'",
+   "inputs_sha256": "3519f8a5960772a2d88781601c99913468051d5b2b0f8e275795e1b7b090ac7d"
+  },
+  "ch11/test_operand_kinds_and_array_word_then_bit_select": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_operand_kinds_and_array_word_then_bit_select.sv:65: error: the type of the variable 'm2[i]' doesn't match the context type.",
+   "inputs_sha256": "98497af7e2d0bfce3bc93b20ce6cdef30da2bdd77361303befd594ab22f18ba8"
+  },
+  "ch11/test_power_minus_one_one_zero_exponent_and_real": {
+   "status": "pass",
+   "inputs_sha256": "932bf645c8f3be80a514e1711a0e03d72fbbfabc4ba819a13b0a53c60a817256"
+  },
+  "ch11/test_precedence_bitwise_or_xor_and_levels": {
+   "status": "pass",
+   "inputs_sha256": "0a5cdcd0b93904f5fae48b7b835f1bceb1a3a2e84cac213f8fefe88c6a711bd4"
+  },
+  "ch11/test_precedence_dist_takes_whole_expression": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_precedence_dist_takes_whole_expression.sv:26: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "137134c642e42d5c78034dce570d58b765239fa90628f7e04e3b6ed41d08ce38"
+  },
+  "ch11/test_precedence_logical_conditional_implication_levels": {
+   "status": "pass",
+   "inputs_sha256": "795163ddec6dab23298ea28bb4bd549668d4aadeb904bd7092477b29ca39e276"
+  },
+  "ch11/test_precedence_multiplicative_shift_levels": {
+   "status": "pass",
+   "inputs_sha256": "1ef55e2cbc95d11e31df7309eea9a07ba529dd23e4c82d1ccad077048de80d20"
+  },
+  "ch11/test_precedence_relational_equality_levels": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_precedence_relational_equality_levels.sv:88: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "6e475db3a439911b6b39b5e8dc8e7ee49efe76ff9dd910cf7f270b1e3742fba1"
+  },
+  "ch11/test_precedence_select_unary_power_levels": {
+   "status": "pass",
+   "inputs_sha256": "0da9420a9a6f044ec175dd33c2fb39cf382f74f8389c82fb84c1c9a08a7b5dce"
+  },
+  "ch11/test_real_shortreal_operands_of_arithmetic_logical_relational": {
+   "status": "pass",
+   "inputs_sha256": "76d45511fc50b82095f67efd3164b89c4c6427e90f8edd1612692bb9f952d234"
+  },
+  "ch11/test_real_structure_union_members_and_array_elements": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_real_structure_union_members_and_array_elements.sv:28: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "b6d203d900470a62d6e4c1859b0c48db8b656586ac5418fde4b40915903d432b"
+  },
+  "ch11/test_relational_equality_wildcard_one_bit_results_extension": {
+   "status": "pass",
+   "inputs_sha256": "4ff19d6ae05e75766dcf8d647e36baab59d9b48bed86a8fd9efb3909bf3cc79e"
+  },
+  "ch11/test_stream_dynamic_target_resize_and_bitstream_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_stream_dynamic_target_resize_and_bitstream_types.sv:32: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "d6df18d6f0260bf6cf1374e738626272436bf712db5c429f6fc94aba916001f2"
+  },
+  "ch11/test_stream_item_order_struct_union_object_assoc": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_stream_item_order_struct_union_object_assoc.sv:45: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "6ee336f0030effaf7f81b32f3eea8368f3acbb3791c38f3692985cc4e97dcb43"
+  },
+  "ch11/test_stream_slice_from_right_and_contexts": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_stream_slice_from_right_and_contexts.sv:36: syntax error",
+   "inputs_sha256": "2aa1b04f15b30cf0fccdc463b43e3e6eb890bd17f29d05426d2fe67b851eb6a6"
+  },
+  "ch11/test_stream_unpack_consumes_left_converts_state_keeps_objects": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_stream_unpack_consumes_left_converts_state_keeps_objects.sv:46: sorry: Streaming concatenation not supported.",
+   "inputs_sha256": "8c31e79c04129dcc5447ef3fe1889079cac110074cd300b9f95125d92378de2f"
+  },
+  "ch11/test_stream_with_range_extent_timing_and_partial": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_stream_with_range_extent_timing_and_partial.sv:51: sorry: Streaming concatenation not supported.",
+   "inputs_sha256": "267e76ec235dcb95129bb8945224b546652730852d4c0d2d5aae5de54c56a2bc"
+  },
+  "ch11/test_vector_select_declared_bounds_direction_and_invalid": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'invalid bit, 2-state: x x', expected 'invalid bit, 2-state: 0 0'",
+   "inputs_sha256": "3aa3647b49ca2505b5ba0de597a4138dd54ae18c3ff71ec65b01bc2955597f7f"
+  },
+  "ch18/test_randsequence_break_in_loop": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_randsequence_break_in_loop.sv:32: syntax error",
+   "inputs_sha256": "741bfa2e19f62c87f0c9640626024e25893fb837680b23148974a4273a3e32b7"
+  },
+  "ch18/test_randsequence_production_arguments": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_randsequence_production_arguments.sv:30: syntax error",
+   "inputs_sha256": "2e465308acb4f54c72895b3d37eec5d89de9227dbb298edb070d0041ec44b2be"
+  },
+  "ch18/test_randsequence_result_syntactic_order": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_randsequence_result_syntactic_order.sv:37: syntax error",
+   "inputs_sha256": "bf54adc417991bae8ecf982c2758415db97f48fed4fb978239d9a9d4f3391b20"
+  },
+  "ch18/test_randsequence_return_aborts_production": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_randsequence_return_aborts_production.sv:31: syntax error",
+   "inputs_sha256": "f03c39844ff54fc6306e197e037b2666d199e922d6b64ad5cc35a211706b210c"
+  },
+  "ch19/test_cg_auto_bins_two_state": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_auto_bins_two_state.sv:22: syntax error",
+   "inputs_sha256": "07682e94a76d8be61076bab3dd0fa1688206c3fa324b41e8dd0d5f74045b30f5"
+  },
+  "ch19/test_cg_bin_hit_counts": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_bin_hit_counts.sv:35: syntax error",
+   "inputs_sha256": "5f5058b613ee863ece532fd68bc1e23d2e0aad6f5dd52f2a81ad580901ec8fbd"
+  },
+  "ch19/test_cg_bin_iff_guard": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_bin_iff_guard.sv:23: syntax error",
+   "inputs_sha256": "dbc6cbd77781433e5c95bb3109b3e55dd1d7dea5d89554bddc4eadc50a89036d"
+  },
+  "ch19/test_cg_block_event_begin_end": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_block_event_begin_end.sv:38: syntax error",
+   "inputs_sha256": "a88322672aec432ebb87c2b5d901fdc2a92b0833e8ec0e1d2116e87fd376da6f"
+  },
+  "ch19/test_cg_class_two_covergroups": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_class_two_covergroups.sv:25: syntax error",
+   "inputs_sha256": "38f45edda4aad46a31bb78486cb1972c7b20242bafeedad9583cb569809907a3"
+  },
+  "ch19/test_cg_clocking_block_coverpoint": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_clocking_block_coverpoint.sv:31: syntax error",
+   "inputs_sha256": "e6539da620e827d487c30643e4cc67471cd4407317b035fb3dcc8ef0a5dd8965"
+  },
+  "ch19/test_cg_constructor_arguments": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_constructor_arguments.sv:29: syntax error",
+   "inputs_sha256": "513543c91c701cce8c2ab560856fa9241209b9e846160c08c73cac0b825a79a8"
+  },
+  "ch19/test_cg_coverage_event_kinds": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_coverage_event_kinds.sv:32: syntax error",
+   "inputs_sha256": "8b39cbf2334a094da780207bfc49d52376d6cea6ca7b812a5790c2aea3f5ffd2"
+  },
+  "ch19/test_cg_coverage_query_methods": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_coverage_query_methods.sv:38: syntax error",
+   "inputs_sha256": "46cb7881565358ed9370fcceb47f39f7b3f1200b2fd67705120dbd199e39b7d6"
+  },
+  "ch19/test_cg_coverpoint_and_cross_items": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_coverpoint_and_cross_items.sv:33: syntax error",
+   "inputs_sha256": "9827c6373279513f84aeea2924f41e08f8821847ad2b8aeb0e06beebdaf15c45"
+  },
+  "ch19/test_cg_coverpoint_name_and_type": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_coverpoint_name_and_type.sv:33: syntax error",
+   "inputs_sha256": "943878d394caf1526e5b9a98964ee5d1417a074e1222844d28bdad84a2d5e978"
+  },
+  "ch19/test_cg_cross_bin_counts_retain_auto": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_cross_bin_counts_retain_auto.sv:32: syntax error",
+   "inputs_sha256": "9c072a276c1794197b7dc1da0fac751b5cd80ca53f35d6551f2efe7701ce4b64"
+  },
+  "ch19/test_cg_cross_excluded_point_bins": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_cross_excluded_point_bins.sv:25: syntax error",
+   "inputs_sha256": "fc1d7f60dda55cd3e7ad6f1357e3375cd18ebc2e7420002463bbfaa217d1218a"
+  },
+  "ch19/test_cg_cross_iff_guards": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_cross_iff_guards.sv:25: syntax error",
+   "inputs_sha256": "a382cba669052e5d00e99a3730f3ecd0c94cd12b8664e537b9f668a38e166680"
+  },
+  "ch19/test_cg_cross_with_policy": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_cross_with_policy.sv:33: syntax error",
+   "inputs_sha256": "1ac6d5b6a1920d08ff943e68100281a143dcfbdbcad8cf2ce3005fec9ae80412"
+  },
+  "ch19/test_cg_declaration_contexts": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_declaration_contexts.sv:29: syntax error",
+   "inputs_sha256": "0398dbb133a334eaabf96b4f102ebdb36073198eee9c7796abd8e7ef945ecb6d"
+  },
+  "ch19/test_cg_derived_option_override": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_derived_option_override.sv:25: syntax error",
+   "inputs_sha256": "adf4f87e3b5fe4f6843001195538d3c2ef7e3008f0c70f0428c7678469be4a2b"
+  },
+  "ch19/test_cg_illegal_value_keeps_transition": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_illegal_value_keeps_transition.sv:28: syntax error",
+   "inputs_sha256": "b8664dc116bddbd20b5a53f10263906d3094411f1972510c59ac1f408bebdcf5"
+  },
+  "ch19/test_cg_integral_bin_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_integral_bin_forms.sv:30: syntax error",
+   "inputs_sha256": "590bfa9912b7080dfaa226c9a38eefa3a5db86d37b6ebfb8c62a14e3a11b9e0d"
+  },
+  "ch19/test_cg_item_start_stop": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_item_start_stop.sv:27: syntax error",
+   "inputs_sha256": "6e2f541745262d9de181fc5923ce0140130e2ea57f619d144f48d6f81b6cb101"
+  },
+  "ch19/test_cg_merge_auto_and_transition_names": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_merge_auto_and_transition_names.sv:38: syntax error",
+   "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c"
+  },
+  "ch19/test_cg_merge_state_bin_names": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_merge_state_bin_names.sv:32: syntax error",
+   "inputs_sha256": "1d1946b987f1af526f0f7a1ffb3fe09e4e35cd2569315d6d5777b8b2b422e133"
+  },
+  "ch19/test_cg_option_evaluated_at_new": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_option_evaluated_at_new.sv:30: syntax error",
+   "inputs_sha256": "5db82401c82beadda7d7c48f1814c5b610bc299d2318556f49392890873a7b5c"
+  },
+  "ch19/test_cg_option_group_defaults": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_option_group_defaults.sv:30: syntax error",
+   "inputs_sha256": "19584dce2753bcdb9a005dca009b1d238f1c0e1c6b98c1dde440d9eb307a667f"
+  },
+  "ch19/test_cg_option_levels_readback": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_option_levels_readback.sv:30: syntax error",
+   "inputs_sha256": "15a9a879b6bc479ed5e0aa33cbfbe4002daf26dba32b749aa4ada6c0cc5660d2"
+  },
+  "ch19/test_cg_real_bin_intervals": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_real_bin_intervals.sv:36: syntax error",
+   "inputs_sha256": "360f374f672811249078e6adc887175c137a1056de192cea093ffc1cde13d8da"
+  },
+  "ch19/test_cg_real_bins_fixed_and_dollar": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_real_bins_fixed_and_dollar.sv:31: syntax error",
+   "inputs_sha256": "dcca12d6827e6da1bfdd20753fe9b26d3a4771c0364e62fdc848a55f9e6345ec"
+  },
+  "ch19/test_cg_real_bins_tolerance_and_merge": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_real_bins_tolerance_and_merge.sv:31: syntax error",
+   "inputs_sha256": "bbaaa76694dc7378295be7e820406927596d990b28194cce6da90979454de220"
+  },
+  "ch19/test_cg_sample_from_contexts": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_sample_from_contexts.sv:34: syntax error",
+   "inputs_sha256": "557e57b6a18d6362dc97a72574419b97f087a89070ba6493f0deb333cef280d0"
+  },
+  "ch19/test_cg_sample_time_evaluation": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_sample_time_evaluation.sv:28: syntax error",
+   "inputs_sha256": "4e2240830398e0c9a1f25a4a23a12d8f271f5bf16490294e3a94581b470c2a91"
+  },
+  "ch19/test_cg_sampling_instant_and_strobe": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_sampling_instant_and_strobe.sv:35: syntax error",
+   "inputs_sha256": "f3b34374b764ff2923f50ee1bdc5511b29f6e38b09ee59e839228ec6acf81e32"
+  },
+  "ch19/test_cg_transition_range_product": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_transition_range_product.sv:25: syntax error",
+   "inputs_sha256": "46f5d77a55a8255f12d9ed09b31f15709330847b02431f9ac47a99e315319d29"
+  },
+  "ch19/test_cg_warned_bin_elements_removed": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_warned_bin_elements_removed.sv:33: syntax error",
+   "inputs_sha256": "8cdfb5ed0445da7ffc26831ebc18ab7cf3cdf08dacbd8048bcb5f009ed40b92b"
+  },
+  "ch19/test_cg_zero_denominator_groups": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_zero_denominator_groups.sv:33: syntax error",
+   "inputs_sha256": "5c52078e64bdef4c1166029c91e1c47fa79fb4e997f8dc571c90538ee4a4e1d1"
+  },
+  "ch19/test_cg_zero_denominator_items": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_zero_denominator_items.sv:30: syntax error",
+   "inputs_sha256": "5ffe01ac6fa441d993b6bcf87de71ab5a4a049e873163735178b1b42d56eaa7d"
+  },
+  "ch19/test_get_coverage_no_contributing_groups": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_get_coverage_no_contributing_groups.sv:23: syntax error",
+   "inputs_sha256": "f32546ee75166af32ca82e5cc09b3c36a12328bfcf98b45502e75d942486ea87"
+  },
+  "ch19/test_illegal_cg_default_sequence_array": {
+   "status": "pass",
+   "inputs_sha256": "88b210c9743ab00719179bc02f3df54344524214465fe5555ee6e8e9fefc779c"
+  },
+  "ch19/test_illegal_cg_sample_arg_in_option": {
+   "status": "pass",
+   "inputs_sha256": "919f7f2e4fbd7fd00e3b6c90eeb0232ef8602a60a4de647809930d1b68ba4a66"
+  },
+  "ch19/test_illegal_cg_sample_arg_output": {
+   "status": "pass",
+   "inputs_sha256": "9dcbca5535f9593e32ab2c8fcd7a1625d864bf2face0f330f5dbd65134e21b6d"
+  },
+  "ch19/test_illegal_cg_transition_sole_range": {
+   "status": "pass",
+   "inputs_sha256": "c9b0b8653965e35de2cb2cb1145256e74ffc021566a3c77d52b953724434bf32"
+  },
+  "ch19/test_option_struct_member_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_option_struct_member_types.sv:31: syntax error",
+   "inputs_sha256": "ad09ce5e923b7e438bf87859225dd4061f183bcf664d4772bf2a508f0316586c"
+  },
+  "ch20/test_exit_waits_for_programs": {
+   "status": "known",
+   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp9m9fg...', expected '4: module tick'",
+   "inputs_sha256": "ea28f5df5ac969652cca26faea0001bcf19547a2ca6ae269da13255b189a5270"
+  },
+  "ch20/test_finish_ends_simulation": {
+   "status": "pass",
+   "inputs_sha256": "f44e2ca96064c66efe319da8f4adb4f27335321212742afe058f16e80db02058"
+  },
+  "ch20/test_time_functions_current_time": {
+   "status": "pass",
+   "inputs_sha256": "4e6d87dbdb00a99ab4ea71543562e32093b5f7051ea0854e1f378d0e9473bc02"
+  },
+  "ch20/test_timeunit_exponent_table": {
+   "status": "known",
+   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmp8algg...', expected '100s: 2'",
+   "inputs_sha256": "62869eef0c650f26670ad023ca11b78ae9a075ba2e2932d1d5d3863393cabb62"
+  },
+  "ch24/test_illegal_program_generate_for_module_instance": {
+   "status": "pass",
+   "inputs_sha256": "ceeba00f06e051153dc9a6feac6aa84134af923cf21ee19d7d4d3b7f40806cf1"
+  },
+  "ch24/test_illegal_program_generate_if_always": {
+   "status": "pass",
+   "inputs_sha256": "5c81557f9a11e41bd0708f28ed9fe5213da84ecad88ac5fc2f5f135d7b96f799"
+  },
+  "ch24/test_illegal_program_generate_region_gate": {
+   "status": "pass",
+   "inputs_sha256": "625477258f2abe00f7f195ca7c9e117ec0892b7dd56f0d963b8d36d2716048ac"
+  },
+  "ch24/test_illegal_program_timeprecision_after_item": {
+   "status": "pass",
+   "inputs_sha256": "e6af85384f7429d6da6b5b10f6dd779d70bdb35d4ae22946d8772efba798633c"
+  },
+  "ch24/test_illegal_program_timeunit_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "ed989c1286698b7741276a28f937ab47a39f58cf949cb4bb0c5a94353938d4c2"
+  },
+  "ch24/test_program_port_reactive_variable_and_net": {
+   "status": "known",
+   "reason": "output differs: line 1 is '10 module: mv=1 mw=1 mark=0', expected '10 module: mv=0 mw=0 mark=0'",
+   "inputs_sha256": "02193490717b1b7e256a18efc11aec1d14bb641c186d2ecce2e92d72084ef673"
+  },
+  "ch25/test_illegal_modport_header_connection_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "88fdfd349fd688aea03e01022703c7974e0d375bdef4a42e719d072181af65b5"
+  },
+  "ch25/test_illegal_modport_name_of_enclosing_interface": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_modport_name_of_enclosing_interface\\\\.sv:27:'; the first is: tests/ch25/test_illegal_modport_name_of_enclosing_interface.sv:30: error: Module instantiations are not allowed in interfaces.",
+   "inputs_sha256": "291c446942c6c7ef5dc51f86e242562cb314c545f5c19587efd2b71ccbdb6a07"
+  },
+  "ch25/test_modport_not_selected_full_access": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_modport_not_selected_full_access.sv:30: syntax error",
+   "inputs_sha256": "49fcd1455450722c0f0c26d17e0845e9238d94e317e7798d835c94aceff22115"
+  },
+  "ch25/test_modport_port_type_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_modport_port_type_forms.sv:35: syntax error",
+   "inputs_sha256": "db367d5668fca67404f4ca7e6c44f773c2d26ddf6802ef9dfaed2891631f910b"
+  },
+  "ch25/test_virtual_interface_clocking_drive_net_and_variable": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_virtual_interface_clocking_drive_net_and_variable.sv:30: syntax error",
+   "inputs_sha256": "6520d6dc09e5c3e223bf07adb8f22b312c2f5805fcd8848d1de4a497cce4457c"
+  },
+  "ch25/test_virtual_interface_type_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_virtual_interface_type_forms.sv:35: syntax error",
+   "inputs_sha256": "faa6b6da6e7980c96aad0c0fabf762faf6d32ec5080d94e1749aa82f8d512331"
+  },
+  "ch26/test_illegal_package_explicit_import_local_name": {
+   "status": "pass",
+   "inputs_sha256": "7bfe624bb2bcfb2b80c7a3f457ac3e01c10279dcc338135c6dc07ff3731fea19"
+  },
+  "ch26/test_illegal_package_explicit_import_two_packages": {
+   "status": "pass",
+   "inputs_sha256": "d2e6650432e05bbdda51633c0ac0164a70c621c5b74be143734e7811b418d446"
+  },
+  "ch26/test_illegal_package_import_hierarchical_access": {
+   "status": "pass",
+   "inputs_sha256": "1db74fa80ee04e991b2da11a94083e4936a650b1b85ea0615c2e0ca08b06c778"
+  },
+  "ch26/test_illegal_package_import_in_class": {
+   "status": "pass",
+   "inputs_sha256": "87363a01885ccc05010bfe2d27c2ea6ea9765ecaf8a76dff448a1a4118eacf97"
+  },
+  "ch26/test_illegal_package_import_interface_port_access": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_package_import_interface_port_access\\\\.sv:33:'; the first is: tests/ch26/test_illegal_package_import_interface_port_access.sv:31: syntax error",
+   "inputs_sha256": "b9890b511c3e826af08fc826bec6f9126f41315ad706fca81f70572bc82e9f2a"
+  },
+  "ch26/test_illegal_package_imported_before_compiled": {
+   "status": "pass",
+   "inputs_sha256": "77e55f2492cb4e256d87e43b42e8aaab20fab0f78846f58b37248727479ac781"
+  },
+  "ch26/test_illegal_unresolved_name_after_unit_scope": {
+   "status": "pass",
+   "inputs_sha256": "dfb6d2aed1ebcb37dee609970f3d35a26ad59765213fcc60c807f358480e1151"
+  },
+  "ch26/test_package_declaration_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch26/test_package_declaration_forms.sv:34: syntax error",
+   "inputs_sha256": "024b67c93d64a2c47402a023626d6689b97b1cb20af3181f85d69d279d53b67f"
+  },
+  "ch26/test_package_explicit_import_only_named": {
+   "status": "pass",
+   "inputs_sha256": "6a0ba574f994096402b1ccd8362d28383820321edce6015c5ab80be7c402a3bf"
+  },
+  "ch26/test_package_export_same_declaration": {
+   "status": "pass",
+   "inputs_sha256": "c62871b77ea0dea9faa4f8d6e5e108f82d138ed190b65f8ea6ec87f163c6c91c"
+  },
+  "ch26/test_package_export_transitivity": {
+   "status": "pass",
+   "inputs_sha256": "3ef48dfde6c9e3144136e09bd582de5b5b512502875c3861be05223f174bd1a4"
+  },
+  "ch26/test_package_export_wildcard_forms": {
+   "status": "pass",
+   "inputs_sha256": "41012f651d7209bcfbcca6b67b7c97177cf98ed47aba418d81f1f5b52f8952cc"
+  },
+  "ch26/test_package_import_item_list": {
+   "status": "pass",
+   "inputs_sha256": "7d2ddb885a0c4ee3889758e988a3a1dd5f71b42b12a13b1ee2ecdbe92ee8bb96"
+  },
+  "ch26/test_package_local_visibility": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'w_first=300 w_then=30 y_first=7 y_then=7 blk.v=8', expected 'w_first=300 w_then=30 y_first=400 y_then=7 blk.v=8'",
+   "inputs_sha256": "1ac7c9ce3215605eb33e4df29bf128b096784b4ac1fd540188ce382838c09274"
+  },
+  "ch26/test_package_lookup_reference_point": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'z_first=300 z_then=30 k_first=5 k_then=5 m=6 f()=2', expected 'z_first=300 z_then=30 k_first=100 k_then=5 m=6 f()=2'",
+   "inputs_sha256": "8de8e31e4c9508de71a25186e94abf0ffcc65d55df9086a4aefda56111903330"
+  },
+  "ch26/test_package_search_order_cases": {
+   "status": "pass",
+   "inputs_sha256": "981ad71b33968b6c8e4ce7d046dfe8e947ef56816326f9ef915ce5fbf46718c5"
+  },
+  "ch26/test_std_package_implicit_import": {
+   "status": "known",
+   "reason": "compile failed: tests/ch26/test_std_package_implicit_import.sv:28: syntax error",
+   "inputs_sha256": "5cf59f99ee3de46c444ac1220245ce574136c195369fcb8131e94cce4553dff5"
+  },
+  "ch27/test_generate_dangling_else": {
+   "status": "pass",
+   "inputs_sha256": "439ddd928a1fc0947222b105ccbdff1d04f01cf10017843c7023c066aea66044"
+  },
+  "ch27/test_generate_direct_nesting": {
+   "status": "pass",
+   "inputs_sha256": "491ac344dc38192464ab9d28466243eae7d3e4a9f4c201a41bdbdccd45b274a4"
+  },
+  "ch27/test_generate_recursive_module": {
+   "status": "pass",
+   "inputs_sha256": "dc4ca1e1b24fb307c5432baab1dd58bd199e206f0b3faafa2c7991d08acd3484"
+  },
+  "ch27/test_generate_scheme_instances": {
+   "status": "pass",
+   "inputs_sha256": "c8e8edd47c52dbe2af28bddc883310f5dcb2959bff7251ea0caa035f7a431b26"
+  },
+  "ch27/test_generate_single_item_blocks": {
+   "status": "pass",
+   "inputs_sha256": "b2fcf5d96b4337ba8e38443f81702789d946420c1f74e64736062380a2b3c3a0"
+  },
+  "ch27/test_generate_syntax_forms": {
+   "status": "pass",
+   "inputs_sha256": "c622e939813ff671d789de5a27c51c1942a5053257968e97ba8cb9b4b2a354cb"
+  },
+  "ch27/test_generate_unnamed_block_external_names": {
+   "status": "pass",
+   "inputs_sha256": "e220c9ae35056effc62159057a3351c8baeda85dab58170c37b2e7d862e504a5"
+  },
+  "ch27/test_illegal_generate_block_array_name_clash": {
+   "status": "pass",
+   "inputs_sha256": "80fe5486bc79d476f09630769ebe9ee55c5896bc2e9f7a9b9fe4a35977c5b845"
+  },
+  "ch27/test_illegal_generate_genvar_unknown_bit": {
+   "status": "pass",
+   "inputs_sha256": "b42d376691c9ec38985a5927d22b5018cf7d52e5479c515a7ca744f420a409de"
+  },
+  "ch27/test_illegal_generate_genvar_z_bit": {
+   "status": "pass",
+   "inputs_sha256": "ffc434eed882ace0e7940fdfeae71de653912b736d3dcde26c07654b5af187d6"
+  },
+  "ch27/test_illegal_generate_init_reads_index": {
+   "status": "pass",
+   "inputs_sha256": "ac604469532e222f051629d921e6c74ecdd94051b7bfb3a5f977cbdadf3d2bb3"
+  },
+  "ch27/test_illegal_generate_iteration_other_genvar": {
+   "status": "pass",
+   "inputs_sha256": "fad090c0f73c18e976bdc005af5e557c357cddbf8527bbe3d478150c8acbf5cf"
+  },
+  "ch27/test_illegal_generate_loop_index_not_genvar": {
+   "status": "pass",
+   "inputs_sha256": "0a4ee0e19dda9276424a38e671acd9ac01816a9e318885ed9e9251c5bb31e079"
+  },
+  "ch27/test_illegal_generate_nested_same_genvar": {
+   "status": "pass",
+   "inputs_sha256": "f6422740332003ff637e0b563664c50b008f1798fc65dfc39028cf579558bc96"
+  },
+  "ch27/test_illegal_generate_repeated_genvar_value": {
+   "status": "pass",
+   "inputs_sha256": "5f6d4536011f8008ba5469d68914bc28e0354af60e9c8f7109e5d7d9ba1da08b"
+  },
+  "ch27/test_illegal_generate_two_block_arrays_same_name": {
+   "status": "pass",
+   "inputs_sha256": "9eefa416ab60363705e7a073fbdfca9c48322acf0ea4a6e452b70a00113d473c"
+  },
+  "ch27/test_illegal_generate_unnamed_loop_block_reference": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c07438c9c0c35362fbb3cb883714510b088c0a9586da5124bfb82c204ff3302c"
+  },
+  "ch28/test_ambiguous_strength_ranges_and_levels": {
+   "status": "pass",
+   "inputs_sha256": "d45216c844a3f3ce1141beb318c4a86901066ae6527cdfd9339757834257fe4b"
+  },
+  "ch28/test_and_gate_x_z_truth_table": {
+   "status": "pass",
+   "inputs_sha256": "03c85a833cc564dafa30eda3e5e6280950a949374f37b7f113d533047de89821"
+  },
+  "ch28/test_bidirectional_switch_category": {
+   "status": "pass",
+   "inputs_sha256": "3f07a96b50a8157d905832bb6451067b41171b662103b42e39af68ba58d8c567"
+  },
+  "ch28/test_buf_not_x_z_input_outputs": {
+   "status": "pass",
+   "inputs_sha256": "49b74eed39028f298315bf8a4d91a416bc66a09d56183554195dc2861724ac83"
+  },
+  "ch28/test_bufif_gate_truth_table_all_inputs": {
+   "status": "pass",
+   "inputs_sha256": "6476b17b40a479fbb4359d00d8b04b9b2f76ffdae498de3cb5e26acb7dc1eacb"
+  },
+  "ch28/test_cmos_switch_nmos_pmos_equivalence": {
+   "status": "pass",
+   "inputs_sha256": "c95174f9a829ead39c7909f3f915c6e142ebe2821d02d3c3fa9d9331dfe4df61"
+  },
+  "ch28/test_drive_strength_components_on_gates_and_assigns": {
+   "status": "pass",
+   "inputs_sha256": "d002cbc907c33b3b7b7164d0bfcee221ab2a8e3a3e8c98db599c1f2f2094bb2d"
+  },
+  "ch28/test_gate_delay_independent_of_input_strength": {
+   "status": "pass",
+   "inputs_sha256": "c48a97c61ea538c4a2613a9e89763e85a0292fad3289bd35a29fd4c1805c8cb2"
+  },
+  "ch28/test_gate_delay_table_all_transitions": {
+   "status": "pass",
+   "inputs_sha256": "a36c54342720216dd9b1e9df6e8f65ae85b9139030389f288951c5a57f0b5a40"
+  },
+  "ch28/test_gate_strength_keywords_and_highz": {
+   "status": "pass",
+   "inputs_sha256": "9ffda528bc7676b64fb4da8a8985f212232547958354c232b1b4998a34a63847"
+  },
+  "ch28/test_illegal_gate_array_split_range": {
+   "status": "pass",
+   "inputs_sha256": "114b95a07cd64377ee90d12c988d2d46ac32edc236acdb691c91dc1ff28714d6"
+  },
+  "ch28/test_large_charge_strength_level_in_ranges": {
+   "status": "known",
+   "reason": "compile failed: tests/ch28/test_large_charge_strength_level_in_ranges.sv:28: sorry: trireg nets not supported.",
+   "inputs_sha256": "a802cb89f7a2e6d44d209e5aa5fbb16c5533d7ec0e709a20454b4c2d18dfd133"
+  },
+  "ch28/test_min_typ_max_udp_and_net_delays": {
+   "status": "known",
+   "reason": "compile failed: tests/ch28/test_min_typ_max_udp_and_net_delays.sv:37: warning: Choosing typ expression.",
+   "inputs_sha256": "3014121d0eed09d250cc54d32abba1c3e9f08ed431ed15fd6621a2ebba1a110e"
+  },
+  "ch28/test_min_typ_max_unordered_delay_values": {
+   "status": "pass",
+   "inputs_sha256": "303dfe119fa47cae263f5ec38741a1eb241b13a1d0a47e5be51f56697a3cf96e"
+  },
+  "ch28/test_mos_cmos_switch_delay_forms": {
+   "status": "pass",
+   "inputs_sha256": "9b87679a8ecd5b6ed681a0a00fc49b4d4b562962968723338af9176e44ade673"
+  },
+  "ch28/test_mos_switch_category": {
+   "status": "pass",
+   "inputs_sha256": "229e39ee00886c6bc7aa31045b8a2688f0d93625772208c7b19244b223ce5b74"
+  },
+  "ch28/test_mos_switch_kinds_unidirectional": {
+   "status": "pass",
+   "inputs_sha256": "ae0985311d03421d8bf242931d6b1bb07e25b4dd52fc87e8699476cb199039cb"
+  },
+  "ch28/test_mos_switch_truth_tables": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'data=0 ctrl=0: nmos=HiZ rnmos=HiZ pmos=St0 rpmos=St0', expected 'data=0 ctrl=0: nmos=HiZ rnmos=HiZ pmos=St0 rpmos=Pu0'",
+   "inputs_sha256": "868168963ddf40412af93b2e0efc7964eb924478f336880b4e4c6a98d90e0f32"
+  },
+  "ch28/test_n_input_gate_delays": {
+   "status": "pass",
+   "inputs_sha256": "794439a939b65ad9af1b3c6f7596a711372f3eb5508318fea643814f77faffad"
+  },
+  "ch28/test_n_input_gate_more_inputs": {
+   "status": "pass",
+   "inputs_sha256": "9d32d9745da32b90a5bcb17a771095f48834b3604cc645a4878e45283702de05"
+  },
+  "ch28/test_n_input_n_output_gate_categories": {
+   "status": "pass",
+   "inputs_sha256": "a47889f6060d7239040ef7ee75b85d017b1e2ac581bfa74784299b74ad21b1ca"
+  },
+  "ch28/test_n_output_gate_delays": {
+   "status": "pass",
+   "inputs_sha256": "a6b42ff6fbbb72044a5020c12b66099b678115b4f1c733a1668bce7774ce8678"
+  },
+  "ch28/test_nand_gate_x_z_truth_table": {
+   "status": "pass",
+   "inputs_sha256": "cba70333232ff94f6f08d98399015dcfb9362662ee1cfa87b95332feefabda0e"
+  },
+  "ch28/test_nonresistive_switch_strength_each_level": {
+   "status": "pass",
+   "inputs_sha256": "92a2e9331418a39563e3135aff9791e99cc871f9de052c32031b14e762cdc1f2"
+  },
+  "ch28/test_nor_gate_x_z_truth_table": {
+   "status": "pass",
+   "inputs_sha256": "014afd0012829ee3d279d246330b206c55bea0a912fe575d3799d947b05bf567"
+  },
+  "ch28/test_not_and_three_state_gate_drive_strength": {
+   "status": "pass",
+   "inputs_sha256": "af4224eb840e60344ca19d6998fc1e47b93469acd7dda38c8b724f1d5d9ae616"
+  },
+  "ch28/test_notif_gate_truth_table_all_inputs": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'data=0 ctrl=x: notif0=StX notif1=StX', expected 'data=0 ctrl=x: notif0=StH notif1=StH'",
+   "inputs_sha256": "18e6465ab7fa0de65b1ac1dc82c67b1219a88849b02cb1c3381cc8e67cafc9ff"
+  },
+  "ch28/test_or_gate_x_z_truth_table": {
+   "status": "pass",
+   "inputs_sha256": "fbfe93e447bb455427553f101478411d51b4b6391c3270a1668068f4c56e39fa"
+  },
+  "ch28/test_pass_switch_control_delay_forms": {
+   "status": "pass",
+   "inputs_sha256": "4e5dd703a5b4f1e4c763c6831f2f6869dd6026ea9a2986a32aa1fdfe3345f32c"
+  },
+  "ch28/test_pass_switch_direction_and_control_kinds": {
+   "status": "pass",
+   "inputs_sha256": "617eaac61fc7acf7852f36eafc6191a239d81240fa4e5137cf524787e0d86a3f"
+  },
+  "ch28/test_primitive_terminal_lists": {
+   "status": "pass",
+   "inputs_sha256": "842db3be9aaa49829c56eed26959772a28f77ddf7b601195e25ec75e985da185"
+  },
+  "ch28/test_rcmos_switch_rnmos_rpmos_equivalence": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'data=0 n=0 p=0: rcmos=St0 rnmos+rpmos=Pu0', expected 'data=0 n=0 p=0: rcmos=Pu0 rnmos+rpmos=Pu0'",
+   "inputs_sha256": "d3f1cff3225ac0bab622fed1275015fb10cbbe901d6d23578acf73e5b0356e46"
+  },
+  "ch28/test_resistive_mos_switch_reduction_each_level": {
+   "status": "known",
+   "reason": "compile failed: tests/ch28/test_resistive_mos_switch_reduction_each_level.sv:34: sorry: trireg nets not supported.",
+   "inputs_sha256": "eacf98aabcbf30be56234b39ca957365cbe7483bda2e3074ca19d49d327ec4b7"
+  },
+  "ch28/test_resistive_pass_switch_reduction_each_level": {
+   "status": "pass",
+   "inputs_sha256": "82701b2d04388b09dbb0b587fd96a1bf8e4111f460b7069d18649b095ee6a9ed"
+  },
+  "ch28/test_three_state_gate_category": {
+   "status": "pass",
+   "inputs_sha256": "56d0c927f657ed63e4e352285ea545c153eca04a8232305b3a81c3aa29f33e58"
+  },
+  "ch28/test_three_state_gate_unknown_output_delay": {
+   "status": "pass",
+   "inputs_sha256": "b86d26fc195e6eaef9e108f771e0cf52f174d15c7c9b42cf76bed4e9b2cca04c"
+  },
+  "ch28/test_tranif0_control_turn_on_off_delays": {
+   "status": "known",
+   "reason": "output differs: line 1 is '1->0: none=+0 1 one=+4 1 (3,6)=+6 1 (6,3)=+3 1', expected '1->0: none=+0 1 one=+4 1 (3,6)=+3 1 (6,3)=+6 1'",
+   "inputs_sha256": "79cf7d09bef756e8169b99719579289e8a89bac0a88f4f977b655574f809e34f"
+  },
+  "ch28/test_trireg_decay_redrive_and_no_z": {
+   "status": "known",
+   "reason": "compile failed: tests/ch28/test_trireg_decay_redrive_and_no_z.sv:32: sorry: trireg nets not supported.",
+   "inputs_sha256": "8051d310f1bf561b54f2bf88610b316770a981f97d0a4d792a6052de2103df24"
+  },
+  "ch28/test_user_nettype_switch_and_driver_strength": {
+   "status": "known",
+   "reason": "compile failed: tests/ch28/test_user_nettype_switch_and_driver_strength.sv:37: syntax error",
+   "inputs_sha256": "fdbe196af559b92f8850d231757767686265d79ff6ae9666393de2b530c96cf2"
+  },
+  "ch28/test_wired_logic_ambiguous_strength_combinations": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'wand, StL + Pu0 with Pu1: St0', expected 'wand, StL + Pu0 with Pu1: 650'",
+   "inputs_sha256": "cfdb24b40f3be830fa3d8f8da3d52f0db0b4477150685dfbd90d64d43d57c103"
+  },
+  "ch28/test_xnor_gate_x_z_truth_table": {
+   "status": "pass",
+   "inputs_sha256": "35c8e4721e7d0feac26f2b02595df9be2fb97eb7492a95436642cc0dccc8c38c"
+  },
+  "ch28/test_xor_gate_x_z_truth_table": {
+   "status": "pass",
+   "inputs_sha256": "e7f0e7c7cd79c658ddfb4663d285577fbca89dd74093073da6a24e58a813c9b2"
+  },
+  "ch29/test_illegal_udp_all_x_entry_not_x": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "2a22a894cb0c9dfcd4333a1036af469667fc75e29f26055bf6076079474a5e45"
+  },
+  "ch29/test_illegal_udp_b_symbol_output": {
+   "status": "pass",
+   "inputs_sha256": "989b4b11b71acfc6d81ee09b84dc88c717aa27754f594483911e1e170f17551d"
+  },
+  "ch29/test_illegal_udp_hyphen_combinational": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_udp_hyphen_combinational\\\\.sv:25:'",
+   "inputs_sha256": "1fd006b1806553df18dfdf0f2083ebb474ae5dee4dc0c3dc7150d82778506781"
+  },
+  "ch29/test_illegal_udp_initial_assigns_input": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3043c1345d8a96ef13b09cb7c1f4aa0074e9c4c9def4004bfa62f3f9b55107dd"
+  },
+  "ch29/test_illegal_udp_initial_block": {
+   "status": "pass",
+   "inputs_sha256": "9ef4783f684a0aaaf3d87e9144c0db1f4b9c9ef61ac6e5ec39ea69c1d97f13d8"
+  },
+  "ch29/test_illegal_udp_initial_value_two": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "1008ccd6fac44e5d77fab919332e9d94b31601820f5de201f8e3362cfb1e81c6"
+  },
+  "ch29/test_illegal_udp_question_mark_output": {
+   "status": "pass",
+   "inputs_sha256": "875d0c8022ef599b50be7369de2971eb22b4b27232d541cd9aaeeb5ba92cdcd9"
+  },
+  "ch29/test_illegal_udp_sequential_entry_without_state": {
+   "status": "pass",
+   "inputs_sha256": "1780fb9e021b41edc970ea16cae54a83f2e21fcbde2e0ae9a6d6bfe82d072507"
+  },
+  "ch29/test_illegal_udp_sequential_without_reg": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_udp_sequential_without_reg\\\\.sv:(23|26|27|28):'",
+   "inputs_sha256": "edfdae6cea9ab4c4d92829577403e9510a2689c4671899ee576b5f514401fe27"
+  },
+  "ch29/test_illegal_udp_table_entry_without_semicolon": {
+   "status": "pass",
+   "inputs_sha256": "aa3df6522cd27256e9f936bd03229a876582769eec9c2e44077d1e2749895cb2"
+  },
+  "ch29/test_illegal_udp_table_without_endtable": {
+   "status": "pass",
+   "inputs_sha256": "4d408c005b82006171b34886f0ebd1db45eb83cbf5b0b1ec73ae8511cfc56c92"
+  },
+  "ch29/test_illegal_udp_two_outputs": {
+   "status": "pass",
+   "inputs_sha256": "dbd476c644eebadc105b217c383b5c786525d7ba2204cd48d3c114667adc847d"
+  },
+  "ch29/test_illegal_udp_value_change_in_state_field": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "b77605126e43166ea67527fee1ece5d57d79b75e02c6a92ad89d3c6dba1d7d59"
+  },
+  "ch29/test_illegal_udp_without_input": {
+   "status": "pass",
+   "inputs_sha256": "6206e1bdecff34688995bc13e29962c23359e146023a654558c2e84f4c1caa83"
+  },
+  "ch29/test_illegal_udp_z_in_state_field": {
+   "status": "pass",
+   "inputs_sha256": "fb5fc79bc21d588a1eab6c6fdf01bc3aa7a9d5ff6253f135fef9c5081ee57191"
+  },
+  "ch29/test_udp_256_definitions": {
+   "status": "pass",
+   "inputs_sha256": "d65f57c024e0821ff25a02bbd5cffaa9dabe8870fe0a5ebb72548d0cd51c215e"
+  },
+  "ch29/test_udp_attributes_extern_and_wildcard_header": {
+   "status": "known",
+   "reason": "compile failed: tests/ch29/test_udp_attributes_extern_and_wildcard_header.sv:27: syntax error",
+   "inputs_sha256": "4a634535fa976461de6728c94c911e80bf43c27f606bf50fdb013843dd56ade7"
+  },
+  "ch29/test_udp_header_forms_and_input_field_order": {
+   "status": "known",
+   "reason": "compile failed: tests/ch29/test_udp_header_forms_and_input_field_order.sv:43: syntax error",
+   "inputs_sha256": "8b738a773f2166401df5a1de2d7ea6d37eddb73cfaaf301f6da295a84b9611e3"
+  },
+  "ch29/test_udp_initial_value_literal_forms": {
+   "status": "pass",
+   "inputs_sha256": "ceab839a9c7491477889fab28368d3fdd936ee5421e1b98ce5acdda67b749bea"
+  },
+  "ch29/test_udp_instance_delay_name_and_terminal_forms": {
+   "status": "pass",
+   "inputs_sha256": "c1c4197944368a9d6bc98d1449313b4275d78ece514cc89490b36f08f0d867bc"
+  },
+  "ch29/test_udp_instance_strength_and_array_range": {
+   "status": "known",
+   "reason": "compile failed: tests/ch29/test_udp_instance_strength_and_array_range.sv:50: syntax error",
+   "inputs_sha256": "fa838f30c32c2f6caaa65e9d2aac629ec11871f07c0e1d982e59c7bb27087c73"
+  },
+  "ch29/test_udp_level_sequential_next_state_by_current": {
+   "status": "pass",
+   "inputs_sha256": "fda4c2aa83cfa692897479a2916c33528422c4451889d082bf4a6912b84cc319"
+  },
+  "ch29/test_udp_level_symbols_in_each_field_and_f": {
+   "status": "pass",
+   "inputs_sha256": "c54f23efcd7773e632d5b869e439273c8f5bc75ce8934c3e7e2442a6eee0d456"
+  },
+  "ch29/test_udp_output_reg_initializer_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch29/test_udp_output_reg_initializer_forms.sv:25: assert: pform.cc:2092: failed assertion pa",
+   "inputs_sha256": "134cb4cfc88872e83603b7aeacde0c143674556dec659b8967269028f70e6201"
+  },
+  "ch29/test_udp_symbol_uppercase_forms": {
+   "status": "pass",
+   "inputs_sha256": "e929a4b1fdc3af3dc118a6777225b6bd830dbdd07a5b13cb4286b86b575722b8"
+  },
+  "ch29/test_udp_uppercase_b_in_value_change": {
+   "status": "known",
+   "reason": "compile failed: tests/ch29/test_udp_uppercase_b_in_value_change.sv:37: syntax error",
+   "inputs_sha256": "c72cb5d8b2fd5c0b85840613f61ed1b9f8d4cf081a38519647180e653b7552d8"
+  },
+  "ch30/test_illegal_specify_parallel_multiple_destinations": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "9a3abf20d572d8c0f7437e4c1789de2b22b870eb7c5c28ab683328ed2e225c3c"
+  },
+  "ch30/test_illegal_specify_parallel_multiple_sources": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "bce137e921b2859edd9bbc026fcc21d5c3a41e7c0ebf87fc67a51dbb67b4529d"
+  },
+  "ch30/test_illegal_specify_parallel_scalar_to_vector": {
+   "status": "pass",
+   "inputs_sha256": "1fcb43a37b65331944cad7fe203666f69de3a8f0b2a5fbc60b26328259625280"
+  },
+  "ch30/test_illegal_specify_parallel_vector_to_scalar": {
+   "status": "pass",
+   "inputs_sha256": "e8ddf71354723563b885f546c56f678ab13b7027543b4a43a1bdcda779f5a03d"
+  },
+  "ch30/test_illegal_specify_path_source_variable_port": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c2e1fff75121ca6bf350d9ce13a79cadbfcf6bdb4780a683727294528f2a755f"
+  },
+  "ch30/test_showcancelled_negative_pulse_x": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'showcancelled on-event: end 1', expected 'showcancelled on-event: 15:x 17:1 end 1'",
+   "inputs_sha256": "4628adaa25d0b534d33441391a1a0eeb75ef6b557c7fde90dd1f086cfcdbe870"
+  },
+  "ch30/test_specify_condition_operators_each": {
+   "status": "pass",
+   "inputs_sha256": "64219158fbc3099ce1535953ba7562c58e5848f91c6cfeed658b6ba89a827258"
+  },
+  "ch30/test_specify_derived_x_transition_delays": {
+   "status": "pass",
+   "inputs_sha256": "f7e57444d4703024d6e6180ae5fdb1a4a7539ffa1c5046fc47cb62fa156ab1e2"
+  },
+  "ch30/test_specify_negative_path_delay": {
+   "status": "known",
+   "reason": "output differs: line 1 is '12: y2=1', expected '10: y1=1'",
+   "inputs_sha256": "13b1e3901ce7e0132f41355fb55794238e293370d203d39cfd347b10a5963a6b"
+  },
+  "ch30/test_specify_one_two_delay_transitions": {
+   "status": "pass",
+   "inputs_sha256": "5fdf6f722440d318ebe4ea5f5e978dac4965b6b3de328e644a475877b437d8e2"
+  },
+  "ch30/test_specify_path_delay_value_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch30/test_specify_path_delay_value_forms.sv:45: syntax error",
+   "inputs_sha256": "a3dc5e0746845273e4ea63fb89590416fd8b4cbda9e5e7fc483b865973888758"
+  },
+  "ch30/test_specify_pulse_limit_boundaries": {
+   "status": "known",
+   "reason": "compile failed: tests/ch30/test_specify_pulse_limit_boundaries.sv:59: warning: Choosing typ expression.",
+   "inputs_sha256": "53041dfb2d7334d65a179596758f33cdff607144dcebb7fcb0757b5c3125f35f"
+  },
+  "ch30/test_specify_pulse_trailing_edge_limits": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: test_specify_pulse_trailing_edge_limits.sdf:...', expected 'td y: 34:1'",
+   "inputs_sha256": "6188383ad99a036eeeb63db76a11445ed858306b460c935d0e63573f38563177"
+  },
+  "ch30/test_specify_twelve_transition_delays": {
+   "status": "pass",
+   "inputs_sha256": "fbe5670cd4e129e17492d719d6383c86e6a0f64cc02d733ff1d7c37c0e7908ab"
+  },
+  "ch31/test_illegal_edge_descriptor_space": {
+   "status": "pass",
+   "inputs_sha256": "e2f6c9874f54fa4c9c7ddd00d127fdfe3871e6b3bb484b77bf74c4759fc2f8c4"
+  },
+  "ch31/test_timing_condition_forms_x_lsb": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'en:', expected 'en: 20'",
+   "inputs_sha256": "cc980112ae4c53f02f9074a469385fbc06943f629b50e174b3aab075de82ce4e"
+  },
+  "ch31/test_timing_edge_descriptors_all": {
+   "status": "known",
+   "reason": "compile failed: tests/ch31/test_timing_edge_descriptors_all.sv:40: warning: Timing checks are not supported.",
+   "inputs_sha256": "e8dd9a78402b23feabdeea964b05b6e1c0dc192140bb5d05cacdc0982696e711"
+  },
+  "ch31/test_timing_nochange_offset_directions": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'd at 25: (0,0) 0 (0,2) 0 (-2,0) 0 (2,0) 0 (0,-2) 0', expected 'd at 25: (0,0) 1 (0,2) 1 (-2,0) 1 (2,0) 1 (0,-2) 1'",
+   "inputs_sha256": "cefa4155847f28aebec860d607f6e9c613d6df243bef31b11a6f39363738b48d"
+  },
+  "ch31/test_timing_recrem_all_arguments": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'notifier:', expected 'notifier: 44 62 102'",
+   "inputs_sha256": "546fb4330f83236974cfea435510d5a6316bd8a5676d7150212a4ddc07a95438"
+  },
+  "ch31/test_timing_setuphold_all_arguments": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'notifier:', expected 'notifier: 44 62 102'",
+   "inputs_sha256": "76331808325cee2272924b92a6270bb8b278b2c90ffd8d8608b9e1452976deb8"
+  },
+  "ch31/test_timing_setuphold_as_setup_and_hold": {
+   "status": "known",
+   "reason": "output differs: line 1 is '$setuphold:', expected '$setuphold: 20 30 41 60 61'",
+   "inputs_sha256": "a397e7976fefde2bc1595e84a9b6ea8ad45aa42a64944e48f3d2151b85b1708f"
+  },
+  "ch31/test_timing_skew_dormant_and_restart": {
+   "status": "known",
+   "reason": "output differs: line 2 is '$timeskew, no data event:', expected '$timeskew, no data event: 15'",
+   "inputs_sha256": "abb7e7c032e6e71811cd4c03dbd5d8f4cf8e61a1c0e353c9d0366808cd50bc11"
+  },
+  "ch31/test_timing_skew_simultaneous_and_expiry": {
+   "status": "known",
+   "reason": "output differs: line 1 is '$skew limit 0:', expected '$skew limit 0: 21'",
+   "inputs_sha256": "a121094db557acb354f3de21116f11ac527366dc6bafed771b89ce369db92d75"
+  },
+  "ch31/test_timing_width_threshold_limit_edges": {
+   "status": "known",
+   "reason": "output differs: line 1 is '$width limit 5 threshold 2:', expected '$width limit 5 threshold 2: 33 44'",
+   "inputs_sha256": "3d09ac29dcd7b14a366c47d9fcd89bec3416e1d83a3b75a7c78e8692ba7437b3"
+  },
+  "ch31/test_timing_window_endpoints_zero_limits": {
+   "status": "known",
+   "reason": "output differs: line 1 is '$setup limit 3:', expected '$setup limit 3: 30'",
+   "inputs_sha256": "07ae453217a7cb006fed8f1c81c5bdab5d82ff187cc6f0f587fc763d3160c314"
+  },
+  "ch32/test_sdf_device_gate_three_delays": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_device_gate_three_delays.sdf: Too man...', expected 'g1: 25:1 45:0 65:z 95:1 115:z 145:0 165:x 185:1 205:x 225...'",
+   "inputs_sha256": "72fcad4e4c4caf5bfd2e7316e76eb6326c58c6213b51648a8fbc0a809acad6ac"
+  },
+  "ch32/test_sdf_device_port_instance": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_device_port_instance.sdf: Too many er...', expected 'rise after 10: p.y 5 p.z 1 g.y 5 g.z 0 q.y 4 q.z 4 r.y 3 ...'",
+   "inputs_sha256": "483657a8c38105f3db5324bc8a94ebf098d35dbd1fb245be0ed4c98c13bff676"
+  },
+  "ch32/test_sdf_filename_types": {
+   "status": "pass",
+   "inputs_sha256": "a2780018e9b88066750795b053ea9c3a29dec212b3058be9d439687eb0f084bd"
+  },
+  "ch32/test_sdf_instance_array_index": {
+   "status": "known",
+   "reason": "compile failed: Assertion failed: (ivl_expr_value(expr) == IVL_VT_BOOL || ivl_expr_value(expr) == IVL_VT_VECTOR), function draw_eval_vec4, file eval_vec4.c, line 1360.",
+   "inputs_sha256": "fd73b07ef2734f1708246882773bccc1d9b4a120354bb70738d5821b74499014"
+  },
+  "ch32/test_sdf_interconnect_load_references": {
+   "status": "pass",
+   "inputs_sha256": "2b89d957d34592679e693722d458244a67891d44d194a6bcca3c0287d1ae4311"
+  },
+  "ch32/test_sdf_interconnect_pair_warning": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_interconnect_pair_warning.sdf:3: Coul...', expected 'wp l.i: 12:1 32:z 54:1 74:z'",
+   "inputs_sha256": "402445a7642a8fc9a0ad8dd12f6c96b0df3135fe2c953f70d71fc86eeb8deecb"
+  },
+  "ch32/test_sdf_interconnect_port_order_multisource": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_interconnect_port_order_multisource.s...', expected 'wa l.i: 12:1 32:z 56:1 76:z'",
+   "inputs_sha256": "d90028001cf4eec52616c47d3e522623d039b3f946e912c8b6aab3e689130968"
+  },
+  "ch32/test_sdf_interconnect_transition_values": {
+   "status": "pass",
+   "inputs_sha256": "ddce9f171ec7c9314c1450c1c2b521369606e91a72afab2d23242b9518ecae10"
+  },
+  "ch32/test_sdf_iopath_cond_pulse_limits": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: test_sdf_iopath_cond_pulse_limits.sdf:3: Pul...', expected 'i1 y: 46:x 48:0 66:x 69:0 86:1 90:0 106:1 111:0 126:1 132...'",
+   "inputs_sha256": "58d2d6b0d94ecd8990f90abd6cb5e7f415e8db1c6e882c610f85afe19a485ffc"
+  },
+  "ch32/test_sdf_iopath_one_two_three_values": {
+   "status": "pass",
+   "inputs_sha256": "fce6104dad9996459b335314041408f06341a9824585c20d40ae892faeea55b7"
+  },
+  "ch32/test_sdf_iopath_retain_forms": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_iopath_retain_forms.sdf: Too many err...', expected '31: u1 y=0 v=0 z=0 w=0, u0 y=0 v=0 z=0 w=0'",
+   "inputs_sha256": "d66186122728a2895289c7e53934929a08ad197bfe83a391c8116cd38826d382"
+  },
+  "ch32/test_sdf_iopath_six_twelve_values": {
+   "status": "pass",
+   "inputs_sha256": "db588d33cd4883abe7ca50d697c606747dac4891c08b678f12740e551527ba03"
+  },
+  "ch32/test_sdf_multiple_files_increment_scope": {
+   "status": "known",
+   "reason": "output differs: line 1 is '12: y1=1 y2=0', expected '13: y1=0 y2=1'",
+   "inputs_sha256": "08848959b147cdc52f1b1b08122b86a769e8b37db0ca7045fc23723b1b3abb44"
+  },
+  "ch32/test_sdf_netdelay_port_interconnect": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_netdelay_port_interconnect.sdf: Too m...', expected 'l1.i: 14:1 34:z 54:1 74:z'",
+   "inputs_sha256": "d0879a736ba4731d0486555d42a17cb6636cb235fb5570fb667c8e97944e08e7"
+  },
+  "ch32/test_sdf_pathpulse_constructs": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_pathpulse_constructs.sdf: Too many er...', expected 'u1 y: 50:x 52:0 70:x 73:0 90:x 94:0 110:1 115:0 130:1 136:0'",
+   "inputs_sha256": "acdaaa4575cc23191f46c756d3f4f3292642dec4962d8a128e7b9fe99c11d63d"
+  },
+  "ch32/test_sdf_pulse_limit_defaults_and_preserve": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: test_sdf_pulse_limit_defaults_and_preserve.s...', expected 'qd y: 126:1 132:0'",
+   "inputs_sha256": "cd38fc4524270e2f06e7ab01d3b3eab1a03f62d0d90db65e9ce01336ae0c2178"
+  },
+  "ch32/test_sdf_scale_type_members": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: tests/ch32/test_sdf_scale_type_members.sv:86...', expected 'w0, not annotated: 1'",
+   "inputs_sha256": "cd4c7556f81151413b2792a433132344b7f2067bc7383fc12dee4a7ba2077c70"
+  },
+  "ch32/test_sdf_tchk_edge_condition_match": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: test_sdf_tchk_edge_condition_match.sdf:3: TI...', expected 'qa: posedge: 12 negedge: 22'",
+   "inputs_sha256": "2c85ca930b8b6f90fe189d9bdc2739b2ef4539111b337716a4d52cd0ee7ae4a8"
+  },
+  "ch32/test_sdf_tchk_setup_recovery_family": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: test_sdf_tchk_setup_recovery_family.sdf:3: T...', expected 'is: $setup: 20 $hold: $setuphold: 20'",
+   "inputs_sha256": "2a9c05a8fef3725b2b5fb5a42a13905991a36c28a3c3d1b1cce28f883058e64f"
+  },
+  "ch32/test_sdf_tchk_skew_width_nochange": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_tchk_skew_width_nochange.sdf: Too man...', expected 'ua: $skew: 15 $timeskew: 12 $fullskew: 12 43 $width: 23 $...'",
+   "inputs_sha256": "17760b2b247445ef6ca203421f6ff53c47dff34f4461784539e9aa59fb8c09b0"
+  },
+  "ch32/test_sdf_timingenv_ignored": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_timingenv_ignored.sdf: Too many error...', expected '14: y=1'",
+   "inputs_sha256": "26f29ff918f04fb07ca933fc1a0f6753d90715284dc3ece8f3d42ff8ce4fdded"
+  },
+  "ch32/test_sdf_unannotatable_entry_warning": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF ERROR: test_sdf_unannotatable_entry_warning.sdf:5: Un...', expected '10: y=0 z=0 w=1'",
+   "inputs_sha256": "cfa9e855cdaec0d178bb9a195b692e453ea04e9c06b99111b63b2d4fa1150c2e"
+  },
+  "ch33/test_config_use_config_suffix": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'm1 leaf: aa, m2 leaf: aa', expected 'm1 leaf: aa, m2 leaf: bb'",
+   "inputs_sha256": "7c1ee0a5f26b9c0c974fa4ada0e8e8b59467b4c311e2f381417fe0cd5c94a68a"
+  },
+  "ch33/test_config_use_without_library": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'u1=aa u2=aa u3=cc', expected 'u1=aa u2=bb u3=dd'",
+   "inputs_sha256": "d85be4b226337cc9ed233d85f5d9dd20c5f3144629cf46252611ef3502a5dbda"
+  },
+  "ch33/test_illegal_config_constant_function": {
+   "status": "pass",
+   "inputs_sha256": "bf3c2e375e50a5d45feaead8dfe10f69794fa5faf38b29ea7dad83c09f3dee8a"
+  },
+  "ch33/test_illegal_config_design_is_config": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "7bdc3e5ed5f00820f5a50ab85bac46e9db294b568290b45d8ba7fe114f34590a"
+  },
+  "ch33/test_illegal_config_generate_scope_path": {
+   "status": "pass",
+   "inputs_sha256": "393c87cfb9aca889b690abc1fec83c22ca28fb23b12e7e5e3c17763686804307"
+  },
+  "ch33/test_illegal_config_index_not_literal": {
+   "status": "pass",
+   "inputs_sha256": "05df004ee20abb501398c8665373839226e476ea754ddc351f27f2eb61c6bc92"
+  },
+  "ch33/test_illegal_config_instance_array_path": {
+   "status": "pass",
+   "inputs_sha256": "c1b3bc8dba6443c8896d2e8d735ed818007b026e90f94207cceb951ad5d32cf0"
+  },
+  "ch33/test_vpi_module_config_name": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "2555c908e1400fb0c6d8ccd48867ab5252ddd17402a4c93af7cebe0a686d9d24"
+  },
+  "ch35/test_dpi_dynamic_array_actual": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_dynamic_array_actual.sv:28: syntax error",
+   "inputs_sha256": "c58fb7ae894cc84c150a22e028f2e90a03e255bd0699f5030decc98c61cd1f53"
+  },
+  "ch35/test_dpi_export_task_disable_status": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_export_task_disable_status.sv:33: syntax error",
+   "inputs_sha256": "152a61c61e5110b36c1f3cf481e2c42748ac38960345914b9d5abed7d6063c3a"
+  },
+  "ch35/test_dpi_formal_integer_logic_time": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_formal_integer_logic_time.sv:30: syntax error",
+   "inputs_sha256": "f8bd7d84568b5f4b3333c056395606830866853ad93f3dbd14c79fce223b74d2"
+  },
+  "ch35/test_dpi_import_declaration_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_import_declaration_forms.sv:30: syntax error",
+   "inputs_sha256": "1fb80924f9fb8010540614d23a865634ce1ff09ed3cbf5f3066b4086062e100a"
+  },
+  "ch35/test_dpi_import_formal_names_defaults": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_import_formal_names_defaults.sv:25: syntax error",
+   "inputs_sha256": "14c739536cd4830246e56748139b3d33200a2664f41d34cbfdb57f9674f1eb3e"
+  },
+  "ch35/test_dpi_import_result_logic_shortreal_void": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_import_result_logic_shortreal_void.sv:25: syntax error",
+   "inputs_sha256": "21eedc73019624a0f46b7b94661e0376585b67174ef38f99f8f72c92050d0826"
+  },
+  "ch35/test_dpi_import_task_consumes_time": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_import_task_consumes_time.sv:32: syntax error",
+   "inputs_sha256": "2db1d81b1da36240810f4cf36f89b4f2fd6cd7789668ad0670ce716e61244082"
+  },
+  "ch35/test_dpi_open_packed_dimension": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_open_packed_dimension.sv:29: syntax error",
+   "inputs_sha256": "f98b6080dd10b62e31eba8c7a9c7af169ae90a2c7310080e8281d74bd7cf1632"
+  },
+  "ch35/test_dpi_packed_struct_union_formals": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_packed_struct_union_formals.sv:43: syntax error",
+   "inputs_sha256": "3b8253a70d1c219267c2143f0796470d4527c0cf73c89fc3ee447e97bb734598"
+  },
+  "ch35/test_illegal_dpi_import_default_linkage_dollar": {
+   "status": "pass",
+   "inputs_sha256": "12ecd0449ea1ba7de7e901ed75c8e9fbee77a3ae16fe32650f80b67913f91bd1"
+  },
+  "ch35/test_illegal_dpi_import_linkage_name_dollar": {
+   "status": "pass",
+   "inputs_sha256": "8f798fe74197881b61343194513a0d2e182bf07ddb0966219ee37f67d56bd9f1"
+  },
+  "ch35/test_illegal_dpi_import_override_specifier": {
+   "status": "pass",
+   "inputs_sha256": "36016e8dfacee2cfbc54f487371954a0f994326bbc17e1558e59b7e97e8a66de"
+  },
+  "ch35/test_illegal_dpi_import_ref_formal": {
+   "status": "pass",
+   "inputs_sha256": "7a0ff09b663bd2bcf541f3cc516c598b952936923ca0f9979177f84390705880"
+  },
+  "ch35/test_illegal_dpi_import_same_name_twice": {
+   "status": "pass",
+   "inputs_sha256": "befa77ce84b9d9339aef66e09d49013c8a6a64aacabd0f9ef16973847764eb5d"
+  },
+  "ch35/test_illegal_dpi_import_struct_result": {
+   "status": "pass",
+   "inputs_sha256": "f18c49f2afab486cc95954c4e8824ca6226374f4dc6e0bf10f395c1cb0488b08"
+  },
+  "ch35/test_illegal_dpi_pure_function_output": {
+   "status": "pass",
+   "inputs_sha256": "6f38d67d8b2eba634a92ce96cc684e698924665a0fb4fa17aab307055467a976"
+  },
+  "ch36/test_vpi_chk_error_pli_error_callback": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "2cd8687ae4d7ecd51d87b64cb094e7dcea5e81764672087f2519099215068dbe"
+  },
+  "ch36/test_vpi_simulation_callbacks_dynamic": {
+   "status": "pass",
+   "inputs_sha256": "dddbfaa6c402e2629c64b200b7f9fbd266e49a79b3b29eda33286089bb6c8747"
+  },
+  "ch36/test_vpi_sizetf_exclusions_default_width": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected '$vt_real: 2.5'",
+   "inputs_sha256": "162c5523c5aad48a9fc8ed5e04253e665d5f527ab25ded31ed98e44ae2b6b6c4"
+  },
+  "ch36/test_vpi_systf_registration_fields": {
+   "status": "pass",
+   "inputs_sha256": "c74f531eac923ff40b56111ce3bef91a6dcc80c6264248253984031be96b89c2"
+  },
+  "ch36/test_vpi_systf_task_function_places": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'function result: 00000f01', expected 'function result: f01'",
+   "inputs_sha256": "f4c123317a832d85fc3b8173acac9a1cbbbb70deb5a3be75c85917ef4d7b0d5d"
+  },
+  "ch37/test_vpi_array_var_ranges_kinds": {
+   "status": "known",
+   "reason": "VPI build failed: 6 errors generated.",
+   "inputs_sha256": "93ffe8494654a848c4e57a380fe3e0de1112729baba0464975fa36f9ad19dd1d"
+  },
+  "ch37/test_vpi_atomic_statement_labels": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "4617c8ae704809abbe8c30fa6189022ca0ed764c520aeab8988b5d5c67ebce96"
+  },
+  "ch37/test_vpi_attribute_parents": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "06a09bfe87c88e8214527ca76169f03fba5cc78d3b9376411a7157d9fd06f25b"
+  },
+  "ch37/test_vpi_attribute_ports_params": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "ab0ceeef0c071b054df51bb37f77725600eb41be9af8653e4bc136b504abce38"
+  },
+  "ch37/test_vpi_case_items_patterns": {
+   "status": "known",
+   "reason": "VPI build failed: 12 errors generated.",
+   "inputs_sha256": "024d99ed19dce6a8a928427b20218b522ad596e4fb52dc9eba6574a4e65c4c79"
+  },
+  "ch37/test_vpi_cast_pattern_constants": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "c92c962ce5bca1cb821af31c8cd95f0322ca8295afe28f109969fa9d8840cfdd"
+  },
+  "ch37/test_vpi_class_object_members": {
+   "status": "known",
+   "reason": "VPI build failed: 12 errors generated.",
+   "inputs_sha256": "ae36668fc4d36b3582a52c40a1517966d28d7f98bf22a4efc6d4f41d0745d2c1"
+  },
+  "ch37/test_vpi_class_specialization_members": {
+   "status": "known",
+   "reason": "VPI build failed: 8 errors generated.",
+   "inputs_sha256": "377a2492bd6cfa822de844cb4cd22ac66f809ccb6ec883eb59fe71dbb175446a"
+  },
+  "ch37/test_vpi_clocking_decl_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "1d23b4d2383f123a2de70eee840387fabf895ed5650fd88bef8135b1be72c88b"
+  },
+  "ch37/test_vpi_concurrent_assertion_actions": {
+   "status": "known",
+   "reason": "VPI build failed: 12 errors generated.",
+   "inputs_sha256": "b0eeb50c8dbabe4af3d5a0b9d63850c615426057cb9ff5cd43d5aab01eaf8e1c"
+  },
+  "ch37/test_vpi_constraint_expr_contents": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "b32181544e553af7976f02b627700cbdd48252f1c7f78592b99bd21235689b87"
+  },
+  "ch37/test_vpi_cont_assign_module_delays": {
+   "status": "known",
+   "reason": "VPI build failed: 9 errors generated.",
+   "inputs_sha256": "d9265e990ad619b8a042a2d5b93072d3192b4c8a0b9a4fe41030a8f8ea05f6c6"
+  },
+  "ch37/test_vpi_delay_source_and_effective": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "874c02f9108fa5a283a72a5a57b6d7a2be26f3008eca90578c8b22b8574ffdc3"
+  },
+  "ch37/test_vpi_dpi_import_access_props": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "05429035c36bf93218fee9ab02e54d7e2289f84e6d51a93708b9aff16f2d4fde"
+  },
+  "ch37/test_vpi_expression_decompile_calls": {
+   "status": "known",
+   "reason": "VPI build failed: 10 errors generated.",
+   "inputs_sha256": "a234d9bf5ee6af1a767c79a21ef0f71176187d73d5761491b4799b678831e391"
+  },
+  "ch37/test_vpi_for_expect_children": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "e07aeae8c2c923b99f29538ad89ac069892a647acd593f446d2a237f7979eb95"
+  },
+  "ch37/test_vpi_function_decl_type_range": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "e5b1516305eb6c8e0320a19f856814fbb0b7891c83fb67566d2d9dba366b9eb7"
+  },
+  "ch37/test_vpi_gen_scope_array_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "658fc8824bc25fca60b78fe921cdb6e9d406a93f35358afd6b18cd1127b83f7e"
+  },
+  "ch37/test_vpi_gen_scope_data_items": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "1fd9cef74a83366e6dd8fe437011a5b25a6092808108565bcf808375f1ce7da0"
+  },
+  "ch37/test_vpi_gen_scope_instance_items": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "b82f8c20ff050174f85dc92406c102d345e334c7105a588f868d7d4289b0dcb7"
+  },
+  "ch37/test_vpi_handle_by_multi_index": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "c9eb5b729cc8762c5e30906bbeaff7934e0b4427ccd1da3f227a86ed74dd4168"
+  },
+  "ch37/test_vpi_immediate_assertion_parts": {
+   "status": "known",
+   "reason": "VPI build failed: 14 errors generated.",
+   "inputs_sha256": "cae936adaaa90bd273f50b4ab7ab5691caa633ea99290c1eb2d02ca8142e8dde"
+  },
+  "ch37/test_vpi_instance_assertion_members": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "49c746fdc464ef3f975888af4a48e5a4a7453422e40f7e3bfe16e4b5c15fb6ee"
+  },
+  "ch37/test_vpi_interface_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 10 errors generated.",
+   "inputs_sha256": "a37544b2e13fec047f0d924188d84884cb09305daf688add1a937968ab43da69"
+  },
+  "ch37/test_vpi_interface_tf_decl_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "821e2453e36e0f17d9e39ec516056fe0f6c17504af231916184faf09524cc429"
+  },
+  "ch37/test_vpi_intermod_path_delays": {
+   "status": "pass",
+   "inputs_sha256": "dfce3948dfb175ba676fbd47f3e1941b74fe2d2bb9a872ff529796569e179c9b"
+  },
+  "ch37/test_vpi_let_decl_body": {
+   "status": "known",
+   "reason": "VPI build failed: 10 errors generated.",
+   "inputs_sha256": "e7f6a0f968b54cbabecfdc388341b91f4efa0b89e0c398cd38b9d42cca13c99a"
+  },
+  "ch37/test_vpi_loop_branch_children": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "5b43737c93025c60838db5a74e53600d2481d28c5ee68d42cf2380f4518a2461"
+  },
+  "ch37/test_vpi_mailbox_semaphore_waiters": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "756f6db15c4d228b861ba11d6c111a15a62f32d571452bc56e35d090b0e0b451"
+  },
+  "ch37/test_vpi_mod_path_relations_delays": {
+   "status": "known",
+   "reason": "output differs: line 2 is '  in: a other, path 0 | out: y other, path 0 | module tes...', expected '  in: a input, path 1 | out: y output, path 1 | module te...'",
+   "inputs_sha256": "7b991d43a428ceea46b87a0ef789a95844fbb12f626a67f6554b3d7642d22e0e"
+  },
+  "ch37/test_vpi_module_defparam_alias_clocking_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 13 errors generated.",
+   "inputs_sha256": "42a8d615500485a19378ddbd9050bc74409e526ec45c610510c6246dc46887a4"
+  },
+  "ch37/test_vpi_module_instance_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 8 errors generated.",
+   "inputs_sha256": "48bfb1426a058b042a63afd2e1bd464c1fd9d36415267da270987e53401f197c"
+  },
+  "ch37/test_vpi_module_internal_scope_relations": {
+   "status": "pass",
+   "inputs_sha256": "f0291d199837826db1c654fad67c4149c174f07833a1d05220298602ba304ee8"
+  },
+  "ch37/test_vpi_module_port_io_decl_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "9fc98237807a113469bc01b7bdd685b6d96cb7039e2848379b123f0d3aa3978c"
+  },
+  "ch37/test_vpi_module_process_assign_primitive_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 13 errors generated.",
+   "inputs_sha256": "da3051b2bd0ff1f38ab5e98a95d2f0c44cb2d1ec81332deb4b3eddcc17f35e9d"
+  },
+  "ch37/test_vpi_module_specify_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "d9c3a5a4a33969e7e2538f0eda660e26e7c07e520e87e730e0aa2075a0989d2d"
+  },
+  "ch37/test_vpi_named_event_waiters_lifetime": {
+   "status": "known",
+   "reason": "VPI build failed: 10 errors generated.",
+   "inputs_sha256": "d148caa259adfc3118cd88ad9fda5966426cd9e6da22fc288f01763db46d5eb6"
+  },
+  "ch37/test_vpi_null_stmt_wait_fork": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "65e99481848e16b8441bf84153ce3a1c2397b403854ed3c19a42a3cdb17f08cf"
+  },
+  "ch37/test_vpi_packed_array_var_kinds": {
+   "status": "known",
+   "reason": "VPI build failed: 10 errors generated.",
+   "inputs_sha256": "3fab95a7c63f2af0df22d835cd5134d322182b369db5a74d7cfa6b1e8bf47eea"
+  },
+  "ch37/test_vpi_param_assign_defparam": {
+   "status": "known",
+   "reason": "VPI build failed: 11 errors generated.",
+   "inputs_sha256": "db312a94661cb862de516368d49742ea2ac1952e1b91a90011d6f2428570a182"
+  },
+  "ch37/test_vpi_parameter_defaults_types": {
+   "status": "known",
+   "reason": "VPI build failed: 10 errors generated.",
+   "inputs_sha256": "42e5bf425f2225084592e7ede4b94c42c9fb552bd6a4331ddf6b66114a9d3a36"
+  },
+  "ch37/test_vpi_part_select_parts": {
+   "status": "known",
+   "reason": "VPI build failed: 12 errors generated.",
+   "inputs_sha256": "9e01f6e987ace7bcb44a8c8676eef6c5f7f743489338a1dec0f08f37a3664a02"
+  },
+  "ch37/test_vpi_prefix_kinds_actual": {
+   "status": "known",
+   "reason": "VPI build failed: 16 errors generated.",
+   "inputs_sha256": "22ca62f44ad24f199719711bdf22914c2c6c082f01ecd703f9d630fc10cc50db"
+  },
+  "ch37/test_vpi_primitive_kinds_properties": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "8362e15ae5eade41eb8bb2fade4722764903ff66944bf9f30da2104a75e0d731"
+  },
+  "ch37/test_vpi_process_kinds_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "02de6620d5d7c12b697664be77902f0f2feb5593703b1824904015a9e47a1d2a"
+  },
+  "ch37/test_vpi_program_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 19 errors generated.",
+   "inputs_sha256": "8f73d52f90c5e7f5ae88fb9507a7aac5a9ceba405248e458a1b19ddff3ecda8e"
+  },
+  "ch37/test_vpi_property_decl_formals_args": {
+   "status": "known",
+   "reason": "VPI build failed: 15 errors generated.",
+   "inputs_sha256": "fa30c2036e5bc5d5df990a2fb7bb9cb884216c7157964abad857766d43cbcaf4"
+  },
+  "ch37/test_vpi_property_operator_kinds": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "1c3a5103592a45ffe070a5d45254a0f57f563f9ea21c5e39e0731dc2329f7fb5"
+  },
+  "ch37/test_vpi_reg_array_scope_index": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "2f8c7019fe660f1c11614a3e6d7990ae571cffb77f2d5fc7063f04fc9d0954ea"
+  },
+  "ch37/test_vpi_sequence_decl_operands": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "60a30f1e661080701b2f682bee16491f3d594272a57045ea3e81f6e931e60ef0"
+  },
+  "ch37/test_vpi_simple_expr_uses": {
+   "status": "known",
+   "reason": "VPI build failed: 9 errors generated.",
+   "inputs_sha256": "e8cb454e984f6eadda9c6bec5f4f65b7c8ba5a695c228ad498ba51a5a6c7a9b3"
+  },
+  "ch37/test_vpi_struct_union_flags_members": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "c962d5b04e18f80cd0ec0d0353d250a6f76cd340ea72c66322110494ae2e42e3"
+  },
+  "ch37/test_vpi_struct_union_net_flags": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "f4cea8304a7be7d6f1c5f1ade67134f35ec4cf2f7295afe963bbca662a8331b7"
+  },
+  "ch37/test_vpi_sys_func_call_value_info": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "0f87e58167f87f64394ac1f5a96e9536cbea8041376326a3fa19be9c41b2ce73"
+  },
+  "ch37/test_vpi_tchk_relations_path_delays": {
+   "status": "known",
+   "reason": "VPI build failed: 15 errors generated.",
+   "inputs_sha256": "aed568479f9b446aacd48eb4ae09f0f9a8c29f663b674f6c8038a87b1fc6a8e4"
+  },
+  "ch37/test_vpi_tf_call_kinds_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 14 errors generated.",
+   "inputs_sha256": "768b02eb9b4ed1abfe18e6f3aeaed1654e90dcb90b99bc33ee30b2fd2a0f6859"
+  },
+  "ch37/test_vpi_thread_parent_children_frame": {
+   "status": "known",
+   "reason": "VPI build failed: 14 errors generated.",
+   "inputs_sha256": "ba836162fb2ffdeb3d0c1c35768a1611356588029f9c4f6b73a7e13a7c128a6d"
+  },
+  "ch37/test_vpi_time_queue_current_and_end": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "251326ae5fbc205f04b11dac798b501983410405d4380b4cf282fbbecb9602d8"
+  },
+  "ch37/test_vpi_typespec_elem_unwind": {
+   "status": "known",
+   "reason": "VPI build failed: 13 errors generated.",
+   "inputs_sha256": "7ca798ce7f337245bbbc187b789f726ace5fc121d5aee8718ce5c7e04d4ba748"
+  },
+  "ch37/test_vpi_typespec_kinds_more": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "db63ff84fbeb6b56a95fec096c67a7c591cf47df89e3c6b50147365e66e7da56"
+  },
+  "ch37/test_vpi_udp_iodecl_initial": {
+   "status": "known",
+   "reason": "VPI build failed: 6 errors generated.",
+   "inputs_sha256": "d40bca7e90624af6a0e449ddff03d72e035d17b6ac10d3a287c55286df4eca55"
+  },
+  "ch37/test_vpi_unbounded_const_ranges": {
+   "status": "known",
+   "reason": "VPI build failed: 15 errors generated.",
+   "inputs_sha256": "e086b24eddb057362c51e73ccabd09033fa197b35df0c5318fb3edbf16d7cadc"
+  },
+  "ch37/test_vpi_value_parameter_props": {
+   "status": "pass",
+   "inputs_sha256": "fbbe8cbcae9b46eef4399089421b2a77fa2d329bd4824b4b2ac4ff2beb5a3157"
+  },
+  "ch37/test_vpi_var_bit_parents": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "1c90f407c1d1717e273a66f8f644b25ad9ff62dd8261339981a3a3f808c4ccd5"
+  },
+  "ch37/test_vpi_var_select_iteration": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "f5ebf9e18468a5990ac9369ab556e6aedd54d0d83ce9d4248f3cfe6ac5700dc1"
+  },
+  "ch37/test_vpi_variable_class_member_props": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "b78f6c1dfe8b3d307189ecd1a2031e9233e5c3fef23b063090ac122d66bb998f"
+  },
+  "ch37/test_vpi_variable_driver_load_kinds": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "b2b8777f9d78013fa252caee6080023512d9edd9be0b95ab002cc97059ff3f66"
+  },
+  "ch37/test_vpi_variable_kinds_flags_sizes": {
+   "status": "known",
+   "reason": "VPI build failed: 13 errors generated.",
+   "inputs_sha256": "79de908988d25a3c7fb5be7f539789eb379d1d54477d06376c3445f033975a71"
+  },
+  "ch37/test_vpi_variable_parent_prefixes": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "a3e455f562ee97a790750a5ec5eb2fc9f8217eb67323473393b74d81decc4ab5"
+  },
+  "ch37/test_vpi_variable_port_relations": {
+   "status": "known",
+   "reason": "VPI build failed: 9 errors generated.",
+   "inputs_sha256": "ed50496f63676e89bf6a364d7088352a04ddcdcdd5689addbc800abcb860a21d"
+  },
+  "ch37/test_vpi_variable_scope_relations": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'variables of the module (0):', expected 'variables of the module (5): mem n r re s'",
+   "inputs_sha256": "072161cef3722186fe55f402f711beafc33c73a4f69a9696ef275990b630b564"
+  },
+  "ch37/test_vpi_virtual_interface_init_parent": {
+   "status": "known",
+   "reason": "VPI build failed: 9 errors generated.",
+   "inputs_sha256": "56946cbaaadc84ca3627ed0e8f343ad5416beda365a0b86e7ad0de6bd1325ccc"
+  },
+  "ch37/test_vpi_wait_delay_event_stmts": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "34f1df8a337d6555fc78218d054c198298b688b13ea146b38ba5bb4190bab1ff"
+  },
+  "ch38/test_vpi_assign_force_disable_callbacks": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "6bda5aa6d568b81a3925e0ee24fb98bef0f8530333734fddb41b80d08003ac3b"
+  },
+  "ch38/test_vpi_compare_objects_current_object": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'j=0 k=0: mem[j] and mem[k] 0, mem[j] and itself 1, mem[j]...', expected 'j=0 k=0: mem[j] and mem[k] 1, mem[j] and itself 1, mem[j]...'",
+   "inputs_sha256": "d15a428cf68e5f90f53b4527eaeb46ed24c149f2aa0e2d08fa7964f317cdafd6"
+  },
+  "ch38/test_vpi_control_finish_on_return": {
+   "status": "pass",
+   "inputs_sha256": "9da4dcdfcecf4f9c09dbc247c67ef8e7a49da6d0bc1b851a6f52888553e43575"
+  },
+  "ch38/test_vpi_error_info_structure": {
+   "status": "pass",
+   "inputs_sha256": "af1a77097d2be0b03215caaee5378ec074ca4009e624e02149c22dab380245ab"
+  },
+  "ch38/test_vpi_get_value_integer_time": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'i vpiObjTypeVal: format vpiVectorVal', expected 'i vpiObjTypeVal: format vpiIntVal, integer -5'",
+   "inputs_sha256": "7b196dcd6378885515d3c1a822ebe0738f859205f195f95142fa348c23b2c86f"
+  },
+  "ch38/test_vpi_get_value_obj_type_real_vector": {
+   "status": "pass",
+   "inputs_sha256": "b4deaf5a285dc9d43568152df11ade6bed90edfab8cc79cb26eca6a1507bcf31"
+  },
+  "ch38/test_vpi_get_value_real_conversion": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'text_a: vpiStringVal gives no string', expected 'text_a: vpiStringVal without exponent yes, at most 16 sig...'",
+   "inputs_sha256": "3f6f9eed61b4e97dbe9e0fd87e54b41bb8e19882699522cd23a761080f269e97"
+  },
+  "ch38/test_vpi_get_value_strength": {
+   "status": "pass",
+   "inputs_sha256": "90756c7593eea439be559372b8b909adf98031e964c52661ccb2e73f22bce409"
+  },
+  "ch38/test_vpi_get_value_string_formats": {
+   "status": "pass",
+   "inputs_sha256": "587ed2f1d9c2c6d1a146f39d8d5696ed468de03c8ad8e95190ea156bbb852f91"
+  },
+  "ch38/test_vpi_get_value_vector_val": {
+   "status": "pass",
+   "inputs_sha256": "d0f49f8165749d3738119936c31a9946af18f837b52482d01fab2bacc1eb91ca"
+  },
+  "ch38/test_vpi_handle_by_name_scope_index": {
+   "status": "known",
+   "reason": "output differs: line 10 is 'index 0 of the scalar s: test_vpi_handle_by_name_scope_in...', expected 'index 0 of the scalar s: NULL'",
+   "inputs_sha256": "92c5044466356be079237c605117bf32e126bc2e37663f67d532a973ffdb7faf"
+  },
+  "ch38/test_vpi_mcd_close_channels": {
+   "status": "pass",
+   "inputs_sha256": "65a98995321c2ed50c811cd91cbc724271fa8344b7726bed7a054854471b923e"
+  },
+  "ch38/test_vpi_mcd_open_reuse": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'second vpi_mcd_open of a returned the first descriptor: 0', expected 'second vpi_mcd_open of a returned the first descriptor: 1'",
+   "inputs_sha256": "4d0872f2c6e73da7239c4fcd928c2a98f54db6ea8d99d72088bd13b134893f88"
+  },
+  "ch38/test_vpi_mcd_printf_channels": {
+   "status": "pass",
+   "inputs_sha256": "56269e670c4c607120b9d66d42329d9b3d87cae305c62d025a35c70e3fcef0d6"
+  },
+  "ch38/test_vpi_nba_synch_callback_data": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'NBA synch 10: not registered', expected '10: NBA synch 10, a=1 b=0, new structure: yes, registered...'",
+   "inputs_sha256": "50ffcaaf9b7a3d336598d5215222969c6f8d77c582b21a55114a079b909f6f7a"
+  },
+  "ch38/test_vpi_put_value_delay_modes_queue": {
+   "status": "known",
+   "reason": "output differs: line 1 is '25: in_v=1 tr_v=1 pt_v=1', expected '25: in_v=0 tr_v=1 pt_v=1'",
+   "inputs_sha256": "ff2e4fda9739a19d4ebcba2986944ea3319283c1de426f5d77fa1a9d6bf88739"
+  },
+  "ch38/test_vpi_put_value_event_vector_scaled": {
+   "status": "pass",
+   "inputs_sha256": "8c339b6454dd3091618f69d30214c727bc023f9881037b54355ef7b10ad5ab4b"
+  },
+  "ch38/test_vpi_put_value_force_net_bit": {
+   "status": "known",
+   "reason": "output differs: line 1 is '15: after vpiForceFlag of m[0] to 1, m=10', expected '15: after vpiForceFlag of m[0] to 1, m=11'",
+   "inputs_sha256": "c603db34487655f74321f5a6c5641bee0f8de474cab0fc765f20bec0189cf8cb"
+  },
+  "ch38/test_vpi_put_value_force_release": {
+   "status": "pass",
+   "inputs_sha256": "688d35612cb16e9dd860de08595a8f33e1ada387029595cb1f8019d9202dc0a1"
+  },
+  "ch38/test_vpi_put_value_net_deposit": {
+   "status": "pass",
+   "inputs_sha256": "614ae0860f90093aadd2b1ce067de3a50ca5c11761018c9f5169165aca6c099b"
+  },
+  "ch38/test_vpi_put_value_sched_event": {
+   "status": "known",
+   "reason": "output differs: line 1 is '10: a 1 at 20 with vpiReturnEvent: a vpiSchedEvent no, vp...', expected '10: a 1 at 20 with vpiReturnEvent: a vpiSchedEvent yes, v...'",
+   "inputs_sha256": "fd14d8e75cf3787926eb9e80596e8ce7ae4dabd5932933bd09a6067a66c0eb2f"
+  },
+  "ch38/test_vpi_put_value_sysfunc_return": {
+   "status": "pass",
+   "inputs_sha256": "ab033a0f689bf377c35bfceb164032d3787c98dc4abe350fb4e1e23daf5e76a8"
+  },
+  "ch38/test_vpi_register_cb_structure": {
+   "status": "pass",
+   "inputs_sha256": "666c16aefd5b5e90d4f9d3aee6db9521ea5c56540571bce1381ee800e0513320"
+  },
+  "ch38/test_vpi_stmt_callback_kinds": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "06cb9383ddc9fbca3b34c06d47cec292fdff51a868ffa94a2057d246f55cf554"
+  },
+  "ch38/test_vpi_stmt_callback_module_wide": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "f492c5f5676e8e708622d9518044d64486eaad04fc1d4465cc7ee18843e640a6"
+  },
+  "ch38/test_vpi_string_buffers": {
+   "status": "pass",
+   "inputs_sha256": "7cdaef9e19a24ec50e520fd3bf9420c6014ae061e887f4e7e43089c588215022"
+  },
+  "ch38/test_vpi_time_callback_scaled_real": {
+   "status": "pass",
+   "inputs_sha256": "8a1e85fa58d3d19f5d2b05a82f71fcf3504c4de906a1b8c802b963d4673fe8ba"
+  },
+  "ch38/test_vpi_time_callbacks_without_events": {
+   "status": "pass",
+   "inputs_sha256": "0a64302233c14975d388c5ad284c28082ec7b00914d3c3b34cef61cac8fd5a54"
+  },
+  "ch38/test_vpi_userdata_failures": {
+   "status": "known",
+   "reason": "output differs: line 10 is missing, expected '$vt_misuse: vpi_get_userdata on a variable returns NULL'",
+   "inputs_sha256": "65b460511383802e4308eea741cfde9e4895c2b2ec81392b22f689e7fad53e6e"
+  },
+  "ch38/test_vpi_value_change_callback_formats": {
+   "status": "pass",
+   "inputs_sha256": "db854fafd3efc52e57cc79084afa2fdfe856bad4acd88b0405b64acf484eaafc"
+  },
+  "ch38/test_vpi_value_change_strength_time_objtype": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected '10: n vpiStrengthVal: logic vpi1, s1 vpiStrongDrive'",
+   "inputs_sha256": "ce3df18971496a04e691d68cb9cdf4162f7c1178a3d3cf01905b5b99972d608d"
+  },
+  "ch38/test_vpi_value_time_delay_structures": {
+   "status": "known",
+   "reason": "output differs: line 24 is 's_vpi_vecval aval PLI_UINT32 0', expected 's_vpi_vecval aval PLI_UINT32 1'",
+   "inputs_sha256": "2c0362bbd553e0eaf5ed0b6cca4f6f8b50e3843aed3144a66dd2d3d1c349e7dc"
+  },
+  "ch6/test_builtin_net_undriven_values": {
+   "status": "pass",
+   "inputs_sha256": "6bd50c0cc5100092c4ef2c440949326258ac351c01bc696df0e9b8eefb267711"
+  },
+  "ch6/test_cast_casting_type_forms_and_const": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_cast_casting_type_forms_and_const.sv:36: syntax error",
+   "inputs_sha256": "b4a5ec03aaeb9fd04a39d648a39da8a98510f862c2a2dd16b55298d82872e4be"
+  },
+  "ch6/test_cast_shortreal_round_vs_bit_pattern": {
+   "status": "pass",
+   "inputs_sha256": "8f9a76fe3dbf2c6129271811e5cf22243ba93ac8adfa9501f2ab66031d11e7e5"
+  },
+  "ch6/test_cast_size_sign_keep_state_domain": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_cast_size_sign_keep_state_domain.sv:38: error: Type names are not valid expressions here.",
+   "inputs_sha256": "95fc92cf38ca618294a4bebc52439aea9765f988147ee5aefb2fc8013554dcd6"
+  },
+  "ch6/test_cast_unpacked_struct_bits_round_trip": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_cast_unpacked_struct_bits_round_trip.sv:26: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "29b58436e8a41b37e040e88bdd12942f004a80bcc069b1833e4d113f62423e4d"
+  },
+  "ch6/test_chandle_null_boolean_and_uses": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_chandle_null_boolean_and_uses.sv:26: syntax error",
+   "inputs_sha256": "1c5778f94e191b5160bfcdbfe6ec73e7b58bf8a1f1bacffd5e181ea4aa0c80fe"
+  },
+  "ch6/test_const_runtime_automatic_and_class_handle": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_const_runtime_automatic_and_class_handle.sv:46: error: Assignment to const signal `obj` is not allowed.",
+   "inputs_sha256": "eedf2f717cb5836081f2f12bb53b07743cd854e9e33fd858e38b65ef9ba507d2"
+  },
+  "ch6/test_enum_base_type_forms_and_int_default": {
+   "status": "pass",
+   "inputs_sha256": "1558d5cd1dac41066ccaf670408d152f625a830d2300efb06a4a09d6c02a5cb6"
+  },
+  "ch6/test_enum_declaration_syntax_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_enum_declaration_syntax_forms.sv:35: error: Object test_enum_declaration_syntax_forms.p['sd1] has no method \"name(...)\".",
+   "inputs_sha256": "b443033bd17e4302a380eb26f1ad65ee7422cae7e0ac8120ca2bd27d6234fa07"
+  },
+  "ch6/test_enum_encoding_cast_to_base": {
+   "status": "known",
+   "reason": "output differs: line 1 is '5-bit base: Q=0 R=1', expected '5-bit base: Q=16 R=17'",
+   "inputs_sha256": "c115aefcc1d591b08464e1791bcf23b269a7c57c89fcd9792f753c11bc9cd325"
+  },
+  "ch6/test_enum_expression_uses_base_type": {
+   "status": "pass",
+   "inputs_sha256": "0108487af908a8f0747ad3220fb3d8c018aecc01fa34265b04fff2b35b0a158e"
+  },
+  "ch6/test_enum_four_state_base_x_z_values": {
+   "status": "pass",
+   "inputs_sha256": "1f322ae502d75d207f573606535d5169bdc0e9b84414202d5cfe282fb60aea0a"
+  },
+  "ch6/test_enum_last_in_declaration_order": {
+   "status": "pass",
+   "inputs_sha256": "06c65dbd4b60bccfbd9cb211f32be169269d62f55a58cfcca2f3711ae6ff00f4"
+  },
+  "ch6/test_enum_name_count_with_first_value": {
+   "status": "pass",
+   "inputs_sha256": "48a90d7501c6e4a022f9d71447075d955a0498a6b2424a46fe1c78fb12b6d965"
+  },
+  "ch6/test_enum_next_prev_from_non_member": {
+   "status": "pass",
+   "inputs_sha256": "8a985bdc9c7ab5c7ca8ec42f32e6da0edcc29b183ffc68f7f555ac4bbaf288d4"
+  },
+  "ch6/test_enum_num_name_result_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_enum_num_name_result_types.sv:33: error: Method tolower is not a string method.",
+   "inputs_sha256": "f9b000a603e8cd723f2632f05e319da32094ecb13f797987d7637b0f3866ad60"
+  },
+  "ch6/test_event_triggered_state_lasts_time_step": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_event_triggered_state_lasts_time_step.sv:31: error: Event name e can't have member names (triggered)",
+   "inputs_sha256": "5d68e55dd7f469da15f3b40aae87b76d98f42263b00f5571d993782e6b8db95a"
+  },
+  "ch6/test_forward_typedef_forms_and_repeats": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_forward_typedef_forms_and_repeats.sv:29: syntax error",
+   "inputs_sha256": "3f432053f33647b6956a63628b984a9bcfb422befb341a8554a912913c5f1a0c"
+  },
+  "ch6/test_illegal_continuous_assign_reads_class_member": {
+   "status": "pass",
+   "inputs_sha256": "2dc0bd0354e9506e9f63838cd686ecc4c7d3131f3b281bda4fb6b888ee5934c7"
+  },
+  "ch6/test_illegal_continuous_assign_reads_dynamic_element": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3aa59a8db330a572db4974bcfcafe3a00951ee4fdc39eace56fcb5dc2e2fcc0d"
+  },
+  "ch6/test_illegal_continuous_assign_to_class_property": {
+   "status": "pass",
+   "inputs_sha256": "475a39bef8bf94cd6afe69475c4ece755c1779748bbb2b2d001c8cb05b81e889"
+  },
+  "ch6/test_illegal_continuous_assign_to_dynamic_element": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_continuous_assign_to_dynamic_element\\\\.sv:23:'",
+   "inputs_sha256": "2bfb4b2aacbe7eed436d6d51eca5a5d15b33d4e29e7c70e1ed921ce8490fe65e"
+  },
+  "ch6/test_illegal_declaration_after_statement_in_block": {
+   "status": "pass",
+   "inputs_sha256": "0e4e7fb18a4aa410383088a682a5aeee1c3f9d893ab77d0eb47af6aab893b9b6"
+  },
+  "ch6/test_illegal_enum_assign_out_of_set_literal": {
+   "status": "pass",
+   "inputs_sha256": "9b01f3ca0816495bccbcd54aa18dcc321b86dc525a5f3336c228fadf283b6016"
+  },
+  "ch6/test_illegal_enum_base_atom_typedef_dimension": {
+   "status": "pass",
+   "inputs_sha256": "c9c63998283ab1d0cd2db6d593398906f44988173e9fe26b865e5f4b76163609"
+  },
+  "ch6/test_illegal_enum_base_packed_struct_typedef": {
+   "status": "pass",
+   "inputs_sha256": "8e4ab7c3df8d126e7a9d2c79b94c81142968d661551147c1d29d751e31b1f2a5"
+  },
+  "ch6/test_illegal_enum_implicit_after_x_value": {
+   "status": "pass",
+   "inputs_sha256": "d6d9091f79d27bbadac3a7b599afe4e63ae4680dab384b7427097733eff97516"
+  },
+  "ch6/test_illegal_enum_repeated_name": {
+   "status": "pass",
+   "inputs_sha256": "6a76cedc2a88190542afffb6d7fc7bf9c827856660bf06d07793be359e1ebaa7"
+  },
+  "ch6/test_illegal_enum_same_name_two_enums": {
+   "status": "pass",
+   "inputs_sha256": "7635871bf390602b0818f65d5f5abe3ba599d677850f2f1d98e70f61a5a5f66a"
+  },
+  "ch6/test_illegal_enum_signed_value_out_of_range": {
+   "status": "pass",
+   "inputs_sha256": "83591ab9a5f1a0abf08170c075543b382a348d8f0ab26622b9055c9b80ccbaa6"
+  },
+  "ch6/test_illegal_enum_value_const_variable": {
+   "status": "pass",
+   "inputs_sha256": "7196b94dab529c243ae8bf812717c7c21810ebec745fd10d7e95252dd0548349"
+  },
+  "ch6/test_illegal_enum_value_from_variable": {
+   "status": "pass",
+   "inputs_sha256": "372e80323ed3ab21dc4f0ccb963e37276e3f2fcdc197bc09aff2ffea3bfd76c5"
+  },
+  "ch6/test_illegal_enum_value_hierarchical_name": {
+   "status": "pass",
+   "inputs_sha256": "67836c7e7cf39b6dfd74204131ade6ce8be171398f8b798f87e5123259cac873"
+  },
+  "ch6/test_illegal_enum_x_value_default_int_base": {
+   "status": "pass",
+   "inputs_sha256": "e43af044c71d8f3820081b1a8eb2679beaec7e946a5efe79c49abc9af66abddb"
+  },
+  "ch6/test_illegal_enum_z_value_bit_base": {
+   "status": "pass",
+   "inputs_sha256": "084426703be79edc479a1220d69579c80c244f0df9be3ebbeee73212f4d550eb"
+  },
+  "ch6/test_illegal_force_automatic_variable": {
+   "status": "pass",
+   "inputs_sha256": "66c289e2a95a1a4532862ec9ed302de849aab6e9d8ea0d8ad7efb0fa9b75d750"
+  },
+  "ch6/test_illegal_force_class_property": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_force_class_property\\\\.sv:28:'",
+   "inputs_sha256": "cf2a728ad8658a61a431eab4f8b1e3c2935cb10c01a83bcfd6aebf51faf25cc8"
+  },
+  "ch6/test_illegal_force_dynamic_array_element": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_force_dynamic_array_element\\\\.sv:25:'",
+   "inputs_sha256": "6485d46d84b7bd9889c2ae6a49c23ffd51838fa96b3393d1a35e03854ead2722"
+  },
+  "ch6/test_illegal_initial_block_variable_initializer_no_keyword": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "85cdceb56bda2f1c2de95fa86d2f69f0fba65b41d036456f6abba89ee570f79a"
+  },
+  "ch6/test_illegal_inout_port_declared_as_variable": {
+   "status": "pass",
+   "inputs_sha256": "dda9ea32bcff2b007dc3294b9c09bd3da5a15d4f7620e5e3c0446ae43df6b3b6"
+  },
+  "ch6/test_illegal_interconnect_charge_strength": {
+   "status": "pass",
+   "inputs_sha256": "c76b44375b8f1dc378217040222fc8c14ed082eae639bb989dc32767650449b3"
+  },
+  "ch6/test_illegal_interconnect_continuous_assign": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interconnect_continuous_assign\\\\.sv:34:'; the first is: tests/ch6/test_illegal_interconnect_continuous_assign.sv:30: syntax error",
+   "inputs_sha256": "25f736d150561b19e096cb7deabccae03ed3aa691fb43fcc58b1302b8b620ad4"
+  },
+  "ch6/test_illegal_interconnect_declaration_assignment": {
+   "status": "pass",
+   "inputs_sha256": "591fbfc4ef7533579cdb5afedabecc2570c37292f7644b622fb6243fae777bf9"
+  },
+  "ch6/test_illegal_interconnect_drive_strength": {
+   "status": "pass",
+   "inputs_sha256": "f6fcafa7b168e100b731ee0ec5dd75c2a08c5ba4ed82b99fe6688efd3b2f6238"
+  },
+  "ch6/test_illegal_interconnect_procedural_read": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interconnect_procedural_read\\\\.sv:34:'; the first is: tests/ch6/test_illegal_interconnect_procedural_read.sv:30: syntax error",
+   "inputs_sha256": "8ece8ffef3fc13e5c3fa57604f2b39ebd4a4286601c30d4cfc643a4a0f83b2ab"
+  },
+  "ch6/test_illegal_interconnect_two_delays": {
+   "status": "pass",
+   "inputs_sha256": "4436e0c8136a937dafffabd449a6e82ce0a0e386345e62a0fbc2c71ea55a0e15"
+  },
+  "ch6/test_illegal_net_type_reg_in_port_declaration": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "4be3d640d451b2c4e8d2740ad53e64985f29f1d90eb14a5cbb20115d7de4db4a"
+  },
+  "ch6/test_illegal_nonblocking_to_automatic_variable": {
+   "status": "pass",
+   "inputs_sha256": "d08d734c007695d3b3b6d8a94ef88bb9df4633ba3408590c9e20d8b40da266cc"
+  },
+  "ch6/test_illegal_nonblocking_to_dynamic_array_element": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "85f28419f7de7b1001f5f684efce6037d9e25d71f946b35389fa0860f09f85b6"
+  },
+  "ch6/test_illegal_parameter_in_specify_block": {
+   "status": "pass",
+   "inputs_sha256": "0565bf3fa9d0b957d78100c72ef32d66f00b04e36416ed195569bde2b1ba05c7"
+  },
+  "ch6/test_illegal_real_index_bit_select": {
+   "status": "pass",
+   "inputs_sha256": "0df1a38a610817d44d9e2df182f6ce951fc94d121819c6cebd5ba7b2ba152cc6"
+  },
+  "ch6/test_illegal_real_index_part_select": {
+   "status": "pass",
+   "inputs_sha256": "e5c8e3d11d8d0e2050ff74a84b98182728934a733e5e8044a9f3f828e13fbceb"
+  },
+  "ch6/test_illegal_real_operand_bitwise_and": {
+   "status": "pass",
+   "inputs_sha256": "7bd5f019b20bc5815d65ae52cba977e650d21d46127c46caecf07f74041a5e89"
+  },
+  "ch6/test_illegal_real_operand_modulus": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c5c1b4f215dcbdf1f5f39ee7c208417dfb51541035ef913dd4df52c8615a8629"
+  },
+  "ch6/test_illegal_real_operand_shift": {
+   "status": "pass",
+   "inputs_sha256": "062b92436aa7a37d378e3e8c10b1afc12504766452651d7cdf7d73ef89f744c2"
+  },
+  "ch6/test_illegal_specparam_in_interface": {
+   "status": "pass",
+   "inputs_sha256": "62d1a40f682e8eb60aad2089249c9144e84ff2e422b39210cfa5429891928d09"
+  },
+  "ch6/test_illegal_specparam_used_before_declaration": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "c62d2f4f3eda78eebaf6d7431b06e8d56b2152dae522a220913d5da5585adec6"
+  },
+  "ch6/test_illegal_static_task_variable_initializer_no_keyword": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3c4b2521e3c8d435d4fa1f25bbd73667dcbb86b96a511b783f7e155de8e2e1a7"
+  },
+  "ch6/test_illegal_type_operator_dynamic_array_element": {
+   "status": "pass",
+   "inputs_sha256": "1fdc1311f64f1fa40a2df4b0de82a3ccb60c5876670b0b7715d2a30721a36185"
+  },
+  "ch6/test_illegal_type_operator_hierarchical_reference": {
+   "status": "pass",
+   "inputs_sha256": "5c262a475c3770c1fcd75bd4da2e595964b8c8da1b688de110a2cb2193285bd2"
+  },
+  "ch6/test_illegal_type_reference_compared_with_value": {
+   "status": "pass",
+   "inputs_sha256": "50ee1ecf789aacc64299a884df3e7c2c2b82a2b58f207dfe057bf9dc0e6e7f50"
+  },
+  "ch6/test_illegal_type_reference_variable_without_var": {
+   "status": "pass",
+   "inputs_sha256": "cb4ff280eb6dd710942072be851fb6171347dbcfa35c2dc6251123fbec0c02c6"
+  },
+  "ch6/test_illegal_unnamed_block_variable_hierarchical": {
+   "status": "pass",
+   "inputs_sha256": "983764de492a9f3940a60e6f53abc4aa0a5d609970e79e4a7956d9f445569861"
+  },
+  "ch6/test_illegal_uwire_on_tran_terminal": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3e53dda96c76a2ccbf4cd4fc2802d43826cd7a0b71f5c8f49606aff3eedc464e"
+  },
+  "ch6/test_illegal_uwire_overlapping_bit_drivers": {
+   "status": "pass",
+   "inputs_sha256": "fa8e2d1252f7fac29ee3119ada0ce764c29c0f3db46d92abe2b1c76664193718"
+  },
+  "ch6/test_illegal_variable_actual_on_inout_port": {
+   "status": "pass",
+   "inputs_sha256": "10c7342eb5009f78eef76bd099dafc2f2fb0bdb0e34fa1e4efaf3dfa91c70347"
+  },
+  "ch6/test_illegal_variable_index_prefix_mixed_writers": {
+   "status": "pass",
+   "inputs_sha256": "1073977461776a43d47d42cd90da37915462b414e65d6ab06d04701aa59ca93f"
+  },
+  "ch6/test_illegal_variable_referenced_before_declaration": {
+   "status": "pass",
+   "inputs_sha256": "f5b2ab714c8ada24c0a05b6e390cbc6687af2e2159fd2b93254992c85953a0f8"
+  },
+  "ch6/test_illegal_variable_used_before_declaration": {
+   "status": "pass",
+   "inputs_sha256": "40c8dd8f7927ebe5d378f366c6eb45d969f302c987b3fc7e777f651a5edac897"
+  },
+  "ch6/test_implicit_net_scope_and_lookup": {
+   "status": "pass",
+   "inputs_sha256": "c2ac2a9c565925126d0975b796691676c5a4a409102f609a17c7697a6f63c10e"
+  },
+  "ch6/test_implicit_port_expression_nets": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'child: bits a=4 y=4 s=1, y=x1xx', expected 'child: bits a=4 y=4 s=1, y=0100'",
+   "inputs_sha256": "4e69e5ccaefd0fd2bf82bf84c40f58201f3915bcac3b06a62914627243563a23"
+  },
+  "ch6/test_integer_types_state_and_signing": {
+   "status": "pass",
+   "inputs_sha256": "c8c73111395795f34e677bc5511ecd71f1862c62cc838ddc00c124a3be62d4ad"
+  },
+  "ch6/test_interconnect_array_mixed_net_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_interconnect_array_mixed_net_types.sv:39: syntax error",
+   "inputs_sha256": "6c572e3be545470f18787535b77a65392151ff770186760012d57300bd02e8b4"
+  },
+  "ch6/test_interconnect_net_alias": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_interconnect_net_alias.sv:32: syntax error",
+   "inputs_sha256": "c2163fc8fb2f366f59b8dead7f8cfa0920a5b1f5437bedda8c7e82927ea1d0bc"
+  },
+  "ch6/test_isunbounded_package_and_hierarchical": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_isunbounded_package_and_hierarchical.sv:23: syntax error",
+   "inputs_sha256": "5b7333f55b7fd8c997d736c7d25cc239363c7f9e13a70670d9885b7888615492"
+  },
+  "ch6/test_lifetime_automatic_calls_blocks_static_locals": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_lifetime_automatic_calls_blocks_static_locals.sv:28: sorry: Overriding the default variable lifetime is not yet supported.",
+   "inputs_sha256": "b7a62c535ee25f0653f686ffffd30947b1b0f96f4166df6e51fb28e878df13fe"
+  },
+  "ch6/test_lifetime_fork_keeps_automatic_scope": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 't=1 both calls returned'",
+   "inputs_sha256": "5a4e49b94350cafe3efbc83c06e89653d4f5eec84361e5980dd240ef6bc94df2"
+  },
+  "ch6/test_logic_reg_same_type": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_logic_reg_same_type.sv:32: syntax error",
+   "inputs_sha256": "9b9a33b9653ef435146a7e3b827ee7471abb757392b9298192b17ebeced2c554"
+  },
+  "ch6/test_net_declaration_delay_forms": {
+   "status": "pass",
+   "inputs_sha256": "18c0e9336c5b469fad8c8927b43a2624d669f1640fc1a3fa79c1c313ac11ab95"
+  },
+  "ch6/test_net_declaration_drive_strength_pairs": {
+   "status": "pass",
+   "inputs_sha256": "f0e3c0007b161e0178330094e160cbace738660829755ccb897c3ab1e4d9f1f1"
+  },
+  "ch6/test_net_declaration_lists_and_reg_keyword": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_net_declaration_lists_and_reg_keyword.sv:33: syntax error",
+   "inputs_sha256": "daf28457ef513f09f3fb78019f1eca360a93a37602f5b4d7185f819e00d90582"
+  },
+  "ch6/test_net_driver_kinds_resolution_force": {
+   "status": "pass",
+   "inputs_sha256": "0ba6eb53bfcf795c9234b5d03a09efaafdf3640df1390032b0b9c2b0a7dfc60d"
+  },
+  "ch6/test_net_four_state_data_types": {
+   "status": "pass",
+   "inputs_sha256": "6701ce07af56efdaa2e3eda17d8810f1e93287a41f2c4449f6ee84918ca37ed5"
+  },
+  "ch6/test_net_unpacked_struct_union_data_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_net_unpacked_struct_union_data_types.sv:22: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "d16b8201c140c765bc768884dbf128dc20e0574fdae379cea2cf524604cbfbb9"
+  },
+  "ch6/test_nettype_matches_itself_across_ports": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_nettype_matches_itself_across_ports.sv:30: syntax error",
+   "inputs_sha256": "4ba9ad4cdd1be2526d5dc5f90c3acbc7364e2a9091af303a3ccaced05686bb2b"
+  },
+  "ch6/test_param_declaration_contexts": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_param_declaration_contexts.sv:41: syntax error",
+   "inputs_sha256": "8f1080a1cf31da4d3f27ffafaf17f4ce3216acd18a7db2faf8179be88e268415"
+  },
+  "ch6/test_param_declaration_forms_aggregates_selects": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_param_declaration_forms_aggregates_selects.sv:25: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "60d737521b04af3195536254ad5256d1afe89b3007702d742e0d067e37c50d16"
+  },
+  "ch6/test_param_literal_initializers_follow_type": {
+   "status": "known",
+   "reason": "output differs: line 7 is 'string: \"ab c\" len=7', expected 'string: \"abc\" len=3'",
+   "inputs_sha256": "d28131a3948718ea461d6fb874708b99765af992fad8f38357b8151f71d272b8"
+  },
+  "ch6/test_param_override_three_ways_module_interface_program": {
+   "status": "pass",
+   "inputs_sha256": "b4a2a591e7369e74c41bd6197389871c6aa1d1b2c9a3dfb4bbfb2a900ca7d11e"
+  },
+  "ch6/test_param_type_range_after_override": {
+   "status": "pass",
+   "inputs_sha256": "3658fcfd91e2857152dc41f174b4bd263a0573166437331fd5221f413078dab6"
+  },
+  "ch6/test_param_without_default_not_implicit_top": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_param_without_default_not_implicit_top.sv:33: syntax error",
+   "inputs_sha256": "9d6d7f59d1dc5a7c09c0ddf88f3f129eea01541818f6aee9b3ee4f340f52c1d2"
+  },
+  "ch6/test_port_variable_net_implied_continuous": {
+   "status": "pass",
+   "inputs_sha256": "177c6c8f648e8190d3016fb1f443588cc09859ae7859847e795d7e5e2d0cdb28"
+  },
+  "ch6/test_real_ieee754_double_and_realtime": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_real_ieee754_double_and_realtime.sv:28: syntax error",
+   "inputs_sha256": "001f269a2c575e259d097f64978e675cd3777ef0c5281bca3163d5eb6ce53990"
+  },
+  "ch6/test_ref_port_variable_shared_writers": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_ref_port_variable_shared_writers.sv:24: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "2855c5cb8915c429183b2b2754ab38e703da1ff0b34936fddf901e4c3eedbbf7"
+  },
+  "ch6/test_scalared_vectored_net_selects": {
+   "status": "pass",
+   "inputs_sha256": "28a07cf7d5f35ce0bd34b1f515bf04a93e3ec121e4f2abaced40c0b6fcc87a5b"
+  },
+  "ch6/test_shortreal_ieee754_single": {
+   "status": "known",
+   "reason": "output differs: line 2 is '1 + 2**-30: 3f800000 equal to 1.0 0', expected '1 + 2**-30: 3f800000 equal to 1.0 1'",
+   "inputs_sha256": "0aa83947ed4e95d557e1b57ad2f416ab64932d16e9ae2971b84a13d0d82dc262"
+  },
+  "ch6/test_simple_bit_vector_types_and_packed_equivalents": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_simple_bit_vector_types_and_packed_equivalents.sv:58: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "260312a8336c63f19dfd70607cdba7a93550d455ee7f8411825c96062692ef45"
+  },
+  "ch6/test_singular_values_in_inside_sets": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_singular_values_in_inside_sets.sv:44: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "467b327aca8fe74223e01aaac4a7242edce76f3c762f719545d2e1981257cb82"
+  },
+  "ch6/test_specparam_from_parameters_and_specparams": {
+   "status": "pass",
+   "inputs_sha256": "21ce7dee26fe62a72c8901bfb1790ec57ee608aba578bbd66a67f721341a2622"
+  },
+  "ch6/test_string_ato_integer_scan_rules": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_string_ato_integer_scan_rules.sv:36: error: Method atooct is not a string method.",
+   "inputs_sha256": "628c4daab5eaeac610689083c543dc1d489561c06b51a133f26ab1d5ce5653ce"
+  },
+  "ch6/test_string_ato_method_result_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_string_ato_method_result_types.sv:27: error: Method atooct is not a string method.",
+   "inputs_sha256": "d48dc931154e06aacbb531277e2fad3cfb13d460e717eca93549d057c43144de"
+  },
+  "ch6/test_string_atoreal_scan_rules": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'atoreal(\"2.5e3xyz\")=0.000', expected 'atoreal(\"2.5e3xyz\")=2500.000'",
+   "inputs_sha256": "1e0945aa5ebf7a8e749d2f416dd171d9018e910dc2595cde64ed7cd7cd0ba8aa"
+  },
+  "ch6/test_string_comparison_operators_and_literals": {
+   "status": "known",
+   "reason": "output differs: line 10 is 'string < literal: 1, literals: 1', expected 'string < literal: 0, literals: 1'",
+   "inputs_sha256": "b8dd9f70632b7f1d5348fb4065c92af8fc903f07ed9e0ead42cd25b15d3040a0"
+  },
+  "ch6/test_string_concat_replication_typing": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_string_concat_replication_typing.sv:47: error: A reference to a net or variable (`n2') is not allowed in a constant expression.",
+   "inputs_sha256": "5370553546194cc0247ac33bb882678a0878f5d92d68d176a2ecdaff0703d8af"
+  },
+  "ch6/test_string_getc_index_rules": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_string_getc_index_rules.sv:32: error: Method getc is not a string method.",
+   "inputs_sha256": "21b7cdbe20e92cfe7e23423bdbc3b4d62614d64f8975256bcda6a90e2a607dc3"
+  },
+  "ch6/test_string_index_read_bounds": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_string_index_read_bounds.sv:31: error: Method getc is not a string method.",
+   "inputs_sha256": "0a48fe224a1d366932de96597c473add4b7b50d75aab8c08abfb31018e11acf4"
+  },
+  "ch6/test_string_len_case_compare_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_string_len_case_compare_types.sv:39: error: Method toupper is not a string method.",
+   "inputs_sha256": "5cb9ef682aeb74666d4ff46a977cb35496da9bbbf0844ba89d6914c5f47c5f64"
+  },
+  "ch6/test_string_literal_and_integral_conversions": {
+   "status": "pass",
+   "inputs_sha256": "33e9fb91b49df8411b0a9e4f142af6c7a2d1491f0763ccc434b6f783cb59974b"
+  },
+  "ch6/test_string_octtoa_bintoa_negative_round_trip": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_string_octtoa_bintoa_negative_round_trip.sv:33: error: Method atooct is not a string method.",
+   "inputs_sha256": "a80b59cdcf6c22d24710bf02ee099bca984bd07a5233a3df2497e27f58c481a0"
+  },
+  "ch6/test_string_putc_index_rules": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_string_putc_index_rules.sv:32: error: Enable of unknown task ``a.putc''.",
+   "inputs_sha256": "89b049789659f16973cecb912e7f07f3cfffff95b4057b76a91c2609ba19d83f"
+  },
+  "ch6/test_string_substr_types_negative_start": {
+   "status": "known",
+   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpw8o_r...', expected 'type: string'",
+   "inputs_sha256": "5a7275192bbe032ef51efec33e640dfa84e0ec4ebfb54bf94b7efed913142e7d"
+  },
+  "ch6/test_tri0_tri1_resolution_tables": {
+   "status": "pass",
+   "inputs_sha256": "7b2d40b74814ed0f8fbc72a62ca463352be474f7cd2519d08bfdf430cf297eb9"
+  },
+  "ch6/test_trireg_capacitive_network_sharing": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_trireg_capacitive_network_sharing.sv:32: sorry: trireg nets not supported.",
+   "inputs_sha256": "142c0d9dad0c300953704b8e8902f9720bfe5d2853c6949a32a8425cca40d6bb"
+  },
+  "ch6/test_trireg_driven_capacitive_states_and_decay": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_trireg_driven_capacitive_states_and_decay.sv:38: sorry: trireg nets not supported.",
+   "inputs_sha256": "566e7cad567d380aadec28079255b6ca0d6528d7ef73666cd4558ce84f58245c"
+  },
+  "ch6/test_type_matching_rules_by_type_compare": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_type_matching_rules_by_type_compare.sv:40: syntax error",
+   "inputs_sha256": "808ef2f237b914219dad82defdbbd158e1aff563ed2350dedbf95b507c245c48"
+  },
+  "ch6/test_type_operator_self_determined_and_uses": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_type_operator_self_determined_and_uses.sv:41: syntax error",
+   "inputs_sha256": "f47135cbe6905362a078d5b35a407ef47c63017a06e25a5ab1cdab1539ce032b"
+  },
+  "ch6/test_type_param_restricted_kinds": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_type_param_restricted_kinds.sv:30: syntax error",
+   "inputs_sha256": "5a38313f2e270173bc0e408340088f75a4570da26a84c3a9f6377929d72b828e"
+  },
+  "ch6/test_user_nettype_resolution_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_user_nettype_resolution_forms.sv:39: syntax error",
+   "inputs_sha256": "2b34b14e0d78e2202e27f15fa8cc3edb58cd6fdc3734184d86340fa17bc0b5ca"
+  },
+  "ch6/test_var_declaration_implicit_logic": {
+   "status": "pass",
+   "inputs_sha256": "e7d9092ae4297b924f271f861501ddb4f6999d94791880f368a71f0101239fcd"
+  },
+  "ch6/test_variable_declaration_forms_and_modifiers": {
+   "status": "pass",
+   "inputs_sha256": "feef01a60e4e4967e5bf43db771bc3b037f421a0af43458976b1b85b12b7112a"
+  },
+  "ch6/test_variable_default_values_nonintegral": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_variable_default_values_nonintegral.sv:21: syntax error",
+   "inputs_sha256": "b1ff8099d14554372e59c5487483362a40185ad3026a80a44488b4c15bdd7333"
+  },
+  "ch6/test_variable_independent_element_writers": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_variable_independent_element_writers.sv:33: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "7f0c69c4b0ceac87d47ec47c1f202dcc448030c7e9ead5292504ec51f00f192d"
+  },
+  "ch6/test_variable_initializer_not_continuous": {
+   "status": "pass",
+   "inputs_sha256": "936f4dca8097814a762c20fca63145454a58a1cb92489404b56c7d219212942e"
+  },
+  "ch6/test_variable_writer_override_order": {
+   "status": "pass",
+   "inputs_sha256": "7cd1e1b2b04d91c4c47a905c65d14c26457aff9ce90895796e597236e4f3a4a5"
+  },
+  "ch6/test_vector_65536_bits": {
+   "status": "pass",
+   "inputs_sha256": "7060501093fec4fc6b21b490266deed7b85f5dacd431e3b106e84c47b2552bc7"
+  },
+  "ch6/test_vector_ranges_bit_order_and_arithmetic": {
+   "status": "pass",
+   "inputs_sha256": "1c8d4a6ccc535076148b54666b99dcdbce1e7b360475981e9789a5c18906f4a6"
+  },
+  "ch6/test_virtual_interface_type_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_virtual_interface_type_forms.sv:32: syntax error",
+   "inputs_sha256": "034fbf17766236e829c4acb3fab0832132eeb6bd07230b6c1cc002665db76499"
+  },
+  "ch6/test_wire_tri_resolution_table": {
+   "status": "pass",
+   "inputs_sha256": "4abc271f6ccd1f14e55605de38234bcde29a8838fc1b04c119db2227de3391f9"
+  },
+  "ch6/test_wired_net_resolution_tables": {
+   "status": "pass",
+   "inputs_sha256": "d0a0ea911ee38a85716298ec40f39f1aeb4ab17c14fd76ff82ad91bba305a279"
+  },
+  "ch7/test_array_argument_fixed_dynamic_queue_compatibility": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_argument_fixed_dynamic_queue_compatibility.sv:37: sorry: Subroutine ports with unpacked dimensions are not yet supported.",
+   "inputs_sha256": "d26eb36e6e2bbd9d27058dd7c4294a9528ba262bf13d77cd7c9d6427c322c819"
+  },
+  "ch7/test_array_assign_resize_concat_source_slice_overlap": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_assign_resize_concat_source_slice_overlap.sv:41: assert: elab_expr.cc:4593: failed assertion ntype->type_compatible(net->net_type())",
+   "inputs_sha256": "f36373d7bb7ce85f79fe58038059f8260b4ac22e969deabfa83856316bde827d"
+  },
+  "ch7/test_array_invalid_index_read_aggregates": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_invalid_index_read_aggregates.sv:30: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "cecab606038b92c3c7f8017aa4aac39fb7df698658923270621c4812752c6ba5"
+  },
+  "ch7/test_array_invalid_index_read_chandle": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_invalid_index_read_chandle.sv:26: syntax error",
+   "inputs_sha256": "435297a804f515ab758e6f90c3e7395d13a0b91fd032ceaae28dc8b544c31c13"
+  },
+  "ch7/test_array_invalid_index_read_handles_real_string": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_invalid_index_read_handles_real_string.sv:25: syntax error",
+   "inputs_sha256": "d31782f4e18b56cea73d5022255eeaf691137ab3c9c59b4d56f9ae5cca0c1cb6"
+  },
+  "ch7/test_array_locator_first_last_by_range_and_min_tie": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_locator_first_last_by_range_and_min_tie.sv:43: syntax error",
+   "inputs_sha256": "1b0f88fd46a486469adf9b9174ef6939ffcd849010439e33418a56bb7c716e68"
+  },
+  "ch7/test_array_method_iterator_index_names_and_selects": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_method_iterator_index_names_and_selects.sv:31: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "e5984a015594276f462de4f3c19162b2ff0b81583bc65c30fdd3d0f2e39cfec6"
+  },
+  "ch7/test_array_ordering_methods_with_and_iterator": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_ordering_methods_with_and_iterator.sv:30: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "3924eb342b9502cc0e2bcad49944ba1a980ea0cd5b5dc9d27adee773fd401fc6"
+  },
+  "ch7/test_array_reduction_result_type_and_with_width": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_reduction_result_type_and_with_width.sv:38: syntax error",
+   "inputs_sha256": "ddb96de6570cf969fb0688c7d6f837df90d829b3ad26ba08ae19981fba99d1fc"
+  },
+  "ch7/test_array_whole_slice_equality_operations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_array_whole_slice_equality_operations.sv:33: error: Type names are not valid expressions here.",
+   "inputs_sha256": "24f6f5ecaa5a503652d85fd708152093c3b3b50836c925690c30b21c17f70ee0"
+  },
+  "ch7/test_assoc_delete_index_argument_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_delete_index_argument_forms.sv:30: error: Type names are not valid expressions here.",
+   "inputs_sha256": "a5784f9d37d2082099cd1d147b3f8fb3a1fd00071e873f9e9ef12bf071430ce1"
+  },
+  "ch7/test_bounded_queue_assign_discards_beyond_bound": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_bounded_queue_assign_discards_beyond_bound.sv:39: error: the type of the variable 'bq' doesn't match the context type.",
+   "inputs_sha256": "91ed056eac904b8e044337d071b80302d603b3288f0b3659f98729089e04574c"
+  },
+  "ch7/test_bounded_queue_methods_discard_beyond_bound": {
+   "status": "pass",
+   "inputs_sha256": "79038ebaac24dd2b782c652dddbe19a1918b5dd01607066ee4f43b5ac611493c"
+  },
+  "ch7/test_dynamic_array_new_discards_data_and_references": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_dynamic_array_new_discards_data_and_references.sv:31: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "ed99230bf8a51b762046e97226e6c879b22d3a45a764c08619573b58af73df56"
+  },
+  "ch7/test_dynamic_array_new_forms_order_and_size": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_dynamic_array_new_forms_order_and_size.sv:33: sorry: array of dynamic array type is not yet supported.",
+   "inputs_sha256": "d371c343d21fd1d615867eef8360105b797bdd647ebfbf1c8f723edc50c4cd70"
+  },
+  "ch7/test_illegal_array_method_with_braces": {
+   "status": "pass",
+   "inputs_sha256": "182e57aa9f36bd8d462993c30a4e4082e64dd55deded8b1e25fa08edd8bd61e2"
+  },
+  "ch7/test_illegal_int_packed_dimension": {
+   "status": "pass",
+   "inputs_sha256": "31bb52793678647003689c6b64cda77b9cafc044351ea8f21b48335986ab2a77"
+  },
+  "ch7/test_illegal_packed_dimension_single_size": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "20c5dcc15b99f0112951247a0f5baf69efa4b28eb71548b395b01dac79a2d6a8"
+  },
+  "ch7/test_illegal_packed_union_real_member": {
+   "status": "pass",
+   "inputs_sha256": "f3f833cca9dfea594897b81aa4ad0f65621d855b96edeaa06122c7d23ebb1039"
+  },
+  "ch7/test_illegal_reduction_and_with_real_expression": {
+   "status": "pass",
+   "inputs_sha256": "bccb62aeb1b16fed8cdcb29803daf99f0ae884d4f4f145f2ea770f9dd08a7696"
+  },
+  "ch7/test_integer_atom_types_match_vector_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_integer_atom_types_match_vector_types.sv:25: syntax error",
+   "inputs_sha256": "9711edae9a4def621f7c588c461fa57a327e9088b75c0451ad103a14bf7b6d73"
+  },
+  "ch7/test_multidim_typedef_stages_and_shared_declaration": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_multidim_typedef_stages_and_shared_declaration.sv:43: error: the type of the variable 'tab['sd1]' doesn't match the context type.",
+   "inputs_sha256": "a3d6857debebea35b4db4e53bfe32888be201e9ab41b13392302efa65534b232"
+  },
+  "ch7/test_net_array_elements_and_whole_array_assign": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_net_array_elements_and_whole_array_assign.sv:49: error: the type of the variable 'w' doesn't match the context type.",
+   "inputs_sha256": "bc17f654a5a51ce25960ae73ca1319be62b07ec93349a61e9e54276ff0362a02"
+  },
+  "ch7/test_packed_48bit_arithmetic_and_integer_selects": {
+   "status": "pass",
+   "inputs_sha256": "30544ef58c70c29c31ced647a8b7723a02f1304327cf37b04fe22bc41f55562b"
+  },
+  "ch7/test_packed_array_whole_element_part_sign": {
+   "status": "pass",
+   "inputs_sha256": "0f1938b558c649acf869c1d9a8f716d883fa473e68b68151c83e71801254acbe"
+  },
+  "ch7/test_packed_union_mixed_two_four_state": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'initial: whole=xxxxxxxx b2=xxxxxxxx', expected 'initial: whole=xxxxxxxx b2=00000000'",
+   "inputs_sha256": "b6fa30349d978753cf1c14ac592d87900705c033975e739159c76c74e47ac505"
+  },
+  "ch7/test_packed_union_whole_vector_sign_select": {
+   "status": "pass",
+   "inputs_sha256": "8325e2b844a56670a2d438a1b85a9db41b48afbfb89431142c828f1cd2de8420"
+  },
+  "ch7/test_packed_vector_65536_bits": {
+   "status": "pass",
+   "inputs_sha256": "785a67c28211135649a6579fca16bf9a6e6183fbd435d07e84495181edcc5744"
+  },
+  "ch7/test_queue_dimension_and_array_operations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_queue_dimension_and_array_operations.sv:46: syntax error",
+   "inputs_sha256": "aabbc007a0900ff22849cd6d1935d0103353da944e838f0ad9047fa680d28435"
+  },
+  "ch7/test_queue_invalid_index_read_defaults": {
+   "status": "pass",
+   "inputs_sha256": "193f13222fd84ed085841f26a7fa8431462f1440f62ba46ec5436617e1636ac8"
+  },
+  "ch7/test_queue_invalid_index_write_ignored_warning": {
+   "status": "pass",
+   "inputs_sha256": "4494b7f13ae3721717e0867075c43aa43cc56dd3b7c9784d54c9bf88ff301fef"
+  },
+  "ch7/test_queue_method_prototypes_and_invalid_indices": {
+   "status": "pass",
+   "inputs_sha256": "4b9650a9da4ea93bc2738a6b9096581ec012f9fc4d15c43dca2df646b992270c"
+  },
+  "ch7/test_queue_refs_outdated_by_bounded_push_and_assignment": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_queue_refs_outdated_by_bounded_push_and_assignment.sv:41: sorry: Reference ports not supported yet.",
+   "inputs_sha256": "500c1a776f0cb58ebe71923413a6381fe0a8b62c60c7963c934f91ec66471e1c"
+  },
+  "ch7/test_queue_slice_bounds_clip_and_empty": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'q[1:3] size=5: 10 20 30 40 50', expected 'q[1:3] size=3: 20 30 40'",
+   "inputs_sha256": "dd1855a0a3a0b9b749f4c48352906305fcc327c152cb62287837ebd0618045c8"
+  },
+  "ch7/test_soft_packed_union_nested_layout": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_soft_packed_union_nested_layout.sv:26: syntax error",
+   "inputs_sha256": "2767a6df7255bfd9a38eff511a289cc66edbdac39a0c47184c9d79b8de2d3dbf"
+  },
+  "ch7/test_tagged_union_dynamic_and_chandle_members": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_tagged_union_dynamic_and_chandle_members.sv:29: syntax error",
+   "inputs_sha256": "8394ca7540401bb46846ca245ace68aa7f5c92ce5f828e9776d9cc44c98c22ab"
+  },
+  "ch7/test_tagged_union_packed_tag_width_layout": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_tagged_union_packed_tag_width_layout.sv:30: syntax error",
+   "inputs_sha256": "b5e28b0f202dd65734e4419f4dba5eb2bb04db0fe8cb48eb8cdfc036592c6b47"
+  },
+  "ch7/test_unpacked_array_16777216_elements": {
+   "status": "pass",
+   "inputs_sha256": "ad123dec4b4eee8fc5603f310bfb5bfd3629952e2eebf84ddec46b89c3a0e11f"
+  },
+  "ch8/test_abstract_class_chain_and_handle_array": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_abstract_class_chain_and_handle_array.sv:39: syntax error",
+   "inputs_sha256": "638f9dde367d3fbc9bfbf375424368a88d9a256cca2dfa578539e4187ffa4b38"
+  },
+  "ch8/test_class_cast_forms_null_and_failures": {
+   "status": "known",
+   "reason": "compile failed: SORRY: Compare class handles not implemented",
+   "inputs_sha256": "82db6af03f82503b517e441755f94fc4c05bfba30e05c2b3f6901a7e62e12400"
+  },
+  "ch8/test_class_cast_task_failure_reports_error": {
+   "status": "known",
+   "reason": "output differs: line 1 is '/var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpmryuh...', expected 'casting a base_c object to der_c with the task form'",
+   "inputs_sha256": "49356c8324378bd6d61eacfccb88f852bf54c21c17f1d5f447b51139dc942127"
+  },
+  "ch8/test_class_const_global_and_instance_properties": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_const_global_and_instance_properties.sv:42: syntax error",
+   "inputs_sha256": "eeb896c319f7d4497b4e230c757334cfe2bcdaa40bc4e061dfa1e5655b4165ef"
+  },
+  "ch8/test_class_constructor_default_argument_expansion": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_constructor_default_argument_expansion.sv:41: syntax error",
+   "inputs_sha256": "93436f1831ff8dc86227d5fa2a299302463ff2e2044eec649fd243d36a05ac7c"
+  },
+  "ch8/test_class_declaration_grammar_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_declaration_grammar_forms.sv:31: syntax error",
+   "inputs_sha256": "af931e6b899b374c707c82830b2d543188ef62a6e9a2ddcbebbf3e60aaa96d17"
+  },
+  "ch8/test_class_enum_and_parameters_via_handle_and_scope": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_enum_and_parameters_via_handle_and_scope.sv:25: syntax error",
+   "inputs_sha256": "2114908271d3be0cc2dec678509439bce65485ae0df08c9d50f84b4188ed8c04"
+  },
+  "ch8/test_class_handle_default_null_and_case_equality": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_handle_default_null_and_case_equality.sv:27: syntax error",
+   "inputs_sha256": "be240787533b70ef9eb370910039313a9c1bc6dcdf9ce1ef2bbdb87fd3cd04db"
+  },
+  "ch8/test_class_local_and_protected_constructors": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_local_and_protected_constructors.sv:50: syntax error",
+   "inputs_sha256": "6ab4e79ba4549ffe50d5db74cade8e338b4be9ba3eb4c8621c0025aa162a329e"
+  },
+  "ch8/test_class_local_protected_access_and_modifier_order": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_local_protected_access_and_modifier_order.sv:31: syntax error",
+   "inputs_sha256": "5101d45f1f64f304dca45f85d4e4d97e9f79613e3c125a1f75703949727fa6b3"
+  },
+  "ch8/test_class_property_init_after_base_constructor": {
+   "status": "pass",
+   "inputs_sha256": "0e35dea69e9ac5149a6a4be65986f8d730135d40e3aab9af054636d82602e990"
+  },
+  "ch8/test_class_scope_base_members_from_derived": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_scope_base_members_from_derived.sv:39: syntax error",
+   "inputs_sha256": "c323579b35cd3c76df7d249ab5c6df83efd298d533f29199a1d3ac4167127e1d"
+  },
+  "ch8/test_class_scope_nested_class_and_static_access": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_scope_nested_class_and_static_access.sv:37: syntax error",
+   "inputs_sha256": "63aeeebea2e6fae160752bd2d4cf0a5d7f18fc1b0192a0a89198ff22ccc1529b"
+  },
+  "ch8/test_class_shallow_copy_covergroup_handles": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_shallow_copy_covergroup_handles.sv:24: syntax error",
+   "inputs_sha256": "258c2e8a0d6c748671387330518753126514c98fb20d3d804139f7d4f8497267"
+  },
+  "ch8/test_class_shallow_copy_members_type_no_constructor": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_shallow_copy_members_type_no_constructor.sv:42: sorry: Queues inside classes are not yet supported.",
+   "inputs_sha256": "06492b4a0cc433bd271bcc5f804aec5f0e9fd42e0bb7eae125f68230e75fad7e"
+  },
+  "ch8/test_class_shallow_copy_random_state": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_shallow_copy_random_state.sv:31: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "b707abc494d51555ab48ce8cd131ca29bd5efafc24d7422a453d70221e1f3a16"
+  },
+  "ch8/test_class_super_hidden_members_and_implicit_super_new": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_super_hidden_members_and_implicit_super_new.sv:34: syntax error",
+   "inputs_sha256": "dba1f47a66c648b8d44a6ac648a7843edf65e612b085dd21f7ee70378354caf4"
+  },
+  "ch8/test_class_this_selects_invoking_object_members": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_this_selects_invoking_object_members.sv:25: syntax error",
+   "inputs_sha256": "f9b0d25c0c143c1889db721843b65241771addf08a308b117817c1782110bc53"
+  },
+  "ch8/test_class_typed_constructor_forms_and_specializations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_typed_constructor_forms_and_specializations.sv:36: syntax error",
+   "inputs_sha256": "f1f1bba1ea09deff9c9c0eeebbf541addc163833354a071e854c6b8153f0dcfc"
+  },
+  "ch8/test_class_virtual_override_of_nonvirtual_and_initial": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_class_virtual_override_of_nonvirtual_and_initial.sv:32: syntax error",
+   "inputs_sha256": "fda0616c2ad5101ccfa18b342e4644fc93d43b140688e873810639401b4411b7"
+  },
+  "ch8/test_illegal_class_extends_two_classes": {
+   "status": "pass",
+   "inputs_sha256": "f6f28b43094ac44ae2a4ca3373ca4a5c43749f9170e3b9adee106f2d27b62ef5"
+  },
+  "ch8/test_illegal_concrete_class_missing_pure_method": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_concrete_class_missing_pure_method\\\\.sv:39:'; the first is: tests/ch8/test_illegal_concrete_class_missing_pure_method.sv:23: syntax error",
+   "inputs_sha256": "e4c90d40092ce22e4e97861c279bfdd1ac0bee4a8468fedbdc0041ef143afdcc"
+  },
+  "ch8/test_illegal_const_static_instance_constant": {
+   "status": "pass",
+   "inputs_sha256": "085099620d00cda25b313646a660caba07571ef1db4ed7e75bebd480d579c20a"
+  },
+  "ch8/test_illegal_initial_method_overrides_pure_virtual": {
+   "status": "pass",
+   "inputs_sha256": "a9998d34f6bf5293cff0126a1cbeabca6f3eb85a730ee7d33f53a0577abbc0e2"
+  },
+  "ch8/test_illegal_initial_method_overrides_virtual": {
+   "status": "pass",
+   "inputs_sha256": "daf1523c9201a6a687e894bb0b291a31ad1276cbc974887b81cdc8e8888ce6cc"
+  },
+  "ch8/test_illegal_instance_constant_assigned_twice": {
+   "status": "pass",
+   "inputs_sha256": "dd7d62a9e9edf35d0e55a90feadd36970ece32ea996840143e08fe2de0cd2cdc"
+  },
+  "ch8/test_illegal_method_initial_with_extends_specifier": {
+   "status": "pass",
+   "inputs_sha256": "2024dd6d5da9c10285c8c552ed2c8c8824d8592a77a0df94a962daa23a2811bb"
+  },
+  "ch8/test_illegal_nonvirtual_final_method_overridden": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_nonvirtual_final_method_overridden\\\\.sv:35:'; the first is: tests/ch8/test_illegal_nonvirtual_final_method_overridden.sv:23: syntax error",
+   "inputs_sha256": "abc76e5c380068c7858d390bae914a4e582170b6dc4369b151e06dde7f25a7a3"
+  },
+  "ch8/test_illegal_static_virtual_method": {
+   "status": "pass",
+   "inputs_sha256": "ad705cd6b0fc8f27c8980a8c40a61ca8cb917a49e520e18816dab9c179c9d824"
+  },
+  "ch8/test_illegal_super_new_with_extends_arguments": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "10b0b67998efbf638602b9a2fa44fe436435dfc31994724a382aa3ae34ae58ca"
+  },
+  "ch8/test_illegal_super_super_member": {
+   "status": "pass",
+   "inputs_sha256": "81d58e6e276e4f9f2aea1e624136562550d3436df0330b81b3065b6232be506e"
+  },
+  "ch8/test_illegal_this_in_static_method": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_this_in_static_method\\\\.sv:29:'; the first is: tests/ch8/test_illegal_this_in_static_method.sv:34: syntax error",
+   "inputs_sha256": "e479d9716caa64d892e0893125feec1d5ecbb5ed4e96eb0b7c5584eead0c98a2"
+  },
+  "ch8/test_illegal_virtual_final_method_overridden_in_subclass": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_virtual_final_method_overridden_in_subclass\\\\.sv:40:'; the first is: tests/ch8/test_illegal_virtual_final_method_overridden_in_subclass.sv:31: syntax error",
+   "inputs_sha256": "24ad3a154b6dc22dbdbbc22c1b8f46bfddffb8537f0390560e5374d47156dea9"
+  },
+  "ch8/test_param_class_extends_param_class": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_param_class_extends_param_class.sv:25: syntax error",
+   "inputs_sha256": "0466386ca7756c1f089b9b79d18264b9104b875be9ddd30884e11a273651ce2b"
+  },
+  "ch8/test_param_class_package_vs_module_instance_specializations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_param_class_package_vs_module_instance_specializations.sv:28: syntax error",
+   "inputs_sha256": "64a9096e722d801102b68b7f8caf94151aa564b01a93a3b00f03e11c95eae41a"
+  },
+  "ch8/test_param_class_specialization_identity_and_statics": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_param_class_specialization_identity_and_statics.sv:39: syntax error",
+   "inputs_sha256": "fc24a8d6d571b0fefd39c922f508feea4ef89914bb80e85d43b62ed6f1cf620c"
+  }
+ },
+ "generated_at": "2026-10-24T01:26:42.087730+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

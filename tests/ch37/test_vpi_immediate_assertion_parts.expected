@@ -1,0 +1,12 @@
+c00: assert, deferred 0, final 0, pass v = 1, else v = 2
+c01: assert, deferred 1, final 0, pass call pass_t, else call fail_t
+c02: assert, deferred 1, final 1, pass call pass_t, else call fail_t
+c03: assert, deferred 0, final 0, pass v = 3, else none
+c04: assert, deferred 0, final 0, pass none, else v = 4
+c05: assume, deferred 0, final 0, pass v = 5, else v = 6
+c06: assume, deferred 1, final 0, pass call pass_t, else call fail_t
+c07: assume, deferred 1, final 1, pass call pass_t, else none
+c08: cover, deferred 0, final 0, pass v = 7
+c09: cover, deferred 1, final 0, pass call pass_t
+c10: cover, deferred 1, final 1, pass call fail_t
+statements: 11

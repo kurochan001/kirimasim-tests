@@ -1,0 +1,12 @@
+fixed whole: A[0]=0 A[5]=50 A==B=1 A!=B=0
+after A[3]=-1: A==B=0 A!=B=1
+fixed slice copy: A[1]=30 A[2]=40 A[3]=-1
+fixed slice compare: A[1+:2]==B[3+:2]=1 A[1+:2]!=B[3+:2]=0 A[1+:2]==B[0+:2]=0
+unpacked slice: two=40,50 two==B[4:5]=1 two==B[3:4]=0
+packed whole: P==Q=1
+packed slice copy: Q=050100020100 P==Q=0 P!=Q=1 Q[i-:2]==P[j+:2]=1
+packed slice as vector: bits=16 P[2:1]+1=0202
+dynamic: size=6 d1==d2=1; queue: size=3 q1==q2=1
+after changes: d1==d2=0 d1!=d2=1 q1==q2=0 q1[0:1]==q2[0:1]=1
+associative: num=2 ab["y"]=2 aa==ab=1
+after ab["y"]=3: aa==ab=0 aa!=ab=1 aa["y"]=2

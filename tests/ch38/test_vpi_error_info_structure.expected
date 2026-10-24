@@ -1,0 +1,15 @@
+p_vpi_error_info points to s_vpi_error_info (struct t_vpi_error_info) 1
+state PLI_INT32 1
+level PLI_INT32 1
+message PLI_BYTE8 * 1
+product PLI_BYTE8 * 1
+code PLI_BYTE8 * 1
+file PLI_BYTE8 * 1
+line PLI_INT32 1
+order state level message product code file line 1
+states vpiCompile 1 vpiPLI 2 vpiRun 3
+vpiNotice value 1 rank 1 of 5
+vpiWarning value 2 rank 2 of 5
+vpiError value 3 rank 3 of 5
+vpiSystem value 4 rank 4 of 5
+vpiInternal value 5 rank 5 of 5

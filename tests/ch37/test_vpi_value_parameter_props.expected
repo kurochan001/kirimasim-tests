@@ -1,0 +1,7 @@
+parameters of u (4): B S U W
+B: full name test_vpi_value_parameter_props.u.B, value 5, module is u 1, scope is u 1, signed 0, size 4
+S: full name test_vpi_value_parameter_props.u.S, value -3, module is u 1, scope is u 1, signed 1, size 8
+U: full name test_vpi_value_parameter_props.u.U, value 5, module is u 1, scope is u 1
+W: full name test_vpi_value_parameter_props.u.W, value 9, module is u 1, scope is u 1, signed 1, size 32
+parameters of u.g (1): GL
+GL: full name test_vpi_value_parameter_props.u.g.GL, value 10, module is u 1, scope is g 1

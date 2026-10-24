@@ -1,0 +1,3 @@
+bits=65536 ones=3 top=1 mid=1 low=1
+shifted top: 1
+all ones plus 1: ones=0

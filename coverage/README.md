@@ -110,6 +110,10 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/keyword-tests-20261024-*.json`: `generators/keywords.py`が生成する予約語の違法系テスト496本の実行結果。
   Icarus 13.0は496 pass、Verilator 5.052はseed 1/73とも493 pass・3 knownです。
   [生成内容と対応](../docs/keyword-tests-20261024.md)を参照してください。
+- `results/gap-tests-20261024-*.json`: 対応するテストがなかった要求に向けて書き、独立検証を終えた新規テスト594本の実行結果。
+  Icarus 13.0は239 pass・355 known、Verilator 5.052はseed 1/73とも203 pass・391 knownです。
+  取り込み後に3本（ポート宣言1本、`:lrm:`の引用2本）を直し、その再実行を`gap-refinement-20261024-*.json`へ別に保存しました（各3 known）。
+  [追加内容と照合結果](../docs/gap-tests-20261024.md)を参照してください。
 - `behavior-summary.json`: 現在の暫定値・確定値、章別の割合、分母SHA-256、
   シミュレータごとの失敗・既知不一致・未対応・未実行・古い証跡などの内訳。
   `--update`で概要Markdownとともに再生成し、`--check`で両方の鮮度を検査します。

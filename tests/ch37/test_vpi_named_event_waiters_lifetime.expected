@@ -1,0 +1,10 @@
+at 1: waiting on ev 3, threads 3, without parent thread 2, child of the thread waiting on ev2 1
+ev: automatic 0, alloc scheme other
+class defn evc: found
+named events of evc: ce (automatic 1, class defn is evc 1) sce (automatic 0, class defn is evc 1)
+named event arrays of evc: cea (automatic 1, class defn is evc 1) scea (automatic 0, class defn is evc 1)
+class obj of obj: found
+named events of the object: ce (automatic 1, alloc scheme dynamic) sce (automatic 0, alloc scheme other)
+named event arrays of the object: cea (automatic 1, alloc scheme dynamic) scea (automatic 0, alloc scheme other)
+resumed: initial 1, always 1, fork branch 1
+at 2: waiting on ev 1, threads 1, without parent thread 1, child of the thread waiting on ev2 0

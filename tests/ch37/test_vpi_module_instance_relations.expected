@@ -1,0 +1,26 @@
+interfaces of m1: 2
+  test_vpi_module_instance_relations.m1.b1, module test_vpi_module_instance_relations.m1, same instance 1
+  test_vpi_module_instance_relations.m1.b2, module test_vpi_module_instance_relations.m1, same instance 1
+interfaces of m2: 2
+  test_vpi_module_instance_relations.m2.b1, module test_vpi_module_instance_relations.m2, same instance 1
+  test_vpi_module_instance_relations.m2.b2, module test_vpi_module_instance_relations.m2, same instance 1
+vpiModule of m1.l1: test_vpi_module_instance_relations.m1, as expected 1
+vpiModule of m2.l1: test_vpi_module_instance_relations.m2, as expected 1
+vpiModule of test_vpi_module_instance_relations: NULL, as expected 1
+interface arrays of a1: 1
+  test_vpi_module_instance_relations.a1.ba, module test_vpi_module_instance_relations.a1, same instance 1
+module arrays of a1: 1
+  test_vpi_module_instance_relations.a1.la, module test_vpi_module_instance_relations.a1, same instance 1
+modules of a1.la: 3
+  test_vpi_module_instance_relations.a1.la[0]
+  test_vpi_module_instance_relations.a1.la[1]
+  test_vpi_module_instance_relations.a1.la[2]
+interfaces of a1.ba: 2
+  test_vpi_module_instance_relations.a1.ba[0]
+  test_vpi_module_instance_relations.a1.ba[1]
+vpiInstanceArray of a1.la[1]: test_vpi_module_instance_relations.a1.la, as expected 1
+vpiModuleArray of a1.la[1]: test_vpi_module_instance_relations.a1.la, as expected 1
+vpiInstanceArray of a1.ba[0]: test_vpi_module_instance_relations.a1.ba, as expected 1
+vpiInstanceArray of m1.l1: NULL, as expected 1
+vpiModuleArray of m1.l1: NULL, as expected 1
+vpiInstanceArray of m1.b1: NULL, as expected 1

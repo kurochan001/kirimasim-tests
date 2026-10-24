@@ -1,0 +1,9 @@
+vpiPorts of u1.y (1): u1.y[1]
+vpiPorts of u1.a (1): u1.a[0]
+vpiPorts of dst (0):
+vpiPortInst of src (2): u1.a[0] u2.a[0]
+vpiPortInst of dst (1): u1.y[1]
+vpiPortInst of u1.y (0):
+port u1.y: low connection logic var, is u1.y 1; high connection logic var, is dst 1
+port u1.n: low connection int var, is u1.n 1; high connection int var, is cnt 1
+port u2.y: low connection logic var, is u2.y 1; high connection NULL

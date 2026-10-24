@@ -1,0 +1,12 @@
+top module by name, NULL scope: test_vpi_handle_by_name_scope_index
+u1 by hierarchical name, NULL scope: test_vpi_handle_by_name_scope_index.u1
+u1.blk.in_blk by hierarchical name, NULL scope: test_vpi_handle_by_name_scope_index.u1.blk.in_blk
+s_only, NULL scope: NULL
+shared in u1: test_vpi_handle_by_name_scope_index.u1.shared
+shared in the top module: test_vpi_handle_by_name_scope_index.shared
+t_only in u1: NULL
+u1.s_only in the top module: test_vpi_handle_by_name_scope_index.u1.s_only
+blk.in_blk in u1: test_vpi_handle_by_name_scope_index.u1.blk.in_blk
+index 0 of the scalar s: NULL
+index 0 of the real r: NULL
+index 2 of vec: test_vpi_handle_by_name_scope_index.vec[2]

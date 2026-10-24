@@ -1,0 +1,4 @@
+open formal, dynamic array: size 3, range [0:2], sum 60
+open formal, queue: size 4, range [0:3], sum 10
+fixed-size formal, dynamic array: sum 60, C element 0 is 10
+fixed-size output into the dynamic array: size 3, 7 8 9

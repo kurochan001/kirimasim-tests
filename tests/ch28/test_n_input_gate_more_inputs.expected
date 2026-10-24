@@ -1,0 +1,17 @@
+abc=111 and=1 nand=0 or=1 nor=0 xor=1 xnor=0
+abc=11x and=x nand=x or=1 nor=0 xor=x xnor=x
+abc=1z0 and=0 nand=1 or=1 nor=0 xor=x xnor=x
+abc=0x0 and=0 nand=1 or=x nor=x xor=x xnor=x
+abc=00z and=0 nand=1 or=x nor=x xor=x xnor=x
+abc=000 and=0 nand=1 or=0 nor=1 xor=0 xnor=1
+abc=110 and=0 nand=1 or=1 nor=0 xor=0 xnor=1
+abc=0z1 and=0 nand=1 or=1 nor=0 xor=x xnor=x
+abc=1x1 and=x nand=x or=1 nor=0 xor=x xnor=x
+abc=100 and=0 nand=1 or=1 nor=0 xor=1 xnor=0
+t=21 and2=1 and4=1 xor2=0 xor4=0
+t=23 and2=1 and4=1 xor2=1 xor4=1
+t=25 and2=0 and4=0 xor2=1 xor4=1
+t=31 and2=0 and4=0 xor2=1 xor4=1
+t=33 and2=0 and4=0 xor2=1 xor4=1
+t=35 and2=1 and4=1 xor2=1 xor4=1
+t=37 and2=1 and4=1 xor2=0 xor4=0

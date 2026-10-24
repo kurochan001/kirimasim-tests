@@ -1,0 +1,10 @@
+vpi_mcd_close is PLI_UINT32 (*)(PLI_UINT32): 1
+channel 1 is still open
+close a|b: 0, close 1|c: 1, close fm: 0, close fd: 0
+vpi_mcd_name of fm and fd after the close is NULL: 1 1
+a: first line
+b: first line
+c: first line
+c: second line, after a and b were closed
+fm: fm: written by $fdisplay
+fd: fd: written by $fdisplay

@@ -1,0 +1,20 @@
+twice(4): function call, scope blk, arguments: 4
+  twice(4): function twice, type vpiSizedFunc, value 8
+half(3.0): function call, scope blk, arguments: 3
+  half(3.0): function half, type vpiRealFunc
+p.get(): method function call, scope blk, arguments: none
+  p.get(): function get, prefix p, user-defined 1, with NULL
+  p.get(): value 5
+q.size(): method function call, scope blk, arguments: none
+  q.size(): function NULL, prefix q, user-defined 0, with NULL
+  q.size(): value 3
+q.find with: method function call, scope blk, arguments: none
+  q.find with: function NULL, prefix q, user-defined 0, with the operation >
+p.randomize() with: method function call, scope blk, arguments: none
+  p.randomize() with: function NULL, prefix p, user-defined 0, with a constraint
+mb.put(1): method task call, scope blk, arguments: 1
+  mb.put(1): task NULL, prefix mb, user-defined 0, with NULL
+note(7): task call, scope blk, arguments: 7
+  note(7): task note
+p.bump(): method task call, scope blk, arguments: none
+  p.bump(): task bump, prefix p, user-defined 1, with NULL

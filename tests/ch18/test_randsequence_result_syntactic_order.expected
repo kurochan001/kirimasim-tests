@@ -1,0 +1,6 @@
+cond=1: val[1]=5
+  val indices 1..2, element bits 32
+  nib=7 bits=4
+cond=0: val[2]=20
+  val indices 1..2, element bits 32
+  nib=7 bits=4

@@ -1,0 +1,7 @@
+s_unary: unary cycle delay, operands: b 1 $
+s_delay: cycle delay, operands: a b 2 $
+s_bounded: cycle delay, operands: a b 2 4
+s_consec: consecutive repeat, operands: b 1 $
+s_goto: goto repeat, operands: b 2 $
+s_nonconsec: nonconsecutive repeat, operands: b 0 $
+p_imp: overlapping implication, consequent unary cycle delay, operands: b 3 $

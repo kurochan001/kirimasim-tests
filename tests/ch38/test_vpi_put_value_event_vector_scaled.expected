@@ -1,0 +1,7 @@
+5: ev triggered
+6: pv=zx10zx10 w[39:32]=000000z1 w[31:0]=ffffffff
+7: t_top=0 s_sub=0
+8: ev triggered
+9: t_top=1 s_sub=0
+34: t_top=1 s_sub=0
+36: t_top=1 s_sub=1

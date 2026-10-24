@@ -1,0 +1,20 @@
+net of g: w
+array net of g: na
+logic var of g: lv
+array var of g: av
+memory of g: av
+variables of g: anon_s av iv lv
+named event of g: ev
+named event array of g: eva
+typedef of g: tri_t
+g.w: gen scope test_vpi_gen_scope_data_items.g
+g.na: gen scope test_vpi_gen_scope_data_items.g
+g.lv: gen scope test_vpi_gen_scope_data_items.g
+g.av: gen scope test_vpi_gen_scope_data_items.g
+g.iv: gen scope test_vpi_gen_scope_data_items.g
+g.ev: gen scope test_vpi_gen_scope_data_items.g
+g.eva: gen scope test_vpi_gen_scope_data_items.g
+g.P: gen scope test_vpi_gen_scope_data_items.g
+typedef tri_t: gen scope test_vpi_gen_scope_data_items.g
+top_w: gen scope NULL
+top_v: gen scope NULL

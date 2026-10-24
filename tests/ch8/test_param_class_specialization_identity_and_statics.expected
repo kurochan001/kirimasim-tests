@@ -1,0 +1,4 @@
+counts: W=4,T=int: 5, W=5: 1, T=shortint: 1
+same type: a5==a1=1, bits of a5.bits=4, of b1.bits=5
+type parameters: struct payload=c3 hi=c, class payload id=3
+statics: shared total=3, own #(1)=1, own #(2)=2

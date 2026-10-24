@@ -1,0 +1,5 @@
+pk: bits=6 dim1=[1:0] dim2=[2:0] pk[1]=5 pk[0]=3 pk[1][2]=1
+tab: dims=3 unpacked=2 size1=2 size2=4 bits=24 row bits=12
+tab: [0][3]=3 [1][0]=4 [1][2]=6 one_row[3]=7 tab[1][2][2]=1
+shared: bits a1[1]=4 a2[2][1]=4 a3=4; unpacked a1=1 a2=2 a3=0
+shared: size a1=2 a2=3x2; a1[1]=7 a2[2][1]=9 a3=0

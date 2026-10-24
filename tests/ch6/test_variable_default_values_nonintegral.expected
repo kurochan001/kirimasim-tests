@@ -1,0 +1,5 @@
+real=0.000000 shortreal=0.000000 realtime=0.000000
+string="" len=0
+null: chandle 1 class 1 interface class 1
+woke on e1
+triggered: e1 1 e2 0

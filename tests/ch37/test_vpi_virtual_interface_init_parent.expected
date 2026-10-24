@@ -1,0 +1,7 @@
+vi_init: virtual interface var, name vi_init, full name test_vpi_virtual_interface_init_parent.vi_init, expr interface b1, is b1 1
+vi_none: virtual interface var, name vi_none, full name test_vpi_virtual_interface_init_parent.vi_none, expr NULL
+blk.vi_blk: virtual interface var, name vi_blk, full name test_vpi_virtual_interface_init_parent.blk.vi_blk, expr NULL
+param assign of v4_t: W = 4, its interface typespec is v4_t 1
+param assigns of v4_t: 1
+v4_t: interface typespec, modport 0, def name test_vpi_virtual_interface_init_parent_if, parent NULL
+mp_t: interface typespec, modport 1, def name mp, parent interface typespec (modport 0, def name test_vpi_virtual_interface_init_parent_if)

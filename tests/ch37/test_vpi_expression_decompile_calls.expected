@@ -1,0 +1,11 @@
+d1: "a + b * c"
+d2: "(a + b) * c"
+d3: "a - (b - c)"
+d4: "a * b + c"
+d5: "a && (b || c)"
+d6: "a << b << c"
+d7: "a << (b << c)"
+f6: function call, size 6
+l5: let expression, size 5
+m10: method function call, size 10
+statements: 10

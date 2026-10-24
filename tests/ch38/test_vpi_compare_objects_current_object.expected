@@ -1,0 +1,4 @@
+j=0 k=0: mem[j] and mem[k] 1, mem[j] and itself 1, mem[j] and mem[0] 1
+j=0 k=1: mem[j] and mem[k] 0, mem[j] and itself 1, mem[j] and mem[0] 1
+j=1 k=1: mem[j] and mem[k] 1, mem[j] and itself 1, mem[j] and mem[0] 0
+j=9 k=9: mem[j] and mem[k] 0, mem[j] and itself 0, mem[j] and mem[0] 0

@@ -1,0 +1,2 @@
+test_param_without_default_not_implicit_top.c: P=5
+class: 308

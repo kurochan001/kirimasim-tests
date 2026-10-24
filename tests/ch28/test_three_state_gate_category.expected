@@ -1,0 +1,4 @@
+d=0 c=0: bufif0=0 bufif1=z notif0=1 notif1=z
+d=1 c=0: bufif0=1 bufif1=z notif0=0 notif1=z
+d=0 c=1: bufif0=z bufif1=0 notif0=z notif1=1
+d=1 c=1: bufif0=z bufif1=1 notif0=z notif1=0

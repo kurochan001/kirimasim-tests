@@ -1,0 +1,9 @@
+greedy: hdr=01 tail=ff
+greedy d1: size=4 a1 a2 a3 a4
+greedy d2: size=0
+with: len=02 n2=05
+with d1: size=2 b1 b2
+with d2: size=2 c1 c2
+fixed [1:2]: 01 aa bb 04
+dynamic [1:2]: size=4 01 cc dd 04
+pack: 2030 3040 51520000 61xx

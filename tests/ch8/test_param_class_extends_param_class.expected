@@ -1,0 +1,4 @@
+default base: 1, explicit integer: 32
+own type parameter: default 8, longint 64
+dependent value parameter: 6
+base from type parameter: default 16, logic [4:0] 5

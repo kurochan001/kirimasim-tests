@@ -1,0 +1,4 @@
+top_and=0 bits=1
+outer=1 wide=1101
+g_a.loc=1 g_b.loc=0
+g_a.narrow=1 bits=1 g_a.term=1 bits=1

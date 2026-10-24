@@ -1,0 +1,7 @@
+widened: u=246 s=-10
+less than 0: u=0 s=1
+shift >>> 4: u=0f s=ff
+plus 8'sd10 into int: u=256 s=0
+8-bit u + 10 = 00, ~u = 09, !u = 0, {u, 4'h3} = f63
+u[7]=1 u[0]=0 u[7:4]=f u[3:0]=6 n[1]=f n[0]=6
+after writes: b=b1 n[1]=b n[0]=1 u[sel]=0

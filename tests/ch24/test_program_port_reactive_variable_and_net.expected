@@ -1,0 +1,3 @@
+10 module: mv=0 mw=0 mark=0
+10 program: ov=1 iv=1 iw=0 mw=1
+woken at 10: mv=1 with mark=1, mw=1 with mark=1

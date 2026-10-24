@@ -1,0 +1,6 @@
+| in int: 9 -7
+& widths: 0a fa, unsigned < 0: 0
+context vs self-determined: 8 0 1 1
+real: 300.00 44.50 3.50
+64-bit coercion: fffffffffffffffd
+40-bit argument: fffffffffd

@@ -1,0 +1,8 @@
+$skew, no data event:
+$timeskew, no data event: 15
+$timeskew event-based: 17
+$skew: 17 19 40
+$fullskew timer-based:
+$fullskew timer-based, remain active: 35
+$fullskew event-based:
+$fullskew event-based, remain active: 37

@@ -1,0 +1,4 @@
+$vt_mark at 0: user data "task data"
+$vt_mark at 3: user data "task data"
+$vt_val = 42
+compiletf of $vt_mark: 2 calls, 2 before the start of simulation, 2 with the user data

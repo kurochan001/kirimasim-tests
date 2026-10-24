@@ -1,0 +1,16 @@
+start of 1: event trigger of named event, prefix vi (virtual interface var), has actual 0
+start of 1: property f from the class typespec of obj, has actual 0
+start of 1: r1 = part-select, prefix vi (virtual interface var), has actual 0
+start of 1: r2 = indexed part-select, prefix vi (virtual interface var), has actual 0
+start of 1: r3 = part-select, prefix cb (clocking block), has actual 1
+start of 1: r4 = indexed part-select, prefix obj (class var), has actual 0
+start of 1: r5 = part-select, prefix NULL, has actual 1
+start of 1: statement task call, prefix vi (virtual interface var), has actual 0
+read-only synch of 1: event trigger of named event, prefix vi (virtual interface var), has actual 1
+read-only synch of 1: property f from the class typespec of obj, has actual 0
+read-only synch of 1: r1 = part-select, prefix vi (virtual interface var), has actual 1
+read-only synch of 1: r2 = indexed part-select, prefix vi (virtual interface var), has actual 1
+read-only synch of 1: r3 = part-select, prefix cb (clocking block), has actual 1
+read-only synch of 1: r4 = indexed part-select, prefix obj (class var), has actual 1
+read-only synch of 1: r5 = part-select, prefix NULL, has actual 1
+read-only synch of 1: statement task call, prefix vi (virtual interface var), has actual 1

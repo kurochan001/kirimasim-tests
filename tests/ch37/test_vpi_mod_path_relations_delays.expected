@@ -1,0 +1,9 @@
+paths of u1: 3
+  in: a input, path 1 | out: y output, path 1 | module test_vpi_mod_path_relations_delays.u1
+  in: a input, path 1 | out: z output, path 1 | module test_vpi_mod_path_relations_delays.u1
+  in: b input, path 1 | out: y output, path 1 | module test_vpi_mod_path_relations_delays.u1
+paths of u2: 1
+  in: c input, path 1 | out: w output, path 1 | module test_vpi_mod_path_relations_delays.u2
+delays of a => z: 2 4, after vpi_put_delays: 6 1
+17: z = 1
+22: z = 0

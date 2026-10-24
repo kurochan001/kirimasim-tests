@@ -1,0 +1,4 @@
+d=1 c=1 nc=0 pc=1: nmos=1 pmos=z rnmos=1 rpmos=z cmos=z rcmos=z
+d=0 c=0 nc=1 pc=1: nmos=z pmos=0 rnmos=z rpmos=0 cmos=0 rcmos=0
+d=1 c=0 nc=0 pc=0: nmos=z pmos=1 rnmos=z rpmos=1 cmos=1 rcmos=1
+d=0 c=1 nc=0 pc=1: nmos=0 pmos=z rnmos=0 rpmos=z cmos=z rcmos=z

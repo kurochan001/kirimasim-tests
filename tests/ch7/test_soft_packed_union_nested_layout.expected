@@ -1,0 +1,4 @@
+bits: inner=6 rec=8 outer=12
+after r.in.mid=5: all=ff5 r.tag=11 r.in.wide=35 i.wide=35
+after i.mid=0: all=ff0 r.in.mid=0
+after r.in=2a: all=fea i.mid=a r.tag=11

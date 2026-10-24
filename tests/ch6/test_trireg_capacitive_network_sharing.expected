@@ -1,0 +1,4 @@
+driven, apart: big=St1 little=St0 m1=St0 m2=St1
+stored, apart: big=La1 little=Sm0 m1=Me0 m2=Me1
+connected: big=La1 little=La1 m1=MeX m2=MeX
+apart again: big=La1 little=Sm1 m1=MeX m2=MeX

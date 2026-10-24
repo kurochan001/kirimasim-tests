@@ -1,0 +1,37 @@
+sr: shortreal var, scalar 0, vector 0, name sr, full name test_vpi_variable_kinds_flags_sizes.sr, scope is the module 1
+sr: value 2.50
+e3: enum var, scalar 0, vector 1, size 3, name e3, full name test_vpi_variable_kinds_flags_sizes.e3, scope is the module 1
+e1: enum var, scalar 1, vector 0, size 1
+ei: enum var, scalar 0, vector 1, size 32
+s: string var, scalar 0, vector 0, size 3, name s, full name test_vpi_variable_kinds_flags_sizes.s, scope is the module 1
+ch: chandle var, scalar 0, vector 0, name ch, full name test_vpi_variable_kinds_flags_sizes.ch, scope is the module 1
+c: class var, scalar 0, vector 0, name c, full name test_vpi_variable_kinds_flags_sizes.c, scope is the module 1
+vi: virtual interface var, scalar 0, vector 0, name vi, full name test_vpi_variable_kinds_flags_sizes.vi, scope is the module 1
+l1: logic var, scalar 1, vector 0, size 1
+b1: bit var, scalar 1, vector 0, size 1
+l5: logic var, scalar 0, vector 1, size 5
+b6: bit var, scalar 0, vector 1, size 6
+a bit of l5: var bit, scalar 1, vector 0, size 1
+ig: integer var, scalar 0, vector 1, size 32
+tm: time var, scalar 0, vector 1, size 64
+sh: shortint var, scalar 0, vector 1, size 16
+i32: int var, scalar 0, vector 1, size 32
+lg: longint var, scalar 0, vector 1, size 64
+by: byte var, scalar 0, vector 1, size 8
+re: real var, scalar 0, vector 0
+ps: struct var, scalar 0, vector 1, size 8
+pu: union var, scalar 0, vector 1, size 8
+us: struct var, scalar 0, vector 0, size 3
+uu: union var, scalar 0, vector 0, size 2
+as1: array var, scalar 1, vector 0, size 2
+av4: array var, scalar 0, vector 1, size 3
+ar: array var, scalar 0, vector 0, size 2
+av4: array var, array var 1, array member 0
+av4[1]: logic var, array var 0, array member 1
+m2d: array var, array var 1, array member 0
+m2d[1][2]: int var, array var 0, array member 1
+b6: bit var, array var 0, array member 0
+l5: logic var, array var 0, array member 0
+vpiLogicVar is vpiReg 1, vpiVarBit is vpiRegBit 1, vpiArrayVar is vpiRegArray 1
+type names: l5 1, a bit of l5 1, av4 1; a bit of the bit var b6 is a var bit 1
+s: string var, scalar 0, vector 0, size 6

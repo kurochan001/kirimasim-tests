@@ -1,0 +1,3 @@
+input k: 11 100, 12 0
+ref rv: 0 0, 3 100
+default d: 4 100

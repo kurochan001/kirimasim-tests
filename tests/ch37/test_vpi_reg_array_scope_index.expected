@@ -1,0 +1,8 @@
+mem: reg array 1, scope test_vpi_reg_array_scope_index, scope is the module 1, scope is the expected one 1, module is the module 1, is memory 1
+grid: reg array 1, scope test_vpi_reg_array_scope_index, scope is the module 1, scope is the expected one 1, module is the module 1, is memory 0
+blk.lm: reg array 1, scope blk, scope is the module 0, scope is the expected one 1, module is the module 1, is memory 1
+mem by index 2: mem[2], same as by name 1, value 18
+grid by multi-index 2, 4: grid[2][4], same as by name 1, value 12
+grid by multi-index 1, 5: grid[1][5], same as by name 1, value 9
+mem by multi-index 3: mem[3], same as by name 1, value 19
+blk.lm by index 1: lm[1], same as by name 1, value 2

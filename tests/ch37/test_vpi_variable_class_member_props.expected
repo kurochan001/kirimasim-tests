@@ -1,0 +1,13 @@
+rc_c::ra: rand type rand, visibility public, constant variable 0
+rc_c::rc: rand type randc, visibility public, constant variable 0
+rc_c::plain: rand type not random, visibility public, constant variable 0
+rc_c::lo: rand type not random, visibility local, constant variable 0
+rc_c::pr: rand type not random, visibility protected, constant variable 0
+rc_c::st: rand type not random, visibility public, constant variable 0
+rc_c::cp: rand type not random, visibility public, constant variable 1
+mv: visibility public, constant variable 0, alloc scheme other
+mc: constant variable 1
+o.ra: found, randomized 0, alloc scheme dynamic
+o.rc: found, randomized 1, rand type randc
+o.plain: found, randomized 0, rand type not random, alloc scheme dynamic
+o.st: found, alloc scheme other

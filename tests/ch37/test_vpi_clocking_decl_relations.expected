@@ -1,0 +1,12 @@
+cb1: full name test_vpi_clocking_decl_relations.cb1
+  clocking io decls: a (its block 1), b (its block 1)
+  property decls: p_one (its block 1)
+  sequence decls: s_one (its block 1)
+cb2: full name test_vpi_clocking_decl_relations.cb2
+  clocking io decls: a (its block 1), c (its block 1)
+  property decls: none
+  sequence decls: s_two (its block 1)
+g.cb3: full name test_vpi_clocking_decl_relations.g.cb3
+  clocking io decls: c (its block 1)
+  property decls: none
+  sequence decls: none

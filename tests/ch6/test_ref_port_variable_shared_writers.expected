@@ -1,0 +1,3 @@
+after a: v=11 a.r=11 b.r=11
+after b: v=22 a.r=22 b.r=22
+after parent: v=33 a.r=33 b.r=33

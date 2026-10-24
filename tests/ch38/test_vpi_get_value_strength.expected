@@ -1,0 +1,6 @@
+wk: logic vpi1, s1 vpiWeakDrive
+pl: logic vpi0, s0 vpiPullDrive
+sp: logic vpi1, s1 vpiSupplyDrive
+nz: logic vpiZ
+nx: logic vpiX
+rv: 3 elements vpi1 with s1 vpiStrongDrive, 1 vpi0 with s0 vpiStrongDrive, 0 others

@@ -1,0 +1,6 @@
+downcast function: ok=1 same=1 d=22
+downcast task: same=1
+upcast function: ok=1 same=1
+literal null: ok=1 now null=1
+base object: ok=0 unchanged=1
+unrelated null handle: ok=0 unchanged=1

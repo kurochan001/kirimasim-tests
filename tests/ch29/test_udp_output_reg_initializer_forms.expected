@@ -1,0 +1,4 @@
+header output reg q = 1'b1: 1
+header output reg q = 0: 0
+declaration output reg q = 1'b1: 1
+declaration output reg q = 0: 0

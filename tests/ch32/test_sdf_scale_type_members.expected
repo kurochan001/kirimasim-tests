@@ -1,0 +1,15 @@
+w0, not annotated: 1
+w1, MINIMUM, default scale_type: 4
+w2, TYPICAL, default scale_type: 9
+w3, MAXIMUM, default scale_type: 20
+w4, MINIMUM, FROM_MTM: 4
+w5, MINIMUM, FROM_MINIMUM: 4
+w6, TYPICAL, FROM_MINIMUM: 6
+w7, MAXIMUM, FROM_MINIMUM: 8
+w8, MINIMUM, FROM_TYPICAL: 6
+w9, TYPICAL, FROM_TYPICAL: 9
+w10, MAXIMUM, FROM_TYPICAL: 12
+w11, MINIMUM, FROM_MAXIMUM: 10
+w12, TYPICAL, FROM_MAXIMUM: 15
+w13, MAXIMUM, FROM_MAXIMUM, all arguments: 20
+w14, MAXIMUM, default factors: 5

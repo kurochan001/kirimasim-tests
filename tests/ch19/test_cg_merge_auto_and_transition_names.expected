@@ -1,0 +1,4 @@
+transition bins: t 50.00, one_t 100.00
+automatic bins: 33.33
+automatic bins, then m2 samples 5: 66.67
+cross: x 8.33, ca 16.67

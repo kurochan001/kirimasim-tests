@@ -1,0 +1,7 @@
+first compatible with second: d1 dd
+second compatible with first: d1 dd
+common base: base d1
+closest common base: d1 de
+deeper common base: base dd
+one null: dd d2
+null and null: 1

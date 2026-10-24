@@ -1,0 +1,16 @@
+defparams of m1: 1
+  defparam of P, module test_vpi_module_defparam_alias_clocking_relations.m1, same instance 1
+defparams of m2: 1
+  defparam of P, module test_vpi_module_defparam_alias_clocking_relations.m2, same instance 1
+defparams of the top module: 0
+alias statements of m1: 1
+  alias a = b, module test_vpi_module_defparam_alias_clocking_relations.m1, same instance 1
+alias statements of m2: 1
+  alias a = b, module test_vpi_module_defparam_alias_clocking_relations.m2, same instance 1
+clocking blocks of m1: 2
+  clocking block cb1, module test_vpi_module_defparam_alias_clocking_relations.m1, same instance 1
+  clocking block cb2, module test_vpi_module_defparam_alias_clocking_relations.m1, same instance 1
+clocking blocks of m2: 2
+  clocking block cb1, module test_vpi_module_defparam_alias_clocking_relations.m2, same instance 1
+  clocking block cb2, module test_vpi_module_defparam_alias_clocking_relations.m2, same instance 1
+clocking blocks of the top module: 0

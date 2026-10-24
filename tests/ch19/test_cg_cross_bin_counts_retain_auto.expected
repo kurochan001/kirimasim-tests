@@ -1,0 +1,5 @@
+cross_retain_auto_bins: keep 1, drop 0
+(0,0): keep 0/5, drop 1/1
+(0,1): keep 1/5, drop 1/1
+(2,1): keep 1/5, drop 1/1
+(2,1): keep 2/5, drop 1/1

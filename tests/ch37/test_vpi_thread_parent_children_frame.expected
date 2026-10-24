@@ -1,0 +1,5 @@
+at 0: frame of the current thread is the active frame 1, is the caller's frame 0
+at 1: children of the current thread 2, of type vpiThread 2, leading back with vpiParent 2
+automatic variables of the frames of the children: [level] [w]
+caller of the frame with level: [m]
+at 10: threads from NULL 3, of type vpiThread 3, the current thread among them 1

@@ -1,0 +1,12 @@
+primitives of the top module: 5
+g_and: gate and, full name test_vpi_primitive_kinds_properties.g_and, inputs 3, module test_vpi_primitive_kinds_properties, array member 0 0, strengths strong0 weak1
+g_buf: gate buf, full name test_vpi_primitive_kinds_properties.g_buf, inputs 1, module test_vpi_primitive_kinds_properties, array member 0 0, strengths supply0 pull1
+s_nmos: switch nmos, full name test_vpi_primitive_kinds_properties.s_nmos, module test_vpi_primitive_kinds_properties, array member 0 0
+u_and: udp combinational, full name test_vpi_primitive_kinds_properties.u_and, inputs 2, module test_vpi_primitive_kinds_properties, array member 0 0, definition test_vpi_primitive_kinds_properties_and2
+u_or: udp combinational, full name test_vpi_primitive_kinds_properties.u_or, inputs 2, module test_vpi_primitive_kinds_properties, array member 0 0, definition test_vpi_primitive_kinds_properties_or2
+primitives of sub: 1
+n1: gate nand, full name test_vpi_primitive_kinds_properties.sub.n1, inputs 2, module test_vpi_primitive_kinds_properties.sub, array member 0 0
+primitive arrays of arr: 1, ga, gate array 1
+elements of ga: 2
+  element with index 0: gate nor, inputs 2, module test_vpi_primitive_kinds_properties.arr, array member 1 1, its array is ga 1, strengths pull0 strong1
+  element with index 1: gate nor, inputs 2, module test_vpi_primitive_kinds_properties.arr, array member 1 1, its array is ga 1, strengths pull0 strong1

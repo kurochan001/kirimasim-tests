@@ -1,0 +1,8 @@
+relational: 1 0 x x x 1
+== != === !==: 1 0 0 1
+ambiguous ==: 0 x x 1
+=== with x z: 1 0 1
+both signed: 1 0 1
+one unsigned: 1 0 1
+wildcard: 0 1 x 1 1 0
+bits: 1 1 1 1

@@ -1,0 +1,2 @@
+base: at_least 2, auto_bin_max 4, cp 0/4
+derived: at_least 1, auto_bin_max 4, cp 1/4

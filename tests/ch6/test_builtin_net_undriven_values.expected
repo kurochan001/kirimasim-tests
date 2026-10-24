@@ -1,0 +1,5 @@
+undriven: wire=HiZ tri=HiZ wand=HiZ triand=HiZ wor=HiZ trior=HiZ uwire=HiZ
+own source: tri0=Pu0 tri1=Pu1 supply0=Su0 supply1=Su1
+against strong: supply0=Su0 supply1=Su1
+driver on: g=1 St1
+driver off: g=z HiZ

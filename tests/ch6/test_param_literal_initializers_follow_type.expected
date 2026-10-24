@@ -1,0 +1,8 @@
+byte: 35 bits=8
+logic: 1 bits=1
+bit [3:0]: 5 bits=4
+bit [15:0]: 0041
+shortint: -1
+int: 4 real: 2.00
+string: "abc" len=3
+specparam: 25

@@ -1,0 +1,4 @@
+interface tf decls of bus: 2
+  vpiExternAcc: functions 1 (get_id); tasks 0; vpiInstance is bus 1
+  vpiForkJoinAcc: functions 0; tasks 2 (tick, tick), different objects 1; vpiInstance is bus 1
+interface tf decls of q: 0

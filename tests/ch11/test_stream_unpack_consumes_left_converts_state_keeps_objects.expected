@@ -1,0 +1,4 @@
+from 24 bits: a8=ab b8=cd
+4-state stream: b2=10001010 l4=01xz0110
+2-state stream: l4=10001010
+objects: hn null=1 same=1 f=a5 g=3c t=7e rand_mode=0

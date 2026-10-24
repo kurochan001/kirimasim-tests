@@ -1,0 +1,3 @@
+5: functions returned 5 and 36, 0 passed
+10: another process runs while the task waits
+17: task returned, done=3, 12 passed

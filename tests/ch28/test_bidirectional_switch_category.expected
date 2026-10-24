@@ -1,0 +1,4 @@
+ea=1 eb=0 ctl=1: tran=11 rtran=11 tranif0=1z tranif1=11 rtranif0=1z rtranif1=11
+ea=0 eb=1 ctl=1: tran=00 rtran=00 tranif0=z0 tranif1=00 rtranif0=z0 rtranif1=00
+ea=1 eb=0 ctl=0: tran=00 rtran=00 tranif0=00 tranif1=0z rtranif0=00 rtranif1=0z
+ea=0 eb=1 ctl=0: tran=11 rtran=11 tranif0=11 tranif1=z1 rtranif0=11 rtranif1=z1

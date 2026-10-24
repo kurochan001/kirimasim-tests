@@ -1,0 +1,7 @@
+covergroup option: string int int string int int int
+  bit bit bit bit
+coverpoint option: int int string int int bit
+cross option: int int string int int bit
+covergroup type_option: int int string bit bit bit real
+coverpoint type_option: int int string real
+cross type_option: int int string

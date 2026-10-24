@@ -1,0 +1,8 @@
+reg == logic: 1
+reg [3:0] == logic [3:0]: 1
+reg signed [3:0] == logic signed [3:0]: 1
+typedefs: 1
+data types: 1
+reg [3:0] == bit [3:0]: 0
+reg [3:0] == logic signed [3:0]: 0
+reg [3:0] != logic [3:0]: 0

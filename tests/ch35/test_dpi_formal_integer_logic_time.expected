@@ -1,0 +1,7 @@
+logic inputs: 0 1 2 3
+logic output: z
+integer input 'b10zx: aval 00000009, bval 00000003
+integer output: -128
+time input: low word 7, high word 5
+time output: 4294967305
+exported function: 1042

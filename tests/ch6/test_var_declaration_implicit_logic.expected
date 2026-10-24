@@ -1,0 +1,3 @@
+v1=z bits 1 v4=x10z bits 4
+vs=-8 vu=8 vb=-1 bits 4 4 8
+vs=xz10

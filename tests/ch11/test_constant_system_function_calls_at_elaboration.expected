@@ -1,0 +1,5 @@
+conversion: 3 2.5 255 -1 3ff0000000000000 2.50
+math: 4 5 4.0 1024.0 2.0 3.0, $bits(w) = 5
+bit vector: 4 1 0 1 0 4, generate: 44
+sformatf: w12_x
+queries: 12 7 0 5 -1 2 1, $size(arr2) = 3

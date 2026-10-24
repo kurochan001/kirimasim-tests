@@ -1,0 +1,25 @@
+v_sr: shortreal typespec, name NULL
+v_re: real typespec, name NULL
+v_by: byte typespec, name NULL
+v_sh: shortint typespec, name NULL
+v_sht: shortint typespec, name sh_t
+v_lg: longint typespec, name NULL
+v_ig: integer typespec, name NULL
+v_cl: class typespec
+v_st: string typespec, name NULL
+v_un: union typespec, name NULL
+v_bt: bit typespec, name NULL
+v_pa: packed array typespec, name NULL
+v_ev: event typespec, name NULL
+v_vi: interface typespec, name NULL
+v_vi: interface typespec def name test_vpi_typespec_kinds_more_if
+formals of s_twice: a (sequence typespec)
+formals of p_then: a (sequence typespec) b (property typespec)
+tp_c::mem: type parameter, name T
+ve: enum typespec, name be_t, base typespec byte typespec
+enum constants of be_t: 2, leading to be_t 2
+instance of the typespec sh_t is the module 1
+aa_s: array typespec, index typespec string typespec
+aa_i: array typespec, index typespec int typespec
+aa_w: array typespec, index typespec NULL
+sa: array typespec, index typespec NULL

@@ -1,0 +1,9 @@
+case item 0: null statement, label NULL
+case item default: assignment, label NULL
+delay control, label NULL; its statement null statement, label NULL
+if-else, label NULL; then null statement, label NULL; else assignment, label NULL
+null statement, label NULL
+wait fork, label NULL; its statement NULL
+wait fork, label l_wfork; its statement NULL
+wait, label NULL; its statement null statement, label NULL
+statements: 7

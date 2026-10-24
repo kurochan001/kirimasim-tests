@@ -1,0 +1,4 @@
+module: m_x=01
+loop: dst=1101
+if: x=10
+case: x=11

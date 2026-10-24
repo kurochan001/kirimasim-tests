@@ -1,0 +1,1 @@
+sbus=ad sbus[5]=1 sbus[6:4]=010 vbus=5a pbus=1101 pbus[1:0]=01

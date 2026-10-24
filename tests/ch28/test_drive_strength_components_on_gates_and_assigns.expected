@@ -1,0 +1,9 @@
+v=1 assign: su=Su1 st=St1 pu=Pu1 we=We1 (weak0,supply1)=Su1 (strong1,pull0)=St1
+v=1 assign: (highz0,strong1)=St1 (weak0,highz1)=HiZ
+v=1 gate: buf su=Su1 not pu=Pu0 buf (pull0,weak1)=We1 not (strong0,highz1)=St0
+v=0 assign: su=Su0 st=St0 pu=Pu0 we=We0 (weak0,supply1)=We0 (strong1,pull0)=Pu0
+v=0 assign: (highz0,strong1)=HiZ (weak0,highz1)=We0
+v=0 gate: buf su=Su0 not pu=Pu1 buf (pull0,weak1)=Pu0 not (strong0,highz1)=HiZ
+v=x assign: su=SuX st=StX pu=PuX we=WeX (weak0,supply1)=37X (strong1,pull0)=56X
+v=x assign: (highz0,strong1)=StH (weak0,highz1)=WeL
+v=x gate: buf su=SuX not pu=PuX buf (pull0,weak1)=53X not (strong0,highz1)=StL

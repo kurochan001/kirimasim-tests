@@ -1,0 +1,4 @@
+area=9 scale=2 base scale=2 tick=5
+name=leaf size=3 made=5
+attr_prop=2 LPV=11 PV=12 scoped PV=12 node v=9
+randomize ok=1 r<10=1

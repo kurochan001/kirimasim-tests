@@ -1,0 +1,10 @@
+timing checks of u1: 2
+  $hold: module test_vpi_tchk_relations_path_delays.u1, reference clk, its check 1, data d, its check 1, limit 2, now 2
+  $setup: module test_vpi_tchk_relations_path_delays.u1, reference clk, its check 1, data d, its check 1, limit 4, now 7
+timing checks of u2: 1
+  $width: module test_vpi_tchk_relations_path_delays.u2, reference clk, its check 1, data none, limit 5, now 8
+delay expressions of the paths of u1: 1
+  path to y: value 3
+delay expressions of the paths of u2: 2
+  path to w: list operation 1, operands sorted: 1 2 3 4 5 6
+  path to z: list operation 1, operands sorted: 1 2

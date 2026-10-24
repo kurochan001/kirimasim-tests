@@ -1,0 +1,7 @@
+signing: bv=-16 bv[1]=f lu=255 rs=-4 su=65535 ls=-1 ws=-4
+inline: ps=-16 ps.hi=f pu.halves[1]=a parr[2].f=11 bits 6
+enum: bits 2 first RED BLUE=3
+modifiers: c=7 vl=1 st=3
+lifetimes: automatic 1 1 static 1 2
+declarators: arr=4 5 6 dyn size 2 b.k=9
+storage: keep=11 src=22

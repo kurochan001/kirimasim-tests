@@ -1,0 +1,11 @@
+$vt_keep(1): nothing stored yet, vpi_put_userdata returns 1
+$vt_keep(1): counter of place 1, now 1
+$vt_keep(2): nothing stored yet, vpi_put_userdata returns 1
+$vt_keep(2): counter of place 2, now 1
+$vt_keep(1): counter of place 1, now 2
+$vt_keep(2): counter of place 2, now 2
+vpi_put_userdata PLI_INT32 (*)(vpiHandle, void *) 1
+vpi_get_userdata void *(*)(vpiHandle) 1
+$vt_misuse: vpi_put_userdata on a variable returns 0
+$vt_misuse: vpi_get_userdata on a variable returns NULL
+$vt_misuse: vpi_get_userdata of its own call returns NULL

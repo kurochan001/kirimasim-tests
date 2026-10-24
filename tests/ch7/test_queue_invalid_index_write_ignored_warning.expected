@@ -1,0 +1,2 @@
+after invalid writes: size=3 5 6 7
+after q[$+1] write: size=4 last=8

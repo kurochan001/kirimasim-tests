@@ -1,0 +1,11 @@
+always vpiAlways in test_vpi_process_kinds_relations: statement event control: same process 1, scope test_vpi_process_kinds_relations
+always vpiAlwaysComb in test_vpi_process_kinds_relations: statement assignment: same process 1, scope test_vpi_process_kinds_relations
+always vpiAlwaysFF in test_vpi_process_kinds_relations: statement event control: same process 1, scope test_vpi_process_kinds_relations
+always vpiAlwaysLatch in test_vpi_process_kinds_relations: statement if: same process 1, scope test_vpi_process_kinds_relations
+assignment in fin_blk: same process 1, scope test_vpi_process_kinds_relations.fin_blk
+assignment in init_blk: same process 1, scope test_vpi_process_kinds_relations.init_blk
+assignment in the if of always_latch: same process 1, scope test_vpi_process_kinds_relations
+final in test_vpi_process_kinds_relations: statement named begin: same process 1, scope test_vpi_process_kinds_relations
+initial in test_vpi_process_kinds_relations.u: statement assignment: same process 1, scope test_vpi_process_kinds_relations.u
+initial in test_vpi_process_kinds_relations: statement named begin: same process 1, scope test_vpi_process_kinds_relations
+lines: 10

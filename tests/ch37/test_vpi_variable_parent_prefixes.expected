@@ -1,0 +1,27 @@
+solo: parent NULL, constant select 1
+ra: parent NULL, constant select 1
+un: parent NULL, constant select 1
+mv: parent NULL, constant select 1
+obj: parent NULL, constant select 1
+ra[1]: name ra[1], full name test_vpi_variable_parent_prefixes.ra[1], decompiled ra[1], parent ra (is ra 1), constant select 1
+ra[1].k: name k, full name test_vpi_variable_parent_prefixes.ra[1].k, decompiled ra[1].k, parent ra[1] (is ra[1] 1), constant select 1
+ra[1].w: name w, full name test_vpi_variable_parent_prefixes.ra[1].w, decompiled ra[1].w, parent ra[1] (is ra[1] 1), constant select 1
+ra[1].in: name in, full name test_vpi_variable_parent_prefixes.ra[1].in, decompiled ra[1].in, parent ra[1] (is ra[1] 1), constant select 1
+ra[1].w[0]: name w[0], full name test_vpi_variable_parent_prefixes.ra[1].w[0], decompiled ra[1].w[0], parent w (is w 1), constant select 1
+ra[1].in.c: name c, full name test_vpi_variable_parent_prefixes.ra[1].in.c, decompiled ra[1].in.c, parent in (is in 1), constant select 1
+ra[1].in.c by full name from the top 1, by decompiled name in the module 1
+un.raw: name raw, full name test_vpi_variable_parent_prefixes.un.raw, decompiled un.raw, parent un (is un 1), constant select 1
+un.hl: name hl, full name test_vpi_variable_parent_prefixes.un.hl, decompiled un.hl, parent un (is un 1), constant select 1
+un.hl.h: name h, full name test_vpi_variable_parent_prefixes.un.hl.h, decompiled un.hl.h, parent hl (is hl 1), constant select 1
+mv[2]: name mv[2], full name test_vpi_variable_parent_prefixes.mv[2], decompiled mv[2], parent mv (is mv 1), constant select 1
+bits of mv[2]: 12, with mv[2] as parent 12, constant select 12
+argument obj.m: name m, full name NULL, decompiled obj.m, parent obj (is obj 1), constant select 0
+argument obj.m: value 5
+argument obj.sm: full name test_vpi_variable_parent_prefixes.pc::sm, value 6
+argument pc::sm: full name test_vpi_variable_parent_prefixes.pc::sm, value 6
+argument ra[k].k: constant select 0, value 7
+argument ra[1].k: constant select 1, value 7
+m from the class object of obj: found, parent NULL, value 5
+m from the class defn pc: found, parent NULL
+da[0]: constant select 0
+rd[0].k: constant select 0

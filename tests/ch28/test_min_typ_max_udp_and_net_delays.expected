@@ -1,0 +1,6 @@
+rise +1: udp=0 net=0
+rise +10: udp=1 net=1
+fall +1: udp=1 net=1
+fall +10: udp=0 net=0
+turn-off +1: net=0
+turn-off +10: net=z

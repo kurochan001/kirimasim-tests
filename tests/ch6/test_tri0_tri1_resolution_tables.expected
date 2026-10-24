@@ -1,0 +1,19 @@
+00 tri0=0 St0 tri1=0 St0
+01 tri0=x StX tri1=x StX
+0x tri0=x StX tri1=x StX
+0z tri0=0 St0 tri1=0 St0
+10 tri0=x StX tri1=x StX
+11 tri0=1 St1 tri1=1 St1
+1x tri0=x StX tri1=x StX
+1z tri0=1 St1 tri1=1 St1
+x0 tri0=x StX tri1=x StX
+x1 tri0=x StX tri1=x StX
+xx tri0=x StX tri1=x StX
+xz tri0=x StX tri1=x StX
+z0 tri0=0 St0 tri1=0 St0
+z1 tri0=1 St1 tri1=1 St1
+zx tri0=x StX tri1=x StX
+zz tri0=0 Pu0 tri1=1 Pu1
+c=0 weak: tri0=Pu0 tri1=Pu1 pull: tri0=Pu0 tri1=PuX
+c=1 weak: tri0=Pu0 tri1=Pu1 pull: tri0=PuX tri1=Pu1
+c=z weak: tri0=Pu0 tri1=Pu1 pull: tri0=Pu0 tri1=Pu1

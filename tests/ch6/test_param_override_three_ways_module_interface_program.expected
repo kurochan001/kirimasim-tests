@@ -1,0 +1,9 @@
+module ordered: 10 20 3
+module named: 11 2 30
+module defparam: 1 22 3
+interface ordered: 10 20 3
+interface named: 11 2 30
+interface defparam: 1 22 3
+program test_param_override_three_ways_module_interface_program.p_def: 1 22 3
+program test_param_override_three_ways_module_interface_program.p_ord: 10 20 3
+program test_param_override_three_ways_module_interface_program.p_named: 11 2 30

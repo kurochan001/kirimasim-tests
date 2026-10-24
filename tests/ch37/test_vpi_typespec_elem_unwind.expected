@@ -1,0 +1,7 @@
+vb: bit typespec (name NULL, ranges 3:0 1:0, left 3, right 0, vector 1) -> bit typespec (name NULL, ranges 1:0, left 1, right 0, vector 1) -> bit typespec (name NULL, ranges none, vector 0) -> NULL
+vl: logic typespec (name NULL, ranges 5:2, left 5, right 2, vector 1) -> logic typespec (name NULL, ranges none, vector 0) -> NULL
+vs: logic typespec (name NULL, ranges none, vector 0) -> NULL
+vpa: packed array typespec (name NULL, left 1, right 0, vector 1) -> packed array typespec (name eu_row, left 2, right 0, vector 1) -> struct typespec (name test_vpi_typespec_elem_unwind_s) -> NULL
+vpu: packed array typespec (name NULL, left 3, right 1, vector 1) -> union typespec (name test_vpi_typespec_elem_unwind_u) -> NULL
+vpe: packed array typespec (name NULL, left 0, right 1, vector 1) -> enum typespec (name test_vpi_typespec_elem_unwind_e) -> NULL
+va: array typespec (name NULL, ranges 1:0 0:2, left 1, right 0) -> array typespec (name arr_t, ranges 0:2, left 0, right 2) -> logic typespec (name nib_t, ranges 3:0, left 3, right 0, vector 1) -> logic typespec (name NULL, ranges none, vector 0) -> NULL

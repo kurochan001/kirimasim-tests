@@ -1,0 +1,7 @@
+bits: 4 4 32
+unsigned base: 15 neg=0
+signed base: -1 neg=1
+int base: -1 neg=1
+SN + I_NEG = -2
+U15 + I_NEG = 14
+uv * 2 = 30

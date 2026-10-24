@@ -1,0 +1,7 @@
+5: vpiNoDelay 20 with time_p NULL, v=20
+5: vpiNoDelay 21 with a time_p of 7, v=21
+15: after vpiForceFlag v=30 n=40
+21: design v=30 n=40
+25: vpiReleaseFlag gives v 30 and n 12 in value_p
+25: after vpiReleaseFlag v=30 n=12
+31: design v=3 n=12

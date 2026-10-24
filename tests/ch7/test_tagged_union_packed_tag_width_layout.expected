@@ -1,0 +1,6 @@
+sizes: u2=9 u3=8 u4=6 u5=7 u8=5 u9=6 in=8 out=9
+u2: B member bits=c3, tags differ=1
+u3: B member bits=2d, C member bits=5
+u3: tags differ A/B=1 B/C=1 A/C=1, B tag same for 2d and 00=1
+out: Y low bits equal the inner union=1, Q member bits=55
+out: X member bits=3, outer tags differ=1

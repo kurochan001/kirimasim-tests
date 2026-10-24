@@ -1,0 +1,4 @@
+15: after vpiForceFlag of m[0] to 1, m=11
+21: design m=13
+25: vpiReleaseFlag of m[0] gives 0 in value_p, m=12
+31: design m=12

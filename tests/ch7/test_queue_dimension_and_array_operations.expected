@@ -1,0 +1,8 @@
+dimensions: [$] size=300 [$:9] size=10
+equality: q==r=1 q!=r=0
+after r[1]=9: q==r=0 q!=r=1
+indexing: q[0]=3 q[$]=2 q[$-1]=1
+concatenation and slice: size=4 0 1 2 4
+element write and foreach: q[2]=7 weighted sum=27
+methods: sum=12 $size=4 $right=3
+with fixed arrays: q size=4 first=10 g[1]=10 g[3]=30

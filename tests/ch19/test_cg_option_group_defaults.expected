@@ -1,0 +1,5 @@
+plain pa 1/4; set pa 0/4, pb 1/4, ab 0/16, ab1 1/16
+plain pa 1/4; set pa 1/4, pb 1/4, ab 1/16, ab1 1/16
+automatic bins: pc 2, pd 4
+at_least: plain pa 1; set pa 2, pb 1, ab 2, ab1 1
+not passed down: pa weight 1, goal 100, comment ""; ab weight 1

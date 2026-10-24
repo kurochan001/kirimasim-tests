@@ -1,0 +1,3 @@
+num: int bits=32 value=3 below=1
+name: string value=GREEN len=5 lower=green
+non-member: "" len=0

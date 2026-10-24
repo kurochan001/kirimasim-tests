@@ -1,0 +1,9 @@
+colon range: 1 1 0 0
+$ bounds: 1 0 1 1 1 0
+reversed: 0 0 1
+overlap: 1 0
++/-: 1 1 0 1 0 1
+real A: 1 0 0
+==: 1 1 0 1 0
+==?: 1 0 x
+result: 1 0 x 1

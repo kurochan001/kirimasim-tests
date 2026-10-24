@@ -1,0 +1,4 @@
+positional: size=3 tag=pp seen=5 echo=10
+defaults: size=4 tag=r seen=7 echo=14
+named: size=1 tag=nm seen=2 echo=4
+after default: size=9 tag=qq seen=1 echo=2 flag=0 bits=1

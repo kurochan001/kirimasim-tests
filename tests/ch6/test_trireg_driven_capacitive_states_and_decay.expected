@@ -1,0 +1,13 @@
+driven 1: small=St1 medium=St1 large=St1 default=St1 weak=We1
+never driven: LaX
+stored 1: small=Sm1 medium=Me1 large=La1 default=Me1 weak=Me1
+driven x: small=StX medium=StX large=StX default=StX weak=WeX
+stored x: small=SmX medium=MeX large=LaX default=MeX weak=MeX
+driven 0: small=St0 medium=St0 large=St0 default=St0 weak=We0
+stored 0: small=Sm0 medium=Me0 large=La0 default=Me0 weak=Me0
+decay driven: decaying=St1 ideal=St1
+off for 3: decaying=Me1 ideal=Me1
+driven again: decaying=St0 ideal=St0
+off again for 3: decaying=Me0 ideal=Me0
+off again for 5: decaying=MeX ideal=Me0
+off again for 105: decaying=MeX ideal=Me0

@@ -1,0 +1,5 @@
+4: module tick
+5: p_first calls $exit()
+8: module tick
+12: module tick
+15: p_second calls $exit

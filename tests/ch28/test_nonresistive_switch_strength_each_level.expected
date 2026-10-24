@@ -1,0 +1,14 @@
+su Su1: nmos=St1 pmos=St1 cmos=St1 tran=St1 tranif0=St1 tranif1=St1
+st St1: nmos=St1 pmos=St1 cmos=St1 tran=St1 tranif0=St1 tranif1=St1
+pu Pu1: nmos=Pu1 pmos=Pu1 cmos=Pu1 tran=Pu1 tranif0=Pu1 tranif1=Pu1
+we We1: nmos=We1 pmos=We1 cmos=We1 tran=We1 tranif0=We1 tranif1=We1
+me Me1: nmos=Me1 pmos=Me1 cmos=Me1 tran=Me1 tranif0=Me1 tranif1=Me1
+sm Sm1: nmos=Sm1 pmos=Sm1 cmos=Sm1 tran=Sm1 tranif0=Sm1 tranif1=Sm1
+hz HiZ: nmos=HiZ pmos=HiZ cmos=HiZ tran=HiZ tranif0=HiZ tranif1=HiZ
+su Su0: nmos=St0 pmos=St0 cmos=St0 tran=St0 tranif0=St0 tranif1=St0
+st St0: nmos=St0 pmos=St0 cmos=St0 tran=St0 tranif0=St0 tranif1=St0
+pu Pu0: nmos=Pu0 pmos=Pu0 cmos=Pu0 tran=Pu0 tranif0=Pu0 tranif1=Pu0
+we We0: nmos=We0 pmos=We0 cmos=We0 tran=We0 tranif0=We0 tranif1=We0
+me Me0: nmos=Me0 pmos=Me0 cmos=Me0 tran=Me0 tranif0=Me0 tranif1=Me0
+sm Sm0: nmos=Sm0 pmos=Sm0 cmos=Sm0 tran=Sm0 tranif0=Sm0 tranif1=Sm0
+hz HiZ: nmos=HiZ pmos=HiZ cmos=HiZ tran=HiZ tranif0=HiZ tranif1=HiZ

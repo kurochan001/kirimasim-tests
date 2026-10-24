@@ -1,0 +1,9 @@
+variables of the module (5): mem n r re s
+variables of bus (2): ii il
+variables of blk (2): bl bv
+variables of g (1): gv
+n: instance test_vpi_variable_scope_relations (expected one 1), scope test_vpi_variable_scope_relations (expected one 1)
+bus.ii: instance bus (expected one 1), scope bus (expected one 1)
+bus.il: instance bus (expected one 1), scope bus (expected one 1)
+blk.bv: instance test_vpi_variable_scope_relations (expected one 1), scope blk (expected one 1)
+g.gv: instance test_vpi_variable_scope_relations (expected one 1), scope g (expected one 1)

@@ -1,0 +1,13 @@
+at 1: class objects found 1
+mb_full: messages 3, values 10 20 30
+mb_full: waiting 0, of type vpiThread 0, distinct 1
+mb_empty: messages 0, values
+mb_empty: waiting 1, of type vpiThread 1, distinct 1
+sem: waiting 2, of type vpiThread 2, distinct 1
+at 2: class objects found 1
+mb_full: messages 2, values 20 30
+mb_full: waiting 0, of type vpiThread 0, distinct 1
+mb_empty: messages 0, values
+mb_empty: waiting 0, of type vpiThread 0, distinct 1
+sem: waiting 0, of type vpiThread 0, distinct 1
+taken 10, received 5, processes done 3

@@ -1,0 +1,5 @@
+valid: qi[2]=7 ql[1]=2 qs[1]=b
+int: [-1]=0 [size]=0 [100]=0 [x]=0 [z]=0
+logic: [-1]=x [size]=x [100]=x [x]=x [z]=x
+string: [-1]="" [size]="" [x]=""
+sizes unchanged: 3 2 2

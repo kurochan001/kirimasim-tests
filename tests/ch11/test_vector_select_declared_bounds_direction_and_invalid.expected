@@ -1,0 +1,10 @@
+declared bounds: 1 1 1 0
+indexed: 000 100 011 101
+self-determined index: 0 1
+invalid bit, 4-state: x x x
+invalid bit, 2-state: 0 0
+wholly out part-select: xxxx 0000
+x base part-select: xxxx
+partly out part-select: xx10
+after invalid writes: 10100110
+after partly out write: 01100110

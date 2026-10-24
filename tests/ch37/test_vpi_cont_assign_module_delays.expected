@@ -1,0 +1,10 @@
+assignment to w: module test_vpi_cont_assign_module_delays, delay expression value 4, delays 4, value 0101
+  bit offset 0: delay expression value 4, delays 4, value 1
+  bit offset 1: delay expression value 4, delays 4, value 0
+  bit offset 2: delay expression value 4, delays 4, value 1
+  bit offset 3: delay expression value 4, delays 4, value 0
+assignment to o: module test_vpi_cont_assign_module_delays.s, delay expression list operation 1, operands 2 3, delays 2 3, value 1010
+  bit offset 0: delay expression list operation 1, operands 2 3, delays 2 3, value 0
+  bit offset 1: delay expression list operation 1, operands 2 3, delays 2 3, value 1
+  bit offset 2: delay expression list operation 1, operands 2 3, delays 2 3, value 0
+  bit offset 3: delay expression list operation 1, operands 2 3, delays 2 3, value 1

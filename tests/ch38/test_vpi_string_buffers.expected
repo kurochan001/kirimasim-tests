@@ -1,0 +1,2 @@
+vpi_get_str of alpha: 'alpha', after vpi_get_value of beta: 'alpha', after vpi_get_str of beta: 'beta'
+vpi_get_value of alpha: '1010', after vpi_get_str of beta: '1010', after vpi_get_value of beta: '0101'

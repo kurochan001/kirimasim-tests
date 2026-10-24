@@ -1,0 +1,13 @@
+2: cbStmt vpiAssignStmt, q=0
+2: cbAssign: obj vpiAssignStmt, value 8
+3: cbStmt vpiDeassign, q=8
+3: cbDeassign: obj vpiDeassign, value 8
+3: cbStmt vpiForce, w=1
+3: cbForce: obj vpiForce, value 9
+4: cbStmt vpiRelease, w=9
+4: cbRelease: obj vpiRelease, value 1
+4: cbStmt vpiEventStmt
+4: cbValueChange on the event statement: obj vpiEventStmt, value NULL
+4: cbStmt vpiDisable
+4: cbDisable: obj the named fork or its system task call: yes
+24: design end, q=8 w=1

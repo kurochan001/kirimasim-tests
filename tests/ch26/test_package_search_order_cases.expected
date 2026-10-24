@@ -1,0 +1,6 @@
+import so_e::c: c=4
+import so_i::c: c=7 so_e::c=4 so_e::YES=5
+import so_i::*: c=7 so_e::c=4 so_e::YES=5
+import so_e::*, so_i::c: c=7 YES=5
+import so_e::*, local c: c=3 v=5 NO=4
+import so_e::*: c=4

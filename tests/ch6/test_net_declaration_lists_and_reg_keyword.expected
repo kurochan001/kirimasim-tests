@@ -1,0 +1,4 @@
+list: la=1010 lb=0101 lc[0]=1011 lc[1]=1001 bits 4 4 4
+wand list: pa=10 pb=01
+range and signing only: ws=-8 bits 4
+reg after other tokens: wr=1010 bits 4 wpr=1

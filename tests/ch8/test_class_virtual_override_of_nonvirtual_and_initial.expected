@@ -1,0 +1,3 @@
+who: c0 handle=c0 c1 handle=c2 c2 handle=c2
+scale: c0 handle=8,15 c1 handle=8,15
+ini: c0 handle=c0 ini c1 handle=c1 ini c2 handle=c1 ini

@@ -1,0 +1,7 @@
+type, covergroup: "type note" goal 80
+type, coverpoint: "point type note" goal 60 weight 3
+type, cross: "cross type note" goal 40 weight 2
+covergroup: name "first" "group note" goal 90
+coverpoint: "point note" goal 70
+cross: "cross note" goal 50 weight 4 cross_num_print_missing 5
+cg instance 33.33, cg_m type 62.50

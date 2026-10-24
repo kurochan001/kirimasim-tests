@@ -1,0 +1,11 @@
+s=0 a=0 b=0: mux_nonansi=0 mux_ansi=0
+s=0 a=0 b=1: mux_nonansi=0 mux_ansi=0
+s=0 a=1 b=0: mux_nonansi=1 mux_ansi=1
+s=0 a=1 b=1: mux_nonansi=1 mux_ansi=1
+s=1 a=0 b=0: mux_nonansi=0 mux_ansi=0
+s=1 a=0 b=1: mux_nonansi=1 mux_ansi=1
+s=1 a=1 b=0: mux_nonansi=0 mux_ansi=0
+s=1 a=1 b=1: mux_nonansi=1 mux_ansi=1
+en=1 d=1: latch_nonansi=1 latch_ansi=1
+en=0 d=0: latch_nonansi=1 latch_ansi=1
+en=1 d=0: latch_nonansi=0 latch_ansi=0

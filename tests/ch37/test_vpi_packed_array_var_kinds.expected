@@ -1,0 +1,9 @@
+pas: packed array var 1, packed 1, vector 1, size 24, 2 ranges, product of their sizes 6
+  intermediate packed array vars 3 (both flags TRUE 3), leaves 6 (struct vars 6, both flags TRUE 6)
+pau: packed array var 1, packed 1, vector 1, size 16, 1 ranges, product of their sizes 4
+  intermediate packed array vars 0 (both flags TRUE 0), leaves 4 (union vars 4, both flags TRUE 4)
+pae: packed array var 1, packed 1, vector 1, size 12, 2 ranges, product of their sizes 6
+  intermediate packed array vars 2 (both flags TRUE 2), leaves 6 (enum vars 6, both flags TRUE 6)
+pae[1]: constant select 1
+pae[1][2]: constant select 1
+subelements of dpe[0] (2): constant select 0 0

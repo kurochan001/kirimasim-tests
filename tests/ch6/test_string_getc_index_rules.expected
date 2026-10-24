@@ -1,0 +1,9 @@
+type: byte bits=8
+i=-1 getc=0 index=0
+i=0 getc=65 index=65
+i=1 getc=122 index=122
+i=2 getc=-23 index=-23
+i=3 getc=0 index=0
+i=99 getc=0 index=0
+int index: -23
+empty: getc(0)=0 getc(-1)=0

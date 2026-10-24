@@ -1,0 +1,2 @@
+embedded: a.emb_cg null=0 b.emb_cg null=1
+ordinary: b.ext same as a.ext=1, b.ext null=0

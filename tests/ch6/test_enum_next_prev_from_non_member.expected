@@ -1,0 +1,8 @@
+member C: next=A
+member A: prev=C
+7: next=0 name=""
+7: prev=0 name=""
+7: next(2)=0
+0: prev=0
+logic 6: next=xxx
+logic 6: prev=xxx

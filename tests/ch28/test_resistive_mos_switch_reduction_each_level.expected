@@ -1,0 +1,16 @@
+su Su1: rnmos=Pu1 rpmos=Pu1 rcmos=Pu1
+st St1: rnmos=Pu1 rpmos=Pu1 rcmos=Pu1
+pu Pu1: rnmos=We1 rpmos=We1 rcmos=We1
+la La1: rnmos=Me1 rpmos=Me1 rcmos=Me1 rtran=Me1
+we We1: rnmos=Me1 rpmos=Me1 rcmos=Me1
+me Me1: rnmos=Sm1 rpmos=Sm1 rcmos=Sm1
+sm Sm1: rnmos=Sm1 rpmos=Sm1 rcmos=Sm1
+hz HiZ: rnmos=HiZ rpmos=HiZ rcmos=HiZ
+su Su0: rnmos=Pu0 rpmos=Pu0 rcmos=Pu0
+st St0: rnmos=Pu0 rpmos=Pu0 rcmos=Pu0
+pu Pu0: rnmos=We0 rpmos=We0 rcmos=We0
+la La0: rnmos=Me0 rpmos=Me0 rcmos=Me0 rtran=Me0
+we We0: rnmos=Me0 rpmos=Me0 rcmos=Me0
+me Me0: rnmos=Sm0 rpmos=Sm0 rcmos=Sm0
+sm Sm0: rnmos=Sm0 rpmos=Sm0 rcmos=Sm0
+hz HiZ: rnmos=HiZ rpmos=HiZ rcmos=HiZ

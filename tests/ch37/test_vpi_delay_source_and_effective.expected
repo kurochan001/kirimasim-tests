@@ -1,0 +1,10 @@
+g1 source delay: expression of value 3
+g2 source delay: operation, list 1, operands (sorted) 2 4
+g1 delays in use before vpi_put_delays: 3 3
+g1 delays in use after vpi_put_delays: 7 7
+g1 source delay after vpi_put_delays: expression of value 3
+r read back after vpi_put_value: 60
+5: y1=x y2=0 r=3c
+8: y1=0 y2=0
+15: y1=0 y2=1
+18: y1=1 y2=1

@@ -1,0 +1,3 @@
+r: format vpiRealVal, real -2.25
+vec: format vpiVectorVal, aval a5c bval 000
+s: format vpiScalarVal or vpiStrengthVal yes, logic value is vpi1: yes

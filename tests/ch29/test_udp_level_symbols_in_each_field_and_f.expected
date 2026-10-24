@@ -1,0 +1,15 @@
+inv: a=0 y=1
+inv: a=1 y=0
+inv: a=x y=x
+sel: rising c with d=0: q=1
+sel: rising c with d=0: q=0
+sel: rising c with d=1: q=x
+sel: rising c with d=0: q=1
+sel: rising c with d=x: q=0
+k=1: ff_f=1 ff_10=1
+k=0: ff_f=0 ff_10=0
+k=1: ff_f=1 ff_10=1
+k=x: ff_f=x ff_10=x
+k=0: ff_f=x ff_10=x
+k=1: ff_f=1 ff_10=1
+k=0: ff_f=0 ff_10=0

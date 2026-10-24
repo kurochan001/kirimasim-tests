@@ -1,0 +1,8 @@
+generate: 7
+unit: 2 package: 3 interface: 13 module: 30
+begin: 11
+fork: 12
+function: 10
+task: 15
+checker: 15
+program: 5

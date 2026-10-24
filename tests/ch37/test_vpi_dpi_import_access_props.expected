@@ -1,0 +1,5 @@
+vt_dpi_pure: function, access vpiDPIImportAcc, pure 1, context 0
+vt_dpi_ctx: function, access vpiDPIImportAcc, pure 0, context 1
+vt_dpi_plain: function, access vpiDPIImportAcc, pure 0, context 0
+vt_dpi_ctx_task: task, access vpiDPIImportAcc, pure 0, context 1
+sv_exported: function, access vpiDPIExportAcc, pure 0, context 0

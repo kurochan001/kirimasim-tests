@@ -1,0 +1,17 @@
+fd from $fopen has bit 31 set: 1
+vpi_mcd_open opened 29 files, then returned 0
+one bit each: 1, never bit 0 or bit 31: 1, all different and not fm: 1
+with fm they set exactly bits 1 to 30: 1
+line one: abc| 3.14|7   |01a|
+line two: ok 50%
+vpi_mcd_printf returned 30, vpi_mcd_vprintf returned 17
+vpi_mcd_printf returns PLI_INT32: 1
+vpi_mcd_close of the 29 files returned 0
+vpi_mcd_printf and vpi_mcd_vprintf to a closed channel returned EOF: 1 1
+file 00: line one: abc| 3.14|7   |01a|
+file 00: line two: ok 50%
+file 00: written by $fdisplay to a vpi_mcd_open descriptor
+files 01 to 28 holding just the two lines: 28
+fm: line one: abc| 3.14|7   |01a|
+fm: line two: ok 50%
+characters in the file of the fd: 0

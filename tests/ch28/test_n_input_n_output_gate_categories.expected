@@ -1,0 +1,5 @@
+abcd=0000: or2=0 or4=0 nor3=1 xnor3=1 xnor4=1 not=111
+abcd=0001: or2=0 or4=1 nor3=1 xnor3=1 xnor4=0 not=000
+abcd=0010: or2=0 or4=1 nor3=0 xnor3=0 xnor4=0 not=111
+abcd=0100: or2=1 or4=1 nor3=0 xnor3=0 xnor4=0 not=111
+abcd=1000: or2=1 or4=1 nor3=0 xnor3=0 xnor4=0 not=111

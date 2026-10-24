@@ -1,0 +1,7 @@
+p1 = part-select, left 7, right 4, parent v, constant 1, size 4
+p2 = indexed part-select +:, base i, width 3, parent v, constant 0, size 3
+p3 = indexed part-select -:, base 11, width 5, parent v, constant 1, size 5
+p4 = part-select, left 5, right 2, parent mem[j], constant 0, size 4
+p5 = part-select, left 6, right 1, parent mem[2], constant 1, size 6
+p6 = part-select, left 0, right 1, parent dyn, constant 0
+statements: 6

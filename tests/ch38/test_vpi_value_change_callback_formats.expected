@@ -1,0 +1,11 @@
+10: vpiBinStrVal, new structure yes, registered format yes: 1xxx0z10
+11: vpiOctStrVal, new structure yes, registered format yes: xzXZ5
+12: vpiHexStrVal, new structure yes, registered format yes: xazXZ
+13: vpiDecStrVal, new structure yes, registered format yes: 1234
+14: vpiRealVal, new structure yes, registered format yes: 2.50
+15: vpiScalarVal, new structure yes, registered format yes: vpi1
+16: vpiScalarVal, new structure yes, registered format yes: vpiX
+17: vpiScalarVal, new structure yes, registered format yes: vpiZ
+18: vpiScalarVal, new structure yes, registered format yes: vpi0
+19: vpiStringVal, new structure yes, registered format yes: abc
+20: vpiVectorVal, new structure yes, registered format yes: aval 80000006 80 bval 80000003 40

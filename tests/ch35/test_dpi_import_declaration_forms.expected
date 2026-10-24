@@ -1,0 +1,5 @@
+c_count after c_reset(10): 11 then 12
+c_split: result 2, hi 00001234, lo 00005678
+c_twice: v 42
+c_swap: a 8, b 3
+c_count after c_add_hundred: 113

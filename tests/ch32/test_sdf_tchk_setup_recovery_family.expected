@@ -1,0 +1,6 @@
+is: $setup: 20 $hold: $setuphold: 20
+ih: $setup: $hold: 22 $setuphold: 22
+ish: $setup: 20 $hold: 22 $setuphold: 20 22
+ir: $recovery: 13 $removal: $recrem: 13
+im: $recovery: $removal: 32 $recrem: 32
+irr: $recovery: 13 $removal: 32 $recrem: 13 32

@@ -1,0 +1,4 @@
+no data type: w1=x bits 1, range only: wv=x0z1
+logic: wl=10xzzx01 integer: wi=xxxxzz05 bits 32
+typedef: wn=z1x0 packed struct: hi=x lo=01z
+unpacked array: wa[0]=xz wa[1]=z1

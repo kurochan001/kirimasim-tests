@@ -1,0 +1,7 @@
+c1 PU=38 bits=6 [5]=1 [0]=0 neg=0 PUR=2.50
+c1 PR=255 bits=8 neg=0
+c1 PS=-16 bits=16 [15]=1 [0]=0 neg=1
+c1 PSR=-16 bits=8 PI=255 bits=32 PIR=-3 PRL=7.00
+c2 PU=1x0z bits=4
+c2 PR=205 bits=8 PS=-3 bits=3 [2]=1
+c2 PSR=56 bits=8 PI=-1 PIR=3 PRL=2.00

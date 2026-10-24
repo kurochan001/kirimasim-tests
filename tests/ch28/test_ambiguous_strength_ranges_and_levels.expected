@@ -1,0 +1,16 @@
+sources: me1=Me1 me0=Me0 sm1=Sm1 sm0=Sm0
+and (strong1, highz0) 1 & x: StH
+and (strong1, weak0) 1 & x: 36X
+St1 + PuH: St1
+St0 + PuH: St0
+Pu1 + PuH: Pu1
+We1 + StH: 631
+Me1 + PuH: 521
+Me0 + PuL: 520
+Me0 + PuH: 25X
+Me1 + PuL: 52X
+Sm1 + PuH: 511
+Sm0 + PuL: 510
+Sm0 + PuH: 15X
+Sm1 + PuL: 51X
+StH + We1 + PuL + Me0: 56X

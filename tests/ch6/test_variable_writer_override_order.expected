@@ -1,0 +1,16 @@
+procedural: v=01
+assign: v=11
+procedural write under assign: v=11
+assign operand changed: v=12
+force over assign: v=22
+assign operand and procedural write under force: v=22
+force operand changed: v=23
+released to the active assign: v=13
+deassigned: v=13
+procedural after deassign: v=04
+continuous: cv=33
+forced over continuous: cv=44
+released to the continuous assignment: cv=34
+writer 1: m=05
+writer 2: m=06
+writer 1 again: m=07

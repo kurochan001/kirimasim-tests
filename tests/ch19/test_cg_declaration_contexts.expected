@@ -1,0 +1,8 @@
+module m1: cp 25.00, cross 1/8
+module m2: cp 50.00, cross 1/4
+module m3: cp 100.00, cross 1/2
+package: 25.00
+interface: 50.00
+class: 100.00
+program: 75.00
+checker: 25.00

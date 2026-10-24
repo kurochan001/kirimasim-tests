@@ -1,0 +1,3 @@
+intermodule path: vpiInterModPath
+after putting 4 6, two delays: 4 6
+after putting 1 2 5, three delays: 1 2 5

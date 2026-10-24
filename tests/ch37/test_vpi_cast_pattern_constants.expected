@@ -1,0 +1,15 @@
+arr3 = multi-assignment pattern (3, y)
+i1 = cast (b8), typespec int typespec, size 32
+k_bin = constant vpiBinaryConst, size 8
+k_dec = constant vpiDecConst, size 8
+k_hex = constant vpiHexConst, size 8
+k_null = constant vpiNullConst
+k_oct = constant vpiOctConst, size 8
+k_real = constant vpiRealConst
+k_str = constant vpiStringConst, size 16
+n1 = assignment pattern (2, assignment pattern (4, 5))
+s8 = b8, typespec logic typespec
+t1 = assignment pattern (7, 7, 3)
+t2 = assignment pattern (1, 2, 3), typespec struct typespec trip_t
+w1 = cast (b8), typespec logic typespec word_t, size 12
+statements: 14

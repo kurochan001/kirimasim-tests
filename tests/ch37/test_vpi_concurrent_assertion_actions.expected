@@ -1,0 +1,7 @@
+a_as: pass statement assignment to a_ok, fail statement assignment to a_bad
+m_am: pass statement assignment to m_ok, fail statement assignment to m_bad
+c_cv: pass statement assignment to c_hit
+r_rs: pass statement NULL, fail statement NULL
+m_am callbacks: start 3, success 2, failure 1
+r_rs callbacks: start 0, success 0, failure 0
+assert: pass 2, fail 1; assume: pass 2, fail 1; cover: 2

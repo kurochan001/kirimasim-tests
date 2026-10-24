@@ -1,0 +1,6 @@
+unit: 1 2
+package: 3 4
+interface: IP=50 IB=6
+class: CP=90 CB=10 CL=91
+module: MB=12 GEN_P=13 GEN_L=25 MP=150
+program: GP=70 GB=8

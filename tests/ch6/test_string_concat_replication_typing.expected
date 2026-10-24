@@ -1,0 +1,10 @@
+literals as integral: 004800 bits=16
+literals as string: "H" len=1
+literals compared: 1
+with a string: "b" len=1
+with a string compared: 0
+literal replication: bits=16 compared=1
+literal replication as string: "ababab" len=6
+nonconstant replication: "abab" len=4
+zero replication: "" len=0
+nonconstant zero replication: "" len=0

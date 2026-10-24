@@ -1,0 +1,10 @@
+class typespec of b8: definition base
+parameters: K = 2 (local 1, leading back 1), W = 8 (local 0, leading back 1)
+param assign of W: right-hand side value 8
+variables: s_cnt vif vifs x
+vifs among the variables as one vpiArrayVar: 1
+virtual interface vars: 3, of type vpiVirtualInterfaceVar 3, vif among them 1
+methods: get sget t, leading back 3 of 3
+constraints in order: c_a c_ext c_b, leading back 3 of 3
+named events: ev, leading back 1 of 1
+named event arrays: evs, leading back 1 of 1

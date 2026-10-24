@@ -1,0 +1,8 @@
+10: start of time 10, v=0 w=0, new structure: yes, registered reason: yes
+15: start of time 15, v=1 w=0, new structure: yes, registered reason: yes
+20: after delay 20, v=1 w=0, new structure: yes, registered reason: yes
+25: after delay 25, v=2 w=0, new structure: yes, registered reason: yes
+30: next sim time, v=2 w=0, new structure: yes, registered reason: yes
+30: end of time 30, v=3 w=4, new structure: yes, registered reason: yes
+35: read-write synch 35, v=5 w=4, new structure: yes, registered reason: yes
+35: read-only synch 35, v=5 w=4, new structure: yes, registered reason: yes

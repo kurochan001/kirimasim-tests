@@ -1,0 +1,2 @@
+base body saw: b1=10 b2=0 b3=xxxx b4=init
+after construction: b1=11 d1=12 seen_d2=7 d2=8

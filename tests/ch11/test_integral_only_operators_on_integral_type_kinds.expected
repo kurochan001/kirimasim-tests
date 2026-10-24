@@ -1,0 +1,12 @@
+bitwise: 42 fe cc 3f f5
+&= |= ^=: 42 7e 8e
+reduction: 1 0 1 0 1 0 1 1
+shifts: 19 58 0f 2c 7d
+>>= <<=: 1e f0
+>>= >>>= <<<= on byte: 125 -3 -12
+>>>= on logic: 32
+%: 6 4 -2 6 7 2
+%=: 4 -1
+==? !=?: 1 1 0 1 0 1
+concat: 3cf0 99 faa
+string and array concat: abcd 3 3

@@ -1,0 +1,29 @@
+p_inner: expression a
+p_inst: not, operands: instance of p_inner
+p_not: not, operands: b
+p_or: or, operands: a b
+p_ifelse: if-else, operands: a b c
+p_if: if, operands: c a
+p_iff: iff, operands: a b
+p_implies: implies, operands: b c
+p_nimp: |=>, operands: a c
+p_ofb: #-#, operands: b a
+p_nofb: #=#, operands: c b
+p_acc: accept_on, operands: c a
+p_rej: reject_on, operands: b c
+p_sacc: sync_accept_on, operands: a b
+p_srej: sync_reject_on, operands: c a
+p_until: until, strong 0, operands: c a
+p_suntil: until, strong 1, operands: a c
+p_uw: until_with, strong 0, operands: a b
+p_suw: until_with, strong 1, operands: b c
+p_next: nexttime, strong 0, operands: c
+p_snext3: nexttime, strong 1, operands: a 3
+p_alw: always, strong 0, operands: b
+p_salw: always, strong 1, operands: c 1 2
+p_ev: eventually, strong 0, operands: a 1 2
+p_sev: eventually, strong 1, operands: b 2 3
+p_seqw: ##, strong 0, operands: a b 1
+p_seqs: ##, strong 1, operands: b c 2
+p_clk: clocking event posedge clk, property expression a
+p_clk2: clocking event negedge clk2, property expression b

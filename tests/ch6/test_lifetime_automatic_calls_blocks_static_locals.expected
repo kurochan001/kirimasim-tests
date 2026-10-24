@@ -1,0 +1,4 @@
+count: 1101 1102 1103
+fact(5)=120
+block: 5 6 7
+hierarchical: count.calls=3 nb.seen=1103

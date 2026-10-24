@@ -1,0 +1,6 @@
+before: d size=5 q size=1
+from fa: d size=3 10 20 30; q size=3 10 20 30
+concat into d: size=4 20 30 99 10
+concat into q: size=3 30 99 10
+concat into p: size=5 b c x e a
+overlap: ov=1 1 2 3 4 ow=2 3 4 5 5

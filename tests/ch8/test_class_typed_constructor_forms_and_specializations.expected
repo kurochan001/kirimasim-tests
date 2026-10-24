@@ -1,0 +1,5 @@
+ext_c#(5)::new(3): id=15 v=8
+ext_c#()::new: id=12 v=2
+ext_c#(.K(7))::new(.a(1)): id=17 v=8
+new b: id=17 v=8 distinct=1
+new: id=1 v=1

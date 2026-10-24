@@ -1,0 +1,11 @@
+f_int: type vpiIntFunc, signed 1
+f_real: type vpiRealFunc
+f_time: type vpiTimeFunc, signed 0
+f_vec: type vpiSizedFunc, signed 0, range 7:2
+f_svec: type vpiSizedSignedFunc, signed 1, range 3:0
+f_str: type vpiOtherFunc
+io decls of f_int: a b, leading back to it 2 of 2
+io decls of t_io: x y z, leading back to it 3 of 3
+method m1: class defn c1
+method m2: class defn c2
+method t1: class defn c1

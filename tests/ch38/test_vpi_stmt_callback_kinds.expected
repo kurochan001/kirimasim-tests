@@ -1,0 +1,27 @@
+callbacks placed: 24
+vpiBegin (initial block): at 0, vpiSimTime, step=0
+vpiDelayControl: at 0, vpiSimTime, step=0
+vpiAssignment: at 3, vpiScaledRealTime, step=0
+vpiBegin: at 3, vpiSimTime, step=1
+vpiNamedBegin nb: at 3, vpiSimTime, step=2
+vpiFork: at 3, vpiSimTime, step=3
+vpiNamedFork nf: at 3, vpiSimTime, step=4
+vpiIfElse: at 3, vpiSimTime, step=5, calls=0
+vpiCase: at 3, time NULL, step=6
+vpiAssignStmt: at 3, vpiSimTime, step=7, q=0
+vpiDelayControl: at 3, vpiSimTime, step=7
+vpiDeassign: at 4, vpiSimTime, step=7, q=8
+vpiForce: at 4, vpiSimTime, step=7, w=1
+vpiDelayControl: at 4, vpiSimTime, step=7
+vpiRelease: at 5, vpiSimTime, step=7, w=9
+vpiEventStmt: at 5, vpiSimTime, step=7
+vpiTaskCall: at 5, vpiSimTime, step=7, r=0
+vpiWait: at 5, vpiSimTime, step=7, r=11
+vpiDisable: at 5, vpiSimTime, step=12
+vpiNamedBegin fl: at 5, vpiSimTime, step=17
+vpiSysTaskCall: at 5, vpiSimTime, step=20
+design: step=20 calls=4 q=8 r=11 w=1
+vpiWhile: 2 or 3 callbacks: yes, the first two saw calls=1 and calls=2
+vpiRepeat: 3 or 4 callbacks: yes, the first three saw step=14 15 16
+vpiForever: 3 callbacks, which saw step=17 18 19
+fields as 38.36.1.1 gives them in every callback: yes

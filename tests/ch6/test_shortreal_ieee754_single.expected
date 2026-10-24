@@ -1,0 +1,4 @@
+bits: 3f800000 bf400000 3dcccccd
+1 + 2**-30: 3f800000 equal to 1.0 1
+1 + 2**-23: 3f800001 equal to 1.0 0
+from bits: 1

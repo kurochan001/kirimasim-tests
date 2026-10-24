@@ -1,0 +1,16 @@
+00 wire=0 St0 tri=0 St0 weak=We0
+01 wire=x StX tri=x StX weak=WeX
+0x wire=x StX tri=x StX weak=WeX
+0z wire=0 St0 tri=0 St0 weak=We0
+10 wire=x StX tri=x StX weak=WeX
+11 wire=1 St1 tri=1 St1 weak=We1
+1x wire=x StX tri=x StX weak=WeX
+1z wire=1 St1 tri=1 St1 weak=We1
+x0 wire=x StX tri=x StX weak=WeX
+x1 wire=x StX tri=x StX weak=WeX
+xx wire=x StX tri=x StX weak=WeX
+xz wire=x StX tri=x StX weak=WeX
+z0 wire=0 St0 tri=0 St0 weak=We0
+z1 wire=1 St1 tri=1 St1 weak=We1
+zx wire=x StX tri=x StX weak=WeX
+zz wire=z HiZ tri=z HiZ weak=HiZ

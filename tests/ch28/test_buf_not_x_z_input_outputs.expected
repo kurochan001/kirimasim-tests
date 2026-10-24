@@ -1,0 +1,4 @@
+d=0 buf=00 not=11
+d=1 buf=11 not=00
+d=x buf=xx not=xx
+d=z buf=xx not=xx

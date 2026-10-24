@@ -1,0 +1,23 @@
+formals of s_formals:
+  x: no direction, typespec NULL
+  w: no direction, logic typespec
+  i: input, int typespec
+  o: output, int typespec
+  io: inout, int typespec
+variables of s_vars: cnt flag
+full name of s_vars: test_vpi_sequence_decl_operands.s_vars
+full name of s_gen: test_vpi_sequence_decl_operands.g.s_gen
+s_and: and, operands: a b
+s_or: or, operands: b c
+s_udel: unary ##, operands: a 1 3
+s_udel2: unary ##, operands: b 2
+s_bdel: ##, operands: a c 2 4
+s_bdel1: ##, operands: c b 1
+s_rep: [*], operands: a 1 3
+s_rep2: [*], operands: b 2
+s_goto: [->], operands: c 2 4
+s_nc: [=], operands: a 3
+s_dist: ##, operands: (distribution of a) b 1
+s_expr: &&, operands: a b
+s_one: expression c
+s_match: first operand a, match items: assignment to cnt2, call of mark

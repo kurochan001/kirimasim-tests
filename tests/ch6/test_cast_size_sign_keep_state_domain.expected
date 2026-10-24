@@ -1,0 +1,8 @@
+size of bit: bit=1 logic=0 value=00001010
+size of signed bit: bit signed=1 value=11111101
+size of logic: logic=1 bit=0 value=00001x0z
+size of signed logic: logic signed=1 value=11111z01 narrow=0z
+signed of bit: bit signed=1 logic signed=0 value=-6
+unsigned of signed bit: bit=1 value=13
+signed of logic: logic signed=1 bit signed=0 extended=11111x0z
+unsigned of signed logic: logic=1 extended=00001z01

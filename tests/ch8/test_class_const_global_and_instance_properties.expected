@@ -1,0 +1,2 @@
+instance constants: b1.size=10 b2.size=16
+global constants: b1.max_size=16 b2.max_size=16 unit=4 b1.unit=4

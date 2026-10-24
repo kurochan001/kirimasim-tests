@@ -1,0 +1,12 @@
+in driven nmos: in=St1 out=St1
+in driven pmos: in=St1 out=St1
+in driven rnmos: in=St1 out=Pu1
+in driven rpmos: in=St1 out=Pu1
+in driven cmos: in=St1 out=St1
+in driven rcmos: in=St1 out=Pu1
+out driven nmos: in=HiZ out=St0
+out driven pmos: in=HiZ out=St0
+out driven rnmos: in=HiZ out=St0
+out driven rpmos: in=HiZ out=St0
+out driven cmos: in=HiZ out=St0
+out driven rcmos: in=HiZ out=St0

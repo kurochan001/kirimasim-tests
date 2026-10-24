@@ -1,0 +1,12 @@
+a.sort(x) with (x % 10): 13 4 25 7
+a.rsort with (item % 10): 7 25 4 13
+b.sort(): -1 2 3
+b.rsort: 3 2 -1
+f.sort(): f[1]=1 f[2]=3 f[3]=6 f[4]=8
+f.reverse(): f[1]=8 f[2]=6 f[3]=3 f[4]=1
+s.sort(): apple fig pear
+s.sort(w) with (w.len()): fig pear apple
+s.reverse: apple pear fig
+p.rsort with (item.key): three two one
+sh.shuffle(): size=8 sum=36
+sorted again: 1 2 3 4 5 6 7 8

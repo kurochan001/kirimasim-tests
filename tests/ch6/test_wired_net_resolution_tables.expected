@@ -1,0 +1,16 @@
+00 wand=0 triand=0 wor=0 trior=0
+01 wand=0 triand=0 wor=1 trior=1
+0x wand=0 triand=0 wor=x trior=x
+0z wand=0 triand=0 wor=0 trior=0
+10 wand=0 triand=0 wor=1 trior=1
+11 wand=1 triand=1 wor=1 trior=1
+1x wand=x triand=x wor=1 trior=1
+1z wand=1 triand=1 wor=1 trior=1
+x0 wand=0 triand=0 wor=x trior=x
+x1 wand=x triand=x wor=1 trior=1
+xx wand=x triand=x wor=x trior=x
+xz wand=x triand=x wor=x trior=x
+z0 wand=0 triand=0 wor=0 trior=0
+z1 wand=1 triand=1 wor=1 trior=1
+zx wand=x triand=x wor=x trior=x
+zz wand=z triand=z wor=z trior=z

@@ -1,0 +1,6 @@
+parameters of u (5): B (parameter) T (type parameter) U (parameter) V (type parameter) W (parameter)
+B: full name test_vpi_parameter_defaults_types.u.B, value 5, typespec bit typespec, left 3, right 0, default 5
+T: full name test_vpi_parameter_defaults_types.u.T, typespec byte typespec named my_byte_t, default logic typespec named NULL, left 3, right 0
+U: full name test_vpi_parameter_defaults_types.u.U, value 5, left NULL, right NULL
+V: full name test_vpi_parameter_defaults_types.u.V, typespec int typespec named NULL, default int typespec named NULL
+W: full name test_vpi_parameter_defaults_types.u.W, value 9, typespec int typespec, left NULL, right NULL, default 4

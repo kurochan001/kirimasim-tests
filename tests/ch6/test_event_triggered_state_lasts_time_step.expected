@@ -1,0 +1,6 @@
+t=1 trigger process: 1
+t=1 after #0: 1
+t=1 wait after the trigger passed
+t=1 after nonblocking update: 1
+t=2 next time step: 0
+t=3 wait started at time 2 ended

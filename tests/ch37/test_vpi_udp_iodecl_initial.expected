@@ -1,0 +1,6 @@
+u1 (test_vpi_udp_iodecl_initial_set1): io declarations q r s, leading back to this definition: 3 of 3
+u1: initial of type vpiInitial 1, statement an assignment 1, value 1
+u0 (test_vpi_udp_iodecl_initial_set0): io declarations k q r s, leading back to this definition: 4 of 4
+u0: initial of type vpiInitial 1, statement an assignment 1, value 0
+ux (test_vpi_udp_iodecl_initial_xor2): io declarations a b y, leading back to this definition: 3 of 3
+ux: initial NULL

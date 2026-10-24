@@ -1,0 +1,10 @@
+3ff0000000000000 same in C 1
+c004000000000000 same in C 1
+3fd3333333333334 same in C 1
+3ff0000000000001 same in C 1
+7fefffffffffffff same in C 1
+0000000000000001 same in C 1
+0.1 + 0.2 == 0.3: 0
+from C bits: next after 1.0 1, 0.1 1
+realtime: 3fb999999999999a same in C 1
+type(realtime) == type(real): 1

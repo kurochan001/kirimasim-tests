@@ -1,0 +1,9 @@
+one: num=1 ONLY=0 bits=32
+packed dims: bits=4 p=1001 p[1]=Z2 p[0]=Z1
+grid: G=1
+grid: H0=2
+grid: H1=3
+grid: J5=8
+grid: J4=9
+grid: J3=10
+grid: K=11

@@ -1,0 +1,10 @@
+initial q = 1'b0: 0
+initial q = 1'b1: 1
+initial q = 1'bx: x
+initial q = 1'bX: x
+initial q = 1'B0: 0
+initial q = 1'B1: 1
+initial q = 1'Bx: x
+initial q = 1'BX: x
+initial q = 1: 1
+initial q = 0: 0

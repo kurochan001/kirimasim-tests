@@ -1,0 +1,6 @@
+10: n vpiStrengthVal: logic vpi1, s1 vpiStrongDrive
+12: n vpiStrengthVal: logic vpi1, s1 vpiWeakDrive
+14: tv vpiTimeVal: high 2 low 5
+16: iv vpiObjTypeVal: format vpiIntVal, -7
+17: rv vpiObjTypeVal: format vpiRealVal, 1.25
+18: vec vpiObjTypeVal: format vpiVectorVal, aval 5a3 bval 000

@@ -1,0 +1,32 @@
+process of g1: initial
+cont assign of g1: y1 = b
+module of g1: u_mod
+primitive of g1: p_and
+def param of g1: test_vpi_gen_scope_instance_items.g1.u_mod.W
+gen scope array of g1: inner
+program of g1: u_prg
+interface of g1: u_ifc
+alias stmt of g1: s1 = s2
+clocking block of g1: cb
+assertion of g1: a_chk
+module array of g2: u_arr
+primitive array of g2: p_arr
+program array of g2: u_prga
+interface array of g2: u_ifca
+the process of g1: gen scope test_vpi_gen_scope_instance_items.g1
+the cont assign of g1: gen scope test_vpi_gen_scope_instance_items.g1
+g1.u_mod: gen scope test_vpi_gen_scope_instance_items.g1
+g1.p_and: gen scope test_vpi_gen_scope_instance_items.g1
+the def param of g1: gen scope test_vpi_gen_scope_instance_items.g1
+g1.inner: gen scope test_vpi_gen_scope_instance_items.g1
+g1.u_prg: gen scope test_vpi_gen_scope_instance_items.g1
+g1.u_ifc: gen scope test_vpi_gen_scope_instance_items.g1
+the alias stmt of g1: gen scope test_vpi_gen_scope_instance_items.g1
+g1.cb: gen scope test_vpi_gen_scope_instance_items.g1
+g1.a_chk: gen scope test_vpi_gen_scope_instance_items.g1
+g1.gt: gen scope test_vpi_gen_scope_instance_items.g1
+g2.u_arr: gen scope test_vpi_gen_scope_instance_items.g2
+g2.p_arr: gen scope test_vpi_gen_scope_instance_items.g2
+g2.u_prga: gen scope test_vpi_gen_scope_instance_items.g2
+g2.u_ifca: gen scope test_vpi_gen_scope_instance_items.g2
+u_top: gen scope NULL

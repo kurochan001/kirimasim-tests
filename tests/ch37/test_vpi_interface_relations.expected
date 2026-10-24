@@ -1,0 +1,17 @@
+vpiGlobalClocking of o1: test_vpi_interface_relations.o1.gck
+vpiGlobalClocking of o2: test_vpi_interface_relations.o2.gck
+vpiGlobalClocking of p: NULL
+vpiDefaultDisableIff of o1: rst
+vpiDefaultDisableIff of p: NULL
+clocking blocks of c1: 2
+  test_vpi_interface_relations.c1.cb1, vpiInstance is c1 1
+  test_vpi_interface_relations.c1.cb2, vpiInstance is c1 1
+clocking blocks of p: 0
+interface arrays of o1: 1
+  test_vpi_interface_relations.o1.na, vpiInstance is o1 1
+interface arrays of o2: 1
+  test_vpi_interface_relations.o2.na, vpiInstance is o2 1
+interface arrays of p: 0
+vpiInstance of o1.n1: test_vpi_interface_relations.o1, is o1 1
+vpiInstance of o2.n1: test_vpi_interface_relations.o2, is o2 1
+vpiInstance of o1.gck: test_vpi_interface_relations.o1, is o1 1

@@ -1,0 +1,5 @@
+vpi_control PLI_INT32 (*)(PLI_INT32, ...) 1
+4: design running
+5: undefined operation returned 0
+5: vpiFinish returned 1, the routine goes on
+5: end of simulation

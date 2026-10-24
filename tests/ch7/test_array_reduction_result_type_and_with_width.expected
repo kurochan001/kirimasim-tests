@@ -1,0 +1,6 @@
+byte sum: 44, with int'(v): 300, bits 8 and 32
+negative byte sum: -3
+byte product: 0, with int'(item): 512
+bit [7:0] sum: 44, with e + 0: 300
+sum with item[3:0]: 13, bits 4
+bit sum: 1, with int'(item): 3, bits 1

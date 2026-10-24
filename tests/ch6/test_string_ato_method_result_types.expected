@@ -1,0 +1,6 @@
+types: integer integer integer integer real
+bits: 32 32 32 32
+values: 123 127 15 5
+all ones: -1 -1 -1
+negative: 1 1 1
+real: 2.50 doubled=5.00

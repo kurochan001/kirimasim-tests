@@ -1,0 +1,16 @@
+module paths of c1: 3
+  a => y, module test_vpi_module_specify_relations.c1, same instance 1
+  a => z, module test_vpi_module_specify_relations.c1, same instance 1
+  b => z, module test_vpi_module_specify_relations.c1, same instance 1
+module paths of c2: 3
+  a => y, module test_vpi_module_specify_relations.c2, same instance 1
+  a => z, module test_vpi_module_specify_relations.c2, same instance 1
+  b => z, module test_vpi_module_specify_relations.c2, same instance 1
+module paths of the top module: 0
+timing checks of c1: 2
+  vpiHold, module test_vpi_module_specify_relations.c1, same instance 1
+  vpiSetup, module test_vpi_module_specify_relations.c1, same instance 1
+timing checks of c2: 2
+  vpiHold, module test_vpi_module_specify_relations.c2, same instance 1
+  vpiSetup, module test_vpi_module_specify_relations.c2, same instance 1
+timing checks of the top module: 0

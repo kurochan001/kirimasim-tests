@@ -1,0 +1,4 @@
+plain: end 1
+noshowcancelled: end 1
+showcancelled on-event: 15:x 17:1 end 1
+showcancelled on-detect: 12:x 17:1 end 1

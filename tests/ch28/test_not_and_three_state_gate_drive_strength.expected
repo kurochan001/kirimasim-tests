@@ -1,0 +1,4 @@
+d=0 en=0 not=Pu1 bufif0=Pu0 bufif1=HiZ notif0=We1 notif1=HiZ
+d=1 en=0 not=We0 bufif0=We1 bufif1=HiZ notif0=Su0 notif1=HiZ
+d=0 en=1 not=Pu1 bufif0=HiZ bufif1=We0 notif0=HiZ notif1=Su1
+d=1 en=1 not=We0 bufif0=HiZ bufif1=Su1 notif0=HiZ notif1=Pu0

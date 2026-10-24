@@ -1,0 +1,5 @@
+new[3] on 3 elements: 0 0 0
+new[4](d): 1 2 3 0
+t=1 after new[3](d): 5 6 7
+holder at 3: r=99
+t=4: 5 6 7

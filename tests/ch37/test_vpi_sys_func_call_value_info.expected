@@ -1,0 +1,10 @@
+invoking call: $vt_val, system function call 1, argument 3, user-defined 1, type vpiIntFunc, systf info $vt_val, vpiSysFunc, vpiIntFunc
+value of the call after vpi_put_value: 30
+r = 30
+invoking call: $vt_args, system task call 1
+argument 1: system function call $time, user-defined 0, type vpiTimeFunc
+argument 2: system function call $realtime, user-defined 0, type vpiRealFunc
+argument 3: system function call $vt_val, user-defined 1, type vpiIntFunc, systf info $vt_val, vpiSysFunc, vpiIntFunc
+argument 4: operation, null operation 1
+argument 5: constant, vpiNullConst
+argument 6: constant, vpiStringConst

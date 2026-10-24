@@ -1,0 +1,3 @@
+2: the import of sv_self returned normally
+parent block disabled: exported task returned 1, svIsDisabledState 1
+exported task disabled itself: returned 0, svIsDisabledState 0

@@ -1,0 +1,3 @@
+copy: m rand_mode=0 low_m constraint_mode=0 r rand_mode=1 m=42
+randomize ok=1 mismatches=0 m=42
+rc values=16 distinct=16

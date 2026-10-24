@@ -1,0 +1,4 @@
+defaults: h1==null=1 h1===null=1 ch==null=1 n1===n2=1
+same object: == 1 === 1 != 0 !== 0
+other object, same contents: == 0 === 0 != 1 !== 1
+object and null: == 0 === 0 != 1 !== 1

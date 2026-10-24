@@ -1,0 +1,5 @@
+valid: r=1.5 sr=2.5 s=full c.v=1 ic.sides=4 e null=0 vi null=0
+out of bounds: r=0.0 sr=0.0 s="" len=0
+out of bounds null: class=1 interface class=1 event=1 virtual interface=1
+x index: r=0.0 sr=0.0 s="" len=0
+x index null: class=1 interface class=1 event=1 virtual interface=1
