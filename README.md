@@ -705,12 +705,12 @@ only reported, except for the ratchet of the kirimasim job. It has six jobs:
   to the version in the results.
 - **lyra** builds Lyra at the commit that `LYRA_COMMIT` pins in the
   workflow, the one place that names it. Building Lyra builds LLVM from
-  source with Bazel, which takes about 40 minutes, so the build (the
-  executable and its runfiles, copied out of Bazel's tree, without the
-  runfiles manifest that names files in that tree) is kept in the cache by
-  that commit and only a change of the pin builds it again. It runs every
-  test, which takes 35 to 50 minutes and makes it the longest job of the
-  night, and records the commit in the results.
+  source with Bazel, which took 42 to 89 minutes on hosted runners, so the
+  build (the executable and its runfiles, copied out of Bazel's tree,
+  without the runfiles manifest that names files in that tree) is kept in
+  the cache by that commit and only a change of the pin builds it again. It
+  runs every test, which took 35 to 70 minutes and makes it the longest job
+  of the night, and records the commit in the results.
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
   `tools/results_history.py update`, measures behavioral coverage using only
