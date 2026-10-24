@@ -8,7 +8,8 @@
 **日本時間では翌日04:23に開始予定**です。結果の更新時刻は固定ではありません。
 GitHub側の開始遅延、待機中の実行、シミュレータのビルド・テスト時間によって遅くなることがあります。
 
-Icarus、Verilator、kirimasim、nvc、Lyraの5ジョブが終了してから、`publish`が実行されます。
+Icarus、Verilator、kirimasim、Lyraの4ジョブが終了してから、`publish`が実行されます。
+nvcは2026年10月24日に比較対象へ加えましたが、SystemVerilogへの対応が少ないため、10月25日に外しました。それまでのnvcの結果は`history.json`に残りますが、推移図とレポートには描きません。
 Lyraはリリースがないため、ワークフローで固定したコミットを使います。そのビルドはGitHubのランナーで40〜90分かかるので、コミットごとにキャッシュし、固定を変えたときだけビルドし直します。
 `publish`は`main`の実行だけが行います。ほかのブランチで手動実行した場合、結果はartifactとして残るだけで、公開はされません。
 `publish`が結果を集計して`results`ブランチへpushすると、READMEから参照しているグラフと結果レポートが更新されます。
@@ -53,7 +54,6 @@ Lyraはリリースがないため、ワークフローで固定したコミッ�
 | ジョブ | 所要時間 |
 | --- | --- |
 | Icarus | 1〜3分 |
-| nvc | 3〜4分（masterのビルドを含む） |
 | kirimasim | 7〜8分 |
 | Verilator | 約14分（ccacheが効いている場合） |
 | Lyra | テスト35〜70分（キャッシュあり）。固定したコミットを変えた初回は、ビルド42〜89分が加わる |
@@ -86,7 +86,7 @@ IEEE 1800-2023の全動作に対する網羅率とは別の指標です。
   確定値は設計・実行とも未確定です。
 - Nightlyの集計概要：現行の`publish`ジョブが、その回の実行結果だけで生成します。
   出力先は`results`ブランチ直下の`behavior-coverage-summary.md`で、[resultsブランチ](https://github.com/kurochan001/kirimasim-tests/tree/results)から参照できます。
-  2026年10月24日からは、nvcとLyraの結果も集計の対象です（違法系の要求は、`:oracle:`に固定版のトークンがあるIcarusとVerilatorの結果だけを数えます）。
+  2026年10月24日からは、Lyraの結果も集計の対象です（違法系の要求は、`:oracle:`に固定版のトークンがあるIcarusとVerilatorの結果だけを数えます）。
 - [管理手順](../coverage/README.md)：分母、暫定値と確定値、入力ハッシュ、複数テストの集合証拠の扱い。
 - [照合の進捗と指摘](existing-test-matching-review-20261022.md)：現在までの照合と追加テストへの入口。
 
