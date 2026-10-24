@@ -234,6 +234,34 @@ fail it. The expected outputs recorded with Icarus Verilog
 [second workflow](.github/workflows/check.yml) whenever the tests or the
 tools change (see "Workflows").
 
+## Simulation speed
+
+The suite checks what simulators compute, not how fast. For reference, the
+kirimasim repository keeps a comparison of their speed on four small designs
+of its own ([bench/](https://github.com/kurochan001/kirimasim/tree/main/bench)).
+Its latest run, on Linux under WSL2 (AMD Ryzen 9 7950X) on 2026-10-24, gave
+these times: the median of five runs at the stated count less the median of
+five runs with `+n=1`.
+
+| Design | `+n=` | kirimasim | Icarus Verilog 13.0 | Verilator 5.050 | Lyra (C++ backend, default) | Lyra (LLVM backend) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `comb_chain` | 3,000,000 | 8.167 s | 13.266 s | 0.172 s | 30.139 s | 2.749 s |
+| `nba_shift` | 1,000,000 | 20.190 s | 24.315 s | 0.151 s | 143.256 s | 6.059 s |
+| `proc_wait` | 1,000,000 | 6.135 s | 5.399 s | 2.182 s | 70.412 s | 5.933 s |
+| `fork_join` | 4,000,000 | 4.226 s | 6.129 s | 0.998 s | 15.240 s | 4.689 s |
+
+- kirimasim was at commit `31160083c77d` (release build), Icarus Verilog at
+  13.0 stable and Verilator at 5.050. Lyra was at `a2313fdc8707`, built with
+  `bazel build -c opt`, which is not the commit the nightly workflow pins;
+  both of its backends ran at its default `-O 0`. The times do not include
+  building a design (Verilator's C++, Lyra's program).
+- nvc 1.23.0 rejected all four designs when analysing them, so it is not
+  measured.
+- Four small designs on one machine do not stand for the speed of real
+  designs. Build times, startup, memory and the commands that reproduce the
+  run are in kirimasim's
+  [benchmark details](https://github.com/kurochan001/kirimasim/blob/main/docs/BENCHMARKS.md#five-simulators-on-linux-wsl2-2026-10-24).
+
 ## Layout
 
 ```text
