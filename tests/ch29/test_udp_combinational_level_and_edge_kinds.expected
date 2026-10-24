@@ -1,0 +1,6 @@
+t=1 y=0 latch=0 toggle=0
+t=2 y=1 latch=0 toggle=1
+t=3 y=0 latch=1 toggle=1
+t=4 y=1 latch=1 toggle=0
+t=5 y=1 latch=1 toggle=0
+t=6 y=1 latch=1 toggle=1

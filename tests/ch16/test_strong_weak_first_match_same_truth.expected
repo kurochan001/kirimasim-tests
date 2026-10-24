@@ -1,0 +1,8 @@
+matches of s: [ 45 55 115 ]
+matches of first_match(s): [ 45 115 ]
+strong(s): [ 45 115 ]
+strong(first_match(s)): [ 45 115 ]
+weak(s) passes: [ 45 115 ]
+weak(first_match(s)) passes: [ 45 115 ]
+weak(s) failures: [ 5 25 35 45 65 75 85 85 105 115 125 135 ]
+weak(first_match(s)) failures: [ 5 25 35 45 65 75 85 85 105 115 125 135 ]

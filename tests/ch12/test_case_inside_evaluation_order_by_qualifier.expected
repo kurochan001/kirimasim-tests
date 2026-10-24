@@ -1,0 +1,4 @@
+normal match: Eab r=2
+normal default: Eab r=0
+priority: Eab r=2
+unique: first=E E=1 a=1 b=1 c=1 r=2

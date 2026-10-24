@@ -1,0 +1,7 @@
+gates: and=0 nand=1 or=1 nor=0 xor=1 xnor=0 and3=1
+buffers: buf=00 not=1 buf(z)=x
+three-state: bufif1 on=1 off=z bufif0 on=0 notif1 on=0 notif0 off=z
+mos: nmos on=1 off=z pmos on=0 off=z rnmos on=1
+cmos: n on=1 p on=0 off=z
+bidirectional: tran=1 tranif1 off=z tranif0 on=0
+pull: pullup=1 pulldown=0

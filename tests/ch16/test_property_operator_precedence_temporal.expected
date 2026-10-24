@@ -1,0 +1,14 @@
+nexttime a and b: 1
+s_nexttime a and b: 1
+always [0:1] a or b: 2
+s_always [0:1] a or b: 2
+eventually [0:1] a and b: 4
+s_eventually [0:1] a and b: 4
+a until b iff c: 4
+a s_until b iff c: 4
+a until_with b iff c: 1
+a s_until_with b iff c: 1
+a |=> b implies c P: 13
+a |=> b implies c F: 1
+a #=# b implies c P: 4
+a #=# b implies c F: 10

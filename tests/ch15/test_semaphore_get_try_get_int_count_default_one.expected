@@ -1,0 +1,10 @@
+new(4), get(): keys=3
+get(64'h1_0000_0002): keys=1 t=0
+put(3), get(1.6): keys=2 t=0
+get(3) with 2 keys returned at t=3, keys=1
+try_get() has type int, keys=4
+try_get(): positive=1 keys=3
+try_get(64'h1_0000_0002): positive=1 keys=1
+try_get(1.6): result=0 keys=1
+try_get(): positive=1 keys=0
+try_get() with no key: result=0 keys=0

@@ -1,0 +1,5 @@
+@($global_clock): [ 5:P 15:F 25:P 35:P 45:F 55:P 65:F 75:P 85:F ]
+@(posedge gclk): [ 5:P 15:F 25:P 35:P 45:F 55:P 65:F 75:P 85:F ]
+@(posedge gclk iff en): [ 25:P 35:P 45:F 55:P ]
+@(posedge c1 or posedge c2): [ 12:F 14:F 52:P 72:P ]
+@(posedge (c1 | c2)): [ 12:F 52:P 72:P ]

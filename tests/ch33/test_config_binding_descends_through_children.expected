@@ -1,0 +1,3 @@
+test_config_binding_descends_through_children.m1.u_leaf: work.cbd_leaf
+test_config_binding_descends_through_children.m2.u_leaf: work.cbd_leaf_alt
+test_config_binding_descends_through_children.m2.u_leaf.u_sub: work.cbd_sub_alt

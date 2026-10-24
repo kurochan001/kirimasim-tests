@@ -1,0 +1,11 @@
+empty: num=0
+empty: try_get=0 s=unset
+empty: try_peek=0 s=unset
+try_put("a"): positive=1 num=1
+full: try_put("b")=0 num=1
+try_peek: positive=1 s=a num=1
+peek: s=a num=1
+try_get: positive=1 s=a num=0
+t=2: get -> late num=0
+t=5: put("next") returned; other process got full, num=1
+t=9: peek -> x num=1

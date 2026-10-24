@@ -1,0 +1,8 @@
+3 p1 child A done
+7 p1 child B done
+7 p1 wait fork returned
+9 p1 after victim
+11 p1 after outer
+12 p1 after disable fork
+20 p2 child done
+22 p1 done

@@ -1,0 +1,3 @@
+scope_first: delay of 1 ends at 1 ns, SCOPE_VALUE 1
+scope_superseded: delay of 1 ends at 100 ns, SCOPE_VALUE 3
+scope_included: delay of 1 ends at 1000 ns, SCOPE_VALUE 2

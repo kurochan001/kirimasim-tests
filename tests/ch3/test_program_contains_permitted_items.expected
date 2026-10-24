@@ -1,0 +1,4 @@
+t=1 module: count=1000 scale(2)=1002
+t=3 program: count=7 scale(2)=20 box.twice()=42 pr.a+pr.b=9
+t=5 program: second initial procedure
+program final: count=7

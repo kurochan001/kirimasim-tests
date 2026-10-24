@@ -1,0 +1,6 @@
+a_dis: failures 20 30 40
+a_smp x == 0: passes 10 30 40, failures 20
+c_seq x == 0 ##1 x == 1: matches 20
+a_clk posedge clk iff g: ticks 30
+assert (w): passes 10 30, failures 20 40
+assert property (w): passes 20 40, failures 10 30

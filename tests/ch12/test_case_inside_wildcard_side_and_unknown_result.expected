@@ -1,0 +1,15 @@
+wild 011 A
+wild 001 A
+wild 110 C
+wild 100 C
+wild 111 D
+side 010 M
+side 0z0 N
+side 0x0 N
+side z10 N
+after_x 000 P
+after_x 00x Q
+after_x 00z Q
+after_x 001 Q
+after_x 01x R
+after_x 0x0 R

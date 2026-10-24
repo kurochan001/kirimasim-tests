@@ -1,0 +1,9 @@
+t_vpi_systf_data aliases s_vpi_systf_data p_vpi_systf_data 1
+type PLI_INT32 1
+sysfunctype PLI_INT32 1
+tfname PLI_BYTE8 * 1
+calltf PLI_INT32 (*)(PLI_BYTE8 *) 1
+compiletf PLI_INT32 (*)(PLI_BYTE8 *) 1
+sizetf PLI_INT32 (*)(PLI_BYTE8 *) 1
+user_data PLI_BYTE8 * 1
+field order type sysfunctype tfname calltf compiletf sizetf user_data 1

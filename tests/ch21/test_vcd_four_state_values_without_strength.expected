@@ -1,0 +1,5 @@
+#0 $dumpvars: w_p=0 w_s=0 w_w=0 w_y=0
+#10: w_p=1 w_s=1 w_w=1 w_y=1
+#20: w_p=x w_s=x w_w=x w_y=x
+#30: w_p=z w_s=z w_w=z w_y=z
+tokens that are not a command, a time or a value change without strength: 0

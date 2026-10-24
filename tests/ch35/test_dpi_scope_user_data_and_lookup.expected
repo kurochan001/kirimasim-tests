@@ -1,0 +1,25 @@
+u1: shared key before any put: -1
+u1: svPutUserData with the shared key returns 0
+u1: another import with the shared key reads 100
+u1: own key before any put: -1
+u1: svPutUserData with its own key returns 0
+u1: shared key 100, own key 107
+u2: shared key before any put: -1
+u2: svPutUserData with the shared key returns 0
+u2: another import with the shared key reads 200
+u2: own key before any put: -1
+u2: svPutUserData with its own key returns 0
+u2: shared key 200, own key 207
+c_share_common: stored in u1 0, in u2 0
+u1: shared key later: 100
+u2: shared key later: 200
+u1: common area: 777
+u2: common area: 778
+lookup of u2: test_dpi_scope_user_data_and_lookup.u2, unit_id there 2
+lookup of i1: test_dpi_scope_user_data_and_lookup.i1, ifc_tag there 30
+lookup of p1: test_dpi_scope_user_data_and_lookup.p1, prg_tag there 40
+lookup of no_such_instance: NULL
+c_set_scope: current scope test_dpi_scope_user_data_and_lookup
+svSetScope(u1) returns the current scope: 1, unit_id 1
+svSetScope(u2) returns u1: 1, unit_id 2
+svSetScope back returns u2: 1, svGetScope is the first scope: 1

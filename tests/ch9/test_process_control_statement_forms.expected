@@ -1,0 +1,8 @@
+2: wait: n1=5 n2=7
+5: wait fork: child_done=1
+7: in order: passed=1 failed=0
+9: out of order: passed=1 failed=1
+11: null action block: passed=2 failed=1
+12: disable task: task_done=0
+13: disable block: blk_done=0
+25: disable fork: child_done=2

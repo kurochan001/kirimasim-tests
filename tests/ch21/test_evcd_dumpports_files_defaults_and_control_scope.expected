@@ -1,0 +1,41 @@
+file a:
+var port 1 <0 p
+var port 1 <1 q
+#0 $dumpports: p=pD 6 0 q=pH 0 6
+#10: p=pU 0 6 q=pL 6 0
+#20 $dumpportsoff: p=N q=X
+#30 $dumpportson: p=pD 6 0 q=pH 0 6
+#40 $dumpportsall: p=pD 6 0 q=pH 0 6
+#45: p=pU 0 6 q=pL 6 0
+#60 $dumpportsall: p=pU 0 6 q=pL 6 0
+tokens that are not a command, a time or a port value change: 0
+file b:
+var port 1 <0 r
+#0 $dumpports: r=pD 6 0
+#10: r=pU 0 6
+#20 $dumpportsoff: r=N
+#30 $dumpportson: r=pD 6 0
+#40 $dumpportsall: r=pD 6 0
+#50 $dumpportsall: r=pD 6 0
+#52 $dumpportsoff: r=N
+#62 $dumpportson: r=pU 0 6
+tokens that are not a command, a time or a port value change: 0
+file c (dumpports.vcd):
+var port 1 <0 s
+#0 $dumpports: s=pD 6 0
+#10: s=pU 0 6
+#20 $dumpportsoff: s=N
+#30 $dumpportson: s=pD 6 0
+#40 $dumpportsall: s=pD 6 0
+#55: s=pU 0 6
+tokens that are not a command, a time or a port value change: 0
+file d:
+var port 1 <0 t
+#0 $dumpports: t=pL 6 0
+#10: t=pH 0 6
+#20 $dumpportsoff: t=X
+#30 $dumpportson: t=pL 6 0
+#40 $dumpportsall: t=pL 6 0
+#55: t=pH 0 6
+tokens that are not a command, a time or a port value change: 0
+vp in the VCD file: #0=0 #10=1 #25=0 #45=1

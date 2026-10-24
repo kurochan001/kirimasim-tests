@@ -1,0 +1,6 @@
+v=0000: assert:fail / assume:fail / / else-only /
+v=0001: assert:pass / assume:pass / pass-only / /
+v=0100: assert:pass / assume:pass / pass-only / /
+v=xxxx: assert:fail / assume:fail / / else-only /
+v=zzzz: assert:fail / assume:fail / / else-only /
+evaluations: 20

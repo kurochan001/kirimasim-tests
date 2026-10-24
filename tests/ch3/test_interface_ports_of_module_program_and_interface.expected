@@ -1,0 +1,4 @@
+t=5 a: valid=1 data=10 peek=10 | b: valid=1 data=20 peek=20
+t=15 a: valid=1 data=11 peek=11 | b: valid=1 data=21 peek=21
+t=24 monitors: a sent=2 last=11 | b sent=3 last=22
+t=25 a: valid=1 data=11 peek=11 | b: valid=1 data=22 peek=22

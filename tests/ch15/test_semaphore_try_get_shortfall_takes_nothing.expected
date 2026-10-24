@@ -1,0 +1,9 @@
+3 keys, try_get(5): result=0 t=0 keys=3
+3 keys, try_get(4): result=0 t=0 keys=3
+put(2): keys=5
+5 keys, try_get(5): positive=1 keys=0
+0 keys, try_get(1): result=0 t=0 keys=0
+t=6 after the put of 10: keys=10
+-1 keys, try_get(1): result=0
+put(1), try_get(1): result=0
+put(1): keys=1

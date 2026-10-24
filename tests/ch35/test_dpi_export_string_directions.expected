@@ -1,0 +1,3 @@
+sv_strings: input "in", inout "mine"
+c_run: output "in!", inout "mine+", inout pointer changed: 1
+c_run: own buffers still "in" and "mine"

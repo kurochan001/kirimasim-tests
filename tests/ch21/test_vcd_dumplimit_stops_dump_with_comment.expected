@@ -1,0 +1,5 @@
+dump stopped before the last change: yes
+changes before the stop dumped in order at their times: yes
+a comment follows the last dumped change: yes
+bytes before that comment within 40 of the limit: yes
+times or changes dumped after that comment: 0

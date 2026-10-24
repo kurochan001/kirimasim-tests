@@ -1,0 +1,8 @@
+nexttime[0]: [ 5:P 35:P ]
+nexttime: [ 15:P 45:P ]
+nexttime[1]: [ 15:P 45:P ]
+s_nexttime[1]: [ 15:P 45:P ]
+always [0:1]: [ 15:P 45:P ]
+s_always [0:1]: [ 15:P 45:P ]
+eventually [1:2]: [ 25:P 55:P ]
+s_eventually [1:2]: [ 25:P 55:P ]

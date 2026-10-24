@@ -1,0 +1,4 @@
+t=1 test_uninstantiated_modules_and_program_are_tops
+t=2 tops_second
+t=3 tops_second.u_leaf
+t=4 tops_prog

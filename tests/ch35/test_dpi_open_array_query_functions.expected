@@ -1,0 +1,11 @@
+up_down dim 1: SV left 2 right 5 low 2 high 5 increment -1 size 4
+up_down dim 2: SV left 3 right 1 low 1 high 3 increment 1 size 3
+up_down dim 1: C left 2 right 5 low 2 high 5 increment -1 size 4
+up_down dim 2: C left 3 right 1 low 1 high 3 increment 1 size 3
+up_down dim 0: C left 7 right 0 low 0 high 7 increment 1 size 8
+negative dim 1: SV left -1 right -3 low -3 high -1 increment 1 size 3
+negative dim 2: SV left 0 right 0 low 0 high 0 increment 1 size 1
+negative dim 1: C left -1 right -3 low -3 high -1 increment 1 size 3
+negative dim 2: C left 0 right 0 low 0 high 0 increment 1 size 1
+negative dim 0: C left 7 right 0 low 0 high 7 increment 1 size 8
+svIncrement: int (const svOpenArrayHandle, int) 1

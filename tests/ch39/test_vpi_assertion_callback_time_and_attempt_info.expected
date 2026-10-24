@@ -1,0 +1,18 @@
+5: a1 start, attempt started at 5
+15: a1 start, attempt started at 15
+15: a1 success, attempt started at 5
+15: a1 failure, attempt started at 15, failing expression given
+25: a1 start, attempt started at 25
+25: a1 step success, attempt started at 25, step information given
+35: a1 start, attempt started at 35
+35: a1 failure, attempt started at 25, failing expression given
+35: a1 step failure, attempt started at 25, step information given
+40: a1 kill
+45: a1 start, attempt started at 45
+45: a1 failure, attempt started at 45, failing expression given
+50: a1 reset
+52: a1 disable
+60: a1 enable
+65: a1 start, attempt started at 65
+5: a2 vacuous success
+15: a2 disabled evaluation

@@ -1,0 +1,18 @@
+svGetBitselLogic: svLogic (const svLogicVecVal*, int) 1
+svPutBitselLogic: void (svLogicVecVal*, int, svLogic) 1
+svGetPartselLogic: void (svLogicVecVal*, const svLogicVecVal*, int, int) 1
+svPutPartselLogic: void (svLogicVecVal*, const svLogicVecVal, int, int) 1
+svPutPartselBit: void (svBitVecVal*, const svBitVecVal, int, int) 1
+svGetBitselLogic of bits 0 to 7: 2 2 2 2 1 1 1 1
+svGetBitselLogic of bits 32 to 39: 1 2 1 2 2 0 3 1
+svPutBitselLogic: aval 9abcdee0 00000047, bval 0000e01f 0000005a
+svGetPartselLogic of 35:28: aval 00000059, bval 000000a0
+svGetPartselLogic of 35:4: aval 59abcdef, bval a0000f00
+svPutPartselLogic into 33:30: aval 91111111 22222221, bval 33333333 44444447
+svPutPartselBit into 19:12: fff3cfff ffffffff
+svPutPartselBit into 35:28: 50000000 0000000a
+svPutPartselBit of 32 bits into 35:4: 9abcdef0 00000008
+svPutPartselLogic of 32 bits into 35:4: aval 2345678f fffffff1, bval 000ffff0 00000000
+svGetPartselBit of 35:28: 00000001
+svGetPartselBit of 31:0: 12345678
+svGetPartselBit of 36:36: 00000001

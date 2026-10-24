@@ -1,0 +1,5 @@
+assert pass=2 fail=1 at 15
+assume pass=2 fail=1 at 15
+cover matches=2
+immediate before=1 after=1
+sampled pass=2 fail=1 at 5

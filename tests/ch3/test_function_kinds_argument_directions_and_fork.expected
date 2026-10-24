@@ -1,0 +1,7 @@
+value: y=26 twice(4)>7=1
+during scale: g_o=5 g_io=7 g_r=12
+after scale: g_o=3 g_io=14 g_r=12
+t=0 note first: notes=1
+t=0 spawn returned
+t=1 note second: notes=2
+t=3 forked process done

@@ -1,0 +1,14 @@
+not a and b: FFPPFFFF
+not a or not b and c: PPPPFPFF
+a or b iff c: PFFPFPFP
+a iff b implies c: FPPPPPFP
+a implies b implies c: PPPPPPFP
+a |-> b implies c: PPPPPPFP
+a #-# b implies c: FFFFPPFP
+if (e) a else b or c: FFFPFPPP
+accept_on (e) a and b: FPPFFPPP
+reject_on (e) a or b: FFFPPFFP
+sync_accept_on (e) a and b: FPPFFPPP
+sync_reject_on (e) a or b: FFFPPFFP
+a || b and c: FFFPFPFP
+a ? b : c iff e: PPFFPFPF

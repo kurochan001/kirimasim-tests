@@ -1,0 +1,14 @@
+30: after off: a1 pass 1 fail 0, u.a2 pass 1 fail 0
+40: after on: a1 pass 1 fail 0, u.a2 pass 1 fail 0
+60: after kill: a1 pass 1 fail 0, u.a2 pass 1 fail 0
+80: after second on: a1 pass 2 fail 0, u.a2 pass 2 fail 0
+90: after second kill: a1 pass 2 fail 0, u.a2 pass 2 fail 0
+120: after third on: a1 pass 5 fail 0, u.a2 pass 5 fail 0
+10: system callback: off
+30: system callback: on
+40: system callback: kill
+60: system callback: on
+80: system callback: kill
+90: system callback: on
+a1 attempts started at: 5 35 65 75 95 105 115
+u.a2 attempts started at: 5 35 65 75 95 105 115

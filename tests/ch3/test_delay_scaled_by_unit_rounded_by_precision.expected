@@ -1,0 +1,5 @@
+unit 1ns, precision 1ns, #1.26: 1000 ps
+unit 10ns, precision 100ps, #1.26: 12600 ps
+unit 10ns, precision 1ns, #1.26: 13000 ps
+unit 1us, precision 10ns, #0.0237: 20000 ps
+unit 1us, precision 10ns, #0.0251: 30000 ps

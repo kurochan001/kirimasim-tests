@@ -1,0 +1,3 @@
+t=2 during first call: va=3 vo=0 vio=10 vr=103 calls=1
+t=5 after first call: va=50 vo=9 vio=14 vr=201 calls=1
+t=15 after second call: vo=3 vio=16 vr=203 calls=2

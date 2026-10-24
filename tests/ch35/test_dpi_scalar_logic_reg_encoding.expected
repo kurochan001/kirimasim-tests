@@ -1,0 +1,13 @@
+logic 0 reg 0: codes 0 0, returned 1
+logic 1 reg 1: codes 1 1, returned 0
+logic z reg z: codes 2 2, returned x
+logic x reg x: codes 3 3, returned z
+c_make: the inout reg had code 2
+made from 0: l 0 r x
+c_make: the inout reg had code 3
+made from 1: l 1 r z
+c_make: the inout reg had code 2
+made from 2: l z r 1
+c_make: the inout reg had code 1
+made from 3: l x r 0
+bit 0 and 1: codes 0 1

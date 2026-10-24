@@ -1,0 +1,6 @@
+c_in: byte unsigned 200, bit [7:0] 200
+c_in: shortint unsigned 60000, bit [15:0] 60000
+c_in: logic [7:0] aval 5a bval 00
+c_in: int [3] 7 8 9
+c_in: packed struct a5c, packed union 3f1
+c_out: bu 240 bv 0f su beef sv cafe ps.hi 7 ps.lo e1

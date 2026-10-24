@@ -1,0 +1,7 @@
+$vt_task ran as a task
+int: fffffffffffffffb
+real: 2.50
+time: 1099511627779
+sized 40: 0000008000000000, sized signed 40: ffffff8000000000
+sized without sizetf: 0000000080000000, sized signed without sizetf: ffffffff80000000
+sizetf calls: int 0, real 0, time 0, sized 40 1, sized signed 40 1, task 0

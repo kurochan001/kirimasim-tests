@@ -1,0 +1,5 @@
+ports: sum=17 inv=111010
+data: w=7 v=6 s=a5 s.lo=5 u.pair.hi=3 u.pair.lo=c
+constants: P=3 LP=12 C=7
+types: st=DONE(2) bits(pair_t)=8
+import: PKG_BASE=40 pkg_twice(5)=10

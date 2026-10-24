@@ -1,0 +1,7 @@
+c_tree: sum 164.00
+c_tree: o.pair[0] 7 0.25 -1, o.pair[1] 8 0.75 2, counts 1 2 3, s -300
+sv_tree: pair[0] 11 2.50 5, pair[1] 12 3.50 -6, counts 4 5 6, s 7
+sv_mixed: m[0] code abc flags 10xz n 5, m[1] code 123 flags 0101 n 6
+c_chosen of a variable: 123
+randomize: 1
+c_chosen of a randomized property: 539

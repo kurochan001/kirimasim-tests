@@ -1,0 +1,2 @@
+t=16 setup=0 hold=0 removal=0 recovery=0
+t=26 setup=1 hold=1 removal=1 recovery=1

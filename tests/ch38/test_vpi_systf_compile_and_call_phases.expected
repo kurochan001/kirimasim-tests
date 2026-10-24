@@ -1,0 +1,6 @@
+$vt_mark calltf at 0
+$vt_mark calltf at 3
+vpi_register_systf returned a vpiUserSystf handle: 1
+its name: $vt_mark
+compiletf before the end of compilation: 3, after: 0
+calltf calls: 2, wrong user_data: 0

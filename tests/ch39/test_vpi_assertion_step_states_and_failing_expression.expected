@@ -1,0 +1,6 @@
+attempt 15, 15: step from origin to intermediate, last expression a
+attempt 15, 25: step from intermediate to intermediate, last expression b
+attempt 15, 35: step from intermediate to accepting, last expression c
+attempt 45, 45: step from origin to intermediate, last expression a
+attempt 45, 55: step from intermediate to intermediate, last expression b
+attempt 45, 65: failing step from intermediate, last expression c

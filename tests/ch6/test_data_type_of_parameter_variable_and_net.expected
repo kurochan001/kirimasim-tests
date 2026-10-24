@@ -1,0 +1,4 @@
+bits: P=4 v=4 w=4
+values: P=4 v=13 w=11
+operations: P+v=1 v15+1=0
+same bits: byte=-56 bit[7:0]=200 pattern=11001000 11001000

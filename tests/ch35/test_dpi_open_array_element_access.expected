@@ -1,0 +1,15 @@
+c_packed: p[1] = 789
+c_packed: p[2] = 456
+c_packed: p[3] = 123
+c_packed: q[0] = aval abc bval 000
+c_packed: q[1] = aval 0f0 bval 000
+p[3] 124 p[2] 457 p[1] 78a q[0] abd q[1] 0f1
+c_scalars: s 1 0 1 1, l 0 1 1 0
+s 0100 l 1001
+c_others: i[1] = 10
+c_others: i[2] = 20
+c_others: i[3] = 30
+c_others: g[0] = 5000000000
+c_others: g[1] = -7
+c_others: whole-array pointer and size agree: 1
+i[1] 20 i[2] 40 i[3] 60 g[0] 10000000000 g[1] -14

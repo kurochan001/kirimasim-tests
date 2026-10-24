@@ -1,0 +1,4 @@
+t=1 mux=1 latch=1
+t=3 mux=0 latch=0 dff=1 not=0
+t=6 mux=1 latch=0 dff=1 not=0
+t=8 mux=1 latch=0 dff=0 not=1

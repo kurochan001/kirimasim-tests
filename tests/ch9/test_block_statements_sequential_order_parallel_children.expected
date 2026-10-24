@@ -1,0 +1,14 @@
+order: a=6 b=2
+grouped: n=3 c=30
+ungrouped: n=3 c=7
+2 seq first
+5 seq second
+7 join child 2
+8 join child 3
+8 after join
+9 join_any child 1
+9 after join_any
+9 after join_none
+10 join_none child 1
+12 join_any child 4
+14 done

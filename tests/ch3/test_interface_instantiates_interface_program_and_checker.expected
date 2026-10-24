@@ -1,0 +1,6 @@
+leaf: test_interface_instantiates_interface_program_and_checker.u_outer.u_leaf k=7
+leaf: test_interface_instantiates_interface_program_and_checker.u_other.u_leaf k=20
+sums: u_outer=8 u_other=21
+checkers: u_outer c11=1 c10=0, u_other c11=1 c10=0
+program: test_interface_instantiates_interface_program_and_checker.u_outer.u_prog v=9
+program: test_interface_instantiates_interface_program_and_checker.u_other.u_prog v=10

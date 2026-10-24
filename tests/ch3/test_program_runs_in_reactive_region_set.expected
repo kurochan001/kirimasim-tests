@@ -1,0 +1,4 @@
+module t=0: a=0 b=0
+program t=0: a=1 b=2
+module t=5: q=0
+program t=5: q=1

@@ -1,0 +1,10 @@
+before the first scope: $date yes, $version yes, $timescale yes
+var port 1 <0 a
+var port [0:3] <1 d
+var port 1 <2 ca
+var port 1 <3 cb
+var port 1 <4 y
+date fields: 5
+timescale: 1ns
+every scope of type module: yes
+tokens outside the declaration syntax: 0

@@ -1,0 +1,6 @@
+v=0000: / /
+v=0001: covered / hit 1 /
+v=0100: covered / hit 2 /
+v=xxxx: / /
+v=zzzz: / /
+evaluations: 15, hits: 2

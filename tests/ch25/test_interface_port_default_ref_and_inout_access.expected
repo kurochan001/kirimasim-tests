@@ -1,0 +1,10 @@
+1: wrote v=5, reads v=5
+2: top reads v=5
+3: wrote v=9, reads v=9
+4: top reads v=9
+5: reads v=9
+11: w=0
+21: w=1
+22: driver reads w=1
+31: w=1
+41: w=1

@@ -1,0 +1,21 @@
+coverage control vpiCoverageStart 750
+coverage control vpiCoverageStop 751
+coverage control vpiCoverageReset 752
+coverage control vpiCoverageCheck 753
+coverage control vpiCoverageMerge 754
+coverage control vpiCoverageSave 755
+coverage type vpiAssertCoverage 760
+coverage type vpiFsmStateCoverage 761
+coverage type vpiStatementCoverage 762
+coverage type vpiToggleCoverage 763
+coverage status vpiCovered 765
+coverage status vpiCoveredCount 767
+assertion coverage status vpiAssertAttemptCovered 770
+assertion coverage status vpiAssertSuccessCovered 771
+assertion coverage status vpiAssertFailureCovered 772
+assertion coverage status vpiAssertVacuousSuccessCovered 773
+assertion coverage status vpiAssertDisableCovered 774
+assertion coverage status vpiAssertKillCovered 777
+FSM handle type vpiFsmHandle 759
+coverage controls distinct: 1
+coverage properties distinct: 1

@@ -1,0 +1,4 @@
+u_def BP=3 TP=12 FP=6
+u_w BP=6 TP=15 FP=15
+u_dp BP=40 TP=50 FP=60
+u_both BP=41 TP=17 FP=21

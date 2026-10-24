@@ -1,0 +1,5 @@
+t=1 start returned 8, v=0
+t=3 wait_then gave 6, v=4 spawned_at=-1
+twice: sum=46 cond=1 elem=12
+note: 105 -1
+t=5 the process of start ran at t=4

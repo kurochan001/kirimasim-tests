@@ -1,0 +1,5 @@
+svPutUserData with NULL user data: -1
+svPutUserData with a NULL scope: -1
+svGetUserData with the first key afterwards: NULL
+svPutUserData with the scope, another key and data: 0
+svGetUserData with that key: 5

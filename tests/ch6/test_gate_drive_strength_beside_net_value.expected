@@ -1,0 +1,4 @@
+gates: buf=We1 not=Pu0 supply=Su1 highz1=HiZ and=We1
+two drivers: fight=St0 tie=WeX
+values: w_we1=1 w_su1=1 equal=1 bits=1,1
+assigned: w_copy=St1 v=1

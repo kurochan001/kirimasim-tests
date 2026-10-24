@@ -1,0 +1,8 @@
+svGetPartselBit i=28 w=8 into ffffffff: ffffff01
+svGetPartselBit i=36 w=1 into fffffff0: fffffff1
+svGetPartselBit i=0 w=31 into 80000000: 92345678
+svGetPartselBit i=33 w=31 into 80000000: cd5e6f78
+svGetPartselBit i=0 w=32 into ffffffff: 12345678
+svGetPartselLogic i=28 w=8 into aval aaaaaa55 bval 5555aa00: aval aaaaaa59 bval 5555aaa0
+svGetPartselLogic i=38 w=1 into aval fffffff0 bval 0000000e: aval fffffff1 bval 0000000f
+svGetPartselLogic i=20 w=16 into aval 00000000 bval ffffffff: aval 000059ab bval ffffa000

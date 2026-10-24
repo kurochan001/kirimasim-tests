@@ -1,0 +1,8 @@
+t=1: always_runs=1 initial_runs=1
+5 note called by procedure 1
+t=21: always_runs=3 initial_runs=1
+21 note called by procedure 2
+twice_of(7)=14
+t=41: always_runs=5 initial_runs=1
+final at 41: always_runs=5 initial_runs=1
+final: task_runs=2 func_runs=1 final_runs=1

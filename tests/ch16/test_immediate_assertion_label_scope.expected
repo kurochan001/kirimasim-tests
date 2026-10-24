@@ -1,0 +1,7 @@
+assert pass: test_immediate_assertion_label_scope.blk.a_pass
+assert fail: test_immediate_assertion_label_scope.blk.a_fail
+assume pass: test_immediate_assertion_label_scope.blk.u_assume
+cover pass: test_immediate_assertion_label_scope.blk.c_cover
+unlabeled pass: test_immediate_assertion_label_scope.blk
+next statement: test_immediate_assertion_label_scope.blk
+task fail: test_immediate_assertion_label_scope.t_check.a_task

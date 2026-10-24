@@ -1,0 +1,6 @@
+module: add 6, call 21
+package: add 11, call 22
+compilation unit: add 5, call 9
+generate block: add 4, call 29
+interface: add 2, call 11
+program: add 3, call 19

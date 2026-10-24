@@ -1,0 +1,5 @@
+count=14
+ea=1 eb=0: line=1
+ea=0 eb=1: line=0
+b sees line=0
+ea=0 eb=0: line=z

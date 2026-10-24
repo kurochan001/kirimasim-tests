@@ -1,0 +1,6 @@
+shared: a.val=5 same=1
+input: a.val=10 keep.val=10 same=1
+output: b.val=20
+inout: a.val=30 keep.val=11 same=0
+ref: a.val=40 keep.val=11 same=0
+methods: val=12 twice=24

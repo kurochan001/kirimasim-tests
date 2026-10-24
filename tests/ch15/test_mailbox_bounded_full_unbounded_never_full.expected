@@ -1,0 +1,11 @@
+bound 2: put(10), put(20) returned at t=0, num=2
+full: try_put(30)=0 num=2
+t=3: put(40) returned=0 num=2
+t=3: get -> 10
+t=4: put(40) returned at t=3, num=2
+get -> 20
+get -> 40
+then try_get=0 num=0
+try_put(50) with room: positive=1 num=1
+new: positive try_puts=10000 of 10000, num=10000
+new(0): 10000 puts returned at t=4, num=10000

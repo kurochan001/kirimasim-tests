@@ -1,0 +1,6 @@
+a[*0:1] |=> b: failures 25 25 55
+a[*0:1] ##1 1 |-> b: failures 25 25 55
+a[*0] |=> b: failures 25 55
+a[*0] ##1 1 |-> b: failures 25 55
+a ##1 c |=> b: failures 55
+a ##1 c ##1 1 |-> b: failures 55

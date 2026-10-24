@@ -1,0 +1,4 @@
+val: b=10 d=50
+plain_get: b=11 d=53
+virt_get: b=54 d=54 bo=12
+after b.val=20: base_val=20 d.val=50 b.plain_get=21 b.virt_get=54

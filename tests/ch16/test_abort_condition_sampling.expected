@@ -1,0 +1,10 @@
+no stop, done: accept_on 0, reject_on 0, sync_accept_on 0, sync_reject_on 0, not accept_on not 0, not sync_accept_on not 0
+no stop, no done: accept_on 1, reject_on 1, sync_accept_on 1, sync_reject_on 1, not accept_on not 1, not sync_accept_on not 1
+between ticks, done: accept_on 0, reject_on 1, sync_accept_on 0, sync_reject_on 0, not accept_on not 1, not sync_accept_on not 0
+between ticks, no done: accept_on 0, reject_on 1, sync_accept_on 1, sync_reject_on 1, not accept_on not 1, not sync_accept_on not 1
+at tick 1, done: accept_on 0, reject_on 1, sync_accept_on 0, sync_reject_on 1, not accept_on not 1, not sync_accept_on not 1
+at tick 1, no done: accept_on 0, reject_on 1, sync_accept_on 0, sync_reject_on 1, not accept_on not 1, not sync_accept_on not 1
+with tick 2, done: accept_on 0, reject_on 0, sync_accept_on 0, sync_reject_on 0, not accept_on not 0, not sync_accept_on not 0
+with tick 1, done: accept_on 0, reject_on 1, sync_accept_on 0, sync_reject_on 0, not accept_on not 1, not sync_accept_on not 0
+at tick 2, done: accept_on 0, reject_on 1, sync_accept_on 0, sync_reject_on 1, not accept_on not 1, not sync_accept_on not 1
+at tick 2, no done: accept_on 0, reject_on 1, sync_accept_on 0, sync_reject_on 1, not accept_on not 1, not sync_accept_on not 1

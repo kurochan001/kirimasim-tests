@@ -1,0 +1,6 @@
+a1 ##1 b1[*2]: [ 35 ]
+x2 throughout a2 ##1 b2: [ 65 ]
+x3 throughout a3 ##1 b3 within c3 ##3 c3: [ 45 ]
+d4 ##2 d4 intersect b4 within c4 ##2 c4: [ 35 ]
+a5 within b5 ##1 b5 within c5 ##3 c5: [ 95 ]
+a6 ##1 b6 intersect c6 ##1 d6 and e6 ##2 e6: [ 35 ]

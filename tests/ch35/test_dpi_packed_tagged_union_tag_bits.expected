@@ -1,0 +1,4 @@
+tagged narrow: tag bits 13:12 = 0, member bits = 5a
+tagged wide: tag bits 13:12 = 1, member bits = abc
+tagged other: tag bits 13:12 = 2, member bits = 123
+tagged b: aval 1a, bval 03

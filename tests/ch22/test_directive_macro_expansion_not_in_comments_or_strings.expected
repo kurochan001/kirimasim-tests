@@ -1,0 +1,6 @@
+included through a macro: 7
+delay of 1 under the macro timescale, in ns: 10
+define inside a block comment: not processed
+undef inside a line comment: not processed
+string with a directive: `undef LEX_KEEP_S
+undef inside a string: not processed

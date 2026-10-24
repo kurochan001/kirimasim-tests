@@ -1,0 +1,6 @@
+u2.c_where from the top module: test_dpi_context_scope_of_declaration.u2
+u1.c_whoami from the top module: 1
+i1.c_where_ifc from the top module: test_dpi_context_scope_of_declaration.i1
+gb[1].c_where_gen from the top module: test_dpi_context_scope_of_declaration.gb[1]
+lookup of test_dpi_context_scope_of_declaration.gb[0]: test_dpi_context_scope_of_declaration.gb[0], gen_id 50
+lookup of test_dpi_context_scope_of_declaration.gb[1]: test_dpi_context_scope_of_declaration.gb[1], gen_id 51

@@ -1,0 +1,6 @@
+t=1: comb_y=1 latch_q=1
+t=6: ff_q=1
+t=7: comb_y=0 latch_q=1 ff_q=1
+t=16: ff_q=0 clk=1
+task_v=23
+final at 16

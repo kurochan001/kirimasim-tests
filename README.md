@@ -38,56 +38,56 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **5076 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **6009 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3290 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 940 |
-| The standard only, where neither simulator follows it | 846 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3549 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 1146 |
+| The standard only, where neither simulator follows it | 1314 |
 
-704 tests depend on x or z values (`:fourstate: yes`). 387 tests come with C code: 46 DPI tests (`:dpi_c:`) and 341 VPI tests (`:vpi_c:`). 818 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 24 tests check the exit code of the simulation (`:expected_exit:`). 9 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 8 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+752 tests depend on x or z values (`:fourstate: yes`). 436 tests come with C code: 65 DPI tests (`:dpi_c:`) and 371 VPI tests (`:vpi_c:`). 1556 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 24 tests check the exit code of the simulation (`:expected_exit:`). 15 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 10 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 27 | 22 | 3 | 2 |
+| 3 | Design and verification building blocks | 68 | 51 | 11 | 6 |
 | 4 | Scheduling semantics | 387 | 377 | 4 | 6 |
-| 5 | Lexical conventions | 289 | 281 | 6 | 2 |
-| 6 | Data types | 447 | 282 | 105 | 60 |
-| 7 | Aggregate data types | 372 | 142 | 191 | 39 |
-| 8 | Classes | 198 | 38 | 135 | 25 |
-| 9 | Processes | 117 | 99 | 8 | 10 |
-| 10 | Assignment statements | 114 | 87 | 17 | 10 |
-| 11 | Operators and expressions | 766 | 672 | 75 | 19 |
-| 12 | Procedural programming statements | 122 | 103 | 16 | 3 |
-| 13 | Tasks and functions (subroutines) | 131 | 71 | 56 | 4 |
-| 14 | Clocking blocks | 53 |  | 48 | 5 |
-| 15 | Interprocess synchronization and communication | 36 | 2 | 26 | 8 |
-| 16 | Assertions | 99 | 16 | 20 | 63 |
+| 5 | Lexical conventions | 313 | 301 | 7 | 5 |
+| 6 | Data types | 538 | 314 | 123 | 101 |
+| 7 | Aggregate data types | 456 | 151 | 227 | 78 |
+| 8 | Classes | 264 | 46 | 163 | 55 |
+| 9 | Processes | 141 | 110 | 15 | 16 |
+| 10 | Assignment statements | 165 | 99 | 34 | 32 |
+| 11 | Operators and expressions | 807 | 683 | 84 | 40 |
+| 12 | Procedural programming statements | 143 | 105 | 18 | 20 |
+| 13 | Tasks and functions (subroutines) | 161 | 86 | 61 | 14 |
+| 14 | Clocking blocks | 63 |  | 51 | 12 |
+| 15 | Interprocess synchronization and communication | 52 | 2 | 34 | 16 |
+| 16 | Assertions | 268 | 20 | 45 | 203 |
 | 17 | Checkers | 31 |  | 10 | 21 |
 | 18 | Constrained random value generation | 64 | 1 | 45 | 18 |
 | 19 | Functional coverage | 84 |  | 14 | 70 |
 | 20 | Utility system tasks and system functions | 196 | 171 | 13 | 12 |
-| 21 | Input/output system tasks and system functions | 92 | 82 | 6 | 4 |
-| 22 | Compiler directives | 296 | 292 | 4 |  |
-| 23 | Modules and hierarchy | 81 | 60 | 10 | 11 |
-| 24 | Programs | 36 | 18 | 3 | 15 |
-| 25 | Interfaces | 60 | 11 | 42 | 7 |
-| 26 | Packages | 57 | 42 | 11 | 4 |
-| 27 | Generate constructs | 85 | 79 | 4 | 2 |
-| 28 | Gate-level and switch-level modeling | 220 | 173 | 3 | 44 |
-| 29 | User-defined primitives | 67 | 47 | 10 | 10 |
-| 30 | Specify blocks | 37 | 24 |  | 13 |
-| 31 | Timing checks | 34 | 5 |  | 29 |
+| 21 | Input/output system tasks and system functions | 104 | 84 | 6 | 14 |
+| 22 | Compiler directives | 326 | 314 | 7 | 5 |
+| 23 | Modules and hierarchy | 134 | 91 | 16 | 27 |
+| 24 | Programs | 38 | 19 | 3 | 16 |
+| 25 | Interfaces | 106 | 14 | 53 | 39 |
+| 26 | Packages | 71 | 50 | 11 | 10 |
+| 27 | Generate constructs | 98 | 90 | 6 | 2 |
+| 28 | Gate-level and switch-level modeling | 233 | 185 | 3 | 45 |
+| 29 | User-defined primitives | 73 | 53 | 10 | 10 |
+| 30 | Specify blocks | 49 | 27 | 1 | 21 |
+| 31 | Timing checks | 51 | 10 |  | 41 |
 | 32 | Backannotation using the standard delay format | 47 | 15 |  | 32 |
-| 33 | Configuring the contents of a design | 33 | 4 | 5 | 24 |
+| 33 | Configuring the contents of a design | 35 | 4 | 6 | 25 |
 | 34 | Protected envelopes | — | | | |
-| 35 | Direct programming interface | 50 |  | 29 | 21 |
+| 35 | Direct programming interface | 69 |  | 41 | 28 |
 | 36 | Programming language interface (PLI/VPI) overview | 55 | 22 | 15 | 18 |
 | 37 | VPI object model diagrams | 175 | 10 | 1 | 164 |
-| 38 | VPI routine definitions | 73 | 41 | 4 | 28 |
-| 39 | Assertion API | 22 |  |  | 22 |
-| 40 | Code coverage control and API | 23 | 1 | 1 | 21 |
+| 38 | VPI routine definitions | 81 | 43 | 5 | 33 |
+| 39 | Assertion API | 39 |  | 1 | 38 |
+| 40 | Code coverage control and API | 24 | 1 | 2 | 21 |
 <!-- suite-stats:end -->
 
 The [catalog](docs/tests/README.md) lists every test, chapter by chapter,
@@ -154,9 +154,10 @@ recast the keyword-reservation rows as error cases and resolved 27 interpretatio
 issues, and the [generated keyword tests](docs/keyword-tests-20261024.md) add 496
 illegal designs that use a reserved keyword as a name. The
 [gap tests](docs/gap-tests-20261024.md) then add 594 independently verified tests
-for requirements that had none. Provisional design coverage
-is **52.195795% (6,430/12,319)**; provisional execution coverage is
-**30.310902% (3,734/12,319)**. Clauses 1 to 40 alone are at 53.47% (5,072/9,486).
+for requirements that had none, and their
+[second run](docs/gap-tests-2-20261024.md) adds 933 more. Provisional design coverage
+is **59.590876% (7,341/12,319)**; provisional execution coverage is
+**33.566036% (4,135/12,319)**. Clauses 1 to 40 alone are at 62.57% (5,935/9,486).
 Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.
@@ -719,9 +720,11 @@ A new test should:
   it, such as the output of a continuous assignment, can wake once or twice
   in the same time step, so print such values at fixed times instead;
 - be a legal design apart from the one error of an illegal design. In
-  particular, an input port of a two-state type in an ANSI port list needs
-  the keyword `var` (`input var int d`): an input port without a port kind
-  is a net, and a net cannot have a two-state type (23.2.2.3, 6.7.1);
+  particular, an input port in an ANSI port list needs the keyword `var`
+  (`input var int d`) when a net cannot have its type, such as a two-state
+  type or a virtual interface: an input port without a port kind is a net,
+  and a net has a four-state integral type or an array or structure of them
+  (23.2.2.3, 6.7.1);
 - if it is an illegal design, give the reason in `:should_fail_because:` and
   the file and line of the error in `:expected_stderr_regex:` (each line where
   a tool can rightly report it, when there are several), and contain no other

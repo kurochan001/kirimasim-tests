@@ -1,0 +1,2 @@
+test_config_rules_bind_each_instance.a1: work.crb_adder s=7
+test_config_rules_bind_each_instance.a2: work.crb_adder_gate s=23

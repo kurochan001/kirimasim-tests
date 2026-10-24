@@ -1,0 +1,19 @@
+t=5 e=1: rose 1/1, fell 0/0, stable 0/0, changed 1/1
+t=5 past: 0 0 0 0 0 0 0
+t=5 a_dis_smp fail: $sampled(rst)=0 rst=0
+t=15 e=3: rose 0/1, fell 0/0, stable 0/0, changed 1/1
+t=15 past: 1 0 0 2 1 2 0
+t=15 a_dis_smp fail: $sampled(rst)=0 rst=0
+t=25 e=4: rose 0/0, fell 1/1, stable 0/0, changed 1/1
+t=25 past: 3 1 0 2 1 5 2
+t=25 a_dis_smp fail: $sampled(rst)=0 rst=1
+t=35 e=4: rose 0/0, fell 0/1, stable 1/0, changed 0/1
+t=35 past: 4 3 1 9 4 9 5
+t=35 a_dis_smp fail: $sampled(rst)=0 rst=0
+t=45 e=6: rose 0/0, fell 0/0, stable 0/1, changed 1/0
+t=45 past: 4 4 4 6 4 6 9
+t=45 a_dis_smp fail: $sampled(rst)=0 rst=0
+t=55 e=8: rose 0/0, fell 0/1, stable 0/0, changed 1/1
+t=55 past: 6 4 4 6 4 9 6
+t=55 a_dis_smp fail: $sampled(rst)=0 rst=0
+a_dis_cur failures: 5 15 35 45 55

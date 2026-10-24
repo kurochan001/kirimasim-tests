@@ -1,0 +1,4 @@
+source: w_weak=We1
+values: v_cont=1 v_gate=1 v_port=1
+strength after variable: assign=St1 gate=St1 port=St1
+convert: b8=01101000 i32=104 r=104.0 l4=1x0z s8=-56 from_real=-3 b8p=01101000

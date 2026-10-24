@@ -1,0 +1,5 @@
+t=5 put returned
+t=6 data=9 inv=110110 ticks=1 mark=77
+params: MAXV=63 bits(data)=6 bits(item)=12 item=4095
+function: add_offset(60)=63 add_offset(62)=1
+t=16 ticks=2

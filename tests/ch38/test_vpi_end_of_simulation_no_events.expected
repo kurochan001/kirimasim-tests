@@ -1,0 +1,3 @@
+start of simulation at 0: reason cbStartOfSimulation 1, user_data NULL 1
+12: last activity of the design, r = 2
+end of simulation at 12: reason cbEndOfSimulation 1, user_data "the end", r = 2

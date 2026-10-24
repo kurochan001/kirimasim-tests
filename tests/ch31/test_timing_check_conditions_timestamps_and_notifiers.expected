@@ -1,0 +1,4 @@
+t=16 setup=1 hold=1 z=z
+t=26 setup=1 hold=1 z=z
+t=37 setup=0 hold=0 z=z
+t=51 setup=0 hold=0 z=z changes=2

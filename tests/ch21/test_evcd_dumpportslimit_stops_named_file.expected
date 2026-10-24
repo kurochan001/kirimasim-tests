@@ -1,0 +1,5 @@
+file: dump stopped before the last change: yes
+file: changes before the stop dumped in order: yes
+file: a comment follows the last dumped change: yes
+file: bytes before that comment within 40 of the limit: yes
+file: times or changes dumped after that comment: 0

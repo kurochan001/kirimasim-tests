@@ -1,0 +1,12 @@
+0: if branch
+1: case item
+2: loop body 0
+3: loop body 1
+4: fork branch
+5: named block
+6: action of an assertion
+7: function
+8: task
+9: always
+10: fail action after $asserton
+11: final

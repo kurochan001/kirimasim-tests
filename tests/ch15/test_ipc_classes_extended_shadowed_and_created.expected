@@ -1,0 +1,8 @@
+counted_sem taken=2 first=0 second=1
+tagged_box tb num=2
+tagged_box got 5 then 6 num=0
+box 0 holds 1
+box 1 holds 11
+box 2 holds 21
+new semaphore keys taken=1
+user mailbox marker=7

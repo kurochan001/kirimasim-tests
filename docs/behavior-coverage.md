@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 52.20%、実行 30.31%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.59%、実行 33.57%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 6430/12319 (52.20%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 3734/12319 (30.31%)。
-- 登録済みだがテスト未対応: 5889 動作。
+- 登録済み動作に対するテスト設計網羅率: 7341/12319 (59.59%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4135/12319 (33.57%)。
+- 登録済みだがテスト未対応: 4978 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -55,13 +55,16 @@
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 201/12319 動作確認、古い入力との対応 0 件。
+- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 328/12319 動作確認、古い入力との対応 0 件。
+- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 328/12319 動作確認、古い入力との対応 0 件。
 - `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 612/12319 動作確認、古い入力との対応 6 件。
 - `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
 - `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 906/12319 動作確認、古い入力との対応 61 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 911/12319 動作確認、古い入力との対応 65 件。
 - `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:16.559292+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -69,7 +72,7 @@
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 870/12319 動作確認、古い入力との対応 61 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 875/12319 動作確認、古い入力との対応 65 件。
 
 ## 章・附属書別の調査状態
 
@@ -77,44 +80,44 @@
 
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
-- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 13。
+- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 99。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 29。
-- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 61。
-- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 522。
-- 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 234。
-- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 117。
-- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 57。
-- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 52。
-- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 364。
-- 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 27。
-- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 37。
-- 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 24。
-- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 39。
-- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 80。
+- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 77。
+- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 594。
+- 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 274。
+- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 158。
+- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 76。
+- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 86。
+- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 396。
+- 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 46。
+- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 61。
+- 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 29。
+- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 55。
+- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 290。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 7。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 57。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 152。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 131。
-- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 82。
-- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 279。
-- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 17。
-- 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 8。
-- 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 15。
-- 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 29。
-- 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 19。
-- 28 Gate-level and switch-level modeling: 解釈保留なし 33/34、登録 384、テスト対応 347。
-- 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 44。
-- 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 118。
-- 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 123。
+- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 141。
+- 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 297。
+- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 48。
+- 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 9。
+- 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 41。
+- 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 37。
+- 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 24。
+- 28 Gate-level and switch-level modeling: 解釈保留なし 33/34、登録 384、テスト対応 353。
+- 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 47。
+- 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 125。
+- 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 137。
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 114。
-- 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 21。
+- 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 23。
 - 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 71。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 26。
 - 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1497。
-- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 177。
-- 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 46。
-- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 36。
+- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 196。
+- 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 77。
+- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 55。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
 - A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 0。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
@@ -123,7 +126,7 @@
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 0。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 0。
-- H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 36。
+- H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 84。
 - I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 77。
 - J Inclusion of foreign language code: 解釈保留なし 7/7、登録 16、テスト対応 0。
 - K vpi_user.h: 解釈保留なし 3/3、登録 544、テスト対応 508。
@@ -176,7 +179,7 @@ The design-element categories are module, program, interface, checker, package, 
 
 ### SV2023-3.3-EXTRACT-CONTAINS-01
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain ports and port declarations, subject to the specific construct rules.
 
@@ -184,10 +187,11 @@ A module may contain ports and port declarations, subject to the specific constr
 
 規定の性質: `permission`。
 
+- [test_module_contains_declarations.sv](../tests/ch3/test_module_contains_declarations.sv): 本体でポート宣言をする非 ANSI 形式の加算器(module ...(a, b, y); input logic [3:0] a; ...)と、ヘッダでポート宣言をする ANSI 形式でパラメータ付きの反転器をトップモジュールからインスタンス化し、ポート経由の結果を #1 後に表示する。期待出力は ports: sum=17 inv=111010(9+8 と 6'b000101 の反転)。 区別: モジュールのポートとポート宣言を受け付けない誤実装はコンパイルできず出力がない。非 ANSI のポート宣言を本体から読まない、ANSI ヘッダの幅にパラメータ上書き WIDTH=6 を反映しないといった誤実装では sum=17 か inv=111010(6ビット)が変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-02
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain net and variable declarations including structures and unions, subject to the specific construct rules.
 
@@ -195,10 +199,11 @@ A module may contain net and variable declarations including structures and unio
 
 規定の性質: `permission`。
 
+- [test_module_contains_declarations.sv](../tests/ch3/test_module_contains_declarations.sv): トップモジュールに継続代入で駆動するネット wire [3:0] w、変数 logic [3:0] v、packed 構造体 pair_t s、メンバがビットを共有する packed 共用体 u を宣言し、v=6、s='{4'hA, 4'h5}、u.raw=8'h3C を書いて #1 後に表示する。期待出力は data: w=7 v=6 s=a5 s.lo=5 u.pair.hi=3 u.pair.lo=c。 区別: モジュール内のネット・変数・構造体・共用体の宣言を受け付けない誤実装はコンパイルできない。ネットを継続代入で更新しない(w=7 でなくなる)、構造体メンバの順序を誤る(s=a5、s.lo=5 が変わる)、共用体のメンバを別の記憶域にする(u.raw を書いても u.pair が 3/c にならない)誤実装では data 行が変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-03
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain constant declarations, subject to the specific construct rules.
 
@@ -206,10 +211,11 @@ A module may contain constant declarations, subject to the specific construct ru
 
 規定の性質: `permission`。
 
+- [test_module_contains_declarations.sv](../tests/ch3/test_module_contains_declarations.sv): トップモジュールに parameter int P = 3、それから計算する localparam int LP = P * 4、const 変数 const int C = 7 を宣言して表示する。期待出力は constants: P=3 LP=12 C=7。 区別: モジュール内の定数宣言を受け付けない誤実装はコンパイルできず、localparam を他の定数から計算しない、const の初期値を設定しない誤実装では LP=12 か C=7 が変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-04
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain user-defined type declarations, subject to the specific construct rules.
 
@@ -217,10 +223,11 @@ A module may contain user-defined type declarations, subject to the specific con
 
 規定の性質: `permission`。
 
+- [test_module_contains_declarations.sv](../tests/ch3/test_module_contains_declarations.sv): トップモジュールで typedef enum logic [1:0] {IDLE, RUN, DONE} state_t と typedef struct packed {hi, lo} pair_t を定義し、state_t の変数に DONE を代入して name() と値、および $bits(pair_t) を表示する。期待出力は types: st=DONE(2) bits(pair_t)=8。 区別: モジュール内の利用者定義型を受け付けない誤実装はコンパイルできない。列挙子の名前や値の対応を誤る(DONE(2) が変わる)、typedef の構造体幅を誤る(8 が変わる)誤実装でも types 行が変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-05
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain class declarations, subject to the specific construct rules.
 
@@ -228,10 +235,11 @@ A module may contain class declarations, subject to the specific construct rules
 
 規定の性質: `permission`。
 
+- [test_module_contains_classes_subroutines_processes.sv](../tests/ch3/test_module_contains_classes_subroutines_processes.sv): モジュール本体でクラス acc_c(メンバ total、コンストラクタ new(start)、メソッド add)を宣言し、そのオブジェクトを2つ作ってメソッドで更新し total を表示する。期待出力は class: acc_decl.total=109 acc_proc.total=5(100+square(3)=109、1+4=5)。 区別: モジュール内のクラス宣言を受け付けない誤実装はコンパイルできず出力がない。クラスのコンストラクタ引数やメソッドによるメンバ更新を誤る誤実装では 109 または 5 が変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-06
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain package import declarations, subject to the specific construct rules.
 
@@ -239,10 +247,11 @@ A module may contain package import declarations, subject to the specific constr
 
 規定の性質: `permission`。
 
+- [test_module_contains_declarations.sv](../tests/ch3/test_module_contains_declarations.sv): パッケージの localparam PKG_BASE = 40 と関数 pkg_twice を、トップモジュール本体のワイルドカード import で単純名として参照し表示する。期待出力は import: PKG_BASE=40 pkg_twice(5)=10。 区別: モジュール内の import 宣言を受け付けない、または import した名前をモジュールのスコープで見えるようにしない誤実装はコンパイルできず出力がない。パッケージの別の項目に結び付ける誤実装では 40 か 10 が変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-07
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain subroutine definitions, subject to the specific construct rules.
 
@@ -250,10 +259,11 @@ A module may contain subroutine definitions, subject to the specific construct r
 
 規定の性質: `permission`。
 
+- [test_module_contains_classes_subroutines_processes.sv](../tests/ch3/test_module_contains_classes_subroutines_processes.sv): モジュール本体で値を返す関数 square と、#2 待ってから出力引数に書くタスク delayed_double を定義し、initial から呼ぶ。期待出力は t=2 class: ...(タスクから時刻2で戻る)と subroutines: square(7)=49 delayed_double(21)=42。 区別: モジュール内のサブルーチン定義を受け付けない誤実装はコンパイルできない。関数の戻り値を誤れば 49(および acc_decl の 109)が、タスクの出力引数や待ち時間を誤れば 42 や t=2 が変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-08
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain instantiations of modules, programs, interfaces, checkers or primitives, subject to the specific construct rules.
 
@@ -261,10 +271,11 @@ A module may contain instantiations of modules, programs, interfaces, checkers o
 
 規定の性質: `permission`。
 
+- [test_module_instantiates_each_block_kind.sv](../tests/ch3/test_module_instantiates_each_block_kind.sv): トップモジュールがモジュール u_mod、インタフェース u_if、プログラム u_prog、チェッカ u_chk、組込みゲート nand 2個、UDP(多数決)2個をインスタンス化し、それぞれの結果を表示する。期待出力は module: ... dout=6、interface: ... data=3、checker output: 10、primitives: nand(1,1)=0 nand(1,0)=1 maj(1,0,1)=1 maj(1,0,0)=0、program: ... pin=6、checker: ... doubled=10。 区別: 5種類のいずれかのインスタンス化をモジュール内で受け付けない誤実装はコンパイルできず出力がない。インスタンスを作っても動作させない誤実装では、対応する行(dout=6、data=3、10、ゲート/UDP の値、program 行、checker の final 行)が変わるか出ない。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-09
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain class object construction, subject to the specific construct rules.
 
@@ -272,10 +283,11 @@ A module may contain class object construction, subject to the specific construc
 
 規定の性質: `permission`。
 
+- [test_module_contains_classes_subroutines_processes.sv](../tests/ch3/test_module_contains_classes_subroutines_processes.sv): モジュール変数の宣言の初期化子 acc_c acc_decl = new(100) と、initial 内の acc_proc = new(1) の2通りでクラスオブジェクトを生成し、それぞれのメソッド呼び出し後の total を表示する。期待出力は class: acc_decl.total=109 acc_proc.total=5。 区別: モジュール内でのオブジェクト生成を受け付けない、宣言の初期化子による生成をプロシージャ開始前に行わない(acc_decl が null のまま add が呼ばれる)、コンストラクタ引数を渡さない誤実装では、実行が失敗するか 109/5 が変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-10
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain continuous assignments, subject to the specific construct rules.
 
@@ -283,10 +295,11 @@ A module may contain continuous assignments, subject to the specific construct r
 
 規定の性質: `permission`。
 
+- [test_module_contains_classes_subroutines_processes.sv](../tests/ch3/test_module_contains_classes_subroutines_processes.sv): モジュール本体の assign sum_w = a + b で 9 ビットの wire を駆動し、initial で a=13、b=7 にした後(時刻2)に sum_w を表示する。期待出力は assign: sum_w=20。 区別: モジュール内の連続代入を受け付けない誤実装はコンパイルできず、連続代入を評価しない・右辺の変化に追従しない誤実装では sum_w が 20 でなく x などになって assign 行が変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-11
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain procedural blocks, subject to their defining rules.
 
@@ -294,10 +307,11 @@ A module may contain procedural blocks, subject to their defining rules.
 
 規定の性質: `permission`。
 
+- [test_module_contains_classes_subroutines_processes.sv](../tests/ch3/test_module_contains_classes_subroutines_processes.sv): 1つのモジュールに initial、always(#5 ごとにクロック反転)、always_ff(立ち上がりで edges を数える)、always_comb(comb_y = a ^ b)、final を置く。期待出力は always_comb: comb_y=10、t=22 always_ff: edges=2(時刻5と15の立ち上がり)、 後の final: edges=2。 区別: いずれかの手続きブロックをモジュール内で受け付けない誤実装はコンパイルできない。always のクロックや always_ff を実行しなければ edges=2 が、always_comb を評価しなければ comb_y=10 が変わり、final を実行しなければ final 行が出ない。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-12
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain generate blocks, subject to their defining rules.
 
@@ -305,10 +319,11 @@ A module may contain generate blocks, subject to their defining rules.
 
 規定の性質: `permission`。
 
+- [test_module_contains_classes_subroutines_processes.sv](../tests/ch3/test_module_contains_classes_subroutines_processes.sv): モジュール本体にループ生成(genvar i で gen_w[i] = a[i] & b[i])、if 生成(N==3 で PICK=30 の g_if)、case 生成(N=3 で PICK=300 の g_case)を置き、名前付き生成ブロックの localparam と gen_w を表示する。期待出力は generate: gen_w=101 g_if.PICK=30 g_case.PICK=300。 区別: モジュール内の生成ブロックを受け付けない誤実装はコンパイルできない。ループ生成の反復数や genvar の値を誤れば gen_w=101 が、if/case 生成で別の分岐を選べば 30 や 300 が(40/200/400 に)変わる。
 
 ### SV2023-3.3-EXTRACT-CONTAINS-13
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module may contain specify blocks, subject to their defining rules.
 
@@ -316,10 +331,11 @@ A module may contain specify blocks, subject to their defining rules.
 
 規定の性質: `permission`。
 
+- [test_module_contains_specify_block.sv](../tests/ch3/test_module_contains_specify_block.sv): モジュール spec_buf の specify ブロックで specparam t_rise=3、t_fall=5 を宣言し、モジュールパス (a => y) にその立ち上がり/立ち下がり遅延を与える。a を時刻10で 0→1、時刻20で 1→0 にし、変化の前後で y を表示する。期待出力は t=12 y=0、t=14 y=1、t=24 y=1、t=26 y=0。 区別: モジュール内の specify ブロックを受け付けない誤実装はコンパイルできない。受け付けてもパス遅延を適用しない誤実装では y が a に即座に追従し t=12 y=1、t=24 y=0 になる。立ち上がりと立ち下がりの遅延を取り違える誤実装では t=14 か t=24 の行が変わる。
 
 ### SV2023-3.3-EXTRACT-MODULE-DELIMITERS
 
-3.3 / normal / テスト未対応
+3.3 / normal / 実行確認あり
 
 A module definition is delimited by module and endmodule.
 
@@ -327,10 +343,11 @@ A module definition is delimited by module and endmodule.
 
 規定の性質: `definition`。
 
+- [test_module_contains_declarations.sv](../tests/ch3/test_module_contains_declarations.sv): 1つのファイルに3つのモジュール定義を module ... endmodule で順に置き(反転器は endmodule : 名前 の終了ラベル付き)、それぞれのポートと宣言がそのモジュールに属するとして動作することを、子モジュールのポート経由の結果とトップの宣言の値で確かめる。期待出力は ports: sum=17 inv=111010 と以降の4行。 区別: endmodule でモジュール定義を閉じない、または終了ラベル付きの endmodule を受け付けない誤実装は、後続のモジュールが前のモジュールの中に入るかコンパイルに失敗し、ports 行(子のポートの結果)やトップの宣言の行が出力されない。
 
 ### SV2023-3.4-EXTRACT-ALLOWED-01
 
-3.4 / normal / テスト未対応
+3.4 / normal / 実行確認あり
 
 A program may contain data declarations.
 
@@ -338,10 +355,11 @@ A program may contain data declarations.
 
 規定の性質: `permission`。
 
+- [test_program_contains_permitted_items.sv](../tests/ch3/test_program_contains_permitted_items.sv): プログラム内で int count = 3、typedef struct packed pair_t とその変数 pr = '{4, 5} を宣言し、タスクで count に4を足した後に count と pr.a+pr.b を表示する。期待出力は t=3 program: count=7 ... pr.a+pr.b=9 と program final: count=7。 区別: プログラム内のデータ宣言を受け付けない誤実装はコンパイルできない。宣言の初期値を設定しない・型定義を誤る誤実装では count=7 や pr.a+pr.b=9 が変わる。
 
 ### SV2023-3.4-EXTRACT-ALLOWED-02
 
-3.4 / normal / テスト未対応
+3.4 / normal / 実行確認あり
 
 A program may contain class definitions.
 
@@ -349,10 +367,11 @@ A program may contain class definitions.
 
 規定の性質: `permission`。
 
+- [test_program_contains_permitted_items.sv](../tests/ch3/test_program_contains_permitted_items.sv): プログラム内でクラス box_c(メンバ v、コンストラクタ、メソッド twice)を定義し、そのオブジェクトの twice() を表示する。期待出力は box.twice()=42(new(21) の2倍)。 区別: プログラム内のクラス定義を受け付けない誤実装はコンパイルできない。コンストラクタやメソッドの扱いを誤れば box.twice()=42 が変わる。
 
 ### SV2023-3.4-EXTRACT-ALLOWED-03
 
-3.4 / normal / テスト未対応
+3.4 / normal / 実行確認あり
 
 A program may contain subroutine definitions.
 
@@ -360,10 +379,11 @@ A program may contain subroutine definitions.
 
 規定の性質: `permission`。
 
+- [test_program_contains_permitted_items.sv](../tests/ch3/test_program_contains_permitted_items.sv): プログラム内で関数 scale(v*10)と、#1 待って count に足すタスク bump を定義し、initial から bump(4) を時刻2に呼び、戻った後の時刻と count、scale(2) を表示する。期待出力は t=3 program: count=7 scale(2)=20。 区別: プログラム内のサブルーチン定義を受け付けない誤実装はコンパイルできない。関数の戻り値を誤れば scale(2)=20 が、タスクの待ちや代入を誤れば t=3 や count=7 が変わる。
 
 ### SV2023-3.4-EXTRACT-ALLOWED-04
 
-3.4 / normal / テスト未対応
+3.4 / normal / 実行確認あり
 
 A program may contain class object instances.
 
@@ -371,10 +391,11 @@ A program may contain class object instances.
 
 規定の性質: `permission`。
 
+- [test_program_contains_permitted_items.sv](../tests/ch3/test_program_contains_permitted_items.sv): プログラム内の宣言 box_c box = new(21) でクラスオブジェクトを生成し、initial からそのメソッド twice() を呼んで表示する。期待出力は box.twice()=42。 区別: プログラム内のオブジェクトの生成を受け付けない、または宣言の初期化子で生成しない(box が null のまま)誤実装では、コンパイルか実行が失敗するか box.twice()=42 が変わる。
 
 ### SV2023-3.4-EXTRACT-ALLOWED-05
 
-3.4 / normal / テスト未対応
+3.4 / normal / 実行確認あり
 
 A program may contain initial procedures.
 
@@ -382,10 +403,11 @@ A program may contain initial procedures.
 
 規定の性質: `permission`。
 
+- [test_program_contains_permitted_items.sv](../tests/ch3/test_program_contains_permitted_items.sv): プログラムに initial 手続きを2つ置き、1つ目は時刻3に count などを、2つ目は時刻5に自分の行を表示する。期待出力は t=3 program: count=7 ... と t=5 program: second initial procedure。 区別: プログラム内の initial 手続きを受け付けない、または複数のうち1つしか実行しない誤実装では、t=3 か t=5 の行が出ない。
 
 ### SV2023-3.4-EXTRACT-ALLOWED-06
 
-3.4 / normal / テスト未対応
+3.4 / normal / 実行確認あり
 
 A program may contain final procedures.
 
@@ -393,10 +415,11 @@ A program may contain final procedures.
 
 規定の性質: `permission`。
 
+- [test_program_contains_permitted_items.sv](../tests/ch3/test_program_contains_permitted_items.sv): プログラムに final 手続きを置き、シミュレーション終了時にプログラムの count を表示させる。期待出力の最終行は program final: count=7(時刻3に4を足した後の値)。 区別: プログラム内の final 手続きを受け付けない誤実装はコンパイルできず、実行しない誤実装では最終行が出ない。終了時でなく開始時などに実行すれば count=3 になる。
 
 ### SV2023-3.4-EXTRACT-FORBIDDEN-01
 
-3.4 / error / テスト未対応
+3.4 / error / 実行確認あり
 
 A program must not contain always procedures.
 
@@ -404,10 +427,11 @@ A program must not contain always procedures.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_program_contains_always.sv](../tests/ch3/test_illegal_program_contains_always.sv): 変数 ticks と initial 手続きだけを持つ合法なプログラムに always #1 ticks++; を1行だけ加えた設計で、その24行目でのエラーを :expected_stderr_regex: で求める。always 行を除くと Icarus 13.0 と Verilator 5.052 の両方で ticks=0 と表示して正常終了することを確認した。 区別: プログラム内の always 手続きを拒否しない誤実装はこの設計を受理し、24行目のエラーが出ないので不合格になる。他の項目(変数宣言・initial)はプログラムに許される項目なので、別の違反で通ることはない。
 
 ### SV2023-3.4-EXTRACT-FORBIDDEN-02
 
-3.4 / error / テスト未対応
+3.4 / error / 実行確認あり
 
 A program must not contain primitive instances.
 
@@ -415,10 +439,11 @@ A program must not contain primitive instances.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_program_contains_gate_instance.sv](../tests/ch3/test_illegal_program_contains_gate_instance.sv): 入力ポート a,b、変数 y_reg、ネット y_gate、initial 手続きを持つプログラムに組込みプリミティブ and のインスタンス g_and(y_gate, a, b) を26行目に置き、その行でのエラーを求める。この行を除いた設計は両シミュレータで y_reg=0 を表示して正常終了する。 区別: プログラム内のプリミティブインスタンスを許してしまう誤実装は設計を受理し、26行目のエラーがないため不合格になる。ゲート出力はネット y_gate に接続しており、変数への接続など別の違反は含まない。
 
 ### SV2023-3.4-EXTRACT-FORBIDDEN-03
 
-3.4 / error / テスト未対応
+3.4 / error / 実行確認あり
 
 A program must not contain module instances.
 
@@ -426,10 +451,11 @@ A program must not contain module instances.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_program_contains_module_instance.sv](../tests/ch3/test_illegal_program_contains_module_instance.sv): 同じ葉モジュールをトップモジュール内(合法)とプログラム内(28行目 u_in_prog)の両方でインスタンス化し、プログラム内の行だけでのエラーを求める。28行目を除いた設計は両シミュレータで seen=0 を表示して正常終了する。 区別: プログラム内のモジュールインスタンスを禁止しない誤実装は受理して28行目のエラーを出さず不合格になる。モジュール内での同じモジュールのインスタンスは合法な対照で、モジュールのインスタンス化全般を拒否する誤実装でも行番号が異なる位置でエラーになり一致しない。
 
 ### SV2023-3.4-EXTRACT-FORBIDDEN-04
 
-3.4 / error / テスト未対応
+3.4 / error / 実行確認あり
 
 A program must not contain interface instances.
 
@@ -437,10 +463,11 @@ A program must not contain interface instances.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_program_contains_interface_instance.sv](../tests/ch3/test_illegal_program_contains_interface_instance.sv): インタフェースをトップモジュール内(合法な bus)とプログラム内(28行目 own_if)でインスタンス化し、プログラム内の行でのエラーを求める。28行目を除いた設計は両シミュレータで copy=0 を表示して正常終了する。 区別: プログラム内のインタフェースインスタンスを許す誤実装は受理し、28行目のエラーが出ないので不合格になる。モジュール内の同じインタフェースのインスタンスは合法な対照で、そこでエラーを出す誤実装は別の行(32行目)で報告するため一致しない。
 
 ### SV2023-3.4-EXTRACT-FORBIDDEN-05
 
-3.4 / error / テスト未対応
+3.4 / error / 実行確認あり
 
 A program must not contain program instances.
 
@@ -448,10 +475,11 @@ A program must not contain program instances.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_program_contains_program_instance.sv](../tests/ch3/test_illegal_program_contains_program_instance.sv): 子プログラムをトップモジュール内(合法な c)と別のプログラム outer 内(26行目 nested)でインスタンス化し、プログラム内の行でのエラーを求める。26行目を除いた設計は両シミュレータで child と outer を表示して正常終了する。 区別: プログラムの中に別のプログラムのインスタンスを許す誤実装は受理して26行目のエラーを出さず不合格になる。モジュール内での同じプログラムのインスタンスは合法な対照で、それを拒否する誤実装は30行目で報告するため一致しない。
 
 ### SV2023-3.4-EXTRACT-PROGRAM-DELIMITERS
 
-3.4 / normal / テスト未対応
+3.4 / normal / 実行確認あり
 
 A program definition is delimited by program and endprogram.
 
@@ -459,10 +487,11 @@ A program definition is delimited by program and endprogram.
 
 規定の性質: `definition`。
 
+- [test_program_contains_permitted_items.sv](../tests/ch3/test_program_contains_permitted_items.sv): プログラム prog_items を program ... endprogram : prog_items で囲み、その中の宣言・クラス・サブルーチン・手続きがプログラムに属して動作することを表示で確かめる。後に続くものはなく、前のモジュールは endmodule で閉じている。期待出力は t=3、t=5 の program 行と program final: count=7。 区別: program/endprogram(終了ラベル付き)でプログラム定義を区切れない誤実装はコンパイルできず、プログラムの行が出ない。区切りを誤ってプログラムの項目をモジュールに属させれば、同名の count/scale が衝突してコンパイルできないか、値が 1000/1002 側になる。
 
 ### SV2023-3.4-EXTRACT-PROGRAM-ENTRY
 
-3.4 / normal / テスト未対応
+3.4 / normal / 実行確認あり
 
 A program supplies an entry point for testbench execution.
 
@@ -470,10 +499,11 @@ A program supplies an entry point for testbench execution.
 
 規定の性質: `definition`。
 
+- [test_uninstantiated_modules_and_program_are_tops.sv](../tests/ch3/test_uninstantiated_modules_and_program_are_tops.sv): どのモジュールにもインスタンス化されないプログラム tops_prog の initial 手続きが、テストベンチの実行の入口として単独で起動し、時刻4に自分の名前を表示する。期待出力は t=4 tops_prog。 区別: プログラムをモジュールからインスタンス化されたときにしか実行しない、またはプログラムの initial 手続きを起動しない誤実装では t=4 tops_prog の行が出ない。
 
 ### SV2023-3.4-EXTRACT-PROGRAM-REACTIVE
 
-3.4 / normal / テスト未対応
+3.4 / normal / テスト対応あり・実行未確認
 
 Program procedural execution uses the reactive region set as specified for each construct.
 
@@ -481,10 +511,11 @@ Program procedural execution uses the reactive region set as specified for each 
 
 規定の性質: `definition`。
 
+- [test_program_runs_in_reactive_region_set.sv](../tests/ch3/test_program_runs_in_reactive_region_set.sv): 時刻0にモジュールが a <= 1 を予約し、それで起きる always が b <= a + 1 を次の NBA で予約する。同じ時刻にモジュールの initial(Active)とプログラムの initial(Reactive)が a、b を表示する。時刻5のクロック立ち上がりで always_ff が q <= q + 1 を予約し、同じ立ち上がりを待つモジュールのプロセスとプログラムの @(posedge clk) が q を表示する。期待出力は module t=0: a=0 b=0、program t=0: a=1 b=2、module t=5: q=0、program t=5: q=1 の順。 区別: プログラムのプロセスを Reactive 領域でなくモジュールと同じ Active 領域で実行する誤実装(Icarus/Verilator の動作)では、プログラムが NBA 更新前の値を読んで program t=0: a=0 b=0、program t=5: q=0 になるか、行の順序が入れ替わる。2回目の NBA を待たずに Reactive を実行する誤実装では b=1 などになる。
 
 ### SV2023-3.4-EXTRACT-PROGRAM-SCOPE
 
-3.4 / normal / テスト未対応
+3.4 / normal / 実行確認あり
 
 Program-wide declarations of data and subroutines belong to the program scope.
 
@@ -492,6 +523,7 @@ Program-wide declarations of data and subroutines belong to the program scope.
 
 規定の性質: `definition`。
 
+- [test_program_contains_permitted_items.sv](../tests/ch3/test_program_contains_permitted_items.sv): プログラムとそれをインスタンス化するモジュールの両方に同名の変数 count と関数 scale を宣言し(モジュール: 1000、v+1000/プログラム: 3、v*10)、それぞれの中から単純名で参照する。期待出力は t=1 module: count=1000 scale(2)=1002 と t=3 program: count=7 scale(2)=20。 区別: プログラムのデータとサブルーチンをプログラムのスコープに置かない(モジュールや共通の空間に置く)誤実装では、同名宣言が衝突してコンパイルできないか、片方の参照が他方に解決されて count=1000/7 や scale(2)=1002/20 が入れ替わる。
 
 ### SV2023-3.4-EXTRACT-SEPARATE-INSTANCES
 
@@ -506,7 +538,7 @@ Program instances may be instantiated and connected individually.
 
 ### SV2023-3.5-EXTRACT-CONNECT-INTERFACE
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface instance may connect to an interface port of an instantiated interface.
 
@@ -514,10 +546,11 @@ An interface instance may connect to an interface port of an instantiated interf
 
 規定の性質: `permission`。
 
+- [test_interface_ports_of_module_program_and_interface.sv](../tests/ch3/test_interface_ports_of_module_program_and_interface.sv): インタフェース conn_monitor_if のインタフェースポート b に mon_a(.b(bus_a))、mon_b(.b(bus_b)) で接続し、その中の連続代入 last = b.data と関数 seen()(b.sent を返す)を最上位モジュールが時刻24に読む。期待出力は t=24 monitors: a sent=2 last=11 | b sent=3 last=22。 区別: インタフェースのインタフェースポートへの接続を受け付けない誤実装はコンパイルできない。接続先を取り違える誤実装では a と b の sent(2/3)と last(11/22)が入れ替わるか同じになる。
 
 ### SV2023-3.5-EXTRACT-CONNECT-MODULE
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface instance may connect to an interface port of an instantiated module.
 
@@ -525,10 +558,11 @@ An interface instance may connect to an interface port of an instantiated module
 
 規定の性質: `permission`。
 
+- [test_interface_ports_of_module_program_and_interface.sv](../tests/ch3/test_interface_ports_of_module_program_and_interface.sv): インタフェース conn_bus_if の2つのインスタンス bus_a、bus_b を、モジュール conn_producer のインタフェースポート p(modport producer)に prod_a(.p(bus_a))、prod_b(.p(bus_b)) で接続する。モジュールはポート経由で valid を立て、send を呼んで data を書く。期待出力は t=5 の a: valid=1 data=10 と b: valid=1 data=20、t=24 の a sent=2 / b sent=3。 区別: モジュールのインタフェースポートへの接続を受け付けない誤実装はコンパイルできない。接続先を取り違える(両方を同じインスタンスにつなぐなど)誤実装では、a と b の data(10/20、11/21、11/22)や sent(2/3)が入れ替わるか一致してしまう。
 
 ### SV2023-3.5-EXTRACT-CONNECT-PROGRAM
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface instance may connect to an interface port of an instantiated program.
 
@@ -536,10 +570,11 @@ An interface instance may connect to an interface port of an instantiated progra
 
 規定の性質: `permission`。
 
+- [test_interface_ports_of_module_program_and_interface.sv](../tests/ch3/test_interface_ports_of_module_program_and_interface.sv): プログラム conn_consumer の2つのインタフェースポート ca、cb(modport consumer)に cons(.ca(bus_a), .cb(bus_b)) で2つのインスタンスを接続し、時刻5、15、25に両方の valid、data、peek() を表示する。期待出力は t=5 ... data=10 | ... data=20、t=15 ... 11 | ... 21、t=25 ... 11 | ... 22。 区別: プログラムのインタフェースポートへの接続を受け付けない誤実装はコンパイルできない。ポートを誤ったインスタンスへつなぐ誤実装では a と b の値が入れ替わるか同じになり、3行の表示が変わる。
 
 ### SV2023-3.5-EXTRACT-INSTANCE-MEMBERS
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 Interface variables and subroutines are accessed relative to the interface instance name.
 
@@ -547,10 +582,11 @@ Interface variables and subroutines are accessed relative to the interface insta
 
 規定の性質: `definition`。
 
+- [test_interface_ports_of_module_program_and_interface.sv](../tests/ch3/test_interface_ports_of_module_program_and_interface.sv): 同じインタフェースの2インスタンスに、接続先のモジュールがポート名経由で p.send(...) を呼び(prod_a は 10,11、prod_b は 20,21,22)、プログラムが ca.peek()/cb.peek() と ca.data/cb.data を、別のインタフェースが b.sent を読む。期待出力は a 側が data=11 peek=11 sent=2、b 側が data=22 peek=22 sent=3 で、インスタンスごとに異なる。 区別: インタフェースの変数・サブルーチンを、接続されたインスタンスではなく別のインスタンス(または共有の1つ)に解決する誤実装では、send がもう一方の data/sent を書き、peek が別の data を返すので、a と b の値(10/20、11/21、11/22、sent 2/3)が入れ替わるか混ざる。接続先のモジュールがサブルーチンを呼べない誤実装はコンパイルできない。
 
 ### SV2023-3.5-EXTRACT-INTERFACE-BUNDLE
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface instance may bundle nets or variables and be passed as one interface-port connection.
 
@@ -558,10 +594,11 @@ An interface instance may bundle nets or variables and be passed as one interfac
 
 規定の性質: `permission`。
 
+- [test_interface_ports_of_module_program_and_interface.sv](../tests/ch3/test_interface_ports_of_module_program_and_interface.sv): 変数 data、valid、sent を束ねたインスタンスを、各インスタンスとも1つのポート接続(.p(bus_a)、.ca(bus_a)、.b(bus_a) など)だけで渡し、受け側はその中の個々の変数を p.valid、ca.data、ca.valid、b.data、b.sent として読み書きする。期待出力の valid=1、data=10/11/20/21/22、sent=2/3、last=11/22 がそれぞれの変数の値。 区別: インスタンスを1つの接続として渡せない誤実装はコンパイルできない。渡したインスタンスの個々の変数に届かない、または変数を取り違える誤実装では、valid、data、sent、last の各値(例: valid=1 が 0、sent=3 が 2)が変わる。
 
 ### SV2023-3.5-EXTRACT-INTERFACE-DELIMITERS
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface declaration is delimited by interface and endinterface.
 
@@ -569,10 +606,11 @@ An interface declaration is delimited by interface and endinterface.
 
 規定の性質: `definition`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): interface members_if ... endinterface : members_if で囲んだ宣言をインスタンス化し、その中の変数・関数・タスク・手続きをインスタンス名経由で使う。期待出力の5行(t=5 put returned から t=16 ticks=2 まで)はすべてこの宣言の中身から決まる。 区別: interface/endinterface(終了名付き)で区切られた宣言を認識しない誤実装はコンパイルできず、期待出力の5行が出ない。区切りを誤って中身の一部を取りこぼす誤実装では、取りこぼした項目(関数・タスク・手続き)の出力行が変わる。
 
 ### SV2023-3.5-EXTRACT-MEMBER-01
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface may define parameters.
 
@@ -580,10 +618,11 @@ An interface may define parameters.
 
 規定の性質: `permission`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): インタフェース members_if に値パラメータ WIDTH(既定4)を定義し、インスタンス bus で 6 に上書きする。WIDTH から作る word_t の幅と MAXV を表示する。期待出力は params: MAXV=63 bits(data)=6 と add_offset(62)=1(6ビットで折り返し)。 区別: インタフェースのパラメータを受け付けない誤実装はコンパイルできない。上書きを反映しない(既定の4のまま)誤実装では MAXV=15、bits(data)=4 になり、add_offset の結果も変わる。
 
 ### SV2023-3.5-EXTRACT-MEMBER-02
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface may define constants.
 
@@ -591,10 +630,11 @@ An interface may define constants.
 
 規定の性質: `permission`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): インタフェースに定数 localparam MAXV = (1 << WIDTH) - 1 と const int OFFSET = 3 を定義し、MAXV をインスタンス名経由で読み、OFFSET を関数 add_offset の中で使う。期待出力は MAXV=63 と function: add_offset(60)=63 add_offset(62)=1。 区別: インタフェース内の定数宣言を受け付けない誤実装はコンパイルできない。定数の値を誤れば MAXV=63 や add_offset の 63/1 が変わる。
 
 ### SV2023-3.5-EXTRACT-MEMBER-03
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface may define variables.
 
@@ -602,10 +642,11 @@ An interface may define variables.
 
 規定の性質: `permission`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): インタフェースに変数 data、inv、item、ticks、mark を定義し、モジュールから bus.item = -1 で書き、タスク経由で data=9 を書いて、各変数を bus.<名前> で読んで表示する。期待出力は t=6 data=9 inv=110110 ticks=1 mark=77 と item=4095。 区別: インタフェース内の変数を受け付けない誤実装はコンパイルできない。インスタンスの変数として値を保持しない誤実装では data=9、item=4095 などが変わる。
 
 ### SV2023-3.5-EXTRACT-MEMBER-04
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface may define functions.
 
@@ -613,10 +654,11 @@ An interface may define functions.
 
 規定の性質: `permission`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): インタフェース members_if に関数 add_offset(word_t v) を定義し(v + OFFSET を6ビットの word_t で返す)、モジュールから bus.add_offset(60) と bus.add_offset(62) を呼ぶ。期待出力は function: add_offset(60)=63 add_offset(62)=1(62+3=65 が6ビットで 1 に折り返す)。 区別: インタフェース内の関数定義を受け付けない誤実装はコンパイルできない。関数がインスタンスのパラメータ(WIDTH=6)で決まる戻り型を使わない誤実装(例: 既定の4ビット)では 63/1 が 15/1 などに変わり、戻り型を無視して32ビットで返す誤実装では add_offset(62)=65 になる。
 
 ### SV2023-3.5-EXTRACT-MEMBER-05
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface may define tasks.
 
@@ -624,10 +666,11 @@ An interface may define tasks.
 
 規定の性質: `permission`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): インタフェースにタスク put(input word_t v) を定義し、次のクロックの立ち上がりを待ってから data = v を書く。モジュールは時刻0で bus.put(6'd9) を呼び、戻った時刻と、その後の data を表示する。期待出力は t=5 put returned と t=6 data=9。 区別: インタフェース内のタスク定義を受け付けない誤実装はコンパイルできない。タスクのイベント制御で待たない誤実装では t=0 put returned になり、タスクがインスタンスの変数 data を書かない誤実装では data=9 と inv=110110 が変わる。
 
 ### SV2023-3.5-EXTRACT-MODPORT-SUBROUTINES
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 A modport may control which interface subroutines a connected module uses.
 
@@ -635,10 +678,11 @@ A modport may control which interface subroutines a connected module uses.
 
 規定の性質: `permission`。
 
+- [test_interface_ports_of_module_program_and_interface.sv](../tests/ch3/test_interface_ports_of_module_program_and_interface.sv): modport producer はタスク send だけを、modport consumer は関数 peek だけを import し、producer で接続したモジュールは p.send(...) を、consumer で接続したプログラムは ca.peek()/cb.peek() を呼ぶ。期待出力の data=10/11/20/21/22 は send の書き込み、peek=... は peek の戻り値。 区別: modport の import 指定を扱えない誤実装(Icarus 13.0 はここで sorry を出す)はコンパイルできない。import した名前を別のサブルーチンや別のインスタンスのものに結び付ける誤実装では、data と peek の値や a/b の対応が変わる。
 
 ### SV2023-3.5-EXTRACT-MODPORT-VIEW
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 Modport directions are interpreted from the connected module view.
 
@@ -646,10 +690,11 @@ Modport directions are interpreted from the connected module view.
 
 規定の性質: `definition`。
 
+- [test_interface_ports_of_module_program_and_interface.sv](../tests/ch3/test_interface_ports_of_module_program_and_interface.sv): modport producer で valid を output、modport consumer で data と valid を input と宣言し、producer 側のモジュールが p.valid = 1'b1 で書き、consumer 側のプログラムが ca.valid、ca.data を読む。期待出力は t=5 以降の valid=1(宣言時の初期値は 0)。 区別: 方向をインタフェース側から見て解釈する誤実装では、producer の output が入力側になり、モジュールの p.valid への書き込みが入力への書き込みとして拒否されるか反映されず、valid=1 が 0 のまま表示される。モジュールから見た output の書き込みがインスタンスの valid に届くことを valid=1 で確かめる。
 
 ### SV2023-3.5-EXTRACT-PROCESS-01
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface may contain initial procedures.
 
@@ -657,10 +702,11 @@ An interface may contain initial procedures.
 
 規定の性質: `permission`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): インタフェースの変数 mark を宣言で0に初期化し、インタフェース内の initial mark = 77; だけが77を書く。モジュールは時刻6に bus.mark を表示する。期待出力は t=6 ... mark=77。 区別: インタフェース内の initial 手続きを受け付けない誤実装はコンパイルできず、実行しない誤実装では mark=0 と表示される。
 
 ### SV2023-3.5-EXTRACT-PROCESS-02
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface may contain always procedures.
 
@@ -668,10 +714,11 @@ An interface may contain always procedures.
 
 規定の性質: `permission`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): インタフェース内の always @(posedge clk) ticks <= ticks + 1; がクロックの立ち上がり(時刻5、15)を数える。モジュールは立ち上がりから離れた時刻6と16に bus.ticks を表示する。期待出力は t=6 ... ticks=1 と t=16 ticks=2。 区別: インタフェース内の always 手続きを受け付けない誤実装はコンパイルできず、実行しない誤実装では ticks=0 が2回、一度しか起動しない誤実装では t=16 ticks=1 になる。
 
 ### SV2023-3.5-EXTRACT-PROCESS-03
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 An interface may contain continuous assignments.
 
@@ -679,10 +726,11 @@ An interface may contain continuous assignments.
 
 規定の性質: `permission`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): インタフェース内の連続代入 assign inv = ~data; が、タスクで data=9(6ビット 001001)を書いた後の inv を決める。モジュールは時刻6に bus.inv を %b で表示する。期待出力は inv=110110。 区別: インタフェース内の連続代入を受け付けない誤実装はコンパイルできず、data の変化で再評価しない誤実装では inv が data の初期値 x から決まる xxxxxx のままになり、inv=110110 が変わる。
 
 ### SV2023-3.5-EXTRACT-TYPE-MEMBERS
 
-3.5 / normal / テスト未対応
+3.5 / normal / 実行確認あり
 
 Types used by an interface may be declared in the interface or supplied as type parameters.
 
@@ -690,10 +738,11 @@ Types used by an interface may be declared in the interface or supplied as type 
 
 規定の性質: `permission`。
 
+- [test_interface_members_processes_and_types.sv](../tests/ch3/test_interface_members_processes_and_types.sv): インタフェース内で typedef logic [WIDTH-1:0] word_t; を宣言して data に使い、型パラメータ item_t(既定 byte)をインスタンスで logic [11:0] に上書きして item に使う。モジュールは bus.item = -1 を書き、$bits(bus.data)、$bits(bus.item)、bus.item を表示する。期待出力は bits(data)=6 bits(item)=12 item=4095。 区別: インタフェース内の型宣言を扱えない誤実装はコンパイルできない。型パラメータの上書きを反映しない誤実装では item が既定の byte のままになり bits(item)=8 item=-1 と表示され、内部の typedef を WIDTH の上書き前に決める誤実装では bits(data)=4 になる。
 
 ### SV2023-3.6-EXTRACT-CHECKER-CONTENT
 
-3.6 / normal / テスト未対応
+3.6 / normal / 実行確認あり
 
 A checker encapsulates assertions and the auxiliary modeling code permitted by the checker rules.
 
@@ -701,10 +750,11 @@ A checker encapsulates assertions and the auxiliary modeling code permitted by t
 
 規定の性質: `definition`。
 
+- [test_checker_assertion_with_auxiliary_model.sv](../tests/ch3/test_checker_assertion_with_auxiliary_model.sv): チェッカ cc_chk に、並行アサーション a_no_repeat(a |=> !a、失敗時に時刻と id を表示)と、補助のモデル化コード(チェッカ変数 count を always_ff で a が1のクロックごとに数え、連続代入で出力 seen へ渡す)を置き、2つのインスタンス c1、c2 に別々の入力を与える。期待出力は t=15 checker 1: ...、t=45 checker 2: ...(それぞれ自分の入力で1回だけ失敗)と t=50 counts: c1=2 c2=3。 区別: チェッカ内のアサーションやモデル化コードを受け付けない誤実装はコンパイルできない(Icarus 13.0 はチェッカで構文エラー)。アサーションを評価しない誤実装では2つの失敗行が出ず、always_ff のモデル化を実行しないかサンプル値を使わない誤実装では counts の 2/3 が変わる。チェッカ変数をインスタンス間で共有する(スコープを保たない)誤実装では c1 と c2 の数が混ざって 2/3 にならない。
 
 ### SV2023-3.6-EXTRACT-CHECKER-DELIMITERS
 
-3.6 / normal / テスト未対応
+3.6 / normal / 実行確認あり
 
 A checker declaration is delimited by checker and endchecker.
 
@@ -712,10 +762,11 @@ A checker declaration is delimited by checker and endchecker.
 
 規定の性質: `definition`。
 
+- [test_checker_assertion_with_auxiliary_model.sv](../tests/ch3/test_checker_assertion_with_auxiliary_model.sv): checker cc_chk(...); ... endchecker : cc_chk の間に変数、always_ff、連続代入、アサーションを書き、モジュールで2回インスタンス化する。期待出力の3行(t=15 と t=45 の失敗、t=50 の counts)はすべてこの宣言の中身から決まる。 区別: checker/endchecker(終了名付き)で区切られた宣言を認識しない誤実装はコンパイルできず3行が出ない。区切りを誤って中身を取りこぼす誤実装では、取りこぼした項目に当たる行(アサーションの失敗行、count の値)が変わる。
 
 ### SV2023-3.7-EXTRACT-BUILTIN-PRIMITIVES
 
-3.7 / normal / テスト未対応
+3.7 / normal / 実行確認あり
 
 The language provides built-in primitive types for gate/switch-level models.
 
@@ -723,10 +774,11 @@ The language provides built-in primitive types for gate/switch-level models.
 
 規定の性質: `definition`。
 
+- [test_builtin_primitive_categories.sv](../tests/ch3/test_builtin_primitive_categories.sv): 組み込みプリミティブの各分類をインスタンス化し、時刻1に出力値を %b で表示する: 論理ゲート and/nand/or/nor/xor/xnor(入力 1,0)と3入力 and、buf(2出力)/not、z を保持する変数を入力とする buf、bufif1/bufif0/notif1/notif0(有効と無効)、nmos/pmos/rnmos(オンとオフ)、cmos(n側オン、p側オン、両方オフ)、tran/tranif1(オフ)/tranif0(オン)、pullup/pulldown。期待出力は gates: and=0 nand=1 or=1 nor=0 xor=1 xnor=0 and3=1、buffers: buf=00 not=1 buf(z)=x、three-state: bufif1 on=1 off=z bufif0 on=0 notif1 on=0 notif0 off=z、mos: nmos on=1 off=z pmos on=0 off=z rnmos on=1、cmos: n on=1 p on=0 off=z、bidirectional: tran=1 tranif1 off=z tranif0 on=0、pull: pullup=1 pulldown=0。 区別: いずれかの分類の組み込みプリミティブを認識しない誤実装はコンパイルできない(Verilator 5.052 は rnmos で止まる)。後の節が定める動作を誤る誤実装では対応する値が変わる: 例えば無効な三状態ゲートやオフのスイッチを z にしない、buf の z 入力を x にしない、cmos の制御の極性を取り違える、tran で値を通さない、pullup/pulldown を駆動しないと、それぞれの行の値が変わる。
 
 ### SV2023-3.7-EXTRACT-UDP-DELIMITERS
 
-3.7 / normal / テスト未対応
+3.7 / normal / 実行確認あり
 
 A user-defined primitive declaration is delimited by primitive and endprimitive.
 
@@ -734,10 +786,11 @@ A user-defined primitive declaration is delimited by primitive and endprimitive.
 
 規定の性質: `definition`。
 
+- [test_udp_supplements_builtin_gates.sv](../tests/ch3/test_udp_supplements_builtin_gates.sv): 3つの UDP(組合せの ud_mux、レベル感知の ud_latch、エッジ感知の ud_dff)をそれぞれ primitive ... endprimitive で宣言し、インスタンス化して時刻1、3、6、8に出力を表示する。期待出力は t=1 mux=1 latch=1、t=3 mux=0 latch=0 dff=1 not=0、t=6 mux=1 latch=0 dff=1 not=0、t=8 mux=1 latch=0 dff=0 not=1。 区別: primitive/endprimitive で区切られた UDP 宣言を認識しない誤実装はコンパイルできず4行が出ない。区切りを誤って表の行を取りこぼす誤実装では、取りこぼした行に当たる時刻の出力(例: s=x の行で mux=1、立ち下がりで dff を保持)が x などに変わる。
 
 ### SV2023-3.7-EXTRACT-USER-PRIMITIVES
 
-3.7 / normal / テスト未対応
+3.7 / normal / 実行確認あり
 
 A user-defined primitive may supplement built-in primitive types.
 
@@ -745,10 +798,11 @@ A user-defined primitive may supplement built-in primitive types.
 
 規定の性質: `permission`。
 
+- [test_udp_supplements_builtin_gates.sv](../tests/ch3/test_udp_supplements_builtin_gates.sv): 組み込みの and ゲートの出力を UDP ud_mux の入力 a に、UDP ud_dff の出力を組み込みの not ゲートの入力につなぎ、同じネットリストで UDP と組み込みプリミティブを使う。期待出力は t=1 mux=1(s=0 で and(1,1)=1 を選ぶ)、t=3 mux=0、t=6 mux=1(s=x で a=b=1)、dff=1 not=0 と dff=0 not=1。 区別: UDP を組み込みプリミティブと並べて使えない誤実装はコンパイルできない。UDP の表を評価しない誤実装や、組み込みゲートとの接続で値が伝わらない誤実装では、mux(and ゲートの出力を選ぶ t=1 の 1)、not(UDP の出力を反転した 0/1)の値が変わる。
 
 ### SV2023-3.8-EXTRACT-FUNCTION-DIRECTIONS
 
-3.8 / normal / テスト未対応
+3.8 / normal / 実行確認あり
 
 Functions support input, output, inout and ref arguments subject to their declaration restrictions.
 
@@ -756,10 +810,11 @@ Functions support input, output, inout and ref arguments subject to their declar
 
 規定の性質: `definition`。
 
+- [test_function_kinds_argument_directions_and_fork.sv](../tests/ch3/test_function_kinds_argument_directions_and_fork.sv): function automatic int scale(input int a, output int o, inout int io, ref int r) を scale(2, g_o, g_io, g_r)(g_o=5, g_io=7, g_r=4)で呼ぶ。関数は o=3、io=14、r=12 を書いた後で実引数 g_o、g_io、g_r の値を記録する。期待出力は during scale: g_o=5 g_io=7 g_r=12 と after scale: g_o=3 g_io=14 g_r=12、戻り値を含む y=26。 区別: output/inout を戻るときではなく即時に実引数へ書く誤実装では during の g_o=5 g_io=7 が 3/14 になり、ref をコピーにする誤実装では during の g_r=12 が 4 になる。output/inout を書き戻さない誤実装では after の 3/14 が 5/7 のまま。関数の引数方向を受け付けない誤実装はコンパイルできない。
 
 ### SV2023-3.8-EXTRACT-FUNCTION-FORK
 
-3.8 / normal / テスト未対応
+3.8 / normal / 実行確認あり
 
 A function may create a separate process that can block simulation time, under the function/fork restrictions.
 
@@ -767,10 +822,11 @@ A function may create a separate process that can block simulation time, under t
 
 規定の性質: `permission`。
 
+- [test_function_kinds_argument_directions_and_fork.sv](../tests/ch3/test_function_kinds_argument_directions_and_fork.sv): 関数 spawn の中の fork #3 $display(...); join_none が、3時間単位待つプロセスを作る。initial 手続きから時刻0に spawn(); を呼び、直後に $time を表示する。期待出力は t=0 spawn returned と t=3 forked process done(t=1 note second の後)。 区別: 関数内の fork-join_none を受け付けない誤実装はコンパイルできない。関数がプロセスの終了を待つ誤実装では spawn returned が t=3 になり、作ったプロセスを実行しない、または待たせない誤実装では forked process done が出ないか t=0 になる。
 
 ### SV2023-3.8-EXTRACT-FUNCTION-NONBLOCKING
 
-3.8 / error / テスト未対応
+3.8 / error / 実行確認あり
 
 Executing a function must not itself block simulation time.
 
@@ -778,10 +834,13 @@ Executing a function must not itself block simulation time.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_function_delay_control.sv](../tests/ch3/test_illegal_function_delay_control.sv): 関数 store_later の本体25行目に #1 last = v; を置き、その行でのエラーを求める。
+- [test_illegal_function_event_control.sv](../tests/ch3/test_illegal_function_event_control.sv): 関数 store_on_event の本体26行目に @(go) last = v; を置き、その行でのエラーを求める。
+- [test_illegal_function_wait_statement.sv](../tests/ch3/test_illegal_function_wait_statement.sv): 関数 store_when_ready の本体26行目に wait (ready == 1) last = v; を置き、その行でのエラーを求める。
 
 ### SV2023-3.8-EXTRACT-SUBROUTINE-CATEGORIES
 
-3.8 / normal / テスト未対応
+3.8 / normal / 実行確認あり
 
 Subroutines are tasks or functions and may be invoked from multiple call sites.
 
@@ -789,10 +848,12 @@ Subroutines are tasks or functions and may be invoked from multiple call sites.
 
 規定の性質: `definition`。
 
+- [test_task_argument_directions_and_blocking.sv](../tests/ch3/test_task_argument_directions_and_blocking.sv): タスク work を時刻0と時刻10に別々の initial 手続きから呼ぶ。期待出力は t=5 after first call ... calls=1 と t=15 after second call ... calls=2。
+- [test_function_kinds_argument_directions_and_fork.sv](../tests/ch3/test_function_kinds_argument_directions_and_fork.sv): void 関数 note を2か所から、値を返す関数 twice を2か所から呼ぶ。期待出力は t=0 note first: notes=1、t=1 note second: notes=2、value: y=26 twice(4)>7=1。
 
 ### SV2023-3.8-EXTRACT-TASK-BLOCKING
 
-3.8 / normal / テスト未対応
+3.8 / normal / 実行確認あり
 
 A task may suspend its caller and return at a later simulation time.
 
@@ -800,10 +861,11 @@ A task may suspend its caller and return at a later simulation time.
 
 規定の性質: `permission`。
 
+- [test_task_argument_directions_and_blocking.sv](../tests/ch3/test_task_argument_directions_and_blocking.sv): タスク work は本体に #5 を持ち、時刻0の呼び出しは時刻5に、時刻10の呼び出しは時刻15に呼び出し元へ戻る。呼び出し元は戻った直後に $time を表示する。期待出力は t=5 after first call と t=15 after second call、待っている間の t=2 during first call(calls=1)。 区別: タスクで時間を進めない(遅延を無視する、または呼び出し元を止めない)誤実装では after first call の時刻が 5 ではなく 0 になり、during の行より前に出る。戻る時刻を誤れば t=5/t=15 が変わる。
 
 ### SV2023-3.8-EXTRACT-TASK-DIRECTIONS
 
-3.8 / normal / テスト未対応
+3.8 / normal / 実行確認あり
 
 Tasks support input, output, inout and ref arguments subject to their declaration rules.
 
@@ -811,10 +873,11 @@ Tasks support input, output, inout and ref arguments subject to their declaratio
 
 規定の性質: `definition`。
 
+- [test_task_argument_directions_and_blocking.sv](../tests/ch3/test_task_argument_directions_and_blocking.sv): task automatic work(input int a, output int o, inout int io, ref int r) を時刻0に work(va, vo, vio, vr)(va=3, vo=0, vio=10, vr=100)で呼び、タスクが #5 で待つ間の時刻2に別プロセスが実引数を表示してから va=50、vio=77、vr=200 に変える。期待出力は t=2 during first call: va=3 vo=0 vio=10 vr=103 と、戻った後の t=5 after first call: va=50 vo=9 vio=14 vr=201。 区別: input をコピーしない(参照にする)誤実装では o = 6 + 50 で vo=56 になる。output/inout を戻るときではなく即時に書く誤実装では t=2 の vo=0 vio=10 が 6/13 になり、inout を参照にする誤実装では戻った後の vio が 78 になる。ref をコピーにする誤実装では t=2 の vr=103 が 100 に、戻った後の vr=201 が 104 になる。
 
 ### SV2023-3.8-EXTRACT-TASK-STATEMENT
 
-3.8 / normal / テスト未対応
+3.8 / normal / 実行確認あり
 
 A task call is a statement and has no function return value.
 
@@ -822,10 +885,11 @@ A task call is a statement and has no function return value.
 
 規定の性質: `definition`。
 
+- [test_task_argument_directions_and_blocking.sv](../tests/ch3/test_task_argument_directions_and_blocking.sv): 戻り値のないタスク work を、2つの initial 手続きでそれぞれ文として work(va, vo, vio, vr); と work(1, vo, vio, vr); で呼び、結果を output/inout/ref の実引数で受け取る。期待出力は t=5 after first call ... と t=15 after second call: vo=3 vio=16 vr=203 calls=2。 区別: タスク呼び出しを文として受け付けない誤実装はコンパイルできない。文として実行されない、または結果を戻り値の扱いで捨てる誤実装では calls=2 や vo/vio/vr の値が変わる。
 
 ### SV2023-3.8-EXTRACT-VALUE-FUNCTION
 
-3.8 / normal / テスト未対応
+3.8 / normal / 実行確認あり
 
 A nonvoid function returns a value and its call can be an expression operand.
 
@@ -833,10 +897,11 @@ A nonvoid function returns a value and its call can be an expression operand.
 
 規定の性質: `definition`。
 
+- [test_function_kinds_argument_directions_and_fork.sv](../tests/ch3/test_function_kinds_argument_directions_and_fork.sv): 値を返す関数 scale(2,...)(20 を返す)と twice(3)(6 を返す)を加算の被演算子にして y へ代入し、twice(4) を比較 > 7 の被演算子にする。期待出力は value: y=26 twice(4)>7=1。 区別: 関数呼び出しを式の被演算子にできない誤実装はコンパイルできない。戻り値を誤る(0 にする、片方だけ使う)誤実装では y=26 が 20 や 6 などに、比較の結果 1 が 0 に変わる。
 
 ### SV2023-3.8-EXTRACT-VOID-FUNCTION
 
-3.8 / normal / テスト未対応
+3.8 / normal / 実行確認あり
 
 A void function has no return value and its call is a statement.
 
@@ -844,10 +909,11 @@ A void function has no return value and its call is a statement.
 
 規定の性質: `definition`。
 
+- [test_function_kinds_argument_directions_and_fork.sv](../tests/ch3/test_function_kinds_argument_directions_and_fork.sv): 戻り値のない function void note(string what) を時刻0と時刻1に文として note("first"); #1 note("second"); で呼び、関数は呼び出し回数 notes を増やして表示する。期待出力は t=0 note first: notes=1 と t=1 note second: notes=2。 区別: void 関数を文として呼べない誤実装はコンパイルできない。文として実行しない誤実装では2つの note 行が出ず、呼び出しごとに本体を実行しない誤実装では notes=2 が 1 になる。
 
 ### SV2023-3.9-EXTRACT-LOCAL-NAME-ISOLATION
 
-3.9 / normal / テスト未対応
+3.9 / normal / 実行確認あり
 
 Names declared in distinct module, interface, program or checker scopes do not collide merely because their spellings match.
 
@@ -855,10 +921,11 @@ Names declared in distinct module, interface, program or checker scopes do not c
 
 規定の性質: `definition`。
 
+- [test_same_names_in_module_interface_program_checker_scopes.sv](../tests/ch3/test_same_names_in_module_interface_program_checker_scopes.sv): 変数 count を2つのモジュール(10、20)、インタフェース(30)、チェッカ(40)、プログラム(50)、最上位モジュール(60)でそれぞれ宣言し、関数 get(自分の count に 1/2/3/5 を足す)を2つのモジュール、インタフェース、プログラムで宣言する。最上位は u_a.count だけを +1 し、時刻1に各インスタンスを階層名で読む。期待出力は top: count=60、u_a: count=11 get()=12、u_b: count=20 get()=22、u_if: count=30 get()=33、u_chk: count=40、program: count=50 get()=55。 区別: 同じ綴りの宣言をブロックをまたいで衝突させる誤実装はコンパイルできない(count や get の重複)。名前を1つの実体に解決する誤実装では、u_a.count++ が他の count にも現れる(u_b の 20 が 21 になるなど)か、get() が別のブロックの count を使って 12/22/33/55 が変わる。
 
 ### SV2023-3.9-EXTRACT-PACKAGE-DELIMITERS
 
-3.9 / normal / テスト未対応
+3.9 / normal / 実行確認あり
 
 A package declaration is delimited by package and endpackage.
 
@@ -866,10 +933,11 @@ A package declaration is delimited by package and endpackage.
 
 規定の性質: `definition`。
 
+- [test_package_shared_space_imported_by_blocks_and_package.sv](../tests/ch3/test_package_shared_space_imported_by_blocks_and_package.sv): 2つのパッケージを package sp_base_pkg; ... endpackage : sp_base_pkg と package sp_pair_pkg; ... endpackage : sp_pair_pkg で宣言し、その中の型・パラメータ・変数・関数をモジュールが import して使う。期待出力の4行(reader の2行と top の2行)はすべてこの2つの宣言の中身から決まる。 区別: package/endpackage(終了名付き)で区切られた宣言を認識しない誤実装はコンパイルできず、4行が出ない。区切りを誤って中身を取りこぼす誤実装では、取りこぼした宣言を使う行(shared_count、pair、DOUBLE、scaled)が変わる。
 
 ### SV2023-3.9-EXTRACT-PACKAGE-INTO-PACKAGE
 
-3.9 / normal / テスト未対応
+3.9 / normal / 実行確認あり
 
 A package may import declarations from another package.
 
@@ -877,10 +945,11 @@ A package may import declarations from another package.
 
 規定の性質: `permission`。
 
+- [test_package_shared_space_imported_by_blocks_and_package.sv](../tests/ch3/test_package_shared_space_imported_by_blocks_and_package.sv): パッケージ sp_pair_pkg が import sp_base_pkg::*; で取り込んだ型 word_t、パラメータ SCALE、関数 scaled を使って、パック構造体 pair_t(word_t 2つ)、localparam DOUBLE = SCALE * 2、関数 make_pair(scaled(x), scaled(x + 1))を宣言する。最上位が make_pair(4)、$bits(pair_t)、DOUBLE を表示する。期待出力は t=4 top: pair=(12,15) bits(pair_t)=12 DOUBLE=6。 区別: パッケージの中の import を受け付けない誤実装は sp_pair_pkg をコンパイルできない。取り込んだ宣言を正しく解決しない誤実装では pair_t の幅(12)、DOUBLE(6)、make_pair の値(12,15)が変わる。
 
 ### SV2023-3.9-EXTRACT-PACKAGE-SHARING
 
-3.9 / normal / テスト未対応
+3.9 / normal / 実行確認あり
 
 Package declarations provide a shared declaration space that other design blocks may import.
 
@@ -888,6 +957,7 @@ Package declarations provide a shared declaration space that other design blocks
 
 規定の性質: `permission`。
 
+- [test_package_shared_space_imported_by_blocks_and_package.sv](../tests/ch3/test_package_shared_space_imported_by_blocks_and_package.sv): パッケージ sp_base_pkg の変数 shared_count を、sp_writer が import sp_base_pkg::*; で取り込んで時刻0に5、時刻2に+1し、sp_reader が import sp_base_pkg::shared_count; で取り込んで時刻1と3に表示し、最上位が sp_base_pkg::shared_count を時刻4に表示する。型 word_t と関数 scaled も最上位とパッケージ sp_pair_pkg で使う。期待出力は t=1 reader: shared_count=5、t=3 reader: shared_count=6、t=4 top: shared_count=6、scaled(30)=26。 区別: パッケージの宣言を取り込む側ごとに別の実体にする(共有しない)誤実装では、sp_reader と最上位の shared_count が sp_writer の書き込みを見ず 0 と表示される。import を受け付けない誤実装はコンパイルできず、パッケージの関数・型を取り違える誤実装では scaled(30)=26(6ビットで折り返し)が変わる。
 
 ### SV2023-3.10-EXTRACT-CONFIGURATION-BINDING
 
@@ -924,7 +994,7 @@ Library-map files associate library cells with source-code locations.
 
 ### SV2023-3.11-EXTRACT-CHECKER-CHILDREN
 
-3.11 / normal / テスト未対応
+3.11 / normal / テスト対応あり・実行未確認
 
 Programs and checkers may instantiate checkers under checker instantiation rules.
 
@@ -932,10 +1002,11 @@ Programs and checkers may instantiate checkers under checker instantiation rules
 
 規定の性質: `permission`。
 
+- [test_program_and_checker_instantiate_checkers.sv](../tests/ch3/test_program_and_checker_instantiate_checkers.sv): プログラム cc_prog がチェッカ cc_mid_chk(u_mid)と cc_leaf_chk(u_direct、id 9)をインスタンス化し、cc_mid_chk がさらに cc_leaf_chk を2つ(u_bit0、u_bit1、id 0 と 1)インスタンス化する。各葉のアサーション(入力が0であること)が別々のクロックで失敗するよう入力を与える。期待出力は t=5 leaf 0: a is 1、t=15 leaf 1: a is 1、t=25 leaf 9: a is 1、t=40 program: done。 区別: プログラムの中、またはチェッカの中のチェッカのインスタンス化を受け付けない誤実装はコンパイルできない(Icarus 13.0 と Verilator 5.052 はどちらも拒否する)。入れ子のインスタンスを実体化しない誤実装では leaf 0 と leaf 1 の行が出ず、プログラム内のインスタンスを実体化しない誤実装では leaf 9 の行が出ない。実引数を取り違える誤実装では失敗の時刻や id が変わる。
 
 ### SV2023-3.11-EXTRACT-HIERARCHICAL-REFERENCE
 
-3.11 / normal / テスト未対応
+3.11 / normal / 実行確認あり
 
 A hierarchical path may reference an identifier in another hierarchy level when the hierarchical name-resolution rules permit it.
 
@@ -943,10 +1014,11 @@ A hierarchical path may reference an identifier in another hierarchy level when 
 
 規定の性質: `permission`。
 
+- [test_module_instantiates_each_block_kind.sv](../tests/ch3/test_module_instantiates_each_block_kind.sv): トップから下向きの階層名 u_mod.internal(初期値9)、u_mod.path、u_if.data(トップが3を書いて読む)を参照し、子モジュールは上向きの階層名 test_module_instantiates_each_block_kind.shared(42)を連続代入で読む。期待出力は module: ... internal=9 up_seen=42 と interface: ... data=3。 区別: 階層名を別レベルの識別子に解決しない誤実装はコンパイルできないか、別の変数に結び付けて internal=9、up_seen=42、data=3 のいずれかが変わる。上向き参照だけ・下向き参照だけを誤る実装もそれぞれの値で検出される。
 
 ### SV2023-3.11-EXTRACT-IMPLICIT-TOP
 
-3.11 / normal / テスト未対応
+3.11 / normal / 実行確認あり
 
 An elaborated, otherwise uninstantiated module or program is normally implicitly instantiated once as a top-level block, subject to top-selection rules.
 
@@ -954,10 +1026,11 @@ An elaborated, otherwise uninstantiated module or program is normally implicitly
 
 規定の性質: `definition`。
 
+- [test_uninstantiated_modules_and_program_are_tops.sv](../tests/ch3/test_uninstantiated_modules_and_program_are_tops.sv): どこからもインスタンス化されないモジュール2つ(テスト本体と tops_second)とプログラム tops_prog、および tops_second がインスタンス化する tops_leaf を置き、それぞれが別の時刻に %m を表示する。期待出力は t=1 test_uninstantiated_modules_and_program_are_tops、t=2 tops_second、t=3 tops_second.u_leaf、t=4 tops_prog の4行だけ。 区別: インスタンス化されないモジュールやプログラムを暗黙にトップとしてインスタンス化しない誤実装では該当行が出ない。2回インスタンス化すれば同じ行が2回出る。インスタンス化されている tops_leaf までトップにする誤実装では t=3 tops_leaf の行が余分に出る。プログラムを宣言名と異なる名前で置けば t=4 の名前が変わる。
 
 ### SV2023-3.11-EXTRACT-INSTANCE-HIERARCHY
 
-3.11 / normal / テスト未対応
+3.11 / normal / 実行確認あり
 
 Instantiating a module, interface, program or checker inside a module creates a subordinate hierarchy level.
 
@@ -965,10 +1038,11 @@ Instantiating a module, interface, program or checker inside a module creates a 
 
 規定の性質: `definition`。
 
+- [test_module_instantiates_each_block_kind.sv](../tests/ch3/test_module_instantiates_each_block_kind.sv): モジュール、インタフェース、プログラム、チェッカの各インスタンス内で %m を評価し(モジュールとインタフェースは時刻0に文字列へ取り込み、プログラムは initial、チェッカは final で表示)、そのスコープの完全な階層名を出す。期待出力は test_module_instantiates_each_block_kind.u_mod / .u_if / .u_prog / .u_chk。 区別: インスタンス化で新しい階層レベルを作らない(子の宣言を親のスコープに平坦化する、インスタンス名を階層に入れない)誤実装では、%m の表示がトップ名だけになるか別の名前になり、4つの行のパスが変わる。
 
 ### SV2023-3.11-EXTRACT-INTERFACE-HIERARCHY
 
-3.11 / normal / テスト未対応
+3.11 / normal / 実行確認あり
 
 An interface can instantiate permitted design blocks and introduce hierarchy levels.
 
@@ -976,10 +1050,11 @@ An interface can instantiate permitted design blocks and introduce hierarchy lev
 
 規定の性質: `permission`。
 
+- [test_interface_instantiates_interface_program_and_checker.sv](../tests/ch3/test_interface_instantiates_interface_program_and_checker.sv): インタフェース ih_outer_if の中でインタフェース ih_leaf_if(u_leaf)、プログラム ih_prog(u_prog)、チェッカ ih_and_chk(u_chk11、u_chk10)をインスタンス化し、最上位に ih_outer_if を2つ(u_outer、u_other)置く。u_leaf の %m、u_other.u_leaf.k への書き込み、各 u_prog の %m と入力、チェッカの出力を表示する。期待出力は leaf: ....u_outer.u_leaf k=7 / ....u_other.u_leaf k=20、sums: u_outer=8 u_other=21、checkers: c11=1 c10=0(両方)、program: ....u_outer.u_prog v=9 / ....u_other.u_prog v=10。 区別: インタフェース内のインスタンス化を受け付けない誤実装(Icarus 13.0 はインタフェース内のインスタンスを拒否する)はコンパイルできない。子のインスタンスを外側のインスタンスの下の階層として作らない誤実装では %m の経路(u_outer.u_leaf、u_other.u_prog など)が変わり、子を2つの外側インスタンスで共有する誤実装では k=7/20、sums 8/21、v=9/10 が同じ値になる。チェッカを実体化しない誤実装では c11=1 が x などに変わる。
 
 ### SV2023-3.11-EXTRACT-MODULE-CHILDREN
 
-3.11 / normal / テスト未対応
+3.11 / normal / 実行確認あり
 
 A module may instantiate modules, programs, interfaces, checkers and primitives subject to their specific legality rules.
 
@@ -987,10 +1062,11 @@ A module may instantiate modules, programs, interfaces, checkers and primitives 
 
 規定の性質: `permission`。
 
+- [test_module_instantiates_each_block_kind.sv](../tests/ch3/test_module_instantiates_each_block_kind.sv): 1つのモジュールがモジュール、インタフェース、プログラム、チェッカ、組込みプリミティブ(nand)、UDP をインスタンス化し、各インスタンスの出力やパスを表示する。期待出力は module/interface/checker output/primitives/program/checker の6行で、dout=6、data=3、10、nand(1,1)=0 nand(1,0)=1 maj(1,0,1)=1 maj(1,0,0)=0、pin=6、doubled=10。 区別: いずれかの種類の子をモジュールが持てない誤実装はコンパイルできない。子を階層木に組み込まず動作させない誤実装では、その子に対応する行の値(6、3、10、ゲート/UDP の出力、program 行、final 行)が変わるか出ない。
 
 ### SV2023-3.11-EXTRACT-MULTIPLE-TOPS
 
-3.11 / normal / テスト未対応
+3.11 / normal / 実行確認あり
 
 A design may have multiple top-level hierarchy blocks.
 
@@ -998,10 +1074,11 @@ A design may have multiple top-level hierarchy blocks.
 
 規定の性質: `permission`。
 
+- [test_uninstantiated_modules_and_program_are_tops.sv](../tests/ch3/test_uninstantiated_modules_and_program_are_tops.sv): どこからもインスタンス化されないブロックを3つ(モジュール2つとプログラム1つ)置き、3つともがトップレベルとして動作して自分の名前を %m で表示する。期待出力は t=1 test_uninstantiated_modules_and_program_are_tops、t=2 tops_second、t=4 tops_prog。 区別: トップレベルを1つしか許さない(最初や最後のモジュールだけをトップにする)誤実装では、t=1、t=2、t=4 のうち2行が出ないかエラーになる。
 
 ### SV2023-3.11-EXTRACT-PORT-COMMUNICATION
 
-3.11 / normal / テスト未対応
+3.11 / normal / 実行確認あり
 
 Port connections provide communication between an instance and its enclosing design scope.
 
@@ -1009,10 +1086,11 @@ Port connections provide communication between an instance and its enclosing des
 
 規定の性質: `definition`。
 
+- [test_module_instantiates_each_block_kind.sv](../tests/ch3/test_module_instantiates_each_block_kind.sv): トップの din=5 を子モジュールの入力ポートへ、子の出力ポート dout(din+1)をトップの wire へ、その wire をプログラムの入力ポート pin へ、din をチェッカの入力へ、チェッカの出力 doubled をトップの chk_out へ接続する。期待出力は dout=6、program: ... pin=6、checker output: 10。 区別: ポート接続で値を受け渡さない誤実装(入力を子へ渡さない、出力を親へ戻さない)では dout=6、pin=6、checker output: 10 のいずれかが x や 0 などに変わる。
 
 ### SV2023-3.11-EXTRACT-PRIMITIVE-LEAF
 
-3.11 / error / テスト未対応
+3.11 / error / 実行確認あり
 
 A primitive cannot instantiate another design block.
 
@@ -1020,6 +1098,7 @@ A primitive cannot instantiate another design block.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_udp_contains_gate_instance.sv](../tests/ch3/test_illegal_udp_contains_gate_instance.sv): 出力 o と入力 a を持つ UDP の本体22行目に not ゲートのインスタンス g_inner(o, a) を置き、状態表(0 : 1; 1 : 0;)はそのままにして、その行でのエラーを求める。モジュールは UDP をインスタンス化しており、22行目を除くと両シミュレータで o=1 を表示する。 区別: プリミティブを階層の葉とせず中のインスタンスを受け付ける誤実装(Verilator 5.052)は受理し、22行目のエラーが出ないので不合格になる。モジュール内の UDP インスタンスは合法な対照で、そこを拒否する実装は別の行で報告する。
 
 ### SV2023-3.12-EXTRACT-COMBINED-PHASES
 
@@ -1034,7 +1113,7 @@ An implementation may combine compilation and elaboration phases while preservin
 
 ### SV2023-3.12-EXTRACT-HIERARCHICAL-NAMES
 
-3.12 / normal / テスト未対応
+3.12 / normal / 実行確認あり
 
 Elaboration prepares the design before simulation by resolving hierarchical names.
 
@@ -1042,10 +1121,11 @@ Elaboration prepares the design before simulation by resolving hierarchical name
 
 規定の性質: `definition`。
 
+- [test_elaborated_parameters_generate_and_names_at_time_zero.sv](../tests/ch3/test_elaborated_parameters_generate_and_names_at_time_zero.sv): 最上位の initial 手続きが時刻0に、生成ブロックの名前を含む階層名 r2.g[1].u.IDX、r2.g[1].u.TAG、r3.g[2].u.TAG、r3.g[0].u.TAG、r3.g[1].u.TAG と r2.N、r3.LAST、$bits(r2.chain) を読む。期待出力は時刻0の3行(IDX=2 TAG=20、IDX=3 TAG=30、TAG=10/20 など)。 区別: シミュレーションの前に階層名を解決しない誤実装、または展開された生成ブロックの名前 g[i] に解決できない誤実装は、この設計を拒否するか時刻0の値を出せない。別のインスタンス(例: r2 と r3、g[0] と g[2])へ解決する誤実装では TAG=10/20/30 や IDX=2/3 が入れ替わる。
 
 ### SV2023-3.12-EXTRACT-INSTANCE-EXPANSION
 
-3.12 / normal / テスト未対応
+3.12 / normal / 実行確認あり
 
 Elaboration prepares the design before simulation by expanding design instantiations.
 
@@ -1053,10 +1133,11 @@ Elaboration prepares the design before simulation by expanding design instantiat
 
 規定の性質: `definition`。
 
+- [test_elaborated_parameters_generate_and_names_at_time_zero.sv](../tests/ch3/test_elaborated_parameters_generate_and_names_at_time_zero.sv): el_row の生成ループ for (genvar i = 0; i < N; i++) begin : g が el_leaf を N 個インスタンス化し、N=2 の r2 には g[0].u と g[1].u、N=3 の r3 には g[0].u から g[2].u ができる。時刻0に最後の葉(r2.g[1].u、r3.g[2].u)と r3 の残りの葉のパラメータを表示する。期待出力は r2 の g[1].u: IDX=2 TAG=20、r3 の g[2].u: IDX=3 TAG=30、r3: g[0].u.TAG=10 g[1].u.TAG=20。 区別: シミュレーションの前にインスタンス化を展開しない誤実装、または展開の数をパラメータの最終値から決めない誤実装(例: 既定の N=1 で1個だけ展開)では、r3.g[2].u や r2.g[1].u が存在せず名前の解決でエラーになり、展開ごとの IDX/TAG(10/20/30)が変わる。
 
 ### SV2023-3.12-EXTRACT-NET-CONNECTIVITY
 
-3.12 / normal / テスト未対応
+3.12 / normal / 実行確認あり
 
 Elaboration prepares the design before simulation by establishing elaborated net connectivity.
 
@@ -1064,6 +1145,7 @@ Elaboration prepares the design before simulation by establishing elaborated net
 
 規定の性質: `definition`。
 
+- [test_elaborated_net_joins_drivers_across_hierarchy.sv](../tests/ch3/test_elaborated_net_joins_drivers_across_hierarchy.sv): 最上位の tri ネット bus を、u_b(nc_driver)の inout ポート pin と、u_a(nc_mid)を通してさらに1段下の u_a.u_drv の inout ポートへつなぎ、各モジュールと最上位の連続代入が時刻ごとに駆動を切り替える。bus と u_a.pin、u_a.u_drv.pin、u_b.pin を同時刻に表示する。wand ネット wa は 1 と 0 を駆動する2つのインスタンスの wire ポートへつなぐ。期待出力は t=1 の4つとも 1、t=3 は 0、t=5 は x、t=7 は z、wand: wa=0。 区別: ポートを通したネットの接続を確立しない誤実装では、別のモジュールの駆動が bus や他のポート名に届かず、t=1 の u_b.pin が 1 にならない、t=5 の衝突が x にならない(一方の値のまま)などの違いが出る。ネットの種類の決定(wand が優先)を行わない誤実装では wa=0 が x になる。
 
 ### SV2023-3.12-EXTRACT-PACKAGE-PRECEDENCE
 
@@ -1078,7 +1160,7 @@ Package compilation must precede references to package items as specified by pac
 
 ### SV2023-3.12-EXTRACT-PARAMETER-VALUES
 
-3.12 / normal / テスト未対応
+3.12 / normal / 実行確認あり
 
 Elaboration prepares the design before simulation by evaluating elaboration-time parameter values.
 
@@ -1086,6 +1168,7 @@ Elaboration prepares the design before simulation by evaluating elaboration-time
 
 規定の性質: `definition`。
 
+- [test_elaborated_parameters_generate_and_names_at_time_zero.sv](../tests/ch3/test_elaborated_parameters_generate_and_names_at_time_zero.sv): el_row の N をインスタンスで 2(r2)と 3(r3)に上書きし、そこから localparam LAST = N - 1、各葉の IDX = i + 1 と TAG = IDX * 10、ベクタ chain の幅 N+1 を決める。最上位の initial 手続きが遅延なしの時刻0に表示する。期待出力は t=0 r2: N=2 LAST=1 g[1].u: IDX=2 TAG=20 bits(chain)=3、t=0 r3: N=3 LAST=2 g[2].u: IDX=3 TAG=30 bits(chain)=4、t=0 r3: g[0].u.TAG=10 g[1].u.TAG=20。 区別: シミュレーションの前にパラメータの最終値を計算しない誤実装、例えば上書きを反映しない(N=1 のまま)、派生パラメータを上書き前の値から計算する実装では、N、LAST、IDX、TAG、bits(chain) の値が変わる。時刻0でまだ値が決まっていない実装では時刻0の3行が変わる。
 
 ### SV2023-3.12-EXTRACT-PRE-SIMULATION-ERROR
 
@@ -1213,7 +1296,7 @@ Unqualified lookup searches nested lexical scopes and their imports, then earlie
 
 ### SV2023-3.12.1-EXTRACT-NO-UNIT-HIERARCHICAL-ACCESS
 
-3.12.1 / error / テスト未対応
+3.12.1 / error / 実行確認あり
 
 Compilation-unit-scope identifiers are not exposed through ordinary hierarchical references.
 
@@ -1221,10 +1304,11 @@ Compilation-unit-scope identifiers are not exposed through ordinary hierarchical
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unit_scope_hierarchical_reference.sv](../tests/ch3/test_illegal_unit_scope_hierarchical_reference.sv): コンパイル単位スコープの int unit_count = 4 を、単純名と $unit::unit_count(29行目、合法)、トップモジュール名から始まる階層名(31行目、違反)で参照する。モジュール自身の変数 own の階層名参照(30行目)も合法な対照として置く。31行目でのエラーを求め、その行を除けば両シミュレータで 4 4 と 1 を表示する。 区別: コンパイル単位の宣言をトップレベルのインスタンスの中にもあるものとして階層名で見えるようにする誤実装は31行目を受理し、エラーが出ないので不合格になる。単純名・$unit::・自モジュール変数の階層名は合法な対照で、それらを拒否する実装は29・30行目で報告するため一致しない。
 
 ### SV2023-3.12.1-EXTRACT-NO-UNIT-IMPORT
 
-3.12.1 / error / テスト未対応
+3.12.1 / error / 実行確認あり
 
 Compilation-unit scope cannot be named by an import declaration.
 
@@ -1232,6 +1316,7 @@ Compilation-unit scope cannot be named by an import declaration.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unit_scope_import.sv](../tests/ch3/test_illegal_unit_scope_import.sv): コンパイル単位スコープに int unit_limit = 9 を宣言し、モジュール内25行目で import $unit::*; を行う設計で、その行でのエラーを求める。同じ変数を単純名と $unit::unit_limit で読む合法な参照も含み、import 行を除けば両シミュレータで limit=9 9 を表示する。 区別: $unit を package のように import できるものとして扱う誤実装(Icarus 13.0 がそうである)は設計を受理し、25行目のエラーを出さないので不合格になる。$unit:: による参照は合法な対照で、そこを拒否する実装は27行目で報告するため一致しない。
 
 ### SV2023-3.12.1-EXTRACT-PLI-UNIT-ITERATOR
 
@@ -1268,7 +1353,7 @@ The compilation-unit scope may additionally contain bind constructs.
 
 ### SV2023-3.12.1-EXTRACT-UNIT-FORWARD-LIMIT
 
-3.12.1 / error / テスト未対応
+3.12.1 / error / 実行確認あり
 
 Except for the separately allowed task/function name cases, a referenced compilation-unit declaration must already have appeared.
 
@@ -1276,6 +1361,7 @@ Except for the separately allowed task/function name cases, a referenced compila
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unit_scope_forward_reference.sv](../tests/ch3/test_illegal_unit_scope_forward_reference.sv): コンパイル単位スコープの変数 unit_early をモジュールの前に、unit_late をモジュールの後に宣言し、モジュールの initial で unit_early(合法)と unit_late(30行目、違反)を単純名で参照する。30行目でのエラーを求め、その行を除けば両シミュレータで sum=2 を表示する。 区別: コンパイル単位スコープ全体を参照位置に関係なく検索する誤実装(Verilator 5.052 がそうである)は unit_late を後方の宣言に結び付けて受理し、30行目のエラーが出ないので不合格になる。前方に宣言された unit_early は合法な対照で、そこでもエラーを出す実装は29行目で報告するため一致しない。参照は関数・タスク名ではなく変数なので、許される例外には当たらない。
 
 ### SV2023-3.12.1-EXTRACT-UNIT-NAME
 
@@ -1302,7 +1388,7 @@ The compilation-unit scope may contain every kind of item permitted in a package
 
 ### SV2023-3.12.1-EXTRACT-UNIT-PREFIX-NO-FORWARD
 
-3.12.1 / error / テスト未対応
+3.12.1 / error / テスト対応あり・実行未確認
 
 An explicit $unit prefix does not legalize references to later ordinary compilation-unit declarations.
 
@@ -1310,6 +1396,7 @@ An explicit $unit prefix does not legalize references to later ordinary compilat
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unit_prefix_forward_reference.sv](../tests/ch3/test_illegal_unit_prefix_forward_reference.sv): 前方宣言の unit_early を $unit::unit_early で(合法)、モジュールの後に宣言した unit_late を $unit::unit_late で(30行目、違反)参照する。30行目でのエラーを求め、その行を除けば両シミュレータで sum=2 を表示する。 区別: $unit:: 接頭辞を付けた名前だけはコンパイル単位全体から探す誤実装(Icarus 13.0 と Verilator 5.052 の両方がそうである)は設計を受理し、30行目のエラーを出さないので不合格になる。前方宣言への $unit:: 参照は合法な対照で、接頭辞自体を拒否する実装は29行目で報告するため一致しない。
 
 ### SV2023-3.12.1-EXTRACT-UNIT-PRIVATE-NAMES
 
@@ -1481,7 +1568,7 @@ Compilation-unit scope unifies its functions, tasks, checkers, parameters, named
 
 ### SV2023-3.14-EXTRACT-PRECISION-NOT-COARSER
 
-3.14 / error / テスト未対応
+3.14 / error / 実行確認あり
 
 A design element's time precision must not be coarser than its time unit.
 
@@ -1489,10 +1576,11 @@ A design element's time precision must not be coarser than its time unit.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_timeprecision_coarser_than_timeunit.sv](../tests/ch3/test_illegal_timeprecision_coarser_than_timeunit.sv): トップモジュールで timeunit 10ps; と timeprecision 100ps;(30行目)を宣言し、精度が単位より長い設計で29行目か30行目のエラーを求める。インスタンス化する別モジュールは timeunit 100ps; timeprecision 10ps; の合法な組合せを持ち、30行目を 1ps に替えると両シミュレータで done を表示して正常終了する。 区別: 精度が単位より粗いかを検査しない誤実装(Verilator 5.052 がそうである)は受理し、29/30行目のエラーが出ないので不合格になる。逆向きの比較をする誤実装は合法な 100ps/10ps のモジュール(24・25行目)で報告し、許される行と一致しない。
 
 ### SV2023-3.14-EXTRACT-TIME-COMPONENTS
 
-3.14 / normal / テスト未対応
+3.14 / normal / 実行確認あり
 
 A delay uses a time unit and a time precision: the former scales the value and the latter specifies its rounding resolution.
 
@@ -1500,6 +1588,7 @@ A delay uses a time unit and a time precision: the former scales the value and t
 
 規定の性質: `definition`。
 
+- [test_delay_scaled_by_unit_rounded_by_precision.sv](../tests/ch3/test_delay_scaled_by_unit_rounded_by_precision.sv): 同じ遅延 #1.26 を、単位 1ns/精度 1ns、単位 10ns/精度 100ps、単位 10ns/精度 1ns のモジュールで、#0.0237 と #0.0251 を単位 1us/精度 10ns のモジュールで待たせ、単位と精度 1ps の最上位が終わった時刻を ps で表示する。期待出力は 1000 ps、12600 ps、13000 ps、20000 ps、30000 ps。 区別: 単位で値を拡大しない誤実装では #1.26 が単位 1ns と 10ns で同じ時刻になる(1000/13000 が同じになる)。精度で丸めない誤実装(Verilator 5.052 はこの動作で 1260、12600、12600、23700、25100 ps になる)や、全体の最小精度で丸める誤実装では 1000、13000、20000、30000 ps が変わる。切り捨てで丸める誤実装では 30000 が 20000 に、13000 が 12000 になる。
 
 ### SV2023-3.14-EXTRACT-TIME-UNIT-ENCODING
 
@@ -1514,7 +1603,7 @@ Time unit and precision literals use multipliers 1, 10 or 100 with s, ms, us, ns
 
 ### SV2023-3.14-EXTRACT-TIME-UNIT-SCALING
 
-3.14 / normal / テスト未対応
+3.14 / normal / 実行確認あり
 
 The time suffixes s, ms, us, ns, ps and fs denote seconds, milliseconds, microseconds, nanoseconds, picoseconds and femtoseconds respectively.
 
@@ -1522,6 +1611,7 @@ The time suffixes s, ms, us, ns, ps and fs denote seconds, milliseconds, microse
 
 規定の性質: `definition`。
 
+- [test_time_unit_strings_scale_by_1000.sv](../tests/ch3/test_time_unit_strings_scale_by_1000.sv): 6つの単位文字列 fs、ps、ns、us、ms、s のそれぞれに 1、10、100 を付けた18の時間単位を、18のモジュールの timeunit に1つずつ宣言し、各モジュールが #1 の後に done を立てる。単位と精度 1fs の最上位が各 done の立ち上がりで $time(fs)を表示する。期待出力は 1fs: 1、1ps: 1000、1ns: 1000000、1us: 1000000000、1ms: 1000000000000、1s: 1000000000000000 fs(10倍、100倍の行も含む)で、隣り合う単位文字列が1000倍ずつ。 区別: 単位文字列の意味(Table 3-1)を取り違える誤実装(例: us を ns と同じにする、ms と us を入れ替える)や、隣の単位との比を1000以外にする誤実装では、対応する行の fs 数(例: #1 in 1us: 1000000000 fs)が変わる。単位文字列を認識しない誤実装はコンパイルできない。
 
 ### SV2023-3.14.1-EXTRACT-LOCAL-ROUNDING-INDEPENDENCE
 
@@ -1699,7 +1789,7 @@ Default time unit and default precision are implementation-specific.
 
 ### SV2023-3.14.2.3-EXTRACT-MIXED-TIME-SPECIFICATION
 
-3.14.2.3 / error / テスト未対応
+3.14.2.3 / error / テスト対応あり・実行未確認
 
 It is an error for some design elements to have specified time unit/precision while others do not.
 
@@ -1707,6 +1797,7 @@ It is an error for some design elements to have specified time unit/precision wh
 
 規定の性質: `mandatory`。
 
+- [test_illegal_time_unit_specified_only_in_some_elements.sv](../tests/ch3/test_illegal_time_unit_specified_only_in_some_elements.sv): `timescale もコンパイル単位の timeunit もない状態で、最初のモジュール(24行目)は時間単位・精度を持たず、トップモジュールだけが timeunit 1ns;(29行目)と timeprecision 1ns;(30行目)を宣言する。どちらかの違反箇所(24/29/30行目)でのエラーを求める。2つの宣言を除くと両シミュレータで child と top を表示する合法な設計になる。 区別: 一部の設計要素だけが時間単位を指定した混在を検査しない誤実装(Icarus 13.0 と Verilator 5.052 は警告だけ)は受理し、24/29/30行目のエラーがないため不合格になる。子モジュールは入れ子ではなく、前に `timescale もないので、継承や指令による設定で許される場合には当たらない。
 
 ### SV2023-3.14.2.3-EXTRACT-TIME-PRECISION-PRECEDENCE
 
@@ -1754,7 +1845,7 @@ The compilation-unit scope's time unit is set only by its timeunit declaration, 
 
 ### SV2023-3.14.3-EXTRACT-GLOBAL-TIME-PRECISION
 
-3.14.3 / normal / テスト未対応
+3.14.3 / normal / 実行確認あり
 
 Global time precision is the minimum duration among all timeprecision declarations, precision arguments of timeunit declarations, and timescale precisions in the design.
 
@@ -1762,6 +1853,9 @@ Global time precision is the minimum duration among all timeprecision declaratio
 
 規定の性質: `definition`。
 
+- [test_global_precision_from_timeprecision.sv](../tests/ch3/test_global_precision_from_timeprecision.sv): gp_prec の timeprecision 100fs が最小(他は `timescale の 10ps、timeunit 10ps / 1ps、最上位の 1ns)。期待出力は NULL: vpiTimeUnit -13, vpiTimePrecision -13。
+- [test_global_precision_from_timescale.sv](../tests/ch3/test_global_precision_from_timescale.sv): `timescale 1ns/10fs の精度 10fs が最小(他は timeprecision 1ps、timeunit 100ps / 10ps、最上位の 1ns)。期待出力は NULL: vpiTimeUnit -14, vpiTimePrecision -14。
+- [test_global_precision_from_timeunit_slash.sv](../tests/ch3/test_global_precision_from_timeunit_slash.sv): gp_slash の timeunit 10ps / 1fs の精度引数 1fs が最小(他は `timescale の 100ps、timeprecision 10ps、最上位の 1ns)。期待出力は NULL: vpiTimeUnit -15, vpiTimePrecision -15。
 
 ### SV2023-3.14.3-EXTRACT-STEP-NO-SCOPE-SETTING
 
@@ -3211,7 +3305,7 @@ Identifier spelling is case-sensitive.
 
 ### SV2023-5.6-EXTRACT-IDENTIFIER-FIRST-CHAR
 
-5.6 / error / テスト未対応
+5.6 / error / 実行確認あり
 
 The first character of a simple identifier is a letter or underscore, not a digit or dollar sign.
 
@@ -3219,6 +3313,7 @@ The first character of a simple identifier is a letter or underscore, not a digi
 
 規定の性質: `mandatory`。
 
+- [test_illegal_identifier_starts_with_digit.sv](../tests/ch5/test_illegal_identifier_starts_with_digit.sv): 下線で始まる _bus3、途中に $ を含む n$657、末尾に数字を持つ lives9 の合法な宣言に続けて、数字で始まる 9lives の宣言を24行目に置き、その行でのエラーを求める。24行目を除くと両シミュレータで 1 2 3 を表示する。 区別: 先頭文字の制限を検査しない誤実装は 9lives を識別子として受理し、24行目のエラーを出さないので不合格になる。逆に下線や $ を先頭以外に含む名前まで拒否する誤実装は手前の行で報告するため一致しない。
 
 ### SV2023-5.6-EXTRACT-IDENTIFIER-FORMS
 
@@ -3255,7 +3350,7 @@ If an implementation imposes an identifier-length limit, it must permit at least
 
 ### SV2023-5.6-EXTRACT-NO-KEYWORD-IDENTIFIER
 
-5.6 / error / テスト未対応
+5.6 / error / 実行確認あり
 
 An active language keyword cannot be used as an unescaped user identifier.
 
@@ -3263,6 +3358,7 @@ An active language keyword cannot be used as an unescaped user identifier.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_keyword_as_identifier.sv](../tests/ch5/test_illegal_keyword_as_identifier.sv): 大文字を含む Begin、キーワードを接頭辞に持つ begin_count、エスケープ識別子 \begin の合法な変数宣言の後に、キーワード begin を変数名とする宣言を25行目に置き、その行でのエラーを求める。25行目を除くと両シミュレータで 1 2 3 を表示する。 区別: キーワードを利用者定義の識別子として受け付ける誤実装は 25行目を受理してエラーを出さず不合格になる。大文字小文字を区別しない、接頭辞一致で判定する、エスケープ識別子までキーワード扱いするといった誤実装は手前の合法な行で報告するので一致しない。
 
 ### SV2023-5.6-EXTRACT-SIMPLE-CHARACTERS
 
@@ -3357,7 +3453,7 @@ A system task/function identifier is not an escaped identifier.
 
 ### SV2023-5.6.3-EXTRACT-NO-SYSTEM-PREFIX-SPACE
 
-5.6.3 / error / テスト未対応
+5.6.3 / error / 実行確認あり
 
 Whitespace cannot separate the leading dollar sign from the rest of a system identifier.
 
@@ -3365,6 +3461,7 @@ Whitespace cannot separate the leading dollar sign from the rest of a system ide
 
 規定の性質: `mandatory`。
 
+- [test_illegal_system_name_space_after_dollar.sv](../tests/ch5/test_illegal_system_name_space_after_dollar.sv): 合法な $display("first") の後に、$ と display の間に空白を入れた $ display("second") を22行目に置き、その行でのエラーを求める。22行目を除くと両シミュレータで first を表示する。 区別: $ の後の空白を読み飛ばしてシステムタスク名とする誤実装は 22行目を受理して second を表示し、エラーが出ないので不合格になる。
 
 ### SV2023-5.6.3-EXTRACT-PLI-SYSTEM-EXTENSION
 
@@ -3500,7 +3597,7 @@ An unsigned decimal digit sequence starts with a digit and continues with decima
 
 ### SV2023-5.7-EXTRACT-FILL-APOSTROPHE-ADJACENCY
 
-5.7 / error / テスト未対応
+5.7 / error / 実行確認あり
 
 The apostrophe and value character of an unbased-unsized literal must be adjacent.
 
@@ -3508,6 +3605,7 @@ The apostrophe and value character of an unbased-unsized literal must be adjacen
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unbased_unsized_literal_space.sv](../tests/ch5/test_illegal_unbased_unsized_literal_space.sv): 4ビット変数に合法な '0 を代入した後、24行目で ' と 1 の間に空白を入れた ' 1 を代入し、その行でのエラーを求める。24行目を除くと両シミュレータで a=0000 を表示する設計である。 区別: アポストロフィの後の空白を許して ' 1 を '1 と読む誤実装は受理して 24行目のエラーを出さず不合格になる。'0 は合法な対照で、無基数無サイズリテラル全般を拒否する実装はその手前の行で報告するため一致しない。
 
 ### SV2023-5.7-EXTRACT-INTEGRAL-GRAMMAR
 
@@ -3522,7 +3620,7 @@ Based integral literals choose decimal, binary, octal or hexadecimal form with o
 
 ### SV2023-5.7-EXTRACT-NO-EMBEDDED-NUMERIC-SPACE
 
-5.7 / error / テスト未対応
+5.7 / error / 実行確認あり
 
 Whitespace cannot occur inside the numeric-token sequences identified by grammar footnote 38.
 
@@ -3530,6 +3628,11 @@ Whitespace cannot occur inside the numeric-token sequences identified by grammar
 
 規定の性質: `mandatory`。
 
+- [test_illegal_decimal_number_embedded_space.sv](../tests/ch5/test_illegal_decimal_number_embedded_space.sv): 27行目で int に 12 34 を代入する(合法な 12_34 は前の行)。
+- [test_illegal_based_value_embedded_space.sv](../tests/ch5/test_illegal_based_value_embedded_space.sv): 26行目で 8'hA 5 を代入する(合法な 8'h A5 は前の行)。
+- [test_illegal_real_number_embedded_space.sv](../tests/ch5/test_illegal_real_number_embedded_space.sv): 26行目で real に 1.5 e3 を代入する(合法な 1.5e3 は前の行)。
+- [test_illegal_based_literal_apostrophe_space.sv](../tests/ch5/test_illegal_based_literal_apostrophe_space.sv): 26行目で 8' hA5 を代入する(合法な 8 'h A5 は前の行)。
+- [test_illegal_based_literal_signed_base_space.sv](../tests/ch5/test_illegal_based_literal_signed_base_space.sv): 26行目で 8's hA5 を代入する(合法な 8'sh A5 は前の行)。
 
 ### SV2023-5.7-EXTRACT-NUMBER-CATEGORIES
 
@@ -3566,7 +3669,7 @@ Real syntax uses a fixed-point form or a decimal significand with e/E exponent a
 
 ### SV2023-5.7-EXTRACT-TIME-SUFFIX-ADJACENCY
 
-5.7 / error / テスト未対応
+5.7 / error / 実行確認あり
 
 The numeric part of a time literal is immediately followed by its unit, without intervening whitespace.
 
@@ -3574,10 +3677,11 @@ The numeric part of a time literal is immediately followed by its unit, without 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_time_literal_space_before_unit.sv](../tests/ch5/test_illegal_time_literal_space_before_unit.sv): `timescale 1ns / 1ps の下で realtime 変数に合法な時間リテラル 2ns と 1.5ns を代入した後、27行目で数値と単位の間に空白を入れた 10 ns を代入し、その行でのエラーを求める。27行目を除くと両シミュレータで 2000 1500 0 を表示する。 区別: 数値と時間単位の間の空白を許して 10 ns を時間リテラルとして読む誤実装は受理し、27行目のエラーが出ないので不合格になる。整数・固定小数点の時間リテラルは合法な対照として手前の行にあり、時間リテラル全般を拒否する実装はそこで報告するため一致しない。
 
 ### SV2023-5.7.1-EXTRACT-APOSTROPHE-BASE-ADJACENCY
 
-5.7.1 / error / テスト未対応
+5.7.1 / error / 実行確認あり
 
 The apostrophe/base designator contains no separating whitespace.
 
@@ -3585,6 +3689,8 @@ The apostrophe/base designator contains no separating whitespace.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_based_literal_apostrophe_space.sv](../tests/ch5/test_illegal_based_literal_apostrophe_space.sv): 26行目の 8' hA5 でアポストロフィと h を空白で分ける。
+- [test_illegal_based_literal_signed_base_space.sv](../tests/ch5/test_illegal_based_literal_signed_base_space.sv): 26行目の 8's hA5 で 's と h を空白で分ける。
 
 ### SV2023-5.7.1-EXTRACT-BASE-VALUE-DIGITS
 
@@ -3633,7 +3739,7 @@ A based integer literal consists of an optional size token, an apostrophe/base t
 
 ### SV2023-5.7.1-EXTRACT-DECIMAL-UNKNOWN-SINGLE
 
-5.7.1 / error / テスト未対応
+5.7.1 / error / 実行確認あり
 
 A decimal based literal may contain x/z/? only as its sole value digit, with allowed underscore separators.
 
@@ -3641,6 +3747,8 @@ A decimal based literal may contain x/z/? only as its sole value digit, with all
 
 規定の性質: `mandatory`。
 
+- [test_illegal_decimal_literal_digit_and_x.sv](../tests/ch5/test_illegal_decimal_literal_digit_and_x.sv): 26行目で 8'd1x を代入する(合法な 8'dx と 8'd15 は前の行)。
+- [test_illegal_decimal_literal_two_unknown_digits.sv](../tests/ch5/test_illegal_decimal_literal_two_unknown_digits.sv): 26行目で 8'dxz を代入する(合法な 8'dz と 8'd? は前の行)。
 
 ### SV2023-5.7.1-EXTRACT-FILL-CONTEXT
 
@@ -3783,7 +3891,7 @@ A question-mark value digit is the high-impedance z alternative with the same fo
 
 ### SV2023-5.7.1-EXTRACT-SIGN-PLACEMENT
 
-5.7.1 / error / テスト未対応
+5.7.1 / error / 実行確認あり
 
 A sign before a based literal is a unary operator; a sign between its base designator and value digits is illegal.
 
@@ -3791,6 +3899,7 @@ A sign before a based literal is a unary operator; a sign between its base desig
 
 規定の性質: `mandatory`。
 
+- [test_illegal_based_literal_sign_after_base.sv](../tests/ch5/test_illegal_based_literal_sign_after_base.sv): サイズの前に単項マイナスを置いた合法な -8'd6 を代入した後、24行目で基数と値の間にマイナスを置いた 8'd-6 を代入し、その行でのエラーを求める。24行目を除くと両シミュレータで 11111010 を表示する。 区別: 基数と値の間の符号を値の符号として受け付ける誤実装は 8'd-6 を受理して 24行目のエラーを出さないので不合格になる。サイズの前の単項演算子は合法な対照で、そこを拒否する実装は手前の行で報告するため一致しない。
 
 ### SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS
 
@@ -3907,7 +4016,7 @@ Both fixed-point and exponent real literal forms have default type real.
 
 ### SV2023-5.7.2-EXTRACT-REAL-DECIMAL-SIDES
 
-5.7.2 / error / テスト未対応
+5.7.2 / error / 実行確認あり
 
 If a real literal contains a decimal point, it has at least one digit on both sides.
 
@@ -3915,6 +4024,10 @@ If a real literal contains a decimal point, it has at least one digit on both si
 
 規定の性質: `mandatory`。
 
+- [test_illegal_real_literal_no_leading_digit.sv](../tests/ch5/test_illegal_real_literal_no_leading_digit.sv): 25行目で real に .12 を代入し、その行でのエラーを求める(合法な 0.12 + 9.0 + 4.0E3 + 0.2e-7 は前の行)。
+- [test_illegal_real_literal_no_trailing_digit.sv](../tests/ch5/test_illegal_real_literal_no_trailing_digit.sv): 25行目で real に 9. を代入し、その行でのエラーを求める(合法な 0.12 + 9.0 + 4.0E3 + 0.2e-7 は前の行)。
+- [test_illegal_real_literal_exponent_no_trailing_digit.sv](../tests/ch5/test_illegal_real_literal_exponent_no_trailing_digit.sv): 25行目で real に 4.E3 を代入し、その行でのエラーを求める(合法な 0.12 + 9.0 + 4.0E3 + 0.2e-7 は前の行)。
+- [test_illegal_real_literal_exponent_no_leading_digit.sv](../tests/ch5/test_illegal_real_literal_exponent_no_leading_digit.sv): 25行目で real に .2e-7 を代入し、その行でのエラーを求める(合法な 0.12 + 9.0 + 4.0E3 + 0.2e-7 は前の行)。
 
 ### SV2023-5.7.2-EXTRACT-REAL-IEEE-DOUBLE
 
@@ -4276,7 +4389,7 @@ The string escape \f represents one ASCII formfeed character (value 12).
 
 ### SV2023-5.9.1-EXTRACT-HEX-ESCAPE-KNOWN-DIGITS
 
-5.9.1 / error / テスト未対応
+5.9.1 / error / テスト対応あり・実行未確認
 
 A hexadecimal escape digit cannot be an x or z digit as defined by the numeric grammar.
 
@@ -4284,6 +4397,7 @@ A hexadecimal escape digit cannot be an x or z digit as defined by the numeric g
 
 規定の性質: `mandatory`。
 
+- [test_illegal_string_hex_escape_z_digit.sv](../tests/ch5/test_illegal_string_hex_escape_z_digit.sv): 合法な "\x41" の後に、28行目で2桁目が z の16進エスケープ "\x4z" を string に代入し、その行でのエラーを求める。z をエスケープの桁と読んでも(x/z 桁の禁止)、1桁エスケープの直後の文字と読んでも(直後は16進数字であってはならない)違反になる。28行目を除くと両シミュレータで A 0 を表示する。 区別: 16進エスケープの桁に z を許す誤実装、または \x4 の後の z を通常の文字として連結する誤実装(Icarus 13.0)は受理し、28行目のエラーが出ないので不合格になる。合法な \x41 は対照で、16進エスケープ全般を拒否する実装はその手前の行でも報告する。
 
 ### SV2023-5.9.1-EXTRACT-HEX-ESCAPE-WIDTH
 
@@ -4309,7 +4423,7 @@ The string escape \n represents one ASCII newline character (value 10).
 
 ### SV2023-5.9.1-EXTRACT-OCTAL-ESCAPE-KNOWN-DIGITS
 
-5.9.1 / error / テスト未対応
+5.9.1 / error / テスト対応あり・実行未確認
 
 An octal escape digit cannot be an x or z digit as defined by the numeric grammar.
 
@@ -4317,6 +4431,7 @@ An octal escape digit cannot be an x or z digit as defined by the numeric gramma
 
 規定の性質: `mandatory`。
 
+- [test_illegal_string_octal_escape_z_digit.sv](../tests/ch5/test_illegal_string_octal_escape_z_digit.sv): 合法な "\101" の後に、27行目で2桁目が z の8進エスケープ "\1z" を string に代入し、その行でのエラーを求める。z をエスケープの桁と読んでも(x/z 桁の禁止)、短いエスケープの直後の文字と読んでも(直後は8進数字であってはならない)違反になる。27行目を除くと両シミュレータで A 0 を表示する。 区別: 8進エスケープの桁に z を許す誤実装、または \1 の後の z を通常の文字として連結する誤実装(Icarus 13.0 と Verilator 5.052)は受理し、27行目のエラーが出ないので不合格になる。合法な \101 は対照で、8進エスケープ全般を拒否する実装はその手前の行でも報告する。
 
 ### SV2023-5.9.1-EXTRACT-OCTAL-ESCAPE-RANGE-LATITUDE
 
@@ -4446,7 +4561,7 @@ Structure literal members may be selected by member-name keys.
 
 ### SV2023-5.10-EXTRACT-STRUCT-NESTING
 
-5.10 / error / テスト未対応
+5.10 / error / 実行確認あり
 
 Nested structure literals reflect structure nesting with corresponding braces rather than flattening nested members as in a C initializer.
 
@@ -4454,6 +4569,8 @@ Nested structure literals reflect structure nesting with corresponding braces ra
 
 規定の性質: `mandatory`。
 
+- [test_illegal_struct_literal_flattened_nested_member.sv](../tests/ch5/test_illegal_struct_literal_flattened_nested_member.sv): メンバ a と構造体メンバ s(b,c)を持つ outer_t に、29行目で '{8'd1, 8'd2, 8'd3} を代入する(合法な '{8'd1, '{8'd2, 8'd3}} は前の行)。
+- [test_illegal_struct_literal_flattened_array_elements.sv](../tests/ch5/test_illegal_struct_literal_flattened_array_elements.sv): 2メンバの構造体の2要素配列に、29行目で '{8'd1, 8'd2, 8'd3, 8'd4} を代入する(合法な '{'{8'd1, 8'd2}, '{8'd3, 8'd4}} は前の行)。
 
 ### SV2023-5.10-EXTRACT-STRUCT-REPLICATION-BRACES
 
@@ -4675,7 +4792,7 @@ Attributes may suffix operators or function names within expressions at the gram
 
 ### SV2023-5.12-EXTRACT-NO-ATTRIBUTE-IN-VALUE
 
-5.12 / error / テスト未対応
+5.12 / error / 実行確認あり
 
 An attribute value expression must not contain an attribute instance.
 
@@ -4683,10 +4800,11 @@ An attribute value expression must not contain an attribute instance.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_attribute_value_contains_attribute.sv](../tests/ch5/test_illegal_attribute_value_contains_attribute.sv): 値 1 + 2 を持つ合法な属性 (* outer = 1 + 2 *) と、式中の演算子に付けた合法な属性 (* mode = "fast" *) に加えて、24行目で値の式の + に属性を付けた (* outer = 1 + (* inner *) 2 *) を宣言に付け、その行でのエラーを求める。違反の属性を (* outer = 1 + 2 *) に替えると両シミュレータで 7 を表示する。 区別: 属性値の定数式を通常の式と同様に解析し、中の属性インスタンスを受け付ける誤実装(Icarus 13.0)は受理し、24行目のエラーが出ないので不合格になる。式中の演算子への属性は合法な対照で、そこを拒否する実装は26行目で報告するため一致しない。
 
 ### SV2023-5.12-EXTRACT-NO-NESTED-ATTRIBUTES
 
-5.12 / error / テスト未対応
+5.12 / error / 実行確認あり
 
 An attribute instance must not nest inside another attribute instance.
 
@@ -4694,6 +4812,7 @@ An attribute instance must not nest inside another attribute instance.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_attribute_instance_nested.sv](../tests/ch5/test_illegal_attribute_instance_nested.sv): 2つの属性インスタンスを並べて付けた合法な宣言 (* first *) (* second = 2 *) int a の後に、23行目で属性インスタンスの内側に別の属性インスタンスを書いた (* (* inner *) outer *) int b を置き、その行でのエラーを求める。違反を (* outer *) に替えると両シミュレータで 3 4 を表示する。 区別: 属性インスタンスの入れ子を許す誤実装は 23行目を受理してエラーを出さず不合格になる。属性インスタンスを並べることは合法な対照で、それを拒否する実装は22行目で報告するため一致しない。
 
 ### SV2023-5.13-EXTRACT-GLOBAL-SIDE-EFFECT-SYSTEM-CALL
 
@@ -4708,7 +4827,7 @@ A language operation with only a global side effect or no associated data object
 
 ### SV2023-5.13-EXTRACT-IMPLICIT-VARIABLE-PARENS
 
-5.13 / error / テスト未対応
+5.13 / error / テスト対応あり・実行未確認
 
 A built-in method call used as an implicit variable under 13.4.1 requires its parentheses even when empty.
 
@@ -4716,6 +4835,7 @@ A built-in method call used as an implicit variable under 13.4.1 requires its pa
 
 規定の性質: `mandatory`。
 
+- [test_illegal_method_implicit_variable_without_parentheses.sv](../tests/ch5/test_illegal_method_implicit_variable_without_parentheses.sv): string s = "abc" に対し、括弧付きの組込みメソッド呼出しの結果を暗黙変数として添字選択する s.toupper()[0](合法)と、括弧なしの呼出し s.len(合法)に加えて、29行目で括弧なしの s.toupper[0] を書き、その行でのエラーを求める。違反行を除くと Verilator 5.052 は 3 65 0 を表示する。 区別: 引数なしの組込みメソッドの括弧を常に省略可能とする誤実装(Verilator 5.052)は s.toupper[0] を受理し、29行目のエラーを出さないので不合格になる。括弧なしの s.len と括弧付きの暗黙変数 s.toupper()[0] は合法な対照で、暗黙変数や括弧の省略を一律に拒否する実装は別の行で報告するため一致しない。
 
 ### SV2023-5.13-EXTRACT-METHOD-DEFAULT-ARGUMENTS
 
@@ -4778,7 +4898,7 @@ A PLI system-task definition cannot redefine the prescribed operation of a built
 
 ### SV2023-6.2-EXTRACT-TYPE-VERSUS-OBJECT
 
-6.2 / normal / テスト未対応
+6.2 / normal / 実行確認あり
 
 A data type defines a value domain and its permitted operations; a data object is a named value-bearing entity with an associated type.
 
@@ -4786,10 +4906,11 @@ A data type defines a value domain and its permitted operations; a data object i
 
 規定の性質: `definition`。
 
+- [test_data_type_of_parameter_variable_and_net.sv](../tests/ch6/test_data_type_of_parameter_variable_and_net.sv): データ型 nib_t(logic [3:0])のパラメータ P = 20、変数 v = 29、ネット w = 27(連続代入)を宣言し、$bits、値、P + v と v15 + 1'b1(v15 = 15)を表示する。さらに同じビット列 8'd200 を byte の sb と bit [7:0] の ub に代入して表示する。期待出力は bits: P=4 v=4 w=4、values: P=4 v=13 w=11、operations: P+v=1 v15+1=0、same bits: byte=-56 bit[7:0]=200 pattern=11001000 11001000。 区別: データ対象(パラメータ・変数・ネット)にデータ型を結び付けない誤実装、例えばパラメータが代入値の型のまま 20 を持つ、ネットが 5 ビットの値を保持するといった実装では P=4、w=11、$bits=4 が変わる。型が値の集合と演算を決めることを無視する誤実装では、4ビットの加算 P+v=1 や v15+1=0 が 17/16 に、同じビット列の byte が -56 ではなく 200 になる。
 
 ### SV2023-6.2-EXTRACT-USER-TYPE-CONSTRUCTION
 
-6.2 / normal / テスト未対応
+6.2 / normal / 実行確認あり
 
 Data types may declare objects or form user-defined types constructed from other types.
 
@@ -4797,6 +4918,7 @@ Data types may declare objects or form user-defined types constructed from other
 
 規定の性質: `definition`。
 
+- [test_user_types_built_from_other_types.sv](../tests/ch6/test_user_types_built_from_other_types.sv): typedef で nib_t(logic [3:0])から two_nib_t(nib_t のパック配列 [1:0])を、両者から rec_t(パック構造体 hi, rest)を、rec_t から rec_pair_t(要素2のアンパック配列)を作り、それぞれの型で変数 t、r、rp を宣言して代入し、$bits と部分を表示する。期待出力は bits: two_nib_t=8 rec_t=12 rec_pair_t=24、t: [1]=a [0]=5、r: hi=3 rest[1]=c rest[0]=7、rp: [0].hi=3 [1].hi=f [1].rest=12、parts: bits(rp[0])=12 bits(rp[1].rest[0])=4。 区別: 他のユーザ定義型からユーザ定義型を作れない誤実装はコンパイルできない。元の型の構成を引き継がない誤実装、例えば two_nib_t の要素を1ビットにする、rec_t の中で two_nib_t の幅を誤る、要素の並び順を逆にする実装では、$bits(8/12/24/4)や部分の値(a/5、3/c/7、f/12)が変わる。
 
 ### SV2023-6.3.1-EXTRACT-EVENT-NO-VALUE-STORAGE
 
@@ -4921,7 +5043,7 @@ A z input is handled like x in ordinary gate/expression operations except where 
 
 ### SV2023-6.3.2-EXTRACT-CHARGE-DECLARATION-TYPE
 
-6.3.2 / error / テスト未対応
+6.3.2 / error / 実行確認あり
 
 A charge-strength declaration is permitted only for trireg nets.
 
@@ -4929,10 +5051,13 @@ A charge-strength declaration is permitted only for trireg nets.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_charge_strength_on_wire_net.sv](../tests/ch6/test_illegal_charge_strength_on_wire_net.sv): 24行目で wire (small) stored; を宣言する(合法な wire (strong0, strong1) driven = 1'b1; は前の行)。
+- [test_illegal_charge_strength_on_wand_net.sv](../tests/ch6/test_illegal_charge_strength_on_wand_net.sv): 24行目で wand (small) stored; を宣言する(合法な wand (strong0, strong1) driven = 1'b1; は前の行)。
+- [test_illegal_charge_strength_on_tri1_net.sv](../tests/ch6/test_illegal_charge_strength_on_tri1_net.sv): 24行目で tri1 (small) stored; を宣言する(合法な tri1 (strong0, strong1) driven = 1'b1; は前の行)。
 
 ### SV2023-6.3.2-EXTRACT-DRIVE-DECLARATION-CONTEXT
 
-6.3.2 / error / テスト未対応
+6.3.2 / error / 実行確認あり
 
 A drive-strength specification in a net declaration accompanies a continuous assignment in that same declaration.
 
@@ -4940,10 +5065,11 @@ A drive-strength specification in a net declaration accompanies a continuous ass
 
 規定の性質: `mandatory`。
 
+- [test_illegal_drive_strength_without_assignment.sv](../tests/ch6/test_illegal_drive_strength_without_assignment.sv): 駆動強度と継続代入を同じ文で持つ合法な wire (weak0, weak1) with_assign = 1'b1; の後に、23行目で駆動強度だけを持ち代入のない wire (weak0, weak1) no_assign; を宣言し、別の assign 文で駆動する。その行でのエラーを求め、違反行を除くと両シミュレータで 1 0 を表示する。 区別: 代入を伴わない宣言の駆動強度を受け付ける誤実装(Verilator 5.052)は受理し、23行目のエラーが出ないので不合格になる。後の assign 文は同じ文の継続代入ではないので違反を解消しない。代入付きの宣言は合法な対照で、そこを拒否する実装は手前の行で報告する。
 
 ### SV2023-6.3.2-EXTRACT-GATE-DRIVE-STRENGTH
 
-6.3.2 / normal / テスト未対応
+6.3.2 / normal / 実行確認あり
 
 Gate declarations may specify drive strength under the gate syntax and resolution rules.
 
@@ -4951,10 +5077,11 @@ Gate declarations may specify drive strength under the gate syntax and resolutio
 
 規定の性質: `permission`。
 
+- [test_gate_drive_strength_beside_net_value.sv](../tests/ch6/test_gate_drive_strength_beside_net_value.sv): ゲート宣言に駆動強度を付ける: buf (weak0, weak1)、not (pull1, pull0)(strength1 を先に書く)、buf (supply0, supply1)、buf (strong0, highz1)、and (pull0, weak1)。さらに同じネットに strong の 0 と pull の 1、weak の 0 と weak の 1 を駆動する。時刻1に %v で表示する。期待出力は gates: buf=We1 not=Pu0 supply=Su1 highz1=HiZ and=We1 と two drivers: fight=St0 tie=WeX。 区別: ゲートの駆動強度を受け付けない誤実装はコンパイルできない(Verilator 5.052 は highz 強度で止まる)。強度を無視して既定の strong にする誤実装では We1/Pu0/Su1 が St1/St0 に、highz1 を無視すると HiZ が St1 になる。強度で解決しない誤実装では fight=St0 が StX などに、tie=WeX が別の値になる。strength0/strength1 の順序を取り違える誤実装では not=Pu0 が変わる。
 
 ### SV2023-6.3.2-EXTRACT-STRENGTH-NOT-TYPE
 
-6.3.2 / normal / テスト未対応
+6.3.2 / normal / 実行確認あり
 
 Net bit strength information is additional to its data value and is not part of the data type.
 
@@ -4962,6 +5089,7 @@ Net bit strength information is additional to its data value and is not part of 
 
 規定の性質: `definition`。
 
+- [test_gate_drive_strength_beside_net_value.sv](../tests/ch6/test_gate_drive_strength_beside_net_value.sv): 強度の異なるネット w_we1(We1)と w_su1(Su1)の値、== の比較、$bits を表示し、w_we1 を連続代入 assign w_copy = w_we1; と変数への代入 v = w_we1 で写す。期待出力は values: w_we1=1 w_su1=1 equal=1 bits=1,1 と assigned: w_copy=St1 v=1(gates 行では w_we1=We1、w_su1=Su1)。 区別: 強度を値やデータ型の一部として扱う誤実装では、強度の違う2つのネットの比較が equal=0 になるか、$bits が1より大きくなり、連続代入で強度まで写して w_copy=We1 と表示される。値と別に強度を持たない誤実装では gates 行の We1/Su1 が区別されない。
 
 ### SV2023-6.3.2.1-EXTRACT-CHARGE-DECAY-DELAY
 
@@ -5000,7 +5128,7 @@ trireg charge strengths are small, medium or large and model relative capacitanc
 
 ### SV2023-6.3.2.1-EXTRACT-CHARGE-TRIREG-ONLY
 
-6.3.2.1 / error / テスト未対応
+6.3.2.1 / error / 実行確認あり
 
 A charge strength specification is not legal on another built-in net kind.
 
@@ -5008,6 +5136,9 @@ A charge strength specification is not legal on another built-in net kind.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_charge_strength_on_wire_net.sv](../tests/ch6/test_illegal_charge_strength_on_wire_net.sv): 24行目で wire (small) stored; を宣言する(合法な wire (strong0, strong1) driven = 1'b1; は前の行)。
+- [test_illegal_charge_strength_on_wand_net.sv](../tests/ch6/test_illegal_charge_strength_on_wand_net.sv): 24行目で wand (small) stored; を宣言する(合法な wand (strong0, strong1) driven = 1'b1; は前の行)。
+- [test_illegal_charge_strength_on_tri1_net.sv](../tests/ch6/test_illegal_charge_strength_on_tri1_net.sv): 24行目で tri1 (small) stored; を宣言する(合法な tri1 (strong0, strong1) driven = 1'b1; は前の行)。
 
 ### SV2023-6.3.2.2-EXTRACT-DECLARATION-CONTINUOUS-DRIVE
 
@@ -6742,7 +6873,7 @@ A newly defined nettype requires an explicit data type; a declared net uses that
 
 ### SV2023-6.6.7-EXTRACT-NETTYPE-OBJECT-KIND
 
-6.6.7 / error / テスト未対応
+6.6.7 / error / テスト対応あり・実行未確認
 
 A nettype names a net data type and optional resolver and is used to declare nets rather than variables.
 
@@ -6750,6 +6881,7 @@ A nettype names a net data type and optional resolver and is used to declare net
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nettype_declares_variable.sv](../tests/ch6/test_illegal_nettype_declares_variable.sv): 解決関数 sum_res を持つ nettype sum_t でネット n を宣言し2つの継続代入で駆動する合法な部分に加え、32行目で同じ nettype を変数宣言 var sum_t v; に使い、その行でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: nettype を typedef と同じくデータ型として変数宣言にも使わせる誤実装は 32行目を受理し、エラーが出ないので不合格になる。ネット n の宣言と駆動は合法な対照で、nettype 全般を拒否する実装は手前の行で報告するため一致しない。
 
 ### SV2023-6.6.7-EXTRACT-NETTYPE-RESOLVER-SCOPE
 
@@ -6800,7 +6932,7 @@ A resolution function has automatic lifetime or otherwise preserves no state inf
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-INPUT-WRITES
 
-6.6.7 / error / テスト未対応
+6.6.7 / error / テスト対応あり・実行未確認
 
 A resolution function must not write any part of its driver-array input argument.
 
@@ -6808,10 +6940,11 @@ A resolution function must not write any part of its driver-array input argument
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nettype_resolver_writes_driver_array.sv](../tests/ch6/test_illegal_nettype_resolver_writes_driver_array.sv): 読むだけの解決関数 sum_res を持つ sum_t と、ドライバ配列の要素を書き換える(if (d[i] > 9) d[i] = 9; が33行目)clip_res を解決関数とする clip_t を宣言し、それぞれのネットを2つの継続代入で駆動する。書込み行か clip_t の宣言行(39行目)でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 入力引数の動的配列への書込みを通常の関数と同様に許す誤実装は設計を受理し、33/39行目のエラーが出ないので不合格になる。配列を読むだけの sum_res と sum_t は合法な対照で、解決関数全般を拒否する実装は別の行で報告し一致しない。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-RESIZE
 
-6.6.7 / error / テスト未対応
+6.6.7 / error / テスト対応あり・実行未確認
 
 A resolution function must not resize its dynamic driver-array argument.
 
@@ -6819,10 +6952,11 @@ A resolution function must not resize its dynamic driver-array argument.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nettype_resolver_resizes_driver_array.sv](../tests/ch6/test_illegal_nettype_resolver_resizes_driver_array.sv): 読むだけの解決関数 sum_res を持つ sum_t と、最初のドライバ値を返した後にドライバ配列を d.delete() で空にする(32行目)first_res を解決関数とする first_t を宣言し、それぞれのネットを2つの継続代入で駆動する。delete の行か first_t の宣言行(36行目)でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 入力の動的配列の大きさの変更を許す誤実装は設計を受理し、32/36行目のエラーが出ないので不合格になる。sum_res と sum_t は合法な対照で、そこを拒否する実装は別の行で報告し一致しない。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-SIDE-EFFECTS
 
-6.6.7 / error / テスト未対応
+6.6.7 / error / テスト対応あり・実行未確認
 
 A resolution function has no side effects.
 
@@ -6830,6 +6964,7 @@ A resolution function has no side effects.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nettype_resolver_side_effect.sv](../tests/ch6/test_illegal_nettype_resolver_side_effect.sv): 自分の戻り値変数だけを書く sum_res を持つ sum_t と、モジュール変数 calls を calls++ で書き換える(33行目)counting_res を解決関数とする counting_t を宣言し、それぞれのネットを2つの継続代入で駆動する。calls++ の行か counting_t の宣言行(39行目)でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 解決関数の副作用を検査しない誤実装は関数外の変数への書込みを受理し、33/39行目のエラーが出ないので不合格になる。副作用のない sum_res は合法な対照で、解決関数全般を拒否する実装は別の行で報告し一致しない。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NONDETERMINISTIC-COUNT
 
@@ -6856,7 +6991,7 @@ Parameterized class-method variants may implement resolver specializations under
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-RETURN-TYPE
 
-6.6.7 / error / テスト未対応
+6.6.7 / error / テスト対応あり・実行未確認
 
 A user resolver returns the matching nettype data type T.
 
@@ -6864,10 +6999,11 @@ A user resolver returns the matching nettype data type T.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nettype_resolver_return_type.sv](../tests/ch6/test_illegal_nettype_resolver_return_type.sv): int を返す sum_res を解決関数とする int の nettype sum_t(合法)と、longint を返す wide_res を解決関数とする int の nettype wide_t(36行目)を宣言し、それぞれのネットを2つの継続代入で駆動する。wide_t の宣言行か wide_res の見出し(30行目)でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 解決関数の戻り値型を nettype のデータ型と照合しない誤実装(代入互換なら受け付けるなど)は wide_t を受理し、30/36行目のエラーが出ないので不合格になる。戻り値型が一致する sum_t は合法な対照で、そこを拒否する実装は別の行で報告し一致しない。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-STATIC-METHOD
 
-6.6.7 / error / テスト未対応
+6.6.7 / error / テスト対応あり・実行未確認
 
 A class method used as a resolver is class-static, since resolution has no associated class object.
 
@@ -6875,6 +7011,7 @@ A class method used as a resolver is class-static, since resolution has no assoc
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nettype_resolver_nonstatic_method.sv](../tests/ch6/test_illegal_nettype_resolver_nonstatic_method.sv): クラス resolvers の static メソッド sum_static を解決関数とする static_t(合法)と、同じ本体の非 static メソッド sum_dyn を解決関数とする dyn_t(37行目)を宣言し、それぞれのネットを2つの継続代入で駆動する。dyn_t の宣言行でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: クラスメソッドが static かどうかを検査しない誤実装は dyn_t を受理し、37行目のエラーが出ないので不合格になる。static メソッドを使う static_t は合法な対照で、クラスメソッドの解決関数全般を拒否する実装は36行目で報告するため一致しない。
 
 ### SV2023-6.6.7-EXTRACT-SAME-DATA-DIFFERENT-RESOLVERS
 
@@ -6890,7 +7027,7 @@ Distinct nettypes may share a data type while specifying different resolution fu
 
 ### SV2023-6.6.7-EXTRACT-UNRESOLVED-USER-NET-DRIVERS
 
-6.6.7 / error / テスト未対応
+6.6.7 / error / テスト対応あり・実行未確認
 
 Without a resolver, a user-defined-nettype net must not have multiple drivers.
 
@@ -6898,6 +7035,7 @@ Without a resolver, a user-defined-nettype net must not have multiple drivers.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nettype_unresolved_two_drivers.sv](../tests/ch6/test_illegal_nettype_unresolved_two_drivers.sv): 解決関数のない nettype raw_t のネット one を1つの継続代入で駆動し(合法)、解決関数を持つ sum_t のネット s を2つの継続代入で駆動する(合法)。raw_t のネット r には2つの継続代入を与え(42行目が2つ目)、r の宣言(36行目)、1つ目のドライバ(41行目)、2つ目のドライバのいずれかでのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 解決関数のないユーザ定義 nettype のネットに複数ドライバを許す誤実装(最後の代入値を採るなど)は受理し、36/41/42行目のエラーが出ないので不合格になる。1ドライバの one と解決関数付きの s は合法な対照で、ドライバ数を区別せず拒否する実装は別の行で報告し一致しない。
 
 ### SV2023-6.6.7-EXTRACT-USER-NET-ATOMIC
 
@@ -6996,7 +7134,7 @@ A built-in net declaration uses its net-type keyword, permitted strength/vector-
 
 ### SV2023-6.7-EXTRACT-CHARGE-ONLY-TRIREG
 
-6.7 / error / テスト未対応
+6.7 / error / 実行確認あり
 
 The charge-strength option in net declarations is restricted to trireg.
 
@@ -7004,6 +7142,7 @@ The charge-strength option in net declarations is restricted to trireg.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_charge_strength_in_tri_declaration.sv](../tests/ch6/test_illegal_charge_strength_in_tri_declaration.sv): trireg 以外のネット種別 tri の宣言に電荷強度 medium を付ける tri (medium) t; (29行目)でのエラーを求める。trireg の宣言に電荷強度 small を付けたスカラ ts と、large を付けた4ビットのベクタ tv は合法な対照で、規格から $bits は 1 4 になる(両シミュレータとも trireg に未対応)。 区別: 電荷強度を trireg 以外のネット種別にも許す誤実装は29行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.7-EXTRACT-CHARGE-STRENGTH-DOMAIN
 
@@ -7100,7 +7239,7 @@ A user-nettype declaration instance uses its nettype identifier, an optional del
 
 ### SV2023-6.7-EXTRACT-VECTOR-ACCESS-REQUIRES-DIMENSION
 
-6.7 / error / テスト未対応
+6.7 / error / 実行確認あり
 
 Using vectored or scalared in a net declaration requires at least one packed dimension.
 
@@ -7108,6 +7247,8 @@ Using vectored or scalared in a net declaration requires at least one packed dim
 
 規定の性質: `mandatory`。
 
+- [test_illegal_scalared_net_without_packed_dimension.sv](../tests/ch6/test_illegal_scalared_net_without_packed_dimension.sv): wire scalared single; (パックド次元なし)の27行目でのエラーを求める。wire vectored [7:0]、tri scalared [3:0]、wire scalared [0:0] は合法な宣言として残る。
+- [test_illegal_vectored_net_without_packed_dimension.sv](../tests/ch6/test_illegal_vectored_net_without_packed_dimension.sv): wire vectored single; (パックド次元なし)の27行目でのエラーを求める。wire vectored [7:0]、tri scalared [3:0]、tri vectored [0:0] は合法な宣言として残る。
 
 ### SV2023-6.7.1-EXTRACT-BUILTIN-NET-TYPE-RESOLUTION
 
@@ -7503,7 +7644,7 @@ One variable declaration may give several variables the same declaration charact
 
 ### SV2023-6.8-EXTRACT-IMPLICIT-VARIABLE-TYPE-REQUIRES-VAR
 
-6.8 / error / テスト未対応
+6.8 / error / 実行確認あり
 
 Omitting a variable declaration's explicit data type requires the var keyword.
 
@@ -7511,6 +7652,7 @@ Omitting a variable declaration's explicit data type requires the var keyword.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_const_implicit_type_without_var.sv](../tests/ch6/test_illegal_const_implicit_type_without_var.sv): const [3:0] bad = 4'd6; のように data_type を省いてパックド範囲だけを書き var も付けない宣言を25行目に置き、その行でのエラーを求める。同じモジュールの const var [3:0]、const var signed [3:0]、const logic [3:0] の宣言は合法で、制御版は両シミュレータで 5 -2 7 を表示する。 区別: var なしで data_type を省いた宣言を受理する誤実装は25行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.8-EXTRACT-INTEGER-VECTOR-MODIFIERS
 
@@ -7538,7 +7680,7 @@ Nets and variables may receive negative values, but their signed/unsigned type d
 
 ### SV2023-6.8-EXTRACT-NO-AUTOMATIC-OUTSIDE-PROCEDURE
 
-6.8 / error / テスト未対応
+6.8 / error / 実行確認あり
 
 A nonprocedural data declaration cannot use an explicit automatic lifetime keyword.
 
@@ -7546,10 +7688,11 @@ A nonprocedural data declaration cannot use an explicit automatic lifetime keywo
 
 規定の性質: `mandatory`。
 
+- [test_illegal_automatic_module_variable.sv](../tests/ch6/test_illegal_automatic_module_variable.sv): モジュール項目として automatic int bad; を28行目に置き、その行でのエラーを求める。モジュール項目の static int kept = 2; と initial 内の automatic int local_copy は合法で、制御版は Verilator で 3 を表示する。 区別: 手続き文脈の外で automatic を許す誤実装は28行目を受理して不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.8-EXTRACT-PACKED-STRUCT-DIMENSION
 
-6.8 / error / テスト未対応
+6.8 / error / テスト対応あり・実行未確認
 
 Using packed dimensions with an inline struct/union type requires the packed keyword.
 
@@ -7557,6 +7700,8 @@ Using packed dimensions with an inline struct/union type requires the packed key
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_struct_packed_dimension.sv](../tests/ch7/test_illegal_unpacked_struct_packed_dimension.sv): struct { bit [3:0] a; } [1:0] bad;(30行目)でのエラーを求める。
+- [test_illegal_union_packed_dimension_without_qualifier.sv](../tests/ch7/test_illegal_union_packed_dimension_without_qualifier.sv): union { bit [3:0] a; bit [3:0] b; } [1:0] bad;(31行目)でのエラーを求める。
 
 ### SV2023-6.8-EXTRACT-RUNTIME-INITIAL-EXPRESSION
 
@@ -7744,7 +7889,7 @@ An implementation is not required to diagnose overflow of integer operations.
 
 ### SV2023-6.9.1-EXTRACT-RANGE-CONSTANT-INTEGERS
 
-6.9.1 / error / テスト未対応
+6.9.1 / error / テスト対応あり・実行未確認
 
 Both vector range endpoints are constant integer expressions.
 
@@ -7752,6 +7897,8 @@ Both vector range endpoints are constant integer expressions.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_vector_range_variable_bound.sv](../tests/ch6/test_illegal_vector_range_variable_bound.sv): logic [width:0] bad; (width は int 変数、30行目)でのエラーを求める。
+- [test_illegal_vector_range_real_bound.sv](../tests/ch6/test_illegal_vector_range_real_bound.sv): logic [R:0] bad; (R は real パラメータ 3.0、33行目)でのエラーを求める。
 
 ### SV2023-6.9.1-EXTRACT-RANGE-DIRECTION-DOMAIN
 
@@ -7767,7 +7914,7 @@ Range endpoints may be negative, zero or positive, with either endpoint greater 
 
 ### SV2023-6.9.1-EXTRACT-RANGE-KNOWN-ENDPOINTS
 
-6.9.1 / error / テスト未対応
+6.9.1 / error / 実行確認あり
 
 A vector range endpoint may not contain x or z bits.
 
@@ -7775,6 +7922,8 @@ A vector range endpoint may not contain x or z bits.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_vector_range_x_bound.sv](../tests/ch6/test_illegal_vector_range_x_bound.sv): logic [4'b01x1:0] bad; (msb に x、30行目)でのエラーを求める。
+- [test_illegal_vector_range_z_bound.sv](../tests/ch6/test_illegal_vector_range_z_bound.sv): logic [3:4'bz] bad; (lsb に z、30行目)でのエラーを求める。
 
 ### SV2023-6.9.1-EXTRACT-VECTOR-BIT-ORDER
 
@@ -8659,7 +8808,7 @@ A chandle may be passed to a subroutine.
 
 ### SV2023-6.14-EXTRACT-CASE-EQ-OPERANDS
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 chandle === comparisons are permitted only against another chandle or null.
 
@@ -8667,6 +8816,7 @@ chandle === comparisons are permitted only against another chandle or null.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_case_equality_with_int.sv](../tests/ch6/test_illegal_chandle_case_equality_with_int.sv): chandle a と int 変数 k を === で比べる if (a === k)(43行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: === の相手を chandle と null に限らない誤実装は43行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-CASE-EQ-SEMANTICS
 
@@ -8682,7 +8832,7 @@ For permitted chandle operands, === has the same result as ==, and !== has the s
 
 ### SV2023-6.14-EXTRACT-CASE-NE-OPERANDS
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 chandle !== comparisons are permitted only against another chandle or null.
 
@@ -8690,10 +8840,11 @@ chandle !== comparisons are permitted only against another chandle or null.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_case_inequality_with_int.sv](../tests/ch6/test_illegal_chandle_case_inequality_with_int.sv): chandle a と int 変数 k を !== で比べる if (a !== k)(43行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: !== の相手を chandle と null に限らない誤実装は43行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-CHANDLE-ASSIGNMENTS
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 Only another chandle or null can be assigned to a chandle.
 
@@ -8701,6 +8852,7 @@ Only another chandle or null can be assigned to a chandle.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_assigned_from_int.sv](../tests/ch6/test_illegal_chandle_assigned_from_int.sv): chandle a へ int 変数 k を代入する a = k;(43行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: chandle へ他の型(整数)の値の代入を許す誤実装は43行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-CHANDLE-ASSOCIATIVE-ARRAY
 
@@ -8787,7 +8939,7 @@ A chandle may be used in a class.
 
 ### SV2023-6.14-EXTRACT-EQ-OPERANDS
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 chandle == comparisons are permitted only against another chandle or null.
 
@@ -8795,10 +8947,11 @@ chandle == comparisons are permitted only against another chandle or null.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_equality_with_int.sv](../tests/ch6/test_illegal_chandle_equality_with_int.sv): chandle a と int 変数 k を == で比べる if (a == k)(43行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: == の相手を chandle と null に限らない誤実装は43行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-NE-OPERANDS
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 chandle != comparisons are permitted only against another chandle or null.
 
@@ -8806,10 +8959,11 @@ chandle != comparisons are permitted only against another chandle or null.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_inequality_with_int.sv](../tests/ch6/test_illegal_chandle_inequality_with_int.sv): chandle a と int 変数 k を != で比べる if (a != k)(43行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: != の相手を chandle と null に限らない誤実装は43行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-NO-CONTINUOUS
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 Chandles cannot be used in continuous assignments.
 
@@ -8817,10 +8971,11 @@ Chandles cannot be used in continuous assignments.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_continuous_assignment.sv](../tests/ch6/test_illegal_chandle_continuous_assignment.sv): モジュール項目の継続的代入 assign c = a; (c も a も chandle 変数)(31行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: 継続的代入に chandle を許す誤実装は31行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-NO-EVENT
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 Chandles cannot be used in sensitivity lists or event expressions.
 
@@ -8828,10 +8983,11 @@ Chandles cannot be used in sensitivity lists or event expressions.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_event_control.sv](../tests/ch6/test_illegal_chandle_event_control.sv): chandle a を事象式にした @(a) $display("changed");(42行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: chandle の値の変化を事象として待てる誤実装は42行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-NO-OTHER-EXPRESSION
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 Chandles cannot be used in expressions outside the explicitly permitted uses.
 
@@ -8839,10 +8995,11 @@ Chandles cannot be used in expressions outside the explicitly permitted uses.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_relational_operator.sv](../tests/ch6/test_illegal_chandle_relational_operator.sv): chandle a と b を関係演算子 < で比べる if (a < b)(44行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: ==・!=・===・!== 以外の演算子(ポインタの大小比較)を chandle に許す誤実装は44行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-NO-OTHER-TYPE-ASSIGNMENT
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 Chandles cannot be used in assignments to a variable of another type.
 
@@ -8850,10 +9007,11 @@ Chandles cannot be used in assignments to a variable of another type.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_assigned_to_int.sv](../tests/ch6/test_illegal_chandle_assigned_to_int.sv): int 変数 k へ chandle a を代入する k = a;(42行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: chandle を整数としてほかの型の変数へ代入できる誤実装は42行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-NO-PACKED
 
-6.14 / error / テスト未対応
+6.14 / error / 実行確認あり
 
 Chandles cannot be used in packed types.
 
@@ -8861,10 +9019,11 @@ Chandles cannot be used in packed types.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_in_packed_struct.sv](../tests/ch6/test_illegal_chandle_in_packed_struct.sv): パックド構造体型 ps_t のメンバに chandle h を置く typedef struct packed { chandle h; bit f; } ps_t; (29行目)でのエラーを求める。chandle をメンバに持つクラス holder は合法で、合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: パックド型に chandle を許す誤実装は29行目でエラーを出さず不合格になる(Verilator 5.052 はこの行をパックド構造体のアンパックド型として拒否する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-NO-PORT
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 Chandles cannot be used in port data types.
 
@@ -8872,10 +9031,11 @@ Chandles cannot be used in port data types.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_port.sv](../tests/ch6/test_illegal_chandle_port.sv): モジュール test_illegal_chandle_port_m の入力ポートを chandle 型の変数ポートにする (input var chandle h) (28行目)でのエラーを求める。chandle をサブルーチンの引数と戻り値に使う関数 pass は合法で、合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: ポートに chandle 型を許す誤実装は28行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。var を付けた変数ポートにしてあるので、ネットに2状態でない型を使う別の違反(6.7.1)は重ならない。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-NO-UNTAGGED-UNION
 
-6.14 / error / テスト未対応
+6.14 / error / テスト対応あり・実行未確認
 
 Chandles cannot be used in untagged unions.
 
@@ -8883,6 +9043,7 @@ Chandles cannot be used in untagged unions.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_in_untagged_union.sv](../tests/ch6/test_illegal_chandle_in_untagged_union.sv): tagged の付かない共用体型 u_t のメンバに chandle h を置く typedef union { chandle h; int i; } u_t; (29行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: タグなし共用体に chandle を許す誤実装は29行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.14-EXTRACT-RETURN-USE
 
@@ -8898,7 +9059,7 @@ A chandle may be returned from a function.
 
 ### SV2023-6.15-EXTRACT-CLASS-VARIABLE-HANDLE
 
-6.15 / normal / テスト未対応
+6.15 / normal / 実行確認あり
 
 A class variable can store an object handle under the class definitions and construction rules of Clause 8.
 
@@ -8906,6 +9067,8 @@ A class variable can store an object handle under the class definitions and cons
 
 規定の性質: `definition`。
 
+- [test_class_handle_argument_directions.sv](../tests/ch8/test_class_handle_argument_directions.sv): クラス変数 a に new(1) で作ったオブジェクトのハンドルを代入し、同じハンドルを別のクラス変数 keep へ代入してから keep.val = 5 とし、a.val が 5 で a == keep が 1 であること(shared: a.val=5 same=1)を比較する。後の行でも a と keep が同じオブジェクトを指すか(same=1/0)と、それぞれから見える val を比較する。 区別: クラス変数がハンドルでなくオブジェクトの写しを持つ誤実装は、keep への代入でオブジェクトが写されて a.val=1 same=0 となり1行目が変わる。
+- [test_class_objects_in_array_of_handles.sv](../tests/ch8/test_class_objects_in_array_of_handles.sv): クラス変数の配列 pool の要素が初期値 null のハンドルを持つこと(null: 1 1 1)、new で作った別々のオブジェクトのハンドルを持つこと(created: 0 10 20 differ=1)、pool[0] を pool[2] へ代入すると同じオブジェクトを指し、pool[2] 経由の変更 val = 7 が pool[0] から見えること(shared: 7 same=1)を比較する。 区別: クラス変数がハンドルでなくオブジェクトそのものを持つ誤実装は、代入でオブジェクトが写されて shared の行が 0 same=0 になる。初期値を null としない誤実装は1行目が変わり、ループの new が同じオブジェクトを再利用する誤実装は created の行の値や differ が変わる。
 
 ### SV2023-6.16-EXTRACT-CONCAT-ALL-LITERAL
 
@@ -9054,7 +9217,7 @@ An integral-to-string cast pads any partial high byte with zeros to a multiple o
 
 ### SV2023-6.16-EXTRACT-INTEGRAL-STRING-CAST-REQUIRED
 
-6.16 / error / テスト未対応
+6.16 / error / テスト対応あり・実行未確認
 
 Assigning an integral value to a string requires an explicit cast.
 
@@ -9062,6 +9225,7 @@ Assigning an integral value to a string requires an explicit cast.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_string_assigned_int_without_cast.sv](../tests/ch6/test_illegal_string_assigned_int_without_cast.sv): int 変数 k をキャストなしで string 変数 s へ代入する s = k; (33行目)でのエラーを求める。文字列リテラルの代入 s = "hi"、string 式の代入 t = s、キャスト string'(k) (32'h0000_4142 の0バイトが除かれて AB)、整数型 byte への文字列リテラルの代入は合法な対照で、制御版は Verilator で hi hi AB A を表示する。 区別: 整数値を暗黙に文字列へ変換して代入を許す誤実装(両シミュレータとも受理する)は33行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.16-EXTRACT-INTEGRAL-STRING-RESIZE
 
@@ -9149,7 +9313,7 @@ A string operand or nonconstant multiplier causes literal operands to convert to
 
 ### SV2023-6.16-EXTRACT-REPLICATION-INNER-NONEMPTY
 
-6.16 / error / テスト未対応
+6.16 / error / 実行確認あり
 
 String replication requires at least one operand inside the inner braces.
 
@@ -9157,6 +9321,7 @@ String replication requires at least one operand inside the inner braces.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_string_replication_empty_braces.sv](../tests/ch6/test_illegal_string_replication_empty_braces.sv): s = {2{}}; のように内側の波括弧に被演算子がない文字列複製を26行目に置き、その行でのエラーを求める。被演算子1個の {2{t}} と2個の {3{t, "-"}} は合法で、制御版は両シミュレータで abab と ab-ab-ab- を表示する。 区別: 内側の被演算子が空の複製を許す誤実装(空文字列として扱うなど)は26行目を受理して不合格になる。被演算子が1個・複数個の場合は合法な対照に含まれる。
 
 ### SV2023-6.16-EXTRACT-REPLICATION-LITERAL-CONSTANT
 
@@ -9172,7 +9337,7 @@ All-literal replication with a nonzero constant multiplier follows integral mult
 
 ### SV2023-6.16-EXTRACT-REPLICATION-MULTIPLIER
 
-6.16 / error / テスト未対応
+6.16 / error / テスト対応あり・実行未確認
 
 A string replication multiplier is an integral expression that is nonnegative and contains neither x nor z; it need not be constant.
 
@@ -9180,10 +9345,14 @@ A string replication multiplier is an integral expression that is nonnegative an
 
 規定の性質: `mandatory`。
 
+- [test_illegal_string_replication_negative_multiplier.sv](../tests/ch6/test_illegal_string_replication_negative_multiplier.sv): s = {-1{t}}; (30行目)でのエラーを求める。{n{t}} と {0{t}} は合法。
+- [test_illegal_string_replication_x_multiplier.sv](../tests/ch6/test_illegal_string_replication_x_multiplier.sv): s = {2'b1x{t}}; (30行目)でのエラーを求める。{n{t}} と {0{t}} は合法。
+- [test_illegal_string_replication_z_multiplier.sv](../tests/ch6/test_illegal_string_replication_z_multiplier.sv): s = {2'bz1{t}}; (30行目)でのエラーを求める。{n{t}} と {0{t}} は合法。
+- [test_illegal_string_replication_real_multiplier.sv](../tests/ch6/test_illegal_string_replication_real_multiplier.sv): s = {r{t}}; (r は real 変数、33行目)でのエラーを求める。{n{t}} と {0{t}} は合法。
 
 ### SV2023-6.16-EXTRACT-REPLICATION-OPERANDS
 
-6.16 / error / テスト未対応
+6.16 / error / テスト対応あり・実行未確認
 
 The inner replication operands must be string literals or string-typed expressions.
 
@@ -9191,6 +9360,7 @@ The inner replication operands must be string literals or string-typed expressio
 
 規定の性質: `mandatory`。
 
+- [test_illegal_string_replication_int_operand.sv](../tests/ch6/test_illegal_string_replication_int_operand.sv): 文字列の複製の内側に string s と int 変数 k を置く t = {2{s, k}}; (35行目)でのエラーを求める。内側が string と文字列リテラルの {2{s, "-"}}、変数の乗数による {n{s}}、キャストした {2{s, string'(k)}} は合法な対照で、制御版は Verilator で ab-ab- ababab abBabB を表示する。 区別: 文字列の複製の内側に整数型の被演算子を許す誤実装(両シミュレータとも受理する)は35行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.16-EXTRACT-REPLICATION-ZERO
 
@@ -10192,7 +10362,7 @@ The referenced event object supports explicit triggering and waiting under the e
 
 ### SV2023-6.18-EXTRACT-COMPLEX-CAST-TYPENAME
 
-6.18 / error / テスト未対応
+6.18 / error / 実行確認あり
 
 Complex types used with the cast operator require a suitable user-defined simple type name under 6.24.
 
@@ -10200,10 +10370,11 @@ Complex types used with the cast operator require a suitable user-defined simple
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cast_to_unnamed_packed_array_type.sv](../tests/ch6/test_illegal_cast_to_unnamed_packed_array_type.sv): パックド次元を持つ型をそのままキャスト型に書く $display("%h", logic [3:0]'(v)); (27行目)でのエラーを求める。typedef した型名 nib_t によるキャスト nib_t'(v)、単純型 logic'(v)、サイズキャスト 4'(v) は合法な対照で、制御版は両シミュレータで 9 1 9 を表示する。 区別: キャスト型に単純型名以外(パックド次元付きの型)を許す誤実装は27行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.18-EXTRACT-DEFERRED-CLASS-SCOPE-USES
 
-6.18 / error / テスト未対応
+6.18 / error / テスト対応あり・実行未確認
 
 A class-scope type selection prefixed by an incomplete forward type or an interface-based typedef is limited to typedef declarations, type operators and type-parameter assignments.
 
@@ -10211,6 +10382,8 @@ A class-scope type selection prefixed by an incomplete forward type or an interf
 
 規定の性質: `mandatory`。
 
+- [test_illegal_forward_type_scope_prefix_in_variable.sv](../tests/ch6/test_illegal_forward_type_scope_prefix_in_variable.sv): box_c::item_t bad_v; (32行目、box_c は未完の前方宣言型)でのエラーを求める。typedef box_c::item_t alias_t; は合法。
+- [test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv](../tests/ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv): pay_t::data_t bad_v; (34行目、pay_t はインタフェース型 typedef)でのエラーを求める。typedef pay_t::data_t data_alias_t; は合法。
 
 ### SV2023-6.18-EXTRACT-DEFERRED-PREFIX-CLASS
 
@@ -10237,7 +10410,7 @@ A forward type declaration is legal before or after the final definition in the 
 
 ### SV2023-6.18-EXTRACT-FORWARD-CATEGORY-MATCH
 
-6.18 / error / テスト未対応
+6.18 / error / テスト対応あり・実行未確認
 
 If a forward typedef specifies a basic type category, the final definition must have that category.
 
@@ -10245,10 +10418,11 @@ If a forward typedef specifies a basic type category, the final definition must 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_forward_enum_defined_as_struct.sv](../tests/ch6/test_illegal_forward_enum_defined_as_struct.sv): typedef enum mode_t; で基本型 enum を指定した前方宣言の最終定義を、パックド構造体 typedef struct packed { bit [1:0] f; } mode_t; (39行目)にした設計で、定義の行か前方宣言の行(どちらでも報告できるので両方の行を正規表現に入れる)のエラーを求める。enum と enum の ok_t、struct とパックド構造体の pair_t、基本型を指定しない any_t と int は合法な対照で、制御版は両シミュレータで 1 5a 7 を表示する。 区別: 前方宣言の基本型と最終定義の種類の一致を検査しない誤実装(両シミュレータとも受理する)はエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.18-EXTRACT-FORWARD-LOCAL-RESOLUTION
 
-6.18 / error / テスト未対応
+6.18 / error / テスト対応あり・実行未確認
 
 A forward typedef must resolve to an actual data type in the same local scope or generate block.
 
@@ -10256,6 +10430,8 @@ A forward typedef must resolve to an actual data type in the same local scope or
 
 規定の性質: `mandatory`。
 
+- [test_illegal_forward_typedef_defined_in_generate_block.sv](../tests/ch6/test_illegal_forward_typedef_defined_in_generate_block.sv): モジュールの typedef inner_t; (26行目、定義は生成ブロック g の中だけ)でのエラーを求める。ok_t の前方宣言と定義は合法。
+- [test_illegal_forward_typedef_never_defined.sv](../tests/ch6/test_illegal_forward_typedef_never_defined.sv): typedef enum lost_t; (25行目、定義なし)でのエラーを求める。ok_t の前方宣言と定義は合法。
 
 ### SV2023-6.18-EXTRACT-FORWARD-TYPE-FORMS
 
@@ -10318,7 +10494,7 @@ Multiple forward declarations of the same type identifier in the same scope are 
 
 ### SV2023-6.18-EXTRACT-TYPE-BEFORE-USE
 
-6.18 / error / テスト未対応
+6.18 / error / 実行確認あり
 
 A user-defined data type declaration must appear before references to its type identifier.
 
@@ -10326,10 +10502,11 @@ A user-defined data type declaration must appear before references to its type i
 
 規定の性質: `mandatory`。
 
+- [test_illegal_typedef_used_before_declaration.sv](../tests/ch6/test_illegal_typedef_used_before_declaration.sv): 同じモジュールで late_t late; を24行目に書き、その次の行で typedef logic [7:0] late_t; を宣言する設計で、24行目のエラーを求める。宣言済みの early_t を使う early の宣言は合法な対照で、制御版は両シミュレータで正常終了する。 区別: 型名の参照を宣言より後に解決してしまう(前方参照を許す)誤実装は、次行の typedef で late_t を解決して受理し、24行目のエラーが出ないので不合格になる。late_t は同じスコープで後から宣言されるだけで他に違反はない。
 
 ### SV2023-6.18-EXTRACT-TYPE-NAME-SCOPE
 
-6.18 / error / テスト未対応
+6.18 / error / 実行確認あり
 
 User type identifiers follow data-identifier scope rules, except that hierarchical references to them are forbidden.
 
@@ -10337,6 +10514,7 @@ User type identifiers follow data-identifier scope rules, except that hierarchic
 
 規定の性質: `mandatory`。
 
+- [test_illegal_hierarchical_type_reference.sv](../tests/ch6/test_illegal_hierarchical_type_reference.sv): モジュールのインスタンス c の型 word_t を階層名 c.word_t で参照する typedef c.word_t word_alias_t; (48行目)でのエラーを求める。ポート p につないだインタフェースの型を局所的に再定義するインタフェース型 typedef p.nib_t local_nib_t; は階層参照でないので合法な対照で、変数の階層参照 u.n と c.w (データ識別子は階層参照できる)とともに、制御版は Verilator で 5 9 を表示する。 区別: 型識別子にもデータ識別子と同じく階層参照を許す誤実装は48行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を型定義を変数として参照したとして拒否する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.18-EXTRACT-TYPE-PARAMETER-NAME
 
@@ -10685,7 +10863,7 @@ An enum name[N] declaration creates N names with suffixes 0 through N minus one 
 
 ### SV2023-6.19.2-EXTRACT-NONNEGATIVE-ENDPOINTS
 
-6.19.2 / error / テスト未対応
+6.19.2 / error / 実行確認あり
 
 Both N and M in an enum name range must be nonnegative integral numbers.
 
@@ -10693,10 +10871,12 @@ Both N and M in an enum name range must be nonnegative integral numbers.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_name_range_negative_first.sv](../tests/ch6/test_illegal_enum_name_range_negative_first.sv): typedef enum {s[-1:1]} bad_t; (N = -1)の23行目でのエラーを求める。a[0:2]、b[3:0] = 10 は合法。
+- [test_illegal_enum_name_range_negative_last.sv](../tests/ch6/test_illegal_enum_name_range_negative_last.sv): typedef enum {s[1:-1] = 4} bad_t; (M = -1、値付き)の23行目でのエラーを求める。a[0:2]、b[3:0] = 10 は合法。
 
 ### SV2023-6.19.2-EXTRACT-POSITIVE-COUNT
 
-6.19.2 / error / テスト未対応
+6.19.2 / error / 実行確認あり
 
 The N in enum name[N] must be a positive integral number.
 
@@ -10704,6 +10884,7 @@ The N in enum name[N] must be a positive integral number.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_name_range_zero_count.sv](../tests/ch6/test_illegal_enum_name_range_zero_count.sv): typedef enum {alive, dead[0]} bad_t; の個数0の名前範囲を24行目に置き、その行でのエラーを求める。同じ設計の one[1]、two[1] = 5、three[2:2] は合法で、制御版は両シミュレータで two0 の値 5 を表示する。 区別: name[N] の N が正であることを検査しない誤実装は dead[0] を(名前0個として)受理し、24行目のエラーが出ないので不合格になる。最小の合法値 [1] を値の有無の両方で受理する必要があるため、境界の両側(1 は合法、0 は違法)が区別される。
 
 ### SV2023-6.19.2-EXTRACT-RANGE-EXPLICIT-FIRST
 
@@ -10756,7 +10937,7 @@ A plain enum name receives the next consecutive encoding under the enum default/
 
 ### SV2023-6.19.3-EXTRACT-CAST-FOREIGN-OR-OUTSIDE
 
-6.19.3 / normal / テスト未対応
+6.19.3 / normal / 実行確認あり
 
 A suitable cast permits assignment of another type or an encoding outside the enumerated set, subject to static versus dynamic cast semantics.
 
@@ -10764,6 +10945,7 @@ A suitable cast permits assignment of another type or an encoding outside the en
 
 規定の性質: `permission`。
 
+- [test_enum_cast_outside_set_static_and_dynamic.sv](../tests/ch6/test_enum_cast_outside_set_static_and_dynamic.sv): 列挙型 color_t (RED=1, GREEN=2, BLUE=4)の変数 c へ、静的キャスト color_t'(3) で名前にない値 3 を、color_t'(CAT) で別の列挙型 pet_t の名前 CAT (2) を代入し、3 と 2 GREEN を比較する。動的キャスト $cast(c, 5) は名前にない値なので 0 を返して c を GREEN のまま残し(ok=0 c=2 GREEN)、$cast(c, k) (k = 4)は 1 を返して BLUE を代入する(ok=1 c=4 BLUE)ことを比較する。 区別: 静的キャストでも値の範囲を検査して名前にない値を拒否・丸める誤実装は1行目が 3 以外になり、別の列挙型からのキャストを許さない誤実装はコンパイルエラーになる。$cast が名前にない値でも代入する誤実装は3行目が c=5 に、失敗で 1 を返す誤実装は ok=1 になり、成功の場合に代入しない誤実装は4行目が c=2 GREEN のままになる。
 
 ### SV2023-6.19.3-EXTRACT-ENUM-CHECK-CONTEXTS
 
@@ -10778,7 +10960,7 @@ Enum type checking applies to assignments, subroutine arguments and relational o
 
 ### SV2023-6.19.3-EXTRACT-ENUM-CONSTANT-INTEGRAL-USE
 
-6.19.3 / normal / テスト未対応
+6.19.3 / normal / 実行確認あり
 
 Enum constants can participate in expressions whose results are assigned to compatible integral types.
 
@@ -10786,10 +10968,11 @@ Enum constants can participate in expressions whose results are assigned to comp
 
 規定の性質: `permission`。
 
+- [test_enum_values_in_integral_contexts.sv](../tests/ch6/test_enum_values_in_integral_contexts.sv): enum 名を定数として式に使い、結果を互換な整数型の変数へ代入する: a = BLUE * 3 (int へ 15)、m = GREEN | 8'h80 (logic [7:0] へ 82)、n = RED - BLUE (byte へ、8ビットで折り返して -4)、w = {RED, BLUE} (3ビット値の連結を shortint へ、13)を最終行 15 82 -4 13 で比較する。 区別: enum 名を整数式の被演算子に使えない誤実装はコンパイルエラーになる。名前の値として符号化値でなく序数(RED=0, GREEN=1, BLUE=2)を使う誤実装は 6 81 -2 2 となり、連結で基底の3ビット幅を使わない誤実装(32ビットとして連結)は w が 13 にならず最終行が変わる。
 
 ### SV2023-6.19.3-EXTRACT-ENUM-TO-INTEGRAL
 
-6.19.3 / normal / テスト未対応
+6.19.3 / normal / 実行確認あり
 
 Enum variables automatically convert to integral values when their expression context requires it.
 
@@ -10797,6 +10980,7 @@ Enum variables automatically convert to integral values when their expression co
 
 規定の性質: `mandatory`。
 
+- [test_enum_values_in_integral_contexts.sv](../tests/ch6/test_enum_values_in_integral_contexts.sv): 基底型 bit [2:0] の enum 変数 c (BLUE = 5)を、int への代入 i = c、int との加算 c + 10、int 引数の関数 twice(c)、関係演算 c > 3 と c == 5、シフト量 1 << c、ビット選択の添字 v[c] に使い、5 15 10 と 1 1 32 1 を比較する。さらに c - 6 が32ビットの符号なし値 4294967295 に、int 基底の p - 6 が -5 になること、$bits(c + 1'b1) が 3、$bits(p + 1'b1) が 32 になることを比較し、変換後の値が基底型の幅と符号を持つことを確かめる。 区別: enum を整数の文脈で使えない誤実装はコンパイルエラーになる。変換後の値を基底型でなく int として扱う誤実装は c - 6 が -1、$bits(c + 1'b1) が 32 になり3・4行目が変わる。符号付き基底を無視する誤実装は p - 6 が 4294967291 になる。添字やシフト量として符号化値でなく序数(BLUE は 2)を使う誤実装は 1 << c が 4、v[c] が 0 になり2行目が変わる。
 
 ### SV2023-6.19.3-EXTRACT-EXPRESSION-TO-ENUM-CAST
 
@@ -10837,7 +11021,7 @@ An enum variable or name in an expression automatically converts to its declared
 
 ### SV2023-6.19.4-EXTRACT-NONEQUIVALENT-CAST
 
-6.19.4 / error / テスト未対応
+6.19.4 / error / 実行確認あり
 
 An expression assigned to an enum needs a cast unless its type is equivalent to the destination enum type.
 
@@ -10845,6 +11029,7 @@ An expression assigned to an enum needs a cast unless its type is equivalent to 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_assign_arithmetic_without_cast.sv](../tests/ch6/test_illegal_enum_assign_arithmetic_without_cast.sv): enum 変数 c に int 型の式 c + 1 をキャストなしで代入する文を30行目に置き、その行でのエラーを求める。color_t を別名にした hue_t の値 h の代入(等価な型)と color_t'(c + 1) のキャスト付き代入は合法で、制御版は両シミュレータで 2 を表示する。 区別: enum への代入で型の等価性を検査しない誤実装は c = c + 1 を受理して30行目のエラーが出ず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.19.4-EXTRACT-NUMERICAL-ENUM-VALUE
 
@@ -11266,7 +11451,7 @@ All parameter assignments in a generate block, package or compilation-unit scope
 
 ### SV2023-6.20.1-EXTRACT-INSTANCE-MUST-OVERRIDE
 
-6.20.1 / error / テスト未対応
+6.20.1 / error / 実行確認あり
 
 Every instance of a design element with a parameter lacking a default must supply an override for that parameter.
 
@@ -11274,10 +11459,11 @@ Every instance of a design element with a parameter lacking a default must suppl
 
 規定の性質: `mandatory`。
 
+- [test_illegal_parameter_without_default_not_overridden.sv](../tests/ch6/test_illegal_parameter_without_default_not_overridden.sv): 既定値のないパラメータ WIDTH を持つモジュールの3つのインスタンスのうち、bad() だけが WIDTH を与えない。インスタンス行(27行目)またはパラメータ宣言行(20行目)でのエラーを求める。名前指定 #(.WIDTH(4)) と位置指定 #(8) のインスタンスは合法で、制御版は両シミュレータで 4 と 8 を表示する。 区別: 既定値のないパラメータの上書き漏れを検査しない誤実装は bad を受理してエラーを出さず不合格になる。名前指定・位置指定のどちらの上書きも受理しなければならないため、一方の形式を見落とす誤実装は合法なインスタンス行で誤ったエラーを出しうるが、その行は正規表現に含まれない。
 
 ### SV2023-6.20.1-EXTRACT-LOCALPARAM-DEFAULT-REQUIRED
 
-6.20.1 / error / テスト未対応
+6.20.1 / error / 実行確認あり
 
 A localparam declaration cannot omit its value/type even in a parameter port list.
 
@@ -11285,10 +11471,12 @@ A localparam declaration cannot omit its value/type even in a parameter port lis
 
 規定の性質: `mandatory`。
 
+- [test_illegal_localparam_value_without_default_in_port_list.sv](../tests/ch6/test_illegal_localparam_value_without_default_in_port_list.sv): #(parameter int WIDTH, localparam int DEPTH) の DEPTH (値なし)の22行目でのエラーを求める。WIDTH はインスタンスで .WIDTH(4) と上書きされる。
+- [test_illegal_localparam_type_without_default_in_port_list.sv](../tests/ch6/test_illegal_localparam_type_without_default_in_port_list.sv): #(parameter type T, localparam type L_T) の L_T (型なし)の22行目でのエラーを求める。T はインスタンスで .T(byte) と上書きされる。
 
 ### SV2023-6.20.1-EXTRACT-MISSING-DEFAULT-CONTEXT
 
-6.20.1 / error / テスト未対応
+6.20.1 / error / 実行確認あり
 
 A value/type parameter assignment may omit its value/type only in a parameter port list.
 
@@ -11296,6 +11484,8 @@ A value/type parameter assignment may omit its value/type only in a parameter po
 
 規定の性質: `mandatory`。
 
+- [test_illegal_parameter_value_without_default_in_module_body.sv](../tests/ch6/test_illegal_parameter_value_without_default_in_module_body.sv): ポートリストのないモジュール本体の parameter int COUNT; (27行目)でのエラーを求める。LIMIT = 3 は値付きで合法。
+- [test_illegal_parameter_type_without_default_in_module_body.sv](../tests/ch6/test_illegal_parameter_type_without_default_in_module_body.sv): ポートリストのないモジュール本体の parameter type ITEM_T; (28行目)でのエラーを求める。KEY_T = int は型付きで合法。
 
 ### SV2023-6.20.1-EXTRACT-NO-DEFAULT-MEANS-NONE
 
@@ -11344,7 +11534,7 @@ A parameter port list may be empty, start with implicit parameter assignments, o
 
 ### SV2023-6.20.1-EXTRACT-SPECIALIZATION-MUST-OVERRIDE
 
-6.20.1 / error / テスト未対応
+6.20.1 / error / 実行確認あり
 
 Every specialization of a class with a parameter lacking a default must supply the required override.
 
@@ -11352,6 +11542,7 @@ Every specialization of a class with a parameter lacking a default must supply t
 
 規定の性質: `mandatory`。
 
+- [test_illegal_class_parameter_without_default_default_specialization.sv](../tests/ch6/test_illegal_class_parameter_without_default_default_specialization.sv): 既定値のないパラメータ STEP を持つクラス counter_c を、パラメータ値なしのクラス名だけで変数 plain の型に使う34行目でのエラーを求める。counter_c #(3)、counter_c #(.STEP(5))、既定値を持つ step_c の単独使用は合法で、制御版は Verilator で 4 3 を表示する。 区別: クラスの特殊化で既定値なしパラメータの上書きを要求しない誤実装は plain の宣言を受理して不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.1-EXTRACT-SPECPARAM-DECLARATION
 
@@ -11414,7 +11605,7 @@ A parameter can have an aggregate type such as an unpacked array or structure.
 
 ### SV2023-6.20.2-EXTRACT-AGGREGATE-WHOLE-OVERRIDE
 
-6.20.2 / error / テスト未対応
+6.20.2 / error / テスト対応あり・実行未確認
 
 An aggregate parameter is assigned/overridden as a whole; separate member assignment/override is prohibited.
 
@@ -11422,10 +11613,11 @@ An aggregate parameter is assigned/overridden as a whole; separate member assign
 
 規定の性質: `mandatory`。
 
+- [test_illegal_aggregate_parameter_element_defparam.sv](../tests/ch6/test_illegal_aggregate_parameter_element_defparam.sv): int 2要素のアンパックド配列パラメータ A の要素 A[1] だけを上書きする defparam bad.A[1] = 7; (35行目)でのエラーを求める。インスタンス ok での配列全体の上書き #(.A('{3, 4})) と、要素 A[1] を式に使う localparam SUM = A[0] + A[1] は合法な対照で、制御版は Verilator で 3 4 7 2 を表示する。 区別: 集合型パラメータの要素ごとの上書きを許す誤実装は35行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を配列インスタンスの defparam として未対応と報告し、数えない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.2-EXTRACT-CONSTANT-DEPENDENCIES
 
-6.20.2 / error / テスト未対応
+6.20.2 / error / 実行確認あり
 
 Value parameter values are limited to expressions of literals, value parameters/localparams, genvars, enum names and their constant functions; package references are permitted.
 
@@ -11433,6 +11625,7 @@ Value parameter values are limited to expressions of literals, value parameters/
 
 規定の性質: `mandatory`。
 
+- [test_illegal_parameter_value_from_variable.sv](../tests/ch6/test_illegal_parameter_value_from_variable.sv): モジュール変数 count を読む parameter int BAD = count + 1; を38行目に置き、その行でのエラーを求める。同じ設計で、リテラル・パラメータ A・localparam B・enum 名 E2・定数関数 twice(B)・パッケージ参照 FROM_PKG を組み合わせた ALL と、genvar g を使う生成ブロックの localparam G は合法で、制御版は両シミュレータで 17 と 27 を表示する。 区別: 値パラメータに変数を許す誤実装は BAD を受理して38行目のエラーが出ず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.2-EXTRACT-EXPLICIT-TYPE
 
@@ -11484,7 +11677,7 @@ An integral parameter permits bit-selects and part-selects.
 
 ### SV2023-6.20.2-EXTRACT-NO-HIERARCHICAL-VALUE
 
-6.20.2 / error / テスト未対応
+6.20.2 / error / 実行確認あり
 
 A value parameter expression cannot use hierarchical names.
 
@@ -11492,6 +11685,7 @@ A value parameter expression cannot use hierarchical names.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_parameter_value_hierarchical_name.sv](../tests/ch6/test_illegal_parameter_value_hierarchical_name.sv): parameter int BAD = sub.DEPTH + 1; のように、インスタンス sub のパラメータを階層名で参照する値を29行目に置き、その行でのエラーを求める。同じモジュールの先行パラメータを単純名で使う OK = BASE + 1 は合法で、制御版は両シミュレータで 5 を表示する。 区別: パラメータ値の階層名を許す誤実装は sub.DEPTH を 3 と解決して BAD を受理し、29行目のエラーが出ないので不合格になる。単純名によるパラメータ参照は合法な対照として受理されなければならず、パラメータ参照を一律に拒否する誤りは別の行のエラーになる。
 
 ### SV2023-6.20.2-EXTRACT-RANGE-ONLY-UNSIGNED
 
@@ -11543,7 +11737,7 @@ A specparam may additionally depend on other specparams, under the specparam-spe
 
 ### SV2023-6.20.2-EXTRACT-TYPED-OVERRIDE-COMPATIBLE
 
-6.20.2 / error / テスト未対応
+6.20.2 / error / 実行確認あり
 
 The expression assigned to or overriding an explicitly typed parameter must be assignment compatible with its declared type.
 
@@ -11551,6 +11745,8 @@ The expression assigned to or overriding an explicitly typed parameter must be a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_parameter_assigned_int.sv](../tests/ch6/test_illegal_enum_parameter_assigned_int.sv): parameter mode_t BAD = 2; (28行目)でのエラーを求める。MODE = RUN、int の LEVEL = STOP、real の SCALE = 3 は合法。
+- [test_illegal_enum_parameter_overridden_with_int.sv](../tests/ch6/test_illegal_enum_parameter_overridden_with_int.sv): インスタンス bad の #(.MODE(2)) (35行目)でのエラーを求める。インスタンス ok の .MODE(RUN), .LEVEL(STOP) は合法。
 
 ### SV2023-6.20.2-EXTRACT-UNSIZED-IMPLIED-RANGE
 
@@ -11589,7 +11785,7 @@ A parameter may specify a type used by the ports/data of each module/interface/p
 
 ### SV2023-6.20.3-EXTRACT-NO-HIERARCHICAL-TYPE
 
-6.20.3 / error / テスト未対応
+6.20.3 / error / 実行確認あり
 
 Hierarchical names cannot supply a type parameter value.
 
@@ -11597,10 +11793,11 @@ Hierarchical names cannot supply a type parameter value.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_parameter_hierarchical_type_name.sv](../tests/ch6/test_illegal_type_parameter_hierarchical_type_name.sv): 型パラメータ T をインスタンス sub 内の typedef sub.local_t (階層名)で上書きするインスタンス bad の36〜37行目でのエラーを求める。パッケージの型 pkg::word_t による上書きは合法で、bad を byte で上書きした制御版は両シミュレータで 12 と 8 を表示する。 区別: 型パラメータの値に階層名を許す誤実装は sub.local_t を6ビット型として解決して受理し、エラーが出ないので不合格になる。パッケージ参照は合法な対照として受理されなければならない。
 
 ### SV2023-6.20.3-EXTRACT-NO-TYPE-DEFPARAM
 
-6.20.3 / error / テスト未対応
+6.20.3 / error / 実行確認あり
 
 A type parameter cannot be overridden by defparam.
 
@@ -11608,10 +11805,11 @@ A type parameter cannot be overridden by defparam.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_parameter_defparam.sv](../tests/ch6/test_illegal_type_parameter_defparam.sv): defparam u.T = shortint; で型パラメータ T を上書きする29行目でのエラーを求める。同じインスタンスの値パラメータ N を defparam u.N = 3; で上書きするのは合法で、制御版は両シミュレータで 3 32 を表示する。 区別: defparam による型パラメータの上書きを許す誤実装は T を shortint にして受理し、29行目のエラーが出ないので不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.3-EXTRACT-PREFIX-RESOLVES-CLASS
 
-6.20.3 / error / テスト未対応
+6.20.3 / error / 実行確認あり
 
 A type parameter used as a class-scope selection prefix must resolve to a class type.
 
@@ -11619,10 +11817,11 @@ A type parameter used as a class-scope selection prefix must resolve to a class 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_parameter_scope_prefix_not_class.sv](../tests/ch6/test_illegal_type_parameter_scope_prefix_not_class.sv): 型パラメータ C を前置した typedef C::item_t item_t; を持つクラス holder_c を、C = int で特殊化する typedef holder_c #(int) bad_t; (35行目)で、特殊化の行かクラス内の typedef の行のエラーを求める。クラス box_c による特殊化 ok_t は合法な対照で、制御版は Verilator で ok_t::item_t の変数の大きさ 8 を表示する。 区別: 型パラメータの前置がクラスに解決されるかを検査しない誤実装は指定行でエラーを出さず不合格になる(Verilator 5.052 は :: の前がクラスでもパッケージでもないとして拒否する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.3-EXTRACT-QUALIFIED-TYPE-CONTEXTS
 
-6.20.3 / error / テスト未対応
+6.20.3 / error / テスト対応あり・実行未確認
 
 Selecting a class member type through a type-parameter prefix is permitted only in typedef declarations, type operators and type-parameter assignments.
 
@@ -11630,10 +11829,11 @@ Selecting a class member type through a type-parameter prefix is permitted only 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_parameter_scope_prefix_in_variable.sv](../tests/ch6/test_illegal_type_parameter_scope_prefix_in_variable.sv): 型パラメータ C を前置した C::item_t をクラスのプロパティの宣言にそのまま使う C::item_t bad; (36行目)でのエラーを求める。同じ選択を局所型パラメータの代入 localparam type item_t = C::item_t と typedef C::item_t alias_t に使うのは合法な対照で、それらで宣言したプロパティ a と b の大きさを box_c による特殊化で表示する制御版は Verilator で 8 8 を表示する。 区別: 型パラメータを前置した型の選択を typedef・型演算子・型パラメータの代入以外にも許す誤実装(Verilator 5.052 がこれ)は36行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.3-EXTRACT-RESTRICTION-CONFORMANCE
 
-6.20.3 / error / テスト未対応
+6.20.3 / error / 実行確認あり
 
 An assigned type must conform to any declared basic-category type-parameter restriction.
 
@@ -11641,10 +11841,11 @@ An assigned type must conform to any declared basic-category type-parameter rest
 
 規定の性質: `mandatory`。
 
+- [test_illegal_enum_restricted_type_parameter_given_int.sv](../tests/ch6/test_illegal_enum_restricted_type_parameter_given_int.sv): type enum で列挙型に制限した型パラメータ E_T を int で上書きするインスタンス bad の #(.E_T(int)) (36行目)で、上書きの行か E_T の宣言の行のエラーを求める。既定値の列挙型 color_t と、列挙型 level_t による上書き(インスタンス ok)は合法な対照で、制御版は Verilator で ok の E_T の変数の大きさ 2 を表示する。 区別: 型パラメータの基本型の制限を検査しない誤実装は指定行でエラーを出さず不合格になる(Verilator 5.052 は int が enum の制限に反するとしてこの行で拒否する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.3-EXTRACT-TYPE-VALUE-ONLY
 
-6.20.3 / error / テスト未対応
+6.20.3 / error / 実行確認あり
 
 A type parameter can be assigned only a data type; package-qualified type references are permitted.
 
@@ -11652,6 +11853,7 @@ A type parameter can be assigned only a data type; package-qualified type refere
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_parameter_assigned_value.sv](../tests/ch6/test_illegal_type_parameter_assigned_value.sv): 型パラメータ T に数値 5 を与えるインスタンス bad の34行目でのエラーを求める。組込み型 shortint、範囲付きの logic [2:0]、パッケージ参照 pkg::word_t を与える3つのインスタンスは合法で、制御版は両シミュレータで 16・3・12 を(インスタンス順は不定で)表示する。 区別: 型パラメータに型以外を許す誤実装は #(.T(5)) を受理し、34行目のエラーが出ないので不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.4-EXTRACT-INDIRECT-DEPENDENCY
 
@@ -11909,7 +12111,7 @@ A dollar actual argument to a sequence/property/checker is permitted when forwar
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-CONTEXT-LIMIT
 
-6.20.7 / error / テスト未対応
+6.20.7 / error / テスト対応あり・実行未確認
 
 Standalone dollar is allowed only in the explicitly listed queue, range, coverage, temporal-argument/bound and parameter contexts.
 
@@ -11917,6 +12119,7 @@ Standalone dollar is allowed only in the explicitly listed queue, range, coverag
 
 規定の性質: `mandatory`。
 
+- [test_illegal_dollar_in_ordinary_expression.sv](../tests/ch6/test_illegal_dollar_in_ordinary_expression.sv): $ を int 変数への代入の右辺に使う k = $; (40行目)でのエラーを求める。合法な部分(パラメータ P = $ と、それを代入した Q = P の $isunbounded、キューの選択 q[$] と演算子付きの q[$-1]、値の範囲 [5:$])は、制御版が Verilator で 1 1 9 7 1 を表示する。 区別: $ を規格が挙げる文脈以外の普通の式にも許す誤実装は40行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を未対応として拒否し、規則による診断ではないので数えない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-COVERGROUP-RANGE
 
@@ -11953,7 +12156,7 @@ A dollar cycle-delay upper bound denotes a finite but unbounded maximum.
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-ENTIRE-EXPRESSION
 
-6.20.7 / error / テスト未対応
+6.20.7 / error / テスト対応あり・実行未確認
 
 Dollar must be a complete self-contained expression except that queue select expressions can combine it with operators.
 
@@ -11961,10 +12164,11 @@ Dollar must be a complete self-contained expression except that queue select exp
 
 規定の性質: `mandatory`。
 
+- [test_illegal_dollar_with_operator_in_value_range.sv](../tests/ch6/test_illegal_dollar_with_operator_in_value_range.sv): 値の範囲の端に演算子付きの $ を書く k = 7 inside {[0:$ - 1]}; (41行目)でのエラーを求める。キューの選択では演算子が使える q[$-1] と、$ 単独の範囲 [5:$] は合法な対照で、制御版が Verilator で 1 1 9 7 1 を表示する。 区別: $ に演算子を付けた式をキューの選択以外でも許す誤実装は41行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-PARAMETER-TYPE
 
-6.20.7 / error / テスト未対応
+6.20.7 / error / テスト対応あり・実行未確認
 
 A dollar value may be assigned only to a value parameter of a simple bit-vector type.
 
@@ -11972,10 +12176,11 @@ A dollar value may be assigned only to a value parameter of a simple bit-vector 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_dollar_assigned_to_real_parameter.sv](../tests/ch6/test_illegal_dollar_assigned_to_real_parameter.sv): real 型の値パラメータに $ を代入する parameter real RP = $; (35行目)でのエラーを求める。型を書かないパラメータ P と、単純ビットベクタ型 int のパラメータ IP への $ の代入は合法な対照で、制御版は Verilator で $isunbounded の 1 1 を表示する。 区別: $ を単純ビットベクタ型でない(real の)パラメータにも許す誤実装は35行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を未対応として拒否し、数えない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-PARAMETER-USES
 
-6.20.7 / error / テスト未対応
+6.20.7 / error / テスト対応あり・実行未確認
 
 A dollar-valued parameter can be used where literal dollar is permitted except queue contexts; copying it to another eligible parameter is permitted.
 
@@ -11983,6 +12188,8 @@ A dollar-valued parameter can be used where literal dollar is permitted except q
 
 規定の性質: `mandatory`。
 
+- [test_illegal_dollar_parameter_in_queue_select.sv](../tests/ch6/test_illegal_dollar_parameter_in_queue_select.sv): k = q[P]; (39行目)でのエラーを求める。parameter Q = P; は合法。
+- [test_illegal_dollar_parameter_in_ordinary_expression.sv](../tests/ch6/test_illegal_dollar_parameter_in_ordinary_expression.sv): k = P + 1; (39行目)でのエラーを求める。parameter Q = P; は合法。
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-QUEUE-DIMENSION
 
@@ -12848,7 +13055,7 @@ For non-assignment-compatible operands, an enum cast follows 6.19.4 and a bit-st
 
 ### SV2023-6.24.1-EXTRACT-PACKABLE-ELEMENTS
 
-6.24.1 / error / テスト未対応
+6.24.1 / error / テスト対応あり・実行未確認
 
 Casting an unpacked structure/array requires every element type to be valid for packed representation, even for an unpacked destination.
 
@@ -12856,6 +13063,8 @@ Casting an unpacked structure/array requires every element type to be valid for 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cast_unpacked_struct_with_real_member.sv](../tests/ch6/test_illegal_cast_unpacked_struct_with_real_member.sv): x = longint'(s); (s は real メンバ、34行目)でのエラーを求める。x = longint'(t) は合法。
+- [test_illegal_cast_real_array_to_unpacked_array.sv](../tests/ch6/test_illegal_cast_real_array_to_unpacked_array.sv): l = l2_t'(r); (r は real 要素、37行目)でのエラーを求める。s = s4_t'(w) は合法。
 
 ### SV2023-6.24.1-EXTRACT-PACKED-IMPLICIT-CONVERSION
 
@@ -12942,7 +13151,7 @@ A signed/unsigned cast behaves as assignment to one packed [n-1:0] vector of the
 
 ### SV2023-6.24.1-EXTRACT-SIZE-CAST-POSITIVE
 
-6.24.1 / error / テスト未対応
+6.24.1 / error / 実行確認あり
 
 A constant size cast must specify a positive integral value; zero/negative sizes are errors.
 
@@ -12950,6 +13159,8 @@ A constant size cast must specify a positive integral value; zero/negative sizes
 
 規定の性質: `mandatory`。
 
+- [test_illegal_size_cast_zero.sv](../tests/ch6/test_illegal_size_cast_zero.sv): $display("%b", 0'(v)); (25行目)でのエラーを求める。1'(v) と W'(v) は合法。
+- [test_illegal_size_cast_negative.sv](../tests/ch6/test_illegal_size_cast_negative.sv): $display("%b", (W - 8)'(v)); (25行目、サイズ -2)でのエラーを求める。(W - 5)'(v) と (W + 4)'(v) は合法。
 
 ### SV2023-6.24.1-EXTRACT-SIZE-CAST-RESIZE
 
@@ -13006,7 +13217,7 @@ A size cast behaves as assignment to a single packed [n-1:0] vector of the reque
 
 ### SV2023-6.24.1-EXTRACT-SIZE-SIGN-INTEGRAL
 
-6.24.1 / error / テスト未対応
+6.24.1 / error / 実行確認あり
 
 Size casts and signing casts require integral expression operands.
 
@@ -13014,6 +13225,8 @@ Size casts and signing casts require integral expression operands.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_size_cast_of_real.sv](../tests/ch6/test_illegal_size_cast_of_real.sv): $display("%0d", 4'(r)); (27行目)でのエラーを求める。4'(i)、4'(v)、int'(r) は合法。
+- [test_illegal_signing_cast_of_real.sv](../tests/ch6/test_illegal_signing_cast_of_real.sv): $display("%0d", signed'(r)); (25行目)でのエラーを求める。signed'(v)、unsigned'(i) は合法。
 
 ### SV2023-6.24.1-EXTRACT-TYPE-CAST-PREFIX
 
@@ -13312,7 +13525,7 @@ For a destination with unbounded dynamic items, subtract fixed destination bits 
 
 ### SV2023-6.24.3-EXTRACT-NO-ASSOCIATIVE-CLASS-DESTINATION
 
-6.24.3 / error / テスト未対応
+6.24.3 / error / テスト対応あり・実行未確認
 
 An associative array or class type cannot be a bit-stream cast destination.
 
@@ -13320,6 +13533,8 @@ An associative array or class type cannot be a bit-stream cast destination.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_bitstream_cast_to_assoc_array.sv](../tests/ch6/test_illegal_bitstream_cast_to_assoc_array.sv): m = aa_t'(32'h01020304); (36行目)でのエラーを求める。d = dyn_t'(32'h01020304) は合法。
+- [test_illegal_bitstream_cast_to_class.sv](../tests/ch6/test_illegal_bitstream_cast_to_class.sv): クラス型を宛先にするキャスト(38行目)でのエラーを求める。w = i2_t'(64'h0000000300000004) (アンパックド配列が宛先)は合法。
 
 ### SV2023-6.24.3-EXTRACT-PACK-SOURCE-DOMAIN
 
@@ -13414,7 +13629,7 @@ A structure is unpacked unless qualified packed; unpacked layout is implementati
 
 ### SV2023-7.2-EXTRACT-NO-C-TAG
 
-7.2 / error / テスト未対応
+7.2 / error / 実行確認あり
 
 A structure declaration does not support a C-style structure tag identifier before its opening brace.
 
@@ -13422,10 +13637,11 @@ A structure declaration does not support a C-style structure tag identifier befo
 
 規定の性質: `mandatory`。
 
+- [test_illegal_struct_c_style_tag.sv](../tests/ch7/test_illegal_struct_c_style_tag.sv): typedef struct packed point { bit [3:0] x; } bad_t; のように struct packed と開き波括弧の間に C 形式のタグ名 point を置いた宣言(26行目)でのエラーを求める。タグなしの typedef struct packed pair_t と、タグなしの無名 struct packed signed 変数 anon は合法な対照で、制御版は両シミュレータで 5 a -3 を表示する。 区別: C 形式のタグを読み飛ばして受理する誤実装は26行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.2-EXTRACT-RANDOM-ONLY-UNPACKED-STRUCT
 
-7.2 / error / テスト未対応
+7.2 / error / テスト対応あり・実行未確認
 
 A random qualifier on a struct/union member is permitted only for an unpacked structure.
 
@@ -13433,10 +13649,12 @@ A random qualifier on a struct/union member is permitted only for an unpacked st
 
 規定の性質: `mandatory`。
 
+- [test_illegal_rand_member_in_packed_struct.sv](../tests/ch7/test_illegal_rand_member_in_packed_struct.sv): struct packed { rand bit [3:0] a; bit [3:0] b; } bad;(33行目)でのエラーを求める。
+- [test_illegal_rand_member_in_union.sv](../tests/ch7/test_illegal_rand_member_in_union.sv): union { rand int a; int b; } bad;(32行目)でのエラーを求める。
 
 ### SV2023-7.2-EXTRACT-STRUCT-DIMENSION-PACKED
 
-7.2 / error / テスト未対応
+7.2 / error / テスト対応あり・実行未確認
 
 A structure with a following packed dimension must include packed.
 
@@ -13444,6 +13662,7 @@ A structure with a following packed dimension must include packed.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_struct_packed_dimension.sv](../tests/ch7/test_illegal_unpacked_struct_packed_dimension.sv): packed を付けない構造体にパックド次元 [1:0] を続ける struct { bit [3:0] a; } [1:0] bad;(30行目)でのエラーを求める。packed 付きの同じ構造体と次元の okp は合法な対照で、制御版は両シミュレータで 8 a ($bits(okp) と上位要素のメンバ a)を表示する。 区別: packed のない構造体にパックド次元を許す誤実装(Verilator 5.052 がこれ)は30行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.2-EXTRACT-STRUCT-GRAMMAR
 
@@ -13470,7 +13689,7 @@ A structure collects typed members that can be referenced as a whole or individu
 
 ### SV2023-7.2-EXTRACT-UNION-DIMENSION-QUALIFIER
 
-7.2 / error / テスト未対応
+7.2 / error / テスト対応あり・実行未確認
 
 A union with a following packed dimension must include soft or packed or both.
 
@@ -13478,6 +13697,7 @@ A union with a following packed dimension must include soft or packed or both.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_union_packed_dimension_without_qualifier.sv](../tests/ch7/test_illegal_union_packed_dimension_without_qualifier.sv): packed も soft も付けない共用体にパックド次元 [1:0] を続ける union { bit [3:0] a; bit [3:0] b; } [1:0] bad;(31行目)でのエラーを求める。packed 付きの同じ共用体と次元の okp は合法な対照で、制御版は両シミュレータで 8 3 c を表示する。 区別: packed も soft もない共用体にパックド次元を許す誤実装(Verilator 5.052 がこれ)は31行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.2-EXTRACT-UNPACKED-MEMBER-TYPES
 
@@ -13492,7 +13712,7 @@ An unpacked structure can contain any data type under the specific member/defaul
 
 ### SV2023-7.2-EXTRACT-VOID-ONLY-TAGGED
 
-7.2 / error / テスト未対応
+7.2 / error / テスト対応あり・実行未確認
 
 A void member is permitted only in a tagged union.
 
@@ -13500,6 +13720,8 @@ A void member is permitted only in a tagged union.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_void_member_in_untagged_union.sv](../tests/ch7/test_illegal_void_member_in_untagged_union.sv): union { void none; int i; } bad;(29行目)でのエラーを求める。
+- [test_illegal_void_member_in_struct.sv](../tests/ch7/test_illegal_void_member_in_struct.sv): struct { void none; int lo; } bad;(30行目)でのエラーを求める。
 
 ### SV2023-7.2.1-EXTRACT-ALL-TWO-STATE
 
@@ -13618,7 +13840,7 @@ A packed structure supports whole-value arithmetic/logical operations with its s
 
 ### SV2023-7.2.2-EXTRACT-DEFAULT-MEMBER
 
-7.2.2 / error / テスト未対応
+7.2.2 / error / テスト対応あり・実行未確認
 
 Eligible structure members may declare default values; their initializer expressions must be constant.
 
@@ -13626,6 +13848,7 @@ Eligible structure members may declare default values; their initializer express
 
 規定の性質: `mandatory`。
 
+- [test_illegal_struct_member_default_not_constant.sv](../tests/ch7/test_illegal_struct_member_default_not_constant.sv): アンパックド構造体のメンバ a の既定値を int 変数 x にする struct { int a = x; int b; } bad; (33行目)でのエラーを求める。局所パラメータ W による定数式の既定値 a = W * 2 と b = 1 を持つ構造体型 ok_t は合法な対照で、初期化子のない変数の値を表示する制御版は Verilator で 6 1 を表示する。 区別: メンバの既定値に定数式でない式を許す誤実装は33行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.2.2-EXTRACT-EXPLICIT-OVERRIDES-DEFAULTS
 
@@ -13651,7 +13874,7 @@ A type member initializer is ignored when the type declares a net without a user
 
 ### SV2023-7.2.2-EXTRACT-NO-PACKED-UNION-DEFAULTS
 
-7.2.2 / error / テスト未対応
+7.2.2 / error / テスト対応あり・実行未確認
 
 Individual member defaults are prohibited for packed structures and for members of unpacked structures containing a union.
 
@@ -13659,6 +13882,8 @@ Individual member defaults are prohibited for packed structures and for members 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_packed_struct_member_default.sv](../tests/ch7/test_illegal_packed_struct_member_default.sv): typedef struct packed { bit [3:0] count = 4'd3; bit [3:0] flags; } bad_t; (27行目)でのエラーを求める。アンパックド構造体 ok_t の int a = 7 は合法。
+- [test_illegal_union_holding_struct_member_default.sv](../tests/ch7/test_illegal_union_holding_struct_member_default.sv): パックド共用体 u_t のメンバ u を持つアンパックド構造体 bad_t のメンバ int a = 1 (28行目)でのエラーを求める。共用体を持たない ok_t の int a = 1 は合法。
 
 ### SV2023-7.2.2-EXTRACT-WHOLE-ASSIGNMENT
 
@@ -13717,7 +13942,7 @@ An unqualified union is unpacked and has no required member storage representati
 
 ### SV2023-7.3-EXTRACT-DYNAMIC-CHANDLE-TAGGED
 
-7.3 / error / テスト未対応
+7.3 / error / テスト対応あり・実行未確認
 
 Dynamic types and chandles are permitted only in tagged unions, not untagged unions.
 
@@ -13725,6 +13950,8 @@ Dynamic types and chandles are permitted only in tagged unions, not untagged uni
 
 規定の性質: `mandatory`。
 
+- [test_illegal_chandle_in_untagged_union.sv](../tests/ch6/test_illegal_chandle_in_untagged_union.sv): typedef union { chandle h; int i; } u_t;(29行目)でのエラーを求める。
+- [test_illegal_string_in_untagged_union.sv](../tests/ch7/test_illegal_string_in_untagged_union.sv): union { string s; int i; } bad;(31行目)でのエラーを求める。struct { string s; int i; } ok; は合法。
 
 ### SV2023-7.3-EXTRACT-UNION-GRAMMAR
 
@@ -13952,7 +14179,7 @@ Tagged packed representation rules apply recursively to nested tagged unions.
 
 ### SV2023-7.3.2-EXTRACT-PACKED-TAGGED-MEMBERS
 
-7.3.2 / error / テスト未対応
+7.3.2 / error / テスト対応あり・実行未確認
 
 Packed tagged union members must have packed types, but their sizes may differ.
 
@@ -13960,6 +14187,7 @@ Packed tagged union members must have packed types, but their sizes may differ.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_packed_tagged_union_real_member.sv](../tests/ch7/test_illegal_packed_tagged_union_real_member.sv): packed な tagged 共用体のメンバに real r を置く union tagged packed { bit [7:0] a; real r; } bad;(28行目)でのエラーを求める。大きさの違うパックド型のメンバ(8ビット、4ビット)と void メンバを持つ packed tagged 共用体型 ok_t は合法な対照で、その $bits(ok_t) はタグ2ビットと最大メンバ8ビットの和 10 になる(両シミュレータとも tagged 共用体に未対応のため、制御版は規格からの値)。 区別: packed tagged 共用体のメンバにパックドでない型を許す誤実装は28行目でエラーを出さず不合格になる。メンバの大きさの一致まで求める誤実装は ok_t の宣言を拒否するが、それは対照の行であり、要求の『大きさは違ってよい』は ok_t の宣言で示される。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.3.2-EXTRACT-PACKED-TAGGED-SIZE
 
@@ -14286,7 +14514,7 @@ An unpacked array permits any element data type and declares address dimensions 
 
 ### SV2023-7.4.2-EXTRACT-UNPACKED-RANGE-ENDPOINTS
 
-7.4.2 / error / テスト未対応
+7.4.2 / error / 実行確認あり
 
 A fixed unpacked dimension can use any known constant integer endpoints in either order, including negative values; x/z endpoints are forbidden.
 
@@ -14294,6 +14522,8 @@ A fixed unpacked dimension can use any known constant integer endpoints in eithe
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_range_x_bound.sv](../tests/ch7/test_illegal_unpacked_range_x_bound.sv): int bad [2'b1x:0]; (第1端点に x、30行目)でのエラーを求める。
+- [test_illegal_unpacked_range_z_bound.sv](../tests/ch7/test_illegal_unpacked_range_z_bound.sv): int bad [0:2'bz1]; (第2端点に z、30行目)でのエラーを求める。
 
 ### SV2023-7.4.2-EXTRACT-UNPACKED-SIZE-SYNTAX
 
@@ -14392,7 +14622,7 @@ Unpacked dimensions may be constructed in stages through typedefs.
 
 ### SV2023-7.4.5-EXTRACT-CONSTANT-WIDTH
 
-7.4.5 / error / テスト未対応
+7.4.5 / error / 実行確認あり
 
 A slice or part-select must have constant size; its position may vary.
 
@@ -14400,6 +14630,8 @@ A slice or part-select must have constant size; its position may vary.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_part_select_variable_width.sv](../tests/ch7/test_illegal_part_select_variable_width.sv): $display("%b", v[i +: w]); (幅が int 変数 w、25行目)でのエラーを求める。位置が変数で幅が定数の v[i +: 3]、v[i -: 2] は合法。
+- [test_illegal_slice_variable_width.sv](../tests/ch7/test_illegal_slice_variable_width.sv): int のアンパックド配列 a のスライス b = a[0 +: w]; (大きさが変数 w、31行目)でのエラーを求める。b = a[2:4] と b = a[5 -: 3] は合法。
 
 ### SV2023-7.4.5-EXTRACT-ELEMENT-INDEX
 
@@ -14641,7 +14873,7 @@ An invalid unpacked-array index read for a virtual interface element returns nul
 
 ### SV2023-7.4.5-EXTRACT-ONE-SLICE-DIMENSION
 
-7.4.5 / error / テスト未対応
+7.4.5 / error / テスト対応あり・実行未確認
 
 An expression can slice only one array dimension; other dimensions may have single indices.
 
@@ -14649,6 +14881,7 @@ An expression can slice only one array dimension; other dimensions may have sing
 
 規定の性質: `mandatory`。
 
+- [test_illegal_slice_of_two_dimensions.sv](../tests/ch7/test_illegal_slice_of_two_dimensions.sv): 2次元配列 a の両方の次元を範囲で選ぶ b2 = a[1:2][0:1]; (37行目)でのエラーを求める。1つ目の次元を単一の添字で選び2つ目をスライスする row = a[1][2:3] と、1つ目の次元だけのスライス rows = a[1:2] は合法な対照で、制御版は Verilator で 6 7 4 11 を表示する。 区別: 2つの次元のスライスを許す誤実装は37行目でエラーを出さず不合格になる(Verilator 5.052 はこれをスライスのスライスとして受け、代入先との次元の不一致だけを報告するので数えない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.4.5-EXTRACT-PART-SELECT-DEFINITION
 
@@ -14760,7 +14993,7 @@ Compatible arrays support whole-array reading/writing under assignment/type rule
 
 ### SV2023-7.4.6-EXTRACT-NO-ASSOCIATIVE-SLICE
 
-7.4.6 / error / テスト未対応
+7.4.6 / error / 実行確認あり
 
 Associative arrays cannot be sliced, but their whole values and elements support read/write/equality operations.
 
@@ -14768,10 +15001,11 @@ Associative arrays cannot be sliced, but their whole values and elements support
 
 規定の性質: `mandatory`。
 
+- [test_illegal_associative_array_slice.sv](../tests/ch7/test_illegal_associative_array_slice.sv): 連想配列 m (int 添字)のスライス b = m[1:2]; (34行目)でのエラーを求める。同じ設計で、連想配列全体の代入 n = m、全体の等値比較 n == m / n != m、要素の読み書き n[5] = m[2] は合法な対照として残り、制御版は Verilator で 1 0 と 3 3 0 を表示する。 区別: 連想配列のスライスを受理する誤実装は34行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.4.6-EXTRACT-PACKED-INTEGER-ONLY
 
-7.4.6 / error / テスト未対応
+7.4.6 / error / 実行確認あり
 
 Packed arrays may receive integer assignments and act as integers in expressions; unpacked arrays do not directly support these integer operations.
 
@@ -14779,6 +15013,8 @@ Packed arrays may receive integer assignments and act as integers in expressions
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_array_assigned_integer.sv](../tests/ch7/test_illegal_unpacked_array_assigned_integer.sv): bit u [8] への u = 8'd5; (28行目)でのエラーを求める。パックド配列 p = 8'd5、q = 8'hc3 は合法。
+- [test_illegal_unpacked_array_in_integer_expression.sv](../tests/ch7/test_illegal_unpacked_array_in_integer_expression.sv): アンパックド配列 u を + の被演算子にした k = u + 3; (29行目)でのエラーを求める。p + 3、q + 1、要素の u[1] + 3 は合法。
 
 ### SV2023-7.4.6-EXTRACT-UNPACKED-SIGN-ELEMENTS
 
@@ -14898,7 +15134,7 @@ Without a constructor initializer, each new element receives its type default va
 
 ### SV2023-7.5.1-EXTRACT-INITIALIZER-COMPATIBILITY
 
-7.5.1 / error / テスト未対応
+7.5.1 / error / 実行確認あり
 
 A constructor initializer must be an array assignment compatible with the destination dynamic array.
 
@@ -14906,10 +15142,11 @@ A constructor initializer must be an array assignment compatible with the destin
 
 規定の性質: `mandatory`。
 
+- [test_illegal_dynamic_new_initializer_other_element_type.sv](../tests/ch7/test_illegal_dynamic_new_initializer_other_element_type.sv): int の動的配列 d に対する d = new[2](narrow); で、初期化子 narrow が byte 要素の動的配列(要素型が int と等価でない)である行(33行目)のエラーを求める。int 要素の初期化子 wide による new[3](wide) と、新しい大きさが初期化子より小さい new[2](wide) は合法な対照で、制御版は両シミュレータで 3 4 5 6 と 2 4 5 を表示する。 区別: 初期化子の代入互換性を検査しない誤実装は33行目でエラーを出さず不合格になる(Verilator 5.052 はこれを受理し、生成した C++ のコンパイルで初めて失敗するので一致しない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.5.1-EXTRACT-NEW-CONTEXT
 
-7.5.1 / error / テスト未対応
+7.5.1 / error / 実行確認あり
 
 Dynamic array new may be the RHS of a declaration assignment or blocking procedural assignment whose LHS denotes a dynamic array; grammar uses a nonrange variable lvalue.
 
@@ -14917,6 +15154,9 @@ Dynamic array new may be the RHS of a declaration assignment or blocking procedu
 
 規定の性質: `mandatory`。
 
+- [test_illegal_dynamic_new_to_fixed_array.sv](../tests/ch7/test_illegal_dynamic_new_to_fixed_array.sv): 固定サイズ配列 int f [3] への f = new[3]; (30行目)でのエラーを求める。int d [] = new[2] と e = new[4] は合法。
+- [test_illegal_dynamic_new_nonblocking_assignment.sv](../tests/ch7/test_illegal_dynamic_new_nonblocking_assignment.sv): 動的配列 d への非ブロッキング代入 d <= new[2]; (28行目)でのエラーを求める。int d [] = new[3] と d = new[5] は合法。
+- [test_illegal_dynamic_new_to_slice.sv](../tests/ch7/test_illegal_dynamic_new_to_slice.sv): 動的配列を要素とする int f [3][] のスライス f[0:1] への f[0:1] = new[2]; (32行目)でのエラーを求める。単一添字の f[0] = new[2]、f[2] = new[4] は合法。
 
 ### SV2023-7.5.1-EXTRACT-NEW-DESTRUCTIVE
 
@@ -15111,7 +15351,7 @@ Dynamic-array delete is a void no-argument method.
 
 ### SV2023-7.6-EXTRACT-ASSOCIATIVE-ONLY-ASSOCIATIVE
 
-7.6 / error / テスト未対応
+7.6 / error / 実行確認あり
 
 Associative arrays are assignment compatible only with suitable associative arrays under 7.9.9.
 
@@ -15119,6 +15359,8 @@ Associative arrays are assignment compatible only with suitable associative arra
 
 規定の性質: `mandatory`。
 
+- [test_illegal_fixed_array_from_associative_array.sv](../tests/ch7/test_illegal_fixed_array_from_associative_array.sv): 連想配列 m (要素2個)を固定サイズ配列 int f [2] へ代入する f = m; (32行目)でのエラーを求める。n = m は合法。
+- [test_illegal_associative_array_from_dynamic_array.sv](../tests/ch7/test_illegal_associative_array_from_dynamic_array.sv): 動的配列 d を連想配列 m へ代入する m = d; (33行目)でのエラーを求める。m = n と q = d は合法。
 
 ### SV2023-7.6-EXTRACT-COMPLEX-ARRAY-SOURCE
 
@@ -15145,7 +15387,7 @@ Copying a runtime-sized dynamic array or queue to a fixed array of another size 
 
 ### SV2023-7.6-EXTRACT-FIXED-TARGET-COUNT
 
-7.6 / error / テスト未対応
+7.6 / error / 実行確認あり
 
 An assignment to a fixed-size array or slice requires source and target element counts to agree.
 
@@ -15153,6 +15395,8 @@ An assignment to a fixed-size array or slice requires source and target element 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_fixed_array_assignment_element_count.sv](../tests/ch7/test_illegal_fixed_array_assignment_element_count.sv): int a [10:1] へ int c [24:1] を代入する a = c; (33行目)でのエラーを求める。a = b と d = c は合法。
+- [test_illegal_slice_assignment_element_count.sv](../tests/ch7/test_illegal_slice_assignment_element_count.sv): 3要素のスライス a[3:1] へ2要素の two を代入する a[3:1] = two; (30行目)でのエラーを求める。a[3:1] = three は合法。
 
 ### SV2023-7.6-EXTRACT-LEFT-TO-RIGHT-CORRESPONDENCE
 
@@ -15180,7 +15424,7 @@ Assignment-compatible net arrays and variable arrays may be assigned in either s
 
 ### SV2023-7.6-EXTRACT-NO-DIRECT-PACKED-UNPACKED
 
-7.6 / error / テスト未対応
+7.6 / error / 実行確認あり
 
 Direct assignment from packed array to unpacked array requires an explicit cast.
 
@@ -15188,10 +15432,11 @@ Direct assignment from packed array to unpacked array requires an explicit cast.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_array_from_packed_array.sv](../tests/ch7/test_illegal_unpacked_array_from_packed_array.sv): 8ビットのパックド配列 p をキャストなしで8要素の bit のアンパックド配列 u へ代入する u = p; (30行目)でのエラーを求める。p を範囲の違うパックド配列 bit [3:0][1:0] q へ代入し、q をベクタ v へ代入する行は合法な対照で、制御版は両シミュレータで 5a 5a 01 を表示する。 区別: パックド配列からアンパックド配列への直接代入を受理する誤実装は30行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.6-EXTRACT-OUTER-KIND-RELAXATION
 
-7.6 / error / テスト未対応
+7.6 / error / 実行確認あり
 
 Array assignment may differ in slowest-varying fixed/dynamic/queue kind, but all faster dimensions must meet type-equivalence rules; unpacked dimension counts must agree.
 
@@ -15199,6 +15444,8 @@ Array assignment may differ in slowest-varying fixed/dynamic/queue kind, but all
 
 規定の性質: `mandatory`。
 
+- [test_illegal_array_inner_dimension_size_mismatch.sv](../tests/ch7/test_illegal_array_inner_dimension_size_mismatch.sv): int e [2][4] を int d [][3] へ代入する d = e; (36行目)でのエラーを求める。b = a と row = r は合法。
+- [test_illegal_array_unpacked_dimension_count_mismatch.sv](../tests/ch7/test_illegal_array_unpacked_dimension_count_mismatch.sv): 2次元の int a [2][3] を1次元の動的配列 int f [] へ代入する f = a; (31行目)でのエラーを求める。f = six は合法。
 
 ### SV2023-7.6-EXTRACT-PACKED-VECTOR-ASSIGNMENT
 
@@ -15238,7 +15485,7 @@ A slice LHS assignment is one assignment to the entire slice.
 
 ### SV2023-7.6-EXTRACT-UNPACKED-ELEMENT-EQUIVALENCE
 
-7.6 / error / テスト未対応
+7.6 / error / テスト対応あり・実行未確認
 
 Fixed/dynamic/queue arrays and their slices require equivalent element types for assignment compatibility.
 
@@ -15246,6 +15493,9 @@ Fixed/dynamic/queue arrays and their slices require equivalent element types for
 
 規定の性質: `mandatory`。
 
+- [test_illegal_fixed_array_element_type_not_equivalent.sv](../tests/ch7/test_illegal_fixed_array_element_type_not_equivalent.sv): byte b [3] を int a [3] へ代入する a = b; (33行目)でのエラーを求める。a = s、d = s は合法。
+- [test_illegal_queue_element_type_not_equivalent.sv](../tests/ch7/test_illegal_queue_element_type_not_equivalent.sv): shortint h [] を int q [$] へ代入する q = h; (27行目)でのエラーを求める。q = w は合法。
+- [test_illegal_slice_element_type_not_equivalent.sv](../tests/ch7/test_illegal_slice_element_type_not_equivalent.sv): byte b [2] を int a [4] のスライス a[1:2] へ代入する a[1:2] = b; (37行目)でのエラーを求める。a[1:2] = s と c = a[0:1] は合法。
 
 ### SV2023-7.7-EXTRACT-ARRAY-VALUE-COPY
 
@@ -15341,7 +15591,7 @@ A missing associative entry is allocated when used as an assignment target or ac
 
 ### SV2023-7.8-EXTRACT-ASSOCIATIVE-DECLARATION
 
-7.8 / error / テスト未対応
+7.8 / error / テスト対応あり・実行未確認
 
 An associative array declares an element type legal for fixed arrays, an identifier and an existing index type or wildcard *; the bracketed index type cannot itself declare a new type.
 
@@ -15349,6 +15599,8 @@ An associative array declares an element type legal for fixed arrays, an identif
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assoc_index_declares_enum.sv](../tests/ch7/test_illegal_assoc_index_declares_enum.sv): int bad [enum {CYAN, MAGENTA}]; (33行目)でのエラーを求める。int ok [key_t] (key_t は typedef の列挙型)は合法。
+- [test_illegal_assoc_index_declares_struct.sv](../tests/ch7/test_illegal_assoc_index_declares_struct.sv): int bad [struct packed { bit [3:0] hi, lo; }]; (32行目)でのエラーを求める。int ok [key_t] (key_t は typedef のパックド構造体)は合法。
 
 ### SV2023-7.8-EXTRACT-LOOKUP-KEY-ORDER
 
@@ -15464,7 +15716,7 @@ Wildcard indices are self-determined unsigned integral values normalized by remo
 
 ### SV2023-7.8.1-EXTRACT-NO-NONINTEGRAL-WILDCARD
 
-7.8.1 / error / テスト未対応
+7.8.1 / error / 実行確認あり
 
 A nonintegral wildcard index is an error.
 
@@ -15472,10 +15724,11 @@ A nonintegral wildcard index is an error.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_wildcard_index_real.sv](../tests/ch7/test_illegal_wildcard_index_real.sv): ワイルドカード添字の連想配列 int w [*] を real 変数 r (1.5)で添字付けする w[r] = 2; (33行目)でのエラーを求める。4'd3・32'd3・1 といった大きさの違う整数の添字による書き込みと、num()・要素の読み出し・sum() は合法な対照で、制御版は Verilator で 2 5 12 (4'd3 と 32'd3 が同じ要素を指す)を表示する。 区別: real の添字を整数へ変換して受理する誤実装は33行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.8.1-EXTRACT-NO-WILDCARD-FOREACH
 
-7.8.1 / error / テスト未対応
+7.8.1 / error / 実行確認あり
 
 A wildcard-index associative array cannot be iterated with foreach.
 
@@ -15483,6 +15736,7 @@ A wildcard-index associative array cannot be iterated with foreach.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_wildcard_array_foreach.sv](../tests/ch7/test_illegal_wildcard_array_foreach.sv): ワイルドカード添字の連想配列 w を foreach (w[i]) で反復する31行目でのエラーを求める。同じ配列への大きさの違う添字の書き込みと num()・要素の読み出し・sum() は合法な対照で、制御版は Verilator で 2 5 12 を表示する。 区別: ワイルドカード添字の配列にも foreach を許す誤実装は31行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.8.1-EXTRACT-NO-WILDCARD-RETURNING-METHOD
 
@@ -15555,7 +15809,7 @@ String associative keys are ordered lexicographically from lesser to greater.
 
 ### SV2023-7.8.2-EXTRACT-STRING-ONLY
 
-7.8.2 / error / テスト未対応
+7.8.2 / error / テスト対応あり・実行未確認
 
 A string-index associative array accepts strings and string literals of any length; other types cause a type-check error.
 
@@ -15563,6 +15817,7 @@ A string-index associative array accepts strings and string literals of any leng
 
 規定の性質: `mandatory`。
 
+- [test_illegal_string_index_with_int.sv](../tests/ch7/test_illegal_string_index_with_int.sv): string 添字の連想配列 m を int 変数 k で添字付けする m[k] = 4; (35行目)でのエラーを求める。文字列リテラル "ab"、長い文字列リテラル、空文字列 ""、"ab" と同じ要素を指す string 変数 s による書き込みと読み出しは合法な対照で、制御版は Verilator で 3 2 30 を表示する。 区別: string 添字に整数を(文字列へ変換するなどして)許す誤実装は35行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.8.2-LEXICAL-ORDER
 
@@ -15588,7 +15843,7 @@ Class associative index ordering is deterministic but arbitrary; no numeric/addr
 
 ### SV2023-7.8.3-EXTRACT-CLASS-OR-DERIVED
 
-7.8.3 / error / テスト未対応
+7.8.3 / error / テスト対応あり・実行未確認
 
 A class-index array accepts handles of its declared class or derived classes; other types cause a type-check error.
 
@@ -15596,6 +15851,7 @@ A class-index array accepts handles of its declared class or derived classes; ot
 
 規定の性質: `mandatory`。
 
+- [test_illegal_class_index_with_other_class.sv](../tests/ch7/test_illegal_class_index_with_other_class.sv): クラス base_c を添字型とする連想配列 m を、base_c と無関係なクラス other_c のハンドル o で添字付けする m[o] = 4; (46行目)でのエラーを求める。base_c のハンドル、派生クラス derived_c のハンドル、null による書き込みは合法な対照で、制御版は Verilator で 3 1 2 を表示する。 区別: 添字のクラスの継承関係を検査しない誤実装は46行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理し、生成した C++ のコンパイルで初めて失敗するので数えない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.8.3-EXTRACT-NULL-KEY
 
@@ -15623,7 +15879,7 @@ A declared integral associative index evaluates the index expression in a cast-t
 
 ### SV2023-7.8.4-EXTRACT-NO-IMPLICIT-REAL-KEY
 
-7.8.4 / error / テスト未対応
+7.8.4 / error / テスト対応あり・実行未確認
 
 An integral associative index cannot implicitly cast a real/shortreal expression.
 
@@ -15631,6 +15887,8 @@ An integral associative index cannot implicitly cast a real/shortreal expression
 
 規定の性質: `mandatory`。
 
+- [test_illegal_integral_index_with_real.sv](../tests/ch7/test_illegal_integral_index_with_real.sv): int 添字の連想配列 m を real 変数 r で添字付けする m[r] = 4; (36行目)でのエラーを求める。8'd3・3・byte の -1・integer の 5 による添字は合法。
+- [test_illegal_integral_index_with_shortreal.sv](../tests/ch7/test_illegal_integral_index_with_shortreal.sv): int 添字の連想配列 m を shortreal 変数 r で添字付けする m[r] = 4; (36行目)でのエラーを求める。8'd3・3・byte の -1・integer の 5 による添字は合法。
 
 ### SV2023-7.8.4-EXTRACT-SIGNEDNESS-ORDER
 
@@ -15979,7 +16237,7 @@ first(index) assigns the first (smallest) present key and returns one for a none
 
 ### SV2023-7.9.4-EXTRACT-NO-WILDCARD
 
-7.9.4 / error / テスト未対応
+7.9.4 / error / テスト対応あり・実行未確認
 
 first() requires an appropriate index-typed argument and cannot be called on a wildcard-index array.
 
@@ -15987,6 +16245,8 @@ first() requires an appropriate index-typed argument and cannot be called on a w
 
 規定の性質: `mandatory`。
 
+- [test_illegal_wildcard_array_first.sv](../tests/ch7/test_illegal_wildcard_array_first.sv): ワイルドカード添字の連想配列 w に対する void'(w.first(k)); (32行目)でのエラーを求める。大きさの違う添字の書き込みと num()・要素の読み出し・sum() は合法で、制御版は Verilator で 2 5 12 を表示する。
+- [test_illegal_assoc_first_argument_type.sv](../tests/ch7/test_illegal_assoc_first_argument_type.sv): string 添字の連想配列 m に real 変数 r を渡す st = m.first(r); (38行目)でのエラーを求める。string 変数 s を渡す st = m.first(s); は合法で、制御版は Verilator で 1 b 1 (最小の添字 "b")を表示する。
 
 ### SV2023-7.9.4-EXTRACT-SIGNATURE
 
@@ -16028,7 +16288,7 @@ last(index) assigns the last (largest) present key and returns one for a nonempt
 
 ### SV2023-7.9.5-EXTRACT-NO-WILDCARD
 
-7.9.5 / error / テスト未対応
+7.9.5 / error / テスト対応あり・実行未確認
 
 last() requires an appropriate index-typed argument and cannot be called on a wildcard-index array.
 
@@ -16036,6 +16296,8 @@ last() requires an appropriate index-typed argument and cannot be called on a wi
 
 規定の性質: `mandatory`。
 
+- [test_illegal_wildcard_array_last.sv](../tests/ch7/test_illegal_wildcard_array_last.sv): ワイルドカード添字の連想配列 w に対する void'(w.last(k)); (32行目)でのエラーを求める。大きさの違う添字の書き込みと num()・要素の読み出し・sum() は合法で、制御版は Verilator で 2 5 12 を表示する。
+- [test_illegal_assoc_last_argument_type.sv](../tests/ch7/test_illegal_assoc_last_argument_type.sv): string 添字の連想配列 m に real 変数 r を渡す st = m.last(r); (38行目)でのエラーを求める。string 変数 s を渡す st = m.last(s); は合法で、制御版は Verilator で 1 d 2 (最大の添字 "d")を表示する。
 
 ### SV2023-7.9.5-EXTRACT-SIGNATURE
 
@@ -16064,7 +16326,7 @@ Without a successor, next returns zero and leaves the index argument unchanged.
 
 ### SV2023-7.9.6-EXTRACT-NO-WILDCARD
 
-7.9.6 / error / テスト未対応
+7.9.6 / error / テスト対応あり・実行未確認
 
 next() requires an appropriate index argument and is unavailable for wildcard-index arrays.
 
@@ -16072,6 +16334,8 @@ next() requires an appropriate index argument and is unavailable for wildcard-in
 
 規定の性質: `mandatory`。
 
+- [test_illegal_wildcard_array_next.sv](../tests/ch7/test_illegal_wildcard_array_next.sv): ワイルドカード添字の連想配列 w に対する void'(w.next(k)); (32行目)でのエラーを求める。大きさの違う添字の書き込みと num()・要素の読み出し・sum() は合法で、制御版は Verilator で 2 5 12 を表示する。
+- [test_illegal_assoc_next_argument_type.sv](../tests/ch7/test_illegal_assoc_next_argument_type.sv): string 添字の連想配列 m に real 変数 r を渡す st = m.next(r); (39行目)でのエラーを求める。string 変数 s を渡す st = m.next(s); は合法で、制御版は Verilator で 1 d 2 ("b" の次の添字 "d")を表示する。
 
 ### SV2023-7.9.6-EXTRACT-SIGNATURE
 
@@ -16126,12 +16390,13 @@ Associative-array prev is an int-returning method whose index argument is passed
 
 ### SV2023-7.9.7-INDEX-ARGUMENT-TYPE
 
-7.9.7 / error / テスト未対応
+7.9.7 / error / テスト対応あり・実行未確認
 
 The prev() reference argument has an index type appropriate to the associative array.
 
 合格基準: Passing a real reference argument to prev() on a string-indexed associative array is rejected at the call.
 
+- [test_illegal_assoc_prev_argument_type.sv](../tests/ch7/test_illegal_assoc_prev_argument_type.sv): string 添字の連想配列 m (要素 "b" と "d")の prev() に real 変数 r を参照引数として渡す st = m.prev(r); (39行目)でのエラーを求める。s = "d" としてから string 変数 s を渡す st = m.prev(s); は合法な対照で、制御版は Verilator で 1 b 1 を表示する。 区別: prev() の引数の型を配列の添字型と照合しない誤実装(real を文字列へ、またはその逆へ暗黙に変換する実装)は39行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.9.7-NO-PREDECESSOR
 
@@ -16145,12 +16410,13 @@ When no predecessor exists, prev() returns 0 and preserves its index argument.
 
 ### SV2023-7.9.7-NO-WILDCARD
 
-7.9.7 / error / テスト未対応
+7.9.7 / error / 実行確認あり
 
 prev() is not allowed on a wildcard-indexed associative array.
 
 合格基準: Reject the traversal on the intended declaration/call rather than an unrelated unsupported feature.
 
+- [test_illegal_wildcard_array_prev.sv](../tests/ch7/test_illegal_wildcard_array_prev.sv): ワイルドカード添字の連想配列 w に対する走査メソッドの呼び出し void'(w.prev(k)); (32行目)でのエラーを求める。宣言 int w [*] と、大きさの違う添字の書き込み、num()・要素の読み出し・sum() は合法な対照で、制御版は Verilator で 2 5 12 を表示する。 区別: ワイルドカード添字の配列に prev() を許す誤実装は32行目でエラーを出さず不合格になる。エラーをワイルドカード配列の宣言や他の使い方で出す実装(未対応の構文として拒否する Icarus Verilog 13.0 の25行目の構文エラーなど)だけでは指定行に一致しないので、要求の『意図した呼び出しで拒否する』が判定される。
 
 ### SV2023-7.9.7-PREDECESSOR
 
@@ -16177,7 +16443,7 @@ If a traversal argument integral type is narrower than the index type, the retur
 
 ### SV2023-7.9.8-EXTRACT-TRAVERSAL-ASSIGNMENT-COMPATIBLE
 
-7.9.8 / error / テスト未対応
+7.9.8 / error / テスト対応あり・実行未確認
 
 first/last/next/prev require an argument assignment compatible with the associative index type.
 
@@ -16185,6 +16451,10 @@ first/last/next/prev require an argument assignment compatible with the associat
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assoc_first_argument_type.sv](../tests/ch7/test_illegal_assoc_first_argument_type.sv): string 添字の連想配列 m に real 変数 r を渡す st = m.first(r); (38行目)でのエラーを求める。string 変数 s を渡す st = m.first(s); は合法で、制御版は Verilator で 1 b 1 (最小の添字 "b")を表示する。
+- [test_illegal_assoc_last_argument_type.sv](../tests/ch7/test_illegal_assoc_last_argument_type.sv): string 添字の連想配列 m に real 変数 r を渡す st = m.last(r); (38行目)でのエラーを求める。string 変数 s を渡す st = m.last(s); は合法で、制御版は Verilator で 1 d 2 (最大の添字 "d")を表示する。
+- [test_illegal_assoc_next_argument_type.sv](../tests/ch7/test_illegal_assoc_next_argument_type.sv): string 添字の連想配列 m に real 変数 r を渡す st = m.next(r); (39行目)でのエラーを求める。string 変数 s を渡す st = m.next(s); は合法で、制御版は Verilator で 1 d 2 ("b" の次の添字 "d")を表示する。
+- [test_illegal_assoc_prev_argument_type.sv](../tests/ch7/test_illegal_assoc_prev_argument_type.sv): string 添字の連想配列 m に real 変数 r を渡す st = m.prev(r); (39行目)でのエラーを求める。string 変数 s を渡す st = m.prev(s); は合法で、制御版は Verilator で 1 b 1 ("d" の前の添字 "b")を表示する。
 
 ### SV2023-7.9.8-NEXT-TRUNCATION
 
@@ -16344,7 +16614,7 @@ A missing associative entry returns its explicitly specified default.
 
 ### SV2023-7.10-EXTRACT-POSITIVE-QUEUE-BOUND
 
-7.10 / error / テスト未対応
+7.10 / error / テスト対応あり・実行未確認
 
 An explicitly declared queue right bound must evaluate to a positive integer.
 
@@ -16352,6 +16622,8 @@ An explicitly declared queue right bound must evaluate to a positive integer.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_queue_bound_zero.sv](../tests/ch7/test_illegal_queue_bound_zero.sv): int bad [$:LAST - 3]; (境界 0、32行目)でのエラーを求める。q1 [$:1] と q2 [$:LAST - 1] は合法。
+- [test_illegal_queue_bound_negative.sv](../tests/ch7/test_illegal_queue_bound_negative.sv): int bad [$:LAST - 4]; (境界 -1、32行目)でのエラーを求める。q1 [$:1] と q2 [$:LAST - 1] は合法。
 
 ### SV2023-7.10-EXTRACT-QUEUE-ARRAY-OPERATIONS
 
@@ -17337,7 +17609,7 @@ unique_index() returns one representative source index per distinct with express
 
 ### SV2023-7.12.2-EXTRACT-ORDERING-NO-ASSOCIATIVE
 
-7.12.2 / error / テスト未対応
+7.12.2 / error / 実行確認あり
 
 Ordering methods reorder fixed/dynamic unpacked array elements but cannot be applied to associative arrays.
 
@@ -17345,6 +17617,10 @@ Ordering methods reorder fixed/dynamic unpacked array elements but cannot be app
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assoc_array_sort.sv](../tests/ch7/test_illegal_assoc_array_sort.sv): int 添字の連想配列 m に対する m.sort; (31行目)でのエラーを求める。固定サイズ配列 a に対する a.sort; は合法で、制御版は Verilator で 1 2 3 7 を表示する。
+- [test_illegal_assoc_array_rsort.sv](../tests/ch7/test_illegal_assoc_array_rsort.sv): int 添字の連想配列 m に対する m.rsort; (31行目)でのエラーを求める。固定サイズ配列 a に対する a.rsort; は合法で、制御版は Verilator で 7 3 2 1 を表示する。
+- [test_illegal_assoc_array_reverse.sv](../tests/ch7/test_illegal_assoc_array_reverse.sv): int 添字の連想配列 m に対する m.reverse; (31行目)でのエラーを求める。固定サイズ配列 a に対する a.reverse; は合法で、制御版は Verilator で 7 2 1 3 を表示する。
+- [test_illegal_assoc_array_shuffle.sv](../tests/ch7/test_illegal_assoc_array_shuffle.sv): int 添字の連想配列 m に対する m.shuffle; (31行目)でのエラーを求める。固定サイズ配列 a に対する a.shuffle; は合法で、制御版は Verilator で 4 13 (要素数と総和) を表示する。
 
 ### SV2023-7.12.2-EXTRACT-ORDERING-SIGNATURE
 
@@ -17382,7 +17658,7 @@ rsort() reorders elements in descending order of the with expression, or element
 
 ### SV2023-7.12.2-EXTRACT-RSORT-RELATIONAL
 
-7.12.2 / error / テスト未対応
+7.12.2 / error / テスト対応あり・実行未確認
 
 rsort requires <, > and == on the chosen with-expression type or, without with, on the element type.
 
@@ -17390,6 +17666,8 @@ rsort requires <, > and == on the chosen with-expression type or, without with, 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_rsort_without_with.sv](../tests/ch7/test_illegal_rsort_without_with.sv): r.rsort; (38行目)でのエラーを求める。r.rsort with (item.key); は合法。
+- [test_illegal_rsort_with_struct_expression.sv](../tests/ch7/test_illegal_rsort_with_struct_expression.sv): r.rsort with (item); (38行目)でのエラーを求める。r.rsort with (item.key); は合法。
 
 ### SV2023-7.12.2-EXTRACT-SHUFFLE
 
@@ -17416,7 +17694,7 @@ sort() reorders elements in ascending order of the with expression, or element v
 
 ### SV2023-7.12.2-EXTRACT-SORT-RELATIONAL
 
-7.12.2 / error / テスト未対応
+7.12.2 / error / テスト対応あり・実行未確認
 
 sort requires <, > and == on the chosen with-expression type or, without with, on the element type.
 
@@ -17424,6 +17702,8 @@ sort requires <, > and == on the chosen with-expression type or, without with, o
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sort_without_with.sv](../tests/ch7/test_illegal_sort_without_with.sv): r.sort; (37行目)でのエラーを求める。r.sort with (item.key); は合法。
+- [test_illegal_sort_with_struct_expression.sv](../tests/ch7/test_illegal_sort_with_struct_expression.sv): r.sort with (item); (37行目)でのエラーを求める。r.sort with (item.key); は合法。
 
 ### SV2023-7.12.3-EXTRACT-AND-REDUCE
 
@@ -17652,7 +17932,7 @@ Index query returns int except for associative arrays where it returns that arra
 
 ### SV2023-7.12.5-EXTRACT-MAP-REQUIRED-WITH
 
-7.12.5 / error / テスト未対応
+7.12.5 / error / 実行確認あり
 
 map() requires a with expression specifying each returned element value.
 
@@ -17660,10 +17940,11 @@ map() requires a with expression specifying each returned element value.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_map_without_with.sv](../tests/ch7/test_illegal_map_without_with.sv): int a [4] に対する with 句のない q = a.map; (28行目)でのエラーを求める。反復変数 x と with (x * 2) を持つ q = a.map(x) with (x * 2); は合法な対照で、制御版は Verilator で 2 10 4 14 を表示する。 区別: with 句のない map() を要素をそのまま返すものとして受理する誤実装は28行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-7.12.5-EXTRACT-MAP-SELF-DETERMINED-TYPE
 
-7.12.5 / normal / テスト未対応
+7.12.5 / normal / テスト対応あり・実行未確認
 
 Each mapped element has the self-determined type of the with expression.
 
@@ -17671,10 +17952,11 @@ Each mapped element has the self-determined type of the with expression.
 
 規定の性質: `mandatory`。
 
+- [test_map_result_type_range_and_keys.sv](../tests/ch7/test_map_result_type_range_and_keys.sv): int の3要素の配列 a に対する map() の結果そのものに $bits を適用し、要素の型が with 式の自己決定型になることを、with 式 item[3:0] (4ビット)、8'(item) (8ビット)、item > 1 (1ビット)、item + 1'b1 (32ビット)の4通りで 12 24 3 96 と比較する。代入先の型を介さず結果の大きさを直接測る。 区別: 結果の要素を元の配列の要素型 int にする誤実装は4つとも 96 になり、代入の文脈や最大の幅で要素型を決める誤実装も 12・24・3 のいずれかが変わる。
 
 ### SV2023-7.12.5-EXTRACT-MAP-SHAPE
 
-7.12.5 / normal / テスト未対応
+7.12.5 / normal / テスト対応あり・実行未確認
 
 map() returns an unpacked array with the source range/index type, or the identical associative key set, replacing values without changing dimension bounds.
 
@@ -17682,10 +17964,11 @@ map() returns an unpacked array with the source range/index type, or the identic
 
 規定の性質: `mandatory`。
 
+- [test_map_result_type_range_and_keys.sv](../tests/ch7/test_map_result_type_range_and_keys.sv): 範囲 [7:5] の配列 r に対する map() の結果に配列照会関数を直接適用して $left 7、$right 5、$size 3 を比較し、同じ範囲の r2 へ写した r2[7]、r2[5] が 11、31 (各要素の位置で値だけが置き換わる)ことを比較する。string 添字の連想配列 m (x→4, y→9)に対する map() の結果を同じ型の m2 へ代入し、要素数 2 と、first()/next() でたどった添字 x、y とその値 8、18 を比較する。 区別: 結果の範囲を 0 起点や昇順に付け替える誤実装は $left/$right が 0 2 や 5 7 になり2行目が変わる。連想配列の結果の添字の集合を保たない(連続した整数添字の配列やキューにする)誤実装は最終行の添字 x、y や要素数が変わり、値を置き換えずに元の値を残す誤実装は 8、18 にならない。
 
 ### SV2023-8.2-EXTRACT-CLASS-MEMBERS
 
-8.2 / normal / テスト未対応
+8.2 / normal / 実行確認あり
 
 A class is a type containing data properties and task/function methods, collectively its members.
 
@@ -17693,6 +17976,7 @@ A class is a type containing data properties and task/function methods, collecti
 
 規定の性質: `definition`。
 
+- [test_class_handle_argument_directions.sv](../tests/ch8/test_class_handle_argument_directions.sv): クラス obj_c はプロパティ val と、コンストラクタ new、関数 twice、タスク bump のメソッドをメンバに持ち、ハンドル経由でプロパティの読み書き(keep.val = 5、h.val = 10)、タスクの呼び出し keep.bump() と関数の呼び出し keep.twice() を行い、最終行で methods: val=12 twice=24 を比較する。コンストラクタの引数による初期値(new(20) → b.val=20)も output の行で比較する。 区別: タスクのメソッドがプロパティを更新しない誤実装は val=11、関数のメソッドが同じオブジェクトのプロパティを読まない誤実装は twice が 24 以外になり、最終行が変わる。コンストラクタがプロパティを設定しない誤実装は b.val=0 になる。
 
 ### SV2023-8.2-EXTRACT-DYNAMIC-OBJECTS
 
@@ -17707,7 +17991,7 @@ Class instances can be created and destroyed dynamically and are referenced thro
 
 ### SV2023-8.2-EXTRACT-HANDLE-ARGUMENT
 
-8.2 / normal / テスト未対応
+8.2 / normal / 実行確認あり
 
 For input/output/inout/ref object arguments the passed or referenced variable is the object handle; object contents are not copied by argument passing.
 
@@ -17715,6 +17999,7 @@ For input/output/inout/ref object arguments the passed or referenced variable is
 
 規定の性質: `mandatory`。
 
+- [test_class_handle_argument_directions.sv](../tests/ch8/test_class_handle_argument_directions.sv): オブジェクトを input・output・inout・ref の引数で渡す4つのタスクで、引数がハンドルの写しであることを値で比較する。input では引数経由の val の変更(10)が呼び出し側に見え、引数への新しいオブジェクトの代入は見えない(input: a.val=10 keep.val=10 same=1)。output は新しいオブジェクトのハンドルを返す(b.val=20)。inout では引数経由の変更(keep.val=11)と、戻りで写し戻されたハンドルによる a の付け替え(a.val=30 same=0)の両方が見える。ref では参照した変数 a が直ちに新しいオブジェクトを指す(a.val=40、keep は 11 のまま)。 区別: 引数でオブジェクトの中身を写す誤実装は input の行で a.val が 5 のままになり、input の引数への代入を呼び出し側へ戻す誤実装は same=0 と val=99 になる。inout で中身を写す、またはハンドルを写し戻さない誤実装は inout の行が keep.val=10 や a.val=11 same=1 に変わり、output でハンドルを返さない誤実装は b を null のまま参照して output の行が出ない。
 
 ### SV2023-8.3-EXTRACT-CLASS-BODY-LOCALPARAM
 
@@ -17775,7 +18060,7 @@ Dynamic override specifiers use colon initial or extends, optionally followed by
 
 ### SV2023-8.3-EXTRACT-EXCLUSIVE-ACCESS
 
-8.3 / error / テスト未対応
+8.3 / error / テスト対応あり・実行未確認
 
 A declaration cannot combine protected and local.
 
@@ -17783,10 +18068,11 @@ A declaration cannot combine protected and local.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_class_property_protected_and_local.sv](../tests/ch8/test_illegal_class_property_protected_and_local.sv): クラスのプロパティを protected と local の両方で宣言する protected local int both; (29行目)でのエラーを求める。protected だけの p、local だけの l、static と protected の sp は合法な対照で、それらを足すメソッドの結果 6 を制御版が両シミュレータで表示する。 区別: 1つの宣言に protected と local の両方を許す誤実装(Icarus Verilog 13.0 と Verilator 5.052 がこれ)は29行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-8.3-EXTRACT-EXCLUSIVE-RANDOM
 
-8.3 / error / テスト未対応
+8.3 / error / テスト対応あり・実行未確認
 
 A declaration cannot combine rand and randc.
 
@@ -17794,6 +18080,7 @@ A declaration cannot combine rand and randc.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_class_property_rand_and_randc.sv](../tests/ch8/test_illegal_class_property_rand_and_randc.sv): クラスのプロパティを rand と randc の両方で宣言する rand randc bit [3:0] both; (29行目)でのエラーを求める。rand だけの a と randc だけの b は合法な対照で、乱数化せずに初期値を足した 5 を制御版が両シミュレータで表示する。 区別: 1つの宣言に rand と randc の両方を許す誤実装(Icarus Verilog 13.0 と Verilator 5.052 がこれ)は29行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-8.3-EXTRACT-MEMBER-QUALIFIERS
 
@@ -17808,7 +18095,7 @@ The class grammar defines permitted property/const/method forms with static/loca
 
 ### SV2023-8.3-EXTRACT-NO-PURE-FINAL
 
-8.3 / error / テスト未対応
+8.3 / error / テスト対応あり・実行未確認
 
 A pure virtual method or pure constraint cannot be declared final.
 
@@ -17816,10 +18103,12 @@ A pure virtual method or pure constraint cannot be declared final.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_pure_virtual_method_final.sv](../tests/ch8/test_illegal_pure_virtual_method_final.sv): pure virtual function :final int h(); (33行目)でのエラーを求める。virtual function :final int g() と pure virtual function int f() は合法。
+- [test_illegal_pure_constraint_final.sv](../tests/ch8/test_illegal_pure_constraint_final.sv): pure constraint :final c2; (34行目)でのエラーを求める。pure constraint c1; と constraint :final limit { x < 8; } は合法。
 
 ### SV2023-8.3-EXTRACT-NO-REPEATED-STATIC-VIRTUAL
 
-8.3 / error / テスト未対応
+8.3 / error / テスト対応あり・実行未確認
 
 A declaration may contain static and virtual each at most once.
 
@@ -17827,10 +18116,12 @@ A declaration may contain static and virtual each at most once.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_class_property_static_twice.sv](../tests/ch8/test_illegal_class_property_static_twice.sv): static static int both; (24行目)でのエラーを求める。static int count = 5; は合法。
+- [test_illegal_class_method_virtual_twice.sv](../tests/ch8/test_illegal_class_method_virtual_twice.sv): virtual virtual function int g(); (27行目)でのエラーを求める。virtual function int f(); は合法。
 
 ### SV2023-8.3-EXTRACT-ONE-CONSTRUCTOR-DEFAULT
 
-8.3 / error / テスト未対応
+8.3 / error / テスト対応あり・実行未確認
 
 A constructor argument list may contain the default keyword at most once.
 
@@ -17838,10 +18129,11 @@ A constructor argument list may contain the default keyword at most once.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constructor_default_twice.sv](../tests/ch8/test_illegal_constructor_default_twice.sv): 引数のない基底コンストラクタを持つクラスの派生クラス bad_c のコンストラクタ引数並びに default を2回書く function new(default, default); (48行目)でのエラーを求める。default が空に展開されるので、引数名の重複という別の違反は重ならない。default を1回だけ使う ok_c の function new(default, int c = 9) と super.new(default) は合法な対照で、規格から new(5) と new() の結果 5 9 4 9 になる(両シミュレータとも default 引数に未対応)。 区別: コンストラクタ引数並びの default の回数を数えない誤実装は48行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。
 
 ### SV2023-8.3-EXTRACT-OVERRIDE-NONINTERFACE-METHOD
 
-8.3 / error / テスト未対応
+8.3 / error / テスト対応あり・実行未確認
 
 Dynamic override specifiers are legal only on method declarations within non-interface class scope.
 
@@ -17849,6 +18141,8 @@ Dynamic override specifiers are legal only on method declarations within non-int
 
 規定の性質: `mandatory`。
 
+- [test_illegal_override_specifier_in_interface_class.sv](../tests/ch8/test_illegal_override_specifier_in_interface_class.sv): インタフェースクラスの pure virtual function :initial int put(); (28行目)でのエラーを求める。実装クラスの function :initial int extra() は合法。
+- [test_illegal_override_specifier_outside_class.sv](../tests/ch8/test_illegal_override_specifier_outside_class.sv): モジュールの関数 function :final int twice(int x); (31行目)でのエラーを求める。クラスのメソッド function :final int get() は合法。
 
 ### SV2023-8.4-EXTRACT-CASE-COMPARE-SEMANTICS
 
@@ -17947,7 +18241,7 @@ An SV data-object address cannot be assigned to an object handle or chandle thro
 
 ### SV2023-8.4-EXTRACT-NO-HANDLE-ARITHMETIC
 
-8.4 / error / テスト未対応
+8.4 / error / テスト対応あり・実行未確認
 
 Object handles and chandles do not support pointer arithmetic, including increment.
 
@@ -17955,6 +18249,8 @@ Object handles and chandles do not support pointer arithmetic, including increme
 
 規定の性質: `mandatory`。
 
+- [test_illegal_class_handle_increment.sv](../tests/ch8/test_illegal_class_handle_increment.sv): クラスのハンドル b を ++ で増やす b++; (49行目)でのエラーを求める。合法な部分(派生クラスのオブジェクトを基底クラスのハンドルへ代入する b = d、条件演算子 r = sel ? b : null、互換なハンドルや null との ==・!=・===・!==)は、制御版が Verilator で 1 1 1 1 1 を表示する。
+- [test_illegal_chandle_increment.sv](../tests/ch8/test_illegal_chandle_increment.sv): chandle a を ++ で増やす a++; (27行目)でのエラーを求める。chandle どうしの代入 b = a と、null や chandle との ==・=== は合法な対照で、制御版は Verilator で 1 1 を表示する。
 
 ### SV2023-8.4-EXTRACT-NO-NULL-CHANDLE-DEREFERENCE
 
@@ -18037,7 +18333,7 @@ A class enum name may be qualified by an object handle as well as by class scope
 
 ### SV2023-8.5-EXTRACT-NO-HANDLE-TYPE-ACCESS
 
-8.5 / error / テスト未対応
+8.5 / error / 実行確認あり
 
 A data type cannot be accessed through a class handle.
 
@@ -18045,6 +18341,7 @@ A data type cannot be accessed through a class handle.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_parameter_through_class_handle.sv](../tests/ch8/test_illegal_type_parameter_through_class_handle.sv): パラメータ化クラス holder_c #(width, type elem_t) のハンドル h について、値パラメータ h.width とクラススコープ経由の型 holder_c#(8, byte)::elem_t は合法な対照とし、$bits(h.elem_t) でハンドル経由に型パラメータへアクセスする行だけを違反とする。:expected_stderr_regex: はその行（32行目）を指す。 区別: ハンドル経由の型アクセスを許す誤実装は設計を受理してテストが失敗する。値パラメータのハンドル経由アクセスや class scope 経由の型まで拒否する誤実装は、対照の30・31行目でエラーを出し、指定行と違う場所なので一致しない。
 
 ### SV2023-8.5-EXTRACT-PROPERTY-TYPE-ACCESS
 
@@ -18073,7 +18370,7 @@ Class parameters/localparams may be value-accessed through an object handle, but
 
 ### SV2023-8.6-EXTRACT-AUTOMATIC-METHOD-LIFETIME
 
-8.6 / error / テスト未対応
+8.6 / error / 実行確認あり
 
 A class method has automatic lifetime; an explicit static subroutine lifetime on a class method is illegal.
 
@@ -18081,6 +18378,7 @@ A class method has automatic lifetime; an explicit static subroutine lifetime on
 
 規定の性質: `mandatory`。
 
+- [test_illegal_class_method_static_lifetime.sv](../tests/ch8/test_illegal_class_method_static_lifetime.sv): クラス counter_c に、static メソッド（static function int unit）、明示的に automatic のメソッド bump、そして function static int bad_count（ライフタイム static）を宣言する。違反は bad_count の宣言行で、:expected_stderr_regex: はその34行目を指す。 区別: メソッドに static ライフタイムを許す誤実装は受理して失敗する。static メソッド（8.10）とライフタイム static を混同して unit を拒否する、または automatic の明示を拒否する誤実装は25・29行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.6-EXTRACT-INSTANCE-METHOD-CONTEXT
 
@@ -18208,7 +18506,7 @@ A class without an explicit new method receives an implicit constructor.
 
 ### SV2023-8.7-EXTRACT-NO-STATIC-VIRTUAL-CONSTRUCTOR
 
-8.7 / error / テスト未対応
+8.7 / error / 実行確認あり
 
 A constructor cannot be static or virtual.
 
@@ -18216,6 +18514,8 @@ A constructor cannot be static or virtual.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_static_constructor.sv](../tests/ch8/test_illegal_static_constructor.sv): item_c のコンストラクタを static function new() と宣言（31行目、:expected_stderr_regex: が指す）。shared_c は protected function new() と static function get() を持つ合法な対照。
+- [test_illegal_virtual_constructor.sv](../tests/ch8/test_illegal_virtual_constructor.sv): item_c のコンストラクタを virtual function new() と宣言（30行目、:expected_stderr_regex: が指す）。base_c の local function new() と virtual function int id() は合法な対照。
 
 ### SV2023-8.7-EXTRACT-PREINITIALIZATION-UNDEFINED
 
@@ -18266,7 +18566,7 @@ Class new syntax supports a possibly class-scoped constructor call or new follow
 
 ### SV2023-8.8-EXTRACT-COPY-SOURCE-HANDLE
 
-8.8 / error / テスト未対応
+8.8 / error / 実行確認あり
 
 A shallow-copy new expression must evaluate to an object handle.
 
@@ -18274,6 +18574,7 @@ A shallow-copy new expression must evaluate to an object handle.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_shallow_copy_of_non_handle.sv](../tests/ch8/test_illegal_shallow_copy_of_non_handle.sv): pkt_c のハンドル p1 を浅いコピー new p1 で p2 へ写す行（28行目）は合法な対照、int 変数 k を new k で写す行（29行目）だけが違反。:expected_stderr_regex: は29行目を指す。 区別: new の後の式がオブジェクトハンドルかを検査しない誤実装は設計を受理して失敗する。浅いコピー自体を拒否する誤実装は28行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.8-EXTRACT-TYPED-NEW-INITIALIZATION
 
@@ -18301,7 +18602,7 @@ A typed constructor may specify parameterized class specializations.
 
 ### SV2023-8.8-EXTRACT-TYPED-NEW-TYPE
 
-8.8 / error / テスト未対応
+8.8 / error / 実行確認あり
 
 A class scope before new selects the constructed class independently of the target; that class type must be assignment compatible with the target.
 
@@ -18309,6 +18610,7 @@ A class scope before new selects the constructed class independently of the targ
 
 規定の性質: `mandatory`。
 
+- [test_illegal_typed_new_not_assignment_compatible.sv](../tests/ch8/test_illegal_typed_new_not_assignment_compatible.sv): base_c 変数 bh へ derived_c::new（目的の型と異なるクラスを構築、代入互換なので合法、33行目）と、derived_c 変数 dh へ base_c::new（代入互換でない、34行目）を書く。:expected_stderr_regex: は34行目を指す。 区別: クラススコープの型と目的の型の代入互換性を検査しない誤実装は受理して失敗する。クラススコープの型を目的の型と同一に限る誤実装（独立に選べることを無視）は33行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.9-EXTRACT-STATIC-ONE-INITIALIZATION
 
@@ -18546,7 +18848,7 @@ Declaring a class variable creates a handle variable initially null, not an obje
 
 ### SV2023-8.12-EXTRACT-NO-TYPED-SHALLOW
 
-8.12 / error / テスト未対応
+8.12 / error / 実行確認あり
 
 A typed constructor call cannot be used for shallow copy.
 
@@ -18554,6 +18856,7 @@ A typed constructor call cannot be used for shallow copy.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_typed_constructor_shallow_copy.sv](../tests/ch8/test_illegal_typed_constructor_shallow_copy.sv): 浅いコピー new p1（27行目）と型付きコンストラクタ呼出し pkt_c::new（28行目）はそれぞれ合法な対照、両者を組み合わせた pkt_c::new p1（29行目）だけが違反。:expected_stderr_regex: は29行目を指す。 区別: 型付きコンストラクタ呼出しによる浅いコピーを許す誤実装は受理して失敗する。浅いコピーまたは型付き呼出しのどちらかを拒否する誤実装は27・28行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.12-EXTRACT-SHALLOW-MEMBER-COPY
 
@@ -18643,7 +18946,7 @@ A derived object handle may be assigned to a base-class variable.
 
 ### SV2023-8.14-EXTRACT-STATIC-HANDLE-MEMBERS
 
-8.14 / normal / テスト未対応
+8.14 / normal / 実行確認あり
 
 Property/nonvirtual method lookup through a base-typed handle selects the base-visible member, hiding derived-only/redeclared members; virtual methods follow dynamic dispatch.
 
@@ -18651,10 +18954,11 @@ Property/nonvirtual method lookup through a base-typed handle selects the base-v
 
 規定の性質: `mandatory`。
 
+- [test_base_handle_redeclared_members_and_virtual_dispatch.sv](../tests/ch8/test_base_handle_redeclared_members_and_virtual_dispatch.sv): 派生オブジェクトを base_c 型ハンドル b に入れ、base_c と derived_c の両方が宣言する property val、非virtual の plain_get、virtual の virt_get を b と d から参照する。期待出力は b.val=10（base の val、d.val=50）、b.plain_get=11（base 版 val+1）、b.virt_get=54（派生版 50+4）。b.val=20 の書き込み後は super.val を読む base_val=20、d.val=50 のまま、b.plain_get=21。 区別: ハンドルの静的型ではなくオブジェクトの実体で property を引く誤実装なら1行目が b=50 に、非virtual メソッドまで動的に選ぶ誤実装なら2行目が b=53 に、b.val=20 が派生側の val に書かれる誤実装なら4行目が base_val=10 d.val=20 になる。virtual を静的型で呼ぶ誤実装なら3行目が b=12 になる。派生クラスだけのメンバーを base 型ハンドルで参照することはコンパイル時に名前が見つからない形でしか現れないため、実行時に観測できる隠蔽は再宣言メンバーで確かめている。
 
 ### SV2023-8.14-EXTRACT-VIRTUAL-OVERRIDE-DISPATCH
 
-8.14 / normal / テスト未対応
+8.14 / normal / 実行確認あり
 
 A method must be virtual for a base-typed handle call to dispatch to its derived override.
 
@@ -18662,6 +18966,7 @@ A method must be virtual for a base-typed handle call to dispatch to its derived
 
 規定の性質: `mandatory`。
 
+- [test_base_handle_redeclared_members_and_virtual_dispatch.sv](../tests/ch8/test_base_handle_redeclared_members_and_virtual_dispatch.sv): 派生オブジェクトをbase_c型ハンドルbに入れ、非virtualのplain_getとvirtualのvirt_getを派生クラスで再定義して、bとdの両方から呼ぶ。期待出力は b.plain_get=11（base版: val+1）、d.plain_get=53、b.virt_get=54（派生版: 派生のval 50 + 4）、bo.virt_get=12（base実体の対照）。b.val=20 の後も b.plain_get=21（base版がbaseのvalを読む）、b.virt_get=54。 区別: virtualでないメソッドまで動的ディスパッチする誤実装なら b.plain_get が 53 になり2行目が変わる。virtualでも静的型で呼ぶ誤実装（Icarus 13.0 の挙動）なら3行目が b=12 になる。両側の対照（非virtual→base版、virtual→派生版、base実体→base版）を値で比較している。
 
 ### SV2023-8.15-EXTRACT-IMPLICIT-SUPER-NEW
 
@@ -18797,7 +19102,7 @@ A successful class $cast assigns the handle; failures follow function/task statu
 
 ### SV2023-8.16-EXTRACT-NO-DIRECT-DOWNCAST
 
-8.16 / error / テスト未対応
+8.16 / error / 実行確認あり
 
 Direct base-handle assignment to a derived variable is illegal; $cast may perform a checked compatible-object downcast.
 
@@ -18805,6 +19110,7 @@ Direct base-handle assignment to a derived variable is illegal; $cast may perfor
 
 規定の性質: `mandatory`。
 
+- [test_illegal_base_handle_assigned_to_derived.sv](../tests/ch8/test_illegal_base_handle_assigned_to_derived.sv): 派生ハンドルを基底変数 b へ代入（34行目）、$cast(d2, b) による検査付きの下方変換（35行目）を合法な対照とし、基底変数 b を派生変数 d2 へ直接代入する36行目だけを違反とする。:expected_stderr_regex: は36行目を指す。 区別: 基底ハンドルから派生変数への直接代入を許す誤実装は受理して失敗する。$cast による下方変換や上方代入まで拒否する誤実装は34・35行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.16-EXTRACT-UPCAST-LEGAL
 
@@ -19434,7 +19740,7 @@ Class scope selection qualifies an identifier with one or more class-type names 
 
 ### SV2023-8.23-EXTRACT-INCOMPLETE-PREFIX-CONTEXTS
 
-8.23 / error / テスト未対応
+8.23 / error / テスト対応あり・実行未確認
 
 A type selected through an incomplete forward type, interface-based typedef or type parameter is restricted to typedef declarations, type operators and type-parameter assignments.
 
@@ -19442,6 +19748,9 @@ A type selected through an incomplete forward type, interface-based typedef or t
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_parameter_scope_prefix_in_variable_declaration.sv](../tests/ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration.sv): 型パラメータ T を接頭辞にした T::nib_t を typedef（32行目）、var type(T::nib_t)（34行目）、holder_c #(T::nib_t)（35行目）で合法に使い、プロパティ bad_v の型に直接使う36行目を違反とする。:expected_stderr_regex: は36行目を指す。
+- [test_illegal_forward_class_scope_prefix_in_variable_declaration.sv](../tests/ch8/test_illegal_forward_class_scope_prefix_in_variable_declaration.sv): typedef class later_c で前方宣言しただけの later_c について、later_c::small_t の typedef（27行目）を合法な対照とし、プロパティ bad_v の型に直接使う29行目を違反とする。:expected_stderr_regex: は29行目を指す。
+- [test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv](../tests/ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv): インタフェースポート p 経由の typedef p.pay_c pay_t について、pay_t::data_t の typedef（32行目）を合法な対照とし、変数 bad_v の型に直接使う34行目を違反とする。:expected_stderr_regex: は34行目を指す。
 
 ### SV2023-8.23-EXTRACT-NESTED-ACCESS-RIGHTS
 
@@ -19479,7 +19788,7 @@ Classes can nest and their nested type declarations are public and accessible ou
 
 ### SV2023-8.23-EXTRACT-NO-IMPLICIT-OUTER-THIS
 
-8.23 / error / テスト未対応
+8.23 / error / テスト対応あり・実行未確認
 
 A nested class has no implicit outer this; containing instance members require an available explicit handle.
 
@@ -19487,10 +19796,11 @@ A nested class has no implicit outer this; containing instance members require a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nested_class_unqualified_outer_property.sv](../tests/ch8/test_illegal_nested_class_unqualified_outer_property.sv): 入れ子クラス inner_c の sum は、外側の static プロパティ total・static メソッド twice・localparam STEP を修飾なしで使い、非 static の count・peek()・local の secret は引数ハンドル h 経由で参照する（合法な対照、41・42行目）。own_count だけが非 static の count をハンドルなしで参照する（46行目）。:expected_stderr_regex: は46行目を指す。 区別: 外側クラスへの暗黙の this を与える誤実装は own_count を受理して失敗する。入れ子クラスから外側の static 要素やハンドル経由の local メンバへのアクセスまで拒否する誤実装は41・42行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.23-EXTRACT-SCOPE-PREFIX-CATEGORIES
 
-8.23 / error / テスト未対応
+8.23 / error / 実行確認あり
 
 A scope-resolution prefix must be a permitted class/package/covergroup/coverpoint/cross/typedef/type-parameter name; a type-name prefix must resolve to class or covergroup after elaboration.
 
@@ -19498,6 +19808,8 @@ A scope-resolution prefix must be a permitted class/package/covergroup/coverpoin
 
 規定の性質: `mandatory`。
 
+- [test_illegal_scope_prefix_is_class_variable.sv](../tests/ch8/test_illegal_scope_prefix_is_class_variable.sv): conf_c::limit（クラス名の接頭辞、29行目）と h.limit（30行目）を合法な対照とし、クラス変数 h を接頭辞にした h::limit（31行目）を違反とする。:expected_stderr_regex: は31行目を指す。
+- [test_illegal_scope_prefix_typedef_not_class.sv](../tests/ch8/test_illegal_scope_prefix_typedef_not_class.sv): クラスの typedef conf_t を接頭辞にした conf_t::limit（29行目）を合法な対照とし、int の typedef count_t を接頭辞にした count_t::limit（30行目）を違反とする。:expected_stderr_regex: は30行目を指す。
 
 ### SV2023-8.23-EXTRACT-STATIC-SCOPE-ACCESS
 
@@ -19523,7 +19835,7 @@ An out-of-block method can access all declarations of its class; the earlier pro
 
 ### SV2023-8.24-EXTRACT-EXTERN-DEFAULT-IDENTICAL
 
-8.24 / error / テスト未対応
+8.24 / error / テスト対応あり・実行未確認
 
 A default expression repeated on the external header must be syntactically identical to the default on the prototype; adding a new default externally is prohibited.
 
@@ -19531,6 +19843,8 @@ A default expression repeated on the external header must be syntactically ident
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extern_default_differs_from_prototype.sv](../tests/ch8/test_illegal_extern_default_differs_from_prototype.sv): 試作宣言 scale(int x, int f = 2) に対し、外部宣言 calc_c::scale(int x, int f = 3) を書く（37行目、:expected_stderr_regex: が指す）。shift は既定値を省略、lift は同じ既定値 4 を繰り返す合法な対照。
+- [test_illegal_extern_default_not_in_prototype.sv](../tests/ch8/test_illegal_extern_default_not_in_prototype.sv): 試作宣言 scale(int x, int f) に既定値がないのに、外部宣言 calc_c::scale(int x, int f = 2) で既定値を追加する（30行目、:expected_stderr_regex: が指す）。lift は同じ既定値を繰り返す合法な対照。
 
 ### SV2023-8.24-EXTRACT-EXTERN-HEADER-MATCH
 
@@ -19556,7 +19870,7 @@ An out-of-block method requires a class-body extern prototype with full argument
 
 ### SV2023-8.24-EXTRACT-EXTERN-SAME-NAME-RESOLUTION
 
-8.24 / error / テスト未対応
+8.24 / error / テスト対応あり・実行未確認
 
 Each corresponding prototype and external header identifier must resolve to the same declaration, or an error is required.
 
@@ -19564,10 +19878,11 @@ Each corresponding prototype and external header identifier must resolve to the 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extern_type_name_resolves_differently.sv](../tests/ch8/test_illegal_extern_type_name_resolves_differently.sv): pack_c の試作宣言 put(tag_t t, word_t w) では tag_t は先に宣言された pack_c::tag_t、word_t は（クラスの word_t が試作宣言の後に宣言されるので）defs_pkg から import した byte に解決する。外部宣言の見出しでは tag_t は同じ pack_c::tag_t（合法な対照）だが word_t は pack_c::word_t（shortint）に解決する。:expected_stderr_regex: は見出し39行目または試作宣言35行目を指す。 区別: 試作宣言と見出しで同じ識別子の解決先を比べない実装は設計を受理して失敗する。試作宣言でも後方のクラス内 typedef を見る誤実装も、両方が pack_c::word_t になり受理して失敗する。tag_t まで不一致とみなす実装は同じ行で報告するが、受理する実装との区別は word_t で付く。
 
 ### SV2023-8.24-EXTRACT-EXTERN-SCOPE-ORDER
 
-8.24 / error / テスト未対応
+8.24 / error / テスト対応あり・実行未確認
 
 An external method definition must occur after the class declaration in the same scope.
 
@@ -19575,10 +19890,12 @@ An external method definition must occur after the class declaration in the same
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extern_body_before_class.sv](../tests/ch8/test_illegal_extern_body_before_class.sv): typedef class early_c の後、class early_c の宣言より前に function int early_c::get() を置く（24行目、試作宣言だけが残る29行目でも可として :expected_stderr_regex: は (24|29) を指す）。
+- [test_illegal_extern_body_outside_class_scope.sv](../tests/ch8/test_illegal_extern_body_outside_class_scope.sv): モジュール内で宣言した sq_c の外部宣言 sq_c::area を、その後にある generate ブロック g の中に置く（31行目、試作宣言の27行目でも可として :expected_stderr_regex: は (27|31) を指す）。
 
 ### SV2023-8.24-EXTRACT-ONE-EXTERN-BODY
 
-8.24 / error / テスト未対応
+8.24 / error / 実行確認あり
 
 An extern method cannot have multiple out-of-block definitions.
 
@@ -19586,10 +19903,11 @@ An extern method cannot have multiple out-of-block definitions.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extern_method_two_bodies.sv](../tests/ch8/test_illegal_extern_method_two_bodies.sv): extern メソッド id に外部宣言を2つ書き（28行目と32行目）、2つ目の32行目を :expected_stderr_regex: が指す。size は外部宣言が1つの合法な対照。 区別: 同じ extern メソッドへの複数の外部宣言を検査しない実装（後の定義で上書きする等）は受理して失敗する。外部宣言そのものを拒否する実装は24行目の size でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.24-EXTRACT-RETURN-TYPE-CLASS-SCOPE
 
-8.24 / error / テスト未対応
+8.24 / error / テスト対応あり・実行未確認
 
 An external method return type defined inside its class requires class scope qualification.
 
@@ -19597,6 +19915,7 @@ An external method return type defined inside its class requires class scope qua
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extern_return_type_without_class_scope.sv](../tests/ch8/test_illegal_extern_return_type_without_class_scope.sv): クラス内で宣言した tag_t を戻り値とする2つの extern メソッドのうち、code の外部宣言は cell_c::tag_t と書き（27行目、合法な対照）、tag の外部宣言は tag_t だけで書く（31行目）。クラス外に tag_t はない。:expected_stderr_regex: は31行目を指す。 区別: 外部宣言の戻り値の型をクラスのスコープで解決してしまう誤実装は tag_t を cell_c::tag_t と見なし、設計を受理して失敗する。クラススコープ付きの戻り値型を拒否する実装は27行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.25-EXTRACT-ANY-TYPE-PARAMETER
 
@@ -19612,7 +19931,7 @@ A class type parameter can accept any data type, including class/structure types
 
 ### SV2023-8.25-EXTRACT-BASE-RESOLVES-CLASS
 
-8.25 / error / テスト未対応
+8.25 / error / 実行確認あり
 
 A typedef/type-parameter name used as a base must resolve to a class type after elaboration.
 
@@ -19620,6 +19939,8 @@ A typedef/type-parameter name used as a base must resolve to a class type after 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_typedef_base_not_class.sv](../tests/ch8/test_illegal_typedef_base_not_class.sv): class ok_c extends base_t（クラスの typedef、25行目）を合法な対照とし、class bad_c extends word_t（int の typedef、28行目）を違反とする。:expected_stderr_regex: は28行目を指す。
+- [test_illegal_type_parameter_base_not_class.sv](../tests/ch8/test_illegal_type_parameter_base_not_class.sv): 型パラメータ B を基底にする wrap_c について、wrap_c #(base_c)（31行目）を合法な対照とし、wrap_c #(int)（32行目）で基底が int になる特殊化を作る。特殊化の行32または extends の行26を :expected_stderr_regex: が指す。
 
 ### SV2023-8.25-EXTRACT-CLASS-PARAMETER-OVERRIDES
 
@@ -19673,7 +19994,7 @@ Matching specializations of the same generic class are the same type; package ge
 
 ### SV2023-8.25-EXTRACT-MISSING-DEFAULT-OVERRIDE
 
-8.25 / error / テスト未対応
+8.25 / error / 実行確認あり
 
 A class with missing parameter defaults has no applicable default specialization; every specialization must supply those parameters.
 
@@ -19681,6 +20002,7 @@ A class with missing parameter defaults has no applicable default specialization
 
 規定の性質: `mandatory`。
 
+- [test_illegal_parameterized_class_without_default_specialization.sv](../tests/ch8/test_illegal_parameterized_class_without_default_specialization.sv): 既定値のあるパラメータを持つ has_c を名前だけで使う宣言（31行目）と、既定値のないパラメータ depth を持つ need_c を need_c #(4) と特殊化する宣言（32行目）を合法な対照とし、need_c を名前だけで使う33行目を違反とする。:expected_stderr_regex: は33行目を指す。 区別: 既定値のないパラメータを未定義のまま既定の特殊化を作る誤実装は33行目を受理して失敗する。既定値のないパラメータ自体や明示した特殊化を拒否する実装は26・32行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.25-EXTRACT-PARAMETERIZED-INHERITANCE
 
@@ -19753,7 +20075,7 @@ In a parameterized class external method definition, class scope references reso
 
 ### SV2023-8.25.1-EXTRACT-EXTERNAL-SPECIALIZATION
 
-8.25.1 / error / テスト未対応
+8.25.1 / error / 実行確認あり
 
 Outside the class/current external declaration context, :: requires an explicit specialization prefix and can access its value/type parameters and localparams.
 
@@ -19761,6 +20083,8 @@ Outside the class/current external declaration context, :: requires an explicit 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unadorned_class_scope_value_parameter_outside.sv](../tests/ch8/test_illegal_unadorned_class_scope_value_parameter_outside.sv): モジュール内で sized_c#()::p と sized_c#(5)::q（32・33行目）を合法な対照とし、sized_c::p（34行目）を違反とする。クラス内の sized_c::q（27行目）も合法な対照。:expected_stderr_regex: は34行目を指す。
+- [test_illegal_unadorned_class_scope_type_parameter_outside.sv](../tests/ch8/test_illegal_unadorned_class_scope_type_parameter_outside.sv): モジュール内で sized_c#()::T と sized_c#(1, shortint)::T を型とする変数宣言（27・28行目）と sized_c#(4)::q を合法な対照とし、sized_c::T を型とする29行目を違反とする。:expected_stderr_regex: は29行目を指す。
 
 ### SV2023-8.26-EXTRACT-ABSTRACT-INTERFACE-PROTOTYPES
 
@@ -19844,7 +20168,7 @@ An interface-class handle may refer to any object explicitly implementing that i
 
 ### SV2023-8.26-EXTRACT-INTERFACE-MEMBERS-ONLY
 
-8.26 / error / テスト未対応
+8.26 / error / テスト対応あり・実行未確認
 
 An interface class contains only pure virtual methods, type declarations and parameters; constraints, covergroups and nested classes are forbidden.
 
@@ -19852,10 +20176,15 @@ An interface class contains only pure virtual methods, type declarations and par
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_class_property.sv](../tests/ch8/test_illegal_interface_class_property.sv): bad_if にプロパティ int count を宣言する（28行目、インタフェースクラスの26行目でも可として :expected_stderr_regex: は (26|28)）。
+- [test_illegal_interface_class_method_with_body.sv](../tests/ch8/test_illegal_interface_class_method_with_body.sv): bad_if に本体を持つ virtual function twice を宣言する（28行目、:expected_stderr_regex: は (26|28)）。
+- [test_illegal_interface_class_constraint_block.sv](../tests/ch8/test_illegal_interface_class_constraint_block.sv): bad_if に制約ブロック constraint c_any { } を宣言する（28行目、:expected_stderr_regex: は (26|28)）。
+- [test_illegal_interface_class_holds_covergroup.sv](../tests/ch8/test_illegal_interface_class_holds_covergroup.sv): bad_if に covergroup cg を宣言する（28行目、:expected_stderr_regex: は (26|28)）。
+- [test_illegal_interface_class_nested_class.sv](../tests/ch8/test_illegal_interface_class_nested_class.sv): bad_if に入れ子クラス inner_c を宣言する（29行目、インタフェースクラスの27行目でも可として :expected_stderr_regex: は (27|29)）。
 
 ### SV2023-8.26-EXTRACT-NO-NESTED-INTERFACE-INTERFACE
 
-8.26 / error / テスト未対応
+8.26 / error / 実行確認あり
 
 An interface class cannot be nested inside another interface class.
 
@@ -19863,10 +20192,11 @@ An interface class cannot be nested inside another interface class.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_class_nested_in_interface_class.sv](../tests/ch8/test_illegal_interface_class_nested_in_interface_class.sv): インタフェースクラス outer_if の中に interface class inner_if を宣言する（22行目、:expected_stderr_regex: が指す）。outer_if を extends する child_if（27行目）は合法な対照。 区別: インタフェースクラスの入れ子を許す誤実装は設計を受理して失敗する。インタフェースクラスの継承まで拒否する実装は27行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.26-EXTRACT-NO-STRUCTURAL-IMPLEMENTS
 
-8.26 / error / テスト未対応
+8.26 / error / 実行確認あり
 
 Having matching method implementations alone does not implement an interface without the required implements relationship.
 
@@ -19874,6 +20204,7 @@ Having matching method implementations alone does not implement an interface wit
 
 規定の性質: `mandatory`。
 
+- [test_illegal_matching_methods_without_implements.sv](../tests/ch8/test_illegal_matching_methods_without_implements.sv): shape_if を implements する tri_c の派生 tri2_c のハンドルを shape_if 変数 s へ代入する（47行目、合法な対照）。sides() を同じ形で持つが implements のない sq_c のハンドルを s へ代入する49行目を違反とする。:expected_stderr_regex: は49行目を指す。 区別: メソッドの一致だけでインタフェースを実装したと見なす（構造的な）誤実装は49行目を受理して失敗する。基底クラスの implements が派生クラスに及ぶことを無視する実装は47行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.26-EXTRACT-SUBCLASS-IMPLEMENTS
 
@@ -19932,7 +20263,7 @@ extends inherits members; implements requires interface method implementations w
 
 ### SV2023-8.26.2-EXTRACT-INHERITED-NONVIRTUAL-INSUFFICIENT
 
-8.26.2 / error / テスト未対応
+8.26.2 / error / テスト対応あり・実行未確認
 
 An inherited nonvirtual method does not fulfill an interface method implementation requirement.
 
@@ -19940,6 +20271,7 @@ An inherited nonvirtual method does not fulfill an interface method implementati
 
 規定の性質: `mandatory`。
 
+- [test_illegal_inherited_nonvirtual_method_for_interface.sv](../tests/ch8/test_illegal_inherited_nonvirtual_method_for_interface.sv): run_if を implements する2つのクラスのうち、ok_c は virtual の run を継承し（39行目、合法な対照）、bad_c は非 virtual の run だけを plain_base_c から継承する（42行目）。:expected_stderr_regex: はクラス宣言42行目またはその終わり43行目を指す。 区別: 継承した非 virtual メソッドをインタフェースメソッドの実装と見なす誤実装は bad_c を受理して失敗する。継承による実装をすべて拒否する実装は ok_c の39行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.26.2-EXTRACT-INHERITED-VIRTUAL-IMPLEMENTS
 
@@ -19954,7 +20286,7 @@ An inherited virtual method can fulfill an interface method implementation.
 
 ### SV2023-8.26.2-EXTRACT-INTERFACE-BASES
 
-8.26.2 / error / テスト未対応
+8.26.2 / error / テスト対応あり・実行未確認
 
 An interface class may extend zero or more interface classes but cannot implement any class/interface or extend a noninterface class.
 
@@ -19962,10 +20294,13 @@ An interface class may extend zero or more interface classes but cannot implemen
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_class_implements_interface.sv](../tests/ch8/test_illegal_interface_class_implements_interface.sv): interface class bad_if implements a_if（32行目、:expected_stderr_regex: が指す）。both_if extends a_if, b_if（29行目）は合法な対照。
+- [test_illegal_interface_class_implements_class.sv](../tests/ch8/test_illegal_interface_class_implements_class.sv): interface class bad_if implements shape_vc（virtual クラス、35行目、:expected_stderr_regex: が指す）。both_if extends a_if, b_if（32行目）は合法な対照。
+- [test_illegal_interface_class_extends_class.sv](../tests/ch8/test_illegal_interface_class_extends_class.sv): interface class bad_if extends base_c（インタフェースでないクラス、38行目、:expected_stderr_regex: が指す）。both_if extends a_if, b_if（35行目）は合法な対照。
 
 ### SV2023-8.26.2-EXTRACT-NONINTERFACE-BASES
 
-8.26.2 / error / テスト未対応
+8.26.2 / error / 実行確認あり
 
 A class/virtual class may extend at most one noninterface class and implement zero or more interface classes simultaneously; it cannot extend an interface class or implement a noninterface class.
 
@@ -19973,6 +20308,9 @@ A class/virtual class may extend at most one noninterface class and implement ze
 
 規定の性質: `mandatory`。
 
+- [test_illegal_class_extends_interface_class.sv](../tests/ch8/test_illegal_class_extends_interface_class.sv): class bad_c extends a_if（インタフェースクラス、44行目、:expected_stderr_regex: が指す）。ok_c extends base_c implements a_if, b_if（35行目）は合法な対照。
+- [test_illegal_class_extends_two_base_classes.sv](../tests/ch8/test_illegal_class_extends_two_base_classes.sv): class bad_c extends base_c, other_c（2つのクラス、48行目、:expected_stderr_regex: が指す）。ok_c extends base_c implements a_if, b_if（39行目）は合法な対照。
+- [test_illegal_class_implements_noninterface_class.sv](../tests/ch8/test_illegal_class_implements_noninterface_class.sv): class bad_c implements base_c（インタフェースでないクラス、36行目、:expected_stderr_regex: が指す）。ok_c extends base_c implements a_if（30行目）は合法な対照。
 
 ### SV2023-8.26.3-EXTRACT-INTERFACE-HANDLE-PARAMETER-RESTRICTIONS
 
@@ -20124,7 +20462,7 @@ Multiple implements/extends relationships can merge same-named identifiers into 
 
 ### SV2023-8.26.6.1-EXTRACT-SINGLE-METHOD-RESOLUTION
 
-8.26.6.1 / error / テスト未対応
+8.26.6.1 / error / テスト対応あり・実行未確認
 
 A same-name interface method conflict must resolve to one prototype/implementation simultaneously satisfying all interface pure methods and valid virtual overriding of any inherited same-name method.
 
@@ -20132,10 +20470,12 @@ A same-name interface method conflict must resolve to one prototype/implementati
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_method_conflict_return_types.sv](../tests/ch8/test_illegal_interface_method_conflict_return_types.sv): code_c の int code() は num_if::code を実装するが text_if::code（string）を同時に満たせない（47行目、:expected_stderr_regex: は (46|47)）。pair_c は2つの size を1つのメソッドで解決する対照。
+- [test_illegal_interface_method_conflict_with_inherited.sv](../tests/ch8/test_illegal_interface_method_conflict_with_inherited.sv): ext_c extends base_c implements pick_if の pick(int a, int b) は pick_if::pick と一致するが、継承した virtual の base_c::pick(int a) の正しい上書きでない（45行目、クラスの44行目でも可として :expected_stderr_regex: は (44|45)）。基底とインタフェースが一致する ok_c は合法な対照。
 
 ### SV2023-8.26.6.1-EXTRACT-UNRESOLVABLE-METHOD-CONFLICT
 
-8.26.6.1 / error / テスト未対応
+8.26.6.1 / error / テスト対応あり・実行未確認
 
 If one method cannot simultaneously satisfy all required prototypes, such as incompatible returns, the implementing class is erroneous.
 
@@ -20143,6 +20483,7 @@ If one method cannot simultaneously satisfy all required prototypes, such as inc
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_method_conflict_return_types.sv](../tests/ch8/test_illegal_interface_method_conflict_return_types.sv): code_c は num_if::code（int を返す）と text_if::code（string を返す）を implements し、int を返す1つの code で両方を実装しようとする（47行目、クラスの46行目でも可として :expected_stderr_regex: は (46|47)）。同じ形の size を2つのインタフェースから要求され1つのメソッドで解決する pair_c（37行目）は合法な対照。 区別: 最初に見つかったインタフェースメソッドとだけ照合する誤実装は code_c を受理して失敗する。同名のインタフェースメソッドの衝突をすべて誤りとする実装は pair_c の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.26.6.2-EXTRACT-MATCHING-UNUSED-STILL-CONFLICT
 
@@ -20203,7 +20544,7 @@ An abstract class may partially implement an interface while preserving all requ
 
 ### SV2023-8.26.7-EXTRACT-PARTIAL-METHOD-CONTRACT
 
-8.26.7 / error / テスト未対応
+8.26.7 / error / テスト対応あり・実行未確認
 
 For every interface method an abstract implementing class must provide a method implementation or redeclare the pure prototype, including permitted inherited declarations; leaving it undeclared is illegal.
 
@@ -20211,10 +20552,11 @@ For every interface method an abstract implementing class must provide a method 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_virtual_class_leaves_interface_method_undeclared.sv](../tests/ch8/test_illegal_virtual_class_leaves_interface_method_undeclared.sv): two_if（first と second）を implements する virtual クラスのうち、good_part_c は first を実装し second を pure で宣言し直す（28〜33行目、合法な対照、派生の full_c が second を実装）。bad_part_c は first だけを実装し second に触れない（41行目）。:expected_stderr_regex: はクラスの41行目またはその終わり45行目を指す。 区別: virtual クラスならインタフェースメソッドの未宣言を許す誤実装は bad_part_c を受理して失敗する。virtual クラスによる部分実装（pure での再宣言）まで拒否する実装は good_part_c の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.26.8-EXTRACT-INTERFACE-DEFAULT-CONSTANT
 
-8.26.8 / error / テスト未対応
+8.26.8 / error / テスト対応あり・実行未確認
 
 An interface method argument may have a default but its expression must be constant and evaluated in the declaring subroutine scope.
 
@@ -20222,6 +20564,7 @@ An interface method argument may have a default but its expression must be const
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_method_default_not_constant.sv](../tests/ch8/test_illegal_interface_method_default_not_constant.sv): インタフェースクラス add_if のメソッド add の既定値として定数 5 とパラメータ N（定数式）を使い、add_if #(4) を実装する adder_c が同じ値の既定値を持つ形を合法な対照とし、scale_if::scale の引数 step の既定値にコンパイル単位の変数 gain を使う行（30行目）を違反とする。:expected_stderr_regex: は30行目を指す。既定値を宣言のスコープで評価するという意味は合法な対照での定義で、診断は定数式かどうかで行う。 区別: インタフェースメソッドの既定値に非定数の式を許す誤実装は30行目を受理して失敗する（Verilator 5.052 は受理する）。インタフェースクラスのパラメータを使う既定値まで拒否する実装は26行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.26.8-EXTRACT-INTERFACE-DEFAULT-SAME-VALUE
 
@@ -20329,7 +20672,7 @@ A class handle type must be known before use; a forward typedef permits mutually
 
 ### SV2023-8.27-EXTRACT-FORWARD-CLASS-LOCAL
 
-8.27 / error / テスト未対応
+8.27 / error / 実行確認あり
 
 A forward class definition must resolve in the same local scope or generate block.
 
@@ -20337,6 +20680,7 @@ A forward class definition must resolve in the same local scope or generate bloc
 
 規定の性質: `mandatory`。
 
+- [test_illegal_forward_class_defined_in_other_scope.sv](../tests/ch8/test_illegal_forward_class_defined_in_other_scope.sv): モジュール内で typedef class pair_c と typedef class node_c を前方宣言し、pair_c は同じモジュール内で定義（28行目、合法な対照）、node_c は generate ブロック g の中だけで定義する。:expected_stderr_regex: は node_c の前方宣言24行目またはその型の変数26行目を指す。 区別: 前方宣言を別スコープ（generate ブロック）の同名クラスで解決する誤実装は設計を受理して失敗する。同じスコープでの前方宣言の解決まで失敗する実装は pair_c の行（23・25行目）でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.27-EXTRACT-FORWARD-PARAMETERIZED
 
@@ -20362,7 +20706,7 @@ Classes support inheritance, abstraction and dynamic casts under the class rules
 
 ### SV2023-8.28-EXTRACT-NO-HANDLE-OTHER-TYPES
 
-8.28 / error / テスト未対応
+8.28 / error / テスト対応あり・実行未確認
 
 Class handles cannot be cast into arbitrary other data categories outside the defined class/interface conversion rules.
 
@@ -20370,6 +20714,7 @@ Class handles cannot be cast into arbitrary other data categories outside the de
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cast_class_handle_to_integral.sv](../tests/ch8/test_illegal_cast_class_handle_to_integral.sv): 派生ハンドルの基底変数への代入（34行目）と null との比較（35行目）を合法な対照とし、クラスハンドル h を longint'(h) で整数型へキャストする36行目を違反とする。:expected_stderr_regex: は36行目を指す。 区別: クラスハンドルを C のポインタのように整数へ変換する誤実装は受理して失敗する。ハンドルの比較や上方代入まで拒否する実装は34・35行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-8.28-EXTRACT-STRUCT-CLASS-ALLOCATION
 
@@ -20656,7 +21001,7 @@ Repeated get_id for one object returns the same ID regardless of the class handl
 
 ### SV2023-9.2-EXTRACT-CALLED-SUBROUTINES
 
-9.2 / normal / テスト未対応
+9.2 / normal / 実行確認あり
 
 Task/functions are enabled by calls from other procedures under Clause 13.
 
@@ -20664,10 +21009,11 @@ Task/functions are enabled by calls from other procedures under Clause 13.
 
 規定の性質: `definition`。
 
+- [test_structured_procedures_enable_once_repeat_final.sv](../tests/ch9/test_structured_procedures_enable_once_repeat_final.sv): タスク note を2つの initial 手続きから時刻5と21に呼び、関数 twice_of を1回呼ぶ。呼ばれないタスク never_task と関数 never_func は実行されれば行を表示する。期待出力は '5 note called by procedure 1'、'21 note called by procedure 2'、'twice_of(7)=14'、final で task_runs=2 func_runs=1 で、never_task ran / never_func ran は出ない。 区別: タスク・関数を呼び出し以外で（例えば手続きのように時刻0に）起動する誤実装なら never_task ran / never_func ran の行が出て task_runs・func_runs の値も変わる。呼び出しで起動しなければ note の行と twice_of の行が欠ける。
 
 ### SV2023-9.2-EXTRACT-FINAL-ONCE-END
 
-9.2 / normal / テスト未対応
+9.2 / normal / 実行確認あり
 
 Final procedures are enabled at simulation end and execute only once.
 
@@ -20675,10 +21021,11 @@ Final procedures are enabled at simulation end and execute only once.
 
 規定の性質: `mandatory`。
 
+- [test_structured_procedures_enable_once_repeat_final.sv](../tests/ch9/test_structured_procedures_enable_once_repeat_final.sv): final 手続きが $time と各カウンタを表示し、自分の実行回数 final_runs を数える。$finish は時刻41。期待出力は final の2行がちょうど1回だけ、時刻41で現れ（final at 41）、final_runs=1。 区別: final が実行されなければ最後の2行が欠け、2回以上実行されれば同じ行が繰り返されて final_runs=2 が出る。シミュレーション終了以外の時点で実行されれば時刻が 41 以外になり、always_runs の値も変わる。
 
 ### SV2023-9.2-EXTRACT-INITIAL-ALWAYS-START
 
-9.2 / normal / テスト未対応
+9.2 / normal / 実行確認あり
 
 Initial and always procedures are enabled at simulation start; initial executes once until its statement completes while always repeats until simulation termination.
 
@@ -20686,6 +21033,7 @@ Initial and always procedures are enabled at simulation start; initial executes 
 
 規定の性質: `mandatory`。
 
+- [test_structured_procedures_enable_once_repeat_final.sv](../tests/ch9/test_structured_procedures_enable_once_repeat_final.sv): always 手続きが時刻0から10ごとに always_runs を増やし、initial 手続きが自分の実行回数 initial_runs を1回だけ増やす。別の initial が時刻1・21・41で両カウンタを表示し、41で $finish。期待出力は t=1 で always_runs=1 initial_runs=1、t=21 で 3/1、t=41 で 5/1、final でも 5/1。 区別: always が時刻0に起動されなければ t=1 で always_runs=0 になり、always が繰り返さなければ t=21・41 でも 1 のまま、initial が繰り返し実行されれば initial_runs が 1 を超える。いずれも t=1/21/41 の行と final の行の値が変わる。
 
 ### SV2023-9.2-EXTRACT-NO-INITIAL-ALWAYS-ORDER
 
@@ -20700,7 +21048,7 @@ There is no implied execution order between initial and always procedures; tests
 
 ### SV2023-9.2-EXTRACT-OVERRIDE-CLASS-ONLY
 
-9.2 / error / テスト未対応
+9.2 / error / テスト対応あり・実行未確認
 
 Dynamic override specifiers are allowed only on methods inside noninterface class scope.
 
@@ -20708,6 +21056,8 @@ Dynamic override specifiers are allowed only on methods inside noninterface clas
 
 規定の性質: `mandatory`。
 
+- [test_illegal_override_specifier_on_module_function.sv](../tests/ch9/test_illegal_override_specifier_on_module_function.sv): モジュール内の function :final int plain_f()（29行目、:expected_stderr_regex: が指す）が違反。クラス base_c の virtual function :final int get()（23行目）は合法な対照。
+- [test_illegal_override_specifier_in_interface_class.sv](../tests/ch9/test_illegal_override_specifier_in_interface_class.sv): インタフェースクラス put_if の pure virtual function :initial void put（27行目、:expected_stderr_regex: が指す）が違反。クラス fifo2_c の virtual function :extends int get()（38行目）は合法な対照。
 
 ### SV2023-9.2-EXTRACT-PROCEDURE-GRAMMAR
 
@@ -20722,7 +21072,7 @@ initial allows statement-or-null, always variants require a statement, final req
 
 ### SV2023-9.2-EXTRACT-STRUCTURED-PROCEDURE-KINDS
 
-9.2 / normal / テスト未対応
+9.2 / normal / 実行確認あり
 
 Structured procedures use initial, the four always keywords, final, tasks or functions.
 
@@ -20730,6 +21080,7 @@ Structured procedures use initial, the four always keywords, final, tasks or fun
 
 規定の性質: `definition`。
 
+- [test_structured_procedure_kinds_each_run.sv](../tests/ch9/test_structured_procedure_kinds_each_run.sv): 1つのモジュールに initial、always（clk のトグル）、always_comb（a & b）、always_latch（en の間 d を通す）、always_ff（posedge clk で d を取る）、task、function、final を1つずつ置き、それぞれの出力を固定時刻に表示する。期待出力は t=1 で comb_y=1 latch_q=1、t=6 で ff_q=1、t=7 で comb_y=0 latch_q=1（en=0 後も保持）ff_q=1、t=16 で ff_q=0 clk=1、task_v=23（task に function の結果 20+3）、final at 16。 区別: どれかの種類の手続きを実行しない誤実装ならその値が変わる: always が動かなければ clk が変わらず ff_q が更新されない、always_comb が動かなければ comb_y が x のまま、always_latch が保持しなければ t=7 の latch_q が 0、always_ff がエッジ以外で動けば t=7 の ff_q が 0、task/function が動かなければ task_v=0、final が動かなければ最後の行が欠ける。
 
 ### SV2023-9.2-EXTRACT-UNLIMITED-PROCEDURE-COUNT
 
@@ -21160,7 +21511,7 @@ After all final procedures finish, no remaining scheduled simulation events exec
 
 ### SV2023-9.3-EXTRACT-BLOCK-STATEMENT
 
-9.3 / normal / テスト未対応
+9.3 / normal / 実行確認あり
 
 A sequential or parallel block groups statements as one syntactic statement.
 
@@ -21168,10 +21519,11 @@ A sequential or parallel block groups statements as one syntactic statement.
 
 規定の性質: `definition`。
 
+- [test_block_statements_sequential_order_parallel_children.sv](../tests/ch9/test_block_statements_sequential_order_parallel_children.sv): repeat (3) と条件が偽の if の本体を begin-end ブロックにすると、2文が1つの文として扱われ n=3 c=30 で if の本体は2文とも実行されない。同じ2文をブロックなしで if の後に書くと2文目 c=7 は if の外で実行される。fork-join も1つの文として後続の $display の前に完了する。期待出力は 'grouped: n=3 c=30'、'ungrouped: n=3 c=7'、'8 after join'。 区別: ブロックを1つの文として扱わない誤実装なら、repeat が最初の文だけを繰り返して c=10、または偽の if の2文目が実行されて c=100 になり grouped 行が変わる。ブロックなしの対照で c=7 となることで、ブロックがあるときとの違いが出力に現れる。
 
 ### SV2023-9.3-EXTRACT-PARALLEL-FORK-JOIN
 
-9.3 / normal / テスト未対応
+9.3 / normal / 実行確認あり
 
 fork with join/join_any/join_none delimits concurrently executed child statements.
 
@@ -21179,10 +21531,11 @@ fork with join/join_any/join_none delimits concurrently executed child statement
 
 規定の性質: `mandatory`。
 
+- [test_block_statements_sequential_order_parallel_children.sv](../tests/ch9/test_block_statements_sequential_order_parallel_children.sv): 時刻5の fork-join で #2 と #3 の子が並行に始まり 7 と 8 に終わり、join 後は 8。時刻8の fork-join_any では #1 の子が終わった 9 に親が進み、#4 の子は 12 まで動き続ける。時刻9の fork-join_none では親は即座に 9 で進み、子は 10 に表示する。期待出力は '7 join child 2'、'8 join child 3'、'8 after join'、'9 after join_any'、'9 after join_none'、'10 join_none child 1'、'12 join_any child 4'。 区別: fork の子を順番に実行する誤実装なら join child 3 が時刻10、after join も 10 になる。join_any が全子を待てば after join_any が 12、join_none が子を待てば after join_none が 10 以降になる。join_any 後に残りの子を止めれば '12 join_any child 4' が欠ける。
 
 ### SV2023-9.3-EXTRACT-SEQUENTIAL-BEGIN-END
 
-9.3 / normal / テスト未対応
+9.3 / normal / 実行確認あり
 
 begin/end delimit sequential statements executed in given order.
 
@@ -21190,6 +21543,7 @@ begin/end delimit sequential statements executed in given order.
 
 規定の性質: `mandatory`。
 
+- [test_block_statements_sequential_order_parallel_children.sv](../tests/ch9/test_block_statements_sequential_order_parallel_children.sv): begin-end 内の a=1; b=a+1; a=b*3 は前の結果を読むので a=6 b=2 になる。begin-end 内の #2 と #3 は累積して時刻2と5に表示される。期待出力は 'order: a=6 b=2'、'2 seq first'、'5 seq second'。 区別: 文を書かれた順に実行しない（並べ替える・同時に評価する）誤実装なら a・b が 6・2 以外になる（例えば b を先に計算すれば b=1）。遅延を累積せず並列に数えれば seq second が時刻3になる。
 
 ### SV2023-9.3.1-EXTRACT-SEQUENTIAL-GRAMMAR
 
@@ -21368,7 +21722,7 @@ Sequential/parallel blocks may nest; execution of the following parent statement
 
 ### SV2023-9.3.4-EXTRACT-CLOSING-NAME-MATCH
 
-9.3.4 / error / テスト未対応
+9.3.4 / error / 実行確認あり
 
 A closing block name after end/join/join_any/join_none is optional; if present it must match the opening block name.
 
@@ -21376,10 +21730,14 @@ A closing block name after end/join/join_any/join_none is optional; if present i
 
 規定の性質: `mandatory`。
 
+- [test_illegal_end_name_differs_from_begin_name.sv](../tests/ch9/test_illegal_end_name_differs_from_begin_name.sv): begin : outer_b を end : inner_b で閉じる（32行目、:expected_stderr_regex: が指す）。fork : par_b ... join : par_b と、名前付きブロック quiet_b を名前なしの end で閉じるのは合法な対照。
+- [test_illegal_join_name_differs_from_fork_name.sv](../tests/ch9/test_illegal_join_name_differs_from_fork_name.sv): fork : both_b を join : other_b で閉じる（32行目、:expected_stderr_regex: が指す）。join : one_b と、名前なしの join で閉じる two_b は合法な対照。
+- [test_illegal_join_any_name_differs_from_fork_name.sv](../tests/ch9/test_illegal_join_any_name_differs_from_fork_name.sv): fork : race_b を join_any : other_b で閉じる（32行目、:expected_stderr_regex: が指す）。join_any : one_b と、名前なしの join_any で閉じる two_b は合法な対照。
+- [test_illegal_join_none_name_differs_from_fork_name.sv](../tests/ch9/test_illegal_join_none_name_differs_from_fork_name.sv): fork : spawn_b を join_none : other_b で閉じる（31行目、:expected_stderr_regex: が指す）。end : seq_b と join_any : any_b は合法な対照。
 
 ### SV2023-9.3.4-EXTRACT-GENERATE-CLOSING-NAME
 
-9.3.4 / error / テスト未対応
+9.3.4 / error / 実行確認あり
 
 A generate block may have an optional closing name that must match its opening name.
 
@@ -21387,6 +21745,7 @@ A generate block may have an optional closing name that must match its opening n
 
 規定の性質: `mandatory`。
 
+- [test_illegal_generate_block_end_name_differs.sv](../tests/ch9/test_illegal_generate_block_end_name_differs.sv): generate ブロック g_ok は end : g_ok（22行目）、g_none は名前なしの end（26行目）で閉じる合法な対照。gen_a を end : gen_b で閉じる30行目を違反とし、:expected_stderr_regex: は30行目を指す。 区別: generate ブロックの閉じ名を照合しない誤実装は受理して失敗する。閉じ名を必須とする、または閉じ名を許さない実装は26行目または22行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-9.3.4-EXTRACT-NAMED-SCOPE
 
@@ -21491,7 +21850,7 @@ A foreach or for-with-declared-initializer label names its implicit loop block; 
 
 ### SV2023-9.3.5-EXTRACT-NO-CLOSER-LABEL
 
-9.3.5 / error / テスト未対応
+9.3.5 / error / 実行確認あり
 
 A statement label cannot precede end/join/join_any/join_none because those are not statements.
 
@@ -21499,10 +21858,14 @@ A statement label cannot precede end/join/join_any/join_none because those are n
 
 規定の性質: `mandatory`。
 
+- [test_illegal_statement_label_before_end.sv](../tests/ch9/test_illegal_statement_label_before_end.sv): done_l: end（28行目、:expected_stderr_regex: が指す）が違反。first_l: a = 1; と blk_l: begin は合法な対照。
+- [test_illegal_statement_label_before_join.sv](../tests/ch9/test_illegal_statement_label_before_join.sv): done_l: join（27行目、:expected_stderr_regex: が指す）が違反。par_l: fork と set_l: a = 1; は合法な対照。
+- [test_illegal_statement_label_before_join_any.sv](../tests/ch9/test_illegal_statement_label_before_join_any.sv): done_l: join_any（27行目、:expected_stderr_regex: が指す）が違反。par_l: fork と set_l: a = 1; は合法な対照。
+- [test_illegal_statement_label_before_join_none.sv](../tests/ch9/test_illegal_statement_label_before_join_none.sv): done_l: join_none（27行目、:expected_stderr_regex: が指す）が違反。par_l: fork と set_l: a = 1; は合法な対照。
 
 ### SV2023-9.3.5-EXTRACT-NO-DOUBLE-NAME
 
-9.3.5 / error / テスト未対応
+9.3.5 / error / 実行確認あり
 
 A begin/fork cannot have both a preceding statement label and a following block name.
 
@@ -21510,6 +21873,8 @@ A begin/fork cannot have both a preceding statement label and a following block 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_statement_label_and_block_name.sv](../tests/ch9/test_illegal_statement_label_and_block_name.sv): lab_l: begin : blk_b（31行目、:expected_stderr_regex: が指す）が違反。one_l: begin ... end : one_l と begin : two_b は合法な対照。
+- [test_illegal_statement_label_and_fork_name.sv](../tests/ch9/test_illegal_statement_label_and_fork_name.sv): lab_l: fork : blk_b（31行目、:expected_stderr_regex: が指す）が違反。one_l: fork ... join : one_l と fork : two_b は合法な対照。
 
 ### SV2023-9.3.5-EXTRACT-STATEMENT-LABEL
 
@@ -21525,7 +21890,7 @@ A label before any procedural nondeclaration statement uses identifier colon and
 
 ### SV2023-9.4-EXTRACT-COMMA-ACTUAL-PARENTHESES
 
-9.4 / error / テスト未対応
+9.4 / error / テスト対応あり・実行未確認
 
 An event expression with comma-separated components used as a positional actual argument must be parenthesized.
 
@@ -21533,6 +21898,7 @@ An event expression with comma-separated components used as a positional actual 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_comma_event_expression_positional_actual.sv](../tests/ch9/test_illegal_comma_event_expression_positional_actual.sv): event 型の形式引数 ev と x を持つシーケンス s_ev に、括弧で囲んだ (posedge clk, negedge clk) を位置指定の第1実引数として渡す ok_a（30行目）を合法な対照とし、括弧なしで posedge clk, negedge clk, a と渡す bad_a（31行目）を違反とする。:expected_stderr_regex: は31行目を指す。 区別: 括弧なしのコンマ区切りイベント式を1つの実引数として受け付ける誤実装は bad_a を受理して失敗する。括弧付きのイベント式実引数まで拒否する実装は30行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-9.4-EXTRACT-DELAY-CONTROL-DEFINITION
 
@@ -22069,7 +22435,7 @@ The event-controlling process blocks until the sequence end point and resumes af
 
 ### SV2023-9.4.2.4-EXTRACT-STATIC-SEQUENCE-ARGUMENTS
 
-9.4.2.4 / error / テスト未対応
+9.4.2.4 / error / 実行確認あり
 
 Sequence event arguments must be static; automatic variables as such arguments are errors.
 
@@ -22077,6 +22443,7 @@ Sequence event arguments must be static; automatic variables as such arguments a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_automatic_variable_as_sequence_event_argument.sv](../tests/ch9/test_illegal_automatic_variable_as_sequence_event_argument.sv): イベント制御でシーケンス s_hi を待つ2箇所のうち、initial 手続きの @(s_hi(flag))（static 変数、38行目）を合法な対照とし、automatic タスク wait_hi の自動変数の引数 v を渡す @(s_hi(v))（32行目）を違反とする。:expected_stderr_regex: は32行目を指す。 区別: シーケンスの実引数が static かを検査しない誤実装は32行目を受理して失敗する。イベント制御でのシーケンス使用自体を拒否する実装は38行目でもエラーを出すが、32行目で報告しない実装との区別は32行目で付き、static 変数の対照で過剰な拒否も分かる。
 
 ### SV2023-9.4.3-EXTRACT-WAIT-GRAMMAR
 
@@ -22258,7 +22625,7 @@ Thread classifications include each initial/always variant, each fork parallel s
 
 ### SV2023-9.6-EXTRACT-PROCESS-CONTROL-GRAMMAR
 
-9.6 / normal / テスト未対応
+9.6 / normal / テスト対応あり・実行未確認
 
 Process controls use wait(expression)/wait fork/wait_order forms or disable task/block/fork forms, with required terminating semicolons/action blocks.
 
@@ -22266,10 +22633,11 @@ Process controls use wait(expression)/wait fork/wait_order forms or disable task
 
 規定の性質: `definition`。
 
+- [test_process_control_statement_forms.sv](../tests/ch9/test_process_control_statement_forms.sv): wait (go) n1 = 5（文付き）と wait (go);（空文）が go=1 になる時刻2で進み、wait fork が時刻5の子の終了を待ち、wait_order (e1, e2) を文と else 付き（順序どおりで passed=1、時刻7）、else だけ（e2 が先で failed=1、時刻8）、空の action block（順序どおりで時刻11に進む）の3形で使い、disable worker_t・disable blk_b・disable fork でそれぞれタスク、ブロック、子プロセスを止める。各形の結果を時刻付きで8行に表示する。 区別: wait の空文形を誤って次の文まで待つ実装は n2 や時刻が変わる。wait_order の else を順序どおりでも実行する、または順序違反で実行しない実装は passed/failed の値が変わる。disable のタスク形・ブロック形・fork 形のどれかが働かない実装は task_done=1、blk_done=1、child_done=3 になり、対応する行が変わる。
 
 ### SV2023-9.6-EXTRACT-PROCESS-CONTROL-RELATIONS
 
-9.6 / normal / テスト未対応
+9.6 / normal / 実行確認あり
 
 wait fork waits for child termination, named disable acts on named activity independent of dynamic parentage, and disable fork targets dynamic descendants under their detailed rules.
 
@@ -22277,6 +22645,7 @@ wait fork waits for child termination, named disable acts on named activity inde
 
 規定の性質: `definition`。
 
+- [test_process_control_wait_disable_parentage.sv](../tests/ch9/test_process_control_wait_disable_parentage.sv): p1 が join_none で子 A(3)・B(7) を作って wait fork し、p2 が時刻0に作った子（20まで）を待たずに 7 で戻る。p1 の block victim（#10）を無関係の p2 が 9 に disable すると p1 は 9 で後続へ進む。block outer 内で p1 の子が親の block outer を 11 に disable する。p1 が子 C（14に表示予定）を作って 12 に disable fork すると C は表示されず、p2 の子は 20 に表示する。期待出力は '7 p1 wait fork returned'、'9 p1 after victim'、'11 p1 after outer'、'12 p1 after disable fork'、'20 p2 child done' で、'victim not disabled'・'outer not disabled'・'child C not disabled' は出ない。 区別: wait fork が他プロセスの子まで待つ誤実装なら wait fork returned が 20 になる。名前付き disable が親子関係のある範囲にしか効かない誤実装なら victim が 17 に表示され、子から親ブロックを disable できなければ outer not disabled が 14 に出る。disable fork が他プロセスの子まで止めれば '20 p2 child done' が欠け、子を止めなければ child C が 14 に出る。
 
 ### SV2023-9.6.1-EXTRACT-NO-ACTIVITY-END
 
@@ -22443,7 +22812,7 @@ Disabling a block that is not executing has no effect.
 
 ### SV2023-9.6.2-EXTRACT-SELF-DISABLE
 
-9.6.2 / error / テスト未対応
+9.6.2 / error / 実行確認あり
 
 A task/block may disable itself; named blocks inside functions can be disabled but functions themselves cannot be disabled.
 
@@ -22451,6 +22820,7 @@ A task/block may disable itself; named blocks inside functions can be disabled b
 
 規定の性質: `mandatory`。
 
+- [test_illegal_disable_function.sv](../tests/ch9/test_illegal_disable_function.sv): タスク stop_t が自身を disable（24行目）、名前付きブロック run_b が自身を disable（39行目）、関数 clip の中の名前付きブロック lim_b を disable（29行目）する3つを合法な対照とし、関数 clip が disable clip で自身を指す32行目を違反とする。:expected_stderr_regex: は32行目を指す。 区別: 関数を disable の対象として許す誤実装は32行目を受理して失敗する。タスクやブロックの自己 disable、関数内の名前付きブロックの disable まで拒否する実装は24・29・39行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-9.6.3-EXTRACT-DISABLE-ALL-DESCENDANTS
 
@@ -22606,7 +22976,7 @@ A function cannot suspend its own current process.
 
 ### SV2023-9.7-EXTRACT-NO-PROCESS-EXTENSION
 
-9.7 / error / テスト未対応
+9.7 / error / テスト対応あり・実行未確認
 
 Attempting to extend process is a compilation error.
 
@@ -22614,10 +22984,11 @@ Attempting to extend process is a compilation error.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_class_extends_process.sv](../tests/ch9/test_illegal_class_extends_process.sv): process 型の変数 p の宣言と process::self() の代入（25・27行目）を合法な対照とし、class my_proc_c extends process（21行目）を違反とする。:expected_stderr_regex: は21行目を指す。 区別: 組込みクラス process を通常のクラスとして継承させる誤実装は21行目を受理して失敗する。process 型の変数や self() まで扱えない実装は25・27行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-9.7-EXTRACT-NO-PROCESS-NEW
 
-9.7 / error / テスト未対応
+9.7 / error / テスト対応あり・実行未確認
 
 Process objects are created internally at process spawn; user new cannot create a process and reports an error.
 
@@ -22625,6 +22996,7 @@ Process objects are created internally at process spawn; user new cannot create 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_new_process_object.sv](../tests/ch9/test_illegal_new_process_object.sv): process 型の変数 p へ process::self() を代入する24行目を合法な対照とし、process 型の変数 q へ new を代入する25行目を違反とする。:expected_stderr_regex: は25行目を指す。 区別: process に暗黙のコンストラクタを与えて new を受け付ける誤実装は25行目を受理して失敗する。process::self() による取得まで拒否する実装は24行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-9.7-EXTRACT-PROCESS-FINAL
 
@@ -22834,7 +23206,7 @@ status() returns WAITING when the process is blocked in a blocking statement.
 
 ### SV2023-10.2-EXTRACT-ASSIGNMENT-KINDS
 
-10.2 / normal / テスト未対応
+10.2 / normal / 実行確認あり
 
 Continuous assignment drives net/variable values over time; procedural assignment updates variable storage that retains the value until another permitted assignment.
 
@@ -22842,10 +23214,11 @@ Continuous assignment drives net/variable values over time; procedural assignmen
 
 規定の性質: `definition`。
 
+- [test_continuous_drives_procedural_holds.sv](../tests/ch10/test_continuous_drives_procedural_holds.sv): net_sum（wire）と var_prod（変数）を a,b から連続代入し、held には手続き代入で a+b を入れる。a を 10 に変えた後は net_sum=14 var_prod=40 だが held=7 のまま、held=a-b の再代入と b=1 の後は net_sum=11 var_prod=10 held=6。期待出力は '1: net_sum=7 var_prod=12 held=7'、'2: net_sum=14 var_prod=40 held=7'、'3: net_sum=11 var_prod=10 held=6'。 区別: 連続代入を一度だけ評価する誤実装なら2・3行目の net_sum/var_prod が 7/12 のまま。手続き代入をオペランド変化に追従させる誤実装なら2行目の held が 14 になる。net と変数の両方の連続代入の値と、手続き代入の保持を別々の値で比べている。
 
 ### SV2023-10.2-EXTRACT-ASSIGNMENT-OPERATORS
 
-10.2 / normal / テスト未対応
+10.2 / normal / 実行確認あり
 
 Assignment has an expression RHS and target LHS separated by = or the nonblocking <= operator according to context.
 
@@ -22853,10 +23226,11 @@ Assignment has an expression RHS and target LHS separated by = or the nonblockin
 
 規定の性質: `definition`。
 
+- [test_continuous_drives_procedural_holds.sv](../tests/ch10/test_continuous_drives_procedural_holds.sv): 連続代入 assign の = 、手続きの blocking 代入 = 、nonblocking 代入 <= を、右辺が式（a + 8'd1、a + 8'd2、a * b）の形で使う。同じ時刻で blk = a+1 と nb <= a+2 を実行し直後に copy_blk=blk、copy_nb=nb を読む。期待出力は '4: blk=11 copy_blk=11 nb=12 copy_nb=0' と、連続代入の各行の値。 区別: <= を blocking として扱う誤実装なら copy_nb が 12 になり、= を nonblocking として扱えば copy_blk が 0 になる。右辺の式を評価しなければ blk/nb の値が 11/12 にならない。
 
 ### SV2023-10.2-EXTRACT-CONTINUOUS-LHS
 
-10.2 / error / テスト未対応
+10.2 / error / 実行確認あり
 
 A continuous LHS may be a scalar/vector net/variable, permitted constant packed bit/part selection or recursively nested concatenation of those under target restrictions.
 
@@ -22864,10 +23238,11 @@ A continuous LHS may be a scalar/vector net/variable, permitted constant packed 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_continuous_assign_nonconstant_bit_select.sv](../tests/ch10/test_illegal_continuous_assign_nonconstant_bit_select.sv): 表10-1の連続代入の左辺の形をすべて合法な対照として使う（ネット w、変数 v、ネットの定数ビット選択 wv[0]・定数部分選択 wv[3:1]、packed 変数の定数ビット選択 pv[7]・定数部分選択 pq[3:0]、入れ子の連結 {cc, {lo, hi}}）。変数 idx を添字とするビット選択 sel_w[idx] への連続代入（41行目）を違反とし、:expected_stderr_regex: はその行を指す。 区別: 連続代入の左辺に非定数の選択を許す誤実装は41行目を受理して失敗する。表の形のどれか（変数、packed 変数の選択、入れ子の連結など）を拒否する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.2-EXTRACT-PROCEDURAL-CONTINUOUS-KINDS
 
-10.2 / normal / テスト未対応
+10.2 / normal / 実行確認あり
 
 assign/deassign and force/release are the additional procedural continuous assignment forms.
 
@@ -22875,10 +23250,11 @@ assign/deassign and force/release are the additional procedural continuous assig
 
 規定の性質: `definition`。
 
+- [test_procedural_continuous_assign_and_force_forms.sv](../tests/ch10/test_procedural_continuous_assign_and_force_forms.sv): 手続き内の assign v = src + 1 で v が src に追従し（3→6）、その間の手続き代入 v=0 は効かず（6）、deassign 後は値を保持して（6）次の手続き代入で 9 になる。force w = src+2（net）と force v = src-1（変数）は src=8 への変更に追従し（w=10 v=7）、release 後は w がドライバ値 8 に戻り v は 7 を保持する。期待出力はこの8行。 区別: assign を一度だけ評価する誤実装（Icarus 13.0 の挙動）なら2行目が v=3 になる。assign 中の手続き代入を通せば3行目が 0、deassign で値を失えば4行目が変わる。force が追従しなければ7行目が w=7 v=4 のまま、release 後に net をドライバへ戻さなければ8行目の w が 10 のままになる。
 
 ### SV2023-10.2-EXTRACT-PROCEDURAL-LHS
 
-10.2 / error / テスト未対応
+10.2 / error / 実行確認あり
 
 A procedural LHS may be a variable, packed bit/part selection, memory word, array/element/slice or recursively nested concatenation of valid variable LHSs.
 
@@ -22886,10 +23262,11 @@ A procedural LHS may be a variable, packed bit/part selection, memory word, arra
 
 規定の性質: `mandatory`。
 
+- [test_illegal_procedural_assign_concatenation_with_net.sv](../tests/ch10/test_illegal_procedural_assign_concatenation_with_net.sv): 表10-1の手続き的代入の左辺の形をすべて合法な対照として使う（変数 v、ビット選択 pv[2]、部分選択 pv[7:4]、メモリ語 mem[1]、配列 arr、要素 arr[0]、スライス arr[1:2]、入れ子の連結 {p, {q, v}}）。ネット n を含む連結 {p, n} への代入（41行目）を違反とし、:expected_stderr_regex: はその行を指す。 区別: 連結の各要素が変数かを検査しない誤実装は41行目を受理して失敗する。配列・スライス・メモリ語など表の形のどれかを拒否する実装は対照の行でエラーを出し、指定行と一致しない（Icarus 13.0 はこの理由で数えない）。
 
 ### SV2023-10.2-EXTRACT-TIME-UNIT-ASSIGNMENT
 
-10.2 / normal / テスト未対応
+10.2 / normal / 実行確認あり
 
 Assignment timing controls may specify time units under time-literal rules.
 
@@ -22897,6 +23274,7 @@ Assignment timing controls may specify time units under time-literal rules.
 
 規定の性質: `permission`。
 
+- [test_assignment_delays_with_time_units.sv](../tests/ch10/test_assignment_delays_with_time_units.sv): `timescale 1ns/1ps で、文の遅延 #1500ps、blocking の代入内遅延 #0.002us、nonblocking の代入内遅延 #250ps、連続代入の遅延 #750ps を時間単位付きで書き、$realtime（ns）を表示する。期待出力は 'a=1 at 1.500'、'r_intra=1 at 3.500'、r_nb は 3.700 で 0・3.800 で 1、w は 2.200 で 0・2.300 で 1。 区別: 時間単位を無視して数値を ns とみなす誤実装なら #1500ps が 1500ns となり a の行が 1500.000 になる。0.002us を 2ns に換算しなければ r_intra の時刻が変わり、250ps・750ps を正しく換算しなければ r_nb と w の 0→1 が別の時刻で起きる。
 
 ### SV2023-10.3-EXTRACT-ADVISORY-PACKED-DIMENSION
 
@@ -22981,7 +23359,7 @@ A net declaration assignment is a continuous driver declared together with the n
 
 ### SV2023-10.3.1-EXTRACT-NO-INTERCONNECT-INITIALIZER
 
-10.3.1 / error / テスト未対応
+10.3.1 / error / テスト対応あり・実行未確認
 
 An interconnect net cannot have a declaration assignment.
 
@@ -22989,6 +23367,7 @@ An interconnect net cannot have a declaration assignment.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interconnect_declaration_assignment.sv](../tests/ch10/test_illegal_interconnect_declaration_assignment.sv): ネット宣言代入を持つ wire w = 1'b1 と、宣言代入なしで src_m の出力と dst_m の入力をつなぐ interconnect ic_ok を合法な対照とし、interconnect ic_bad = w（33行目）を違反とする。:expected_stderr_regex: は33行目を指す。 区別: interconnect に他のネットと同じくネット宣言代入を許す誤実装は33行目を受理して失敗する。interconnect の宣言自体やポート間の接続を拒否する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.3.1-EXTRACT-ONE-NET-DECLARATION
 
@@ -23003,7 +23382,7 @@ A net can have only one declaration assignment because it can be declared only o
 
 ### SV2023-10.3.2-EXTRACT-ATOMIC-NET-WHOLE
 
-10.3.2 / error / テスト未対応
+10.3.2 / error / テスト対応あり・実行未確認
 
 Continuous assignment to a user-nettype atomic net must drive its entire value, with no selection/indexing inside that nettype data value.
 
@@ -23011,6 +23390,7 @@ Continuous assignment to a user-nettype atomic net must drive its entire value, 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_continuous_assign_member_of_user_nettype.sv](../tests/ch10/test_illegal_continuous_assign_member_of_user_nettype.sv): packed 構造体 pair_t をデータ型とするユーザ定義ネット型 pair_net のネットについて、pn_ok 全体への連続代入を合法な対照とし、pn_bad のメンバ lo を選ぶ連続代入 assign pn_bad.lo（34行目）を違反とする。:expected_stderr_regex: は34行目を指す。 区別: ユーザ定義ネット型のネットの一部（メンバ）への連続代入を許す誤実装は34行目を受理して失敗する。ユーザ定義ネット型のネットへの連続代入自体を拒否する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.3.2-EXTRACT-NET-MULTIPLE-DRIVERS
 
@@ -23046,7 +23426,7 @@ A continuous assignment reevaluates its whole RHS when an operand changes and dr
 
 ### SV2023-10.3.2-EXTRACT-VARIABLE-DECLARED-FIRST
 
-10.3.2 / error / テスト未対応
+10.3.2 / error / 実行確認あり
 
 A continuous-assigned variable must be explicitly declared before the statement; a net may be explicit or eligible for implicit declaration.
 
@@ -23054,10 +23434,11 @@ A continuous-assigned variable must be explicitly declared before the statement;
 
 規定の性質: `mandatory`。
 
+- [test_illegal_continuous_assign_variable_declared_after.sv](../tests/ch10/test_illegal_continuous_assign_variable_declared_after.sv): 先に宣言した変数 v_ok への連続代入と、宣言のない n_imp への連続代入（暗黙のスカラーネット）を合法な対照とし、連続代入（28行目）の後で宣言する変数 v_late（29行目）を違反とする。:expected_stderr_regex: は代入の28行目または宣言の29行目を指す。 区別: 変数を連続代入の後で宣言してもよいとする誤実装は受理して失敗する。暗黙のネット宣言まで拒否する実装は27行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.3.2-EXTRACT-VARIABLE-ONE-DRIVER
 
-10.3.2 / error / テスト未対応
+10.3.2 / error / テスト対応あり・実行未確認
 
 A variable may have only one continuous/primitive-output/module-output driver and cannot also have a declaration initializer or procedural assignment.
 
@@ -23065,6 +23446,10 @@ A variable may have only one continuous/primitive-output/module-output driver an
 
 規定の性質: `mandatory`。
 
+- [test_illegal_variable_two_continuous_assignments.sv](../tests/ch10/test_illegal_variable_two_continuous_assignments.sv): 変数 v への2つの連続代入（29・30行目、:expected_stderr_regex: は (29|30)）。ネット n への2つの連続代入と変数 u への1つの連続代入は合法な対照。
+- [test_illegal_variable_driven_by_gate_and_module_output.sv](../tests/ch10/test_illegal_variable_driven_by_gate_and_module_output.sv): 変数 v を buf ゲート g_v の出力（33行目）とインスタンス u_v の出力ポート（34行目）で駆動する（:expected_stderr_regex: は (33|34)）。ゲートだけで駆動される p とモジュール出力だけで駆動される q は合法な対照。
+- [test_illegal_continuously_assigned_variable_with_initializer.sv](../tests/ch10/test_illegal_continuously_assigned_variable_with_initializer.sv): 初期化子 1'b0 を持つ変数 v（24行目）への連続代入（27行目、:expected_stderr_regex: は (24|27)）。初期化子だけの u と連続代入だけの w は合法な対照。
+- [test_illegal_continuously_assigned_variable_procedural_write.sv](../tests/ch10/test_illegal_continuously_assigned_variable_procedural_write.sv): 連続代入される変数 v（24行目）への initial 手続きでの代入（28行目、:expected_stderr_regex: は (24|28)）。手続き的代入だけの u と連続代入だけの w は合法な対照。
 
 ### SV2023-10.3.3-EXTRACT-CONTINUOUS-PROPAGATION-DELAY
 
@@ -23150,7 +23535,7 @@ A net declaration delay without an assignment delays value changes driven by oth
 
 ### SV2023-10.3.3-EXTRACT-USER-NETTYPE-ONE-DELAY
 
-10.3.3 / error / テスト未対応
+10.3.3 / error / テスト対応あり・実行未確認
 
 Only one delay is allowed on assignment to a user-nettype net or array of such nets, applied to any value change.
 
@@ -23158,6 +23543,7 @@ Only one delay is allowed on assignment to a user-nettype net or array of such n
 
 規定の性質: `mandatory`。
 
+- [test_illegal_user_nettype_assignment_two_delays.sv](../tests/ch10/test_illegal_user_nettype_assignment_two_delays.sv): 組込みのベクトルネット w2 への2つの遅延 #(1, 2) とユーザ定義ネット型 byte_net のネット bn_ok への1つの遅延 #2 を合法な対照とし、bn_bad への2つの遅延 #(1, 2)（34行目）を違反とする。:expected_stderr_regex: は34行目を指す。 区別: ユーザ定義ネット型にも組込みベクトルネットと同じく立上り・立下りの複数遅延を許す誤実装は34行目を受理して失敗する。ユーザ定義ネット型への遅延自体や組込みネットの2遅延を拒否する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.3.3-EXTRACT-VECTOR-FALL-DELAY
 
@@ -23206,7 +23592,7 @@ An unspecified drive strength defaults to strong1/strong0.
 
 ### SV2023-10.3.4-EXTRACT-NO-BOTH-HIGHZ
 
-10.3.4 / error / テスト未対応
+10.3.4 / error / 実行確認あり
 
 A drive strength cannot specify both highz1 and highz0 in either order.
 
@@ -23214,6 +23600,8 @@ A drive strength cannot specify both highz1 and highz0 in either order.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_drive_strength_highz1_highz0.sv](../tests/ch10/test_illegal_drive_strength_highz1_highz0.sv): assign (highz1, highz0) w_bad = a（28行目、:expected_stderr_regex: が指す）が違反。
+- [test_illegal_drive_strength_highz0_highz1.sv](../tests/ch10/test_illegal_drive_strength_highz0_highz1.sv): assign (highz0, highz1) w_bad = a（28行目、:expected_stderr_regex: が指す）が違反。
 
 ### SV2023-10.3.4-EXTRACT-ONE-STRENGTH-KEYWORDS
 
@@ -23728,7 +24116,7 @@ A variable force overrides procedural, continuous and procedural-assign drivers 
 
 ### SV2023-10.6.2-EXTRACT-NO-FORCE-MIXED-DRIVEN-VARIABLE
 
-10.6.2 / error / テスト未対応
+10.6.2 / error / テスト対応あり・実行未確認
 
 force/release cannot target a variable driven by a mixture of continuous and procedural assignment.
 
@@ -23736,10 +24124,11 @@ force/release cannot target a variable driven by a mixture of continuous and pro
 
 規定の性質: `mandatory`。
 
+- [test_illegal_force_mixed_driven_variable.sv](../tests/ch10/test_illegal_force_mixed_driven_variable.sv): packed 変数 mix のビット0を連続代入、ビット1を手続き的代入で書き（6.5 により独立した要素なので合法）、連続代入だけの c と手続き的代入だけの p の force を合法な対照とし、混在して代入される mix の force（35行目）を違反とする。:expected_stderr_regex: は35行目を指す。 区別: 代入の種類の混在を見ずに変数の force を許す誤実装は35行目を受理して失敗する。連続代入される変数や手続き的に書かれる変数の force まで拒否する実装は33・34行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.6.2-EXTRACT-NO-FORCE-VARIABLE-SELECT
 
-10.6.2 / error / テスト未対応
+10.6.2 / error / テスト対応あり・実行未確認
 
 force/release cannot select bits/parts of variables or inside user-defined nettype nets.
 
@@ -23747,6 +24136,8 @@ force/release cannot select bits/parts of variables or inside user-defined netty
 
 規定の性質: `mandatory`。
 
+- [test_illegal_force_variable_bit_select.sv](../tests/ch10/test_illegal_force_variable_bit_select.sv): force v[1] = a（34行目、:expected_stderr_regex: が指す）が違反。force v、force w[1]、force w[3:2]、force {w[0], u} は合法な対照。
+- [test_illegal_force_part_select_of_user_nettype.sv](../tests/ch10/test_illegal_force_part_select_of_user_nettype.sv): ユーザ定義ネット型 pair_net のネット pn の部分選択 force pn[3:0]（36行目、:expected_stderr_regex: が指す）が違反。pn 全体の force と wire の部分選択 wv[3:0] の force は合法な対照。
 
 ### SV2023-10.6.2-EXTRACT-RELEASE-CONTINUOUS-RESTORES
 
@@ -23987,7 +24378,7 @@ Subroutine input/output/inout value argument is an assignment-like context.
 
 ### SV2023-10.9-EXTRACT-CONSTANT-PATTERN-MEMBERS
 
-10.9 / error / テスト未対応
+10.9 / error / 実行確認あり
 
 Every member expression of a constant assignment pattern expression must be constant.
 
@@ -23995,6 +24386,7 @@ Every member expression of a constant assignment pattern expression must be cons
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_assignment_pattern_variable_member.sv](../tests/ch10/test_illegal_constant_assignment_pattern_variable_member.sv): パラメータの値（定数式が必要な文脈）に、リテラルと localparam Q からなる '{1, Q} を与える P2 を合法な対照とし、変数 v を含む '{Q, v} を与える R2（25行目）を違反とする。:expected_stderr_regex: は25行目を指す。 区別: 定数の代入パターンのメンバが定数式かを検査しない誤実装は25行目を受理して失敗する。パラメータの値としての代入パターン自体を拒否する実装は24行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.9-EXTRACT-LHS-PATTERN-POSITIONAL
 
@@ -24009,7 +24401,7 @@ An assignment pattern on an LHS must be positional; every member expression must
 
 ### SV2023-10.9-EXTRACT-NO-PATTERN-PORT-EXPRESSION
 
-10.9 / error / テスト未対応
+10.9 / error / 実行確認あり
 
 An assignment pattern expression cannot be used in a module/interface/program declaration port expression.
 
@@ -24017,6 +24409,7 @@ An assignment pattern expression cannot be used in a module/interface/program de
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assignment_pattern_in_port_expression.sv](../tests/ch10/test_illegal_assignment_pattern_in_port_expression.sv): 非 ANSI 形式のポート式として、2つの入力の連結 .p({a, b}) を持つ sub_ok_m（インスタンス u_ok で使う）を合法な対照とし、代入パターン式 ab_t'{a, b} をポート式に書く sub_bad_m（30行目）を違反とする。:expected_stderr_regex: は30行目を指す。 区別: ポート式に代入パターン式を許す誤実装は30行目を受理して失敗する。連結のポート式まで拒否する実装は26行目でエラーを出し、指定行と一致しない（Verilator 5.052 はこの理由で数えない）。
 
 ### SV2023-10.9-EXTRACT-PATTERN-CORRESPONDENCE
 
@@ -24124,7 +24517,7 @@ Assignment context determines the pattern braces interpretation.
 
 ### SV2023-10.9.1-EXTRACT-ARRAY-PATTERN-SHAPE
 
-10.9.1 / error / テスト未対応
+10.9.1 / error / 実行確認あり
 
 An array pattern must match element-by-element and brace-by-dimension, evaluating each expression in the corresponding element assignment context.
 
@@ -24132,6 +24525,8 @@ An array pattern must match element-by-element and brace-by-dimension, evaluatin
 
 規定の性質: `mandatory`。
 
+- [test_illegal_array_pattern_element_count_differs.sv](../tests/ch10/test_illegal_array_pattern_element_count_differs.sv): int a3[3] に '{4, 5}（27行目、:expected_stderr_regex: が指す）。ub = '{1, 1} と a3 = '{1'b1, 2, 3} は合法な対照。
+- [test_illegal_array_pattern_flat_for_two_dimensions.sv](../tests/ch10/test_illegal_array_pattern_flat_for_two_dimensions.sv): int m[2][2] に括弧1段の '{1, 2, 3, 4}（24行目、:expected_stderr_regex: が指す）。'{'{1, 2}, '{3, 4}} は合法な対照。
 
 ### SV2023-10.9.1-EXTRACT-ARRAY-STRUCT-TYPE-KEY
 
@@ -24168,7 +24563,7 @@ An array default key applies only where neither an index nor type key supplied t
 
 ### SV2023-10.9.1-EXTRACT-DEFAULT-TYPE-CONSTRAINT
 
-10.9.1 / error / テスト未対応
+10.9.1 / error / 実行確認あり
 
 For a simple-vector, matching-self-type or nonarray/nonstruct target, the default evaluates in that target assignment context and must be castable; an inapplicable default type is erroneous.
 
@@ -24176,6 +24571,7 @@ For a simple-vector, matching-self-type or nonarray/nonstruct target, the defaul
 
 規定の性質: `mandatory`。
 
+- [test_illegal_array_pattern_default_not_castable.sv](../tests/ch10/test_illegal_array_pattern_default_not_castable.sv): 配列でも構造体でもない要素型への default を3つの合法な対照で使い（クラスハンドルへの null、real への int 3、int への real 2.5、いずれもキャスト可能）、クラスハンドルの配列 hs への default: 5（35行目）を違反とする。:expected_stderr_regex: は35行目を指す。 区別: default の値が要素型へキャストできるかを検査しない誤実装は35行目を受理して失敗する。default の値を要素型の代入文脈で評価せず型の一致を求める実装は rs・is の対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.9.1-EXTRACT-INDEX-KEY-CONTEXT
 
@@ -24191,7 +24587,7 @@ An index key explicitly sets that element using its assignment context and a val
 
 ### SV2023-10.9.1-EXTRACT-NO-DUPLICATE-INDEX-KEY
 
-10.9.1 / error / テスト未対応
+10.9.1 / error / 実行確認あり
 
 The same index cannot appear twice in one array pattern.
 
@@ -24199,6 +24595,7 @@ The same index cannot appear twice in one array pattern.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_array_pattern_duplicate_index_key.sv](../tests/ch10/test_illegal_array_pattern_duplicate_index_key.sv): 各添字を高々1回ずつ与える2つの配列パターン（default 付きの '{0:1, 1:2, default:0} と順不同の '{3:7, 0:1, 1:2, 2:3}）を合法な対照とし、添字キー 0 を2回与える '{0:1, 2:5, 0:3, default:0}（29行目）を違反とする。:expected_stderr_regex: は29行目を指す。 区別: 同じ添字の重複を検査せず後の値で上書きする誤実装は29行目を受理して失敗する。添字キーの順不同や default との併用を拒否する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.9.1-EXTRACT-PATTERN-SIDE-EFFECT-COUNT
 
@@ -24213,7 +24610,7 @@ Evaluation counts for side-effecting expressions used by a type key, default key
 
 ### SV2023-10.9.1-EXTRACT-REPLICATION-ONE-DIMENSION
 
-10.9.1 / error / テスト未対応
+10.9.1 / error / 実行確認あり
 
 Each replication in an array pattern represents exactly one full array dimension.
 
@@ -24221,6 +24618,7 @@ Each replication in an array pattern represents exactly one full array dimension
 
 規定の性質: `mandatory`。
 
+- [test_illegal_array_pattern_replication_two_dimensions.sv](../tests/ch10/test_illegal_array_pattern_replication_two_dimensions.sv): 2×3 の配列 n について、次元ごとに1つずつの複製 '{2{'{3{y}}}} と、位置指定の部分パターンと内側の次元の複製を並べた '{'{y, y, y}, '{3{y}}} を合法な対照とし、2つの次元を1つの複製で埋める '{6{y}}（29行目）を違反とする。:expected_stderr_regex: は29行目を指す。 区別: 複製を要素の総数として平坦に展開する誤実装は29行目を受理して失敗する。入れ子の複製や部分パターン内の複製を拒否する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.9.1-EXTRACT-TYPE-KEY-PRIORITY
 
@@ -24246,7 +24644,7 @@ When an array/subarray type does not match a type key, matching descends recursi
 
 ### SV2023-10.9.2-EXTRACT-ALL-MEMBERS-COVERED
 
-10.9.2 / error / テスト未対応
+10.9.2 / error / 実行確認あり
 
 Every structure member must be covered by the assignment pattern rules.
 
@@ -24254,6 +24652,7 @@ Every structure member must be covered by the assignment pattern rules.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_struct_pattern_member_not_covered.sv](../tests/ch10/test_illegal_struct_pattern_member_not_covered.sv): 3つの int メンバ a・b・c の構造体について、メンバ名と default（'{a:1, default:0}）、全メンバに一致する型キー（'{int:4}）、位置指定（'{1, 2, 3}）で全メンバを覆うパターンを合法な対照とし、a と b だけを名前で与える '{a:1, b:2}（34行目）を違反とする。:expected_stderr_regex: は34行目を指す。 区別: 覆われないメンバを既定値で埋めて受理する誤実装は34行目を受理して失敗する。型キーや default によるメンバの網羅を認めない実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.9.2-EXTRACT-DEFAULT-UNMATCHED
 
@@ -24301,7 +24700,7 @@ A default key can fill structure members including nested structure members and 
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-DEFAULT-TYPE
 
-10.9.2 / error / テスト未対応
+10.9.2 / error / テスト対応あり・実行未確認
 
 For simple-vector, self-type-matching or nonarray/nonstruct members, default evaluates in each member assignment context and must be castable; invalid type application is an error.
 
@@ -24309,6 +24708,7 @@ For simple-vector, self-type-matching or nonarray/nonstruct members, default eva
 
 規定の性質: `mandatory`。
 
+- [test_illegal_struct_pattern_default_not_castable.sv](../tests/ch10/test_illegal_struct_pattern_default_not_castable.sv): メンバ int a・real r・クラスハンドル h の構造体について、h を名前で null にして default:3 を int と real のメンバだけに適用する '{h:null, default:3} を合法な対照とし、default:3 だけで h にも適用される '{default:3}（39行目）を違反とする。:expected_stderr_regex: は39行目を指す。 区別: default の値が各メンバの型へキャストできるかを検査しない誤実装は39行目を受理して失敗する（Verilator 5.052 は受理して C++ のコンパイルで失敗する）。名前キーが default より優先されることを無視する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-NAMED-TYPED
 
@@ -24359,7 +24759,7 @@ A positional structure pattern supplies members in declaration order, with each 
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-REPLICATION-COUNT
 
-10.9.2 / error / テスト未対応
+10.9.2 / error / 実行確認あり
 
 A structure pattern replication must supply exactly the required member count.
 
@@ -24367,6 +24767,7 @@ A structure pattern replication must supply exactly the required member count.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_struct_pattern_replication_count.sv](../tests/ch10/test_illegal_struct_pattern_replication_count.sv): 3つのメンバの構造体に対して '{3{7}} を合法な対照とし、2つの値しか与えない複製 '{2{7}}（30行目）を違反とする。:expected_stderr_regex: は30行目を指す。 区別: 複製の個数とメンバ数の一致を検査せず残りを既定値で埋める誤実装は30行目を受理して失敗する。構造体パターンの複製自体を拒否する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-SIDE-EFFECT-COUNT
 
@@ -24381,7 +24782,7 @@ Side-effecting type-key/default/replication expression evaluation count is undef
 
 ### SV2023-10.9.2-EXTRACT-TOPLEVEL-MEMBER-KEY
 
-10.9.2 / error / テスト未対応
+10.9.2 / error / テスト対応あり・実行未確認
 
 A named member key selects only a top-level member of that structure, not same-named nested members; its value must be castable in the member assignment context.
 
@@ -24389,6 +24790,8 @@ A named member key selects only a top-level member of that structure, not same-n
 
 規定の性質: `mandatory`。
 
+- [test_illegal_struct_pattern_key_names_nested_member.sv](../tests/ch10/test_illegal_struct_pattern_key_names_nested_member.sv): outer_t のパターンでメンバキー y（inner の中のメンバ）を使う '{x:1, y:2, default:0}（35行目、:expected_stderr_regex: が指す）。inner を名前で選び部分パターンを与える2つのパターンは合法な対照。
+- [test_illegal_struct_pattern_key_value_not_castable.sv](../tests/ch10/test_illegal_struct_pattern_key_value_not_castable.sv): クラスハンドルのメンバ h に h:5 を与える（36行目、:expected_stderr_regex: が指す）。'{a:2.5, r:1, h:null} は合法な対照。
 
 ### SV2023-10.9.2-EXTRACT-TYPE-OVER-DEFAULT
 
@@ -24452,7 +24855,7 @@ A comma-separated braced list of zero items denotes an array with zero elements.
 
 ### SV2023-10.10-EXTRACT-FIXED-COUNT-MATCH
 
-10.10 / error / テスト未対応
+10.10 / error / 実行確認あり
 
 The resulting count must equal a fixed destination array count.
 
@@ -24460,10 +24863,11 @@ The resulting count must equal a fixed destination array count.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_concat_count_differs_from_fixed_target.sv](../tests/ch10/test_illegal_unpacked_concat_count_differs_from_fixed_target.sv): 固定サイズ3の配列 a3 に3要素を与える {a2, b}（配列項目は要素数分）と {b, c, b}、要素数に制限のないキュー q への {a2, b, c} を合法な対照とし、a3 に4要素を与える {a2, b, c}（32行目）を違反とする。:expected_stderr_regex: は32行目を指す。 区別: 結果の要素数と固定サイズの目的配列の要素数の一致を検査せず切り詰める誤実装は32行目を受理して失敗する。配列項目を1要素と数える誤実装は {a2, b} を2要素とみなして対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.10-EXTRACT-ITEM-TYPE-REQUIREMENT
 
-10.10 / error / テスト未対応
+10.10 / error / テスト対応あり・実行未確認
 
 Every other item type or item without a self-determined type is illegal except literal null for event/class/interface-class/chandle/virtual-interface elements.
 
@@ -24471,6 +24875,8 @@ Every other item type or item without a self-determined type is illegal except l
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_concat_item_of_wrong_type.sv](../tests/ch10/test_illegal_unpacked_concat_item_of_wrong_type.sv): int 要素の a4 への {a2, h, b}（37行目、:expected_stderr_regex: が指す）。{a2, r, b} と hs = {null, h} は合法な対照。
+- [test_illegal_unpacked_concat_item_without_type.sv](../tests/ch10/test_illegal_unpacked_concat_item_without_type.sv): {a2, '{b, c}}（30行目、:expected_stderr_regex: が指す）。{a2, pair_t'{b, c}} は合法な対照。
 
 ### SV2023-10.10-EXTRACT-SINGLE-ELEMENT-ITEM
 
@@ -24486,7 +24892,7 @@ A self-determined concatenation item assignment compatible with the target eleme
 
 ### SV2023-10.10-EXTRACT-UNPACKED-CONCAT-CONTEXT
 
-10.10 / error / テスト未対応
+10.10 / error / テスト対応あり・実行未確認
 
 An unpacked array concatenation may appear only as the source in an assignment-like context targeting an outer fixed/dynamic/queue unpacked dimension; other destinations including associative arrays are illegal.
 
@@ -24494,10 +24900,12 @@ An unpacked array concatenation may appear only as the source in an assignment-l
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_concat_to_associative_array.sv](../tests/ch10/test_illegal_unpacked_concat_to_associative_array.sv): 連想配列 aa への {b, c}（34行目、:expected_stderr_regex: が指す）。固定サイズ f2、動的配列 d、キュー q への {b, c} は合法な対照。
+- [test_illegal_unpacked_concat_as_equality_operand.sv](../tests/ch10/test_illegal_unpacked_concat_as_equality_operand.sv): if (a3 == {a2, b})（32行目、:expected_stderr_regex: が指す）。a3 = {a2, b} と a3 == a3_ref は合法な対照。
 
 ### SV2023-10.10.1-EXTRACT-NO-CONCAT-REPLICATION-DEFAULT-TYPE
 
-10.10.1 / error / テスト未対応
+10.10.1 / error / テスト対応あり・実行未確認
 
 Unpacked array concatenation does not support pattern-style replication, default keys or explicit pattern typing; it can mix compatible individual values and arrays.
 
@@ -24505,6 +24913,9 @@ Unpacked array concatenation does not support pattern-style replication, default
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_concat_with_replication.sv](../tests/ch10/test_illegal_unpacked_concat_with_replication.sv): a3 = {3{b}}（30行目、:expected_stderr_regex: が指す）。a3 = '{3{b}} と a3 = {b, b, b} は合法な対照。
+- [test_illegal_unpacked_concat_with_default_key.sv](../tests/ch10/test_illegal_unpacked_concat_with_default_key.sv): a3 = {default: b}（29行目、:expected_stderr_regex: が指す）。a3 = '{default: b} と a3 = {a1, b, b} は合法な対照。
+- [test_illegal_unpacked_concat_with_type_prefix.sv](../tests/ch10/test_illegal_unpacked_concat_with_type_prefix.sv): a3 = trio_t{b, c, b}（29行目、:expected_stderr_regex: が指す）。a3 = trio_t'{b, c, b} と a3 = {b, c, b} は合法な対照。
 
 ### SV2023-10.10.1-EXTRACT-PATTERN-ELEMENT-CONTEXT
 
@@ -24532,7 +24943,7 @@ An assignment-like unpacked-array target makes braces an unpacked array concaten
 
 ### SV2023-10.10.3-EXTRACT-CONCAT-IN-NONDEFAULT-PATTERN
 
-10.10.3 / error / テスト未対応
+10.10.3 / error / テスト対応あり・実行未確認
 
 A nondefault assignment-pattern item has assignment-like context and may itself contain an unpacked concatenation; default items lack that permission.
 
@@ -24540,10 +24951,11 @@ A nondefault assignment-pattern item has assignment-like context and may itself 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_concat_in_default_pattern_item.sv](../tests/ch10/test_illegal_unpacked_concat_in_default_pattern_item.sv): 2×2 の配列 m の位置指定パターンで、各行（非 default の項目）を unpacked 配列の連結 {b, c} と {a1, b} で与える行を合法な対照とし、default 項目に {a1, b} を与える '{default: {a1, b}}（30行目）を違反とする。default 項目は代入類似の文脈でないので、{a1, b} は unpacked 配列 a1 を含む整数の連結になり違法。:expected_stderr_regex: は30行目を指す。 区別: default 項目も代入類似の文脈として unpacked 配列の連結を許す誤実装は30行目を受理して失敗する（Verilator 5.052 は受理する）。非 default の項目での unpacked 配列の連結を拒否する実装は29行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.10.3-EXTRACT-NO-NESTED-UNTYPED-CONCAT
 
-10.10.3 / error / テスト未対応
+10.10.3 / error / テスト対応あり・実行未確認
 
 An unpacked concatenation cannot directly contain another unpacked concatenation because its items require self-determined types; vector/string concatenations may be items.
 
@@ -24551,6 +24963,7 @@ An unpacked concatenation cannot directly contain another unpacked concatenation
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_concat_nested_in_unpacked_concat.sv](../tests/ch10/test_illegal_unpacked_concat_nested_in_unpacked_concat.sv): unpacked 配列の連結の項目として、ベクトルの連結 {c}（32ビット、1要素）と文字列の連結 {"ab", s2} を使う行を合法な対照とし、unpacked 配列の連結になるはずの {a1, b} を項目にする {a2, {a1, b}}（35行目）を違反とする。:expected_stderr_regex: は35行目を指す。 区別: 入れ子の unpacked 配列の連結を許す誤実装は {a2, {a1, b}} を4要素として受理して失敗する。内側の波括弧をすべて拒否する実装はベクトルや文字列の連結の対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.10.3-EXTRACT-TYPED-PATTERN-AS-CONCAT-ITEM
 
@@ -24590,7 +25003,7 @@ Multiple alias statements involving the same nets accumulate connectivity under 
 
 ### SV2023-10.11-EXTRACT-ALIAS-EQUAL-WIDTH
 
-10.11 / error / テスト未対応
+10.11 / error / テスト対応あり・実行未確認
 
 Every alias member must have the same bit count with packed-union-style overlays, independent of the host.
 
@@ -24598,6 +25011,7 @@ Every alias member must have the same bit count with packed-union-style overlays
 
 規定の性質: `mandatory`。
 
+- [test_illegal_alias_members_of_different_widths.sv](../tests/ch10/test_illegal_alias_members_of_different_widths.sv): 8ビットのネット w8 と4ビット2本の連結 {hi4, lo4}（合計8ビット）の alias を合法な対照とし、8ビットの x8 と4ビットの n4 の alias（29行目）を違反とする。:expected_stderr_regex: は29行目を指す。 区別: メンバのビット数の一致を検査しない（狭い方に合わせて重ねる）誤実装は29行目を受理して失敗する。連結のメンバを1つのネットとして幅を比べる誤実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.11-EXTRACT-ALIAS-GRAMMAR
 
@@ -24648,7 +25062,7 @@ Alias statements may appear wherever module instance statements are allowed.
 
 ### SV2023-10.11-EXTRACT-ALIAS-SAME-NET-TYPE
 
-10.11 / error / テスト未対応
+10.11 / error / テスト対応あり・実行未確認
 
 Aliased signals must have the same compatible net type; mismatched wired net types are a fatal error.
 
@@ -24656,6 +25070,7 @@ Aliased signals must have the same compatible net type; mismatched wired net typ
 
 規定の性質: `mandatory`。
 
+- [test_illegal_alias_wand_to_wor.sv](../tests/ch10/test_illegal_alias_wand_to_wor.sv): 2本の wire の alias と2本の wand の alias を合法な対照とし、wand のネット wa と wor のネット wo の alias（29行目）を違反とする。:expected_stderr_regex: は29行目を指す。 区別: ネット型の一致を検査せずポート接続と同じ緩い規則で受け付ける誤実装は29行目を受理して失敗する（Verilator 5.052 は受理する）。wire 以外のネット型の alias をすべて拒否する実装は wand 同士の対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-10.11-EXTRACT-ELABORATION-ALIAS
 
@@ -24670,7 +25085,7 @@ Aliasing occurs at elaboration, cannot be undone and does not change a net synta
 
 ### SV2023-10.11-EXTRACT-NO-ALIAS-VARIABLE-HIERARCHICAL
 
-10.11 / error / テスト未対応
+10.11 / error / 実行確認あり
 
 Variables and hierarchical references are prohibited in aliases; violating alias width/type/target rules is fatal.
 
@@ -24678,10 +25093,12 @@ Variables and hierarchical references are prohibited in aliases; violating alias
 
 規定の性質: `mandatory`。
 
+- [test_illegal_alias_of_variable.sv](../tests/ch10/test_illegal_alias_of_variable.sv): 変数 v とネット w の alias（26行目、:expected_stderr_regex: が指す）。alias a = b は合法な対照。
+- [test_illegal_alias_hierarchical_reference.sv](../tests/ch10/test_illegal_alias_hierarchical_reference.sv): ネット w と階層参照 u_sub.n の alias（30行目、:expected_stderr_regex: が指す）。alias a = b は合法な対照。
 
 ### SV2023-10.11-EXTRACT-NO-DUPLICATE-SELF-ALIAS
 
-10.11 / error / テスト未対応
+10.11 / error / テスト対応あり・実行未確認
 
 An individual signal cannot be aliased to itself and a specific alias relation cannot be specified more than once.
 
@@ -24689,6 +25106,8 @@ An individual signal cannot be aliased to itself and a specific alias relation c
 
 規定の性質: `mandatory`。
 
+- [test_illegal_alias_net_to_itself.sv](../tests/ch10/test_illegal_alias_net_to_itself.sv): alias s = s（27行目、:expected_stderr_regex: が指す）。alias a = b は合法な対照。
+- [test_illegal_alias_given_twice.sv](../tests/ch10/test_illegal_alias_given_twice.sv): alias p = q を2回（29・30行目、:expected_stderr_regex: は (29|30)）。alias r = s と alias s = t は合法な対照。
 
 ### SV2023-11.2-EXTRACT-EXPRESSION-DEFINITION
 
@@ -24762,7 +25181,7 @@ A qualifying method with constant receiver and inputs is constant; if it does no
 
 ### SV2023-11.2.1-EXTRACT-CONSTANT-OPERANDS
 
-11.2.1 / error / テスト未対応
+11.2.1 / error / 実行確認あり
 
 Constant expressions permit only constant numbers/strings/parameters, constant parameter selections, nonvoid constant functions and eligible constant system/built-in method calls, using the defined operators.
 
@@ -24770,6 +25189,7 @@ Constant expressions permit only constant numbers/strings/parameters, constant p
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_expression_with_variable.sv](../tests/ch11/test_illegal_constant_expression_with_variable.sv): 定数式が必要な localparam の値に、定数 5 とパラメータ P（A）、パラメータの部分選択 P[3:0] とビット選択 P[7]（B）、定数関数 twice(4) と定数システム関数 $clog2(16)（C）、文字列 "hi"（D）を使う行を合法な対照とし、変数 v を使う BAD（33行目）を違反とする。:expected_stderr_regex: は33行目を指す。 区別: 定数式のオペランドとして変数を許す（初期値で評価する）誤実装は33行目を受理して失敗する。パラメータの選択、定数関数、定数システム関数、文字列のどれかを定数式として認めない実装は29〜32行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.2.1-EXTRACT-CONSTANT-SYSTEM-PURE
 
@@ -24795,7 +25215,7 @@ Calls to the timescale system functions listed in 20.4, $timeunit and $timepreci
 
 ### SV2023-11.2.2-EXTRACT-AGGREGATE-COMPARE-EQUIVALENCE
 
-11.2.2 / error / テスト未対応
+11.2.2 / error / 実行確認あり
 
 Aggregate comparison operands must have equivalent types; assignment uses the separate assignment-compatibility rules.
 
@@ -24803,6 +25223,7 @@ Aggregate comparison operands must have equivalent types; assignment uses the se
 
 規定の性質: `mandatory`。
 
+- [test_illegal_compare_arrays_of_different_element_types.sv](../tests/ch11/test_illegal_compare_arrays_of_different_element_types.sv): 等価な型の unpacked 配列の比較 ia == ib（int[3] 同士）と ia != ic（範囲の異なる int[1:3]、要素数が同じなので等価）を合法な対照とし、int[3] と byte[3] を比べる ia == ba（32行目）を違反とする。:expected_stderr_regex: は32行目を指す。 区別: 集合式の比較で要素ごとの値の比較だけを行い型の等価性を検査しない誤実装は32行目を受理して失敗する。範囲だけが異なる配列（等価な型）の比較まで拒否する実装は31行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.2.2-EXTRACT-AGGREGATE-EXPRESSIONS
 
@@ -25719,7 +26140,7 @@ For a concatenated LHS, assignment-expression type is unsigned integral with wid
 
 ### SV2023-11.3.6-EXTRACT-NO-ASSIGNMENT-EVENT-CONTINUOUS
 
-11.3.6 / error / テスト未対応
+11.3.6 / error / テスト対応あり・実行未確認
 
 Assignment operators are prohibited in event expressions, procedural-continuous RHS expressions and expressions outside procedural statements.
 
@@ -25727,10 +26148,13 @@ Assignment operators are prohibited in event expressions, procedural-continuous 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assignment_operator_in_event_expression.sv](../tests/ch11/test_illegal_assignment_operator_in_event_expression.sv): @((a = b))（34行目、:expected_stderr_regex: が指す）。@(a or b) と c = (a = b) は合法な対照。
+- [test_illegal_assignment_operator_in_procedural_assign.sv](../tests/ch11/test_illegal_assignment_operator_in_procedural_assign.sv): assign v = (a = b)（29行目、:expected_stderr_regex: が指す）。assign v = a + b と c = (a = b) は合法な対照。
+- [test_illegal_assignment_operator_in_continuous_assign.sv](../tests/ch11/test_illegal_assignment_operator_in_continuous_assign.sv): モジュールの連続代入 assign w = (a = b)（29行目、:expected_stderr_regex: が指す）。assign w2 = a + b と initial 手続きの c = (a = b) は合法な対照。
 
 ### SV2023-11.3.6-EXTRACT-PARENTHESIZED-ASSIGNMENT
 
-11.3.6 / error / テスト未対応
+11.3.6 / error / 実行確認あり
 
 A blocking assignment without timing control may occur in an expression only when parenthesized.
 
@@ -25738,24 +26162,28 @@ A blocking assignment without timing control may occur in an expression only whe
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assignment_in_expression_without_parentheses.sv](../tests/ch11/test_illegal_assignment_in_expression_without_parentheses.sv): if (a = b)（28行目、:expected_stderr_regex: が指す）。if ((a = b)) と c = (a = 5) は合法な対照。
+- [test_illegal_assignment_in_expression_with_delay.sv](../tests/ch11/test_illegal_assignment_in_expression_with_delay.sv): c = (b = #1 a)（27行目、:expected_stderr_regex: が指す）。c = (b = a) と文 b = #1 a は合法な対照。
 
 ### SV2023-11.3.6-NO-TIMING-CONTROL
 
-11.3.6 / error / テスト未対応
+11.3.6 / error / 実行確認あり
 
 An assignment used within an expression may not contain timing control.
 
 合格基準: Reject an intra-assignment delay inside an enclosing expression.
 
+- [test_illegal_assignment_in_expression_with_delay.sv](../tests/ch11/test_illegal_assignment_in_expression_with_delay.sv): 式中のタイミング制御のない代入 c = (b = a) と、文としての遅延付き代入 b = #1 a を合法な対照とし、式中の代入に遅延を付けた c = (b = #1 a)（27行目）を違反とする。:expected_stderr_regex: は27行目を指す。 区別: 式中の代入にもタイミング制御を許す誤実装は27行目を受理して失敗する。文としての遅延付き代入や式中のタイミング制御のない代入を拒否する実装は25・26行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.3.6-PARENTHESES
 
-11.3.6 / error / テスト未対応
+11.3.6 / error / 実行確認あり
 
 An assignment within an expression must be enclosed in parentheses.
 
 合格基準: Reject an unparenthesized assignment in an expression.
 
+- [test_illegal_assignment_in_expression_without_parentheses.sv](../tests/ch11/test_illegal_assignment_in_expression_without_parentheses.sv): 式中の代入を自分の括弧で囲む if ((a = b)) と c = (a = 5) を合法な対照とし、if 文の括弧だけで代入自身の括弧がない if (a = b)（28行目）を違反とする。:expected_stderr_regex: は28行目を指す。 区別: if 文の括弧を代入の括弧とみなして if (a = b) を受け付ける誤実装は28行目を受理して失敗する。括弧付きの式中の代入まで拒否する実装は26・27行目でエラーを出し、指定行と一致しない（Icarus 13.0 はこの理由で数えない）。
 
 ### SV2023-11.4.1-EXTRACT-COMPOUND-ASSIGNMENT
 
@@ -28525,7 +28953,7 @@ A class/interface conditional with one literal null branch has the other branch 
 
 ### SV2023-11.4.11-EXTRACT-OTHER-EQUIVALENT-TYPES
 
-11.4.11 / error / テスト未対応
+11.4.11 / error / テスト対応あり・実行未確認
 
 For other conditional operand categories not handled by prior rules, both branch types must be equivalent.
 
@@ -28533,6 +28961,7 @@ For other conditional operand categories not handled by prior rules, both branch
 
 規定の性質: `mandatory`。
 
+- [test_illegal_conditional_operands_not_equivalent.sv](../tests/ch11/test_illegal_conditional_operands_not_equivalent.sv): 条件演算子の第2・第3オペランドとして、同じ型の int 配列2つ（ia と ib）、real と int、クラスハンドルと null を合法な対照とし、それまでの規則に当てはまらない int[3] と byte[3]（等価でない型）を使う sel ? ia : ba（39行目）を違反とする。:expected_stderr_regex: は39行目を指す。 区別: 集合型のオペランドに等価性を求めず代入互換などで受け付ける誤実装は39行目を受理して失敗する。等価な配列同士や、整数・実数・クラスの規則に当たる組合せまで拒否する実装は36〜38行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.11-EXTRACT-REAL-BRANCH-PROMOTION
 
@@ -28609,7 +29038,7 @@ Concatenation uses braces without an apostrophe, unlike assignment-pattern aggre
 
 ### SV2023-11.4.12-EXTRACT-CONCAT-SELECT
 
-11.4.12 / error / テスト未対応
+11.4.12 / error / テスト対応あり・実行未確認
 
 Concatenation bits may be read by selecting a packed [n-1:0] representation, but such a select cannot be an lvalue or equivalent assignment target.
 
@@ -28617,6 +29046,7 @@ Concatenation bits may be read by selecting a packed [n-1:0] representation, but
 
 規定の性質: `mandatory`。
 
+- [test_illegal_select_of_concatenation_as_lvalue.sv](../tests/ch11/test_illegal_select_of_concatenation_as_lvalue.sv): 連結の選択を読む c = {a, b}[3:2] と d = {a + b}[1:0]、連結全体への代入 {a, b} = 8'h3c を合法な対照とし、連結の部分選択への代入 {a, b}[3:2] = 2'b11（31行目）を違反とする。:expected_stderr_regex: は31行目を指す。 区別: 連結の選択を左辺として受け付ける誤実装は31行目を受理して失敗する（Verilator 5.052 は受理する）。連結の選択の読出しや連結全体の左辺を拒否する実装は28〜30行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.12-EXTRACT-CONCAT-VECTOR-VALUE
 
@@ -28633,7 +29063,7 @@ An integral concatenation is a packed vector usable in an expression or as a com
 
 ### SV2023-11.4.12-EXTRACT-NO-UNSIZED-CONSTANT-CONCAT
 
-11.4.12 / error / テスト未対応
+11.4.12 / error / 実行確認あり
 
 Ordinary unsized constant numbers are prohibited as concatenation operands because component width must be determined; unbased-unsized single-bit literal rules remain in 5.7.1.
 
@@ -28641,10 +29071,11 @@ Ordinary unsized constant numbers are prohibited as concatenation operands becau
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unsized_constant_in_concatenation.sv](../tests/ch11/test_illegal_unsized_constant_in_concatenation.sv): サイズ付き定数 4'd5 と変数だけの連結 {a, 4'd5}、{a, b} を合法な対照とし、サイズのない定数 5 を含む {a, 5}（27行目）を違反とする。:expected_stderr_regex: は27行目を指す。 区別: サイズのない定数を32ビットなどとして連結に受け付ける誤実装は27行目を受理して失敗する（Verilator 5.052 は警告だけで受理する）。サイズ付き定数の連結まで拒否する実装は25行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.12.1-EXTRACT-REPLICATION-CONSTANT-COUNT
 
-11.4.12.1 / error / テスト未対応
+11.4.12.1 / error / 実行確認あり
 
 Integral replication requires a nonnegative constant multiplier containing no x/z and produces that many copies of its inner concatenation.
 
@@ -28652,6 +29083,10 @@ Integral replication requires a nonnegative constant multiplier containing no x/
 
 規定の性質: `mandatory`。
 
+- [test_illegal_replication_nonconstant_multiplier.sv](../tests/ch11/test_illegal_replication_nonconstant_multiplier.sv): 変数 n を乗数とする整数の複製 {n{a}}（34行目、:expected_stderr_regex: が指す）。{3{a}}、{P{a}}、文字列の {n{s}} は合法な対照。
+- [test_illegal_replication_negative_multiplier.sv](../tests/ch11/test_illegal_replication_negative_multiplier.sv): 値が -1 のパラメータ M を乗数とする {{M{a}}, a}（30行目、:expected_stderr_regex: が指す）。{P{a}} と {{Z{a}}, a} は合法な対照。
+- [test_illegal_replication_multiplier_with_x.sv](../tests/ch11/test_illegal_replication_multiplier_with_x.sv): x ビットを含む乗数の {2'b1x{a}}（24行目、:expected_stderr_regex: が指す）。{2'b10{a}} は合法な対照。
+- [test_illegal_replication_multiplier_with_z.sv](../tests/ch11/test_illegal_replication_multiplier_with_z.sv): z ビットを含む乗数の {2'b1z{a}}（24行目、:expected_stderr_regex: が指す）。{2'b10{a}} は合法な対照。
 
 ### SV2023-11.4.12.1-EXTRACT-REPLICATION-EVALUATE-ONCE
 
@@ -28667,7 +29102,7 @@ A replication operand is evaluated exactly once even when the multiplier is zero
 
 ### SV2023-11.4.12.1-EXTRACT-REPLICATION-NO-TARGET
 
-11.4.12.1 / error / テスト未対応
+11.4.12.1 / error / 実行確認あり
 
 An expression containing integral replication cannot be an assignment LHS or output/inout port connection.
 
@@ -28675,10 +29110,13 @@ An expression containing integral replication cannot be an assignment LHS or out
 
 規定の性質: `mandatory`。
 
+- [test_illegal_replication_on_assignment_lhs.sv](../tests/ch11/test_illegal_replication_on_assignment_lhs.sv): 左辺 {b, {2{a}}} = 3'b101（27行目、:expected_stderr_regex: が指す）。{b, a} = 2'b10 と右辺の x = {2{b, a}} は合法な対照。
+- [test_illegal_replication_to_output_port.sv](../tests/ch11/test_illegal_replication_to_output_port.sv): 出力ポートへの .o({2{w}})（33行目、:expected_stderr_regex: が指す）。出力への .o({w1, w0}) と入力への .i({2{a}}) は合法な対照。
+- [test_illegal_replication_to_inout_port.sv](../tests/ch11/test_illegal_replication_to_inout_port.sv): inout ポートへの .io({2{w}})（29行目、:expected_stderr_regex: が指す）。.io({w1, w0}) は合法な対照。
 
 ### SV2023-11.4.12.1-EXTRACT-ZERO-REPLICATION-CONTEXT
 
-11.4.12.1 / error / テスト未対応
+11.4.12.1 / error / 実行確認あり
 
 A zero integral replication has zero width and is ignored, but is legal only within a concatenation that also has a positive-width operand.
 
@@ -28686,10 +29124,11 @@ A zero integral replication has zero width and is ignored, but is legal only wit
 
 規定の性質: `mandatory`。
 
+- [test_illegal_zero_replication_alone.sv](../tests/ch11/test_illegal_zero_replication_alone.sv): 正のサイズの b と並ぶゼロ複製 {{Z{a}}, b}（値は b と同じ）を合法な対照とし、ゼロ複製だけを要素とする連結 {{Z{a}}}（26行目）を違反とする。:expected_stderr_regex: は26行目を指す。 区別: 正のサイズの要素がない連結のゼロ複製を幅0の値として受け付ける誤実装は26行目を受理して失敗する。ゼロの乗数自体を拒否する実装は25行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.12.2-EXTRACT-NO-STRING-CONCAT-LHS
 
-11.4.12.2 / error / テスト未対応
+11.4.12.2 / error / テスト対応あり・実行未確認
 
 String concatenation is an expression and cannot be used as assignment LHS.
 
@@ -28697,6 +29136,7 @@ String concatenation is an expression and cannot be used as assignment LHS.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_string_concatenation_as_lvalue.sv](../tests/ch11/test_illegal_string_concatenation_as_lvalue.sv): 文字列の連結を右辺に使う s = {s1, " ", s2} を合法な対照とし、string 型の s1 と s2 の連結を左辺にする {s1, s2} = s（26行目）を違反とする。:expected_stderr_regex: は26行目を指す。 区別: 文字列の連結を整数の連結と同じく左辺に許す誤実装は26行目を受理して失敗する（Verilator 5.052 は受理する）。文字列の連結の式を拒否する実装は25行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.12.2-EXTRACT-NONCONSTANT-STRING-COUNT
 
@@ -28805,7 +29245,7 @@ inside returns one on any match, zero on no matches without ambiguous comparison
 
 ### SV2023-11.4.13-EXTRACT-INSIDE-SINGULAR-LHS
 
-11.4.13 / error / テスト未対応
+11.4.13 / error / テスト対応あり・実行未確認
 
 The inside left operand must be singular.
 
@@ -28813,6 +29253,7 @@ The inside left operand must be singular.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_inside_unpacked_array_operand.sv](../tests/ch11/test_illegal_inside_unpacked_array_operand.sv): 集合側に unpacked 配列を置く x inside {arr} と、左辺に配列の要素（単一の値）を置く arr[1] inside {[1:2]} を合法な対照とし、左辺に unpacked 配列 arr 自体を置く arr inside {1, 2, 3}（30行目）を違反とする。:expected_stderr_regex: は30行目を指す。 区別: 左辺の配列を要素ごとに比べるなどして受け付ける誤実装は30行目を受理して失敗する。集合側の配列の展開や要素を左辺にする形まで拒否する実装は28・29行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.13-EXTRACT-INSIDE-UNKNOWN
 
@@ -28840,7 +29281,7 @@ Set values/ranges may repeat and overlap; evaluation order among set expressions
 
 ### SV2023-11.4.13-EXTRACT-RANGE-RELATIONAL-TYPE
 
-11.4.13 / error / テスト未対応
+11.4.13 / error / テスト対応あり・実行未確認
 
 Range bounds must have a singular type supporting <= and >=.
 
@@ -28848,6 +29289,7 @@ Range bounds must have a singular type supporting <= and >=.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_inside_range_of_class_handles.sv](../tests/ch11/test_illegal_inside_range_of_class_handles.sv): 範囲を使わずにクラスハンドルを集合に置く h inside {h1, h2}（== で比較）と、関係演算子が定義された string の範囲 s inside {["cat":"eel"]} を合法な対照とし、クラスハンドルを範囲の境界にする h inside {[h1:h2]}（33行目）を違反とする。:expected_stderr_regex: は33行目を指す。 区別: 範囲の境界の型に <=、>= が定義されているかを検査しない誤実装は33行目を受理して失敗する（Verilator 5.052 は受理する）。ハンドルの集合要素や string の範囲まで拒否する実装は31・32行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.13-EXTRACT-RELATIVE-TOLERANCE
 
@@ -28920,7 +29362,7 @@ A dynamic destination resizes to the smallest element count containing the strea
 
 ### SV2023-11.4.14-EXTRACT-FIXED-NARROW-STREAM-ERROR
 
-11.4.14 / error / テスト未対応
+11.4.14 / error / テスト対応あり・実行未確認
 
 A fixed destination narrower than a source stream is an error; the stream is not silently high-bit truncated.
 
@@ -28928,6 +29370,7 @@ A fixed destination narrower than a source stream is an error; the stream is not
 
 規定の性質: `mandatory`。
 
+- [test_illegal_stream_into_narrower_fixed_target.sv](../tests/ch11/test_illegal_stream_into_narrower_fixed_target.sv): 3つの byte からなる24ビットのストリーム {>>{x, y, z}}（幅は精緻化時に決まる）を、同じ幅の bit [23:0] と広い bit [31:0]（右をゼロで埋める）へ代入する行を合法な対照とし、16ビットの shortint へ代入する行（32行目）を違反とする。:expected_stderr_regex: は32行目を指す。 区別: 狭い固定幅の目的へ上位ビットを切り捨てて代入する誤実装は32行目を受理して失敗する（Verilator 5.052 は受理する）。広い目的へのゼロ埋めや同じ幅の代入まで拒否する実装は30・31行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.14-EXTRACT-FIXED-WIDE-RIGHT-ZEROS
 
@@ -28944,7 +29387,7 @@ A fixed destination wider than a stream receives that stream left aligned with z
 
 ### SV2023-11.4.14-EXTRACT-NO-UNCAST-STREAM-OPERAND
 
-11.4.14 / error / テスト未対応
+11.4.14 / error / 実行確認あり
 
 Using a streaming concatenation as an expression operand without a prior bit-stream cast is an error.
 
@@ -28952,6 +29395,7 @@ Using a streaming concatenation as an expression operand without a prior bit-str
 
 規定の性質: `mandatory`。
 
+- [test_illegal_stream_as_operand_without_cast.sv](../tests/ch11/test_illegal_stream_as_operand_without_cast.sv): ストリーミング連結を代入の右辺に置く swapped = {<<8{x, y}}、ビットストリーム型 w16_t へのキャストの後に + 1 する sum = w16_t'({<<8{x, y}}) + 1、別のストリーミング連結の中に置く {<<8{{<<8{x, y}}}} を合法な対照とし、キャストなしで + のオペランドにする {<<8{x, y}} + 1（32行目）を違反とする。:expected_stderr_regex: は32行目を指す。 区別: ストリーミング連結を通常の整数のオペランドとして受け付ける誤実装は32行目を受理して失敗する。キャストしたストリーミング連結や入れ子のストリーミング連結まで拒否する実装は30・31行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.14-EXTRACT-PACK-TWO-STEPS
 
@@ -28990,7 +29434,7 @@ A streaming concatenation may be an assignment source/target, a bit-stream cast 
 
 ### SV2023-11.4.14-EXTRACT-STREAM-DESTINATION
 
-11.4.14 / error / テスト未対応
+11.4.14 / error / テスト対応あり・実行未確認
 
 A source streaming concatenation requires a bit-stream data-object destination or another streaming concatenation.
 
@@ -28998,6 +29442,7 @@ A source streaming concatenation requires a bit-stream data-object destination o
 
 規定の性質: `mandatory`。
 
+- [test_illegal_stream_into_real_target.sv](../tests/ch11/test_illegal_stream_into_real_target.sv): ストリーミング連結を右辺とする代入の目的として、int、byte の unpacked 配列 ba（ビットストリーム型）、ストリーミング連結 {>>{p, q}} を合法な対照とし、ビットストリーム型でない real 変数 r を目的にする r = {>>{x, y}}（33行目）を違反とする。:expected_stderr_regex: は33行目を指す。 区別: ストリームを数値として real へ暗黙に変換する誤実装は33行目を受理して失敗する（Verilator 5.052 は受理する）。unpacked 配列やストリーミング連結を目的として拒否する実装は31・32行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.14-EXTRACT-STREAM-GRAMMAR
 
@@ -29093,7 +29538,7 @@ A nonnull object streams data members rather than handle bits, in declaration or
 
 ### SV2023-11.4.14.1-EXTRACT-STREAM-ACCESS-CHECK
 
-11.4.14.1 / error / テスト未対応
+11.4.14.1 / error / テスト対応あり・実行未確認
 
 Streaming a class handle with local/protected members inaccessible at that operator location is illegal.
 
@@ -29101,6 +29546,7 @@ Streaming a class handle with local/protected members inaccessible at that opera
 
 規定の性質: `mandatory`。
 
+- [test_illegal_stream_class_with_local_member.sv](../tests/ch11/test_illegal_stream_class_with_local_member.sv): 公開メンバだけの pub_c のハンドルをモジュールでストリームする v = {>>{p}} と、local メンバ s を持つ sec_c のメソッド pack の中で this をストリームする（s にアクセスできる）呼出しを合法な対照とし、モジュールで sec_c のハンドル q をストリームする u = {>>{q}}（46行目）を違反とする。:expected_stderr_regex: は46行目を指す。 区別: ストリーミング演算子の位置でのアクセス可否を検査せず local メンバも並べる誤実装は46行目を受理して失敗する。クラスハンドルのストリーミングや、メソッド内での this のストリーミングまで拒否する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.14.1-EXTRACT-STREAM-LEFT-TO-RIGHT
 
@@ -29175,7 +29621,7 @@ A streaming slice block size defaults to one bit.
 
 ### SV2023-11.4.14.2-EXTRACT-SLICE-SIZE-TYPE
 
-11.4.14.2 / error / テスト未対応
+11.4.14.2 / error / テスト対応あり・実行未確認
 
 A supplied slice size is a positive constant integral expression or simple type whose bit size supplies the block size; nonpositive constant size is an error.
 
@@ -29183,6 +29629,8 @@ A supplied slice size is a positive constant integral expression or simple type 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_stream_slice_size_zero.sv](../tests/ch11/test_illegal_stream_slice_size_zero.sv): 値 0 のパラメータ S をスライスサイズにする {<<S{w}}（30行目、:expected_stderr_regex: が指す）。{<<4{w}} と {<<byte{w}} は合法な対照。
+- [test_illegal_stream_slice_size_negative.sv](../tests/ch11/test_illegal_stream_slice_size_negative.sv): 値 -2 のパラメータ S をスライスサイズにする {<<S{w}}（31行目、:expected_stderr_regex: が指す）。{<<4{w}} と {<<byte{w}} は合法な対照。
 
 ### SV2023-11.4.14.2-EXTRACT-STREAM-LEFT-BLOCK-REVERSE
 
@@ -29245,7 +29693,7 @@ Null handles are skipped during packing and unpacking; object hierarchies must a
 
 ### SV2023-11.4.14.3-EXTRACT-UNPACK-SOURCE
 
-11.4.14.3 / error / テスト未対応
+11.4.14.3 / error / テスト対応あり・実行未確認
 
 A streaming assignment target requires a bit-stream-type source or another streaming concatenation.
 
@@ -29253,6 +29701,7 @@ A streaming assignment target requires a bit-stream-type source or another strea
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpack_from_real_source.sv](../tests/ch11/test_illegal_unpack_from_real_source.sv): ストリーミング連結を目的とする代入の右辺として、ビットストリーム型の w16 と別のストリーミング連結 {<<8{w16}} を合法な対照とし、real 変数 r を右辺にする {>>{x, y}} = r（29行目）を違反とする。:expected_stderr_regex: は29行目を指す。 区別: real の値を整数に変換してから展開する誤実装は29行目を受理して失敗する（Verilator 5.052 は受理する）。ストリーミング連結を右辺とする展開まで拒否する実装は28行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.14.3-EXTRACT-UNPACK-STATE-CONVERSION
 
@@ -29268,7 +29717,7 @@ Unpacking between two/four-state streams and targets uses the corresponding type
 
 ### SV2023-11.4.14.3-EXTRACT-UNPACK-TOO-SHORT
 
-11.4.14.3 / error / テスト未対応
+11.4.14.3 / error / テスト対応あり・実行未確認
 
 If the source supplies fewer bits than the streaming target requires, an error is generated.
 
@@ -29276,6 +29725,7 @@ If the source supplies fewer bits than the streaming target requires, an error i
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpack_source_too_short.sv](../tests/ch11/test_illegal_unpack_source_too_short.sv): 24ビットを必要とする目的 {>>{x, y, z}}（幅は精緻化時に決まる）に、24ビットの s24 と、余りを右から捨てる32ビットの s32 を代入する行を合法な対照とし、16ビットの s16 を代入する行（31行目）を違反とする。:expected_stderr_regex: は31行目を指す。 区別: 不足するビットを0で補って展開する誤実装は31行目を受理して失敗する（Verilator 5.052 は受理する）。右辺が目的より長い場合まで拒否する実装は30行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.4.14.4-EXTRACT-EXPLICIT-WITH-EXTENT
 
@@ -29314,7 +29764,7 @@ Streaming with accepts a bracketed integral single-index, colon range or indexed
 
 ### SV2023-11.4.14.4-EXTRACT-WITH-ARRAY-TYPE
 
-11.4.14.4 / error / テスト未対応
+11.4.14.4 / error / テスト対応あり・実行未確認
 
 The receiver before streaming with must be a one-dimensional unpacked array, including a queue.
 
@@ -29322,6 +29772,8 @@ The receiver before streaming with must be a one-dimensional unpacked array, inc
 
 規定の性質: `mandatory`。
 
+- [test_illegal_stream_with_on_scalar.sv](../tests/ch11/test_illegal_stream_with_on_scalar.sv): int 変数 n への n with [0 +: 2]（31行目、:expected_stderr_regex: が指す）。fa with [1 +: 2] と q with [0 +: 2] は合法な対照。
+- [test_illegal_stream_with_on_two_dimensional_array.sv](../tests/ch11/test_illegal_stream_with_on_two_dimensional_array.sv): 2次元の unpacked 配列 m への m with [0 +: 1]（31行目、:expected_stderr_regex: が指す）。fa with [0 +: 2] と m[1] with [0 +: 2] は合法な対照。
 
 ### SV2023-11.4.14.4-EXTRACT-WITH-DYNAMIC-RESIZE
 
@@ -30297,7 +30749,7 @@ A signed high-impedance sign bit is replicated when extending width.
 
 ### SV2023-11.9-EXTRACT-TAGGED-CONTEXT-TYPE
 
-11.9 / error / テスト未対応
+11.9 / error / テスト対応あり・実行未確認
 
 A tagged union expression requires its type from context and only permits that type member names and corresponding member-value types.
 
@@ -30305,6 +30757,9 @@ A tagged union expression requires its type from context and only permits that t
 
 規定の性質: `mandatory`。
 
+- [test_illegal_tagged_expression_without_context_type.sv](../tests/ch11/test_illegal_tagged_expression_without_context_type.sv): $display("%p", tagged Valid 5)（35行目、:expected_stderr_regex: が指す）。vi への代入、vint_t'(tagged Valid 4)、vi = sel ? tagged Valid 6 : tagged Invalid は合法な対照。
+- [test_illegal_tagged_expression_member_not_in_type.sv](../tests/ch11/test_illegal_tagged_expression_member_not_in_type.sv): vint_t の変数 vi への tagged Count 5（38行目、:expected_stderr_regex: が指す）。vi への tagged Valid 23、tagged Invalid、cnt_t の ci への tagged Count 4 は合法な対照。
+- [test_illegal_tagged_expression_value_of_wrong_type.sv](../tests/ch11/test_illegal_tagged_expression_value_of_wrong_type.sv): int のメンバ Valid にクラスハンドル h を与える tagged Valid h（37行目、:expected_stderr_regex: が指す）。tagged Valid k（int）と tagged Obj h は合法な対照。
 
 ### SV2023-11.9-EXTRACT-TAGGED-DEFAULT-UNDEFINED
 
@@ -30353,7 +30808,7 @@ A tagged union may be initialized by a tagged expression with an initializer leg
 
 ### SV2023-11.10-EXTRACT-LITERAL-INTEGRAL-OPERAND
 
-11.10 / normal / テスト未対応
+11.10 / normal / 実行確認あり
 
 A string literal is an integral constant sequence of eight-bit character codes; applicable operators treat its whole packed value numerically.
 
@@ -30361,10 +30816,11 @@ A string literal is an integral constant sequence of eight-bit character codes; 
 
 規定の性質: `mandatory`。
 
+- [test_string_literal_operands_as_numbers.sv](../tests/ch11/test_string_literal_operands_as_numbers.sv): 文字列リテラルをオペランドに使う: "AZ"+16'd200=4222（下位文字から上位へ桁上がり）、"Ab">"B"=1（16'h4162 > 8'h42、文字列順なら偽）、"BA">"AB"=1・"AB">"BA"=0、"ab"==16'h6162=1・16'h6261 とは 0、"AB">>8=0041、"a"&8'hdf=41。 区別: 文字列を文字単位の比較やテキストとして扱う誤実装なら "Ab">"B" が 0 になり、文字ごとに独立して加算すれば桁上がりがなく 415a+c8 の結果が 4222 にならない。文字コードの並び順を逆にすれば == の結果が逆になり、>> 8 の結果が 0042 になる。
 
 ### SV2023-11.10-EXTRACT-LITERAL-LEFT-ZERO-PADDING
 
-11.10 / normal / テスト未対応
+11.10 / normal / 実行確認あり
 
 Assigning a string literal into a wider vector pads high bits with zeros as for unsigned value assignment.
 
@@ -30372,6 +30828,7 @@ Assigning a string literal into a wider vector pads high bits with zeros as for 
 
 規定の性質: `mandatory`。
 
+- [test_string_literal_operands_as_numbers.sv](../tests/ch11/test_string_literal_operands_as_numbers.sv): 48ビットの bit ベクトルに "Hi" を、4状態の 32ビット logic に "xyz" を代入し、比較用に同じ48ビットへ符号なし数値 16'h4869 を代入して %h で表示する。期待出力は 'wide_str=000000004869 wide_num=000000004869 lv=0078797a'。 区別: 左側を空白文字（8'h20）や x で埋める、または右詰めでなく左詰めにする誤実装なら wide_str や lv の上位桁が 0 でなくなる（例えば 202020204869 や xx78797a、48690000...）。符号なし数値の代入結果 wide_num と同じ値になることも比較している。
 
 ### SV2023-11.10.1-EXTRACT-PACKED-STRING-OPERATIONS
 
@@ -30453,7 +30910,7 @@ The repeated expression/constant grammar supports primary/unary/binary/condition
 
 ### SV2023-11.11-EXTRACT-GENVAR-CONSTANT-CONTEXT
 
-11.11 / error / テスト未対応
+11.11 / error / 実行確認あり
 
 A genvar identifier may be a constant primary only within a loop generate construct.
 
@@ -30461,6 +30918,7 @@ A genvar identifier may be a constant primary only within a loop generate constr
 
 規定の性質: `mandatory`。
 
+- [test_illegal_genvar_outside_loop_generate.sv](../tests/ch11/test_illegal_genvar_outside_loop_generate.sv): genvar g を for 生成ループの中の localparam Q = g * 3 で使う形と、ループのブロックへの添字 L[1].Q を合法な対照とし、ループの外のモジュールの localparam OUT = g + 1（26行目）で g を使う行を違反とする。:expected_stderr_regex: は26行目を指す。 区別: genvar をループの外でも定数として（最後の値などで）評価する誤実装は26行目を受理して失敗する。ループの中の genvar の参照まで拒否する実装は23行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.11-EXTRACT-MINTYPMAX-EXPRESSION-USE
 
@@ -30487,7 +30945,7 @@ A min:typ:max expression supplies three alternatives in minimum/typical/maximum 
 
 ### SV2023-11.11-EXTRACT-TYPE-PRIMARY-OPERATORS
 
-11.11 / error / テスト未対応
+11.11 / error / 実行確認あり
 
 A type-reference constant primary may specify a static cast type, or participate in ==/!=/===/!==; other operators are prohibited.
 
@@ -30495,6 +30953,7 @@ A type-reference constant primary may specify a static cast type, or participate
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_reference_with_relational_operator.sv](../tests/ch11/test_illegal_type_reference_with_relational_operator.sv): 型参照を ==、!=、===、!== のオペランドにする4つの localparam と、静的キャストの型にする type(a)'(3.7) を合法な対照とし、関係演算子 < のオペランドにする type(a) < type(int)（29行目）を違反とする。:expected_stderr_regex: は29行目を指す。 区別: 型参照に任意の演算子を許す誤実装は29行目を受理して失敗する。4つの等価・ケース等価演算子のどれか、またはキャストの型としての型参照を拒否する実装は対照の行でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.12-EXTRACT-LET-CLOCK-INFERENCE
 
@@ -30580,7 +31039,7 @@ let declarations have local declaration scope and may be provided through packag
 
 ### SV2023-11.12-EXTRACT-LET-MISSING-CLOCK-ERROR
 
-11.12 / error / テスト未対応
+11.12 / error / 実行確認あり
 
 If a let sampled-value call requires a clock that cannot be inferred in the instantiation context, an error is required.
 
@@ -30588,6 +31047,7 @@ If a let sampled-value call requires a clock that cannot be inferred in the inst
 
 規定の性質: `mandatory`。
 
+- [test_illegal_let_sampled_value_without_clock.sv](../tests/ch11/test_illegal_let_sampled_value_without_clock.sv): 本体で時計なしの $past(a) を呼ぶ let past_a を、時計 posedge clk を推論できる always @(posedge clk) の中で使う行を合法な対照とし、イベント制御がなく既定のクロッキングもない initial 手続きの中で使う r3 = past_a（37行目）を違反とする。:expected_stderr_regex: は使用の37行目または let 本体の30行目を指す。 区別: 時計を推論できない場所での let の使用を、例えば時計なしの値として受け付ける誤実装は受理して失敗する。always @(posedge clk) での推論まで失敗する実装は合法な使用でもエラーを出すが、その場合も報告行は30行目になりうるので、違法な使用を削った設計にエラーがないことを確認している（Verilator 5.052 で確認）。
 
 ### SV2023-11.12-EXTRACT-LET-SUBSTITUTION
 
@@ -30614,7 +31074,7 @@ A let is a port-customized expression template instantiable in other expressions
 
 ### SV2023-11.12-EXTRACT-LET-TYPED-ACTUAL-CAST
 
-11.12 / error / テスト未対応
+11.12 / error / テスト対応あり・実行未確認
 
 Other typed formals require a self-determined cast-compatible actual, cast to the formal type before substitution.
 
@@ -30622,10 +31082,11 @@ Other typed formals require a self-determined cast-compatible actual, cast to th
 
 規定の性質: `mandatory`。
 
+- [test_illegal_let_typed_formal_not_cast_compatible.sv](../tests/ch11/test_illegal_let_typed_formal_not_cast_compatible.sv): byte 型の形式引数 x を持つ let low_byte に、byte へキャスト互換な int の w と real の r を渡す行を合法な対照とし、キャスト互換でないクラスハンドル h を渡す行（36行目）を違反とする。:expected_stderr_regex: は36行目を指す。実引数を形式引数の型へキャストしてから代入するという意味は合法な対照での定義で、診断はキャスト互換性で行う。 区別: 型付きの形式引数を型なしと同じく扱い実引数をそのまま置き換える誤実装は、h + 1 の形で36行目を受理しうる、または別の行で報告して失敗する。int や real の実引数まで拒否する実装（型の一致を求める）は34・35行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.12-EXTRACT-NO-HIERARCHICAL-LET
 
-11.12 / error / テスト未対応
+11.12 / error / テスト対応あり・実行未確認
 
 A let declaration cannot be referenced hierarchically.
 
@@ -30633,10 +31094,11 @@ A let declaration cannot be referenced hierarchically.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_hierarchical_reference_to_let.sv](../tests/ch11/test_illegal_hierarchical_reference_to_let.sv): モジュールの let both を同じスコープで使う形と、generate ブロック g の let inv_and を g の中で使う形を合法な対照とし、モジュールから g.inv_and(a) と階層参照する行（33行目）を違反とする。:expected_stderr_regex: は33行目を指す。 区別: let を階層名で参照できるとする誤実装は33行目を受理して失敗する（Verilator 5.052 は受理する）。generate ブロック内の let の宣言や使用まで拒否する実装は29・30行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-11.12-EXTRACT-NO-RECURSIVE-LET
 
-11.12 / error / テスト未対応
+11.12 / error / 実行確認あり
 
 Recursive let instantiations are prohibited.
 
@@ -30644,6 +31106,7 @@ Recursive let instantiations are prohibited.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_recursive_let.sv](../tests/ch11/test_illegal_recursive_let.sv): 先に宣言した let dec を本体で2回使う let twice_dec を合法な対照とし、本体で自分自身を使う let countdown（25行目）を違反とする。:expected_stderr_regex: は宣言の25行目またはその使用の29行目を指す。 区別: let の再帰的な展開を（例えば深さを制限して）許す誤実装は受理して失敗する。他の let を本体で使う入れ子の展開まで拒否する実装は24行目または28行目でエラーを出し、指定行と一致しない。
 
 ### SV2023-12.2-EXTRACT-PROCEDURAL-CONTEXT
 
@@ -30875,7 +31338,7 @@ unique/unique0 specify mutually exclusive conditions, permitting parallel condit
 
 ### SV2023-12.4.2-EXTRACT-WHOLE-CHAIN-QUALIFIER
 
-12.4.2 / error / テスト未対応
+12.4.2 / error / テスト対応あり・実行未確認
 
 An if qualifier applies to the whole chain and cannot be inserted immediately after else within that chain; nested qualified if needs a separate block.
 
@@ -30883,6 +31346,9 @@ An if qualifier applies to the whole chain and cannot be inserted immediately af
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unique_if_else_unique0_if.sv](../tests/ch12/test_illegal_unique_if_else_unique0_if.sv): unique で始まる if-else-if 列の最初の else の直後に unique0 を書いた行（32行目）を違法とし、:expected_stderr_regex: はその行を指す。同じ初期ブロックの最初の文は、unique if の else 側に begin-end を置いてその中に unique0 if を入れた形で、規格が入れ子の修飾付き if に求める書き方であり合法である。設計中の違反は32行目だけである。 区別: 修飾子を if-else-if 列全体ではなく個々の if に付くものとして扱い、else の直後の unique0 を受理する処理系は「違法な設計が受理された」で失敗する。begin-end で包んだ合法な入れ子（29行目付近）でエラーを出し32行目で出さない処理系も regex に一致しない。
+- [test_illegal_unique0_if_else_priority_if.sv](../tests/ch12/test_illegal_unique0_if_else_priority_if.sv): unique0 で始まる if-else-if 列の最初の else の直後に priority を書いた26行目が唯一の違反で、regex は26行目を指す。unique0 を書いた列の先頭（25行目）は合法。 区別: 修飾子を列全体でなく個々の if に付くものとして扱い、else 直後の priority を受理する処理系は「違法な設計が受理された」で失敗する（Verilator 5.052 がそうである）。列の先頭の unique0 は合法で、違反は26行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
+- [test_illegal_priority_if_second_else_unique_if.sv](../tests/ch12/test_illegal_priority_if_second_else_unique_if.sv): priority で始まる if-else-if 列で、最初の else if は修飾なし、2番目の else の直後に unique を書いた27行目が唯一の違反。regex は27行目を指す。最初の else の後だけでなく列の途中の else の後にも修飾子を置けないことを確かめる。 区別: 列の途中の else 直後の修飾子を受理する処理系は受理されて失敗する。修飾子のない else if（26行目）は合法で、違反は27行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-12.4.2.1-EXTRACT-COMB-LATCH-FLUSH-POINT
 
@@ -30963,7 +31429,7 @@ A detected violation schedules a pending Observed report on the current process 
 
 ### SV2023-12.4.2.2-EXTRACT-CALLER-PROCESS-INDEPENDENCE
 
-12.4.2.2 / normal / テスト未対応
+12.4.2.2 / normal / テスト対応あり・実行未確認
 
 A qualifier check in a task/function called by different processes maintains independent violation state for each calling process; one process flushing cannot erase another process report.
 
@@ -30971,6 +31437,8 @@ A qualifier check in a task/function called by different processes maintains ind
 
 規定の性質: `mandatory`。
 
+- [test_unique_violation_in_function_per_calling_process.sv](../tests/ch12/test_unique_violation_in_function_per_calling_process.sv): 関数 pick の unique if（37行目）を、t=1 にプロセス p1 と p2 が u = v = 1 で呼んでどちらも失敗する。p1 は flush 点なしに進み、p2 は同じ時刻に ->> で起動される ev を待って再開し、v = 0 で再び呼ぶ。regex は37行目を名指しする報告がちょうど1つ（p1 の分）であることを要求する。stdout は p2 1 3 1 3 at 2 と p1 1 3。 区別: 呼び出しプロセスごとに独立した報告を持たず共通のキューにする処理系は、p2 の flush で p1 の報告も消して0件になる。flush しない処理系は p2 の分も報告して2件になる。どちらも regex に一致しない。報告の形式は規格がツールに任せるが、各行の報告がその行を名指しすることを前提に、regex は報告される行の名指しを要求し、報告されない行の名指しを拒否する。
+- [test_unique_violation_in_function_comb_callers.sv](../tests/ch12/test_unique_violation_in_function_comb_callers.sv): always_comb の b1 と b2 が関数 f_if（unique if、35行目）を呼ぶ。t=1 に b1 は c = 1、d = 1（d は NBA で !c に追従）で一度失敗し、d の変化で再起動されて合格する。b2 は e = f = 1 で失敗し再起動されない。regex は35行目を名指しする報告がちょうど1つ（b2 の分）であることを要求する。stdout は s1=1 t1=3 s2=1 t2=3。 区別: 呼び出しプロセスごとに報告を分けない処理系は、b1 の再起動による flush で b2 の報告も消して0件になる。flush しない処理系は b1 の分も報告して2件になる。どちらも regex に一致しない。報告の形式は規格がツールに任せるが、各行の報告がその行を名指しすることを前提に、regex は名指しがちょうど1つであることを要求する。
 
 ### SV2023-12.5-EXTRACT-CASE-COMMON-SIGN
 
@@ -31074,7 +31542,7 @@ The controlling expression evaluates exactly once before any item expressions.
 
 ### SV2023-12.5-EXTRACT-ONE-OPTIONAL-DEFAULT
 
-12.5 / error / テスト未対応
+12.5 / error / 実行確認あり
 
 A case default is optional and cannot occur more than once.
 
@@ -31082,6 +31550,7 @@ A case default is optional and cannot occur more than once.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_case_two_default_items.sv](../tests/ch12/test_illegal_case_two_default_items.sv): 最初の case 文は default 項目を持たず（省略可能で合法）、2つ目の case 文は default 項目を2つ持つ（27行目と29行目）。:expected_stderr_regex: は2つ目の default の行（29行目）を指す。Verilator 5.052 はこの行で 'Multiple default statements in case statement' と報告する。 区別: default の重複を禁止しない処理系（Icarus 13.0 はそうである）は設計を受理して失敗する。default を必須とみなす処理系は default の無い最初の case 文（23行目付近）でエラーを出し、29行目を指す regex と一致しない。
 
 ### SV2023-12.5-EXTRACT-RUNTIME-CASE-EXPRESSIONS
 
@@ -31280,7 +31749,7 @@ Case violations use exactly the if qualifier per-process deferred Observed queue
 
 ### SV2023-12.5.3.2-EXTRACT-CASE-CALLER-INDEPENDENCE
 
-12.5.3.2 / normal / テスト未対応
+12.5.3.2 / normal / テスト対応あり・実行未確認
 
 Case violations from different calling processes remain independent exactly as if violations under 12.4.2.2.
 
@@ -31288,10 +31757,12 @@ Case violations from different calling processes remain independent exactly as i
 
 規定の性質: `mandatory`。
 
+- [test_unique_violation_in_function_per_calling_process.sv](../tests/ch12/test_unique_violation_in_function_per_calling_process.sv): 関数 pick_case の unique case（41行目）を、t=1 に p1 と p2 が u = v = 1 で呼んでどちらも失敗する。p1 は flush 点なしに進み、p2 は同じ時刻の @(ev) から再開して v = 0 で再び呼ぶ。regex は41行目を名指しする報告がちょうど1つであることを要求する。 区別: case の違反報告を呼び出しプロセスごとに分けない処理系は0件、flush しない処理系は2件となり、regex に一致しない。12.4.2.2 の if の場合と同じ状況を case で確かめる。報告の形式は規格がツールに任せるが、各行の報告がその行を名指しすることを前提に、regex は報告される行の名指しを要求し、報告されない行の名指しを拒否する。
+- [test_unique_violation_in_function_comb_callers.sv](../tests/ch12/test_unique_violation_in_function_comb_callers.sv): always_comb の b1 と b2 が関数 f_case（unique case、39行目）を呼ぶ。t=1 に b1 の呼び出しはグリッチで一度失敗し再起動で合格し、b2 の呼び出しは e = f = 1 で失敗し再起動されない。regex は39行目を名指しする報告がちょうど1つであることを要求する。 区別: case の違反報告を呼び出しプロセスごとに分けない処理系は0件、flush しない処理系は2件となり、regex に一致しない。報告の形式は規格がツールに任せるが、各行の報告がその行を名指しすることを前提に、regex は名指しがちょうど1つであることを要求する。
 
 ### SV2023-12.5.4-EXTRACT-CASE-INSIDE-DIRECTION
 
-12.5.4 / normal / テスト未対応
+12.5.4 / normal / テスト対応あり・実行未確認
 
 case inside compares its controlling expression as left operand against each item range-list as right operand of inside, preserving asymmetric wildcards.
 
@@ -31299,10 +31770,11 @@ case inside compares its controlling expression as left operand against each ite
 
 規定の性質: `mandatory`。
 
+- [test_case_inside_wildcard_side_and_unknown_result.sv](../tests/ch12/test_case_inside_wildcard_side_and_unknown_result.sv): wild() は項目側の ?(z) と x を don't-care として 011/001 を 3'b0?1 に、110/100 を 3'b1x0 に一致させ、111 は default D になる。side() は既知の項目 3'b010 に対して case 式側に z や x を入れた 0z0/0x0/z10 を与え、すべて N（不一致）になることを期待出力で比較する。 区別: case 式を inside の右オペランドとして扱う（ワイルドカードを式側にも認める）誤実装では side 0z0、side 0x0、side z10 が M に変わる。項目側の x/z を don't-care にしない誤実装では wild 011/001/110/100 が D に変わる。
 
 ### SV2023-12.5.4-EXTRACT-CASE-INSIDE-EVALUATION
 
-12.5.4 / normal / テスト未対応
+12.5.4 / normal / テスト対応あり・実行未確認
 
 case inside uses its normal/unique/priority case expression/item evaluation order rules.
 
@@ -31310,10 +31782,11 @@ case inside uses its normal/unique/priority case expression/item evaluation orde
 
 規定の性質: `mandatory`。
 
+- [test_case_inside_evaluation_order_by_qualifier.sv](../tests/ch12/test_case_inside_evaluation_order_by_qualifier.sv): 評価のたびに文字を trace に追加する関数で case 式（E）と各項目（a,b,c）を書き、通常の case inside は 'Eab r=2'（式を1回最初に、項目を書かれた順に、最初の一致 b で停止）、default を途中に置いた例は 'Eab r=0'（探索中 default を無視）、priority case inside は 'Eab r=2'、unique case inside は最初が E で E/a/b/c が各1回、r=2 であることを比較する。 区別: 一致後も項目を評価し続けたり項目を複数回評価したりする誤実装（Verilator 5.052 は Eabcab）では normal match 行が変わる。default で探索を止める誤実装では normal default 行が 'Ea r=0' になる。unique で一致後の評価を打ち切る、または式を項目の後に評価する誤実装では unique 行の first や c の回数が変わる。
 
 ### SV2023-12.5.4-EXTRACT-CASE-INSIDE-TRUE-ONLY
 
-12.5.4 / normal / テスト未対応
+12.5.4 / normal / テスト対応あり・実行未確認
 
 A case inside item matches only when inside yields one; zero/x do not match, and default executes if every item fails.
 
@@ -31321,6 +31794,7 @@ A case inside item matches only when inside yields one; zero/x do not match, and
 
 規定の性質: `mandatory`。
 
+- [test_case_inside_wildcard_side_and_unknown_result.sv](../tests/ch12/test_case_inside_wildcard_side_and_unknown_result.sv): after_x() で 00x/00z は最初の項目 3'b000 との inside が x になるので不一致として次の項目 3'b00? に進み Q を選び、01x（全項目 0）と 0x0（両項目 x）は default R を実行する。side() の 0z0/0x0/z10 も inside が x になり default N になる。000 は P、001 は Q で 1 の場合の一致も比較している。 区別: inside が x の項目を一致とみなす誤実装では after_x 00x/00z が P に、side 0z0 などが M に変わる。x で探索を打ち切る誤実装では after_x 00x/00z が R に、全項目が不一致のとき default を実行しない誤実装では after_x 01x/0x0 の R が出ない。
 
 ### SV2023-12.6-EXTRACT-CONSTANT-MATCH
 
@@ -31383,7 +31857,7 @@ A pattern match yields a known one-bit zero/one, never x/z, and successful ident
 
 ### SV2023-12.6-EXTRACT-PATTERN-KNOWN-TYPE
 
-12.6 / error / テスト未対応
+12.6 / error / テスト対応あり・実行未確認
 
 Patterns and their nested components have types determined by the matched expression; constant patterns must be integral and all matches are statically type checked.
 
@@ -31391,10 +31865,12 @@ Patterns and their nested components have types determined by the matched expres
 
 規定の性質: `mandatory`。
 
+- [test_illegal_case_matches_member_not_in_type.sv](../tests/ch12/test_illegal_case_matches_member_not_in_type.sv): case (a) matches の a は Small と Wide のメンバーを持つ a_t 型で、2つ目の項目 tagged Big .w は別の型 b_t のメンバー名を使う（38行目）。regex は38行目を指す。
+- [test_illegal_pattern_constant_of_real_type.sv](../tests/ch12/test_illegal_pattern_constant_of_real_type.sv): real メンバー R に対して定数パターン 1.5（real 型）を使う29行目を違法とし、同じメンバーに識別子パターン .r を使う30行目は合法の対照である。regex は29行目を指す。
 
 ### SV2023-12.6-EXTRACT-PATTERN-LOCAL-IDENTIFIERS
 
-12.6 / error / テスト未対応
+12.6 / error / テスト対応あり・実行未確認
 
 Each pattern introduces a scope with implicit position-typed variables whose identifiers must be unique within that pattern.
 
@@ -31402,6 +31878,7 @@ Each pattern introduces a scope with implicit position-typed variables whose ide
 
 規定の性質: `mandatory`。
 
+- [test_illegal_pattern_identifier_used_twice.sv](../tests/ch12/test_illegal_pattern_identifier_used_twice.sv): 1つのパターン tagged Pair '{.x, .x} の中で識別子 x を2つの位置に使う32行目を違法とする。31行目は異なる識別子 .x, .y を使う合法なパターン、33行目は別の case 項目で x を再利用する合法な例で、パターンごとに新しいスコープができることを示す対照である。regex は32行目を指す。 区別: 1つのパターン内の識別子の重複を検査しない処理系は設計を受理して失敗する。パターンのスコープを case 文全体で共有する誤実装は33行目（別の項目での x の再利用）でエラーを出し、32行目を指す regex に一致しない。
 
 ### SV2023-12.6-EXTRACT-STRUCT-PATTERN-MATCH
 
@@ -31453,7 +31930,7 @@ The controller evaluates once, patterns are tested in exact source order ignorin
 
 ### SV2023-12.6.1-EXTRACT-MATCHES-CASE-TYPE
 
-12.6.1 / error / テスト未対応
+12.6.1 / error / テスト対応あり・実行未確認
 
 The controlling expression has a known type matching every case pattern type and is statically checked.
 
@@ -31461,6 +31938,7 @@ The controlling expression has a known type matching every case pattern type and
 
 規定の性質: `mandatory`。
 
+- [test_illegal_case_matches_member_not_in_type.sv](../tests/ch12/test_illegal_case_matches_member_not_in_type.sv): パターン照合 case の式 a は既知の型 a_t（メンバー Small, Wide）を持ち、2つ目の case パターン tagged Big .w は a_t に無いメンバー名を使うので a の型を持たない（38行目）。1つ目と3つ目の項目は a_t のメンバーで合法である。regex は38行目を指す。 区別: case パターンの型を式の型と静的に照合しない処理系は設計を受理するか、実行時に一致しない項目として扱って失敗する。合法なパターン（Small, Wide）でエラーを出す処理系は38行目を指す regex に一致しない。
 
 ### SV2023-12.6.1-EXTRACT-PATTERN-CASEZ-CASEX
 
@@ -31499,7 +31977,7 @@ An item selects only after successful pattern binding and then a true Boolean fi
 
 ### SV2023-12.6.2-EXTRACT-PATTERN-IF-AMBIGUOUS-FILTER
 
-12.6.2 / normal / テスト未対応
+12.6.2 / normal / テスト対応あり・実行未確認
 
 A Boolean filter can make the overall predicate ambiguous despite known pattern results; the true if branch executes only for a determined nonzero predicate.
 
@@ -31507,10 +31985,11 @@ A Boolean filter can make the overall predicate ambiguous despite known pattern 
 
 規定の性質: `mandatory`。
 
+- [test_pattern_if_clause_order_scope_and_filter.sv](../tests/ch12/test_pattern_if_clause_order_scope_and_filter.sv): パターン節は成功する（v は tagged Val 1）が、フィルタが 1'bx（S4）と 1'bz（S5）のときは述語全体が不定で偽の腕が実行され、2ビットの値 2'b10（S6）のときは確定した非零として真の腕が n=1 で実行されることを比較する。 区別: パターン節が成功したことだけで真とする、または x/z のフィルタを真とする誤実装では S4/S5 が true になる。フィルタを1ビットに切り詰めて評価する誤実装では S6（2'b10 の最下位ビットは 0）が false になる。
 
 ### SV2023-12.6.2-EXTRACT-PATTERN-IF-BINDER-SCOPE
 
-12.6.2 / normal / テスト未対応
+12.6.2 / normal / テスト対応あり・実行未確認
 
 An if pattern binder scope includes remaining predicate clauses and its true branch, excluding the false branch.
 
@@ -31518,6 +31997,7 @@ An if pattern binder scope includes remaining predicate clauses and its true bra
 
 規定の性質: `mandatory`。
 
+- [test_pattern_if_clause_order_scope_and_filter.sv](../tests/ch12/test_pattern_if_clause_order_scope_and_filter.sv): モジュールに n=100 を置き、パターン tagged Val .n が新しい n を束縛する。後続フィルタ chk(n, 10) は束縛された n=3 で真になり（S1 true）、真の腕は n=3 を表示し、偽の腕（S2, S3, S4, S5）は外側の n=100 を表示し、最後に outer n=100 を表示することを比較する。 区別: 束縛のスコープが後続の節に及ばない誤実装ではフィルタが外側の n=100 を見て S1 が false になる。束縛が偽の腕に漏れる誤実装では S2〜S5 の n が 100 以外（束縛変数の値）になる。束縛が外側の変数を書き換える誤実装では outer n が 100 でなくなる。
 
 ### SV2023-12.6.2-EXTRACT-PATTERN-IF-QUALIFIERS
 
@@ -31532,7 +32012,7 @@ priority/unique qualifiers are permitted on pattern-matching if constructs under
 
 ### SV2023-12.6.2-EXTRACT-PATTERN-IF-SEQUENTIAL
 
-12.6.2 / normal / テスト未対応
+12.6.2 / normal / テスト対応あり・実行未確認
 
 &&& predicate terms evaluate left-to-right with short circuit on a failed clause; all must succeed for true.
 
@@ -31540,10 +32020,11 @@ priority/unique qualifiers are permitted on pattern-matching if constructs under
 
 規定の性質: `mandatory`。
 
+- [test_pattern_if_clause_order_scope_and_filter.sv](../tests/ch12/test_pattern_if_clause_order_scope_and_filter.sv): 呼び出し回数を数える chk() を &&& のフィルタに置き、S1（全節成功）で calls=2 と true、S2（最初のパターン節が失敗）で calls=0 と false、S3（最初のフィルタ chk(7,5) が失敗）で calls=1 と false になることを期待出力で比較する。 区別: 失敗した節の後も評価を続ける誤実装では S2 の calls が 1、S3 の calls が 2 になる。右から左に評価する誤実装では S3 で chk(n,10) が先に呼ばれ calls=2 になる。全節の成功を要求しない誤実装では S3 が true になる。
 
 ### SV2023-12.6.2-EXTRACT-PATTERN-IF-TYPE
 
-12.6.2 / error / テスト未対応
+12.6.2 / error / テスト対応あり・実行未確認
 
 Each matches expression and pattern must have the same statically known type.
 
@@ -31551,6 +32032,7 @@ Each matches expression and pattern must have the same statically known type.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_if_matches_pattern_of_other_type.sv](../tests/ch12/test_illegal_if_matches_pattern_of_other_type.sv): if の述語 k matches tagged Val .x で、int 型の k をタグ付き共用体のパターンと照合する31行目を違法とする。30行目の v matches tagged Val .x は v の型 opt_t のパターンで合法の対照である。regex は31行目を指す。 区別: e matches p の e と p の型が同じであることを静的に検査しない処理系は31行目を受理して失敗する。合法な30行目でエラーを出す処理系は regex に一致しない。
 
 ### SV2023-12.6.3-EXTRACT-TERNARY-PATTERN-AMBIGUITY
 
@@ -31598,7 +32080,7 @@ Loop grammar supports forever/repeat/while/for/do-while/foreach with their state
 
 ### SV2023-12.7-EXTRACT-TYPE-REFERENCE-PREFIX
 
-12.7 / error / テスト未対応
+12.7 / error / テスト対応あり・実行未確認
 
 A type reference used in a net declaration requires a net-type prefix and in a variable declaration requires var.
 
@@ -31606,6 +32088,8 @@ A type reference used in a net declaration requires a net-type prefix and in a v
 
 規定の性質: `mandatory`。
 
+- [test_illegal_for_type_reference_without_var.sv](../tests/ch12/test_illegal_for_type_reference_without_var.sv): for (var type(limit) j = 0; ...) は合法、for (type(limit) i = 0; ...) は var を欠く変数宣言で違法（27行目）。regex は27行目を指す。
+- [test_illegal_net_type_reference_without_net_type.sv](../tests/ch12/test_illegal_net_type_reference_without_net_type.sv): wire type(w) w1 と var type(w) v は合法、type(w) w2 = w; はネット型キーワードも var も無い（27行目）。regex は27行目を指す。
 
 ### SV2023-12.7.1-EXTRACT-EXTERNAL-CONTROL-VARIABLE
 
@@ -31620,7 +32104,7 @@ A for loop may use an externally declared control variable, which is shared by o
 
 ### SV2023-12.7.1-EXTRACT-FOR-ALL-OR-NONE-LOCAL
 
-12.7.1 / error / テスト未対応
+12.7.1 / error / テスト対応あり・実行未確認
 
 A for initializer cannot mix locally declared control variables with assignments to previously declared control variables.
 
@@ -31628,6 +32112,7 @@ A for initializer cannot mix locally declared control variables with assignments
 
 規定の性質: `mandatory`。
 
+- [test_illegal_for_init_declares_after_existing.sv](../tests/ch12/test_illegal_for_init_declares_after_existing.sv): 初期化部で i と k の両方を局所宣言する for と、どちらも宣言しない for (x = 0, z = 1; ...) は合法で、既存の x への代入と局所変数 y の宣言を混ぜる for (x = 0, int y = 0; ...)（27行目）を違法とする。regex は27行目を指す。 区別: 局所宣言と既存変数への代入の混在を許す処理系（Verilator 5.052 はそうである）は設計を受理して失敗する。複数の局所宣言や複数の代入（合法）を拒否する処理系は25/26行目でエラーを出し、27行目を指す regex に一致しない。
 
 ### SV2023-12.7.1-EXTRACT-FOR-EARLIER-LOCAL-USE
 
@@ -31742,7 +32227,7 @@ Foreach maps dimension numbers by 20.7 and nests lower-numbered dimensions outsi
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-INDEX-COUNT
 
-12.7.3 / error / テスト未対応
+12.7.3 / error / 実行確認あり
 
 Foreach loop-variable count cannot exceed array dimensions; omitted entries/trailing commas skip those dimensions.
 
@@ -31750,6 +32235,7 @@ Foreach loop-variable count cannot exceed array dimensions; omitted entries/trai
 
 規定の性質: `mandatory`。
 
+- [test_illegal_foreach_more_loop_variables_than_dimensions.sv](../tests/ch12/test_illegal_foreach_more_loop_variables_than_dimensions.sv): 2次元（unpacked 1つ、packed 1つ）の m に対し、m[i, j]（両次元）、m[, j]（先頭を省略）、m[i]（末尾の変数とカンマを省略）は合法で、m[i, j, k]（3つのループ変数）を違法とする（27行目）。regex は27行目を指す。Icarus 13.0 と Verilator 5.052 はこの行でループ変数の数が次元数を超えると報告する。 区別: ループ変数の数を次元数と照合しない処理系は設計を受理して失敗する。省略した位置や末尾のカンマ省略を許さない処理系は24〜26行目でエラーを出し、27行目を指す regex に一致しない。
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-INDEX-EXPRESSION-TYPE
 
@@ -31764,7 +32250,7 @@ Outside designated indexing, loop indices auto-cast to int for fixed/dynamic arr
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-NO-ARRAY-NAME
 
-12.7.3 / error / テスト未対応
+12.7.3 / error / テスト対応あり・実行未確認
 
 No foreach loop variable may have the same identifier as its array.
 
@@ -31772,6 +32258,7 @@ No foreach loop variable may have the same identifier as its array.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_foreach_loop_variable_named_as_array.sv](../tests/ch12/test_illegal_foreach_loop_variable_named_as_array.sv): int arr [2][3] に対して foreach (arr[i, j]) は合法で、2つ目のループ変数を配列と同じ名前 arr にした foreach (arr[i, arr])（26行目）を違法とする。ループ変数の数は次元数（2）以内なので、違反は名前の衝突だけである。regex は26行目を指す。 区別: ループ変数と配列の同名を検査しない処理系は、ループ変数 arr が配列を隠すだけの設計として受理して失敗する。合法な25行目でエラーを出す処理系は regex に一致しない。
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-READONLY-INDICES
 
@@ -31808,7 +32295,7 @@ Changing dynamic array dimensions during foreach iteration yields undefined resu
 
 ### SV2023-12.7.3-EXTRACT-NO-FOREACH-IMPLICIT-CALL
 
-12.7.3 / error / テスト未対応
+12.7.3 / error / 実行確認あり
 
 A function call cannot be used as an implicit-variable declaration in the foreach array identifier.
 
@@ -31816,6 +32303,7 @@ A function call cannot be used as an implicit-variable declaration in the foreac
 
 規定の性質: `mandatory`。
 
+- [test_illegal_foreach_over_function_call.sv](../tests/ch12/test_illegal_foreach_over_function_call.sv): 関数 make() の中で foreach (make[i]) は暗黙の結果変数 make（13.4.1）を配列として使う合法な形で、初期ブロックの foreach (make()[i]) は配列の識別子の位置に関数呼び出しを書く違法な形（31行目）である。regex は31行目を指し、Icarus 13.0 と Verilator 5.052 はこの行を構文エラーとして拒否する。 区別: foreach の配列識別子に関数呼び出しを許す処理系は、呼び出し結果を一時配列として反復して受理し、失敗する。関数内で暗黙変数 make を使う合法な形（25行目）でエラーを出す処理系は regex に一致しない。
 
 ### SV2023-12.7.4-EXTRACT-WHILE-PRETEST
 
@@ -31977,7 +32465,7 @@ return is permitted only in a subroutine, and a value-returning function return 
 
 ### SV2023-13.2-EXTRACT-CALL-TASK-RESTRICTION
 
-13.2 / error / テスト未対応
+13.2 / error / 実行確認あり
 
 A function cannot directly enable a task outside the background-process exception; a task may call tasks/functions.
 
@@ -31985,10 +32473,11 @@ A function cannot directly enable a task outside the background-process exceptio
 
 規定の性質: `mandatory`。
 
+- [test_illegal_function_calls_task_beside_fork_join_none.sv](../tests/ch13/test_illegal_function_calls_task_beside_fork_join_none.sv): 関数 f が本体の文としてタスク t を直接起動する41行目を唯一の違反とし、regex は41行目を指す。対照として、タスク task_chain がタスク t と関数 g を呼ぶ（タスクはタスクと関数を起動できる）、関数 spawn が fork-join_none の中で t を起動する（13.4.4 の例外）、spawn は initial から呼ばれる、の3つの合法な形を同じ設計に置く。 区別: 関数からのタスクの直接起動を検査しない処理系は設計を受理して失敗する（タスクに時間制御がなくても、時間制御のある t でも、関数の文として直接起動している）。タスクからのタスク・関数の起動（task_chain）と関数内の fork-join_none での起動（spawn、13.4.4 の例外）は合法な文脈として置き、違反は41行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。（Icarus 13.0 は37行目も報告するので oracle に含めていない。）
 
 ### SV2023-13.2-EXTRACT-FUNCTION-NO-SUSPEND
 
-13.2 / normal / テスト未対応
+13.2 / normal / 実行確認あり
 
 A function executes without suspending its caller under 13.4/13.4.4; tasks may contain timing controls.
 
@@ -31996,10 +32485,11 @@ A function executes without suspending its caller under 13.4/13.4.4; tasks may c
 
 規定の性質: `mandatory`。
 
+- [test_function_returns_at_once_task_waits.sv](../tests/ch13/test_function_returns_at_once_task_waits.sv): t=1 に呼んだ関数 start は、3 単位待つプロセスを fork-join_none で起動し、v に非ブロッキング代入をしても、同じ t=1 に 8 を返して戻る（v はまだ 0）。タスク wait_then は #d で 2 単位待ち、呼び出し元は t=3 に再開する（v=4、start のプロセスは未実行で spawned_at=-1）。start のプロセスは t=4 に動く。期待出力は t=1 start returned 8, v=0 / t=3 wait_then gave 6, v=4 spawned_at=-1 / t=5 the process of start ran at t=4。 区別: 関数が起動したプロセスの終了を待つ（呼び出し元を中断する）処理系は1行目の時刻が 4 以降になる。非ブロッキング代入を関数内で即時に反映する処理系は1行目が v=4 になる。タスクの時間制御を無視する処理系は2行目が t=1 になり、関数の fork-join_none を戻る前に実行する処理系は spawned_at が -1 でなくなる。
 
 ### SV2023-13.2-EXTRACT-RETURN-VALUE-CATEGORIES
 
-13.2 / normal / テスト未対応
+13.2 / normal / 実行確認あり
 
 A nonvoid function returns one value usable as an expression operand; tasks and void functions return no value.
 
@@ -32007,6 +32497,7 @@ A nonvoid function returns one value usable as an expression operand; tasks and 
 
 規定の性質: `mandatory`。
 
+- [test_function_returns_at_once_task_waits.sv](../tests/ch13/test_function_returns_at_once_task_waits.sv): 非 void 関数 twice の戻り値を、算術式の被演算子（twice(3) + twice(twice(1)) * 10 = 46）、条件式（twice(2) == 4）、添字（arr[twice(1)] = 12）に使う。void 関数 note とタスク wait_then は値を返さず、結果を output 引数だけで渡し、式を持たない return; で途中で終わる（note(5) は 105、note(0) は -1、wait_then(2) は 6）。期待出力は twice: sum=46 cond=1 elem=12 と note: 105 -1。 区別: 非 void 関数の値を被演算子として正しく使わない処理系は sum/cond/elem の値が変わる。void 関数やタスクの return; を値付きの戻りや無視として扱う処理系では、return 後の o = -1 / r = -1 が実行されて note の 105 や wait_then の 6 が -1 になる。
 
 ### SV2023-13.2-EXTRACT-SUBROUTINE-CATEGORY
 
@@ -32243,7 +32734,7 @@ A task may be explicit automatic or inherit automatic from its enclosing module/
 
 ### SV2023-13.3.1-EXTRACT-TASK-AUTOMATIC-HIERARCHY
 
-13.3.1 / error / テスト未対応
+13.3.1 / error / 実行確認あり
 
 Automatic task items cannot be hierarchically accessed, while the task may be called by hierarchical name.
 
@@ -32251,6 +32742,7 @@ Automatic task items cannot be hierarchically accessed, while the task may be ca
 
 規定の性質: `mandatory`。
 
+- [test_illegal_automatic_task_item_hierarchical_reference.sv](../tests/ch13/test_illegal_automatic_task_item_hierarchical_reference.sv): automatic タスク t を階層名 test_illegal_automatic_task_item_hierarchical_reference.t(4) で呼ぶ30行目は合法で、t の局所変数 v を階層参照 t.v で読む32行目だけが違法。regex は32行目を指す。 区別: automatic タスクの項目への階層参照を許す処理系は受理して失敗する。タスク自体の階層名による呼び出し（30行目）は合法な文脈で、違反は32行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.3.1-EXTRACT-TASK-AUTOMATIC-STORAGE
 
@@ -32325,7 +32817,7 @@ Concurrent automatic calls get separate default local storage; static calls shar
 
 ### SV2023-13.3.2-EXTRACT-NO-AUTOMATIC-CONTINUOUS-REFERENCE
 
-13.3.2 / error / テスト未対応
+13.3.2 / error / 実行確認あり
 
 Automatic task variables cannot be referenced by procedural assign/force.
 
@@ -32333,10 +32825,12 @@ Automatic task variables cannot be referenced by procedural assign/force.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_automatic_task_variable_in_assign_expression.sv](../tests/ch13/test_illegal_automatic_task_variable_in_assign_expression.sv): automatic タスク内の assign s = v + 1;（25行目）が automatic 変数 v を参照し違法、直前の assign s = g; は合法。regex は25行目を指す。
+- [test_illegal_automatic_task_variable_in_force_expression.sv](../tests/ch13/test_illegal_automatic_task_variable_in_force_expression.sv): automatic タスク内の force s = v + 1;（26行目）が automatic 変数 v を参照し違法、直前の force s = g; は合法。regex は26行目を指す。
 
 ### SV2023-13.3.2-EXTRACT-NO-AUTOMATIC-DEFERRED-WRITE
 
-13.3.2 / error / テスト未対応
+13.3.2 / error / 実行確認あり
 
 Automatic task variables cannot receive nonblocking or procedural continuous assignments.
 
@@ -32344,10 +32838,13 @@ Automatic task variables cannot receive nonblocking or procedural continuous ass
 
 規定の性質: `mandatory`。
 
+- [test_illegal_automatic_task_variable_nonblocking_target.sv](../tests/ch13/test_illegal_automatic_task_variable_nonblocking_target.sv): v <= a;（23行目）が automatic 変数 v への非ブロッキング代入で違法、s <= a; は合法。regex は23行目を指す。
+- [test_illegal_automatic_task_variable_assign_target.sv](../tests/ch13/test_illegal_automatic_task_variable_assign_target.sv): assign v = 1;（23行目）が automatic 変数 v を手続き的連続代入の代入先にして違法、assign s = 1; は合法。regex は23行目を指す。
+- [test_illegal_automatic_task_variable_force_target.sv](../tests/ch13/test_illegal_automatic_task_variable_force_target.sv): force v = 1;（25行目）が automatic 変数 v を force の代入先にして違法、force s = 1; は合法。regex は25行目を指す。
 
 ### SV2023-13.3.2-EXTRACT-NO-AUTOMATIC-NBA-EVENT
 
-13.3.2 / error / テスト未対応
+13.3.2 / error / 実行確認あり
 
 Automatic task variables cannot appear in nonblocking intra-assignment event controls.
 
@@ -32355,10 +32852,11 @@ Automatic task variables cannot appear in nonblocking intra-assignment event con
 
 規定の性質: `mandatory`。
 
+- [test_illegal_automatic_task_variable_in_nonblocking_event.sv](../tests/ch13/test_illegal_automatic_task_variable_in_nonblocking_event.sv): automatic タスク内の s <= @(posedge v) 2;（27行目）が、非ブロッキング代入の代入内イベント制御で automatic 変数 v を参照し違法。直前の s <= @(posedge clk) 1; は静的変数 clk を待つ合法な対照。regex は27行目を指す。 区別: 非ブロッキング代入の代入内イベント制御中の automatic 変数を検査しない処理系は受理して失敗する。代入先 s は静的変数なので、代入先の規則とは独立にイベント制御の規則だけを破る。静的変数 clk を待つ26行目は合法で、違反は27行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.3.2-EXTRACT-NO-AUTOMATIC-TRACE
 
-13.3.2 / error / テスト未対応
+13.3.2 / error / テスト対応あり・実行未確認
 
 Automatic task variables cannot be traced by tasks such as $monitor/$dumpvars.
 
@@ -32366,6 +32864,8 @@ Automatic task variables cannot be traced by tasks such as $monitor/$dumpvars.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_automatic_task_variable_monitored.sv](../tests/ch13/test_illegal_automatic_task_variable_monitored.sv): $monitor("%0d", v);（25行目）が automatic 変数 v を追跡して違法、$display("%0d", v); は合法。regex は25行目を指す。
+- [test_illegal_automatic_task_variable_dumped.sv](../tests/ch13/test_illegal_automatic_task_variable_dumped.sv): $dumpvars(1, v);（25行目）が automatic 変数 v を追跡して違法、$dumpvars(1, s); は合法。regex は25行目を指す。
 
 ### SV2023-13.3.2-EXTRACT-STATIC-TASK-RETENTION
 
@@ -32743,7 +33243,7 @@ An elaboration-time constant call requires a qualifying function local to the ca
 
 ### SV2023-13.4.3-EXTRACT-CONSTANT-CALLS
 
-13.4.3 / error / テスト未対応
+13.4.3 / error / テスト対応あり・実行未確認
 
 A constant function cannot call nonconstant user functions; built-in methods on local variables including implicit result variables are specially permitted even if not otherwise constant methods.
 
@@ -32751,6 +33251,7 @@ A constant function cannot call nonconstant user functions; built-in methods on 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_calls_nonconstant_function.sv](../tests/ch13/test_illegal_constant_function_calls_nonconstant_function.sv): f はモジュール変数 base を読む非定数関数 g を呼ぶので定数関数でなく、localparam P = f(1)（54行目）が違法。regex は g の読み出し（33行目）、f の呼び出し（50行目）、P（54行目）のいずれかを許す。対照として、h は定数関数 k と局所キュー q の組み込みメソッド push_back()/size() を呼び、tag は暗黙の結果変数 tag の putc()/substr() を呼ぶ。これらは規格が明示的に許す形で、Q = h(2) と S = tag(1) は合法。 区別: 定数関数内の非定数関数呼び出しを検査しない処理系は P を受理して失敗する。規格が特に許す局所変数・暗黙変数の組み込みメソッド呼び出し（h の39〜42行目、tag の45〜47行目）と定数関数 k の呼び出しは合法な文脈で、Q と S は定数関数呼び出しとして合法であり、違反は f が g を呼ぶことだけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.4.3-EXTRACT-CONSTANT-DEFAULTS
 
@@ -32765,7 +33266,7 @@ Defaults are permitted on constant-function arguments only when those defaults a
 
 ### SV2023-13.4.3-EXTRACT-CONSTANT-SYSTEM-CALLS
 
-13.4.3 / error / テスト未対応
+13.4.3 / error / 実行確認あり
 
 A constant function can call only system functions permitted in constant expressions.
 
@@ -32773,6 +33274,7 @@ A constant function can call only system functions permitted in constant express
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_calls_time.sv](../tests/ch13/test_illegal_constant_function_calls_time.sv): f は定数式で許されないシステム関数 $time を呼ぶので、localparam P = f(1)（32行目）が違法。regex は $time の行（29行目）と P の行を許す。h は定数式で許される $clog2 を呼び、Q = h(16) は合法な対照。 区別: 定数関数の中のシステム関数が定数式で許されるものかを検査しない処理系は P を受理して失敗する。定数式で許される $clog2 を呼ぶ h（26行目）と Q（31行目）は合法で、違反は f の $time だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.4.3-EXTRACT-DEFPARAM-UNDEFINED
 
@@ -32810,7 +33312,7 @@ A constant function cannot have output, inout or ref arguments.
 
 ### SV2023-13.4.3-EXTRACT-LOCAL-IDENTIFIERS
 
-13.4.3 / error / テスト未対応
+13.4.3 / error / 実行確認あり
 
 A constant function can reference only parameters/function names or locally declared identifiers.
 
@@ -32818,10 +33320,11 @@ A constant function can reference only parameters/function names or locally decl
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_reads_module_variable.sv](../tests/ch13/test_illegal_constant_function_reads_module_variable.sv): f はパラメータでも関数名でも局所宣言でもないモジュール変数 g を参照するので、localparam P = f(1)（36行目）が違法。regex は g を読む行（33行目）と P を許す。h は引数 a、局所変数 t、パラメータ K だけを参照し、Q = h(1) は合法な対照。 区別: 定数関数が参照する識別子の種類を検査しない処理系は、初期値 3 の g を読んで P を受理して失敗する。引数・局所変数・パラメータだけを参照する h と Q は合法で、違反は f のモジュール変数の参照だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.4.3-EXTRACT-NO-DPI
 
-13.4.3 / error / テスト未対応
+13.4.3 / error / 実行確認あり
 
 A constant function cannot be a DPI import.
 
@@ -32829,10 +33332,11 @@ A constant function cannot be a DPI import.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_dpi_import.sv](../tests/ch13/test_illegal_constant_function_dpi_import.sv): DPI で import した pure 関数 c_twice を定数引数で localparam P の初期値に呼ぶ28行目を違法とする。c_twice は他の制約（出力引数、階層参照など）を破らないので、違反は DPI import であることだけ。SystemVerilog の関数 twice を呼ぶ Q = twice(3) は合法な対照。regex は28行目を指す。 区別: DPI import 関数を定数関数として扱う（定数式で呼べてしまう）処理系は受理して失敗する。SystemVerilog の関数 twice の定数呼び出し Q（27行目）は合法で、違反は28行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.4.3-EXTRACT-NO-FORK
 
-13.4.3 / error / テスト未対応
+13.4.3 / error / テスト対応あり・実行未確認
 
 A constant function cannot contain fork constructs.
 
@@ -32840,6 +33344,7 @@ A constant function cannot contain fork constructs.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_contains_fork.sv](../tests/ch13/test_illegal_constant_function_contains_fork.sv): f は空の fork-join_none を含むので定数関数でなく、localparam P = f(1)（41行目）が違法。regex は fork の行（31行目）と P を許す。空の fork-join_none は何も予定しないので 13.4.4 の「関数の戻った後に事象を予定する」規則には触れず、initial からの実行時の呼び出し r = f(4) は合法。fork を除いた同じ本体の h を使う Q = h(2) は合法な対照。 区別: 定数関数中の fork を検査しない処理系は P を受理して失敗する（両シミュレータがそうである）。空の fork-join_none は何も予定しないので 13.4.4 の「関数の戻った後に事象を予定する」規則とは重ならず、実行時の呼び出し r = f(4)（38行目）と fork のない h による Q は合法で、違反は f を定数関数として呼ぶことだけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.4.3-EXTRACT-NO-FUTURE-EVENT
 
@@ -32854,7 +33359,7 @@ A constant function cannot directly schedule an event after it returns.
 
 ### SV2023-13.4.3-EXTRACT-NO-GENERATE-DECLARATION
 
-13.4.3 / error / テスト未対応
+13.4.3 / error / 実行確認あり
 
 A constant function cannot be declared inside generate.
 
@@ -32862,10 +33367,11 @@ A constant function cannot be declared inside generate.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_in_generate_block.sv](../tests/ch13/test_illegal_constant_function_in_generate_block.sv): 条件生成ブロック gb の中で宣言した関数 f を、同じブロックの localparam P の初期値で定数引数で呼ぶ30行目を違法とする。f 自体は他の制約を満たす。モジュール直下に同じ本体で宣言した g を呼ぶ Q = g(3) は合法な対照。regex は30行目を指す。 区別: 生成ブロック内で宣言された関数を定数関数として評価してしまう処理系は受理して失敗する（Icarus 13.0 がそうである）。同じ本体をモジュール直下に宣言した g の定数呼び出し Q は合法で、違反は30行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.4.3-EXTRACT-NO-HIERARCHY
 
-13.4.3 / error / テスト未対応
+13.4.3 / error / 実行確認あり
 
 A constant function cannot contain hierarchical references.
 
@@ -32873,10 +33379,11 @@ A constant function cannot contain hierarchical references.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_hierarchical_reference.sv](../tests/ch13/test_illegal_constant_function_hierarchical_reference.sv): f はパラメータ W をモジュール名からの階層名で参照するので定数関数でなく、localparam P = f(1)（32行目）が違法。regex は階層参照の行（29行目）と P を許す。g は同じ W を単純名で参照し、Q = g(1) は合法な対照。 区別: 定数関数内の階層参照を検査しない処理系は P を受理して失敗する。参照先が同じパラメータ W なので、f と g の違いは階層名かどうかだけであり、g（26行目）と Q（31行目）は合法である。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.4.3-EXTRACT-NO-NESTED-CONSTANT-CONTEXT
 
-13.4.3 / error / テスト未対応
+13.4.3 / error / テスト対応あり・実行未確認
 
 A constant function cannot call a constant function inside a context that itself requires a constant expression.
 
@@ -32884,10 +33391,11 @@ A constant function cannot call a constant function inside a context that itself
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_call_in_constant_context.sv](../tests/ch13/test_illegal_constant_function_call_in_constant_context.sv): f は局所変数 v の範囲 [g(6):0]（定数式を要する文脈）で定数関数 g を呼ぶので、localparam P = f(5)（38行目）が違法。regex はその宣言の行（33行目）と P を許す。h は g を通常の式で呼び、Q = h(2) は合法な対照。 区別: 定数式を要する文脈での定数関数呼び出しを検査しない処理系は P を受理して失敗する（Icarus 13.0 と Verilator 5.052 がそうである）。通常の式で g を呼ぶ h（30行目）と Q（37行目）は合法で、違反は f の局所宣言の範囲での呼び出しだけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.4.3-EXTRACT-PARAMETERS-BEFORE-CALL
 
-13.4.3 / error / テスト未対応
+13.4.3 / error / テスト対応あり・実行未確認
 
 Every value/type parameter used during constant evaluation must be declared before the original call site; package/$unit parameters may be referenced.
 
@@ -32895,6 +33403,7 @@ Every value/type parameter used during constant evaluation must be declared befo
 
 規定の性質: `mandatory`。
 
+- [test_illegal_constant_function_parameter_after_call.sv](../tests/ch13/test_illegal_constant_function_parameter_after_call.sv): localparam P = f(1)（28行目）の定数関数呼び出しが、f の中で使うパラメータ W（29行目で宣言、呼び出しより後）を使うので違法。regex は P の行と W を読む行（31行目）を許す。g はパッケージ pk のパラメータ pk::K を使い、Q = g(1)（27行目）は合法な対照。 区別: 定数関数の評価で使うパラメータが呼び出し位置より前に定義されているかを検査しない処理系は、W を 4 として P を受理して失敗する（両シミュレータがそうである）。パッケージのパラメータ pk::K を使う Q は合法な文脈である。関数自体が呼び出しより後に宣言されていることは規格の例（13.4.3 の clogb2）と同じく合法で、Q と P に共通する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.4.4-EXTRACT-BACKGROUND-CALL-CONTEXT
 
@@ -32967,7 +33476,7 @@ Input/inout copy-in occurs on the call and output/inout copy-out on subroutine r
 
 ### SV2023-13.5-EXTRACT-CALL-PARENTHESES-RESTRICTIONS
 
-13.5 / error / テスト未対応
+13.5 / error / テスト対応あり・実行未確認
 
 Omitting call parentheses is restricted to tasks, void functions or class methods; directly recursive nonvoid class calls require parentheses under the detailed qualification rule of 13.5.5.
 
@@ -32975,6 +33484,8 @@ Omitting call parentheses is restricted to tasks, void functions or class method
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nonvoid_function_call_without_parentheses.sv](../tests/ch13/test_illegal_nonvoid_function_call_without_parentheses.sv): y = get_k;（35行目）がクラスメソッドでない非 void 関数を括弧なしで呼んで違法。bump; と show; は括弧なしで合法、x = get_k(); は括弧付きで合法。regex は35行目を指す。
+- [test_illegal_recursive_class_function_call_without_parentheses.sv](../tests/ch13/test_illegal_recursive_class_function_call_without_parentheses.sv): クラス C の非 void メソッド down が自分自身を修飾なし・括弧なしの文 down; で呼ぶ31行目が違法。同じ再帰を括弧付きで void'(down()) と書く30行目、モジュールからの非再帰の c.down と c.peek（括弧なし）は合法。regex は31行目を指す。
 
 ### SV2023-13.5-EXTRACT-INPUT-EXPRESSIONS
 
@@ -32989,7 +33500,7 @@ An input actual may be any compatible expression; actual argument evaluation ord
 
 ### SV2023-13.5-EXTRACT-OUTPUT-INOUT-LVALUE
 
-13.5 / error / テスト未対応
+13.5 / error / テスト対応あり・実行未確認
 
 An output/inout actual must be a valid procedural assignment LHS.
 
@@ -32997,6 +33508,8 @@ An output/inout actual must be a valid procedural assignment LHS.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_output_argument_not_lvalue.sv](../tests/ch13/test_illegal_output_argument_not_lvalue.sv): タスク t の output 引数 o に a + b を渡す28行目が違法、t(a, r) は合法。regex は28行目を指す。
+- [test_illegal_inout_argument_not_lvalue.sv](../tests/ch13/test_illegal_inout_argument_not_lvalue.sv): void 関数 bump の inout 引数 io に r + 1 を渡す28行目が違法、bump(r) は合法。regex は28行目を指す。
 
 ### SV2023-13.5-EXTRACT-SUBROUTINE-CALL-GRAMMAR
 
@@ -33215,7 +33728,7 @@ ref static accepts only statically lived variables/properties/members/elements o
 
 ### SV2023-13.5.3-EXTRACT-ANSI-DEFAULT-ONLY
 
-13.5.3 / error / テスト未対応
+13.5.3 / error / テスト対応あり・実行未確認
 
 Default arguments are permitted only with ANSI formal declarations.
 
@@ -33223,6 +33736,7 @@ Default arguments are permitted only with ANSI formal declarations.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_default_argument_in_non_ansi_declaration.sv](../tests/ch13/test_illegal_default_argument_in_non_ansi_declaration.sv): タスク t は本体で引数を宣言する非 ANSI 形式で、input int b = 3;（29行目）が既定値を与えるので違法（文法上は list_of_tf_variable_identifiers の = expression として書ける）。ANSI 形式の引数リストで既定値を与える関数 f(input int a, input int b = 3) と f(1) の呼び出しは合法な対照。regex は29行目を指す。 区別: 非 ANSI 宣言の既定値を検査しない処理系は受理して失敗する（Verilator 5.052 がそうである）。ANSI 形式の既定値を持つ f は合法で、違反は29行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。Icarus 13.0 は29行目を構文エラーとするが、規則の検出とはいえないので oracle に含めない。
 
 ### SV2023-13.5.3-EXTRACT-DEFAULT-ARGUMENT-DECLARATION
 
@@ -33298,7 +33812,7 @@ Task/function actuals may bind by name, allowing defaulted arguments to be omitt
 
 ### SV2023-13.5.4-EXTRACT-POSITIONAL-BEFORE-NAMED
 
-13.5.4 / error / テスト未対応
+13.5.4 / error / 実行確認あり
 
 In a mixed call, every positional actual must precede every named actual.
 
@@ -33306,10 +33820,11 @@ In a mixed call, every positional actual must precede every named actual.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_named_argument_before_positional.sv](../tests/ch13/test_illegal_named_argument_before_positional.sv): 位置指定と名前指定を混ぜた呼び出しで、名前指定 .b(2) の後に位置指定 1 を置く f(.b(2), 1)（24行目）が違法。位置指定を先に置く f(1, .b(2)) は合法な対照。regex は24行目を指す。 区別: 位置指定と名前指定の混在時の順序を検査しない処理系は受理して失敗する。位置指定を先に置く f(1, .b(2))（23行目）は合法で、違反は24行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.5.4-EXTRACT-REQUIRED-NAMED-ARGUMENT
 
-13.5.4 / error / テスト未対応
+13.5.4 / error / 実行確認あり
 
 An argument without a default must be supplied even with named binding; omission is a compilation error.
 
@@ -33317,10 +33832,11 @@ An argument without a default must be supplied even with named binding; omission
 
 規定の性質: `mandatory`。
 
+- [test_illegal_named_binding_omits_argument_without_default.sv](../tests/ch13/test_illegal_named_binding_omits_argument_without_default.sv): 名前指定の呼び出し f(.b(3))（25行目）が既定値のない a を与えないので違法。既定値のある b だけを省く f(.a(1)) は合法な対照。regex は25行目を指す。 区別: 名前指定で既定値のない引数が欠けることを検査しない処理系は受理して失敗する。既定値のある b だけを省く f(.a(1))（24行目）は合法で、違反は25行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-13.5.5-EXTRACT-OPTIONAL-EMPTY-PARENTHESES
 
-13.5.5 / normal / テスト未対応
+13.5.5 / normal / 実行確認あり
 
 Argumentless void functions/class methods, and tasks/void functions/class methods whose required arguments all have defaults, may omit empty call parentheses.
 
@@ -33328,10 +33844,11 @@ Argumentless void functions/class methods, and tasks/void functions/class method
 
 規定の性質: `mandatory`。
 
+- [test_optional_parentheses_every_subroutine_kind.sv](../tests/ch13/test_optional_parentheses_every_subroutine_kind.sv): 括弧なしで、引数のない void 関数 vf_none とタスク t_none、全引数に既定値がある void 関数 vf_dflt とタスク t_dflt、クラスの引数のない void メソッド bump・非 void メソッド get・タスクメソッド tbump、全引数に既定値がある void メソッド add・非 void メソッド scaled を呼ぶ。各呼び出しは log_v または c.k を変え、または値を返し、期待出力は vf_none 1、t_none 11、vf_dflt 311（既定値 100+200）、t_dflt 1311（既定値 1000）、bump 6、get 12、tbump 16、add 23（既定値 7）、scaled 69（既定値 3）である。 区別: 括弧なしの名前を呼び出しとして扱わない処理系はコンパイルに失敗するか値が変わらず、期待値と一致しない。既定値を挿入しない、あるいは別の値を使う処理系では vf_dflt、t_dflt、add、scaled の行の値が変わる。要求が挙げる関数・タスク・クラスメソッドの、引数なしと全既定値の両方の場合を個別の出力行で確認している。
 
 ### SV2023-13.5.5-EXTRACT-RECURSIVE-CLASS-PARENTHESES
 
-13.5.5 / error / テスト未対応
+13.5.5 / error / テスト対応あり・実行未確認
 
 An unqualified directly recursive nonvoid class function call cannot omit its parentheses.
 
@@ -33339,6 +33856,7 @@ An unqualified directly recursive nonvoid class function call cannot omit its pa
 
 規定の性質: `mandatory`。
 
+- [test_illegal_recursive_class_function_call_without_parentheses.sv](../tests/ch13/test_illegal_recursive_class_function_call_without_parentheses.sv): クラス C の非 void メソッド down の中で、修飾なしの直接再帰呼び出しを括弧なしの文 down; として書いた31行目を唯一の違反とする（文の位置なので暗黙の結果変数への参照とは読めない）。括弧付きの再帰呼び出し void'(down())（30行目）と、モジュールからの非再帰の c.down、c.peek（括弧なし、13.5.5 で合法）を対照に置く。regex は31行目を指す。 区別: 再帰呼び出しの括弧省略を許す処理系は受理して失敗する（Verilator 5.052 は警告だけで受理する）。括弧付きの再帰（30行目）と非再帰のクラスメソッドの括弧省略（41行目）は合法で、違反は31行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。（Icarus 13.0 は41行目だけを報告するので不合格になる。）
 
 ### SV2023-13.6-EXTRACT-DPI-SUBROUTINES
 
@@ -33379,7 +33897,7 @@ Parameterized subroutines use static methods in parameterized classes; a virtual
 
 ### SV2023-14.2-EXTRACT-CLOCK-RELATIVE-OPERATIONS
 
-14.2 / normal / テスト未対応
+14.2 / normal / 実行確認あり
 
 Clocking input sampling, synchronous events and drives are governed relative to that block clock and skews.
 
@@ -33387,10 +33905,12 @@ Clocking input sampling, synchronous events and drives are governed relative to 
 
 規定の性質: `definition`。
 
+- [test_clocking_blocks_each_own_clock_and_skews.sv](../tests/ch14/test_clocking_blocks_each_own_clock_and_skews.sv): cba（clk_a、初回立ち上がり10、スキュー2）と cbb（clk_b、初回20、スキュー6）の2つのブロックで、入力の標本化、@(cb) の再開、同期駆動の反映時刻がそれぞれのブロックのクロックとスキューで決まることを観測する。da は 7 で 11、9 で 12 に変わり、標本時刻 8 の値 11 が出る。db は 13 で 21、16 で 22、dc は 15 で 31 に変わり、標本時刻 14 の値 db=21 dc=30 が出る。@(cba) は 10、@(cbb) は 20 に再開する。qa は 12 に、qb は 26 に新しい値になり、11/13 と 25/27 の表示がその前後を示す。 区別: 標本化にもう一方のブロックのスキューを使うと da=10（時刻4）や db=22 dc=31（時刻18）、クロック事象の時点で標本化すると da=12 や db=22 dc=31 になる。出力にもう一方のスキューを使うと qa は 16 になり13の表示が qa=0 に、qb は 22 になり25の表示が qb=22 になる。どの誤りでも期待出力の行が変わる。
+- [test_clocking_block_default_and_signal_skews.sv](../tests/ch14/test_clocking_block_default_and_signal_skews.sv): 入力の標本化（u は 20-4=16、v は 20-2=18）、クロッキング事象 @(cb)（20）、同期駆動（w は 20+3=23、y は 20+6=26）が、いずれも cb のクロックとスキューを基準に決まることを、各信号が標本時刻の前後で値を変える刺激と駆動時刻の前後の表示で確かめる。期待出力は 20 cb: u=2 v=11 / 22 w=0 y=0 / 24 w=102 y=0 / 25 w=102 y=0 / 27 w=102 y=111。 区別: 標本化を事象の時点や別のスキューで行う処理系は u=3 や v=10/12 を出し、駆動をスキューなしや別のスキューで行う処理系は 22〜27 のいずれかの表示が変わる。
 
 ### SV2023-14.2-EXTRACT-CLOCKING-DECLARATION
 
-14.2 / normal / テスト未対応
+14.2 / normal / 実行確認あり
 
 A clocking/endclocking declaration groups a clocking event and timing/synchronization requirements.
 
@@ -33398,10 +33918,12 @@ A clocking/endclocking declaration groups a clocking event and timing/synchroniz
 
 規定の性質: `definition`。
 
+- [test_clocking_blocks_each_own_clock_and_skews.sv](../tests/ch14/test_clocking_blocks_each_own_clock_and_skews.sv): clocking ... endclocking の宣言が、クロック事象（@(posedge clk_a) / @(posedge clk_b)）と各信号のスキュー（input #2 / output #2、input #6 / output #6）をひとまとめにし、そのブロックを通した参照（cba.da、cbb.db、cbb.dc）と駆動（cba.qa <=、cbb.qb <=）がその事象とスキューに従うことを観測する。 区別: 宣言のクロック事象を使わない処理系では @(cba)/@(cbb) の時刻 10/20 が変わり、宣言のスキューを使わない処理系では標本値（da=11 ではなく 12 など）や駆動時刻（13 の qa=12、27 の qb=22）が変わる。
+- [test_clocking_block_default_and_signal_skews.sv](../tests/ch14/test_clocking_block_default_and_signal_skews.sv): clocking cb ... endclocking : cb が、クロック事象 @(posedge clk)（初回 20）と、既定のスキュー（default input #4 output #3）および信号ごとのスキュー（input #2 v、output #6 y）をまとめる。u は既定の入力スキューで 16 に標本化されて 2、v は自分のスキューで 18 に標本化されて 11、@(cb) は 20 に再開する。w は既定の出力スキューで 23 に 102、y は自分のスキューで 26 に 111 になり、22/24/25/27 の表示がその前後を示す。 区別: 宣言の既定スキューを使わない処理系は u の標本値（0 スキューなら 3）や w の駆動時刻（24 の w=102 が変わる）を変え、信号ごとのスキューで既定を上書きしない処理系は v（16 なら 10）や y（23 なら 25 の y=111）を変える。宣言のクロック事象を使わない処理系は 20 の表示時刻が変わる。
 
 ### SV2023-14.2-EXTRACT-MULTIPLE-CLOCKING-BLOCKS
 
-14.2 / normal / テスト未対応
+14.2 / normal / 実行確認あり
 
 A testbench may have multiple clocking blocks, each with its own clock and arbitrary signal count.
 
@@ -33409,6 +33931,7 @@ A testbench may have multiple clocking blocks, each with its own clock and arbit
 
 規定の性質: `permission`。
 
+- [test_clocking_blocks_each_own_clock_and_skews.sv](../tests/ch14/test_clocking_blocks_each_own_clock_and_skews.sv): 1つのモジュールに clocking cba（クロック clk_a、信号2個）と clocking cbb（クロック clk_b、信号3個）の2つのブロックを置き、それぞれの事象（10 と 20）、入力の標本値、出力の駆動時刻がブロックごとに独立に決まることを期待出力の各行で確認する。 区別: 2つ目のブロックを受理しない処理系はコンパイルに失敗する。ブロックの間でクロックやスキューを共有・混同する処理系は、cba と cbb の標本値（da=11、db=21 dc=30）や qa/qb の反映時刻の表示（13 の qa=12、25 の qb=0、27 の qb=22）が変わる。cbb の2つの入力 db と dc がそれぞれ正しく標本化されることで、ブロックが複数の信号を持てることも観測する。
 
 ### SV2023-14.3-EXTRACT-BLOCK-EVENT-GOVERNS
 
@@ -33632,7 +34155,7 @@ Zero/default output skew drives in the clock event Re-NBA region.
 
 ### SV2023-14.5-EXTRACT-CLOCKING-PORT-COMPATIBILITY
 
-14.5 / error / テスト未対応
+14.5 / error / テスト対応あり・実行未確認
 
 Input/inout associated expressions must be legal module input-port actuals; output/inout expressions must be legal module output-port actuals.
 
@@ -33640,6 +34163,9 @@ Input/inout associated expressions must be legal module input-port actuals; outp
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_input_expression_with_assignment.sv](../tests/ch14/test_illegal_clocking_input_expression_with_assignment.sv): input i2 = (a = b);（30行目）が違法、input i1 = a & b; と input i3 = a[1:0]; は合法。
+- [test_illegal_clocking_output_expression_not_lvalue.sv](../tests/ch14/test_illegal_clocking_output_expression_not_lvalue.sv): output o = a + b;（27行目）が違法、output p = {a, b}; は合法。
+- [test_illegal_clocking_inout_expression_not_lvalue.sv](../tests/ch14/test_illegal_clocking_inout_expression_not_lvalue.sv): inout io = a & b;（27行目）が違法、inout v = a[1:0]; は合法。
 
 ### SV2023-14.5-EXTRACT-HIERARCHICAL-SIGNAL-EXPRESSION
 
@@ -34342,7 +34868,7 @@ A synchronous drive and ordinary NBA to the same variable in one time step have 
 
 ### SV2023-14.16.2-EXTRACT-NO-CONTINUOUS-PRIMITIVE-VARIABLE
 
-14.16.2 / error / テスト未対応
+14.16.2 / error / テスト対応あり・実行未確認
 
 A variable associated with a clocking output cannot also be written by continuous assignment, procedural continuous assignment or primitive output.
 
@@ -34350,6 +34876,10 @@ A variable associated with a clocking output cannot also be written by continuou
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_output_variable_continuous_assign.sv](../tests/ch14/test_illegal_clocking_output_variable_continuous_assign.sv): cb の output y に結び付いた変数 y への assign y = a;（31行目）が違法、assign w = a; は合法。regex は31行目を指す。
+- [test_illegal_clocking_output_variable_procedural_assign.sv](../tests/ch14/test_illegal_clocking_output_variable_procedural_assign.sv): initial 内の手続き的連続代入 assign y = a;（31行目）が違法、assign w = a; は合法。regex は31行目を指す。
+- [test_illegal_clocking_output_variable_force.sv](../tests/ch14/test_illegal_clocking_output_variable_force.sv): initial 内の force y = a;（32行目）が違法、force w = a; は合法。regex は32行目を指す。
+- [test_illegal_clocking_output_variable_primitive_output.sv](../tests/ch14/test_illegal_clocking_output_variable_primitive_output.sv): buf b2 (y, a);（33行目）が y をプリミティブの出力にして違法、buf b1 (w, a); は合法（6.5 は構造体変数のメンバーをゲート出力で書く例を合法な代入に挙げ、14.16.2 自体がプリミティブを変数の書き手に数える）。regex は33行目を指す。
 
 ### SV2023-14.16.2-EXTRACT-SAME-RE-NBA-LAST-DRIVE
 
@@ -34364,7 +34894,7 @@ Several drives to one clockvar maturing in the same Re-NBA iteration/time step d
 
 ### SV2023-15.2-EXTRACT-DYNAMIC-IPC-CLASSES
 
-15.2 / normal / テスト未対応
+15.2 / normal / 実行確認あり
 
 Semaphore/mailbox objects can be dynamically created/reclaimed for synchronization and communication.
 
@@ -34372,10 +34902,12 @@ Semaphore/mailbox objects can be dynamically created/reclaimed for synchronizati
 
 規定の性質: `definition`。
 
+- [test_ipc_classes_extended_shadowed_and_created.sv](../tests/ch15/test_ipc_classes_extended_shadowed_and_created.sv): シミュレーション中の initial 手続きで、foreach により3つの mailbox を new で生成してそれぞれに 10*i+1 を put/get し（box 0 holds 1、box 1 holds 11、box 2 holds 21）、semaphore s を new(1) で作った後 new(3) で作り直して（最初のオブジェクトは参照を失う）try_get(3) が成功する（new semaphore keys taken=1）。派生クラスのオブジェクト cs と tb も実行時に生成して同期と通信に使う。 区別: 実行時に生成したオブジェクトが独立に動かない処理系では box ごとの値が変わる。作り直した semaphore が以前のオブジェクトの状態（鍵1本）を引き継ぐ処理系では try_get(3) が失敗して taken=0 になる。
+- [test_ipc_objects_created_per_call.sv](../tests/ch15/test_ipc_objects_created_per_call.sv): automatic タスク relay の呼び出しごとに mailbox（上限1）と semaphore（鍵0）を実行時に生成し、fork-join_none で起動した生産者が 1〜n を put して鍵を put し、relay 自身が n 個を get して鍵を get する。n = 3 と 4 の呼び出しは sum=6 と sum=10、残数 0 を返す。モジュールのハンドル h は2件を持つ mailbox（num=2）から new で作り直した mailbox（num=0）に切り替わる。 区別: 実行時に生成したオブジェクトが呼び出しごとに独立でない処理系や、同期・通信に使えない処理系では sum や left の値が変わるか、get/get(1) で止まって以降の行が出ない。作り直した mailbox が前のオブジェクトの内容を引き継ぐ処理系は new h num=0 が変わる。
 
 ### SV2023-15.2-EXTRACT-IPC-INHERITABLE-STD
 
-15.2 / normal / テスト未対応
+15.2 / normal / 実行確認あり
 
 Semaphores/mailboxes are built-in classes usable as base classes; they reside in std and may be shadowed by user declarations in other scopes.
 
@@ -34383,10 +34915,11 @@ Semaphores/mailboxes are built-in classes usable as base classes; they reside in
 
 規定の性質: `permission`。
 
+- [test_ipc_classes_extended_shadowed_and_created.sv](../tests/ch15/test_ipc_classes_extended_shadowed_and_created.sv): counted_sem は semaphore を、tagged_box は mailbox #(int) を基底クラスにし、追加したメソッドから継承した get()/put()/try_get() を呼ぶ。tagged_box のハンドルを mailbox #(int) のハンドル base_h でも使う。パッケージ user_ipc は独自の class mailbox を宣言し、make_local() はそれを単純名で生成して marker=7 を返す一方、モジュールは std::mailbox と mailbox で組み込みのクラスを使う。期待出力は counted_sem taken=2 first=0 second=1、tagged_box got 5 then 6 num=0、user mailbox marker=7 などである。 区別: 組み込みクラスを基底にできない処理系はコンパイルに失敗し、継承したメソッドが組み込みの動作をしなければ taken/first/second や got 5 then 6 の値が変わる。std パッケージの名前をユーザーの宣言で再定義できない（パッケージ内の mailbox が組み込みと衝突する、または make_local が組み込みの mailbox を作る）処理系は、コンパイルに失敗するか marker=7 が出ない。
 
 ### SV2023-15.3-EXTRACT-SEMAPHORE-KEYS
 
-15.3 / normal / テスト未対応
+15.3 / normal / 実行確認あり
 
 A semaphore models available keys; a blocking requester waits until enough keys are available under its queue rules.
 
@@ -34394,6 +34927,7 @@ A semaphore models available keys; a blocking requester waits until enough keys 
 
 規定の性質: `definition`。
 
+- [test_semaphore_keys_limit_concurrent_holders.sv](../tests/ch15/test_semaphore_keys_limit_concurrent_holders.sv): 2鍵の semaphore を4つのワーカーが1鍵ずつ取り10単位保持する。t=5 と t=15 に保持数は2、完了数は0と2、t=25 にすべて完了し最大保持数は2。t=31 に始めた get(2) は1鍵しか空いていない間は待ち t=40 に戻る。鍵がない状態で t=50 と t=51 に待ち始めた w1 と w2 は、t=60 と t=70 に1鍵ずつ戻されたとき到着順に鍵を得る。 区別: 鍵の数で同時保持数を制限しない処理系は保持数や peak が2を超える。足りない鍵の要求を待たせない処理系は get(2) が t=31 に戻る。待ち行列が到着順でない処理系は w1 と w2 の時刻が入れ替わる。
 
 ### SV2023-15.3.1-EXTRACT-INITIAL-KEY-COUNT
 
@@ -34512,7 +35046,7 @@ The semaphore waiting queue preserves actual arrival order FIFO; it does not imp
 
 ### SV2023-15.3.3-EXTRACT-SIGNATURE
 
-15.3.3 / normal / テスト未対応
+15.3.3 / normal / 実行確認あり
 
 Semaphore get is a task with int keyCount default one.
 
@@ -34520,10 +35054,11 @@ Semaphore get is a task with int keyCount default one.
 
 規定の性質: `definition`。
 
+- [test_semaphore_get_try_get_int_count_default_one.sv](../tests/ch15/test_semaphore_get_try_get_int_count_default_one.sv): semaphore の get は引数なしで1鍵を取り（new(4) の後 keys=3）、int 引数のため 64'h1_0000_0002 は 2 に切り詰められ（keys=1）、実数 1.6 は 2 に丸められる（put(3) の後 keys=2）。2鍵しかないときの get(3) は別プロセスが t=3 に2鍵を戻すまで待つタスクとして t=3 に戻り、keys=1。keys() は try_get(1) で数えて戻す関数で、正確な残数を示す。 区別: 既定の鍵数が1でない処理系は keys=3 が変わり、引数が int でない（64ビットのまま、実数のまま）処理系は keys=1 や keys=2 が変わる。get を待たない関数として実装する処理系は t=3 の行が変わる。
 
 ### SV2023-15.3.4-EXTRACT-SIGNATURE
 
-15.3.4 / normal / テスト未対応
+15.3.4 / normal / 実行確認あり
 
 Semaphore try_get returns int and accepts int keyCount default one.
 
@@ -34531,10 +35066,11 @@ Semaphore try_get returns int and accepts int keyCount default one.
 
 規定の性質: `definition`。
 
+- [test_semaphore_get_try_get_int_count_default_one.sv](../tests/ch15/test_semaphore_get_try_get_int_count_default_one.sv): try_get の呼び出しの型は $typename で int（評価されないので鍵は減らず keys=4）。引数なしの try_get は1鍵を取って正を返し（keys=3）、64'h1_0000_0002 は 2 に切り詰められて2鍵を取り（keys=1）、1.6 は 2 に丸められて1鍵では足りず 0 を返す（keys=1）。 区別: 戻り値の型が int でない処理系は type int の行が変わる。既定の鍵数や引数の int 変換が異なる処理系は keys の値や try_get(1.6) の結果が変わる。
 
 ### SV2023-15.3.4-EXTRACT-TRY-GET-FAILURE
 
-15.3.4 / normal / テスト未対応
+15.3.4 / normal / 実行確認あり
 
 An insufficient-key try_get returns zero without blocking or procuring keys.
 
@@ -34542,6 +35078,7 @@ An insufficient-key try_get returns zero without blocking or procuring keys.
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_try_get_shortfall_takes_nothing.sv](../tests/ch15/test_semaphore_try_get_shortfall_takes_nothing.sv): 3鍵の semaphore への try_get(5) と try_get(4) は、別プロセスが t=5 に10鍵を戻すにもかかわらず t=0 に 0 を返し、3鍵を残す（keys=3）。2鍵を足した5鍵では try_get(5) が成功して0鍵になる。-1 鍵で作った semaphore への失敗した try_get(1) は残数を -1 のままにするので、1鍵を戻しても try_get(1) は 0、もう1鍵戻して初めて keys=1 になる。 区別: 足りない要求で待つ処理系は時刻 t=0 の行が変わり、失敗時に一部の鍵を取る処理系は keys=3 が減る。負の残数のときに鍵を取る（残数を下げる）処理系は最後の keys=1 が変わる。
 
 ### SV2023-15.3.4-EXTRACT-TRY-GET-NEGATIVE
 
@@ -34580,7 +35117,7 @@ Semaphore try_get never waits for keys.
 
 ### SV2023-15.4-EXTRACT-MAILBOX-BOUNDED-UNBOUNDED
 
-15.4 / normal / テスト未対応
+15.4 / normal / 実行確認あり
 
 A bounded mailbox holds its specified message count and a blocking sender waits for room; unbounded mailbox sends never suspend for fullness.
 
@@ -34588,10 +35125,11 @@ A bounded mailbox holds its specified message count and a blocking sender waits 
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_full_unbounded_never_full.sv](../tests/ch15/test_mailbox_bounded_full_unbounded_never_full.sv): new(2) の mailbox は2件の put が t=0 に戻って num=2 になり、別プロセスの put(40) は満杯の間ブロックされ（t=3 の表示で未返却、num=2）、t=3 の get で空きができると同じ t=3 に戻る（t=4 の表示で put40_at=3）。new と new(0) の非有界の mailbox は 10000 件の try_put がすべて正、10000 件の put が t=4 のまま戻る。 区別: 上限を守らない処理系は num が 2 を超えるか put(40) が t=0 に戻る。空きができても待機中の put を再開しない処理系は put40_at が 3 にならない。非有界の mailbox を有限とみなす処理系は try_put の正の数が 10000 未満になるか put がブロックされて時刻が進む。
 
 ### SV2023-15.4-EXTRACT-MAILBOX-COMMUNICATION
 
-15.4 / normal / テスト未対応
+15.4 / normal / 実行確認あり
 
 A mailbox transfers queued messages between processes.
 
@@ -34599,6 +35137,7 @@ A mailbox transfers queued messages between processes.
 
 規定の性質: `definition`。
 
+- [test_mailbox_messages_between_processes.sv](../tests/ch15/test_mailbox_messages_between_processes.sv): 送信プロセスが t=0 に 11、22、33 を put し、受信プロセスは t=5 から get して到着順に受け取り、t=8 に put された 44 を待って受け取る。受信側は値の10倍を別の mailbox で返し、送信側がそれを受け取る。各プロセスが記録を交換の後に表示し、期待出力は sender got answers: 110@5 220@5 330@5 440@8 と receiver got: 11@5 22@5 33@5 44@8。 区別: mailbox がプロセス間でメッセージを順に渡さない処理系では、受信値の並び・時刻、または返答の値が変わる。受信側の開始前に put された値を保持しない処理系は t=5 の3件が欠ける。
 
 ### SV2023-15.4.1-EXTRACT-NEGATIVE-BOUND-ILLEGAL
 
@@ -34683,7 +35222,7 @@ Mailbox put is a task accepting one message of the applicable mailbox data type.
 
 ### SV2023-15.4.3-EXTRACT-SINGULAR-MESSAGE
 
-15.4.3 / error / テスト未対応
+15.4.3 / error / テスト対応あり・実行未確認
 
 An ordinary mailbox message may be any singular expression including an object handle, subject to typed mailbox equivalence.
 
@@ -34691,6 +35230,7 @@ An ordinary mailbox message may be any singular expression including an object h
 
 規定の性質: `mandatory`。
 
+- [test_illegal_mailbox_put_unpacked_array.sv](../tests/ch15/test_illegal_mailbox_put_unpacked_array.sv): 型パラメータのない mailbox m に、put(arr[0])（整数の要素）と put(h)（クラスのハンドル）を合法な対照として渡し、単一でない非パック配列 arr そのものを渡す put(arr)（35行目）を唯一の違反とする。regex は35行目を指す。 区別: put の引数が単一（singular）であることを検査しない処理系は受理して失敗する。型なし mailbox を使うので、型付き mailbox の型の一致の規則とは独立に単一性の規則だけを破る。オブジェクトハンドルと配列要素のメッセージ（33・34行目）は合法で、違反は35行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-15.4.4-EXTRACT-SIGNATURE
 
@@ -34705,7 +35245,7 @@ Mailbox try_put returns int and accepts one applicable typed message.
 
 ### SV2023-15.4.4-EXTRACT-SINGULAR-MESSAGE
 
-15.4.4 / error / テスト未対応
+15.4.4 / error / テスト対応あり・実行未確認
 
 try_put accepts a singular expression including object handles under mailbox type restrictions.
 
@@ -34713,10 +35253,11 @@ try_put accepts a singular expression including object handles under mailbox typ
 
 規定の性質: `mandatory`。
 
+- [test_illegal_mailbox_try_put_unpacked_array.sv](../tests/ch15/test_illegal_mailbox_try_put_unpacked_array.sv): 型パラメータのない mailbox m に、try_put(arr[0]) と try_put(h)（クラスのハンドル）を合法な対照として渡し、非パック配列 arr そのものを渡す try_put(arr)（35行目）を唯一の違反とする。regex は35行目を指す。 区別: try_put の引数の単一性を検査しない処理系は受理して失敗する。型なし mailbox を使うので型の一致の規則とは独立である。ハンドルと配列要素（33・34行目）は合法で、違反は35行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-15.4.4-EXTRACT-TRY-PUT-FULL
 
-15.4.4 / normal / テスト未対応
+15.4.4 / normal / 実行確認あり
 
 A full try_put returns zero without adding a message; an unbounded mailbox is never full.
 
@@ -34724,6 +35265,7 @@ A full try_put returns zero without adding a message; an unbounded mailbox is ne
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bounded_full_unbounded_never_full.sv](../tests/ch15/test_mailbox_bounded_full_unbounded_never_full.sv): 上限2で2件を持つ満杯の mailbox への try_put(30) は 0 を返して num=2 のまま、以後の get で取り出されるのは 10、20、40 だけで 30 は格納されていない。空きのある状態の try_put(50) は正を返して num=1。new() の非有界の mailbox への 10000 件の try_put はすべて正。 区別: 満杯でもメッセージを加える処理系は num が 3 になるか get で 30 が出る。0 以外を返す処理系は try_put(30)=0 の行が変わる。非有界の mailbox で満杯を報告する処理系は positive try_puts が 10000 未満になる。
 
 ### SV2023-15.4.4-EXTRACT-TRY-PUT-SUCCESS
 
@@ -34785,7 +35327,7 @@ get removes/retrieves one queued message, blocking if empty until a message is p
 
 ### SV2023-15.4.5-EXTRACT-SIGNATURE
 
-15.4.5 / normal / テスト未対応
+15.4.5 / normal / テスト対応あり・実行未確認
 
 Mailbox get is a task taking its message destination by ref.
 
@@ -34793,6 +35335,7 @@ Mailbox get is a task taking its message destination by ref.
 
 規定の性質: `definition`。
 
+- [test_mailbox_get_peek_task_ref_destination.sv](../tests/ch15/test_mailbox_get_peek_task_ref_destination.sv): get(q[1]) は空の mailbox で別プロセスの t=2 の put(42) まで待つタスクで、q をそのままにすると q[1] が 42 になる（q=1 42 3）。待っている間に q を代入し直すと、参照渡しの要素は 13.5.2 の古い参照となり、get の書き込みは新しい q に現れない（q=7 8 9、t=5 に戻り num=0）。 区別: get を関数として実装し待たない処理系は返却時刻が変わる。引数を ref でなく出力（戻り時の書き戻し）として扱う処理系は代入し直した q の要素 1 に 43 を書いて q=7 43 9 となる。
 
 ### SV2023-15.4.5-EXTRACT-SINGULAR-LVALUE
 
@@ -34924,7 +35467,7 @@ A nonequivalent destination/message type causes a runtime error in peek.
 
 ### SV2023-15.4.7-EXTRACT-SIGNATURE
 
-15.4.7 / normal / テスト未対応
+15.4.7 / normal / テスト対応あり・実行未確認
 
 Mailbox peek is a task taking a ref destination.
 
@@ -34932,6 +35475,7 @@ Mailbox peek is a task taking a ref destination.
 
 規定の性質: `definition`。
 
+- [test_mailbox_get_peek_task_ref_destination.sv](../tests/ch15/test_mailbox_get_peek_task_ref_destination.sv): peek(d[2]) は空の mailbox で別プロセスの put まで待つタスクで、d をそのままにすると d[2] が 55 になりメッセージは残る（num=1）。待っている間に d を new[5](d) で大きさを変えると古い参照となり、peek の書き込みは新しい d に現れない（d=1 2 3 0 0、t=11 に戻り num=1）。 区別: peek を待たない関数として扱う処理系は返却時刻が変わり、出力引数として戻り時に書き戻す処理系は新しい d の要素 2 に 56 を書いて d=1 2 56 0 0 となる。
 
 ### SV2023-15.4.7-EXTRACT-SINGULAR-LVALUE
 
@@ -35039,7 +35583,7 @@ A mailbox can specialize its message type using ordinary class parameterization;
 
 ### SV2023-15.4.9-EXTRACT-TYPED-MAILBOX-APIS
 
-15.4.9 / normal / テスト未対応
+15.4.9 / normal / 実行確認あり
 
 A typed mailbox supplies the same new/num/put/try_put/get/try_get/peek/try_peek methods as a dynamic mailbox.
 
@@ -35047,6 +35591,7 @@ A typed mailbox supplies the same new/num/put/try_put/get/try_get/peek/try_peek 
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_typed_string_all_methods.sv](../tests/ch15/test_mailbox_typed_string_all_methods.sv): mailbox #(string) を new(1) で作り、num（空で0）、try_get/try_peek（空で0、s は変わらない）、try_put（正で格納、満杯で0）、try_peek と peek（"a" を写して残す）、try_get（取り出す）、get（空のとき t=2 の put まで待つ）、put（満杯のとき別プロセスの t=5 の get まで待つ）、peek（空のとき t=9 の put まで待って残す）の8つのメソッドをすべて使い、各メソッドの節が定める結果を期待出力の各行で確認する。 区別: 型付き mailbox でいずれかのメソッドが提供されない処理系はコンパイルに失敗し、型なしの場合と異なる動作をする処理系は対応する行（例: full: try_put("b")=0、t=5: put("next") returned、t=9: peek -> x num=1）が変わる。
 
 ### SV2023-15.4.9-EXTRACT-TYPED-MAILBOX-EQUIVALENCE
 
@@ -35279,7 +35824,7 @@ wait_order takes a nonempty comma-separated event identifier list and an action 
 
 ### SV2023-15.5.5-EXTRACT-EVENT-ASSIGNMENT-QUEUE
 
-15.5.5 / normal / テスト未対応
+15.5.5 / normal / テスト対応あり・実行未確認
 
 Assigning one event to another shares the source synchronization object/queue between source and destination rather than copying pending synchronization activity.
 
@@ -35287,6 +35832,7 @@ Assigning one event to another shares the source synchronization object/queue be
 
 規定の性質: `mandatory`。
 
+- [test_event_merge.sv](../tests/ch15/test_event_merge.sv): 待機開始前の a = b の後、a と b の待機者を別プロセスで置き、-> a (10) と -> b (20) のそれぞれで両方の待機者が1回ずつ起きる(t=15/25 行の a woke 1/2, b woke 1/2)。さらに c の待機者が c の旧キューで待っている間に c = a (35) を行い、-> c (40) で a,b の待機者だけが起き c の待機者は起きない(t=45 行 a 3, b 3, c 1)ことを比較する。 区別: 代入でキューを共有せず複製する誤実装では -> a が b の待機者を起こさず t=15 行が b woke 0 になる。逆向きに宛先のキューを元側へ移す誤実装や待機中の同期を複製して移す誤実装では、40 の -> c が c の旧待機者を起こして c woke 2 となり、a,b の待機者は起きず t=45 行が a woke 2, b woke 2, c woke 2 に変わる。
 
 ### SV2023-15.5.5.1-EXTRACT-MERGED-TRIGGER
 
@@ -35314,7 +35860,7 @@ An event merger affects subsequent wait/event operations; an already blocked des
 
 ### SV2023-15.5.5.2-EXTRACT-NULL-DISASSOCIATES-EVENT
 
-15.5.5.2 / normal / テスト未対応
+15.5.5.2 / normal / テスト対応あり・実行未確認
 
 Assigning null breaks the event variable association; an underlying synchronization queue with no associated event variables becomes reclaimable.
 
@@ -35322,6 +35868,7 @@ Assigning null breaks the event variable association; an underlying synchronizat
 
 規定の性質: `mandatory`。
 
+- [test_event_null_waiter_queue.sv](../tests/ch15/test_event_null_waiter_queue.sv): e2 = e1 で共有キューにした後 e1 = null (2) とし、e1 == null 1 / e2 == null 0 を表示、2 から e2 で待つ2番目の待機者が 3 の -> e1 では起きず(t=4 行 the second at -1、triggered at 3: e1 0 e2 0)、4 の -> e2 で起きる(t=5 行 woke at 4)ことを比較する。キューの資源の再利用は観測できない実装内部の許可なので、観測可能な部分は『null 代入で e1 だけが共有キューから外れ、まだ e2 が結び付いているキューは働き続ける』こと。 区別: null 代入で結び付きを切らない誤実装では 3 の -> e1 が共有キューを起動し t=4 行が the second at 3 に、triggered at 3 が e2 1 に変わる。null 代入でキュー自体を破棄・解放してしまう誤実装(他の変数がまだ結び付いているのに再利用可能にする)では 4 の -> e2 で待機者が起きず t=5 行が woke at -1 に変わる。
 
 ### SV2023-15.5.5.2-EXTRACT-NULL-TRIGGER-NOOP
 
@@ -35371,7 +35918,7 @@ Event comparison permits ==/!=/===/!== only against another event or null; case 
 
 ### SV2023-16.2-EXTRACT-ASSERT-KIND
 
-16.2 / normal / テスト未対応
+16.2 / normal / 実行確認あり
 
 An assert statement specifies a property whose violation is checked.
 
@@ -35379,10 +35926,11 @@ An assert statement specifies a property whose violation is checked.
 
 規定の性質: `mandatory`。
 
+- [test_assertion_kinds_checked_covered_restricted.sv](../tests/ch16/test_assertion_kinds_checked_covered_restricted.sv): a はクロック事象 5・25 で 1、15 で 0 になる。assert property p_assert の成功と失敗を動作ブロックで数え、期待出力は assert pass=2 fail=1 at 15。 区別: assert を検査しない処理系は fail=0 になり、失敗の時刻を誤る処理系は at 15 が変わる。成功の数え違いも pass=2 で検出する。
 
 ### SV2023-16.2-EXTRACT-ASSUME-KIND
 
-16.2 / normal / テスト未対応
+16.2 / normal / 実行確認あり
 
 An assume statement specifies an environmental assumption: simulation checks it and formal verification uses it to constrain stimulus.
 
@@ -35390,10 +35938,11 @@ An assume statement specifies an environmental assumption: simulation checks it 
 
 規定の性質: `definition`。
 
+- [test_assertion_kinds_checked_covered_restricted.sv](../tests/ch16/test_assertion_kinds_checked_covered_restricted.sv): 同じ性質を assume property p_assume で述べ、成功と失敗を数える。シミュレータは assume も検査するので、期待出力は assume pass=2 fail=1 at 15。 区別: assume を環境の前提として扱いシミュレーションで検査しない処理系は fail=0、pass=0 になり期待出力の行が変わる。形式検証で刺激の生成に使う部分はシミュレーションでは観測できないため、この要求の観測可能な部分（シミュレータが検査すること）を確認する。
 
 ### SV2023-16.2-EXTRACT-COVER-KIND
 
-16.2 / normal / テスト未対応
+16.2 / normal / 実行確認あり
 
 A cover statement monitors evaluation for coverage.
 
@@ -35401,10 +35950,11 @@ A cover statement monitors evaluation for coverage.
 
 規定の性質: `definition`。
 
+- [test_assertion_kinds_checked_covered_restricted.sv](../tests/ch16/test_assertion_kinds_checked_covered_restricted.sv): cover property p_cover の一致ごとに動作文で cp を増やし、a が 1 のクロック事象 5 と 25 の2回一致して cover matches=2 を出す。 区別: cover の評価を監視しない処理系は 0、偽の評価も一致として数える処理系は 3 になり期待出力が変わる。
 
 ### SV2023-16.2-EXTRACT-IMMEDIATE-CONCURRENT
 
-16.2 / normal / テスト未対応
+16.2 / normal / 実行確認あり
 
 Immediate assertions follow procedural execution; concurrent assertions use clocked sampled semantics.
 
@@ -35412,10 +35962,11 @@ Immediate assertions follow procedural execution; concurrent assertions use cloc
 
 規定の性質: `definition`。
 
+- [test_assertion_kinds_checked_covered_restricted.sv](../tests/ch16/test_assertion_kinds_checked_covered_restricted.sv): 時刻5で、同じクロック事象で再開した initial 手続きが即時アサーション i_b（b == 0）、b = 1、即時アサーション i_a（b == 1）を順に実行し、どちらも成功する（immediate before=1 after=1）。同じ時刻の並行アサーション p_sampled（性質 b）は事象前の標本値 b=0 で評価されて失敗し、15 と 25 で成功する（sampled pass=2 fail=1 at 5）。 区別: 即時アサーションを手続きの実行順に従わせない（例えば事象前の値で評価する）処理系では after=0 になり、並行アサーションが標本値でなく現在値を使う処理系では時刻5で成功して sampled pass=3 fail=0 になる。
 
 ### SV2023-16.2-EXTRACT-NO-IMMEDIATE-RESTRICT
 
-16.2 / error / テスト未対応
+16.2 / error / 実行確認あり
 
 There is no immediate restrict statement.
 
@@ -35423,10 +35974,11 @@ There is no immediate restrict statement.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_immediate_restrict_statement.sv](../tests/ch16/test_illegal_immediate_restrict_statement.sv): initial 手続きの中で restrict (a); を即時アサーション文として書いた25行目を唯一の違反とする。同じ設計のモジュール項目の restrict property（並行形）と即時の assert (a) は合法。regex は25行目を指す。 区別: 即時形の restrict を assert/assume と同様に受け付けてしまう処理系は受理して失敗する。違反は25行目だけで、両シミュレータはこの行を「property を期待する」構文エラーとして拒否する（規格は即時の restrict を文法に持たないので、構文エラーは意図した規則の診断である）。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.2-EXTRACT-RESTRICT-KIND
 
-16.2 / normal / テスト未対応
+16.2 / normal / 実行確認あり
 
 A restrict statement constrains formal verification and is not checked by simulation.
 
@@ -35434,10 +35986,11 @@ A restrict statement constrains formal verification and is not checked by simula
 
 規定の性質: `definition`。
 
+- [test_assertion_kinds_checked_covered_restricted.sv](../tests/ch16/test_assertion_kinds_checked_covered_restricted.sv): restrict property p_restrict（42行目）は同じ性質 a を述べ、15 で偽になるが、動作ブロックを持たない。シミュレータは restrict を検査しないので失敗は報告されない。:expected_stderr_regex: は、実行のメッセージが42行目を名指ししないことを要求する。 区別: restrict を assert のように検査する処理系は、動作ブロックがないので既定の $error で42行目の失敗を報告し、regex に一致しなくなる（エラーで実行が止まれば標準出力の行も欠ける）。他の性質は失敗時の動作ブロックを持つので既定のメッセージを出さず、42行目以外の報告と混同しない。
 
 ### SV2023-16.3-EXTRACT-ARBITRARY-ACTION
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 A simple immediate assertion pass or fail action may be any legal procedural statement, including a testbench signal.
 
@@ -35445,10 +35998,11 @@ A simple immediate assertion pass or fail action may be any legal procedural sta
 
 規定の性質: `permission`。
 
+- [test_immediate_assertion_action_statements.sv](../tests/ch16/test_immediate_assertion_action_statements.sv): 即時 assert の pass/fail 文に、ブロッキング代入、repeat ループ、イベントトリガ -> fail_ev、非ブロッキング代入 flag <= 1'b1、時刻を記録して #7 待つ begin-end ブロックを使い、10 に2つの成功で count が 1+30=31、2つの失敗で別プロセスの @fail_ev と @(posedge flag) がそれぞれ 10 に起きることを最後の行 t=27: count=31, fail_ev seen at 10, flag rose at 10 で比較する。 区別: action に任意の手続き文を許さない(例: 単一の代入や表示しか受け付けない、ループを1回だけ実行する、イベントトリガや NBA を action から実行しない)誤実装では、count が 31 にならない、fail_ev seen at -1、flag rose at -1 のいずれかに変わる。a_event の失敗で pass 文を実行する誤実装では count=131 になる。
 
 ### SV2023-16.3-EXTRACT-ASSERT-CONDITION
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 An immediate assert requires the specified expression to hold; failure is an assertion violation.
 
@@ -35456,10 +36010,11 @@ An immediate assert requires the specified expression to hold; failure is an ass
 
 規定の性質: `mandatory`。
 
+- [test_immediate_assertion_truth_and_actions.sv](../tests/ch16/test_immediate_assertion_truth_and_actions.sv): 即時 assert の式が真(v=0001, 0100)なら pass 文、偽(0000, xxxx, zzzz)なら違反として else 文が実行されることを、assert:pass / assert:fail と pass-only / else-only の語が各 v の行に出るかで比較する。 区別: 式が成り立たないことを違反として扱わない(失敗を検出しない)誤実装では v=0000/xxxx/zzzz の行に assert:fail と else-only が出ず、成り立つ場合を違反とする誤実装では v=0001/0100 の行に assert:fail が出る。
 
 ### SV2023-16.3-EXTRACT-ASSUME-SIMULATION
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 A simulator shall provide a capability to treat an immediate assume as an immediate assert; formal tools interpret the expression as an environmental constraint.
 
@@ -35467,10 +36022,11 @@ A simulator shall provide a capability to treat an immediate assume as an immedi
 
 規定の性質: `mandatory`。
 
+- [test_immediate_assertion_truth_and_actions.sv](../tests/ch16/test_immediate_assertion_truth_and_actions.sv): シミュレーションで即時 assume を assert と同じ式・同じ5つの値で評価し、assume も式が真なら pass 文(assume:pass)、0/x/z なら else 文(assume:fail)を実行して、各行で assert の結果と同じになることを比較する。 区別: シミュレータが assume を検査せず(制約として無視して)何もしない誤実装では各行の assume:pass / assume:fail の語が消える。assume を常に成り立つものとして pass 文を実行する誤実装では v=0000/xxxx/zzzz の行が assume:pass に変わる。
 
 ### SV2023-16.3-EXTRACT-CAPTURE-FAILURE-TIME
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 An action can record the failure time before a delayed severity call to report the original failure time.
 
@@ -35478,10 +36034,11 @@ An action can record the failure time before a delayed severity call to report t
 
 規定の性質: `permission`。
 
+- [test_immediate_assertion_action_statements.sv](../tests/ch16/test_immediate_assertion_action_statements.sv): 20 に失敗する a_late の fail 文で t_fail = $time と記録してから #7 待ち、報告時に記録した時刻と現在時刻を表示して a_late failed at 20, reported at 27 となること、手続きはこのブロックの後に進む(次の行が t=27)ことを比較する。 区別: action の中の遅延を無視する、または失敗時刻の記録を報告時の時刻で上書きする誤実装では reported at 20 や failed at 27 に変わる。action を別プロセスとして切り離して手続きを先に進める誤実装では t=20: count=... の行が a_late の行より前に出る。
 
 ### SV2023-16.3-EXTRACT-COVER-ACTION
 
-16.3 / normal / テスト未対応
+16.3 / normal / テスト対応あり・実行未確認
 
 The optional pass statement of a simple immediate cover executes immediately after a successful evaluation.
 
@@ -35489,6 +36046,7 @@ The optional pass statement of a simple immediate cover executes immediately aft
 
 規定の性質: `mandatory`。
 
+- [test_immediate_cover_pass_statement.sv](../tests/ch16/test_immediate_cover_pass_statement.sv): 即時 cover の pass 文(単文とブロック)を v=0000/0001/0100/xxxx/zzzz で実行し、真の v=0001/0100 でだけ pass 文が動き、直後の文の ' /' より前に log へ書くこと(v=0001: covered / hit 1 /)、偽と x/z では何も書かないこと(v=xxxx: / /)、式の評価回数 evaluations: 15 と pass 文の実行回数 hits: 2 を比較する。 区別: pass 文を成功直後でなく後で実行する誤実装では ' /' が covered より前に来るか表示に入らない。失敗時にも pass 文を実行する誤実装では v=0000 や v=xxxx の行に covered が出て hits が 5 になる。cover を評価しない実装(Icarus 13.0)では v=0001 行が ' / /' に、evaluations が 0 になる。
 
 ### SV2023-16.3-EXTRACT-COVER-COUNTERS
 
@@ -35503,7 +36061,7 @@ Tools collect and report immediate cover evaluations and successes at simulation
 
 ### SV2023-16.3-EXTRACT-DEFAULT-ERROR
 
-16.3 / normal / テスト未対応
+16.3 / normal / テスト対応あり・実行未確認
 
 Failure of an immediate assert/assume with no explicit fail action calls $error unless assertion control suppresses it; deferred forms schedule the report under 16.4.
 
@@ -35511,10 +36069,12 @@ Failure of an immediate assert/assume with no explicit fail action calls $error 
 
 規定の性質: `mandatory`。
 
+- [test_immediate_assertion_default_error.sv](../tests/ch16/test_immediate_assertion_default_error.sv): 単純即時 assert(29行)と assume(31行)の else なしの失敗、FailOff 中の失敗(34行)、FailOn 後の失敗(36行)、成功(32行)、else 付きの失敗(37行)を並べ、29/31/36 行のエラーがあり 32/34/37 行の報告がないことを照合する。標準出力では after a_fail / a_else: own fail statement / done を比較する。
+- [test_deferred_assertion_default_error.sv](../tests/ch16/test_deferred_assertion_default_error.sv): always @(trig) の a_flushed(34行)は時刻1に失敗した後のイベント制御からの再開でフラッシュされ、時刻2の a_kept(43行, assert #0)と u_kept(44行, assume final)は失敗して報告され、a_ok(45行)は成功する。34/45 行の報告がなく 43/44 行のエラーがあることを照合する。
 
 ### SV2023-16.3-EXTRACT-EVALUATE
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 An immediate assertion evaluates its non-temporal condition each time execution reaches the statement.
 
@@ -35522,10 +36082,11 @@ An immediate assertion evaluates its non-temporal condition each time execution 
 
 規定の性質: `mandatory`。
 
+- [test_immediate_assertion_truth_and_actions.sv](../tests/ch16/test_immediate_assertion_truth_and_actions.sv): 同じ4つの即時アサーション文を foreach ループで時刻0の中で5回ずつ到達させ、式の中の関数 cond() が評価ごとに数える回数が evaluations: 20 であること、各到達で v の値に応じた別々の結果(v=0001/0100 は pass、0000/xxxx/zzzz は fail)が出ることを比較する。 区別: 到達ごとでなく1回(時刻ステップごとや最初の到達だけ)評価する誤実装では evaluations が 4 などになり、各行の結果が最初の v=0000 の結果のまま変わらない。評価を省略して action だけ実行する誤実装でも evaluations: 20 の行が変わる。
 
 ### SV2023-16.3-EXTRACT-LABEL-SCOPE
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 An optional immediate assertion label creates a named block and is part of the hierarchical scope reported by %m.
 
@@ -35533,10 +36094,11 @@ An optional immediate assertion label creates a named block and is part of the h
 
 規定の性質: `definition`。
 
+- [test_immediate_assertion_label_scope.sv](../tests/ch16/test_immediate_assertion_label_scope.sv): 名前付きブロック blk 内のラベル付き assert(成功・失敗)・assume・cover と、タスク t_check 内のラベル付き assert の action で %m を表示し、ラベルが最後の階層になる(…blk.a_pass、…blk.a_fail、…blk.u_assume、…blk.c_cover、…t_check.a_task)こと、ラベルなしの assert とラベル付き assertion の次の文では blk のまま(…blk)であることを比較する。 区別: ラベルで名前付きブロックを作らない誤実装(Icarus 13.0 がそうである)では各 action の %m が test_immediate_assertion_label_scope.blk や …t_check になり、1〜4行目と7行目が変わる。ラベルのブロックを assertion の後まで広げる誤実装では next statement の行が …blk.c_cover などに変わる。
 
 ### SV2023-16.3-EXTRACT-MULTIPLE-SEVERITY-CALLS
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 If an assertion action contains multiple severity task calls, each call executes as written.
 
@@ -35544,10 +36106,11 @@ If an assertion action contains multiple severity task calls, each call executes
 
 規定の性質: `mandatory`。
 
+- [test_immediate_assertion_two_severity_calls.sv](../tests/ch16/test_immediate_assertion_two_severity_calls.sv): 失敗する a_fail の fail 文で $warning と $info、成功する a_pass の pass 文で $info を2回呼び、実行時メッセージに4つの利用者文字列 a_fail report 1 of 2, x=0 / a_fail report 2 of 2, x=0 / a_pass report 1 of 2, x=0 / a_pass report 2 of 2, x=0 がすべて現れることを :expected_stderr_regex: の先読みで照合し、標準出力で after a_fail / after a_pass の順に手続きが続くことを比較する。 区別: action 内の複数の重大度タスクのうち最初の1つしか実行しない誤実装では report 2 of 2 の文字列が出ず正規表現が一致しない。重大度タスクを action の最後の1つにまとめる誤実装では report 1 of 2 が欠ける。どちらでもテストは失敗する。
 
 ### SV2023-16.3-EXTRACT-PASS-FAIL-ACTIONS
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 For immediate assert/assume the optional first statement is the pass action and the optional statement after else is the fail action; enabled simple actions execute immediately after evaluation.
 
@@ -35555,10 +36118,11 @@ For immediate assert/assume the optional first statement is the pass action and 
 
 規定の性質: `mandatory`。
 
+- [test_immediate_assertion_truth_and_actions.sv](../tests/ch16/test_immediate_assertion_truth_and_actions.sv): assert と assume を pass 文と else 文の両方、pass 文だけ、else 文だけの形で書き、v=0000/0001/0100/xxxx/zzzz のそれぞれで、成功時に最初の文、失敗時に else の後の文だけが実行され、どちらも直後の文(log に ' /' を足す)より前に実行されることを各行の log の並び(例: v=0001: assert:pass / assume:pass / pass-only / /、v=0000: assert:fail / assume:fail / / else-only /)で比較する。 区別: 最初の文と else の文の役割を取り違える誤実装では pass/fail の語が入れ替わる。pass 文だけの形で失敗時にも pass 文を実行する誤実装では v=0000 行に pass-only が、else だけの形で成功時に else 文を実行する誤実装では v=0001 行に else-only が現れる。action を評価直後でなく後で実行する誤実装では ' /' が action の語より前に並ぶか語が表示に入らない。
 
 ### SV2023-16.3-EXTRACT-PROCEDURAL-PLACEMENT
 
-16.3 / normal / テスト未対応
+16.3 / normal / テスト対応あり・実行未確認
 
 Immediate assertions are permitted wherever a procedural statement is permitted and are subject to assertion control in 20.11.
 
@@ -35566,6 +36130,7 @@ Immediate assertions are permitted wherever a procedural statement is permitted 
 
 規定の性質: `permission`。
 
+- [test_immediate_assertion_statement_places.sv](../tests/ch16/test_immediate_assertion_statement_places.sv): 即時 assert を if の分岐、case 項目、for の本体(2回)、fork の分岐、名前付きブロック、別の assert の pass 文、function、task、always、final の各所に置き、pass 文がその場所を where に記録して final で 0: if branch 〜 11: final の12行を表示する。さらに 10 に $assertoff の後の失敗する a_off は fail 文を実行せず、$asserton の後の a_on は実行する(10: fail action after $asserton だけが出る)ことを比較する。 区別: 手続き文の置ける場所の一部(例: fork の分岐、別の assertion の action、final、関数)で即時アサーションを受け付けない誤実装はコンパイルできないか該当行が欠ける。アサーション制御を即時アサーションに適用しない誤実装では 'fail action while off' の行が10番目に入り、以降の番号と a_final の件数判定(where.size() == 11)が変わって final の行がなくなる。
 
 ### SV2023-16.3-EXTRACT-SEVERITY-CALLS
 
@@ -35580,7 +36145,7 @@ Severity system tasks are permitted in pass or fail actions and produce the same
 
 ### SV2023-16.3-EXTRACT-SIMPLE-ACTIONS
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 A simple immediate assertion executes enabled actions immediately after evaluation; deferred immediate assertions follow 16.4 instead.
 
@@ -35588,6 +36153,7 @@ A simple immediate assertion executes enabled actions immediately after evaluati
 
 規定の性質: `mandatory`。
 
+- [test_immediate_assertion_truth_and_actions.sv](../tests/ch16/test_immediate_assertion_truth_and_actions.sv): 単純な即時表明 assert / assume は評価の直後に有効な動作を実行し、pass 文または else の後の文が次の文 log = {log, " /"} より前に実行される。各行の並び(v=0001: assert:pass / assume:pass / pass-only / /、v=0000: assert:fail / assume:fail / / else-only /)で、動作の文字列が必ず直後の ' /' の前に来ることを比較する。遅延表明は 16.4 の規則に従い、このテストの対象ではない。 区別: 単純な即時表明の動作を後回しにする(例えば Reactive 領域や時間ステップの終わりに実行する)誤実装では、動作の文字列が ' /' の後ろへ移るか、$display の時点で log に入っておらず行が ' / / / /' だけになる。
 
 ### SV2023-16.3-EXTRACT-SYNTAX
 
@@ -35602,7 +36168,7 @@ Simple immediate assert and assume use a parenthesized expression and an action 
 
 ### SV2023-16.3-EXTRACT-TRUTH
 
-16.3 / normal / テスト未対応
+16.3 / normal / テスト対応あり・実行未確認
 
 An immediate assertion fails when its expression evaluates to 0, x or z, as with an if condition; otherwise it succeeds.
 
@@ -35610,10 +36176,12 @@ An immediate assertion fails when its expression evaluates to 0, x or z, as with
 
 規定の性質: `mandatory`。
 
+- [test_immediate_assertion_truth_and_actions.sv](../tests/ch16/test_immediate_assertion_truth_and_actions.sv): assert と assume を 0000/0001/0100/xxxx/zzzz で評価し、0001 と 0100 は assert:pass / assume:pass、0000・xxxx・zzzz は assert:fail / assume:fail と else-only になる。
+- [test_immediate_cover_pass_statement.sv](../tests/ch16/test_immediate_cover_pass_statement.sv): cover を同じ5値で評価し、0001 と 0100 でだけ pass 文が動き(covered / hit n)、0000・xxxx・zzzz では動かない(' / /')。hits: 2。
 
 ### SV2023-16.4-EXTRACT-ARGUMENT-DIRECTIONS
 
-16.4 / error / テスト未対応
+16.4 / error / テスト対応あり・実行未確認
 
 Deferred action subroutine arguments shall be input by value, ref or const ref.
 
@@ -35621,6 +36189,8 @@ Deferred action subroutine arguments shall be input by value, ref or const ref.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_deferred_assertion_action_output_argument.sv](../tests/ch16/test_illegal_deferred_assertion_action_output_argument.sv): d3 の fail 動作が output 引数 o を持つタスク t_out(r) を呼ぶ41行目が違法。d0（f_in、input）、d1（t_ref、ref）、d2（f_cref、const ref）は合法。regex は41行目を指す。
+- [test_illegal_deferred_assertion_action_inout_argument.sv](../tests/ch16/test_illegal_deferred_assertion_action_inout_argument.sv): d3 の fail 動作が inout 引数 io を持つタスク t_io(r) を呼ぶ41行目が違法。d0〜d2 は合法。regex は41行目を指す。
 
 ### SV2023-16.4-EXTRACT-ASSUME-COVER
 
@@ -35635,7 +36205,7 @@ Deferred assume and cover retain immediate assume/cover semantics except for def
 
 ### SV2023-16.4-EXTRACT-CAPTURE-INPUTS
 
-16.4 / normal / テスト未対応
+16.4 / normal / テスト対応あり・実行未確認
 
 By-value action argument expressions, including called functions and their side effects, are fully evaluated at assertion evaluation time, even if the report is subsequently flushed.
 
@@ -35643,6 +36213,7 @@ By-value action argument expressions, including called functions and their side 
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_action_arguments.sv](../tests/ch16/test_deferred_assertion_action_arguments.sv): 値渡し引数 x は評価時の値で渡る(a_obs の by value 1、a_fin の by value 2。直後に x は 2 / 3 になる)。30 に always @(trig) が x=4 と x=5 で2回実行され、1回目の報告は2回目の再開でフラッシュされるが、action の値渡し引数 probe(x) は両方の評価時に呼ばれ、成熟した報告の値は 5*10+2 = 52、31 の calls は 2 であることを比較する。 区別: 値渡し引数を action 実行時に評価する誤実装では by value が 2 / 3 になり、probe(x) は1回だけ呼ばれて a_cap の値が 51、calls が 1 になる。フラッシュされた報告の引数評価を省く(遅延評価する)誤実装でも calls が 1 で by value 51 に変わる。
 
 ### SV2023-16.4-EXTRACT-DEFERRED-DIFFERENCES
 
@@ -35657,7 +36228,7 @@ Deferred immediate assertions delay reporting/actions, restrict each action to o
 
 ### SV2023-16.4-EXTRACT-EVALUATE-NOW
 
-16.4 / normal / テスト未対応
+16.4 / normal / テスト対応あり・実行未確認
 
 The deferred assertion expression is evaluated when the statement executes; only its reporting/action is deferred.
 
@@ -35665,6 +36236,7 @@ The deferred assertion expression is evaluated when the statement executes; only
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_action_arguments.sv](../tests/ch16/test_deferred_assertion_action_arguments.sv): 10 に x = 1 として a_obs: assert #0 (x == 1) を実行した直後に x = 2 とし、後で Reactive 領域で動く action が pass 側(t=10 a_obs pass)であること、20 に x == 2 の a_fin: assert final の直後に x = 3 としても pass 側(t=20 a_fin pass)であることを比較する。action の前に手続きが進む(t=10 after a_obs: x=2 が先に出る)ことも比較する。 区別: deferred assertion の式を文の実行時でなく成熟時(Observed/Postponed)に評価する誤実装では x がすでに 2 / 3 なので両方とも fail 側になり、t=10 a_obs fail / t=20 a_fin fail の行に変わる。action まで即時に実行する誤実装では a_obs pass の行が after a_obs の行より前に出る。
 
 ### SV2023-16.4-EXTRACT-FINAL-LEGALITY
 
@@ -35679,7 +36251,7 @@ A final deferred action call shall be legal in the Postponed region under 4.4.2.
 
 ### SV2023-16.4-EXTRACT-FINAL-REF
 
-16.4 / normal / テスト未対応
+16.4 / normal / テスト対応あり・実行未確認
 
 A final deferred action executes in Postponed and ref/const-ref arguments observe their values at that execution time.
 
@@ -35687,10 +36259,11 @@ A final deferred action executes in Postponed and ref/const-ref arguments observ
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_action_arguments.sv](../tests/ch16/test_deferred_assertion_action_arguments.sv): 20 に a_fin: assert final の action に r を const ref と ref で渡し、同じ時刻に NBA の r <= 6 と、Reactive 領域で動く a_bump の action による r + 100 が起きた後の Postponed で a_fin の action が const ref 106, ref 106 を表示すること(手続き内の表示 after a_fin では r=5)を比較する。 区別: final deferred の ref/const ref を評価時に取り込む誤実装では const ref 5, ref 5 に、action を Postponed でなく Observed/Reactive の前後で実行する誤実装では a_bump の加算前の 6 が見えて const ref 6, ref 6 に変わる。
 
 ### SV2023-16.4-EXTRACT-NO-AUTOMATIC-REF
 
-16.4 / error / テスト未対応
+16.4 / error / テスト対応あり・実行未確認
 
 Automatic or dynamically allocated actual arguments shall not be passed by ref or const ref to a deferred action.
 
@@ -35698,10 +36271,12 @@ Automatic or dynamically allocated actual arguments shall not be passed by ref o
 
 規定の性質: `mandatory`。
 
+- [test_illegal_deferred_assertion_ref_automatic_actual.sv](../tests/ch16/test_illegal_deferred_assertion_ref_automatic_actual.sv): initial 内の automatic int k を d2 の pass 動作 show(k)（ref 引数）に渡す35行目が違法。d0 の show(s)（静的変数を ref）と d1 の show_in(k)（値渡し）は合法。regex は35行目を指す。
+- [test_illegal_deferred_assertion_const_ref_dynamic_actual.sv](../tests/ch16/test_illegal_deferred_assertion_const_ref_dynamic_actual.sv): 動的配列 d の要素 d[1] を d2 の pass 動作 peek(d[1])（const ref 引数）に渡す37行目が違法。d0 の peek(s)（静的変数を const ref）と d1 の peek_in(d[0])（値渡し）は合法。regex は37行目を指す。
 
 ### SV2023-16.4-EXTRACT-OBSERVED-REF
 
-16.4 / normal / テスト未対応
+16.4 / normal / テスト対応あり・実行未確認
 
 An observed deferred action executes in Reactive and ref/const-ref arguments observe their values at that execution time.
 
@@ -35709,10 +36284,11 @@ An observed deferred action executes in Reactive and ref/const-ref arguments obs
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_action_arguments.sv](../tests/ch16/test_deferred_assertion_action_arguments.sv): assert #0 の action に同じ static 変数 r を const ref と ref で渡し、10 に r <= 5 の NBA の後の Reactive で動く action が const ref 5, ref 5 を表示し(手続き内の表示 after a_obs では r=0)、20 には a_bump の action が ref 引数を通して Reactive 領域で r に 100 を足し、その結果 106 が同じ時刻の a_fin の action と 30 の a_cap の action に見えることを比較する。 区別: observed deferred の ref/const ref を評価時の値で取り込む誤実装では a_obs の行が const ref 0, ref 0 に変わる。ref 引数への書き込みを実変数に反映しない誤実装では a_fin と a_cap の行が const ref 6, ref 6 に変わる。action を Reactive より前(NBA 前)に実行する誤実装でも const ref 0 となる。
 
 ### SV2023-16.4-EXTRACT-SINGLE-CALL
 
-16.4 / error / テスト未対応
+16.4 / error / テスト対応あり・実行未確認
 
 Each provided deferred pass or fail action shall be a single task, task-method, void-function, void-function-method or system-task call; a begin/end wrapper is not a single call.
 
@@ -35720,6 +36296,7 @@ Each provided deferred pass or fail action shall be a single task, task-method, 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_deferred_assertion_action_begin_end.sv](../tests/ch16/test_illegal_deferred_assertion_action_begin_end.sv): final 遅延アサーション d2 の fail 文を begin $error(...); end で包んだ34行目を唯一の違反とする。d0 は pass 文に void 関数 note、fail 文に $error の単一呼び出しを、d1 は pass 文にタスク show の単一呼び出しを持ち合法。regex は34行目を指す。 区別: 遅延アサーションの動作文が単一のサブルーチン呼び出しであることを検査しない処理系は受理して失敗する（Verilator 5.052 がそうである）。要求が挙げるタスク、void 関数、システムタスクの単一呼び出しを合法な形として置いている。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.4-EXTRACT-STATIC-PLACEMENT
 
@@ -35778,7 +36355,7 @@ Unflushed observed reports mature in Observed, cannot then be flushed, execute i
 
 ### SV2023-16.4.1-EXTRACT-PENDING-QUEUE
 
-16.4.1 / normal / テスト未対応
+16.4.1 / normal / テスト対応あり・実行未確認
 
 Evaluation queues the applicable pass/fail call or default $error, together with captured input values, in the executing process pending-report queue.
 
@@ -35786,6 +36363,8 @@ Evaluation queues the applicable pass/fail call or default $error, together with
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_action_arguments.sv](../tests/ch16/test_deferred_assertion_action_arguments.sv): a_obs の pass 呼び出しが評価時の x=1 と NBA 後の ref 値で実行され(t=10 a_obs pass: by value 1, const ref 5, ref 5)、always @(trig) の2回の評価のうち再開でフラッシュされた1回目は実行されず、2回目の fail 呼び出しだけが取り込んだ値 52 で実行される(t=30 a_cap fail: by value 52、t=31 probe() calls: 2)。
+- [test_deferred_assertion_default_error.sv](../tests/ch16/test_deferred_assertion_default_error.sv): else なしの a_flushed(34行)の失敗はキューに積まれた既定の $error として再開時にフラッシュされて報告されず、a_kept(43行)と u_kept(44行)の既定の $error は成熟して報告される。
 
 ### SV2023-16.4.1-EXTRACT-REACTIVE-ITERATION
 
@@ -35845,7 +36424,7 @@ A static deferred immediate assertion outside procedural code as a module_common
 
 ### SV2023-16.4.4-EXTRACT-DISABLE-ASSERTION
 
-16.4.4 / normal / テスト未対応
+16.4.4 / normal / テスト対応あり・実行未確認
 
 Disabling a specific deferred immediate assertion cancels its pending reports.
 
@@ -35853,6 +36432,7 @@ Disabling a specific deferred immediate assertion cancels its pending reports.
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_disable_inner_scope.sv](../tests/ch16/test_deferred_assertion_disable_inner_scope.sv): p_label は go の変化ごとに a_lab と a_keep の2つの assert #0 を失敗させ、go が1になる10でだけ disable a_lab を実行する。30 に表示する報告回数で、a_lab は 20 の1回だけ(a_lab: 1)、同じキューにある a_keep は 10 と 20 の2回(a_keep: 2)であることを比較する。 区別: 名前を指定した deferred assertion の disable で保留報告を取り消さない誤実装では 10 の a_lab の失敗も成熟して a_lab: 2 になる。指定した assertion だけでなくプロセスのキュー全体を消す誤実装では 10 の a_keep が消えて a_keep: 1 になる。
 
 ### SV2023-16.4.4-EXTRACT-DISABLE-OUTERMOST
 
@@ -35867,7 +36447,7 @@ Disabling the outermost scope of a procedure flushes the entire process pending-
 
 ### SV2023-16.4.4-EXTRACT-INNER-NO-FLUSH
 
-16.4.4 / normal / テスト未対応
+16.4.4 / normal / テスト対応あり・実行未確認
 
 Disabling a task or another non-outermost scope does not flush the process deferred-report queue.
 
@@ -35875,10 +36455,11 @@ Disabling a task or another non-outermost scope does not flush the process defer
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_disable_inner_scope.sv](../tests/ch16/test_deferred_assertion_disable_inner_scope.sv): p_inner では最外でない名前付きブロック inner の中で assert #0 を失敗させてから disable inner、p_task ではタスク t_check の中で失敗させてから disable t_check を、10 と 20 の両方で実行し、30 の表示で a_inner: 2 と a_task: 2(どちらの disable 後も報告が成熟した)を比較する。 区別: 最外でないブロックの disable をフラッシュ点として扱う誤実装では a_inner が 0 に、タスクの disable でキューを消す誤実装では a_task が 0 になり、期待出力の a_inner: 2 / a_task: 2 の行が変わる。
 
 ### SV2023-16.4.5-EXTRACT-PROCESS-INDEPENDENCE
 
-16.4.5 / normal / テスト未対応
+16.4.5 / normal / テスト対応あり・実行未確認
 
 A deferred immediate assertion in a function called from different processes has independent executions and pending-report queues for those processes.
 
@@ -35886,6 +36467,7 @@ A deferred immediate assertion in a function called from different processes has
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_per_process.sv](../tests/ch16/test_deferred_assertion_per_process.sv): 関数 same の中の a1: assert #0 を2つの always_comb b1/b2 が呼ぶ。10 は b1 だけ、20 は b2 だけが失敗し、30 では両方が失敗した後 #0 の y = 2 で b1 だけが再実行して成功する。40 では b1 が失敗し b2 は成功する。表示 t=30 a1 failed in b2 だけが出て b1 の失敗は出ないことを比較する。 区別: 関数内の deferred assertion の保留キューをプロセスごとに分けない誤実装では、30 に b1 が再実行したフラッシュで b2 の報告も消えて t=30 a1 failed in b2 の行がなくなる。または報告を assertion ごとに1つしか持たない実装では b1/b2 の失敗の一方が他方を上書きし 10/20/40 の行の who が変わる。
 
 ### SV2023-16.5-EXTRACT-CLOCK-TICK
 
@@ -35922,7 +36504,7 @@ Behavior is undefined if a concurrent assertion clocking event transitions more 
 
 ### SV2023-16.5-EXTRACT-SAMPLED-OBSERVED
 
-16.5 / normal / テスト未対応
+16.5 / normal / テスト対応あり・実行未確認
 
 Concurrent assertions evaluate in Observed using sampled expression values, except for disable conditions and clocking events.
 
@@ -35930,6 +36512,7 @@ Concurrent assertions evaluate in Observed using sampled expression values, exce
 
 規定の性質: `mandatory`。
 
+- [test_assertion_observed_region_values.sv](../tests/ch16/test_assertion_observed_region_values.sv): 10 の時刻ステップで clk を上げ、同時に d <= 1, x <= 1 を NBA で行う。disable iff (d) 1'b0 の a_dis は Observed 時点の現在値 d=1 で無効化され failures 20 30 40 となり、a_smp (x == 0) はサンプル値 x=0,1,0,0 で passes 10 30 40, failures 20、clocking event の posedge clk iff g は現在値 g で 30 だけ tick する（g は 30 の直前に1、40 の直前に0）。 区別: Observed ではなくエッジ時点 (Active) で評価する、または disable 条件にサンプル値を使う誤実装では a_dis が 10 でも失敗し 'a_dis: failures 10 20 30 40' になる。式に Observed 時点の現在値を使う誤実装では a_smp が 'passes 30 40, failures 10 20' のように変わる。clocking event にサンプル値を使う誤実装では a_clk が 'ticks 40' になる。
 
 ### SV2023-16.5.1-EXTRACT-AUTOMATIC-HISTORY
 
@@ -35966,7 +36549,7 @@ A clocking-block input used in an assertion shall have #1step sampling; other in
 
 ### SV2023-16.5.1-EXTRACT-COMPOSE-AND-CALL
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 Other expression sampled values are computed recursively from sampled arguments; a function is called at expression evaluation time on those sampled argument values.
 
@@ -35974,6 +36557,7 @@ Other expression sampled values are computed recursively from sampled arguments;
 
 規定の性質: `mandatory`。
 
+- [test_sampled_value_time_zero_defaults.sv](../tests/ch16/test_sampled_value_time_zero_defaults.sv): scaled(v) は v*10 + k を返し、k は引数でなく関数内で読む。時刻10に a=13, k=3 にしてから clk を上げた tick で、標本値の計算は a の標本値 9 に対して評価時点の k=3 で関数を呼び scaled(a)=93、a+d は 9+2=11 となり(t=10 fail: … a+d=11 scaled(a)=93)、時刻20では 13*10+3=133 となることを比較する。時刻0でも既定値 a=5 と現在の k=2 で 52 になる。 区別: 引数の標本値でなく現在値で関数を呼ぶ誤実装では t=10 が scaled(a)=133 に、関数呼び出し全体を Preponed で評価した値とする誤実装では関数内の k も古い値になって t=10 が 92、t=0 が 51 に変わる。複合式を現在値で計算する誤実装では a+d=15 に変わる。
 
 ### SV2023-16.5.1-EXTRACT-CONST-CURRENT
 
@@ -35999,7 +36583,7 @@ Automatic variables, assertion local variables and active free checker variables
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-EXPRESSION
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 Default sampled values of compound expressions are recursively evaluated from default sampled component values.
 
@@ -36007,6 +36591,7 @@ Default sampled values of compound expressions are recursively evaluated from de
 
 規定の性質: `definition`。
 
+- [test_sampled_value_time_zero_defaults.sv](../tests/ch16/test_sampled_value_time_zero_defaults.sv): 時刻0の tick で複合式 a + d と関数呼び出しを含む scaled(a) の標本値が、a の既定標本値 5 と d の 2 から再帰的に計算されて a+d=7、scaled(a)=5*10+k=52 となり、アサーション式 a + d == 8'd7 && scaled(a) == 52 が成り立つ(t=0 pass)ことを比較する。 区別: 複合式の既定標本値を構成要素の既定値でなく現在値から作る誤実装では a+d=11、scaled(a)=92 になって t=0 の行が fail に変わる。複合式全体を型の既定値(0)とする誤実装でも a+d=0 となり fail になる。
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-METHOD
 
@@ -36032,7 +36617,7 @@ The default sampled value of any other variable or net is its type default.
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-STATIC
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 The default sampled value of a static variable is its declaration initializer, or its type default if there is no initializer.
 
@@ -36040,6 +36625,7 @@ The default sampled value of a static variable is its declaration initializer, o
 
 規定の性質: `definition`。
 
+- [test_sampled_value_time_zero_defaults.sv](../tests/ch16/test_sampled_value_time_zero_defaults.sv): 初期化子付きの static 変数 logic [7:0] a = 8'd5 と初期化子なしの int b を時刻0に 9 と 7 へ変えた直後の tick で、標本値がそれぞれ宣言の値 5 と型の既定値 0 になる(a_zero が成功し t=0 pass: a=5 b=0、t=10 の $past が past a=5 b=0)ことを比較する。 区別: 初期化子を無視して型の既定値を使う誤実装では a の既定標本値が 0 になって t=0 の行が fail に、初期化子なしの変数に x や現在値を使う誤実装では b が 7 などになって t=0 の行が fail に変わり、t=10 の past の値も変わる。
 
 ### SV2023-16.5.1-EXTRACT-METHOD-CURRENT
 
@@ -36054,7 +36640,7 @@ The sampled value of event.triggered and sequence.triggered/matched is the curre
 
 ### SV2023-16.5.1-EXTRACT-PREPONED
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 At time greater than zero a variable is generally sampled in Preponed; at time zero its default sampled value is used, subject to the listed exceptions.
 
@@ -36062,10 +36648,11 @@ At time greater than zero a variable is generally sampled in Preponed; at time z
 
 規定の性質: `mandatory`。
 
+- [test_sampled_value_time_zero_defaults.sv](../tests/ch16/test_sampled_value_time_zero_defaults.sv): 手続きが a=9, b=7 にしてから同じ時刻0に clk を上げると、時刻0の tick で a_zero (a == 5 && b == 0 && …) が既定の標本値で成功し(t=0 pass: a=5 b=0)、時刻10に a=13, b=9 にしてから clk を上げた tick では Preponed の値 9 と 7 が使われ(t=10 fail: a=9 b=7 … now a=13 b=9)、$past も時刻0の tick の値として既定値 5/0 を返す(t=10 … past a=5 b=0)ことを比較する。 区別: 時刻0でも現在値を使う誤実装(Verilator 5.052 がそうである)では t=0 の行が fail: a=9 b=7 になり、t=10 の past が a=9 b=7 に変わる。時刻0より後で Preponed でなく現在値を使う誤実装では t=10 の行が a=13 b=9 になる。
 
 ### SV2023-16.5.1-EXTRACT-SINGLE-VARIABLE
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 The sampled value of a single-variable expression is the sampled value of that variable.
 
@@ -36073,10 +36660,11 @@ The sampled value of a single-variable expression is the sampled value of that v
 
 規定の性質: `definition`。
 
+- [test_sampled_value_time_zero_defaults.sv](../tests/ch16/test_sampled_value_time_zero_defaults.sv): 単一変数の式 a と b の標本値($sampled(a)、$sampled(b) とアサーション式中の a == 8'd5, b == 0)が各 tick でその変数の標本値、すなわち時刻0は既定値 5/0、時刻10と20は Preponed の 9/7 と 13/9 になり、同じ action の現在値(now a=…)とは異なることを比較する。 区別: 単一変数の標本値を Preponed の値でなく評価時の現在値とする誤実装では t=10 の行が a=13 b=9 に、t=0 が a=9 b=7(fail)に変わる。
 
 ### SV2023-16.5.2-EXTRACT-ACTIVE-EVENT
 
-16.5.2 / normal / テスト未対応
+16.5.2 / normal / テスト対応あり・実行未確認
 
 An ordinary clock transition in Active triggers the concurrent assertion evaluation in Observed of the same time step.
 
@@ -36084,6 +36672,7 @@ An ordinary clock transition in Active triggers the concurrent assertion evaluat
 
 規定の性質: `mandatory`。
 
+- [test_assertion_observed_region_values.sv](../tests/ch16/test_assertion_observed_region_values.sv): Active 領域で clk を上げた 10 の時刻ステップで、NBA 領域の d <= 1 の後（Observed）に a_dis が評価され disable されること、そして各アクションの記録時刻がエッジと同じ時刻 (10, 20, 30, 40) であることを比較する（a_dis: failures 20 30 40、a_smp: passes 10 30 40, failures 20）。 区別: エッジの瞬間 (Active 内、NBA 前) に評価する誤実装では d=0 のまま評価され a_dis が 10 で失敗する。評価を次の時刻ステップへ遅らせる誤実装では記録時刻が 15 などになり、a_smp のサンプル値も変わって期待行が一致しない。
 
 ### SV2023-16.5.2-EXTRACT-CLOCK-ASSOCIATION
 
@@ -36098,7 +36687,7 @@ Assertion expressions are tied to a clock definition except constant or automati
 
 ### SV2023-16.5.2-EXTRACT-CLOCK-CURRENT
 
-16.5.2 / normal / テスト未対応
+16.5.2 / normal / 実行確認あり
 
 If a variable is used both in a clock expression and in the assertion expression, the clock uses its current value and the assertion uses its sampled value; these may differ.
 
@@ -36106,10 +36695,11 @@ If a variable is used both in a clock expression and in the assertion expression
 
 規定の性質: `mandatory`。
 
+- [test_assertion_clock_sampled_value.sv](../tests/ch16/test_assertion_clock_sampled_value.sv): c を時計 @(posedge c) と式の両方に使う a_high (式 c) と a_low (式 !c) を 5〜35 の4回の立ち上がりで評価し、時計は現在値の立ち上がりで4回発火する一方、式は立ち上がり前の標本値0を使うので a_high が4回失敗し a_low が4回成功する(edges at 5..35: a_high failed 4 times, a_low passed 4 times)ことを比較する。 区別: 式側でも現在値1を使う誤実装では a_high が成功し a_low が失敗して failed 0 times / passed 0 times に変わる。時計側も標本値で判定する誤実装では立ち上がりが検出されず評価が起こらないので同じく 0 times になる。
 
 ### SV2023-16.5.2-EXTRACT-COMPLEX-CLOCK
 
-16.5.2 / normal / テスト未対応
+16.5.2 / normal / テスト対応あり・実行未確認
 
 Complex and iff-gated clock expressions are permitted; users should ensure glitch-free clocks with no more than one transition per simulation time.
 
@@ -36117,10 +36707,11 @@ Complex and iff-gated clock expressions are permitted; users should ensure glitc
 
 規定の性質: `recommendation`。
 
+- [test_assertion_clock_expressions_global_clock.sv](../tests/ch16/test_assertion_clock_expressions_global_clock.sv): 表明のクロックに、iff で門を付けた posedge gclk iff en(en が 20-60 で高いので 25, 35, 45, 55 だけ)、2つのエッジの or の posedge c1 or posedge c2(12, 14, 52, 72)、式のエッジ posedge (c1 | c2)(重なったパルスでは1回だけ上がるので 12, 52, 72)を使い、各 tick の P/F を比較する。どのクロックも1つの時間ステップで1回だけ変化する。 区別: iff の門を無視する誤実装では iff の行に 5 15 65 75 85 が加わる。or の事象を2つ目のエッジで数えない誤実装では 14:F が消え、式のエッジを被演算子ごとのエッジとして扱う誤実装では posedge (c1 | c2) の行に 14:F が加わる。
 
 ### SV2023-16.5.2-EXTRACT-GLOBAL-CLOCK
 
-16.5.2 / normal / テスト未対応
+16.5.2 / normal / テスト対応あり・実行未確認
 
 A $global_clock reference denotes the clocking_event of the global clocking declaration and behaves as an ordinary clocking event; formal verification also treats it as the primary system clock.
 
@@ -36128,10 +36719,11 @@ A $global_clock reference denotes the clocking_event of the global clocking decl
 
 規定の性質: `definition`。
 
+- [test_assertion_clock_expressions_global_clock.sv](../tests/ch16/test_assertion_clock_expressions_global_clock.sv): global clocking gc @(posedge gclk) を宣言し、assert property (@($global_clock) v) と assert property (@(posedge gclk) v) の結果を比べる。どちらも gclk の立ち上がり 5..85 の各 tick で v の標本値を調べ、同じ列 5:P 15:F 25:P 35:P 45:F 55:P 65:F 75:P 85:F になる。 区別: $global_clock を大域クロッキング宣言の事象として解決しない誤実装(別の事象や0回の tick とする)では @($global_clock) の行が空になるか時刻が変わり、普通のクロッキング事象と異なる扱い(例えば標本化の違い)をする誤実装では2行の P/F が一致しなくなる。
 
 ### SV2023-16.5.2-EXTRACT-PROPERTY-KEYWORD
 
-16.5.2 / normal / テスト未対応
+16.5.2 / normal / テスト対応あり・実行未確認
 
 The property keyword distinguishes a concurrent assertion from an immediate assertion.
 
@@ -36139,10 +36731,11 @@ The property keyword distinguishes a concurrent assertion from an immediate asse
 
 規定の性質: `definition`。
 
+- [test_assertion_observed_region_values.sv](../tests/ch16/test_assertion_observed_region_values.sv): always @(posedge clk) 内で w を反転した直後に、assert (w) と assert property (w) を並べる。immediate の assert (w) は新しい w で passes 10 30, failures 20 40、property 付きの assert property (w) は手続きのクロックを推論しサンプル値（エッジ前の w）で passes 20 40, failures 10 30 となることを比較する。 区別: property キーワードを無視して即時アサーションとして扱う誤実装では assert property (w) の行が 'passes 10 30, failures 20 40' になる。逆に assert (w) を並行アサーションとして扱う誤実装では assert (w) の行が入れ替わる。
 
 ### SV2023-16.5.2-EXTRACT-SEQUENCE-CLOCK
 
-16.5.2 / normal / テスト未対応
+16.5.2 / normal / 実行確認あり
 
 A sequence may serve as an assertion clocking event under 9.4.2.4; sampled dependencies can delay its event relative to a normal clock transition.
 
@@ -36150,10 +36743,11 @@ A sequence may serve as an assertion clocking event under 9.4.2.4; sampled depen
 
 規定の性質: `permission`。
 
+- [test_assertion_sequence_clock_delay.sv](../tests/ch16/test_assertion_sequence_clock_delay.sv): fast は 10,20,...、slow は 30 と 70 で立ち上がる。s_edge = @(posedge slow) 1'b1 をクロックにした a_edge は posedge slow の a_slow と同じく 30/70 で評価され (passes 30, failures 70)、サンプル値に依存する s_late = @(posedge fast) !slow ##1 slow をクロックにした a_late は slow の立ち上がりの次の fast tick (40/80) で評価される (passes 80, failures 40)。cond は 30 と 80 で 1、40 と 70 で 0 とサンプルされる。 区別: シーケンスを clocking event として受け付けない実装はコンパイルできない。s_late の終点を slow の立ち上がりと同じ時刻ステップ (30/70) とみなす誤実装では a_late が a_slow と同じ 'passes 30, failures 70' になる。サンプル値非依存の s_edge まで1 tick 遅らせる誤実装では a_edge の行が変わる。
 
 ### SV2023-16.5.2-EXTRACT-TICK-SAMPLED
 
-16.5.2 / normal / テスト未対応
+16.5.2 / normal / テスト対応あり・実行未確認
 
 Within a concurrent assertion, a variable has its sampled value during a clock tick, subject to the sampling exceptions of 16.5.1.
 
@@ -36161,10 +36755,11 @@ Within a concurrent assertion, a variable has its sampled value during a clock t
 
 規定の性質: `mandatory`。
 
+- [test_assertion_observed_region_values.sv](../tests/ch16/test_assertion_observed_region_values.sv): tick 10/20/30/40 で x はサンプル値 0,1,0,0（現在値は 1,0,0,0）、always 手続き内の assert property (w) では w がエッジ直前の値でサンプルされる。a_smp は passes 10 30 40, failures 20、c_seq は matches 20、assert property (w) は passes 20 40, failures 10 30 となる。 区別: tick 中の変数に現在値を使う誤実装では a_smp が 'passes 30 40, failures 10 20'、c_seq が一致なし、assert property (w) が 'passes 10 30, failures 20 40' に変わる。
 
 ### SV2023-16.6-EXTRACT-ARRAY-SAMPLE-LIFETIME
 
-16.6 / normal / テスト未対応
+16.6 / normal / テスト対応あり・実行未確認
 
 Sampled dynamic-array, queue and associative-array elements shall remain available in the assertion scope through expression evaluation even if removed or the container resized meanwhile.
 
@@ -36172,6 +36767,7 @@ Sampled dynamic-array, queue and associative-array elements shall remain availab
 
 規定の性質: `mandatory`。
 
+- [test_concurrent_boolean_truth_array_samples.sv](../tests/ch16/test_concurrent_boolean_truth_array_samples.sv): 70 の時刻ステップで aclk を上げる前に q.delete()、d = new[1](d)、aa.delete(3) を行い、同じ tick の a_q/a_d/a_aa (q[1] == 8, d[2] == 9, aa[3] == 4) がサンプル値で評価されて passes 70 となること、75 に各要素を 2/3/1 にすると 80 で failures 80 となることを比較する。 区別: 削除・縮小された要素を Observed 時点の現在の配列から読む誤実装では、70 で範囲外/存在しない要素の既定値 0 が使われ 3 本とも failures 70 80 になる。80 の失敗はアサーションが実際に配列要素を読んでいることを示す対照で、要素を定数扱いする誤実装なら passes 70 80 になる。
 
 ### SV2023-16.6-EXTRACT-AUTOMATIC-RESTRICTION
 
@@ -36186,7 +36782,7 @@ Concurrent assertion expressions shall not reference automatic variables except 
 
 ### SV2023-16.6-EXTRACT-BOOLEAN-TRUTH
 
-16.6 / normal / テスト未対応
+16.6 / normal / テスト対応あり・実行未確認
 
 A concurrent assertion Boolean expression has procedural-if truth semantics: 0, x and z are false; other values are true.
 
@@ -36194,6 +36790,7 @@ A concurrent assertion Boolean expression has procedural-if truth semantics: 0, 
 
 規定の性質: `mandatory`。
 
+- [test_concurrent_boolean_truth_array_samples.sv](../tests/ch16/test_concurrent_boolean_truth_array_samples.sv): a_vec は4ビット v を、a_bit は1ビット s をそのまま Boolean 式として @(posedge clk) で検査する。v は 10〜60 の tick で 0000, xxxx, zzzz, 0001, 1000, 0110、s は 0, x, z, 1, 1, 1 とサンプルされ、pass/fail 時刻を比較する（両方とも passes 40 50 60, failures 10 20 30）。 区別: x を真とみなす誤実装では 20 が passes に移り、z を真とみなす誤実装では 30 が passes に移る。0 以外の既知値を真とせず LSB だけを見る誤実装では a_vec の 50 (1000) と 60 (0110) が failures に移る。0 を真とする誤実装では 10 が passes に移る。
 
 ### SV2023-16.6-EXTRACT-CAPTURE-TIME-CONTEXT
 
@@ -36219,7 +36816,7 @@ Disable conditions use current variable values; sequence.triggered is permitted,
 
 ### SV2023-16.6-EXTRACT-FUNCTION-ARGS
 
-16.6 / error / テスト未対応
+16.6 / error / テスト対応あり・実行未確認
 
 Functions in assertion expressions shall not have output, inout or ref arguments; const ref is permitted.
 
@@ -36227,10 +36824,13 @@ Functions in assertion expressions shall not have output, inout or ref arguments
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assertion_function_ref_argument.sv](../tests/ch16/test_illegal_assertion_function_ref_argument.sv): p_bad の f_ref(a)（36行目）が ref 引数の関数を呼んで違法。regex は36行目を指す。
+- [test_illegal_assertion_function_output_argument.sv](../tests/ch16/test_illegal_assertion_function_output_argument.sv): p_bad の f_output(t, a)（37行目）が output 引数の関数を呼んで違法。regex は37行目を指す。
+- [test_illegal_assertion_function_inout_argument.sv](../tests/ch16/test_illegal_assertion_function_inout_argument.sv): p_bad の f_inout(t)（37行目）が inout 引数の関数を呼んで違法。regex は37行目を指す。
 
 ### SV2023-16.6-EXTRACT-FUNCTION-STATE
 
-16.6 / error / テスト未対応
+16.6 / error / テスト対応あり・実行未確認
 
 Functions in assertion expressions shall be automatic or preserve no state, and shall have no side effects.
 
@@ -36238,10 +36838,12 @@ Functions in assertion expressions shall be automatic or preserve no state, and 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assertion_function_keeps_state.sv](../tests/ch16/test_illegal_assertion_function_keeps_state.sv): a_bad の f_count(a)（40行目、static int n を毎回増分）が違法、a_auto の f_auto(a) と a_pure の f_pure(a) は合法。
+- [test_illegal_assertion_function_side_effect.sv](../tests/ch16/test_illegal_assertion_function_side_effect.sv): a_bad の f_side(a)（32行目、hits++）が違法、a_ok の f_read(a) は合法。
 
 ### SV2023-16.6-EXTRACT-NO-CHANDLE
 
-16.6 / error / テスト未対応
+16.6 / error / テスト対応あり・実行未確認
 
 Concurrent assertion expressions shall not reference chandle variables.
 
@@ -36249,10 +36851,11 @@ Concurrent assertion expressions shall not reference chandle variables.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assertion_chandle_variable.sv](../tests/ch16/test_illegal_assertion_chandle_variable.sv): p_bad が chandle 変数 ch を null と比較する27行目を唯一の違反とする。bit 変数 b を比較する p_ok と、手続き文での ch == null（6.14 で許される）は合法。regex は27行目を指す。 区別: 並行アサーション中の chandle 参照を検査しない処理系は受理して失敗する（Verilator 5.052 がそうである）。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.6-EXTRACT-NO-NONSTATIC-CLASS
 
-16.6 / error / テスト未対応
+16.6 / error / テスト対応あり・実行未確認
 
 Concurrent assertion expressions shall not reference non-static class properties or methods.
 
@@ -36260,10 +36863,12 @@ Concurrent assertion expressions shall not reference non-static class properties
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assertion_nonstatic_class_property.sv](../tests/ch16/test_illegal_assertion_nonstatic_class_property.sv): p_bad の h.x == 1（28行目）が非 static プロパティを参照して違法、p_s の C::sx == 1 は合法。regex は28行目を指す。
+- [test_illegal_assertion_nonstatic_class_method.sv](../tests/ch16/test_illegal_assertion_nonstatic_class_method.sv): p_bad の h.get() == 1（35行目）が非 static メソッドを呼んで違法、p_s の C::sget() == 1 は合法。どちらのメソッドも automatic で値を読むだけである。regex は35行目を指す。
 
 ### SV2023-16.6-EXTRACT-RESULT-TYPE
 
-16.6 / error / テスト未対応
+16.6 / error / テスト対応あり・実行未確認
 
 The overall expression shall have a result type cast-compatible with an integral type; its subexpressions need not.
 
@@ -36271,10 +36876,11 @@ The overall expression shall have a result type cast-compatible with an integral
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assertion_expression_unpacked_array.sv](../tests/ch16/test_illegal_assertion_expression_unpacked_array.sv): 並行アサーション p_bad の式全体を非パック配列 arr にした28行目を唯一の違反とする（整数型へキャスト互換でない）。非パック配列 arr と arr2 を被演算子にした等価比較（結果は1ビット）の p_eq と、要素の比較の p_el は合法で、部分式が整数型でなくてよいことを示す合法な形である。regex は28行目を指す。 区別: 式全体の型を検査しない処理系は受理して失敗する（Verilator 5.052 は受理して生成した C++ のコンパイルで失敗するが、これは診断として数えない）。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.6-EXTRACT-SAMPLED-BOOLEAN
 
-16.6 / normal / テスト未対応
+16.6 / normal / テスト対応あり・実行未確認
 
 Boolean expressions in sequences/properties use sampled variable values; clocking event expressions are excluded from that rule.
 
@@ -36282,10 +36888,11 @@ Boolean expressions in sequences/properties use sampled variable values; clockin
 
 規定の性質: `mandatory`。
 
+- [test_assertion_observed_region_values.sv](../tests/ch16/test_assertion_observed_region_values.sv): x は 10 に NBA で 1、20 に NBA で 0 となり、tick 10/20/30/40 のサンプル値は 0,1,0,0、Observed 時点の現在値は 1,0,0,0。プロパティ式 a_smp (x == 0) は passes 10 30 40, failures 20、シーケンス式 c_seq (x == 0 ##1 x == 1) は matches 20 となる。clocking event の posedge clk iff g は現在値 g を使い ticks 30 となる。 区別: シーケンス/プロパティの Boolean 式に現在値を使う誤実装では a_smp が 10 で失敗し 20 で成功、c_seq は一致なしになる。clocking event の式にもサンプル値を適用する誤実装では a_clk の tick が 30 ではなく 40 になる。
 
 ### SV2023-16.6-EXTRACT-SIDE-EFFECTS
 
-16.6 / error / テスト未対応
+16.6 / error / テスト対応あり・実行未確認
 
 Assertion expression evaluation shall have no side effects except C assignment/increment/decrement in sequence match items with a local-variable lvalue.
 
@@ -36293,10 +36900,12 @@ Assertion expression evaluation shall have no side effects except C assignment/i
 
 規定の性質: `mandatory`。
 
+- [test_illegal_assertion_expression_increment.sv](../tests/ch16/test_illegal_assertion_expression_increment.sv): p_bad の a ##1 (cnt++ > 0)（32行目）が違法、p_loc の (a, k = 0) ##1 (b, k++) は合法。regex は32行目を指す。
+- [test_illegal_assertion_expression_assignment_operator.sv](../tests/ch16/test_illegal_assertion_expression_assignment_operator.sv): p_bad の a ##1 ((cnt += 1) > 0)（31行目）が違法、p_loc は合法。regex は31行目を指す。
 
 ### SV2023-16.7-EXTRACT-ATTEMPT
 
-16.7 / normal / テスト未対応
+16.7 / normal / 実行確認あり
 
 A sequence attempt searches from its starting clock tick through successive ticks until a match is found or no match can exist.
 
@@ -36304,6 +36913,7 @@ A sequence attempt searches from its starting clock tick through successive tick
 
 規定の性質: `definition`。
 
+- [test_sequence_match_search_and_extension.sv](../tests/ch16/test_sequence_match_search_and_extension.sv): go が tick 1 と 5、ack が tick 2 と 3 で真。cover sequence go ##[1:3] ack は tick 1 の試行の一致を 25 と 35 の両方で報告し、cover property は同じ試行の成功を最初の一致の 25 で1回だけ報告する(一致が見つかった時点で探索が終わる)。go |-> ##[1:3] ack は tick 5 からの試行で tick 6,7,8 に ack がなく、もう一致があり得なくなった tick 8 (85) で失敗する。 区別: 最初の一致で試行を終えず後の一致を待つ誤実装では cover property の行が [ 25 ] から [ 35 ] や [ 25 35 ] に変わる。一致があり得なくなる前に打ち切る(例: 最初の tick 6 で失敗とする)誤実装では failures が [ 65 ] になり、範囲の後も探索を続ける誤実装では [ 85 ] が出ない、または遅れる。
 
 ### SV2023-16.7-EXTRACT-CONCAT-DELAY
 
@@ -36342,7 +36952,7 @@ Sequence concatenation uses ## followed by a constant delay, a constant range, [
 
 ### SV2023-16.7-EXTRACT-DELAY-CONSTANT
 
-16.7 / error / テスト未対応
+16.7 / error / テスト対応あり・実行未確認
 
 A cycle delay constant is computed at compile time and shall have an integer value; delay constants and range bounds shall be nonnegative.
 
@@ -36350,10 +36960,15 @@ A cycle delay constant is computed at compile time and shall have an integer val
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cycle_delay_variable.sv](../tests/ch16/test_illegal_cycle_delay_variable.sv): p_bad の ##n（27行目、n はモジュール変数）が違法、p_ok の ##D（パラメータ）は合法。regex は27行目を指す。
+- [test_illegal_cycle_delay_real_value.sv](../tests/ch16/test_illegal_cycle_delay_real_value.sv): p_bad の ##(1.5)（27行目）が整数値でなく違法、p_ok の ##(1 + 1) は合法。regex は27行目を指す。
+- [test_illegal_cycle_delay_negative.sv](../tests/ch16/test_illegal_cycle_delay_negative.sv): p_bad の ##(N)（27行目、N = -1）が負で違法、p_ok の ##0 は合法。regex は27行目を指す。
+- [test_illegal_cycle_delay_negative_range_bound.sv](../tests/ch16/test_illegal_cycle_delay_negative_range_bound.sv): p_bad の ##[N:2]（27行目、N = -1）の下限が負で違法、p_ok の ##[0:2] は合法。regex は27行目を指す。
+- [test_illegal_cycle_delay_range_variable_bound.sv](../tests/ch16/test_illegal_cycle_delay_range_variable_bound.sv): p_bad の ##[1:n]（28行目、n はモジュール変数）の上限が定数でなく違法、p_ok の ##[1:M]（パラメータ）と p_u の ##[1:$] は合法。regex は28行目を指す。
 
 ### SV2023-16.7-EXTRACT-DELAY-STAR-PLUS
 
-16.7 / normal / テスト未対応
+16.7 / normal / テスト対応あり・実行未確認
 
 ##[*] equals ##[0:$], and ##[+] equals ##[1:$].
 
@@ -36361,6 +36976,7 @@ A cycle delay constant is computed at compile time and shall have an integer val
 
 規定の性質: `definition`。
 
+- [test_sequence_repetition_and_delay_shorthands.sv](../tests/ch16/test_sequence_repetition_and_delay_shorthands.sv): 同じ刺激で start ##[*] b と start ##[0:$] b がともに ##0 の T1 と T2, T4 で一致し([ 15 25 45 ])、start ##[+] b と start ##[1:$] b がともに T2 と T4 で一致する([ 25 45 ])ことを並べて比較する。 区別: ##[*] を ##[1:$] として扱う誤実装では ##[*] の行が [ 25 45 ] に、##[+] を ##[0:$] として扱う誤実装では ##[+] の行に 15 が加わり、略記と展開形の組が一致しなくなる。##[0:$] 自体の ##0 を落とす誤実装も 15 が欠ける。
 
 ### SV2023-16.7-EXTRACT-DOLLAR-BOUND
 
@@ -36376,7 +36992,7 @@ The $ upper bound denotes a finite but unbounded maximum.
 
 ### SV2023-16.7-EXTRACT-EMPTY-MATCH
 
-16.7 / normal / テスト未対応
+16.7 / normal / テスト対応あり・実行未確認
 
 An empty match has length zero; an empty sequence admits only empty matches.
 
@@ -36384,10 +37000,11 @@ An empty match has length zero; an empty sequence admits only empty matches.
 
 規定の性質: `definition`。
 
+- [test_sequence_empty_match_fusion.sv](../tests/ch16/test_sequence_empty_match_fusion.sv): a[*0] は長さ0の空一致だけを許す空シーケンスで、start ##1 (a[*0] ##1 b) と start ##1 (b ##1 a[*0]) は空一致が tick を消費しないので tick 2 の 25 で終わり、##2 の形は 35 で終わる。空シーケンスには非空の一致がないので、##0 で他のシーケンス(空シーケンス同士も)と融合した形は一致しない(empty ##0 b / b ##0 empty / empty ##0 empty はすべて空)。 区別: 空一致に長さ1を与える誤実装では empty ##1 b が 35、empty ##2 b が 45 になる。空シーケンスに非空の一致があるとみなす誤実装では ##0 の形が一致して最初の行に時刻が出る。
 
 ### SV2023-16.7-EXTRACT-END-POINT
 
-16.7 / normal / テスト未対応
+16.7 / normal / テスト対応あり・実行未確認
 
 An end point is the time step of a nonempty match ending, regardless of its start; a match point also includes an empty match at the zero-length interval at evaluation start.
 
@@ -36395,10 +37012,12 @@ An end point is the time step of a nonempty match ending, regardless of its star
 
 規定の性質: `definition`。
 
+- [test_sequence_instance_vs_triggered.sv](../tests/ch16/test_sequence_instance_vs_triggered.sv): r ##1 pq.triggered は 55、maybe_s.triggered は 75 だけ。
+- [test_sequence_empty_match_fusion.sv](../tests/ch16/test_sequence_empty_match_fusion.sv): start ##1 (a[*0] ##1 b) と start ##1 (b ##1 a[*0]) は 25 で終わる。
 
 ### SV2023-16.7-EXTRACT-LINEAR-MATCH
 
-16.7 / normal / テスト未対応
+16.7 / normal / 実行確認あり
 
 A linear sequence matches a finite interval of consecutive clock ticks when each successive Boolean expression is true at its respective tick; a single Boolean term matches one tick when true.
 
@@ -36406,10 +37025,11 @@ A linear sequence matches a finite interval of consecutive clock ticks when each
 
 規定の性質: `definition`。
 
+- [test_sequence_match_search_and_extension.sv](../tests/ch16/test_sequence_match_search_and_extension.sv): 線形シーケンス a ##1 b ##1 c を、a/b/c が tick 1,2,3 で順に真になる区間(終わり 35)と、tick 4,5 は真だが tick 6 で c が偽になる区間で試し、終わりの時刻が 35 だけであることを比較する。単独のブール式 c は c が真の tick 3 と 7 で各1回一致し [ 35 75 ] になる。 区別: 各式をそれぞれの連続 tick で調べず、たとえば c を後続のどの tick でもよいとする誤実装では tick 4 からの試行が tick 7 の c で一致して lin の行に 75 が加わる。式を同じ tick でまとめて調べる誤実装では 35 の一致が消える。単独のブール式を tick ごとに1回一致させない誤実装では c の行が [ 35 75 ] から変わる。
 
 ### SV2023-16.7-EXTRACT-NO-MINTYPMAX
 
-16.7 / error / テスト未対応
+16.7 / error / テスト対応あり・実行未確認
 
 A cycle-delay constant_primary shall not contain a constant_mintypmax_expression that is not also a constant_expression.
 
@@ -36417,10 +37037,11 @@ A cycle-delay constant_primary shall not contain a constant_mintypmax_expression
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cycle_delay_mintypmax.sv](../tests/ch16/test_illegal_cycle_delay_mintypmax.sv): p_bad の遅延 ##(1:2:3)（25行目）は、文法上は括弧付きの constant_mintypmax_expression として書けるが、定数式でない min:typ:max なので違法。p_ok の ##(2)（括弧付きの定数式）は合法。regex は25行目を指す。 区別: min:typ:max の遅延を受理して typ などの値を使う処理系は受理して失敗する。Verilator 5.052 はこの行を構文エラーとするが、文法が許す形を構文として扱えないことによるので oracle に含めない。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.7-EXTRACT-RANGE-ORDER
 
-16.7 / error / テスト未対応
+16.7 / error / 実行確認あり
 
 For two explicit delay range bounds the upper bound shall be at least the lower bound.
 
@@ -36428,10 +37049,11 @@ For two explicit delay range bounds the upper bound shall be at least the lower 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cycle_delay_range_reversed.sv](../tests/ch16/test_illegal_cycle_delay_range_reversed.sv): p_bad の遅延範囲 ##[3:1]（24行目）は2つ目の境界が1つ目より小さく違法。p_ok の ##[1:3] と、境界が等しい p_eq の ##[2:2] は合法（境界の値が等しい場合を境界の対照に置く）。regex は24行目を指す。 区別: 範囲の境界の大小を検査しない処理系は受理して失敗する。Verilator 5.052 はこの行を規則どおりの理由で報告する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.7-EXTRACT-REGULAR-MATCH
 
-16.7 / normal / テスト未対応
+16.7 / normal / 実行確認あり
 
 A sequence denotes zero, finitely many or infinitely many linear sequences and matches a finite interval if at least one denoted linear sequence matches it.
 
@@ -36439,10 +37061,11 @@ A sequence denotes zero, finitely many or infinitely many linear sequences and m
 
 規定の性質: `definition`。
 
+- [test_sequence_match_search_and_extension.sv](../tests/ch16/test_sequence_match_search_and_extension.sv): a ##1 b[*1:$] ##1 c は繰り返し回数ごとの線形シーケンス(a ##1 b ##1 c, a ##1 b ##1 b ##1 c, ...)の集合を表す。b が1回の区間 tick 1-3 と b が2回の区間 tick 4-7 のどちらにも一致して [ 35 75 ] になり、線形の a ##1 b ##1 c が [ 35 ] だけであることと対比する。 区別: 集合の中のどれか1つの線形シーケンスが一致すれば一致とする規則を守らず、最短の展開(b 1回)だけを試す誤実装では reg の行が [ 35 ] になり、b を2回以上とする展開だけを試す誤実装では [ 75 ] になる。
 
 ### SV2023-16.7-EXTRACT-SEQUENCE-GRAMMAR
 
-16.7 / normal / テスト未対応
+16.7 / normal / テスト対応あり・実行未確認
 
 Sequence expressions support delay concatenation, Boolean terms with Boolean repetition, sequence instances or parenthesized sequences with consecutive repetition, and/intersect/or, first_match, throughout, within and clocking-event prefixes; match items are assignments, increment/decrement or subroutine calls, as specified by Syntax 16-3.
 
@@ -36450,6 +37073,7 @@ Sequence expressions support delay concatenation, Boolean terms with Boolean rep
 
 規定の性質: `definition`。
 
+- [test_sequence_expression_forms_and_match_items.sv](../tests/ch16/test_sequence_expression_forms_and_match_items.sv): Syntax 16-3 の各形を、tick 1 だけ高い st から ##0 で同じ tick に始めて1回ずつ使う。先頭の遅延 ##2 b(35)、連結 a ##1 b(25)、ブール式の [*2] / [->2] / [=2](25 / 35 / 35 45)、インスタンスの s_a[*2](25)、照合項目付きの括弧の (a, n++)[*2] と (b, n += 10, show(n))(35 で n=12)、and(35)、intersect(25)、or(35 45)、first_match(25)、throughout(25)、within(45)、クロッキング事象付きの (@(posedge clk) a ##1 b)(25)。照合項目は代入、増分、サブルーチン呼び出しの3種。 区別: いずれかの形を受け付けない誤実装ではコンパイルが失敗する。形の意味を誤る誤実装では該当行が変わる(例えば [=2] を [->2] と同じにすると b[=2] が [ 35 ] だけ、first_match が後の一致も残すと [ 25 35 ]、照合項目の順序や増分を誤ると show が 12 にならず show の行が空になる)。
 
 ### SV2023-16.7-EXTRACT-START-TICK
 
@@ -36464,7 +37088,7 @@ Sequence context determines the start: the first expression is checked on the fi
 
 ### SV2023-16.7-EXTRACT-TRUE-EXTENSION
 
-16.7 / normal / テスト未対応
+16.7 / normal / 実行確認あり
 
 Concatenating with an always-true Boolean expression may unconditionally extend sequence length.
 
@@ -36472,10 +37096,11 @@ Concatenating with an always-true Boolean expression may unconditionally extend 
 
 規定の性質: `permission`。
 
+- [test_sequence_match_search_and_extension.sv](../tests/ch16/test_sequence_match_search_and_extension.sv): a ##1 b ##1 c ##3 1'b1 は a ##1 b ##1 c の一致(35 で終わる)を、後の tick の信号値(tick 4-6 で c は偽、a/b も一部偽)に関係なく3 tick 延ばし、65 で一致する。 区別: 常に真の項の連結で長さを延ばさない(##3 1'b1 を無視する)誤実装では ext の行が [ 35 ] になり、延長した tick で他の信号を条件にする誤実装や ##3 を2 tick と数える誤実装では [ 65 ] 以外(空や [ 55 ])になる。
 
 ### SV2023-16.8-EXTRACT-ACTUAL-BINDING
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 An instance shall provide actuals for all formals without defaults; supplied actuals override defaults and may bind by name or position.
 
@@ -36483,10 +37108,11 @@ An instance shall provide actuals for all formals without defaults; supplied act
 
 規定の性質: `mandatory`。
 
+- [test_sequence_default_actuals_and_name_scopes.sv](../tests/ch16/test_sequence_default_actuals_and_name_scopes.sv): 既定のない y にはすべてのインスタンスで実引数を与え、既定のある x は省略(.y(b) だけ, 25)、位置で上書き(en, b → 45)、名前で順序を変えて上書き(.y(b), .x(en) → 45)する。s_tail は引数をすべて省略(45)し、.n(4) で1つだけ名前で上書き(65)する。 区別: 実引数で既定を上書きしない誤実装では by position / by name の行が default x と同じ [ 25 ] になり、n by name が all defaults と同じ [ 45 ] になる。名前による結び付けを位置どおりに扱う誤実装では .y(b), .x(en) で x=b, y=en となり by name の行が変わる。省略した既定付き引数に既定を当てない誤実装では default x / all defaults が空になる。
 
 ### SV2023-16.8-EXTRACT-CONSTANT-DELAY-ACTUAL
 
-16.8 / error / テスト未対応
+16.8 / error / テスト対応あり・実行未確認
 
 An untyped formal used in a cycle delay or repetition bound requires an elaboration-time constant actual.
 
@@ -36494,10 +37120,12 @@ An untyped formal used in a cycle delay or repetition bound requires an elaborat
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_untyped_delay_actual_variable.sv](../tests/ch16/test_illegal_sequence_untyped_delay_actual_variable.sv): p_bad の s_d(a, b, n)（33行目）が変数 n を遅延の仮引数 d に渡して違法、p_ok の s_d(a, b, D)（パラメータ）と p_lit の s_d(a, b, 1) は合法。
+- [test_illegal_sequence_untyped_repetition_actual_variable.sv](../tests/ch16/test_illegal_sequence_untyped_repetition_actual_variable.sv): p_bad の s_r(b, n)（32行目）が変数 n を繰り返し回数の仮引数 k に渡して違法、p_ok の s_r(b, C) は合法。
 
 ### SV2023-16.8-EXTRACT-DECLARATION-SCOPES
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 Named sequences may be declared in modules, interfaces, programs, clocking blocks, packages, compilation-unit scope, checkers and generate blocks.
 
@@ -36505,10 +37133,11 @@ Named sequences may be declared in modules, interfaces, programs, clocking block
 
 規定の性質: `permission`。
 
+- [test_named_sequence_scopes_and_instances.sv](../tests/ch16/test_named_sequence_scopes_and_instances.sv): モジュール(s_mod)、インタフェース(s_if)、プログラム(入れ子の prg の s_prg)、クロッキングブロック(cb の s_cb)、パッケージ(s_pkg)、コンパイル単位(s_unit)、チェッカ(chk の s_ck)、生成ブロック(g の s_gen)の8か所で宣言した名前付きシーケンスをそれぞれ cover し、a=15, b=25/45, c=35 の刺激から本体どおりの一致時刻(module 25, interface 35, program 25 45, clocking block 35, package 45, compilation unit 25, checker 35, generate block 45)が出ることを比較する。 区別: いずれかの場所での宣言を受け付けない、または宣言を無視する誤実装ではその行の時刻が空になる(またはコンパイルが失敗する)。宣言場所の名前解決を誤り本体の信号を別の有効範囲で解決する誤実装では、たとえば interface の行が x,y を a,c と結ばず [ 35 ] から変わる。
 
 ### SV2023-16.8-EXTRACT-DECLARATION-SYNTAX
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 A named sequence declaration uses sequence/endsequence, an optional formal port list, zero or more assertion variable declarations, a sequence expression with optional trailing semicolon and an optional closing label, under Syntax 16-5.
 
@@ -36516,10 +37145,11 @@ A named sequence declaration uses sequence/endsequence, an optional formal port 
 
 規定の性質: `definition`。
 
+- [test_named_sequence_scopes_and_instances.sv](../tests/ch16/test_named_sequence_scopes_and_instances.sv): ポート並びなし(sequence s_mod;)、空のポート並び(s_empty())、形式引数付き(s_unit(x, y))、局所変数宣言0個(s_mod)と2個(s_vars の int n; bit [1:0] k = 2'd1;)、式の後のセミコロンなし(s_nosemi の a ##3 b の直後に endsequence)、終わりのラベル(endsequence : s_mod)の各形を宣言し、それぞれの一致時刻(module 25, empty port list 45, local variables 25, no semicolon 45, compilation unit 25)を比較する。 区別: 空のポート並びやセミコロンなし、終わりのラベル、局所変数宣言のいずれかを構文として受け付けない誤実装ではコンパイルが失敗する。局所変数宣言をシーケンス式の一部と誤って扱う、または宣言代入を行わない誤実装では k == 2'd1 が偽になり local variables の行が空になる。セミコロンなしの宣言で式を誤って区切る誤実装では no semicolon の行が [ 45 ] から変わる。
 
 ### SV2023-16.8-EXTRACT-DEFAULT-ACTUAL
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 A sequence formal may have a default actual resolved in the declaration scope; an untyped default may have any type if substitution yields a legal sequence.
 
@@ -36527,10 +37157,11 @@ A sequence formal may have a default actual resolved in the declaration scope; a
 
 規定の性質: `permission`。
 
+- [test_sequence_default_actuals_and_name_scopes.sv](../tests/ch16/test_sequence_default_actuals_and_name_scopes.sv): 生成ブロック g の s_res(x = en, y) と s_tail(q = en ##1 d, n = 2) は既定の実引数を持つ。既定の en, d は宣言側の g.en(tick 1)と g.d(tick 2,4)に解決され、モジュールの en(tick 3)と d(tick 6)ではない。g.s_res(.y(b)) は 25、引数なしの g.s_tail はシーケンスの既定 (g.en ##1 g.d) と遅延の既定 2 を使って 45、.n(4) で上書きすると 65 で一致する。 区別: 既定の実引数をインスタンス側の有効範囲で解決する誤実装では default x の行が [ 45 ](モジュールの en)になり、all defaults の行は空になる(モジュールの en ##1 d が成り立たない)。型なしの既定にシーケンスや遅延数を許さない、または既定を使わない誤実装では all defaults / n by name の行が空になるかコンパイルできない。
 
 ### SV2023-16.8-EXTRACT-DOLLAR-ACTUAL
 
-16.8 / error / テスト未対応
+16.8 / error / テスト対応あり・実行未確認
 
 A $ actual requires an untyped formal whose every use is a delay-range upper bound or another sequence actual.
 
@@ -36538,6 +37169,8 @@ A $ actual requires an untyped formal whose every use is a delay-range upper bou
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_dollar_actual_exact_delay.sv](../tests/ch16/test_illegal_sequence_dollar_actual_exact_delay.sv): p_bad の s_d(a, b, $)（36行目）が違法、p_up の s_up(a, b, $) と p_pass の s_pass(a, b, $)（m を s_up へそのまま渡す）は合法。
+- [test_illegal_sequence_dollar_actual_typed_formal.sv](../tests/ch16/test_illegal_sequence_dollar_actual_typed_formal.sv): p_bad の s_t(a, b, $)（33行目、m は int 型）が違法、p_up の s_up(a, b, $)（m は型なし）と p_t の s_t(a, b, 3) は合法。
 
 ### SV2023-16.8-EXTRACT-FLATTENED-SEMANTICS
 
@@ -36552,7 +37185,7 @@ A sequence instance has the matching behavior of the flattened F.4.1 rewriting a
 
 ### SV2023-16.8-EXTRACT-FORMAL-REFERENCES
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 Sequence formals may stand for identifiers, expressions, sequence expressions, event expressions and the terminal $ in a delay upper bound, subject to substitution validity.
 
@@ -36560,10 +37193,11 @@ Sequence formals may stand for identifiers, expressions, sequence expressions, e
 
 規定の性質: `permission`。
 
+- [test_sequence_formal_reference_forms_and_types.sv](../tests/ch16/test_sequence_formal_reference_forms_and_types.sv): 形式引数を、識別子(s_bit の x[1] に w を渡す)、式(s_two の x == 2'd2、s_and_c の x & c)、シーケンス式(s_then の q ##1 y に a ##1 c)、イベント式(s_on の @(ev) に negedge clk)、範囲の上限の $(s_upto の ##[1:hi] に $)の各位置に書き、identifier 25, sequence 35, event 20, $ bound 55(同じ宣言で hi=3 なら bound 3 は空)を比較する。 区別: 形式引数を識別子として置き換えない(括弧やキャストで包む)誤実装では x[1] が違法になるか値が変わり identifier の行が [ 25 ] でなくなる。シーケンスやイベント式を実引数として置き換えない誤実装では sequence / event の行が空になる(event は立ち下がりの 20 でなく立ち上がりの時刻になる誤りも検出)。$ を上限として扱わない誤実装では $ bound が空になるか、bound 3 と同じになる。
 
 ### SV2023-16.8-EXTRACT-FORMAL-TYPES
 
-16.8 / error / テスト未対応
+16.8 / error / テスト対応あり・実行未確認
 
 Supported sequence formal data types are assertion-operand types permitted by 16.6 and untyped, with the sequence specialization of 16.8.1.
 
@@ -36571,10 +37205,11 @@ Supported sequence formal data types are assertion-operand types permitted by 16
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_formal_chandle_type.sv](../tests/ch16/test_illegal_sequence_formal_chandle_type.sv): 名前付き列 s_ch の仮引数 h を、アサーション式の被演算子に許されない chandle 型で宣言した31行目を唯一の違反とする（s_ch は実体化しないので、宣言だけが違反の場所である）。s_ok の仮引数は sequence、bit、int 型、s_un の仮引数は型なしで、どちらも実体化して使う合法な形。regex は31行目を指す。 区別: 列の仮引数の型を検査しない処理系は受理して失敗する。要求が許す型なしと、16.8.1 の sequence 型、16.6 が許す bit/int 型を合法な形として置いている。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.8-EXTRACT-INSTANTIATION-PLACES
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 A named sequence may be instantiated by name or hierarchical name wherever a sequence_expr is allowed, including before its declaration, and in a sequence method or event expression.
 
@@ -36582,10 +37217,11 @@ A named sequence may be instantiated by name or hierarchical name wherever a seq
 
 規定の性質: `permission`。
 
+- [test_named_sequence_scopes_and_instances.sv](../tests/ch16/test_named_sequence_scopes_and_instances.sv): 名前だけ(s_mod)、階層名(u_if.s_if, g.s_gen, cb.s_cb)、パッケージ名付き(pkg::s_pkg)、宣言より前の位置(c_late が後で宣言される s_late を使う)、より大きなシーケンスの被演算子(s_mod ##2 b)、メソッド呼び出し(s_clk.triggered)、イベント式(@(s_clk))でインスタンス化し、それぞれ before declaration 35, operand 45, triggered 25, event 25 などの時刻を比較する。 区別: 宣言前のインスタンスを解決できない誤実装では before declaration の行が空(またはエラー)になる。被演算子としてのインスタンスを本体で置き換えない誤実装では operand の行が [ 45 ] でなくなる。triggered やイベント式でシーケンスの終点を扱わない誤実装では triggered / event の行が [ 25 ] にならない。階層名を解決しない誤実装では interface / generate block / clocking block の行が空になる。
 
 ### SV2023-16.8-EXTRACT-LEXICAL-NAMES
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 Non-formal names and defaults resolve at the sequence declaration scope; supplied actual argument names resolve at the instance scope.
 
@@ -36593,10 +37229,11 @@ Non-formal names and defaults resolve at the sequence declaration scope; supplie
 
 規定の性質: `mandatory`。
 
+- [test_sequence_default_actuals_and_name_scopes.sv](../tests/ch16/test_sequence_default_actuals_and_name_scopes.sv): s_res の本体の d は宣言の有効範囲 g の d(tick 2,4)に、既定の en は g.en に解決され、インスタンスの実引数 en はインスタンスの有効範囲(モジュール)の en(tick 3)に解決される。g.s_res(en, b) と g.s_res(.y(b), .x(en)) は tick 3 の en と tick 4 の b && g.d で 45 に一致し、既定を使う g.s_res(.y(b)) は 25 で一致する。 区別: 本体の d をインスタンス側(モジュールの d, tick 6 だけ)で解決する誤実装では by position / by name / default x の行がすべて空になる。実引数 en を宣言側(g.en)で解決する誤実装では by position / by name の行が [ 25 ] になる。既定の en をインスタンス側で解決する誤実装では default x の行が [ 45 ] になる。
 
 ### SV2023-16.8-EXTRACT-LOCAL-ACTUAL
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 A sequence actual may reference a local variable in scope at the instance.
 
@@ -36604,10 +37241,11 @@ A sequence actual may reference a local variable in scope at the instance.
 
 規定の性質: `permission`。
 
+- [test_sequence_default_actuals_and_name_scopes.sv](../tests/ch16/test_sequence_default_actuals_and_name_scopes.sv): s_loc は局所変数 v に tick 3 の data(7)を取り込み、その有効範囲内のインスタンス s_eq(data, v + 1) の実引数で v を参照する。tick 4 で data == v + 1(8 == 8)が成り立ち 45 で一致する(local in actual: [ 45 ])。 区別: 実引数の中の局所変数を参照できない、または取り込んだ値でなく別の値(未代入の 0 や現在の data)を使う誤実装では、tick 4 の比較が 8 == 1 や 8 == 9 となって local in actual の行が空になる。
 
 ### SV2023-16.8-EXTRACT-NO-CYCLIC-DEPENDENCY
 
-16.8 / error / テスト未対応
+16.8 / error / テスト対応あり・実行未確認
 
 A cycle in named-sequence dependencies is an error; edges include instantiation in a declaration or default actual, and instantiation in the actual argument of an instance.
 
@@ -36615,10 +37253,13 @@ A cycle in named-sequence dependencies is an error; edges include instantiation 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_cycle_through_bodies.sv](../tests/ch16/test_illegal_sequence_cycle_through_bodies.sv): s1 の本体（32行目）が s2 を、s2 の本体が s1 を実体化して閉路となり違法。s0 が s_leaf を実体化するのは合法。
+- [test_illegal_sequence_cycle_through_default_actual.sv](../tests/ch16/test_illegal_sequence_cycle_through_default_actual.sv): s3 の仮引数 x の既定の実引数 s4（31行目）と、s4 の本体の s3(b) が閉路となり違法。s5 の既定 s_leaf は合法。
+- [test_illegal_sequence_cycle_through_instance_actual.sv](../tests/ch16/test_illegal_sequence_cycle_through_instance_actual.sv): p_bad の s7(s9)（36行目）の実引数が s9 を実体化し、s9 の本体が s7 を実体化して閉路となり違法。p_ok の s7(s_leaf) は合法。
 
 ### SV2023-16.8-EXTRACT-NO-DEFAULT-TYPE
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 A formal with no preceding specified type is untyped; sequence formals have no default data type.
 
@@ -36626,10 +37267,11 @@ A formal with no preceding specified type is untyped; sequence formals have no d
 
 規定の性質: `definition`。
 
+- [test_sequence_formal_reference_forms_and_types.sv](../tests/ch16/test_sequence_formal_reference_forms_and_types.sv): 型を書かない形式引数 x に、1ビットの a + b(a=b=1、自己決定で 0)と4ビットの w=4'b0110 を渡す。s_two(a + b) の x == 2'd2 は一致せず(空)、s_whole(w) の x == 4'b0110 は 15 で一致する。同じ式を logic [1:0] 型の形式引数に渡した s_two_t は 15 で一致する。 区別: 型のない形式引数に既定の型(たとえば int や2ビット以上の型)を与える誤実装では a + b が 2 と評価されて untyped a + b の行に 15 が出る。1ビットの logic を既定の型とする誤実装では w が 0 に切り詰められ untyped w の行が空になる。
 
 ### SV2023-16.8-EXTRACT-TYPE-INHERITANCE
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 A formal argument type applies to following formal identifiers until another type is specified.
 
@@ -36637,6 +37279,7 @@ A formal argument type applies to following formal identifiers until another typ
 
 規定の性質: `mandatory`。
 
+- [test_sequence_formal_reference_forms_and_types.sv](../tests/ch16/test_sequence_formal_reference_forms_and_types.sv): s_inh(bit [1:0] p, q) の q は型を持たない識別子だが直前の bit [1:0] が及ぶ。w=4'b0110 を両方に渡すと p, q とも 2'b10 となり p == 2'b10 && q == 2'b10 が 15 で一致する(inherited type: [ 15 ])。 区別: 型を後続の形式引数へ及ぼさず q を型なしとする誤実装では q == 2'b10 が 4'b0110 == 2'b10 で偽になり inherited type の行が空になる。
 
 ### SV2023-16.8-EXTRACT-UNTYPED-SUBSTITUTION
 
@@ -36662,7 +37305,7 @@ Other typed formals require a cast-compatible self-determined actual type; non-l
 
 ### SV2023-16.8.1-EXTRACT-EDGE-OPERAND
 
-16.8.1 / error / テスト未対応
+16.8.1 / error / テスト対応あり・実行未確認
 
 A formal intended as the operand of an edge_identifier to form an event expression shall not have type event.
 
@@ -36670,10 +37313,11 @@ A formal intended as the operand of an edge_identifier to form an event expressi
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_event_formal_with_edge.sv](../tests/ch16/test_illegal_sequence_event_formal_with_edge.sv): 列 s_bad が event 型の仮引数 ev に posedge を付けて事象式にする31行目を唯一の違反とする。logic 型の仮引数 sig に posedge を付ける s_sig と、event 型の仮引数をそのまま事象式に使う s_ev（実引数 posedge clk）は合法。regex は31行目を指す。 区別: エッジと組み合わせる仮引数の型を検査しない処理系は受理して失敗する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.8.1-EXTRACT-EVENT-FORMAL
 
-16.8.1 / error / テスト未対応
+16.8.1 / error / テスト対応あり・実行未確認
 
 An event formal requires an event_expression actual and may be referenced only where an event_expression is legal.
 
@@ -36681,10 +37325,12 @@ An event formal requires an event_expression actual and may be referenced only w
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_event_formal_as_boolean.sv](../tests/ch16/test_illegal_sequence_event_formal_as_boolean.sv): s_bad の a ##1 ev（27行目）が event 仮引数をブール式に使って違法、s_ev の @(ev) a ##1 b と c_ev の s_ev(posedge clk) は合法。
+- [test_illegal_sequence_event_formal_actual_not_event.sv](../tests/ch16/test_illegal_sequence_event_formal_actual_not_event.sv): c_bad の s_ev(a ##1 b)（28行目）が違法、c_ok の s_ev(posedge clk) と c_neg の s_ev(negedge clk) は合法。
 
 ### SV2023-16.8.1-EXTRACT-EXPLICIT-UNTYPED
 
-16.8.1 / normal / テスト未対応
+16.8.1 / normal / テスト対応あり・実行未確認
 
 A formal typed untyped has untyped binding semantics; untyped shall be written to restore an untyped formal after a data type in the list.
 
@@ -36692,6 +37338,7 @@ A formal typed untyped has untyped binding semantics; untyped shall be written t
 
 規定の性質: `mandatory`。
 
+- [test_sequence_formal_reference_forms_and_types.sv](../tests/ch16/test_sequence_formal_reference_forms_and_types.sv): s_back(bit [1:0] p, untyped z) では型の後の z に untyped を書いて型なしに戻す。w=4'b0110 を両方に渡すと p は 2'b10、z は4ビットのまま 4'b0110 で、p == 2'b10 && z == 4'b0110 が 15 で一致する(untyped after type: [ 15 ])。型なしの z は型のない形式引数 s_whole の x と同じく w を切り詰めない(untyped w: [ 15 ])。 区別: untyped を無視して直前の bit [1:0] を z に及ぼす誤実装では z が 2'b10 となり z == 4'b0110 が偽、untyped after type の行が空になる。untyped を付けた形式引数を型付き(1ビットの logic など)として扱う誤実装も同じ行で検出される。
 
 ### SV2023-16.8.1-EXTRACT-LVALUE-FORMAL-TYPE
 
@@ -36706,7 +37353,7 @@ A variable_lvalue actual is viewed through the formal type, and assignment to th
 
 ### SV2023-16.8.1-EXTRACT-NO-VALUE-MODE
 
-16.8.1 / normal / テスト未対応
+16.8.1 / normal / テスト対応あり・実行未確認
 
 Pass by value is not a supported sequence argument-passing mode; a local variable can capture an argument value instead.
 
@@ -36714,10 +37361,11 @@ Pass by value is not a supported sequence argument-passing mode; a local variabl
 
 規定の性質: `definition`。
 
+- [test_sequence_formal_reference_forms_and_types.sv](../tests/ch16/test_sequence_formal_reference_forms_and_types.sv): s_track(bit [1:0] x) の x == 2'b10 ##1 x == 2'b01 に w を渡すと、x は tick ごとに w を読み、tick 1 で 2'b10、tick 2 で 2'b01 になって 25 で一致する(follows actual: [ 25 ])。s_hold では局所変数 h に tick 1 の x を取り込み、tick 2 で h == 2'b10 && x == 2'b01 が成り立って 25 で一致する(local copy: [ 25 ])。 区別: 形式引数を値渡し(試行開始時の値を固定)する誤実装では tick 2 でも x が 2'b10 のままで follows actual の行が空になり、s_hold の x == 2'b01 も偽で local copy の行も空になる。局所変数への取り込みを行わない、または h が x に追随する誤実装では local copy の行が空になる。
 
 ### SV2023-16.8.1-EXTRACT-SEQUENCE-FORMAL
 
-16.8.1 / error / テスト未対応
+16.8.1 / error / テスト対応あり・実行未確認
 
 A sequence formal requires a sequence_expr actual and may be referenced only where a sequence_expr is legal or as the operand of triggered/matched.
 
@@ -36725,10 +37373,12 @@ A sequence formal requires a sequence_expr actual and may be referenced only whe
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_formal_actual_property.sv](../tests/ch16/test_illegal_sequence_formal_actual_property.sv): p_bad の s_s(a |-> b)（28行目）が違法、p_seq の s_s(a ##1 b) と p_bool の s_s(b) は合法。
+- [test_illegal_sequence_formal_goto_operand.sv](../tests/ch16/test_illegal_sequence_formal_goto_operand.sv): s_bad の c ##1 q[->2]（29行目）が違法、s_ok の c ##1 q[*2] は合法。
 
 ### SV2023-16.8.1-EXTRACT-TYPED-DELAY-BOUND
 
-16.8.1 / error / テスト未対応
+16.8.1 / error / テスト対応あり・実行未確認
 
 A typed formal used in cycle-delay or repetition bounds shall have type shortint, int or longint.
 
@@ -36736,10 +37386,12 @@ A typed formal used in cycle-delay or repetition bounds shall have type shortint
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_typed_formal_delay_bit_vector.sv](../tests/ch16/test_illegal_sequence_typed_formal_delay_bit_vector.sv): s_bad の x ##d y（33行目、d は bit [7:0]）が違法、s_i（int）と s_s（shortint）の同じ遅延は合法。
+- [test_illegal_sequence_typed_formal_repetition_byte.sv](../tests/ch16/test_illegal_sequence_typed_formal_repetition_byte.sv): s_bad の x[*k]（30行目、k は byte）が違法、s_l（longint）の同じ繰り返しは合法。
 
 ### SV2023-16.8.1-EXTRACT-TYPED-DOMAIN
 
-16.8.1 / error / テスト未対応
+16.8.1 / error / テスト対応あり・実行未確認
 
 A typed sequence formal shall have type sequence or an assertion operand type permitted by 16.6; its actual restrictions also apply to declared defaults.
 
@@ -36747,10 +37399,12 @@ A typed sequence formal shall have type sequence or an assertion operand type pe
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_formal_chandle_type.sv](../tests/ch16/test_illegal_sequence_formal_chandle_type.sv): s_ch の chandle 型の仮引数 h（31行目）が違法、s_ok の sequence/bit/int 型の仮引数は合法。
+- [test_illegal_sequence_formal_event_default_not_event.sv](../tests/ch16/test_illegal_sequence_formal_event_default_not_event.sv): s_bad の event 型の仮引数 ev の既定 a ##1 b（26行目）が event 式でなく違法、s_ok の既定 posedge clk は合法。
 
 ### SV2023-16.8.1-EXTRACT-TYPED-MATCH-LVALUE
 
-16.8.1 / error / テスト未対応
+16.8.1 / error / テスト対応あり・実行未確認
 
 A typed formal shall not be a sequence-match assignment/increment/decrement lvalue unless it is a local-variable formal.
 
@@ -36758,10 +37412,12 @@ A typed formal shall not be a sequence-match assignment/increment/decrement lval
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_typed_formal_match_assignment.sv](../tests/ch16/test_illegal_sequence_typed_formal_match_assignment.sv): s_bad の (a, x = 1)（28行目）が違法、s_loc の (a, y = 1) ##1 (b, y++) は合法。
+- [test_illegal_sequence_typed_formal_match_increment.sv](../tests/ch16/test_illegal_sequence_typed_formal_match_increment.sv): s_bad の (a, x++)（28行目）が違法、s_loc は合法。
 
 ### SV2023-16.8.2-EXTRACT-ACTUAL-ASSIGNED
 
-16.8.2 / error / テスト未対応
+16.8.2 / error / テスト対応あり・実行未確認
 
 An input/inout actual referencing a local variable shall not reference it while unassigned in the instantiation context.
 
@@ -36769,10 +37425,11 @@ An input/inout actual referencing a local variable shall not reference it while 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_local_input_actual_unassigned.sv](../tests/ch16/test_illegal_sequence_local_input_actual_unassigned.sv): s_in(local int v)(方向なしなので input)の実引数に、use_in の初期値も先行する代入もない局所変数 y を渡す(c ##1 s_in(y))。この参照点で y は未代入で、34 行でのエラーを求める。 区別: 入力局所形式引数の実引数が参照する局所変数の代入状態を検査しない誤実装は設計を受け付け、未代入の値で初期化して実行してしまうので、エラーが出ずテストは不合格になる。
 
 ### SV2023-16.8.2-EXTRACT-COPY-OUT
 
-16.8.2 / normal / テスト未対応
+16.8.2 / normal / テスト対応あり・実行未確認
 
 At each matching-thread completion, each inout/output formal value is cast and copied to its associated actual local variable; multiple matching threads continue independently with their own copies.
 
@@ -36780,10 +37437,11 @@ At each matching-thread completion, each inout/output formal value is cast and c
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_formal_copies_and_casts.sv](../tests/ch16/test_sequence_local_formal_copies_and_casts.sv): pick(local output int v) の (en[*1:2], v = data) は tick 2 と tick 3 で終わる2つの一致スレッドを持ち、v は 18 と 37。呼び出し側 use_pick の4ビットの局所変数 x へ一致ごとに int から logic [3:0] へキャストして写され、各スレッドが自分の x で続いて1 tick 後に 35:2 と 45:5 を記録する。inh の inout 形式引数 t, u の値 21 も p, q(4ビット)へ 5 として写される(115:5/5)。 区別: 一致の終わりで出力形式引数を実引数へ写さない誤実装では x が未代入のまま(記録されないか不定)になる。キャストせずに写す誤実装では 35:18 45:37 になる。複数の一致スレッドで実引数の写しを共有する誤実装では、後の一致の値で上書きされ 35:5 になるか、片方のスレッドだけが続いて1件になる。inout の写し戻しをしない誤実装では inherit の行が 115:1/1 になる。
 
 ### SV2023-16.8.2-EXTRACT-COPY-PER-ATTEMPT
 
-16.8.2 / normal / テスト未対応
+16.8.2 / normal / テスト対応あり・実行未確認
 
 Each attempt of a named-sequence instance creates a new copy of every local formal.
 
@@ -36791,10 +37449,11 @@ Each attempt of a named-sequence instance creates a new copy of every local form
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_formal_copies_and_casts.sv](../tests/ch16/test_sequence_local_formal_copies_and_casts.sv): st ##0 keep(data) の試行が tick 5 (data 18) と tick 6 (data 37) で始まり重なる。各試行の局所入力形式引数 v はそれぞれ 2 と 5 を保ち、2 tick 後の記録が 75:2/102 と 85:5/105 になる。 区別: インスタンスの試行ごとに局所形式引数の新しい写しを作らず1つを共有する誤実装では、tick 6 の初期化で tick 5 の試行の v も 5 に上書きされ、75 の記録が 75:5/105(w も共有なら)や 75:5/102 に変わる。
 
 ### SV2023-16.8.2-EXTRACT-DIRECTION-LOCAL
 
-16.8.2 / error / テスト未対応
+16.8.2 / error / テスト対応あり・実行未確認
 
 A port item specifying input, inout or output shall also specify local.
 
@@ -36802,10 +37461,13 @@ A port item specifying input, inout or output shall also specify local.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_input_formal_without_local.sv](../tests/ch16/test_illegal_sequence_input_formal_without_local.sv): input logic x に local がない宣言の行 27 でのエラーを求める。
+- [test_illegal_sequence_output_formal_without_local.sv](../tests/ch16/test_illegal_sequence_output_formal_without_local.sv): output logic x に local がない宣言の行 27 でのエラーを求める。
+- [test_illegal_sequence_inout_formal_without_local.sv](../tests/ch16/test_illegal_sequence_inout_formal_without_local.sv): inout logic x に local がない宣言の行 27 でのエラーを求める。
 
 ### SV2023-16.8.2-EXTRACT-INITIALIZATION-ORDER
 
-16.8.2 / normal / テスト未対応
+16.8.2 / normal / テスト対応あり・実行未確認
 
 All input/inout local formals initialize before any declared assertion local variable; declaration initializers may reference these initialized formals.
 
@@ -36813,10 +37475,11 @@ All input/inout local formals initialize before any declared assertion local var
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_formal_copies_and_casts.sv](../tests/ch16/test_sequence_local_formal_copies_and_casts.sv): keep(local input logic [3:0] v) は宣言した局所変数 int w = v + 100 の初期化で局所入力形式引数 v を参照する。v の初期化(data からのキャストで 2 / 5)が w より先に行われ、w は 102 / 105 になる(75:2/102 85:5/105)。 区別: 宣言した局所変数の初期化を局所形式引数の初期化より先に行う誤実装では w の計算時に v が未代入で、w が 100(0 として扱う)や不定になり、keep の行の /102 /105 が変わる。宣言代入から形式引数を参照できない誤実装ではコンパイルが失敗する。
 
 ### SV2023-16.8.2-EXTRACT-INPUT-INITIALIZATION
 
-16.8.2 / normal / テスト未対応
+16.8.2 / normal / テスト対応あり・実行未確認
 
 Input/inout local formals initialize from associated actual values cast to their formal types; actual self-determined types shall be cast-compatible.
 
@@ -36824,6 +37487,7 @@ Input/inout local formals initialize from associated actual values cast to their
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_formal_copies_and_casts.sv](../tests/ch16/test_sequence_local_formal_copies_and_casts.sv): 局所入力形式引数 logic [3:0] v は int の実引数 data(試行開始時の 18 / 37)を 4 ビットへキャストした 2 / 5 で初期化される(keep: 75:2/102 85:5/105)。inout の t, u も実引数 p, q の値 1 で初期化され、+= 20 で 21 となる(u > 15 が成り立ち一致)。 区別: 実引数を形式引数の型へキャストせずに初期化する誤実装では v が 18 / 37 のままで記録が 75:18/118 85:37/137 になる。inout 形式引数を実引数の値で初期化しない誤実装では u > 15 の判定や写し戻しの値が変わり inherit の行が 115:5/5 でなくなる(未代入の += はエラーにもなる)。
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-DECLARATION
 
@@ -36838,7 +37502,7 @@ local designates a sequence local-variable formal; its optional direction defaul
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-DEFAULT
 
-16.8.2 / error / テスト未対応
+16.8.2 / error / テスト対応あり・実行未確認
 
 An input local formal may declare a default actual under 16.8; an inout/output local formal shall not have a default.
 
@@ -36846,10 +37510,12 @@ An input local formal may declare a default actual under 16.8; an inout/output l
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_local_inout_default.sv](../tests/ch16/test_illegal_sequence_local_inout_default.sv): local inout int v = 0 の行 27 でのエラーを求める。
+- [test_illegal_sequence_local_output_default.sv](../tests/ch16/test_illegal_sequence_local_output_default.sv): local output int v = 0 の行 27 でのエラーを求める。
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-FLOW
 
-16.8.2 / normal / テスト未対応
+16.8.2 / normal / テスト対応あり・実行未確認
 
 The local-variable assignment, reference and flow rules of 16.10 apply to local formals as well as declared assertion local variables.
 
@@ -36857,10 +37523,11 @@ The local-variable assignment, reference and flow rules of 16.10 apply to local 
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_formal_copies_and_casts.sv](../tests/ch16/test_sequence_local_formal_copies_and_casts.sv): 局所形式引数にも 16.10 の代入・参照・流れの規則が適用される。either(local output int v) の or の両被演算子で v を代入すると v は or から流れ出し、各スレッドが自分の値(tick 8 で 1、tick 9 で 2)を持って呼び出し側 y へ写る(95:1 105:2)。inh の inout 形式引数 u は照合項目 u += 20 で代入され、##0 の後の u > 15 で参照される。 区別: 局所形式引数に or の流れの規則を適用せず、片方のスレッドの値だけを残す(またはスレッド間で値を共有する)誤実装では either の行が 95:2 105:2 や1件だけになる。照合項目による局所形式引数への代入を後続の参照に反映しない誤実装では u > 15 が偽となり inherit の行が空になる。
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-INHERITANCE
 
-16.8.2 / normal / テスト未対応
+16.8.2 / normal / テスト対応あり・実行未確認
 
 Local designation, direction and type extend to following identifier-only port items until a port specifies local or an explicit type.
 
@@ -36868,10 +37535,11 @@ Local designation, direction and type extend to following identifier-only port i
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_formal_copies_and_casts.sv](../tests/ch16/test_sequence_local_formal_copies_and_casts.sv): inh(local inout int t, u, logic flag) の u は名前だけの項目で、直前の t から local・inout・int を受け継ぐ。u = 1 + 20 = 21 は int なので u > 15 が成り立ち、inout なので呼び出し側の q に 5(21 の4ビット)が写る(inherit: [ 115:5/5 ])。型 logic を明示した flag は局所変数でなく、モジュール変数 fl を実引数にできる。 区別: u に int を受け継がせず呼び出し側の4ビット型で扱う誤実装(型なしの置き換え)では 21 が 5 になり u > 15 が偽で inherit の行が空になる。方向を受け継がせず入力とする誤実装では q が写し戻されず 115:5/1 になる。明示した型の後まで local を及ぼす誤実装では flag の実引数 fl が局所変数でないためエラーになる。
 
 ### SV2023-16.8.2-EXTRACT-METHOD-INPUT-RESTRICTION
 
-16.8.2 / error / テスト未対応
+16.8.2 / error / テスト対応あり・実行未確認
 
 triggered or matched shall not be applied to a sequence instance having an input or inout local formal.
 
@@ -36879,10 +37547,12 @@ triggered or matched shall not be applied to a sequence instance having an input
 
 規定の性質: `mandatory`。
 
+- [test_illegal_triggered_on_local_inout_formal.sv](../tests/ch16/test_illegal_triggered_on_local_inout_formal.sv): s_t(y).triggered の行 33 でのエラーを求める。
+- [test_illegal_matched_on_local_input_formal.sv](../tests/ch16/test_illegal_matched_on_local_input_formal.sv): s_m(d).matched の行 30 でのエラーを求める。
 
 ### SV2023-16.8.2-EXTRACT-NO-EMPTY-OUTPUT
 
-16.8.2 / error / テスト未対応
+16.8.2 / error / テスト対応あり・実行未確認
 
 A sequence instance with inout/output local formals shall not admit an empty match.
 
@@ -36890,10 +37560,11 @@ A sequence instance with inout/output local formals shall not admit an empty mat
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_local_inout_empty_match.sv](../tests/ch16/test_illegal_sequence_local_inout_empty_match.sv): 局所 inout 形式引数 v を持つ s_e の本体 (a, v += 1)[*0:1] は0回の繰り返しで空一致を許し、そのインスタンス s_e(y) を use_e で使う。v は y(初期値 0)から初期化され、照合項目は空一致しない a に付くので、違反は『inout/output の局所形式引数を持つインスタンスが空一致を許す』ことだけ。:expected_stderr_regex: は本体の行(29)かインスタンスの行(34)でのエラーを求める。 区別: この規則を検査しない誤実装は設計を受け付け(エラーなし)、テストは不合格になる。別の行(宣言の見出しや cover の行)だけで報告する実装も、正規表現の行番号と一致せず検出される。
 
 ### SV2023-16.8.2-EXTRACT-NO-OUTPUT-ALIAS
 
-16.8.2 / error / テスト未対応
+16.8.2 / error / テスト対応あり・実行未確認
 
 Two or more inout/output local formals in one instance shall not bind the same actual local variable.
 
@@ -36901,6 +37572,7 @@ Two or more inout/output local formals in one instance shall not bind the same a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_local_formals_share_actual.sv](../tests/ch16/test_illegal_sequence_local_formals_share_actual.sv): s_two(local inout int p, local output int q) のインスタンス s_two(y, y) で、同じ局所変数 y(初期値 0 で代入済み)を inout と output の2つの局所形式引数に結び付ける。それ以外は合法(y は局所変数、本体は空一致しない)で、32 行でのエラーを求める。 区別: 同じ局所変数を2つの inout/output 局所形式引数へ結ぶことを検査しない誤実装は設計を受け付けるか、写し戻しの順序に依存した結果で実行してしまい、エラーが出ずテストは不合格になる。
 
 ### SV2023-16.8.2-EXTRACT-OUTPUT-ACTUAL
 
@@ -36915,7 +37587,7 @@ An inout/output actual shall be exactly a reference to an in-scope local variabl
 
 ### SV2023-16.8.2-EXTRACT-OUTPUT-DEFINITE-ASSIGNMENT
 
-16.8.2 / error / テスト未対応
+16.8.2 / error / テスト対応あり・実行未確認
 
 It is an error if any sequence match completes with an inout/output local formal unassigned.
 
@@ -36923,6 +37595,7 @@ It is an error if any sequence match completes with an inout/output local formal
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_local_output_unassigned.sv](../tests/ch16/test_illegal_sequence_local_output_unassigned.sv): s_maybe(local output int v) の本体 (a, v = d) or b では b を通る一致が v を代入しないまま終わる。呼び出し側は y を読まないので、未代入の参照という別の違反はない。本体の行(29)かインスタンスの行(34)でのエラーを求める。 区別: 一致の終わりに出力局所形式引数が未代入になり得ることを検査しない誤実装は設計を受け付け、エラーが出ずテストは不合格になる。
 
 ### SV2023-16.8.2-EXTRACT-OUTPUT-UNASSIGNED
 
@@ -36937,7 +37610,7 @@ An output local formal starts each instance attempt unassigned.
 
 ### SV2023-16.8.2-EXTRACT-UNTYPED-LOCAL-PASSING
 
-16.8.2 / normal / テスト未対応
+16.8.2 / normal / テスト対応あり・実行未確認
 
 Untyped actual substitution can pass a local variable to a subsequence, permit assignment there, and expose the assigned value in the caller context under 16.10.
 
@@ -36945,10 +37618,11 @@ Untyped actual substitution can pass a local variable to a subsequence, permit a
 
 規定の性質: `permission`。
 
+- [test_sequence_local_formal_copies_and_casts.sv](../tests/ch16/test_sequence_local_formal_copies_and_casts.sv): use_put の局所変数 v を型なし形式引数 lv にそのまま渡し、put の中の照合項目 lv = data(tick 12 の 40)で代入し、put の一致の後に呼び出し側で v を参照して 145:40 を記録する。put の中の data == lv + 1 も tick 13 の 41 で成り立つ。 区別: 型なし形式引数で渡した局所変数への代入を呼び出し側へ見せない誤実装では、put の後の v が未代入のまま(記録されないか不定値)で untyped の行が [ 145:40 ] でなくなる。代入した値を put の中の参照に使わない誤実装では data == lv + 1 が偽で一致せず、行が空になる。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-AND
 
-16.9.1 / normal / テスト未対応
+16.9.1 / normal / テスト対応あり・実行未確認
 
 Table 16-1 precedence level 6 (highest first) contains and; associativity is left.
 
@@ -36956,6 +37630,8 @@ Table 16-1 precedence level 6 (highest first) contains and; associativity is lef
 
 規定の性質: `definition`。
 
+- [test_sequence_intersect_within_precedence.sv](../tests/ch16/test_sequence_intersect_within_precedence.sv): a, d が 5、b, c が 15、e が 25 で高く、a ##1 b intersect a ##1 c and d ##2 e が 25 で一致する。
+- [test_sequence_operator_precedence.sv](../tests/ch16/test_sequence_operator_precedence.sv): 12 tick の x, y, z のベクトルで x and y or z の成功が6回(x and (y or z) なら4回)。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-CONCAT
 
@@ -36970,7 +37646,7 @@ Table 16-1 precedence level 2 (highest first) contains ##; associativity is left
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-INTERSECT
 
-16.9.1 / normal / テスト未対応
+16.9.1 / normal / テスト対応あり・実行未確認
 
 Table 16-1 precedence level 5 (highest first) contains intersect; associativity is left.
 
@@ -36978,10 +37654,12 @@ Table 16-1 precedence level 5 (highest first) contains intersect; associativity 
 
 規定の性質: `definition`。
 
+- [test_sequence_precedence_repetition_within.sv](../tests/ch16/test_sequence_precedence_repetition_within.sv): p ##2 p intersect q within r ##2 r: 325。
+- [test_sequence_intersect_within_precedence.sv](../tests/ch16/test_sequence_intersect_within_precedence.sv): a ##1 b intersect a ##1 c and d ##2 e: 25。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-OR
 
-16.9.1 / normal / テスト未対応
+16.9.1 / normal / テスト対応あり・実行未確認
 
 Table 16-1 precedence level 7 (highest first) contains or; associativity is left.
 
@@ -36989,10 +37667,11 @@ Table 16-1 precedence level 7 (highest first) contains or; associativity is left
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_precedence.sv](../tests/ch16/test_sequence_operator_precedence.sv): or が表の最下段として and や ## より弱く結合することを、x and y or z が (x and y) or z として6回、x ##1 y or z が (x ##1 y) or z として4回成功する(他の結合ではそれぞれ4回と3回)ことで比較する。or は結合的なので左結合は出力上の区別を生まない。 区別: or を and より強く結合する誤実装では x and y or z が 4 に、## より強く結合する誤実装では x ##1 y or z が 3 に変わる。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-REPETITION
 
-16.9.1 / normal / テスト未対応
+16.9.1 / normal / テスト対応あり・実行未確認
 
 Table 16-1 precedence level 1 (highest first) contains [*], [=] and [->]; no associativity is specified.
 
@@ -37000,10 +37679,11 @@ Table 16-1 precedence level 1 (highest first) contains [*], [=] and [->]; no ass
 
 規定の性質: `definition`。
 
+- [test_sequence_precedence_repetition_within.sv](../tests/ch16/test_sequence_precedence_repetition_within.sv): [*], [->], [=] の3つすべてを ## と組み合わせ、a ##1 b[*2] ##1 c が a ##1 (b ##1 b) ##1 c として 35 だけで一致し、(a ##1 b)[*2] ##1 c なら一致する 5〜9 の a,b,a,b,c では一致しないこと(a ##1 b[*2] ##1 c: 35)、g ##1 h[->2] ##1 k が h だけに goto を付けて 165 で、u ##1 v[=2] ##1 w が v だけに非連続繰り返しを付けて 255 で一致することを比較する。 区別: 繰り返しを ## より弱く結合する誤実装では c_rep が (a ##1 b)[*2] ##1 c となって 95 で一致し 35 で一致しない。[->] や [=] を直前の連接全体に掛ける誤実装は boolean 以外への適用となって受け付けないか、一致時刻 165 / 255 が変わる。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-THROUGHOUT
 
-16.9.1 / normal / テスト未対応
+16.9.1 / normal / テスト対応あり・実行未確認
 
 Table 16-1 precedence level 3 (highest first) contains throughout; associativity is right.
 
@@ -37011,10 +37691,13 @@ Table 16-1 precedence level 3 (highest first) contains throughout; associativity
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_precedence.sv](../tests/ch16/test_sequence_operator_precedence.sv): x throughout y ##1 z の成功が1回(throughout が ## より弱い)。
+- [test_sequence_intersect_within_precedence.sv](../tests/ch16/test_sequence_intersect_within_precedence.sv): en throughout x ##1 x within s ##3 s が 105 で一致する(throughout が within より強い)。
+- [test_sequence_precedence_repetition_within.sv](../tests/ch16/test_sequence_precedence_repetition_within.sv): x throughout y throughout s ##2 s が 425 だけで一致する(右結合)。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-WITHIN
 
-16.9.1 / normal / テスト未対応
+16.9.1 / normal / テスト対応あり・実行未確認
 
 Table 16-1 precedence level 4 (highest first) contains within; associativity is left.
 
@@ -37022,6 +37705,8 @@ Table 16-1 precedence level 4 (highest first) contains within; associativity is 
 
 規定の性質: `definition`。
 
+- [test_sequence_intersect_within_precedence.sv](../tests/ch16/test_sequence_intersect_within_precedence.sv): en throughout x ##1 x within s ##3 s: 105 と y within w ##1 w within z ##3 z: 225(165 なし)。
+- [test_sequence_precedence_repetition_within.sv](../tests/ch16/test_sequence_precedence_repetition_within.sv): p ##2 p intersect q within r ##2 r が 325 だけで一致する。
 
 ### SV2023-16.9.2-EXTRACT-COMBINE-DELAY
 
@@ -37060,7 +37745,7 @@ Repetition exact counts and lower bounds shall be nonnegative integer constant e
 
 ### SV2023-16.9.2-EXTRACT-COUNT-ORDER
 
-16.9.2 / error / テスト未対応
+16.9.2 / error / 実行確認あり
 
 A constant repetition upper bound shall be greater than or equal to its constant lower bound.
 
@@ -37068,10 +37753,11 @@ A constant repetition upper bound shall be greater than or equal to its constant
 
 規定の性質: `mandatory`。
 
+- [test_illegal_repetition_range_reversed.sv](../tests/ch16/test_illegal_repetition_range_reversed.sv): p_bad の b[*3:1]（25行目）は最小値が最大値より大きく違法。p_ok の b[*1:3] と、等しい p_eq の b[*2:2] は合法。regex は25行目を指す。 区別: 繰り返し範囲の大小を検査しない処理系は受理して失敗する。Verilator 5.052 はこの行を規則どおりの理由で報告する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE
 
-16.9.2 / normal / テスト未対応
+16.9.2 / normal / テスト対応あり・実行未確認
 
 seq[*n] is equivalent to seq[*n:n].
 
@@ -37079,6 +37765,8 @@ seq[*n] is equivalent to seq[*n:n].
 
 規定の性質: `definition`。
 
+- [test_sequence_repetition_and_delay_shorthands.sv](../tests/ch16/test_sequence_repetition_and_delay_shorthands.sv): start ##1 a[*2] ##1 b と start ##1 a[*2:2] ##1 b がともに T4 (45) だけで一致する。
+- [test_sequence_empty_match_fusion.sv](../tests/ch16/test_sequence_empty_match_fusion.sv): start ##1 a[*0] ##1 b と start ##1 a[*0:0] ##1 b がともに start ##1 b として T2 (25) で一致する。
 
 ### SV2023-16.9.2-EXTRACT-GOTO
 
@@ -37106,7 +37794,7 @@ Nonconsecutive repetition has the same occurrence-count condition as goto but ca
 
 ### SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS
 
-16.9.2 / error / テスト未対応
+16.9.2 / error / テスト対応あり・実行未確認
 
 Consecutive repetition permits general sequences; goto and nonconsecutive repetition require Boolean expressions and cannot apply to an expression with an attached sequence match item.
 
@@ -37114,6 +37802,9 @@ Consecutive repetition permits general sequences; goto and nonconsecutive repeti
 
 規定の性質: `mandatory`。
 
+- [test_illegal_repetition_goto_on_sequence.sv](../tests/ch16/test_illegal_repetition_goto_on_sequence.sv): p_bad の (a ##1 b)[->2]（29行目）が違法、p_ok の (a ##1 b)[*2] と p_g の (a && b)[->2] は合法。regex は29行目を指す。
+- [test_illegal_repetition_nonconsecutive_on_sequence.sv](../tests/ch16/test_illegal_repetition_nonconsecutive_on_sequence.sv): p_bad の (a ##1 b)[=2]（29行目）が違法、p_ok の (a ##1 b)[*2] と p_n の (a && b)[=2] は合法。regex は29行目を指す。
+- [test_illegal_repetition_goto_on_match_item.sv](../tests/ch16/test_illegal_repetition_goto_on_match_item.sv): プロパティ p_bad の (b, k = k + 1)[->2]（31行目）が違法、p_ok の (b, k = k + 1)[*2] は合法。regex は31行目を指す。
 
 ### SV2023-16.9.2-EXTRACT-RANGED-REPETITION
 
@@ -37140,7 +37831,7 @@ Boolean abbreviation supports consecutive [*], nonconsecutive [=] and goto [->] 
 
 ### SV2023-16.9.2-EXTRACT-STAR-PLUS
 
-16.9.2 / normal / テスト未対応
+16.9.2 / normal / テスト対応あり・実行未確認
 
 [*] equals [*0:$], and [+] equals [*1:$].
 
@@ -37148,6 +37839,7 @@ Boolean abbreviation supports consecutive [*], nonconsecutive [=] and goto [->] 
 
 規定の性質: `definition`。
 
+- [test_sequence_repetition_and_delay_shorthands.sv](../tests/ch16/test_sequence_repetition_and_delay_shorthands.sv): start が T1(15) だけ、a が T2,T3、b が T1,T2,T4 で高い刺激で、cover sequence の start ##1 a[*] ##1 b と start ##1 a[*0:$] ##1 b がともに 0 回の繰り返し(start ##1 b)の T2 と2回の T4 で一致し([ 25 45 ])、a[+] と a[*1:$] がともに T4 だけで一致する([ 45 ])ことを並べて比較する。 区別: [*] を [*1:$] として扱う(0回を含めない)誤実装では a[*] の行が [ 45 ] に、[+] を [*0:$] として扱う誤実装では a[+] の行が [ 25 45 ] に変わり、略記と展開形の組が一致しなくなる。
 
 ### SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE
 
@@ -37163,7 +37855,7 @@ For n>0, empty ##n seq is equivalent to ##(n-1) seq.
 
 ### SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-ZERO
 
-16.9.2.1 / normal / テスト未対応
+16.9.2.1 / normal / テスト対応あり・実行未確認
 
 empty ##0 seq has no match, including when seq is empty.
 
@@ -37171,6 +37863,7 @@ empty ##0 seq has no match, including when seq is empty.
 
 規定の性質: `definition`。
 
+- [test_sequence_empty_match_fusion.sv](../tests/ch16/test_sequence_empty_match_fusion.sv): start(T1) の1 tick 後に始まる (a[*0] ##0 b) と (a[*0] ##0 b[*0]) は、b が T2,T3 で高くても一度も一致しない([ ] と [ ])のに対し、対照の (a[*0] ##1 b) は ##0 b として T2 で、(a[*0] ##2 b) は ##1 b として T3 で一致する([ 25 ]、[ 35 ])ことを比較する。 区別: empty ##0 seq を seq そのもの(##0 b)として扱う誤実装では empty ##0 b の行が [ 25 35 ] に、empty ##0 empty を空一致として扱う誤実装では start ##1 empty が start で終わる一致になって [ 15 ] になる。empty ##n の短縮を誤る実装では ##1 / ##2 の対照行が変わる。
 
 ### SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE
 
@@ -37186,7 +37879,7 @@ For n>0, seq ##n empty is equivalent to seq ##(n-1) true.
 
 ### SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-ZERO
 
-16.9.2.1 / normal / テスト未対応
+16.9.2.1 / normal / テスト対応あり・実行未確認
 
 seq ##0 empty has no match, including when seq is empty.
 
@@ -37194,6 +37887,7 @@ seq ##0 empty has no match, including when seq is empty.
 
 規定の性質: `definition`。
 
+- [test_sequence_empty_match_fusion.sv](../tests/ch16/test_sequence_empty_match_fusion.sv): start(T1) の1 tick 後に始まる (b ##0 a[*0]) は b が T2 で高くても一致せず([ ])、空同士の (a[*0] ##0 b[*0]) も一致しない([ ])のに対し、対照の (b ##1 a[*0]) は b ##0 1 として T2 で、(b ##2 a[*0]) は b ##1 1 として T3 で一致する([ 25 ]、[ 35 ])ことを比較する。 区別: seq ##0 empty を seq そのものとして扱う誤実装では b ##0 empty の行が [ 25 35 ] に、empty ##0 empty を空一致として扱う誤実装では [ 15 ] になる。seq ##n empty の短縮を誤る実装では b ##1 / b ##2 の対照行が変わる。
 
 ### SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY
 
@@ -37221,7 +37915,7 @@ Zero sequence repetitions yield an empty sequence.
 
 ### SV2023-16.9.3-EXTRACT-ACTION-CLOCK
 
-16.9.3 / normal / テスト未対応
+16.9.3 / normal / テスト対応あり・実行未確認
 
 A sampled-value function in an assertion action block infers the leading clock of that assertion.
 
@@ -37229,6 +37923,7 @@ A sampled-value function in an assertion action block infers the leading clock o
 
 規定の性質: `mandatory`。
 
+- [test_sampled_function_clock_inference.sv](../tests/ch16/test_sampled_function_clock_inference.sv): 既定クロッキングが clk2 のモジュールで、@(posedge clk) の a_clk と @(posedge clk2) の a_clk2 の action で clock 引数なしの $past(v) を呼び、それぞれのアサーションの先頭クロックの前の tick の標本値になる(a_clk: 15 で 1、25 で 3、35 で 5、a_clk2: 18 で 2、28 で 4、最初の tick では既定値 0)ことを比較する。 区別: action block の $past に既定クロッキングを使う誤実装では a_clk の行が 2, 4, 6 に、別のアサーションや手続きのクロックを使う誤実装では a_clk2 の行が 1, 3 のように変わる。
 
 ### SV2023-16.9.3-EXTRACT-CHANGED
 
@@ -37257,7 +37952,7 @@ Inside an assertion, sequence or property a sampled-value function inherits the 
 
 ### SV2023-16.9.3-EXTRACT-CLOCK-REQUIRED
 
-16.9.3 / error / テスト未対応
+16.9.3 / error / テスト対応あり・実行未確認
 
 A sampled-value function other than $sampled requires an explicit or validly inferred clocking event.
 
@@ -37265,10 +37960,15 @@ A sampled-value function other than $sampled requires an explicit or validly inf
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sampled_rose_without_clock.sv](../tests/ch16/test_illegal_sampled_rose_without_clock.sv): 既定のクロッキングのないモジュールの連続代入 assign r = $rose(a);（30行目）が、クロックを明示も推論もできず違法。assign s = $sampled(a); と assign e = $rose(a, @(posedge clk)); は合法。
+- [test_illegal_sampled_fell_without_clock.sv](../tests/ch16/test_illegal_sampled_fell_without_clock.sv): 既定のクロッキングのないモジュールの連続代入 assign r = $fell(a);（30行目）が、クロックを明示も推論もできず違法。assign s = $sampled(a); と assign e = $fell(a, @(posedge clk)); は合法。
+- [test_illegal_sampled_stable_without_clock.sv](../tests/ch16/test_illegal_sampled_stable_without_clock.sv): 既定のクロッキングのないモジュールの連続代入 assign r = $stable(a);（30行目）が、クロックを明示も推論もできず違法。assign s = $sampled(a); と assign e = $stable(a, @(posedge clk)); は合法。
+- [test_illegal_sampled_changed_without_clock.sv](../tests/ch16/test_illegal_sampled_changed_without_clock.sv): 既定のクロッキングのないモジュールの連続代入 assign r = $changed(a);（30行目）が、クロックを明示も推論もできず違法。assign s = $sampled(a); と assign e = $changed(a, @(posedge clk)); は合法。
+- [test_illegal_past_without_clock.sv](../tests/ch16/test_illegal_past_without_clock.sv): assign r = $past(a);（29行目）がクロックなしで違法、assign e = $past(a, 1, , @(posedge clk)); は合法。
 
 ### SV2023-16.9.3-EXTRACT-DIFFERENT-CLOCK
 
-16.9.3 / normal / テスト未対応
+16.9.3 / normal / テスト対応あり・実行未確認
 
 A sampled-value function may explicitly use a clock different from its call context; the prior history follows its own resolved clock.
 
@@ -37276,10 +37976,11 @@ A sampled-value function may explicitly use a clock different from its call cont
 
 規定の性質: `permission`。
 
+- [test_sampled_function_arguments.sv](../tests/ch16/test_sampled_function_arguments.sv): posedge clk で推論クロックを持つ手続きの中で @(posedge clk2) を明示した値変化関数と $past を呼び、前の値が clk2 の直前の tick の標本値(clk2 の tick での標本 2, 5, 9, 6, 9)から取られることを、/ の右側の値(15 で rose 1: clk2 の 8 の 2 から 3 へ、35 で stable 0: 28 の 9 から 4 へ、45 で stable 1: 38 の 6)と past の列の $past(e, , , @(posedge clk2))(15 で 2、25 で 5、35 で 9)で比較する。 区別: 明示したクロックを無視して手続きのクロック clk の履歴を使う誤実装では / の右側が左側と同じ値になり(15 で rose 0/0、45 で stable 0/0)、$past(e, , , @(posedge clk2)) が $past(e) と同じ列(1 3 4 …)に変わる。
 
 ### SV2023-16.9.3-EXTRACT-DISABLE-CLOCK-EXPLICIT
 
-16.9.3 / error / テスト未対応
+16.9.3 / error / テスト対応あり・実行未確認
 
 A sampled-value function in a disable condition or clock expression shall be explicitly clocked.
 
@@ -37287,10 +37988,12 @@ A sampled-value function in a disable condition or clock expression shall be exp
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sampled_function_in_disable_condition_unclocked.sv](../tests/ch16/test_illegal_sampled_function_in_disable_condition_unclocked.sv): a_bad の disable iff ($rose(rst))（30行目）が違法、a_ok の disable iff ($rose(rst, @(posedge clk))) と a_body の本体の $rose(a) は合法。
+- [test_illegal_sampled_function_in_clock_expression_unclocked.sv](../tests/ch16/test_illegal_sampled_function_in_clock_expression_unclocked.sv): a_bad の @(posedge clk iff $stable(en))（28行目）が違法、a_ok の @(posedge clk iff $stable(en, @(posedge clk))) は合法。
 
 ### SV2023-16.9.3-EXTRACT-FELL
 
-16.9.3 / normal / テスト未対応
+16.9.3 / normal / テスト対応あり・実行未確認
 
 With that comparison, $fell returns 1 exactly when the expression LSB changed to 0, including from 1, x or z; otherwise it returns 0.
 
@@ -37298,6 +38001,7 @@ With that comparison, $fell returns 1 exactly when the expression LSB changed to
 
 規定の性質: `definition`。
 
+- [test_rose_fell_lsb_four_state.sv](../tests/ch16/test_rose_fell_lsb_four_state.sv): 同じ18 tick で $fell(v) を表示し、LSB が 1→0(tick 4)、x→0(tick 8, 16。16 は上位ビットが 0→1)、z→0(tick 12)のときだけ fell=1、1→x(7)、1→z(11)、0→x、0→z、x→z、z→x、上位ビットだけの 1→0 を含む変化(tick 17: 10→01)などでは fell=0 であることを比較する。 区別: x や z からの立ち下がりを数えない誤実装では tick 8, 12, 16 の fell が 0 になる。1 から x や z への変化を fell とする誤実装では tick 7 や 11 が fell=1 になる。LSB でなく上位ビットや値全体の減少で判定する誤実装では tick 17(10→01)が fell=1、tick 16(0x→10)が fell=0 に変わる。
 
 ### SV2023-16.9.3-EXTRACT-FIRST-CLOCK-DEFAULT
 
@@ -37325,7 +38029,7 @@ When a $past gating expression is supplied, the first expression history is samp
 
 ### SV2023-16.9.3-EXTRACT-NO-AUTOMATIC-GATE
 
-16.9.3 / error / テスト未対応
+16.9.3 / error / テスト対応あり・実行未確認
 
 Automatic variables are illegal in $past clocking events and its gating expression.
 
@@ -37333,10 +38037,12 @@ Automatic variables are illegal in $past clocking events and its gating expressi
 
 規定の性質: `mandatory`。
 
+- [test_illegal_past_automatic_gating.sv](../tests/ch16/test_illegal_past_automatic_gating.sv): q2 <= $past(d, 1, g);（30行目）が違法、q1 <= $past(d, 1, en); は合法。
+- [test_illegal_past_automatic_clock.sv](../tests/ch16/test_illegal_past_automatic_clock.sv): q2 <= $past(d, 1, , @(posedge g));（31行目）が違法、q1 <= $past(d, 1, , @(posedge clk)); は合法。
 
 ### SV2023-16.9.3-EXTRACT-NO-LOCAL-MATCHED
 
-16.9.3 / error / テスト未対応
+16.9.3 / error / テスト対応あり・実行未確認
 
 Sampled-value function argument expressions shall not reference assertion local variables or the sequence method matched.
 
@@ -37344,10 +38050,12 @@ Sampled-value function argument expressions shall not reference assertion local 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sampled_function_local_variable_argument.sv](../tests/ch16/test_illegal_sampled_function_local_variable_argument.sv): p_bad の $past(k)（30行目）が違法、p_ok の k == $past(d) は合法。
+- [test_illegal_sampled_function_matched_argument.sv](../tests/ch16/test_illegal_sampled_function_matched_argument.sv): a_bad の $rose(s.matched)（27行目）が違法、a_ok の c ##1 s.matched |-> $rose(a) は合法。
 
 ### SV2023-16.9.3-EXTRACT-OMITTED-ARGS
 
-16.9.3 / normal / テスト未対応
+16.9.3 / normal / テスト対応あり・実行未確認
 
 Each omitted intermediate optional sampled-value function argument requires a comma placeholder.
 
@@ -37355,10 +38063,11 @@ Each omitted intermediate optional sampled-value function argument requires a co
 
 規定の性質: `mandatory`。
 
+- [test_sampled_function_arguments.sv](../tests/ch16/test_sampled_function_arguments.sv): $past の途中の引数をコンマだけで省略した3形 $past(e, , g)(tick 数を省略)、$past(e, , , @(posedge clk2))(tick 数とゲートを省略)、$past(e, 2, , @(posedge clk2))(ゲートを省略)を呼び、省略した引数が既定値(1 と 1'b1)になった値(past の列の5〜7番目: 15 で 1 2 0、25 で 1 5 2、35 で 4 9 5、55 で 4 9 6)になることを比較する。 区別: 空の引数位置を既定値として扱わず後ろの引数を前へ詰める誤実装では、$past(e, , g) の g が tick 数として読まれ、$past(e, , , @(posedge clk2)) のクロックが無視されて clk の履歴が使われる(35 で 9 でなく 4)など、列の5〜7番目が変わる。コンマによる省略を受け付けない実装はコンパイルできない。
 
 ### SV2023-16.9.3-EXTRACT-PAST-CLOCK
 
-16.9.3 / error / テスト未対応
+16.9.3 / error / テスト対応あり・実行未確認
 
 The $past clock shall be explicit or inferred by the preceding sampled-value function rules.
 
@@ -37366,6 +38075,7 @@ The $past clock shall be explicit or inferred by the preceding sampled-value fun
 
 規定の性質: `mandatory`。
 
+- [test_illegal_past_without_clock.sv](../tests/ch16/test_illegal_past_without_clock.sv): 既定のクロッキングのないモジュールの連続代入 assign r = $past(a);（29行目）が、$past のクロッキング事象を引数でも推論でも与えられず違法。第4引数でクロックを明示する assign e = $past(a, 1, , @(posedge clk)); は合法。regex は29行目を指す。 区別: $past のクロックの有無を検査しない処理系は受理して失敗する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.9.3-EXTRACT-PAST-COUNT
 
@@ -37404,7 +38114,7 @@ For tick count k, $past returns the expression sampled at the kth strictly prior
 
 ### SV2023-16.9.3-EXTRACT-PAST-PROCEDURAL-AUTOMATIC
 
-16.9.3 / normal / テスト未対応
+16.9.3 / normal / テスト対応あり・実行未確認
 
 $past is permitted in general SystemVerilog expressions and may reference automatic variables subject to 16.5.1 sampling.
 
@@ -37412,10 +38122,11 @@ $past is permitted in general SystemVerilog expressions and may reference automa
 
 規定の性質: `permission`。
 
+- [test_sampled_automatic_const_current.sv](../tests/ch16/test_sampled_automatic_const_current.sv): アサーションの外の手続き(always @(posedge clk) の $display の引数)で $past を呼び、自動のループ変数 i を添字に使った $past(b[i]) が前の tick の b の i ビット目(5 では既定値 0、15 では 0101 の 1,0,1,0、25 では 0011 の 1,1,0,0)、$past(i) が現在の i になることを比較する。 区別: $past を手続き内の一般の式で受け付けない実装はコンパイルできない。自動変数の参照を 16.5.1 に従わず標本履歴から取る誤実装では $past(i) と $past(b[i]) の値が 15 / 25 の行で変わる。
 
 ### SV2023-16.9.3-EXTRACT-PROCEDURAL-CLOCK
 
-16.9.3 / normal / テスト未対応
+16.9.3 / normal / テスト対応あり・実行未確認
 
 In a procedure a sampled-value function uses the inferred procedural clock if available; otherwise outside an assertion it uses default clocking.
 
@@ -37423,6 +38134,7 @@ In a procedure a sampled-value function uses the inferred procedural clock if av
 
 規定の性質: `mandatory`。
 
+- [test_sampled_function_clock_inference.sv](../tests/ch16/test_sampled_function_clock_inference.sv): 既定クロッキングが @(posedge clk2) のとき、クロックを推論できる always @(posedge clk) 内の $past(v) は推論クロック clk の前の tick の値(15 で 1、25 で 3、35 で 5)、遅延で待つためクロックを推論できない initial 内の $past(v) は既定クロッキング clk2 の直前の tick の値(20 で 18 の標本 4、30 で 28 の標本 6)になることを比較する。 区別: 手続きの推論クロックより既定クロッキングを優先する誤実装(Verilator 5.052 がそうである)では always の行が 2, 4, 6 になる。推論クロックのない手続きで既定クロッキングを使わない(例えば別のクロックを使う)誤実装では initial の行が 3 / 5 などに変わる。
 
 ### SV2023-16.9.3-EXTRACT-PROCEDURAL-USE
 
@@ -37438,7 +38150,7 @@ Sampled-value functions may be used in procedural expressions as well as asserti
 
 ### SV2023-16.9.3-EXTRACT-ROSE
 
-16.9.3 / normal / テスト未対応
+16.9.3 / normal / テスト対応あり・実行未確認
 
 With that comparison, $rose returns 1 exactly when the expression LSB changed to 1, including from 0, x or z; otherwise it returns 0.
 
@@ -37446,10 +38158,11 @@ With that comparison, $rose returns 1 exactly when the expression LSB changed to
 
 規定の性質: `definition`。
 
+- [test_rose_fell_lsb_four_state.sv](../tests/ch16/test_rose_fell_lsb_four_state.sv): always @(posedge clk) 内で $rose(v) を18回の tick で表示し、LSB が 0→1(tick 2, 17)、x→1(tick 6)、z→1(tick 10)のときだけ rose=1、1→1(tick 3, 18 は上位ビットだけ 0→1)、0→x(5)、1→x(7)、0→z(9)、1→z(11)、x→z(14)、z→x(15)、1→0 などでは rose=0 であることを比較する。 区別: x や z からの立ち上がりを数えない(0→1 だけを rose とする)誤実装では tick 6 と 10 の rose が 0 になる。x や z への変化を rose とする誤実装では tick 5/7/9/11/13/14/15 のどれかが rose=1 になる。LSB でなく値全体の増加などで判定する誤実装では tick 18(01→11)が rose=1、tick 17(10→01)が rose=0 に変わる。
 
 ### SV2023-16.9.3-EXTRACT-SAMPLED
 
-16.9.3 / normal / テスト未対応
+16.9.3 / normal / テスト対応あり・実行未確認
 
 Clock-independent $sampled returns the sampled value of its expression, including when called in an action block or disable condition.
 
@@ -37457,10 +38170,11 @@ Clock-independent $sampled returns the sampled value of its expression, includin
 
 規定の性質: `definition`。
 
+- [test_sampled_function_arguments.sv](../tests/ch16/test_sampled_function_arguments.sv): rst を tick 25 の時刻ステップで 1 にし、disable iff (rst) の a_dis_cur は現在値で 25 だけ無効になる(failures 5 15 35 45 55)のに対し、disable iff ($sampled(rst)) の a_dis_smp は標本値 0 を使って 25 でも失敗し、その action(Reactive 領域)の $sampled(rst) は 0、rst は 1 になる(t=25 a_dis_smp fail: $sampled(rst)=0 rst=1)ことを比較する。手続き内の $sampled(e) も各 tick の標本値 1,3,4,4,6,8 を返す。 区別: 無効化条件の中の $sampled を現在値として評価する誤実装では a_dis_smp も 25 で無効になってその行が消える。action block の $sampled を現在値で評価する誤実装では 25 の行が $sampled(rst)=1 に変わる。
 
 ### SV2023-16.9.3-EXTRACT-SIGNATURES
 
-16.9.3 / normal / テスト未対応
+16.9.3 / normal / テスト対応あり・実行未確認
 
 $sampled accepts an expression; $rose/$fell/$stable/$changed accept an expression and optional clocking event; $past accepts an expression and optional tick count, gate and clocking event in that order.
 
@@ -37468,6 +38182,7 @@ $sampled accepts an expression; $rose/$fell/$stable/$changed accept an expressio
 
 規定の性質: `definition`。
 
+- [test_sampled_function_arguments.sv](../tests/ch16/test_sampled_function_arguments.sv): $sampled(e)、$rose/$fell/$stable/$changed の (e) と (e, @(posedge clk2)) の形、$past の (e)、(e, 2)、(e, 2, g)、(e, 1, g, @(posedge clk2)) の形を同じ手続きで呼び、各 tick の値(例: 15 で rose 0/1、35 で stable 1/0 と changed 0/1、past の列 4 3 1 9 …)が、省略時の既定(tick 数 1、ゲート 1、推論クロック clk)と、指定した tick 数・ゲート・クロックの順の意味に従うことを比較する。 区別: $past の引数の順序を取り違える(例えば第3引数をクロックや tick 数として扱う)誤実装では past の列の3〜4番目(例: 35 で 1 と 9)が変わる。値変化関数の第2引数のクロックを無視する誤実装では各行の / の右側が左側と同じ(15 で rose 0/0、35 で stable 1/1)になる。
 
 ### SV2023-16.9.3-EXTRACT-STABLE
 
@@ -37497,7 +38212,7 @@ Value-change functions compare the current time-step sampled value with the samp
 
 ### SV2023-16.9.4-EXTRACT-ASYNCHRONOUS-CONTROLS
 
-16.9.4 / normal / テスト未対応
+16.9.4 / normal / テスト対応あり・実行未確認
 
 disable iff and asynchronous assertion controls affect that defined attempt interval; a Kill strictly after the last assertion tick does not affect the attempt even before the next global tick.
 
@@ -37505,6 +38220,7 @@ disable iff and asynchronous assertion controls affect that defined attempt inte
 
 規定の性質: `mandatory`。
 
+- [test_global_clock_future_functions_action_delay.sv](../tests/ch16/test_global_clock_future_functions_action_delay.sv): a_dis の disable iff (rst) で、rst が 47-53(T=45 の試行の終わりの後、動作の 55 の前)に高くても T=45 の試行は無効にならず 55:P が残り、rst が 63-67(T=65 の試行の時間ステップを含む)に高いと T=65 の試行は無効になって 75 の記録が出ない(disable iff: 35:P 55:P 95:F 115:F)。a_kill は 88(T=85 の後、動作の 95 の前)に $assertkill され 90 に $asserton されるが、T=85 の試行は影響を受けず 95:F が出る(kill: 35:P 55:P 75:P 95:F 115:F)。 区別: 試行の区間を動作の実行時刻(次の大域 tick)まで延ばす誤実装では、47-53 の rst で T=45 が無効になり disable iff の行から 55:P が消え、88 の kill で T=85 が打ち切られて kill の行から 95:F が消える。区間内の rst を見ない誤実装では 75:F が加わる。
 
 ### SV2023-16.9.4-EXTRACT-ATTEMPT-INTERVAL
 
@@ -37555,7 +38271,7 @@ Actions and default failure $error for an assertion containing future global-clo
 
 ### SV2023-16.9.4-EXTRACT-FALLING-GCLK
 
-16.9.4 / normal / テスト未対応
+16.9.4 / normal / テスト対応あり・実行未確認
 
 $falling_gclk returns 1 when the expression sampled LSB changes to 0 at the next global tick, otherwise 0.
 
@@ -37563,6 +38279,7 @@ $falling_gclk returns 1 when the expression sampled LSB changes to 0 at the next
 
 規定の性質: `definition`。
 
+- [test_global_clock_future_functions_action_delay.sv](../tests/ch16/test_global_clock_future_functions_action_delay.sv): $falling_gclk(v) は LSB の標本値が次の大域 tick で 0 に変わるときだけ真。T=85 の 11→10(LSB 1→0)だけが P、10→01, 11→11, 01→11, 00→00 は F(falling: 35:F 55:F 75:F 95:P 115:F)。 区別: LSB が 0 のまま(00→00, T=105)を偽にしない誤実装では 115:P になり、値全体の変化を見る誤実装では T=25 の 10→01 や T=65 の 01→11 で P が加わる。現在の tick との比較を誤る誤実装では P の位置が 95 からずれる。
 
 ### SV2023-16.9.4-EXTRACT-FELL-GCLK
 
@@ -37578,7 +38295,7 @@ $fell_gclk(v) equals $fell(v, @$global_clock).
 
 ### SV2023-16.9.4-EXTRACT-FUTURE-GCLK
 
-16.9.4 / normal / テスト未対応
+16.9.4 / normal / テスト対応あり・実行未確認
 
 $future_gclk(v) returns v sampled at the next global clock tick using 16.5.1 future sampling.
 
@@ -37586,10 +38303,11 @@ $future_gclk(v) returns v sampled at the next global clock tick using 16.5.1 fut
 
 規定の性質: `definition`。
 
+- [test_global_clock_future_functions_action_delay.sv](../tests/ch16/test_global_clock_future_functions_action_delay.sv): 大域クロックが 10 ごと(5, 15, ...)、表明クロックが 20 ごと(25, 45, ...)。$future_gclk(v[0]) と $future_gclk(v[1]) は各表明 tick T の次の大域 tick T+10 での v の標本値(01, 11, 11, 10, 00)の各ビットを返し、future v[0]: 35:P 55:P 75:P 95:F 115:F、future v[1]: 35:F 55:P 75:P 95:P 115:F になる。 区別: 現在(表明 tick)の標本値を返す誤実装では v(25)=10, v(45)=11, v(65)=01, v(85)=11, v(105)=00 から future v[0] が F P P P F に、次の表明 tick(T+20)の値を返す誤実装では v(45)=11, v(65)=01, v(85)=11, v(105)=00, v(125)=00 から future v[1] が P F P F F に変わる。
 
 ### SV2023-16.9.4-EXTRACT-FUTURE-MATCH-ITEMS
 
-16.9.4 / error / テスト未対応
+16.9.4 / error / テスト対応あり・実行未確認
 
 Future global-clock functions shall not be used in assertions containing sequence match items.
 
@@ -37597,10 +38315,12 @@ Future global-clock functions shall not be used in assertions containing sequenc
 
 規定の性質: `mandatory`。
 
+- [test_illegal_global_clock_future_function_with_local_assignment.sv](../tests/ch16/test_illegal_global_clock_future_function_with_local_assignment.sv): p_bad の (a, k = 1) |-> $future_gclk(b)（34行目、アサーション a_bad の行も regex に含む）が違法、p_loc の (a, k = 1) |-> k == 1 と a_fut の a |-> $future_gclk(b) は合法。
+- [test_illegal_global_clock_future_function_with_call_match_item.sv](../tests/ch16/test_illegal_global_clock_future_function_with_call_match_item.sv): a_bad の (a, note()) |-> $rising_gclk(b)（33行目）が違法、a_call の (a, note()) |-> b と a_fut の a |-> $rising_gclk(b) は合法。
 
 ### SV2023-16.9.4-EXTRACT-FUTURE-NESTING
 
-16.9.4 / error / テスト未対応
+16.9.4 / error / テスト対応あり・実行未確認
 
 Future global-clock functions shall not be nested.
 
@@ -37608,10 +38328,11 @@ Future global-clock functions shall not be nested.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_global_clock_future_functions_nested.sv](../tests/ch16/test_illegal_global_clock_future_functions_nested.sv): グローバルクロッキングを宣言したモジュールで、a_bad が $steady_gclk の引数の中で $falling_gclk を呼ぶ28行目を唯一の違反とする。同じ2つの関数を入れ子にせず || で並べる a_ok は合法。regex は28行目を指す。 区別: 未来の関数の入れ子を検査しない処理系は受理して失敗する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.9.4-EXTRACT-FUTURE-PLACEMENT
 
-16.9.4 / error / テスト未対応
+16.9.4 / error / テスト対応あり・実行未確認
 
 Future global-clock functions may occur only in property_expr or sequence_expr, and shall not occur in assertion action blocks.
 
@@ -37619,10 +38340,12 @@ Future global-clock functions may occur only in property_expr or sequence_expr, 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_global_clock_future_function_in_action_block.sv](../tests/ch16/test_illegal_global_clock_future_function_in_action_block.sv): a_bad の fail 動作 $display("%b", $future_gclk(a))（28行目）が違法、a_ok の $display("%b", $past_gclk(a)) は合法。
+- [test_illegal_global_clock_future_function_in_procedure.sv](../tests/ch16/test_illegal_global_clock_future_function_in_procedure.sv): always 手続きの y = $future_gclk(a);（29行目）が違法、x = $past_gclk(a); は合法。
 
 ### SV2023-16.9.4-EXTRACT-GLOBAL-REQUIRED
 
-16.9.4 / error / テスト未対応
+16.9.4 / error / テスト対応あり・実行未確認
 
 Global-clocking past/future sampled-value functions may be used only when global clocking is defined.
 
@@ -37630,6 +38353,8 @@ Global-clocking past/future sampled-value functions may be used only when global
 
 規定の性質: `mandatory`。
 
+- [test_illegal_global_clock_past_function_without_global_clocking.sv](../tests/ch16/test_illegal_global_clock_past_function_without_global_clocking.sv): a_bad の $rose_gclk(b)（26行目）が違法、a_ok の $rose(b) は合法。
+- [test_illegal_global_clock_future_function_without_global_clocking.sv](../tests/ch16/test_illegal_global_clock_future_function_without_global_clocking.sv): a_bad の $rising_gclk(b)（25行目）が違法、a_ok の $rose(b) は合法。
 
 ### SV2023-16.9.4-EXTRACT-PAST-GCLK
 
@@ -37645,7 +38370,7 @@ $past_gclk(v) equals $past(v,,, @$global_clock).
 
 ### SV2023-16.9.4-EXTRACT-PAST-RESTRICTIONS
 
-16.9.4 / normal / テスト未対応
+16.9.4 / normal / 実行確認あり
 
 Past global-clock functions obey ordinary sampled-value function and argument restrictions, and are permitted in procedural code and assertion action blocks.
 
@@ -37653,6 +38378,7 @@ Past global-clock functions obey ordinary sampled-value function and argument re
 
 規定の性質: `mandatory`。
 
+- [test_global_clock_past_functions_procedural_action.sv](../tests/ch16/test_global_clock_past_functions_procedural_action.sv): 過去の大域クロック関数 $past_gclk, $rose_gclk, $fell_gclk, $stable_gclk, $changed_gclk を、always @(posedge gclk) の手続きと、常に成功する表明の動作ブロックの両方で呼ぶ。普通の標本値関数と同じく標本値を使い、tick で NBA により変わる v の変化は次の tick で見え、最初の tick では既定の標本値 0 を使う。各 tick の5つの値が手続きと動作ブロックで同じ(5: 0 0 0 1 0、15: 0 1 0 0 1、25: 1 0 0 1 0、35: 1 0 1 0 1、45: 0 1 0 0 1)。 区別: 過去の大域関数を手続きや動作ブロックで受け付けない(未来関数と同じ制限を課す)誤実装ではコンパイルが失敗する。標本値でなく現在値を使う誤実装では、動作ブロック(Reactive 領域、NBA の後)の値が手続きの値とずれ、例えば 5 の action で past 0 rose 1 となる。最初の tick で既定の標本値を使わない誤実装では 5 の行が変わる。
 
 ### SV2023-16.9.4-EXTRACT-REPORTED-INTERVAL
 
@@ -37667,7 +38393,7 @@ Tool messages reporting an attempt start/end shall use its defined interval, alt
 
 ### SV2023-16.9.4-EXTRACT-RISING-GCLK
 
-16.9.4 / normal / テスト未対応
+16.9.4 / normal / テスト対応あり・実行未確認
 
 $rising_gclk returns 1 when the expression sampled LSB changes to 1 at the next global tick, otherwise 0.
 
@@ -37675,6 +38401,7 @@ $rising_gclk returns 1 when the expression sampled LSB changes to 1 at the next 
 
 規定の性質: `definition`。
 
+- [test_global_clock_future_functions_action_delay.sv](../tests/ch16/test_global_clock_future_functions_action_delay.sv): $rising_gclk(v) は v の LSB の標本値が次の大域 tick で 1 に変わるときだけ真。T=25 は 10→01(LSB 0→1)で P、T=45 の 11→11、T=65 の 01→11(値は変わるが LSB は 1 のまま)、T=85 の 11→10、T=105 の 00→00 は F(rising: 35:P 55:F 75:F 95:F 115:F)。 区別: LSB でなく値全体の変化を立ち上がりとみなす誤実装では T=65 の 01→11 が P になり 75:P となる。次の大域 tick でなく前の tick との比較にする誤実装では T=25 の v(15)=00→v(25)=10(LSB 0→0)が F に、T=65 の v(55)=11→01 なども変わる。
 
 ### SV2023-16.9.4-EXTRACT-ROSE-GCLK
 
@@ -37690,7 +38417,7 @@ $rose_gclk(v) equals $rose(v, @$global_clock).
 
 ### SV2023-16.9.4-EXTRACT-STABLE-GCLK
 
-16.9.4 / normal / テスト未対応
+16.9.4 / normal / テスト対応あり・実行未確認
 
 $stable_gclk(v) equals $stable(v, @$global_clock).
 
@@ -37698,10 +38425,11 @@ $stable_gclk(v) equals $stable(v, @$global_clock).
 
 規定の性質: `definition`。
 
+- [test_global_clock_future_functions_action_delay.sv](../tests/ch16/test_global_clock_future_functions_action_delay.sv): $stable_gclk(v) と $stable(v, @$global_clock) を同じ表明クロックで評価し、どちらも現在の大域 tick と1つ前の大域 tick の標本値を比べて 25:F 45:F 65:F 85:P 105:F(85 で v(75)=11 と v(85)=11)となり、行が一致する。過去の関数なので動作は表明 tick の時刻に実行される。 区別: $stable_gclk を表明クロックの1つ前の tick と比べる誤実装では T=85 が v(65)=01 との比較で F になり、次の大域 tick と比べる誤実装では T=45 の 11→11 が P になる。どちらの場合も2行が一致しなくなる。
 
 ### SV2023-16.9.4-EXTRACT-STEADY-GCLK
 
-16.9.4 / normal / テスト未対応
+16.9.4 / normal / テスト対応あり・実行未確認
 
 $steady_gclk returns 1 when the expression sampled value does not change at the next global tick, otherwise 0.
 
@@ -37709,6 +38437,7 @@ $steady_gclk returns 1 when the expression sampled value does not change at the 
 
 規定の性質: `definition`。
 
+- [test_global_clock_future_functions_action_delay.sv](../tests/ch16/test_global_clock_future_functions_action_delay.sv): $steady_gclk(v) は v 全体の標本値が次の大域 tick で変わらないとき真。T=45 の 11→11 と T=105 の 00→00 で P、10→01, 01→11, 11→10 で F(steady: 35:F 55:P 75:F 95:F 115:P)。 区別: LSB だけを比べる誤実装では T=65 の 01→11 が P になり 75:P となる。次の表明 tick と比べる誤実装では T=45 の 11→v(65)=01 が F になる。
 
 ### SV2023-16.9.5-EXTRACT-AND-END
 
@@ -37772,7 +38501,7 @@ An intersect attempt pairs every equal-length match from its two operands; each 
 
 ### SV2023-16.9.7-EXTRACT-BOOLEAN-OR
 
-16.9.7 / normal / テスト未対応
+16.9.7 / normal / テスト対応あり・実行未確認
 
 For Boolean expression operands, sequence or matches at a tick where at least one operand is true.
 
@@ -37780,6 +38509,7 @@ For Boolean expression operands, sequence or matches at a tick where at least on
 
 規定の性質: `definition`。
 
+- [test_first_match_items_and_boolean_or.sv](../tests/ch16/test_first_match_items_and_boolean_or.sv): cover property (p or q) の被演算子はどちらもブール式。p だけ真の tick 1、q だけ真の tick 2、両方真の tick 3 で成功し、両方偽の tick 4 では成功しない(p or q: [ 15:1 25:1 35:1 ])。 区別: 両方が真のときだけ一致させる(and と取り違える)誤実装では [ 35:1 ] だけになり、片方の被演算子しか見ない誤実装では 15 か 25 が欠ける。両方偽で一致させる誤実装では 45 が加わる。
 
 ### SV2023-16.9.7-EXTRACT-OR-OPERANDS
 
@@ -37831,7 +38561,7 @@ first_match starts its operand at the same tick, has no match if the operand has
 
 ### SV2023-16.9.8-EXTRACT-MATCH-ITEMS
 
-16.9.8 / normal / テスト未対応
+16.9.8 / normal / テスト対応あり・実行未確認
 
 Sequence match items may be attached inside the first_match parentheses following its operand.
 
@@ -37839,10 +38569,11 @@ Sequence match items may be attached inside the first_match parentheses followin
 
 規定の性質: `permission`。
 
+- [test_first_match_items_and_boolean_or.sv](../tests/ch16/test_first_match_items_and_boolean_or.sv): first_match(a ##[1:3] b, rec(...)) と first_match(a ##[1:3] b, v = d) のように first_match の括弧の中で被演算子の後に照合項目を書く。a は tick 5、b は tick 6 と 7 なので被演算子は 65 と 75 で一致するが、first_match の一致は 65 だけで、呼び出しは 65:60 の1回、局所変数 v は 60 となり1 tick 後に 75:60 と記録される。被演算子そのものに付けた (a ##[1:3] b, rec(...)) は 65:60 75:70 の2回。 区別: first_match の中の照合項目を被演算子のすべての一致で実行する誤実装では first_match call の行が [ 65:60 75:70 ] になり、局所変数が後の一致の値で上書きされて first_match local が 75:70 などに変わる。構文として受け付けない誤実装ではコンパイルが失敗する。
 
 ### SV2023-16.9.9-EXTRACT-THROUGHOUT-EXPANSION
 
-16.9.9 / normal / テスト未対応
+16.9.9 / normal / テスト対応あり・実行未確認
 
 exp throughout seq abbreviates (exp)[*0:$] intersect seq.
 
@@ -37850,6 +38581,7 @@ exp throughout seq abbreviates (exp)[*0:$] intersect seq.
 
 規定の性質: `definition`。
 
+- [test_sequence_throughout_within_expansions.sv](../tests/ch16/test_sequence_throughout_within_expansions.sv): st が tick 0 と 5 で高い刺激で、e throughout b ##[1:3] c と展開形 e[*0:$] intersect b ##[1:3] c を並べ、tick 0 からの b ##[1:3] c の3つの一致(終了 1,2,3)のうち e が全 tick で真の 15 と 25 だけで両方が一致し、e が最初の tick で偽の tick 5 からは両方とも一致しない(どちらも ' 15 25')ことを比較する。 区別: throughout を e[*0:$] intersect s と異なる意味で扱う誤実装、例えば e を s の最初の tick だけ、または最後の tick を除いて検査する実装では、throughout の行が ' 15 25 35' や ' 15 25 75' になって展開形の行と一致しなくなる。
 
 ### SV2023-16.9.9-EXTRACT-THROUGHOUT-MATCH
 
@@ -37877,7 +38609,7 @@ throughout has an expression_or_dist left operand and sequence right operand.
 
 ### SV2023-16.9.10-EXTRACT-WITHIN-EXPANSION
 
-16.9.10 / normal / テスト未対応
+16.9.10 / normal / テスト対応あり・実行未確認
 
 seq1 within seq2 abbreviates (1[*0:$] ##1 seq1 ##1 1[*0:$]) intersect seq2.
 
@@ -37885,6 +38617,7 @@ seq1 within seq2 abbreviates (1[*0:$] ##1 seq1 ##1 1[*0:$]) intersect seq2.
 
 規定の性質: `definition`。
 
+- [test_sequence_throughout_within_expansions.sv](../tests/ch16/test_sequence_throughout_within_expansions.sv): x ##1 x within s ##[2:4] s と展開形 (1[*0:$] ##1 x ##1 x ##1 1[*0:$]) intersect s ##[2:4] s を並べ、tick 10 からの s2 の3つの一致(終了 12,13,14)すべてが内側の x ##1 x(11-12、最初の一致では終わりが一致)を含んで 125 135 145、tick 20 では x ##1 x が s2 の前から始まるか後で終わるので一致なし、tick 30 では x ##1 x が s2 と同じ tick で始まって 325 で一致する(どちらも ' 125 135 145 325')ことを比較する。 区別: within を展開形と異なる意味で扱う誤実装、例えば s1 が s2 の最初または最後の tick に重なることを許さない実装では 125 や 325 が欠け、s2 の外にはみ出す s1 を許す実装では tick 20 の 225 が加わって、展開形の行と一致しなくなる。
 
 ### SV2023-16.9.10-EXTRACT-WITHIN-INTERVAL
 
@@ -37900,7 +38633,7 @@ within matches an interval of seq2 if seq1 matches a contained subinterval: seq1
 
 ### SV2023-16.9.11-EXTRACT-INSTANCE-START
 
-16.9.11 / normal / テスト未対応
+16.9.11 / normal / テスト対応あり・実行未確認
 
 A sequence instance embedded in a sequence requires a match starting at the clock tick where the reference is reached.
 
@@ -37908,10 +38641,11 @@ A sequence instance embedded in a sequence requires a match starting at the cloc
 
 規定の性質: `mandatory`。
 
+- [test_sequence_instance_vs_triggered.sv](../tests/ch16/test_sequence_instance_vs_triggered.sv): pq = p ##1 q を r ##1 pq として埋め込んだ c_inst と、r ##1 pq.triggered の c_trig を比較する。r は tick 1 (5) と 5 (45)、p は tick 2 (15) と 5 (45)、q は tick 3 (25) と 6 (55)。pq の一致は 15→25 と 45→55 の2つがあり、c_inst は r の次の tick から始まる一致だけを数えて instance: 25、c_trig は終点だけを見て triggered: 55 となる。 区別: 埋め込まれたインスタンスを参照到達 tick から開始させず終点だけで判定する誤実装では、45 開始の pq が 55 で終わるので c_inst も 55 で一致し instance: 25 55 になる。逆に開始 tick を1つずらす誤実装では 25 の一致が消える。
 
 ### SV2023-16.9.11-EXTRACT-NO-EMPTY-TRIGGER
 
-16.9.11 / normal / テスト未対応
+16.9.11 / normal / テスト対応あり・実行未確認
 
 Empty matches shall not activate sequence.triggered.
 
@@ -37919,6 +38653,7 @@ Empty matches shall not activate sequence.triggered.
 
 規定の性質: `mandatory`。
 
+- [test_sequence_instance_vs_triggered.sv](../tests/ch16/test_sequence_instance_vs_triggered.sv): maybe_s = @(posedge clk) s[*0:1] は毎 tick で空一致を持つ。cover property (maybe_s.triggered) の成功時刻を記録し、s が 1 とサンプルされる tick 8 (75) だけで成功すること (empty matches do not trigger: 75) を比較する。 区別: 空一致で triggered を真にする誤実装では s[*0] の空一致が毎 tick に起きるため、5, 15, ..., 85 の全 tick が成功時刻として並び、期待行の ' 75' 単独が変わる。
 
 ### SV2023-16.9.11-EXTRACT-TRIGGERED
 
@@ -37933,7 +38668,7 @@ triggered applies to a named sequence instance with optional arguments, an untyp
 
 ### SV2023-16.9.11-EXTRACT-TRIGGERED-CLOCK
 
-16.9.11 / error / テスト未対応
+16.9.11 / error / テスト対応あり・実行未確認
 
 In multiclock use, the ending clock of the triggered operand sequence instance shall equal the clock of the method call context.
 
@@ -37941,6 +38676,7 @@ In multiclock use, the ending clock of the triggered operand sequence instance s
 
 規定の性質: `mandatory`。
 
+- [test_illegal_triggered_ending_clock_differs.sv](../tests/ch16/test_illegal_triggered_ending_clock_differs.sv): 列 s1 は posedge clk1 で終わる。a_same は posedge clk1 の文脈で s1.triggered を、a_multi は posedge clk2 から posedge clk1 へ切り替えた後に s1.triggered を使い、どちらも合法。a_bad は posedge clk2 の文脈で s1.triggered を使う（30行目）ので違法。regex は30行目を指す。 区別: triggered の対象の終了クロックと文脈のクロックの一致を検査しない処理系は受理して失敗する。多クロックの使用自体を禁じる処理系は a_multi も報告するが、合否は違反の行の報告で決まる。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.10-EXTRACT-AND-INTERSECT-FLOW
 
@@ -37955,7 +38691,7 @@ For and/intersect, a local flowing out of at least one operand flows out unless 
 
 ### SV2023-16.10-EXTRACT-AND-INTERSECT-MERGE
 
-16.10 / normal / テスト未対応
+16.10 / normal / テスト対応あり・実行未確認
 
 At and/intersect completion operand threads merge, retaining the latest assigned value of each local that flows out.
 
@@ -37963,10 +38699,11 @@ At and/intersect completion operand threads merge, retaining the latest assigned
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_variable_threads_and_merge.sv](../tests/ch16/test_sequence_local_variable_threads_and_merge.sv): and と intersect の完了時に両スレッドが1つにまとまり、流れ出す局所変数は最後に代入された値を持つ。and(tick 16 完了)の後は x = 6(片方の被演算子が合成前の 5 の後に代入)と y = 7(もう片方だけが代入)で 175:6/7、intersect(tick 21 完了)の後は x = 11 と y = 3 で 225:11/3。 区別: まとめるときに最後の代入でなく合成前の値や片方のスレッドの値を残す誤実装では、x が 5 や 1 になり 175:5/7 や 225:1/3 になる。片方の被演算子だけで代入した変数を流し出さない誤実装では y が未代入になり、記録が出ないか値が変わる。
 
 ### SV2023-16.10-EXTRACT-ASSIGN-BEFORE-REFERENCE
 
-16.10 / error / テスト未対応
+16.10 / error / テスト対応あり・実行未確認
 
 A local shall be assigned before reference, whether by initializer or match item; increment/decrement and compound assignments also read the prior value.
 
@@ -37974,10 +38711,13 @@ A local shall be assigned before reference, whether by initializer or match item
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_variable_unassigned_reference.sv](../tests/ch16/test_illegal_local_variable_unassigned_reference.sv): p_bad の a ##1 (c == x)（38行目）が未代入の x を使って違法、p_ok と p_init（(a, z = z) ##1 (c == z);）は合法。
+- [test_illegal_local_variable_unassigned_increment.sv](../tests/ch16/test_illegal_local_variable_unassigned_increment.sv): p_bad の (a, x++)（38行目）が未代入の x を使って違法、p_ok と p_init（(a, z++) ##1 (c == z);）は合法。
+- [test_illegal_local_variable_unassigned_compound_assignment.sv](../tests/ch16/test_illegal_local_variable_unassigned_compound_assignment.sv): p_bad の (a, x += d)（38行目）が未代入の x を使って違法、p_ok と p_init（(a, z += d) ##1 (c == z);）は合法。
 
 ### SV2023-16.10-EXTRACT-BRANCH-FLOW-IN
 
-16.10 / normal / テスト未対応
+16.10 / normal / テスト対応あり・実行未確認
 
 A local assigned before an or/and/intersect composite flows into each operand; operand assignments and reassignment are evaluated in parallel.
 
@@ -37985,6 +38725,7 @@ A local assigned before an or/and/intersect composite flows into each operand; o
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_variable_threads_and_merge.sv](../tests/ch16/test_sequence_local_variable_threads_and_merge.sv): 合成の前に代入した x が各被演算子へ流れ込み、被演算子の代入は別々の写しで並行に行われる。or では両被演算子が x = 10 から 11 と 12 を作る。and では一方が x を 6 にした後も他方は tick 16 で x == 5 を満たし(y = 7)、intersect では一方が x を 11 にしても他方は y = x + 2 = 3 を計算する。 区別: 合成の前の値を被演算子へ流し込まない誤実装では x が未代入となり or threads / and / intersect の値が変わる。被演算子間で x を共有する誤実装では and の他方が x == 5 を満たせず and の行が空になり、intersect の y が 13 となって 225:11/13 になる。
 
 ### SV2023-16.10-EXTRACT-CURRENT-SAMPLE
 
@@ -38000,7 +38741,7 @@ A local variable sampled value is its current value.
 
 ### SV2023-16.10-EXTRACT-EXPLICIT-TYPE
 
-16.10 / error / テスト未対応
+16.10 / error / テスト対応あり・実行未確認
 
 An assertion-variable declaration requires an explicit assertion-permitted type and a comma-separated nonempty identifier list; optional initializers need not be constant.
 
@@ -38008,6 +38749,8 @@ An assertion-variable declaration requires an explicit assertion-permitted type 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_variable_implicit_type.sv](../tests/ch16/test_illegal_local_variable_implicit_type.sv): p_bad の var x = a;（33行目、文法上は var と暗黙の型で書ける）が違法、p_ok の宣言は合法。
+- [test_illegal_local_variable_chandle_type.sv](../tests/ch16/test_illegal_local_variable_chandle_type.sv): p_bad の chandle h;（33行目）が違法、p_ok の宣言は合法。
 
 ### SV2023-16.10-EXTRACT-FLOW-OUT-STATIC
 
@@ -38033,7 +38776,7 @@ A local initializer may reference a previously declared local only if that local
 
 ### SV2023-16.10-EXTRACT-INIT-ORDER
 
-16.10 / normal / テスト未対応
+16.10 / normal / テスト対応あり・実行未確認
 
 Local initializations execute in Observed in declaration order, with all local-formal initializations before declared-local initializations, using expression sampled values at the attempt start.
 
@@ -38041,6 +38784,7 @@ Local initializations execute in Observed in declaration order, with all local-f
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_variable_threads_and_merge.sv](../tests/ch16/test_sequence_local_variable_threads_and_merge.sv): s_init(local input int f) の宣言 int u = f + 1, w = u * 10 は、局所形式引数 f の初期化の後に宣言順(u, w)で行われ、式には試行開始時の標本値を使う。q は各 tick の NBA で増えるので tick 6 の標本値は 6(NBA 後は 7)。f = 6, u = 7, w = 70 で、記録は 75:7/70。 区別: 初期化を Observed 領域の標本値でなく NBA 後の現在値で行う誤実装では f = 7 となり 75:8/80 になる。w を u より先に初期化する誤実装や、宣言した局所変数を形式引数より先に初期化する誤実装では w または u が未代入の値から計算され 75:7/70 でなくなる。
 
 ### SV2023-16.10-EXTRACT-LOCAL-DECLARATION
 
@@ -38057,7 +38801,7 @@ Assertion locals are either local-variable formals or variables in assertion_var
 
 ### SV2023-16.10-EXTRACT-LOCAL-EXPRESSIONS
 
-16.10 / error / テスト未対応
+16.10 / error / テスト対応あり・実行未確認
 
 Locals may be used in sequence/property expressions like same-typed static variables, including selects/array indices, but shall not occur in clocking event expressions.
 
@@ -38065,10 +38809,11 @@ Locals may be used in sequence/property expressions like same-typed static varia
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_variable_in_clocking_event.sv](../tests/ch16/test_illegal_local_variable_in_clocking_event.sv): p_bad が局所変数 c2 をクロッキング事象 @(posedge c2) に使う35行目を唯一の違反とする。p_ok は局所変数 k をビット選択 v[k] と配列の添字 arr[k] に使い、静的変数と同様に式を作れることを示す合法な形。regex は p_bad の本体とアサーション a_bad の行を許す。 区別: クロッキング事象中の局所変数を検査しない処理系は受理して失敗する。局所変数を選択や添字に使うこと自体を禁じる処理系は p_ok も報告するが、合否は違反の行の報告で決まる。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.10-EXTRACT-LOCAL-VISIBILITY
 
-16.10 / error / テスト未対応
+16.10 / error / 実行確認あり
 
 Locals declared within a sequence/property are not visible in its instantiating context.
 
@@ -38076,6 +38821,7 @@ Locals declared within a sequence/property are not visible in its instantiating 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_variable_visible_in_instantiating_sequence.sv](../tests/ch16/test_illegal_local_variable_visible_in_instantiating_sequence.sv): 列 s_inner が局所変数 v を宣言して使い、s_inner を実体化する s_outer が v を参照する29行目を唯一の違反とする（v は s_outer にもモジュールにも宣言がない）。s_inner 自身の v の使用は合法。regex は29行目を指す。 区別: 実体化された列の局所変数を実体化する側から見えるものとして扱う処理系は受理して失敗する。Verilator 5.052 はこの行で v の定義が見つからないと報告する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.10-EXTRACT-LOST-FLOW
 
@@ -38090,7 +38836,7 @@ A local that does not flow out of a subsequence becomes unassigned at its end, r
 
 ### SV2023-16.10-EXTRACT-MATCH-ASSIGNMENTS
 
-16.10 / normal / テスト未対応
+16.10 / normal / テスト対応あり・実行未確認
 
 Locals may be assigned/reassigned by parenthesized sequence match items; at each nonempty subsequence match assignments execute in listed order.
 
@@ -38098,6 +38844,7 @@ Locals may be assigned/reassigned by parenthesized sequence match items; at each
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_variable_threads_and_merge.sv](../tests/ch16/test_sequence_local_variable_threads_and_merge.sv): s_assign は int x = 100, y の後、(a1, x = d, y = x + 1) で並びの順に x = 5、y = 6(新しい x を使う)を代入し、(b1, x += 10)[*2] で繰り返しの各一致ごとに再代入して x = 25 にする。1 tick 後の記録が 45:25/6。 区別: 並びの順に代入しない(y = x + 1 を先に行う)誤実装では y が初期値 100 から 101 になり 45:25/101 になる。繰り返しの各一致で照合項目を行わない誤実装では x が 15 や 5 になり、再代入を許さない誤実装はコンパイルが失敗する。
 
 ### SV2023-16.10-EXTRACT-NO-DEFAULT
 
@@ -38112,7 +38859,7 @@ Assertion locals have no default initial values; locals lacking initializers sta
 
 ### SV2023-16.10-EXTRACT-NO-EMPTY-ASSIGNMENT
 
-16.10 / error / テスト未対応
+16.10 / error / テスト対応あり・実行未確認
 
 A subsequence with an attached local assignment shall not admit an empty match.
 
@@ -38120,10 +38867,11 @@ A subsequence with an attached local assignment shall not admit an empty match.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_variable_assignment_on_empty_match.sv](../tests/ch16/test_illegal_local_variable_assignment_on_empty_match.sv): p_bad で局所変数の代入 k = d を空一致を許す b[*0:2] に付けた32行目を唯一の違反とする。p_ok は同じ代入を、少なくとも1サイクルの長さを持つ a ##1 b[*0:2] に付ける合法な形。regex は p_bad の本体とアサーション a_bad の行を許す。 区別: 代入を付ける部分列の空一致を検査しない処理系は受理して失敗する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.10-EXTRACT-NO-HIERARCHICAL-LOCAL
 
-16.10 / error / テスト未対応
+16.10 / error / テスト対応あり・実行未確認
 
 Hierarchical references to assertion local variables are prohibited.
 
@@ -38131,6 +38879,7 @@ Hierarchical references to assertion local variables are prohibited.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_variable_hierarchical_reference.sv](../tests/ch16/test_illegal_local_variable_hierarchical_reference.sv): initial 手続きが列 s の局所変数 x を階層名 s.x で読む28行目を唯一の違反とする。s 自身の x の使用と、s のアサーションは合法。regex は28行目を指す。 区別: 局所変数への階層参照を検査しない処理系は受理して失敗する。Verilator 5.052 は内部エラーで止まり、これは診断として数えない。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.10-EXTRACT-NO-PREASSIGNED-TRIGGERED
 
@@ -38145,7 +38894,7 @@ A value assigned before a local is passed through triggered is not visible withi
 
 ### SV2023-16.10-EXTRACT-NO-REDECLARED-FORMAL
 
-16.10 / error / テスト未対応
+16.10 / error / テスト対応あり・実行未確認
 
 A sequence formal used as a local variable shall not also be redeclared as a local variable in its body.
 
@@ -38153,10 +38902,11 @@ A sequence formal used as a local variable shall not also be redeclared as a loc
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_variable_redeclares_formal.sv](../tests/ch16/test_illegal_local_variable_redeclares_formal.sv): 仮引数 lv を局所変数として使う列 s_bad が、本体で int lv; を宣言し直す28行目を唯一の違反とする。s_ok は宣言し直さずに仮引数 lv へ代入し、p_ok が局所変数 w をその実引数にする合法な形。regex は28行目を指す。 区別: 仮引数と同名の局所変数の宣言を検査しない処理系は受理して失敗する（Verilator 5.052 がそうである）。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.10-EXTRACT-OR-CONTINUATIONS
 
-16.10 / normal / テスト未対応
+16.10 / normal / テスト対応あり・実行未確認
 
 Each matching or operand continues in a separate thread with its own latest values for locals that flow out; those values need not agree.
 
@@ -38164,6 +38914,7 @@ Each matching or operand continues in a separate thread with its own latest valu
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_variable_threads_and_merge.sv](../tests/ch16/test_sequence_local_variable_threads_and_merge.sv): x = 10 の後の (b2, x += 1) or (b3, x += 2) で両被演算子が tick 10 で一致し、2つのスレッドがそれぞれ x = 11 と x = 12 を持って続く。s_or_all は両スレッドから 115:11 と 115:12 を記録し(同じ時刻なので整列して表示)、s_or_eq は c2 == x(c2 = 12)が x = 12 のスレッドでだけ成り立ち 115:12 を記録する。 区別: or の一致スレッドを1つにまとめる誤実装では or threads の行が1件になり、値を両スレッドで共有する誤実装では [ 115:12 115:12 ] などになる。c2 == x を片方のスレッドの値だけで判定する誤実装では、x = 11 のスレッドだけが残ると or match の行が空になる。
 
 ### SV2023-16.10-EXTRACT-OR-FLOW
 
@@ -38203,7 +38954,7 @@ Local assignments may be attached to a repetition operand to accumulate values a
 
 ### SV2023-16.10-EXTRACT-SIBLING-ISOLATION
 
-16.10 / error / テスト未対応
+16.10 / error / テスト対応あり・実行未確認
 
 Assignments in one parallel operand cannot be accessed in a sibling operand.
 
@@ -38211,6 +38962,7 @@ Assignments in one parallel operand cannot be accessed in a sibling operand.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_variable_sibling_thread.sv](../tests/ch16/test_illegal_local_variable_sibling_thread.sv): p_bad で and の左の被演算子だけが x に代入し、右の被演算子が x を参照する32行目を唯一の違反とする。p_ok は and の前で x に代入し、両方の被演算子で参照する合法な形。regex は p_bad の本体とアサーション a_bad の行を許す。 区別: 並列の兄弟スレッドの代入を見えるものとして扱う処理系は受理して失敗する（Verilator 5.052 がそうである）。右の被演算子から見て x は未代入なので、これは並列スレッドについての流れの規則（F.5.4）の直接の帰結であり、要求が述べる場合そのものである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。
 
 ### SV2023-16.10-EXTRACT-TRIGGERED-FLOW
 
@@ -38225,7 +38977,7 @@ A passed local flows out of triggered only if it flows out of the sequence insta
 
 ### SV2023-16.10-EXTRACT-TRIGGERED-LOCAL-ACTUAL
 
-16.10 / error / テスト未対応
+16.10 / error / テスト対応あり・実行未確認
 
 Passing a local through triggered requires it to be an entire actual, not a proper subexpression; the bound formal shall be assigned inside the named sequence before being referenced.
 
@@ -38233,10 +38985,12 @@ Passing a local through triggered requires it to be an entire actual, not a prop
 
 規定の性質: `mandatory`。
 
+- [test_illegal_triggered_local_variable_subexpression.sv](../tests/ch16/test_illegal_triggered_local_variable_subexpression.sv): p_bad の s_rd(v + 1).triggered（40行目）が違法、p_ok の s_sub(v).triggered は合法。
+- [test_illegal_triggered_local_variable_formal_read_first.sv](../tests/ch16/test_illegal_triggered_local_variable_formal_read_first.sv): s_bad の (c == lv) ##1 (a, lv = d)（33行目、インスタンスの行も regex に含む）が違法、s_sub の (a, lv = d) ##1 (c == lv) と p_ok は合法。
 
 ### SV2023-16.10-EXTRACT-TRIGGERED-THREADS
 
-16.10 / normal / テスト未対応
+16.10 / normal / テスト対応あり・実行未確認
 
 Multiple same-cycle triggered matches with distinct local valuations fork independent continuation threads as with matching or branches.
 
@@ -38244,10 +38998,11 @@ Multiple same-cycle triggered matches with distinct local valuations fork indepe
 
 規定の性質: `mandatory`。
 
+- [test_triggered_local_variable_threads.sv](../tests/ch16/test_triggered_local_variable_threads.sv): sub(lv) の2つの一致(tick 1 から lv = 10、tick 2 から lv = 20)が同じ tick 3 で終わり、c ##0 sub(v).triggered の v は値の異なる2つのスレッドに分かれる。各スレッドが tick 4 で v を記録して all threads: [ 45:10 45:20 ](同じ時間ステップなので整列)となり、e == v(e = 20)を調べる top_eq では v = 20 のスレッドだけが一致する(v == e: [ 45:20 ])。 区別: 同じ tick の複数の一致をスレッドに分けず1つの値だけを残す誤実装では all threads が1件になり、残す値が 10 なら v == e の行も空になる。スレッド間で v を共有する誤実装では 45:20 45:20 などになる。
 
 ### SV2023-16.10-EXTRACT-UNTYPED-SHARED-LOCAL
 
-16.10 / normal / テスト未対応
+16.10 / normal / テスト対応あり・実行未確認
 
 A caller local can be assigned inside a subsequence and referenced after completion if its outer scope covers instance and reference, it is the entire actual argument, and the corresponding formal is untyped.
 
@@ -38255,10 +39010,11 @@ A caller local can be assigned inside a subsequence and referenced after complet
 
 規定の性質: `mandatory`。
 
+- [test_sequence_local_formal_copies_and_casts.sv](../tests/ch16/test_sequence_local_formal_copies_and_casts.sv): use_put で宣言した局所変数 v(有効範囲が put(v) のインスタンスと後の参照の両方を含む)を実引数全体として型なしの形式引数 lv に渡し、put の照合項目で lv = data として代入し、put の後の rec1("untyped", v) で 145:40 を読む。 区別: 呼び出し側の局所変数をシーケンス内で代入できない、または代入後に呼び出し側で参照できない誤実装では untyped の行が空になるか値が 40 でなくなる。
 
 ### SV2023-16.11-EXTRACT-ATTACHED-CALL
 
-16.11 / normal / テスト未対応
+16.11 / normal / テスト対応あり・実行未確認
 
 A task, task method, void function, void-function method or system task may be attached in a parenthesized comma-separated sequence match-item list.
 
@@ -38266,6 +39022,7 @@ A task, task method, void function, void-function method or system task may be a
 
 規定の性質: `permission`。
 
+- [test_sequence_attached_call_kinds_order_region.sv](../tests/ch16/test_sequence_attached_call_kinds_order_region.sv): a ##[1:2] b の後の括弧内のカンマ区切りの並びに、void 関数 f_void、タスク t_task、void 関数メソッド h.fm、タスクメソッド h.tm、システムタスク $display を付け、終点 25 と 35 のそれぞれで5種類すべての出力行(function 1 / task, nba = 3 / function method 2 / task method 3 / system task)が出ることを比較する。 区別: いずれかの種類のサブルーチン呼び出しを照合項目として受け付けない誤実装ではコンパイルが失敗し、呼び出しを実行しない誤実装ではその種類の行が欠ける。
 
 ### SV2023-16.11-EXTRACT-AUTOMATIC-ARGUMENT
 
@@ -38291,7 +39048,7 @@ Attached-call arguments shall be by-value input, ref or const ref; by-value inpu
 
 ### SV2023-16.11-EXTRACT-EVERY-ENDPOINT
 
-16.11 / normal / テスト未対応
+16.11 / normal / テスト対応あり・実行未確認
 
 All attached calls execute at every sequence end point, in listed order; assertion evaluation does not wait for or receive data back from the subroutines.
 
@@ -38299,10 +39056,11 @@ All attached calls execute at every sequence end point, in listed order; asserti
 
 規定の性質: `mandatory`。
 
+- [test_sequence_attached_call_kinds_order_region.sv](../tests/ch16/test_sequence_attached_call_kinds_order_region.sv): 1回の試行の a ##[1:2] b は b が 25 と 35 で真なので終点が2つあり、付けた呼び出しが両方の終点で並びの順(function, task, function method, task method, system task, bump_w)に実行される。評価は呼び出しを待たず、25 の呼び出しの後も同じ試行の2つ目の終点 35 を見つける。 区別: 最初の終点だけで呼び出す誤実装では 35 の行がすべて欠ける。並びの順を守らない誤実装では各時刻の5行の順序が変わる。呼び出しの完了や結果に評価を依存させる誤実装でも 35 の終点が失われれば出力が変わる。
 
 ### SV2023-16.11-EXTRACT-LOCAL-CALL-ARGUMENT
 
-16.11 / error / テスト未対応
+16.11 / error / テスト対応あり・実行未確認
 
 A local is usable in an attached-call actual if it flows out of the sequence or is assigned earlier in the match-item list; any argument containing a local shall be passed by value.
 
@@ -38310,10 +39068,12 @@ A local is usable in an attached-call actual if it flows out of the sequence or 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_attached_call_local_variable_before_assignment.sv](../tests/ch16/test_illegal_attached_call_local_variable_before_assignment.sv): p_bad の (a, f_in(k), k = d)（43行目）が違法、p_ok の (a, k = d, f_in(k)) と p_flow の (a, k = d) ##1 (b, f_in(k)) は合法。
+- [test_illegal_attached_call_local_variable_by_reference.sv](../tests/ch16/test_illegal_attached_call_local_variable_by_reference.sv): p_bad の (a, k = d, t_ref(k))（43行目）が違法、p_ok と p_flow は合法。
 
 ### SV2023-16.11-EXTRACT-NO-EMPTY-CALL
 
-16.11 / error / テスト未対応
+16.11 / error / テスト対応あり・実行未確認
 
 Attaching a subroutine call or any sequence_match_item to a sequence admitting an empty match is an error.
 
@@ -38321,10 +39081,12 @@ Attaching a subroutine call or any sequence_match_item to a sequence admitting a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_call_attached_to_empty_match.sv](../tests/ch16/test_illegal_call_attached_to_empty_match.sv): a_bad の (b[*0:2], note())（29行目）が違法、a_ok の (a ##1 b[*0:2], note()) は合法。
+- [test_illegal_local_variable_assignment_on_empty_match.sv](../tests/ch16/test_illegal_local_variable_assignment_on_empty_match.sv): p_bad の (b[*0:2], k = d)（32行目）が違法、p_ok の (a ##1 b[*0:2], k = d) は合法。
 
 ### SV2023-16.11-EXTRACT-REACTIVE-CALL
 
-16.11 / normal / テスト未対応
+16.11 / normal / テスト対応あり・実行未確認
 
 Attached subroutine calls are scheduled in Reactive, like an assertion action block.
 
@@ -38332,6 +39094,7 @@ Attached subroutine calls are scheduled in Reactive, like an assertion action bl
 
 規定の性質: `mandatory`。
 
+- [test_sequence_attached_call_kinds_order_region.sv](../tests/ch16/test_sequence_attached_call_kinds_order_region.sv): nba は各 tick の NBA で増え、t_task が const ref で読む値は同じ時間ステップの NBA 後の値(25 で 3、35 で 4)。bump_w が書いた w で起きる always @(w) はモジュールの Active 領域のプロセスで、呼び出し群の後、同じ時刻に 25: always sees w = 1 / 35: always sees w = 2 を出す。 区別: 呼び出しを Reactive 領域でなく Active/Observed より前(NBA の前)に行う誤実装では nba が 2 / 3 と表示される。Postponed 領域で行う誤実装では w の書き込みで同じ時間ステップのプロセスを起こせず(書き込み自体も許されない)、always の行が出ないか次の時刻にずれる。
 
 ### SV2023-16.12-EXTRACT-DECLARATION-INERT
 
@@ -38346,7 +39109,7 @@ A property declaration defines behavior but produces no verification result by i
 
 ### SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS
 
-16.12 / error / テスト未対応
+16.12 / error / テスト対応あり・実行未確認
 
 Disable expressions may use sequence.triggered but shall not reference assertion locals or sequence.matched; sampled-value functions other than $sampled require explicit clocks there.
 
@@ -38354,10 +39117,13 @@ Disable expressions may use sequence.triggered but shall not reference assertion
 
 規定の性質: `mandatory`。
 
+- [test_illegal_property_disable_iff_local_variable.sv](../tests/ch16/test_illegal_property_disable_iff_local_variable.sv): disable iff (v != 0) の行 27 でのエラーを求める。
+- [test_illegal_disable_iff_matched.sv](../tests/ch16/test_illegal_disable_iff_matched.sv): disable iff (s_m.matched) の行 29 でのエラーを求める。
+- [test_illegal_disable_iff_sampled_function_no_clock.sv](../tests/ch16/test_illegal_disable_iff_sampled_function_no_clock.sv): disable iff ($rose(r1)) の行 25 でのエラーを求める。
 
 ### SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Disable conditions are tested independently for separate property evaluation attempts using current, unsampled variable values.
 
@@ -38365,10 +39131,11 @@ Disable conditions are tested independently for separate property evaluation att
 
 規定の性質: `mandatory`。
 
+- [test_disable_iff_attempt_interval.sv](../tests/ch16/test_disable_iff_attempt_interval.sv): 無効化条件を試行ごとに独立に、標本値でなく現在値で判定することを、重なる2試行(215〜235 と 225〜245)のうち 238〜239 の rst は後の試行だけを無効にして前の試行は 235 で失敗すること、55 と 115 で tick の時刻ステップに立ち上がる rst(標本値はまだ 0)が試行を無効にし、131 に立ち上がって 135 の tick の時刻ステップで落ちる rst(135 の標本値は 1)は 135 からの試行を無効にしない(155 で失敗)ことで比較する。 区別: 無効化条件を標本値で判定する誤実装では 55 と 115 の rst が見えず 75 と 115 の失敗が加わり、135 の標本値 1 で 135 からの試行が無効になって 155 の失敗が消える。試行ごとの区間でなく、条件が真になった時点で進行中か否かにかかわらず直近の試行の結果を捨てる、あるいは各試行の開始時だけ判定するなど試行を独立に扱わない誤実装では、238 の rst で 215 からの試行の 235 の失敗が消えるか、225 からの試行の 245 の失敗が加わる。
 
 ### SV2023-16.12-EXTRACT-DISABLE-INTERVAL
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 If the disable condition is true at any time from the attempt start in Observed through its end, inclusive, that attempt is disabled and produces neither success nor failure; otherwise it has the underlying property result.
 
@@ -38376,10 +39143,11 @@ If the disable condition is true at any time from the attempt start in Observed 
 
 規定の性質: `mandatory`。
 
+- [test_disable_iff_attempt_interval.sv](../tests/ch16/test_disable_iff_attempt_interval.sv): disable iff (rst) start |-> ##2 1'b0 の各試行は無効にならなければ2 tick 後に失敗する。rst が区間内(24〜26)、最初の tick の時刻ステップ(55)、最後の tick の時刻ステップ(115)、tick の間だけ(238〜239)で高い試行(15〜35、55〜75、95〜115、225〜245)は失敗せず、最初の tick の Observed 前に落ちる rst(131〜135)と終了後の rst(196〜)の試行は失敗して、a_dis failures: 155 195 235 となることを比較する。 区別: 区間の両端を含めない誤実装では 75 や 115 の失敗が加わり、tick でしか条件を見ない誤実装(Verilator 5.052 がそうである)では 245 が加わる。無効化を失敗として扱う誤実装では 35 75 115 245 が加わる。終了後の条件まで見る誤実装では 195 が消える。
 
 ### SV2023-16.12-EXTRACT-DISABLE-SYNTAX
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 A disable iff (expression_or_dist) prefix on a property_expr forms a property_spec.
 
@@ -38387,10 +39155,11 @@ A disable iff (expression_or_dist) prefix on a property_expr forms a property_sp
 
 規定の性質: `definition`。
 
+- [test_named_property_scopes_formals_instances.sv](../tests/ch16/test_named_property_scopes_formals_instances.sv): disable iff (rst) を property_expr の前に付けて property_spec を作る形を、プロパティ宣言の本体(@(posedge clk) disable iff (rst) d |=> e)と表明の中(@(posedge clk) disable iff (rst) p_imp(d, e))の両方で使う。rst が tick 5 の付近だけ高いので、tick 4 の試行(55 で終わる)は無効になり、tick 7 の試行だけが 85 で失敗する。 区別: disable iff を property_spec の前置として受け付けない誤実装ではコンパイルが失敗する。条件を無視する誤実装では両方の行に 55 が加わり [ 55 85 ] になる。
 
 ### SV2023-16.12-EXTRACT-DOLLAR-ACTUAL
 
-16.12 / error / テスト未対応
+16.12 / error / テスト対応あり・実行未確認
 
 A $ property actual requires an untyped formal whose uses are range upper bounds or actuals in a sequence/property instance.
 
@@ -38398,10 +39167,12 @@ A $ property actual requires an untyped formal whose uses are range upper bounds
 
 規定の性質: `mandatory`。
 
+- [test_illegal_property_dollar_typed_formal.sv](../tests/ch16/test_illegal_property_dollar_typed_formal.sv): p_d($) の行 29 でのエラーを求める(形式引数は int hi)。
+- [test_illegal_property_dollar_outside_bound.sv](../tests/ch16/test_illegal_property_dollar_outside_bound.sv): a ##1 (b == x) の行 27 か p_e($) の行 30 でのエラーを求める。
 
 ### SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 All Table 11-2 expression operators have higher precedence than sequence/property operators; strong/weak require parentheses and have no assigned precedence.
 
@@ -38409,10 +39180,11 @@ All Table 11-2 expression operators have higher precedence than sequence/propert
 
 規定の性質: `definition`。
 
+- [test_property_expression_operands_bind_first.sv](../tests/ch16/test_property_expression_operands_bind_first.sv): 表11-2 の最も弱い式演算子(条件演算子 ?:、論理含意 -> と同値 <->)と ||、==、&、~^ を、括弧なしでプロパティ演算子 iff / and / or / implies / |-> と並べ、式演算子が先にまとまってブール式の被演算子になることを、各 tick の P/F 列(a -> b iff c: FPFPPFFP、a <-> b and c: FPFFFFFP、a ? b : c or e: FPPPFPPP、a || b implies c: PPFPFPFP、a == b |-> c: FPPPPPFP、a & b |-> c ~^ e: PPPPPPFF)で比較する。strong と weak は括弧付きの strong(a) / weak(b) で使う(FFPPPPPP)。 区別: 式演算子をプロパティ演算子より弱く扱う誤実装では、例えば a -> b iff c を a -> (b iff c) とまとめようとして違法になるか、?: の後件に or を含めて a ? b : (c or e) とみなし列が変わる。== を |-> より弱くすると a == (b |-> c) となり違法か結果が変わる。
 
 ### SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE
 
-16.12 / error / テスト未対応
+16.12 / error / 実行確認あり
 
 A nonrecursive property instance follows the F.4.1 flattened property after name resolution and actual substitution; illegal rewriting makes the instance an error.
 
@@ -38420,10 +39192,11 @@ A nonrecursive property instance follows the F.4.1 flattened property after name
 
 規定の性質: `mandatory`。
 
+- [test_illegal_property_flattened_delay_variable.sv](../tests/ch16/test_illegal_property_flattened_delay_variable.sv): 非再帰のプロパティ p_dly(n) の本体 a ##n b に、インスタンス p_dly(k) で変数 k を渡すと、実引数を置き換えた a ##(k) b は遅延が定数でなく違法になる。遅延の行 29 かインスタンスの行 32 でのエラーを求める(p_dly(2) なら合法)。 区別: インスタンスを置き換え後のプロパティとして検査しない誤実装は、宣言だけを見て合法と判断し設計を受け付けるので、エラーが出ずテストが不合格になる。
 
 ### SV2023-16.12-EXTRACT-NO-NESTED-DISABLE
 
-16.12 / error / テスト未対応
+16.12 / error / 実行確認あり
 
 disable iff clauses shall not be nested, whether directly or through property instances.
 
@@ -38431,6 +39204,8 @@ disable iff clauses shall not be nested, whether directly or through property in
 
 規定の性質: `mandatory`。
 
+- [test_illegal_disable_iff_nested_through_instance.sv](../tests/ch16/test_illegal_disable_iff_nested_through_instance.sv): assert property (@(posedge clk) disable iff (r1) p_in) の行 29 でのエラーを求める。
+- [test_illegal_disable_iff_nested_in_declaration.sv](../tests/ch16/test_illegal_disable_iff_nested_in_declaration.sv): p_out の本体 @(posedge clk) disable iff (r1) p_in の行 31、または p_out を使う表明の行 34 でのエラーを求める。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT
 
@@ -38445,7 +39220,7 @@ Table 16-3 precedence level 12 (highest first) is always, s_always, eventually, 
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-AND
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Table 16-3 precedence level 7 (highest first) is sequence/property and; associativity is left.
 
@@ -38453,6 +39228,8 @@ Table 16-3 precedence level 7 (highest first) is sequence/property and; associat
 
 規定の性質: `definition`。
 
+- [test_property_operator_precedence_one_tick.sv](../tests/ch16/test_property_operator_precedence_one_tick.sv): not a and b → FFPPFFFF、not a or not b and c → PPPPFPFF。
+- [test_property_operator_precedence_temporal.sv](../tests/ch16/test_property_operator_precedence_temporal.sv): eventually [0:1] a and b を eventually [0:1] (a and b) と解釈して成功4回、s_eventually も4回。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-DELAY
 
@@ -38467,7 +39244,7 @@ Table 16-3 precedence level 2 (highest first) is ##; associativity is left.
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-IFF
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Table 16-3 precedence level 9 (highest first) is iff; associativity is right.
 
@@ -38475,10 +39252,12 @@ Table 16-3 precedence level 9 (highest first) is iff; associativity is right.
 
 規定の性質: `definition`。
 
+- [test_property_operator_precedence_one_tick.sv](../tests/ch16/test_property_operator_precedence_one_tick.sv): a iff b implies c → FPPPPPFP、a or b iff c → PFFPFPFP。
+- [test_property_operator_precedence_temporal.sv](../tests/ch16/test_property_operator_precedence_temporal.sv): a until b iff c 系を a until (b iff c) と解釈して until/s_until は4回、until_with/s_until_with は1回成功。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Table 16-3 precedence level 11 (highest first) is |->, |=>, #-#, #=#; associativity is right.
 
@@ -38486,10 +39265,12 @@ Table 16-3 precedence level 11 (highest first) is |->, |=>, #-#, #=#; associativ
 
 規定の性質: `definition`。
 
+- [test_property_operator_precedence_one_tick.sv](../tests/ch16/test_property_operator_precedence_one_tick.sv): a |-> b implies c → PPPPPPFP、a #-# b implies c → FFFFPPFP。
+- [test_property_operator_precedence_temporal.sv](../tests/ch16/test_property_operator_precedence_temporal.sv): a |=> b implies c は合格13・失敗1、a #=# b implies c は合格4・失敗10。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Table 16-3 precedence level 5 (highest first) is intersect; associativity is left.
 
@@ -38497,10 +39278,11 @@ Table 16-3 precedence level 5 (highest first) is intersect; associativity is lef
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_precedence_table.sv](../tests/ch16/test_sequence_operator_precedence_table.sv): intersect は within より弱く(d4 の行 [ 35 ])、and より強い。a6 ##1 b6 intersect c6 ##1 d6 and e6 ##2 e6 は ((a6 ##1 b6) intersect (c6 ##1 d6)) and (e6 ##2 e6) と解釈され、長さ2の intersect と長さ3の e6 ##2 e6 の and が 35 で成功する([ 35 ])。intersect は同じ区間を要する結合的な演算なので、左結合と右結合は値に現れない。 区別: intersect を and より弱くする誤実装では (a6 ##1 b6) intersect ((c6 ##1 d6) and (e6 ##2 e6)) となり、長さ2と長さ3の区間が一致せず行が [ ] になる。within より強くする誤実装では d4 の行が [ ] になる。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Table 16-3 precedence level 6 (highest first) is not, nexttime, s_nexttime; no associativity is assigned.
 
@@ -38508,10 +39290,12 @@ Table 16-3 precedence level 6 (highest first) is not, nexttime, s_nexttime; no a
 
 規定の性質: `definition`。
 
+- [test_property_operator_precedence_one_tick.sv](../tests/ch16/test_property_operator_precedence_one_tick.sv): not a and b を (not a) and b と解釈して a,b,c = 000..111 の8 tick で FFPPFFFF。
+- [test_property_operator_precedence_temporal.sv](../tests/ch16/test_property_operator_precedence_temporal.sv): st #-# nexttime a and b と st #-# s_nexttime a and b を (nexttime a) and b と解釈し、成功はどちらも1回。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-OR
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Table 16-3 precedence level 8 (highest first) is sequence/property or; associativity is left.
 
@@ -38519,10 +39303,12 @@ Table 16-3 precedence level 8 (highest first) is sequence/property or; associati
 
 規定の性質: `definition`。
 
+- [test_property_operator_precedence_one_tick.sv](../tests/ch16/test_property_operator_precedence_one_tick.sv): a or b iff c → PFFPFPFP、not a or not b and c → PPPPFPFF。
+- [test_property_operator_precedence_temporal.sv](../tests/ch16/test_property_operator_precedence_temporal.sv): always [0:1] a or b と s_always [0:1] a or b を always [0:1] (a or b) と解釈して成功2回。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Table 16-3 precedence level 1 (highest first) is [*], [=], [->]; no associativity is assigned.
 
@@ -38530,10 +39316,11 @@ Table 16-3 precedence level 1 (highest first) is [*], [=], [->]; no associativit
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_precedence_table.sv](../tests/ch16/test_sequence_operator_precedence_table.sv): a1 ##1 b1[*2] は繰り返しが ## より強く a1 ##1 (b1[*2]) と解釈され、a1 が tick 1、b1 が tick 2 と 3 のとき tick 1 の試行が 35 で成功する(a1 ##1 b1[*2]: [ 35 ])。繰り返しは後置で連ねられないので結合規則はない。 区別: 繰り返しを ## より弱くする誤実装では (a1 ##1 b1)[*2] と解釈され、a1 が tick 3 で偽なので成功せず、行が [ ] になる。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Table 16-3 precedence level 3 (highest first) is throughout; associativity is right.
 
@@ -38541,6 +39328,7 @@ Table 16-3 precedence level 3 (highest first) is throughout; associativity is ri
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_precedence_table.sv](../tests/ch16/test_sequence_operator_precedence_table.sv): throughout は ## より弱く(x2 throughout a2 ##1 b2 → [ 65 ])、within より強い。x3 throughout a3 ##1 b3 within c3 ##3 c3 は (x3 throughout (a3 ##1 b3)) within (c3 ##3 c3) と解釈され、x3 が a3 ##1 b3 の tick 2, 3 だけ高く c3 ##3 c3 の区間 tick 1..4 全体では高くないとき 45 で成功する([ 45 ])。throughout の左の被演算子は式なので右結合は構文で決まる。 区別: throughout を within より弱くする誤実装では x3 throughout ((a3 ##1 b3) within (c3 ##3 c3)) となり、x3 が tick 1 と 4 で低いので成功せず行が [ ] になる。## より強くする誤実装では x2 の行が [ 25 65 ] になる。
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES
 
@@ -38555,7 +39343,7 @@ Table 16-3 precedence level 10 (highest first) is until, s_until, until_with, s_
 
 ### SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Table 16-3 precedence level 4 (highest first) is within; associativity is left.
 
@@ -38563,10 +39351,11 @@ Table 16-3 precedence level 4 (highest first) is within; associativity is left.
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_precedence_table.sv](../tests/ch16/test_sequence_operator_precedence_table.sv): within は throughout より弱く(x3 の行 [ 45 ])、intersect より強く、左結合である。d4 ##2 d4 intersect b4 within c4 ##2 c4 は (d4 ##2 d4) intersect (b4 within (c4 ##2 c4)) で 35 に成功し、a5 within b5 ##1 b5 within c5 ##3 c5 は (a5 within (b5 ##1 b5)) within (c5 ##3 c5) で、a5 が b5 の対の外(tick 1)にある tick 1 の試行は失敗し、tick 8 にある tick 6 の試行だけ 95 で成功する([ 95 ])。 区別: within を intersect より弱くする誤実装では ((d4 ##2 d4) intersect b4) within ... となり長さの異なる intersect が一致せず行が [ ] になる。within を右結合にする誤実装では a5 within ((b5 ##1 b5) within (c5 ##3 c5)) となり tick 1 の試行も成功して [ 45 95 ] になる。throughout との順序を誤ると x3 の行が [ ] になる。
 
 ### SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 In addition to sequence formal uses, a property formal may stand for a property_expr or property_spec.
 
@@ -38574,6 +39363,7 @@ In addition to sequence formal uses, a property formal may stand for a property_
 
 規定の性質: `permission`。
 
+- [test_named_property_scopes_formals_instances.sv](../tests/ch16/test_named_property_scopes_formals_instances.sv): p_both(property q, untyped s) の q は property_expr の位置(q and s)に、p_whole(q) の q は本体の property_spec 全体の位置に書かれる。p_both(p_unit(a, b), a ##2 c) は 35 で成功し、p_whole(@(posedge clk) a ##1 b) は実引数のクロックで評価されて 25 と 55 で成功する。 区別: 形式引数を property_expr として置き換えない誤実装では property formal の行が空になるかコンパイルが失敗する。本体全体を形式引数とする置き換えで実引数のクロック指定を失う誤実装では spec formal の行が空になる(cover にクロックがない)か時刻が変わる。
 
 ### SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR
 
@@ -38588,7 +39378,7 @@ Named properties use property/endproperty, optional formals, assertion local dec
 
 ### SV2023-16.12-EXTRACT-PROPERTY-INSTANCES
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 A property may be instantiated before declaration and wherever a property_spec is permitted; a property_expr instance is permitted only if it introduces no illegal disable iff clause.
 
@@ -38596,10 +39386,11 @@ A property may be instantiated before declaration and wherever a property_spec i
 
 規定の性質: `permission`。
 
+- [test_named_property_scopes_formals_instances.sv](../tests/ch16/test_named_property_scopes_formals_instances.sv): 宣言より前のインスタンス(c_late の p_late, 35)、表明の property_spec 全体としてのインスタンス(p_mod など)、property_expr の被演算子としてのインスタンス(p_unit(a, b) and (a ##2 c) → 35、p_outer の p_unit(b, c) or p_unit(c, a) → 35 45)、disable iff の後の property_expr としてのインスタンス(disable iff (rst) p_imp(d, e) → 85)を比較する。どのインスタンスも不正な disable iff を持ち込まない。 区別: 宣言前のインスタンスを解決できない誤実装では before declaration の行が空になる。被演算子としてのインスタンスを本体で置き換えない誤実装では property and sequence / nested instances の行が変わる(例えば p_outer の片方だけを評価すると 35 か 45 が欠ける)。disable iff の後のインスタンスを受け付けない誤実装ではコンパイルが失敗する。
 
 ### SV2023-16.12-EXTRACT-PROPERTY-RESULT
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 A property expression evaluation yields true or false and properties may be composed from properties and sequences.
 
@@ -38607,10 +39398,11 @@ A property expression evaluation yields true or false and properties may be comp
 
 規定の性質: `definition`。
 
+- [test_named_property_scopes_formals_instances.sv](../tests/ch16/test_named_property_scopes_formals_instances.sv): プロパティの評価は真か偽で、真の試行だけが cover の文を実行し、偽の試行(例えば d |=> e の tick 7 の試行)は assert の else を実行する。プロパティとシーケンスを組み合わせた p_unit(a, b) and (a ##2 c) は両方が真の tick 1 の試行だけ 35 で真、プロパティどうしの p_unit(b, c) or p_unit(c, a) は 35 と 45 で真になる。 区別: プロパティとシーケンスの and を評価できない、または片方の結果だけを使う誤実装では property and sequence の行が [ 25 55 ] や [ ] になる。プロパティどうしの or を正しく組み合わせない誤実装では nested instances の行が [ 35 ] や [ 45 ] になる。偽の評価を偽として報告しない誤実装では disable iff の行の 85 が欠ける。
 
 ### SV2023-16.12-EXTRACT-PROPERTY-SCOPES
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Named properties may be declared in modules, interfaces, programs, clocking blocks, packages, compilation-unit scope, generate blocks and checkers.
 
@@ -38618,6 +39410,7 @@ Named properties may be declared in modules, interfaces, programs, clocking bloc
 
 規定の性質: `permission`。
 
+- [test_named_property_scopes_formals_instances.sv](../tests/ch16/test_named_property_scopes_formals_instances.sv): モジュール(p_mod)、インタフェース(p_if)、プログラム(入れ子の prg の p_prg)、クロッキングブロック(cb の p_cb)、パッケージ(p_pkg)、コンパイル単位(p_unit)、チェッカ(chk の p_ck)、生成ブロック(g の p_gen)の8か所で宣言した名前付きプロパティを cover property で使い、本体どおりの成功時刻(module 35, interface 35, program 25 55, clocking block 45, package 35, compilation unit 25 55, checker 45, generate block 55)を比較する。 区別: いずれかの場所でのプロパティ宣言を受け付けない、または宣言を無視する誤実装では該当行が空になるかコンパイルが失敗する。宣言場所の信号の解決を誤る誤実装では interface や checker の行の時刻が変わる。
 
 ### SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY
 
@@ -38632,7 +39425,7 @@ Property dependency cycles are permitted under 16.12.17; dependency edges includ
 
 ### SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Property formals, defaults and actual binding obey the sequence formal rules of 16.8/16.8.1/16.8.2 except recursive, typed-property and local-property specializations.
 
@@ -38640,10 +39433,11 @@ Property formals, defaults and actual binding obey the sequence formal rules of 
 
 規定の性質: `mandatory`。
 
+- [test_named_property_scopes_formals_instances.sv](../tests/ch16/test_named_property_scopes_formals_instances.sv): p_rules(x, y = c, bit z = 1'b1, untyped n = 2) はシーケンスと同じ規則に従い、p_rules(a) は既定の y = c, z = 1'b1, n = 2 で a ##2 (c && 1) となり 35 で成功する。名前で結んだ p_rules(.x(b), .z(w), .n(1)) は w = 2'b10 が bit 型の z へキャストされて 0 になり成功しない(空)、.z(2'b01) なら 1 で 35 に成功する。 区別: プロパティの形式引数に既定を当てない誤実装では default actuals の行が空(またはエラー)になる。型付き形式引数へキャストしない誤実装では z = 2'b10 が真とみなされ typed formal 2'b10 の行に 35 が出る。名前による結び付けを誤る誤実装では typed formal 2'b01 の行が変わる。
 
 ### SV2023-16.12.1-EXTRACT-INSTANCE-LEGALITY
 
-16.12.1 / error / テスト未対応
+16.12.1 / error / テスト対応あり・実行未確認
 
 A property instance used as property_expr/property_spec is legal only if substituting its body and actuals yields a legal construct; an operand of a property-building operator cannot introduce disable iff.
 
@@ -38651,6 +39445,8 @@ A property instance used as property_expr/property_spec is legal only if substit
 
 規定の性質: `mandatory`。
 
+- [test_illegal_property_instance_flattened_not_legal.sv](../tests/ch16/test_illegal_property_instance_flattened_not_legal.sv): a_bad の p_seq(a |-> c)（30行目）が違法、a_ok の p_seq(a ##1 c) は合法。
+- [test_illegal_property_instance_disable_iff_as_operand.sv](../tests/ch16/test_illegal_property_instance_disable_iff_as_operand.sv): a_bad の a |-> p_dis（33行目）が違法、a_top の p_dis と a_nodis の a |-> p_plain は合法。
 
 ### SV2023-16.12.2-EXTRACT-IMPLICIT-STRENGTH
 
@@ -38665,7 +39461,7 @@ An unqualified sequence property is weak in assert property and assume property,
 
 ### SV2023-16.12.2-EXTRACT-NO-EMPTY-PROPERTY
 
-16.12.2 / error / テスト未対応
+16.12.2 / error / テスト対応あり・実行未確認
 
 A sequential property sequence_expr shall not admit an empty match.
 
@@ -38673,6 +39469,9 @@ A sequential property sequence_expr shall not admit an empty match.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_plain_sequence_property_empty_match.sv](../tests/ch16/test_illegal_plain_sequence_property_empty_match.sv): p_bad の後件 b[*0:2]（27行目）が空一致を許して違法、p_ok の後件 b[*1:2] は合法。regex は27行目を指す。
+- [test_illegal_weak_sequence_property_empty_match.sv](../tests/ch16/test_illegal_weak_sequence_property_empty_match.sv): p_bad の後件 weak(b[*0:2])（27行目）が空一致を許して違法、p_ok の後件 weak(b[*1:2]) は合法。regex は27行目を指す。
+- [test_illegal_strong_sequence_property_empty_match.sv](../tests/ch16/test_illegal_strong_sequence_property_empty_match.sv): p_bad の後件 strong(b[*0:2])（27行目）が空一致を許して違法、p_ok の後件 strong(b[*1:2]) は合法。regex は27行目を指す。
 
 ### SV2023-16.12.2-EXTRACT-STRONG
 
@@ -38687,7 +39486,7 @@ strong(sequence_expr) is true if and only if a nonempty sequence match exists.
 
 ### SV2023-16.12.2-EXTRACT-STRONG-FIRST-MATCH
 
-16.12.2 / normal / テスト未対応
+16.12.2 / normal / テスト対応あり・実行未確認
 
 strong(seq) and strong(first_match(seq)) have equivalent truth values.
 
@@ -38695,6 +39494,7 @@ strong(seq) and strong(first_match(seq)) have equivalent truth values.
 
 規定の性質: `definition`。
 
+- [test_strong_weak_first_match_same_truth.sv](../tests/ch16/test_strong_weak_first_match_same_truth.sv): s = a ##[1:3] b ##1 c は tick 1 の試行で 45 と 55 の2つの一致を持ち(matches of s: 45 55 115)、first_match(s) は 45 だけを残す(45 115)。それでも cover property strong(s) と strong(first_match(s)) は同じ試行で同じ時刻に成功し、どちらも [ 45 115 ] になる。 区別: strong(first_match(s)) を first_match の一致集合の違いで s と異なる真理値にする誤実装(例えば tick 5 の試行の扱いを変える、または最初の一致を逃す)では2つの strong の行が一致しなくなる。強い形を一致の数だけ成功させる誤実装では strong(s) に 55 が加わり、2行が異なる。
 
 ### SV2023-16.12.2-EXTRACT-WEAK
 
@@ -38709,7 +39509,7 @@ weak(sequence_expr) is true if and only if there is no finite prefix witnessing 
 
 ### SV2023-16.12.2-EXTRACT-WEAK-FIRST-MATCH
 
-16.12.2 / normal / テスト未対応
+16.12.2 / normal / テスト対応あり・実行未確認
 
 weak(seq) and weak(first_match(seq)) have equivalent truth values.
 
@@ -38717,6 +39517,7 @@ weak(seq) and weak(first_match(seq)) have equivalent truth values.
 
 規定の性質: `definition`。
 
+- [test_strong_weak_first_match_same_truth.sv](../tests/ch16/test_strong_weak_first_match_same_truth.sv): assert property weak(s) と weak(first_match(s)) は同じ試行で同じ結果になり、合格はどちらも 45 と 115、失敗はどちらも a が偽で始まる各 tick と、b が tick 8 までに来ない tick 5 の試行の 85 を含む [ 5 25 35 45 65 75 85 85 105 115 125 135 ]。 区別: first_match を付けると失敗の判定時刻や合否が変わる誤実装(例えば first_match(s) を最初の候補が外れた時点で失敗させる)では2行の合格・失敗の列が一致しなくなる。弱い形の失敗を一致できなくなる時点(85)で報告しない誤実装では失敗の列が変わる。
 
 ### SV2023-16.12.3-EXTRACT-NEGATION
 
@@ -38815,7 +39616,7 @@ Property implication has a sequence antecedent and property consequent, using ov
 
 ### SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EMPTY
 
-16.12.7 / normal / テスト未対応
+16.12.7 / normal / テスト対応あり・実行未確認
 
 For |=> following an empty match, the consequent starts at its nearest clock tick at or after the antecedent evaluation start; for a single clock this is the current tick.
 
@@ -38823,10 +39624,11 @@ For |=> following an empty match, the consequent starts at its nearest clock tic
 
 規定の性質: `definition`。
 
+- [test_nonoverlapped_implication_expansion.sv](../tests/ch16/test_nonoverlapped_implication_expansion.sv): 単一クロックで a[*0:1] |=> b と a[*0] |=> b を評価し、空一致からの後件がその試行の開始 tick に始まることを、a=0 で b=0 の tick 2 から始まる試行がその場で失敗する(a[*0:1] |=> b: failures 25 25 55 の2つ目の 25、a[*0] |=> b: failures 25 55)ことで比較する。tick 1 の試行は空一致で b@1 を、a の一致で b@2 を検査して 25 で失敗する。 区別: 空一致の後でも後件を次の tick から始める誤実装(Verilator 5.052 がそうである)では tick 2 の試行が b@3 を見て成功し、tick 4 の試行が b@5 で失敗するので a[*0:1] |=> b が failures 25 55 に変わる(25 が1つ減る)。空一致を無視する誤実装では a=0 の試行が空真になり a[*0] |=> b の失敗が1つも出ず、a[*0:1] |=> b も failures 25 だけになる。
 
 ### SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EXPANSION
 
-16.12.7 / normal / テスト未対応
+16.12.7 / normal / テスト対応あり・実行未確認
 
 seq |=> prop is equivalent to seq ##1 true |-> prop.
 
@@ -38834,6 +39636,7 @@ seq |=> prop is equivalent to seq ##1 true |-> prop.
 
 規定の性質: `definition`。
 
+- [test_nonoverlapped_implication_expansion.sv](../tests/ch16/test_nonoverlapped_implication_expansion.sv): 3種の前件(空一致と1 tick の一致を持つ a[*0:1]、空一致だけの a[*0]、空一致のない a ##1 c)について seq |=> b と seq ##1 1'b1 |-> b を並べ、失敗時刻の列が組ごとに同じ(25 25 55 / 25 55 / 55)になることを比較する。 区別: |=> を seq ##1 1 |-> と異なる意味で扱う誤実装、例えば空一致の後件を次の tick から始める、または空一致を無視する実装では a[*0:1] |=> b や a[*0] |=> b の列(25 55 や空)が展開形の列(25 25 55 / 25 55)と一致しなくなる。非空一致の後件を同じ tick から始める誤実装では a ##1 c |=> b が b@4(真)を見て失敗しなくなり、failures 55 の行が空に変わる。
 
 ### SV2023-16.12.7-EXTRACT-NONOVERLAPPED-NONEMPTY
 
@@ -38911,7 +39714,7 @@ For followed-by #-# or #=# to succeed, at least one antecedent sequence match sh
 
 ### SV2023-16.12.9-EXTRACT-NONOVERLAPPED-DUAL
 
-16.12.9 / normal / テスト未対応
+16.12.9 / normal / テスト対応あり・実行未確認
 
 seq #=# prop equals not(seq |=> not prop).
 
@@ -38919,10 +39722,11 @@ seq #=# prop equals not(seq |=> not prop).
 
 規定の性質: `definition`。
 
+- [test_followed_by_dual_forms.sv](../tests/ch16/test_followed_by_dual_forms.sv): go |-> (##[1:2] p #=# q) と go |-> not (##[1:2] p |=> not q) を並べ、失敗回数が4局面とも同じ(B 0/0、0/0、1/1、1/1)になることを比較する。1・2局面目は T+1 の p の次の tick に q があって成功し、3・4局面目は前件の一致がなく失敗する。空一致を持つ前件の C (p[*0:1] #=# q と not (p[*0:1] |=> not q))も 1/1、0/0、0/0、0/0 で一致する。 区別: #=# を not (s |=> not p) と異なる意味で扱う誤実装、例えば後件を一致の終わりの tick から始める(#-# と同じにする)実装では、2局面目(p が T+1、q が T+2 で T+1 にない)の B が 1 になって期待の B 0/0 と食い違う。一致がないときに真とする(含意と同じにする)実装では3・4局面目の B が 0 になる。
 
 ### SV2023-16.12.9-EXTRACT-NONOVERLAPPED-EMPTY
 
-16.12.9 / normal / テスト未対応
+16.12.9 / normal / テスト対応あり・実行未確認
 
 For #=# with an empty antecedent match, the consequent starts at its nearest clock tick at or after antecedent evaluation start; with one clock this is the current tick.
 
@@ -38930,6 +39734,7 @@ For #=# with an empty antecedent match, the consequent starts at its nearest clo
 
 規定の性質: `definition`。
 
+- [test_followed_by_dual_forms.sv](../tests/ch16/test_followed_by_dual_forms.sv): 単一クロックで p[*0:1] #=# q を評価し、前件の空一致の後件が開始 tick T から始まることを、2局面目(p 1100、q 1010: q は T にあり T+1 にない)と4局面目(p 0000、q 1111)で C が失敗しない(C 0/0)ことで比較する。1局面目(p も q も T にない)は C 1/1 で失敗し、3局面目は p@T の一致の次の tick の q で成功する。双対形 not (p[*0:1] |=> not q) も同じ回数になる。 区別: 空一致の後でも後件を次の tick から始める誤実装では2局面目が q@T+1=0 を見て失敗し、その行の C 0/0 が C 1/1(双対形を正しく扱えば 1/0)に変わる。空一致を無視する誤実装では4局面目(p がなく空一致だけ)で一致がなくなって C が 1 に変わる。
 
 ### SV2023-16.12.9-EXTRACT-NONOVERLAPPED-NONEMPTY
 
@@ -38957,7 +39762,7 @@ For #-#, the selected antecedent match end point is the consequent start point.
 
 ### SV2023-16.12.9-EXTRACT-OVERLAPPED-DUAL
 
-16.12.9 / normal / テスト未対応
+16.12.9 / normal / テスト対応あり・実行未確認
 
 seq #-# prop equals not(seq |-> not prop).
 
@@ -38965,10 +39770,11 @@ seq #-# prop equals not(seq |-> not prop).
 
 規定の性質: `definition`。
 
+- [test_followed_by_dual_forms.sv](../tests/ch16/test_followed_by_dual_forms.sv): go |-> (##[1:2] p #-# q) と go |-> not (##[1:2] p |-> not q) を並べ、4つの局面で失敗回数が同じ(A 0/0、1/1、1/1、1/1)になることを比較する。1局面目は T+2 の一致に q が続いて成功、2局面目は唯一の一致(T+1)に q がなく失敗、3・4局面目は前件の一致がなく #-# は失敗(含意なら空真)。 区別: #-# を not (s |-> not p) と異なる意味で扱う誤実装、例えば一致がないときに真とする(含意と同じにする)実装では3・4局面目の A が 0 になって双対形の 1 と食い違い、すべての一致に後件を要求する実装では1局面目の A が 1 になる。
 
 ### SV2023-16.12.9-EXTRACT-STRONG-CONCAT
 
-16.12.9 / normal / テスト未対応
+16.12.9 / normal / テスト対応あり・実行未確認
 
 seq #-# strong(s) equals strong(seq ##0 s), and seq #=# strong(s) equals strong(seq ##1 s).
 
@@ -38976,6 +39782,7 @@ seq #-# strong(s) equals strong(seq ##0 s), and seq #=# strong(s) equals strong(
 
 規定の性質: `definition`。
 
+- [test_followed_by_dual_forms.sv](../tests/ch16/test_followed_by_dual_forms.sv): go |-> (p #-# strong(r ##1 q)) と go |-> strong(p ##0 r ##1 q)、go |-> (p #=# strong(r ##1 q)) と go |-> strong(p ##1 r ##1 q) を並べ、4局面の失敗回数がそれぞれ同じ(D 1/1、1/1、0/0、1/1 と E 1/1、0/0、1/1、1/1)になることを比較する。D は3局面目(p,r が T、q が T+1)だけ、E は2局面目(p が T、r が T+1、q が T+2)だけ成功する。 区別: s #-# strong(r) の後件を s の終わりの次の tick から始める誤実装では3局面目の D が 1 に、s #=# strong(r) の後件を同じ tick から始める誤実装では2局面目の E が 1、3局面目の E が 0 になり、連接形の strong(s ##0 r) / strong(s ##1 r) と食い違う。
 
 ### SV2023-16.12.10-EXTRACT-INDEXED-NEXTTIME
 
@@ -39013,7 +39820,7 @@ nexttime p holds if p holds at the next tick or no next tick exists.
 
 ### SV2023-16.12.10-EXTRACT-NEXTTIME-ALIGN
 
-16.12.10 / normal / テスト未対応
+16.12.10 / normal / テスト対応あり・実行未確認
 
 Nexttime first aligns to its clock at or after the evaluation time; index n counts the n+1st tick from there, including that aligned tick. Index 0 is an alignment operator.
 
@@ -39021,6 +39828,7 @@ Nexttime first aligns to its clock at or after the evaluation time; index n coun
 
 規定の性質: `definition`。
 
+- [test_nexttime_always_eventually_alignment.sv](../tests/ch16/test_nexttime_always_eventually_alignment.sv): c1 の tick から評価する c2 クロックの nexttime 系は、c2 の tick である 5 ではその tick に、c2 の tick でない 27 では次の c2 の tick 35 に整列し、そこを0番目として数える。nexttime[0] n0 は 5 と 35 の値を調べて 5:P 35:P、nexttime n1 と nexttime[1] n1 と s_nexttime[1] n1 は整列した tick の次(15 と 45)を調べて 15:P 45:P になる。27 の前の c2 の tick 25 の n0 は 0、35 の n1 は 0。 区別: 整列を行わず評価時点から次の c2 の tick を1番目と数える誤実装では、27 の試行の nexttime / nexttime[1] が 35 の n1 = 0 で失敗し 35:F になる。直前の c2 の tick 25 に整列する誤実装では nexttime[0] が 25 の n0 = 0 で失敗する。nexttime[0] を整列演算子として扱わない誤実装では 27 の試行の結果が 35:P 以外になる。
 
 ### SV2023-16.12.10-EXTRACT-NEXTTIME-COUNT
 
@@ -39059,7 +39867,7 @@ always p holds exactly when p holds at every current or future clock tick.
 
 ### SV2023-16.12.11-EXTRACT-ALWAYS-ALIGN
 
-16.12.11 / normal / テスト未対応
+16.12.11 / normal / テスト対応あり・実行未確認
 
 Always first aligns to its clock at or after evaluation time; s_always[n:m] requires m+1 ticks from there and p at each n+1st through m+1st tick.
 
@@ -39067,6 +39875,7 @@ Always first aligns to its clock at or after evaluation time; s_always[n:m] requ
 
 規定の性質: `definition`。
 
+- [test_nexttime_always_eventually_alignment.sv](../tests/ch16/test_nexttime_always_eventually_alignment.sv): c2 クロックの always [0:1] al と s_always [0:1] al は、c1 の tick 5 では 5 と 15、c2 の tick でない 27 では整列した 35 と次の 45 の al を調べ、どちらも 1 なので 15:P 45:P になる。直前の c2 の tick 25 と 55 の al は 0。 区別: 整列を行わず直前の tick 25 から数える誤実装では 27 の試行が al(25) = 0 で失敗する。整列した tick を0番目に数えず 45 と 55 を調べる誤実装では al(55) = 0 で失敗し 55:F になる。
 
 ### SV2023-16.12.11-EXTRACT-ALWAYS-BOUNDS
 
@@ -39081,7 +39890,7 @@ Always range bounds shall be nonnegative integer constant expressions, with uppe
 
 ### SV2023-16.12.11-EXTRACT-IMPLICIT-ALWAYS
 
-16.12.11 / normal / テスト未対応
+16.12.11 / normal / テスト対応あり・実行未確認
 
 A concurrent verification statement outside an initial procedure starts a top-level property attempt at each leading clocking event.
 
@@ -39089,6 +39898,7 @@ A concurrent verification statement outside an initial procedure starts a top-le
 
 規定の性質: `mandatory`。
 
+- [test_implicit_always_attempts.sv](../tests/ch16/test_implicit_always_attempts.sv): x が 5,15,35,55 で高く 25,45 で低い刺激で、モジュール項目の a_static は毎 tick 試行を始めて passes 5 15 35 55, failures 25 45、同じアサーションを initial に置いた a_once は1回だけ試行して passes 5, failures(なし)、initial の always x(a_always)は1回の試行が最初の偽の tick 25 で失敗する(passes なし, failures 25)ことを比較する。 区別: initial の外のアサーションで各 tick に試行を始めない(最初の tick だけ評価する)誤実装では a_static が passes 5, failures なしになる。initial の中でも毎 tick 試行する誤実装では a_once が a_static と同じ列になる。always を毎 tick 新しい試行として扱う誤実装では a_always の failures が 25 45 になる。
 
 ### SV2023-16.12.11-EXTRACT-RANGED-ALWAYS
 
@@ -39173,7 +39983,7 @@ Eventually first aligns to its clock at or after evaluation time; s_eventually[n
 
 ### SV2023-16.12.13-EXTRACT-RANGED-STRONG-EVENTUALLY
 
-16.12.13 / normal / テスト未対応
+16.12.13 / normal / テスト対応あり・実行未確認
 
 s_eventually[n:m] p requires a tick in the range at which p holds; the upper bound may be $.
 
@@ -39181,6 +39991,8 @@ s_eventually[n:m] p requires a tick in the range at which p holds; the upper bou
 
 規定の性質: `definition`。
 
+- [test_property_nexttime_eventually.sv](../tests/ch16/test_property_nexttime_eventually.sv): x を開始の 1,2,3,4 tick 後に1回だけ立て、s_eventually [2:3] x の失敗が 1,0,0,1。
+- [test_property_strong_unbounded_operators.sv](../tests/ch16/test_property_strong_unbounded_operators.sv): start が 105 と 155、e が 115,145,155,205 で、s_eventually [2:$] e が 145 と 205 で成功する(s_eventually e は 115 と 155)。
 
 ### SV2023-16.12.13-EXTRACT-STRONG-EVENTUALLY
 
@@ -39218,7 +40030,7 @@ Abort conditions may use sampled-value functions but non-$sampled functions requ
 
 ### SV2023-16.12.14-EXTRACT-ABORT-FORMS
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 accept_on/reject_on are asynchronous abort property operators; sync_accept_on/sync_reject_on are synchronous variants, each taking an expression_or_dist condition and property operand.
 
@@ -39226,10 +40038,11 @@ accept_on/reject_on are asynchronous abort property operators; sync_accept_on/sy
 
 規定の性質: `definition`。
 
+- [test_abort_condition_sampling.sv](../tests/ch16/test_abort_condition_sampling.sv): accept_on (stop)、reject_on (stop)、sync_accept_on (stop)、sync_reject_on (stop) の4形すべてを property 演算子として ##2 done と not (##2 done) に適用し、非同期の2形は tick の間の停止にも反応し(between ticks の行)、同期の2形は tick でだけ反応する(at tick 1 の行は4形すべてが停止、between ticks の行では同期形が反応しない)ことを比較する。 区別: 4形のいずれかを受け付けない実装はコンパイルできない。非同期形と同期形の区別をしない誤実装では between ticks の行で reject_on と sync_reject_on(accept_on と sync_accept_on)の値が同じになり、期待の 1 と 0(0 と 1)の違いが消える。
 
 ### SV2023-16.12.14-EXTRACT-ABORT-NESTING
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 Any nesting of the four abort operators is permitted.
 
@@ -39237,10 +40050,12 @@ Any nesting of the four abort operators is permitted.
 
 規定の性質: `permission`。
 
+- [test_property_abort_nesting.sv](../tests/ch16/test_property_abort_nesting.sv): accept_on (ka) reject_on (kr) と reject_on (kr) accept_on (ka) が、同時刻の ka と kr で 0 と 1、kr が先なら 1 と 1、ka が先なら 0 と 0 の失敗回数になる。
+- [test_abort_nested_sync_forms.sv](../tests/ch16/test_abort_nested_sync_forms.sv): 同期どうし(n1, n2)と非同期・同期の混在(n3, n4)の入れ子が4局面で 0/1/0/1、1/1/1/1、0/0/0/0、1/1/0/0 の失敗回数になる。
 
 ### SV2023-16.12.14-EXTRACT-ABORT-PRECEDENCE
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 An abort condition has precedence when it occurs in the same time step as completion of its operand property.
 
@@ -39248,10 +40063,11 @@ An abort condition has precedence when it occurs in the same time step as comple
 
 規定の性質: `mandatory`。
 
+- [test_abort_condition_sampling.sv](../tests/ch16/test_abort_condition_sampling.sv): stop が T+18 に立ち上がり、標本値が後件の評価が終わる tick 2 (T+20) の時刻ステップで初めて真になる局面で、done があっても reject_on と sync_reject_on が失敗し(at tick 2, done: reject_on 1, sync_reject_on 1)、done がなくても accept_on と sync_accept_on が成功する(at tick 2, no done: accept_on 0, sync_accept_on 0)ことを比較する。 区別: 同じ時刻ステップで終わる後件の結果を停止条件より優先する誤実装では at tick 2, done の行が reject_on 0, sync_reject_on 0 に、at tick 2, no done の行が accept_on 1, sync_accept_on 1 に変わる。
 
 ### SV2023-16.12.14-EXTRACT-ACCEPT
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 An enabled accept abort condition during operand evaluation forces true; otherwise the operand result is retained.
 
@@ -39259,10 +40075,11 @@ An enabled accept abort condition during operand evaluation forces true; otherwi
 
 規定の性質: `definition`。
 
+- [test_abort_condition_sampling.sv](../tests/ch16/test_abort_condition_sampling.sv): start |-> accept_on (stop) ##2 done と同じ形の sync_accept_on について、評価中に停止条件が真になると後件が偽でも真になり(between ticks, no done で accept_on 0、at tick 1, no done で accept_on 0 と sync_accept_on 0)、条件が真にならなければ後件の結果のまま(no stop, done で 0、no stop, no done で 1、tick の間だけの stop を見ない sync_accept_on は between ticks, no done で 1)であることを比較する。 区別: 停止条件で真にしない誤実装では between ticks / at tick 1 の no done の行で accept_on や sync_accept_on が 1 になる。条件がないときにも真にする(後件を無視する)誤実装では no stop, no done の行が 0 になる。
 
 ### SV2023-16.12.14-EXTRACT-ASYNCHRONOUS-SAMPLED
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 accept_on/reject_on conditions use sampled values and are evaluated at simulation-time-step granularity, including between property clock ticks; they operate at property level and yield a Boolean result, not disabled.
 
@@ -39270,10 +40087,11 @@ accept_on/reject_on conditions use sampled values and are evaluated at simulatio
 
 規定の性質: `mandatory`。
 
+- [test_abort_condition_sampling.sv](../tests/ch16/test_abort_condition_sampling.sv): accept_on / reject_on の条件を時刻ステップごとに標本値で見ることを、tick の間だけ高い stop(T+3〜T+6)で reject_on が失敗し accept_on が後件の偽を真にする(between ticks, done: reject_on 1、between ticks, no done: accept_on 0)こと、tick 1 の時刻ステップで立ち上がり tick 2 の前に落ちる stop も T+12 以降の標本で見る(with tick 1, done: reject_on 1)こと、tick 2 の時刻ステップで立ち上がる stop は評価の終わりまで標本値に現れず無視される(with tick 2, done: reject_on 0)ことで比較する。停止は disabled でなく結果として fail 動作を実行させる。 区別: 非同期の停止を tick でしか見ない誤実装(Verilator 5.052 がそうである)では between ticks と with tick 1 の行で reject_on 0、accept_on 1 に変わる。標本値でなく現在値を使う誤実装では with tick 2, done の行で reject_on 1 になる。停止を disabled として扱う誤実装では reject_on の失敗が数えられず 0 になる。
 
 ### SV2023-16.12.14-EXTRACT-OUTER-PRECEDENCE
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 Nested abort operators evaluate in lexical left-to-right order; if nested conditions become true in the same time step, the outermost operator has precedence.
 
@@ -39281,10 +40099,12 @@ Nested abort operators evaluate in lexical left-to-right order; if nested condit
 
 規定の性質: `mandatory`。
 
+- [test_property_abort_nesting.sv](../tests/ch16/test_property_abort_nesting.sv): 同時の ka と kr で a_ar 0, a_ra 1、kr が先で a_ar 1、ka が先で a_ra 0。
+- [test_abort_nested_sync_forms.sv](../tests/ch16/test_abort_nested_sync_forms.sv): tick 1 で同時の ka と kr で n1 0, n2 1, n3 0, n4 1、ka が先の局面で n2 0 / n4 0、tick の間の ka で n3 0 / n4 0。
 
 ### SV2023-16.12.14-EXTRACT-REJECT
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 An enabled reject abort condition during operand evaluation forces false; otherwise the operand result is retained.
 
@@ -39292,10 +40112,11 @@ An enabled reject abort condition during operand evaluation forces false; otherw
 
 規定の性質: `definition`。
 
+- [test_abort_condition_sampling.sv](../tests/ch16/test_abort_condition_sampling.sv): reject_on (stop) と sync_reject_on (stop) について、評価中に条件が真になると後件が真でも偽になり(between ticks, done で reject_on 1、at tick 1, done で reject_on 1 と sync_reject_on 1)、真にならなければ後件の結果のまま(no stop, done で 0、no stop, no done で 1、tick の間だけの stop を見ない sync_reject_on は between ticks, done で 0)であることを比較する。 区別: 停止条件で偽にしない誤実装では at tick 1, done の行の reject_on / sync_reject_on が 0 になる。条件がないときにも偽にする誤実装では no stop, done の行が 1 になる。停止を偽でなく disabled として fail 動作を実行しない誤実装でも at tick 1, done の行が 0 になる。
 
 ### SV2023-16.12.14-EXTRACT-REJECT-DUAL
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 reject_on(c) p equals not(accept_on(c) not(p)).
 
@@ -39303,10 +40124,11 @@ reject_on(c) p equals not(accept_on(c) not(p)).
 
 規定の性質: `definition`。
 
+- [test_abort_condition_sampling.sv](../tests/ch16/test_abort_condition_sampling.sv): start |-> reject_on (stop) ##2 done と start |-> not (accept_on (stop) not (##2 done)) を10の局面(停止なし、tick の間、tick 1 での標本、tick 1 の時刻ステップでの立ち上がり、tick 2 の時刻ステップでの立ち上がり、tick 2 での標本、それぞれ done あり/なし)で並べ、各行の reject_on と not accept_on not の失敗回数が常に等しいこと(1,1 / 0,0 など)を比較する。 区別: reject_on を not(accept_on not) と異なる意味で扱う誤実装、例えば reject_on だけ標本値でなく現在値を使う、tick の間を見ない、終了と同じ時刻ステップの停止を優先しない実装では、with tick 2 / between ticks / at tick 2 の行で reject_on と not accept_on not の値が食い違う。
 
 ### SV2023-16.12.14-EXTRACT-SYNC-REJECT-DUAL
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 sync_reject_on(c) p equals not(sync_accept_on(c) not(p)).
 
@@ -39314,10 +40136,11 @@ sync_reject_on(c) p equals not(sync_accept_on(c) not(p)).
 
 規定の性質: `definition`。
 
+- [test_abort_condition_sampling.sv](../tests/ch16/test_abort_condition_sampling.sv): start |-> sync_reject_on (stop) ##2 done と start |-> not (sync_accept_on (stop) not (##2 done)) を同じ10局面で並べ、各行の sync_reject_on と not sync_accept_on not の失敗回数が常に等しいこと(between ticks, done と with tick 1, done で 0,0、at tick 1 と at tick 2 で 1,1 など)を比較する。 区別: sync_reject_on を not(sync_accept_on not) と異なる意味で扱う誤実装、例えば sync_reject_on だけ tick の間の条件も見る、現在値で判定する、終了時の停止を優先しない実装では between ticks / with tick 1 / at tick 2 の行で2つの値が食い違う。
 
 ### SV2023-16.12.14-EXTRACT-SYNCHRONOUS-SAMPLED
 
-16.12.14 / normal / テスト未対応
+16.12.14 / normal / テスト対応あり・実行未確認
 
 sync_accept_on/sync_reject_on use sampled values but evaluate their conditions only in time steps containing their clocking event.
 
@@ -39325,6 +40148,7 @@ sync_accept_on/sync_reject_on use sampled values but evaluate their conditions o
 
 規定の性質: `mandatory`。
 
+- [test_abort_condition_sampling.sv](../tests/ch16/test_abort_condition_sampling.sv): sync_accept_on / sync_reject_on が条件をクロックの時刻ステップでだけ標本値で見ることを、tick の間だけの stop は無視され(between ticks, done: sync_reject_on 0、between ticks, no done: sync_accept_on 1)、tick 1 で標本値が真なら停止し(at tick 1: sync_accept_on 0、sync_reject_on 1)、tick 1 の時刻ステップでクロックの前に立ち上がって tick 2 の前に落ちる stop は tick 1 でも tick 2 でも標本値が偽なので無視される(with tick 1, done: sync_reject_on 0)ことで比較する。 区別: 同期の停止を tick の間でも見る誤実装では between ticks の行で sync_reject_on 1 / sync_accept_on 0 に変わる。tick での判定に標本値でなく現在値を使う誤実装では with tick 1, done の行で sync_reject_on 1 に変わる。tick で停止しない誤実装では at tick 1 の行が変わる。
 
 ### SV2023-16.12.15-EXTRACT-STRONG-OPERATORS
 
@@ -55414,7 +56238,7 @@ A converted plusarg value is zero-padded to a wider destination and truncated wh
 
 ### SV2023-21.7-EXTRACT-VCD-VARIANTS
 
-21.7 / normal / テスト未対応
+21.7 / normal / テスト対応あり・実行未確認
 
 Four-state VCD represents 0/1/x/z changes without strength; extended VCD represents all states and strength.
 
@@ -55422,6 +56246,8 @@ Four-state VCD represents 0/1/x/z changes without strength; extended VCD represe
 
 規定の性質: `definition`。
 
+- [test_vcd_four_state_values_without_strength.sv](../tests/ch21/test_vcd_four_state_values_without_strength.sv): v を 0/1/x/z と変え、強度の異なる 4 本のネットが #0〜#30 で同じ 0/1/x/z を取り、強度付きのトークンは 0 個。
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 拡張 VCD の各ポートの値が状態文字と 2 つの強度成分で記録される（#0 の pD 6 0/pD 3 0/pD 5 0/pD 7 0、#30 の pZ 0 0 と pX 6 6 など）。
 
 ### SV2023-21.7.1-EXTRACT-ASCII-CONTENTS
 
@@ -55579,7 +56405,7 @@ While enabled, ordinary dumping records variables changing in each time incremen
 
 ### SV2023-21.7.1.5-EXTRACT-DUMP-BYTE-LIMIT
 
-21.7.1.5 / boundary / テスト未対応
+21.7.1.5 / boundary / テスト対応あり・実行未確認
 
 dumplimit specifies the maximum VCD byte size; reaching it stops dumping and inserts a limit-reached comment.
 
@@ -55587,6 +56413,8 @@ dumplimit specifies the maximum VCD byte size; reaching it stops dumping and ins
 
 規定の性質: `mandatory`。
 
+- [test_vcd_dumplimit_stops_dump_with_comment.sv](../tests/ch21/test_vcd_dumplimit_stops_dump_with_comment.sv): $dumplimit(2000) の下で 1000 回の変化を記録し、5 行の判定がすべて yes と 0。
+- [test_vcd_dumplimit_not_reached_keeps_dumping.sv](../tests/ch21/test_vcd_dumplimit_not_reached_keeps_dumping.sv): $dumplimit(100000) の下で 50 回の変化を記録し、最後の値 50、順序どおり yes、最初の変化の後のコメント 0。
 
 ### SV2023-21.7.1.6-EXTRACT-DUMP-FLUSH
 
@@ -56083,7 +56911,7 @@ dumpports selects a file and module scope list; both arguments are optional unde
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-AND-VARIABLE-DUMP
 
-21.7.3.1 / normal / テスト未対応
+21.7.3.1 / normal / テスト対応あり・実行未確認
 
 dumpports may coexist with dumpvars.
 
@@ -56091,6 +56919,7 @@ dumpports may coexist with dumpvars.
 
 規定の性質: `permission`。
 
+- [test_evcd_dumpports_files_defaults_and_control_scope.sv](../tests/ch21/test_evcd_dumpports_files_defaults_and_control_scope.sv): 4 つの $dumpports と同じモデルで $dumpfile と $dumpvars(0, ...vp) を使い、ポートのファイル a〜d と並んで 4 状態 VCD に vp の変化 #0=0 #10=1 #25=0 #45=1 が記録される。時刻 25 の変化はポートのダンプが止まっていても $dumpvars の側には出る。 区別: $dumpports と $dumpvars を併用できない実装はどちらかのファイルを作らず、最後の vp の行か file a〜d の行が消える。2 つの仕組みを混同して $dumpportsoff で $dumpvars まで止める実装は #25=0 が消える。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-ARGUMENT-DEFAULTS
 
@@ -56116,7 +56945,7 @@ Multiple dumpports calls shall execute at the same simulation time and shall not
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-DUMP-START
 
-21.7.3.1 / normal / テスト未対応
+21.7.3.1 / normal / テスト対応あり・実行未確認
 
 dumpports begins dumping at the end of the current simulation time unit.
 
@@ -56124,6 +56953,7 @@ dumpports begins dumping at the end of the current simulation time unit.
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): $dumpports を呼んだ直後の時刻 0 の中で v_y を 1 にし、#0 の後に 0 へ戻す。記録は時刻 0 の終わりから始まるので、#0 の $dumpports の節には時刻 0 の終わりの値（i_y=pD 7 0 を含む）だけが出て、#0 の別の行は無い。 区別: 呼んだ時点から記録を始める実装は時刻 0 の途中の i_y の 1 と 0 への変化（または継続代入が評価される前の x）を書き、#0 の行の値が変わるか、#0: の行が増える。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-FILE-CHECKS
 
@@ -56138,7 +56968,7 @@ The simulator shall perform file-writing checks and issue appropriate errors or 
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-FILENAME
 
-21.7.3.1 / normal / テスト未対応
+21.7.3.1 / normal / テスト対応あり・実行未確認
 
 The port-dump filename may be a string literal, string expression or integral character string; omission selects dumpports.vcd in the current working directory and silently overwrites it if present.
 
@@ -56146,10 +56976,11 @@ The port-dump filename may be a string literal, string expression or integral ch
 
 規定の性質: `mandatory`。
 
+- [test_evcd_dumpports_files_defaults_and_control_scope.sv](../tests/ch21/test_evcd_dumpports_files_defaults_and_control_scope.sv): ファイル名を string 変数 fname_a、文字列を入れた整数型の変数 fname_b、文字列リテラル（ud）で与え、省略した uc の $dumpports() は dumpports.vcd に書く。uc は呼ぶ前に dumpports.vcd へ an old file の行を書いておく。4 ファイルとも期待どおりの var と値の行が出て、dumpports.vcd に古い行のトークンが残らない（0）。 区別: string 変数や整数型のファイル名を受け付けない実装は file a や b の行が出ず、省略時に別の名前や場所を使う実装は file c の行が出ない。既存の dumpports.vcd に追記する実装は an/old/file のトークンが残り file c の最後の数が 3 になる。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-SCOPE-DEPTH
 
-21.7.3.1 / normal / テスト未対応
+21.7.3.1 / normal / テスト対応あり・実行未確認
 
 Selected module ports are treated as primary I/O and included; ports of lower instantiated modules are not included.
 
@@ -56157,6 +56988,7 @@ Selected module ports are treated as primary I/O and included; ports of lower in
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_node_declarations.sv](../tests/ch21/test_evcd_port_node_declarations.sv): $dumpports で選んだ evcd_node_dut のポート a、d、ca、cb、y が var port として出て、その中のインスタンス evcd_node_leaf のポート li、lo は出ない。 区別: 下位インスタンスのポートも含める実装では li と lo の var の行が増え、選んだモジュールのポートを含めない実装では var の行が欠ける。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-SCOPE-UNIQUENESS
 
@@ -56193,7 +57025,7 @@ dumpportsoff/dumpportson control port dumping; their optional filename is a stri
 
 ### SV2023-21.7.3.2-EXTRACT-PORT-ENABLE-IDEMPOTENCE
 
-21.7.3.2 / boundary / テスト未対応
+21.7.3.2 / boundary / テスト対応あり・実行未確認
 
 dumpportson on an already enabled file and dumpportsoff on an already suspended file are ignored.
 
@@ -56201,10 +57033,11 @@ dumpportson on an already enabled file and dumpportsoff on an already suspended 
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 時刻 50 の $dumpportsoff で止めた後、57 の 2 回目の $dumpportsoff は無視されて #57 の節が無い。60 の $dumpportson で再開した後、62 の 2 回目の $dumpportson は無視されて #62 の節が無い。期待出力は #50 の off と #60 の on の節だけ。 区別: 止めているときの $dumpportsoff で 2 回目の x のチェックポイントを書く実装は #57 $dumpportsoff の行が、記録中の $dumpportson で値を書く実装は #62 $dumpportson の行が増える。
 
 ### SV2023-21.7.3.2-EXTRACT-PORT-OFF
 
-21.7.3.2 / normal / テスト未対応
+21.7.3.2 / normal / テスト対応あり・実行未確認
 
 dumpportsoff writes an x-valued checkpoint for selected ports and stops subsequent changes; omission of filename suspends all dumpports files.
 
@@ -56212,10 +57045,12 @@ dumpportsoff writes an x-valued checkpoint for selected ports and stops subseque
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): $dumpportsoff(FILE) で #50 に全ポートの N/X が出て、55 の v_s の変化は出ない（#60 の on まで行が無い）。
+- [test_evcd_dumpports_files_defaults_and_control_scope.sv](../tests/ch21/test_evcd_dumpports_files_defaults_and_control_scope.sv): $dumpportsoff; で a〜d の全ファイルに #20 の x のチェックポイント（p=N q=X、r=N、s=N、t=X）が出て、25 の変化はどのファイルにも無い。
 
 ### SV2023-21.7.3.2-EXTRACT-PORT-ON
 
-21.7.3.2 / normal / テスト未対応
+21.7.3.2 / normal / テスト対応あり・実行未確認
 
 dumpportson dumps current values of associated ports and resumes their file; omitted filename resumes every stopped dumpports file.
 
@@ -56223,10 +57058,12 @@ dumpportson dumps current values of associated ports and resumes their file; omi
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): $dumpportson(FILE) で #60 に 6 ポートの現在値（i_s=pD 6 0 は止めている間の変化）が出て、#70 の i_w の変化も出る。
+- [test_evcd_dumpports_files_defaults_and_control_scope.sv](../tests/ch21/test_evcd_dumpports_files_defaults_and_control_scope.sv): $dumpportson(); で a〜d に #30 の現在値（p=pD 6 0 q=pH 0 6、r=pD 6 0、s=pD 6 0、t=pL 6 0）が出る。
 
 ### SV2023-21.7.3.3-EXTRACT-PORT-CHECKPOINT
 
-21.7.3.3 / normal / テスト未対応
+21.7.3.3 / normal / テスト対応あり・実行未確認
 
 dumpportsall writes the current value of every selected port, even if unchanged since the preceding time step.
 
@@ -56234,10 +57071,11 @@ dumpportsall writes the current value of every selected port, even if unchanged 
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 時刻 80 の $dumpportsall で、70 以降変化していないポートを含む 6 ポート全部の現在値が $dumpportsall の節に出る（i_s=pD 6 0 ... o_w=pH 0 3）。 区別: 変化したポートだけを書く実装は #80 の行が空になって消えるか、ポートが欠ける。$dumpportsall を無視する実装も #80 の行が消える。
 
 ### SV2023-21.7.3.3-EXTRACT-PORT-CHECKPOINT-FILENAME
 
-21.7.3.3 / normal / テスト未対応
+21.7.3.3 / normal / テスト対応あり・実行未確認
 
 dumpportsall accepts a string literal/string expression/integral character-string filename; omission checkpoints all dumpports files.
 
@@ -56245,10 +57083,12 @@ dumpportsall accepts a string literal/string expression/integral character-strin
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): $dumpportsall("...controls.evcd") で #80 のチェックポイント。
+- [test_evcd_dumpports_files_defaults_and_control_scope.sv](../tests/ch21/test_evcd_dumpports_files_defaults_and_control_scope.sv): $dumpportsall; で a〜d に #40、$dumpportsall(fname_b) で b だけに #50、$dumpportsall(fname_a) で a だけに #60 のチェックポイント。
 
 ### SV2023-21.7.3.4-EXTRACT-PORT-LIMIT
 
-21.7.3.4 / boundary / テスト未対応
+21.7.3.4 / boundary / テスト対応あり・実行未確認
 
 dumpportslimit requires an integer byte-size argument; reaching this size stops dumping and writes a limit-reached comment.
 
@@ -56256,10 +57096,12 @@ dumpportslimit requires an integer byte-size argument; reaching this size stops 
 
 規定の性質: `mandatory`。
 
+- [test_evcd_dumpportslimit_stops_named_file.sv](../tests/ch21/test_evcd_dumpportslimit_stops_named_file.sv): $dumpportslimit(2000, ...) の下で 1000 回の変化を記録し、5 行の判定が yes と 0。
+- [test_evcd_dumpportslimit_named_by_variables.sv](../tests/ch21/test_evcd_dumpportslimit_named_by_variables.sv): $dumpportslimit(100000, fname_b) の file b は 300 まで全て記録しコメント 0、$dumpportslimit(1500, fname_a) の file a は止まる。
 
 ### SV2023-21.7.3.4-EXTRACT-PORT-LIMIT-FILENAME
 
-21.7.3.4 / normal / テスト未対応
+21.7.3.4 / normal / テスト対応あり・実行未確認
 
 The optional dumpportslimit filename accepts string literal/string/integral character-string expressions; omission applies the limit to all dumpports files.
 
@@ -56267,10 +57109,13 @@ The optional dumpportslimit filename accepts string literal/string/integral char
 
 規定の性質: `mandatory`。
 
+- [test_evcd_dumpportslimit_stops_named_file.sv](../tests/ch21/test_evcd_dumpportslimit_stops_named_file.sv): リテラルの名前のファイルが 2000 バイトで止まりコメントが続く。
+- [test_evcd_dumpportslimit_all_files.sv](../tests/ch21/test_evcd_dumpportslimit_all_files.sv): $dumpportslimit(1500) で file a と file b の両方が止まり、両方にコメントが続く。
+- [test_evcd_dumpportslimit_named_by_variables.sv](../tests/ch21/test_evcd_dumpportslimit_named_by_variables.sv): $dumpportslimit(1500, fname_a) で a だけが止まり、$dumpportslimit(100000, fname_b) の b は 300 まで記録する。
 
 ### SV2023-21.7.3.5-EXTRACT-PORT-FLUSH
 
-21.7.3.5 / normal / テスト未対応
+21.7.3.5 / normal / テスト対応あり・実行未確認
 
 dumpportsflush writes buffered port values to the associated file and clears the simulator VCD buffer.
 
@@ -56278,6 +57123,7 @@ dumpportsflush writes buffered port values to the associated file and clears the
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): $dumpportsflush をリテラルと FILE で呼んでからファイルを読み、#0〜#80 の全ての値の行と var の行が読める。 区別: バッファの値をファイルに書かない実装では、読んだファイルの後半（#80 の $dumpportsall など）や全体が欠け、期待出力の行が消える。
 
 ### SV2023-21.7.3.5-EXTRACT-PORT-FLUSH-FILENAME
 
@@ -56325,7 +57171,7 @@ Extended VCD tasks with only optional arguments accept either a bare name or emp
 
 ### SV2023-21.7.3.7-EXTRACT-UNKNOWN-PORT-FILE
 
-21.7.3.7 / boundary / テスト未対応
+21.7.3.7 / boundary / テスト対応あり・実行未確認
 
 An extended VCD control task naming no file specified by dumpports is ignored.
 
@@ -56333,10 +57179,11 @@ An extended VCD control task naming no file specified by dumpports is ignored.
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 時刻 65 に、どの $dumpports も開いていないファイル名で $dumpportsoff を呼ぶ。無視されるので記録は続き、70 の v_w の変化が #70: i_w=pD 3 0 として出る（off のチェックポイントも出ない）。 区別: 不明なファイル名の制御タスクを全ファイルに適用する実装は #65 の off の行を書き、#70 の行が消える。
 
 ### SV2023-21.7.4-EXTRACT-EXTENDED-FREE-FORM
 
-21.7.4 / normal / テスト未対応
+21.7.4 / normal / テスト対応あり・実行未確認
 
 Extended VCD uses free format with whitespace separating commands.
 
@@ -56344,10 +57191,11 @@ Extended VCD uses free format with whitespace separating commands.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): reader は拡張 VCD ファイルを $fscanf の %s で空白区切りのトークンとして読み、コマンド・#時刻・ポートの値の変化（p と状態文字、強度 2 つ、識別コード）のどれでもないトークンを数える。期待出力は全時刻の値と、その数 0。 区別: コマンドや値の要素を空白で区切らずに書く実装では、つながったトークンが分類できず最後の行の数が 0 でなくなり、値の行も欠ける。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-ABSOLUTE-TIME
 
-21.7.4.1 / normal / テスト未対応
+21.7.4.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD timestamps are absolute simulation time for subsequent port changes.
 
@@ -56355,10 +57203,11 @@ Extended VCD timestamps are absolute simulation time for subsequent port changes
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 変化を 10、20、30、40、70 ns に起こし、制御タスクを 50、60、80 ns に呼ぶ。期待出力の時刻はそれぞれの絶対時刻 #10〜#80（timescale 1ns）で、前の時刻からの差ではない。 区別: 時刻を前の記録からの差で書く実装では #20 以降が #10 や #30 → #10 のように変わり、各行の時刻が期待と合わない。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-CASE
 
-21.7.4.1 / normal / テスト未対応
+21.7.4.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD data is case-sensitive.
 
@@ -56366,10 +57215,12 @@ Extended VCD data is case-sensitive.
 
 規定の性質: `mandatory`。
 
+- [test_evcd_inout_same_value_conflicts.sv](../tests/ch21/test_evcd_inout_same_value_conflicts.sv): in0 は pD 6 0、d0 は pd 6 0、u1 は pu 0 6。
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): h1 は ph 0 6 と out1 は pH 0 6、ca=A と xa=a、cb=B と xb=b、xc=C と xcc=c。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-DECLARATION-GRAMMAR
 
-21.7.4.1 / normal / テスト未対応
+21.7.4.1 / normal / テスト対応あり・実行未確認
 
 Extended scope type is module and variable type port; a scalar size is 1 and vector size is its msb:lsb index; timescale permits 1/10/100 and fs/ps/ns/us/ms/s.
 
@@ -56377,6 +57228,7 @@ Extended scope type is module and variable type port; a scalar size is 1 and vec
 
 規定の性質: `definition`。
 
+- [test_evcd_port_node_declarations.sv](../tests/ch21/test_evcd_port_node_declarations.sv): 宣言部を読み、全スコープの型が module、各 $var の型が port で、スカラのポートの大きさが 1、ベクタ input [0:3] d の大きさが [0:3]、timescale が 1ns（1 と ns）であることを表示する。 区別: スコープの型や変数の型に他のキーワード（4 状態 VCD の wire/reg など）を使う実装は every scope / var の行が変わる。ベクタの大きさをビット数 4 で書く実装は d の行が var port 4 になり、timescale の書式が違えば timescale の行が変わる。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-EQUIVALENCE
 
@@ -56424,7 +57276,7 @@ Extended VCD dumps a whole vector rather than a partial range and does not dump 
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-ORDER
 
-21.7.4.1 / normal / テスト未対応
+21.7.4.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD starts with date/writer-version/timescale, then port scope definitions, then only changed-port entries per simulation increment.
 
@@ -56432,10 +57284,11 @@ Extended VCD starts with date/writer-version/timescale, then port scope definiti
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 最初の $scope の前に $date、$version、$timescale があり（yes）、続いてポートの $var が並び、その後の値の変化は各時刻に変化したポートだけ（#10 は i_s と i_w、#40 は o_s だけ）が出る。 区別: ヘッダを省くか定義の後に置く実装は最初の行が no になる。各時刻に全ポートを書く実装は #10 や #40 の行に変化していないポートが加わる。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-PORT-GRAMMAR
 
-21.7.4.1 / normal / テスト未対応
+21.7.4.1 / normal / テスト対応あり・実行未確認
 
 Extended values use a p-prefixed port-state character and strength0/strength1 components in 0..7; identifier codes use < followed by an integer.
 
@@ -56443,6 +57296,7 @@ Extended values use a p-prefixed port-state character and strength0/strength1 co
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 値の変化は p に続く状態文字 1 つのトークン（pD、pU、pN、pZ、pL、pH、pX、pT）、0〜7 の強度成分 2 つ（0、3、5、6、7 が出る）、< と整数の識別コード（<0〜<5、var の行と同じ）からなり、そうでないトークンは 0 個。 区別: p と状態文字を分けて書く実装や、識別コードを < 付きの整数にしない実装では、値を読めずトークンの数が 0 でなくなり各行の値が消える。強度を 0〜7 以外で書く実装は値の行の数字が変わる。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-REAL
 
@@ -56457,7 +57311,7 @@ The extended-format real-number rule specifies printf %.16g output and permits s
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-STATE-ALPHABETS
 
-21.7.4.1 / normal / テスト未対応
+21.7.4.1 / normal / テスト対応あり・実行未確認
 
 Extended state alphabets are D/U/N/Z/d/u for input, L/H/X/T/l/h for output, and 0/1/?/F/A/a/B/b/C/c/f for unknown direction.
 
@@ -56465,10 +57319,14 @@ Extended state alphabets are D/U/N/Z/d/u for input, L/H/X/T/l/h for output, and 
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 入力 i_s/i_w/i_p/i_y が D/U/N/Z、出力 o_s/o_w が L/H/X/T を取る。
+- [test_evcd_inout_same_value_conflicts.sv](../tests/ch21/test_evcd_inout_same_value_conflicts.sv): 同じ値の衝突が 0/1、入力が強い組が d/u、外だけの駆動が D。
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): 出力が強い組が l/h、値の異なる組が A/a/B/b/C/c、内だけの駆動が H。
+- [test_evcd_inout_unknown_and_three_state.sv](../tests/ch21/test_evcd_inout_unknown_and_three_state.sv): 両方向 x が ?、接続の無い inout が F、両方向 z が f。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-STRENGTH
 
-21.7.4.1 / normal / テスト未対応
+21.7.4.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD port changes represent four-state values together with strengths.
 
@@ -56476,10 +57334,11 @@ Extended VCD port changes represent four-state values together with strengths.
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): ポートの変化に 4 状態の値と強度がともに記録される。同じ 0 でも strong/weak/pull/supply の入力は pD 6 0、pD 3 0、pD 5 0、pD 7 0、weak の出力は pL 3 0、1 は pU 0 3 や pU 0 7 となる。 区別: 強度を書かない実装や駆動の強度を区別しない実装は、#0 の行の 4 つの入力が同じ値になり、#10/#30 の弱い・supply の 1 の値も変わる。
 
 ### SV2023-21.7.4.2-EXTRACT-CONCATENATED-NODES
 
-21.7.4.2 / normal / テスト未対応
+21.7.4.2 / normal / テスト対応あり・実行未確認
 
 Concatenated ports appear as separate extended VCD node entries.
 
@@ -56487,6 +57346,7 @@ Concatenated ports appear as separate extended VCD node entries.
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_node_declarations.sv](../tests/ch21/test_evcd_port_node_declarations.sv): 非 ANSI のポートリストの 3 番目のポートが連結 {ca, cb} の evcd_node_dut を $dumpports し、ca と cb がそれぞれ大きさ 1 の別の $var port（<2 ca、<3 cb）として出て、次のポート y が <4 になる。 区別: 連結ポートを 1 つの 2 ビットのエントリにする実装は ca/cb の 2 行が 1 行（例えば大きさ 2）になり、y の識別コードも <3 に変わる。
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-GRAMMAR
 
@@ -56501,7 +57361,7 @@ Extended node declarations use $var port with scalar 1 or actual vector indices,
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-ORDER
 
-21.7.4.2 / normal / テスト未対応
+21.7.4.2 / normal / テスト対応あり・実行未確認
 
 Port identifier integers start at zero and increase by one in module declaration order.
 
@@ -56509,6 +57369,7 @@ Port identifier integers start at zero and increase by one in module declaration
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_node_declarations.sv](../tests/ch21/test_evcd_port_node_declarations.sv): モジュール宣言の順 a、d、{ca, cb}、y の各ポートが、ファイルの順に識別コード <0、<1、<2、<3、<4 を 0 から 1 ずつ増やして持つ。 区別: 0 以外から始める、宣言順と別の順（名前順など）にする、1 ずつ増やさない実装では var の行の識別コードか順序が変わる。
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-RANGE
 
@@ -56523,7 +57384,7 @@ Use the port declaration vector index if present, otherwise the matching net/var
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-SPACING
 
-21.7.4.2 / normal / テスト未対応
+21.7.4.2 / normal / テスト対応あり・実行未確認
 
 At least one space separates node syntactic elements; other formatting is vendor-selected and four-state vector-index syntax applies.
 
@@ -56531,10 +57392,11 @@ At least one space separates node syntactic elements; other formatting is vendor
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_node_declarations.sv](../tests/ch21/test_evcd_port_node_declarations.sv): reader はノード情報を空白区切りのトークンとして読み（ベクタの大きさは [ から ] までのトークンをつなげて 1 つとする）、各 $var の型・大きさ・識別コード・参照名の後が $end であることを確かめ、そうでないトークンを数える。期待出力は 5 つの var の行と数 0 で、空白の量や揃え方は問わない。 区別: 要素の間に空白を置かない実装では型と大きさや識別コードがつながって var の行が崩れ、$end の位置もずれてトークンの数が 0 でなくなる。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-0
 
-21.7.4.3 / normal / テスト未対応
+21.7.4.3 / normal / テスト対応あり・実行未確認
 
 Extended VCD strength component 0 represents highz.
 
@@ -56542,6 +57404,7 @@ Extended VCD strength component 0 represents highz.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 強度成分 0 は highz。z の入力 pZ 0 0、出力 pT 0 0 の両方の成分と、0 の値の strength1（pD 6 0 の 0）、1 の値の strength0（pU 0 6 の 0） が期待出力に出る。 区別: highz を 0 以外の数で書く実装、または highz の駆動を別の強度として書く実装は、該当するポートの値の数字が 0 から変わる。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-1
 
@@ -56567,7 +57430,7 @@ Extended VCD strength component 2 represents medium.
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-3
 
-21.7.4.3 / normal / テスト未対応
+21.7.4.3 / normal / テスト対応あり・実行未確認
 
 Extended VCD strength component 3 represents weak.
 
@@ -56575,6 +57438,7 @@ Extended VCD strength component 3 represents weak.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 強度成分 3 は weak。weak0/weak1 で駆動した入力 i_w の pD 3 0 と pU 0 3、weak の出力 o_w の pL 3 0 と pH 0 3 が期待出力に出る。 区別: weak を 3 以外の数で書く実装、または weak の駆動を別の強度として書く実装は、該当するポートの値の数字が 3 から変わる。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-4
 
@@ -56589,7 +57453,7 @@ Extended VCD strength component 4 represents large.
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-5
 
-21.7.4.3 / normal / テスト未対応
+21.7.4.3 / normal / テスト対応あり・実行未確認
 
 Extended VCD strength component 5 represents pull.
 
@@ -56597,10 +57461,11 @@ Extended VCD strength component 5 represents pull.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 強度成分 5 は pull。pull0/pull1 で駆動した入力 i_p の pD 5 0 と pU 0 5 が期待出力に出る。 区別: pull を 5 以外の数で書く実装、または pull の駆動を別の強度として書く実装は、該当するポートの値の数字が 5 から変わる。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-6
 
-21.7.4.3 / normal / テスト未対応
+21.7.4.3 / normal / テスト対応あり・実行未確認
 
 Extended VCD strength component 6 represents strong.
 
@@ -56608,10 +57473,11 @@ Extended VCD strength component 6 represents strong.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 強度成分 6 は strong。既定の強度で駆動した i_s の pD 6 0、pU 0 6、pN 6 6 と出力 o_s の pL 6 0、pH 0 6、pX 6 6 が期待出力に出る。 区別: strong を 6 以外の数で書く実装、または strong の駆動を別の強度として書く実装は、該当するポートの値の数字が 6 から変わる。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-7
 
-21.7.4.3 / normal / テスト未対応
+21.7.4.3 / normal / テスト対応あり・実行未確認
 
 Extended VCD strength component 7 represents supply.
 
@@ -56619,10 +57485,11 @@ Extended VCD strength component 7 represents supply.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 強度成分 7 は supply。supply0/supply1 で駆動した入力 i_y の pD 7 0 と pU 0 7 が期待出力に出る。 区別: supply を 7 以外の数で書く実装、または supply の駆動を別の強度として書く実装は、該当するポートの値の数字が 7 から変わる。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-VALUE-FIELDS
 
-21.7.4.3 / normal / テスト未対応
+21.7.4.3 / normal / テスト対応あり・実行未確認
 
 An extended port change begins with p immediately adjacent to its state character and includes strength0 and strength1 components.
 
@@ -56630,10 +57497,11 @@ An extended port change begins with p immediately adjacent to its state characte
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 各ポートの変化は p の直後に空白なしで状態文字が続くトークン（pD など）と、strength0 と strength1 の 2 つの成分（pD 3 0 の 3 と 0）からなる。reader は 2 文字の p トークンの後に 2 つの成分と識別コードを読む。 区別: p と状態文字の間に空白を置く実装や強度成分を省く実装では、値を読めずトークン数が 0 でなくなり、各ポートの値の行が崩れる。
 
 ### SV2023-21.7.4.3-EXTRACT-PORT-VALUE-IDENTIFIER
 
-21.7.4.3 / normal / テスト未対応
+21.7.4.3 / normal / テスト対応あり・実行未確認
 
 Port value changes use the same <integer identifier established by their var declaration.
 
@@ -56641,10 +57509,11 @@ Port value changes use the same <integer identifier established by their var dec
 
 規定の性質: `mandatory`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 値の変化の識別コード（<0〜<5）は $var で定めたものと同じで、reader は var の行で集めたコードで名前を引く。見つからないコードはトークン数に数える。期待出力では全ての値が i_s〜o_w の名前で出て、数は 0。 区別: 値の変化に宣言と別の識別コードを使う実装では名前を引けず、値が出ずにトークン数が増える。
 
 ### SV2023-21.7.4.3.1-EXTRACT-INPUT-0-68
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD input state character D denotes low.
 
@@ -56652,10 +57521,11 @@ Extended VCD input state character D denotes low.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 入力の状態文字 D は低。入力 i_s/i_w/i_p/i_y の 0（#0）と i_w の 0（#70） が pD として出る。 区別: 入力の低を D 以外の文字（例えば4状態の値の文字や出力側の文字）で書く実装では、該当する行の pD が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-INPUT-1-85
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD input state character U denotes high.
 
@@ -56663,10 +57533,11 @@ Extended VCD input state character U denotes high.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 入力の状態文字 U は高。入力 i_s と i_w の 1（#10）、i_p の 1（#20）、i_y の 1（#30） が pU として出る。 区別: 入力の高を U 以外の文字（例えば4状態の値の文字や出力側の文字）で書く実装では、該当する行の pU が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-INPUT-2-78
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD input state character N denotes unknown.
 
@@ -56674,10 +57545,11 @@ Extended VCD input state character N denotes unknown.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 入力の状態文字 N は不定。強い駆動の x の入力 i_s（#20）と $dumpportsoff の入力の x（#50） が pN として出る。 区別: 入力の不定を N 以外の文字（例えば4状態の値の文字や出力側の文字）で書く実装では、該当する行の pN が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-INPUT-3-90
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD input state character Z denotes three-state.
 
@@ -56685,10 +57557,11 @@ Extended VCD input state character Z denotes three-state.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 入力の状態文字 Z はスリーステート。z を駆動する入力 i_s（#30） が pZ として出る。 区別: 入力のスリーステートを Z 以外の文字（例えば4状態の値の文字や出力側の文字）で書く実装では、該当する行の pZ が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-INPUT-4-100
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD input state character d denotes low with two or more active drivers.
 
@@ -56696,10 +57569,11 @@ Extended VCD input state character d denotes low with two or more active drivers
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_same_value_conflicts.sv](../tests/ch21/test_evcd_inout_same_value_conflicts.sv): inout ポート d0 を外から strong 0、内から weak 0 で駆動し、2 つ以上の駆動がある入力側の低を表す d の pd 6 0 になる。 区別: 2 つの駆動がある低を D や 0 や l で書く実装では d0=pd 6 0 が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-INPUT-5-117
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD input state character u denotes high with two or more active drivers.
 
@@ -56707,10 +57581,11 @@ Extended VCD input state character u denotes high with two or more active driver
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_same_value_conflicts.sv](../tests/ch21/test_evcd_inout_same_value_conflicts.sv): inout ポート u1 を外から strong 1、内から weak 1 で駆動し、2 つ以上の駆動がある入力側の高を表す u の pu 0 6 になる。 区別: 2 つの駆動がある高を U や 1 や h で書く実装では u1=pu 0 6 が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-OUTPUT-0-76
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD output state character L denotes low.
 
@@ -56718,10 +57593,11 @@ Extended VCD output state character L denotes low.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 出力の状態文字 L は低。出力 o_s と o_w の 0（#0） が pL として出る。 区別: 出力の低を L 以外の文字（例えば4状態の値の文字や入力側の文字）で書く実装では、該当する行の pL が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-OUTPUT-0-84
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD output state character T denotes three-state.
 
@@ -56729,10 +57605,11 @@ Extended VCD output state character T denotes three-state.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 出力の状態文字 T はスリーステート。z を駆動する出力 o_s（#40） が pT として出る。 区別: 出力のスリーステートを T 以外の文字（例えば4状態の値の文字や入力側の文字）で書く実装では、該当する行の pT が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-OUTPUT-1-108
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD output state character l denotes low with two or more active drivers.
 
@@ -56740,10 +57617,11 @@ Extended VCD output state character l denotes low with two or more active driver
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): inout ポート l0 を外から weak 0、内から buf プリミティブの strong 0 で駆動し、2 つ以上の駆動がある出力側の低を表す l の pl 6 0 になる。 区別: 2 つの駆動がある出力側の低を L や 0 や d で書く実装では l0=pl 6 0 が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-OUTPUT-1-72
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD output state character H denotes high.
 
@@ -56751,10 +57629,11 @@ Extended VCD output state character H denotes high.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 出力の状態文字 H は高。出力 o_s の 1（#20）と o_w の 1（#30） が pH として出る。 区別: 出力の高を H 以外の文字（例えば4状態の値の文字や入力側の文字）で書く実装では、該当する行の pH が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-OUTPUT-2-104
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD output state character h denotes high with two or more active drivers.
 
@@ -56762,10 +57641,11 @@ Extended VCD output state character h denotes high with two or more active drive
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): inout ポート h1 を外から weak 1、内から strong 1 で駆動し、2 つ以上の駆動がある出力側の高を表す h の ph 0 6 になる。 区別: 2 つの駆動がある出力側の高を H や 1 や u で書く実装では h1=ph 0 6 が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-OUTPUT-2-88
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD output state character X denotes unknown or do-not-care.
 
@@ -56773,10 +57653,11 @@ Extended VCD output state character X denotes unknown or do-not-care.
 
 規定の性質: `definition`。
 
+- [test_evcd_port_states_strengths_and_controls.sv](../tests/ch21/test_evcd_port_states_strengths_and_controls.sv): 出力の状態文字 X は不定。x を駆動する出力 o_s（#30）と $dumpportsoff の出力の x（#50） が pX として出る。 区別: 出力の不定を X 以外の文字（例えば4状態の値の文字や入力側の文字）で書く実装では、該当する行の pX が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-0-48
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character 0 denotes both directions active at 0.
 
@@ -56784,10 +57665,11 @@ Extended VCD unknown state character 0 denotes both directions active at 0.
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_same_value_conflicts.sv](../tests/ch21/test_evcd_inout_same_value_conflicts.sv): inout ポート s0（外 strong 0、内 strong 0）、w0（両側 weak 0）、q0（外 pull 0、内 strong 0）で入出力の両方が 0 を駆動し、状態文字 0 の p0 6 0、p0 3 0、p0 6 0 になる。外だけが駆動する in0 は pD。 区別: 両方向が 0 で活動する状態を 0 以外（D、L、d、l など）で書く実装では s0/w0/q0 の値が変わり、in0 との区別も消える。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-1-49
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character 1 denotes both directions active at 1.
 
@@ -56795,10 +57677,11 @@ Extended VCD unknown state character 1 denotes both directions active at 1.
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_same_value_conflicts.sv](../tests/ch21/test_evcd_inout_same_value_conflicts.sv): inout ポート s1 を外から supply 1、内から strong 1 で駆動し、両方向が 1 で活動する状態文字 1 の p1 0 7 になる。 区別: 両方向が 1 の状態を 1 以外（U、H、u、h など）で書く実装では s1=p1 0 7 が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-10-102
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character f denotes unknown with both directions three-stated.
 
@@ -56806,10 +57689,11 @@ Extended VCD unknown state character f denotes unknown with both directions thre
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_unknown_and_three_state.sv](../tests/ch21/test_evcd_inout_unknown_and_three_state.sv): inout ポート tf の外と内の両方に z を駆動する連続代入を置き、両方向がスリーステートの状態文字 f になる。外からだけ z の入力 zi は pZ 0 0、内からだけ z の出力 zo は pT 0 0 で区別される。 区別: 両方向がスリーステートの inout を Z、T、F で書く実装では tf=f が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-2-63
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character ? denotes unknown.
 
@@ -56817,10 +57701,11 @@ Extended VCD unknown state character ? denotes unknown.
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_unknown_and_three_state.sv](../tests/ch21/test_evcd_inout_unknown_and_three_state.sv): inout ポート qq を外（入力）と内（出力）の両方から strong の x で駆動する。入力 X と出力 X の組は A/a/B/b/C/c のどれにも当たらず、状態文字 ? になる（強度は節が定めないので文字だけを表示）。 区別: この組を N や X や C/c、a/b で書く実装では qq=? が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-3-70
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character F denotes three-state with both directions unconnected.
 
@@ -56828,10 +57713,11 @@ Extended VCD unknown state character F denotes three-state with both directions 
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_unknown_and_three_state.sv](../tests/ch21/test_evcd_inout_unknown_and_three_state.sv): inout ポート ff を外では接続せず（.ff()）、内にも駆動を置かない。入力も出力もつながっていないスリーステートとして状態文字 F になる。 区別: 接続の無い inout を Z や T や f で書く実装では ff=F が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-4-65
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character A denotes unknown from input 0/output 1.
 
@@ -56839,10 +57725,11 @@ Extended VCD unknown state character A denotes unknown from input 0/output 1.
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): inout ポート ca を外（入力）から strong の 0、内（出力）から strong の 1 で駆動し、状態文字 A（入力 0、出力 1 の不定）になる。強度は節が定めないので文字だけを表示する。 区別: 入力と出力の値の組を取り違える実装（A の代わりに他の A/a/B/b/C/c を使う）や、不定を ? や N/X で書く実装では ca=A が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-5-97
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character a denotes unknown from input 0/output X.
 
@@ -56850,10 +57737,11 @@ Extended VCD unknown state character a denotes unknown from input 0/output X.
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): inout ポート xa を外（入力）から strong の 0、内（出力）から strong の x で駆動し、状態文字 a（入力 0、出力 X の不定）になる。強度は節が定めないので文字だけを表示する。 区別: 入力と出力の値の組を取り違える実装（a の代わりに他の A/a/B/b/C/c を使う）や、不定を ? や N/X で書く実装では xa=a が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-6-66
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character B denotes unknown from input 1/output 0.
 
@@ -56861,10 +57749,11 @@ Extended VCD unknown state character B denotes unknown from input 1/output 0.
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): inout ポート cb を外（入力）から strong の 1、内（出力）から strong の 0 で駆動し、状態文字 B（入力 1、出力 0 の不定）になる。強度は節が定めないので文字だけを表示する。 区別: 入力と出力の値の組を取り違える実装（B の代わりに他の A/a/B/b/C/c を使う）や、不定を ? や N/X で書く実装では cb=B が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-7-98
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character b denotes unknown from input 1/output X.
 
@@ -56872,10 +57761,11 @@ Extended VCD unknown state character b denotes unknown from input 1/output X.
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): inout ポート xb を外（入力）から strong の 1、内（出力）から strong の x で駆動し、状態文字 b（入力 1、出力 X の不定）になる。強度は節が定めないので文字だけを表示する。 区別: 入力と出力の値の組を取り違える実装（b の代わりに他の A/a/B/b/C/c を使う）や、不定を ? や N/X で書く実装では xb=b が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-8-67
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character C denotes unknown from input X/output 0.
 
@@ -56883,10 +57773,11 @@ Extended VCD unknown state character C denotes unknown from input X/output 0.
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): inout ポート xc を外（入力）から strong の x、内（出力）から strong の 0 で駆動し、状態文字 C（入力 X、出力 0 の不定）になる。強度は節が定めないので文字だけを表示する。 区別: 入力と出力の値の組を取り違える実装（C の代わりに他の A/a/B/b/C/c を使う）や、不定を ? や N/X で書く実装では xc=C が変わる。
 
 ### SV2023-21.7.4.3.1-EXTRACT-UNKNOWN-9-99
 
-21.7.4.3.1 / normal / テスト未対応
+21.7.4.3.1 / normal / テスト対応あり・実行未確認
 
 Extended VCD unknown state character c denotes unknown from input X/output 1.
 
@@ -56894,6 +57785,7 @@ Extended VCD unknown state character c denotes unknown from input X/output 1.
 
 規定の性質: `definition`。
 
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): inout ポート xcc を外（入力）から strong の x、内（出力）から strong の 1 で駆動し、状態文字 c（入力 X、出力 1 の不定）になる。強度は節が定めないので文字だけを表示する。 区別: 入力と出力の値の組を取り違える実装（c の代わりに他の A/a/B/b/C/c を使う）や、不定を ? や N/X で書く実装では xcc=c が変わる。
 
 ### SV2023-21.7.4.3.2-EXTRACT-DRIVER-RANGES
 
@@ -56908,7 +57800,7 @@ For extended VCD conflict classification, strengths 5..7 are strong and 1..4 wea
 
 ### SV2023-21.7.4.3.2-EXTRACT-INPUT-STRONG
 
-21.7.4.3.2 / normal / テスト未対応
+21.7.4.3.2 / normal / テスト対応あり・実行未確認
 
 Strong-range input versus weak-range output resolves to d/u using input strength.
 
@@ -56916,10 +57808,11 @@ Strong-range input versus weak-range output resolves to d/u using input strength
 
 規定の性質: `mandatory`。
 
+- [test_evcd_inout_same_value_conflicts.sv](../tests/ch21/test_evcd_inout_same_value_conflicts.sv): 入力（外）が強い範囲、出力（内）が弱い範囲で同じ値を駆動する d0（strong 0 と weak 0）と u1（strong 1 と weak 1）が、入力の強度 6 の pd 6 0 と pu 0 6 になる。 区別: この組を 0/1 にする実装や出力の強度 3 を使う実装では d0/u1 の値が pd 3 0 や p0 6 0 などに変わる。
 
 ### SV2023-21.7.4.3.2-EXTRACT-OUTPUT-STRONG
 
-21.7.4.3.2 / normal / テスト未対応
+21.7.4.3.2 / normal / テスト対応あり・実行未確認
 
 Weak-range input versus strong-range output resolves to l/h using output strength.
 
@@ -56927,6 +57820,7 @@ Weak-range input versus strong-range output resolves to l/h using output strengt
 
 規定の性質: `mandatory`。
 
+- [test_evcd_inout_output_strong_and_unknown_direction.sv](../tests/ch21/test_evcd_inout_output_strong_and_unknown_direction.sv): 入力（外）が弱い範囲、出力（内）が強い範囲で同じ値を駆動する l0（weak 0 と buf の strong 0）と h1（weak 1 と strong 1）が、出力の強度 6 の pl 6 0 と ph 0 6 になる。 区別: この組を 0/1 にする実装や入力の強度 3 を使う実装では l0/h1 の値が pl 3 0 や p0 6 0 などに変わる。
 
 ### SV2023-21.7.4.3.2-EXTRACT-PORT-DRIVERS
 
@@ -56941,7 +57835,7 @@ Extended VCD driver classification considers primitives, continuous assignments 
 
 ### SV2023-21.7.4.3.2-EXTRACT-SAME-RANGE-CONFLICT
 
-21.7.4.3.2 / normal / テスト未対応
+21.7.4.3.2 / normal / テスト対応あり・実行未確認
 
 Input/output driving the same value in the same strength range are a conflict, resolved to 0/1 with the stronger strength.
 
@@ -56949,6 +57843,7 @@ Input/output driving the same value in the same strength range are a conflict, r
 
 規定の性質: `mandatory`。
 
+- [test_evcd_inout_same_value_conflicts.sv](../tests/ch21/test_evcd_inout_same_value_conflicts.sv): 同じ値を同じ強度範囲で駆動する 4 つの inout ポートが衝突の状態 0/1 になり、強度は強い方を取る。s0（strong と strong）は p0 6 0、s1（supply と strong）は p1 0 7、w0（weak と weak）は p0 3 0、q0（pull と strong、どちらも強い範囲）は p0 6 0。 区別: 強い方でなく入力や出力の強度を使う実装は s1 が p1 0 6 に、q0 が p0 5 0 になる。同じ範囲でも d/u や l/h にする実装は w0 や q0 の状態文字が変わる。
 
 ### SV2023-21.7.5-EXTRACT-NO-VCD-EXTENSION
 
@@ -57097,7 +57992,7 @@ Unpacked structures appear as named fork-join scopes with members mapped by the 
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-LEXING
 
-22.2 / normal / テスト未対応
+22.2 / normal / 実行確認あり
 
 Macros expand inside directives, while directives are not recognized inside comments or string literals.
 
@@ -57105,6 +58000,7 @@ Macros expand inside directives, while directives are not recognized inside comm
 
 規定の性質: `mandatory`。
 
+- [test_directive_macro_expansion_not_in_comments_or_strings.sv](../tests/ch22/test_directive_macro_expansion_not_in_comments_or_strings.sv): `include のファイル名をマクロ LEX_INCLUDE_FILE で与えて LEX_FROM_INCLUDE=7 を読み込み、`timescale の単位と精度をマクロ LEX_UNIT/LEX_PREC（10ns/1ns）で与えて #1 が 10 ns になることを表示する。ブロックコメント内の `define、行コメント内の `undef、文字列リテラル内の `undef がどれも処理されないことを `ifdef で表示し、文字列は `undef LEX_KEEP_S のまま印字する。 区別: 指令の中でマクロを展開しない実装は `include や `timescale でエラーになるか 10 ns の行が変わる。コメントや文字列の中の指令を認識する実装では block comment/line comment/string の行が processed になり、文字列の印字内容も変わる。
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-NESTING
 
@@ -57119,7 +58015,7 @@ A directive in active conditional text or used macro text is processed there; ot
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-ONE-LINE
 
-22.2 / error / テスト未対応
+22.2 / error / 実行確認あり
 
 Unless specifically multiline, a compiler directive shall occupy one line.
 
@@ -57127,10 +58023,11 @@ Unless specifically multiline, a compiler directive shall occupy one line.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_directive_split_across_lines.sv](../tests/ch22/test_illegal_directive_split_across_lines.sv): `timescale 1ns を 1 行に置き、精度 / 1ps を次の行に書く。`timescale は複数行を許す指令ではないので行末で終わり、精度の無い指令と、次の行の言語要素でない / 1ps が誤りになる。:expected_stderr_regex: は 23 行目か 24 行目のエラーを照合する。 区別: 指令を行をまたいで読む実装（Icarus 13.0）は次の行から精度を取り、設計を受理するのでテストが失敗する。1 行に限る実装だけがどちらかの行でエラーを出す。
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE
 
-22.2 / normal / テスト未対応
+22.2 / normal / 実行確認あり
 
 Directives begin with ASCII grave accent 0x60; their scope runs from processing through the current compilation unit until superseded or compilation ends.
 
@@ -57138,10 +58035,11 @@ Directives begin with ASCII grave accent 0x60; their scope runs from processing 
 
 規定の性質: `mandatory`。
 
+- [test_directive_scope_across_include_until_superseded.sv](../tests/ch22/test_directive_scope_across_include_until_superseded.sv): ` で始まる `timescale と `define の効果を、定義位置の異なる 3 つのモジュールの #1 の長さと SCOPE_VALUE で観測する。1ns/1 の後の scope_first は 1 ns・1、include したファイルの中の `timescale 1us と再定義 2 はそのファイルの終わりの後の scope_included にも効いて 1000 ns・2、後の `timescale 100ns と再定義 3 がそれを置き換えて scope_superseded は 100 ns・3。 区別: 指令の効果を include したファイルの中だけに限る実装では scope_included の行が 1 ns・1 になる。後の指令で置き換えない実装では scope_superseded の行が 1000 ns・2 になり、表示の順序も変わる。
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-SAME-LINE
 
-22.2 / normal / テスト未対応
+22.2 / normal / 実行確認あり
 
 Subject to individual syntax/placement rules, language elements may precede a directive and may follow its defined end on the same line unless that end requires a newline.
 
@@ -57149,10 +58047,11 @@ Subject to individual syntax/placement rules, language elements may precede a di
 
 規定の性質: `mandatory`。
 
+- [test_directive_same_line_language_elements.sv](../tests/ch22/test_directive_same_line_language_elements.sv): 同じ行で、宣言の後に `define（マクロ本文は行末まで）、`ifdef/`else/`endif の前後に宣言、`undef のマクロ名の後に宣言 int e = 5 を置く。期待出力は lead..g の各値（b=1、f=2、e=5）、SAME_LINE_TEXT * 2 = 24（本文 20 + 2 が行末まで）、`undef 後に undefined。 区別: 指令の前の要素を認めない実装はエラーになる。`undef のように終わりの決まる指令の後の要素を捨てる実装では e が宣言されずエラーになる（Icarus 13.0）。`define の本文を行末より前で切る実装では 24 の行が変わり、条件の後の要素を落とす実装では c や g の値が変わる。
 
 ### SV2023-22.3-EXTRACT-RESET-DEFAULTS
 
-22.3 / normal / テスト未対応
+22.3 / normal / 実行確認あり
 
 resetall restores directives having defaults and leaves directives without defaults, including define/include, unaffected.
 
@@ -57160,10 +58059,11 @@ resetall restores directives having defaults and leaves directives without defau
 
 規定の性質: `mandatory`。
 
+- [test_resetall_restores_defaults_keeps_macros.sv](../tests/ch22/test_resetall_restores_defaults_keeps_macros.sv): `resetall の前に `default_nettype tri0、`unconnected_drive pull1、`celldefine を置き、`define と `include でマクロを定義する。`resetall の前に定義したモジュールは開放入力が 1、暗黙ネットが z だけで 0、インスタンスが cell（vpiCellInstance 1）、後に定義したモジュールは開放入力 z、暗黙ネット z、cell でない（0）。マクロ 2 つは値を保ち、`undef したものは未定義のまま。 区別: 既定値を持つ指令を戻さない実装では after の行が 1/0/cell instance 1 のままになる。既定値を持たない `define を `resetall で消す実装では width 4 や 9 の行がエラーになり、`undef したマクロを戻す実装では undefined の行が defined になる。
 
 ### SV2023-22.3-EXTRACT-RESET-PLACEMENT
 
-22.3 / error / テスト未対応
+22.3 / error / 実行確認あり
 
 resetall shall not occur within a design element.
 
@@ -57171,10 +58071,11 @@ resetall shall not occur within a design element.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_resetall_inside_module.sv](../tests/ch22/test_illegal_resetall_inside_module.sv): モジュールの 2 つの宣言の間（24 行目）に `resetall を置く。モジュールの前の `resetall は合法で、エラーはモジュール内の 1 つだけ。:expected_stderr_regex: は 24 行目を照合する。 区別: 設計要素の中の `resetall を受け付ける実装は設計を受理してテストが失敗する。モジュール外の `resetall まで拒む実装は 20 行目で報告し、24 行目のエラーが無ければ失敗する。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-ABSOLUTE
 
-22.4 / error / テスト未対応
+22.4 / error / テスト対応あり・実行未確認
 
 An absolute include path uses only the quoted form and selects only that filename.
 
@@ -57182,6 +58083,8 @@ An absolute include path uses only the quoted form and selects only that filenam
 
 規定の性質: `mandatory`。
 
+- [test_illegal_include_absolute_path_in_angle_brackets.sv](../tests/ch22/test_illegal_include_absolute_path_in_angle_brackets.sv): `include "/dev/null" は合法、`include </dev/null>（29 行目）が誤り。:expected_stderr_regex: が 29 行目を照合する。
+- [test_illegal_include_absolute_path_not_searched.sv](../tests/ch22/test_illegal_include_absolute_path_not_searched.sv): `include "include_absolute_only_helper.svh" は合法、`include "/kirimasim_no_such_dir/include_absolute_only_helper.svh"（30 行目）が誤り。:expected_stderr_regex: が 30 行目を照合する。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH
 
@@ -57196,7 +58099,7 @@ Angle-bracket includes search only an implementation-dependent standard-files lo
 
 ### SV2023-22.4-EXTRACT-INCLUDE-LINE
 
-22.4 / error / テスト未対応
+22.4 / error / 実行確認あり
 
 Only whitespace or a comment may share the include directive line.
 
@@ -57204,6 +58107,7 @@ Only whitespace or a comment may share the include directive line.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_include_line_trailing_code.sv](../tests/ch22/test_illegal_include_line_trailing_code.sv): 1 つ目の `include の後には行コメントだけを置き（合法）、2 つ目の `include の後の同じ行に localparam 宣言を置く（25 行目）。インクルードファイルはガードで 2 回目に何も宣言しないので、他の誤りは無い。:expected_stderr_regex: は 25 行目を照合する。 区別: `include の行に空白とコメント以外を許す実装は宣言を受け付けて設計を受理する（Verilator 5.052）のでテストが失敗する。コメントまで拒む実装は 23 行目でもエラーを出すが、25 行目の照合は変わらない。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-NESTING
 
@@ -57261,7 +58165,7 @@ include accepts a quoted or angle-bracket filename and may occur anywhere in sou
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
-22.5 / normal / テスト未対応
+22.5 / normal / 実行確認あり
 
 resetall does not affect text macros.
 
@@ -57269,6 +58173,8 @@ resetall does not affect text macros.
 
 規定の性質: `mandatory`。
 
+- [test_resetall_restores_defaults_keeps_macros.sv](../tests/ch22/test_resetall_restores_defaults_keeps_macros.sv): `resetall の前に `define RESETALL_KEEP_WIDTH 4、`define と `undef の RESETALL_GONE、include したファイルの `define RESETALL_FROM_INCLUDE 9 を置き、`resetall の後のモジュールで $bits を 4、RESETALL_GONE を undefined、RESETALL_FROM_INCLUDE を 9 と表示する。 区別: `resetall でテキストマクロを消す実装では `RESETALL_KEEP_WIDTH と `RESETALL_FROM_INCLUDE が未定義になりエラーになる。マクロの状態を戻す実装（undef を取り消す）では undefined の行が defined に変わる。
+- [test_resetall_leaves_text_macros_usable.sv](../tests/ch22/test_resetall_leaves_text_macros_usable.sv): `resetall の後に RA_SCALE(2)=6、RA_SCALE(2, 5)=10、RA_SEEN=1、undef 後の RA_FLAG は undefined、RA_LATE=7。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-ARGUMENT-DELIMITERS
 
@@ -57283,7 +58189,7 @@ Actuals and defaults cannot contain comma/right-parenthesis delimiters outside m
 
 ### SV2023-22.5.1-EXTRACT-MACRO-ARITY
 
-22.5.1 / error / テスト未対応
+22.5.1 / error / 実行確認あり
 
 Omitted trailing actuals require defaults for all remaining formals; excess actuals are an error and parameterized uses always require parentheses.
 
@@ -57291,6 +58197,9 @@ Omitted trailing actuals require defaults for all remaining formals; excess actu
 
 規定の性質: `mandatory`。
 
+- [test_illegal_macro_missing_actual_without_default.sv](../tests/ch22/test_illegal_macro_missing_actual_without_default.sv): SUM3(a, b = 2, c) を `SUM3(1) と使い、b には既定値があるが c には無いので 25 行目が誤り。:expected_stderr_regex: が 25 行目を照合する。
+- [test_illegal_macro_too_many_actuals.sv](../tests/ch22/test_illegal_macro_too_many_actuals.sv): 仮引数 2 つの ADD2 に実引数 3 つを与える 23 行目が誤り。:expected_stderr_regex: が 23 行目を照合する。
+- [test_illegal_macro_with_arguments_used_without_parentheses.sv](../tests/ch22/test_illegal_macro_with_arguments_used_without_parentheses.sv): 既定値付き仮引数 1 つの INC を `INC() と使うのは合法で、括弧なしの `INC（24 行目）が誤り。:expected_stderr_regex: が 24 行目を照合する。
 
 ### SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING
 
@@ -57860,7 +58769,7 @@ timescale supplies following design elements with default time/delay unit and de
 
 ### SV2023-22.7-EXTRACT-TIMESCALE-PLACEMENT
 
-22.7 / error / テスト未対応
+22.7 / error / 実行確認あり
 
 timescale is illegal inside a design element.
 
@@ -57868,10 +58777,11 @@ timescale is illegal inside a design element.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_timescale_inside_module.sv](../tests/ch22/test_illegal_timescale_inside_module.sv): モジュールの前の `timescale 1ns / 1ps は合法で、モジュールの 2 つの宣言の間（23 行目）の `timescale 10ns / 1ns が唯一の誤り。:expected_stderr_regex: は 23 行目を照合する。 区別: 設計要素の中の `timescale を受け付ける実装（Verilator 5.052）は設計を受理してテストが失敗する。
 
 ### SV2023-22.7-EXTRACT-TIMESCALE-PRECISION
 
-22.7 / error / テスト未対応
+22.7 / error / 実行確認あり
 
 timescale precision shall be at least as fine as its time unit and cannot denote a longer duration.
 
@@ -57879,6 +58789,7 @@ timescale precision shall be at least as fine as its time unit and cannot denote
 
 規定の性質: `mandatory`。
 
+- [test_illegal_timescale_precision_coarser_than_unit.sv](../tests/ch22/test_illegal_timescale_precision_coarser_than_unit.sv): `timescale 100ps / 1ns で、精度 1 ns が単位 100 ps より長い。精度の係数 1 は単位の係数 100 より小さいので、時間の長さで比べたときだけ誤りが分かる。:expected_stderr_regex: は 20 行目を照合する。 区別: 精度が単位より粗いことを調べない実装、または係数だけを比べる実装は設計を受理してテストが失敗する。
 
 ### SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT
 
@@ -57893,7 +58804,7 @@ With no timescale or after resetall, default time unit and precision are tool-sp
 
 ### SV2023-22.7-EXTRACT-TIMESCALE-VALUES
 
-22.7 / error / テスト未対応
+22.7 / error / 実行確認あり
 
 timescale unit/precision factors are 1, 10 or 100 and suffixes s/ms/us/ns/ps/fs.
 
@@ -57901,6 +58812,8 @@ timescale unit/precision factors are 1, 10 or 100 and suffixes s/ms/us/ns/ps/fs.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_timescale_factor_not_allowed.sv](../tests/ch22/test_illegal_timescale_factor_not_allowed.sv): `timescale 1000ps / 1ps（19 行目）の単位の係数 1000 が誤り。:expected_stderr_regex: が 19 行目を照合する。
+- [test_illegal_timescale_unit_not_allowed.sv](../tests/ch22/test_illegal_timescale_unit_not_allowed.sv): `timescale 1ns / 1xs（19 行目）の精度の単位 xs が誤り。:expected_stderr_regex: が 19 行目を照合する。
 
 ### SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE
 
@@ -57915,7 +58828,7 @@ Without default_nettype or after resetall implicit nets are wire; none requires 
 
 ### SV2023-22.8-EXTRACT-NETTYPE-SCOPE
 
-22.8 / error / テスト未対応
+22.8 / error / 実行確認あり
 
 default_nettype applies only outside design elements and the latest occurrence governs later implicit net declarations.
 
@@ -57923,6 +58836,8 @@ default_nettype applies only outside design elements and the latest occurrence g
 
 規定の性質: `mandatory`。
 
+- [test_illegal_default_nettype_inside_module.sv](../tests/ch22/test_illegal_default_nettype_inside_module.sv): モジュールの宣言の間（25 行目）の `default_nettype none が誤り。全ネットは宣言済みでネット型は結果に関係しない。:expected_stderr_regex: が 25 行目を照合する。
+- [test_illegal_default_nettype_latest_none_governs.sv](../tests/ch22/test_illegal_default_nettype_latest_none_governs.sv): `default_nettype wire の後の `default_nettype none の下で、assign y_implicit = a（36 行目）が未宣言ネットの誤り。:expected_stderr_regex: が 36 行目を照合する。
 
 ### SV2023-22.8-EXTRACT-NETTYPE-VALUES
 
@@ -58166,7 +59081,7 @@ line changes LINE expansion and may change FILE expansion.
 
 ### SV2023-22.14-EXTRACT-KEYWORD-CUSTOM
 
-22.14 / error / テスト未対応
+22.14 / error / 実行確認あり
 
 Custom version specifiers are permitted, but an unrecognized specifier is an error.
 
@@ -58174,6 +59089,7 @@ Custom version specifiers are permitted, but an unrecognized specifier is an err
 
 規定の性質: `mandatory`。
 
+- [test_illegal_begin_keywords_unknown_version.sv](../tests/ch22/test_illegal_begin_keywords_unknown_version.sv): 1 組目は既知の "1800-2012" で合法、2 組目の `begin_keywords "1800-1999"（31 行目）は規格のどの版も表さない指定子で、実装が認識しないので誤り。:expected_stderr_regex: は 31 行目を照合する。拡張の指定子を加える許可は実装ごとの拡張で、移植可能なテストでは規格外の指定子が認識されない場合の誤りを照合する。 区別: 認識しない指定子を無視して既定の予約語で続ける実装（Icarus 13.0 は警告だけ）は設計を受理してテストが失敗する。
 
 ### SV2023-22.14-EXTRACT-KEYWORD-DEFAULT
 
@@ -58188,7 +59104,7 @@ Without begin_keywords, the implementation-dependent default keyword set applies
 
 ### SV2023-22.14-EXTRACT-KEYWORD-PAIR
 
-22.14 / error / テスト未対応
+22.14 / error / テスト対応あり・実行未確認
 
 begin_keywords and end_keywords must be paired in that order to delimit the selected reserved-word set.
 
@@ -58196,10 +59112,12 @@ begin_keywords and end_keywords must be paired in that order to delimit the sele
 
 規定の性質: `mandatory`。
 
+- [test_illegal_begin_keywords_without_end.sv](../tests/ch22/test_illegal_begin_keywords_without_end.sv): 最後の行（26 行目）の `begin_keywords "1800-2012" に `end_keywords が続かない。:expected_stderr_regex: が 26 行目か 27 行目を照合する。
+- [test_illegal_end_keywords_without_begin.sv](../tests/ch22/test_illegal_end_keywords_without_begin.sv): 完全な 1 組の後の 2 つ目の `end_keywords（26 行目）に閉じる `begin_keywords が無い。:expected_stderr_regex: が 26 行目を照合する。
 
 ### SV2023-22.14-EXTRACT-KEYWORD-SCOPE
 
-22.14 / error / テスト未対応
+22.14 / error / テスト対応あり・実行未確認
 
 Keyword directives are permitted only outside design elements, span following files until the matching end, and survive resetall.
 
@@ -58207,6 +59125,10 @@ Keyword directives are permitted only outside design elements, span following fi
 
 規定の性質: `mandatory`。
 
+- [test_illegal_begin_keywords_inside_module.sv](../tests/ch22/test_illegal_begin_keywords_inside_module.sv): モジュールの宣言の間（31 行目）の `begin_keywords "1800-2012" が誤りで、対の `end_keywords は endmodule の後にあり合法。:expected_stderr_regex: が 31 行目を照合する。
+- [test_illegal_begin_keywords_spans_include_boundary.sv](../tests/ch22/test_illegal_begin_keywords_spans_include_boundary.sv): インクルードファイルに `begin_keywords "1364-2005" だけがあり、インクルード後のモジュールの logic x;（31 行目）が誤り。対の `end_keywords はこのファイルにある。:expected_stderr_regex: が 31 行目を照合する。
+- [test_illegal_begin_keywords_survives_resetall.sv](../tests/ch22/test_illegal_begin_keywords_survives_resetall.sv): `begin_keywords "1364-2005" と `resetall の後のモジュールの logic x;（29 行目）が誤り。:expected_stderr_regex: が 29 行目を照合する。
+- [test_illegal_keyword_reserved_again_after_end_keywords.sv](../tests/ch22/test_illegal_keyword_reserved_again_after_end_keywords.sv): 内側の対の kw_inner_2005 の reg [3:0] logic は合法、内側の `end_keywords の後の kw_after_end の reg [3:0] logic（38 行目）が誤り。:expected_stderr_regex: が 38 行目を照合する。
 
 ### SV2023-22.14-EXTRACT-KEYWORD-STACK
 
@@ -58232,7 +59154,7 @@ Standard keyword version strings are 1364-1995, 1364-2001, 1364-2001-noconfig, 1
 
 ### SV2023-22.14-EXTRACT-KEYWORDS-ONLY
 
-22.14 / normal / テスト未対応
+22.14 / normal / 実行確認あり
 
 Keyword directives change only which identifiers are reserved, without changing language semantics, tokens or other features.
 
@@ -58240,6 +59162,7 @@ Keyword directives change only which identifiers are reserved, without changing 
 
 規定の性質: `mandatory`。
 
+- [test_begin_keywords_1995_keeps_language_features.sv](../tests/ch22/test_begin_keywords_1995_keeps_language_features.sv): `begin_keywords "1364-1995" の中で logic/bit/int を変数名に使いながら、1364-1995 に無い ++、-=、'1、8'(...) のキャスト、宣言の初期化、@*、$bits、$clog2、$sformat を使う。期待出力は logic=4 bit=240 int=24 mirror=24 と sum=16 text=<4> で、現在の規格の意味どおりの値。 区別: 版の指定で予約語以外も変える実装（古い版の言語として解釈する実装）では ++ や -= や '1 が構文エラーになるか（Verilator 5.052）、値が変わる。逆に予約語の集合を変えない実装では logic/bit/int を名前に使えずエラーになる。
 
 ### SV2023-22.14.2-EXTRACT-RESERVED-ALWAYS
 
@@ -61522,7 +62445,7 @@ Keyword mode 1800-2012 reserves every keyword of the full 1800-2009 keyword set 
 
 ### SV2023-23.2-EXTRACT-MODULE-DELIMITERS
 
-23.2 / normal / テスト未対応
+23.2 / normal / 実行確認あり
 
 A module definition is delimited by module/endmodule and named by the following identifier; macromodule may replace module, with implementation-chosen treatment of that spelling.
 
@@ -61530,10 +62453,11 @@ A module definition is delimited by module/endmodule and named by the following 
 
 規定の性質: `mandatory`。
 
+- [test_macromodule_keyword_defines_module.sv](../tests/ch23/test_macromodule_keyword_defines_module.sv): macromodule ... endmodule で macromodule_adder と macromodule_wrapper、module ... endmodule で plain_scaler を定義し、キーワードの後の識別子の名前でインスタンス化して接続する。期待出力は 9+8=17、9+5=14、8*3=24 と、各インスタンスのタスクの %m（...add.show、...wrap.inner.show、...scale.show）。 区別: macromodule を module と同じに扱わない実装ではエラーになるか、macromodule のインスタンスが階層に現れず %m の行や和の値が変わる。名前を module の後の識別子から取らない実装ではインスタンス化できない。
 
 ### SV2023-23.2.1-EXTRACT-HEADER-IMPORT-FOOTNOTE
 
-23.2.1 / error / テスト未対応
+23.2.1 / error / テスト対応あり・実行未確認
 
 A package import in an ANSI module/interface/program header requires a following parameter-port list or port-declaration list or both.
 
@@ -61541,6 +62465,9 @@ A package import in an ANSI module/interface/program header requires a following
 
 規定の性質: `mandatory`。
 
+- [test_illegal_module_header_import_without_lists.sv](../tests/ch23/test_illegal_module_header_import_without_lists.sv): module ヘッダが import header_import_module_pkg::*; の直後に ;（35 行目）で終わる。header_import_ok は () を置いて合法。:expected_stderr_regex: が 33〜35 行目を照合する。
+- [test_illegal_interface_header_import_without_lists.sv](../tests/ch23/test_illegal_interface_header_import_without_lists.sv): interface ヘッダが import header_import_ifc_pkg::*; の直後に ;（28 行目）で終わる。:expected_stderr_regex: が 26〜28 行目を照合する。
+- [test_illegal_program_header_import_without_lists.sv](../tests/ch23/test_illegal_program_header_import_without_lists.sv): program ヘッダが import header_import_prog_pkg::*; の直後に ;（31 行目）で終わる。:expected_stderr_regex: が 29〜31 行目を照合する。
 
 ### SV2023-23.2.1-EXTRACT-HEADER-STYLES
 
@@ -61621,7 +62548,7 @@ Ports may declare interfaces, events, and nets/variables of any allowed type, in
 
 ### SV2023-23.2.2.1-EXTRACT-NONANSI-BODY-DECLARATION
 
-23.2.2.1 / error / テスト未対応
+23.2.2.1 / error / 実行確認あり
 
 Each identifier referenced by a non-ANSI port expression shall also have a body input/output/inout/ref or interface-port declaration, in addition to its net/variable declaration where applicable.
 
@@ -61629,10 +62556,11 @@ Each identifier referenced by a non-ANSI port expression shall also have a body 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nonansi_port_without_port_declaration.sv](../tests/ch23/test_illegal_nonansi_port_without_port_declaration.sv): 非 ANSI のポートリスト (a, y) で、a は input 宣言を持つが、y はネット宣言 wire y だけでポート宣言（input/output/inout/ref/インタフェースポート）が無い。:expected_stderr_regex: はポートリストの 22 行目かネット宣言の 24 行目を照合する。 区別: ネット宣言だけでポートと見なす実装（例えば方向を既定の inout にする）は設計を受理してテストが失敗する。
 
 ### SV2023-23.2.2.1-EXTRACT-NONANSI-COMPLETE-DECLARATION
 
-23.2.2.1 / error / テスト未対応
+23.2.2.1 / error / 実行確認あり
 
 A port declaration specifying a net/variable type shall include every needed range/signed property and cannot be redeclared by a net/variable data declaration.
 
@@ -61640,6 +62568,8 @@ A port declaration specifying a net/variable type shall include every needed ran
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nonansi_net_port_redeclared.sv](../tests/ch23/test_illegal_nonansi_net_port_redeclared.sv): input wire [3:0] a の後の wire signed [3:0] a（26 行目）が誤り。input [3:0] b と wire [3:0] b は合法。:expected_stderr_regex: が 26 行目を照合する。
+- [test_illegal_nonansi_variable_port_redeclared.sv](../tests/ch23/test_illegal_nonansi_variable_port_redeclared.sv): output reg q の後の reg [3:0] q（26 行目）が誤り。output [3:0] r と reg [3:0] r は合法。:expected_stderr_regex: が 26 行目を照合する。
 
 ### SV2023-23.2.2.1-EXTRACT-NONANSI-DIRECTION-KINDS
 
@@ -61665,7 +62595,7 @@ Non-ANSI headers separate port references from body direction/type declarations;
 
 ### SV2023-23.2.2.1-EXTRACT-NONANSI-IMPLICIT-EXPLICIT
 
-23.2.2.1 / error / テスト未対応
+23.2.2.1 / error / 実行確認あり
 
 An implicit port is its expression alone; an explicit port supplies the external connection name. Named connections to an implicit port require a simple/escaped identifier expression.
 
@@ -61673,6 +62603,8 @@ An implicit port is its expression alone; an explicit port supplies the external
 
 規定の性質: `mandatory`。
 
+- [test_illegal_named_connection_by_internal_name.sv](../tests/ch23/test_illegal_named_connection_by_internal_name.sv): explicit_port_leaf(.e(f), y) の u2 が .f(s) で接続する 35 行目が誤り（u1 の .e(s) は合法）。:expected_stderr_regex: が 35 行目を照合する。
+- [test_illegal_named_connection_to_concatenation_port.sv](../tests/ch23/test_illegal_named_connection_to_concatenation_port.sv): concat_port_leaf({c, d}, y) の u2 が .c(v) で接続する 35 行目が誤り（u1 の順序接続と .y の名前接続は合法）。:expected_stderr_regex: が 35 行目を照合する。
 
 ### SV2023-23.2.2.1-EXTRACT-NONANSI-IMPLICIT-UNSIGNED
 
@@ -61742,7 +62674,7 @@ Explicitly named ANSI ports may refer to array/structure elements, their concate
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-IMPORT-LIST
 
-23.2.2.2 / error / テスト未対応
+23.2.2.2 / error / テスト対応あり・実行未確認
 
 ANSI module/interface/program header imports require a following parameter-port list or port-declaration list or both.
 
@@ -61750,10 +62682,13 @@ ANSI module/interface/program header imports require a following parameter-port 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_module_header_import_without_lists.sv](../tests/ch23/test_illegal_module_header_import_without_lists.sv): module ヘッダが import header_import_module_pkg::*; の直後に ;（35 行目）で終わる。header_import_ok は () を置いて合法。:expected_stderr_regex: が 33〜35 行目を照合する。
+- [test_illegal_interface_header_import_without_lists.sv](../tests/ch23/test_illegal_interface_header_import_without_lists.sv): interface ヘッダが import header_import_ifc_pkg::*; の直後に ;（28 行目）で終わる。:expected_stderr_regex: が 26〜28 行目を照合する。
+- [test_illegal_program_header_import_without_lists.sv](../tests/ch23/test_illegal_program_header_import_without_lists.sv): program ヘッダが import header_import_prog_pkg::*; の直後に ;（31 行目）で終わる。:expected_stderr_regex: が 29〜31 行目を照合する。
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-KIND-RESTRICTIONS
 
-23.2.2.2 / error / テスト未対応
+23.2.2.2 / error / テスト対応あり・実行未確認
 
 Ref ports shall be variables and inout ports shall not; initialization is allowed only on variable output ports and defaults only on input ports.
 
@@ -61761,10 +62696,14 @@ Ref ports shall be variables and inout ports shall not; initialization is allowe
 
 規定の性質: `mandatory`。
 
+- [test_illegal_ansi_ref_port_of_net_type.sv](../tests/ch23/test_illegal_ansi_ref_port_of_net_type.sv): ref wire [3:0] r（22 行目）が誤り。インスタンスは同じ幅の変数を接続する。:expected_stderr_regex: が 22 行目かインスタンスの 27 行目を照合する。
+- [test_illegal_ansi_inout_port_of_variable_type.sv](../tests/ch23/test_illegal_ansi_inout_port_of_variable_type.sv): inout var logic [3:0] io（22 行目）が誤りで、同じヘッダの inout logic b はネットで合法。:expected_stderr_regex: が 22 行目かインスタンスの 28 行目を照合する。
+- [test_illegal_ansi_output_net_port_initialized.sv](../tests/ch23/test_illegal_ansi_output_net_port_initialized.sv): output wire [3:0] y = 4'h5（21 行目）が誤りで、変数出力 output logic [3:0] z = 4'h3 は合法。:expected_stderr_regex: が 21 行目を照合する。
+- [test_illegal_ansi_ref_port_default_value.sv](../tests/ch23/test_illegal_ansi_ref_port_default_value.sv): ref int r = 3（24 行目）が誤りで、input var int k = 1 は合法な既定値。:expected_stderr_regex: が 24 行目を照合する。
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-NO-REDECLARE
 
-23.2.2.2 / error / テスト未対応
+23.2.2.2 / error / 実行確認あり
 
 An ANSI port declaration supplies full characteristics and its identifier cannot be redeclared in whole or part in the module body.
 
@@ -61772,6 +62711,8 @@ An ANSI port declaration supplies full characteristics and its identifier cannot
 
 規定の性質: `mandatory`。
 
+- [test_illegal_ansi_port_redeclared_in_body.sv](../tests/ch23/test_illegal_ansi_port_redeclared_in_body.sv): ヘッダの output logic [3:0] q を本体の logic [3:0] q（21 行目）で再宣言する。:expected_stderr_regex: が 21 行目を照合する。
+- [test_illegal_ansi_port_net_type_added_in_body.sv](../tests/ch23/test_illegal_ansi_port_net_type_added_in_body.sv): ヘッダの input [3:0] a に本体の wire [3:0] a（32 行目）を足す。非 ANSI の nonansi_net_added の input [3:0] a と wire [3:0] a は合法。:expected_stderr_regex: が 32 行目を照合する。
 
 ### SV2023-23.2.2.2-EXTRACT-ANSI-PORT-EXPRESSION
 
@@ -61819,7 +62760,7 @@ Generic interface ports require ANSI port-declaration syntax and cannot use non-
 
 ### SV2023-23.2.2.2-EXTRACT-NO-MIXED-HEADER
 
-23.2.2.2 / error / テスト未対応
+23.2.2.2 / error / 実行確認あり
 
 Every module shall use either entirely non-ANSI port-list syntax or entirely ANSI port-declaration syntax.
 
@@ -61827,6 +62768,7 @@ Every module shall use either entirely non-ANSI port-list syntax or entirely ANS
 
 規定の性質: `mandatory`。
 
+- [test_illegal_mixed_ansi_and_nonansi_ports.sv](../tests/ch23/test_illegal_mixed_ansi_and_nonansi_ports.sv): mixed_header(a, input logic b, output logic y) の 21 行目で、非 ANSI のポート a（本体で input a と宣言）の後に ANSI のポート宣言 b と y が続く。:expected_stderr_regex: は 21 行目を照合する。 区別: 1 つのヘッダの中で 2 つの形式を混ぜることを許す実装（Verilator 5.052）は設計を受理してテストが失敗する。
 
 ### SV2023-23.2.2.3-EXTRACT-AFTER-EXPLICIT-INFERENCE
 
@@ -61989,7 +62931,7 @@ Unpacked dimensions are never inherited and shall be repeated for every port req
 
 ### SV2023-23.2.2.4-EXTRACT-INPUT-DEFAULT-RESTRICTIONS
 
-23.2.2.4 / error / テスト未対応
+23.2.2.4 / error / テスト対応あり・実行未確認
 
 Defaults require ANSI input ports and are forbidden for interconnect ports.
 
@@ -61997,6 +62939,9 @@ Defaults require ANSI input ports and are forbidden for interconnect ports.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nonansi_input_port_default.sv](../tests/ch23/test_illegal_nonansi_input_port_default.sv): 非 ANSI の input [3:0] a = 4'h1（25 行目）が誤り。:expected_stderr_regex: が 25 行目を照合する。
+- [test_illegal_ansi_ref_port_default_value.sv](../tests/ch23/test_illegal_ansi_ref_port_default_value.sv): 入力でない ref ポートの ref int r = 3（24 行目）が誤りで、入力 k の既定値は合法。:expected_stderr_regex: が 24 行目を照合する。
+- [test_illegal_interconnect_port_default.sv](../tests/ch23/test_illegal_interconnect_port_default.sv): input interconnect [3:0] a = 4'h0（27 行目）が誤りで、同じヘッダの input logic b = 1'b0 は合法。:expected_stderr_regex: が 27 行目を照合する。
 
 ### SV2023-23.2.2.4-EXTRACT-INPUT-DEFAULT-SCOPE
 
@@ -62044,7 +62989,7 @@ A module has zero or more legal module items: declarations, instantiations, asse
 
 ### SV2023-23.2.4-EXTRACT-REPEATED-TIMEUNIT-ITEM
 
-23.2.4 / error / テスト未対応
+23.2.4 / error / 実行確認あり
 
 A non-port module/interface/program/package timeunits item is legal only when it repeats and matches an earlier declaration in the same time scope.
 
@@ -62052,6 +62997,10 @@ A non-port module/interface/program/package timeunits item is legal only when it
 
 規定の性質: `mandatory`。
 
+- [test_illegal_module_timeunit_repeat_mismatch.sv](../tests/ch23/test_illegal_module_timeunit_repeat_mismatch.sv): timeunit 1ns、項目、timeunit 1ns（合法）、項目の後の timeunit 1ps（30 行目）が誤り。:expected_stderr_regex: が 30 行目を照合する。
+- [test_illegal_interface_timeprecision_repeat_mismatch.sv](../tests/ch23/test_illegal_interface_timeprecision_repeat_mismatch.sv): interface の timeprecision 1ps の後の timeprecision 1fs（27 行目）が誤り。:expected_stderr_regex: が 27 行目を照合する。
+- [test_illegal_package_timeunit_item_without_previous.sv](../tests/ch23/test_illegal_package_timeunit_item_without_previous.sv): package の先頭の localparam の後の timeunit 1ns（27 行目）が誤り。:expected_stderr_regex: が 27 行目を照合する。
+- [test_illegal_program_timeunit_item_without_previous.sv](../tests/ch23/test_illegal_program_timeunit_item_without_previous.sv): program の先頭の変数宣言の後の timeunit 1ns（27 行目）が誤り。:expected_stderr_regex: が 27 行目を照合する。
 
 ### SV2023-23.3-EXTRACT-INSTANCE-FORMS
 
@@ -62143,7 +63092,7 @@ Instance parameter expressions may be mintypmax expressions, data types or dolla
 
 ### SV2023-23.3.2-EXTRACT-INSTANCE-PARENTHESES
 
-23.3.2 / error / テスト未対応
+23.3.2 / error / 実行確認あり
 
 Every module instance requires parentheses even with no ports; a connection list may be provided only for a module defined with ports.
 
@@ -62151,6 +63100,8 @@ Every module instance requires parentheses even with no ports; a connection list
 
 規定の性質: `mandatory`。
 
+- [test_illegal_module_instance_without_parentheses.sv](../tests/ch23/test_illegal_module_instance_without_parentheses.sv): noparen_leaf u2;（25 行目）が誤り。:expected_stderr_regex: が 25 行目を照合する。
+- [test_illegal_port_list_for_module_without_ports.sv](../tests/ch23/test_illegal_port_list_for_module_without_ports.sv): portless_leaf u2(s);（26 行目）が誤り。:expected_stderr_regex: が 26 行目を照合する。
 
 ### SV2023-23.3.2-EXTRACT-NO-MIXED-POSITIONAL
 
@@ -62165,7 +63116,7 @@ Each instance shall use entirely positional or entirely named port connections; 
 
 ### SV2023-23.3.2-EXTRACT-ONE-WILDCARD
 
-23.3.2 / error / テスト未対応
+23.3.2 / error / 実行確認あり
 
 A port-connection list shall contain at most one wildcard token pair.
 
@@ -62173,6 +63124,7 @@ A port-connection list shall contain at most one wildcard token pair.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_two_wildcard_tokens_in_port_list.sv](../tests/ch23/test_illegal_two_wildcard_tokens_in_port_list.sv): u1(.*, .y(y)) は .* 1 つと名前接続で合法、u2(.*, .y(y2), .*)（28 行目）は .* を 2 回含み誤り。:expected_stderr_regex: は 28 行目を照合する。 区別: 2 つ目の .* を重複として無視する実装（Icarus 13.0）は設計を受理してテストが失敗する。
 
 ### SV2023-23.3.2.1-EXTRACT-POSITIONAL-EXPRESSION
 
@@ -62277,7 +63229,7 @@ An implicit .name connects the same-named declaration as explicit .name(name), r
 
 ### SV2023-23.3.2.3-EXTRACT-IMPLICIT-NET-MISMATCH
 
-23.3.2.3 / error / テスト未対応
+23.3.2.3 / error / テスト対応あり・実行未確認
 
 A dissimilar-net-type warning required for an explicit connection becomes an error for .name.
 
@@ -62285,10 +63237,11 @@ A dissimilar-net-type warning required for an explicit connection becomes an err
 
 規定の性質: `mandatory`。
 
+- [test_illegal_implicit_name_port_dissimilar_net_types.sv](../tests/ch23/test_illegal_implicit_name_port_dissimilar_net_types.sv): 内部が wand の入力ポート a に、上位の wor ネット a を接続する。Table 23-1 で内部 wand・外部 wor は external かつ warn の組。インスタンス ok は明示の名前付き接続 .a(a)（警告で済む適法な接続）、インスタンス u は .a の暗黙名前付き接続で、:should_fail_because: 付きで u の32行目の診断を照合している。 区別: .name を名前付き接続 .a(a) と同じ扱いにして警告だけで受理する誤実装は32行目でエラーを出さず、設計を受理するので負テストが失敗する。規格 23.3.2.3 B010 の第3項目（明示の名前付き接続で 23.3.3.7 の警告となる異種ネット型の組は、.name 接続ではエラー）を、Table 23-1 で warn となる内部 wand・外部 wor の組で刺激している。同じ組の明示接続 ok は警告だけの適法な対照で、設計中の誤りは u の1つだけ。
 
 ### SV2023-23.3.2.3-EXTRACT-IMPLICIT-NO-NET
 
-23.3.2.3 / error / テスト未対応
+23.3.2.3 / error / 実行確認あり
 
 An implicit-name connection never creates an implicit net; absence of a matching signal is an error even for a defaulted input, and explicit .name() is needed to leave it unconnected.
 
@@ -62296,10 +63249,11 @@ An implicit-name connection never creates an implicit net; absence of a matching
 
 規定の性質: `mandatory`。
 
+- [test_illegal_implicit_name_port_missing_with_default.sv](../tests/ch23/test_illegal_implicit_name_port_missing_with_default.sv): 既定値 1'b0 を持つ入力ポート rst に対し、インスタンス u が .rst で接続するが、上位モジュールには rst が宣言されていない（既定のネット型は wire のまま）。:should_fail_because: 付きで28行目の診断を照合している。同じモジュールのインスタンス ok は .rst() と .mode() の空の括弧で既定値ポートを未接続にしており、こちらは適法で診断対象の行ではない。 区別: .name 接続で暗黙ネットを作る誤実装（名前付き接続 .rst(rst) と同じ扱い）や、名前が見つからないとき既定値 1'b0 を使う誤実装は、28行目で診断を出さずに設計を受理するので負テストが失敗する。規格 23.3.2.3 B004/B010 は暗黙ネットを作らずエラーにすること、未接続にするには .name() を使うことを定めており、テストは既定値付きの入力という最も紛らわしい場合でこれを確かめている。
 
 ### SV2023-23.3.2.3-EXTRACT-IMPLICIT-PRIOR-DECLARATION
 
-23.3.2.3 / error / テスト未対応
+23.3.2.3 / error / テスト対応あり・実行未確認
 
 The matching name shall be declared explicitly/implicitly or imported explicitly/by wildcard from a package before the .name connection.
 
@@ -62307,6 +63261,7 @@ The matching name shall be declared explicitly/implicitly or imported explicitly
 
 規定の性質: `mandatory`。
 
+- [test_illegal_implicit_name_port_declared_later.sv](../tests/ch23/test_illegal_implicit_name_port_declared_later.sv): インスタンス u の .data 接続は、上位モジュールで data を宣言する行（logic [3:0] data = 4'd5;）より前にあり、:should_fail_because: 付きでその44行目の診断を照合している。同じモジュールのインスタンス ok は、接続より前に明示宣言された q、インスタンス src のポート接続で暗黙に宣言されたネット w（6.10）、パッケージ dl_pkg の wildcard import で見える cfg を .name で接続しており、これらは適法。 区別: .name の名前をモジュール全体（後方の宣言を含む）から探す誤実装は u を受理し、44行目で診断が出ないので負テストが失敗する。.name のために暗黙ネットを作る誤実装も、後の data 宣言との重複を別の行（45行目）で報告するので照合に合わない。規格 23.3.2.3 B011 の「接続より前に宣言（明示・暗黙）または import されていなければエラー」をそのまま刺激している。
 
 ### SV2023-23.3.2.4-EXTRACT-PER-INSTANCE-STYLES
 
@@ -62355,7 +63310,7 @@ Wildcard alone does not trigger a package wildcard import; an explicit or implic
 
 ### SV2023-23.3.2.4-EXTRACT-WILDCARD-POSITION
 
-23.3.2.4 / error / テスト未対応
+23.3.2.4 / error / 実行確認あり
 
 Wildcard may appear anywhere among named connections but at most once.
 
@@ -62363,6 +63318,7 @@ Wildcard may appear anywhere among named connections but at most once.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_wildcard_port_connection_twice.sv](../tests/ch23/test_illegal_wildcard_port_connection_twice.sv): インスタンス first は .* を二つの名前付き接続の間に（.y(y1), .*, .b(c)）、last は末尾に（.y(y2), .*）置いており、いずれも適法。インスタンス u はポートリストに .* を2回書き（.*, .y(y3), .*）、:should_fail_because: 付きでその29行目の診断を照合している。 区別: .* の重複を許して2回目を無視する誤実装は29行目で診断を出さずに設計を受理するので、負テストが失敗する。規格 23.3.2.4 B009 は「名前付き接続と混在するとき .* はポートリストのどこに置いてもよいが、高々1回」と定めており、テストは中間（first）と末尾（last）の適法な置き方を含めたうえで、違反は u の重複だけにしている（設計中の誤りは1つ）。
 
 ### SV2023-23.3.3-EXTRACT-PORT-ASSIGNMENT-TYPES
 
@@ -62421,7 +63377,7 @@ An input/output used in another direction may be coerced to inout; absent coerci
 
 ### SV2023-23.3.3.2-EXTRACT-NO-VARIABLE-INOUT
 
-23.3.3.2 / error / テスト未対応
+23.3.3.2 / error / 実行確認あり
 
 Neither side of an inout connection may be a variable.
 
@@ -62429,10 +63385,12 @@ Neither side of an inout connection may be a variable.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_inout_port_variable_declaration.sv](../tests/ch23/test_illegal_inout_port_variable_declaration.sv): vio_child の inout var logic p（var により変数）をネット a に接続し、ポート宣言の21行目または接続の26行目の診断を照合。同じヘッダの inout logic q は var がないのでネット（23.2.2.3）で適法。
+- [test_illegal_inout_port_connected_to_variable.sv](../tests/ch23/test_illegal_inout_port_connected_to_variable.sv): inout wire [1:0] p に、ネット n・ネットの連接 {hi, lo}・未接続 () を接続する適法なインスタンスの後、インスタンス u が変数 logic [1:0] v を接続し、32行目の診断を照合。
 
 ### SV2023-23.3.3.2-EXTRACT-NO-VARIABLE-INTERCONNECT
 
-23.3.3.2 / error / テスト未対応
+23.3.3.2 / error / テスト対応あり・実行未確認
 
 A port variable cannot connect to an interconnect net or port.
 
@@ -62440,6 +63398,8 @@ A port variable cannot connect to an interconnect net or port.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_variable_port_to_interconnect_net.sv](../tests/ch23/test_illegal_variable_port_to_interconnect_net.sv): interconnect link を wire 出力 src.o と wire 入力 n.p にも接続したうえで、変数ポート vin_sink.p に接続するインスタンス u の37行目の診断を照合。
+- [test_illegal_variable_port_to_interconnect_port.sv](../tests/ch23/test_illegal_variable_port_to_interconnect_port.sv): vip_mid の interconnect 入力ポート ip（上位では wire w に接続、内部では wire ポート n.p にも接続）を、変数ポート vip_sink.p に接続するインスタンス u の31行目の診断を照合。
 
 ### SV2023-23.3.3.2-EXTRACT-VARIABLE-INPUT
 
@@ -62465,7 +63425,7 @@ A variable output may connect to compatible nets or concatenations and those net
 
 ### SV2023-23.3.3.2-EXTRACT-VARIABLE-OUTPUT-VARIABLE
 
-23.3.3.2 / error / テスト未対応
+23.3.3.2 / error / 実行確認あり
 
 A variable output may connect to a compatible variable or concatenation by implied continuous assignment; other procedural/continuous assignments to the receiving variable are illegal.
 
@@ -62473,6 +63433,8 @@ A variable output may connect to a compatible variable or concatenation by impli
 
 規定の性質: `mandatory`。
 
+- [test_illegal_output_port_variable_procedural_write.sv](../tests/ch23/test_illegal_output_port_variable_procedural_write.sv): ovp_child u (.o(r)) で r を出力ポートに接続し、initial r = 2'b01; の31行目（または接続の30行目）の診断を照合。ok は連接 {hi, lo} を接続し他に代入がない。
+- [test_illegal_output_port_concat_continuous_write.sv](../tests/ch23/test_illegal_output_port_concat_continuous_write.sv): occ_child u (.o({hi, lo})) で連接を出力ポートに接続し、assign lo = 1'b1; の30行目（または接続の29行目）の診断を照合。ok は変数 r を接続し他に代入がない。
 
 ### SV2023-23.3.3.2-EXTRACT-VARIABLE-REF
 
@@ -62487,7 +63449,7 @@ Ref requires an equivalent-type connected variable and treats accesses as hierar
 
 ### SV2023-23.3.3.3-EXTRACT-NET-INOUT
 
-23.3.3.3 / error / テスト未対応
+23.3.3.3 / error / 実行確認あり
 
 A built-in-net inout accepts compatible nets/concatenations or no connection, but not variables.
 
@@ -62495,6 +63457,7 @@ A built-in-net inout accepts compatible nets/concatenations or no connection, bu
 
 規定の性質: `mandatory`。
 
+- [test_illegal_inout_port_connected_to_variable.sv](../tests/ch23/test_illegal_inout_port_connected_to_variable.sv): 組込みネット型の inout ポート（inout wire [1:0] p）に対し、インスタンス to_net はネット n、to_concat はネットの連接 {hi, lo}、open は空の () で未接続にしており、いずれも適法。インスタンス u だけが変数 logic [1:0] v を接続し、:should_fail_because: 付きで32行目の診断を照合している。 区別: 変数を inout ネットポートに接続できるとする誤実装（暗黙の continuous assign で変数を駆動する扱いなど）は32行目で診断を出さず設計を受理するので負テストが失敗する。規格 23.3.3.3 B002 の第3項目が列挙する適法な接続形（ネット、ネットの連接、未接続）を同じ設計にすべて置き、違反は変数への接続だけにしている。
 
 ### SV2023-23.3.3.3-EXTRACT-NET-INPUT
 
@@ -62586,7 +63549,7 @@ Otherwise, an unpacked connection outermost dimensions shall exactly match the i
 
 ### SV2023-23.3.3.5-EXTRACT-UNPACKED-PORT-SHAPE
 
-23.3.3.5 / error / テスト未対応
+23.3.3.5 / error / 実行確認あり
 
 An unpacked array port and its connection shall have equal dimension counts and corresponding dimension sizes.
 
@@ -62594,6 +63557,8 @@ An unpacked array port and its connection shall have equal dimension counts and 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_unpacked_port_dimension_count.sv](../tests/ch23/test_illegal_unpacked_port_dimension_count.sv): upd_child の input logic [7:0] p [4] に logic [7:0] m [2][2] を接続する u の27行目の診断を照合。ok は a [4] を接続。
+- [test_illegal_unpacked_port_dimension_size.sv](../tests/ch23/test_illegal_unpacked_port_dimension_size.sv): ups_child の input logic [3:0] p [2][3] に logic [3:0] b [2][2] を接続する u の27行目の診断を照合。ok は a [0:1][3:1] を接続。
 
 ### SV2023-23.3.3.6-EXTRACT-UWIRE-NONMERGE-WARNING
 
@@ -63565,7 +64530,7 @@ Two interconnect nets merge as interconnect; one interconnect and one other type
 
 ### SV2023-23.3.3.7.1-EXTRACT-NO-RESIDUAL-INTERCONNECT
 
-23.3.3.7.1 / error / テスト未対応
+23.3.3.7.1 / error / テスト対応あり・実行未確認
 
 At elaboration end, no simulated net may retain interconnect type.
 
@@ -63573,6 +64538,7 @@ At elaboration end, no simulated net may retain interconnect type.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interconnect_left_after_elaboration.sv](../tests/ch23/test_illegal_interconnect_left_after_elaboration.sv): interconnect ネット link を interconnect ポート（inout interconnect p）だけに接続する（ile_pass u (link)）。両側とも interconnect なので併合後のネットは interconnect のまま残る。:should_fail_because: 付きで、u の37行目、link の宣言36行目、または ile_pass のポート宣言25行目の診断を照合している。対照として interconnect good は同じ ile_pass と wire 出力 ile_drive.o に接続され、併合後は wire になるので適法。 区別: エラボレーション終了時に interconnect 型の模擬ネットが残ることを検査しない誤実装は設計を受理し、負テストが失敗する。規格 23.3.3.7.1 B003（両方 interconnect なら併合後も interconnect、片方だけなら他方の型）と B004（終了時に interconnect の模擬ネットは違法）から、link だけが違反となり good は違反しないことが導ける。
 
 ### SV2023-23.3.3.7.2-EXTRACT-INTERCONNECT-TERMINAL
 
@@ -63907,7 +64873,7 @@ Modules, interfaces, programs, checkers, packages, classes, tasks, functions, na
 
 ### SV2023-23.9-EXTRACT-SCOPE-UNIQUENESS
 
-23.9 / error / テスト未対応
+23.9 / error / 実行確認あり
 
 One identifier declares one item per applicable scope; the rule applies even to uninstantiated generate blocks, subject to the conditional-generate naming exception in 27.6.
 
@@ -63915,6 +64881,9 @@ One identifier declares one item per applicable scope; the rule applies even to 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_scope_task_and_variable_same_name.sv](../tests/ch23/test_illegal_scope_task_and_variable_same_name.sv): int step; の後の task step; の27行目の診断を照合。別名の task bump は適法。
+- [test_illegal_scope_duplicate_in_unselected_generate.sv](../tests/ch23/test_illegal_scope_duplicate_in_unselected_generate.sv): P=1 なので if (P == 0) の生成ブロック off は生成されない。その中の2つ目の int v の29行目の診断を照合。if/else の両選択肢を sel と名付けた条件生成は適法。
+- [test_illegal_scope_gate_named_as_output_net.sv](../tests/ch23/test_illegal_scope_gate_named_as_output_net.sv): wire y の後に buf y (y, a) とする24行目の診断を照合。別名の buf g (z, a) は適法。
 
 ### SV2023-23.10-EXTRACT-OVERRIDE-PRECEDENCE
 
@@ -64039,7 +65008,7 @@ defparam may alter hierarchical value parameters in module/interface/program ins
 
 ### SV2023-23.10.2-EXTRACT-INNER-PARAMETER-OVERRIDE
 
-23.10.2 / normal / テスト未対応
+23.10.2 / normal / 実行確認あり
 
 A parameter in a named block/task/function can be directly redefined only by defparam, though changes to another parameter may indirectly update it.
 
@@ -64047,6 +65016,7 @@ A parameter in a named block/task/function can be directly redefined only by def
 
 規定の性質: `mandatory`。
 
+- [test_defparam_block_task_function_parameters.sv](../tests/ch23/test_defparam_block_task_function_parameters.sv): dbp_leaf の名前付きブロック blk の BP = W + 1、タスク tget の TP = W + 10、関数 fget の FP = W * 3（W の既定値 2）を出力ポート経由で表示する。u_def は既定値で BP=3 TP=12 FP=6、u_w は #(.W(5)) で W だけ上書きして BP=6 TP=15 FP=15、u_dp は defparam u_dp.blk.BP = 40, u_dp.tget.TP = 50, u_dp.fget.FP = 60 で BP=40 TP=50 FP=60、u_both は #(.W(7)) と defparam u_both.blk.BP = 41 で BP=41 TP=17 FP=21 となることを .expected の4行で比較している。 区別: 名前付きブロック・タスク・関数の中のパラメータへの defparam を無視する誤実装では u_dp 行が BP=3 TP=12 FP=6 に、依存するモジュールパラメータ W の上書きを反映しない誤実装では u_w 行が BP=3 TP=12 FP=6 に、defparam した値を W の上書き後に依存式で計算し直す誤実装では u_both 行が BP=8 になる。規格 23.10.2 B004 の「これらのパラメータは defparam でだけ直接再定義でき、依存先のパラメータの再定義で間接的に更新される」の両面と、23.10.3 B002 の「上書きされたパラメータは依存先にかかわらずその値をとる」から期待値を導いた。
 
 ### SV2023-23.10.2-EXTRACT-INSTANCE-PARAMETER-STYLES
 
@@ -64095,7 +65065,7 @@ Different instances in one parent may use different legal parameter assignment s
 
 ### SV2023-23.10.2.2-EXTRACT-NAMED-PARAMETER-EMPTY
 
-23.10.2.2 / error / テスト未対応
+23.10.2.2 / error / テスト対応あり・実行未確認
 
 Named parameter assignment requires parentheses, permits an empty expression to retain the default, and forbids repeated assignment to a parameter name.
 
@@ -64103,6 +65073,8 @@ Named parameter assignment requires parentheses, permits an empty expression to 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_named_parameter_without_parentheses.sv](../tests/ch23/test_illegal_named_parameter_without_parentheses.sv): npp_leaf #(.W(8), .D()) u1（合法）と npp_leaf #(.W(8), .D) u2（29行目、// illegal）。トップには localparam int D = 5。
+- [test_illegal_named_parameter_assigned_twice.sv](../tests/ch23/test_illegal_named_parameter_assigned_twice.sv): npt_leaf #(.D(), .W(8)) u1（合法）と、npt_leaf #(.W(8), .D(3), の継続行 .W(16)) u2（30行目、// illegal）。:expected_stderr_regex: は29行目か30行目を指す。
 
 ### SV2023-23.10.2.2-EXTRACT-NAMED-PARAMETERS
 
@@ -64152,7 +65124,7 @@ Changing a dependency recomputes a dependent parameter; a direct override replac
 
 ### SV2023-23.10.3-EXTRACT-PARAMETER-TYPE-DEPENDENCE
 
-23.10.3 / error / テスト未対応
+23.10.3 / error / 実行確認あり
 
 Parameters may depend on other value/type parameters through types; changing those types recomputes dependent values, and an illegal resulting assignment fails elaboration.
 
@@ -64160,6 +65132,7 @@ Parameters may depend on other value/type parameters through types; changing tho
 
 規定の性質: `mandatory`。
 
+- [test_illegal_type_parameter_override_breaks_dependent_value.sv](../tests/ch23/test_illegal_type_parameter_override_breaks_dependent_value.sv): ptd_dep #(parameter type T = int, parameter T P = 7) を、既定の T=int（u_int）と T=byte（u_byte）でインスタンス化し（P は新しい型で再計算されて合法）、u_cls で T をクラス ptd_c に上書きする（39行目、// illegal、7 をクラス型に代入できない）。ptd_cdef は T の既定がクラスで Q = 4 を持つが、唯一のインスタンス u_def が T=int に上書きするので既定の型での代入は行われず合法。:expected_stderr_regex: は P の宣言（29行目）か u_cls（39行目）を指す。Verilator 5.052 は29行目で「初期値はクラス型を期待する」と報告する。 区別: 型パラメータの上書き後に依存するパラメータを再計算しない誤実装（既定の int のまま 7 を使う）は u_cls を受理するので負テストが失敗する。上書きがある場合にも既定の型で依存する代入を評価する誤実装は u_def で別のエラーを出すが、負テストの合否には影響しない（合法な対照）。違反は u_cls の上書きによる P の代入の1か所だけ。
 
 ### SV2023-23.10.4-EXTRACT-ELABORATION
 
@@ -64273,7 +65246,7 @@ A configuration mapping active at the bind statement controls target-scope selec
 
 ### SV2023-23.11-EXTRACT-BIND-NAME-CLASH
 
-23.11 / error / テスト未対応
+23.11 / error / テスト対応あり・実行未確認
 
 Multiple binds may use one target, but introduced names shall not clash with existing or other bound names in the target module namespace.
 
@@ -64281,6 +65254,8 @@ Multiple binds may use one target, but introduced names shall not clash with exi
 
 規定の性質: `mandatory`。
 
+- [test_illegal_bind_instance_name_clashes_target_item.sv](../tests/ch23/test_illegal_bind_instance_name_clashes_target_item.sv): bnc_target は logic mon を宣言し、bind bnc_target bnc_mon mon (.a(a)) の35行目（または mon の宣言の29行目）の診断を照合。bind bnc_target bnc_mon chk は適法。
+- [test_illegal_bind_two_binds_same_instance_name.sv](../tests/ch23/test_illegal_bind_two_binds_same_instance_name.sv): btn_target に first、second、mon、mon の4つの bind。2つ目の mon の35行目（または1つ目の mon の34行目）の診断を照合。
 
 ### SV2023-23.11-EXTRACT-BIND-ORDER-FREEDOM
 
@@ -64317,7 +65292,7 @@ A target module/interface scope receives the binding in all its designwide insta
 
 ### SV2023-23.11-EXTRACT-BIND-TYPE-PARAMETERS
 
-23.11 / error / テスト未対応
+23.11 / error / テスト対応あり・実行未確認
 
 User types overriding bound type parameters shall be visible and matching in both bind-statement and target scopes.
 
@@ -64325,6 +65300,8 @@ User types overriding bound type parameters shall be visible and matching in bot
 
 規定の性質: `mandatory`。
 
+- [test_illegal_bind_type_override_not_visible_in_target.sv](../tests/ch23/test_illegal_bind_type_override_not_visible_in_target.sv): bind btv_target btv_chk #(.T(word_t)) c () の41行目の診断を照合。word_t は上位モジュールの typedef logic [15:0] で、btv_target には宣言も import もない。
+- [test_illegal_bind_type_override_not_matching.sv](../tests/ch23/test_illegal_bind_type_override_not_matching.sv): bind btm_target btm_chk #(.T(data_t)) c () の43行目の診断を照合。data_t は上位で typedef logic [3:0]、btm_target で typedef logic [7:0]（6.22.1 で一致しない）。
 
 ### SV2023-23.11-EXTRACT-BOUND-CONSTANT-REFERENCE
 
@@ -64339,7 +65316,7 @@ Outside a bound instantiation, its parameters cannot be referenced hierarchicall
 
 ### SV2023-23.11-EXTRACT-BOUND-DEFPARAM-CONTAINMENT
 
-23.11 / error / テスト未対応
+23.11 / error / テスト対応あり・実行未確認
 
 Defparams below a bound instantiation cannot influence outside that local hierarchy.
 
@@ -64347,6 +65324,7 @@ Defparams below a bound instantiation cannot influence outside that local hierar
 
 規定の性質: `mandatory`。
 
+- [test_illegal_bind_defparam_outside_bound_hierarchy.sv](../tests/ch23/test_illegal_bind_defparam_outside_bound_hierarchy.sv): bind bdo_target bdo_chk c () で bdo_chk を対象インスタンス t に挿入する。bdo_chk の中の defparam inner.P = 3 は自身のインスタンス inner を対象とし適法、defparam test_illegal_bind_defparam_outside_bound_hierarchy.t.leaf.P = 5 は c の階層の外（対象 t の leaf）のパラメータを変えようとし、:should_fail_because: 付きでその29行目の診断を照合している。 区別: bind で挿入されたインスタンスの中の defparam を通常の defparam と同じく階層外にも効かせる誤実装は29行目で診断を出さず（leaf.P が 5 になり）負テストが失敗する。規格 23.11 B031 の『bind_instantiation の階層の下位にある defparam はその局所階層の外に影響してはならない（生成階層の defparam と同様）』を、局所階層内の適法な defparam と並べて刺激している。
 
 ### SV2023-23.11-EXTRACT-BOUND-PART-OF-TARGET
 
@@ -64372,7 +65350,7 @@ Binding into an interface permits only interface or checker instantiations.
 
 ### SV2023-23.11-EXTRACT-NO-NESTED-BIND
 
-23.11 / error / テスト未対応
+23.11 / error / テスト対応あり・実行未確認
 
 A bind cannot insert an instantiation underneath another bound instantiation scope.
 
@@ -64380,6 +65358,7 @@ A bind cannot insert an instantiation underneath another bound instantiation sco
 
 規定の性質: `mandatory`。
 
+- [test_illegal_bind_under_bound_instance.sv](../tests/ch23/test_illegal_bind_under_bound_instance.sv): bind bub_target bub_chk c () で対象インスタンス t に c を挿入した後、2つ目の bind が対象インスタンス test_illegal_bind_under_bound_instance.t.c（1つ目の bind が作ったインスタンス）に bub_inner i を挿入しようとする。:should_fail_because: 付きで2つ目の bind の36行目の診断を照合している。 区別: bind で作られたインスタンスを通常のインスタンスと同様に bind の対象として受け入れる誤実装は36行目で診断を出さず負テストが失敗する。規格 23.11 B034 の『別の bind_instantiation のスコープの下に bind してはならない』を、bind の第2形式（単一の対象インスタンス）で刺激している。1つ目の bind は通常の対象への挿入で適法。
 
 ### SV2023-23.11-SELECTIVE-BIND
 
@@ -64393,7 +65372,7 @@ Binding to a selected instance does not bind to its sibling instances.
 
 ### SV2023-24.2-EXTRACT-PROGRAM-REACTIVE-CONTEXT
 
-24.2 / normal / テスト未対応
+24.2 / normal / テスト対応あり・実行未確認
 
 A program provides a testbench entry point, program-wide data/subroutine scope and a reactive-region scheduling context.
 
@@ -64401,6 +65380,8 @@ A program provides a testbench entry point, program-wide data/subroutine scope a
 
 規定の性質: `definition`。
 
+- [test_program_reactive_region_after_nba.sv](../tests/ch24/test_program_reactive_region_after_nba.sv): モジュールの initial #5 b <= 1'b1; と initial #5 $display("module at 5: b=%b", b);、program の initial #5 $display("program at 5: b=%b", ...b);。期待値は module at 5: b=0 と program at 5: b=1。
+- [test_program_scope_shared_by_its_initial_procedures.sv](../tests/ch24/test_program_scope_shared_by_its_initial_procedures.sv): program psh_tb の int total、task add、function twice を2つの initial 手続きが使う。p1（FIRST=1）は時刻1に add(3)、時刻2に add(twice(5)) で total=13 を時刻3に、p2（FIRST=0）は add(twice(5)) だけで total=10 を時刻4に表示する。Icarus 13.0 と Verilator 5.052 が一致。
 
 ### SV2023-24.3-EXTRACT-ANONYMOUS-GRAMMAR
 
@@ -64723,7 +65704,7 @@ An ignored non-program-origin exit call may issue a warning.
 
 ### SV2023-25.2-EXTRACT-INTERFACE-ABSTRACT-METHODS
 
-25.2 / normal / テスト未対応
+25.2 / normal / テスト対応あり・実行未確認
 
 Interface method import/export may separate declaration, definition and call; forkjoin tasks permit multiple module definitions executing concurrently.
 
@@ -64731,10 +65712,11 @@ Interface method import/export may separate declaration, definition and call; fo
 
 規定の性質: `definition`。
 
+- [test_interface_abstract_methods_and_broadcast.sv](../tests/ch25/test_interface_abstract_methods_and_broadcast.sv): am_bus でタスク put を extern 宣言し am_store がポート名 b.put で定義、am_caller は modport caller の import を通して自分のポートから b.put(7) を呼び、時刻0に value=7 を表示する。extern forkjoin のタスク tick は c1/c2 の2インスタンスが定義し、それぞれ #5 後に mask の自分のビットを立てる。b.tick() は時刻5に mask=11 で戻る。 区別: 宣言・定義・呼び出しを別モジュールに分けられない誤実装はコンパイルできないか value=7 が出ない。forkjoin タスクの複数定義を1つしか実行しない誤実装は mask=01 か 10 になり、並行でなく順に実行する誤実装は戻り時刻が 10 になって2行目が '10: mask=11' に変わる。
 
 ### SV2023-25.2-EXTRACT-INTERFACE-BUNDLE
 
-25.2 / normal / テスト未対応
+25.2 / normal / 実行確認あり
 
 An interface instance bundles nets/variables and may pass as one port item with individually referenced members.
 
@@ -64742,10 +65724,11 @@ An interface instance bundles nets/variables and may pass as one port item with 
 
 規定の性質: `definition`。
 
+- [test_interface_overview_bundle_and_members.sv](../tests/ch25/test_interface_overview_bundle_and_members.sv): インタフェース ov_bus のインスタンス bus を ov_user のポート b 1つで渡し、ov_user は b.put(12'h3C5, -5) でメンバを書き、時刻2に b.data（変数）、b.data_inv（ネット）、b.tag（型パラメータ型のメンバ）を個別に参照して表示する。期待出力1行目は data=3c5 data_inv=c3a tag=-5。 区別: ポートで渡したインタフェースが同じインスタンスのメンバ束として結ばれない誤実装（コピーを渡す、ネットや個々のメンバを解決できない等）では、ポート経由の書き込みと参照が一致せず1行目の値が変わるか、コンパイルできない。ネット data_inv が束に含まれない誤実装も c3a が出ない。
 
 ### SV2023-25.2-EXTRACT-INTERFACE-CONTENTS
 
-25.2 / normal / テスト未対応
+25.2 / normal / 実行確認あり
 
 Interfaces may contain parameters, constants, variables, tasks/functions, typed or type-parameter members, initial/always processes and continuous assignments; members are accessed through the interface instance.
 
@@ -64753,6 +65736,7 @@ Interfaces may contain parameters, constants, variables, tasks/functions, typed 
 
 規定の性質: `permission`。
 
+- [test_interface_overview_bundle_and_members.sv](../tests/ch25/test_interface_overview_bundle_and_members.sv): ov_bus がパラメータ W（12 に上書き）、型パラメータ T（shortint に上書き）、localparam DEPTH、const 変数 K、変数 data/copy/started、ネット data_inv、T 型のメンバ tag、関数 scaled、タスク put、initial（started=1）、always（data の変化で copy=data）、連続代入（data_inv=~data）を持つ。トップがインスタンス名 bus 経由で W/DEPTH/K/$bits(tag)/scaled(4)/copy/started を表示し、期待出力は W=12 DEPTH=24 K=3 bits(tag)=16 と scaled(4)=12 copy=3c5 started=1。 区別: パラメータ上書きが効かなければ W=8 DEPTH=16 になり data も2桁になる。型パラメータが効かなければ bits(tag)=8 になる。always が動かなければ copy は 3c5 にならず、initial が動かなければ started=0、連続代入がなければ data_inv が c3a にならない。関数・const 定数をインスタンス経由で参照できなければ scaled(4)=12 K=3 が出ない。
 
 ### SV2023-25.2-EXTRACT-MODPORT-VIEW
 
@@ -64767,7 +65751,7 @@ Modports specify directions from the connected module viewpoint and restrict sub
 
 ### SV2023-25.3-EXTRACT-ARRAY-INTERFACE-DEFPARAM
 
-25.3 / error / テスト未対応
+25.3 / error / テスト対応あり・実行未確認
 
 A defparam in an instance whose port actual refers to an arrayed interface cannot modify parameters outside that instance hierarchy.
 
@@ -64775,6 +65759,7 @@ A defparam in an instance whose port actual refers to an arrayed interface canno
 
 規定の性質: `mandatory`。
 
+- [test_illegal_defparam_in_instance_on_arrayed_interface.sv](../tests/ch25/test_illegal_defparam_in_instance_on_arrayed_interface.sv): インタフェース配列 dai_if buses [1:0] の要素 buses[0] をポート b の実引数とするインスタンス u（dai_user）の中に2つの defparam を置く。defparam inner.P = 3 は u 自身の階層内のインスタンス inner を対象とし適法、defparam test_illegal_defparam_in_instance_on_arrayed_interface.solo.W = 4 は u の階層外のインタフェース solo のパラメータを変えようとし、:should_fail_because: 付きでその34行目の診断を照合している。 区別: ポート実引数が配列インタフェースを参照するインスタンスの中の defparam を通常の defparam と同じく階層外にも効かせる誤実装は34行目で診断を出さず（solo.W が 4 になり）負テストが失敗する。規格 25.3 B015 の前半『配列インタフェースを参照するポート実引数を持つインスタンス内の defparam は、そのインスタンスの階層の外のパラメータを変更してはならない』を、階層内の適法な defparam と並べて刺激している。
 
 ### SV2023-25.3-EXTRACT-INTERFACE-GRAMMAR
 
@@ -64789,7 +65774,7 @@ Interface declarations permit ANSI/non-ANSI headers, optional lifetimes/imports/
 
 ### SV2023-25.3-EXTRACT-INTERFACE-HIERARCHICAL-ACTUAL
 
-25.3 / error / テスト未対応
+25.3 / error / テスト対応あり・実行未確認
 
 A hierarchical actual selecting an interface/modport shall target an interface instance without traversing an arrayed instance or generate block.
 
@@ -64797,10 +65782,12 @@ A hierarchical actual selecting an interface/modport shall target an interface i
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_port_actual_through_instance_array.sv](../tests/ch25/test_illegal_interface_port_actual_through_instance_array.sv): hia_holder h [1:0] () の要素の中のインタフェースを hia_user u (.b(h[0].bus)) に渡す39行目の診断を照合。
+- [test_illegal_interface_port_actual_through_generate_block.sv](../tests/ch25/test_illegal_interface_port_actual_through_generate_block.sv): if (1) begin : g の中のインタフェース bus を hig_user u (.b(g.bus)) に渡す40行目の診断を照合。
 
 ### SV2023-25.3-EXTRACT-INTERFACE-IMPORT-FOOTNOTE
 
-25.3 / error / テスト未対応
+25.3 / error / テスト対応あり・実行未確認
 
 An ANSI module/interface/program header package import requires a following parameter-port list or port-declaration list or both.
 
@@ -64808,6 +65795,9 @@ An ANSI module/interface/program header package import requires a following para
 
 規定の性質: `mandatory`。
 
+- [test_illegal_module_header_import_without_port_list.sv](../tests/ch26/test_illegal_module_header_import_without_port_list.sv): module mhi_bad import mhi_pkg::*; ; の36行目の診断を照合。mhi_ports（ポートリスト）、mhi_params（パラメータポートリスト）、mhi_empty（()）は適法。
+- [test_illegal_interface_header_import_without_port_list.sv](../tests/ch25/test_illegal_interface_header_import_without_port_list.sv): interface ihi_bad import ihi_pkg::*; ; の36行目の診断を照合。ihi_ports、ihi_params、ihi_empty は適法。
+- [test_illegal_program_header_import_without_port_list.sv](../tests/ch26/test_illegal_program_header_import_without_port_list.sv): program phi_bad import phi_pkg::*; ; の37行目の診断を照合。phi_ports、phi_params、phi_empty は適法。
 
 ### SV2023-25.3-EXTRACT-INTERFACE-INSTANTIATION
 
@@ -64846,7 +65836,7 @@ Interfaces may contain smaller interfaces and pass through ports; their subrouti
 
 ### SV2023-25.3-EXTRACT-INTERFACE-TIMEUNIT-FOOTNOTE
 
-25.3 / error / テスト未対応
+25.3 / error / 実行確認あり
 
 A later non-port timeunits declaration must repeat and match a prior declaration in the same time scope.
 
@@ -64854,6 +65844,8 @@ A later non-port timeunits declaration must repeat and match a prior declaration
 
 規定の性質: `mandatory`。
 
+- [test_illegal_interface_timeunit_mismatch.sv](../tests/ch25/test_illegal_interface_timeunit_mismatch.sv): itu_bad の timeunit 10ns / 1ps の30行目の診断を照合。itu_ok は 1ns / 1ps を同じ形で繰り返し適法。
+- [test_illegal_interface_timeunit_after_item.sv](../tests/ch25/test_illegal_interface_timeunit_after_item.sv): ita_bad で logic a の後の timeunit 1ns / 1ps の31行目の診断を照合。ita_ok は先頭で宣言し、項目の後で繰り返し適法。
 
 ### SV2023-25.3-EXTRACT-MODPORT-GRAMMAR
 
@@ -64868,7 +65860,7 @@ Modports contain directed simple or explicitly named expression ports, imported/
 
 ### SV2023-25.3.2-EXTRACT-BUNDLE-DEFAULT-DIRECTIONS
 
-25.3.2 / normal / テスト未対応
+25.3.2 / normal / テスト対応あり・実行未確認
 
 Without a modport restriction, variables within a port-referenced interface have ref access and nets have inout access.
 
@@ -64876,6 +65868,8 @@ Without a modport restriction, variables within a port-referenced interface have
 
 規定の性質: `mandatory`。
 
+- [test_interface_port_default_ref_and_inout_access.sv](../tests/ch25/test_interface_port_default_ref_and_inout_access.sv): モードポートなしのインタフェースポート rdi_bus b を持つモジュールで、変数 v と wor ネット w を操作する。変数: p1 が時刻1に b.v = 5、p2 が時刻3に b.v = 9 を書き、それぞれ直後に読み返す（1: ... reads v=5、3: ... reads v=9）。上位は時刻2と4に bus.v を読み 5、9、p1 は時刻5に p2 の書いた 9 を読む（5: reads v=9）。ネット: d1 と d0 がそれぞれ assign b.w = en でネットを駆動し、上位がイネーブルを (0,0)(1,0)(0,1)(1,1) と変えた各1時刻後に w=0、1、1、1 を表示し、d0 はポート経由で時刻22に w=1（d1 だけが駆動）を読む。 区別: 変数をポートごとの写し（input のような値渡し）として扱う誤実装では、上位の 2:/4: 行が初期値のままになり、p1 の 5: 行が自分の書いた 5 のままになる。ネットを inout でなく input として扱いモジュールからの駆動を許さない誤実装はコンパイルエラーか w=0 のままになり、どちらか一方の駆動しか反映しない誤実装は 21: か 31: 行が 0 になる。規格 25.3.2 B002 の『ポートとして参照されたインタフェースの変数は ref、ネットは inout のアクセスを持つ』から、全モジュールが同じ変数を読み書きし、両モジュールがネットを駆動し読めることを導いた。
+- [test_interface_named_bundle_ports_share_variable_and_net.sv](../tests/ch25/test_interface_named_bundle_ports_share_variable_and_net.sv): 名前付きバンドル nbs_bus（変数 count、ネット line）を modport なしのインタフェースポートとして、nbs_a は位置で、nbs_b は名前で接続する。変数：a が1で count=3、b が2で count+4、a が3で count*2 とし、トップが4で count=14 を読む。ネット：a は ea のとき1、b は eb のとき0を line へ連続代入で駆動し（それ以外は z）、トップが11・21・31に line=1、0、z を、b がポート経由で22に line=0 を読む。 区別: 変数を ref でなく入力・出力ポートのような複写として扱う誤実装は、2つのモジュールの書込みが同じ変数に積み重ならず count=14 にならない（3、7、6 など）。ネットを inout として扱わない誤実装（片方のモジュールだけを駆動元にする、ポート経由の読出しが駆動結果を見ない）は line の行（1、0、z、b sees line=0）が変わる。位置と名前の両方の接続で、同じインスタンスの変数とネットへのアクセスを値で観測している。
 
 ### SV2023-25.3.3-EXTRACT-GENERIC-ANSI-ONLY
 
@@ -64902,7 +65896,7 @@ A generic interface port leaves its concrete interface selection to module insta
 
 ### SV2023-25.3.3-EXTRACT-GENERIC-NO-IMPLICIT
 
-25.3.3 / error / テスト未対応
+25.3.3 / error / テスト対応あり・実行未確認
 
 A generic interface reference shall use a named connection rather than an implicit port connection.
 
@@ -64910,6 +65904,8 @@ A generic interface reference shall use a named connection rather than an implic
 
 規定の性質: `mandatory`。
 
+- [test_illegal_generic_interface_port_dot_name.sv](../tests/ch25/test_illegal_generic_interface_port_dot_name.sv): gdn_user u (.bus) の33行目の診断を照合。ok は .bus(bus)。
+- [test_illegal_generic_interface_port_wildcard.sv](../tests/ch25/test_illegal_generic_interface_port_wildcard.sv): gdw_user u (.*) の35行目の診断を照合。ok は .bus(bus) と .*（en だけを接続）。
 
 ### SV2023-25.4-EXTRACT-INTERFACE-EXTERNAL-PORTS
 
@@ -65040,7 +66036,7 @@ A modport may name a clocking block using clocking plus its identifier; clocking
 
 ### SV2023-25.5.5-EXTRACT-MODPORT-CLOCKING-LOCAL
 
-25.5.5 / error / テスト未対応
+25.5.5 / error / 実行確認あり
 
 A modport clocking block must be declared by that same interface.
 
@@ -65048,6 +66044,7 @@ A modport clocking block must be declared by that same interface.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_modport_clocking_other_interface.sv](../tests/ch25/test_illegal_modport_clocking_other_interface.sv): インタフェース mco_bus はクロッキングブロック cb を宣言し、自身のモードポート stb (clocking cb) は適法。クロッキングブロックを宣言しないインタフェース mco_user のモードポート tb (clocking cb) は mco_bus の cb を指そうとしており、:should_fail_because: 付きでその32行目の診断を照合している。 区別: モードポートのクロッキングブロック名を他のインタフェース（設計中の同名のクロッキングブロック）から解決する誤実装は32行目で診断を出さず負テストが失敗する。規格 25.5.5 B005 の『モードポートで使うクロッキングブロックはすべてそのモードポートと同じインタフェースで宣言されなければならない』を、同じインタフェース内の適法な参照と並べて刺激している。
 
 ### SV2023-25.6-EXTRACT-INTERFACE-SPECIFY-TERMINALS
 
@@ -65062,7 +66059,7 @@ Interface port signals become available specify terminals with interface default
 
 ### SV2023-25.7-EXTRACT-FORKJOIN-TASK-ONLY
 
-25.7 / error / テスト未対応
+25.7 / error / 実行確認あり
 
 Multiple connected module instances may define an interface task through extern forkjoin, but not a function.
 
@@ -65070,10 +66067,11 @@ Multiple connected module instances may define an interface task through extern 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_extern_forkjoin_function.sv](../tests/ch25/test_illegal_extern_forkjoin_function.sv): インタフェース fjf_bus でタスク count を extern forkjoin で宣言し、同じバスに接続した2つのインスタンス t1/t2 がどちらも count を定義する（合法な対照）。同じ形で関数 peek も extern forkjoin で宣言し、t1/t2 の両方が b.peek を定義する。:expected_stderr_regex: は関数の extern forkjoin 宣言行（または関数定義行・2つ目のインスタンス行）でのエラーを要求する。 区別: extern forkjoin による複数インスタンス定義を関数にも許す誤実装は設計を受理し、エラーが出ないので不合格になる。逆にタスクの複数定義まで拒否する誤実装は count 側（29行・35行）で報告し、正規表現の行（30/38/46行）とずれる。Verilator 5.052 は30行を task を期待する構文エラーとして拒否する。
 
 ### SV2023-25.7-EXTRACT-HIERARCHICAL-METHOD-DECLARATION
 
-25.7 / error / テスト未対応
+25.7 / error / テスト対応あり・実行未確認
 
 A module-defined hierarchical interface method must be declared extern in the interface or export in a modport.
 
@@ -65081,6 +66079,7 @@ A module-defined hierarchical interface method must be declared extern in the in
 
 規定の性質: `mandatory`。
 
+- [test_illegal_hierarchical_task_definition_not_declared.sv](../tests/ch25/test_illegal_hierarchical_task_definition_not_declared.sv): モジュール hmd_target がインタフェースポート b を通して階層名で3つのタスクを定義する。put はインタフェースで extern 宣言され modport tgt で export（合法）、get は modport でプロトタイプ付き export のみ（合法）、clear はインタフェースにも modport にも宣言がない。:expected_stderr_regex: は b.clear の定義行（37行）でのエラーを要求する。 区別: extern 宣言も modport の export もない階層名定義を受理する誤実装はエラーを出さず不合格になる。extern と export の両方を要求する誤実装は get の定義行（34行）で報告し、37行と一致しない。
 
 ### SV2023-25.7-EXTRACT-INTERFACE-SUBROUTINE-DEFINITION
 
@@ -65095,7 +66094,7 @@ Interface subroutines may be defined in the interface or connected modules and d
 
 ### SV2023-25.7-EXTRACT-MISSING-MISMATCHED-EXPORT
 
-25.7 / error / テスト未対応
+25.7 / error / テスト対応あり・実行未確認
 
 A connected module must define every exported subroutine and exactly match an exported prototype; absence/mismatch is an elaboration error.
 
@@ -65103,6 +66102,8 @@ A connected module must define every exported subroutine and exactly match an ex
 
 規定の性質: `mandatory`。
 
+- [test_illegal_modport_export_task_not_defined.sv](../tests/ch25/test_illegal_modport_export_task_not_defined.sv): modport tgt が put と get を export する。mxd_full は両方定義（インスタンス ok、合法）、mxd_partial は put だけを定義し、そのインスタンス u は get を定義しない。:expected_stderr_regex: は mxd_partial のヘッダ行（40行）か u の行（49行）を要求する。
+- [test_illegal_modport_export_task_prototype_mismatch.sv](../tests/ch25/test_illegal_modport_export_task_prototype_mismatch.sv): modport tgt がプロトタイプ task put(input int v) を export する。mxp_ok は同じシグネチャで定義（合法）、mxp_bad は引数型を logic [7:0] にして定義する。:expected_stderr_regex: は mxp_bad の put 定義行（37行）か u の行（45行）を要求する。
 
 ### SV2023-25.7-EXTRACT-MODPORT-PROTOTYPE-DEFAULT
 
@@ -65117,7 +66118,7 @@ A call requiring a default must have it in the prototype; if declaration and pro
 
 ### SV2023-25.7-EXTRACT-MODPORT-PROTOTYPE-MATCH
 
-25.7 / error / テスト未対応
+25.7 / error / テスト対応あり・実行未確認
 
 Prototype argument counts/types must match the declaration by type matching; present formal names must match and are required for defaults, named binding or additional unpacked dimensions.
 
@@ -65125,10 +66126,16 @@ Prototype argument counts/types must match the declaration by type matching; pre
 
 規定の性質: `mandatory`。
 
+- [test_illegal_modport_prototype_type_not_matching.sv](../tests/ch25/test_illegal_modport_prototype_type_not_matching.sv): 宣言 twice(input int v) に対し、modport ok は bit signed [31:0]（6.22.1 e で int と一致）、modport bad は bit signed [0:31]（int と等価だが範囲が [31:0] でないので不一致）でプロトタイプを書く。bad に接続する mpt_bad_user は呼び出しをしない。エラーは bad の行（31行）。
+- [test_illegal_modport_prototype_argument_count.sv](../tests/ch25/test_illegal_modport_prototype_argument_count.sv): 2引数の宣言 sum(a, b) に対し、modport ok は2引数、modport bad は1引数のプロトタイプで import する。bad に接続するモジュールは呼び出しをせず、呼び出し側の引数不足ではなくプロトタイプ自体の不一致だけがエラーになる。エラーは bad の行（30行）。
+- [test_illegal_modport_prototype_formal_name_differs.sv](../tests/ch25/test_illegal_modport_prototype_formal_name_differs.sv): 宣言の仮引数名 a, b に対し、modport ok は a, b、modport anon は名前なし（どちらも合法）、modport bad は x, y と書く。呼び出しはすべて位置結合。エラーは bad の行（31行）か bad 経由の呼び出し行（43行）。
+- [test_illegal_modport_prototype_unnamed_named_binding.sv](../tests/ch25/test_illegal_modport_prototype_unnamed_named_binding.sv): 名前付きプロトタイプの modport named 経由で sum(.a(1), .b(2))、名前なしプロトタイプの modport anon 経由で位置結合の sum(3, 4) を呼ぶ（合法）。anon 経由で sum(.a(5), .b(6)) と名前結合する呼び出し（43行）がエラー。
+- [test_illegal_modport_prototype_default_without_name.sv](../tests/ch25/test_illegal_modport_prototype_default_without_name.sv): modport ok は b に名前を付けてデフォルト 2 を与える（合法）。modport bad は2番目の引数に名前なしでデフォルト 5 を与える。エラーは bad の行（31行）。
+- [test_illegal_modport_prototype_unpacked_dimension_without_name.sv](../tests/ch25/test_illegal_modport_prototype_unpacked_dimension_without_name.sv): 宣言 first(input int v[2]) に対し、modport ok は v[2] と名前付きで次元を宣言（合法）、modport bad は名前なしで [2] を書く。エラーは bad の行（31行）。
 
 ### SV2023-25.7-EXTRACT-MODPORT-PROTOTYPE-REQUIRED
 
-25.7 / error / テスト未対応
+25.7 / error / テスト対応あり・実行未確認
 
 Imports/exports may use identifiers or prototypes, but importing from another module, default arguments or named argument binding requires a full prototype.
 
@@ -65136,6 +66143,9 @@ Imports/exports may use identifiers or prototypes, but importing from another mo
 
 規定の性質: `mandatory`。
 
+- [test_illegal_modport_import_from_module_without_prototype.sv](../tests/ch25/test_illegal_modport_import_from_module_without_prototype.sv): put は mip_target が modport tgt の export を通して定義する。modport ini_ok はフルプロトタイプで import（合法）、ini_bad は名前だけで import し、mip_name が ini_bad を通して put を呼ぶ。:expected_stderr_regex: は ini_bad の modport 行（30行）か呼び出し行（44行）を要求する。
+- [test_illegal_modport_import_default_argument_without_prototype.sv](../tests/ch25/test_illegal_modport_import_default_argument_without_prototype.sv): インタフェースのタスク add の引数 b にデフォルト 2 がある。modport good はデフォルト付きのフルプロトタイプで import し mid_proto が add(1) を呼ぶ（合法）。modport bad は名前だけで import し、mid_name が同じ add(1) を bad 経由で呼ぶ。:expected_stderr_regex: は bad の行（30行）か mid_name の呼び出し行（38行）を要求する。
+- [test_illegal_modport_import_named_binding_without_prototype.sv](../tests/ch25/test_illegal_modport_import_named_binding_without_prototype.sv): modport good はタスク set をフルプロトタイプで import し mnb_proto が set(.a(1), .b(3)) と名前結合で呼ぶ（合法）。modport bad は名前だけで import し、mnb_name が bad 経由で set(.a(2), .b(4)) を呼ぶ。:expected_stderr_regex: は bad の行（29行）か mnb_name の呼び出し行（37行）を要求する。
 
 ### SV2023-25.7.4-EXTRACT-BROADCAST-READ-DISCIPLINE
 
@@ -65150,7 +66160,7 @@ For broadcast read tasks, only the addressed module should respond and other mod
 
 ### SV2023-25.7.4-EXTRACT-FORKJOIN-DISABLE-INTERFACE
 
-25.7.4 / normal / テスト未対応
+25.7.4 / normal / テスト対応あり・実行未確認
 
 Disabling an extern forkjoin task through its interface instance disables every associated task call.
 
@@ -65158,10 +66168,11 @@ Disabling an extern forkjoin task through its interface instance disables every 
 
 規定の性質: `mandatory`。
 
+- [test_extern_forkjoin_disable_interface_and_module.sv](../tests/ch25/test_extern_forkjoin_disable_interface_and_module.sv): extern forkjoin タスク work を m0/m1 の両方が定義し（#10 後に自分の mask ビットを立てる）、時刻0の bus.work() を時刻5に disable bus.work でインタフェースインスタンス経由で無効化する。期待出力1行目は '5: disabled through bus: mask=00'。対照として3回目の無効化なしの呼び出しが '25: not disabled: mask=11' になる。 区別: インタフェース経由の disable が片方のモジュールの呼び出ししか止めない誤実装では残った定義が時刻10にビットを立て、1行目が '10: ... mask=01' などに変わる。disable が効かない誤実装は '10: ... mask=11' になる。
 
 ### SV2023-25.7.4-EXTRACT-FORKJOIN-DISABLE-MODULE
 
-25.7.4 / normal / テスト未対応
+25.7.4 / normal / テスト対応あり・実行未確認
 
 Disabling an extern forkjoin task through a module instance disables only that module instance task call.
 
@@ -65169,6 +66180,7 @@ Disabling an extern forkjoin task through a module instance disables only that m
 
 規定の性質: `mandatory`。
 
+- [test_extern_forkjoin_disable_interface_and_module.sv](../tests/ch25/test_extern_forkjoin_disable_interface_and_module.sv): 時刻5に始めた2回目の bus.work() を、時刻10に disable m0.b.work でモジュールインスタンス m0 経由で無効化する。m1 の定義は続き時刻15にビット1を立て、呼び出しは時刻15に戻る。期待出力2行目は '15: disabled through m0: mask=10'。 区別: モジュール経由の disable で全モジュールの呼び出しを止める誤実装は時刻10に戻り mask=00 になる。m0 を止められない誤実装は mask=11 になる。どちらも2行目が変わる。
 
 ### SV2023-25.7.4-EXTRACT-FORKJOIN-MISSING-DEFINITION
 
@@ -65183,7 +66195,7 @@ Calling an interface extern forkjoin task with no connected definition reports a
 
 ### SV2023-25.7.4-EXTRACT-MULTIPLE-TASK-EXPORT
 
-25.7.4 / error / テスト未対応
+25.7.4 / error / テスト対応あり・実行未確認
 
 Multiple modules exporting the same task name is normally an error; extern forkjoin in the interface permits multiple connected definitions.
 
@@ -65191,10 +66203,11 @@ Multiple modules exporting the same task name is normally an error; extern forkj
 
 規定の性質: `mandatory`。
 
+- [test_illegal_task_exported_by_two_modules.sv](../tests/ch25/test_illegal_task_exported_by_two_modules.sv): インタフェース mte_bus で count を extern forkjoin、put を forkjoin なしの extern で宣言し、modport tgt で両方を export する。同じバス bus に mte_target の2インスタンス t1/t2 を接続し、両方が count と put を定義する。count の二重定義は extern forkjoin により合法、put の二重 export がエラーで、:expected_stderr_regex: は put の定義行または t1/t2 の行を要求する。 区別: 同名タスクの複数モジュールからの export を常に許す誤実装はエラーを出さず不合格になる。extern forkjoin でも複数定義を拒否する誤実装は count の定義行（33行）で報告し得て、正規表現の行（36/43/44行）とずれる。
 
 ### SV2023-25.7.4-EXTRACT-NO-MULTIPLE-FUNCTION-EXPORT
 
-25.7.4 / error / テスト未対応
+25.7.4 / error / テスト対応あり・実行未確認
 
 Functions cannot be exported from multiple modules.
 
@@ -65202,6 +66215,7 @@ Functions cannot be exported from multiple modules.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_function_exported_by_two_modules.sv](../tests/ch25/test_illegal_function_exported_by_two_modules.sv): インタフェース mfe_bus の extern function peek を modport tgt で export し、mfe_target が b.peek を定義する。インタフェース solo には1インスタンス only だけを接続し（合法な対照）、インタフェース bus には t1 と t2 の2インスタンスを接続して peek を二重に export させる。:expected_stderr_regex: は関数定義行または t1/t2 のインスタンス行でのエラーを要求する。 区別: 関数の複数モジュールからの export を（タスクの extern forkjoin と同様に）許す誤実装は設計を受理してエラーを出さず不合格になる。1つの export まで拒否する誤実装は only の行（37行）で報告し、正規表現の行（30/38/39行）と一致しない。
 
 ### SV2023-25.8-EXTRACT-INTERFACE-PARAMETER-SEMANTICS
 
@@ -65217,7 +66231,7 @@ Interfaces support parameters and parameter redefinition with the same semantics
 
 ### SV2023-25.9-EXTRACT-VARIABLE-DECLARATION-FOOTNOTE
 
-25.9 / error / テスト未対応
+25.9 / error / 実行確認あり
 
 A nonprocedural data declaration cannot use automatic, and omission of explicit data type requires var.
 
@@ -65225,10 +66239,12 @@ A nonprocedural data declaration cannot use automatic, and omission of explicit 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_automatic_data_declaration_in_module.sv](../tests/ch25/test_illegal_automatic_data_declaration_in_module.sv): モジュール項目 automatic int count = 0;（24行目、// illegal）と、task bump 内の automatic int tmp = 1;（合法）。
+- [test_illegal_data_declaration_implicit_type_without_var.sv](../tests/ch25/test_illegal_data_declaration_implicit_type_without_var.sv): initial begin : blk 内の var static w = 1'b1;（合法）と static v = 1'b0;（24行目、// illegal）。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-ASSIGNMENT
 
-25.9 / error / テスト未対応
+25.9 / error / 実行確認あり
 
 Direct virtual-interface assignment permits same-type virtual interfaces, same-type actual instances or null, subject to the explicitly permitted modport narrowing.
 
@@ -65236,6 +66252,9 @@ Direct virtual-interface assignment permits same-type virtual interfaces, same-t
 
 規定の性質: `mandatory`。
 
+- [test_illegal_virtual_interface_assigned_other_interface.sv](../tests/ch25/test_illegal_virtual_interface_assigned_other_interface.sv): w = a; v = w; v = a; v = null;（合法）の後の v = b;（40行目、// illegal、b は vao_other_if のインスタンス）。
+- [test_illegal_virtual_interface_assigned_integer.sv](../tests/ch25/test_illegal_virtual_interface_assigned_integer.sv): v = a; v = null;（合法）の後の v = 0;（33行目、// illegal）。
+- [test_illegal_virtual_interface_modport_to_plain.sv](../tests/ch25/test_illegal_virtual_interface_modport_to_plain.sv): v_all = bus; v_mp = bus; v_mp = v_all;（合法）の後の v_all = v_mp;（37行目、// illegal、v_mp は modport mon を選ぶ）。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-CLASS-PROPERTY
 
@@ -65251,7 +66270,7 @@ A virtual interface may be a class property initialized procedurally or through 
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-COMPARISON
 
-25.9 / error / テスト未対応
+25.9 / error / テスト対応あり・実行未確認
 
 Direct virtual-interface equality/inequality permits a same-type virtual interface, same-type actual instance or null; other direct operations are not allowed.
 
@@ -65259,6 +66278,8 @@ Direct virtual-interface equality/inequality permits a same-type virtual interfa
 
 規定の性質: `mandatory`。
 
+- [test_illegal_virtual_interface_compared_other_interface.sv](../tests/ch25/test_illegal_virtual_interface_compared_other_interface.sv): $display("%0d %0d %0d", v == w, v != a, v == null);（合法）の後の $display("%0d", v == b);（40行目、// illegal）。
+- [test_illegal_virtual_interface_relational_operator.sv](../tests/ch25/test_illegal_virtual_interface_relational_operator.sv): $display("%0d %0d", v == w, v != w);（合法）の後の $display("%0d", v < w);（32行目、// illegal）。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-DECLARATION-LOCATIONS
 
@@ -65273,7 +66294,7 @@ Virtual interfaces cannot be ports, interface items or union members.
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-EXTERNAL-DEFPARAM
 
-25.9 / error / テスト未対応
+25.9 / error / テスト対応あり・実行未確認
 
 An interface instance/hierarchy affected by an external defparam cannot be assigned to a virtual interface.
 
@@ -65281,10 +66302,11 @@ An interface instance/hierarchy affected by an external defparam cannot be assig
 
 規定の性質: `mandatory`。
 
+- [test_illegal_virtual_interface_external_defparam.sv](../tests/ch25/test_illegal_virtual_interface_external_defparam.sv): vxd_if #(parameter int W = 8) の2つのインスタンスのうち、u_ovr はパラメータ値割当て #(.W(4)) で、u_def はモジュール内の defparam u_def.W = 4 で W を4にする。virtual vxd_if #(.W(4)) v への v = u_ovr は合法で、v = u_def（36行目、// illegal）が違反。:should_fail_because: 付きの負テストで :expected_stderr_regex: は36行目を指す。 区別: インタフェースの外の defparam で変更されたインスタンスの仮想インタフェースへの代入を、型（W=4 で一致）だけで判断して受理する誤実装は36行目で診断を出さないので負テストが失敗する。u_ovr と u_def は同じ W=4 で型が一致するので、v = u_def の違反はパラメータ値の不一致ではなく外部の defparam だけによる（違いは変更の手段だけ）。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-EXTERNAL-REFERENCES
 
-25.9 / error / テスト未対応
+25.9 / error / テスト対応あり・実行未確認
 
 A virtual interface declaration cannot use an interface containing out-of-body hierarchical references or ports referencing other interfaces.
 
@@ -65292,6 +66314,8 @@ A virtual interface declaration cannot use an interface containing out-of-body h
 
 規定の性質: `mandatory`。
 
+- [test_illegal_virtual_interface_with_outside_reference.sv](../tests/ch25/test_illegal_virtual_interface_with_outside_reference.sv): interface vor_if は assign d = test_illegal_virtual_interface_with_outside_reference.src; を持つ。モジュールは vor_if a () をインスタンス化し（合法）、virtual vor_plain_if vp（合法）と virtual vor_if v;（38行目、// illegal）を宣言する。
+- [test_illegal_virtual_interface_with_interface_port.sv](../tests/ch25/test_illegal_virtual_interface_with_interface_port.sv): interface vip_wrap_if(vip_base_if base) をモジュールで vip_wrap_if w (b) とインスタンス化し（合法）、virtual vip_base_if vb（合法）と virtual vip_wrap_if v;（36行目、// illegal）を宣言する。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-INTERFACE-GRAMMAR
 
@@ -65342,7 +66366,7 @@ A virtual interface initially is null and shall be initialized before component 
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-PARAMETER-TYPE
 
-25.9 / error / テスト未対応
+25.9 / error / 実行確認あり
 
 Interface/virtual-interface type identity and assignment compatibility require matching actual parameter values/types, including defaults; a selected modport is part of the type.
 
@@ -65350,10 +66374,13 @@ Interface/virtual-interface type identity and assignment compatibility require m
 
 規定の性質: `mandatory`。
 
+- [test_illegal_virtual_interface_parameter_value_mismatch.sv](../tests/ch25/test_illegal_virtual_interface_parameter_value_mismatch.sv): v16 = u16; vdef = u8;（合法）の後の v16 = u8;（36行目、// illegal）。u8 は W の既定値8、v16 は W=16。
+- [test_illegal_virtual_interface_type_parameter_mismatch.sv](../tests/ch25/test_illegal_virtual_interface_type_parameter_mismatch.sv): vb = u_byte;（合法）の後の vb = u_int;（33行目、// illegal）。u_int は T の既定 int、vb は T=byte。
+- [test_illegal_virtual_interface_modport_mismatch.sv](../tests/ch25/test_illegal_virtual_interface_modport_mismatch.sv): v_all = bus; v_drv = bus; v_mon = v_all;（合法）の後の v_mon = v_drv;（38行目、// illegal）。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-PROCEDURAL-COMPONENTS
 
-25.9 / error / テスト未対応
+25.9 / error / テスト対応あり・実行未確認
 
 Initialized virtual-interface components use dot notation in procedural statements, not continuous assignments; driving nets requires a procedural mechanism supplied by the interface.
 
@@ -65361,6 +66388,8 @@ Initialized virtual-interface components use dot notation in procedural statemen
 
 規定の性質: `mandatory`。
 
+- [test_illegal_virtual_interface_component_in_continuous_assign.sv](../tests/ch25/test_illegal_virtual_interface_component_in_continuous_assign.sv): assign w = v.d;（31行目、// illegal）と、initial 内の v = bus; $display("%b", v.d);（合法）。
+- [test_illegal_virtual_interface_procedural_net_write.sv](../tests/ch25/test_illegal_virtual_interface_procedural_net_write.sv): interface vpn_if の logic n_drv; wire n; assign n = n_drv; に対し、v.n_drv = 1'b1;（合法）と v.n = 1'b0;（37行目、// illegal）。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT
 
@@ -65461,7 +66490,7 @@ Package variable declaration assignments execute before initial/always procedure
 
 ### SV2023-26.2-EXTRACT-PACKAGE-NO-EXTERNAL-HIERARCHY
 
-26.2 / error / テスト未対応
+26.2 / error / テスト対応あり・実行未確認
 
 Package hierarchical references may target only package-created or package-imported identifiers; unit-scope items cannot be referenced.
 
@@ -65469,10 +66498,12 @@ Package hierarchical references may target only package-created or package-impor
 
 規定の性質: `mandatory`。
 
+- [test_illegal_package_hierarchical_reference_to_module.sv](../tests/ch26/test_illegal_package_hierarchical_reference_to_module.sv): パッケージ hm_pkg の関数 get が return test_illegal_package_hierarchical_reference_to_module.v; でトップモジュールの変数を読む（26行目、// illegal）。:expected_stderr_regex: は26行目を指す。
+- [test_illegal_package_refers_to_unit_scope_item.sv](../tests/ch26/test_illegal_package_refers_to_unit_scope_item.sv): ファイル先頭（コンパイル単位スコープ）の localparam int unit_limit = 6 を、パッケージ hu_pkg の関数 get が return unit_limit; で読む（24行目、// illegal）。:expected_stderr_regex: は24行目を指す。
 
 ### SV2023-26.2-EXTRACT-PACKAGE-PROCESSES
 
-26.2 / error / テスト未対応
+26.2 / error / テスト対応あり・実行未確認
 
 Packages may contain processes only within checkers; net declaration implicit continuous assignments are forbidden.
 
@@ -65480,6 +66511,8 @@ Packages may contain processes only within checkers; net declaration implicit co
 
 規定の性質: `mandatory`。
 
+- [test_illegal_package_initial_procedure.sv](../tests/ch26/test_illegal_package_initial_procedure.sv): package pip_pkg の int count = 0; function automatic void bump();（合法）と initial count = 1;（24行目、// illegal）。
+- [test_illegal_package_net_declaration_assignment.sv](../tests/ch26/test_illegal_package_net_declaration_assignment.sv): package pna_pkg の wire idle; logic level = 1'b1;（合法）と wire ready = 1'b1;（26行目、// illegal）。
 
 ### SV2023-26.2-EXTRACT-PACKAGE-SHARED-SCOPE
 
@@ -65494,7 +66527,7 @@ Packages are explicitly named outermost source scopes containing shared types/ne
 
 ### SV2023-26.2-EXTRACT-PACKAGE-TIMEUNIT-FOOTNOTE
 
-26.2 / error / テスト未対応
+26.2 / error / 実行確認あり
 
 A later package-item timeunits declaration must repeat and match a prior declaration in the same time scope.
 
@@ -65502,6 +66535,8 @@ A later package-item timeunits declaration must repeat and match a prior declara
 
 規定の性質: `mandatory`。
 
+- [test_illegal_package_timeunit_mismatch.sv](../tests/ch26/test_illegal_package_timeunit_mismatch.sv): ptu_bad の timeunit 10ns / 1ps の30行目の診断を照合。ptu_ok は 1ns / 1ps を同じ形で繰り返し適法。
+- [test_illegal_package_timeunit_after_item.sv](../tests/ch26/test_illegal_package_timeunit_after_item.sv): pta_bad で int a の後の timeunit 1ns / 1ps の30行目の診断を照合。pta_ok は先頭で宣言し、項目の後で繰り返し適法。
 
 ### SV2023-26.3-EXTRACT-CURRENT-SCOPE-LOOKUP
 
@@ -65661,7 +66696,7 @@ A reference matching different same-name potential declarations from multiple wi
 
 ### SV2023-26.4-EXTRACT-HEADER-IMPORT-REQUIREMENT
 
-26.4 / error / テスト未対応
+26.4 / error / テスト対応あり・実行未確認
 
 An ANSI header import requires a following parameter-port list or port-declaration list or both.
 
@@ -65669,6 +66704,9 @@ An ANSI header import requires a following parameter-port list or port-declarati
 
 規定の性質: `mandatory`。
 
+- [test_illegal_module_header_import_without_port_list.sv](../tests/ch26/test_illegal_module_header_import_without_port_list.sv): module mhi_bad import mhi_pkg::*; ; の36行目の診断を照合。mhi_ports（ポートリスト）、mhi_params（パラメータポートリスト）、mhi_empty（()）は適法。
+- [test_illegal_interface_header_import_without_port_list.sv](../tests/ch25/test_illegal_interface_header_import_without_port_list.sv): interface ihi_bad import ihi_pkg::*; ; の36行目の診断を照合。ihi_ports、ihi_params、ihi_empty は適法。
+- [test_illegal_program_header_import_without_port_list.sv](../tests/ch26/test_illegal_program_header_import_without_port_list.sv): program phi_bad import phi_pkg::*; ; の37行目の診断を照合。phi_ports、phi_params、phi_empty は適法。
 
 ### SV2023-26.4-EXTRACT-HEADER-PACKAGE-IMPORT
 
@@ -65686,7 +66724,7 @@ Module/interface/program headers may import packages before parameter/port lists
 
 ### SV2023-26.5-EXTRACT-EXPLICIT-EXPLICIT-Q
 
-26.5 / error / テスト未対応
+26.5 / error / 実行確認あり
 
 Explicit p::c import conflicts with an explicit same-name q::c import.
 
@@ -65694,10 +66732,11 @@ Explicit p::c import conflicts with an explicit same-name q::c import.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_search_order_explicit_import_from_second_package.sv](../tests/ch26/test_illegal_search_order_explicit_import_from_second_package.sv): 上位モジュールは so2_q::level を明示 import した直後に、同じ名前 level を別パッケージ so2_p から明示 import する（38行目、// illegal）。:should_fail_because: 付きの負テストで、:expected_stderr_regex: はその38行目を指す。子モジュール so2_child は so2_p::level だけを別のスコープで明示 import しており、これは合法な対照。Icarus 13.0 は38行目で「level は so2_q から import 済み」と報告する。 区別: Table 26-1 の「明示 import を含むスコープでの import p::c」は ERROR。同じ名前の2つ目の明示 import を後勝ちで受理する誤実装、または先の import を黙って保つ誤実装は38行目で診断を出さず設計を受理するので、負テストが失敗する。違反は38行目の1か所だけで、子モジュールの import は別スコープなので衝突しない。
 
 ### SV2023-26.5-EXTRACT-EXPLICIT-LOCAL
 
-26.5 / error / テスト未対応
+26.5 / error / 実行確認あり
 
 Explicit p::c import conflicts with a same-scope local c declaration.
 
@@ -65705,6 +66744,7 @@ Explicit p::c import conflicts with a same-scope local c declaration.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_search_order_explicit_import_of_local_name.sv](../tests/ch26/test_illegal_search_order_explicit_import_of_local_name.sv): モジュールは localparam int count = 7 を局所宣言し、wildcard import sl_q::*（sl_q も count を持つが合法）の後で、同じ名前を import sl_p::count として明示 import する（33行目、// illegal）。:should_fail_because: 付きの負テストで、:expected_stderr_regex: は33行目を指す。Icarus 13.0 は33行目で「count はこのスコープで宣言済み」と報告する。 区別: Table 26-1 の「局所宣言を含むスコープでの import p::c」は ERROR。明示 import が局所宣言を上書きする、あるいは wildcard と同様に局所名に隠される扱いにする誤実装は33行目で診断を出さず受理するので、負テストが失敗する。wildcard import は局所宣言があっても合法なので、違反は33行目の1か所だけ。
 
 ### SV2023-26.5-EXTRACT-EXPLICIT-NONE
 
@@ -65778,7 +66818,7 @@ With a preceding wildcard q import, p::c and p::TRUE still refer to package p wi
 
 ### SV2023-26.5-EXTRACT-REFERENCED-WILDCARD-CONFLICT
 
-26.5 / error / テスト未対応
+26.5 / error / 実行確認あり
 
 A wildcard reference imports its match into the import scope; a later same-name local declaration or conflicting explicit import is an error.
 
@@ -65786,6 +66826,8 @@ A wildcard reference imports its match into the import scope; a later same-name 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_search_order_local_after_wildcard_reference.sv](../tests/ch26/test_illegal_search_order_local_after_wildcard_reference.sv): パッケージ sw_user で import sw_q::* の後、localparam twice = 2 * base が base を wildcard 経由で解決し、その後で localparam int base = 9 を局所宣言する（32行目、// illegal）。未参照の候補 spare の局所宣言は合法。Icarus 13.0 は32行目で「base は sw_q から import 済み」と報告する。
+- [test_illegal_search_order_explicit_after_wildcard_reference.sv](../tests/ch26/test_illegal_search_order_explicit_after_wildcard_reference.sv): モジュールで import se_q::* の後、localparam copy = limit が limit を wildcard 経由で解決し、その後で import se_p::limit を明示 import する（37行目、// illegal）。未参照の step の明示 import se_p::step は合法。Icarus 13.0 は37行目で「limit は se_q から import 済み」と報告する。
 
 ### SV2023-26.5-EXTRACT-WILDCARD-EXPLICIT-Q
 
@@ -65870,7 +66912,7 @@ Imports through reexport paths preserve original declaration identity; repeated 
 
 ### SV2023-26.6-EXTRACT-EXPORT-NAMED
 
-26.6 / error / テスト未対応
+26.6 / error / テスト対応あり・実行未確認
 
 A named export requires its declaration to be an import candidate or imported from the same named package; an unreferenced candidate is imported by the export itself.
 
@@ -65878,6 +66920,8 @@ A named export requires its declaration to be an import candidate or imported fr
 
 規定の性質: `mandatory`。
 
+- [test_illegal_export_named_from_package_not_imported.sv](../tests/ch26/test_illegal_export_named_from_package_not_imported.sv): xn_mid は import xn_base::* の後、export xn_base::width（合法）と export xn_other::depth（33行目、// illegal）を持つ。xn_other からは何も import していない。:expected_stderr_regex: は33行目を指す。
+- [test_illegal_export_named_imports_candidate.sv](../tests/ch26/test_illegal_export_named_imports_candidate.sv): xi_mid は import xi_base::* の後、未参照の候補 width を局所宣言し（合法）、export xi_base::depth の後で localparam int depth = 1 を局所宣言する（31行目、// illegal）。:expected_stderr_regex: は31行目を指し、Icarus 13.0 は31行目で「depth は xi_base から import 済み」と報告する。
 
 ### SV2023-26.6-EXTRACT-EXPORT-TRANSITIVITY
 
@@ -65952,7 +66996,7 @@ An explicit std scope qualifier unambiguously accesses built-in data types/subro
 
 ### SV2023-27.2-EXTRACT-GENERATE-CONTENTS
 
-27.2 / error / テスト未対応
+27.2 / error / テスト対応あり・実行未確認
 
 Generate blocks may contain module items including nested generates, but not port declarations, specify blocks or specparam declarations; their parameters are localparams.
 
@@ -65960,10 +67004,14 @@ Generate blocks may contain module items including nested generates, but not por
 
 規定の性質: `mandatory`。
 
+- [test_illegal_generate_block_port_declaration.sv](../tests/ch27/test_illegal_generate_block_port_declaration.sv): module gpd_cell(a, b, y) の生成ブロック g に wire t; assign t = a;（合法）と input b;（30行目、// illegal）。a と y はモジュール直下で宣言（合法）。Verilator 5.052 は30行目で構文エラーとして拒否する。
+- [test_illegal_generate_block_specify.sv](../tests/ch27/test_illegal_generate_block_specify.sv): モジュール直下の specify (a => y) = 2（合法）、生成ブロック内の入れ子の if (1) begin : inner（合法）と specify（29行目、// illegal）。Icarus 13.0 は「specify ブロックは生成ブロックに置けない」と報告する。
+- [test_illegal_generate_block_specparam.sv](../tests/ch27/test_illegal_generate_block_specparam.sv): モジュール直下の specparam tm = 4（合法）、生成ブロック内の localparam int lp = 5（合法）と specparam tg = 6（23行目、// illegal）。
+- [test_illegal_generate_block_parameter_defparam.sv](../tests/ch27/test_illegal_generate_block_parameter_defparam.sv): gbp_cell のモジュールのパラメータ W と生成ブロック g のパラメータ K に対し、defparam u.W = 3（合法）と defparam u.g.K = 4（33行目、// illegal）。Icarus 13.0 は33行目で「K は上書きできない」と報告する。
 
 ### SV2023-27.3-EXTRACT-GENERATE-CONSTANT-ELABORATION
 
-27.3 / error / テスト未対応
+27.3 / error / 実行確認あり
 
 Generate schemes are evaluated deterministically at elaboration rather than simulation and all scheme expressions must be constant expressions.
 
@@ -65971,10 +67019,12 @@ Generate schemes are evaluated deterministically at elaboration rather than simu
 
 規定の性質: `mandatory`。
 
+- [test_illegal_generate_if_condition_variable.sv](../tests/ch27/test_illegal_generate_if_condition_variable.sv): bit sel = 1'b1 を if (sel) の生成条件に使う（25行目、// illegal）。同じモジュールの if (USE)（パラメータ）は合法。
+- [test_illegal_generate_loop_limit_variable.sv](../tests/ch27/test_illegal_generate_loop_limit_variable.sv): int count = 2 をループ生成 for (genvar j = 0; j < count; j++) の条件に使う（28行目、// illegal）。localparam N を上限にする g_const のループは合法。
 
 ### SV2023-27.3-EXTRACT-GENERATE-CONTEXT-ITEMS
 
-27.3 / error / テスト未対応
+27.3 / error / テスト対応あり・実行未確認
 
 Interface, module and checker generate items must use their respective interface/module/checker legal item categories as specified by the normative syntax footnote.
 
@@ -65982,6 +67032,9 @@ Interface, module and checker generate items must use their respective interface
 
 規定の性質: `mandatory`。
 
+- [test_illegal_generate_interface_block_gate.sv](../tests/ch27/test_illegal_generate_interface_block_gate.sv): interface gib_if の if (WITH_BUF) 生成ブロックで buf b1 (z, a) を置く（27行目、// illegal）。同じブロックの wire y, z と assign y = a は合法。Icarus 13.0 は27行目で「ゲートは interface に置けない」と報告する。
+- [test_illegal_generate_module_block_extern_task.sv](../tests/ch27/test_illegal_generate_module_block_extern_task.sv): module の if (ON) 生成ブロックで extern task remote(); を宣言する（27行目、// illegal）。同じブロックの task automatic show() と initial show() は合法。
+- [test_illegal_generate_checker_block_module_instance.sv](../tests/ch27/test_illegal_generate_checker_block_module_instance.sv): checker gcm_chk の生成ブロックで gcm_leaf u_leaf () を置く（28行目、// illegal）。同じブロックの checker 変数 logic seen = 1'b0 は合法。Verilator 5.052 は28行目で構文エラーとして拒否する。
 
 ### SV2023-27.3-EXTRACT-GENERATE-FORMS
 
@@ -66019,7 +67072,7 @@ Each instantiated generate block creates hierarchy with its contained objects/pr
 
 ### SV2023-27.3-EXTRACT-GENERATE-OPTIONAL-REGION
 
-27.3 / error / テスト未対応
+27.3 / error / 実行確認あり
 
 Explicit generate/endgenerate regions are optional and do not change module semantics; regions cannot nest and each generate keyword must have an endgenerate.
 
@@ -66027,6 +67080,8 @@ Explicit generate/endgenerate regions are optional and do not change module sema
 
 規定の性質: `mandatory`。
 
+- [test_illegal_generate_region_nested.sv](../tests/ch27/test_illegal_generate_region_nested.sv): 領域外の if (1) begin : g0 と generate … g1 … endgenerate（合法）の後、generate の中の g2 の中で generate（31行目、// illegal）。
+- [test_illegal_generate_region_without_endgenerate.sv](../tests/ch27/test_illegal_generate_region_without_endgenerate.sv): generate … g1 … endgenerate（合法）の後、generate … g2 … のまま endmodule（31行目、// illegal）。
 
 ### SV2023-27.3-EXTRACT-GENERATE-REGION-CONTAINER-TEXT
 
@@ -66209,7 +67264,7 @@ If/case generate evaluates constant controls at elaboration and instantiates at 
 
 ### SV2023-27.5-EXTRACT-CONDITIONAL-NAME-REUSE
 
-27.5 / error / テスト未対応
+27.5 / error / 実行確認あり
 
 Alternative blocks within one conditional generate may share a name; a block cannot collide with any other same-scope declaration or another construct even when unselected.
 
@@ -66217,6 +67272,8 @@ Alternative blocks within one conditional generate may share a name; a block can
 
 規定の性質: `mandatory`。
 
+- [test_illegal_generate_block_name_in_other_conditional.sv](../tests/ch27/test_illegal_generate_block_name_in_other_conditional.sv): if (P == 1) begin : g ... end else begin : g ...（合法）の後、if (P == 2) begin : g（30行目、// illegal、P=1 なので選ばれない）。
+- [test_illegal_generate_block_name_of_variable.sv](../tests/ch27/test_illegal_generate_block_name_of_variable.sv): int mode = 0; と case (W) の 8: begin : sel、16: begin : sel（合法）、default: begin : mode（32行目、// illegal、W=8 なので選ばれない）。
 
 ### SV2023-27.5-EXTRACT-CONDITIONAL-NAMED-UNNAMED
 
@@ -66737,7 +67794,7 @@ highz1 replaces driven 1 with z and highz0 replaces driven 0 with z; a pair cont
 
 ### SV2023-28.3.2-EXTRACT-PULL-STRENGTH-SYNTAX
 
-28.3.2 / error / テスト未対応
+28.3.2 / error / 実行確認あり
 
 Pullup permits no strength, strength1 alone or both; pulldown permits no strength, strength0 alone or both.
 
@@ -66745,6 +67802,8 @@ Pullup permits no strength, strength1 alone or both; pulldown permits no strengt
 
 規定の性質: `mandatory`。
 
+- [test_illegal_pullup_strength0_only.sv](../tests/ch28/test_illegal_pullup_strength0_only.sv): pullup p1 (w1); pullup (weak1) p2 (w2); pullup (strong1, strong0) p3 (w3);（合法）と pullup (strong0) p4 (w4);（27行目、// illegal）。
+- [test_illegal_pulldown_strength1_only.sv](../tests/ch28/test_illegal_pulldown_strength1_only.sv): pulldown p1 (w1); pulldown (weak0) p2 (w2); pulldown (pull1, supply0) p3 (w3);（合法）と pulldown (pull1) p4 (w4);（27行目、// illegal）。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-AND
 
@@ -66795,7 +67854,7 @@ The bufif1 primitive permits a drive-strength specification.
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-ELIGIBILITY
 
-28.3.2 / error / テスト未対応
+28.3.2 / error / 実行確認あり
 
 Only the gate types in Table 28-2 may specify output drive strength; other primitive types cannot.
 
@@ -66803,6 +67862,8 @@ Only the gate types in Table 28-2 may specify output drive strength; other primi
 
 規定の性質: `mandatory`。
 
+- [test_illegal_drive_strength_on_mos_switch.sv](../tests/ch28/test_illegal_drive_strength_on_mos_switch.sv): nmos (weak0, weak1) m1 (y_mos, d, g) が違反（24行目、// illegal）。bufif1 (weak0, weak1) b1 は合法。Icarus 13.0 と Verilator 5.052 は24行目だけを報告する。
+- [test_illegal_drive_strength_on_pass_switch.sv](../tests/ch28/test_illegal_drive_strength_on_pass_switch.sv): tranif1 (pull0, pull1) t1 (p, q, en) が違反（25行目、// illegal）。not (pull0, pull1) n1 は合法。Icarus 13.0 は25行目だけを報告する。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-NAND
 
@@ -66875,7 +67936,7 @@ The or primitive permits a drive-strength specification.
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-PAIR-SYNTAX
 
-28.3.2 / error / テスト未対応
+28.3.2 / error / 実行確認あり
 
 Non-pull gate strength specifications contain one strength0 and one strength1 in either comma-separated order inside parentheses, after type and before delay.
 
@@ -66883,6 +67944,9 @@ Non-pull gate strength specifications contain one strength0 and one strength1 in
 
 規定の性質: `mandatory`。
 
+- [test_illegal_gate_strength_single_component.sv](../tests/ch28/test_illegal_gate_strength_single_component.sv): and (weak0, pull1) g1 と and (pull1, weak0) g2（合法、両方の順序）と and (strong1) g3（25行目、// illegal）。
+- [test_illegal_gate_strength_two_strength0.sv](../tests/ch28/test_illegal_gate_strength_two_strength0.sv): or (strong0, weak1) g1（合法）と or (strong0, weak0) g2（24行目、// illegal）。
+- [test_illegal_gate_strength_after_delay.sv](../tests/ch28/test_illegal_gate_strength_after_delay.sv): nand (strong0, pull1) #2 g1（合法）と nand #2 (strong0, pull1) g2（24行目、// illegal）。
 
 ### SV2023-28.3.2-EXTRACT-STRENGTH-PULLDOWN
 
@@ -69698,7 +70762,7 @@ Resistive pass terminals require scalar nets or vector net bit-selects; nonresis
 
 ### SV2023-28.8-EXTRACT-PASS-NO-PROPAGATION
 
-28.8 / error / テスト未対応
+28.8 / error / 実行確認あり
 
 No pass switch has data propagation delay through its bidirectional terminals; tran/rtran cannot specify delays.
 
@@ -69706,6 +70770,8 @@ No pass switch has data propagation delay through its bidirectional terminals; t
 
 規定の性質: `mandatory`。
 
+- [test_illegal_tran_with_delay.sv](../tests/ch28/test_illegal_tran_with_delay.sv): tran #3 t1 (c, d) が違反（26行目、// illegal）。tranif1 #(2, 4) ts1 は合法。Icarus 13.0 は26行目で「A TRAN switch does not take any delays」と報告する。
+- [test_illegal_rtran_with_delay.sv](../tests/ch28/test_illegal_rtran_with_delay.sv): rtran #(1, 2) r1 (c, d) が違反（26行目、// illegal）。rtranif0 #5 rs1 は合法。Icarus 13.0 は26行目で「A RTRAN switch does not take any delays」と報告する。
 
 ### SV2023-28.8-EXTRACT-PASS-STRENGTH
 
@@ -70200,7 +71266,7 @@ The strength-level encoding of weak1 is 3.
 
 ### SV2023-28.11-EXTRACT-NO-BOTH-HIGHZ
 
-28.11 / error / テスト未対応
+28.11 / error / 実行確認あり
 
 A drive-strength pair containing both highz0 and highz1 is illegal in either order.
 
@@ -70208,6 +71274,8 @@ A drive-strength pair containing both highz0 and highz1 is illegal in either ord
 
 規定の性質: `mandatory`。
 
+- [test_illegal_strength_highz0_highz1_on_gate.sv](../tests/ch28/test_illegal_strength_highz0_highz1_on_gate.sv): nor (highz0, highz1) n_bad (y_bad, a, b) が違反（27行目、// illegal）。nor (highz1, strong0) n_oc は合法な対照で、Icarus 13.0 はこれを受理し27行目だけで構文エラーを報告する。
+- [test_illegal_strength_highz1_highz0_on_assign.sv](../tests/ch28/test_illegal_strength_highz1_highz0_on_assign.sv): assign (highz1, highz0) w_bad = a が違反（26行目、// illegal）。assign (highz1, pull0) w_ok = a は合法な対照で、Icarus 13.0 は26行目だけを報告する。
 
 ### SV2023-28.11-EXTRACT-STORAGE-STRENGTHS
 
@@ -70624,7 +71692,7 @@ Rnmos/rpmos/rcmos/rtran/rtranif0/rtranif1 transform every traversing signal stre
 
 ### SV2023-28.15-EXTRACT-NET-STRENGTH-CATEGORIES
 
-28.15 / normal / テスト未対応
+28.15 / normal / テスト対応あり・実行未確認
 
 Tri0/tri1/supply0/supply1 generate specific-strength signals; trireg supports its default or two alternative storage strengths.
 
@@ -70632,6 +71700,8 @@ Tri0/tri1/supply0/supply1 generate specific-strength signals; trireg supports it
 
 規定の性質: `definition`。
 
+- [test_net_types_pull_and_supply_strength_levels.sv](../tests/ch28/test_net_types_pull_and_supply_strength_levels.sv): tri0/tri1/supply0/supply1 の無駆動のネットと、assign (pull1, pull0) t0_drv = 1'b1 などの反対の値の駆動を持つネットを #1 で %v 表示する。期待値は free: Pu0 Pu1 Su0 Su1 と driven: PuX Pu1 Su0 Su1。Icarus 13.0 と一致。
+- [test_trireg_declared_charge_strength_kept.sv](../tests/ch28/test_trireg_declared_charge_strength_kept.sv): trireg t_def、trireg (medium) t_med、trireg (small) t_sm、trireg (large) t_lg を bufif1 (supply0, supply1) または (weak0, weak1) で駆動し、5 で駆動中の値、10 で en=0 にした後の15で保持された値を %v 表示する。期待値は driven: Su1 We0 Su1 We0 と stored: Me1 Me0 Sm1 La0。
 
 ### SV2023-28.15.1-EXTRACT-TRI0-PULL
 
@@ -71125,7 +72195,7 @@ A trireg charge-decay time must be the third delay and must be preceded by expli
 
 ### SV2023-29.2-EXTRACT-UDP-BEHAVIOR-KINDS
 
-29.2 / normal / テスト未対応
+29.2 / normal / 実行確認あり
 
 Combinational UDP outputs depend on current inputs; sequential UDPs also use current output/internal state and may be level- or edge-sensitive.
 
@@ -71133,10 +72203,11 @@ Combinational UDP outputs depend on current inputs; sequential UDPs also use cur
 
 規定の性質: `definition`。
 
+- [test_udp_combinational_level_and_edge_kinds.sv](../tests/ch29/test_udp_combinational_level_and_edge_kinds.sv): 組合せ UDP ukd_and（and 関数）、レベル感応の順序 UDP ukd_latch（en=1 で d を通し en=0 で保持）、エッジ感応の順序 UDP ukd_toggle（clk の立上りごとに現在状態を反転、立下りで保持）を同時に動かし、入力の変化の間の時刻 t=1..6 に3つの出力を表示する。期待値は y が a&b に従って 0,1,0,1,1,1、latch が 0,0,1,1,1,1（t=2 では en=0 で d=1 を無視、t=5 では en=0 で d=0 を無視）、toggle が 0,1,1,0,0,1（立上りで 0→1→0→1、t=3・t=5 の立下りでは変わらない）。Icarus 13.0 と一致。 区別: 組合せ UDP に状態を持たせる誤実装、レベル感応の UDP を組合せとして扱う誤実装（t=2 で latch=1、t=5 で latch=0 になる）、エッジ感応の UDP を出力の現在値を使わずに評価する誤実装（toggle が反転せず 1 のまま、または 0 のまま）、立下りでも状態を変える誤実装は、それぞれ期待出力の該当行が変わる。3種類の UDP の振舞いを、同じ入力変化の列で区別して観測している。
 
 ### SV2023-29.2-EXTRACT-UDP-INPUT-Z
 
-29.2 / normal / テスト未対応
+29.2 / normal / 実行確認あり
 
 UDP input z is treated as x.
 
@@ -71144,6 +72215,7 @@ UDP input z is treated as x.
 
 規定の性質: `mandatory`。
 
+- [test_udp_input_z_matches_x_entries.sv](../tests/ch29/test_udp_input_z_matches_x_entries.sv): 組合せ UDP uzx_comb の表は x 0 : 1 と 0 x : 1 を持ち、0/1 の組合せは 1 1 以外すべて 0。a=x,b=0 で y=1 を対照として表示した後、a=z,b=0 で y=1、a=0,b=z で y=1 を期待する。エッジ UDP uzx_edge は (0x) で状態1、(01) で0、(x0)・(10) で保持。clk を 0→z にすると q=1、z→0 で q=1 のまま、0→1 で q=0、対照の 0→x で q=1 を期待する。Icarus 13.0 と一致。 区別: z を x と同じに扱わない誤実装は出力が変わる：z を 0 と読めば y=0（0 0 : 0）、1 と読んでも y=0（1 0 : 0 または 0 1 : 0）、どの行にも一致しないとすれば y=x になり、期待出力の a=z／b=z の行が変わる。エッジでは 0→z を (0x) と扱わなければ、(01) とみなして q=0 になるか、表にない遷移として q=x になり、clk 0->z の行が変わる。レベルの入力（両方の入力位置）と遷移の両方で観測している。
 
 ### SV2023-29.2-EXTRACT-UDP-OUTPUT-STATES
 
@@ -71183,7 +72255,7 @@ Implementations limiting UDP definition count shall support at least 256.
 
 ### SV2023-29.3-EXTRACT-UDP-DEFINITION-SCOPE
 
-29.3 / error / テスト未対応
+29.3 / error / 実行確認あり
 
 UDPs are top-level definitions before or after their module instantiation; definitions cannot be nested in modules, programs, interfaces or packages.
 
@@ -71191,6 +72263,10 @@ UDPs are top-level definitions before or after their module instantiation; defin
 
 規定の性質: `mandatory`。
 
+- [test_illegal_udp_definition_inside_module.sv](../tests/ch29/test_illegal_udp_definition_inside_module.sv): module udm_host の中の primitive udm_inner(y, a);（26行目、// illegal）。udm_outer はトップモジュールの後に定義（合法）。
+- [test_illegal_udp_definition_inside_program.sv](../tests/ch29/test_illegal_udp_definition_inside_program.sv): program udg_host の中の primitive udg_inner(y, a);（23行目、// illegal）。udg_outer はトップモジュールの後に定義（合法）。
+- [test_illegal_udp_definition_inside_interface.sv](../tests/ch29/test_illegal_udp_definition_inside_interface.sv): interface udi_host の中の primitive udi_inner(y, a);（23行目、// illegal）。udi_outer はトップモジュールの後に定義（合法）。
+- [test_illegal_udp_definition_inside_package.sv](../tests/ch29/test_illegal_udp_definition_inside_package.sv): package udk_host の中の primitive udk_inner(y, a);（24行目、// illegal）。udk_outer はトップモジュールの後に定義（合法）。
 
 ### SV2023-29.3-EXTRACT-UDP-INITIAL-LITERALS
 
@@ -71749,7 +72825,7 @@ In the illustrated overlapping level-set and falling-edge hold case, the final n
 
 ### SV2023-30.2-EXTRACT-DISTRIBUTED-PATH-DELAY
 
-30.2 / normal / テスト未対応
+30.2 / normal / テスト対応あり・実行未確認
 
 Distributed delays describe gate/net internal propagation; module-path delays describe propagation from an input/inout source to output/inout destination.
 
@@ -71757,6 +72833,8 @@ Distributed delays describe gate/net internal propagation; module-path delays de
 
 規定の性質: `definition`。
 
+- [test_distributed_gate_and_net_delays_add.sv](../tests/ch30/test_distributed_gate_and_net_delays_add.sv): wire #2 n; and #3 g1 (n, a, b); buf g2 (y, n); のセルで、a を10で1にし、$strobe で t=14 y=0 と t=15 y=1。Verilator 5.052 と一致。
+- [test_module_path_delay_input_inout_ports.sv](../tests/ch30/test_module_path_delay_input_inout_ports.sv): specify の (a => y) = 4; (io => z) = 6; (c => w) = 3; と遅延なしの buf のセルで、各終点を遅延の直前と遅延の時刻に $strobe する。Icarus 13.0 と一致。
 
 ### SV2023-30.3-EXTRACT-MODULE-PATH-ENDPOINTS
 
@@ -71863,7 +72941,7 @@ A path data-source expression is descriptive and does not control actual event/d
 
 ### SV2023-30.4.3-EXTRACT-EDGE-PATH-DESTINATION
 
-30.4.3 / error / テスト未対応
+30.4.3 / error / テスト対応あり・実行未確認
 
 Parallel edge-sensitive paths require a scalar or bit-selected destination; full paths permit lists of scalar/vector ports and bit/part selects.
 
@@ -71871,6 +72949,8 @@ Parallel edge-sensitive paths require a scalar or bit-selected destination; full
 
 規定の性質: `mandatory`。
 
+- [test_illegal_edge_parallel_path_vector_destination.sv](../tests/ch30/test_illegal_edge_parallel_path_vector_destination.sv): (posedge clk => (q[0] : d[0])) と (posedge clk *> (r : d))（合法）、(posedge c4 => (q : d))（32行目、// illegal、c4 と q はともに4ビット）。
+- [test_illegal_edge_parallel_path_part_select_destination.sv](../tests/ch30/test_illegal_edge_parallel_path_part_select_destination.sv): (posedge clk *> (q[3:2], s : d))（合法）と (posedge c2 => (q[1:0] : d[1:0]))（29行目、// illegal、c2 と q[1:0] はともに2ビット）。
 
 ### SV2023-30.4.3-EXTRACT-EDGE-PATH-GRAMMAR
 
@@ -72193,7 +73273,7 @@ A state-dependent path with an edge-sensitive body is an edge-sensitive state-de
 
 ### SV2023-30.4.4.3-EXTRACT-EDGE-STATE-UNIQUENESS
 
-30.4.4.3 / error / テスト未対応
+30.4.4.3 / error / テスト対応あり・実行未確認
 
 Repeated edge-sensitive path delays require unique edge/condition combinations and consistent whole-port/bit-select/part-select references across declarations.
 
@@ -72201,6 +73281,8 @@ Repeated edge-sensitive path delays require unique edge/condition combinations a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_specify_edge_path_same_edge_and_condition.sv](../tests/ch30/test_illegal_specify_edge_path_same_edge_and_condition.sv): specify 内で if (en) (posedge clk => (q[0] : d)) = (2, 3); と同じ辺・条件・経路の if (en) (posedge clk => (q[0] : d)) = (6, 7); を宣言する。:expected_stderr_regex: は27行目または29行目を指す。
+- [test_illegal_specify_edge_path_part_and_bit_select.sv](../tests/ch30/test_illegal_specify_edge_path_part_and_bit_select.sv): if (rst) (posedge clk *> (q[3:0] : d)) と if (!rst) (posedge clk *> (q[0] : d)) が同じ出力 q を異なる形で参照する。:expected_stderr_regex: は30行目または31行目を指す。p への2つの経路は両方とも p 全体を参照する合法な対照。
 
 ### SV2023-30.4.4.4-EXTRACT-IFNONE-DEFAULT
 
@@ -72227,7 +73309,7 @@ Ifnone with no corresponding conditional path behaves as an unconditional simple
 
 ### SV2023-30.4.4.4-EXTRACT-IFNONE-SIMPLE
 
-30.4.4.4 / error / テスト未対応
+30.4.4.4 / error / テスト対応あり・実行未確認
 
 An ifnone path itself must be simple, though its corresponding conditional paths may be simple or edge-sensitive.
 
@@ -72235,10 +73317,11 @@ An ifnone path itself must be simple, though its corresponding conditional paths
 
 規定の性質: `mandatory`。
 
+- [test_illegal_ifnone_edge_sensitive_path.sv](../tests/ch30/test_illegal_ifnone_edge_sensitive_path.sv): clk から y への経路は、エッジ感応の条件付き経路 if (en) (posedge clk => (y : d)) と単純な ifnone (clk => y) の組（合法、対応する条件付き経路はエッジ感応でもよい）。clk から q への経路は、同じ条件付き経路と、エッジ感応の ifnone (posedge clk => (q : d))（29行目、// illegal）。:should_fail_because: 付きの負テストで :expected_stderr_regex: は29行目を指す。 区別: ifnone をエッジ感応経路にも許す誤実装は29行目で診断を出さず受理するので負テストが失敗する。y への組（エッジ感応の条件付き経路と単純な ifnone）は許される組合せの合法な対照で、違反を ifnone 自身がエッジ感応である q の1行に限るために置いた。
 
 ### SV2023-30.4.4.4-EXTRACT-IFNONE-UNCONDITIONAL-CONFLICT
 
-30.4.4.4 / error / テスト未対応
+30.4.4.4 / error / テスト対応あり・実行未確認
 
 The same path cannot have both ifnone and an unconditional simple declaration.
 
@@ -72246,6 +73329,7 @@ The same path cannot have both ifnone and an unconditional simple declaration.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_specify_ifnone_with_unconditional_path.sv](../tests/ch30/test_illegal_specify_ifnone_with_unconditional_path.sv): a から y への経路に if (c) の条件付き遅延、ifnone (a => y) = (2, 2)（30行目）と無条件の (a => y) = (3, 3)（31行目、// illegal）を宣言する。:should_fail_because: 付きの負テストで、:expected_stderr_regex: は ifnone の行か無条件の行（30|31）を指す。b から z への経路は条件付きと ifnone だけで、合法な対照。 区別: ifnone と無条件の単純経路の併記を受理して一方を優先する誤実装は、30・31行目で診断を出さずに受理するので負テストが失敗する。合法な対照は違反を // illegal の1行に限るために置いたもので、対照まで拒否する誤実装はこの負テストでは検出されない。違反は a→y の1組だけ。
 
 ### SV2023-30.4.5-EXTRACT-FULL-BIT-CROSS-PRODUCT
 
@@ -73397,7 +74481,7 @@ For a multiple-path declaration, only its first source and first destination sel
 
 ### SV2023-30.7.1-EXTRACT-PATHPULSE-NO-SELECT
 
-30.7.1 / error / テスト未対応
+30.7.1 / error / 実行確認あり
 
 PATHPULSE endpoints follow normal path terminal rules but cannot be bit-selects or part-selects.
 
@@ -73405,6 +74489,8 @@ PATHPULSE endpoints follow normal path terminal rules but cannot be bit-selects 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_pathpulse_input_bit_select.sv](../tests/ch30/test_illegal_pathpulse_input_bit_select.sv): specparam PATHPULSE$a$y = (1, 2)（合法）の次に specparam PATHPULSE$b[0]$y = (1, 2)（26行目、// illegal）。
+- [test_illegal_pathpulse_output_part_select.sv](../tests/ch30/test_illegal_pathpulse_output_part_select.sv): specparam PATHPULSE$a$v = (1, 2)（合法）の次に specparam PATHPULSE$c$w[1:0] = (1, 2)（26行目、// illegal）。
 
 ### SV2023-30.7.1-EXTRACT-PATHPULSE-ONE-LIMIT
 
@@ -73522,7 +74608,7 @@ On-event is the default x-filtering style; it replaces the pulse leading edge wi
 
 ### SV2023-30.7.4.1-EXTRACT-PULSE-STYLE-BEFORE-PATH
 
-30.7.4.1 / error / テスト未対応
+30.7.4.1 / error / テスト対応あり・実行未確認
 
 A pulse-style declaration cannot name an output after that output has appeared in a path declaration.
 
@@ -73530,6 +74616,8 @@ A pulse-style declaration cannot name an output after that output has appeared i
 
 規定の性質: `mandatory`。
 
+- [test_illegal_pulsestyle_onevent_after_path.sv](../tests/ch30/test_illegal_pulsestyle_onevent_after_path.sv): pulsestyle_onevent z; (b => z) = (3, 3);（合法）の後、(a => y) = (3, 3); の次の pulsestyle_onevent y;（27行目、// illegal）。
+- [test_illegal_pulsestyle_ondetect_after_path.sv](../tests/ch30/test_illegal_pulsestyle_ondetect_after_path.sv): pulsestyle_ondetect p; (a => p) = (2, 4);（合法）の後、(a *> q) = (2, 4); の次の pulsestyle_ondetect q;（27行目、// illegal）。
 
 ### SV2023-30.7.4.1-EXTRACT-PULSE-STYLE-SELECTION
 
@@ -73602,7 +74690,7 @@ Showcancelled represents a cancelled negative pulse with x; on-event uses the sc
 
 ### SV2023-31.2-EXTRACT-CONDITIONED-EVENT-DETECTION
 
-31.2 / normal / テスト未対応
+31.2 / normal / テスト対応あり・実行未確認
 
 Timing checks detect reference/data events only when their associated Boolean conditions are true.
 
@@ -73610,10 +74698,11 @@ Timing checks detect reference/data events only when their associated Boolean co
 
 規定の性質: `mandatory`。
 
+- [test_timing_check_conditions_timestamps_and_notifiers.sv](../tests/ch31/test_timing_check_conditions_timestamps_and_notifiers.sv): データ事象に条件を付けた $setup(d &&& en, posedge clk, 5, ns) と、参照事象に条件を付けた $hold(posedge clk &&& en2, d2, 3, nh) を使う。en=0 の20で d が変わっても印が付かず、22の clk 立上りは前の印10を見て違反しない（t=26 で setup=1 のまま）。en2=0 の22の clk 立上りは参照事象として検出されず、24の d2 の変化は古い印12との差で違反しない（t=26 で hold=1 のまま）。条件が真の10/12・30/33（setup）と12/14・33/35（hold）では違反し、notifier が t=16 で1、t=37 で0になる。 区別: 条件を無視して事象を検出する誤実装は、setup では20の変化に印を付けて22で違反し、hold では22を参照として24で違反するので、t=26 の行が setup=0 hold=0 になる（以後の行も反転する）。条件が真のときにも事象を検出しない誤実装は t=16 の行が setup=0 hold=0 になる。データ側と参照側の両方の条件、真と偽の両方の場合を観測している。
 
 ### SV2023-31.2-EXTRACT-EDGE-DESCRIPTOR-NO-SPACES
 
-31.2 / error / テスト未対応
+31.2 / error / 実行確認あり
 
 Embedded spaces within a timing edge descriptor are illegal.
 
@@ -73621,10 +74710,11 @@ Embedded spaces within a timing edge descriptor are illegal.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_timing_edge_descriptor_x_space.sv](../tests/ch31/test_illegal_timing_edge_descriptor_x_space.sv): $period(edge [01, x1] clk1, 10)（空白のない記述子で合法）と、記述子 1x の2文字の間に空白を入れた $period(edge [1 x] clk2, 10)（27行目、// illegal）。:should_fail_because: 付きの負テストで、:expected_stderr_regex: は27行目を指し、Icarus 13.0 はその行で構文エラーを報告する。 区別: Syntax 31-2 の脚注38は edge_descriptor 内の空白を禁止する。記述子を0/1/x/zの2トークンの並びとして空白を読み飛ばす誤実装は edge [1 x] を 1x と同じに受理し、27行目で診断しないので負テストが失敗する。直前の行の空白なし edge [01, x1]（z_or_x zero_or_one の形を含む）は合法なので、x を含む記述子自体を拒否する誤実装とは区別される。
 
 ### SV2023-31.2-EXTRACT-TIMESTAMP-TIMECHECK
 
-31.2 / normal / テスト未対応
+31.2 / normal / テスト対応あり・実行未確認
 
 A timestamp event records transition time and a timecheck event evaluates violation using stored times.
 
@@ -73632,10 +74722,11 @@ A timestamp event records transition time and a timecheck event evaluates violat
 
 規定の性質: `definition`。
 
+- [test_timing_check_conditions_timestamps_and_notifiers.sv](../tests/ch31/test_timing_check_conditions_timestamps_and_notifiers.sv): $setup ではデータ事象 d が timestamp、clk の立上りが timecheck で、10・30・40 の d の変化の時刻が記録され、12・33 の立上りで窓 (7,12)・(28,33) に入るので違反、50 の立上りでは記録40が窓 (45,50) の外で違反しない。$hold では clk の立上りが timestamp、d2 の変化が timecheck で、12・33 の記録に対し 14・35 の変化が窓 [12,15)・[33,36) に入って違反する。結果は notifier の値として t=16・37・51 に表示され、期待値は setup/hold とも 1、1、0、0（t=16、26、37、51）。 区別: timecheck 事象で最新の timestamp ではなく現在時刻だけを見る誤実装、または timestamp と timecheck の役割を $setup と $hold で取り違える誤実装（例えば $setup で clk を記録し d で評価する）は、12・33 の違反や 50 の非違反の判定が変わり、t=16・37・51 の行の setup または hold の値が変わる。記録した時刻と窓の比較を、違反する場合としない場合（50）の両方で観測している。
 
 ### SV2023-31.2-EXTRACT-TIMING-CHECK-CONTEXT
 
-31.2 / error / テスト未対応
+31.2 / error / 実行確認あり
 
 Timing checks are not system tasks: tasks cannot appear in specify blocks and timing checks cannot appear in procedural code.
 
@@ -73643,10 +74734,12 @@ Timing checks are not system tasks: tasks cannot appear in specify blocks and ti
 
 規定の性質: `mandatory`。
 
+- [test_illegal_system_task_in_specify_block.sv](../tests/ch31/test_illegal_system_task_in_specify_block.sv): specify 内に specparam tsu = 2; と $setup(d, posedge clk, tsu);（合法）に続けて $display("in specify");（27行目、// illegal）。
+- [test_illegal_timing_check_in_procedural_code.sv](../tests/ch31/test_illegal_timing_check_in_procedural_code.sv): specify 内の $setup(d, posedge clk, 2);（合法）と、initial begin の中の同じ $setup(d, posedge clk, 2);（26行目、// illegal）。
 
 ### SV2023-31.2-EXTRACT-TIMING-CHECK-GRAMMAR
 
-31.2 / normal / テスト未対応
+31.2 / normal / 実行確認あり
 
 Specify timing checks include setup/hold/setuphold/recovery/removal/recrem/skew/timeskew/fullskew/period/width/nochange with their ordered event/limit and optional notifier/condition/delayed-signal/flag arguments.
 
@@ -73654,10 +74747,11 @@ Specify timing checks include setup/hold/setuphold/recovery/removal/recrem/skew/
 
 規定の性質: `definition`。
 
+- [test_timing_check_forms_and_arguments.sv](../tests/ch31/test_timing_check_forms_and_arguments.sv): セル tcf_cell の specify に、12種類のタイミングチェック（$setup、$hold、$setuphold、$recovery、$removal、$recrem、$skew、$timeskew、$fullskew、$period、$width、$nochange）を、事象と limit を規定の順に並べて置く。省略可能な引数は、与える形（$setup の notifier、$setuphold の notifier・2つの条件・遅延信号、$timeskew・$fullskew の2つのフラグ、$width の threshold と notifier）、カンマの間を空にする形（$hold の notifier、$setuphold の5つすべて、$recrem の2つの条件）、末尾から省く形（$setup・$removal・$timeskew の limit まで、$width の threshold まで）の3通りを含む。入力は変化しないので違反はなく、期待値は notifiers 0 0。Icarus 13.0 と Verilator 5.052 が受理して一致。 区別: いずれかのタイミングチェックの名前、引数の順序、省略可能な引数の空欄や省略を受け付けない誤実装は設計を拒否し、期待出力の1行が出ないのでテストが失敗する。違反を起こさない刺激なので notifier は0のままで、チェックの評価順などに依存しない。
 
 ### SV2023-31.2-EXTRACT-TIMING-CONDITION-GRAMMAR
 
-31.2 / normal / テスト未対応
+31.2 / normal / 実行確認あり
 
 Timing conditions permit scalar expressions, inversion and equality/case-equality/inequality comparisons with legal binary/decimal 0/1 constants, optionally parenthesized; delayed signals permit terminal identifiers and constant-mintypmax selects.
 
@@ -73665,6 +74759,7 @@ Timing conditions permit scalar expressions, inversion and equality/case-equalit
 
 規定の性質: `definition`。
 
+- [test_timing_check_condition_forms.sv](../tests/ch31/test_timing_check_condition_forms.sv): タイミングチェックの条件に、式（en）、反転（~rst）、== / === / != / !== と定数 1'b1・1'B1・1'b0・1'B0・'b1・'B0・'B1・'b0・1・0 の比較を、括弧つき（(en == 1'b1) など）と括弧なしで、参照側とデータ側の両方の事象に付ける。$setuphold の遅延データ信号はベクタ dd のビット選択 dd[0]、$recrem の遅延信号は識別子。入力は変化せず違反はないので、期待値は notifier 0。Icarus 13.0 と Verilator 5.052 が受理して一致。 区別: Syntax 31-2 の条件の形（反転、4種の比較演算子、各綴りの定数、括弧の有無）や、選択つきの遅延信号のどれかを受け付けない誤実装は設計を拒否し、期待出力が出ないのでテストが失敗する。すべての定数の綴りと演算子を少なくとも1回ずつ含めている。
 
 ### SV2023-31.2-EXTRACT-TIMING-EVENT-GRAMMAR
 
@@ -73679,7 +74774,7 @@ Timing events name specify terminals with optional posedge/negedge/edge/edge-lis
 
 ### SV2023-31.2-EXTRACT-TIMING-LIMIT-CONSTANT
 
-31.2 / error / テスト未対応
+31.2 / error / テスト対応あり・実行未確認
 
 Timing check limits are constant expressions and may contain specparams.
 
@@ -73687,10 +74782,11 @@ Timing check limits are constant expressions and may contain specparams.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_timing_limit_from_net.sv](../tests/ch31/test_illegal_timing_limit_from_net.sv): セル tln_cell の specify で、specparam tw = 2 を使う $width(posedge clk, tw * 2 + 1, 0)（合法、specparam を含む定数式）と、入力から assign で駆動するネット wlim を limit にする $width(negedge clk, wlim, 0)（30行目、// illegal）。:should_fail_because: 付きの負テストで :expected_stderr_regex: は30行目を指す。 区別: Syntax 31-1 の timing_check_limit ::= expression のまま limit を任意の式として受け付ける誤実装は、ネットの値を limit にする30行目を受理するので負テストが失敗する。直前の行の specparam を含む式の limit は合法な対照で、違反を30行目に限るために置いた（対照まで拒否する誤実装はこの負テストでは検出されない）。
 
 ### SV2023-31.2-EXTRACT-TIMING-NOTIFIER
 
-31.2 / normal / テスト未対応
+31.2 / normal / テスト対応あり・実行未確認
 
 An optional variable notifier changes according to violation rules and may affect modeled behavior.
 
@@ -73698,10 +74794,11 @@ An optional variable notifier changes according to violation rules and may affec
 
 規定の性質: `mandatory`。
 
+- [test_timing_check_conditions_timestamps_and_notifiers.sv](../tests/ch31/test_timing_check_conditions_timestamps_and_notifiers.sv): notifier ns・nh は0で、nz は z で始まる。ns は12と33の setup 違反で 0→1→0、nh は14と35の hold 違反で 0→1→0、同じ違反を受ける nz は z のまま。モデルの always @(ns) changes = changes + 1 が notifier の変化を数え、t=51 に changes=2 を表示する。期待値は t=16 setup=1 hold=1 z=z、t=37 setup=0 hold=0 z=z、t=51 ... changes=2。 区別: 違反ごとに notifier を反転しない誤実装（1にしたまま、または毎回1を書く）は t=37 の行が setup=1／hold=1 になり、changes が1になる。z の notifier を他と同様に反転する誤実装は z=z が 0 や 1 に変わる。notifier の変化がモデルの always 手続きを動かすことも changes=2 で観測している。
 
 ### SV2023-31.3-EXTRACT-STABILITY-WINDOW
 
-31.3 / normal / テスト未対応
+31.3 / normal / テスト対応あり・実行未確認
 
 Stability checks derive a window from reference/limits, compare data transition times to that window and report transitions within the check-specific violation region.
 
@@ -73709,6 +74806,7 @@ Stability checks derive a window from reference/limits, compare data transition 
 
 規定の性質: `mandatory`。
 
+- [test_timing_stability_windows_and_endpoints.sv](../tests/ch31/test_timing_stability_windows_and_endpoints.sv): 安定窓の4つのチェックを別々の信号と notifier で動かす。$setup（limit 4）：データ10・21、参照14・24。$hold（limit 3）：参照10・20、データ13・22。$removal（limit 3）：データ10・21、参照13・23。$recovery（limit 4）：参照10・20、データ14・22。16までの組はちょうど limit 離れて窓の除外される端に、20以降の組は窓の内側に来る。期待値は t=16 で4つとも0、t=26 で4つとも1。 区別: 窓を参照ではなくデータ側から作る、timestamp と timecheck を取り違える、あるいは除外される端を違反に含める誤実装は、16までの組で違反を報告して t=16 の行に1が出る（2回目の違反で t=26 が0に戻る）。窓の内側の遷移を報告しない誤実装は t=26 の行が0のままになる。4つのチェックそれぞれの窓の作り方（参照の前か後か）と端の扱いを、境界と内側の両方で観測している。
 
 ### SV2023-31.3.1-EXTRACT-BOUNDARIES
 
@@ -73760,7 +74858,7 @@ For setup, Reference is the timecheck event.
 
 ### SV2023-31.3.1-EXTRACT-LIMIT
 
-31.3.1 / error / テスト未対応
+31.3.1 / error / テスト対応あり・実行未確認
 
 For setup, The limit shall be a nonnegative constant expression.
 
@@ -73768,6 +74866,8 @@ For setup, The limit shall be a nonnegative constant expression.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_setup_limit_negative.sv](../tests/ch31/test_illegal_setup_limit_negative.sv): d1 側は limit が specparam tlim の $setup（合法）、d2 側は limit が -2 の $setup（28行目、// illegal）。
+- [test_illegal_setup_limit_not_constant.sv](../tests/ch31/test_illegal_setup_limit_not_constant.sv): logic [3:0] lim = 4'd2; を宣言し、d1 側は limit が tlim の $setup（合法）、d2 側は limit が変数 lim の $setup（28行目、// illegal）。
 
 ### SV2023-31.3.1-EXTRACT-NOTIFIER
 
@@ -73843,7 +74943,7 @@ For hold, Data is the timecheck event.
 
 ### SV2023-31.3.2-EXTRACT-LIMIT
 
-31.3.2 / error / テスト未対応
+31.3.2 / error / テスト対応あり・実行未確認
 
 For hold, The limit shall be a nonnegative constant expression.
 
@@ -73851,6 +74951,8 @@ For hold, The limit shall be a nonnegative constant expression.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_hold_limit_negative.sv](../tests/ch31/test_illegal_hold_limit_negative.sv): d1 側は limit が specparam tlim の $hold（合法）、d2 側は limit が -2 の $hold（28行目、// illegal）。
+- [test_illegal_hold_limit_not_constant.sv](../tests/ch31/test_illegal_hold_limit_not_constant.sv): logic [3:0] lim = 4'd2; を宣言し、d1 側は limit が tlim の $hold（合法）、d2 側は limit が変数 lim の $hold（28行目、// illegal）。
 
 ### SV2023-31.3.2-EXTRACT-NOTIFIER
 
@@ -74123,7 +75225,7 @@ For removal, Data is the timestamp event.
 
 ### SV2023-31.3.4-EXTRACT-LIMIT
 
-31.3.4 / error / テスト未対応
+31.3.4 / error / テスト対応あり・実行未確認
 
 For removal, The limit shall be a nonnegative constant expression.
 
@@ -74131,6 +75233,8 @@ For removal, The limit shall be a nonnegative constant expression.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_removal_limit_negative.sv](../tests/ch31/test_illegal_removal_limit_negative.sv): d1 側は limit が specparam tlim の $removal（合法）、d2 側は limit が -2 の $removal（28行目、// illegal）。
+- [test_illegal_removal_limit_not_constant.sv](../tests/ch31/test_illegal_removal_limit_not_constant.sv): logic [3:0] lim = 4'd2; を宣言し、d1 側は limit が tlim の $removal（合法）、d2 側は limit が変数 lim の $removal（28行目、// illegal）。
 
 ### SV2023-31.3.4-EXTRACT-NOTIFIER
 
@@ -74206,7 +75310,7 @@ For recovery, Data is the timecheck event.
 
 ### SV2023-31.3.5-EXTRACT-LIMIT
 
-31.3.5 / error / テスト未対応
+31.3.5 / error / テスト対応あり・実行未確認
 
 For recovery, The limit shall be a nonnegative constant expression.
 
@@ -74214,6 +75318,8 @@ For recovery, The limit shall be a nonnegative constant expression.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_recovery_limit_negative.sv](../tests/ch31/test_illegal_recovery_limit_negative.sv): d1 側は limit が specparam tlim の $recovery（合法）、d2 側は limit が -2 の $recovery（28行目、// illegal）。
+- [test_illegal_recovery_limit_not_constant.sv](../tests/ch31/test_illegal_recovery_limit_not_constant.sv): logic [3:0] lim = 4'd2; を宣言し、d1 側は limit が tlim の $recovery（合法）、d2 側は limit が変数 lim の $recovery（28行目、// illegal）。
 
 ### SV2023-31.3.5-EXTRACT-NOTIFIER
 
@@ -75432,7 +76538,7 @@ The notifier is passed in the notifier position defined by each timing check's s
 
 ### SV2023-31.7-EXTRACT-COMPOSED-CONDITION-OUTSIDE
 
-31.7 / error / テスト未対応
+31.7 / error / テスト対応あり・実行未確認
 
 Multiple conditioning signals must be combined by separate logic outside specify into a conditioning signal.
 
@@ -75440,6 +76546,7 @@ Multiple conditioning signals must be combined by separate logic outside specify
 
 規定の性質: `mandatory`。
 
+- [test_illegal_timing_condition_two_signals.sv](../tests/ch31/test_illegal_timing_condition_two_signals.sv): セル tc2_cell は specify の外で assign both = en1 & en2; と2つの条件信号を1本にまとめ、$setup(d, posedge clk &&& both, 3)（合法）で使う。2つ目の $setup(d, posedge clk &&& (en1 && en2), 3) は条件の中で2つの条件信号を組み合わせる（30行目、// illegal）。:should_fail_because: 付きの負テストで :expected_stderr_regex: は30行目を指す。 区別: 条件の式を任意の式として評価し、複数の条件信号の組合せを specify ブロック内で許す誤実装は30行目で診断を出さずに受理するので負テストが失敗する。合法な対照は違反を // illegal の1行に限るために置いたもので、対照まで拒否する誤実装はこの負テストでは検出されない。違反は30行目の1か所だけ。
 
 ### SV2023-31.7-EXTRACT-CONDITION-LSB
 
@@ -77269,7 +78376,7 @@ The optional scale-type string chooses the base triple members for scaling and o
 
 ### SV2023-33.2-EXTRACT-CONFIG-BINDING
 
-33.2 / normal / テスト未対応
+33.2 / normal / 実行確認あり
 
 A configuration is a named design element whose rules select source representations for design instances; selection is called binding.
 
@@ -77277,10 +78384,11 @@ A configuration is a named design element whose rules select source representati
 
 規定の性質: `definition`。
 
+- [test_config_rules_bind_each_instance.sv](../tests/ch33/test_config_rules_bind_each_instance.sv): トップの2つのインスタンス a1・a2 はどちらもソース上は crb_adder を名指す。名前付きの config crb_cfg は design work.test_...、default liblist work、instance test_config_rules_bind_each_instance.a2 use work.crb_adder_gate を持つ。各セルは %m と %l（library.cell）と和を、セルごとに別の時刻に表示し、期待値は a1: work.crb_adder s=7、a2: work.crb_adder_gate s=23（ゲート版は16を足す）。Verilator 5.052（:top_module: 指定）と一致。 区別: config の規則をインスタンスへの束縛に使わない誤実装（モジュール名だけで定義を選ぶ）は a2 も crb_adder に束縛し、期待出力の2行目が work.crb_adder s=7 になる。規則を定義全体に適用する誤実装は a1 も crb_adder_gate になり1行目が変わる。%l の library.cell と和の両方で、どのソース記述が各インスタンスに選ばれたか（束縛）を具体的に観測している。
 
 ### SV2023-33.2-EXTRACT-RECURSIVE-BINDING
 
-33.2 / normal / テスト未対応
+33.2 / normal / テスト対応あり・実行未確認
 
 Binding starts at top-level modules and recursively locates source descriptions for every instantiated child.
 
@@ -77288,6 +78396,7 @@ Binding starts at top-level modules and recursively locates source descriptions 
 
 規定の性質: `mandatory`。
 
+- [test_config_binding_descends_through_children.sv](../tests/ch33/test_config_binding_descends_through_children.sv): トップは cbd_mid の2つのインスタンス m1・m2 を持ち、各 cbd_mid は子 u_leaf（cbd_leaf）を持つ。config cbd_cfg は2段下の instance ...m2.u_leaf use work.cbd_leaf_alt と、cell cbd_sub use work.cbd_sub_alt を持つ。cbd_leaf_alt は子 u_sub（cbd_sub）を持つ。各セルは %m と %l を別々の時刻（leaf 1、alt leaf 2、sub 3）に表示し、期待値は m1.u_leaf: work.cbd_leaf、m2.u_leaf: work.cbd_leaf_alt、m2.u_leaf.u_sub: work.cbd_sub_alt の3行。 区別: 束縛をトップの直接の子で止める誤実装は2段下の m2.u_leaf の規則を適用せず2行目が work.cbd_leaf になり、規則で選ばれたセルの子を探さない誤実装は3行目が出ない。インスタンス規則をモジュール定義単位で適用する誤実装（Verilator 5.052 がこれ）は m1.u_leaf も alt になり1行目が変わり、m1.u_leaf.u_sub の行が増える。トップから子を順に辿って各インスタンスのソースを決めることを、階層名と library.cell で観測している。
 
 ### SV2023-33.2.1-EXTRACT-CONFIG-NAME-DISAMBIGUATION
 
@@ -108272,7 +109381,7 @@ Action/feature callbacks receive s_cb_data with reason; timing-check violation o
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CALLBACK-REGISTRATION
 
-38.36.3 / normal / テスト未対応
+38.36.3 / normal / 実行確認あり
 
 Action/feature registration needs reason, cb_rtn and optional user_data, except additional reason-specific fields such as cbSignal index.
 
@@ -108280,10 +109389,11 @@ Action/feature registration needs reason, cb_rtn and optional user_data, except 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_end_of_simulation_no_events.sv](../tests/ch38/test_vpi_end_of_simulation_no_events.sv): cbStartOfSimulation と cbEndOfSimulation を、s_cb_data を 0 で埋めた上で reason と cb_rtn（と cbEndOfSimulation だけ user_data）だけを設定して登録する（obj, time, value は NULL のまま、cbStartOfSimulation の user_data は省略）。両方のコールバックが呼ばれ、それぞれ正しい reason と、user_data NULL / "the end" を受け取る。 区別: 動作の登録に obj や time 構造体などの他のフィールドを要求する実装では登録が失敗するかコールバックが呼ばれず、両方の行が欠ける。user_data を必須として扱うか別の値を渡す実装では 'user_data NULL 1' や '"the end"' が変わる。
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CBENDOFCOMPILE
 
-38.36.3 / normal / テスト未対応
+38.36.3 / normal / 実行確認あり
 
 Define cbEndOfCompile to invoke when simulation data compilation/build ends.
 
@@ -108291,10 +109401,11 @@ Define cbEndOfCompile to invoke when simulation data compilation/build ends.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_simulation_action_callbacks.sv](../tests/ch36/test_vpi_simulation_action_callbacks.sv): cbEndOfCompile が設計データの構築の終わりに、cbStartOfSimulation より前に呼ばれ、その時点で設計がそろっているので vpi_handle_by_name で r を見つけ 'end of compile: r has 8 bits' と出力する（出力の先頭行）。 区別: cbEndOfCompile を呼ばない実装では先頭行が欠け、構築前に呼ぶ実装では r が見つからず 'r has -1 bits' になり、シミュレーション開始後に呼べば行の順序が変わる。
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CBENDOFSIMULATION
 
-38.36.3 / normal / テスト未対応
+38.36.3 / normal / テスト対応あり・実行未確認
 
 Define cbEndOfSimulation to invoke when simulation ends from empty event queue or $finish.
 
@@ -108302,10 +109413,12 @@ Define cbEndOfSimulation to invoke when simulation ends from empty event queue o
 
 規定の性質: `mandatory`。
 
+- [test_vpi_simulation_action_callbacks.sv](../tests/ch36/test_vpi_simulation_action_callbacks.sv): 時刻 10 の $finish で終わり、その後 cbEndOfSimulation が 'end of simulation at 10' と出力する。
+- [test_vpi_end_of_simulation_no_events.sv](../tests/ch38/test_vpi_end_of_simulation_no_events.sv): $finish がなく最後のイベントが時刻 12 の設計で、設計の最後の表示の後に cbEndOfSimulation が時刻 12、reason cbEndOfSimulation、user_data "the end"、r = 2 で呼ばれる。
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CBERROR
 
-38.36.3 / normal / テスト未対応
+38.36.3 / normal / テスト対応あり・実行未確認
 
 Define cbError to invoke on simulation runtime error.
 
@@ -108313,10 +109426,11 @@ Define cbError to invoke on simulation runtime error.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_error_callback_runtime_errors.sv](../tests/ch38/test_vpi_error_callback_runtime_errors.sv): 起動ルーチンで cbError を登録し（36.10.2 で起動ルーチンから登録できる理由）、設計は 0 に $info と $warning、1 と 2 に $error（20.10 で run-time error を生じる）、3 に $display を実行する。コールバックは呼ばれた時刻を記録し、終了時に 'cbError calls: 2, reason cbError 1, at: 1 2' を出力する（run-time error ごとに1回、警告やメッセージでは呼ばれない。シミュレーションは続き 3 の行が出る）。 区別: シミュレーションの run-time error で cbError を呼ばない実装では回数が 0 になり時刻が空になる。警告やメッセージでも呼ぶ実装では回数が 3 以上で時刻 0 が加わる。別の reason を渡す実装では 'reason cbError 0' になる。
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CBPLIERROR
 
-38.36.3 / normal / テスト未対応
+38.36.3 / normal / テスト対応あり・実行未確認
 
 Define cbPLIError to invoke on runtime error in a PLI call.
 
@@ -108324,10 +109438,11 @@ Define cbPLIError to invoke on runtime error in a PLI call.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_pli_error_callback_counts_failed_calls.sv](../tests/ch38/test_vpi_pli_error_callback_counts_failed_calls.sv): 起動ルーチンで cbPLIError を登録する（36.10.2 で起動ルーチンから登録できる理由）。シミュレーション開始時に、成功する VPI 呼び出し（vpi_get_time、vpi_handle_by_name、vpi_get(vpiSize)）を2組、その間に 38.36.2 でエラーになる登録（cbAfterDelay で time の type が vpiSuppressTime、および time が NULL）を2回行う。コールバック自身は VPI を呼ばず回数だけ数え、終了時に 'failed registrations: 2 of 2' と 'cbPLIError calls: 2'（失敗した呼び出しごとに1回、成功した呼び出しでは呼ばれない）を出力する。 区別: PLI 呼び出しのエラーで cbPLIError を呼ばない実装では回数が 0 になり、2つ目のエラーで呼ばない実装では 1 になる。成功した呼び出しでも呼ぶ実装では回数が 2 を超える。
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CBSIGNAL
 
-38.36.3 / normal / テスト未対応
+38.36.3 / normal / テスト対応あり・実行未確認
 
 Define cbSignal to invoke when a registered signal occurs.
 
@@ -108335,10 +109450,11 @@ Define cbSignal to invoke when a registered signal occurs.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_signal_callback.sv](../tests/ch38/test_vpi_signal_callback.sv): 起動ルーチンが置く cbStartOfSimulation のコールバックの中で reason を cbSignal、index を SIGTERM として登録し（起動ルーチン自身は 36.10.2 の理由しか置けない）、時刻 1 に $vt_raise が raise(SIGTERM) でそのシグナルを起こす。シミュレータがシグナルを捕らえるのでシミュレーションは続き（'3: the simulation goes on after the signal'）、時刻 5 の $vt_check がコールバックの呼び出し 1 回、reason cbSignal、user_data "term" を出力する。 区別: cbSignal を用意しない実装では登録が NULL になり 'cbSignal was not registered' が出て回数が 0 になる。登録してもシグナルを捕らえない実装では SIGTERM でプロセスが終わり後の 2 行が欠け、捕らえてもコールバックを呼ばない実装では回数が 0 になる。
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CBSTARTOFSIMULATION
 
-38.36.3 / normal / テスト未対応
+38.36.3 / normal / 実行確認あり
 
 Define cbStartOfSimulation to invoke at the beginning of time-zero simulation.
 
@@ -108346,10 +109462,11 @@ Define cbStartOfSimulation to invoke at the beginning of time-zero simulation.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_simulation_action_callbacks.sv](../tests/ch36/test_vpi_simulation_action_callbacks.sv): vlog_startup_routines から登録した cbStartOfSimulation が時刻 0 に、initial 手続きの最初の文（'0: initial procedure, r = 5a'）より前に、cbEndOfCompile の後に呼ばれ 'start of simulation at 0' と出力する。reason と user_data も確認する。 区別: 時刻 0 のサイクルの始めではなく設計の実行後や時刻 0 以外に呼ぶ実装では、'start of simulation at 0' の行が initial 手続きの行の後に来るか時刻が変わり、reason を誤れば 'callback with a wrong reason or user_data' が出る。
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CBTCHKVIOLATION
 
-38.36.3 / normal / テスト未対応
+38.36.3 / normal / テスト対応あり・実行未確認
 
 Define cbTchkViolation to invoke on a timing-check violation.
 
@@ -108357,6 +109474,7 @@ Define cbTchkViolation to invoke on a timing-check violation.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_tchk_violation_callback.sv](../tests/ch38/test_vpi_tchk_violation_callback.sv): $setup(d, posedge clk, 3) と $hold(posedge clk, d, 2) を持つセルで、d の変化を窓の内外に置く: 窓の端ちょうど（時刻 12 と 27）は違反にならず、時刻 20 のエッジの 2 前（18）の変化は $setup 違反、エッジの 1 後（21）の変化は $hold 違反になる。cbTchkViolation は 20 と 21 に 1 回ずつだけ呼ばれ、reason が cbTchkViolation で obj がそれぞれ vpiTchk 型の $setup / $hold のチェックであることを出力し、最後に回数 2 を出力する。 区別: タイミングチェック違反で cbTchkViolation を呼ばない実装では 20 と 21 の行が欠けて回数が 0 になり、窓の外の変化でも呼ぶ実装では回数が 2 を超える。obj に違反したチェック以外を渡す実装では 'obj is the $setup check' が変わる。
 
 ### SV2023-38.36.3-EXTRACT-ACTIONS-VERSUS-FEATURES
 
@@ -108393,7 +109511,7 @@ Restart removes all callbacks except cbStartOfRestart/cbEndOfRestart; only those
 
 ### SV2023-38.36.3-EXTRACT-SIGNAL-CALLBACK
 
-38.36.3 / normal / テスト未対応
+38.36.3 / normal / テスト対応あり・実行未確認
 
 For cbSignal set index to a legal OS signal; on receipt trap it, reach a safe point if possible and invoke the callback.
 
@@ -108401,10 +109519,11 @@ For cbSignal set index to a legal OS signal; on receipt trap it, reach a safe po
 
 規定の性質: `mandatory`。
 
+- [test_vpi_signal_callback.sv](../tests/ch38/test_vpi_signal_callback.sv): s_cb_data の index にオペレーティングシステムのシグナル SIGTERM（C ライブラリの signal.h の値）を設定して cbSignal を登録し、そのシグナルが起きると、シミュレータが捕らえてプロセスを終わらせず、安全な点まで進んでからコールバックを 1 回呼ぶ（時刻 5 までに 'cbSignal callback calls: 1'、reason と user_data も正しい）。 区別: index のシグナルを捕らえない実装では SIGTERM の既定動作でプロセスが終わり、'the simulation goes on' 以降が欠ける。捕らえてもコールバックを呼ばない、別の reason や user_data で呼ぶ実装では最後の行の値が変わる。
 
 ### SV2023-38.37-EXTRACT-REGISTER-SYSTF-SIGNATURE
 
-38.37 / normal / テスト未対応
+38.37 / normal / 実行確認あり
 
 vpi_register_systf(p_vpi_systf_data systf_data_p) returns the callback object handle and registers user system-task/function compilation/execution callbacks.
 
@@ -108412,10 +109531,11 @@ vpi_register_systf(p_vpi_systf_data systf_data_p) returns the callback object ha
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_compile_and_call_phases.sv](../tests/ch38/test_vpi_systf_compile_and_call_phases.sv): vpi_register_systf(&d) の戻り値を保持し、それが NULL でなく vpi_get(vpiType, h) が vpiUserSystf のハンドル（登録したコールバックオブジェクト）であること（1）と、vpi_get_systf_info で名前 $vt_mark が得られることを出力する。登録によってコンパイル時と実行時のコールバック（compiletf 3 回、calltf 2 回）が実際に起こる。 区別: vpi_register_systf が NULL や別の種類のオブジェクトのハンドルを返す実装では 'returned a vpiUserSystf handle: 1' が 0 になり、名前が $vt_mark にならない。登録しない実装では $vt_mark の呼び出し自体が失敗する。
 
 ### SV2023-38.37-EXTRACT-SYSTF-CALLBACK-PHASES
 
-38.37 / normal / テスト未対応
+38.37 / normal / 実行確認あり
 
 Registered system-task/function callbacks may execute when the source call is encountered during compilation or runtime execution.
 
@@ -108423,10 +109543,11 @@ Registered system-task/function callbacks may execute when the source call is en
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_compile_and_call_phases.sv](../tests/ch38/test_vpi_systf_compile_and_call_phases.sv): 登録した $vt_mark の compiletf は、ソース中の 3 か所の呼び出し（実行されない分岐の 1 つを含む）について設計の構築中、cbEndOfCompile より前に 3 回呼ばれ（'before the end of compilation: 3, after: 0'）、calltf は実行時に呼び出しが実行されるたびに時刻 0 と 3 で呼ばれる（'calltf calls: 2'）。 区別: compiletf を実行時に（最初の呼び出しの時などに）呼ぶ実装では after が 0 でなくなり、実行されない呼び出しで compiletf を呼ばなければ 3 にならない。calltf を構築時に呼ぶ、あるいは実行のたびに呼ばない実装では 'calltf at 0/3' の行と回数が変わる。
 
 ### SV2023-38.37-EXTRACT-SYSTF-REGISTER-STRUCTURE
 
-38.37 / normal / テスト未対応
+38.37 / normal / 実行確認あり
 
 s_vpi_systf_data contains PLI_INT32 type/sysfunctype, PLI_BYTE8* tfname, calltf/compiletf/sizetf pointers returning PLI_INT32 and taking PLI_BYTE8*, and PLI_BYTE8* user_data; tfname starts $.
 
@@ -108434,10 +109555,11 @@ s_vpi_systf_data contains PLI_INT32 type/sysfunctype, PLI_BYTE8* tfname, calltf/
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_data_structure.sv](../tests/ch38/test_vpi_systf_data_structure.sv): cbStartOfSimulation のコールバックで、struct t_vpi_systf_data が s_vpi_systf_data / p_vpi_systf_data の別名を持ち、type と sysfunctype が PLI_INT32、tfname と user_data が PLI_BYTE8 *、calltf/compiletf/sizetf が PLI_INT32 (*)(PLI_BYTE8 *) であること（コンパイル時の型比較）と、フィールドが type sysfunctype tfname calltf compiletf sizetf user_data の順に並ぶこと（offsetof）をそれぞれ 1 で出力する。tfname の先頭が $ である名前の登録・呼び出しは test_vpi_systf_compile_and_call_phases の $vt_mark が示す。 区別: いずれかのフィールドの型が Figure 38-18 と異なる（Icarus Verilog 13.0 の tfname が const char* である例など）、ルーチンの引数や戻り型が違う、フィールドの順が違う実装ではその行が 0 になり、フィールドがなければコンパイルできない。
 
 ### SV2023-38.37.1-EXTRACT-SIZED-FUNCTION-CALLBACK
 
-38.37.1 / normal / テスト未対応
+38.37.1 / normal / テスト対応あり・実行未確認
 
 Call sizetf only for vpiSysFunc with vpiSizedFunc/vpiSizedSignedFunc; absent sizetf, these functions return 32 bits.
 
@@ -108445,10 +109567,11 @@ Call sizetf only for vpiSysFunc with vpiSizedFunc/vpiSizedSignedFunc; absent siz
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_function_result_kinds.sv](../tests/ch38/test_vpi_systf_function_result_kinds.sv): int/real/time の関数とタスクにも呼び出し回数を数える sizetf を登録するが、呼ばれるのは vpiSizedFunc と vpiSizedSignedFunc の関数だけ（'sizetf calls: int 0, real 0, time 0, sized 40 1, sized signed 40 1, task 0'）。sizetf のない vpiSizedFunc / vpiSizedSignedFunc の関数は 32 ビットを返し、ビット 63 と 31 を立てた値のうちビット 31 だけが残って 0000000080000000 / ffffffff80000000（符号付きは符号拡張）になる。 区別: sized 以外の関数やタスクの sizetf も呼ぶ実装では int/real/time/task の回数が 0 でなくなり、sized の sizetf を呼ばない実装（Icarus Verilog 13.0 がこれに当たる）では 1 が 0 になる。sizetf がない時に 32 ビット以外（64 ビットなど）を返す実装では 'sized without sizetf' の値が 8000000080000000 などに変わる。
 
 ### SV2023-38.37.1-EXTRACT-SYSTF-CALLBACK-POINTERS
 
-38.37.1 / normal / テスト未対応
+38.37.1 / normal / テスト対応あり・実行未確認
 
 compiletf/calltf/sizetf are user routine pointers and unnecessary ones may be NULL. compiletf/sizetf occur during build/compile or first interactive invocation; calltf occurs on each simulated call.
 
@@ -108456,6 +109579,7 @@ compiletf/calltf/sizetf are user routine pointers and unnecessary ones may be NU
 
 規定の性質: `mandatory`。
 
+- [test_vpi_compiletf_sizetf.sv](../tests/ch36/test_vpi_compiletf_sizetf.sv): compiletf/calltf/sizetf にユーザールーチンへのポインタを設定し、不要な $vt_report では compiletf と sizetf を NULL にしても動く。compiletf はソース中の呼び出しごとに（実行されない分岐の分も含め）$vt_task 3 回・$vt_wide 2 回・$vt_int 1 回、sizetf は $vt_wide に 1 回、いずれも cbEndOfCompile より前（'compiletf or sizetf after the end of compilation: 0'）に呼ばれ、calltf はシミュレーション中の実行ごとに $vt_task 4 回・$vt_wide 2 回・$vt_int 1 回、開始前には呼ばれない。 区別: NULL のルーチンを呼ぼうとする実装は異常終了し、compiletf/sizetf を構築後や実行時に呼ぶ実装では 'after the end of compilation' が 0 でなくなり、calltf を実行ごとに呼ばない実装では calltf の回数が変わる。
 
 ### SV2023-38.37.1-EXTRACT-SYSTF-NAME
 
@@ -108471,7 +109595,7 @@ tfname starts $ followed by one or more ASCII letters/digits/underscore/dollar; 
 
 ### SV2023-38.37.1-EXTRACT-SYSTF-RESULT-TYPE
 
-38.37.1 / normal / テスト未対応
+38.37.1 / normal / テスト対応あり・実行未確認
 
 For system functions sysfunctype must be vpiIntFunc,vpiRealFunc,vpiTimeFunc,vpiSizedFunc or vpiSizedSignedFunc; it is used only when type=vpiSysFunc.
 
@@ -108479,6 +109603,7 @@ For system functions sysfunctype must be vpiIntFunc,vpiRealFunc,vpiTimeFunc,vpiS
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_function_result_kinds.sv](../tests/ch38/test_vpi_systf_function_result_kinds.sv): 5 種類の sysfunctype の関数を登録し、結果の型が見える値を返す: vpiIntFunc の -5 は 64 ビットへ符号拡張され fffffffffffffffb、vpiRealFunc は 2.50、vpiTimeFunc は 64 ビットの 1099511627779、vpiSizedFunc / vpiSizedSignedFunc（sizetf 40）はビット 39 だけ立てた値が 0000008000000000 / ffffff8000000000。type が vpiSysTask で sysfunctype に vpiRealFunc を入れた $vt_task は sysfunctype が無視されてタスクとして実行される（'$vt_task ran as a task'、sizetf も呼ばれない）。 区別: sysfunctype に従って結果の型を決めない実装では、int の符号拡張、real の小数、time の 64 ビット、sized signed の符号拡張のいずれかの行が変わる。タスクにも sysfunctype を適用する実装では $vt_task がタスクとして呼べないか sizetf が呼ばれ 'task 0' が変わる。
 
 ### SV2023-38.37.1-EXTRACT-SYSTF-TYPE
 
@@ -108494,7 +109619,7 @@ Registration type must be vpiSysTask or vpiSysFunc.
 
 ### SV2023-38.37.1-EXTRACT-SYSTF-USER-ARGUMENT
 
-38.37.1 / normal / テスト未対応
+38.37.1 / normal / テスト対応あり・実行未確認
 
 Pass registered user_data as the sole PLI_BYTE8* argument to compiletf,sizetf,calltf.
 
@@ -108502,6 +109627,7 @@ Pass registered user_data as the sole PLI_BYTE8* argument to compiletf,sizetf,ca
 
 規定の性質: `mandatory`。
 
+- [test_vpi_compiletf_sizetf.sv](../tests/ch36/test_vpi_compiletf_sizetf.sv): 3 つの関数・タスクをそれぞれ別の user_data（tags 配列の別要素のアドレス）で登録し、compiletf・sizetf・calltf のすべてが受け取る唯一の PLI_BYTE8* 引数を登録時の user_data と照合する。compiletf 6 回、sizetf 1 回、calltf 7 回の呼び出しで食い違いは 'wrong user_data: 0'。 区別: user_data 以外（NULL や別の登録の user_data、システムタスク呼び出しのハンドルなど）を渡す実装では kind_of が一致しないので wrong user_data が 0 でなくなり、該当する回数の行も減る。
 
 ### SV2023-38.37.1-EXTRACT-USER-SYSTF-REGISTER
 
@@ -108517,7 +109643,7 @@ User system tasks/functions using VPI may register with vpi_register_systf.
 
 ### SV2023-38.37.2-EXTRACT-STARTUP-ARRAY
 
-38.37.2 / normal / テスト未対応
+38.37.2 / normal / 実行確認あり
 
 Provide a NULL-terminated static vlog_startup_routines array of void-returning C function pointers to initialize system routines or perform startup work just after simulator invocation.
 
@@ -108525,6 +109651,7 @@ Provide a NULL-terminated static vlog_startup_routines array of void-returning C
 
 規定の性質: `mandatory`。
 
+- [test_vpi_startup_routines_null_end.sv](../tests/ch38/test_vpi_startup_routines_null_end.sv): vlog_startup_routines は void を返す C 関数へのポインタの静的配列で、{first_routine, second_routine, 0, third_routine, 0} と最初の NULL で終わる。シミュレータ起動直後に先頭の 2 つだけが 1 回ずつ呼ばれ、それらが登録した cbStartOfSimulation / cbEndOfSimulation のコールバックが 'first routine 1 call(s), second 1, after the NULL entry 0' と出力する。 区別: 配列を最初の NULL で止めない実装では third_routine が呼ばれて 'after the NULL entry 0' が 1 になり 'the routine after the NULL entry is called' が出る。ルーチンを呼ばない、2 回呼ぶ、起動直後でなく遅れて呼ぶ（コールバックが登録されない）実装では回数や行が変わる。
 
 ### SV2023-38.37.2-EXTRACT-STARTUP-LINKING
 
@@ -108539,7 +109666,7 @@ A compliant tool provides the startup-array facility; users add entries and the 
 
 ### SV2023-38.37.2-EXTRACT-STARTUP-REGISTRATION
 
-38.37.2 / normal / テスト未対応
+38.37.2 / normal / 実行確認あり
 
 The startup function array is for registering system tasks/functions, and compiled source user routines are generally registered through it.
 
@@ -108547,6 +109674,7 @@ The startup function array is for registering system tasks/functions, and compil
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_startup_routines.sv](../tests/ch36/test_vpi_systf_startup_routines.sv): vlog_startup_routines の 3 つのルーチンがそれぞれシステムタスク（$vt_probe, $vt_one, $vt_two, $vt_three）を vpi_register_systf で登録し、コンパイルされた記述中のそれらの呼び出しが登録したルーチンで実行される（'registered by routine 0/1/2'）。compiletf は 3 つのルーチンがすべて実行された後の構築時に呼ばれる（'compiletf saw: 3'）。 区別: 起動ルーチンによる登録をコンパイル済みの記述の呼び出しに結び付けない実装では $vt_one などが未定義のシステムタスクとなりエラーになるか、'registered by ...' の行が欠ける。起動ルーチンを構築より後に呼ぶ実装では 'compiletf saw' が 3 にならない。
 
 ### SV2023-38.37.2-EXTRACT-VENDOR-STARTUP-FILE
 
@@ -108662,7 +109790,7 @@ vpi_scan(vpiHandle itr) returns the next associated object handle from an iterat
 
 ### SV2023-38.41-EXTRACT-VPRINTF-BEHAVIOR
 
-38.41 / normal / テスト未対応
+38.41 / normal / 実行確認あり
 
 Use vpi_printf behavior with an already started varargs list: C printf formatting to tool output/current log, character count or EOF on error.
 
@@ -108670,6 +109798,7 @@ Use vpi_printf behavior with an already started varargs list: C printf formattin
 
 規定の性質: `mandatory`。
 
+- [test_vpi_printf_return_counts.sv](../tests/ch38/test_vpi_printf_return_counts.sv): 可変引数のラッパーで va_start した va_list を vpi_vprintf に渡し、C の printf 書式（幅、左寄せ、%x %o %c %%、精度、%e、改行 2 つ、空の結果）で vpi_printf と同じ行をツールの出力に書き、戻り値の文字数 18 21 19 10 0 が vpi_printf の 18 21 19 10 0 と一致する。 区別: va_list を受け取らずに書式だけを出す、va_list を最初からやり直す・ずらすなどの実装では vpi_vprintf の行（例えば '[-42|    7|3   |]'）が vpi_printf の行と食い違い、文字数以外（0 や -1）を返す実装では 'vpi_vprintf: 18 21 19 10 0' が変わる。
 
 ### SV2023-38.41-EXTRACT-VPRINTF-SIGNATURE
 
@@ -108756,7 +109885,7 @@ vpi_iterate(vpiAssertion,instance) iterates assertions within that instance.
 
 ### SV2023-39.3.2-EXTRACT-STATIC-ASSERTION-KINDS
 
-39.3.2 / normal / テスト未対応
+39.3.2 / normal / テスト対応あり・実行未確認
 
 Static assertion kinds include sequence/property instances, assert/assume/cover/restrict and immediate assert/assume/cover.
 
@@ -108764,6 +109893,9 @@ Static assertion kinds include sequence/property instances, assert/assume/cover/
 
 規定の性質: `definition`。
 
+- [test_vpi_assertion_handles.sv](../tests/ch39/test_vpi_assertion_handles.sv): a_req, m_ack, r_req, u.c_ack を vpi_iterate(vpiAssertion, NULL) と名前で得て、型が assert, assume, restrict, cover と表示される。
+- [test_vpi_assertion_immediate_handles.sv](../tests/ch39/test_vpi_assertion_immediate_handles.sv): 即時の a1: assert、a2: assume、a3: cover の型が immediate assert / immediate assume / immediate cover と表示される。
+- [test_vpi_assertion_callback_targets.sv](../tests/ch39/test_vpi_assertion_callback_targets.sv): a_p (assert property (p_ab)) の vpiProperty が vpiPropertyInst、c_s (cover property (@(posedge clk) s_ab)) のプロパティ仕様の property expression が vpiSequenceInst と表示される。
 
 ### SV2023-39.3.2-EXTRACT-STATIC-ASSERTION-NAME
 
@@ -108979,7 +110111,7 @@ cbAssertionSysInitialized occurs after system initialization; no assertion-speci
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-KILL
 
-39.4.1 / normal / テスト未対応
+39.4.1 / normal / テスト対応あり・実行未確認
 
 cbAssertionSysKill marks suspension with no attempt processing or assertion callbacks; it may be resumed/repeated.
 
@@ -108987,6 +110119,7 @@ cbAssertionSysKill marks suspension with no attempt processing or assertion call
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_system_off_kill_on.sv](../tests/ch39/test_vpi_assertion_system_off_kill_on.sv): vpi_register_cb で cbAssertionSysKill を置き、kill を 40 と 80 の2回、そのあと on で再開する。'40: system callback: kill' と '80: system callback: kill' が出て、kill 中（40〜60、80〜90）は cbAssertionStart が1回も来ず（開始時刻に 45 55 85 がない）、捨てられた試行の pass action も実行されない（60 で pass 1、90 で 2）。再開後は 65, 95 以降の試行が始まる。 区別: cbAssertionSysKill を呼ばない、または1回目しか呼ばない実装では kill の行が消える。kill 中も試行を処理したりアサーションコールバックを出したりする実装では開始時刻の一覧に 45 55 85 が入り、pass の数が増える。再開できない実装では 65 以降の開始時刻が消える。
 
 ### SV2023-39.4.1-EXTRACT-SYSTEM-OFF-CALLBACK-TEXT
 
@@ -109038,7 +110171,7 @@ Pass reason, callback-event time pointer, assertion handle, attempt-info pointer
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CALLBACK-HANDLE
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / テスト対応あり・実行未確認
 
 Registration is specific to its assertion; return a removable callback handle on success, NULL on placement error. Events on another assertion do not trigger it.
 
@@ -109046,10 +110179,11 @@ Registration is specific to its assertion; return a removable callback handle on
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_callback_handle_placement.sv](../tests/ch39/test_vpi_assertion_callback_handle_placement.sv): 時刻 1 に a1 へ cbAssertionSuccess を置くと handle が返り（'cbAssertionSuccess on a1: handle given'）、アサーションでない変数 x のハンドルへの登録と、アサーションのコールバック理由でない cbValueChange での a1 への登録は NULL を返す。a1 と a2 は毎刻み成功するが、コールバックは a1 の 5 と 15 の成功だけで呼ばれ、受け取るアサーション名は a1（a2 では呼ばれない）。20 に返されたハンドルで vpi_remove_cb が 1 を返し、25 と 35 では呼ばれない（'success callbacks: 2'）。 区別: 登録の誤りで NULL を返さない実装では 'NULL' の行が 'handle given' になる。別のアサーション a2 の事象でも呼ぶ実装では 'success callback at 5 for a2' などが加わり件数が 4 以上になる。返されたハンドルで削除できない実装では返り値が 0 になるか 25, 35 の行が加わる。
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CALLBACK-PERSISTENCE
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / テスト対応あり・実行未確認
 
 Invoke the callback each time the requested event occurs on that assertion until removal.
 
@@ -109057,6 +110191,7 @@ Invoke the callback each time the requested event occurs on that assertion until
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_callback_scope_removal.sv](../tests/ch39/test_vpi_assertion_callback_scope_removal.sv): $vt_watch が時刻 0 に a1 へ cbAssertionSuccess を2つ（user data first / second）、a2 へ cbAssertionFailure を置く。a1 は x=1 の間 5, 15, 25 の各刻みで成功し、a2 は同じ刻みで失敗する。期待出力は first が 5, 15, 25 の3回、third が 5, 15, 25 の3回呼ばれ、20 に vpi_remove_cb で外した second は 5 と 15 だけで 25 には現れないことを比較する。 区別: コールバックを一度だけ呼ぶ実装では 15 と 25 の行が消え、削除後も呼び続ける実装では '25: a1 success, user data second' が現れ、どちらも期待出力と異なる。
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CALLBACK-PROTOTYPE
 
@@ -109072,7 +110207,7 @@ Assertion callback returns PLI_INT32 and takes reason, p_vpi_time cb_time, asser
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CALLBACK-TARGETS
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / テスト対応あり・実行未確認
 
 All listed callbacks may register on immediate/concurrent assertions; start/success/failure may also register on sequence/property instances.
 
@@ -109080,10 +110215,11 @@ All listed callbacks may register on immediate/concurrent assertions; start/succ
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_callback_targets.sv](../tests/ch39/test_vpi_assertion_callback_targets.sv): 時刻 1 に、39.4.2 の 19 のアサーションコールバック理由すべてを並行アサーション ca と即時アサーション ia（全アサーションの反復で vpiImmediateAssert のものを選ぶ）に vpi_register_assertion_cb で置き、それぞれ 19 個とも handle が返る。宣言したプロパティ p_ab を assert する a_p の vpiProperty が指すプロパティインスタンス（vpiPropertyInst）と、宣言したシーケンス s_ab を cover する c_s のプロパティ仕様の property expression であるシーケンスインスタンス（vpiSequenceInst）にも cbAssertionStart / cbAssertionSuccess / cbAssertionFailure の3つを置け、3個とも handle が返る。 区別: 即時アサーションにステップや制御系の理由を置けない実装では 'immediate assertion ia: 19 of 19' の数が減り、並行アサーションの一部の理由を拒む実装では ca の数が減る。プロパティやシーケンスのインスタンスに start/success/failure を置けない実装では '3 of 3' が 0 などになる。
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CALLBACK-TIME
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / テスト対応あり・実行未確認
 
 cb_time identifies the relevant start/nonvacuous-success/failure/vacuous-success/disabled-evaluation/step-success/step-failure/disable/enable/reset/kill event time, according to callback reason.
 
@@ -109091,6 +110227,7 @@ cb_time identifies the relevant start/nonvacuous-success/failure/vacuous-success
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_callback_time_and_attempt_info.sv](../tests/ch39/test_vpi_assertion_callback_time_and_attempt_info.sv): 各コールバックが受け取る cb_time を記録して表示する。start は各試行の開始時刻 5,15,25,35,45,65、非空成功は成功した 15（開始 5）、失敗は失敗した 15（開始 15）、35（開始 25）、45（開始 45）、ステップは 25 の成功と 35 の失敗（開始 25）、kill は vpiAssertionKill を出した 40、reset は 50、disable は 52、enable は 60、a2 の空成功は 5、disabled evaluation は rst=1 で始まった 15。 区別: cb_time に試行の開始時刻を入れる実装では '15: a1 success, attempt started at 5' が 5 の行に、'35: a1 failure, attempt started at 25' や '35: a1 step failure' が 25 の行になる。制御のコールバックに制御時刻以外（0 や次の刻み）を入れる実装では 40/50/52/60 の値が変わる。空成功や disabled evaluation の時刻を誤る実装では a2 の 5/15 が変わる。
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONDISABLE
 
@@ -109261,7 +110398,7 @@ cbAssertionStart requests a callback when an attempt/evaluation starts; an unins
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONSTEPFAILURE
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / テスト対応あり・実行未確認
 
 cbAssertionStepFailure requests a callback when an enabled attempt fails to progress one flattened-assertion step.
 
@@ -109269,10 +110406,11 @@ cbAssertionStepFailure requests a callback when an enabled attempt fails to prog
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_callback_time_and_attempt_info.sv](../tests/ch39/test_vpi_assertion_callback_time_and_attempt_info.sv): ステップのコールバックは cbAssertionStepFailure だけで置き、20 に vpiAssertionEnableStep（vpiAssertionClockSteps）で 25 の試行だけステップ実行を有効にする。その試行は 25 で a により進み、35 で b=0 のためステップに失敗して '35: a1 step failure, attempt started at 25' が出る。ステップ実行を有効にしていない 15 と 45 の試行も失敗するが、ステップのコールバックは出ない。 区別: ステップの失敗で cbAssertionStepFailure を呼ばない実装では 35 の step failure の行が消える。有効にしていない試行の失敗でも呼ぶ実装では '15: a1 step failure, attempt started at 15' や 45 の行が加わる。
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONSTEPSUCCESS
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / テスト対応あり・実行未確認
 
 cbAssertionStepSuccess requests a callback when an enabled attempt progresses one flattened-assertion step.
 
@@ -109280,6 +110418,7 @@ cbAssertionStepSuccess requests a callback when an enabled attempt progresses on
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_step_callbacks.sv](../tests/ch39/test_vpi_assertion_step_callbacks.sv): a1 (a ##1 b ##1 c) に cbAssertionStepSuccess を置き、時刻 15 と 45 の試行だけ vpiAssertionEnableStep（vpiAssertionClockSteps）で段階実行を有効にし、45 は開始前の 40 に無効化する。15 の試行が a と b で進む 15 と 25 に 'step success' が出ること、他の試行の段階コールバックが 0 件であることを比較する。 区別: 段階実行を有効にしていない試行にも段階コールバックを出す実装では 'steps of other attempts: 0' が変わり、進んだ刻みで呼ばない実装では '15: step success' と '25: step success' が消える。
 
 ### SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONSUCCESS
 
@@ -109343,7 +110482,7 @@ attemptStartTime always identifies that actual attempt start, independently of c
 
 ### SV2023-39.4.2-EXTRACT-ATTEMPT-INFO-FIELDS
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / テスト対応あり・実行未確認
 
 Start/success callbacks have only valid attemptStartTime; failure has attemptStartTime and detail.failExpr; step callbacks have attemptStartTime and detail.step.
 
@@ -109351,10 +110490,11 @@ Start/success callbacks have only valid attemptStartTime; failure has attemptSta
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_callback_time_and_attempt_info.sv](../tests/ch39/test_vpi_assertion_callback_time_and_attempt_info.sv): start と success のコールバックは attempt information の attemptStartTime が試行の開始時刻（start は 5→5 など、15 の success は 5）。failure は attemptStartTime（15, 25, 45）に加えて detail.failExpr が NULL でない（'failing expression given'）。cbAssertionStepFailure で置いたステップコールバックは成功・失敗の両ステップ（25, 35）で attemptStartTime 25 と NULL でない detail.step を受け取る（'step information given'）。 区別: failure で detail.failExpr を渡さない実装では 'failing expression missing' に、ステップで detail.step を渡さない実装では 'step information missing' に変わる。attemptStartTime が開始時刻でない実装では 'attempt started at' の値が変わり、情報を NULL にする実装では 'no attempt information' になる。
 
 ### SV2023-39.4.2-EXTRACT-ATTEMPT-INFO-STRUCTURE
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / 実行確認あり
 
 s_vpi_attempt_info contains a detail union of vpiHandle failExpr or p_vpi_assertion_step_info step, followed by s_vpi_time attemptStartTime.
 
@@ -109362,6 +110502,7 @@ s_vpi_attempt_info contains a detail union of vpiHandle failExpr or p_vpi_assert
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_attempt_info_structures.sv](../tests/ch39/test_vpi_assertion_attempt_info_structures.sv): cbStartOfSimulation のコールバックで、struct t_vpi_attempt_info が s_vpi_attempt_info / p_vpi_attempt_info の別名を持ち、detail.failExpr が vpiHandle、detail.step が p_vpi_assertion_step_info で同じ位置（共用体）にあり、その後に s_vpi_time 型の attemptStartTime が続くこと（型の比較と offsetof）をそれぞれ 1 で出力する。 区別: detail を共用体にしない（failExpr と step を別の位置に置く）、step を構造体そのものにする、attemptStartTime を s_vpi_time 以外やポインタにする、順序を逆にする実装では該当行が 0 になり、フィールドがなければコンパイルできない。
 
 ### SV2023-39.4.2-EXTRACT-CONTROL-CALLBACK-NO-ATTEMPT
 
@@ -109402,7 +110543,7 @@ Step callbacks are disabled by default and enabled separately per assertion/atte
 
 ### SV2023-39.4.2-EXTRACT-STEP-INFO-STRUCTURE
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / 実行確認あり
 
 s_vpi_assertion_step_info contains PLI_INT32 matched_expression_count, vpiHandle* matched_exprs and PLI_INT32 stateFrom/stateTo.
 
@@ -109410,10 +110551,11 @@ s_vpi_assertion_step_info contains PLI_INT32 matched_expression_count, vpiHandle
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_attempt_info_structures.sv](../tests/ch39/test_vpi_assertion_attempt_info_structures.sv): struct t_vpi_assertion_step_info が s_vpi_assertion_step_info / p_vpi_assertion_step_info の別名を持ち、PLI_INT32 matched_expression_count、vpiHandle* matched_exprs、PLI_INT32 stateFrom と stateTo をこの順に持つこと（コンパイル時の型比較と offsetof）を 1 で出力する。 区別: フィールドの型を変える（matched_exprs を vpiHandle の配列や単一ハンドルにする、state を別の整数型にする）、順序を入れ替える実装では該当行が 0 になり、フィールドがなければコンパイルできない。
 
 ### SV2023-39.4.2-EXTRACT-STEP-STATES
 
-39.4.2 / normal / テスト未対応
+39.4.2 / normal / テスト対応あり・実行未確認
 
 Step details identify matched expressions/source references and transition state IDs: 0 origin,1 accepting,others intermediate. A successful unconditional transition may have zero expressions; failing transition last expression is the failure point.
 
@@ -109421,10 +110563,11 @@ Step details identify matched expressions/source references and transition state
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_step_states_and_failing_expression.sv](../tests/ch39/test_vpi_assertion_step_states_and_failing_expression.sv): a1 (a ##1 b ##1 c) の 15 と 45 の試行に vpiAssertionClockSteps でステップ実行を有効にし、ステップのコールバックが受け取る detail.step の stateFrom / stateTo と matched_exprs の最後の式の名前を記録する。15 の試行は 15 で状態 0（origin）から中間状態へ（式 a）、25 で中間から中間へ（式 b）、35 で中間から 1（accepting）へ（式 c）。45 の試行は 45 と 55 で同様に進み、65 の失敗するステップは中間状態から出て、最後の式が失敗した c である。 区別: origin を 0 で表さない実装では 15/45 の 'from origin' が変わり、受理状態を 1 で表さない実装では 35 の 'to accepting' が変わる。中間の点に 0 や 1 を使う実装では 'intermediate' の行が origin/accepting になる。ステップの照合した式を渡さない、または失敗したステップで失敗した式を最後に置かない実装では 'last expression' が a/b/c 以外（none など）になる。
 
 ### SV2023-39.4.2.1-EXTRACT-FUTURE-GLOBAL-CALLBACK
 
-39.4.2.1 / normal / テスト未対応
+39.4.2.1 / normal / テスト対応あり・実行未確認
 
 For assertions referencing global-clock future-sampled functions, invoke the callback at the nearest global tick strictly after the event; cb_time remains the actual callback-event time.
 
@@ -109432,10 +110575,11 @@ For assertions referencing global-clock future-sampled functions, invoke the cal
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_gclk_future_callback.sv](../tests/ch39/test_vpi_assertion_gclk_future_callback.sv): a1 は $rising_gclk を参照し、グローバルクロックは奇数時刻に立ち上がる。時刻 11（グローバルクロックの刻みと同時）に $assertkill で 5 に始まった試行を殺すと、cbAssertionKill コールバックが vpi_get_time で 13 に実行され、cb_time は 11 であることを 'kill callbacks: 1, ran at 13, cb_time 11' として比較する。 区別: コールバックをイベント時刻にそのまま実行する実装や、同時刻の刻み（11）を「後の刻み」とみなす実装では ran at が 11 になり、cb_time に実行時刻を入れる実装では cb_time が 13 になって、期待行と異なる。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSDISABLEFAILACTION
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysDisableFailAction: disable fail actions; do not affect existing attempts or change anything if already in that state. Pass/fail/vacuous actions are enabled by default.
 
@@ -109443,6 +110587,7 @@ vpiAssertionSysDisableFailAction: disable fail actions; do not affect existing a
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_sys_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv): f1 (a |-> ##2 !b) は a=1 の刻みの試行が2刻み後に b=1 で失敗し、fail action が時刻を記録する。10 に vpi_control(vpiAssertionSysDisableFailAction, NULL) を出すと、制御前に始まった 5 の試行は 25 で fail action を実行し（既存の試行に影響しない。既定で有効）、15 の試行は 35 で実行しない。40 の2回目（既に無効）の後も 50 の1回の enable で 55 の試行は 75 で実行し、90 の disable で 95 の試行は 115 で実行しない。期待出力 'f1 fail actions at: 25 75 145'。 区別: 実行中の試行にも効く実装では 25 が消える。新しい試行の fail action を止めない実装では 35 と 115 が加わる。既に無効なときの2回目を数える実装では 75 が消える。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSDISABLEPASSACTION
 
@@ -109457,7 +110602,7 @@ vpiAssertionSysDisablePassAction: disable pass actions for vacuous/nonvacuous su
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSDISABLEVACUOUSACTION
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysDisableVacuousAction: disable pass actions on vacuous success; do not affect existing attempts or change anything if already in that state. Pass/fail/vacuous actions are enabled by default.
 
@@ -109465,10 +110610,11 @@ vpiAssertionSysDisableVacuousAction: disable pass actions on vacuous success; do
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_sys_vacuous_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_sys_vacuous_action_controls_running_attempts.sv): a1 (go ##1 c |-> b、go と b は常に 1) の各試行は次の刻みで c=0 なら空成功、c=1 なら非空成功し、pass action が $sampled(c) で種類を分けて時刻を記録する。制御前は既定で両方実行（15 の空成功、25 の非空成功）。30 に vpi_control(vpiAssertionSysDisableVacuousAction, NULL) を出すと、25 の試行の空成功 35 は実行し（既存の試行に影響しない）、35 の試行の空成功 45 は実行せず、非空成功 55 は実行する。60 の2回目（既に無効）の後、70 の1回の enable pass action で 75 の試行の空成功 85 が実行し、65 の試行の空成功 75 は実行しない。期待出力 'vacuous pass actions at: 15 35 85' と 'nonvacuous pass actions at: 25 55 95 125 145 155'。 区別: 実行中の試行にも効く実装では空成功の 35 が消える。新しい試行に効かない実装では vacuous の行に 45, 65, 75 が加わる。非空成功まで止める実装では 55 が消える。2回目の disable を数える実装では 85 が消え、2回目で反転させる実装では 75 が加わる。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSENABLEFAILACTION
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysEnableFailAction: enable fail actions; do not affect existing attempts or change anything if already in that state. Pass/fail/vacuous actions are enabled by default.
 
@@ -109476,10 +110622,11 @@ vpiAssertionSysEnableFailAction: enable fail actions; do not affect existing att
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_sys_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv): fail action が無効の間に始まった 45 の試行は、50 の vpi_control(vpiAssertionSysEnableFailAction, NULL) の後の 65 に失敗しても fail action を実行せず（既存の試行に影響しない）、55 の試行は 75 で実行する。80 の2回目（既に有効）の後、90 の1回の disable で 95 の試行は 115 で実行しない。120 の enable で 125 の試行は 145 で実行する。既定では有効（5 の試行が 25 で実行）。期待出力 'f1 fail actions at: 25 75 145'。 区別: 実行中の試行にも効く実装では 65 が加わる。Enable が効かない実装では 75 と 145 が消える。既に有効なときの enable を数える、または反転させる実装では 115 が加わる。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSENABLENONVACUOUSACTION
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysEnableNonvacuousAction: enable pass actions on nonvacuous success; do not affect existing attempts or change anything if already in that state. Pass/fail/vacuous actions are enabled by default.
 
@@ -109487,6 +110634,7 @@ vpiAssertionSysEnableNonvacuousAction: enable pass actions on nonvacuous success
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_sys_vacuous_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_sys_vacuous_action_controls_running_attempts.sv): 90 の system disable pass action で両方の成功の pass action を止め、110 に vpi_control(vpiAssertionSysEnableNonvacuousAction, NULL) を出す。105 の試行（無効の間に開始）の非空成功 115 は実行せず（既存の試行に影響しない）、115 の試行の非空成功 125 は実行し、125 の試行の空成功 135 は実行しない（空成功は有効にしない）。140 の2回目（既に有効）は効果がなく 145 の試行の 155 は実行し、150 の disable pass action 後の 165 は実行しない。既定では有効（25 で実行）。期待出力 'nonvacuous pass actions at: 25 55 95 125 145 155'。 区別: 実行中の試行にも効く実装では 115 が加わる。Enable が効かない実装では 125, 145, 155 が消える。空成功まで有効にする実装では vacuous の行に 135 が加わる。既に有効なときの2回目で反転させる実装では 155 が消え、数える実装では 165 が加わる。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSENABLEPASSACTION
 
@@ -109512,7 +110660,7 @@ vpiAssertionSysEnd: discard attempts, prevent new attempts, remove all assertion
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSKILL
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysKill: discard all active attempts and prevent new ones, preserving existing callbacks.
 
@@ -109520,6 +110668,7 @@ vpiAssertionSysKill: discard all active attempts and prevent new ones, preservin
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_system_off_kill_on.sv](../tests/ch39/test_vpi_assertion_system_off_kill_on.sv): 時刻 40 と 80 に vpi_control(vpiAssertionSysKill, NULL) を呼ぶ。35 と 65 に始まった試行は 55 と 85 で b=1 を見て成功するはずだが捨てられ、pass は 60 で 1、90 で 2（75 の空成功だけ）のまま。kill 中の刻み 45, 55, 85 には試行が始まらず、kill の前に置いた cbAssertionStart は on の後の 65, 95 以降も呼ばれる。 区別: Kill で実行中の試行を捨てない実装では '60: after kill' の pass が 2、'90: after second kill' が 3 になる。Kill の後も試行を始める実装では開始時刻の一覧に 45 55 85 が入る。Kill でアサーションコールバックを外す実装では開始時刻の一覧が 35 で終わる。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSLOCK
 
@@ -109535,7 +110684,7 @@ vpiAssertionSysLock: lock assertion status against changes until unlocked.
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSOFF
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysOff: prevent new attempts without affecting executing assertions or existing callbacks.
 
@@ -109543,10 +110692,11 @@ vpiAssertionSysOff: prevent new attempts without affecting executing assertions 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_system_off_kill_on.sv](../tests/ch39/test_vpi_assertion_system_off_kill_on.sv): 時刻 10 に vpi_control(vpiAssertionSysOff, NULL) を呼ぶ。時刻 5 に始まった試行（a=1、25 に b=1 が必要）は停止中の 25 に成功して pass が 1 になり（'30: after off: a1 pass 1'）、停止中の刻み 15 と 25 には試行が始まらない（開始時刻の一覧に 15, 25 がない）。時刻 1 に置いた cbAssertionStart は on の後の 35 以降も呼ばれる。 区別: Off で実行中の試行も捨てる実装では 30 の pass が 0 になる。Off の後も新しい試行を始める実装では開始時刻の一覧に 15 25 が入り、25 の試行が空成功して pass が 2 以上になる。Off で既存のアサーションコールバックを外す実装では開始時刻の一覧が 5 だけになる。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSON
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysOn: resume all assertion attempts after off/kill without affecting prior callbacks.
 
@@ -109554,10 +110704,11 @@ vpiAssertionSysOn: resume all assertion attempts after off/kill without affectin
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_system_off_kill_on.sv](../tests/ch39/test_vpi_assertion_system_off_kill_on.sv): off の後（30）と2回の kill の後（60, 90）に vpi_control(vpiAssertionSysOn, NULL) を呼ぶ。そのたびに両方のアサーション（最上位の a1 とインスタンス u の a2）の試行が次の刻みから再び始まり（開始時刻 35, 65, 75, 95, 105, 115）、95 の試行と 105, 115 の空成功で pass が 120 に 5 になる。on より前に置いた cbAssertionStart がそのまま呼ばれる。 区別: On で試行を再開しない実装、または一方のアサーションだけ再開する実装では、開始時刻の一覧から 35 以降が消え、'120: after third on' の pass が 1 のままになる。On で既存のコールバックを置き直しや削除する実装では開始時刻の一覧が変わる。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSRESET
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysReset: discard all active attempts and restore initial assertion-system state; remove step-success/failure callbacks but retain all other assertion callbacks.
 
@@ -109565,6 +110716,8 @@ vpiAssertionSysReset: discard all active attempts and restore initial assertion-
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_sys_reset_drops_step_callbacks.sv](../tests/ch39/test_vpi_assertion_sys_reset_drops_step_callbacks.sv): 5 の試行のステップ実行を有効にしておき、30 に $vt_reset で vpiAssertionSysReset。5 の試行は 5, 15, 25 にステップを報告して 25 に成功、実行中だった 25 の試行は 45 に成功しない。40 に 55 の試行のステップ実行を有効にしても 55 の試行は 75 に成功するだけでステップのコールバックはなく、cbAssertionStart は 5〜75 の全刻みで呼ばれる。
+- [test_vpi_assertion_sys_reset_restores_actions.sv](../tests/ch39/test_vpi_assertion_sys_reset_restores_actions.sv): 10 に system の disable pass action と disable fail action を出し、15 の失敗と 25 の成功で action が実行されない。30 に vpiAssertionSysReset を出すと、35 の失敗と 45 の成功で action が再び実行される。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSUNLOCK
 
@@ -109614,7 +110767,7 @@ vpiAssertionClockSteps causes enabled stepping callbacks at every assertion-decl
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONDISABLE
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionDisable takes a valid assertion handle and must disable new attempts, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -109622,10 +110775,11 @@ vpiAssertionDisable takes a valid assertion handle and must disable new attempts
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_disable_enable_running_attempts.sv](../tests/ch39/test_vpi_assertion_disable_enable_running_attempts.sv): a1 (go |-> ##2 b、go と b は常に 1) の試行は2刻み後に成功し、pass action が時刻を、cbAssertionStart が開始時刻を記録する。既定で有効なので 5 に始まる。10 に a1 のハンドルで vpiAssertionDisable、20 に2回目（既に無効）を出すと、5 の試行は実行中のまま 25 に成功し、15 と 25 には試行が始まらない。30 の1回の enable で 35 から再開する。60 の disable の後も実行中の 45 と 55 の試行は 65 と 75 に成功し、65 以降は始まらない。期待出力 'a1 pass actions at: 25 55 65 75' と 'a1 attempts started at: 5 35 45 55'。 区別: Disable が実行中の試行を捨てる実装では 25, 65, 75 が消える。新しい試行を止めない実装では開始時刻に 15 25 65 75 85 が加わり pass も増える。既に無効なときの2回目を数える実装では 30 の enable で再開せず 35 45 55 が消える。
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONDISABLEFAILACTION
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionDisableFailAction takes a valid assertion handle and must disable fail actions, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -109633,6 +110787,7 @@ vpiAssertionDisableFailAction takes a valid assertion handle and must disable fa
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv): f1 (a |-> ##2 !b) は a=1 の刻み 5,15,45,55,95,125 に始まる試行が2刻み後に b=1 で失敗し、fail action が時刻を記録する。f1 のハンドルに 10 で vpiAssertionDisableFailAction を出すと、制御前に始まった 5 の試行は 25 で fail action を実行し（既存の試行に影響しない。既定で有効）、15 の試行は 35 で実行しない。40 の2回目（既に無効）の後も 50 の1回の enable で 55 の試行は 75 で実行し、90 の disable で 95 の試行は 115 で実行しない。期待出力 'f1 fail actions at: 25 75 145'。 区別: Disable が実行中の試行にも効く実装では 25 が消える。新しい試行の fail action を止めない実装では 35 と 115 が加わる。既に無効なときの2回目を数える実装では 75 が消える。
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONDISABLEPASSACTION
 
@@ -109647,7 +110802,7 @@ vpiAssertionDisablePassAction takes a valid assertion handle and must disable pa
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONDISABLEVACUOUSACTION
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionDisableVacuousAction takes a valid assertion handle and must disable vacuous-success pass actions, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -109655,10 +110810,11 @@ vpiAssertionDisableVacuousAction takes a valid assertion handle and must disable
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_vacuous_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv): a1 (go ##1 c |-> b、go と b は常に 1) の各試行は次の刻みで c=0 なら空成功、c=1 なら非空成功し、pass action が $sampled(c) で種類を分けて時刻を記録する。制御前は既定で両方実行（15 の空成功、25 の非空成功）。30 に a1 のハンドルで vpiAssertionDisableVacuousAction を出すと、25 に始まった試行の空成功（35）は実行し（既存の試行に影響しない）、35 の試行の空成功（45）は実行せず、非空成功（55）は実行する。60 の2回目（既に無効）の後、70 の1回の enable pass action で 75 の試行の空成功（85）が実行し、65 の試行（無効の間に開始）の空成功 75 は実行しない。期待出力 'vacuous pass actions at: 15 35 85' と 'nonvacuous pass actions at: 25 55 95 125 145 155'。 区別: 実行中の試行にも効く実装では空成功の 35 が消える。新しい試行に効かない実装では vacuous の行に 45, 65, 75 が加わる。非空成功まで止める実装では 55 が消える。2回目の disable を数える実装では 70 の enable が1回では足りず 85 が消え、2回目で反転させる実装では 75 が加わる。
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONENABLE
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionEnable takes a valid assertion handle and must enable new attempts, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -109666,10 +110822,11 @@ vpiAssertionEnable takes a valid assertion handle and must enable new attempts, 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_disable_enable_running_attempts.sv](../tests/ch39/test_vpi_assertion_disable_enable_running_attempts.sv): 無効にした a1 に 30 で vpiAssertionEnable を出すと 35 から試行が始まる。40 に2回目（既に有効、35 の試行が実行中）を出しても 35 の試行は 55 に成功し、45 と 55 にも試行が始まる（既存の試行に影響せず、効果もない）。60 の1回の disable で 65 以降は始まらない。既定では有効（5 に開始）。期待出力 'a1 attempts started at: 5 35 45 55' と 'a1 pass actions at: 25 55 65 75'。 区別: Enable が効かない実装では 35 45 55 の開始と 55 65 75 の成功が消える。Enable で実行中の試行をやり直す実装では 55 の成功が消える。既に有効なときの enable を数える実装では 60 の disable が効かず 65 75 に開始が加わる。
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONENABLEFAILACTION
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionEnableFailAction takes a valid assertion handle and must enable fail actions, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -109677,10 +110834,11 @@ vpiAssertionEnableFailAction takes a valid assertion handle and must enable fail
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv): f1 の fail action が無効の間に始まった 45 の試行は、50 の vpiAssertionEnableFailAction の後の 65 に失敗しても fail action を実行せず（既存の試行に影響しない）、55 の試行は 75 で実行する。80 の2回目（既に有効）の後、90 の1回の disable で 95 の試行は 115 で実行しない。120 の enable で 125 の試行は 145 で実行する。既定では有効（5 の試行が 25 で実行）。期待出力 'f1 fail actions at: 25 75 145'。 区別: Enable が実行中の試行にも効く実装では 65 が加わる。Enable が効かない実装では 75 と 145 が消える。既に有効なときの enable を数える、または反転させる実装では 115 が加わる。
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONENABLENONVACUOUSACTION
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionEnableNonvacuousAction takes a valid assertion handle and must enable nonvacuous-success pass actions, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -109688,6 +110846,7 @@ vpiAssertionEnableNonvacuousAction takes a valid assertion handle and must enabl
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_vacuous_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv): 90 の disable pass action で両方の成功の pass action を止め、110 に a1 のハンドルで vpiAssertionEnableNonvacuousAction を出す。105 に始まった試行（無効の間に開始）の非空成功 115 は実行せず（既存の試行に影響しない）、115 の試行の非空成功 125 は実行し、125 の試行の空成功 135 は実行しない（空成功は有効にしない）。140 の2回目（既に有効）は効果がなく、145 の試行の非空成功 155 は実行し、150 の disable pass action 後の 165 は実行しない。既定では非空成功の pass action は有効（25 で実行）。期待出力 'nonvacuous pass actions at: 25 55 95 125 145 155' と 'vacuous pass actions at: 15 35 85'。 区別: 実行中の試行にも効く実装では 115 が加わる。Enable が効かない実装では 125, 145, 155 が消える。空成功まで有効にする実装では vacuous の行に 135 が加わる。既に有効なときの2回目で反転させる実装では 155 が消え、数える実装では 150 の disable が効かず 165 が加わる。
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONENABLEPASSACTION
 
@@ -109714,7 +110873,7 @@ vpiAssertionLock takes a valid assertion handle and must lock status changes unt
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONRESET
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionReset takes a valid assertion handle and must discard current attempts and restore this assertion initial state.
 
@@ -109722,6 +110881,8 @@ vpiAssertionReset takes a valid assertion handle and must discard current attemp
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_kill_reset.sv](../tests/ch39/test_vpi_assertion_kill_reset.sv): 80 に $vt_reset で vpi_control(vpiAssertionReset, a1) を出し、95 と 105 に成功するはずだった 65 と 75 の試行が捨てられ（成功の行がない）、'80: a1 reset' の後 125 の試行が 155 に失敗する。
+- [test_vpi_assertion_reset_restores_initial_state.sv](../tests/ch39/test_vpi_assertion_reset_restores_initial_state.sv): 2 に a1 と a2 の pass/fail action を無効にし a3 を無効にする。30 に a1 と a3 を vpiAssertionReset でリセットすると、a1 と a3 は 35 の失敗と 45 の成功で action を実行し、a2 はどの刻みでも実行しない。
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONUNLOCK
 
@@ -109737,7 +110898,7 @@ vpiAssertionUnlock takes a valid assertion handle and must allow status changes 
 
 ### SV2023-39.5.2-EXTRACT-DISABLE-STEP
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionDisableStep takes assertion handle and attempt-start pointer, disables that attempt stepping and has no effect if stepping is already disabled/not enabled.
 
@@ -109745,6 +110906,7 @@ vpiAssertionDisableStep takes assertion handle and attempt-start pointer, disabl
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_disable_step_without_effect.sv](../tests/ch39/test_vpi_assertion_disable_step_without_effect.sv): a1 (a ##1 b ##1 c) の 15, 55, 95, 125 の試行が2刻み後に成功する（成功コールバックで 35, 75, 115, 145 を確認）。$vt_step は a1 のハンドルと、type vpiSimTime に初期化した開始時刻で vpiAssertionEnableStep / vpiAssertionDisableStep を呼ぶ。15 の試行は有効にしたので 15, 25, 35 にステップする。55 の試行は 40 に有効にして 42 に無効にし（そのステップ実行を止める）、44 に再び無効にしても（既に無効で効果なし）ステップしない。95 の試行は有効にしないまま 80 に無効にしてもステップしない（有効でないなら効果なし）。125 の試行は 120 に有効でないまま無効にしてから 122 に有効にすると 125, 135, 145 にステップする。 区別: DisableStep が効かない実装では 55, 65, 75 のステップの行が加わる。既に無効なときや有効でないときの DisableStep で反転させる実装では 55 または 95 の試行のステップが現れ、無効の回数を数える実装では 125 の試行が 122 の enable 1回でステップせず 125〜145 の行が消える。
 
 ### SV2023-39.5.2-EXTRACT-ENABLE-STEP
 
@@ -109759,7 +110921,7 @@ vpiAssertionEnableStep takes assertion handle, initialized attempt-start pointer
 
 ### SV2023-39.5.2-EXTRACT-KILL-ONE-ATTEMPT
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionKill takes assertion handle and initialized s_vpi_time* attempt start, discards that attempt, keeps assertion enabled and preserves state such as past sampling.
 
@@ -109767,10 +110929,11 @@ vpiAssertionKill takes assertion handle and initialized s_vpi_time* attempt star
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_kill_keeps_past_sampling.sv](../tests/ch39/test_vpi_assertion_kill_keeps_past_sampling.sv): a1 (a |-> ##2 ($past(d) != d)) で a=1 の 5, 15, 45 に試行が始まる。20 に $vt_kill(15) が a1 のハンドルと、type vpiSimTime・low 15 に初期化した s_vpi_time で vpi_control(vpiAssertionKill) を呼ぶ。15 の試行は 35 で成功するはずだが成功コールバックがなく、'20: a1 attempt killed' だけが出る。5 の試行は 25 で成功し（$past(d) は刻み 15 の d=1、d は 0。kill が $past のサンプリング状態をリセットすれば既定値 0 となり失敗する）、a1 は有効のままで 45 の試行が 65 で成功する。 区別: 指定の試行を捨てない実装では '35: a1 success, attempt started at 15' が加わる。他の試行まで捨てる実装では 25 の成功が消える。アサーションを無効にする、またはリセットする実装では 65 の成功が消える。$past の状態をリセットする実装では 25 が 'a1 failure, attempt started at 5' に変わる。
 
 ### SV2023-39.5.3-EXTRACT-PENDING-QUEUE-FLUSH
 
-39.5.3 / normal / テスト未対応
+39.5.3 / normal / テスト対応あり・実行未確認
 
 Any VPI action discarding active attempts also flushes unmatured deferred reports and procedural-concurrent pending instances; actions preserving active attempts leave those queues intact.
 
@@ -109778,6 +110941,8 @@ Any VPI action discarding active attempts also flushes unmatured deferred report
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_deferred_queue.sv](../tests/ch39/test_vpi_assertion_deferred_queue.sv): 時刻 0 に d_reset と d_disable（assert #0）が失敗して報告が保留された直後、同じプロセスの $vt_control が d_reset に vpiAssertionReset、d_disable に vpiAssertionDisable を適用する。期待出力は '0: d_disable failed' だけが時刻 0 に出て、d_reset は 10 に再実行されて '10: d_reset failed' になる。
+- [test_vpi_assertion_procedural_queue.sv](../tests/ch39/test_vpi_assertion_procedural_queue.sv): 時刻 5 の立ち上がりで always が p_reset と p_disable を手続き的アサーション待ち行列に入れた後、$vt_control が p_reset に vpiAssertionReset、p_disable に vpiAssertionDisable を適用する。期待出力は '5: p_disable failed' だけが 5 に出て、p_reset は 15 に '15: p_reset failed' となる。
 
 ### SV2023-40.2.1-EXTRACT-COMMON-COVERAGE-API
 
@@ -110734,7 +111899,7 @@ FSM pragmas work in both /* */ block comments and // one-line comments.
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTATTEMPTCOVERED
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiAssertAttemptCovered in the assertion status category; its behavior is specified in the following query/control sections.
 
@@ -110742,10 +111907,11 @@ The VPI coverage extension defines vpiAssertAttemptCovered in the assertion stat
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiAssertAttemptCovered を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'assertion coverage status vpiAssertAttemptCovered 770' と出力する（770 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiAssertAttemptCovered を定義しない sv_vpi_user.h では 'assertion coverage status vpiAssertAttemptCovered 770' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTCOVERAGE
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiAssertCoverage in the coverage type category; its behavior is specified in the following query/control sections.
 
@@ -110753,10 +111919,11 @@ The VPI coverage extension defines vpiAssertCoverage in the coverage type catego
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiAssertCoverage を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage type vpiAssertCoverage 760' と出力する（760 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiAssertCoverage を定義しない sv_vpi_user.h では 'coverage type vpiAssertCoverage 760' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTDISABLECOVERED
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiAssertDisableCovered in the assertion status category; its behavior is specified in the following query/control sections.
 
@@ -110764,10 +111931,11 @@ The VPI coverage extension defines vpiAssertDisableCovered in the assertion stat
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiAssertDisableCovered を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'assertion coverage status vpiAssertDisableCovered 774' と出力する（774 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiAssertDisableCovered を定義しない sv_vpi_user.h では 'assertion coverage status vpiAssertDisableCovered 774' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTFAILURECOVERED
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiAssertFailureCovered in the assertion status category; its behavior is specified in the following query/control sections.
 
@@ -110775,10 +111943,11 @@ The VPI coverage extension defines vpiAssertFailureCovered in the assertion stat
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiAssertFailureCovered を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'assertion coverage status vpiAssertFailureCovered 772' と出力する（772 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiAssertFailureCovered を定義しない sv_vpi_user.h では 'assertion coverage status vpiAssertFailureCovered 772' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTKILLCOVERED
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiAssertKillCovered in the assertion status category; its behavior is specified in the following query/control sections.
 
@@ -110786,10 +111955,11 @@ The VPI coverage extension defines vpiAssertKillCovered in the assertion status 
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiAssertKillCovered を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'assertion coverage status vpiAssertKillCovered 777' と出力する（777 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiAssertKillCovered を定義しない sv_vpi_user.h では 'assertion coverage status vpiAssertKillCovered 777' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTSUCCESSCOVERED
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiAssertSuccessCovered in the assertion status category; its behavior is specified in the following query/control sections.
 
@@ -110797,10 +111967,11 @@ The VPI coverage extension defines vpiAssertSuccessCovered in the assertion stat
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiAssertSuccessCovered を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'assertion coverage status vpiAssertSuccessCovered 771' と出力する（771 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiAssertSuccessCovered を定義しない sv_vpi_user.h では 'assertion coverage status vpiAssertSuccessCovered 771' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIASSERTVACUOUSSUCCESSCOVERED
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiAssertVacuousSuccessCovered in the assertion status category; its behavior is specified in the following query/control sections.
 
@@ -110808,10 +111979,11 @@ The VPI coverage extension defines vpiAssertVacuousSuccessCovered in the asserti
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiAssertVacuousSuccessCovered を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'assertion coverage status vpiAssertVacuousSuccessCovered 773' と出力する（773 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiAssertVacuousSuccessCovered を定義しない sv_vpi_user.h では 'assertion coverage status vpiAssertVacuousSuccessCovered 773' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVERAGECHECK
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiCoverageCheck in the control category; its behavior is specified in the following query/control sections.
 
@@ -110819,10 +111991,11 @@ The VPI coverage extension defines vpiCoverageCheck in the control category; its
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiCoverageCheck を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage control vpiCoverageCheck 753' と出力する（753 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage controls distinct: 1' で示す。 区別: vpiCoverageCheck を定義しない sv_vpi_user.h では 'coverage control vpiCoverageCheck 753' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVERAGEMERGE
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiCoverageMerge in the control category; its behavior is specified in the following query/control sections.
 
@@ -110830,10 +112003,11 @@ The VPI coverage extension defines vpiCoverageMerge in the control category; its
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiCoverageMerge を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage control vpiCoverageMerge 754' と出力する（754 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage controls distinct: 1' で示す。 区別: vpiCoverageMerge を定義しない sv_vpi_user.h では 'coverage control vpiCoverageMerge 754' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVERAGERESET
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiCoverageReset in the control category; its behavior is specified in the following query/control sections.
 
@@ -110841,10 +112015,11 @@ The VPI coverage extension defines vpiCoverageReset in the control category; its
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiCoverageReset を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage control vpiCoverageReset 752' と出力する（752 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage controls distinct: 1' で示す。 区別: vpiCoverageReset を定義しない sv_vpi_user.h では 'coverage control vpiCoverageReset 752' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVERAGESAVE
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiCoverageSave in the control category; its behavior is specified in the following query/control sections.
 
@@ -110852,10 +112027,11 @@ The VPI coverage extension defines vpiCoverageSave in the control category; its 
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiCoverageSave を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage control vpiCoverageSave 755' と出力する（755 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage controls distinct: 1' で示す。 区別: vpiCoverageSave を定義しない sv_vpi_user.h では 'coverage control vpiCoverageSave 755' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVERAGESTART
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiCoverageStart in the control category; its behavior is specified in the following query/control sections.
 
@@ -110863,10 +112039,11 @@ The VPI coverage extension defines vpiCoverageStart in the control category; its
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiCoverageStart を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage control vpiCoverageStart 750' と出力する（750 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage controls distinct: 1' で示す。 区別: vpiCoverageStart を定義しない sv_vpi_user.h では 'coverage control vpiCoverageStart 750' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVERAGESTOP
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiCoverageStop in the control category; its behavior is specified in the following query/control sections.
 
@@ -110874,10 +112051,11 @@ The VPI coverage extension defines vpiCoverageStop in the control category; its 
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiCoverageStop を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage control vpiCoverageStop 751' と出力する（751 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage controls distinct: 1' で示す。 区別: vpiCoverageStop を定義しない sv_vpi_user.h では 'coverage control vpiCoverageStop 751' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVERED
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiCovered in the status category; its behavior is specified in the following query/control sections.
 
@@ -110885,10 +112063,11 @@ The VPI coverage extension defines vpiCovered in the status category; its behavi
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiCovered を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage status vpiCovered 765' と出力する（765 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiCovered を定義しない sv_vpi_user.h では 'coverage status vpiCovered 765' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVEREDCOUNT
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiCoveredCount in the status category; its behavior is specified in the following query/control sections.
 
@@ -110896,6 +112075,7 @@ The VPI coverage extension defines vpiCoveredCount in the status category; its b
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiCoveredCount を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage status vpiCoveredCount 767' と出力する（767 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiCoveredCount を定義しない sv_vpi_user.h では 'coverage status vpiCoveredCount 767' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPICOVEREDMAX
 
@@ -110923,7 +112103,7 @@ The VPI coverage extension defines vpiFsm in the FSM handle type category; its b
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIFSMHANDLE
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 vpiFsmHandle is listed among the FSM handle types in the coverage extension.
 
@@ -110931,10 +112111,11 @@ vpiFsmHandle is listed among the FSM handle types in the coverage extension.
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiFsmHandle を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'FSM handle type vpiFsmHandle 759' と出力する（759 は Annex M.2 の値）。 区別: vpiFsmHandle を定義しない sv_vpi_user.h では 'FSM handle type vpiFsmHandle 759' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIFSMSTATECOVERAGE
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiFsmStateCoverage in the coverage type category; its behavior is specified in the following query/control sections.
 
@@ -110942,6 +112123,7 @@ The VPI coverage extension defines vpiFsmStateCoverage in the coverage type cate
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiFsmStateCoverage を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage type vpiFsmStateCoverage 761' と出力する（761 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiFsmStateCoverage を定義しない sv_vpi_user.h では 'coverage type vpiFsmStateCoverage 761' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPIFSMSTATEEXPRESSION
 
@@ -110969,7 +112151,7 @@ The VPI coverage extension defines vpiFsmStates in the FSM method category; its 
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPISTATEMENTCOVERAGE
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiStatementCoverage in the coverage type category; its behavior is specified in the following query/control sections.
 
@@ -110977,10 +112159,11 @@ The VPI coverage extension defines vpiStatementCoverage in the coverage type cat
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiStatementCoverage を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage type vpiStatementCoverage 762' と出力する（762 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiStatementCoverage を定義しない sv_vpi_user.h では 'coverage type vpiStatementCoverage 762' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.1-EXTRACT-CONSTANT-VPITOGGLECOVERAGE
 
-40.5.1 / normal / テスト未対応
+40.5.1 / normal / 実行確認あり
 
 The VPI coverage extension defines vpiToggleCoverage in the coverage type category; its behavior is specified in the following query/control sections.
 
@@ -110988,6 +112171,7 @@ The VPI coverage extension defines vpiToggleCoverage in the coverage type catego
 
 規定の性質: `definition`。
 
+- [test_vpi_coverage_extension_constants.sv](../tests/ch40/test_vpi_coverage_extension_constants.sv): cbStartOfSimulation のコールバックで sv_vpi_user.h が vpiToggleCoverage を定義しているかを #ifdef で調べ、定義されていれば列挙子の初期化（整数定数式でなければコンパイルできない）を通して 'coverage type vpiToggleCoverage 763' と出力する（763 は Annex M.2 の値）。 同じ区分の他の定数と値が異なることも 'coverage properties distinct: 1' で示す。 区別: vpiToggleCoverage を定義しない sv_vpi_user.h では 'coverage type vpiToggleCoverage 763' の行が欠け、別の値や整数定数でない定義ではその行が変わるかコンパイルできない。他の定数と値が重なれば distinct の行が 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-ASSERTION-COVERED-CRITERION
 
@@ -126779,7 +127963,7 @@ Noncontext imports can access/affect only actual arguments and cannot block opti
 
 ### SV2023-H.6.6-EXTRACT-OWNERSHIP
 
-H.6.6 / normal / テスト未対応
+H.6.6 / normal / 実行確認あり
 
 C and SV own disjoint allocation spaces; C cannot free SV allocation or expect SV to free C allocation. Passing a C pointer through SV to a C deallocator is permitted since allocation/free remain in C.
 
@@ -126787,6 +127971,7 @@ C and SV own disjoint allocation spaces; C cannot free SV allocation or expect S
 
 規定の性質: `mandatory`。
 
+- [test_dpi_memory_ownership_handles.sv](../tests/ch35/test_dpi_memory_ownership_handles.sv): C が c_alloc で確保したブロックは、設計が chandle を null にしても解放されず（'live after the design set its chandle to null: 2'）、設計が保持していたコピーと b を c_free に渡すと C が印を確認して解放し 1 と 2 を返し、生存数が 0 になる（C で確保・解放する許された経路）。C は受け取った input 文字列を自分のメモリへコピーし、設計が変数を "second" に変えた後も "first" を返す。c_label が返す C のメモリの文字列は設計がコピーして保持し、C が次の呼び出しで上書き・解放した後も "label 1" "label 2" のまま。 区別: SV 側が C のメモリを解放する（chandle を null にした時や戻り文字列の後始末で free する）実装では生存数の行が変わるか二重解放で異常終了し、C が SV のメモリを直接保持・解放する前提の実装では kept/labels の行が "second" や "????" に変わる。c_free に渡るポインタが C の確保したものでなければ印の確認で -1 になる。
 
 ### SV2023-H.7.1-EXTRACT-PACKED-DIMS
 
@@ -126878,7 +128063,7 @@ Types without packed constituents use C-compatible representation; basic integer
 
 ### SV2023-H.7.4-EXTRACT-ATOM-VECTOR
 
-H.7.4 / normal / テスト未対応
+H.7.4 / normal / 実行確認あり
 
 Unsigned byte/shortint arguments use C integer types and by-value input passing, unlike same-width packed bit arrays using svBitVecVal reference; output/inout pointers likewise differ.
 
@@ -126886,10 +128071,11 @@ Unsigned byte/shortint arguments use C integer types and by-value input passing,
 
 規定の性質: `mandatory`。
 
+- [test_dpi_unsigned_atoms_and_packed_by_reference.sv](../tests/ch35/test_dpi_unsigned_atoms_and_packed_by_reference.sv): 同じ値 200 を byte unsigned と bit [7:0] で、60000 を shortint unsigned と bit [15:0] で渡すと、C は前者を unsigned char / unsigned short の値として、後者を const svBitVecVal* の参照として受け取り、どちらも 200 / 60000 と読む。出力では byte unsigned が unsigned char*、bit [7:0] が svBitVecVal*、shortint unsigned が unsigned short*、bit [15:0] が svBitVecVal* で書かれ、SV では bu 240 bv 0f su beef sv cafe となる。 区別: byte unsigned を bit [7:0] と同じく svBitVecVal* で渡す実装（あるいは bit [7:0] を値で渡す実装）では、C の値の仮引数にアドレスの一部が入るかポインタが値として扱われ、'byte unsigned 200, bit [7:0] 200' などの行が変わる。出力の型を取り違えれば unsigned short* に書いた beef が隣のビットに混ざるなどして c_out の行が変わる。
 
 ### SV2023-H.7.4-EXTRACT-PACKED-AGGREGATE
 
-H.7.4 / normal / テスト未対応
+H.7.4 / normal / テスト対応あり・実行未確認
 
 Packed structs/unions are equivalent to one-dimensional packed arrays; tagged-union tag is two-state in MSBs of svBitVecVal or most significant aval bits of svLogicVecVal.
 
@@ -126897,10 +128083,12 @@ Packed structs/unions are equivalent to one-dimensional packed arrays; tagged-un
 
 規定の性質: `mandatory`。
 
+- [test_dpi_unsigned_atoms_and_packed_by_reference.sv](../tests/ch35/test_dpi_unsigned_atoms_and_packed_by_reference.sv): パック構造体 pair_t {hi=a, lo=5c} とパック共用体 either_t (whole=3f1) の入力を const svBitVecVal* で受け取り a5c / 3f1 と読み、出力の pair_t に 0x7e1 を書くと hi 7 lo e1 になる。
+- [test_dpi_packed_tagged_union_tag_bits.sv](../tests/ch35/test_dpi_packed_tagged_union_tag_bits.sv): 3 メンバーの 2 状態タグ付き共用体（14 ビット）では tagged narrow/wide/other でタグビット 13:12 が 0/1/2、メンバーは右詰め（5a/abc/123）。2 メンバーの 4 状態タグ付き共用体では tagged b 4'b10xz の aval が 1a、bval が 03（タグビット 4 は aval 1, bval 0）。
 
 ### SV2023-H.7.4-EXTRACT-RANDOM-QUALIFIER
 
-H.7.4 / normal / テスト未対応
+H.7.4 / normal / テスト対応あり・実行未確認
 
 rand/randc may occur on DPI struct/union formals and actuals but have no C-side semantic effect and undergo qualifier coercion.
 
@@ -126908,6 +128096,7 @@ rand/randc may occur on DPI struct/union formals and actuals but have no C-side 
 
 規定の性質: `mandatory`。
 
+- [test_dpi_unpacked_aggregate_arguments.sv](../tests/ch35/test_dpi_unpacked_aggregate_arguments.sv): rand int r と randc byte c を持つ構造体 chosen_t を DPI の形式引数の型とし、実引数として普通の変数 q = {1, 2, 3} と、制約 s.r == 5, s.c == 3 の下で randomize したクラスの rand プロパティ h.s（plain = 9）を渡す。C は修飾子のない struct {int r; char c; int plain;} として読み、123 と 539 を返す（randomize は 1）。 区別: rand/randc 修飾子付きのメンバーを持つ構造体を DPI の形式・実引数として受け付けない、あるいは修飾子のためにメンバーの表現や配置を変える実装では、エラーになるか 'c_chosen of a variable: 123' / 'c_chosen of a randomized property: 539' が変わる。
 
 ### SV2023-H.7.4-EXTRACT-TYPE-10
 
@@ -126983,7 +128172,7 @@ DPI maps scalar bit to C unsigned char, with scalar bit/logic encodings from svd
 
 ### SV2023-H.7.4-EXTRACT-TYPE-16
 
-H.7.4 / normal / テスト未対応
+H.7.4 / normal / テスト対応あり・実行未確認
 
 DPI maps scalar logic/reg to C unsigned char, with scalar bit/logic encodings from svdpi.h.
 
@@ -126991,6 +128180,7 @@ DPI maps scalar logic/reg to C unsigned char, with scalar bit/logic encodings fr
 
 規定の性質: `definition`。
 
+- [test_dpi_scalar_logic_reg_encoding.sv](../tests/ch35/test_dpi_scalar_logic_reg_encoding.sv): スカラ logic と reg の入力に 0, 1, z, x を与えると C は unsigned char の svLogic として 0 1 2 3 を受け取り（'codes 0 0' … 'codes 3 3'）、C が返す svLogic 1/0/3/2 は SV で 1, 0, x, z になる。output logic と inout reg に C が書いた 0..3 は SV で 0/1/z/x として見え（'made from 2: l z r 1' など）、inout reg の元の値 z/x は C で 2/3 と読める。スカラ bit は 0 と 1 で受け取られる。 区別: logic/reg を unsigned char 以外（int や aval/bval 対）で渡す、あるいは z と x の符号を取り違える（z=3, x=2 など）実装では codes の行と返り値・出力の %b 表示が変わる。reg に logic と異なる符号を使えば reg 側の codes が変わる。
 
 ### SV2023-H.7.4-EXTRACT-TYPE-5
 
@@ -127064,7 +128254,7 @@ Packed ranges use [n-1:0], unpacked [0:n-1], except open-array unpacked dimensio
 
 ### SV2023-H.7.6-EXTRACT-BOTH-DIRECTIONS
 
-H.7.6 / normal / テスト未対応
+H.7.6 / normal / 実行確認あり
 
 Range mapping applies to both import and export calls.
 
@@ -127072,6 +128262,7 @@ Range mapping applies to both import and export calls.
 
 規定の性質: `mandatory`。
 
+- [test_dpi_range_mapping_import_export.sv](../tests/ch35/test_dpi_range_mapping_import_export.sv): 同じ宣言 (bit [3:10], bit [1:0][3:0], int [4:1], int [2:5]) を持つ import と export の両方で範囲の対応を確かめる。import（SV→C）では C が p=83, q=a5, u を C 順 10 20 30 40 で受け取り、書いた o[k]=100+k は SV の o[2]..o[5] = 100..103 になる。export（C→SV）では C の 0x83/0xa5/{10,20,30,40} が SV で p[3]=1…p[10]=1, q[1]=a q[0]=5, u[1]=10…u[4]=40 となり、SV が書いた o[2..5]=7,8,9,6 は C 順 7 8 9 6 で戻る。 区別: export 呼び出しで正規化や最小添字先頭の配置を適用しない実装（例えば export では左端添字を C の 0 番にする）では sv_export の u の行が u[1] 40 … となり、p のビットも入れ替わる。import 側だけ誤れば c_import の行が変わる。
 
 ### SV2023-H.7.6-EXTRACT-DECLARATION
 
@@ -127086,7 +128277,7 @@ Sized ranges come from formal declaration; open unsized unpacked ranges retain a
 
 ### SV2023-H.7.6-EXTRACT-PACKED
 
-H.7.6 / normal / テスト未対応
+H.7.6 / normal / 実行確認あり
 
 Packed [L:R] normalizes to [abs(L-R):0], MSB at abs(L-R), LSB at zero; multiple packed dimensions first linearize.
 
@@ -127094,6 +128285,7 @@ Packed [L:R] normalizes to [abs(L-R):0], MSB at abs(L-R), LSB at zero; multiple 
 
 規定の性質: `mandatory`。
 
+- [test_dpi_range_mapping_import_export.sv](../tests/ch35/test_dpi_range_mapping_import_export.sv): 昇順のパック範囲 bit [3:10] の値 8'b1000_0011 は C で 0x83（p[3] が最上位ビット 7、p[10] がビット 0）として見え、2 次元パック bit [1:0][3:0] の q[1]=a, q[0]=5 は線形化されて 0xa5 になる。逆に C が 0x83 / 0xa5 を export に渡すと SV で p[3]=1 p[4]=0 p[9]=1 p[10]=1、q[1]=a q[0]=5 となる。 区別: [L:R] を [abs(L-R):0] に正規化せず L 側をビット 0 にする実装では C 側が 0xc1 になり export 側も p[3]=1 p[10]=1 以外のビットが入れ替わる。多次元パックの線形化順を誤れば 0x5a になる。
 
 ### SV2023-H.7.6-EXTRACT-UNPACKED
 
@@ -127109,7 +128301,7 @@ Unpacked [L:R] maps lower actual index to C zero regardless of declared directio
 
 ### SV2023-H.7.7-EXTRACT-TYPES
 
-H.7.7 / normal / テスト未対応
+H.7.7 / normal / 実行確認あり
 
 Canonical packed 2-state uses svBitVecVal; 4-state uses svLogicVecVal equivalent to s_vpi_vecval.
 
@@ -127117,10 +128309,11 @@ Canonical packed 2-state uses svBitVecVal; 4-state uses svLogicVecVal equivalent
 
 規定の性質: `definition`。
 
+- [test_dpi_svdpi_scalar_and_chunk_types.sv](../tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.sv): input bit [39:0] は const svBitVecVal* として、input logic [39:0] は const svLogicVecVal* として C に渡り、c_words が各チャンクの値を出力する。出力 c_make では bit 側を svBitVecVal*、logic 側を svLogicVecVal* に書き、SV 側の %h 表示 0189abcdef / e213579bdf で戻りを確認する。c_check_types は svLogicVecVal が s_vpi_vecval と同じ型であることを 1 で示す。 区別: 2 状態のパック配列を svBitVecVal 以外の表現（例えば svLogicVecVal や 1 バイト単位）で渡す実装、4 状態を aval/bval 対でない表現で渡す実装では、c_words の chunk 値や c_make の戻り値 0189abcdef / e213579bdf が変わり、svLogicVecVal が s_vpi_vecval と別型なら 'svLogicVecVal is s_vpi_vecval 1' が 0 になる。
 
 ### SV2023-H.7.7-EXTRACT-WORDS
 
-H.7.7 / normal / テスト未対応
+H.7.7 / normal / 実行確認あり
 
 Packed canonical array has one or more 32-bit chunks, least significant chunk first; final unused bits undetermined, and user must mask or sign extend them as appropriate.
 
@@ -127128,10 +128321,11 @@ Packed canonical array has one or more 32-bit chunks, least significant chunk fi
 
 規定の性質: `mandatory`。
 
+- [test_dpi_svdpi_scalar_and_chunk_types.sv](../tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.sv): 40 ビットの値 40'hab_1234_5678 を渡すと C は 2 チャンクを受け取り、要素 0 に下位 32 ビット 12345678、要素 1 に上位 8 ビット ab がある（未使用ビットは SV_GET_UNSIGNED_BITS(...,8) でマスクして表示）。逆方向では C が要素 0 に 0x89abcdef、要素 1 に 0x01 を書くと SV では 0189abcdef となる。logic も同様に aval 9abcdef0 / 5c。 区別: チャンクを上位から並べる実装（要素 0 に最上位ビット）では chunk 0 が 000000ab などになり、c_make の結果も 89abcdef01 のように変わる。32 ビット以外のチャンク幅なら chunk 0/1 の値がずれる。
 
 ### SV2023-H.7.8-EXTRACT-AGGREGATES
 
-H.7.8 / normal / テスト未対応
+H.7.8 / normal / テスト対応あり・実行未確認
 
 Imports/exports support unpacked arrays/structures including packed/unpacked elements and nested aggregates of permitted basic types.
 
@@ -127139,10 +128333,11 @@ Imports/exports support unpacked arrays/structures including packed/unpacked ele
 
 規定の性質: `mandatory`。
 
+- [test_dpi_unpacked_aggregate_arguments.sv](../tests/ch35/test_dpi_unpacked_aggregate_arguments.sv): import と export の両方でアンパック集合体を使う: 構造体の配列と int 配列を入れ子に持つ tree_t を import c_tree の input/output に（和 164.00、出力 o.pair[0] 7 0.25 -1 … s -300）、C が組み立てた tree_t を export sv_tree に（pair[0] 11 2.50 5 … s 7）、パックメンバー bit [11:0] と logic [3:0] を持つ構造体の配列 mixed_t [2] を import c_forward から export sv_mixed に（code abc flags 10xz n 5 …）渡す。 区別: 入れ子の集合体、構造体の配列、パック要素を含む集合体のいずれかを import/export の引数として扱えない実装ではエラーになるか、各行の値（164.00、sv_tree / sv_mixed の各メンバー）が変わる。
 
 ### SV2023-H.7.8-EXTRACT-LAYOUT
 
-H.7.8 / normal / テスト未対応
+H.7.8 / normal / テスト対応あり・実行未確認
 
 Purely unpacked aggregates have layout compatible with platform C compiler; packed constituents are also permitted subject to canonical rules.
 
@@ -127150,6 +128345,7 @@ Purely unpacked aggregates have layout compatible with platform C compiler; pack
 
 規定の性質: `mandatory`。
 
+- [test_dpi_unpacked_aggregate_arguments.sv](../tests/ch35/test_dpi_unpacked_aggregate_arguments.sv): アンパック要素だけからなる tree_t（leaf_t {int, real, byte} の配列 [2]、int [3]、shortint）は、C 側で同じ並びの struct {leaf_t pair[2]; int counts[3]; short s;} として読み書きでき、SV→C（和 164.00）、C→SV の出力（o.pair[0] 7 0.25 -1 … s -300）、C で作って export へ（pair[0] 11 2.50 5 … s 7）のすべてで値が一致する。パック要素を含む mixed_t は C が配置を仮定せずアドレスだけを渡し、SV で値が保たれる。 区別: アンパック構造体の配置を C コンパイラの配置と変える（メンバーの並べ替え、詰め方の違い、配列の格納順の違い）実装では、C が読む和 164.00 や出力・export 側の各メンバー値がずれる。
 
 ### SV2023-H.8.1-EXTRACT-OPEN
 
@@ -127230,7 +128426,7 @@ C must not assume a by-reference argument lifetime across calls; retaining value
 
 ### SV2023-H.8.4-EXTRACT-POINTER
 
-H.8.4 / normal / テスト未対応
+H.8.4 / normal / 実行確認あり
 
 By-reference type T uses T* actual-object pointer; packed types use canonical svLogicVecVal*/svBitVecVal*. Caller can allocate storage or forward an existing compatible reference.
 
@@ -127238,6 +128434,7 @@ By-reference type T uses T* actual-object pointer; packed types use canonical sv
 
 規定の性質: `mandatory`。
 
+- [test_dpi_reference_arguments_forwarded.sv](../tests/ch35/test_dpi_reference_arguments_forwarded.sv): 参照渡しの引数が実データへのポインタであること（int と int 配列は int*、bit [39:0] は svBitVecVal*、logic [7:0] は svLogicVecVal*）を、呼び出し側が確保した記憶域と、受け取った参照の転送の両方で確かめる。c_own は C のローカル変数を確保して export sv_fill に渡し、n 42 w 123456789a l 21 arr 40 50 60 を読み戻す。c_forward は import の自分の形式引数（設計の変数への参照）をそのまま sv_fill に渡し、sv_fill が書いた n 42 w 123456789a l 10 arr 10 20 30 を同じポインタで読み、さらに書き換えた n 43, w の下位バイト反転、l 11, arr[2]+5 が設計側の変数に 'design: n 43 w 1234567865 l 11 arr 10 20 35' として現れる。 区別: export が受け取ったポインタの先に書かない（例えば捨てられる別の領域に書く）実装や、import の output/inout を値で渡して C が転送できるポインタを持たない実装では、c_own / c_forward の行が初期値（n 0、l 20/0f、arr 4 5 6/1 2 3）のままになり design の行も変わる。パック配列を svBitVecVal*/svLogicVecVal* の正準形以外で渡す実装では w と l の値が 123456789a / 10 からずれる。
 
 ### SV2023-H.8.5-EXTRACT-ALLOCATION
 
@@ -127274,7 +128471,7 @@ Imported C input arguments always carry const qualification.
 
 ### SV2023-H.8.7-EXTRACT-OTHER
 
-H.8.7 / normal / テスト未対応
+H.8.7 / normal / テスト対応あり・実行未確認
 
 Other nonopen input types pass by reference.
 
@@ -127282,10 +128479,12 @@ Other nonopen input types pass by reference.
 
 規定の性質: `mandatory`。
 
+- [test_dpi_unsigned_atoms_and_packed_by_reference.sv](../tests/ch35/test_dpi_unsigned_atoms_and_packed_by_reference.sv): bit [7:0], bit [15:0], logic [7:0], int [3], パック構造体、パック共用体の入力を C がポインタで受け取り、それぞれ 200, 60000, aval 5a bval 00, 7 8 9, a5c, 3f1 と読む。
+- [test_dpi_unpacked_struct.sv](../tests/ch35/test_dpi_unpacked_struct.sv): アンパック構造体 item_t の入力を C が const item_t* で受け取り (count+code)*scale = 5.00 を返す。
 
 ### SV2023-H.8.7-EXTRACT-SMALL
 
-H.8.7 / normal / テスト未対応
+H.8.7 / normal / テスト対応あり・実行未確認
 
 Nonopen inputs of byte,shortint,int,longint,real,shortreal,scalar bit/logic,chandle,string are small and pass by value.
 
@@ -127293,6 +128492,9 @@ Nonopen inputs of byte,shortint,int,longint,real,shortreal,scalar bit/logic,chan
 
 規定の性質: `mandatory`。
 
+- [test_dpi_import_small_types.sv](../tests/ch35/test_dpi_import_small_types.sv): byte/shortint/int/longint/real/bit/string/chandle の入力を C が値の型で受け取り、-100, -2468, -1, 12000000000, 2.625, 1 0, 5, 11 12 を返す。
+- [test_dpi_shortreal.sv](../tests/ch35/test_dpi_shortreal.sv): shortreal の入力を C が float の値で受け取り 1.5*2.5=3.75 を返し、1/3 が float の値で届くことを 1 で示す。
+- [test_dpi_scalar_logic_reg_encoding.sv](../tests/ch35/test_dpi_scalar_logic_reg_encoding.sv): スカラ logic と reg の入力を C が svLogic の値で受け取り、0/1/z/x の符号 0 1 2 3 を出力引数に書く。
 
 ### SV2023-H.8.8-EXTRACT-REFERENCE
 
@@ -127307,7 +128509,7 @@ Nonopen inout/output always pass by reference; packed data uses canonical pointe
 
 ### SV2023-H.8.9-EXTRACT-RETURN
 
-H.8.9 / normal / テスト未対応
+H.8.9 / normal / テスト対応あり・実行未確認
 
 Nonvoid function results are restricted to byte,shortint,int,longint,real,shortreal,chandle,string,scalar bit/logic and corresponding H.7.4 C types, with svdpi.h scalar encodings.
 
@@ -127315,10 +128517,13 @@ Nonvoid function results are restricted to byte,shortint,int,longint,real,shortr
 
 規定の性質: `mandatory`。
 
+- [test_dpi_import_small_types.sv](../tests/ch35/test_dpi_import_small_types.sv): byte, shortint, int, longint, real, bit, string, chandle を返す import の結果 -100, -2468, -1, 12000000000, 2.625, 1 0, two, chandle 経由 11 12 を表示する。
+- [test_dpi_shortreal.sv](../tests/ch35/test_dpi_shortreal.sv): shortreal を返す dpi_scale の結果 3.75 を表示する。
+- [test_dpi_scalar_logic_reg_encoding.sv](../tests/ch35/test_dpi_scalar_logic_reg_encoding.sv): logic を返す c_codes の結果を %b で 1, 0, x, z と表示する。
 
 ### SV2023-H.8.10-EXTRACT-DIRECTION
 
-H.8.10 / normal / テスト未対応
+H.8.10 / normal / 実行確認あり
 
 String direction applies to pointer variable, not characters.
 
@@ -127326,10 +128531,11 @@ String direction applies to pointer variable, not characters.
 
 規定の性質: `mandatory`。
 
+- [test_dpi_export_string_directions.sv](../tests/ch35/test_dpi_export_string_directions.sv): 文字列の方向がポインタに適用されることを export で確かめる: input は const char*（SV は文字を読むだけで C の "in" は変わらない）、output と inout は const char**。SV が output/inout の文字列を変えると、C のポインタ変数に新しいアドレスが書かれ（output は NULL から "in!" へ、inout は "mine" の配列から "mine+" を指す別アドレスへ）、C が持つ文字の配列 "in" と "mine" そのものは書き換えられない。 区別: 方向を文字に適用し、inout/output の変更を C のバッファへの文字の書き込みで行う実装では、'own buffers still "in" and "mine"' が変わり 'inout pointer changed' が 0 になる。
 
 ### SV2023-H.8.10-EXTRACT-EXPORT-INOUT
 
-H.8.10 / normal / テスト未対応
+H.8.10 / normal / 実行確認あり
 
 Export inout starts pointer to C-owned initialized string that SV must not modify/free; changed string uses new SV pointer, which C must not free or assume lifetime of and must copy for retention.
 
@@ -127337,10 +128543,11 @@ Export inout starts pointer to C-owned initialized string that SV must not modif
 
 規定の性質: `mandatory`。
 
+- [test_dpi_export_string_directions.sv](../tests/ch35/test_dpi_export_string_directions.sv): inout は C 所有の初期化済みバッファ "mine" を指す const char** で渡り、SV は 'inout "mine"' と読む。SV が io = {io, "+"} とすると、C の const char* は新しいアドレスに書き換わり（'inout pointer changed: 1'）、その先は "mine+"。C 自身のバッファは "mine" のまま変わらず、C は新しい文字列を解放せずコピーして使う。 区別: SV が C のバッファに直接書き込む実装では 'own buffers still ... "mine"' が "mine+" になり pointer changed が 0 になる。新しいポインタを書かない実装では inout が "mine" のままになる。
 
 ### SV2023-H.8.10-EXTRACT-EXPORT-INPUT
 
-H.8.10 / normal / テスト未対応
+H.8.10 / normal / 実行確認あり
 
 Export input string is const char* that SV may read but not modify.
 
@@ -127348,10 +128555,11 @@ Export input string is const char* that SV may read but not modify.
 
 規定の性質: `mandatory`。
 
+- [test_dpi_export_string_directions.sv](../tests/ch35/test_dpi_export_string_directions.sv): C が自分の static 配列 "in" を const char* として export sv_strings の input string に渡すと、SV は 'input "in"' と読み、呼び出し後も C の配列は 'own buffers still "in" ...' のまま変わらない。 区別: input 文字列を const char* として受け取らない（例えば const char** として扱う）実装では SV が読む値が "in" にならず、SV 側が文字そのものを書き換える実装では C の in_text が "in" 以外になる。
 
 ### SV2023-H.8.10-EXTRACT-EXPORT-OUTPUT
 
-H.8.10 / normal / テスト未対応
+H.8.10 / normal / 実行確認あり
 
 Export output string starts meaningless const char** and SV writes valid pointer; C cannot free or assume lifetime and must copy for later retention.
 
@@ -127359,6 +128567,7 @@ Export output string starts meaningless const char** and SV writes valid pointer
 
 規定の性質: `mandatory`。
 
+- [test_dpi_export_string_directions.sv](../tests/ch35/test_dpi_export_string_directions.sv): C は output 用の const char* を NULL（意味のない初期値）にして &o を渡し、SV が o = {i, "!"} とすると、戻った o は有効な文字列 "in!" を指す。C はそれを解放せず、直ちに自分のバッファへコピーしてから 'output "in!"' と出力する。 区別: export の output 文字列を const char** として書き戻さない実装では o が NULL のままで '(null)' が出力され、無効なアドレスを書けば値が "in!" にならない。
 
 ### SV2023-H.8.10-EXTRACT-IMPORT-INOUT
 
@@ -127374,7 +128583,7 @@ Import inout gives valid const char** pointing at SV storage C cannot free or as
 
 ### SV2023-H.8.10-EXTRACT-IMPORT-INPUT
 
-H.8.10 / normal / テスト未対応
+H.8.10 / normal / 実行確認あり
 
 Import input string gives pointer not owned by C, with no guaranteed storage lifetime; C cannot free it and pointer changes do not propagate to SV.
 
@@ -127382,10 +128591,11 @@ Import input string gives pointer not owned by C, with no guaranteed storage lif
 
 規定の性質: `mandatory`。
 
+- [test_dpi_input_inout_semantics.sv](../tests/ch35/test_dpi_input_inout_semantics.sv): input string "hello" を受け取った c_length は、SV から渡された const char* の値（自分の仮引数）を末尾の NUL まで進めて長さ 5 を数える。C はそのポインタを解放せず、ポインタの変更は SV に伝わらないので、呼び出し後も SV の s は "hello" のまま（'input string: length 5, s is still "hello"'）。 区別: input 文字列を値渡しのポインタでなく SV 側の変数への参照として渡す実装では、C がポインタを進めた結果が SV に戻って s が空文字列などになり、NUL 終端を置かない実装では長さが 5 にならない。
 
 ### SV2023-H.8.10-EXTRACT-IMPORT-OUTPUT
 
-H.8.10 / normal / テスト未対応
+H.8.10 / normal / 実行確認あり
 
 Import output string is initially meaningless const char**; C must write a valid initialized const char* before return; SV must not free that C storage.
 
@@ -127393,6 +128603,7 @@ Import output string is initially meaningless const char**; C must write a valid
 
 規定の性質: `mandatory`。
 
+- [test_dpi_import_output_inout.sv](../tests/ch35/test_dpi_import_output_inout.sv): output string の dpi_name は const char** を受け取り、意味のない初期値を読まずに C の文字列リテラル "set by C" のアドレスを書き込む。SV はその内容を自分の文字列 s にコピーして 'name: set by C' と表示し、C の静的な記憶域を解放しない（解放すればリテラルの解放で異常終了する）。 区別: output 文字列を const char** として渡さない、あるいは C が書いたアドレスから文字列をコピーしない実装では s が空のままで 'name: set by C' が変わる。SV が C の記憶域を解放する実装は実行時に異常終了して出力が欠ける。
 
 ### SV2023-H.8.10-EXTRACT-TERMINATION
 
@@ -127463,7 +128674,7 @@ VPI context is associated with system-task call site, used for arguments and sur
 
 ### SV2023-H.9.2-EXTRACT-SAME-SCOPE
 
-H.9.2 / normal / テスト未対応
+H.9.2 / normal / テスト対応あり・実行未確認
 
 Same-scope import-to-export calls inherit appropriate default context without svSetScope, preserving native-call behavior.
 
@@ -127471,10 +128682,11 @@ Same-scope import-to-export calls inherit appropriate default context without sv
 
 規定の性質: `mandatory`。
 
+- [test_dpi_context_scope_of_declaration.sv](../tests/ch35/test_dpi_context_scope_of_declaration.sv): top モジュールから u1.c_whoami を呼ぶと、context import c_whoami は svSetScope を使わずに同じスコープ（dcs_unit の u1）の export unit_id を呼び、既定の文脈 u1 を受け継いで 1 を返す（ネイティブ関数から呼んだ場合と同じ値）。呼び出し元の top には unit_id がない。 区別: import 中の export 呼び出しに import の文脈を引き継がない実装では、top の文脈で unit_id が見つからずエラーになるか（Verilator 5.052 はここで停止する）別のインスタンスの ID（2）を返し、'u1.c_whoami from the top module: 1' が変わる。
 
 ### SV2023-H.9.2-EXTRACT-SCOPE-NAME
 
-H.9.2 / normal / テスト未対応
+H.9.2 / normal / テスト対応あり・実行未確認
 
 Context import executes in instantiated declaration scope; fully qualified subroutine name minus its name identifies its context.
 
@@ -127482,10 +128694,11 @@ Context import executes in instantiated declaration scope; fully qualified subro
 
 規定の性質: `mandatory`。
 
+- [test_dpi_context_scope_of_declaration.sv](../tests/ch35/test_dpi_context_scope_of_declaration.sv): top モジュールから階層名で呼んだ context import が、呼び出し元ではなく宣言のあるインスタンスのスコープで実行され、svGetNameFromScope(svGetScope()) がそのインスタンスの完全名（import の完全名から import 名を除いたもの）を返す: u2.c_where → test_dpi_context_scope_of_declaration.u2、i1.c_where_ifc → ….i1、gb[1].c_where_gen → ….gb[1]。 区別: 呼び出し元のスコープで実行する実装（Verilator 5.052 がこれに当たる）では 3 行とも test_dpi_context_scope_of_declaration になり、インターフェースや生成ブロックの名前を正しく作らない実装では .i1 / .gb[1] の行が変わる。
 
 ### SV2023-H.9.2-EXTRACT-SCOPES
 
-H.9.2 / normal / テスト未対応
+H.9.2 / normal / 実行確認あり
 
 DPI imports/exports may be declared in module,program,interface,package,compilation-unit or generate scope.
 
@@ -127493,6 +128706,7 @@ DPI imports/exports may be declared in module,program,interface,package,compilat
 
 規定の性質: `mandatory`。
 
+- [test_dpi_declaration_scope_kinds.sv](../tests/ch35/test_dpi_declaration_scope_kinds.sv): モジュール、プログラム、インターフェース、パッケージ、コンパイル単位、生成ブロックの 6 種類のスコープのそれぞれに通常の import（2 数の和）、context import、同じスコープの export（スコープごとの係数 4/6/5/3/2/7 倍）を宣言し、すべてが呼べて結果が 'module: add 6, call 21'、'program: add 3, call 19'、'interface: add 2, call 11'、'package: add 11, call 22'、'compilation unit: add 5, call 9'、'generate block: add 4, call 29' となる。 区別: いずれかの種類のスコープで import/export の宣言を受け付けない実装ではエラーになり、そのスコープの export を正しく結び付けない（別スコープの export を呼ぶなど）実装では call の値（係数×引数+1）が変わる。
 
 ### SV2023-H.9.2-EXTRACT-UNWIND
 
@@ -127507,7 +128721,7 @@ Context may be set/reset at SV/context-chain boundaries; bypassing normal export
 
 ### SV2023-H.9.3-EXTRACT-CALLER-INFO
 
-H.9.3 / normal / テスト未対応
+H.9.3 / normal / 実行確認あり
 
 svGetCallerInfo updates filename/line and returns true if implementation supplies info; otherwise false with outputs unchanged. Invalid output pointers give unpredictable behavior; returned filename belongs to SV, cannot be modified/freed and expires at next SV function call.
 
@@ -127515,6 +128729,7 @@ svGetCallerInfo updates filename/line and returns true if implementation supplie
 
 規定の性質: `mandatory`。
 
+- [test_dpi_caller_info.sv](../tests/ch35/test_dpi_caller_info.sv): 2 つの行から context import c_where を呼び、その行番号を `__LINE__ で渡す。c_where は出力 2 つを既知の値に設定してから svGetCallerInfo を呼び、真を返したならファイル名が test_dpi_caller_info.sv で終わり行番号が渡された行と一致すること、偽を返したなら両出力が変わっていないことを調べ、どちらかの許された結果なら 1 を返す（どちらであるかは実装に任されるので出力しない）。ファイル名は次の SV 呼び出し前にその場で調べ、解放も変更もしない。 区別: 真を返しながら呼び出し箇所と違う行やファイルを返す実装、偽を返しながら出力を書き換える実装、未初期化のまま真を返す実装では 'caller information is consistent' が 0 になる。
 
 ### SV2023-H.9.3-EXTRACT-CHAIN
 
@@ -127564,7 +128779,7 @@ Static symbol addresses are recommended as keys; arbitrary integer keys are unsa
 
 ### SV2023-H.9.3-EXTRACT-LOOKUP
 
-H.9.3 / normal / テスト未対応
+H.9.3 / normal / テスト対応あり・実行未確認
 
 svGetScopeFromName resolves named module/program/interface/generate instance scope and returns NULL for unrecognized names.
 
@@ -127572,6 +128787,8 @@ svGetScopeFromName resolves named module/program/interface/generate instance sco
 
 規定の性質: `mandatory`。
 
+- [test_dpi_scope_user_data_and_lookup.sv](../tests/ch35/test_dpi_scope_user_data_and_lookup.sv): u2, i1, p1 の完全名でスコープを引き、名前と export の値 2 / 30 / 40 を出力し、no_such_instance には NULL を出力する。
+- [test_dpi_context_scope_of_declaration.sv](../tests/ch35/test_dpi_context_scope_of_declaration.sv): 生成ブロック gb[0], gb[1] の完全名でスコープを引き、名前と export gen_id の値 50 / 51 を出力する。
 
 ### SV2023-H.9.3-EXTRACT-NAME
 
@@ -127587,7 +128804,7 @@ svGetNameFromScope returns fully qualified scope name as const char*.
 
 ### SV2023-H.9.3-EXTRACT-PUT-DATA
 
-H.9.3 / normal / テスト未対応
+H.9.3 / normal / テスト対応あり・実行未確認
 
 svPutUserData(scope,key,data) stores pointer for scope/key; NULL scope/data or invalid scope is illegal; return -1 on error,0 success.
 
@@ -127595,10 +128812,11 @@ svPutUserData(scope,key,data) stores pointer for scope/key; NULL scope/data or i
 
 規定の性質: `mandatory`。
 
+- [test_dpi_put_user_data_error_result.sv](../tests/ch35/test_dpi_put_user_data_error_result.sv): svPutUserData は NULL のユーザーデータでも NULL のスコープでも -1 を返し、その後 import 自身のスコープで最初のキーに対する svGetUserData は NULL のまま（NULL スコープへの呼び出しが現在のスコープに格納することもない）。正しいスコープ・キー・データでは 0 を返し、svGetUserData はその値 5 を返す。 区別: エラーの場合も 0 を返す実装（Verilator 5.052 がこれに当たる）では最初の 2 行が 0 になり、NULL スコープを現在のスコープとして扱う実装では 'first key afterwards' が not NULL になる。成功時に格納しなければ最後の行が -1 になる。
 
 ### SV2023-H.9.3-EXTRACT-SCOPED-DATA
 
-H.9.3 / normal / テスト未対応
+H.9.3 / normal / 実行確認あり
 
 Same key never shares system-provided storage across contexts; sharing a common area requires separately storing its pointer in each scope.
 
@@ -127606,10 +128824,11 @@ Same key never shares system-provided storage across contexts; sharing a common 
 
 規定の性質: `mandatory`。
 
+- [test_dpi_scope_user_data_and_lookup.sv](../tests/ch35/test_dpi_scope_user_data_and_lookup.sv): 同じモジュールの 2 インスタンス u1, u2 が同じキー &shared_key でそれぞれ 100 と 200 を格納すると、各スコープは自分の値だけを見る（時刻 2 の u2 は u1 の格納後でも -1、時刻 11/12 に 100/200）。共通領域を共有するには、top が 1 つの int 777 のアドレスを u1 と u2 の両方のスコープに個別に svPutUserData し、u1 が 1 加えると u2 は 778 を読む。 区別: ユーザーデータ領域をスコープ間で共有する実装では u2 の 'before any put' が 100 になり、'shared key later' で u1 が 200 を読む。共通ポインタを各スコープに格納しても共有されない（コピーされる）実装では u2 の common area が 777 になる。
 
 ### SV2023-H.9.3-EXTRACT-SET-SCOPE
 
-H.9.3 / normal / テスト未対応
+H.9.3 / normal / 実行確認あり
 
 svSetScope(const svScope) sets context for subsequent exports and returns previous scope; before export call use it unless default surrounding import scope applies.
 
@@ -127617,6 +128836,7 @@ svSetScope(const svScope) sets context for subsequent exports and returns previo
 
 規定の性質: `mandatory`。
 
+- [test_dpi_scope_user_data_and_lookup.sv](../tests/ch35/test_dpi_scope_user_data_and_lookup.sv): top の context import c_set_scope で、svSetScope(u1) は直前のスコープ（svGetScope の値 = top）を返し（1）、その後の export unit_id は u1 の文脈で 1 を返す。svSetScope(u2) は u1 を返し unit_id は 2、svSetScope(top) は u2 を返し、svGetScope は最初のスコープに戻る。c_lookups でも svSetScope 後の export ifc_tag / prg_tag がそれぞれのスコープで 30 / 40 を返す。 区別: svSetScope が直前のスコープではなく新しいスコープや NULL を返す実装では 'returns the current scope: 1' などが 0 になり、export の文脈を切り替えない実装では unit_id が 1/2 にならない（top の文脈には unit_id がない）。
 
 ### SV2023-H.9.3-EXTRACT-UNIQUE-KEY
 
@@ -127631,7 +128851,7 @@ Users requiring unique storage must ensure key uniqueness across all C code incl
 
 ### SV2023-H.9.3-EXTRACT-USER-DATA
 
-H.9.3 / normal / テスト未対応
+H.9.3 / normal / 実行確認あり
 
 User data storage supports shared or unique keys within a scope; key selects sharing independently of the imported function.
 
@@ -127639,6 +128859,7 @@ User data storage supports shared or unique keys within a scope; key selects sha
 
 規定の性質: `mandatory`。
 
+- [test_dpi_scope_user_data_and_lookup.sv](../tests/ch35/test_dpi_scope_user_data_and_lookup.sv): 同じスコープ内で、同じキー &shared_key を使う別の import（c_put_shared で格納、c_read_shared_too で読む）は同じデータ 100 / 200 を共有し、固有のキー &own_key を使う import のデータ 107 / 207 は別に保たれ、共有キーのデータを上書きしない（'u1: shared key 100, own key 107'）。共有か固有かは import 関数ではなくキーで決まる。 区別: ユーザーデータを import 関数ごとに分ける実装では 'another import with the shared key reads' が -1 になり、キーを区別しない実装では own key の put で共有キーの値が 107 に変わる。
 
 ### SV2023-H.9.5-EXTRACT-CONTEXT-EXCEPTIONS
 
@@ -127732,7 +128953,7 @@ sv_1 scalar encoding is 1.
 
 ### SV2023-H.10.1.1-EXTRACT-SCALAR-TYPE
 
-H.10.1.1 / normal / テスト未対応
+H.10.1.1 / normal / 実行確認あり
 
 svScalar is unsigned char; svBit and svLogic alias svScalar.
 
@@ -127740,6 +128961,7 @@ svScalar is unsigned char; svBit and svLogic alias svScalar.
 
 規定の性質: `definition`。
 
+- [test_dpi_svdpi_scalar_and_chunk_types.sv](../tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.sv): C 側 c_check_types が svdpi.h の型をコンパイル時に比較し（C11 _Generic / C++ decltype）、svScalar が unsigned char であること、svBit と svLogic がともに svScalar であることを 1 として出力する。あわせて sv_0 sv_1 sv_z sv_x の値 0 1 2 3 を出力する。 区別: svScalar を int や signed char など別の型で定義する実装、または svBit/svLogic を svScalar の別名にしない実装では SAME_TYPE が 0 になり、期待出力の 'svScalar is unsigned char 1' または 'svBit and svLogic are svScalar 1' の行が 0 に変わる。
 
 ### SV2023-H.10.1.1-EXTRACT-SCALAR-X
 
@@ -127767,7 +128989,7 @@ sv_z scalar encoding is 2.
 
 ### SV2023-H.10.1.2-EXTRACT-BIT-CHUNK
 
-H.10.1.2 / normal / テスト未対応
+H.10.1.2 / normal / 実行確認あり
 
 svBitVecVal is uint32_t.
 
@@ -127775,10 +128997,11 @@ svBitVecVal is uint32_t.
 
 規定の性質: `definition`。
 
+- [test_dpi_svdpi_scalar_and_chunk_types.sv](../tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.sv): c_check_types が svBitVecVal の型を uint32_t とコンパイル時に比較して 1 を出力し、c_words は input bit [39:0] を const svBitVecVal* として受け取り chunk 0 = 12345678, chunk 1 = ab を出力する。 区別: svBitVecVal を uint32_t 以外（unsigned long や 64 ビット型など）で定義すると 'svBitVecVal is uint32_t 1' が 0 になり、64 ビット要素なら c_words の chunk 0/1 の値も 12345678/ab から変わる。
 
 ### SV2023-H.10.1.2-EXTRACT-LOGIC-CHUNK
 
-H.10.1.2 / normal / テスト未対応
+H.10.1.2 / normal / 実行確認あり
 
 Under VPI_VECVAL guard, s_vpi_vecval is struct t_vpi_vecval containing uint32_t aval then uint32_t bval, with pointer typedef; svLogicVecVal aliases that struct.
 
@@ -127786,6 +129009,7 @@ Under VPI_VECVAL guard, s_vpi_vecval is struct t_vpi_vecval containing uint32_t 
 
 規定の性質: `definition`。
 
+- [test_dpi_svdpi_scalar_and_chunk_types.sv](../tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.sv): c_check_types が #ifdef で VPI_VECVAL の定義、struct t_vpi_vecval が s_vpi_vecval と p_vpi_vecval の別名を持つこと、aval・bval がともに uint32_t でこの順に並ぶこと（offsetof 比較）、svLogicVecVal が s_vpi_vecval であることをそれぞれ 1 として出力する。c_words は logic [39:0] を svLogicVecVal の配列として受け取り aval/bval を出力する。 区別: VPI_VECVAL ガードがない、typedef 名が違う、フィールドの型や順序が違う（bval が先など）、svLogicVecVal が別構造体である実装では該当行が 0 になり、順序が逆なら c_words の 'chunk 0 aval 9abcdef0 bval 00000000' も aval/bval が入れ替わって変わる。
 
 ### SV2023-H.10.1.2-EXTRACT-MASK
 
@@ -127801,7 +129025,7 @@ SV_MASK(N) uses bitwise complement of (-1 shifted left N), retaining supplied si
 
 ### SV2023-H.10.1.2-EXTRACT-NCHUNKS
 
-H.10.1.2 / normal / テスト未対応
+H.10.1.2 / normal / 実行確認あり
 
 SV_PACKED_DATA_NELEMS(WIDTH) computes (WIDTH+31)>>5.
 
@@ -127809,6 +129033,7 @@ SV_PACKED_DATA_NELEMS(WIDTH) computes (WIDTH+31)>>5.
 
 規定の性質: `definition`。
 
+- [test_dpi_svdpi_scalar_and_chunk_types.sv](../tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.sv): c_check_types が SV_PACKED_DATA_NELEMS を幅 0, 1, 32, 33, 64, 65 で評価し、32 の倍数の境界の両側を含めて 0 1 1 2 2 3 を出力する。c_words でも幅 40 に対して 2 を出力する。 区別: (WIDTH+31)>>5 ではなく WIDTH>>5 や (WIDTH>>5)+1 で定義した実装では、境界の 1/32/33/64/65 のいずれかの値が変わり、'SV_PACKED_DATA_NELEMS of 0 1 32 33 64 65: 0 1 1 2 2 3' の行と 'in 2 chunks' が変わる。
 
 ### SV2023-H.10.1.2-EXTRACT-SIGNED-TEXT
 
@@ -127825,7 +129050,7 @@ The supplied SV_GET_SIGNED_BITS macro tests VALUE & (1<<N) when N!=32, then fill
 
 ### SV2023-H.10.1.2-EXTRACT-UNSIGNED
 
-H.10.1.2 / normal / テスト未対応
+H.10.1.2 / normal / 実行確認あり
 
 SV_GET_UNSIGNED_BITS(VALUE,N) returns VALUE unchanged for N=32, otherwise VALUE masked by SV_MASK(N).
 
@@ -127833,6 +129058,7 @@ SV_GET_UNSIGNED_BITS(VALUE,N) returns VALUE unchanged for N=32, otherwise VALUE 
 
 規定の性質: `definition`。
 
+- [test_dpi_svdpi_scalar_and_chunk_types.sv](../tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.sv): c_check_types が SV_GET_UNSIGNED_BITS(0xabcd1234, N) を N=32, 16, 8, 1 で評価し、N=32 では値そのまま 0xabcd1234、N<32 では下位 N ビットだけを残した 0x1234 0x34 0x0 を出力する。 区別: N=32 の特別扱いがなく VALUE & SV_MASK(32) を計算する実装では 32 ビットシフトのため 0xabcd1234 にならず、マスクのビット数を誤る（N+1 ビットや N-1 ビット残す）実装では 0x1234/0x34/0x0 のいずれかが変わる。
 
 ### SV2023-H.10.1.3-EXTRACT-ARRAY-TYPE
 
@@ -127914,7 +129140,7 @@ svGetBitselBit returns svBit from const svBitVecVal* source and int index.
 
 ### SV2023-H.11.5-EXTRACT-GETBITSEL-LOGIC
 
-H.11.5 / normal / テスト未対応
+H.11.5 / normal / 実行確認あり
 
 svGetBitselLogic returns svLogic from const svLogicVecVal* source and int index.
 
@@ -127922,6 +129148,7 @@ svGetBitselLogic returns svLogic from const svLogicVecVal* source and int index.
 
 規定の性質: `definition`。
 
+- [test_dpi_canonical_logic_select_utilities.sv](../tests/ch35/test_dpi_canonical_logic_select_utilities.sv): C 側で &svGetBitselLogic の型を svLogic (*)(const svLogicVecVal*, int) とコンパイル時に比較して 1 を出力し、aval/bval で 0・1・z・x を作った 40 ビットの svLogicVecVal 2 チャンクからビット 0〜7 と 32〜39 を読み、svLogic の値 2 2 2 2 1 1 1 1 と 1 2 1 2 2 0 3 1 を出力する。 区別: 戻り型や引数型が宣言と違えば型比較の行が 0 になる。チャンク内のビット位置や 2 番目のチャンクの扱い、aval/bval から sv_0/sv_1/sv_z/sv_x への変換を誤る実装では、ビット 0〜7 / 32〜39 の値の列が変わる（例えば z と x を取り違えると 2 と 3 が入れ替わる）。
 
 ### SV2023-H.11.5-EXTRACT-GETPARTSEL-BIT
 
@@ -127937,7 +129164,7 @@ svGetPartselBit returns void and takes svBitVecVal* destination,const svBitVecVa
 
 ### SV2023-H.11.5-EXTRACT-GETPARTSEL-LOGIC
 
-H.11.5 / normal / テスト未対応
+H.11.5 / normal / 実行確認あり
 
 svGetPartselLogic returns void and takes svLogicVecVal* destination,const svLogicVecVal* source,int index,int width.
 
@@ -127945,6 +129172,7 @@ svGetPartselLogic returns void and takes svLogicVecVal* destination,const svLogi
 
 規定の性質: `definition`。
 
+- [test_dpi_canonical_logic_select_utilities.sv](../tests/ch35/test_dpi_canonical_logic_select_utilities.sv): &svGetPartselLogic の型を void (*)(svLogicVecVal*, const svLogicVecVal*, int, int) と比較して 1 を出力し、チャンク境界をまたぐ 35:28（w=8）を 0 の語へ取り出して aval 00000059, bval 000000a0、35:4（w=32）を aval 59abcdef, bval a0000f00 として出力する。 区別: 引数（宛先・元・開始位置・幅）の型や順が違えば型比較が 0 になる。開始位置や幅の解釈、2 チャンク目からの取り出し、aval/bval 両方の取り出しを誤れば 35:28 と 35:4 の値が変わる。
 
 ### SV2023-H.11.5-EXTRACT-INDICES
 
@@ -127960,7 +129188,7 @@ Packed utility indexing is normalized n-1:0, LSB zero.
 
 ### SV2023-H.11.5-EXTRACT-LIMIT
 
-H.11.5 / normal / テスト未対応
+H.11.5 / normal / 実行確認あり
 
 Canonical utilities support bit-selects and packed part-selects up to 32 bits, not unpacked slices; partially out-of-range part-select behavior is undetermined.
 
@@ -127968,10 +129196,11 @@ Canonical utilities support bit-selects and packed part-selects up to 32 bits, n
 
 規定の性質: `mandatory`。
 
+- [test_dpi_canonical_logic_select_utilities.sv](../tests/ch35/test_dpi_canonical_logic_select_utilities.sv): パック配列のビット選択と、上限の 32 ビットまでの部分選択が正規化範囲内で使えることを、幅 1・4・8・32 の get/put で確認する: 32 ビットの svGetPartselLogic 35:4 → aval 59abcdef / bval a0000f00、svGetPartselBit 31:0 → 12345678、32 ビットの svPutPartselBit / svPutPartselLogic を 35:4 へ → 9abcdef0 00000008 / aval 2345678f fffffff1 bval 000ffff0 00000000。範囲は 40 ビット（2 チャンク）の正規化範囲に収まる指定だけを使い、範囲外の未規定の場合は使わない。 区別: 部分選択を 32 ビット未満（例えば 31 ビットまで）に制限したり、w=32 でシフト量 32 を誤って扱う実装では 35:4 や 31:0 の 32 ビットの行が変わる。1 ビットの選択を誤れば 36:36 の行やビット選択の列が変わる。
 
 ### SV2023-H.11.5-EXTRACT-PART-GET
 
-H.11.5 / normal / テスト未対応
+H.11.5 / normal / テスト対応あり・実行未確認
 
 Get copies source i+w-1:i into destination w-1:0 and preserves destination 31:w for w<32.
 
@@ -127979,10 +129208,11 @@ Get copies source i+w-1:i into destination w-1:0 and preserves destination 31:w 
 
 規定の性質: `mandatory`。
 
+- [test_dpi_canonical_partsel_get_keeps_bits.sv](../tests/ch35/test_dpi_canonical_partsel_get_keeps_bits.sv): 宛先の語をあらかじめパターンで埋めてから get する: svGetPartselBit の 35:28（w=8）を ffffffff へ → ffffff01、36:36（w=1）を fffffff0 へ → fffffff1、30:0（w=31）と 63:33（w=31）を 80000000 へ → 92345678 / cd5e6f78、w=32 では語全体が 12345678 に置き換わる。svGetPartselLogic でも aval/bval の両方で上位ビットが残る（aaaaaa59/5555aaa0 など）。 区別: 宛先の 31:w を 0 にする実装（Verilator 5.052 がこれに当たる）では ffffff01 が 00000001、92345678 が 12345678 などに変わり、取り出し位置を誤れば下位 w ビットの値が変わる。
 
 ### SV2023-H.11.5-EXTRACT-PART-PUT
 
-H.11.5 / normal / テスト未対応
+H.11.5 / normal / 実行確認あり
 
 Put copies source low w bits into destination i+w-1:i without modifying surrounding bits.
 
@@ -127990,6 +129220,7 @@ Put copies source low w bits into destination i+w-1:i without modifying surround
 
 規定の性質: `mandatory`。
 
+- [test_dpi_canonical_logic_select_utilities.sv](../tests/ch35/test_dpi_canonical_logic_select_utilities.sv): put は元の下位 w ビットを宛先 i+w-1:i に書き、周囲を変えないことを、既知のパターンで埋めた宛先で確認する: svPutPartselBit で全 1 の語の 19:12 に 0x3c → fff3cfff ffffffff、0 の語の 35:28 に 0xa5 → 50000000 0000000a、svPutPartselLogic で 33:30 に 4 ビット → aval 91111111 22222221 / bval 33333333 44444447。 区別: 周囲のビットを 0 にする、元の w より上のビット（0xffffff3c の ffffff 部分、fffffff6 の上位）まで書く、i をずらすといった誤実装では、パターン 1/3/4 の残るべき桁や fff3cfff の f の部分が変わる。
 
 ### SV2023-H.11.5-EXTRACT-PUTBITSEL-BIT
 
@@ -128005,7 +129236,7 @@ svPutBitselBit returns void and writes svBit scalar at int index of svBitVecVal*
 
 ### SV2023-H.11.5-EXTRACT-PUTBITSEL-LOGIC
 
-H.11.5 / normal / テスト未対応
+H.11.5 / normal / 実行確認あり
 
 svPutBitselLogic returns void and writes svLogic scalar at int index of svLogicVecVal* destination.
 
@@ -128013,10 +129244,11 @@ svPutBitselLogic returns void and writes svLogic scalar at int index of svLogicV
 
 規定の性質: `definition`。
 
+- [test_dpi_canonical_logic_select_utilities.sv](../tests/ch35/test_dpi_canonical_logic_select_utilities.sv): &svPutBitselLogic の型を void (*)(svLogicVecVal*, int, svLogic) と比較して 1 を出力し、ビット 33 に sv_x、4 に sv_z、12 に sv_1、39 に sv_0 を書いた後の 2 チャンクを aval 9abcdee0 00000047, bval 0000e01f 0000005a と出力する（他のビットは元のまま）。 区別: 引数の順や型が違えば型比較が 0 になる。書き込み位置のずれ、aval/bval の一方だけ更新する、隣接ビットを壊すなどの誤実装では 'svPutBitselLogic: aval 9abcdee0 00000047, bval 0000e01f 0000005a' の値が変わる。
 
 ### SV2023-H.11.5-EXTRACT-PUTPARTSEL-BIT
 
-H.11.5 / normal / テスト未対応
+H.11.5 / normal / 実行確認あり
 
 svPutPartselBit returns void and takes svBitVecVal* destination,one const svBitVecVal source chunk,int index,int width.
 
@@ -128024,10 +129256,11 @@ svPutPartselBit returns void and takes svBitVecVal* destination,one const svBitV
 
 規定の性質: `definition`。
 
+- [test_dpi_canonical_logic_select_utilities.sv](../tests/ch35/test_dpi_canonical_logic_select_utilities.sv): &svPutPartselBit の型を void (*)(svBitVecVal*, const svBitVecVal, int, int) と比較して 1 を出力し、全 1 の語へ 0xffffff3c の下位 8 ビットを 19:12 に書いた結果 fff3cfff ffffffff、0 の語へ 0xa5 を 35:28 に書いた結果 50000000 0000000a、0x89abcdef を 35:4 に書いた結果 9abcdef0 00000008 を出力する。 区別: 元をポインタで受けるなど型が違えば型比較が 0 になる。元の上位ビットまで書く（19:12 の例で fff3cfff が変わる）、周囲のビットを消す、2 チャンク目への書き込みを誤るなどの実装では各行の語が変わる。
 
 ### SV2023-H.11.5-EXTRACT-PUTPARTSEL-LOGIC
 
-H.11.5 / normal / テスト未対応
+H.11.5 / normal / 実行確認あり
 
 svPutPartselLogic returns void and takes svLogicVecVal* destination,one const svLogicVecVal source chunk,int index,int width.
 
@@ -128035,6 +129268,7 @@ svPutPartselLogic returns void and takes svLogicVecVal* destination,one const sv
 
 規定の性質: `definition`。
 
+- [test_dpi_canonical_logic_select_utilities.sv](../tests/ch35/test_dpi_canonical_logic_select_utilities.sv): &svPutPartselLogic の型を void (*)(svLogicVecVal*, const svLogicVecVal, int, int)（元は 1 チャンクの値渡し）と比較して 1 を出力し、元 aval fffffff6 bval fffffffc の下位 4 ビットを 33:30 に書いた結果 aval 91111111 22222221, bval 33333333 44444447、32 ビットを 35:4 に書いた結果 aval 2345678f fffffff1, bval 000ffff0 00000000 を出力する。 区別: 元をポインタで受ける宣言など型が違えば型比較が 0 になる。書き込み範囲外のビットを変える、元の上位ビットまで書く、チャンク境界をまたぐ書き込みを誤るなどの実装では 33:30 と 35:4 の結果の語が変わる。
 
 ### SV2023-H.12-EXTRACT-ACTUAL-BOUNDS
 
@@ -128165,7 +129399,7 @@ svHigh(const svOpenArrayHandle,int dimension) returns int for corresponding arra
 
 ### SV2023-H.12.2-EXTRACT-QUERY-INCREMENT
 
-H.12.2 / normal / テスト未対応
+H.12.2 / normal / 実行確認あり
 
 svIncrement(const svOpenArrayHandle,int dimension) returns int for corresponding array bound/property.
 
@@ -128173,6 +129407,7 @@ svIncrement(const svOpenArrayHandle,int dimension) returns int for corresponding
 
 規定の性質: `definition`。
 
+- [test_dpi_open_array_query_functions.sv](../tests/ch35/test_dpi_open_array_query_functions.sv): &svIncrement の型を int (*)(const svOpenArrayHandle, int) とコンパイル時に比較して 1 を出力し、svIncrement が昇順の次元 [2:5] で -1、降順 [3:1]・[-1:-3]・単一要素 [0:0]・パック部（次元 0）で 1 を返すことを、SV の $increment と並べて出力する。 区別: 戻り型や引数型が宣言と違えば 'svIncrement: int (const svOpenArrayHandle, int) 1' が 0 になる。svIncrement の値を常に 1 にしたり left<right の判定を逆にする実装では、up_down dim 1 の C 行の increment が -1 にならず SV 行と食い違う。
 
 ### SV2023-H.12.2-EXTRACT-QUERY-LEFT
 
@@ -128224,7 +129459,7 @@ svSize(const svOpenArrayHandle,int dimension) returns int for corresponding arra
 
 ### SV2023-H.12.2-EXTRACT-SEMANTICS
 
-H.12.2 / normal / テスト未対応
+H.12.2 / normal / 実行確認あり
 
 Array query functions use semantics of corresponding SystemVerilog queries in 20.7.
 
@@ -128232,10 +129467,11 @@ Array query functions use semantics of corresponding SystemVerilog queries in 20
 
 規定の性質: `mandatory`。
 
+- [test_dpi_open_array_query_functions.sv](../tests/ch35/test_dpi_open_array_query_functions.sv): 昇順・降順・負の範囲・1 要素の範囲を持つ 2 次元の実引数 up_down [2:5][3:1] と negative [-1:-3][0:0] について、SV 側の $left/$right/$low/$high/$increment/$size の値と、C 側の svLeft/svRight/svLow/svHigh/svIncrement/svSize の値を次元 1・2 ごとに並べて出力し、例えば dim 1 は両方とも left 2 right 5 low 2 high 5 increment -1 size 4、negative dim 1 は left -1 right -3 low -3 high -1 increment 1 size 3 となる。次元 0 はパック部 [7:0] を返す。 区別: svIncrement の符号を逆にする（昇順で 1 を返す）、svLow/svHigh を left/right と同じにする、svSize を high-low としてしまう、次元番号を 0 始まりで unpacked に割り当てるなどの実装では、C の行が対応する SV の行と異なる値になる。
 
 ### SV2023-H.12.3-EXTRACT-ACCESS-TYPES
 
-H.12.3 / normal / テスト未対応
+H.12.3 / normal / 実行確認あり
 
 Packed bit/logic elements use canonical copies; scalar bit/logic use scalar reads/writes; other elements use cast generic pointers. Pointer access to scalar/packed elements is per-array implementation-dependent.
 
@@ -128243,10 +129479,11 @@ Packed bit/logic elements use canonical copies; scalar bit/logic use scalar read
 
 規定の性質: `mandatory`。
 
+- [test_dpi_open_array_element_access.sv](../tests/ch35/test_dpi_open_array_element_access.sv): 要素型ごとに別のアクセス方法を使う: パック bit [11:0] 要素 p[3:1] と logic [11:0] 要素 q[0:1] は svGet/PutBitArrElem1VecVal・svGet/PutLogicArrElem1VecVal で正準チャンクへコピーして読み書きし（p[1]=789 … → 書き戻し後 p[3] 124 p[2] 457 p[1] 78a q[0] abd q[1] 0f1）、スカラ bit/logic 要素は svGetBitArrElem1/svGetLogicArrElem1 で値として読み（s 1 0 1 1, l 0 1 1 0）svPut…ArrElem1 で補数を書く（s 0100 l 1001）。int と longint 要素は svGetArrElemPtr1 のアドレスをキャストして読み、2 倍にする（i[1] 20 … g[0] 10000000000 g[1] -14）。 区別: 正準コピーが SV の添字を正規化添字と取り違える、スカラの値と sv_0/sv_1 の対応を誤る、要素アドレスの計算（要素の大きさや添字の基点）を誤る実装では、c_packed / c_scalars / c_others の各行と、SV に戻った値の表示行が変わる。
 
 ### SV2023-H.12.3-EXTRACT-COPY-ADDRESS
 
-H.12.3 / normal / テスト未対応
+H.12.3 / normal / 実行確認あり
 
 DPI supplies canonical buffer copy functions and whole-array/individual-element address functions.
 
@@ -128254,10 +129491,11 @@ DPI supplies canonical buffer copy functions and whole-array/individual-element 
 
 規定の性質: `mandatory`。
 
+- [test_dpi_open_array_element_access.sv](../tests/ch35/test_dpi_open_array_element_access.sv): 正準バッファとのコピー関数（svGetBitArrElem1VecVal/svPutBitArrElem1VecVal と Logic 版）でパック要素を読み書きし、要素アドレス関数 svGetArrElemPtr1 で int/longint 要素を直接書き換え、配列全体のアドレス関数 svGetArrayPtr と svSizeOfArray は、ポインタがあるなら最小添字 i[1] のアドレスで大きさが int 3 個分、ないなら大きさ 0 で一致することを 'whole-array pointer and size agree: 1' として出力する。 区別: コピー関数が値を読み書きしない、要素アドレスがずれる、全体アドレスが先頭要素以外を指すか大きさが要素数と合わない（あるいはポインタが NULL なのに大きさが 0 でない）実装では、c_packed の値、i/g の書き戻し値、'whole-array pointer and size agree' の 1 が変わる。
 
 ### SV2023-H.12.3-EXTRACT-VARIADIC
 
-H.12.3 / normal / テスト未対応
+H.12.3 / normal / テスト対応あり・実行未確認
 
 Indexing APIs support arbitrary dimensions through varargs and provide specialized one-,two-,three-index variants.
 
@@ -128265,6 +129503,7 @@ Indexing APIs support arbitrary dimensions through varargs and provide specializ
 
 規定の性質: `mandatory`。
 
+- [test_dpi_open_array_variadic_indexing.sv](../tests/ch35/test_dpi_open_array_variadic_indexing.sv): 可変引数の svGetArrElemPtr で 1・2・3・4 個の添字を与えて 1〜4 次元の int 開配列の要素を読み（m1[4]=4, m2[1][2]=12, m3[2][1][3]=213, m4[2][1][2][1]=2121, m4[1][0][3][2]=1032）、1〜3 添字では特化版 svGetArrElemPtr1/2/3 と同じアドレスであることを 1 で示す。パック要素でも可変引数版 svGetBitArrElemVecVal と 3 添字版が同じ 26 を返し、svPutBitArrElemVecVal で 3 次元と 4 次元の要素に書いた a5 / 3c / 81 が SV 側で見える。 区別: 可変引数版が 3 次元までしか扱わない実装（Verilator 5.052 がこれに当たる）では 4 添字の行が -1 になり b4 が 00 のままになる。特化版と可変引数版で添字の解釈が違えば 'same as svGetArrElemPtrN' が 0 になり、添字を正規化してしまえば各値が変わる。
 
 ### SV2023-H.12.4-EXTRACT-ADDRESS
 

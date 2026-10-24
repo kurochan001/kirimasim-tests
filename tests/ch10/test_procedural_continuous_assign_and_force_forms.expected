@@ -1,0 +1,8 @@
+assign: v=3
+assign follows src: v=6
+procedural write while assigned: v=6
+after deassign: v=6
+procedural write after deassign: v=9
+force: w=7 v=4
+force follows src: w=10 v=7
+after release: w=8 v=7

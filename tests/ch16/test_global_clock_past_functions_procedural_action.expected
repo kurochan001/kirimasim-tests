@@ -1,0 +1,10 @@
+5 procedure: past 0 rose 0 fell 0 stable 1 changed 0
+5 action: past 0 rose 0 fell 0 stable 1 changed 0
+15 procedure: past 0 rose 1 fell 0 stable 0 changed 1
+15 action: past 0 rose 1 fell 0 stable 0 changed 1
+25 procedure: past 1 rose 0 fell 0 stable 1 changed 0
+25 action: past 1 rose 0 fell 0 stable 1 changed 0
+35 procedure: past 1 rose 0 fell 1 stable 0 changed 1
+35 action: past 1 rose 0 fell 1 stable 0 changed 1
+45 procedure: past 0 rose 1 fell 0 stable 0 changed 1
+45 action: past 0 rose 1 fell 0 stable 0 changed 1

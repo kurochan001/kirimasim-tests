@@ -1,0 +1,13 @@
+t=5 always @(posedge clk): $past(v)=0
+t=5 a_clk action: $past(v)=0
+t=8 a_clk2 action: $past(v)=0
+t=15 always @(posedge clk): $past(v)=1
+t=15 a_clk action: $past(v)=1
+t=18 a_clk2 action: $past(v)=2
+t=20 initial, default clocking: $past(v)=4
+t=25 always @(posedge clk): $past(v)=3
+t=25 a_clk action: $past(v)=3
+t=28 a_clk2 action: $past(v)=4
+t=30 initial, default clocking: $past(v)=6
+t=35 always @(posedge clk): $past(v)=5
+t=35 a_clk action: $past(v)=5

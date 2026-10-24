@@ -1,0 +1,3 @@
+t=15 checker 1: a was 1 on two edges in a row
+t=45 checker 2: a was 1 on two edges in a row
+t=50 counts: c1=2 c2=3

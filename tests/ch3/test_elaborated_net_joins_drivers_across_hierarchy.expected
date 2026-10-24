@@ -1,0 +1,5 @@
+t=1 bus=1 u_a.pin=1 u_a.u_drv.pin=1 u_b.pin=1
+t=3 bus=0 u_a.pin=0 u_a.u_drv.pin=0 u_b.pin=0
+t=5 bus=x u_a.pin=x u_a.u_drv.pin=x u_b.pin=x
+t=7 bus=z u_a.pin=z u_a.u_drv.pin=z u_b.pin=z
+wand: wa=0

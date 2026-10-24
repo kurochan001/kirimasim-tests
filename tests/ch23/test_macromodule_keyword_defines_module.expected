@@ -1,0 +1,6 @@
+add: 9 + 8 = 17
+wrap: 9 + 5 = 14
+scale: 8 * 3 = 24
+test_macromodule_keyword_defines_module.add.show
+test_macromodule_keyword_defines_module.wrap.inner.show
+test_macromodule_keyword_defines_module.scale.show

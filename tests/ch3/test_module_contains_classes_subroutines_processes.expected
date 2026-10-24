@@ -1,0 +1,7 @@
+t=2 class: acc_decl.total=109 acc_proc.total=5
+subroutines: square(7)=49 delayed_double(21)=42
+assign: sum_w=20
+always_comb: comb_y=10
+t=22 always_ff: edges=2
+generate: gen_w=101 g_if.PICK=30 g_case.PICK=300
+final: edges=2

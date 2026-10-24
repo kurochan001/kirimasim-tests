@@ -1,0 +1,4 @@
+t=1 reader: shared_count=5
+t=3 reader: shared_count=6
+t=4 top: pair=(12,15) bits(pair_t)=12 DOUBLE=6 scaled(30)=26
+t=4 top: shared_count=6

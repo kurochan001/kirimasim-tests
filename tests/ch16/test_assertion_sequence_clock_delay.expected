@@ -1,0 +1,3 @@
+@(posedge slow): passes 30, failures 70
+@(s_edge): passes 30, failures 70
+@(s_late): passes 80, failures 40

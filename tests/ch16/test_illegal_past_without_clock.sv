@@ -1,0 +1,30 @@
+/*
+:name: test_illegal_past_without_clock
+:description: $past needs a clocking event, which a continuous assignment without default clocking cannot infer (IEEE 1800-2023 Section 16.9.3)
+:tags: ch16
+:type: elaboration
+:lrm: 1800-2023 16.9.3
+:oracle: spec
+:spec_check: ai
+:fourstate: no
+:nondeterministic: no
+:should_fail_because: $past is called without a clocking event in a continuous assignment of a module that has no default clocking
+:expected_stderr_regex: test_illegal_past_without_clock\.sv:29:
+*/
+// IEEE 1800-2023 §16.9.3: a sampled value function other than $sampled needs
+// a clocking event, given as an argument or inferred: in an assertion from
+// the clock flow, in an action block from the leading clock, in a procedure
+// from the procedural context, and elsewhere from default clocking. In a
+// disable condition or a clock expression it shall be given explicitly.
+// The clocking event of $past is given as its fourth argument or inferred by
+// the same rules. The module has no default clocking. The assignment of e
+// calls $past with an explicit clock; that of r calls it with none.
+// Icarus Verilog 13.0 and Verilator 5.052 do not support the clocking event
+// argument of $past, and report errors on another line, which do not count.
+
+module test_illegal_past_without_clock;
+  logic clk = 0, a = 0;
+  logic r, e;
+  assign e = $past(a, 1, , @(posedge clk));
+  assign r = $past(a);   // illegal
+endmodule

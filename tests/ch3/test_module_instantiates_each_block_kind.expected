@@ -1,0 +1,6 @@
+module: test_module_instantiates_each_block_kind.u_mod dout=6 internal=9 up_seen=42
+interface: test_module_instantiates_each_block_kind.u_if data=3
+checker output: 10
+primitives: nand(1,1)=0 nand(1,0)=1 maj(1,0,1)=1 maj(1,0,0)=0
+program: test_module_instantiates_each_block_kind.u_prog pin=6
+checker: test_module_instantiates_each_block_kind.u_chk doubled=10

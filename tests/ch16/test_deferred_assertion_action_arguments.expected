@@ -1,0 +1,6 @@
+t=10 after a_obs: x=2 r=0
+t=10 a_obs pass: by value 1, const ref 5, ref 5
+t=20 after a_fin: x=3 r=5
+t=20 a_fin pass: by value 2, const ref 106, ref 106
+t=30 a_cap fail: by value 52, const ref 106, ref 106
+t=31 probe() calls: 2

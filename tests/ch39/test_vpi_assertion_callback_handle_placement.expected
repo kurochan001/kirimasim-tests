@@ -1,0 +1,7 @@
+1: cbAssertionSuccess on a1: handle given
+1: cbAssertionSuccess on the variable x: NULL
+1: cbValueChange on a1: NULL
+20: vpi_remove_cb returns 1
+success callback at 5 for a1
+success callback at 15 for a1
+success callbacks: 2

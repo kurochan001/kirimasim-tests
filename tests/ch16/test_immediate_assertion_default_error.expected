@@ -1,0 +1,3 @@
+after a_fail
+a_else: own fail statement
+done

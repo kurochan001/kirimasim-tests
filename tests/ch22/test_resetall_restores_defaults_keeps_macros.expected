@@ -1,0 +1,11 @@
+macro defined before resetall: width 4
+macro undefined before resetall: undefined
+macro from the included file: 9
+open input of the module before resetall: 1
+open input of the module after resetall: z
+implicit net before resetall: 0
+implicit net after resetall: z
+u_before: cell instance 1
+h_before: cell instance 1
+u_after: cell instance 0
+h_after: cell instance 0

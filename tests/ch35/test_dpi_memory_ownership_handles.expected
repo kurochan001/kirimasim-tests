@@ -1,0 +1,6 @@
+live after two allocations: 2
+live after the design set its chandle to null: 2
+c_free of the copy: 1, of b: 2
+live after c_free: 0
+C kept "first", the design has "second"
+labels kept by the design: "label 1" "label 2"

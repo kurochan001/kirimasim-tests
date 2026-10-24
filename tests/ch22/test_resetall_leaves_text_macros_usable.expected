@@ -1,0 +1,4 @@
+macro with arguments after resetall: 6 10
+macro seen by ifdef after resetall: 1
+macro after undef: undefined
+macro defined between two resetall: 7

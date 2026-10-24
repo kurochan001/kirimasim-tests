@@ -1,0 +1,11 @@
+t_vpi_assertion_step_info aliases s_vpi_assertion_step_info p_vpi_assertion_step_info 1
+matched_expression_count PLI_INT32 1
+matched_exprs vpiHandle * 1
+stateFrom and stateTo PLI_INT32 1
+step field order matched_expression_count matched_exprs stateFrom stateTo 1
+t_vpi_attempt_info aliases s_vpi_attempt_info p_vpi_attempt_info 1
+detail.failExpr vpiHandle 1
+detail.step p_vpi_assertion_step_info 1
+failExpr and step share the detail union 1
+attemptStartTime s_vpi_time 1
+attempt field order detail attemptStartTime 1

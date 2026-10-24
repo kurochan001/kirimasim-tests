@@ -1,0 +1,4 @@
+1: net_sum=7 var_prod=12 held=7
+2: net_sum=14 var_prod=40 held=7
+3: net_sum=11 var_prod=10 held=6
+4: blk=11 copy_blk=11 nb=12 copy_nb=0

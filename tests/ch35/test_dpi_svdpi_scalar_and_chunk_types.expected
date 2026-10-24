@@ -1,0 +1,13 @@
+svScalar is unsigned char 1
+svBit and svLogic are svScalar 1
+sv_0 sv_1 sv_z sv_x: 0 1 2 3
+svBitVecVal is uint32_t 1
+VPI_VECVAL defined 1
+t_vpi_vecval aliases s_vpi_vecval p_vpi_vecval 1
+t_vpi_vecval aval bval uint32_t in this order 1
+svLogicVecVal is s_vpi_vecval 1
+SV_PACKED_DATA_NELEMS of 0 1 32 33 64 65: 0 1 1 2 2 3
+SV_GET_UNSIGNED_BITS of 0xabcd1234 with 32 16 8 1: 0xabcd1234 0x1234 0x34 0x0
+bit [39:0] in 2 chunks: chunk 0 12345678, chunk 1 ab
+logic [39:0] in 2 chunks: chunk 0 aval 9abcdef0 bval 00000000, chunk 1 aval 5c bval 00
+c_make: bit 0189abcdef, logic e213579bdf

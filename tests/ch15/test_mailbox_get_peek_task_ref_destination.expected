@@ -1,0 +1,4 @@
+get(q[1]), q kept: returned at t=2 q=1 42 3 num=0
+get(q[1]), q assigned: returned at t=5 q=7 8 9 num=0
+peek(d[2]), d kept: returned at t=8 d=1 2 55 num=1
+peek(d[2]), d resized: returned at t=11 d=1 2 3 0 0 num=1

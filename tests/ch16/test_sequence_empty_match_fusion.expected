@@ -1,0 +1,4 @@
+empty ##0 b: [ ] b ##0 empty: [ ] empty ##0 empty: [ ]
+empty ##1 b: [ 25 ] b ##1 empty: [ 25 ]
+empty ##2 b: [ 35 ] b ##2 empty: [ 35 ]
+a[*0]: [ 25 ] a[*0:0]: [ 25 ]

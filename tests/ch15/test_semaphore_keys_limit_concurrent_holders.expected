@@ -1,0 +1,5 @@
+t=5: holding=2 finished=0
+t=15: holding=2 finished=2
+t=25: holding=0 finished=4 peak=2
+get(2) started at t=31 returned at t=40
+w1 (waiting from t=50) got its key at t=60, w2 (from t=51) at t=70

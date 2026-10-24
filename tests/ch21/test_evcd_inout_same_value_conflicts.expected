@@ -1,0 +1,9 @@
+var port 1 <0 s0
+var port 1 <1 s1
+var port 1 <2 w0
+var port 1 <3 q0
+var port 1 <4 d0
+var port 1 <5 u1
+var port 1 <6 in0
+#0 $dumpports: s0=p0 6 0 s1=p1 0 7 w0=p0 3 0 q0=p0 6 0 d0=pd 6 0 u1=pu 0 6 in0=pD 6 0
+tokens that are not a command, a time or a port value change: 0

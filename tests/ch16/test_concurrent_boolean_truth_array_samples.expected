@@ -1,0 +1,5 @@
+a_vec: passes 40 50 60, failures 10 20 30
+a_bit: passes 40 50 60, failures 10 20 30
+a_q: passes 70, failures 80
+a_d: passes 70, failures 80
+a_aa: passes 70, failures 80

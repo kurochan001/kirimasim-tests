@@ -1,0 +1,5 @@
+bits: two_nib_t=8 rec_t=12 rec_pair_t=24
+t: [1]=a [0]=5
+r: hi=3 rest[1]=c rest[0]=7
+rp: [0].hi=3 [1].hi=f [1].rest=12
+parts: bits(rp[0])=12 bits(rp[1].rest[0])=4

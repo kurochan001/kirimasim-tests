@@ -1,0 +1,4 @@
+static outside: 3
+static other enum: 2 GREEN
+dynamic outside: ok=0 c=2 GREEN
+dynamic inside: ok=1 c=4 BLUE

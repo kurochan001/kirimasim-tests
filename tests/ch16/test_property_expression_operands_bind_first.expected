@@ -1,0 +1,7 @@
+a -> b iff c: FPFPPFFP
+a <-> b and c: FPFFFFFP
+a ? b : c or e: FPPPFPPP
+a || b implies c: PPFPFPFP
+a == b |-> c: FPPPPPFP
+a & b |-> c ~^ e: PPPPPPFF
+strong(a) or weak(b): FFPPPPPP

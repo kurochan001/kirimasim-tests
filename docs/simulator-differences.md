@@ -528,3 +528,205 @@ Verilator's two-state values are left out.
 | 29.7, 29.3 | Accept `initial q = 2;` in a UDP; init_val allows only 1'b0, 1'b1, 1'bx (and the uppercase forms), 1 and 0. | `ch29/test_illegal_udp_initial_value_two` |
 | 30.4.1 | Accept a module path whose source is an input port declared `input var logic a` (a variable); 30.4.1 requires the source to be a net. | `ch30/test_illegal_specify_path_source_variable_port` |
 | 33.4.1.1 | Both accept a config whose design statement names another config. (Icarus skips config declarations.) | `ch33/test_illegal_config_design_is_config` |
+
+## Cases added by the 2026-10-24 gap tests, second run
+
+The second run of tests for open requirements (see its [result report](gap-tests-2-20261024.md)) shows the
+following differences, again taken from the notes of the writers and checked by the independent
+reviewers. Most of its tests are illegal designs, so most rows are designs that a release accepts.
+Constructs that a release rejects or does not support, rejections for another reason, internal faults,
+missing header constants and Verilator's two-state values are left out, as above.
+
+### Icarus Verilog 13.0: results (second run)
+
+| Clause | What it does | Tests |
+| --- | --- | --- |
+| 6.16 | String'(k) with k = 32'h0000_4142 keeps the two zero bytes (prints two blanks before AB); 6.16 removes "\0" characters, giving "AB". | `ch6/test_illegal_string_assigned_int_without_cast` |
+| 8.14, 8.20 | A call of a virtual method through a base-class handle that holds a derived object runs the base version (b.virt_get() gives 12, not 54). Same kind of difference as the one already listed for test_typed_constructor_into_base_handle. | `ch8/test_base_handle_redeclared_members_and_virtual_dispatch` |
+| 16.3 | Skips immediate `cover` statements: the expression is not evaluated (a function in it is never called) and the pass statement never runs, also when the expression is true. | `ch16/test_immediate_cover_pass_statement` |
+| 24.2, 4.4 | Runs a program initial that wakes at the same time as a module before the module's active-region statements and before the NBA update (prints b=0 first) | `ch24/test_program_reactive_region_after_nba` |
+| 28.5 | Buf or not whose input is the constant 1'bz or an undriven net gives z; Table 28-4 gives x (with a variable holding z as input it gives x, which the test uses) | `ch3/test_builtin_primitive_categories` |
+| 38.37 | vpi_user.h declares the tfname field of t_vpi_systf_data as const char * instead of PLI_BYTE8 *. | `ch38/test_vpi_systf_data_structure` |
+
+### Icarus Verilog 13.0: illegal designs that it accepts (second run)
+
+| Clause | What it does | Tests |
+| --- | --- | --- |
+| 3.12.1 | Accepts `import $unit::*;` and runs the design; the compilation-unit scope has no name and cannot be imported. | `ch3/test_illegal_unit_scope_import` |
+| 5.9.1 | Accepts "\x4z" (reads \x4 and then z); z can be neither an escape digit nor the character after a one-digit \x escape. | `ch5/test_illegal_string_hex_escape_z_digit` |
+| 5.12 | Accepts an attribute whose value expression `1 + (* inner *) 2` contains an attribute instance. | `ch5/test_illegal_attribute_value_contains_attribute` |
+| 6.9.1 | Accepts a vector range bound with an x bit. | `ch6/test_illegal_vector_range_x_bound` |
+| 6.9.1 | Accepts a vector range bound with z bits. | `ch6/test_illegal_vector_range_z_bound` |
+| 6.9.1 | Accepts a real parameter as a vector range bound. | `ch6/test_illegal_vector_range_real_bound` |
+| 6.20.2, 6.22.3 | Accepts an int literal as the value of an enum-typed parameter, which is not assignment compatible. | `ch6/test_illegal_enum_parameter_assigned_int` |
+| 6.20.2, 6.22.3 | Accepts an int literal overriding an enum-typed parameter. | `ch6/test_illegal_enum_parameter_overridden_with_int` |
+| 7.4.2 | Accepts an unpacked dimension bound with an x bit. | `ch7/test_illegal_unpacked_range_x_bound` |
+| 7.4.2 | Accepts an unpacked dimension bound with a z bit. | `ch7/test_illegal_unpacked_range_z_bound` |
+| 8.4 | Accepts == between handles of unrelated classes and the increment b++ of a class handle. | `ch8/test_illegal_class_handle_equality_unrelated_classes`, `ch8/test_illegal_class_handle_increment` |
+| 8.7 | Accepts a constructor declared `static function new()` (checked with the legal control call removed). | `ch8/test_illegal_static_constructor` |
+| 8.7 | Accepts a constructor declared `virtual function new()`. | `ch8/test_illegal_virtual_constructor` |
+| 12.5 | Accepts two default items in one case statement. | `ch12/test_illegal_case_two_default_items` |
+| 13.4.3 | Accepts a call, in a constant expression, of a function declared in a generate block. | `ch13/test_illegal_constant_function_in_generate_block` |
+| 22.2、22.7 | Accepts a `` `timescale `` directive whose precision is on the next line. | `ch22/test_illegal_directive_split_across_lines` |
+| 22.14 | Accepts a `` `begin_keywords `` version specifier that it does not recognize, with a warning only. | `ch22/test_illegal_begin_keywords_unknown_version` |
+| 23.3.2.4 | Accepts .* twice in one port list. | `ch23/test_illegal_wildcard_port_connection_twice` |
+| 23.10.2.2 | Accepts a parameter assigned twice by name in one parameter value assignment. | `ch23/test_illegal_named_parameter_assigned_twice` |
+| 26.4 | Accepts the same in a program header. | `ch26/test_illegal_program_header_import_without_port_list` |
+| 26.6 | Accepts a named export from a package that the exporting package does not import. | `ch26/test_illegal_export_named_from_package_not_imported` |
+| 30.4.4.3 | Accepts edge-sensitive paths that reference the destination as a part-select and a bit-select. | `ch30/test_illegal_specify_edge_path_part_and_bit_select` |
+| 30.4.4.4 | Accepts an edge-sensitive ifnone path. | `ch30/test_illegal_ifnone_edge_sensitive_path` |
+
+### Verilator 5.052: results (second run)
+
+| Clause | What it does | Tests |
+| --- | --- | --- |
+| 3.3, 30.4.1, 30.5.1 | Ignores the module path delay of a specify block, so the buffered output follows its input at once instead of after the rise delay 3 and fall delay 5. | `ch3/test_module_contains_specify_block` |
+| 3.14, 3.14.1 | Does not round a delay to the time precision of its module: #1.26 with 1ns/1ns waits 1.26 ns (expected 1 ns), with 10ns/1ns 12.6 ns (13 ns), #0.0237 and #0.0251 with 1us/10ns 23.7 ns and 25.1 ns (20 ns and 30 ns) | `ch3/test_delay_scaled_by_unit_rounded_by_precision` |
+| 3.14.3, 37.10 (detail 7), 38.6 | vpi_get(vpiTimeUnit, NULL) returns -9 (the precision of the top module) instead of the simulation time unit (-13, -14, -15); vpiTimePrecision of NULL is right. | `ch3/test_global_precision_from_timeprecision`, `ch3/test_global_precision_from_timescale`, `ch3/test_global_precision_from_timeunit_slash` |
+| H.9.3 | svGetScopeFromName returns NULL for the name of a generate block scope (gb[0], also gb of an if-generate) that declares DPI imports and exports. | `ch35/test_dpi_context_scope_of_declaration` |
+| H.9.3 | svPutUserData returns 0 instead of -1 for a NULL user data pointer and for a NULL scope. | `ch35/test_dpi_put_user_data_error_result` |
+| H.12.3, H.12.4, H.12.5 | svGetArrElemPtr and svPutBitArrElemVecVal with four indices on a four-dimensional open array reach no element (NULL, a warning, nothing written); one to three indices work. | `ch35/test_dpi_open_array_variadic_indexing` |
+| 12.4.2 | Executes no branch of a unique if in a function when two conditions are true (f_if(1,1) gives 0) | `ch12/test_unique_violation_in_function_comb_callers` |
+| 12.5.4, 12.5, 12.5.3 | Evaluates the case-inside item expressions more than once and after the matching item (trace Eabcab instead of Eab; unique case evaluates items 2 to 3 times) | `ch12/test_case_inside_evaluation_order_by_qualifier` |
+| 16.5, 16.12 | The disable condition of a_dis does not see d set by a nonblocking assignment in the time step of the tick (NBA region, before the Observed region): the attempt at 10 fails instead of being disabled. The sampled values, the clock gating and the immediate/concurrent difference agree with the standard. | `ch16/test_assertion_observed_region_values` |
+| 16.9.2, 16.7 | Cover sequence: start ##1 a[*] ##1 b and a[*0:$] miss the match with zero repetitions (25), and start ##[*] b / ##[0:$] b report no match at all (expected 15 25 45). [+], [*2], ##[+] agree with the standard. | `ch16/test_sequence_repetition_and_delay_shorthands` |
+| 16.9.3, 16.14.6, 16.14.1 | With a default clocking on clk2, $past(v) in always @(posedge clk) uses the default clocking instead of the clock inferred from the procedure (prints 2, 4, 6 instead of 1, 3, 5); the action block output also comes before the displays of the always procedure in the same time step. | `ch16/test_sampled_function_clock_inference` |
+| 16.12 | A disable iff condition that is true only between clock ticks (rst high at 238 and 239, inside the attempt from 225 to 245) does not disable the attempt, which fails at 245; Verilator tests the condition only at ticks. | `ch16/test_disable_iff_attempt_interval` |
+| 24.2, 4.4 | Runs program statements like module statements (the program sees b=0 before the NBA update) | `ch24/test_program_reactive_region_after_nba` |
+| 25.3.2, 6.6.3 | A wor net of an interface driven by continuous assignments in two modules through interface ports takes only one driver: w=0 at 31 with d1=0, d0=1 (expected 1) | `ch25/test_interface_port_default_ref_and_inout_access` |
+| 33.2, 33.4.1.3 | Applies an instance rule for top.m2.u_leaf to every instance of the same parent module (m1.u_leaf too) | `ch33/test_config_binding_descends_through_children` |
+| 35.5.3, H.9.2 | A context import called through a hierarchical name (u2.c_where() from the top module, also for interface and generate block imports) runs with the caller's scope instead of the scope of its declaration, so an export of the declaring scope is not found without svSetScope. | `ch35/test_dpi_context_scope_of_declaration` |
+| 38.36.2 | vpi_register_cb returns a handle for a cbAfterDelay callback whose time type is vpiSuppressTime and for one whose time pointer is NULL ('failed registrations: 0 of 2'), although both are errors for which no callback is created. | `ch38/test_vpi_pli_error_callback_counts_failed_calls` |
+
+### Verilator 5.052: illegal designs that it accepts (second run)
+
+| Clause | What it does | Tests |
+| --- | --- | --- |
+| 3.11, 29.3 | Accepts a gate instance inside the body of a user-defined primitive. | `ch3/test_illegal_udp_contains_gate_instance` |
+| 3.12.1 | Accepts a simple-name reference to a compilation-unit variable declared after the referring module. | `ch3/test_illegal_unit_scope_forward_reference` |
+| 3.14 | Accepts `timeunit 10ps; timeprecision 100ps;` (precision coarser than the unit) and runs the design. | `ch3/test_illegal_timeprecision_coarser_than_timeunit` |
+| 5.13, 13.4.1 | Accepts `s.toupper[0]`, a built-in method call without parentheses used as an implicit variable. | `ch5/test_illegal_method_implicit_variable_without_parentheses` |
+| 6.3.2 | Accepts a drive strength in a net declaration without a continuous assignment. | `ch6/test_illegal_drive_strength_without_assignment` |
+| 6.7 | Accepts wire scalared without a packed dimension. | `ch6/test_illegal_scalared_net_without_packed_dimension` |
+| 6.7 | Accepts wire vectored without a packed dimension. | `ch6/test_illegal_vectored_net_without_packed_dimension` |
+| 6.16 | Accepts a real variable as the multiplier of a string replication; it has to be integral. | `ch6/test_illegal_string_replication_real_multiplier` |
+| 6.18 | Accepts a variable declared with box_c::item_t while box_c is an incomplete forward type. | `ch6/test_illegal_forward_type_scope_prefix_in_variable` |
+| 6.19.2 | Accepts the enum name range dead[0], whose count has to be positive. | `ch6/test_illegal_enum_name_range_zero_count` |
+| 6.20.3 | Accepts a class property declared with C::item_t, selected through the type parameter C. | `ch6/test_illegal_type_parameter_scope_prefix_in_variable` |
+| 6.20.7 | Accepts a $-valued parameter in a queue select q[P] and as an operand of P + 1. | `ch6/test_illegal_dollar_parameter_in_ordinary_expression`, `ch6/test_illegal_dollar_parameter_in_queue_select` |
+| 6.24.1 | Accepts the size cast 4'(r) of a real variable; the expression of a size cast has to be integral. | `ch6/test_illegal_size_cast_of_real` |
+| 7.2, 6.8 | Accepts a packed dimension after a struct without packed. | `ch7/test_illegal_unpacked_struct_packed_dimension` |
+| 7.2, 6.8 | Accepts a packed dimension after a union without packed or soft. | `ch7/test_illegal_union_packed_dimension_without_qualifier` |
+| 7.2 | Accepts the rand qualifier on members of a packed structure and of an unpacked union. | `ch7/test_illegal_rand_member_in_packed_struct`, `ch7/test_illegal_rand_member_in_union` |
+| 7.2.2 | Accepts a member default value in an unpacked structure that has a union member. | `ch7/test_illegal_union_holding_struct_member_default` |
+| 7.3 | Accepts a string member in an untagged union. | `ch7/test_illegal_string_in_untagged_union` |
+| 7.4.6 | Accepts an unpacked array as an operand of +. | `ch7/test_illegal_unpacked_array_in_integer_expression` |
+| 7.8, 7.8.2, 7.8.4 | Accepts an int index for a string-indexed array, real and shortreal indices for an int-indexed array, and an index type that declares an enum or a packed structure. | `ch7/test_illegal_string_index_with_int` |
+| 7.10 | Accepts the queue bound -1. | `ch7/test_illegal_queue_bound_negative` |
+| 7.12.2 | Accepts sort() without a with clause on an array of unpacked structures, and with the with expression item of unpacked structure type. | `ch7/test_illegal_sort_with_struct_expression`, `ch7/test_illegal_sort_without_with` |
+| 8.3 | Accepts virtual virtual, :final on a pure virtual method, :initial on a method of an interface class and :final on a function outside a class. | `ch8/test_illegal_class_method_virtual_twice`, `ch8/test_illegal_override_specifier_in_interface_class`, `ch8/test_illegal_override_specifier_outside_class`, `ch8/test_illegal_pure_virtual_method_final`, `ch9/test_illegal_override_specifier_in_interface_class` |
+| 8.4 | Accepts a class handle compared with an int by ==, handles compared with <, and the increment of a chandle. | `ch8/test_illegal_chandle_increment`, `ch8/test_illegal_class_handle_equality_with_int`, `ch8/test_illegal_class_handle_relational_operator` |
+| 8.23 | Accepts a class property declared with T::nib_t, a type selected through the type parameter T. | `ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration` |
+| 8.24 | Accepts a default argument added in an out-of-block header. | `ch8/test_illegal_extern_default_not_in_prototype` |
+| 8.24 | Accepts an out-of-block return type declared in the class without the class scope qualifier. | `ch8/test_illegal_extern_return_type_without_class_scope` |
+| 8.26 | Accepts a class declared inside an interface class. | `ch8/test_illegal_interface_class_nested_class` |
+| 8.26.2 | Accepts `interface class bad_if implements a_if;`. | `ch8/test_illegal_interface_class_implements_interface` |
+| 8.26.2 | Accepts an interface class that extends a (non-interface) class. | `ch8/test_illegal_interface_class_extends_class` |
+| 8.26.6.1 | Accepts one method implementing two same-name interface methods with different return types. | `ch8/test_illegal_interface_method_conflict_return_types` |
+| 8.26.6.1, 8.20 | Accepts an implementation of an interface method that is not a valid override of the inherited virtual method of the same name. | `ch8/test_illegal_interface_method_conflict_with_inherited` |
+| 8.26.7 | Accepts a virtual class that implements an interface class and neither implements nor redeclares one of its methods. | `ch8/test_illegal_virtual_class_leaves_interface_method_undeclared` |
+| 8.26.8 | Accepts a non-constant default argument value (a compilation-unit variable) of an interface class method. | `ch8/test_illegal_interface_method_default_not_constant` |
+| 9.7 | Accepts a class that extends the built-in class process. | `ch9/test_illegal_class_extends_process` |
+| 9.7 | Accepts new for a variable of the built-in class process. | `ch9/test_illegal_new_process_object` |
+| 10.2 | Accepts a continuous assignment to a bit-select of a net with a variable index. | `ch10/test_illegal_continuous_assign_nonconstant_bit_select` |
+| 10.3.2 | Accepts a continuous assignment to a variable that is declared after it. | `ch10/test_illegal_continuous_assign_variable_declared_after` |
+| 10.3.2, 6.5 | Accepts two continuous assignments to the same variable. | `ch10/test_illegal_variable_two_continuous_assignments` |
+| 10.6.2 | Accepts a force of a bit-select of a variable. | `ch10/test_illegal_force_variable_bit_select` |
+| 10.10.3, 10.8 | Accepts an unpacked array concatenation {a1, b} as the default item of an assignment pattern. | `ch10/test_illegal_unpacked_concat_in_default_pattern_item` |
+| 10.11 | Accepts an alias of a wand net to a wor net. | `ch10/test_illegal_alias_wand_to_wor` |
+| 11.3.6 | Accepts an assignment operator in an event expression and in the right-hand side of a procedural continuous assignment. | `ch11/test_illegal_assignment_operator_in_event_expression`, `ch11/test_illegal_assignment_operator_in_procedural_assign` |
+| 11.4.12 | Only warns (WIDTHCONCAT) on an unsized constant in a concatenation. | `ch11/test_illegal_unsized_constant_in_concatenation` |
+| 11.4.12.1 | Accepts a replication in an assignment left-hand side and in an output port connection. | `ch11/test_illegal_replication_on_assignment_lhs`, `ch11/test_illegal_replication_to_output_port` |
+| 11.4.13 | Accepts class handles as the bounds of an inside range. | `ch11/test_illegal_inside_range_of_class_handles` |
+| 11.4.14 | Accepts a 24-bit stream assigned to a 16-bit shortint, and a stream assigned to a real variable. | `ch11/test_illegal_stream_into_narrower_fixed_target`, `ch11/test_illegal_stream_into_real_target` |
+| 11.4.14.3 | Accepts a real source of an unpack, and a 16-bit source for a 24-bit unpack target. | `ch11/test_illegal_unpack_from_real_source`, `ch11/test_illegal_unpack_source_too_short` |
+| 12.4.2 | Accepts a unique/unique0/priority keyword written after an else of a qualified if-else-if series. | `ch12/test_illegal_priority_if_second_else_unique_if`, `ch12/test_illegal_unique0_if_else_priority_if`, `ch12/test_illegal_unique_if_else_unique0_if` |
+| 12.7.1 | Accepts a for-loop initialization that assigns an existing variable and then declares a local one. | `ch12/test_illegal_for_init_declares_after_existing` |
+| 12.7 (footnote 18), 6.23 | Accepts a for-loop variable declared with a type reference without var. | `ch12/test_illegal_for_type_reference_without_var` |
+| 12.7 (footnote 18), 6.23 | Accepts a module-level declaration with a type reference and neither a net type keyword nor var. | `ch12/test_illegal_net_type_reference_without_net_type` |
+| 13.3.2 | Accepts a force whose expression reads a variable of an automatic task. | `ch13/test_illegal_automatic_task_variable_in_force_expression` |
+| 13.3.2 | Accepts an automatic task variable in the intra-assignment event control of a nonblocking assignment. | `ch13/test_illegal_automatic_task_variable_in_nonblocking_event` |
+| 14.5 | Accepts a non-lvalue expression (a + b, a & b) for a clocking output or inout signal. | `ch14/test_illegal_clocking_inout_expression_not_lvalue`, `ch14/test_illegal_clocking_output_expression_not_lvalue` |
+| 14.5, 11.3.6 | Accepts (ASSIGNEQEXPR warning) an assignment operator in the expression of a clocking input. | `ch14/test_illegal_clocking_input_expression_with_assignment` |
+| 14.16.2 | Accepts a procedural continuous assign to a variable associated with an output clockvar. | `ch14/test_illegal_clocking_output_variable_procedural_assign` |
+| 14.16.2 | Accepts a force of a variable associated with an output clockvar. | `ch14/test_illegal_clocking_output_variable_force` |
+| 16.8 | Accepts a cycle formed by an actual argument that instantiates a sequence whose body instantiates the first. | `ch16/test_illegal_sequence_cycle_through_instance_actual` |
+| 16.9.2 | Accepts goto repetition applied to a Boolean expression with an attached match item. | `ch16/test_illegal_repetition_goto_on_match_item` |
+| 16.9.4 | Accepts $rising_gclk in a design without global clocking. | `ch16/test_illegal_global_clock_future_function_without_global_clocking` |
+| 16.12 | Accepts a disable condition that refers to a local variable of the property (int v = 0; disable iff (v != 0)). | `ch16/test_illegal_property_disable_iff_local_variable` |
+| 16.12.2, 16.12.22 | Accepts b[*0:2], which admits an empty match, as the consequent sequence property. | `ch16/test_illegal_plain_sequence_property_empty_match` |
+| 22.4 | Accepts a declaration after the file name on an `` `include `` line. | `ch22/test_illegal_include_line_trailing_code` |
+| 22.7 | Accepts `` `timescale `` inside a module. | `ch22/test_illegal_timescale_inside_module` |
+| 22.8 | Accepts `` `default_nettype `` inside a module. | `ch22/test_illegal_default_nettype_inside_module` |
+| 23.2.2.2 | Accepts an initializer on an output port of a net type. | `ch23/test_illegal_ansi_output_net_port_initialized` |
+| 23.2.2.2 | Accepts a port list that mixes non-ANSI and ANSI port declarations. | `ch23/test_illegal_mixed_ansi_and_nonansi_ports` |
+| 23.2.2.4 | Accepts a default value on a non-ANSI input port declaration. | `ch23/test_illegal_nonansi_input_port_default` |
+| 23.2.4 | Accepts a repeated timeprecision that does not match the first one. | `ch23/test_illegal_interface_timeprecision_repeat_mismatch` |
+| 23.2.4 | Accepts a repeated timeunit that does not match the first one. | `ch23/test_illegal_module_timeunit_repeat_mismatch` |
+| 23.2.4 | Accepts a timeunit in a package that is not its first item. | `ch23/test_illegal_package_timeunit_item_without_previous` |
+| 23.2.4 | Accepts a timeunit in a program that is not its first item. | `ch23/test_illegal_program_timeunit_item_without_previous` |
+| 23.3.2.3 | Accepts a .name connection to a variable declared later in the module. | `ch23/test_illegal_implicit_name_port_declared_later` |
+| 23.3.3.2 | Accepts a procedural assignment to a variable connected to a variable output port. | `ch23/test_illegal_output_port_variable_procedural_write` |
+| 23.3.3.2 | Accepts a continuous assignment to a variable in a concatenation connected to a variable output port. | `ch23/test_illegal_output_port_concat_continuous_write` |
+| 23.9 | Accepts a buf instance with the name of its output net. | `ch23/test_illegal_scope_gate_named_as_output_net` |
+| 23.10.2.2 | Accepts #(.A(5), 6), a mixture of named and ordered parameter assignments. | `ch23/test_illegal_parameter_assignment_named_then_ordered` |
+| 23.10.2.2 | Accepts a named parameter assignment .D without parentheses. | `ch23/test_illegal_named_parameter_without_parentheses` |
+| 23.11 | Accepts binding a module into an interface (only interface or checker instantiations are allowed) | `ch23/test_illegal_bind_module_into_interface` |
+| 23.11 | Accepts a type-parameter override whose type name means different types in the bind scope and in the target. | `ch23/test_illegal_bind_type_override_not_matching` |
+| 25.3 | Accepts a hierarchical interface port actual through an instance array element or a generate block. | `ch25/test_illegal_interface_port_actual_through_instance_array` |
+| 25.7 | Accepts a call that relies on a default argument value through a modport that imports the task by name only (a full prototype is required) | `ch25/test_illegal_modport_import_default_argument_without_prototype` |
+| 25.7 | Accepts a call with arguments bound by name through a modport that imports the task by name only (a full prototype is required) | `ch25/test_illegal_modport_import_named_binding_without_prototype` |
+| 25.7, 6.22.1 | Accepts a modport import prototype with one argument fewer than the declaration, and one whose argument type bit signed [0:31] does not match int. | `ch25/test_illegal_modport_prototype_argument_count` |
+| 25.9 | Accepts a virtual interface of an interface with a hierarchical reference outside its body or with an interface port. | `ch25/test_illegal_virtual_interface_with_outside_reference` |
+| 25.9 | Accepts a continuous assignment that reads a component through a virtual interface, and a procedural assignment to an interface net through a virtual interface. | `ch25/test_illegal_virtual_interface_component_in_continuous_assign` |
+| 26.2 | Accepts a net declaration assignment in a package. | `ch26/test_illegal_package_net_declaration_assignment` |
+| 26.5, 26.6 | Accepts the import conflicts of Table 26-1 (explicit import of a name already imported from another package or declared locally; a local declaration or explicit import after a wildcard reference) and a local declaration after a named export imported the name. | `ch26/test_illegal_export_named_imports_candidate`, `ch26/test_illegal_search_order_explicit_import_from_second_package` |
+| 27.3 | Accepts a buf gate instance in a generate block of an interface. | `ch27/test_illegal_generate_interface_block_gate` |
+| 30.4.3, 30.4.4.4 | Accepts a parallel edge-sensitive path to a vector or part-select destination, and an edge-sensitive ifnone path. | `ch30/test_illegal_edge_parallel_path_vector_destination`, `ch30/test_illegal_ifnone_edge_sensitive_path` |
+| 30.4.4.3 | Accepts repeated edge-sensitive paths with the same edge and condition, and paths that reference the destination as a part-select and a bit-select. | `ch30/test_illegal_specify_edge_path_part_and_bit_select`, `ch30/test_illegal_specify_edge_path_same_edge_and_condition` |
+| 31.2 | Accepts a $display call in a specify block. | `ch31/test_illegal_system_task_in_specify_block` |
+
+### Both releases: results (second run)
+
+| Clause | What it does | Tests |
+| --- | --- | --- |
+| 38.36.3, 20.10 | A cbError callback registered from vlog_startup_routines is never called for the run-time errors that $error generates ('cbError calls: 0'); both accept the registration. | `ch38/test_vpi_error_callback_runtime_errors` |
+
+### Both releases: illegal designs that it accepts (second run)
+
+| Clause | What it does | Tests |
+| --- | --- | --- |
+| 3.12.1 | Both accept `$unit::name` for a compilation-unit variable declared after the reference; `$unit::` adds no forward referencing. | `ch3/test_illegal_unit_prefix_forward_reference` |
+| 3.14.2.3 | Only warn when one module declares timeunit or timeprecision and another has no time unit from any source; 3.14.2.3 makes it an error. | `ch3/test_illegal_time_unit_specified_only_in_some_elements` |
+| 5.9.1 | Accept "\1z" (read \1 and then z); z can be neither an octal escape digit nor the character after a shorter octal escape. | `ch5/test_illegal_string_octal_escape_z_digit` |
+| 6.16 | Accept an int variable assigned to a string variable without a cast. | `ch6/test_illegal_string_assigned_int_without_cast` |
+| 6.16 | Accept an int operand inside a string replication {2{s, k}}. | `ch6/test_illegal_string_replication_int_operand` |
+| 6.18 | Accept a forward enum typedef whose final definition is a structure, a forward typedef defined only inside a generate block, and a forward typedef never defined. | `ch6/test_illegal_forward_enum_defined_as_struct`, `ch6/test_illegal_forward_typedef_defined_in_generate_block`, `ch6/test_illegal_forward_typedef_never_defined` |
+| 7.10 | Both accept the queue bound 0, which is not positive. | `ch7/test_illegal_queue_bound_zero` |
+| 8.3 | Accept protected local, rand randc and static static in one property declaration. | `ch8/test_illegal_class_property_protected_and_local`, `ch8/test_illegal_class_property_rand_and_randc`, `ch8/test_illegal_class_property_static_twice` |
+| 10.6.2 | Both accept a force of a variable whose bits are driven by a mixture of continuous and procedural assignments. | `ch10/test_illegal_force_mixed_driven_variable` |
+| 13.3.2 | Accept $dumpvars of an automatic task variable. | `ch13/test_illegal_automatic_task_variable_dumped` |
+| 13.4.3 | Accept a constant function that calls a constant function in the range of a local declaration. | `ch13/test_illegal_constant_function_call_in_constant_context` |
+| 13.4.3 | Accept a constant function call evaluated with a parameter declared after the call. | `ch13/test_illegal_constant_function_parameter_after_call` |
+| 13.4.3 | Accept a call, in the initial value of a localparam, of a function that contains an (empty) fork-join_none. | `ch13/test_illegal_constant_function_contains_fork` |
+| 13.5 | Accept a + b as the actual of an output argument (Icarus prints "I give up on task port" but completes) | `ch13/test_illegal_output_argument_not_lvalue` |
+| 22.12 | Accept a line comment on the same line as `` `line ``. | `ch22/test_illegal_line_directive_trailing_comment` |
+| 22.14 | Accept a `` `begin_keywords `` without a matching `` `end_keywords ``. | `ch22/test_illegal_begin_keywords_without_end` |
+| 22.14 | Accept an `` `end_keywords `` without a matching `` `begin_keywords `` (Icarus Verilog with a warning only). | `ch22/test_illegal_end_keywords_without_begin` |
+| 22.14 | Accept `` `begin_keywords `` between module items. | `ch22/test_illegal_begin_keywords_inside_module` |
+| 23.3.2.3, 23.3.3.7 | Accept a .name connection between a wor net and a wand port (warning pair of Table 23-1), which is an error for .name. | `ch23/test_illegal_implicit_name_port_dissimilar_net_types` |
+| 25.3, 26.4 | Accept an ANSI header whose package import is followed by neither a parameter port list nor a port list. | `ch25/test_illegal_interface_header_import_without_port_list`, `ch26/test_illegal_module_header_import_without_port_list` |
+| 26.2 | Accept a package function that reads a module variable by a hierarchical name, or an item of the compilation-unit scope. | `ch26/test_illegal_package_hierarchical_reference_to_module`, `ch26/test_illegal_package_refers_to_unit_scope_item` |
+| 30.4.4.4 | Accept an ifnone path and an unconditional simple path for the same module path. | `ch30/test_illegal_specify_ifnone_with_unconditional_path` |
+| 30.7.4.1 | Accept a pulse style declaration for an output that already appeared in a path declaration. | `ch30/test_illegal_pulsestyle_ondetect_after_path`, `ch30/test_illegal_pulsestyle_onevent_after_path` |
+| 31.7 | Accept a timing check condition that combines two conditioning signals inside the specify block. | `ch31/test_illegal_timing_condition_two_signals` |
