@@ -718,6 +718,10 @@ A new test should:
   out of events. An event control on a signal and on a value computed from
   it, such as the output of a continuous assignment, can wake once or twice
   in the same time step, so print such values at fixed times instead;
+- be a legal design apart from the one error of an illegal design. In
+  particular, an input port of a two-state type in an ANSI port list needs
+  the keyword `var` (`input var int d`): an input port without a port kind
+  is a net, and a net cannot have a two-state type (23.2.2.3, 6.7.1);
 - if it is an illegal design, give the reason in `:should_fail_because:` and
   the file and line of the error in `:expected_stderr_regex:` (each line where
   a tool can rightly report it, when there are several), and contain no other
