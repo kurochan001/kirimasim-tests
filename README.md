@@ -279,7 +279,9 @@ tools/matching_kit/             proposes, checks, judges and merges links betwee
 The `results` branch, written only by the nightly workflow, holds
 `history.json` (one entry per run), `latest/<simulator>.json` (the result of
 every test in each simulator's latest run), `charts/*.svg` and the report,
-`README.md`. The publish job also writes `behavior-coverage-summary.md`,
+`README.md`. The charts and the report show only the simulators that `tools/`
+has a runner for; the history keeps the runs of a simulator whose runner was
+removed, but they are not drawn. The publish job also writes `behavior-coverage-summary.md`,
 `behavior-coverage.md`, `behavior-summary.json`, `behavior-coverage.json`
 and `behavior-history.json` for behavioral coverage of that run. The
 [Japanese guide](docs/nightly-results.md) explains how these differ from the
