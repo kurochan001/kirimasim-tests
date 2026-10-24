@@ -26,9 +26,13 @@ with `-j 1`, as the tests themselves run in parallel.
 Lyra prints its diagnostics on standard error as
 `<file>:<line>:<column>: error: ...`, and says of every construct that it
 does not carry out yet that it "is not yet supported"; such a message makes
-the test unsupported. Lines of that form on standard output, such as those of
-the severity tasks, are removed before the output is compared. Lyra has no
-VPI, so the tests with `:vpi_c:` are unsupported without running them.
+the test unsupported. The lines that Lyra prints itself open with the place
+they are about, as its messages and the count of a cover statement
+(`<file>:<line>:<column>: cover evaluated 1, succeeded 1`) do, or are the note
+that follows a message (`note: in 'Test' at time 0`). Such lines on standard
+output are removed before the output is compared; a line that the test
+prints, such as `note: 1 2`, is kept. Lyra has no VPI, so the tests with
+`:vpi_c:` are unsupported without running them.
 
 A test with `:should_fail_because:` is an illegal design, which matches when
 `lyra check` rejects it with an error at the place `:expected_stderr_regex:`
@@ -54,9 +58,11 @@ ROOT = Path(__file__).resolve().parent.parent
 NORMALIZE = ROOT / "tools" / "normalize_output.py"
 OPTIONS = ["--no-color", "--progress", "none"]
 UNSUPPORTED = re.compile(r"is not yet supported")
-# Lyra's messages, which open with the place they are about and a severity
-# word, or are a note of their own (for example "note: in 'Test' at time 0").
-MESSAGE = re.compile(r"^(?:\S+:\d+:\d+: )?(?:internal error|error|warning|note): ")
+# The lines that Lyra prints itself: they open with the place they are about,
+# as its messages and the count of a cover statement do, or are the note that
+# follows a message (for example "note: in 'Test' at time 0"). A line that a
+# test prints, such as "note: 1 2", is neither.
+MESSAGE = re.compile(r"^(?:\S+:\d+:\d+: |note: in '[^']*' at time \S+$)")
 
 
 def header_field(test: Path, name: str) -> str | None:

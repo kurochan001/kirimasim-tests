@@ -611,8 +611,10 @@ the C file of `:dpi_c:` is given with `--dpi-link`, and the arguments of
 directory that the tests share (`--cache-dir`, or a temporary directory),
 and each test is built with `-j 1`. Lyra prints its diagnostics on standard
 error and says of every construct it does not carry out yet that it "is not
-yet supported", which makes the test unsupported; lines of the form of its
-messages on standard output are removed before comparing. An illegal design
+yet supported", which makes the test unsupported. The lines that Lyra prints
+on standard output itself, which open with the place they are about (such as
+the count of a cover statement), are removed before comparing, and the lines
+that the test prints are kept. An illegal design
 is checked with `lyra check`. Lyra has no VPI, so the tests with `:vpi_c:`
 are unsupported. No expected output was recorded with Lyra, so every test
 counts.
