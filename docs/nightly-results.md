@@ -19,6 +19,18 @@ Lyraはリリースがないため、ワークフローで固定したコミッ�
 日本時間へ換算するには9時間を足します。日付が変わる場合もあります。
 開始時刻・待機状態・終了状態は、レポートの`workflow run`リンク先で確認できます。
 
+## 確認例：2026年10月24日の手動実行
+
+比較対象を5つにした後の最初の公開です。定時の実行ではなく、`main`で手動実行しました。
+
+- 実行：[実行40084390631](https://github.com/kurochan001/kirimasim-tests/actions/runs/40084390631)（`workflow_dispatch`）。
+- 開始：2026年10月24日19:03:26 JST（10:03:26 UTC）。
+- レポート生成：2026年10月24日21:44:13 JST（12:44:13 UTC）。Lyraを初めてビルドしたため、約2時間40分かかりました。
+- レポート表示：`Latest run: 2026-10-24 12:44 UTC`。
+- 対象：[suite commit `0073c69`](https://github.com/kurochan001/kirimasim-tests/commit/0073c6947bc210d7b928d0d651ef34d5095b5999)、6,009本。
+- 公開：[resultsの更新コミット](https://github.com/kurochan001/kirimasim-tests/commit/71908d7e3482f16c25dfad95ff52478faa6f040d)。
+- 一致した本数：Icarus 4,018、Verilator 4,023、kirimasim 4,235、nvc 1,611、Lyra 4,607。
+
 ## 確認例：2026年10月22日の更新
 
 2026年10月23日07:17 JSTに、GitHub Actionsと公開履歴を確認しました。
@@ -56,8 +68,8 @@ Verilatorのジョブでは、各プロセスのアドレス空間を6GBに制�
 
 ## 現在のテスト数とNightlyの本数が違う場合
 
-2026年10月24日の`main`には6,009本あります。上記Nightlyの3,719本との差は、
-対象コミットが異なるためです。現在の本数は[READMEの自動集計](../README.md#contents)と
+2026年10月24日の`main`には6,009本あり、同日の公開結果（上記の手動実行）も6,009本です。
+10月22日の確認例の3,719本との差は、対象コミットが異なるためです。現在の本数は[READMEの自動集計](../README.md#contents)と
 [テストカタログ](tests/README.md)、実行した本数は公開レポートの`tests`を確認してください。
 新しく追加したテストのNightly結果は、その変更を含むコミットで次の実行・公開が完了してから反映されます。
 
