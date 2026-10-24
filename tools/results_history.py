@@ -45,12 +45,13 @@ SIMULATORS = {
     "verilator": ("#8250df", "#ab7df8"),
     "kirimasim": ("#1a7f37", "#3fb950"),
     "nvc": ("#9a6700", "#d29922"),
+    "lyra": ("#bf3989", "#db61a2"),
 }
 OTHER_COLORS = [("#1b7c83", "#39c5cf"), ("#953800", "#db6d28"), ("#6e7781", "#8c959f")]
 # The shape of each simulator's markers in the line charts. They are drawn as
 # outlines, so that markers of equal or close values stay visible together.
 MARKERS = {"icarus": "circle", "verilator": "square", "kirimasim": "diamond",
-           "nvc": "triangle"}
+           "nvc": "triangle", "lyra": "triangle-down"}
 OTHER_MARKERS = ["triangle", "circle", "square", "diamond"]
 # Shown in the report under the table of the latest run, for the simulators in
 # that run.
@@ -320,7 +321,7 @@ def plot_frame(axis: TimeAxis, top: float, bottom: float, y_max: float, y_suffix
 def marker(shape: str, cls: str, x: float, y: float) -> str:
     """The outline of a marker of the given shape centered at (x, y); "dot" is a
     small filled circle. The circle holds the square and the square the diamond
-    and the triangle, so markers at the same point stay visible."""
+    and the triangles, so markers at the same point stay visible."""
     if shape == "dot":
         return f'<circle class="c-{cls}" cx="{x:.1f}" cy="{y:.1f}" r="2.5"/>'
     if shape == "square":
@@ -330,6 +331,8 @@ def marker(shape: str, cls: str, x: float, y: float) -> str:
         points = [(x, y - 3.5), (x + 3.5, y), (x, y + 3.5), (x - 3.5, y)]
     elif shape == "triangle":
         points = [(x, y - 3.5), (x + 3.2, y + 2.5), (x - 3.2, y + 2.5)]
+    elif shape == "triangle-down":
+        points = [(x, y + 3.5), (x + 3.2, y - 2.5), (x - 3.2, y - 2.5)]
     else:
         return f'<circle class="mk c-{cls}" cx="{x:.1f}" cy="{y:.1f}" r="7.5"/>'
     shown = " ".join(f"{px:.1f},{py:.1f}" for px, py in points)

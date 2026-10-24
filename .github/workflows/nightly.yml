@@ -1,7 +1,8 @@
 name: Nightly
 
 # Runs every test of main once a day with the latest development version of
-# each simulator, and adds the results to the history on the results branch,
+# each simulator (Lyra, which has no releases, at a pinned commit), and adds
+# the results to the history on the results branch,
 # which tools/results_history.py draws as charts (see "Nightly results" in
 # README.md). The results are only reported, except that the kirimasim job
 # fails when a test that matched the night before differs now; the expected
@@ -325,11 +326,77 @@ jobs:
           path: results/
           if-no-files-found: warn
 
+  # Lyra at the commit that LYRA_COMMIT names. Lyra has no releases, so the
+  # commit is pinned here, the one place that names it, and the runner records
+  # it in the results. Building Lyra builds LLVM from source with Bazel, which
+  # takes hours on a hosted runner, so the build is kept in the cache by that
+  # commit and only a change of the pin builds it again; a build first makes
+  # room on the disk. Lyra finds its shipped files (such as svdpi.h) beside
+  # the executable, in lyra.runfiles, which is copied with the executable.
+  lyra:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      LYRA_COMMIT: 7e2c604b9ab2266749487066298dc67d0a4c6c7a
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Restore Lyra
+        id: cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/lyra
+          key: lyra-${{ env.LYRA_COMMIT }}-ubuntu-24.04
+
+      - name: Make room for the build
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL
+          df -h /
+
+      # bazelisk is on the runner image and fetches the Bazel release that
+      # Lyra's .bazelversion names.
+      - name: Build Lyra
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          git clone -q --filter=blob:none https://github.com/hankhsu1996/lyra.git \
+            "$RUNNER_TEMP/lyra"
+          cd "$RUNNER_TEMP/lyra"
+          git checkout -q --detach "$LYRA_COMMIT"
+          bazelisk build //:lyra
+          mkdir -p "$HOME/lyra"
+          cp -L bazel-bin/lyra "$HOME/lyra/lyra"
+          cp -rL bazel-bin/lyra.runfiles "$HOME/lyra/lyra.runfiles"
+          du -sh "$HOME/lyra"
+
+      - name: Save Lyra
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/lyra
+          key: lyra-${{ env.LYRA_COMMIT }}-ubuntu-24.04
+
+      - name: Run the suite
+        run: |
+          mkdir -p results
+          python3 tools/run_lyra.py --lyra "$HOME/lyra/lyra" --commit "$LYRA_COMMIT" \
+            -j "$(nproc)" --json results/lyra.json > results/lyra.log || true
+          cat results/lyra.log
+          tail -n 1 results/lyra.log >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: results-lyra
+          path: results/
+          if-no-files-found: warn
+
   # Adds the results of the simulators that ran to the history on the results
   # branch, draws the charts and the report there, and pushes it. Only a run
   # of main publishes; a run started by hand on another branch only reports.
   publish:
-    needs: [icarus, verilator, kirimasim, nvc]
+    needs: [icarus, verilator, kirimasim, nvc, lyra]
     if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15

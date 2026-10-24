@@ -11,9 +11,9 @@ simulator passes a test when its standard output, normalized, is exactly the
 test's expected output and any specified exit-code and diagnostic checks
 succeed. The tests are written for the
 [kirimasim](https://github.com/kurochan001/kirimasim) simulator, but nothing in
-them is specific to it: runners for Icarus Verilog, Verilator, kirimasim and
-[nvc](https://github.com/nickg/nvc) are included, and the metadata format is
-that of
+them is specific to it: runners for Icarus Verilog, Verilator, kirimasim,
+[nvc](https://github.com/nickg/nvc) and [Lyra](https://github.com/hankhsu1996/lyra)
+are included, and the metadata format is that of
 [sv-tests](https://github.com/chipsalliance/sv-tests).
 
 What sets the suite apart:
@@ -177,7 +177,8 @@ allows and how the results of the coverage functions relate.
 Every night, a [GitHub Actions workflow](.github/workflows/nightly.yml) runs
 every test of `main` with the latest development version of each simulator:
 the `master` branches of Icarus Verilog, Verilator and nvc and the `main`
-branch of kirimasim, built that night. It adds the results to the
+branch of kirimasim, built that night, and Lyra, which has no releases, at
+the commit that the workflow pins. It adds the results to the
 history on the
 [`results`](https://github.com/kurochan001/kirimasim-tests/tree/results)
 branch. The chart below is redrawn after each run; the
@@ -205,7 +206,8 @@ with the current suite.
 ![Tests that match their expected output](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
-Verilator, a diamond for kirimasim and a triangle for nvc. The markers
+Verilator, a diamond for kirimasim, a triangle for nvc and a downward
+triangle for Lyra. The markers
 are drawn as outlines that fit inside each other, so simulators with the same
 or close counts stay visible together, and the legend gives each one's count
 in the latest run.
@@ -217,7 +219,7 @@ Each test of a run gets one of these statuses:
 | match | The normalized standard output is exactly the expected output. |
 | differ | It is not, or the test could not be built or run. |
 | known difference | It is not, and the expected output was not recorded with this simulator, because its release that the suite was checked with (Icarus Verilog 13.0 or Verilator 5.052) does not produce it (see `:oracle:`). |
-| unsupported | The simulator reported a construct it does not support yet, or it cannot run this kind of test (kirimasim and nvc cannot load the C code of DPI and VPI tests). |
+| unsupported | The simulator reported a construct it does not support yet, or it cannot run this kind of test (kirimasim and nvc cannot load the C code of DPI and VPI tests, and Lyra that of VPI tests). |
 
 So for Icarus Verilog and Verilator, a test that differs is one that the
 release matches but the development version does not, and a known
@@ -257,6 +259,7 @@ tools/run_icarus.py             runs the suite with Icarus Verilog
 tools/run_verilator.py          runs the suite with Verilator
 tools/run_kirimasim.py          runs the suite with kirimasim
 tools/run_nvc.py                runs the suite with nvc
+tools/run_lyra.py               runs the suite with Lyra
 tools/normalize_output.py       normalizes a simulator's output before it is compared
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
@@ -483,16 +486,16 @@ Every runner needs Python 3.10 or later, and has these options in common:
 Every runner gives the simulator the metadata that sets up a run, in the
 form the simulator takes:
 
-| Field | Icarus Verilog | Verilator | kirimasim | nvc |
-| --- | --- | --- | --- | --- |
-| `:files:` (sources) | before the test | before the test | before the test | before the test |
-| `:files:` (include files) and `:incdirs:` | `-I` | `-I` | `+incdir+` | `-I` |
-| `:defines:` | `-D` | `-D` | `+define+` | `-D` |
-| `:top_module:` | `-s` | `--top-module` | `--top=` | to `-e` (else the modules nothing instantiates) |
-| `:args:` | to `vvp` | to the model | after the test | after the top-level modules |
+| Field | Icarus Verilog | Verilator | kirimasim | nvc | Lyra |
+| --- | --- | --- | --- | --- | --- |
+| `:files:` (sources) | before the test | before the test | before the test | before the test | before the test |
+| `:files:` (include files) and `:incdirs:` | `-I` | `-I` | `+incdir+` | `-I` | `-I` |
+| `:defines:` | `-D` | `-D` | `+define+` | `-D` | `-D` |
+| `:top_module:` | `-s` | `--top-module` | `--top=` | to `-e` (else the modules nothing instantiates) | `--top` |
+| `:args:` | to `vvp` | to the model | after the test | after the top-level modules | after `--` |
 
 A runner prints one line for each test that does not match (`FAIL`, or
-`KNOWN` for a known difference, `UNSUPPORTED` for kirimasim and nvc), and
+`KNOWN` for a known difference, `UNSUPPORTED` for kirimasim, nvc and Lyra), and
 `tools/run_icarus.py` one for each known difference that matches (`NOW
 MATCHES`), then a summary line, and exits with 1 if a test it counts does not
 match.
@@ -592,6 +595,28 @@ than the one the test names. nvc does not parse DPI imports or start the VPI
 applications of a Verilog design, so the tests with `:dpi_c:` or `:vpi_c:` are
 unsupported. No expected output was recorded with nvc, so every test counts.
 
+### Lyra
+
+```sh
+python3 tools/run_lyra.py --lyra /path/to/lyra --commit SHA -j 8
+```
+
+[Lyra](https://github.com/hankhsu1996/lyra) compiles a design through slang
+and LLVM into a program and runs it. It builds only on x86-64 Linux and has
+no releases, so `--commit` names the commit that was built, which the results
+record as the version. Each test runs in a temporary directory as `lyra run`;
+without `:top_module:`, slang takes every module that nothing instantiates,
+the C file of `:dpi_c:` is given with `--dpi-link`, and the arguments of
+`:args:` follow `--`. Lyra keeps what it builds for reuse in a cache
+directory that the tests share (`--cache-dir`, or a temporary directory),
+and each test is built with `-j 1`. Lyra prints its diagnostics on standard
+error and says of every construct it does not carry out yet that it "is not
+yet supported", which makes the test unsupported; lines of the form of its
+messages on standard output are removed before comparing. An illegal design
+is checked with `lyra check`. Lyra has no VPI, so the tests with `:vpi_c:`
+are unsupported. No expected output was recorded with Lyra, so every test
+counts.
+
 ### Other simulators
 
 A runner for another simulator needs to do four things for each test: run it
@@ -652,7 +677,7 @@ suite has a problem:
 started by hand as well; GitHub can start a scheduled run hours late when it
 is busy. Runs do not overlap: one that starts while another is running waits
 for it, and a newer one replaces a run that is still waiting. Its results are
-only reported, except for the ratchet of the kirimasim job. It has five jobs:
+only reported, except for the ratchet of the kirimasim job. It has six jobs:
 
 - **icarus** builds the latest `master` of Icarus Verilog (kept in the cache
   by its commit) and runs every test.
@@ -670,12 +695,17 @@ only reported, except for the ratchet of the kirimasim job. It has five jobs:
   commit; the libraries it links are installed every time) and runs every
   test. When `nvc --version` does not name the commit, the commit is added
   to the version in the results.
+- **lyra** builds Lyra at the commit that `LYRA_COMMIT` pins in the
+  workflow, the one place that names it. Building Lyra builds LLVM from
+  source with Bazel, which takes hours, so the build is kept in the cache by
+  that commit and only a change of the pin builds it again. It runs every
+  test and records the commit in the results.
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
   `tools/results_history.py update`, measures behavioral coverage using only
   that run's result files, and pushes the branch. The summary of the run
   lists each simulator's counts, tests whose result changed and behavioral
-  coverage. Publishing waits for all four simulator jobs to finish, including
+  coverage. Publishing waits for all five simulator jobs to finish, including
   failed jobs; a successful publish is what updates the chart and report.
   Only a run of `main` publishes: a run started by hand on another branch
   runs the simulators and uploads their results without publishing them.
