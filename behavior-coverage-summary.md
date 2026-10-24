@@ -1,6 +1,6 @@
 # IEEE 1800-2023 動作カバレッジ集計
 
-[全項目の詳細](behavior-coverage.md) / [管理手順](https://github.com/kurochan001/kirimasim-tests/blob/0073c6947bc210d7b928d0d651ef34d5095b5999/coverage/README.md) / [解釈保留の根拠](https://github.com/kurochan001/kirimasim-tests/blob/0073c6947bc210d7b928d0d651ef34d5095b5999/docs/requirement-extraction-notes.md)
+[全項目の詳細](behavior-coverage.md) / [管理手順](https://github.com/kurochan001/kirimasim-tests/blob/c87448ba87b6b6ca136bf526b1ee8710efcb05a3/coverage/README.md) / [解釈保留の根拠](https://github.com/kurochan001/kirimasim-tests/blob/c87448ba87b6b6ca136bf526b1ee8710efcb05a3/docs/requirement-extraction-notes.md)
 
 ## 全規格の要求台帳に対する暫定値
 
@@ -38,20 +38,17 @@
 ## シミュレータ別の実行確認率
 
 - `icarus` / Icarus Verilog version 14.0 (devel) (s20260301-664-g9cfecc9c): 1625/12319 (13.19%)。
-  計測元: 2026-10-24T10:06:24.476287+00:00 / `icarus.json`。
+  計測元: 2026-10-24T21:41:43.120471+00:00 / `icarus.json`。
   失敗 3、既知不一致 4860、未対応 0、未実行 0、古い証跡 0、違法系の判定根拠未承認 853 行。
-- `kirimasim` / kirimasim 0.0.0 (commit c0388da8abc7), built with GNU 13.3.0: 1410/12319 (11.45%)。
-  計測元: 2026-10-24T10:12:01.054416+00:00 / `kirimasim.json`。
+- `kirimasim` / kirimasim 0.0.0 (commit c507631d2529), built with GNU 13.3.0: 1410/12319 (11.45%)。
+  計測元: 2026-10-24T21:47:39.195087+00:00 / `kirimasim.json`。
   失敗 124、既知不一致 0、未対応 4831、未実行 0、古い証跡 0、違法系の判定根拠未承認 976 行。
 - `lyra` / Lyra (commit 7e2c604b9ab2): 1832/12319 (14.87%)。
-  計測元: 2026-10-24T12:43:48.210909+00:00 / `lyra.json`。
+  計測元: 2026-10-24T22:48:30.766718+00:00 / `lyra.json`。
   失敗 532、既知不一致 0、未対応 4001、未実行 0、古い証跡 0、違法系の判定根拠未承認 976 行。
-- `nvc` / nvc 1.24-devel (1.23.0.r25.gef6f527c) (Using LLVM 18.1.3): 293/12319 (2.38%)。
-  計測元: 2026-10-24T10:06:53.743972+00:00 / `nvc.json`。
-  失敗 839、既知不一致 0、未対応 5697、未実行 0、古い証跡 0、違法系の判定根拠未承認 512 行。
-- `verilator` / Verilator 5.053 devel rev v5.052-567-g0041d207: 2446/12319 (19.86%)。
-  計測元: 2026-10-24T10:20:39.334495+00:00 / `verilator.json`。
-  失敗 3、既知不一致 4102、未対応 0、未実行 0、古い証跡 0、違法系の判定根拠未承認 790 行。
+- `verilator` / Verilator 5.053 devel rev v5.052-580-g441c0dfb: 2449/12319 (19.88%)。
+  計測元: 2026-10-24T22:17:04.714869+00:00 / `verilator.json`。
+  失敗 3、既知不一致 4099、未対応 0、未実行 0、古い証跡 0、違法系の判定根拠未承認 790 行。
 - 不採用の結果ファイル: 0 件。
 
 ## 章・附属書別（登録項目に対する割合）
