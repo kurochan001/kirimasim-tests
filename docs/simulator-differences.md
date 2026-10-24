@@ -742,3 +742,8 @@ Icarus Verilog or Verilator are to be excluded, and this one is a candidate.
 | Clause | What the test expects, and what the standard says | Outputs | Test |
 | --- | --- | --- | --- |
 | 21.4, 21.4.3 | `$readmemh(file, m, 2, 5)` on `logic [7:0] m[0:1][0:2]` is expected to load the words at row-major positions 2 to 5 (`m[0][2]` to `m[1][2]`). 21.4 says that start_addr and finish_addr apply to the addresses of the unpacked array, which represent its highest dimension, and 21.4.3 that address entries address only the words of the highest dimension, so 2 and 5 lie outside `[0:1]`. | Icarus Verilog 13.0 and Verilator 5.052: `m[0][2]=11 ... m[1][2]=44` (the expected output). kirimasim: warns that address 2 of the range is outside the memory and leaves every word `ee`. Lyra 7e2c604b9ab2: `m[0][2]=ee`. nvc does not parse the test. | `ch21/test_readmemh_address_range` |
+
+A later review of the 194 tests with `:oracle: spec` whose result Lyra did not
+match (2026-10-25) found no further expected output to be wrong, but two
+tests whose diagnostic regular expression required the format of Icarus
+Verilog and Verilator, since fixed; see the [review](lyra-disagreement-review-20261025.md).
