@@ -159,10 +159,16 @@ jobs:
           key: ccache-verilator-master-ubuntu-24.04-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: ccache-verilator-master-ubuntu-24.04-
 
+      # Every process of the run gets at most 6 GB of address space. A design
+      # that makes Verilator recurse without end, such as the cycle of named
+      # sequences of ch16/test_illegal_sequence_cycle_through_bodies, would
+      # otherwise take all the memory of the runner, which then stops the job;
+      # with the limit only that test fails.
       - name: Run the suite
         run: |
           mkdir -p results
           ccache -z
+          ulimit -v 6291456
           python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" --all \
             -j "$(nproc)" --json results/verilator.json > results/verilator.log || true
           cat results/verilator.log
