@@ -643,7 +643,8 @@ python3 tools/results_history.py update --history my-results out/*.json
 
 `update` compares each simulator with its previous run in the same history,
 adds the run to `my-results/history.json`, and draws `my-results/charts/*.svg`
-and `my-results/README.md`. `python3 tools/results_history.py render
+and `my-results/README.md`. A simulator that `tools/` no longer has a runner
+for stays in the history but is not drawn. `python3 tools/results_history.py render
 --history my-results` draws them again from the history alone.
 
 ## Workflows

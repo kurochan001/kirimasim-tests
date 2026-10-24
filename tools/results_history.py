@@ -12,7 +12,8 @@ results with those of its previous run, adds the run to DIR/history.json,
 keeps the results as DIR/latest/<simulator>.json, renders, and prints a short
 Markdown summary of the run (the nightly workflow adds it to the job
 summary). render writes DIR/charts/*.svg and the report DIR/README.md from
-DIR/history.json alone.
+DIR/history.json alone. A simulator that the suite no longer has a runner for
+(tools/run_<simulator>.py) stays in the history but is not drawn.
 
 In the nightly workflow (.github/workflows/nightly.yml), DIR is a checkout
 of the results branch, and the tests are counted in the checkout of the suite
@@ -476,7 +477,16 @@ def heatmap(run: dict) -> str:
     return svg_document(width, height, {}, body, "Matching tests by chapter")
 
 
+def has_runner(sim: str) -> bool:
+    """Whether the suite has a runner for the simulator, tools/run_<sim>.py.
+    The history keeps the results of a simulator whose runner was removed, but
+    they are no longer drawn."""
+    return (ROOT / "tools" / f"run_{sim}.py").is_file()
+
+
 def render(directory: Path, runs: list[dict]) -> None:
+    runs = [{**r, "simulators": {s: v for s, v in r["simulators"].items() if has_runner(s)}}
+            for r in runs]
     if not runs:
         return
     sims = sorted({s for r in runs for s in r["simulators"]}, key=sim_order)
@@ -510,6 +520,9 @@ def render(directory: Path, runs: list[dict]) -> None:
             f"{last[sim]['name']}: results by status",
             "Tests that match, differ, are known differences, or use what the simulator does "
             "not support", runs, sim), encoding="utf-8")
+    for old in charts.glob("status-*.svg"):
+        if old.stem.removeprefix("status-") not in sims:
+            old.unlink()
     (directory / "README.md").write_text(report(runs, sims), encoding="utf-8")
 
 
