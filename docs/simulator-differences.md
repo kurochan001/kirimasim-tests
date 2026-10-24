@@ -730,3 +730,15 @@ missing header constants and Verilator's two-state values are left out, as above
 | 30.4.4.4 | Accept an ifnone path and an unconditional simple path for the same module path. | `ch30/test_illegal_specify_ifnone_with_unconditional_path` |
 | 30.7.4.1 | Accept a pulse style declaration for an output that already appeared in a path declaration. | `ch30/test_illegal_pulsestyle_ondetect_after_path`, `ch30/test_illegal_pulsestyle_onevent_after_path` |
 | 31.7 | Accept a timing check condition that combines two conditioning signals inside the specify block. | `ch31/test_illegal_timing_condition_two_signals` |
+
+## Expected outputs that may follow both releases rather than the standard
+
+The comparison with nvc and Lyra (2026-10-24) found one test whose expected
+output was recorded with both releases but seems to follow neither the
+cited clause nor the simulators that are not its oracles. Its expected output
+is not changed yet: tests whose expected output comes from a deviation of
+Icarus Verilog or Verilator are to be excluded, and this one is a candidate.
+
+| Clause | What the test expects, and what the standard says | Outputs | Test |
+| --- | --- | --- | --- |
+| 21.4, 21.4.3 | `$readmemh(file, m, 2, 5)` on `logic [7:0] m[0:1][0:2]` is expected to load the words at row-major positions 2 to 5 (`m[0][2]` to `m[1][2]`). 21.4 says that start_addr and finish_addr apply to the addresses of the unpacked array, which represent its highest dimension, and 21.4.3 that address entries address only the words of the highest dimension, so 2 and 5 lie outside `[0:1]`. | Icarus Verilog 13.0 and Verilator 5.052: `m[0][2]=11 ... m[1][2]=44` (the expected output). kirimasim: warns that address 2 of the range is outside the memory and leaves every word `ee`. Lyra 7e2c604b9ab2: `m[0][2]=ee`. nvc does not parse the test. | `ch21/test_readmemh_address_range` |

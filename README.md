@@ -685,7 +685,10 @@ only reported, except for the ratchet of the kirimasim job. It has six jobs:
   by its commit) and runs every test.
 - **verilator** builds the latest `master` of Verilator (kept in the cache
   by its commit), installs `z3` and ccache, whose cache it keeps for the next
-  night, and runs every test with `--all`.
+  night, and runs every test with `--all`. Each process of the run gets at
+  most 6 GB of address space (`ulimit -v`): a design that makes Verilator
+  recurse without end would otherwise take all the memory of the runner,
+  which stops the job.
 - **kirimasim** builds the latest `main` of kirimasim with its `release`
   preset and runs every test. Then it compares the results with
   `latest/kirimasim.json` of the `results` branch, the previous night's, with
@@ -699,9 +702,12 @@ only reported, except for the ratchet of the kirimasim job. It has six jobs:
   to the version in the results.
 - **lyra** builds Lyra at the commit that `LYRA_COMMIT` pins in the
   workflow, the one place that names it. Building Lyra builds LLVM from
-  source with Bazel, which takes hours, so the build is kept in the cache by
+  source with Bazel, which takes about 40 minutes, so the build (the
+  executable and its runfiles, copied out of Bazel's tree, without the
+  runfiles manifest that names files in that tree) is kept in the cache by
   that commit and only a change of the pin builds it again. It runs every
-  test and records the commit in the results.
+  test, which takes 35 to 50 minutes and makes it the longest job of the
+  night, and records the commit in the results.
 - **publish** collects the `--json` results of the jobs that finished, adds
   them to the history on the `results` branch with
   `tools/results_history.py update`, measures behavioral coverage using only
