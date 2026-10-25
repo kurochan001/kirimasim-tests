@@ -4,6 +4,7 @@
 全テストの意味上の照合を完了したという報告ではありません。
 [全テストの照合台帳](test-requirement-matching.md)と
 [現在の計測結果](behavior-coverage-summary.md)を併せて参照してください。
+最新の続行結果は[未登録テストの照合（2026-10-25）](existing-test-matching-unregistered-20261025.md)です。
 
 ## 今回の到達点
 

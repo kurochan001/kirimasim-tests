@@ -155,9 +155,11 @@ issues, and the [generated keyword tests](docs/keyword-tests-20261024.md) add 49
 illegal designs that use a reserved keyword as a name. The
 [gap tests](docs/gap-tests-20261024.md) then add 594 independently verified tests
 for requirements that had none, and their
-[second run](docs/gap-tests-2-20261024.md) adds 933 more. Provisional design coverage
-is **59.590876% (7,341/12,319)**; provisional execution coverage is
-**33.566036% (4,135/12,319)**. Clauses 1 to 40 alone are at 62.57% (5,935/9,486).
+[second run](docs/gap-tests-2-20261024.md) adds 933 more. On 2026-10-25 the
+[first pass over the unregistered tests](docs/existing-test-matching-unregistered-20261025.md)
+linked 16 more tests to 26 requirements. Provisional design coverage is
+**59.801932% (7,367/12,319)**; provisional execution coverage is
+**33.566036% (4,135/12,319)**. Clauses 1 to 40 alone are at 62.82% (5,959/9,486).
 Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.
