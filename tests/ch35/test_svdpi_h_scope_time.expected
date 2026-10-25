@@ -1,0 +1,8 @@
+top: unit -9 precision -12, for a NULL scope -12 -12
+top: scaled real time in its unit 3.000
+top: simulation time high 0 low 3000
+top: every call returned 0 1
+b: unit -6 precision -8, for a NULL scope -12 -12
+b: scaled real time in its unit 2.500
+b: simulation time high 0 low 2500000
+b: every call returned 0 1

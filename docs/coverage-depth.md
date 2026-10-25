@@ -6,7 +6,7 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 6658 |
+| Tests | 6676 |
 | Clauses in scope | 980 |
 | Clauses out of scope | 179 |
 | Clauses with a direct test | 980/980 |
@@ -18,10 +18,10 @@
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 567 |
+| both releases | 570 |
 | Icarus Verilog 13.0 only | 3228 |
-| Verilator 5.052 only | 1292 |
-| standard only | 1571 |
+| Verilator 5.052 only | 1303 |
+| standard only | 1575 |
 
 ## By chapter
 
@@ -44,7 +44,7 @@
 | 17 | Checkers | 33 | 9 | 3.7 | 0 | 22 |
 | 18 | Constrained random value generation | 126 | 44 | 2.9 | 0 | 53 |
 | 19 | Functional coverage | 84 | 22 | 3.8 | 0 | 70 |
-| 20 | Utility system tasks and system functions | 248 | 31 | 8.0 | 0 | 32 |
+| 20 | Utility system tasks and system functions | 251 | 31 | 8.1 | 0 | 32 |
 | 21 | Input/output system tasks and system functions | 178 | 47 | 3.8 | 0 | 37 |
 | 22 | Compiler directives | 347 | 21 | 16.5 | 0 | 13 |
 | 23 | Modules and hierarchy | 200 | 32 | 6.2 | 0 | 59 |
@@ -58,8 +58,8 @@
 | 31 | Timing checks | 51 | 19 | 2.7 | 0 | 41 |
 | 32 | Backannotation using the standard delay format | 47 | 10 | 4.7 | 0 | 32 |
 | 33 | Configuring the contents of a design | 35 | 9 | 3.9 | 0 | 25 |
-| 35 | Direct programming interface | 86 | 18 | 4.8 | 0 | 39 |
-| 36 | Programming language interface (PLI/VPI) overview | 79 | 17 | 4.6 | 0 | 35 |
+| 35 | Direct programming interface | 98 | 18 | 5.4 | 0 | 43 |
+| 36 | Programming language interface (PLI/VPI) overview | 82 | 17 | 4.8 | 0 | 35 |
 | 37 | VPI object model diagrams | 179 | 94 | 1.9 | 0 | 164 |
 | 38 | VPI routine definitions | 82 | 45 | 1.8 | 0 | 34 |
 | 39 | Assertion API | 39 | 7 | 5.6 | 0 | 38 |

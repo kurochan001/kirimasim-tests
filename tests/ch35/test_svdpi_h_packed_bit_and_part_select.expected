@@ -1,0 +1,8 @@
+logic vector bits from the LSB: 0 1 1 0 0 1 0 1
+bit vector bits from the LSB: 1 0 0 1 1 0 1 0
+bits put into logic 10000001 and into bit 00011000
+part of the 64-bit value at 28 width 8: 78
+part at 0 width 8: ef
+part of the logic vector at 2 width 4: 9
+the 16 bits abcd put at index 28: 00000abcd0000000
+masks and unsigned bits: 1

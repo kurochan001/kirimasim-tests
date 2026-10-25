@@ -1,0 +1,14 @@
+svPutBitVec32: void (bitref, const svBitVec32*, int) 1
+svPutLogicVec32: void (logicref, const svLogicVec32*, int) 1
+svPutSelectBit: void (bitref, int, svBit) 1
+svPutSelectLogic: void (logicref, int, svLogic) 1
+svPutPartSelectBit: void (bitref, svBitVec32, int, int) 1
+svPutPartSelectLogic: void (logicref, svLogicVec32, int, int) 1
+svPutBitArrElemVec32: void (svOpenArrayHandle, const svBitVec32*, int, ...) 1
+svPutBitArrElem1Vec32: void (svOpenArrayHandle, const svBitVec32*, int) 1
+svPutBitArrElem2Vec32: void (svOpenArrayHandle, const svBitVec32*, int, int) 1
+svPutBitArrElem3Vec32: void (svOpenArrayHandle, const svBitVec32*, int, int, int) 1
+svPutLogicArrElemVec32: void (svOpenArrayHandle, const svLogicVec32*, int, ...) 1
+svPutLogicArrElem1Vec32: void (svOpenArrayHandle, const svLogicVec32*, int) 1
+svPutLogicArrElem2Vec32: void (svOpenArrayHandle, const svLogicVec32*, int, int) 1
+svPutLogicArrElem3Vec32: void (svOpenArrayHandle, const svLogicVec32*, int, int, int) 1

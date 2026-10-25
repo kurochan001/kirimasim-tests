@@ -1,0 +1,10 @@
+DPI_DLLISPEC and DPI_DLLESPEC undefined before the header 1
+DPI_DLLISPEC has an empty replacement here 1
+DPI_DLLESPEC has an empty replacement here 1
+DPI_PROTOTYPES not defined before the header 1
+DPI_PROTOTYPES XXTERN EETERN DPI_EXTERN gone after the header 1
+the routines decorated with XXTERN are callable prototypes 1
+sv_0 sv_1 sv_z sv_x are 0 1 2 3 1
+svScope is void* 1
+svOpenArrayHandle is void* 1
+a C++ translation unit can redeclare routines with C linkage 1

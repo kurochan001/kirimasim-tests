@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 70.64%、実行 39.39%。**
+**全規格の要求台帳ベース（暫定）: 設計 71.39%、実行 39.98%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 8702/12319 (70.64%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4853/12319 (39.39%)。
-- 登録済みだがテスト未対応: 3617 動作。
+- 登録済み動作に対するテスト設計網羅率: 8795/12319 (71.39%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4925/12319 (39.98%)。
+- 登録済みだがテスト未対応: 3524 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -73,9 +73,12 @@
 - `gap5-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:06:15.714744+00:00 / 108/12319 動作確認、古い入力との対応 1 件。
 - `gap5-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.553737+00:00 / 71/12319 動作確認、古い入力との対応 1 件。
 - `gap5-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.656775+00:00 / 71/12319 動作確認、古い入力との対応 1 件。
-- `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 117/12319 動作確認、古い入力との対応 0 件。
-- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 199/12319 動作確認、古い入力との対応 0 件。
-- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 199/12319 動作確認、古い入力との対応 0 件。
+- `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 118/12319 動作確認、古い入力との対応 0 件。
+- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 200/12319 動作確認、古い入力との対応 0 件。
+- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 200/12319 動作確認、古い入力との対応 0 件。
+- `gap7-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T17:06:51.310506+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
+- `gap7-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.035626+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
+- `gap7-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.037049+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
@@ -151,12 +154,12 @@
 - F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 0。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 13。
 - H DPI C layer: 解釈保留なし 71/72、登録 223、テスト対応 146。
-- I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 77。
+- I svdpi.h: 解釈保留なし 3/4、登録 147、テスト対応 132。
 - J Inclusion of foreign language code: 解釈保留なし 7/7、登録 16、テスト対応 0。
-- K vpi_user.h: 解釈保留なし 3/3、登録 544、テスト対応 508。
+- K vpi_user.h: 解釈保留なし 3/3、登録 544、テスト対応 539。
 - L vpi_compatibility.h: 解釈保留なし 3/3、登録 88、テスト対応 84。
 - M sv_vpi_user.h: 解釈保留なし 3/3、登録 412、テスト対応 405。
-- N Algorithm for probabilistic distribution functions: 解釈保留なし 2/3、登録 39、テスト対応 18。
+- N Algorithm for probabilistic distribution functions: 解釈保留なし 2/3、登録 39、テスト対応 25。
 - O Encryption/decryption flow: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - P Glossary: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - Q Bibliography: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
@@ -131720,7 +131723,7 @@ All SV simulators provide normative svdpi.h except clearly delimited deprecated 
 
 ### SV2023-I.3-EXTRACT-ACK
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 Imported function in disabled state must call svAckDisabledState before returning.
 
@@ -131728,6 +131731,7 @@ Imported function in disabled state must call svAckDisabledState before returnin
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_disabled_state_ack.sv](../tests/ch35/test_svdpi_h_disabled_state_ack.sv): 無効状態を確認した import が svAckDisabledState() を呼んでから戻り、その後に disable が成立して worker の残りの $display が実行されないことを、ack 後の 1 行だけが出力されることで示す。 区別: ack を呼ばずに戻る実装では disable の完了位置が変わり、ack 行の後に worker の「after the import」が出力されたり、ack 行自体が出なくなる。
 
 ### SV2023-I.3-EXTRACT-ACTIVE-SCOPE
 
@@ -132545,7 +132549,7 @@ svGetArrayPtr returns NULL for array not in C layout.
 
 ### SV2023-I.3-EXTRACT-ARRAY-QUERIES
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 Array query semantics follows SV queries; dimension zero is packed dimension, positive dimensions unpacked.
 
@@ -132553,6 +132557,7 @@ Array query semantics follows SV queries; dimension zero is packed dimension, po
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_open_array_queries_and_whole_pointer.sv](../tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.sv): logic [7:0] packed_a [5:2] を open array 仮引数で受け、svDimensions が 1、次元 0（パック部）が left 7 right 0 low 0 high 7 increment 1 size 8、次元 1（アンパック部）が left 5 right 2 low 2 high 5 increment 1 size 4 であることを表示し、SystemVerilog 側の $left 等の値と並べて一致を示す。 区別: 次元 0 をアンパック部や別の範囲として扱う実装、$increment の向きを誤る実装では該当行の数値が変わり、SV 側の行と食い違う。
 
 ### SV2023-I.3-EXTRACT-ARRAY-SIZE
 
@@ -132579,7 +132584,7 @@ svBitVecVal aliases uint32_t.
 
 ### SV2023-I.3-EXTRACT-C-LINKAGE
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 C++ inclusion wraps declarations in extern C linkage.
 
@@ -132587,10 +132592,11 @@ C++ inclusion wraps declarations in extern C linkage.
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_macros_and_c_linkage.sv](../tests/ch35/test_svdpi_h_macros_and_c_linkage.sv): C ファイルを C++ としてコンパイルする際、svdpi.h を include した後に svDpiVersion・svAckDisabledState・svGetScope を改めて extern "C" ブロック内で宣言しており、これが衝突にならずコンパイルが通ることを確認し、最後に 1 を表示する。 区別: ヘッダが宣言を extern "C" で囲んでいなければ C++ では同じ名前が C++ リンケージで宣言済みとなり、この再宣言はコンパイルエラーになって 1 の行が出力されない。
 
 ### SV2023-I.3-EXTRACT-CALLER-INFO
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 svGetCallerInfo returns true and updates outputs when info available,false with unchanged outputs otherwise; availability implementation-specific; bad output pointers unpredictable; returned SV filename expires on next SV call and cannot be modified/freed.
 
@@ -132598,10 +132604,11 @@ svGetCallerInfo returns true and updates outputs when info available,false with 
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_caller_info.sv](../tests/ch35/test_svdpi_h_caller_info.sv): 出力を "no file"/-1 で初期化して svGetCallerInfo を呼び、戻り値が 0 か 1 であること、1 ならファイル名が test_svdpi_h_caller_info.sv で行番号が呼び出し行 33、0 なら 2 つの出力が初期値のままであることを 2 行で表示する。 区別: 情報があるのに出力を更新しない実装、行番号を呼び出し行以外にする実装、0 を返すのに出力を書き換える実装では 2 行目が 0 になる。
 
 ### SV2023-I.3-EXTRACT-CANONICAL-ALLOC
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 Whole packed-vector copy APIs require user-allocated canonical array of adequate size.
 
@@ -132609,6 +132616,7 @@ Whole packed-vector copy APIs require user-allocated canonical array of adequate
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_packed_element_copy.sv](../tests/ch35/test_svdpi_h_packed_element_copy.sv): 呼び手が用意した svBitVecVal got[SV_PACKED_DATA_NELEMS(64)]（2 チャンク）を 0xdeadbeef で埋めてから svGetBitArrElem1VecVal で bit[63:0] w[0] を読み、両チャンクが書き換わって 89abcdef 01234567 になること、同じ配列から svPutBitArrElem1VecVal で w[1] に 3333444411112222 を書き、svGetLogicArrElem1VecVal/svPutLogicArrElem1VecVal で logic[31:0] を読み書きした結果を表示する。 区別: 呼び手の配列ではなく内部領域にコピーする実装では 0xdeadbeef が残って「both written」が 0 になり、チャンク数や順序を誤れば 89abcdef 01234567 や書き込み後の w[1] が変わる。
 
 ### SV2023-I.3-EXTRACT-CLEANUP
 
@@ -132635,7 +132643,7 @@ Delimited deprecated header portion is optional for IEEE implementations.
 
 ### SV2023-I.3-EXTRACT-DISABLED
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 svIsDisabledState returns one for disabled execution thread; caller must obey disable protocol.
 
@@ -132643,10 +132651,11 @@ svIsDisabledState returns one for disabled execution thread; caller must obey di
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_disabled_state_ack.sv](../tests/ch35/test_svdpi_h_disabled_state_ack.sv): worker から呼ばれた import が export sv_wait（10ns 待つ）を呼び、5ns に worker を disable する。export 呼び出し前の svIsDisabledState が 0、disable で戻ってきた後が 1 であることを表示する。 区別: 常に 0 を返す実装では 3 行目が 1 にならず、無効状態を判定しない実装では export の戻り値 1 と合わせて行の内容が変わる。
 
 ### SV2023-I.3-EXTRACT-DLL-EXPORT
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 DPI_DLLESPEC uses dllexport on MSVC/MinGW/Cygwin and empty expansion elsewhere.
 
@@ -132654,10 +132663,11 @@ DPI_DLLESPEC uses dllexport on MSVC/MinGW/Cygwin and empty expansion elsewhere.
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_macros_and_c_linkage.sv](../tests/ch35/test_svdpi_h_macros_and_c_linkage.sv): 同じく DPI_DLLESPEC を文字列化し、非 Windows 環境での置換列が空であること（文字列長 0）を表示する。 区別: DPI_DLLESPEC を __declspec(dllexport) などの非空の並びにする誤実装では空文字列にならず、この行が 0 になる。
 
 ### SV2023-I.3-EXTRACT-DLL-IMPORT
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 DPI_DLLISPEC uses dllimport on MSVC/MinGW/Cygwin and empty expansion elsewhere.
 
@@ -132665,6 +132675,7 @@ DPI_DLLISPEC uses dllimport on MSVC/MinGW/Cygwin and empty expansion elsewhere.
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_macros_and_c_linkage.sv](../tests/ch35/test_svdpi_h_macros_and_c_linkage.sv): ヘッダ処理後に DPI_DLLISPEC を文字列化し、この非 Windows 環境では空の置換列になること（文字列長 0）を表示する。include 前は未定義であることも別行で確認している。 区別: DPI_DLLISPEC を __declspec(dllimport) などの非空の並びとして定義する誤実装では文字列化の結果が空にならず、2 行目が 0 になる。
 
 ### SV2023-I.3-EXTRACT-ELEMENT-POINTER
 
@@ -132690,7 +132701,7 @@ DPI_EXTERN defaults empty only when not already defined.
 
 ### SV2023-I.3-EXTRACT-GET-DATA-TEXT
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 svGetUserData returns void*: NULL for all error cases and when no prior svPutUserData() was made, and on success the non-NULL user data pointer previously stored by svPutUserData(); the header's '0 upon success' wording is read per H.9.3.
 
@@ -132698,6 +132709,7 @@ svGetUserData returns void*: NULL for all error cases and when no prior svPutUse
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_user_data.sv](../tests/ch35/test_svdpi_h_user_data.sv): 保存したキーに対して svGetUserData が同じポインタを返し、その先の int が 42（u1）と 7（u2）であること、未保存キーと NULL スコープでは NULL を返すことを表示する。 区別: 保存した値を別スコープと混同する実装では u1 の行が 7 になり、未保存キーで非 NULL を返す実装では NULL 判定が 0 になる。
 
 ### SV2023-I.3-EXTRACT-GUARD
 
@@ -132713,7 +132725,7 @@ INCLUDED_SVDPI prevents repeated inclusion.
 
 ### SV2023-I.3-EXTRACT-HANDLES
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 svScope and svOpenArrayHandle alias void* with declared XXTERN prefix in supplied header.
 
@@ -132721,6 +132733,7 @@ svScope and svOpenArrayHandle alias void* with declared XXTERN prefix in supplie
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_macros_and_c_linkage.sv](../tests/ch35/test_svdpi_h_macros_and_c_linkage.sv): svScope と svOpenArrayHandle を void* にキャストした式の型をコンパイル時に比較し（C11 _Generic / C++ decltype）、どちらも void* と同一型であることを 2 行で表示する。 区別: ハンドルを構造体や別のポインタ型にする実装では型比較が一致せず、該当行が 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-ALLOC
 
@@ -132735,7 +132748,7 @@ If supported, open legacy whole-vector copies require user-provided canonical st
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGET32BITS
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGet32Bits returning svBitVec32, with ordered C parameters (const svBitPackedArrRef s, int i); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132743,10 +132756,11 @@ If deprecated portion supported: The header declares svGet32Bits returning svBit
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGet32Bits のアドレスを svBitVec32 (*)(bitref, int) と比較し、参照と開始位置を受けて 32bit を返すことを表示する。 区別: 戻り値型や引数を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGET64BITS
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGet64Bits returning uint64_t, with ordered C parameters (const svBitPackedArrRef s, int i); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132754,10 +132768,11 @@ If deprecated portion supported: The header declares svGet64Bits returning uint6
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGet64Bits のアドレスを uint64_t (*)(bitref, int) と比較し、参照と開始位置を受けて uint64_t を返すことを表示する。 区別: 戻り値を uint32_t や unsigned long にした宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETBITARRELEM1VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetBitArrElem1Vec32 returning void, with ordered C parameters (svBitVec32* d, const svOpenArrayHandle s, int indx1); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132765,10 +132780,11 @@ If deprecated portion supported: The header declares svGetBitArrElem1Vec32 retur
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetBitArrElem1Vec32 のアドレスを void (*)(svBitVec32*, svOpenArrayHandle, int) と比較し、1 次元分の添字を取ることを表示する。 区別: 添字の個数やポインタ段数を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETBITARRELEM2VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetBitArrElem2Vec32 returning void, with ordered C parameters (svBitVec32* d, const svOpenArrayHandle s, int indx1, int indx2); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132776,10 +132792,11 @@ If deprecated portion supported: The header declares svGetBitArrElem2Vec32 retur
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetBitArrElem2Vec32 のアドレスを void (*)(svBitVec32*, svOpenArrayHandle, int, int) と比較し、2 次元分の添字を取ることを表示する。 区別: 添字を 1 個に減らした宣言や順序を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETBITARRELEM3VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetBitArrElem3Vec32 returning void, with ordered C parameters (svBitVec32* d, const svOpenArrayHandle s, int indx1, int indx2, int indx3); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132787,10 +132804,11 @@ If deprecated portion supported: The header declares svGetBitArrElem3Vec32 retur
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetBitArrElem3Vec32 のアドレスを void (*)(svBitVec32*, svOpenArrayHandle, int, int, int) と比較し、3 次元分の添字を取ることを表示する。 区別: 添字の個数を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETBITARRELEMVEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetBitArrElemVec32 returning void, with ordered C parameters (svBitVec32* d, const svOpenArrayHandle s, int indx1, ...); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132798,10 +132816,11 @@ If deprecated portion supported: The header declares svGetBitArrElemVec32 return
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetBitArrElemVec32 のアドレスを void (*)(svBitVec32*, svOpenArrayHandle, int, ...) と比較し、可変個の添字を取ることを含めて表示する。 区別: 可変引数を固定引数に変えた宣言や引数順を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETBITS
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetBits returning svBitVec32, with ordered C parameters (const svBitPackedArrRef s, int i, int w); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132809,10 +132828,11 @@ If deprecated portion supported: The header declares svGetBits returning svBitVe
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetBits のアドレスを svBitVec32 (*)(bitref, int, int) と比較し、参照・開始位置・幅を受けて svBitVec32 を返すことを表示する。 区別: 戻り値を void やポインタにした宣言、幅を落とした宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETBITVEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetBitVec32 returning void, with ordered C parameters (svBitVec32* d, const svBitPackedArrRef s, int w); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132820,10 +132840,11 @@ If deprecated portion supported: The header declares svGetBitVec32 returning voi
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetBitVec32 のアドレスを void (*)(svBitVec32*, bitref, int) と比較し、出力ポインタ・パック配列参照・幅の順であることを表示する。 区別: 引数の順序やポインタ段数（svBitVec32* を値にする等）を誤った宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETLOGICARRELEM1VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetLogicArrElem1Vec32 returning void, with ordered C parameters (svLogicVec32* d, const svOpenArrayHandle s, int indx1); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132831,10 +132852,11 @@ If deprecated portion supported: The header declares svGetLogicArrElem1Vec32 ret
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetLogicArrElem1Vec32 のアドレスを void (*)(svLogicVec32*, svOpenArrayHandle, int) と比較し、1 次元分の添字を取ることを表示する。 区別: 要素型や添字の個数を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETLOGICARRELEM2VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetLogicArrElem2Vec32 returning void, with ordered C parameters (svLogicVec32* d, const svOpenArrayHandle s, int indx1, int indx2); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132842,10 +132864,11 @@ If deprecated portion supported: The header declares svGetLogicArrElem2Vec32 ret
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetLogicArrElem2Vec32 のアドレスを void (*)(svLogicVec32*, svOpenArrayHandle, int, int) と比較し、2 次元分の添字を取ることを表示する。 区別: 添字の個数や要素型を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETLOGICARRELEM3VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetLogicArrElem3Vec32 returning void, with ordered C parameters (svLogicVec32* d, const svOpenArrayHandle s, int indx1, int indx2, int indx3); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132853,10 +132876,11 @@ If deprecated portion supported: The header declares svGetLogicArrElem3Vec32 ret
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetLogicArrElem3Vec32 のアドレスを void (*)(svLogicVec32*, svOpenArrayHandle, int, int, int) と比較し、3 次元分の添字を取ることを表示する。 区別: 添字の個数や要素型を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETLOGICARRELEMVEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetLogicArrElemVec32 returning void, with ordered C parameters (svLogicVec32* d, const svOpenArrayHandle s, int indx1, ...); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132864,10 +132888,11 @@ If deprecated portion supported: The header declares svGetLogicArrElemVec32 retu
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetLogicArrElemVec32 のアドレスを void (*)(svLogicVec32*, svOpenArrayHandle, int, ...) と比較し、可変個の添字を取ることを表示する。 区別: 可変引数を落とした宣言や要素型を svBitVec32 にした宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETLOGICVEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetLogicVec32 returning void, with ordered C parameters (svLogicVec32* d, const svLogicPackedArrRef s, int w); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132875,10 +132900,11 @@ If deprecated portion supported: The header declares svGetLogicVec32 returning v
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetLogicVec32 のアドレスを void (*)(svLogicVec32*, logicref, int) と比較し、出力ポインタ・参照・幅の順であることを表示する。 区別: svLogicVec32* を値や const ポインタに変えた宣言、引数順を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETPARTSELECTBIT
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetPartSelectBit returning void, with ordered C parameters (svBitVec32* d, const svBitPackedArrRef s, int i, int w); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132886,10 +132912,11 @@ If deprecated portion supported: The header declares svGetPartSelectBit returnin
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetPartSelectBit のアドレスを void (*)(svBitVec32*, bitref, int, int) と比較し、出力・参照・開始位置・幅の 4 引数であることを表示する。 区別: 引数の個数や順序、幅の型を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETPARTSELECTLOGIC
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetPartSelectLogic returning void, with ordered C parameters (svLogicVec32* d, const svLogicPackedArrRef s, int i, int w); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132897,10 +132924,11 @@ If deprecated portion supported: The header declares svGetPartSelectLogic return
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetPartSelectLogic のアドレスを void (*)(svLogicVec32*, logicref, int, int) と比較し、4 引数の並びを表示する。 区別: 参照型や引数順を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETSELECTBIT
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetSelectBit returning svBit, with ordered C parameters (const svBitPackedArrRef s, int i); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132908,10 +132936,11 @@ If deprecated portion supported: The header declares svGetSelectBit returning sv
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetSelectBit のアドレスを svBit (*)(bitref, int) と比較し、パック配列参照と添字を受けて svBit を返すことを表示する。 区別: 戻り値を svLogic や int にした宣言、添字を第 1 引数にした宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVGETSELECTLOGIC
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svGetSelectLogic returning svLogic, with ordered C parameters (const svLogicPackedArrRef s, int i); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132919,10 +132948,11 @@ If deprecated portion supported: The header declares svGetSelectLogic returning 
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svGetSelectLogic のアドレスを svLogic (*)(logicref, int) と比較し、logicref と添字を受けて svLogic を返すことを表示する。 区別: 戻り値型や参照型を取り違えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTBITARRELEM1VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutBitArrElem1Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svBitVec32* s, int indx1); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132930,10 +132960,11 @@ If deprecated portion supported: The header declares svPutBitArrElem1Vec32 retur
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutBitArrElem1Vec32 のアドレスを void (*)(svOpenArrayHandle, const svBitVec32*, int) と比較し、1 次元分の添字を取ることを表示する。 区別: 入力チャンクの const を落とした宣言などでは型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTBITARRELEM2VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutBitArrElem2Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svBitVec32* s, int indx1, int indx2); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132941,10 +132972,11 @@ If deprecated portion supported: The header declares svPutBitArrElem2Vec32 retur
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutBitArrElem2Vec32 のアドレスを void (*)(svOpenArrayHandle, const svBitVec32*, int, int) と比較し、2 次元分の添字を取ることを表示する。 区別: 添字の個数を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTBITARRELEM3VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutBitArrElem3Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svBitVec32* s, int indx1, int indx2, int indx3); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132952,10 +132984,11 @@ If deprecated portion supported: The header declares svPutBitArrElem3Vec32 retur
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutBitArrElem3Vec32 のアドレスを void (*)(svOpenArrayHandle, const svBitVec32*, int, int, int) と比較し、3 次元分の添字を取ることを表示する。 区別: 添字の個数を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTBITARRELEMVEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutBitArrElemVec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svBitVec32* s, int indx1, ...); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132963,10 +132996,11 @@ If deprecated portion supported: The header declares svPutBitArrElemVec32 return
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutBitArrElemVec32 のアドレスを void (*)(svOpenArrayHandle, const svBitVec32*, int, ...) と比較し、要素の添字を可変個取ることを表示する。 区別: 可変引数を落とした宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTBITVEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutBitVec32 returning void, with ordered C parameters (svBitPackedArrRef d, const svBitVec32* s, int w); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132974,10 +133008,11 @@ If deprecated portion supported: The header declares svPutBitVec32 returning voi
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutBitVec32 のアドレスを void (*)(bitref, const svBitVec32*, int) と比較し、参照・入力チャンク・幅の順であることを表示する。 区別: 入力チャンクを値や非 const ポインタにした宣言、引数順を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTLOGICARRELEM1VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutLogicArrElem1Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svLogicVec32* s, int indx1); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132985,10 +133020,11 @@ If deprecated portion supported: The header declares svPutLogicArrElem1Vec32 ret
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutLogicArrElem1Vec32 のアドレスを void (*)(svOpenArrayHandle, const svLogicVec32*, int) と比較し、1 次元分の添字を取ることを表示する。 区別: 要素型や添字の個数を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTLOGICARRELEM2VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutLogicArrElem2Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svLogicVec32* s, int indx1, int indx2); preserve pointer levels,const qualifiers and variadic form.
 
@@ -132996,10 +133032,11 @@ If deprecated portion supported: The header declares svPutLogicArrElem2Vec32 ret
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutLogicArrElem2Vec32 のアドレスを void (*)(svOpenArrayHandle, const svLogicVec32*, int, int) と比較し、2 次元分の添字を取ることを表示する。 区別: 添字の個数や要素型を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTLOGICARRELEM3VEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutLogicArrElem3Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svLogicVec32* s, int indx1, int indx2, int indx3); preserve pointer levels,const qualifiers and variadic form.
 
@@ -133007,10 +133044,11 @@ If deprecated portion supported: The header declares svPutLogicArrElem3Vec32 ret
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutLogicArrElem3Vec32 のアドレスを void (*)(svOpenArrayHandle, const svLogicVec32*, int, int, int) と比較し、3 次元分の添字を取ることを表示する。 区別: 添字の個数や要素型を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTLOGICARRELEMVEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutLogicArrElemVec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svLogicVec32* s, int indx1, ...); preserve pointer levels,const qualifiers and variadic form.
 
@@ -133018,10 +133056,11 @@ If deprecated portion supported: The header declares svPutLogicArrElemVec32 retu
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutLogicArrElemVec32 のアドレスを void (*)(svOpenArrayHandle, const svLogicVec32*, int, ...) と比較し、可変個の添字を取ることを表示する。 区別: 要素型を svBitVec32 にした宣言や可変引数を落とした宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTLOGICVEC32
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutLogicVec32 returning void, with ordered C parameters (svLogicPackedArrRef d, const svLogicVec32* s, int w); preserve pointer levels,const qualifiers and variadic form.
 
@@ -133029,10 +133068,11 @@ If deprecated portion supported: The header declares svPutLogicVec32 returning v
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutLogicVec32 のアドレスを void (*)(logicref, const svLogicVec32*, int) と比較し、参照・入力チャンク・幅の順であることを表示する。 区別: 入力チャンクを const でないポインタにした宣言などでは型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTPARTSELECTBIT
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutPartSelectBit returning void, with ordered C parameters (svBitPackedArrRef d, const svBitVec32 s, int i, int w); preserve pointer levels,const qualifiers and variadic form.
 
@@ -133040,10 +133080,11 @@ If deprecated portion supported: The header declares svPutPartSelectBit returnin
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutPartSelectBit のアドレスを void (*)(bitref, svBitVec32, int, int) と比較し、開始位置と幅に加えてチャンク値をポインタではなく値で受け取ることを表示する。 区別: チャンク値をポインタにした宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTPARTSELECTLOGIC
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutPartSelectLogic returning void, with ordered C parameters (svLogicPackedArrRef d, const svLogicVec32 s, int i, int w); preserve pointer levels,const qualifiers and variadic form.
 
@@ -133051,10 +133092,11 @@ If deprecated portion supported: The header declares svPutPartSelectLogic return
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutPartSelectLogic のアドレスを void (*)(logicref, svLogicVec32, int, int) と比較し、svLogicVec32 をポインタではなく値で受け取る 4 引数であることを表示する。 区別: svLogicVec32 を const ポインタで受け取る宣言では型が一致せず 0 になる（Verilator 5.052 のヘッダはポインタで宣言しており、この行が 0 になる）。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTSELECTBIT
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutSelectBit returning void, with ordered C parameters (svBitPackedArrRef d, int i, svBit s); preserve pointer levels,const qualifiers and variadic form.
 
@@ -133062,10 +133104,11 @@ If deprecated portion supported: The header declares svPutSelectBit returning vo
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutSelectBit のアドレスを void (*)(bitref, int, svBit) と比較し、参照・添字・値の順であることを表示する。 区別: 値と添字の順序を入れ替えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVPUTSELECTLOGIC
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 If deprecated portion supported: The header declares svPutSelectLogic returning void, with ordered C parameters (svLogicPackedArrRef d, int i, svLogic s); preserve pointer levels,const qualifiers and variadic form.
 
@@ -133073,10 +133116,11 @@ If deprecated portion supported: The header declares svPutSelectLogic returning 
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_put_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_put_declarations.sv): svPutSelectLogic のアドレスを void (*)(logicref, int, svLogic) と比較し、参照・添字・値の順であることを表示する。 区別: 値の型を svBit にした宣言や順序を変えた宣言では型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVSIZEOFBITPACKEDARR
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svSizeOfBitPackedArr returning int, with ordered C parameters (int width); preserve pointer levels,const qualifiers and variadic form.
 
@@ -133084,10 +133128,11 @@ If deprecated portion supported: The header declares svSizeOfBitPackedArr return
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svSizeOfBitPackedArr のアドレスを int (*)(int) とコンパイル時に比較し、引数が int 1 個・戻り値 int であることを表示する。 区別: 引数や戻り値の型が違う宣言（戻り値を size_t にする等）では関数ポインタ型が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-API-SVSIZEOFLOGICPACKEDARR
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If deprecated portion supported: The header declares svSizeOfLogicPackedArr returning int, with ordered C parameters (int width); preserve pointer levels,const qualifiers and variadic form.
 
@@ -133095,10 +133140,11 @@ If deprecated portion supported: The header declares svSizeOfLogicPackedArr retu
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_get_declarations.sv](../tests/ch35/test_svdpi_h_deprecated_get_declarations.sv): svSizeOfLogicPackedArr のアドレスを int (*)(int) と比較し、int 1 個を受けて int を返すことを表示する。 区別: 引数や戻り値の型を変えた宣言では型比較が一致せず 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-CANONICAL
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If legacy portion supported: SV_CANONICAL_SIZE=(WIDTH+31)>>5,svBitVec32 is unsigned int,svLogicVec32 has unsigned int c,d fields.
 
@@ -133106,10 +133152,11 @@ If legacy portion supported: SV_CANONICAL_SIZE=(WIDTH+31)>>5,svBitVec32 is unsig
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_portion_types.sv](../tests/ch35/test_svdpi_h_deprecated_portion_types.sv): SV_CANONICAL_SIZE を幅 1/32/33/64/65 で評価して 1 1 2 2 3 になること、svBitVec32 が unsigned int、svLogicVec32 が unsigned int 2 個分の大きさで c が d より前にあり両方 unsigned int であることをコンパイル時比較と offsetof で表示する。 区別: チャンク数の式を誤る実装（幅 32 で 2 を返す等）や、svLogicVec32 のメンバ名・順序・型を変えた実装では該当行が 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-HANDLES
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 If legacy portion supported: svBitPackedArrRef/svLogicPackedArrRef alias void*.
 
@@ -133117,6 +133164,7 @@ If legacy portion supported: svBitPackedArrRef/svLogicPackedArrRef alias void*.
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_deprecated_portion_types.sv](../tests/ch35/test_svdpi_h_deprecated_portion_types.sv): svBitPackedArrRef と svLogicPackedArrRef を void* にキャストした式の型をコンパイル時に比較し、どちらも void* と同一型であることを表示する。 区別: これらの参照型を別のポインタ型や構造体にする実装では型比較が一致せず、2 行が 0 になる。
 
 ### SV2023-I.3-EXTRACT-LEGACY-INDICES
 
@@ -133189,7 +133237,7 @@ SV_PACKED_DATA_NELEMS computes (WIDTH+31)>>5.
 
 ### SV2023-I.3-EXTRACT-PACKED-INDICES
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 Packed select utility indices normalize to n-1:0, LSB zero.
 
@@ -133197,6 +133245,7 @@ Packed select utility indices normalize to n-1:0, LSB zero.
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_packed_bit_and_part_select.sv](../tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv): logic [15:8] a=8'b1010_0110 と bit [8:15] b=8'b0101_1001 を渡し、svGetBitselLogic/svGetBitselBit の添字 0..7 を並べて表示する。C 側の添字 0 が宣言の最下位ビット（a[8]、b[15]）になる。 区別: 添字を宣言の左端起点や逆順に扱う実装では 2 行のビット列が逆転し、a の行が 0 1 1 0 0 1 0 1 ではなく 1 0 1 0 0 1 1 0 などになる。
 
 ### SV2023-I.3-EXTRACT-PART-LIMIT
 
@@ -133222,7 +133271,7 @@ Under DPI_PROTOTYPES guard XXTERN combines DPI_EXTERN/DPI_DLLISPEC and EETERN co
 
 ### SV2023-I.3-EXTRACT-PUT-DATA
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 User key must meet uniqueness requirements; NULL scope/data or invalid scope is error; svPutUserData returns -1 error,0 success.
 
@@ -133230,6 +133279,7 @@ User key must meet uniqueness requirements; NULL scope/data or invalid scope is 
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_user_data.sv](../tests/ch35/test_svdpi_h_user_data.sv): 同じ import を 2 インスタンスから呼び、svPutUserData(scope,&key,ptr) が 0、NULL スコープでは -1、NULL データポインタでは -1 を返すこと、失敗した呼び出しに使ったキーは保存されていないことを表示する。 区別: NULL 引数を成功として 0 を返す実装では 4 行目・5 行目が 0 になり、失敗時に保存してしまう実装では 6 行目が 0 になる。
 
 ### SV2023-I.3-EXTRACT-SCALAR-TYPES
 
@@ -133245,7 +133295,7 @@ svScalar aliases uint8_t; svBit/svLogic alias svScalar.
 
 ### SV2023-I.3-EXTRACT-SCALARS
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 Scalar constants sv_0=0,sv_1=1,sv_z=2,sv_x=3.
 
@@ -133253,10 +133303,11 @@ Scalar constants sv_0=0,sv_1=1,sv_z=2,sv_x=3.
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_macros_and_c_linkage.sv](../tests/ch35/test_svdpi_h_macros_and_c_linkage.sv): sv_0 sv_1 sv_z sv_x を列挙定数（整数定数式であることを要求）と #if の両方で読み、0 1 2 3 であることと値の一致を表示する。 区別: いずれかの値を取り違えた実装（例: sv_z と sv_x の入れ替え）では、列挙定数の比較か #if の判定が 0 になりこの行が 0 になる。
 
 ### SV2023-I.3-EXTRACT-SCOPE-LOOKUP
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 svGetScopeFromName accepts supported instance-scope names and returns NULL for unrecognized names.
 
@@ -133264,10 +133315,11 @@ svGetScopeFromName accepts supported instance-scope names and returns NULL for u
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_scope_selection.sv](../tests/ch35/test_svdpi_h_scope_selection.sv): svGetScopeFromName に test_svdpi_h_scope_selection.u7 / .u9 / .unknown を渡し、既知の 2 つは NULL でないスコープを返して名前が往復し、未知の名前は NULL になることを表示する。 区別: 未知の名前でも非 NULL を返す実装では「unknown NULL 1」が 0 になり、既知の名前を引けない実装では 2 行目が NULL になる。
 
 ### SV2023-I.3-EXTRACT-SCOPE-NAME
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 svGetNameFromScope returns fully qualified scope name.
 
@@ -133275,10 +133327,11 @@ svGetNameFromScope returns fully qualified scope name.
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_scope_selection.sv](../tests/ch35/test_svdpi_h_scope_selection.sv): トップモジュールから呼ばれた import 内で svGetNameFromScope(svGetScope()) を表示し、完全修飾名 test_svdpi_h_scope_selection になること、svGetScopeFromName で引いた u7/u9 の名前がそれぞれ .u7/.u9 になることを表示する。 区別: 短い名前や相対名を返す実装では 1 行目・2 行目の文字列が期待と異なり、出力全体が一致しなくなる。
 
 ### SV2023-I.3-EXTRACT-SEMANTICS-SVGETTIME
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 svGetTime queries scoped current time/time-unit/time-precision respectively; NULL scope selects simulation time unit; invalid scope is error; return -1 on error,0 success.
 
@@ -133286,10 +133339,11 @@ svGetTime queries scoped current time/time-unit/time-precision respectively; NUL
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_scope_time.sv](../tests/ch35/test_svdpi_h_scope_time.sv): スコープ付きで type=vpiScaledRealTime の svTimeVal を渡し、トップ（1ns 単位、3ns 時点）で real=3.000、1us 単位の dpi_time_b（2.5us 時点）で real=2.500 になること、NULL スコープ・vpiSimTime ではシミュレーション時間単位 1ps の high/low が 0/3000 と 0/2500000 になることを表示する。 区別: スコープの時間単位で換算しない実装では 3.000 と 2.500 が同じ値（ps 単位の生値）になり、type を無視する実装では real が初期値 -1.000 のまま残る。
 
 ### SV2023-I.3-EXTRACT-SEMANTICS-SVGETTIMEPRECISION
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 svGetTimePrecision queries scoped current time/time-unit/time-precision respectively; NULL scope selects simulation time unit; invalid scope is error; return -1 on error,0 success.
 
@@ -133297,10 +133351,11 @@ svGetTimePrecision queries scoped current time/time-unit/time-precision respecti
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_scope_time.sv](../tests/ch35/test_svdpi_h_scope_time.sv): 同じ 2 スコープで svGetTimePrecision を呼び、トップで -12、1us/10ns の dpi_time_b で -8、NULL で -12 を表示する。 区別: 精度を単位と同じ値にする実装やスコープを無視する実装では dpi_time_b の行が -8 にならず、-12 や -6 になる。
 
 ### SV2023-I.3-EXTRACT-SEMANTICS-SVGETTIMEUNIT
 
-I.3 / normal / テスト未対応
+I.3 / normal / テスト対応あり・実行未確認
 
 svGetTimeUnit queries scoped current time/time-unit/time-precision respectively; NULL scope selects simulation time unit; invalid scope is error; return -1 on error,0 success.
 
@@ -133308,10 +133363,11 @@ svGetTimeUnit queries scoped current time/time-unit/time-precision respectively;
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_scope_time.sv](../tests/ch35/test_svdpi_h_scope_time.sv): svGetScope のスコープと NULL について svGetTimeUnit を呼び、トップで -9・NULL で -12、dpi_time_b で -6・NULL で -12 を表示する。 区別: スコープの timescale を読まずに固定値を返す実装では -9 と -6 が同じ値になり、NULL にシミュレーション時間単位（最小精度 1ps=-12）以外を返す実装では NULL 側が -12 にならない。
 
 ### SV2023-I.3-EXTRACT-SET-SCOPE
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 svSetScope returns previous scope and selects subsequent export scope; default surrounding import scope applies without explicit selection.
 
@@ -133319,6 +133375,7 @@ svSetScope returns previous scope and selects subsequent export scope; default s
 
 規定の性質: `mandatory`。
 
+- [test_svdpi_h_scope_selection.sv](../tests/ch35/test_svdpi_h_scope_selection.sv): トップから呼んだ c_lookups で svSetScope(u9) の戻り値が直前のスコープ（トップ）と等しいこと、直後の svGetScope が u9 を指すこと、その状態で export unit_tag が 9、続いて svSetScope(u7) 後は 7 を返すことを表示し、最後にトップへ戻す。 区別: svSetScope が以前のスコープを返さない、または後続の export のスコープを切り替えない実装では「previous 1」が 0 になり、export の値が 9 と 7 にならない。
 
 ### SV2023-I.3-EXTRACT-SIGNED-TEXT
 
@@ -133372,7 +133429,7 @@ VPI_TIME guards t_vpi_time with int32_t type,uint32_t high then low,double real 
 
 ### SV2023-I.3-EXTRACT-UNSIGNED
 
-I.3 / normal / テスト未対応
+I.3 / normal / 実行確認あり
 
 SV_GET_UNSIGNED_BITS returns input for N=32 otherwise masks with SV_MASK(N).
 
@@ -133380,6 +133437,7 @@ SV_GET_UNSIGNED_BITS returns input for N=32 otherwise masks with SV_MASK(N).
 
 規定の性質: `definition`。
 
+- [test_svdpi_h_packed_bit_and_part_select.sv](../tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv): SV_GET_UNSIGNED_BITS を (0x89abcdef,8)=0xef、(0x89abcdef,32)=0x89abcdef（N==32 は素通し）、(0x89abcdef,31)=0x09abcdef で評価し、結果を最後の行の 1 で示す。 区別: N==32 の場合分けを落とすと 32bit で 0x89abcdef が 0x09abcdef などに化け、マスクを誤れば 8bit の結果が 0xef にならず最終行が 0 になる。
 
 ### SV2023-I.3-EXTRACT-VERSION
 
@@ -134086,7 +134144,7 @@ t_vpi_arrayvalue has PLI_UINT32 format,flags then value union,with s_vpi_arrayva
 
 ### SV2023-K.2-EXTRACT-ARRAY-INTEGERS
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_arrayvalue.value includes PLI_INT32 * integers for corresponding array format.
 
@@ -134094,10 +134152,11 @@ t_vpi_arrayvalue.value includes PLI_INT32 * integers for corresponding array for
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ integers が PLI_INT32 * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: integers を PLI_INT64 * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-ARRAY-LONGINTS
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_arrayvalue.value includes PLI_INT64 * longints for corresponding array format.
 
@@ -134105,10 +134164,11 @@ t_vpi_arrayvalue.value includes PLI_INT64 * longints for corresponding array for
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ longints が PLI_INT64 * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: longints を PLI_INT32 * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-ARRAY-RAWVALS
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_arrayvalue.value includes PLI_BYTE8 * rawvals for corresponding array format.
 
@@ -134116,10 +134176,11 @@ t_vpi_arrayvalue.value includes PLI_BYTE8 * rawvals for corresponding array form
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ rawvals が PLI_BYTE8 * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: rawvals を PLI_UBYTE8 * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-ARRAY-REALS
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_arrayvalue.value includes double * reals for corresponding array format.
 
@@ -134127,10 +134188,11 @@ t_vpi_arrayvalue.value includes double * reals for corresponding array format.
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ reals が double * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: reals を float * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-ARRAY-SHORTINTS
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_arrayvalue.value includes PLI_INT16 * shortints for corresponding array format.
 
@@ -134138,10 +134200,11 @@ t_vpi_arrayvalue.value includes PLI_INT16 * shortints for corresponding array fo
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ shortints が PLI_INT16 * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: shortints を PLI_INT32 * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-ARRAY-SHORTREALS
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_arrayvalue.value includes float * shortreals for corresponding array format.
 
@@ -134149,10 +134212,11 @@ t_vpi_arrayvalue.value includes float * shortreals for corresponding array forma
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ shortreals が float * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: shortreals を double * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-ARRAY-TIMES
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_arrayvalue.value includes struct t_vpi_time * times for corresponding array format.
 
@@ -134160,10 +134224,11 @@ t_vpi_arrayvalue.value includes struct t_vpi_time * times for corresponding arra
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ times が struct t_vpi_time * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: times を double * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-ARRAY-VECTORS
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_arrayvalue.value includes struct t_vpi_vecval * vectors for corresponding array format.
 
@@ -134171,10 +134236,11 @@ t_vpi_arrayvalue.value includes struct t_vpi_vecval * vectors for corresponding 
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ vectors が struct t_vpi_vecval * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: vectors を void * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-C-LINKAGE
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 C++ inclusion wraps VPI declarations in extern C linkage.
 
@@ -134182,6 +134248,7 @@ C++ inclusion wraps VPI declarations in extern C linkage.
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_macro_linkage_types.sv](../tests/ch36/test_vpi_user_h_macro_linkage_types.sv): cbStartOfSimulation で vpi_printf を呼んで戻り値 > 0 を検査し、呼び出しの直前の『vpi_printf reached』行と合わせて 2 行を出力する。この C ファイルは Verilator では C++ としてビルドされる。 区別: ヘッダが宣言を extern "C" で包まなければ、C++ としてビルドした VPI アプリはマングルされた vpi_printf を参照し、リンクに失敗して 2 行とも出ない。extern "C" があれば C でも C++ でも 1 行目が 1 になる。
 
 ### SV2023-K.2-EXTRACT-CALLBACK
 
@@ -134197,7 +134264,7 @@ t_cb_data fields PLI_INT32 reason; callback function pointer returning PLI_INT32
 
 ### SV2023-K.2-EXTRACT-CLEANUP
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 Header undefines external/prototype helper macros and only its own DLL qualifier definitions, preserving user-provided DLL qualifiers.
 
@@ -134205,6 +134272,7 @@ Header undefines external/prototype helper macros and only its own DLL qualifier
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_macro_cleanup.sv](../tests/ch36/test_vpi_user_h_macro_cleanup.sv): アプリがヘッダの前に PLI_EXTERN, PLI_VEXTERN, PLI_PROTOTYPES, PROTO_PARAMS, XXTERN, EETERN, PLI_DLLISPEC, PLI_DLLESPEC を定義し、取り込み後に #ifdef で調べる。前半 6 つが未定義、DLL 修飾子 2 つが定義済みのまま、VPI_USER_DEFINED_DLLISPEC/ESPEC が未定義であることを 9 行で出力する。 区別: ヘッダ末尾の #undef を欠けば前半 6 行が 0（Icarus のヘッダが実際にそう）。ユーザ定義の DLL 修飾子にも VPI_USER_DEFINED_* を立てる実装では、後始末がアプリの PLI_DLLISPEC/PLI_DLLESPEC まで undef し 7・8 行目が 0 になる。フラグを消し忘れれば 9 行目が 0 になる。
 
 ### SV2023-K.2-EXTRACT-COMPATIBILITY
 
@@ -139692,7 +139760,7 @@ The VPI object,relationship,property,subtype,value,flag or callback identifier v
 
 ### SV2023-K.2-EXTRACT-DELAY-FIELD-APPEND-FLAG
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_delay has PLI_INT32 append_flag for append selection, in documented field order,with s_vpi_delay/p_vpi_delay aliases.
 
@@ -139700,10 +139768,11 @@ t_vpi_delay has PLI_INT32 append_flag for append selection, in documented field 
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、append_flag の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: append_flag の型や位置を変えると対応行が 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。
 
 ### SV2023-K.2-EXTRACT-DELAY-FIELD-DA
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_delay has struct t_vpi_time * da for application-allocated delay values, in documented field order,with s_vpi_delay/p_vpi_delay aliases.
 
@@ -139711,10 +139780,11 @@ t_vpi_delay has struct t_vpi_time * da for application-allocated delay values, i
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、da の型が struct t_vpi_time * であることを検査し、それぞれ 1 行ずつ出力する。 区別: da を struct t_vpi_time ** や void * にすると 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。
 
 ### SV2023-K.2-EXTRACT-DELAY-FIELD-MTM-FLAG
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_delay has PLI_INT32 mtm_flag for min/typ/max selection, in documented field order,with s_vpi_delay/p_vpi_delay aliases.
 
@@ -139722,10 +139792,11 @@ t_vpi_delay has PLI_INT32 mtm_flag for min/typ/max selection, in documented fiel
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、mtm_flag の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: mtm_flag を int 以外の幅にすると 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。
 
 ### SV2023-K.2-EXTRACT-DELAY-FIELD-NO-OF-DELAYS
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_delay has PLI_INT32 no_of_delays for delay count, in documented field order,with s_vpi_delay/p_vpi_delay aliases.
 
@@ -139733,10 +139804,11 @@ t_vpi_delay has PLI_INT32 no_of_delays for delay count, in documented field orde
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、no_of_delays の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: no_of_delays を PLI_UINT32 にすると 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。
 
 ### SV2023-K.2-EXTRACT-DELAY-FIELD-PULSERE-FLAG
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_delay has PLI_INT32 pulsere_flag for pulse reject/error selection, in documented field order,with s_vpi_delay/p_vpi_delay aliases.
 
@@ -139744,10 +139816,11 @@ t_vpi_delay has PLI_INT32 pulsere_flag for pulse reject/error selection, in docu
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、pulsere_flag の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: pulsere_flag の型や位置を変えると対応行が 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。
 
 ### SV2023-K.2-EXTRACT-DELAY-FIELD-TIME-TYPE
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_delay has PLI_INT32 time_type for time format, in documented field order,with s_vpi_delay/p_vpi_delay aliases.
 
@@ -139755,10 +139828,11 @@ t_vpi_delay has PLI_INT32 time_type for time format, in documented field order,w
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、time_type の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: time_type を PLI_UINT32 にすると 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。
 
 ### SV2023-K.2-EXTRACT-DEPRECATED-FREE
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 vpi_free_object declaration is retained but deprecated; current handle release API is vpi_release_handle.
 
@@ -139766,6 +139840,7 @@ vpi_free_object declaration is retained but deprecated; current handle release A
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_macro_linkage_types.sv](../tests/ch36/test_vpi_user_h_macro_linkage_types.sv): cbStartOfSimulation で vpi_free_object と vpi_release_handle のアドレス型を PLI_INT32 (*)(vpiHandle) と比較し、2 行を出力する。 区別: どちらかの宣言が消えればコンパイルできず行が出ない。戻り値を void や PLI_INT64 にすると SAME_TYPE が 0 になり該当行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-DLL
 
@@ -139840,7 +139915,7 @@ PLI_TYPES defines PLI_INT32=int,PLI_UINT32=unsigned int,PLI_INT16=short,PLI_UINT
 
 ### SV2023-K.2-EXTRACT-PROTOTYPES
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 PROTO_PARAMS(params) expands params; XXTERN combines external/import qualifiers and EETERN external/export qualifiers under PLI_PROTOTYPES.
 
@@ -139848,6 +139923,7 @@ PROTO_PARAMS(params) expands params; XXTERN combines external/import qualifiers 
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_macro_linkage_types.sv](../tests/ch36/test_vpi_user_h_macro_linkage_types.sv): cbStartOfSimulation で vpi_handle_multi（3 引数+可変）、vpi_register_cb、vpi_get64、vpi_printf（可変）、vpi_mcd_printf（可変）のアドレス型を、K.2 の宣言から作った関数ポインタ型と SAME_TYPE で比較し、5 行を出力する。 区別: PROTO_PARAMS(params) が params に展開されなければ、複数引数の宣言が壊れてコンパイルできないか型が変わり該当行が 0 になる。XXTERN が PLI_EXTERN とPLI_DLLISPEC の連結でなければ宣言の型が変わる。vpi_get64 の戻り値を PLI_INT32 にすると該当行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-RESERVED
 
@@ -139862,7 +139938,7 @@ Constant values 1 through 299 are reserved for vpi_user.h.
 
 ### SV2023-K.2-EXTRACT-SIZE-TYPES
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 Header provides size-critical integer types through platform-specific definitions/includes; preserve required widths with platform implementation method.
 
@@ -139870,6 +139946,7 @@ Header provides size-critical integer types through platform-specific definition
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_macro_linkage_types.sv](../tests/ch36/test_vpi_user_h_macro_linkage_types.sv): cbStartOfSimulation で PLI_INT32/PLI_UINT32/PLI_INT16/PLI_UINT16/PLI_BYTE8/PLI_UBYTE8/PLI_INT64/PLI_UINT64 の sizeof と符号、およびヘッダが用意する int8_t/int32_t/int64_t/uint8_t/uint32_t/uint64_t の sizeof と符号を検査し、1/0 を出力する。 区別: ヘッダが inttypes.h などを取り込まず幅の決まった型を用意しなければ typedef がコンパイルできず行が出ない。PLI_INT64 を 4 バイトにすると『widths』行が 0、PLI_UINT32 を signed にすると『signedness』行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-STARTUP
 
@@ -139896,7 +139973,7 @@ Header includes stdarg.h for variadic I/O prototypes.
 
 ### SV2023-K.2-EXTRACT-STRENGTH
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_strengthval has PLI_INT32 logic,s0,s1 in order and value/pointer aliases; logic uses scalar values and strengths use strength constants.
 
@@ -139904,10 +139981,11 @@ t_vpi_strengthval has PLI_INT32 logic,s0,s1 in order and value/pointer aliases; 
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_strengthval の s_/p_ 別名、logic<s0<s1 の順、3 フィールドが PLI_INT32 であることを検査し、1/0 を出力する。 区別: logic を PLI_UINT32 にすると 1 行が 0、s0/s1 の型を変えると対応行が 0、s1 を s0 より前に置くと順序の行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-SYSTF
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_systf_data fields in order: PLI_INT32 type,sysfunctype; PLI_BYTE8* tfname beginning dollar; calltf,compiletf,sizetf function pointers returning PLI_INT32 taking PLI_BYTE8*; PLI_BYTE8* user_data. sizetf is for sized functions; s/p typedefs supplied.
 
@@ -139915,10 +139993,11 @@ t_vpi_systf_data fields in order: PLI_INT32 type,sysfunctype; PLI_BYTE8* tfname 
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_systf_data の s_/p_ 別名、type<sysfunctype<tfname<calltf<compiletf<sizetf<user_data の順、type と sysfunctype が PLI_INT32、tfname と user_data が PLI_BYTE8 *、3 つのコールバックが PLI_INT32 (*)(PLI_BYTE8 *) であることを検査し、1/0 を出力する。 区別: tfname を const char * にすると『tfname PLI_BYTE8 *』行が 0（Icarus のヘッダが実際にそう）。user_data を const 修飾すると 0。calltf の引数を void * にすると 3 行が 0。フィールドを入れ替えると順序の行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-TIME
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 VPI_TIME guards t_vpi_time/s_vpi_time/p_vpi_time; fields are PLI_INT32 type,PLI_UINT32 high then low,double real; high/low used for simulation time,real for scaled real time.
 
@@ -139926,6 +140005,7 @@ VPI_TIME guards t_vpi_time/s_vpi_time/p_vpi_time; fields are PLI_INT32 type,PLI_
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で VPI_TIME ガードの有無、t_vpi_time の s_/p_ 別名、type<high<low<real の順、type が PLI_INT32、high と low が PLI_UINT32、real が double であることを検査し、それぞれ 1 行ずつ 1/0 で出力する。 区別: real を float にすると『t_vpi_time.real double』行が 0、high/low を PLI_INT32 にすると 2 行が 0、real を low より前に置くと順序の行が 0、VPI_TIME を定義しなければ『VPI_TIME defined』行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-VALUE-FORMAT
 
@@ -139941,7 +140021,7 @@ t_vpi_value has PLI_INT32 format and value union,with s_vpi_value/p_vpi_value al
 
 ### SV2023-K.2-EXTRACT-VALUE-INTEGER
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_value.value includes PLI_INT32 integer for corresponding value format.
 
@@ -139949,10 +140029,11 @@ t_vpi_value.value includes PLI_INT32 integer for corresponding value format.
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ integer が PLI_INT32 で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: integer を PLI_INT64 にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。
 
 ### SV2023-K.2-EXTRACT-VALUE-MISC
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_value.value includes PLI_BYTE8 * misc for corresponding value format.
 
@@ -139960,10 +140041,11 @@ t_vpi_value.value includes PLI_BYTE8 * misc for corresponding value format.
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ misc が PLI_BYTE8 * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: misc を char const * にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。
 
 ### SV2023-K.2-EXTRACT-VALUE-REAL
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_value.value includes double real for corresponding value format.
 
@@ -139971,10 +140053,11 @@ t_vpi_value.value includes double real for corresponding value format.
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ real が double で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: real を float にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。
 
 ### SV2023-K.2-EXTRACT-VALUE-SCALAR
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_value.value includes PLI_INT32 scalar for corresponding value format.
 
@@ -139982,10 +140065,11 @@ t_vpi_value.value includes PLI_INT32 scalar for corresponding value format.
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ scalar が PLI_INT32 で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: scalar を PLI_BYTE8 * にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。
 
 ### SV2023-K.2-EXTRACT-VALUE-STR
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_value.value includes PLI_BYTE8 * str for corresponding value format.
 
@@ -139993,10 +140077,11 @@ t_vpi_value.value includes PLI_BYTE8 * str for corresponding value format.
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ str が PLI_BYTE8 * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: str を const char * にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。
 
 ### SV2023-K.2-EXTRACT-VALUE-STRENGTH
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_value.value includes struct t_vpi_strengthval * strength for corresponding value format.
 
@@ -140004,10 +140089,11 @@ t_vpi_value.value includes struct t_vpi_strengthval * strength for corresponding
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ strength が struct t_vpi_strengthval * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: strength を struct t_vpi_strengthval にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。
 
 ### SV2023-K.2-EXTRACT-VALUE-TIME
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_value.value includes struct t_vpi_time * time for corresponding value format.
 
@@ -140015,10 +140101,11 @@ t_vpi_value.value includes struct t_vpi_time * time for corresponding value form
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ time が struct t_vpi_time * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: time を p_vpi_time 以外の型にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。
 
 ### SV2023-K.2-EXTRACT-VALUE-VECTOR
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 t_vpi_value.value includes struct t_vpi_vecval * vector for corresponding value format.
 
@@ -140026,10 +140113,11 @@ t_vpi_value.value includes struct t_vpi_vecval * vector for corresponding value 
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ vector が struct t_vpi_vecval * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: vector を void * にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。
 
 ### SV2023-K.2-EXTRACT-VECTOR
 
-K.2 / normal / テスト未対応
+K.2 / normal / 実行確認あり
 
 VPI_VECVAL guards t_vpi_vecval with PLI_UINT32 aval,bval in order and s_vpi_vecval/p_vpi_vecval aliases; pairs encode aval,bval 00=0,10=1,11=x,01=z and repeat in chunks to cover vector.
 
@@ -140037,6 +140125,7 @@ VPI_VECVAL guards t_vpi_vecval with PLI_UINT32 aval,bval in order and s_vpi_vecv
 
 規定の性質: `definition`。
 
+- [test_vpi_user_h_record_members.sv](../tests/ch36/test_vpi_user_h_record_members.sv): cbStartOfSimulation で VPI_VECVAL ガード、t_vpi_vecval の s_/p_ 別名、aval<bval の順、aval と bval が PLI_UINT32 であることを検査し、1/0 を出力する。 区別: aval/bval を PLI_INT32 にすると 2 行が 0（Icarus のヘッダが実際にそう）、bval を aval より前に置くと順序の行が 0、VPI_VECVAL を定義しなければ『VPI_VECVAL defined』行が 0 になる。
 
 ### SV2023-K.2-EXTRACT-VLOG-INFO
 
@@ -146157,7 +146246,7 @@ $random uses rtl_dist_uniform(seed,LONG_MIN,LONG_MAX).
 
 ### SV2023-N.2-EXTRACT-CHI-SQUARE
 
-N.2 / normal / テスト未対応
+N.2 / normal / 実行確認あり
 
 chi_square initializes squared standard-normal draw for odd df or zero for even df,then adds 2*exponential(seed,1) once per pair from k=2 through df inclusive.
 
@@ -146165,10 +146254,11 @@ chi_square initializes squared standard-normal draw for odd df or zero for even 
 
 規定の性質: `mandatory`。
 
+- [test_dist_chi_square_odd_even_df_and_rounding.sv](../tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv): 奇数自由度 1・3・5・7 と偶数自由度 2・4・8・10 について、固定シードから $dist_chi_square を 13 回呼び、値・更新後シード・シードが 69069*seed+1 で進んだ回数（draws）を表示する。奇数自由度は正規標本の 2 乗から始まる（シード 45・自由度 1 で 6.7507→7、シード 4 で 2.8138→3、シード 15 は棄却で 4 ではなく 8 回抽選）。偶数自由度は 0 から始まり指数標本だけを使う（自由度 2 は draws 1 でシード 2 が 20.6879→21、シード 10 が 17.4691→17）。2*exponential(seed,1) は自由度 3 で 1 個（シード 11 で 5.7793→6、draws 5）、4 で 2 個（draws 2）、5 で 2 個（draws 8）、7 で 3 個（draws 7）、8 で 4 個（draws 4）、10 で 5 個（シード 1 で 30.6503→31、draws 5）になる。 区別: 偶数自由度でも正規標本の 2 乗から始める実装では、自由度 2 の 2 行が 0 でなくなり draws も 1 から 3 以上に増え、期待出力と一致しない。奇数自由度を 0 から始める実装では自由度 1 の 3 行が値 0・draws 0 になり、6.7507→7 などの行が消える。2*exponential(1) の個数を 1 個ずらす、係数 2 を落とす、平均 1 の代わりに別の平均を使う実装では、自由度 2・4・5・7・8・10 の値と draws が変わる（例 自由度 4・シード 2 の 23.7029→24 が約 2 倍または半分になる）。丸めを切り捨てにすると 2.8138→2、20.6879→20、23.7029→23、5.7793→5、10.6689→10、8.6700→8、30.6503→30 など 12 行が 1 小さくなる。
 
 ### SV2023-N.2-EXTRACT-ERLANG
 
-N.2 / normal / テスト未対応
+N.2 / normal / 実行確認あり
 
 erlangian multiplies exactly k successive uniform(0,1) draws starting from one and returns -mean*log(product)/k.
 
@@ -146176,6 +146266,7 @@ erlangian multiplies exactly k successive uniform(0,1) draws starting from one a
 
 規定の性質: `mandatory`。
 
+- [test_dist_erlang_stage_count_and_product_rounding.sv](../tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv): 段数 1〜5 と平均 30・50・100・200・1000・1000000000・2147483647 について、固定シードから $dist_erlang を 14 回呼び、値・更新後シード・シードが 69069*seed+1 で進んだ回数を表示する。呼び出しごとに draws は段数 k とちょうど一致する（k=1 で 1、k=2 で 2、k=3 で 3、k=4 で 4、k=5 で 5）。シード 1・k=1・平均 100 は 1103.7110→1104、平均 200 は同じ標本から 2207.4221→2207、k=2 は 661.8836→662、k=4 は 380.5746→381、シード 3・k=3 は 457.7449→458、シード 3・k=5・平均 50 は 190.7093→191、シード 1・k=2・平均 1000 は 6618.8361→6619 になる。 区別: 積を 1 から始めず最初の標本から始める、または k+1 回抽選する実装では draws が k と一致せず、値も変わる。平均を掛けない実装では平均 100 と 200 の 2 行が同じ値になり、-log(product) を k で割らない実装では k=2 の 661.8836 が 1323.7672（→1324）になる。log の代わりに product や 1-product を使う実装では全行が変わる。k=3・平均 30 の 106.7295→107 は既存の test_dist_functions_annex_n と同じ値を再現する。
 
 ### SV2023-N.2-EXTRACT-EXPONENTIAL
 
@@ -146273,7 +146364,7 @@ Valid rtl_dist_poisson returns the long result from poisson helper unchanged.
 
 ### SV2023-N.2-EXTRACT-ROUND-CHI-SQUARE
 
-N.2 / normal / テスト未対応
+N.2 / normal / 実行確認あり
 
 For valid parameter,rtl_dist_chi_square calls its helper and rounds to long nearest integer with half magnitudes away from zero: positive truncate(r+0.5),negative negate(truncate(-r+0.5)).
 
@@ -146281,10 +146372,11 @@ For valid parameter,rtl_dist_chi_square calls its helper and rounds to long near
 
 規定の性質: `mandatory`。
 
+- [test_dist_chi_square_odd_even_df_and_rounding.sv](../tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv): 13 回の $dist_chi_square の呼び出しで、ヘルパーの値 2.8138・6.7507・20.6879・23.7029・5.7793・10.6689・8.6700・25.9103・30.6503 が 3・7・21・24・6・11・9・26・31 に、17.4691 が 17 になることを表示する。いずれも 0.5 を足してから 0 方向へ切り捨てた値（最近接整数）で、切り捨てだけなら 2・6・20・23・5・10・8・25・30・17 になる。自由度 2 の値は 2*exponential 1 個だけで、負になり得るのは標本が 1 をわずかに超える場合の約 -2^-22 までであり、その場合は符号分岐のどちらでも 0 に丸められるので、負の分岐は出力行を変えない（その旨をテストのコメントに書いた）。 区別: 0.5 を足さずに切り捨てる実装では小数部が 0.5 以上の 12 行が 1 小さくなる（6.7507→6、23.7029→23、30.6503→30 など）。床関数で丸める実装でも同じ 12 行が 1 小さくなる（2.8138→2、20.6879→20、10.6689→10 など）。値が負のときに符号を無視して 0.5 を足す実装は、到達する負の値がすべて 0 に丸められるため出力を変えないが、その分岐は値の範囲から観測できない。ヘルパーを呼ばずに別の値（例えば 0 や自由度そのもの）を返す実装では全 13 行が変わる。
 
 ### SV2023-N.2-EXTRACT-ROUND-ERLANG
 
-N.2 / normal / テスト未対応
+N.2 / normal / 実行確認あり
 
 For valid parameter,rtl_dist_erlang calls its helper and rounds to long nearest integer with half magnitudes away from zero: positive truncate(r+0.5),negative negate(truncate(-r+0.5)).
 
@@ -146292,6 +146384,7 @@ For valid parameter,rtl_dist_erlang calls its helper and rounds to long nearest 
 
 規定の性質: `mandatory`。
 
+- [test_dist_erlang_stage_count_and_product_rounding.sv](../tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv): 14 回の $dist_erlang の呼び出しで、ヘルパーの値 1103.7110・2207.4221・661.8836・500.9456・457.7449・339.6411・380.5746・290.8992・190.7093・106.7295・6618.8361・3805.7460 が 1104・2207・662・501・458・340・381・291・191・107・6619・3806 になり、負の -255.99995 が -256、-119.2093 が -119 になることを表示する。正の値では 1103.7110 と 661.8836 など小数部が 0.5 以上のものが切り上げられ、2207.4221 が切り下げられる。 区別: 0.5 を足さずに切り捨てる実装では 1103、661、457、380、190、6618、3805 など 12 行が 1 小さくなる。床関数で丸める実装でも正の小数部 0.5 以上の 11 行が 1 小さくなり、負の -119.2093 が -120 になる。符号を考えずに 0.5 を足して切り捨てる実装では -255.99995 が -255、-119.2093 が -119 となり、前者が一致しない。平均を掛けない、k で割らない、product の log を取らない実装でも値が変わる。
 
 ### SV2023-N.2-EXTRACT-ROUND-EXPONENTIAL
 
@@ -146307,7 +146400,7 @@ For valid parameter,rtl_dist_exponential calls its helper and rounds to long nea
 
 ### SV2023-N.2-EXTRACT-ROUND-T
 
-N.2 / normal / テスト未対応
+N.2 / normal / 実行確認あり
 
 For valid parameter,rtl_dist_t calls its helper and rounds to long nearest integer with half magnitudes away from zero: positive truncate(r+0.5),negative negate(truncate(-r+0.5)).
 
@@ -146315,6 +146408,7 @@ For valid parameter,rtl_dist_t calls its helper and rounds to long nearest integ
 
 規定の性質: `mandatory`。
 
+- [test_dist_t_chi_square_then_normal_order.sv](../tests/ch20/test_dist_t_chi_square_then_normal_order.sv): 16 回の $dist_t の呼び出しで、正の商 3.8703・0.8091・0.9381・0.7333・0.8693 が 4・1・1・1・1 に、0.2587 が 0 になる一方、負の商 -0.6719・-4.7347・-1.9147・-0.5681・-0.8032・-0.5997・-0.6297・-0.6228 が -1・-5・-2・-1・-1・-1・-1・-1 に、-0.4021 が 0 に、-1.1845 が -1 になることを表示する。 区別: 切り捨てだけの実装では -0.6719・-4.7347・-1.9147・-0.5681 などが 0・-4・-1・0 となり、正の 3.8703→3 なども含めて 14 行が変わる。-0.4021 の 0 は切り捨てでも同じである。符号を考えずに 0.5 を足して切り捨てる実装でも -0.6719→0、-4.7347→-4、-1.9147→-1 となり一致しない。負の値を床関数で丸める実装では -0.4021→-1、-1.1845→-2 となり、正の 3.8703→3、0.7333→0 も変わる。0.2587→0 と -0.4021→0 は、0.5 未満の大きさを 0 にする最近接の丸めを確かめる。
 
 ### SV2023-N.2-EXTRACT-SEED-UPDATE-TEXT
 
@@ -146331,7 +146425,7 @@ The supplied C algorithm updates signed long seed by 69069*seed+1,then assigns i
 
 ### SV2023-N.2-EXTRACT-T
 
-N.2 / normal / テスト未対応
+N.2 / normal / 実行確認あり
 
 t first draws chi_square,divides by df,takes square root,then draws standard normal and divides by root; preserve sampling order.
 
@@ -146339,6 +146433,7 @@ t first draws chi_square,divides by df,takes square root,then draws standard nor
 
 規定の性質: `mandatory`。
 
+- [test_dist_t_chi_square_then_normal_order.sv](../tests/ch20/test_dist_t_chi_square_then_normal_order.sv): 自由度 1・2・3・4・10 について、固定シードから $dist_t を 16 回呼び、値・更新後シード・シードが 69069*seed+1 で進んだ回数を表示する。抽選順は、まず自由度に対するカイ 2 乗標本（奇数自由度は正規標本の 2 乗を含む）、自由度で割って平方根、そのあとに標準正規標本、という順である。シード 14・自由度 1 ではカイ 2 乗標本 2.0754 を 4 回で、平方根 1.4406、続く正規標本 -0.9680 を 2 回で得て -0.6719 になる。シード 6・自由度 3 ではカイ 2 乗標本 0.2769 に 7 回、正規標本 0.2850 に 4 回を使い、合計 11 回で 0.9381 になる。自由度 2 は指数標本 1 回のあと正規標本、自由度 10 は指数標本 5 回のあと正規標本で、draws は 3〜7 になる。 区別: 正規標本を先に引いてからカイ 2 乗標本を引く実装では、同じシードでも使う標本が入れ替わり、シード 6・自由度 3 の 0.9381 やシード 14・自由度 1 の -0.6719 を含む各行の値と draws が変わる。カイ 2 乗標本を自由度で割る、または平方根を取る段階を省く実装では、自由度 1 以外の行が大きく変わる（自由度 10 で 0.8693→2.749）。平方根の代わりに自由度そのもので割る実装でも全行が変わる。カイ 2 乗を先に引くことを draws で確かめており、シード 6・自由度 3 の 11 回は内訳（カイ 2 乗 7 回、正規 4 回）と一致する。
 
 ### SV2023-N.2-EXTRACT-UNIFORM-END
 
@@ -146389,7 +146484,7 @@ Internal uniform falls back to floating range 0..2147483647 for start>=end,other
 
 ### SV2023-N.2-EXTRACT-UNIFORM-RESULT
 
-N.2 / normal / テスト未対応
+N.2 / normal / 実行確認あり
 
 rtl_dist_uniform returns the computed long i.
 
@@ -146397,6 +146492,7 @@ rtl_dist_uniform returns the computed long i.
 
 規定の性質: `definition`。
 
+- [test_dist_uniform_bounded_range_floor_and_clamp.sv](../tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv): シード 12345 から $dist_uniform(seed, -10, 10) を 8 回呼び、各分岐で計算した long i の値と新シードを表示する。負の標本は r-1 を切り捨てた i（-5.x が -6、-4.x が -5、-2.x が -3、-1.x が -2、-0.27 が -1）になり、新シード 100 の最小標本は -10、新シード -1 の上側のクランプは (0, 9) で 9、(-20, -11) で -11 になる。表示される値はすべて rtl_dist_uniform が返した i そのものである。 区別: i ではなく標本 r をそのまま 0 方向へ切り捨てて返す実装では、負の 8 行のうち -6・-5・-3・-2・-1 が -5・-4・-2・-1・0 と 1 大きくなり、新シード 100 の行が -9 になる。クランプを省く実装では新シード -1 の 2 行が 10 と -10 になる。これらの行が、戻り値が変換とクランプの後の i であることを示す。
 
 ### SV2023-N.2-EXTRACT-UNIFORM-REVERSE
 

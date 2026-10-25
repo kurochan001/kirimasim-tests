@@ -442276,7 +442276,29 @@
       "acceptance": "Imported function in disabled state must call svAckDisabledState before returning.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B051. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_disabled_state_ack.sv",
+          "observation": "無効状態を確認した import が svAckDisabledState() を呼んでから戻り、その後に disable が成立して worker の残りの $display が実行されないことを、ack 後の 1 行だけが出力されることで示す。 区別: ack を呼ばずに戻る実装では disable の完了位置が変わり、ack 行の後に worker の「after the import」が出力されたり、ack 行自体が出なくなる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a7ee3e67915391e898400964ca52adc64ce7e0812951229d6639310bb8a57a4d",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_disabled_state_ack.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_disabled_state_ack.c",
+              "contains": "        svAckDisabledState();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_disabled_state_ack.expected",
+              "contains": "the import acknowledged the disable and returns"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -444971,7 +444993,29 @@
       "acceptance": "Array query semantics follows SV queries; dimension zero is packed dimension, positive dimensions unpacked.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B031. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.sv",
+          "observation": "logic [7:0] packed_a [5:2] を open array 仮引数で受け、svDimensions が 1、次元 0（パック部）が left 7 right 0 low 0 high 7 increment 1 size 8、次元 1（アンパック部）が left 5 right 2 low 2 high 5 increment 1 size 4 であることを表示し、SystemVerilog 側の $left 等の値と並べて一致を示す。 区別: 次元 0 をアンパック部や別の範囲として扱う実装、$increment の向きを誤る実装では該当行の数値が変わり、SV 側の行と食い違う。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d600ee7fbe9228a8506fc01f081ced69a83f70a467c130f6320ac5609ab2d1f2",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.c",
+              "contains": "query(\"C packed\", h, 0);"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.expected",
+              "contains": "C packed dim 0: left 7 right 0 low 0 high 7 increment 1 size 8"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445047,7 +445091,29 @@
       "acceptance": "C++ inclusion wraps declarations in extern C linkage.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B003, B076. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+          "observation": "C ファイルを C++ としてコンパイルする際、svdpi.h を include した後に svDpiVersion・svAckDisabledState・svGetScope を改めて extern \"C\" ブロック内で宣言しており、これが衝突にならずコンパイルが通ることを確認し、最後に 1 を表示する。 区別: ヘッダが宣言を extern \"C\" で囲んでいなければ C++ では同じ名前が C++ リンケージで宣言済みとなり、この再宣言はコンパイルエラーになって 1 の行が出力されない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "845298ccc119f40b3977e1cee4165a2d85de8d36474340cff2e76719486a0b21",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.c",
+              "contains": "const char* svDpiVersion(void);"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.expected",
+              "contains": "a C++ translation unit can redeclare routines with C linkage 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445066,7 +445132,29 @@
       "acceptance": "svGetCallerInfo returns true and updates outputs when info available,false with unchanged outputs otherwise; availability implementation-specific; bad output pointers unpredictable; returned SV filename expires on next SV call and cannot be modified/freed.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B049. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_caller_info.sv",
+          "observation": "出力を \"no file\"/-1 で初期化して svGetCallerInfo を呼び、戻り値が 0 か 1 であること、1 ならファイル名が test_svdpi_h_caller_info.sv で行番号が呼び出し行 33、0 なら 2 つの出力が初期値のままであることを 2 行で表示する。 区別: 情報があるのに出力を更新しない実装、行番号を呼び出し行以外にする実装、0 を返すのに出力を書き換える実装では 2 行目が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "514286a4208492eb75e77921f04ddf0e120b205caa59fb192c5fa0ee41535cfd",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_caller_info.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_caller_info.c",
+              "contains": "int got = svGetCallerInfo(&file, &line);"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_caller_info.expected",
+              "contains": "the outputs follow the answer 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445084,7 +445172,29 @@
       "acceptance": "Whole packed-vector copy APIs require user-allocated canonical array of adequate size.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B036. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_packed_element_copy.sv",
+          "observation": "呼び手が用意した svBitVecVal got[SV_PACKED_DATA_NELEMS(64)]（2 チャンク）を 0xdeadbeef で埋めてから svGetBitArrElem1VecVal で bit[63:0] w[0] を読み、両チャンクが書き換わって 89abcdef 01234567 になること、同じ配列から svPutBitArrElem1VecVal で w[1] に 3333444411112222 を書き、svGetLogicArrElem1VecVal/svPutLogicArrElem1VecVal で logic[31:0] を読み書きした結果を表示する。 区別: 呼び手の配列ではなく内部領域にコピーする実装では 0xdeadbeef が残って「both written」が 0 になり、チャンク数や順序を誤れば 89abcdef 01234567 や書き込み後の w[1] が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1608d5f2f3aaeef45f2ab6ff534f006a2b88621d0f658367b3d608151b3df050",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_element_copy.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_element_copy.c",
+              "contains": "svBitVecVal got[SV_PACKED_DATA_NELEMS(64)];"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_element_copy.expected",
+              "contains": "two chunks of a 64-bit element: 89abcdef 01234567, both written 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445171,7 +445281,29 @@
       "acceptance": "svIsDisabledState returns one for disabled execution thread; caller must obey disable protocol.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B050. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_disabled_state_ack.sv",
+          "observation": "worker から呼ばれた import が export sv_wait（10ns 待つ）を呼び、5ns に worker を disable する。export 呼び出し前の svIsDisabledState が 0、disable で戻ってきた後が 1 であることを表示する。 区別: 常に 0 を返す実装では 3 行目が 1 にならず、無効状態を判定しない実装では export の戻り値 1 と合わせて行の内容が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a7ee3e67915391e898400964ca52adc64ce7e0812951229d6639310bb8a57a4d",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_disabled_state_ack.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_disabled_state_ack.c",
+              "contains": "int before = svIsDisabledState();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_disabled_state_ack.expected",
+              "contains": "the export returned 1: svIsDisabledState gives 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445189,7 +445321,29 @@
       "acceptance": "DPI_DLLESPEC uses dllexport on MSVC/MinGW/Cygwin and empty expansion elsewhere.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+          "observation": "同じく DPI_DLLESPEC を文字列化し、非 Windows 環境での置換列が空であること（文字列長 0）を表示する。 区別: DPI_DLLESPEC を __declspec(dllexport) などの非空の並びにする誤実装では空文字列にならず、この行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "845298ccc119f40b3977e1cee4165a2d85de8d36474340cff2e76719486a0b21",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.c",
+              "contains": "printf(\"DPI_DLLESPEC has an empty replacement here %d\\n\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.expected",
+              "contains": "DPI_DLLESPEC has an empty replacement here 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445207,7 +445361,29 @@
       "acceptance": "DPI_DLLISPEC uses dllimport on MSVC/MinGW/Cygwin and empty expansion elsewhere.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+          "observation": "ヘッダ処理後に DPI_DLLISPEC を文字列化し、この非 Windows 環境では空の置換列になること（文字列長 0）を表示する。include 前は未定義であることも別行で確認している。 区別: DPI_DLLISPEC を __declspec(dllimport) などの非空の並びとして定義する誤実装では文字列化の結果が空にならず、2 行目が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "845298ccc119f40b3977e1cee4165a2d85de8d36474340cff2e76719486a0b21",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.c",
+              "contains": "printf(\"DPI_DLLISPEC has an empty replacement here %d\\n\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.expected",
+              "contains": "DPI_DLLISPEC has an empty replacement here 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445261,7 +445437,29 @@
       "acceptance": "After svPutUserData(scope, userKey, data) succeeds with non-NULL data, svGetUserData(scope, userKey) returns that data pointer; on error, or when no prior svPutUserData() was made, it returns NULL.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B047, B048. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue DPI-GET-USER-DATA-RETURN resolved on 2026-10-24: All header declarations,types,macros and normative comments reviewed; the svGetUserData comment's '0 upon success' (B047) is read per H.9.3 B017 as returning the stored non-NULL user data pointer, consistent with the retrieval purpose stated in B047 and the NULL-userData caution in B046.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_user_data.sv",
+          "observation": "保存したキーに対して svGetUserData が同じポインタを返し、その先の int が 42（u1）と 7（u2）であること、未保存キーと NULL スコープでは NULL を返すことを表示する。 区別: 保存した値を別スコープと混同する実装では u1 の行が 7 になり、未保存キーで非 NULL を返す実装では NULL 判定が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2aebdc95133a1496b76daeae34544138b3db5b7e34c1f3cb80391036b88d67e5",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_user_data.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_user_data.c",
+              "contains": "printf(\"the same key gives back %d\\n\", *(int *)svGetUserData(scope, &used_key));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_user_data.expected",
+              "contains": "the same key gives back 42"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445324,7 +445522,29 @@
       "acceptance": "svScope and svOpenArrayHandle alias void* with declared XXTERN prefix in supplied header.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B024, B025. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+          "observation": "svScope と svOpenArrayHandle を void* にキャストした式の型をコンパイル時に比較し（C11 _Generic / C++ decltype）、どちらも void* と同一型であることを 2 行で表示する。 区別: ハンドルを構造体や別のポインタ型にする実装では型比較が一致せず、該当行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "845298ccc119f40b3977e1cee4165a2d85de8d36474340cff2e76719486a0b21",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.c",
+              "contains": "printf(\"svScope is void* %d\\n\", SAME_TYPE((svScope)0, void*));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.expected",
+              "contains": "svScope is void* 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445361,7 +445581,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGet32Bits returning svBitVec32, with ordered C parameters (const svBitPackedArrRef s, int i); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B067. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGet32Bits のアドレスを svBitVec32 (*)(bitref, int) と比較し、参照と開始位置を受けて 32bit を返すことを表示する。 区別: 戻り値型や引数を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svGet32Bits, svBitVec32 (*)(bitref, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGet32Bits: svBitVec32 (bitref, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445379,7 +445621,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGet64Bits returning uint64_t, with ordered C parameters (const svBitPackedArrRef s, int i); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B068. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGet64Bits のアドレスを uint64_t (*)(bitref, int) と比較し、参照と開始位置を受けて uint64_t を返すことを表示する。 区別: 戻り値を uint32_t や unsigned long にした宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svGet64Bits, uint64_t (*)(bitref, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGet64Bits: uint64_t (bitref, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445397,7 +445661,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetBitArrElem1Vec32 returning void, with ordered C parameters (svBitVec32* d, const svOpenArrayHandle s, int indx1); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetBitArrElem1Vec32 のアドレスを void (*)(svBitVec32*, svOpenArrayHandle, int) と比較し、1 次元分の添字を取ることを表示する。 区別: 添字の個数やポインタ段数を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "void (*)(svBitVec32*, svOpenArrayHandle, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetBitArrElem1Vec32: void (svBitVec32*, svOpenArrayHandle, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445415,7 +445701,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetBitArrElem2Vec32 returning void, with ordered C parameters (svBitVec32* d, const svOpenArrayHandle s, int indx1, int indx2); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetBitArrElem2Vec32 のアドレスを void (*)(svBitVec32*, svOpenArrayHandle, int, int) と比較し、2 次元分の添字を取ることを表示する。 区別: 添字を 1 個に減らした宣言や順序を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "void (*)(svBitVec32*, svOpenArrayHandle, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetBitArrElem2Vec32: void (svBitVec32*, svOpenArrayHandle, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445433,7 +445741,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetBitArrElem3Vec32 returning void, with ordered C parameters (svBitVec32* d, const svOpenArrayHandle s, int indx1, int indx2, int indx3); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetBitArrElem3Vec32 のアドレスを void (*)(svBitVec32*, svOpenArrayHandle, int, int, int) と比較し、3 次元分の添字を取ることを表示する。 区別: 添字の個数を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "void (*)(svBitVec32*, svOpenArrayHandle, int, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetBitArrElem3Vec32: void (svBitVec32*, svOpenArrayHandle, int, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445451,7 +445781,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetBitArrElemVec32 returning void, with ordered C parameters (svBitVec32* d, const svOpenArrayHandle s, int indx1, ...); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetBitArrElemVec32 のアドレスを void (*)(svBitVec32*, svOpenArrayHandle, int, ...) と比較し、可変個の添字を取ることを含めて表示する。 区別: 可変引数を固定引数に変えた宣言や引数順を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "void (*)(svBitVec32*, svOpenArrayHandle, int, ...)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetBitArrElemVec32: void (svBitVec32*, svOpenArrayHandle, int, ...) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445469,7 +445821,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetBits returning svBitVec32, with ordered C parameters (const svBitPackedArrRef s, int i, int w); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B067. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetBits のアドレスを svBitVec32 (*)(bitref, int, int) と比較し、参照・開始位置・幅を受けて svBitVec32 を返すことを表示する。 区別: 戻り値を void やポインタにした宣言、幅を落とした宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svGetBits, svBitVec32 (*)(bitref, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetBits: svBitVec32 (bitref, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445487,7 +445861,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetBitVec32 returning void, with ordered C parameters (svBitVec32* d, const svBitPackedArrRef s, int w); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B062. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetBitVec32 のアドレスを void (*)(svBitVec32*, bitref, int) と比較し、出力ポインタ・パック配列参照・幅の順であることを表示する。 区別: 引数の順序やポインタ段数（svBitVec32* を値にする等）を誤った宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svGetBitVec32, void (*)(svBitVec32*, bitref, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetBitVec32: void (svBitVec32*, bitref, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445505,7 +445901,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetLogicArrElem1Vec32 returning void, with ordered C parameters (svLogicVec32* d, const svOpenArrayHandle s, int indx1); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetLogicArrElem1Vec32 のアドレスを void (*)(svLogicVec32*, svOpenArrayHandle, int) と比較し、1 次元分の添字を取ることを表示する。 区別: 要素型や添字の個数を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "void (*)(svLogicVec32*, svOpenArrayHandle, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetLogicArrElem1Vec32: void (svLogicVec32*, svOpenArrayHandle, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445523,7 +445941,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetLogicArrElem2Vec32 returning void, with ordered C parameters (svLogicVec32* d, const svOpenArrayHandle s, int indx1, int indx2); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetLogicArrElem2Vec32 のアドレスを void (*)(svLogicVec32*, svOpenArrayHandle, int, int) と比較し、2 次元分の添字を取ることを表示する。 区別: 添字の個数や要素型を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "void (*)(svLogicVec32*, svOpenArrayHandle, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetLogicArrElem2Vec32: void (svLogicVec32*, svOpenArrayHandle, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445541,7 +445981,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetLogicArrElem3Vec32 returning void, with ordered C parameters (svLogicVec32* d, const svOpenArrayHandle s, int indx1, int indx2, int indx3); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetLogicArrElem3Vec32 のアドレスを void (*)(svLogicVec32*, svOpenArrayHandle, int, int, int) と比較し、3 次元分の添字を取ることを表示する。 区別: 添字の個数や要素型を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "void (*)(svLogicVec32*, svOpenArrayHandle, int, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetLogicArrElem3Vec32: void (svLogicVec32*, svOpenArrayHandle, int, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445559,7 +446021,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetLogicArrElemVec32 returning void, with ordered C parameters (svLogicVec32* d, const svOpenArrayHandle s, int indx1, ...); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetLogicArrElemVec32 のアドレスを void (*)(svLogicVec32*, svOpenArrayHandle, int, ...) と比較し、可変個の添字を取ることを表示する。 区別: 可変引数を落とした宣言や要素型を svBitVec32 にした宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "void (*)(svLogicVec32*, svOpenArrayHandle, int, ...)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetLogicArrElemVec32: void (svLogicVec32*, svOpenArrayHandle, int, ...) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445577,7 +446061,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetLogicVec32 returning void, with ordered C parameters (svLogicVec32* d, const svLogicPackedArrRef s, int w); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B062. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetLogicVec32 のアドレスを void (*)(svLogicVec32*, logicref, int) と比較し、出力ポインタ・参照・幅の順であることを表示する。 区別: svLogicVec32* を値や const ポインタに変えた宣言、引数順を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svGetLogicVec32, void (*)(svLogicVec32*, logicref, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetLogicVec32: void (svLogicVec32*, logicref, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445595,7 +446101,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetPartSelectBit returning void, with ordered C parameters (svBitVec32* d, const svBitPackedArrRef s, int i, int w); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B067. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetPartSelectBit のアドレスを void (*)(svBitVec32*, bitref, int, int) と比較し、出力・参照・開始位置・幅の 4 引数であることを表示する。 区別: 引数の個数や順序、幅の型を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svGetPartSelectBit, void (*)(svBitVec32*, bitref, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetPartSelectBit: void (svBitVec32*, bitref, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445613,7 +446141,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetPartSelectLogic returning void, with ordered C parameters (svLogicVec32* d, const svLogicPackedArrRef s, int i, int w); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B069. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetPartSelectLogic のアドレスを void (*)(svLogicVec32*, logicref, int, int) と比較し、4 引数の並びを表示する。 区別: 参照型や引数順を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svGetPartSelectLogic, void (*)(svLogicVec32*, logicref, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetPartSelectLogic: void (svLogicVec32*, logicref, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445631,7 +446181,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetSelectBit returning svBit, with ordered C parameters (const svBitPackedArrRef s, int i); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B064. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetSelectBit のアドレスを svBit (*)(bitref, int) と比較し、パック配列参照と添字を受けて svBit を返すことを表示する。 区別: 戻り値を svLogic や int にした宣言、添字を第 1 引数にした宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svGetSelectBit, svBit (*)(bitref, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetSelectBit: svBit (bitref, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445649,7 +446221,29 @@
       "acceptance": "If deprecated portion supported: The header declares svGetSelectLogic returning svLogic, with ordered C parameters (const svLogicPackedArrRef s, int i); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B064. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svGetSelectLogic のアドレスを svLogic (*)(logicref, int) と比較し、logicref と添字を受けて svLogic を返すことを表示する。 区別: 戻り値型や参照型を取り違えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svGetSelectLogic, svLogic (*)(logicref, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetSelectLogic: svLogic (logicref, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445667,7 +446261,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutBitArrElem1Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svBitVec32* s, int indx1); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutBitArrElem1Vec32 のアドレスを void (*)(svOpenArrayHandle, const svBitVec32*, int) と比較し、1 次元分の添字を取ることを表示する。 区別: 入力チャンクの const を落とした宣言などでは型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "void (*)(svOpenArrayHandle, const svBitVec32*, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutBitArrElem1Vec32: void (svOpenArrayHandle, const svBitVec32*, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445685,7 +446301,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutBitArrElem2Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svBitVec32* s, int indx1, int indx2); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutBitArrElem2Vec32 のアドレスを void (*)(svOpenArrayHandle, const svBitVec32*, int, int) と比較し、2 次元分の添字を取ることを表示する。 区別: 添字の個数を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "void (*)(svOpenArrayHandle, const svBitVec32*, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutBitArrElem2Vec32: void (svOpenArrayHandle, const svBitVec32*, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445703,7 +446341,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutBitArrElem3Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svBitVec32* s, int indx1, int indx2, int indx3); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutBitArrElem3Vec32 のアドレスを void (*)(svOpenArrayHandle, const svBitVec32*, int, int, int) と比較し、3 次元分の添字を取ることを表示する。 区別: 添字の個数を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "void (*)(svOpenArrayHandle, const svBitVec32*, int, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutBitArrElem3Vec32: void (svOpenArrayHandle, const svBitVec32*, int, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445721,7 +446381,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutBitArrElemVec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svBitVec32* s, int indx1, ...); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutBitArrElemVec32 のアドレスを void (*)(svOpenArrayHandle, const svBitVec32*, int, ...) と比較し、要素の添字を可変個取ることを表示する。 区別: 可変引数を落とした宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "void (*)(svOpenArrayHandle, const svBitVec32*, int, ...)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutBitArrElemVec32: void (svOpenArrayHandle, const svBitVec32*, int, ...) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445739,7 +446421,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutBitVec32 returning void, with ordered C parameters (svBitPackedArrRef d, const svBitVec32* s, int w); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B061. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutBitVec32 のアドレスを void (*)(bitref, const svBitVec32*, int) と比較し、参照・入力チャンク・幅の順であることを表示する。 区別: 入力チャンクを値や非 const ポインタにした宣言、引数順を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "SAME_TYPE(&svPutBitVec32, void (*)(bitref, const svBitVec32*, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutBitVec32: void (bitref, const svBitVec32*, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445757,7 +446461,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutLogicArrElem1Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svLogicVec32* s, int indx1); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutLogicArrElem1Vec32 のアドレスを void (*)(svOpenArrayHandle, const svLogicVec32*, int) と比較し、1 次元分の添字を取ることを表示する。 区別: 要素型や添字の個数を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "void (*)(svOpenArrayHandle, const svLogicVec32*, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutLogicArrElem1Vec32: void (svOpenArrayHandle, const svLogicVec32*, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445775,7 +446501,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutLogicArrElem2Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svLogicVec32* s, int indx1, int indx2); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutLogicArrElem2Vec32 のアドレスを void (*)(svOpenArrayHandle, const svLogicVec32*, int, int) と比較し、2 次元分の添字を取ることを表示する。 区別: 添字の個数や要素型を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "void (*)(svOpenArrayHandle, const svLogicVec32*, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutLogicArrElem2Vec32: void (svOpenArrayHandle, const svLogicVec32*, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445793,7 +446541,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutLogicArrElem3Vec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svLogicVec32* s, int indx1, int indx2, int indx3); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutLogicArrElem3Vec32 のアドレスを void (*)(svOpenArrayHandle, const svLogicVec32*, int, int, int) と比較し、3 次元分の添字を取ることを表示する。 区別: 添字の個数や要素型を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "void (*)(svOpenArrayHandle, const svLogicVec32*, int, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutLogicArrElem3Vec32: void (svOpenArrayHandle, const svLogicVec32*, int, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445811,7 +446581,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutLogicArrElemVec32 returning void, with ordered C parameters (const svOpenArrayHandle d, const svLogicVec32* s, int indx1, ...); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutLogicArrElemVec32 のアドレスを void (*)(svOpenArrayHandle, const svLogicVec32*, int, ...) と比較し、可変個の添字を取ることを表示する。 区別: 要素型を svBitVec32 にした宣言や可変引数を落とした宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "void (*)(svOpenArrayHandle, const svLogicVec32*, int, ...)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutLogicArrElemVec32: void (svOpenArrayHandle, const svLogicVec32*, int, ...) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445829,7 +446621,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutLogicVec32 returning void, with ordered C parameters (svLogicPackedArrRef d, const svLogicVec32* s, int w); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B061. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutLogicVec32 のアドレスを void (*)(logicref, const svLogicVec32*, int) と比較し、参照・入力チャンク・幅の順であることを表示する。 区別: 入力チャンクを const でないポインタにした宣言などでは型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "SAME_TYPE(&svPutLogicVec32, void (*)(logicref, const svLogicVec32*, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutLogicVec32: void (logicref, const svLogicVec32*, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445847,7 +446661,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutPartSelectBit returning void, with ordered C parameters (svBitPackedArrRef d, const svBitVec32 s, int i, int w); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B069. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutPartSelectBit のアドレスを void (*)(bitref, svBitVec32, int, int) と比較し、開始位置と幅に加えてチャンク値をポインタではなく値で受け取ることを表示する。 区別: チャンク値をポインタにした宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "SAME_TYPE(&svPutPartSelectBit, void (*)(bitref, svBitVec32, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutPartSelectBit: void (bitref, svBitVec32, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445865,7 +446701,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutPartSelectLogic returning void, with ordered C parameters (svLogicPackedArrRef d, const svLogicVec32 s, int i, int w); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B069. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutPartSelectLogic のアドレスを void (*)(logicref, svLogicVec32, int, int) と比較し、svLogicVec32 をポインタではなく値で受け取る 4 引数であることを表示する。 区別: svLogicVec32 を const ポインタで受け取る宣言では型が一致せず 0 になる（Verilator 5.052 のヘッダはポインタで宣言しており、この行が 0 になる）。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "SAME_TYPE(&svPutPartSelectLogic, void (*)(logicref, svLogicVec32, int, int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutPartSelectLogic: void (logicref, svLogicVec32, int, int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445883,7 +446741,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutSelectBit returning void, with ordered C parameters (svBitPackedArrRef d, int i, svBit s); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B065. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutSelectBit のアドレスを void (*)(bitref, int, svBit) と比較し、参照・添字・値の順であることを表示する。 区別: 値と添字の順序を入れ替えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "SAME_TYPE(&svPutSelectBit, void (*)(bitref, int, svBit)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutSelectBit: void (bitref, int, svBit) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445901,7 +446781,29 @@
       "acceptance": "If deprecated portion supported: The header declares svPutSelectLogic returning void, with ordered C parameters (svLogicPackedArrRef d, int i, svLogic s); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B065. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+          "observation": "svPutSelectLogic のアドレスを void (*)(logicref, int, svLogic) と比較し、参照・添字・値の順であることを表示する。 区別: 値の型を svBit にした宣言や順序を変えた宣言では型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "SAME_TYPE(&svPutSelectLogic, void (*)(logicref, int, svLogic)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutSelectLogic: void (logicref, int, svLogic) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445919,7 +446821,29 @@
       "acceptance": "If deprecated portion supported: The header declares svSizeOfBitPackedArr returning int, with ordered C parameters (int width); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B059. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svSizeOfBitPackedArr のアドレスを int (*)(int) とコンパイル時に比較し、引数が int 1 個・戻り値 int であることを表示する。 区別: 引数や戻り値の型が違う宣言（戻り値を size_t にする等）では関数ポインタ型が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svSizeOfBitPackedArr, int (*)(int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svSizeOfBitPackedArr: int (int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445937,7 +446861,29 @@
       "acceptance": "If deprecated portion supported: The header declares svSizeOfLogicPackedArr returning int, with ordered C parameters (int width); preserve pointer levels,const qualifiers and variadic form.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B059. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+          "observation": "svSizeOfLogicPackedArr のアドレスを int (*)(int) と比較し、int 1 個を受けて int を返すことを表示する。 区別: 引数や戻り値の型を変えた宣言では型比較が一致せず 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "SAME_TYPE(&svSizeOfLogicPackedArr, int (*)(int)));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svSizeOfLogicPackedArr: int (int) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445955,7 +446901,29 @@
       "acceptance": "If legacy portion supported: SV_CANONICAL_SIZE=(WIDTH+31)>>5,svBitVec32 is unsigned int,svLogicVec32 has unsigned int c,d fields.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B057. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_portion_types.sv",
+          "observation": "SV_CANONICAL_SIZE を幅 1/32/33/64/65 で評価して 1 1 2 2 3 になること、svBitVec32 が unsigned int、svLogicVec32 が unsigned int 2 個分の大きさで c が d より前にあり両方 unsigned int であることをコンパイル時比較と offsetof で表示する。 区別: チャンク数の式を誤る実装（幅 32 で 2 を返す等）や、svLogicVec32 のメンバ名・順序・型を変えた実装では該当行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "af4cf9a133c97e2cade6a0c31a9811fbce18ba8de5da4de316135f01799ea459",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_portion_types.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_portion_types.c",
+              "contains": "SV_CANONICAL_SIZE(1) == 1 && SV_CANONICAL_SIZE(32) == 1 &&"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_portion_types.expected",
+              "contains": "SV_CANONICAL_SIZE of 1 32 33 64 65 is 1 1 2 2 3 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -445973,7 +446941,29 @@
       "acceptance": "If legacy portion supported: svBitPackedArrRef/svLogicPackedArrRef alias void*.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B058. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_deprecated_portion_types.sv",
+          "observation": "svBitPackedArrRef と svLogicPackedArrRef を void* にキャストした式の型をコンパイル時に比較し、どちらも void* と同一型であることを表示する。 区別: これらの参照型を別のポインタ型や構造体にする実装では型比較が一致せず、2 行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "af4cf9a133c97e2cade6a0c31a9811fbce18ba8de5da4de316135f01799ea459",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_portion_types.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_portion_types.c",
+              "contains": "printf(\"svBitPackedArrRef is void* %d\\n\", SAME_TYPE((svBitPackedArrRef)0, void*));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_portion_types.expected",
+              "contains": "svBitPackedArrRef is void* 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446202,7 +447192,29 @@
       "acceptance": "Packed select utility indices normalize to n-1:0, LSB zero.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B026. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
+          "observation": "logic [15:8] a=8'b1010_0110 と bit [8:15] b=8'b0101_1001 を渡し、svGetBitselLogic/svGetBitselBit の添字 0..7 を並べて表示する。C 側の添字 0 が宣言の最下位ビット（a[8]、b[15]）になる。 区別: 添字を宣言の左端起点や逆順に扱う実装では 2 行のビット列が逆転し、a の行が 0 1 1 0 0 1 0 1 ではなく 1 0 1 0 0 1 1 0 などになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "69ccaee9d5f58c4bed5538b4e30ba2bd29d0ec80f07f8fa3e74f9650733cef34",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.c",
+              "contains": "printf(\" %d\", (int)svGetBitselLogic(a, i));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.expected",
+              "contains": "logic vector bits from the LSB: 0 1 1 0 0 1 0 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446256,7 +447268,29 @@
       "acceptance": "User key must meet uniqueness requirements; NULL scope/data or invalid scope is error; svPutUserData returns -1 error,0 success.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B046. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_user_data.sv",
+          "observation": "同じ import を 2 インスタンスから呼び、svPutUserData(scope,&key,ptr) が 0、NULL スコープでは -1、NULL データポインタでは -1 を返すこと、失敗した呼び出しに使ったキーは保存されていないことを表示する。 区別: NULL 引数を成功として 0 を返す実装では 4 行目・5 行目が 0 になり、失敗時に保存してしまう実装では 6 行目が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2aebdc95133a1496b76daeae34544138b3db5b7e34c1f3cb80391036b88d67e5",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_user_data.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_user_data.c",
+              "contains": "printf(\"svPutUserData with a NULL scope returns %d\\n\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_user_data.expected",
+              "contains": "svPutUserData with a NULL scope returns -1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446322,7 +447356,29 @@
       "acceptance": "Scalar constants sv_0=0,sv_1=1,sv_z=2,sv_x=3.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+          "observation": "sv_0 sv_1 sv_z sv_x を列挙定数（整数定数式であることを要求）と #if の両方で読み、0 1 2 3 であることと値の一致を表示する。 区別: いずれかの値を取り違えた実装（例: sv_z と sv_x の入れ替え）では、列挙定数の比較か #if の判定が 0 になりこの行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "845298ccc119f40b3977e1cee4165a2d85de8d36474340cff2e76719486a0b21",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.c",
+              "contains": "VT_SV_0 == 0 && VT_SV_1 == 1 && VT_SV_Z == 2 && VT_SV_X == 3 && sv_0 == 0 &&"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.expected",
+              "contains": "sv_0 sv_1 sv_z sv_x are 0 1 2 3 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446340,7 +447396,29 @@
       "acceptance": "svGetScopeFromName accepts supported instance-scope names and returns NULL for unrecognized names.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B045. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_scope_selection.sv",
+          "observation": "svGetScopeFromName に test_svdpi_h_scope_selection.u7 / .u9 / .unknown を渡し、既知の 2 つは NULL でないスコープを返して名前が往復し、未知の名前は NULL になることを表示する。 区別: 未知の名前でも非 NULL を返す実装では「unknown NULL 1」が 0 になり、既知の名前を引けない実装では 2 行目が NULL になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cff96c6052e760b827b33257d3d5e65935d8e1a138f908a496231364466dfaec",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.c",
+              "contains": "svScope none = svGetScopeFromName(TOP \".unknown\");"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.expected",
+              "contains": "lookup of an unknown name gives NULL 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446358,7 +447436,29 @@
       "acceptance": "svGetNameFromScope returns fully qualified scope name.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B044. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_scope_selection.sv",
+          "observation": "トップモジュールから呼ばれた import 内で svGetNameFromScope(svGetScope()) を表示し、完全修飾名 test_svdpi_h_scope_selection になること、svGetScopeFromName で引いた u7/u9 の名前がそれぞれ .u7/.u9 になることを表示する。 区別: 短い名前や相対名を返す実装では 1 行目・2 行目の文字列が期待と異なり、出力全体が一致しなくなる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cff96c6052e760b827b33257d3d5e65935d8e1a138f908a496231364466dfaec",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.c",
+              "contains": "printf(\"the top module calls from the scope %s\\n\", svGetNameFromScope(top));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.expected",
+              "contains": "the top module calls from the scope test_svdpi_h_scope_selection"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446376,7 +447476,29 @@
       "acceptance": "svGetTime queries scoped current time/time-unit/time-precision respectively; NULL scope selects simulation time unit; invalid scope is error; return -1 on error,0 success.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B052. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_scope_time.sv",
+          "observation": "スコープ付きで type=vpiScaledRealTime の svTimeVal を渡し、トップ（1ns 単位、3ns 時点）で real=3.000、1us 単位の dpi_time_b（2.5us 時点）で real=2.500 になること、NULL スコープ・vpiSimTime ではシミュレーション時間単位 1ps の high/low が 0/3000 と 0/2500000 になることを表示する。 区別: スコープの時間単位で換算しない実装では 3.000 と 2.500 が同じ値（ps 単位の生値）になり、type を無視する実装では real が初期値 -1.000 のまま残る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b66f2d088b4ef3c6628904df623b0714a0164f4a9e46844283faee346508dd73",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_time.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_time.c",
+              "contains": "failed |= svGetTime(scope, &t) != 0;"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_time.expected",
+              "contains": "top: scaled real time in its unit 3.000"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446394,7 +447516,29 @@
       "acceptance": "svGetTimePrecision queries scoped current time/time-unit/time-precision respectively; NULL scope selects simulation time unit; invalid scope is error; return -1 on error,0 success.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B054. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_scope_time.sv",
+          "observation": "同じ 2 スコープで svGetTimePrecision を呼び、トップで -12、1us/10ns の dpi_time_b で -8、NULL で -12 を表示する。 区別: 精度を単位と同じ値にする実装やスコープを無視する実装では dpi_time_b の行が -8 にならず、-12 や -6 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b66f2d088b4ef3c6628904df623b0714a0164f4a9e46844283faee346508dd73",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_time.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_time.c",
+              "contains": "failed |= svGetTimePrecision(scope, &precision) != 0;"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_time.expected",
+              "contains": "b: unit -6 precision -8, for a NULL scope -12 -12"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446412,7 +447556,29 @@
       "acceptance": "svGetTimeUnit queries scoped current time/time-unit/time-precision respectively; NULL scope selects simulation time unit; invalid scope is error; return -1 on error,0 success.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B053. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_scope_time.sv",
+          "observation": "svGetScope のスコープと NULL について svGetTimeUnit を呼び、トップで -9・NULL で -12、dpi_time_b で -6・NULL で -12 を表示する。 区別: スコープの timescale を読まずに固定値を返す実装では -9 と -6 が同じ値になり、NULL にシミュレーション時間単位（最小精度 1ps=-12）以外を返す実装では NULL 側が -12 にならない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b66f2d088b4ef3c6628904df623b0714a0164f4a9e46844283faee346508dd73",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_time.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_time.c",
+              "contains": "failed |= svGetTimeUnit(scope, &unit) != 0;"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_time.expected",
+              "contains": "top: unit -9 precision -12, for a NULL scope -12 -12"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446430,7 +447596,29 @@
       "acceptance": "svSetScope returns previous scope and selects subsequent export scope; default surrounding import scope applies without explicit selection.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B043. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_scope_selection.sv",
+          "observation": "トップから呼んだ c_lookups で svSetScope(u9) の戻り値が直前のスコープ（トップ）と等しいこと、直後の svGetScope が u9 を指すこと、その状態で export unit_tag が 9、続いて svSetScope(u7) 後は 7 を返すことを表示し、最後にトップへ戻す。 区別: svSetScope が以前のスコープを返さない、または後続の export のスコープを切り替えない実装では「previous 1」が 0 になり、export の値が 9 と 7 にならない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cff96c6052e760b827b33257d3d5e65935d8e1a138f908a496231364466dfaec",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.c",
+              "contains": "previous = svSetScope(s9);"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.expected",
+              "contains": "svSetScope returns the previous scope 1, is now test_svdpi_h_scope_selection.u9"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -446645,7 +447833,29 @@
       "acceptance": "SV_GET_UNSIGNED_BITS returns input for N=32 otherwise masks with SV_MASK(N).",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
+          "observation": "SV_GET_UNSIGNED_BITS を (0x89abcdef,8)=0xef、(0x89abcdef,32)=0x89abcdef（N==32 は素通し）、(0x89abcdef,31)=0x09abcdef で評価し、結果を最後の行の 1 で示す。 区別: N==32 の場合分けを落とすと 32bit で 0x89abcdef が 0x09abcdef などに化け、マスクを誤れば 8bit の結果が 0xef にならず最終行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "69ccaee9d5f58c4bed5538b4e30ba2bd29d0ec80f07f8fa3e74f9650733cef34",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
+              "contains": "import \"DPI-C\""
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.c",
+              "contains": "SV_GET_UNSIGNED_BITS(0x89abcdef, 8) == 0xef &&"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.expected",
+              "contains": "masks and unsigned bits: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -448731,7 +449941,49 @@
       "acceptance": "t_vpi_arrayvalue.value includes PLI_INT32 * integers for corresponding array format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B106. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ integers が PLI_INT32 * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: integers を PLI_INT64 * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_arrayvalue *)0)->value.integers, PLI_INT32 *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue field order format flags value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.format PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.flags PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value.integers PLI_INT32 * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -448749,7 +450001,49 @@
       "acceptance": "t_vpi_arrayvalue.value includes PLI_INT64 * longints for corresponding array format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B106. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ longints が PLI_INT64 * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: longints を PLI_INT32 * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_arrayvalue *)0)->value.longints, PLI_INT64 *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue field order format flags value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.format PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.flags PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value.longints PLI_INT64 * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -448767,7 +450061,49 @@
       "acceptance": "t_vpi_arrayvalue.value includes PLI_BYTE8 * rawvals for corresponding array format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B106. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ rawvals が PLI_BYTE8 * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: rawvals を PLI_UBYTE8 * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_arrayvalue *)0)->value.rawvals, PLI_BYTE8 *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue field order format flags value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.format PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.flags PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value.rawvals PLI_BYTE8 * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -448785,7 +450121,49 @@
       "acceptance": "t_vpi_arrayvalue.value includes double * reals for corresponding array format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B106. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ reals が double * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: reals を float * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_arrayvalue *)0)->value.reals, double *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue field order format flags value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.format PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.flags PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value.reals double * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -448803,7 +450181,49 @@
       "acceptance": "t_vpi_arrayvalue.value includes PLI_INT16 * shortints for corresponding array format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B106. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ shortints が PLI_INT16 * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: shortints を PLI_INT32 * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_arrayvalue *)0)->value.shortints, PLI_INT16 *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue field order format flags value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.format PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.flags PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value.shortints PLI_INT16 * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -448821,7 +450241,49 @@
       "acceptance": "t_vpi_arrayvalue.value includes float * shortreals for corresponding array format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B106. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ shortreals が float * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: shortreals を double * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_arrayvalue *)0)->value.shortreals, float *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue field order format flags value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.format PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.flags PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value.shortreals float * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -448839,7 +450301,49 @@
       "acceptance": "t_vpi_arrayvalue.value includes struct t_vpi_time * times for corresponding array format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B106. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ times が struct t_vpi_time * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: times を double * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_arrayvalue *)0)->value.times, struct t_vpi_time *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue field order format flags value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.format PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.flags PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value.times struct t_vpi_time * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -448857,7 +450361,49 @@
       "acceptance": "t_vpi_arrayvalue.value includes struct t_vpi_vecval * vectors for corresponding array format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B106. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_arrayvalue の s_/p_ 別名、format<flags<value の順、format と flags が PLI_UINT32、共用体 value のメンバ vectors が struct t_vpi_vecval * で先頭オフセットにあることを検査し、1/0 を出力する。 区別: vectors を void * にすると 0。共用体の外に置けばオフセット比較が 0。format/flags を PLI_INT32 にするとそれぞれの行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_arrayvalue *)0)->value.vectors, struct t_vpi_vecval *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue field order format flags value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.format PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.flags PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_arrayvalue.value.vectors struct t_vpi_vecval * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -448875,7 +450421,33 @@
       "acceptance": "C++ inclusion wraps VPI declarations in extern C linkage.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B006, B177. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+          "observation": "cbStartOfSimulation で vpi_printf を呼んで戻り値 > 0 を検査し、呼び出しの直前の『vpi_printf reached』行と合わせて 2 行を出力する。この C ファイルは Verilator では C++ としてビルドされる。 区別: ヘッダが宣言を extern \"C\" で包まなければ、C++ としてビルドした VPI アプリはマングルされた vpi_printf を参照し、リンクに失敗して 2 行とも出ない。extern \"C\" があれば C でも C++ でも 1 行目が 1 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1130e6d714f570f6eb0193d5a16ce9a93cb2531d1c19dab28ba881ae79984d05",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_macro_linkage_types.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "reached = vpi_printf((PLI_BYTE8 *)\"vpi_printf reached\\n\");"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "vpi_printf reached"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "vpi routines called from this translation unit 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -448999,7 +450571,69 @@
       "acceptance": "Header undefines external/prototype helper macros and only its own DLL qualifier definitions, preserving user-provided DLL qualifiers.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B174, B175, B176. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_macro_cleanup.sv",
+          "observation": "アプリがヘッダの前に PLI_EXTERN, PLI_VEXTERN, PLI_PROTOTYPES, PROTO_PARAMS, XXTERN, EETERN, PLI_DLLISPEC, PLI_DLLESPEC を定義し、取り込み後に #ifdef で調べる。前半 6 つが未定義、DLL 修飾子 2 つが定義済みのまま、VPI_USER_DEFINED_DLLISPEC/ESPEC が未定義であることを 9 行で出力する。 区別: ヘッダ末尾の #undef を欠けば前半 6 行が 0（Icarus のヘッダが実際にそう）。ユーザ定義の DLL 修飾子にも VPI_USER_DEFINED_* を立てる実装では、後始末がアプリの PLI_DLLISPEC/PLI_DLLESPEC まで undef し 7・8 行目が 0 になる。フラグを消し忘れれば 9 行目が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "327e41a4a6c668a9e8e646717190f431b14dfde6a3698ed14429a116cf65b849",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_macro_cleanup.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.c",
+              "contains": "CHECK(\"PLI_EXTERN removed after the header\", VT_EXTERN_LEFT == 0);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.c",
+              "contains": "CHECK(\"application PLI_DLLISPEC still defined after the header\","
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.c",
+              "contains": "CHECK(\"no cleanup flag for an application DLL qualifier\","
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.expected",
+              "contains": "PLI_EXTERN removed after the header 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.expected",
+              "contains": "PLI_VEXTERN removed after the header 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.expected",
+              "contains": "PLI_PROTOTYPES removed after the header 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.expected",
+              "contains": "PROTO_PARAMS removed after the header 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.expected",
+              "contains": "XXTERN removed after the header 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.expected",
+              "contains": "EETERN removed after the header 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.expected",
+              "contains": "application PLI_DLLISPEC still defined after the header 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.expected",
+              "contains": "application PLI_DLLESPEC still defined after the header 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_cleanup.expected",
+              "contains": "no cleanup flag for an application DLL qualifier 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467307,7 +468941,37 @@
       "acceptance": "t_vpi_delay has PLI_INT32 append_flag for append selection, in documented field order,with s_vpi_delay/p_vpi_delay aliases.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B093. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、append_flag の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: append_flag の型や位置を変えると対応行が 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_delay *)0)->append_flag, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay aliases s_vpi_delay p_vpi_delay 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay field order da no_of_delays time_type mtm_flag append_flag pulsere_flag 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay.append_flag PLI_INT32 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467325,7 +468989,37 @@
       "acceptance": "t_vpi_delay has struct t_vpi_time * da for application-allocated delay values, in documented field order,with s_vpi_delay/p_vpi_delay aliases.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B093. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、da の型が struct t_vpi_time * であることを検査し、それぞれ 1 行ずつ出力する。 区別: da を struct t_vpi_time ** や void * にすると 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_delay *)0)->da, struct t_vpi_time *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay aliases s_vpi_delay p_vpi_delay 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay field order da no_of_delays time_type mtm_flag append_flag pulsere_flag 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay.da struct t_vpi_time * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467343,7 +469037,37 @@
       "acceptance": "t_vpi_delay has PLI_INT32 mtm_flag for min/typ/max selection, in documented field order,with s_vpi_delay/p_vpi_delay aliases.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B093. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、mtm_flag の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: mtm_flag を int 以外の幅にすると 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_delay *)0)->mtm_flag, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay aliases s_vpi_delay p_vpi_delay 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay field order da no_of_delays time_type mtm_flag append_flag pulsere_flag 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay.mtm_flag PLI_INT32 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467361,7 +469085,37 @@
       "acceptance": "t_vpi_delay has PLI_INT32 no_of_delays for delay count, in documented field order,with s_vpi_delay/p_vpi_delay aliases.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B093. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、no_of_delays の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: no_of_delays を PLI_UINT32 にすると 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_delay *)0)->no_of_delays, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay aliases s_vpi_delay p_vpi_delay 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay field order da no_of_delays time_type mtm_flag append_flag pulsere_flag 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay.no_of_delays PLI_INT32 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467379,7 +469133,37 @@
       "acceptance": "t_vpi_delay has PLI_INT32 pulsere_flag for pulse reject/error selection, in documented field order,with s_vpi_delay/p_vpi_delay aliases.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B093. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、pulsere_flag の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: pulsere_flag の型や位置を変えると対応行が 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_delay *)0)->pulsere_flag, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay aliases s_vpi_delay p_vpi_delay 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay field order da no_of_delays time_type mtm_flag append_flag pulsere_flag 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay.pulsere_flag PLI_INT32 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467397,7 +469181,37 @@
       "acceptance": "t_vpi_delay has PLI_INT32 time_type for time format, in documented field order,with s_vpi_delay/p_vpi_delay aliases.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B093. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_delay の s_/p_ 別名とフィールド順、time_type の型が PLI_INT32 であることを検査し、それぞれ 1 行ずつ出力する。 区別: time_type を PLI_UINT32 にすると 0。フィールド順の行は da<no_of_delays<time_type<mtm_flag<append_flag<pulsere_flag のどれかを入れ替えても 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_delay *)0)->time_type, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay aliases s_vpi_delay p_vpi_delay 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay field order da no_of_delays time_type mtm_flag append_flag pulsere_flag 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_delay.time_type PLI_INT32 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467415,7 +469229,37 @@
       "acceptance": "vpi_free_object declaration is retained but deprecated; current handle release API is vpi_release_handle.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B168. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+          "observation": "cbStartOfSimulation で vpi_free_object と vpi_release_handle のアドレス型を PLI_INT32 (*)(vpiHandle) と比較し、2 行を出力する。 区別: どちらかの宣言が消えればコンパイルできず行が出ない。戻り値を void や PLI_INT64 にすると SAME_TYPE が 0 になり該当行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1130e6d714f570f6eb0193d5a16ce9a93cb2531d1c19dab28ba881ae79984d05",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_macro_linkage_types.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "SAME_TYPE(&vpi_free_object, PLI_INT32 (*)(vpiHandle))"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "SAME_TYPE(&vpi_release_handle, PLI_INT32 (*)(vpiHandle))"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "vpi_free_object retained with PLI_INT32 (vpiHandle) 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "vpi_release_handle declared with PLI_INT32 (vpiHandle) 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467776,7 +469620,53 @@
       "acceptance": "PROTO_PARAMS(params) expands params; XXTERN combines external/import qualifiers and EETERN external/export qualifiers under PLI_PROTOTYPES.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B021, B023, B025. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+          "observation": "cbStartOfSimulation で vpi_handle_multi（3 引数+可変）、vpi_register_cb、vpi_get64、vpi_printf（可変）、vpi_mcd_printf（可変）のアドレス型を、K.2 の宣言から作った関数ポインタ型と SAME_TYPE で比較し、5 行を出力する。 区別: PROTO_PARAMS(params) が params に展開されなければ、複数引数の宣言が壊れてコンパイルできないか型が変わり該当行が 0 になる。XXTERN が PLI_EXTERN とPLI_DLLISPEC の連結でなければ宣言の型が変わる。vpi_get64 の戻り値を PLI_INT32 にすると該当行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1130e6d714f570f6eb0193d5a16ce9a93cb2531d1c19dab28ba881ae79984d05",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_macro_linkage_types.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "SAME_TYPE(&vpi_handle_multi, vpiHandle (*)(PLI_INT32, vpiHandle, vpiHandle, ...))"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "SAME_TYPE(&vpi_get64, PLI_INT64 (*)(PLI_INT32, vpiHandle))"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "SAME_TYPE(&vpi_printf, PLI_INT32 (*)(PLI_BYTE8 *, ...))"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "vpi_handle_multi has the three-parameter variadic prototype 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "vpi_register_cb has the one-parameter prototype 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "vpi_get64 has the two-parameter prototype and PLI_INT64 result 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "vpi_printf has the variadic prototype 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "vpi_mcd_printf has the variadic prototype 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467814,7 +469704,41 @@
       "acceptance": "Header provides size-critical integer types through platform-specific definitions/includes; preserve required widths with platform implementation method.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+          "observation": "cbStartOfSimulation で PLI_INT32/PLI_UINT32/PLI_INT16/PLI_UINT16/PLI_BYTE8/PLI_UBYTE8/PLI_INT64/PLI_UINT64 の sizeof と符号、およびヘッダが用意する int8_t/int32_t/int64_t/uint8_t/uint32_t/uint64_t の sizeof と符号を検査し、1/0 を出力する。 区別: ヘッダが inttypes.h などを取り込まず幅の決まった型を用意しなければ typedef がコンパイルできず行が出ない。PLI_INT64 を 4 バイトにすると『widths』行が 0、PLI_UINT32 を signed にすると『signedness』行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1130e6d714f570f6eb0193d5a16ce9a93cb2531d1c19dab28ba881ae79984d05",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_macro_linkage_types.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "sizeof(PLI_INT64) == 8"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "sizeof(vt_int64) == 8"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "PLI types have the required widths 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "PLI types have the required signedness 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "header makes int8_t int32_t int64_t uint8_t uint32_t uint64_t available 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467892,7 +469816,53 @@
       "acceptance": "t_vpi_strengthval has PLI_INT32 logic,s0,s1 in order and value/pointer aliases; logic uses scalar values and strengths use strength constants.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B101. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_strengthval の s_/p_ 別名、logic<s0<s1 の順、3 フィールドが PLI_INT32 であることを検査し、1/0 を出力する。 区別: logic を PLI_UINT32 にすると 1 行が 0、s0/s1 の型を変えると対応行が 0、s1 を s0 より前に置くと順序の行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_strengthval *)0)->logic, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_strengthval *)0)->s0, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_strengthval *)0)->s1, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_strengthval aliases s_vpi_strengthval p_vpi_strengthval 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_strengthval field order logic s0 s1 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_strengthval.logic PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_strengthval.s0 PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_strengthval.s1 PLI_INT32 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467910,7 +469880,69 @@
       "acceptance": "t_vpi_systf_data fields in order: PLI_INT32 type,sysfunctype; PLI_BYTE8* tfname beginning dollar; calltf,compiletf,sizetf function pointers returning PLI_INT32 taking PLI_BYTE8*; PLI_BYTE8* user_data. sizetf is for sized functions; s/p typedefs supplied.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B124. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_systf_data の s_/p_ 別名、type<sysfunctype<tfname<calltf<compiletf<sizetf<user_data の順、type と sysfunctype が PLI_INT32、tfname と user_data が PLI_BYTE8 *、3 つのコールバックが PLI_INT32 (*)(PLI_BYTE8 *) であることを検査し、1/0 を出力する。 区別: tfname を const char * にすると『tfname PLI_BYTE8 *』行が 0（Icarus のヘッダが実際にそう）。user_data を const 修飾すると 0。calltf の引数を void * にすると 3 行が 0。フィールドを入れ替えると順序の行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_systf_data *)0)->tfname, PLI_BYTE8 *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_systf_data *)0)->calltf, PLI_INT32 (*)(PLI_BYTE8 *))"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_systf_data *)0)->user_data, PLI_BYTE8 *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_systf_data aliases s_vpi_systf_data p_vpi_systf_data 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_systf_data field order type sysfunctype tfname calltf compiletf sizetf user_data 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_systf_data.type PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_systf_data.sysfunctype PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_systf_data.tfname PLI_BYTE8 * 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_systf_data.calltf PLI_INT32 (*)(PLI_BYTE8 *) 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_systf_data.compiletf PLI_INT32 (*)(PLI_BYTE8 *) 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_systf_data.sizetf PLI_INT32 (*)(PLI_BYTE8 *) 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_systf_data.user_data PLI_BYTE8 * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -467928,7 +469960,65 @@
       "acceptance": "VPI_TIME guards t_vpi_time/s_vpi_time/p_vpi_time; fields are PLI_INT32 type,PLI_UINT32 high then low,double real; high/low used for simulation time,real for scaled real time.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B087, B088, B091. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で VPI_TIME ガードの有無、t_vpi_time の s_/p_ 別名、type<high<low<real の順、type が PLI_INT32、high と low が PLI_UINT32、real が double であることを検査し、それぞれ 1 行ずつ 1/0 で出力する。 区別: real を float にすると『t_vpi_time.real double』行が 0、high/low を PLI_INT32 にすると 2 行が 0、real を low より前に置くと順序の行が 0、VPI_TIME を定義しなければ『VPI_TIME defined』行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "#ifdef VPI_TIME"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_time *)0)->type, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_time *)0)->high, PLI_UINT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_time *)0)->real, double)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "VPI_TIME defined 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_time aliases s_vpi_time p_vpi_time 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_time field order type high low real 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_time.type PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_time.high PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_time.low PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_time.real double 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -468012,7 +470102,45 @@
       "acceptance": "t_vpi_value.value includes PLI_INT32 integer for corresponding value format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B105. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ integer が PLI_INT32 で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: integer を PLI_INT64 にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_value *)0)->value.integer, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value aliases s_vpi_value p_vpi_value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value field order format value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.format PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value.integer PLI_INT32 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -468030,7 +470158,45 @@
       "acceptance": "t_vpi_value.value includes PLI_BYTE8 * misc for corresponding value format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B105. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ misc が PLI_BYTE8 * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: misc を char const * にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_value *)0)->value.misc, PLI_BYTE8 *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value aliases s_vpi_value p_vpi_value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value field order format value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.format PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value.misc PLI_BYTE8 * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -468048,7 +470214,45 @@
       "acceptance": "t_vpi_value.value includes double real for corresponding value format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B105. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ real が double で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: real を float にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_value *)0)->value.real, double)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value aliases s_vpi_value p_vpi_value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value field order format value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.format PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value.real double 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -468066,7 +470270,45 @@
       "acceptance": "t_vpi_value.value includes PLI_INT32 scalar for corresponding value format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B105. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ scalar が PLI_INT32 で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: scalar を PLI_BYTE8 * にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_value *)0)->value.scalar, PLI_INT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value aliases s_vpi_value p_vpi_value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value field order format value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.format PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value.scalar PLI_INT32 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -468084,7 +470326,45 @@
       "acceptance": "t_vpi_value.value includes PLI_BYTE8 * str for corresponding value format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B105. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ str が PLI_BYTE8 * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: str を const char * にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_value *)0)->value.str, PLI_BYTE8 *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value aliases s_vpi_value p_vpi_value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value field order format value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.format PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value.str PLI_BYTE8 * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -468102,7 +470382,45 @@
       "acceptance": "t_vpi_value.value includes struct t_vpi_strengthval * strength for corresponding value format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B105. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ strength が struct t_vpi_strengthval * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: strength を struct t_vpi_strengthval にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_value *)0)->value.strength, struct t_vpi_strengthval *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value aliases s_vpi_value p_vpi_value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value field order format value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.format PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value.strength struct t_vpi_strengthval * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -468120,7 +470438,45 @@
       "acceptance": "t_vpi_value.value includes struct t_vpi_time * time for corresponding value format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B105. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ time が struct t_vpi_time * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: time を p_vpi_time 以外の型にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_value *)0)->value.time, struct t_vpi_time *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value aliases s_vpi_value p_vpi_value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value field order format value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.format PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value.time struct t_vpi_time * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -468138,7 +470494,45 @@
       "acceptance": "t_vpi_value.value includes struct t_vpi_vecval * vector for corresponding value format.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B105. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で t_vpi_value の s_/p_ 別名、format<value の順、format が PLI_INT32、共用体 value のメンバ vector が struct t_vpi_vecval * で、共用体の先頭と同じオフセットにあることを検査し、1/0 を出力する。 区別: vector を void * にすると 0。共用体の外の別フィールドに置くと offsetof の比較が 0 になる。8 メンバすべてを同じオフセットに置かなければ 8 メンバ共用体の行も 0。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_value *)0)->value.vector, struct t_vpi_vecval *)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value aliases s_vpi_value p_vpi_value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value field order format value 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.format PLI_INT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value is a union of its eight members 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_value.value.vector struct t_vpi_vecval * 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -468156,7 +470550,53 @@
       "acceptance": "VPI_VECVAL guards t_vpi_vecval with PLI_UINT32 aval,bval in order and s_vpi_vecval/p_vpi_vecval aliases; pairs encode aval,bval 00=0,10=1,11=x,01=z and repeat in chunks to cover vector.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B096, B097, B098, B099. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_record_members.sv",
+          "observation": "cbStartOfSimulation で VPI_VECVAL ガード、t_vpi_vecval の s_/p_ 別名、aval<bval の順、aval と bval が PLI_UINT32 であることを検査し、1/0 を出力する。 区別: aval/bval を PLI_INT32 にすると 2 行が 0（Icarus のヘッダが実際にそう）、bval を aval より前に置くと順序の行が 0、VPI_VECVAL を定義しなければ『VPI_VECVAL defined』行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_record_members.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "#ifdef VPI_VECVAL"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_vecval *)0)->aval, PLI_UINT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.c",
+              "contains": "SAME_TYPE(((s_vpi_vecval *)0)->bval, PLI_UINT32)"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "VPI_VECVAL defined 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_vecval aliases s_vpi_vecval p_vpi_vecval 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_vecval field order aval bval 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_vecval.aval PLI_UINT32 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_record_members.expected",
+              "contains": "t_vpi_vecval.bval PLI_UINT32 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
@@ -488775,7 +491215,33 @@
       "acceptance": "chi_square initializes squared standard-normal draw for odd df or zero for even df,then adds 2*exponential(seed,1) once per pair from k=2 through df inclusive.",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B046. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+          "observation": "奇数自由度 1・3・5・7 と偶数自由度 2・4・8・10 について、固定シードから $dist_chi_square を 13 回呼び、値・更新後シード・シードが 69069*seed+1 で進んだ回数（draws）を表示する。奇数自由度は正規標本の 2 乗から始まる（シード 45・自由度 1 で 6.7507→7、シード 4 で 2.8138→3、シード 15 は棄却で 4 ではなく 8 回抽選）。偶数自由度は 0 から始まり指数標本だけを使う（自由度 2 は draws 1 でシード 2 が 20.6879→21、シード 10 が 17.4691→17）。2*exponential(seed,1) は自由度 3 で 1 個（シード 11 で 5.7793→6、draws 5）、4 で 2 個（draws 2）、5 で 2 個（draws 8）、7 で 3 個（draws 7）、8 で 4 個（draws 4）、10 で 5 個（シード 1 で 30.6503→31、draws 5）になる。 区別: 偶数自由度でも正規標本の 2 乗から始める実装では、自由度 2 の 2 行が 0 でなくなり draws も 1 から 3 以上に増え、期待出力と一致しない。奇数自由度を 0 から始める実装では自由度 1 の 3 行が値 0・draws 0 になり、6.7507→7 などの行が消える。2*exponential(1) の個数を 1 個ずらす、係数 2 を落とす、平均 1 の代わりに別の平均を使う実装では、自由度 2・4・5・7・8・10 の値と draws が変わる（例 自由度 4・シード 2 の 23.7029→24 が約 2 倍または半分になる）。丸めを切り捨てにすると 2.8138→2、20.6879→20、23.7029→23、5.7793→5、10.6689→10、8.6700→8、30.6503→30 など 12 行が 1 小さくなる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f9961be835bcaf351c48bdb17ba08949edfa06359c2db73cf5e0286d3258ff64",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+              "contains": "check(45, 1);"
+            },
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+              "contains": "check(1, 10);"
+            },
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.expected",
+              "contains": "chi_square(1) from 45 = 7, seed -2046608567, draws 4"
+            },
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.expected",
+              "contains": "chi_square(10) from 1 = 31, seed -417135238, draws 5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",
@@ -488793,7 +491259,33 @@
       "acceptance": "erlangian multiplies exactly k successive uniform(0,1) draws starting from one and returns -mean*log(product)/k.",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B049, B050, B051, B052. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+          "observation": "段数 1〜5 と平均 30・50・100・200・1000・1000000000・2147483647 について、固定シードから $dist_erlang を 14 回呼び、値・更新後シード・シードが 69069*seed+1 で進んだ回数を表示する。呼び出しごとに draws は段数 k とちょうど一致する（k=1 で 1、k=2 で 2、k=3 で 3、k=4 で 4、k=5 で 5）。シード 1・k=1・平均 100 は 1103.7110→1104、平均 200 は同じ標本から 2207.4221→2207、k=2 は 661.8836→662、k=4 は 380.5746→381、シード 3・k=3 は 457.7449→458、シード 3・k=5・平均 50 は 190.7093→191、シード 1・k=2・平均 1000 は 6618.8361→6619 になる。 区別: 積を 1 から始めず最初の標本から始める、または k+1 回抽選する実装では draws が k と一致せず、値も変わる。平均を掛けない実装では平均 100 と 200 の 2 行が同じ値になり、-log(product) を k で割らない実装では k=2 の 661.8836 が 1323.7672（→1324）になる。log の代わりに product や 1-product を使う実装では全行が変わる。k=3・平均 30 の 106.7295→107 は既存の test_dist_functions_annex_n と同じ値を再現する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3b8627c2ceeef5e3d3434b138bce56e9849fac86ee34053a8edf886bb35be823",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+              "contains": "check(3, 5, 50);"
+            },
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+              "contains": "check(1, 2, 1000);"
+            },
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.expected",
+              "contains": "erlang(5, 50) from 3 = 191, seed 1497562036, draws 5"
+            },
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.expected",
+              "contains": "erlang(2, 1000) from 1 = 6619, seed 475628535, draws 2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",
@@ -489151,7 +491643,29 @@
       "acceptance": "For valid parameter,rtl_dist_chi_square calls its helper and rounds to long nearest integer with half magnitudes away from zero: positive truncate(r+0.5),negative negate(truncate(-r+0.5)).",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+          "observation": "13 回の $dist_chi_square の呼び出しで、ヘルパーの値 2.8138・6.7507・20.6879・23.7029・5.7793・10.6689・8.6700・25.9103・30.6503 が 3・7・21・24・6・11・9・26・31 に、17.4691 が 17 になることを表示する。いずれも 0.5 を足してから 0 方向へ切り捨てた値（最近接整数）で、切り捨てだけなら 2・6・20・23・5・10・8・25・30・17 になる。自由度 2 の値は 2*exponential 1 個だけで、負になり得るのは標本が 1 をわずかに超える場合の約 -2^-22 までであり、その場合は符号分岐のどちらでも 0 に丸められるので、負の分岐は出力行を変えない（その旨をテストのコメントに書いた）。 区別: 0.5 を足さずに切り捨てる実装では小数部が 0.5 以上の 12 行が 1 小さくなる（6.7507→6、23.7029→23、30.6503→30 など）。床関数で丸める実装でも同じ 12 行が 1 小さくなる（2.8138→2、20.6879→20、10.6689→10 など）。値が負のときに符号を無視して 0.5 を足す実装は、到達する負の値がすべて 0 に丸められるため出力を変えないが、その分岐は値の範囲から観測できない。ヘルパーを呼ばずに別の値（例えば 0 や自由度そのもの）を返す実装では全 13 行が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f9961be835bcaf351c48bdb17ba08949edfa06359c2db73cf5e0286d3258ff64",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+              "contains": "check(10, 2);"
+            },
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.expected",
+              "contains": "chi_square(2) from 10 = 17, seed 690691, draws 1"
+            },
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.expected",
+              "contains": "chi_square(1) from 45 = 7, seed -2046608567, draws 4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",
@@ -489173,7 +491687,33 @@
       "acceptance": "For valid parameter,rtl_dist_erlang calls its helper and rounds to long nearest integer with half magnitudes away from zero: positive truncate(r+0.5),negative negate(truncate(-r+0.5)).",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B009, B010, B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+          "observation": "14 回の $dist_erlang の呼び出しで、ヘルパーの値 1103.7110・2207.4221・661.8836・500.9456・457.7449・339.6411・380.5746・290.8992・190.7093・106.7295・6618.8361・3805.7460 が 1104・2207・662・501・458・340・381・291・191・107・6619・3806 になり、負の -255.99995 が -256、-119.2093 が -119 になることを表示する。正の値では 1103.7110 と 661.8836 など小数部が 0.5 以上のものが切り上げられ、2207.4221 が切り下げられる。 区別: 0.5 を足さずに切り捨てる実装では 1103、661、457、380、190、6618、3805 など 12 行が 1 小さくなる。床関数で丸める実装でも正の小数部 0.5 以上の 11 行が 1 小さくなり、負の -119.2093 が -120 になる。符号を考えずに 0.5 を足して切り捨てる実装では -255.99995 が -255、-119.2093 が -119 となり、前者が一致しない。平均を掛けない、k で割らない、product の log を取らない実装でも値が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3b8627c2ceeef5e3d3434b138bce56e9849fac86ee34053a8edf886bb35be823",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+              "contains": "check(-1271221770, 1, 1000000000);"
+            },
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+              "contains": "check(1, 1, 200);"
+            },
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.expected",
+              "contains": "erlang(1, 2147483647) from -1271221770 = -256, seed -1, draws 1"
+            },
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.expected",
+              "contains": "erlang(1, 1000000000) from -1271221770 = -119, seed -1, draws 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",
@@ -489249,7 +491789,33 @@
       "acceptance": "For valid parameter,rtl_dist_t calls its helper and rounds to long nearest integer with half magnitudes away from zero: positive truncate(r+0.5),negative negate(truncate(-r+0.5)).",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B023, B024. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+          "observation": "16 回の $dist_t の呼び出しで、正の商 3.8703・0.8091・0.9381・0.7333・0.8693 が 4・1・1・1・1 に、0.2587 が 0 になる一方、負の商 -0.6719・-4.7347・-1.9147・-0.5681・-0.8032・-0.5997・-0.6297・-0.6228 が -1・-5・-2・-1・-1・-1・-1・-1 に、-0.4021 が 0 に、-1.1845 が -1 になることを表示する。 区別: 切り捨てだけの実装では -0.6719・-4.7347・-1.9147・-0.5681 などが 0・-4・-1・0 となり、正の 3.8703→3 なども含めて 14 行が変わる。-0.4021 の 0 は切り捨てでも同じである。符号を考えずに 0.5 を足して切り捨てる実装でも -0.6719→0、-4.7347→-4、-1.9147→-1 となり一致しない。負の値を床関数で丸める実装では -0.4021→-1、-1.1845→-2 となり、正の 3.8703→3、0.7333→0 も変わる。0.2587→0 と -0.4021→0 は、0.5 未満の大きさを 0 にする最近接の丸めを確かめる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0af73b613b34da7f54f64d8c3782c68865ed835469493f63a812a71862574b00",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+              "contains": "check(11, 1);"
+            },
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+              "contains": "check(28, 1);"
+            },
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.expected",
+              "contains": "t(1) from 11 = 0, seed -1033098003, draws 6"
+            },
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.expected",
+              "contains": "t(1) from 28 = -1, seed -1985040458, draws 6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",
@@ -489287,7 +491853,33 @@
       "acceptance": "t first draws chi_square,divides by df,takes square root,then draws standard normal and divides by root; preserve sampling order.",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B047, B048. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+          "observation": "自由度 1・2・3・4・10 について、固定シードから $dist_t を 16 回呼び、値・更新後シード・シードが 69069*seed+1 で進んだ回数を表示する。抽選順は、まず自由度に対するカイ 2 乗標本（奇数自由度は正規標本の 2 乗を含む）、自由度で割って平方根、そのあとに標準正規標本、という順である。シード 14・自由度 1 ではカイ 2 乗標本 2.0754 を 4 回で、平方根 1.4406、続く正規標本 -0.9680 を 2 回で得て -0.6719 になる。シード 6・自由度 3 ではカイ 2 乗標本 0.2769 に 7 回、正規標本 0.2850 に 4 回を使い、合計 11 回で 0.9381 になる。自由度 2 は指数標本 1 回のあと正規標本、自由度 10 は指数標本 5 回のあと正規標本で、draws は 3〜7 になる。 区別: 正規標本を先に引いてからカイ 2 乗標本を引く実装では、同じシードでも使う標本が入れ替わり、シード 6・自由度 3 の 0.9381 やシード 14・自由度 1 の -0.6719 を含む各行の値と draws が変わる。カイ 2 乗標本を自由度で割る、または平方根を取る段階を省く実装では、自由度 1 以外の行が大きく変わる（自由度 10 で 0.8693→2.749）。平方根の代わりに自由度そのもので割る実装でも全行が変わる。カイ 2 乗を先に引くことを draws で確かめており、シード 6・自由度 3 の 11 回は内訳（カイ 2 乗 7 回、正規 4 回）と一致する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0af73b613b34da7f54f64d8c3782c68865ed835469493f63a812a71862574b00",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+              "contains": "check(14, 1);"
+            },
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+              "contains": "check(6, 3);"
+            },
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.expected",
+              "contains": "t(1) from 14 = -1, seed -1201087848, draws 6"
+            },
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.expected",
+              "contains": "t(3) from 6 = 1, seed -412749331, draws 11"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",
@@ -489482,7 +492074,33 @@
       "acceptance": "rtl_dist_uniform returns the computed long i.",
       "source_note": "IEEE 1800-2023 N.2; complete own-body source review, blocks B030. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv",
+          "observation": "シード 12345 から $dist_uniform(seed, -10, 10) を 8 回呼び、各分岐で計算した long i の値と新シードを表示する。負の標本は r-1 を切り捨てた i（-5.x が -6、-4.x が -5、-2.x が -3、-1.x が -2、-0.27 が -1）になり、新シード 100 の最小標本は -10、新シード -1 の上側のクランプは (0, 9) で 9、(-20, -11) で -11 になる。表示される値はすべて rtl_dist_uniform が返した i そのものである。 区別: i ではなく標本 r をそのまま 0 方向へ切り捨てて返す実装では、負の 8 行のうち -6・-5・-3・-2・-1 が -5・-4・-2・-1・0 と 1 大きくなり、新シード 100 の行が -9 になる。クランプを省く実装では新シード -1 の 2 行が 10 と -10 になる。これらの行が、戻り値が変換とクランプの後の i であることを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "18879943d1f5a00de341b9812be5b481f7b37c89a0b172b61f2cc4343e989b61",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv",
+              "contains": "v = $dist_uniform(seed, 0, 9);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.sv",
+              "contains": "v = $dist_uniform(seed, -10, 10);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.expected",
+              "contains": "from -1271221770: uniform(0, 9) = 9, seed -1"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_bounded_range_floor_and_clamp.expected",
+              "contains": "uniform(-10, 10) = -6, seed 852656806"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "N.2",

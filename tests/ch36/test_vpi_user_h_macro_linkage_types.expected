@@ -1,0 +1,19 @@
+vpi_printf reached
+vpi routines called from this translation unit 1
+PLI types have the required widths 1
+PLI types have the required signedness 1
+header makes int8_t int32_t int64_t uint8_t uint32_t uint64_t available 1
+vpi_handle_multi has the three-parameter variadic prototype 1
+vpi_register_cb has the one-parameter prototype 1
+vpi_get64 has the two-parameter prototype and PLI_INT64 result 1
+vpi_printf has the variadic prototype 1
+vpi_mcd_printf has the variadic prototype 1
+vpi_free_object retained with PLI_INT32 (vpiHandle) 1
+vpi_release_handle declared with PLI_INT32 (vpiHandle) 1
+vlog_startup_routines is an array of void (void) pointers 1
+vlog_startup_routines ends with a null pointer 1
+PLI_VEXTERN leaves the startup array for the application to define 1
+PLI_EXTERN leaves the VPI routines with external linkage 1
+PLI_DLLISPEC empty here and removed on MSVC MinGW Cygwin 1
+PLI_DLLESPEC empty here and removed on MSVC MinGW Cygwin 1
+a header-created DLL qualifier leaves no cleanup flag 1

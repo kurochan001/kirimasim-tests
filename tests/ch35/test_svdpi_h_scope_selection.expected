@@ -1,0 +1,9 @@
+in the unit: svGetScope names test_svdpi_h_scope_selection.u7, its export answers 7
+in the unit: svGetScope names test_svdpi_h_scope_selection.u9, its export answers 9
+the top module calls from the scope test_svdpi_h_scope_selection
+lookup gives test_svdpi_h_scope_selection.u7 and test_svdpi_h_scope_selection.u9
+lookup of an unknown name gives NULL 1
+svSetScope returns the previous scope 1, is now test_svdpi_h_scope_selection.u9
+the export answers 9 in the selected scope
+the export answers 7 after selecting the other instance
+back in test_svdpi_h_scope_selection

@@ -1,0 +1,14 @@
+erlang(1, 100) from 1 = 1104, seed 69070, draws 1
+erlang(1, 200) from 1 = 2207, seed 69070, draws 1
+erlang(2, 100) from 1 = 662, seed 475628535, draws 2
+erlang(2, 100) from 5 = 501, seed -1917100901, draws 2
+erlang(3, 100) from 3 = 458, seed 291020662, draws 3
+erlang(3, 100) from 8 = 340, seed 1414996639, draws 3
+erlang(4, 100) from 1 = 381, seed 772999773, draws 4
+erlang(4, 100) from 4 = 291, seed 1849721360, draws 4
+erlang(5, 50) from 3 = 191, seed 1497562036, draws 5
+erlang(3, 30) from 23 = 107, seed 491957274, draws 3
+erlang(2, 1000) from 1 = 6619, seed 475628535, draws 2
+erlang(4, 1000) from 1 = 3806, seed 772999773, draws 4
+erlang(1, 2147483647) from -1271221770 = -256, seed -1, draws 1
+erlang(1, 1000000000) from -1271221770 = -119, seed -1, draws 1

@@ -1,0 +1,14 @@
+svPutUserData returns 0
+the same key gives back 42
+a key that was never stored gives NULL 1
+svPutUserData with a NULL scope returns -1
+svPutUserData with a NULL data pointer returns -1
+the key of the failed calls was never stored 1
+svGetUserData with a NULL scope gives NULL 1
+svPutUserData returns 0
+the same key gives back 7
+a key that was never stored gives NULL 1
+svPutUserData with a NULL scope returns -1
+svPutUserData with a NULL data pointer returns -1
+the key of the failed calls was never stored 1
+svGetUserData with a NULL scope gives NULL 1

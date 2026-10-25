@@ -1,0 +1,4 @@
+0: before the import
+before the export: svIsDisabledState gives 0
+the export returned 1: svIsDisabledState gives 1
+the import acknowledged the disable and returns

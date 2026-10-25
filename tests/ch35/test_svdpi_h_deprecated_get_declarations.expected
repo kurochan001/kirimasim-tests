@@ -1,0 +1,19 @@
+svSizeOfBitPackedArr: int (int) 1
+svSizeOfLogicPackedArr: int (int) 1
+svGetBitVec32: void (svBitVec32*, bitref, int) 1
+svGetLogicVec32: void (svLogicVec32*, logicref, int) 1
+svGetSelectBit: svBit (bitref, int) 1
+svGetSelectLogic: svLogic (logicref, int) 1
+svGetPartSelectBit: void (svBitVec32*, bitref, int, int) 1
+svGetPartSelectLogic: void (svLogicVec32*, logicref, int, int) 1
+svGetBits: svBitVec32 (bitref, int, int) 1
+svGet32Bits: svBitVec32 (bitref, int) 1
+svGet64Bits: uint64_t (bitref, int) 1
+svGetBitArrElemVec32: void (svBitVec32*, svOpenArrayHandle, int, ...) 1
+svGetBitArrElem1Vec32: void (svBitVec32*, svOpenArrayHandle, int) 1
+svGetBitArrElem2Vec32: void (svBitVec32*, svOpenArrayHandle, int, int) 1
+svGetBitArrElem3Vec32: void (svBitVec32*, svOpenArrayHandle, int, int, int) 1
+svGetLogicArrElemVec32: void (svLogicVec32*, svOpenArrayHandle, int, ...) 1
+svGetLogicArrElem1Vec32: void (svLogicVec32*, svOpenArrayHandle, int) 1
+svGetLogicArrElem2Vec32: void (svLogicVec32*, svOpenArrayHandle, int, int) 1
+svGetLogicArrElem3Vec32: void (svLogicVec32*, svOpenArrayHandle, int, int, int) 1

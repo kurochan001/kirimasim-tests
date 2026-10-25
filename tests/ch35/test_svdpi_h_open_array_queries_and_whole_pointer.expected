@@ -1,0 +1,10 @@
+SV dim 1: left 5 right 2 low 2 high 5 increment 1 size 4
+svDimensions gives 1
+C packed dim 0: left 7 right 0 low 0 high 7 increment 1 size 8
+C unpacked dim 1: left 5 right 2 low 2 high 5 increment 1 size 4
+int a[0:3]: address 1, size 16
+through the address: 10 20 30 40
+int m[0:1][0:2]: address 1, size 24
+through the address: 1 2 3 4 5 6
+logic [7:0] p[0:3]: address and size both given or both 0 1
+string s[0:3]: address and size both given or both 0 1

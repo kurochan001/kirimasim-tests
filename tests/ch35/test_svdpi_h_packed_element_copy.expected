@@ -1,0 +1,4 @@
+two chunks of a 64-bit element: 89abcdef 01234567, both written 1
+a 32-bit logic element: aval cafebabe bval 00000000
+w[0] 0123456789abcdef w[1] 3333444411112222
+l[0] cafebabe l[1] deadbeef

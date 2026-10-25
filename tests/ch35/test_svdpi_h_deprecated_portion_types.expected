@@ -1,0 +1,5 @@
+SV_CANONICAL_SIZE of 1 32 33 64 65 is 1 1 2 2 3 1
+svBitVec32 is unsigned int 1
+svLogicVec32 is two unsigned ints c then d 1
+svBitPackedArrRef is void* 1
+svLogicPackedArrRef is void* 1

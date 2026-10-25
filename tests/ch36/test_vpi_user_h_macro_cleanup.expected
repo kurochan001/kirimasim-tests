@@ -1,0 +1,9 @@
+PLI_EXTERN removed after the header 1
+PLI_VEXTERN removed after the header 1
+PLI_PROTOTYPES removed after the header 1
+PROTO_PARAMS removed after the header 1
+XXTERN removed after the header 1
+EETERN removed after the header 1
+application PLI_DLLISPEC still defined after the header 1
+application PLI_DLLESPEC still defined after the header 1
+no cleanup flag for an application DLL qualifier 1

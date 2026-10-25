@@ -1,0 +1,98 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch20/test_dist_chi_square_odd_even_df_and_rounding": {
+   "status": "pass",
+   "inputs_sha256": "f9961be835bcaf351c48bdb17ba08949edfa06359c2db73cf5e0286d3258ff64"
+  },
+  "ch20/test_dist_erlang_stage_count_and_product_rounding": {
+   "status": "pass",
+   "inputs_sha256": "3b8627c2ceeef5e3d3434b138bce56e9849fac86ee34053a8edf886bb35be823"
+  },
+  "ch20/test_dist_t_chi_square_then_normal_order": {
+   "status": "pass",
+   "inputs_sha256": "0af73b613b34da7f54f64d8c3782c68865ed835469493f63a812a71862574b00"
+  },
+  "ch35/test_svdpi_h_caller_info": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_caller_info.sv:30: syntax error",
+   "inputs_sha256": "514286a4208492eb75e77921f04ddf0e120b205caa59fb192c5fa0ee41535cfd"
+  },
+  "ch35/test_svdpi_h_deprecated_get_declarations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_deprecated_get_declarations.sv:30: syntax error",
+   "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17"
+  },
+  "ch35/test_svdpi_h_deprecated_portion_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_deprecated_portion_types.sv:32: syntax error",
+   "inputs_sha256": "af4cf9a133c97e2cade6a0c31a9811fbce18ba8de5da4de316135f01799ea459"
+  },
+  "ch35/test_svdpi_h_deprecated_put_declarations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_deprecated_put_declarations.sv:31: syntax error",
+   "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50"
+  },
+  "ch35/test_svdpi_h_disabled_state_ack": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_disabled_state_ack.sv:35: syntax error",
+   "inputs_sha256": "a7ee3e67915391e898400964ca52adc64ce7e0812951229d6639310bb8a57a4d"
+  },
+  "ch35/test_svdpi_h_macros_and_c_linkage": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_macros_and_c_linkage.sv:38: syntax error",
+   "inputs_sha256": "845298ccc119f40b3977e1cee4165a2d85de8d36474340cff2e76719486a0b21"
+  },
+  "ch35/test_svdpi_h_open_array_queries_and_whole_pointer": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.sv:37: syntax error",
+   "inputs_sha256": "d600ee7fbe9228a8506fc01f081ced69a83f70a467c130f6320ac5609ab2d1f2"
+  },
+  "ch35/test_svdpi_h_packed_bit_and_part_select": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv:35: syntax error",
+   "inputs_sha256": "69ccaee9d5f58c4bed5538b4e30ba2bd29d0ec80f07f8fa3e74f9650733cef34"
+  },
+  "ch35/test_svdpi_h_packed_element_copy": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_packed_element_copy.sv:34: syntax error",
+   "inputs_sha256": "1608d5f2f3aaeef45f2ab6ff534f006a2b88621d0f658367b3d608151b3df050"
+  },
+  "ch35/test_svdpi_h_scope_selection": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_scope_selection.sv:33: syntax error",
+   "inputs_sha256": "cff96c6052e760b827b33257d3d5e65935d8e1a138f908a496231364466dfaec"
+  },
+  "ch35/test_svdpi_h_scope_time": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_scope_time.sv:38: syntax error",
+   "inputs_sha256": "b66f2d088b4ef3c6628904df623b0714a0164f4a9e46844283faee346508dd73"
+  },
+  "ch35/test_svdpi_h_user_data": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_user_data.sv:32: syntax error",
+   "inputs_sha256": "2aebdc95133a1496b76daeae34544138b3db5b7e34c1f3cb80391036b88d67e5"
+  },
+  "ch36/test_vpi_user_h_macro_cleanup": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'PLI_EXTERN removed after the header 0', expected 'PLI_EXTERN removed after the header 1'",
+   "inputs_sha256": "327e41a4a6c668a9e8e646717190f431b14dfde6a3698ed14429a116cf65b849"
+  },
+  "ch36/test_vpi_user_h_macro_linkage_types": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'vpi_handle_multi has the three-parameter variadic prototy...', expected 'vpi_handle_multi has the three-parameter variadic prototy...'",
+   "inputs_sha256": "1130e6d714f570f6eb0193d5a16ce9a93cb2531d1c19dab28ba881ae79984d05"
+  },
+  "ch36/test_vpi_user_h_record_members": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "23bc4c397aeee23f108a96a2cbd2041e4563825d1cacc18458f608aeed454130"
+  }
+ },
+ "generated_at": "2026-10-25T17:06:51.310506+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

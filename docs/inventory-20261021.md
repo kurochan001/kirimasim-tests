@@ -1042,14 +1042,18 @@ include fixtures changed the include-directory digest of ten existing
 mappings; they were rehashed and re-run, and the baseline updates record
 why.
 
+A further creation round added header and distribution tests: K.2 (31
+accepted), I.3 (55) and N.2 (7), 18 tests. One I.3 test with a reversed
+array-pattern expectation was excluded.
+
 ### Current state
 
-After these commits the suite has 6658 tests in 37 chapters, 1308 of them
-generated. By `:oracle:`, 3795 list Icarus Verilog 13.0, 1292 list
-Verilator 5.052, and 1571 follow the standard only. 847 tests depend on
-x or z values, 489 have C code (83 DPI and 406 VPI), 1684 are illegal
+After these commits the suite has 6676 tests in 37 chapters, 1308 of them
+generated. By `:oracle:`, 3798 list Icarus Verilog 13.0, 1303 list
+Verilator 5.052, and 1575 follow the standard only. 847 tests depend on
+x or z values, 504 have C code (95 DPI and 409 VPI), 1684 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-8702 of 12319 rows (70.64%), with 4853 executed (39.39%).
+8795 of 12319 rows (71.39%), with 4925 executed (39.98%).
 
 ### Tests added in this work
 

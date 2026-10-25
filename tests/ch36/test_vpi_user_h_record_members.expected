@@ -1,0 +1,59 @@
+VPI_TIME defined 1
+t_vpi_time aliases s_vpi_time p_vpi_time 1
+t_vpi_time field order type high low real 1
+t_vpi_time.type PLI_INT32 1
+t_vpi_time.high PLI_UINT32 1
+t_vpi_time.low PLI_UINT32 1
+t_vpi_time.real double 1
+t_vpi_delay aliases s_vpi_delay p_vpi_delay 1
+t_vpi_delay field order da no_of_delays time_type mtm_flag append_flag pulsere_flag 1
+t_vpi_delay.da struct t_vpi_time * 1
+t_vpi_delay.no_of_delays PLI_INT32 1
+t_vpi_delay.time_type PLI_INT32 1
+t_vpi_delay.mtm_flag PLI_INT32 1
+t_vpi_delay.append_flag PLI_INT32 1
+t_vpi_delay.pulsere_flag PLI_INT32 1
+VPI_VECVAL defined 1
+t_vpi_vecval aliases s_vpi_vecval p_vpi_vecval 1
+t_vpi_vecval field order aval bval 1
+t_vpi_vecval.aval PLI_UINT32 1
+t_vpi_vecval.bval PLI_UINT32 1
+t_vpi_strengthval aliases s_vpi_strengthval p_vpi_strengthval 1
+t_vpi_strengthval field order logic s0 s1 1
+t_vpi_strengthval.logic PLI_INT32 1
+t_vpi_strengthval.s0 PLI_INT32 1
+t_vpi_strengthval.s1 PLI_INT32 1
+t_vpi_value aliases s_vpi_value p_vpi_value 1
+t_vpi_value field order format value 1
+t_vpi_value.format PLI_INT32 1
+t_vpi_value.value is a union of its eight members 1
+t_vpi_value.value.str PLI_BYTE8 * 1
+t_vpi_value.value.scalar PLI_INT32 1
+t_vpi_value.value.integer PLI_INT32 1
+t_vpi_value.value.real double 1
+t_vpi_value.value.time struct t_vpi_time * 1
+t_vpi_value.value.vector struct t_vpi_vecval * 1
+t_vpi_value.value.strength struct t_vpi_strengthval * 1
+t_vpi_value.value.misc PLI_BYTE8 * 1
+t_vpi_arrayvalue aliases s_vpi_arrayvalue p_vpi_arrayvalue 1
+t_vpi_arrayvalue field order format flags value 1
+t_vpi_arrayvalue.format PLI_UINT32 1
+t_vpi_arrayvalue.flags PLI_UINT32 1
+t_vpi_arrayvalue.value is a union of its eight members 1
+t_vpi_arrayvalue.value.integers PLI_INT32 * 1
+t_vpi_arrayvalue.value.shortints PLI_INT16 * 1
+t_vpi_arrayvalue.value.longints PLI_INT64 * 1
+t_vpi_arrayvalue.value.rawvals PLI_BYTE8 * 1
+t_vpi_arrayvalue.value.vectors struct t_vpi_vecval * 1
+t_vpi_arrayvalue.value.times struct t_vpi_time * 1
+t_vpi_arrayvalue.value.reals double * 1
+t_vpi_arrayvalue.value.shortreals float * 1
+t_vpi_systf_data aliases s_vpi_systf_data p_vpi_systf_data 1
+t_vpi_systf_data field order type sysfunctype tfname calltf compiletf sizetf user_data 1
+t_vpi_systf_data.type PLI_INT32 1
+t_vpi_systf_data.sysfunctype PLI_INT32 1
+t_vpi_systf_data.tfname PLI_BYTE8 * 1
+t_vpi_systf_data.calltf PLI_INT32 (*)(PLI_BYTE8 *) 1
+t_vpi_systf_data.compiletf PLI_INT32 (*)(PLI_BYTE8 *) 1
+t_vpi_systf_data.sizetf PLI_INT32 (*)(PLI_BYTE8 *) 1
+t_vpi_systf_data.user_data PLI_BYTE8 * 1
