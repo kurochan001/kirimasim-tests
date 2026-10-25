@@ -1,0 +1,5 @@
+packed: p1=5a p2=00110011 p3=3
+unpacked: u1=5 u2=13 u3=15
+assoc: a1=10 a2=11 a3=12
+queue: q1=13/14 q2=15/16/17 size=3
+unsized: d1=18/19 size=2

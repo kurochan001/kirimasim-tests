@@ -1,0 +1,17 @@
+step_rise=10.001
+two_rise=11.000
+time_rise=12.500
+real_rise=13.500
+three_rise=14.000
+off_turnoff=14.500
+and_rise=16.000
+uns_rise=18.000
+ps_rise=19.000
+step_fall=30.001
+two_fall=32.000
+time_fall=32.500
+real_fall=33.500
+three_fall=35.000
+and_fall=37.000
+uns_fall=38.000
+ps_fall=39.000

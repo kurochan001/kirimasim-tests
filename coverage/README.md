@@ -129,6 +129,9 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
   Icarus 13.0は3 pass・15 known、Verilator 5.052はseed 1/73とも14 pass・4 knownです。
 - `results/gap8-20261026-*.json`: 20.11アサーション制御42・40章カバレッジ20・17章checker 29・36.12.1互換8の要求に向けて書いた30本の実行結果。
   すべて `:oracle: spec` で、Icarus 13.0は0 pass・30 known、Verilator 5.052はseed 1/73とも4 pass・26 knownです。
+- `results/gap9-20261026-*.json`: 附属書Aの構文要求に向けて書き、独立検証を終えた93本の実行結果。
+  Icarus 13.0は17 pass・76 known、Verilator 5.052はseed 1/73とも44 pass・49 knownです。
+- `results/ch5-rehash-20261026-*.json`と`results/ch19-depth-20261026-*.json`: includeディレクトリの入力変化と、深さ検査のため背景節を外した再実行。
 - `results/regex-refinement-20261025-*.json`: 判定の正規表現をメッセージの書式に依存しない形に直した`ch16`の2本の再実行。
   Icarus 13.0は2 known、Verilator 5.052はseed 1/73とも1 pass・1 knownです。
   [見直しの記録](../docs/lyra-disagreement-review-20261025.md)を参照してください。

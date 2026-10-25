@@ -1,0 +1,2 @@
+ranges 100.0, lists 80.0, set 100.0, wildcard 100.0
+with 100.0, ignore 100.0, transitions 87.5, tolerance 100.0

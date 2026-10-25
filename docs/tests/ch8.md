@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 282 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 287 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -9,6 +9,7 @@
 | [`test_class_array_property_nonzero_range`](../../tests/ch8/test_class_array_property_nonzero_range.sv) | A fixed-size array property of a class with a range that does not start at 0 keeps every element | 8.3 7.4.5 20.7 | Verilator 5.052 |  |
 | [`test_class_basics`](../../tests/ch8/test_class_basics.sv) | Chapter 8: Classes | 8.3 8.4 8.12 | Icarus Verilog 13.0 |  |
 | [`test_class_declaration_grammar_forms`](../../tests/ch8/test_class_declaration_grammar_forms.sv) | the class syntax admits virtual and final classes with parameters, extends with constructor arguments, an implements list and an end label, the class items of each kind with their qualifiers, constructors declared in the class or out of it with declarations before the statements, and the :initial, :extends and :final specifiers of methods and prototypes | 8.3 8.17 8.20 8.24 8.26 | Verilator 5.052 |  |
+| [`test_class_item_qualifiers_and_constraints`](../../tests/ch8/test_class_item_qualifiers_and_constraints.sv) | Class items named by identifiers with one qualifier of each allowed kind: a local rand and a randc property, a const property, a static property, a static constraint, a virtual method that a derived class overrides, and a pure virtual method that a virtual class declares and a derived class defines; the constraints are randomized, including one whose subject is a parenthesized array built-in method call, and null is a constant primary | 8.3 8.6 8.8 8.21 18.5 18.7 A.9.3 A.8.4 A.10 | Verilator 5.052 |  |
 | [`test_illegal_class_method_virtual_twice`](../../tests/ch8/test_illegal_class_method_virtual_twice.sv) | the virtual qualifier can appear only once in a class method declaration | 8.3 | standard only | illegal design |
 | [`test_illegal_class_property_protected_and_local`](../../tests/ch8/test_illegal_class_property_protected_and_local.sv) | a class property declaration cannot have both the protected and the local qualifier | 8.3 | standard only | illegal design |
 | [`test_illegal_class_property_rand_and_randc`](../../tests/ch8/test_illegal_class_property_rand_and_randc.sv) | a class property declaration cannot have both the rand and the randc qualifier | 8.3 | standard only | illegal design |
@@ -18,6 +19,7 @@
 | [`test_illegal_override_specifier_outside_class`](../../tests/ch8/test_illegal_override_specifier_outside_class.sv) | the dynamic override specifiers such as :final are not allowed on a function declared outside a class | 8.3 | standard only | illegal design |
 | [`test_illegal_pure_constraint_final`](../../tests/ch8/test_illegal_pure_constraint_final.sv) | a pure constraint cannot be declared with the final specifier | 8.3 | standard only | illegal design |
 | [`test_illegal_pure_virtual_method_final`](../../tests/ch8/test_illegal_pure_virtual_method_final.sv) | a pure virtual method cannot be declared with the final specifier | 8.3 | standard only | illegal design |
+| [`test_syntax_class_and_interface_class_headers`](../../tests/ch8/test_syntax_class_and_interface_class_headers.sv) | A class header with the final specifier, a parameter port list, extends with constructor arguments and an implements list, and an interface class header with a parameter port list, an extends list of interface class types, a typedef, localparam, parameter, empty and attributed pure virtual items | 8.3 8.13 8.26.1 A.1.2 A.1.9 | Verilator 5.052 |  |
 | [`test_block_scoped_class_handles`](../../tests/ch8/test_block_scoped_class_handles.sv) | Class handles declared in begin-end blocks, one hiding a module-level handle | 8.4 23.9 9.3.1 | Icarus Verilog 13.0 |  |
 | [`test_class_basic`](../../tests/ch8/test_class_basic.sv) | Test for class basics | 8.4 8.6 | Icarus Verilog 13.0 |  |
 | [`test_class_basic_2`](../../tests/ch8/test_class_basic_2.sv) | Class constructor, properties and methods, and independent instances | 8.4 8.7 | Icarus Verilog 13.0 |  |
@@ -56,6 +58,7 @@
 | [`test_class_scope`](../../tests/ch8/test_class_scope.sv) | Test class method scope | 8.5 8.9 8.10 8.20 8.23 | Verilator 5.052 |  |
 | [`test_illegal_type_parameter_through_class_handle`](../../tests/ch8/test_illegal_type_parameter_through_class_handle.sv) | a type parameter of a class cannot be reached through a class handle, while a value parameter can | 8.5 8.25 | Verilator 5.052 | illegal design |
 | [`test_nested_member_access`](../../tests/ch8/test_nested_member_access.sv) | Test case: Nested class member access | 8.5 8.4 | Verilator 5.052 |  |
+| [`test_syntax_class_item_kinds`](../../tests/ch8/test_syntax_class_item_kinds.sv) | Class items with attributes before a property, a method, a constraint, a nested class, an interface class and a covergroup; properties with rand, randc, static, protected, local, const, parameter and localparam; both forms of a constraint; and a constraint prototype completed by an external constraint block | 8.5 8.6 8.18 18.5 18.5.1 A.1.9 | Verilator 5.052 |  |
 | [`test_class_method`](../../tests/ch8/test_class_method.sv) | Class methods that read and change a property, with a default constructor argument | 8.6 8.7 | Icarus Verilog 13.0 |  |
 | [`test_class_method_2`](../../tests/ch8/test_class_method_2.sv) | Class Method Tests | 8.6 | Icarus Verilog 13.0 |  |
 | [`test_class_method_calls`](../../tests/ch8/test_class_method_calls.sv) | Class Method Tests | 8.6 | Icarus Verilog 13.0 |  |
@@ -64,6 +67,7 @@
 | [`test_class_methods_2`](../../tests/ch8/test_class_methods_2.sv) | Tests class instantiation, methods, constructors | 8.6 8.7 | Verilator 5.052 |  |
 | [`test_illegal_class_method_static_lifetime`](../../tests/ch8/test_illegal_class_method_static_lifetime.sv) | a class method cannot be declared with a static lifetime, unlike a static method | 8.6 8.10 | Verilator 5.052 | illegal design |
 | [`test_method_class`](../../tests/ch8/test_method_class.sv) | Class methods test | 8.6 8.7 13.5.3 | Icarus Verilog 13.0 |  |
+| [`test_syntax_class_method_kinds`](../../tests/ch8/test_syntax_class_method_kinds.sv) | Class methods with method qualifiers before a task, a function and a constructor, a constructor declaration with block item declarations, a super.new call and an end label, a constructor prototype completed outside the class, extern task and function prototypes defined out of block, and pure virtual task and function prototypes implemented in a derived class | 8.6 8.7 8.14 8.21 8.24 A.1.9 | Verilator 5.052 |  |
 | [`test_class_construct`](../../tests/ch8/test_class_construct.sv) | Class Constructor Tests | 8.7 | Icarus Verilog 13.0 |  |
 | [`test_class_local_and_protected_constructors`](../../tests/ch8/test_class_local_and_protected_constructors.sv) | a constructor can be declared local, and then be called by a static method of its class, or protected, and then be called by the constructor of a derived class with super.new | 8.7 8.18 | Verilator 5.052 |  |
 | [`test_class_new`](../../tests/ch8/test_class_new.sv) | Class Constructor Tests | 8.7 13.5.3 | Verilator 5.052 |  |
@@ -127,6 +131,7 @@
 | [`test_base_handle_redeclared_members_and_virtual_dispatch`](../../tests/ch8/test_base_handle_redeclared_members_and_virtual_dispatch.sv) | through a base-class handle to a derived object, a redeclared property and a nonvirtual method resolve to the base class, and only a virtual method calls the derived override | 8.14 8.20 | Verilator 5.052 |  |
 | [`test_class_super`](../../tests/ch8/test_class_super.sv) | Test: super keyword usage | 8.15 8.20 8.13 | Icarus Verilog 13.0 |  |
 | [`test_class_super_hidden_members_and_implicit_super_new`](../../tests/ch8/test_class_super_hidden_members_and_implicit_super_new.sv) | super reaches the properties, methods, value parameters and local parameters of the immediate base class, also those the derived class hides and those the base inherits, and a constructor without super.new gets one inserted, which uses the default argument of the base constructor | 8.15 8.7 | Verilator 5.052 |  |
+| [`test_constructor_default_argument`](../../tests/ch8/test_constructor_default_argument.sv) | The default keyword in the argument list of a derived class constructor stands for the arguments of the superclass constructor in their order, types and default values, and may appear once; a call with no arguments then takes the superclass defaults and a call with arguments gives them in that order | 8.15 8.16 A.10 | standard only |  |
 | [`test_illegal_super_new_not_first`](../../tests/ch8/test_illegal_super_new_not_first.sv) | A call of super.new has to be the first statement of a constructor | 8.15 8.17 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_super_super_member`](../../tests/ch8/test_illegal_super_super_member.sv) | super reaches only the class one level up; super.super to reach the class above it is illegal | 8.15 | Icarus Verilog 13.0 | illegal design |
 | [`test_cast_class`](../../tests/ch8/test_cast_class.sv) | Test class casting | 8.16 6.24.2 | Verilator 5.052 |  |

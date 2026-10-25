@@ -1,0 +1,434 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch10/test_syntax_assignment_pattern_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch10/test_syntax_assignment_pattern_forms.sv:57:10: syntax error, unexpected \"'{\"",
+   "inputs_sha256": "78029358fe04a9206c2673b9a43c07ae0aabbec25e37432a5d27afefa89b0cf5"
+  },
+  "ch10/test_syntax_procedural_continuous_assignment_forms": {
+   "status": "pass",
+   "inputs_sha256": "e7671c5d22b688e0bd4a27929e15edca0fd988be0027f64af93e039501c140d9"
+  },
+  "ch11/test_let_expression_constant_and_runtime": {
+   "status": "pass",
+   "inputs_sha256": "dd57c023484dcea89c13f0339b6cf2fb7a96d2916d9875b28ff52c0ff3aa838b"
+  },
+  "ch11/test_part_select_and_constant_range_forms": {
+   "status": "pass",
+   "inputs_sha256": "c5609713a4b922093c6d2881e006297cf12beb3608cfe418a2a1f65df5e06216"
+  },
+  "ch11/test_streaming_concatenation_variable_lvalue": {
+   "status": "pass",
+   "inputs_sha256": "94c879cbe4e5a2929ffa1e6feaa19a0c577e2fbc587fc22113fead06ce39288f"
+  },
+  "ch11/test_tagged_union_expression_and_matches_precedence": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_tagged_union_expression_and_matches_precedence.sv:33:5: Unsupported: void (for tagged unions)",
+   "inputs_sha256": "cd7c6dd47b3b5a5cc5ac557445e1beb55531fb53811f69000c1426bc50be7c40"
+  },
+  "ch12/test_syntax_case_matches_and_inside_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch12/test_syntax_case_matches_and_inside_forms.sv:38:13: Unsupported: &&& expression",
+   "inputs_sha256": "458373ce1d42cb4aae109c8c1da99e7d00febfc70fa4f0f97fcf6eccef445369"
+  },
+  "ch12/test_syntax_case_statement_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch12/test_syntax_case_statement_forms.sv:88:44: Unsupported tristate construct: ARG",
+   "inputs_sha256": "5fedbf5db2177f2686e0652ca026d34a77f2b0c43bdb9db981a3cf0572af6214"
+  },
+  "ch12/test_syntax_cond_predicate_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch12/test_syntax_cond_predicate_forms.sv:36:16: Unsupported: &&& expression",
+   "inputs_sha256": "494be0d3b4374f3dd0b9cc28b49d21fed0f5340174026f20d7306f606171bdf1"
+  },
+  "ch12/test_syntax_conditional_statement_forms": {
+   "status": "pass",
+   "inputs_sha256": "5ce4ac48c38910ded33d3b3014afdb1be7ce715baf40c175f09be940d85aa334"
+  },
+  "ch12/test_syntax_loop_statement_forms": {
+   "status": "pass",
+   "inputs_sha256": "015f734455eac66e4fd2d7fd9d64b7674227e8ccd9df39a9b75b32185760ab16"
+  },
+  "ch12/test_syntax_pattern_matching_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch12/test_syntax_pattern_matching_forms.sv:79:22: Unsupported: &&& expression",
+   "inputs_sha256": "e05baf9864cfa759f26bc3760d0e444f893eeeedb7e77db3cfdaa0f13933fe69"
+  },
+  "ch13/test_syntax_function_and_subroutine_call_forms": {
+   "status": "pass",
+   "inputs_sha256": "d4fea488c9511d41664ae40560625c89e33d011c0e05ada547e8db1ae2c9cf61"
+  },
+  "ch13/test_system_tf_call_forms_without_assertions": {
+   "status": "pass",
+   "inputs_sha256": "6dd82242006802009df64eda6483751372fd7d6fcbbd1f19397a4e17e4b42b7e"
+  },
+  "ch14/test_clocking_block_and_signal_names": {
+   "status": "pass",
+   "inputs_sha256": "6b7b2a3261c045a5436fa2926eebbc08dfdbb8468c7019decbbd8be8f85c1f9e"
+  },
+  "ch14/test_syntax_clocking_drive_forms": {
+   "status": "known",
+   "reason": "output differs: line 2 is '61 d=0', expected '61 d=2'",
+   "inputs_sha256": "c48f6bece7bbe9a7f512cdf73e7ed84bedbe3308f0b08d8f7ee0e1dfef2c1c61"
+  },
+  "ch15/test_syntax_wait_order_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch15/test_syntax_wait_order_forms.sv:40:32: Unsupported: wait_order",
+   "inputs_sha256": "41c4510832e6f469aa5a22f25241f9fb8bb21133497341528dcfddb1d31d8d85"
+  },
+  "ch16/test_property_binary_operator_forms": {
+   "status": "known",
+   "reason": "output differs: line 7 is 'p 00000 q 01000: not 0, or 0, and 1, implies 0, iff 0', expected 'p 00000 q 01000: not 0, or 1, and 1, implies 0, iff 0'",
+   "inputs_sha256": "3ffa97ec95bf9de39cbcaafc01d63f146195078c65ccdc55c3b38ed65568524e"
+  },
+  "ch16/test_property_declaration_and_argument_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_property_declaration_and_argument_forms.sv:49:36: Unsupported: property variable default value",
+   "inputs_sha256": "444a729787a348fb3cab5fc5a6e70dd263516546a79b28011b1bf7bd79a5f211"
+  },
+  "ch16/test_property_if_case_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: Verilator internal fault, sorry. Suggest trying --debug --gdbbt",
+   "inputs_sha256": "e5b03ec769913a36519088318fd2ade4fe61af0f7c106cd287c4d27b3e52bf33"
+  },
+  "ch16/test_property_implication_operator_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_property_implication_operator_forms.sv:36:45: Unsupported: sequence expression as antecedent of followed-by (#-# / #=#) (IEEE 1800-2023 16.12.9)",
+   "inputs_sha256": "61b03262db12a6bc8387e31a8c88ed7ea662105b038a9f472ac087d45dd3f096"
+  },
+  "ch16/test_property_statement_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_property_statement_forms.sv:85:5: Unsupported: expect",
+   "inputs_sha256": "e1240c74f42a1aeb18379fab7c3f77dad2cb6de9b8ab3cd076f0e6fd5df3feaf"
+  },
+  "ch16/test_property_temporal_operator_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_property_temporal_operator_forms.sv:37:51: Unsupported: nexttime (in property expression)",
+   "inputs_sha256": "7d9164cc7855454865a64b9a560b0cb11fee59bf100443b8036b30db96f0d4a1"
+  },
+  "ch16/test_sampled_value_functions_with_clocking_event": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_sampled_value_functions_with_clocking_event.sv:42:16: Unsupported: $past expr2 and/or clock arguments",
+   "inputs_sha256": "2582d09fed3e756452b5f33ad4c5fbcdd0d6a2f7a797c011bf72d251bd407506"
+  },
+  "ch16/test_sequence_match_item_and_triggered_method": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_sequence_match_item_and_triggered_method.sv:63:18: Can't find definition of 'triggered' in dotted variable/method: 'u.triggered'",
+   "inputs_sha256": "9f16c275b0eb89248bd302267e6fb9b568bc9ad16e27079d5ea27b63974758a1"
+  },
+  "ch16/test_sequence_operator_and_delay_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_sequence_operator_and_delay_forms.sv:64:51: Unsupported: first_match with sequence_match_items",
+   "inputs_sha256": "089187d6bfb6f04aca156f2899706f320649415e67dbc0ddac4450186c187213"
+  },
+  "ch16/test_syntax_action_block_and_simple_assertions": {
+   "status": "pass",
+   "inputs_sha256": "4f148263c38632599a21ebdc29196b6c6a2741e7bf8216d4e2cf94e3bfa827b8"
+  },
+  "ch16/test_syntax_deferred_immediate_assertions": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'wrong', expected '0 assert zero sees 5'",
+   "inputs_sha256": "5ca8edbe1236f3a49579ff2742c7981679a3644864f1de24daa8d718f9bc31a8"
+  },
+  "ch16/test_syntax_expect_property_statement": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_syntax_expect_property_statement.sv:37:5: Unsupported: expect",
+   "inputs_sha256": "09a1b5cca0a76c9c986b5c10f296bccf3f4eabeec3714f1886545feb9f47f354"
+  },
+  "ch17/test_checker_body_declaration_kinds": {
+   "status": "pass",
+   "inputs_sha256": "6c8f35af2bb2d851882880584beb3b66ed3488e597a5ad52a7c5ea2fd081e8f8"
+  },
+  "ch17/test_checker_body_procedural_and_generate_items": {
+   "status": "pass",
+   "inputs_sha256": "1e4cdab447d34421adf5e933c520846cf8af874d1c9fc7a03f72ecea0fb947ec"
+  },
+  "ch17/test_checker_declaration_and_port_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_declaration_and_port_forms.sv:49:17: Unsupported: checker port variable default value",
+   "inputs_sha256": "60c5ab10798153cc9057b1bdd47977b4a903b1c0935737b2d1fa08197829fd1f"
+  },
+  "ch17/test_checker_instantiation_connection_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_instantiation_connection_forms.sv:32:11: Unsupported: 'checker' below unit-level",
+   "inputs_sha256": "aa41cae967d9d206de21cb5743fc92b84d0f31aaf3c83b467960d4d17a417f0a"
+  },
+  "ch17/test_checker_rand_and_nested_checker": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_rand_and_nested_checker.sv:30:3: Unsupported: checker rand",
+   "inputs_sha256": "4e754928228bd5fcf7cc42c73a4b61fa7ef995d3bd1f7219e2a62ff383f9ed36"
+  },
+  "ch18/test_constraint_grammar_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch18/test_constraint_grammar_forms.sv:49:52: Unsupported: 'default :/' constraint",
+   "inputs_sha256": "ff97475a2c3aca65caa3278d1f8626bea459ed94291ef6eeacde9bfb2c191cba"
+  },
+  "ch18/test_constraint_prototype_and_specifier_forms": {
+   "status": "pass",
+   "inputs_sha256": "e7e5d8e32dfa6466bc740e371be4e0e7d774f34f16c266adaed4395707e5af90"
+  },
+  "ch18/test_randsequence_production_names": {
+   "status": "pass",
+   "inputs_sha256": "99aa72c3a33a51b8e91d4f5011cb5fd04dca4114b994b02fed6334fff935f1a9"
+  },
+  "ch18/test_syntax_randcase_and_randsequence_forms": {
+   "status": "pass",
+   "inputs_sha256": "b3f1ba0407ffe915165ad0bf1b1d44790ce2e52395299d89361617d0fbcb1503"
+  },
+  "ch18/test_uniqueness_constraint_forms": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'ok 0', expected 'ok 1'",
+   "inputs_sha256": "b2e6648bc981d025d890df046e47d0f283db3a0d8c1e9927cb33a5ca73a3a129"
+  },
+  "ch19/test_covergroup_bins_and_range_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_covergroup_bins_and_range_forms.sv:57:47: syntax error, unexpected ';', expecting with-then-(",
+   "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825"
+  },
+  "ch19/test_covergroup_block_event_forms": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'block event 0', expected 'block event 50'",
+   "inputs_sha256": "e5bc82941e7474827d82c4838623d1cbe9c4e511dacfd8c515eb4c7505605f09"
+  },
+  "ch19/test_covergroup_cross_and_select_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_covergroup_cross_and_select_forms.sv:49:31: syntax error, unexpected '[', expecting ')'",
+   "inputs_sha256": "2177d2c538ce5b223ee7badcd861e766dd27e99d9cda6d453d5be891a72298ff"
+  },
+  "ch19/test_covergroup_declaration_and_option_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch19/test_covergroup_declaration_and_option_forms.sv:63:5: Unsupported: covergroup inheritance (extends)",
+   "inputs_sha256": "435f41cdcbc5e52bea5924892c045ff5d15d68d5f42d9460f2fbd6c70e97bc47"
+  },
+  "ch19/test_covergroup_identifiers_and_bins_with": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'cg 0/0', expected 'cg 6/11'",
+   "inputs_sha256": "9a8bed9ae72de17810dc8bce1fb1bed351c57284eca64c0b6cff43bb35026dcb"
+  },
+  "ch23/test_hierarchical_identifier_forms_through_instances": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch23/test_hierarchical_identifier_forms_through_instances.sv:105:24: Can't find definition of 'LP' in dotted signal: 'blk.LP'",
+   "inputs_sha256": "d8e8484f4d7189bacdb4f99267ef61ae408a0c2bf10b81b7fff40213cf50ec92"
+  },
+  "ch23/test_root_and_array_scope_hierarchical_names": {
+   "status": "pass",
+   "inputs_sha256": "e4fc6d2cc9d66b6893e35223368b146c1cdb0cd05d0c2e79f132bdc5f9a323ed"
+  },
+  "ch23/test_syntax_bind_instance_array_bit_select": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch23/test_syntax_bind_instance_array_bit_select.sv:38:50: syntax error, unexpected '.'",
+   "inputs_sha256": "38d732f7d49093bc97a22a885d352b70ca1539053dc85b98d050435752a4d22b"
+  },
+  "ch23/test_syntax_parameter_port_list_forms": {
+   "status": "pass",
+   "inputs_sha256": "82c99eba56ccf61af80f75862e33062f9c964d2fe104ffc69912f34353c44517"
+  },
+  "ch23/test_syntax_port_declaration_forms": {
+   "status": "pass",
+   "inputs_sha256": "98b698584b70bf9563bc3b0d4066e222883a60574578f097d60b3f4bd4c26aeb"
+  },
+  "ch23/test_syntax_port_expression_and_explicit_ports": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch23/test_syntax_port_expression_and_explicit_ports.sv:40:42: Unsupported: complex ports (IEEE 1800-2023 23.2.2.1/2)",
+   "inputs_sha256": "b095bd69a3db1f0d351036ea09317d651a133c0b0eb02ca0e0913ca52d6ec6b1"
+  },
+  "ch24/test_anonymous_program_empty_item": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch24/test_anonymous_program_empty_item.sv:29:3: Unsupported: Anonymous programs",
+   "inputs_sha256": "4e0928feb8803216a865242273c5bf90080daf304eb4d8793171aa6688bcd1a5"
+  },
+  "ch24/test_program_and_checker_generate_items": {
+   "status": "pass",
+   "inputs_sha256": "2aae145c8c606e8635d98ead24a67e83cd6b6390c33cb66481bd1a5d376d5377"
+  },
+  "ch25/test_interface_extern_and_generate_items": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch25/test_interface_extern_and_generate_items.sv:40:3: Unsupported: extern function",
+   "inputs_sha256": "fed9759300e8600a54949ca73a4062478e0f4c139b5699c8906fdf20db29789f"
+  },
+  "ch25/test_interface_modport_forms": {
+   "status": "pass",
+   "inputs_sha256": "422b544d81e9c49c5ae26be81f69def57b6ff0d9610afa6ebeff8b2dbea258dd"
+  },
+  "ch25/test_interface_port_and_modport_names": {
+   "status": "pass",
+   "inputs_sha256": "ca6a6ef8daea409fd5350a336e642554de912afe801adcc5124d768b8405e1d1"
+  },
+  "ch25/test_virtual_interface_data_type_forms": {
+   "status": "pass",
+   "inputs_sha256": "05ba2b1c6f24f1c02310b56f33c8e85249761d38d6f0f31c6c346aa9e9f9d25b"
+  },
+  "ch26/test_package_and_type_scope_names": {
+   "status": "pass",
+   "inputs_sha256": "6c58e0a6a117fec5f5ab8cac2adce8c17ffb4f503039699e0c4ae924fcf2a7bc"
+  },
+  "ch26/test_package_empty_item_declaration": {
+   "status": "pass",
+   "inputs_sha256": "41da666185508dd2977fbd4449caf100514bfb65ab9adbe41a8df324d48e777f"
+  },
+  "ch27/test_generate_block_and_item_forms": {
+   "status": "pass",
+   "inputs_sha256": "3764923c237ac8ed3950ff3fc0119efd7f42a727e003451bb259695e0489b81d"
+  },
+  "ch27/test_interface_generate_items": {
+   "status": "pass",
+   "inputs_sha256": "10c93c00596128b2b74a1e7856723d6de54e505e1a93339aeaa47dcc885fcaa6"
+  },
+  "ch28/test_charge_strength_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_charge_strength_forms.sv:26:3: Unsupported: trireg",
+   "inputs_sha256": "9ec8e153fa762de9a9211bbb09920694e1085a6c6bf326e0d814978a06b96580"
+  },
+  "ch28/test_drive_strength_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_drive_strength_forms.sv:35:15: Unsupported: highz strength",
+   "inputs_sha256": "bddd3eac1102c6f89f1afe9198427d52a2152de766816d04389fd7c36fb68925"
+  },
+  "ch28/test_gate_delay_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch28/test_gate_delay_forms.sv:50:14: syntax error, unexpected IDENTIFIER-for-instance, expecting IDENTIFIER or IDENTIFIER-for-pathpulse or randomize or $root",
+   "inputs_sha256": "ac1f0dede1bf4cf763a34828f5e36053132209ba385d66aa6535c91997f132da"
+  },
+  "ch29/test_udp_extern_and_wildcard_header": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch29/test_udp_extern_and_wildcard_header.sv:30:8: syntax error, unexpected primitive, expecting interface or module or program",
+   "inputs_sha256": "cd104d5e2a8e0d2ec324aeb7e82276536ec2d57b9283f6c0f8f5885ee53655d1"
+  },
+  "ch29/test_udp_identifier_and_combinational_table": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'udp 1 1 0', expected 'udp 1 x 0'",
+   "inputs_sha256": "a577402d706ca3ee34d8862e95753e8b4c52d7dfb02aaac2556899fcc6ccef0f"
+  },
+  "ch29/test_udp_port_identifier_list": {
+   "status": "pass",
+   "inputs_sha256": "9e3aebc3b9028b750c1ac07d8a9c769b8e9d774a0550aebfa9f9df7c0224e20a"
+  },
+  "ch30/test_syntax_specify_block_items": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'ondetect y: 10:1 13:0 30:1 37:0', expected 'ondetect y: 13:x 19:0 36:1 43:0'",
+   "inputs_sha256": "5443da1fa304d40bfc33f4fe49f4d8834c7ab9c819841e463c297f937d4d0028"
+  },
+  "ch33/test_config_library_cell_and_topmodule_names": {
+   "status": "pass",
+   "inputs_sha256": "7c8338673c5c195197f6b1199fb9c47d29f50c4ed5abfb029ea7eb9279875094"
+  },
+  "ch35/test_c_identifier_dpi_linkage_names": {
+   "status": "pass",
+   "inputs_sha256": "ede3ed51003d9148766014e8c556d37b16a546e38217bad159c5991cd04de83e"
+  },
+  "ch35/test_dpi_import_export_forms": {
+   "status": "pass",
+   "inputs_sha256": "bfc6823b635500a7ab972999b5e676cc53f4863a4e4e9de1bae88e45827898e6"
+  },
+  "ch5/test_attribute_instance_specifications": {
+   "status": "pass",
+   "inputs_sha256": "8ce8a3f9e94dd81724cce7708d48842fffe4477c1a34e3c7d63fe8336922d136"
+  },
+  "ch5/test_identifier_categories_in_declarations": {
+   "status": "pass",
+   "inputs_sha256": "9e392a81c01bb3389727bba2ac3f6b75600132b7cf3a1a48c55b5da0f04c15ff"
+  },
+  "ch5/test_primary_literal_forms_number_time_unbased_string": {
+   "status": "pass",
+   "inputs_sha256": "9a40d6e568ca4b0a227f388fef09668cbacc3d1b52bda3645219b243d198fb7f"
+  },
+  "ch6/test_charge_strength_and_vectored_net_declarations": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_charge_strength_and_vectored_net_declarations.sv:31:3: Unsupported: trireg",
+   "inputs_sha256": "dc69931ff0f85781410c8416346f78483b9d10cb1ec183edc3a83f7aa307d652"
+  },
+  "ch6/test_data_type_keyword_forms": {
+   "status": "pass",
+   "inputs_sha256": "8817e8409b97db03bd4882158fc8bbde80f94378728e6183c5d83f7349d738f4"
+  },
+  "ch6/test_data_type_scoped_and_reference_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_data_type_scoped_and_reference_forms.sv:58:16: Unsupported: Multiple '::' package/class reference",
+   "inputs_sha256": "f3faf171149e0e4806add54bed8615238cb08865f409793b97511bfbf8b861fa"
+  },
+  "ch6/test_interconnect_and_net_port_types": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_interconnect_and_net_port_types.sv:36:1: Unsupported: nettype",
+   "inputs_sha256": "558e99da2f09729c25d91a9630a403aded5f29071a495e8a42fb2022fe75aaea"
+  },
+  "ch6/test_net_type_forms": {
+   "status": "pass",
+   "inputs_sha256": "a69ffe422dafa52ba4acc6f59cd6d5648b9d0613635ed02ebca25fb317eb5e2e"
+  },
+  "ch6/test_nettype_identifier_and_net": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_nettype_identifier_and_net.sv:24:3: Unsupported: nettype",
+   "inputs_sha256": "90de30e5ae4d80a9d7d87c1f03f798fae34f3b666435a142acb927afcbec51ab"
+  },
+  "ch6/test_parameter_unbounded_value": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch6/test_parameter_unbounded_value.sv:38:23: Expecting expression to be constant, but variable isn't const: 'P'",
+   "inputs_sha256": "52972bfe98687f517812dc3b4fc92cfae34dfcc5637e77ad47f9e1b97aa1410f"
+  },
+  "ch7/test_declaration_range_forms": {
+   "status": "pass",
+   "inputs_sha256": "9b5b6e086e41a05b319f487e07c62e3f5731ad283a8e86a5f5100a090351827c"
+  },
+  "ch7/test_packed_struct_union_dimensions_and_rand_member": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_packed_struct_union_dimensions_and_rand_member.sv:36:26: Unsupported: void (for tagged unions)",
+   "inputs_sha256": "e1b7c8148492f74f1a7fc9cb82e333d6e863a947bd38db60d8d159fb7426a402"
+  },
+  "ch7/test_tagged_union_keywords_and_members": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_tagged_union_keywords_and_members.sv:71:10: Unsupported: tagged union",
+   "inputs_sha256": "cf91a5d1e09e6afd945e86cf8ab23d8e3317d7b57364eeb0bb909a970763a472"
+  },
+  "ch8/test_class_item_qualifiers_and_constraints": {
+   "status": "pass",
+   "inputs_sha256": "d83a9683d9f9a83e11d49d2397fb3e92a2a77fc0df76788cc9614b8c378171d0"
+  },
+  "ch8/test_constructor_default_argument": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch8/test_constructor_default_argument.sv:40:18: Unsupported: new constructor 'default' argument",
+   "inputs_sha256": "61913e2be0893a92efe32ebaf11710d0b7adbed5f7a91f9532ce0a969a6a65f6"
+  },
+  "ch8/test_syntax_class_and_interface_class_headers": {
+   "status": "pass",
+   "inputs_sha256": "c2623c0836a5c80ac70cbf6180b6407e56e2c08b823e8865a69b5bb52f3e273e"
+  },
+  "ch8/test_syntax_class_item_kinds": {
+   "status": "pass",
+   "inputs_sha256": "db8f62eb33876ad1a61fd9e8ee512176d734842278b0fac9313795c61ad0bac4"
+  },
+  "ch8/test_syntax_class_method_kinds": {
+   "status": "pass",
+   "inputs_sha256": "5c9d5b9c21d7b50ffe3367073ffe5f1da7580207ddef57d1c0d09dea02787e3f"
+  },
+  "ch9/test_syntax_disable_and_wait_forms": {
+   "status": "pass",
+   "inputs_sha256": "46880b4a33260245f50fd969f76dc98256d44b73b7b1c668f5bddae855e74991"
+  },
+  "ch9/test_syntax_sequential_and_parallel_block_forms": {
+   "status": "pass",
+   "inputs_sha256": "63d3e560f2dc672c52d68783c790620fb8bf318347385db7def4fe5a93ee9486"
+  },
+  "ch9/test_syntax_star_event_controls": {
+   "status": "known",
+   "reason": "output differs: line 1 is '0: star reads a=0', expected '1: star reads a=1'",
+   "inputs_sha256": "300f1ffc45620527ba2a8969cfd946e5c623d45df0665cce6ae847968ca3c75c"
+  },
+  "ch9/test_syntax_structured_procedure_forms": {
+   "status": "pass",
+   "inputs_sha256": "a6a71b9f7249ad16b26fd28211a8698de678715679c16ae165f66efea91f4f33"
+  },
+  "ch9/test_syntax_timing_control_and_event_expressions": {
+   "status": "pass",
+   "inputs_sha256": "083d70f9ef9cea4b7a8780f33a4862e7cf49296777289c953c0402c430deedda"
+  }
+ },
+ "generated_at": "2026-10-25T19:12:03.866738+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

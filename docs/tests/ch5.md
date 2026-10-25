@@ -1,6 +1,6 @@
 # Clause 5: Lexical conventions
 
-[All chapters](README.md). 340 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 343 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -14,6 +14,7 @@
 | [`test_operator_token_lengths`](../../tests/ch5/test_operator_token_lengths.sv) | Operators are tokens of one, two or three characters; unary operators come before their operand, binary ones between their operands, and the conditional operator uses two operator characters between three operands | 5.5 11.3 11.4.10 11.4.5 11.4.6 | Icarus Verilog 13.0 |  |
 | [`test_operator_unary_binary_token_boundaries`](../../tests/ch5/test_operator_unary_binary_token_boundaries.sv) | Adjacent unary and binary operators retain their separate roles | 5.5 | Icarus Verilog 13.0 |  |
 | [`test_identifier_1024_characters`](../../tests/ch5/test_identifier_1024_characters.sv) | An implementation that limits the length of identifiers accepts names of 1024 characters and keeps them apart when only their last character differs | 5.6 21.2.1.5 | Icarus Verilog 13.0 | several files |
+| [`test_identifier_categories_in_declarations`](../../tests/ch5/test_identifier_categories_in_declarations.sv) | The names a design gives to its module, instances, nets, variables, ports in all three directions, tasks, functions, named blocks, generate blocks, genvars, parameters, types, enumeration values, structure members, interfaces, arrays, dynamic arrays, index variables and formal arguments are identifiers, and each names an object whose value or effect the test prints | 5.6 5.6.1 6.18 27.4 A.9.3 A.10 | Icarus Verilog 13.0 |  |
 | [`test_identifier_forms`](../../tests/ch5/test_identifier_forms.sv) | Identifiers with underscores and mixed case, and generate block names | 5.6 27.4 | Icarus Verilog 13.0 |  |
 | [`test_identifier_if_suffix`](../../tests/ch5/test_identifier_if_suffix.sv) | Identifiers ending in "if" followed by "(" are not the if keyword | 5.6 5.6.2 | Icarus Verilog 13.0 |  |
 | [`test_identifier_leading_underscore`](../../tests/ch5/test_identifier_leading_underscore.sv) | Identifiers that start with an underscore and contain digits, such as _133_ and _1e5 | 5.6 5.7.1 | Icarus Verilog 13.0 |  |
@@ -57,6 +58,7 @@
 | [`test_literal_xz_digit_widths_and_padding`](../../tests/ch5/test_literal_xz_digit_widths_and_padding.sv) | An x, z or ? digit sets four, three or one bits in hexadecimal, octal and binary, x and z are case insensitive, a literal whose leftmost given bit is x or z is padded with it, and an unsized unsigned one is extended with it to the width of its context | 5.7.1 | Icarus Verilog 13.0 | x/z |
 | [`test_literals_macros_specify`](../../tests/ch5/test_literals_macros_specify.sv) | Based literals, underscores, real and string literals, macros and a specparam | 5.7.1 22.5.1 5.12 6.20.5 | Icarus Verilog 13.0 |  |
 | [`test_logic_literal_edge_cases`](../../tests/ch5/test_logic_literal_edge_cases.sv) | Test: Logic literal edge cases | 5.7.1 | Icarus Verilog 13.0 |  |
+| [`test_primary_literal_forms_number_time_unbased_string`](../../tests/ch5/test_primary_literal_forms_number_time_unbased_string.sv) | A primary literal is a number in binary, octal, decimal or hexadecimal with underscores and a sign, a time literal whose number is followed directly by the unit, an unbased unsized literal whose apostrophe is followed directly by 0 or 1, or a string literal; each gives its value, its width and, for a delay in time units, the time | 5.7.1 5.7.2 5.8 5.9 A.8.4 A.10 | Icarus Verilog 13.0 |  |
 | [`test_unbased_unsized_fill_and_self_width`](../../tests/ch5/test_unbased_unsized_fill_and_self_width.sv) | An unbased unsized literal sets every bit that its context needs to its 0, 1, x or z value, is unsigned, and has one bit in a self-determined context | 5.7.1 | Icarus Verilog 13.0 | x/z |
 | [`test_underscore_literal`](../../tests/ch5/test_underscore_literal.sv) | Underscores in binary, hex and decimal literals do not change their values | 5.7.1 | Icarus Verilog 13.0 |  |
 | [`test_unsized_fill_all_values`](../../tests/ch5/test_unsized_fill_all_values.sv) | The unsized single-bit literals '0, '1, 'x and 'z fill every bit of an 8-bit, 33-bit and 65-bit context and have width one in a self-determined context | 5.7.1 | Icarus Verilog 13.0 | x/z |
@@ -90,6 +92,7 @@
 | [`test_array_literal_nesting`](../../tests/ch5/test_array_literal_nesting.sv) | Array literals nest one level of braces per dimension, a replication acts within one dimension and can be nested, and a literal gets its type from a cast or from the assignment, with index and default keys | 5.11 10.9.1 10.8 | Verilator 5.052 |  |
 | [`test_attrib_module`](../../tests/ch5/test_attrib_module.sv) | Test: Module attributes | 5.12 | Icarus Verilog 13.0 | x/z |
 | [`test_attrib_signal`](../../tests/ch5/test_attrib_signal.sv) | Test: Signal attributes | 5.12 | Icarus Verilog 13.0 |  |
+| [`test_attribute_instance_specifications`](../../tests/ch5/test_attribute_instance_specifications.sv) | An attribute instance holds one or more comma-separated attribute specifications before a module, a net, a variable, a module instance, a port connection, an operator and a function call; a specification is an attribute name or a name with a constant expression as its value, and the attributes change no value | 5.12 A.9.1 | Icarus Verilog 13.0 |  |
 | [`test_attribute_latch_generate`](../../tests/ch5/test_attribute_latch_generate.sv) | An attribute on a variable, always_latch, and a variable in a generate loop | 5.12 9.2.2.3 27.4 | Icarus Verilog 13.0 |  |
 | [`test_illegal_attribute_instance_nested`](../../tests/ch5/test_illegal_attribute_instance_nested.sv) | An attribute instance written inside another attribute instance is rejected | 5.12 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_attribute_value_contains_attribute`](../../tests/ch5/test_illegal_attribute_value_contains_attribute.sv) | An attribute whose value expression contains an attribute instance is rejected | 5.12 | Verilator 5.052 | illegal design |

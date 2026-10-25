@@ -1052,14 +1052,20 @@ declarations (17.2/17.3/17.7.2, 29) and 1364 compatibility (36.12.1, 8),
 30 tests. One checker test that relied on a program's implicit finish was
 excluded.
 
+The final round covered Annex A grammar in four partitions: 369 links
+were applied from the 517 proposals, with 93 tests kept after the
+independent review. Fifteen tests with wrong expectations or illegal
+syntax stayed out; five repaired tests were re-verified first. This
+takes the ledger past the 75% target: 9244 of 12319 rows (75.04%).
+
 ### Current state
 
-After these commits the suite has 6706 tests in 37 chapters, 1308 of them
-generated. By `:oracle:`, 3798 list Icarus Verilog 13.0, 1307 list
-Verilator 5.052, and 1601 follow the standard only. 847 tests depend on
-x or z values, 510 have C code (95 DPI and 415 VPI), 1695 are illegal
+After these commits the suite has 6799 tests in 37 chapters, 1308 of them
+generated. By `:oracle:`, 3815 list Icarus Verilog 13.0, 1339 list
+Verilator 5.052, and 1645 follow the standard only. 855 tests depend on
+x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-8888 of 12319 rows (72.15%), with 4929 executed (40.01%).
+9244 of 12319 rows (75.04%), with 5123 executed (41.59%).
 
 ### Tests added in this work
 

@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch19/test_covergroup_cross_and_select_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_covergroup_cross_and_select_forms.sv:49:31: syntax error, unexpected '[', expecting ')'",
+   "inputs_sha256": "c8c5200e9e8f3bb1b1b6e4cefaa4e1341ea2c2189d56ed41eb5d6b21fbc2b89e"
+  }
+ },
+ "generated_at": "2026-10-25T19:12:42.443253+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

@@ -1,0 +1,12 @@
+2: or
+3: comma
+4: named event
+5: edge clock
+6: parenthesized
+10: negedge
+15: iff
+25: repeat
+35: package signal
+36: hierarchical event
+41: delay
+43: mintypmax delay

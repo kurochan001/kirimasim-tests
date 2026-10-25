@@ -1,0 +1,6 @@
+initial: comb_out=3
+comb after 5: 6
+latch with enable: 1
+latch holds: 1
+ff after 2 edges: 2
+final: comb=6 latch=1 ff=2 counter=3

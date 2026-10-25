@@ -1,0 +1,5 @@
+sel 0, v 0: if 0, case 1, default without colon 0
+sel 0, v 1: if 1, case 0, default without colon 1
+sel 2, v 0: if 1, case 0, default without colon 0
+sel 2, v 1: if 0, case 1, default without colon 1
+sel 3, v 1: if 0, case 0, default without colon 0

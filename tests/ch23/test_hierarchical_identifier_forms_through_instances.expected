@@ -1,0 +1,10 @@
+net 0 0101
+var 3 5a a
+sel 5 00 1
+gen 1 2
+param 2 19
+call 7 4
+arr 5 a5
+blk 6
+event
+ev 3

@@ -1,0 +1,12 @@
+p 11110000: nexttime 0, nexttime[2] 0, s_nexttime 0, s_nexttime[2] 0
+  always 1, always[1:2] 0, s_always 0
+  eventually 0, s_eventually 0, s_eventually[1:2] 0
+p 00110000: nexttime 1, nexttime[2] 0, s_nexttime 1, s_nexttime[2] 0
+  always 1, always[1:2] 1, s_always 1
+  eventually 0, s_eventually 0, s_eventually[1:2] 0
+p 00010000: nexttime 1, nexttime[2] 1, s_nexttime 1, s_nexttime[2] 1
+  always 1, always[1:2] 1, s_always 1
+  eventually 1, s_eventually 0, s_eventually[1:2] 1
+p 00000001: nexttime 1, nexttime[2] 1, s_nexttime 1, s_nexttime[2] 1
+  always 1, always[1:2] 1, s_always 1
+  eventually 1, s_eventually 0, s_eventually[1:2] 1

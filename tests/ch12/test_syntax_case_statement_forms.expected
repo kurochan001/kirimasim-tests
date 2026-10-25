@@ -1,0 +1,6 @@
+plain: 10 20 30
+no default: 1 2
+casez: 1 2 3
+casex: 1 1
+qualifiers: 1 2 1
+null and default: r=9

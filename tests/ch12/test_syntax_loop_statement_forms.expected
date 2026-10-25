@@ -1,0 +1,6 @@
+counts: forever=3 repeat=3 while=4 do=2
+for: a=30 b=4 c=3 d=4 empty=2
+foreach: sum=21 count=6 both=0
+columns: 1 1 1
+rows: 1 1
+scoped: pkg=6 hier=60

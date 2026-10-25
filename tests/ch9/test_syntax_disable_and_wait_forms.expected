@@ -1,0 +1,6 @@
+task: n=1
+block: n=11
+wait null: n=12
+wait statement: n=13
+wait fork: n=16
+disable fork: n=16 at 7

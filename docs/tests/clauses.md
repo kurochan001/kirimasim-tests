@@ -60,4 +60,4 @@ None.
 
 ## Cited numbers missing from the list
 
-These numbers are cited by tests but are not in `tools/clauses.txt`; either the citation or the list needs a correction: 6.12.2.
+These numbers are cited by tests but are not in `tools/clauses.txt`; either the citation or the list needs a correction: 6.3.3, 6.12.2.

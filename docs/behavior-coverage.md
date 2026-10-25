@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 72.15%、実行 40.01%。**
+**全規格の要求台帳ベース（暫定）: 設計 75.04%、実行 41.59%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 8888/12319 (72.15%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4929/12319 (40.01%)。
-- 登録済みだがテスト未対応: 3431 動作。
+- 登録済み動作に対するテスト設計網羅率: 9244/12319 (75.04%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5123/12319 (41.59%)。
+- 登録済みだがテスト未対応: 3075 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -47,12 +47,18 @@
 - `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `ch19-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:12:42.328492+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `ch19-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.443253+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `ch19-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.556516+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch22-rehash-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:05:38.835073+00:00 / 5/12319 動作確認、古い入力との対応 0 件。
 - `ch22-rehash-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:05:47.728789+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `ch22-rehash-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:05:47.728454+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `ch37-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:43:02.687407+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch37-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:43:02.822987+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch37-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:43:02.963097+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `ch5-rehash-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:09:39.229521+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
+- `ch5-rehash-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:09:42.230539+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `ch5-rehash-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:09:45.032088+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `citation-refinement-icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T14:29:24.878016+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
 - `citation-refinement-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:29:34.097194+00:00 / 18/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
@@ -67,21 +73,24 @@
 - `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 612/12319 動作確認、古い入力との対応 6 件。
 - `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
 - `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
-- `gap4-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T14:32:08.355598+00:00 / 192/12319 動作確認、古い入力との対応 0 件。
-- `gap4-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.687753+00:00 / 141/12319 動作確認、古い入力との対応 0 件。
-- `gap4-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.575982+00:00 / 141/12319 動作確認、古い入力との対応 0 件。
+- `gap4-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T14:32:08.355598+00:00 / 191/12319 動作確認、古い入力との対応 1 件。
+- `gap4-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.687753+00:00 / 141/12319 動作確認、古い入力との対応 1 件。
+- `gap4-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.575982+00:00 / 141/12319 動作確認、古い入力との対応 1 件。
 - `gap5-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:06:15.714744+00:00 / 108/12319 動作確認、古い入力との対応 1 件。
 - `gap5-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.553737+00:00 / 71/12319 動作確認、古い入力との対応 1 件。
 - `gap5-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.656775+00:00 / 71/12319 動作確認、古い入力との対応 1 件。
-- `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 118/12319 動作確認、古い入力との対応 0 件。
-- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 200/12319 動作確認、古い入力との対応 0 件。
-- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 200/12319 動作確認、古い入力との対応 0 件。
+- `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 119/12319 動作確認、古い入力との対応 0 件。
+- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 208/12319 動作確認、古い入力との対応 0 件。
+- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 208/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T17:06:51.310506+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.035626+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.037049+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
 - `gap8-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T18:02:58.641182+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap8-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318717+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `gap8-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318723+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
+- `gap9-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:11:21.453322+00:00 / 60/12319 動作確認、古い入力との対応 13 件。
+- `gap9-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866738+00:00 / 170/12319 動作確認、古い入力との対応 13 件。
+- `gap9-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866731+00:00 / 170/12319 動作確認、古い入力との対応 13 件。
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
@@ -149,7 +158,7 @@
 - 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 77。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 75。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
-- A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 289。
+- A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 645。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 0。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
@@ -113685,7 +113694,7 @@ library_text allows zero or more library descriptions; each description is a lib
 
 ### SV2023-A.1.2-EXTRACT-CHECKER-DECLARATION
 
-A.1.2 / normal / テスト未対応
+A.1.2 / normal / テスト対応あり・実行未確認
 
 A checker declaration has checker and identifier, optional parentheses containing an optional checker-port list, semicolon, repeated optionally attributed checker/generate items, endchecker and optional colon end-name.
 
@@ -113693,10 +113702,11 @@ A checker declaration has checker and identifier, optional parentheses containin
 
 規定の性質: `definition`。
 
+- [test_checker_declaration_and_port_forms.sv](../tests/ch17/test_checker_declaration_and_port_forms.sv): ck_none は丸括弧を省き、ck_empty は空の丸括弧と endchecker : ck_empty を持ち、ck_ports はポート並びと endchecker : ck_ports を持つ。none=1 empty=2 で本体が動く。 区別: 各 checker の出力と、checker が駆動した compilation-unit 変数を出力するので、宣言の形・ポートの種類・方向の継承を誤る実装では値が出ないか変わる。
 
 ### SV2023-A.1.2-EXTRACT-CLASS-DECLARATION
 
-A.1.2 / normal / テスト未対応
+A.1.2 / normal / 実行確認あり
 
 A class declaration allows virtual, then class, optional final specifier, identifier, optional parameter list, optional extends with optional argument/default parentheses, optional implements with one or more interface-class types, semicolon, repeated class items, endclass and optional colon end-name.
 
@@ -113704,6 +113714,7 @@ A class declaration allows virtual, then class, optional final specifier, identi
 
 規定の性質: `definition`。
 
+- [test_syntax_class_and_interface_class_headers.sv](../tests/ch8/test_syntax_class_and_interface_class_headers.sv): class :final c_top extends c_plain(5) が final specifier と extends の引数を、class c_impl implements ic_base#(2), ic_extra が implements の並びを使い、v=5 w=6 impl f=3 を出す。 区別: final class・extends の引数・implements・interface class の型とメソッドを実体化して呼び出した値を出力するので、ヘッダの要素を誤ると値が変わる。
 
 ### SV2023-A.1.2-EXTRACT-DECL-INTERFACE-ANSI
 
@@ -114149,7 +114160,7 @@ timeunits_declaration permits timeunit literal semicolon followed by timeprecisi
 
 ### SV2023-A.1.3-EXTRACT-ANSI-EXPLICIT-PORT
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / テスト対応あり・実行未確認
 
 An explicit ANSI port has optional direction, dot port identifier and parentheses with an optional expression.
 
@@ -114157,10 +114168,11 @@ An explicit ANSI port has optional direction, dot port identifier and parenthese
 
 規定の性質: `definition`。
 
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): explicit_ports は .hi(r[7:4])、.lo(r[3:0])、.low_in(w[3:0])、.cell(v[1]) のように方向・名前・式を並べ、.unused() は式を省く。hi=a lo=5 low=3 cell=42 を出力する。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-ANSI-NET-INTERFACE-PORT
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / 実行確認あり
 
 ANSI net/interface ports allow an optional net/interface header, identifier, zero or more unpacked dimensions and optional constant default expression.
 
@@ -114168,10 +114180,11 @@ ANSI net/interface ports allow an optional net/interface header, identifier, zer
 
 規定の性質: `definition`。
 
+- [test_syntax_port_declaration_forms.sv](../tests/ch23/test_syntax_port_declaration_forms.sv): n_a は net type とデータ型、n_b は 2 つの unpacked_dimension、n_c は入力の既定値を持つ ANSI net ポートで、既定値を省略した接続で n_c=3 を読む。 区別: 各ポートを親から駆動して数を出し、既定値の入力は省略した接続で、ref ポートは親の変数への書き込みで確かめるので、ポート種別や方向を誤る実装では値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-ANSI-PORT-LIST
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / 実行確認あり
 
 An ANSI port-declaration list is parenthesized optional comma-separated ansi_port_declaration entries, with zero-or-more attributes before each entry; apply clarification 2.
 
@@ -114179,10 +114192,11 @@ An ANSI port-declaration list is parenthesized optional comma-separated ansi_por
 
 規定の性質: `definition`。
 
+- [test_syntax_port_declaration_forms.sv](../tests/ch23/test_syntax_port_declaration_forms.sv): ansi_headers の並びは属性付きの宣言をカンマで並べ、ansi_empty は () の空の並びを持つ。両方が実体化して値を出す。 区別: 各ポートを親から駆動して数を出し、既定値の入力は省略した接続で、ref ポートは親の変数への書き込みで確かめるので、ポート種別や方向を誤る実装では値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-ANSI-VARIABLE-PORT
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / 実行確認あり
 
 ANSI variable ports allow an optional variable header, identifier, zero or more variable dimensions and optional constant default expression.
 
@@ -114190,10 +114204,11 @@ ANSI variable ports allow an optional variable header, identifier, zero or more 
 
 規定の性質: `definition`。
 
+- [test_syntax_port_declaration_forms.sv](../tests/ch23/test_syntax_port_declaration_forms.sv): step と dflt は input var、cnt は output var で、dflt は既定値 5 を持ち、cnt は初期値 7 を出力する。 区別: 各ポートを親から駆動して数を出し、既定値の入力は省略した接続で、ref ポートは親の変数への書き込みで確かめるので、ポート種別や方向を誤る実装では値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-INTERFACE-PORT-HEADER
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / 実行確認あり
 
 An interface header is either a named interface type or generic interface keyword, optionally followed by dot modport identifier.
 
@@ -114201,10 +114216,11 @@ An interface header is either a named interface type or generic interface keywor
 
 規定の性質: `definition`。
 
+- [test_syntax_port_declaration_forms.sv](../tests/ch23/test_syntax_port_declaration_forms.sv): ifc.master m と ifc plain は名前付きの interface_identifier 形式、interface.slave s と interface gen は interface キーワード形式で、modport の有無を両方使う。 区別: 各ポートを親から駆動して数を出し、既定値の入力は省略した接続で、ref ポートは親の変数への書き込みで確かめるので、ポート種別や方向を誤る実装では値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-NONANSI-PORT-LIST
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / テスト対応あり・実行未確認
 
 A non-ANSI port list is parenthesized one-or-more comma-separated port productions; a port may itself be empty.
 
@@ -114212,10 +114228,11 @@ A non-ANSI port list is parenthesized one-or-more comma-separated port productio
 
 規定の性質: `definition`。
 
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): nonansi_ports の並びは {p, q}, part[1:0], .named(b), .nc(), io, rr, m, plain, sum の 9 項目で、nonansi_empty は () の空の並びを持つ。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-PARAMETER-DECLARATION-KINDS
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / 実行確認あり
 
 A parameter-port declaration is a parameter declaration, local-parameter declaration, explicit data type plus param assignments, or type-parameter declaration.
 
@@ -114223,10 +114240,11 @@ A parameter-port declaration is a parameter declaration, local-parameter declara
 
 規定の性質: `definition`。
 
+- [test_syntax_parameter_port_list_forms.sv](../tests/ch23/test_syntax_parameter_port_list_forms.sv): parameter_declaration の parameter int N と localparam int M、data_type だけの int C、type_parameter_declaration の type U と parameter type V を並べ、M 以外を上書きして各値を表示する。 区別: パラメータの値と、その値から計算した dout/y を出力するので、宣言の種類・上書き・既定値を取り違えた実装では数値が変わるか構文エラーになる。
 
 ### SV2023-A.1.3-EXTRACT-PARAMETER-LIST-ASSIGNMENTS
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / 実行確認あり
 
 A parameter-port list starts # and parentheses containing a param-assignment list followed by zero or more comma-prefixed parameter-port declarations.
 
@@ -114234,10 +114252,11 @@ A parameter-port list starts # and parentheses containing a param-assignment lis
 
 規定の性質: `definition`。
 
+- [test_syntax_parameter_port_list_forms.sv](../tests/ch23/test_syntax_parameter_port_list_forms.sv): first_alt は #(W = 4, parameter int N = 2, ...) の形で、先頭の代入並びに続けて宣言を置く。u2 が W と N を上書きして dout=15、u3 が位置で W=7 にして dout=13 になる。 区別: パラメータの値と、その値から計算した dout/y を出力するので、宣言の種類・上書き・既定値を取り違えた実装では数値が変わるか構文エラーになる。
 
 ### SV2023-A.1.3-EXTRACT-PARAMETER-LIST-DECLARATIONS
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / 実行確認あり
 
 A parameter-port list starts # and parentheses containing one or more comma-separated parameter-port declarations.
 
@@ -114245,10 +114264,11 @@ A parameter-port list starts # and parentheses containing one or more comma-sepa
 
 規定の性質: `definition`。
 
+- [test_syntax_parameter_port_list_forms.sv](../tests/ch23/test_syntax_parameter_port_list_forms.sv): second_alt は宣言だけを並べる形で、u4 が A と型 U,V を上書きし、B は A から 3 に、C は既定の 5 になる。y=13 がその和を示す。 区別: パラメータの値と、その値から計算した dout/y を出力するので、宣言の種類・上書き・既定値を取り違えた実装では数値が変わるか構文エラーになる。
 
 ### SV2023-A.1.3-EXTRACT-PARAMETER-LIST-EMPTY
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / 実行確認あり
 
 A parameter-port list permits # followed by empty parentheses.
 
@@ -114256,10 +114276,11 @@ A parameter-port list permits # followed by empty parentheses.
 
 規定の性質: `definition`。
 
+- [test_syntax_parameter_port_list_forms.sv](../tests/ch23/test_syntax_parameter_port_list_forms.sv): empty_param は #() だけの parameter_port_list を持ち、u5 はパラメータ並びを省いて、u6 は #() を書いて実体化する。b5=1 b6=0 で両方が実体化したことを示す。 区別: パラメータの値と、その値から計算した dout/y を出力するので、宣言の種類・上書き・既定値を取り違えた実装では数値が変わるか構文エラーになる。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-INOUT
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / テスト対応あり・実行未確認
 
 A port declaration may be a inout declaration preceded by zero or more attributes.
 
@@ -114267,10 +114288,11 @@ A port declaration may be a inout declaration preceded by zero or more attribute
 
 規定の性質: `definition`。
 
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): inout tri [3:0] io は net の双方向ポートで、親の 3 を読んで sum に加える。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-INPUT
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / テスト対応あり・実行未確認
 
 A port declaration may be a input declaration preceded by zero or more attributes.
 
@@ -114278,10 +114300,11 @@ A port declaration may be a input declaration preceded by zero or more attribute
 
 規定の性質: `definition`。
 
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): 属性付きの input wire [1:0] p, q と input logic [3:0] part が非 ANSI の宣言で、p=2 q=1 part[1:0]=1 が sum に入る。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-INTERFACE-PORT
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / テスト対応あり・実行未確認
 
 A port declaration may be a interface port declaration preceded by zero or more attributes.
 
@@ -114289,10 +114312,11 @@ A port declaration may be a interface port declaration preceded by zero or more 
 
 規定の性質: `definition`。
 
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): 非 ANSI の宣言で ifc.master m と modport を選ばない ifc plain を置き、m.data=17 plain.data=34 を親が読む。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-OUTPUT
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / テスト対応あり・実行未確認
 
 A port declaration may be a output declaration preceded by zero or more attributes.
 
@@ -114300,10 +114324,11 @@ A port declaration may be a output declaration preceded by zero or more attribut
 
 規定の性質: `definition`。
 
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): output logic [7:0] sum は非 ANSI の宣言で、4 つのポート式の和 15 を駆動する。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DECL-REF
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / テスト対応あり・実行未確認
 
 A port declaration may be a ref declaration preceded by zero or more attributes.
 
@@ -114311,10 +114336,11 @@ A port declaration may be a ref declaration preceded by zero or more attributes.
 
 規定の性質: `definition`。
 
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): ref int rr は親の変数 rv=10 を参照し、タスク本体の rr = rr + 5 が親を 15 にする。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-PORT-DIRECTION
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / 実行確認あり
 
 Port direction is input,output,inout or ref; net/variable headers optionally precede their port type with direction.
 
@@ -114322,10 +114348,11 @@ Port direction is input,output,inout or ref; net/variable headers optionally pre
 
 規定の性質: `definition`。
 
+- [test_syntax_port_declaration_forms.sv](../tests/ch23/test_syntax_port_declaration_forms.sv): input、output、inout、ref の 4 方向を 1 つの ANSI ヘッダに置き、ref の r は 110 に、inout の io は親の 1 を読む。 区別: 各ポートを親から駆動して数を出し、既定値の入力は省略した接続で、ref ポートは親の変数への書き込みで確かめるので、ポート種別や方向を誤る実装では値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-PORT-EXPRESSION
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / テスト対応あり・実行未確認
 
 A port expression is one port reference or a brace concatenation of one or more comma-separated port references; a port reference is an identifier with constant_select.
 
@@ -114333,10 +114360,11 @@ A port expression is one port reference or a brace concatenation of one or more 
 
 規定の性質: `definition`。
 
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): {p, q} は 2 つの port_reference の連結、part[1:0] は constant_select 付きの参照で、その和が sum=15 になる。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.3-EXTRACT-PORT-FORMS
 
-A.1.3 / normal / テスト未対応
+A.1.3 / normal / テスト対応あり・実行未確認
 
 A non-ANSI port is an optional port expression or dot identifier and parentheses containing an optional port expression.
 
@@ -114344,6 +114372,7 @@ A non-ANSI port is an optional port expression or dot identifier and parentheses
 
 規定の性質: `definition`。
 
+- [test_syntax_port_expression_and_explicit_ports.sv](../tests/ch23/test_syntax_port_expression_and_explicit_ports.sv): nonansi_ports は式だけのポートと .named(b) の明示ポート、式を省いた .nc()、空の並びの nonansi_empty を全部使う。 区別: 連結・一部選択・明示ポートの各式を通した和と、ref ポートが親の変数へ書いた値、インターフェース・ポートが駆動した値を出力するので、式や方向を取り違えると数値が変わる。
 
 ### SV2023-A.1.4-EXTRACT-BIND-INSTANCE-GRAMMAR
 
@@ -114818,7 +114847,7 @@ Configuration source has config/name, localparams, design statement, selection/e
 
 ### SV2023-A.1.6-EXTRACT-INTERFACE-EXTERN
 
-A.1.6 / normal / テスト未対応
+A.1.6 / normal / テスト対応あり・実行未確認
 
 An extern subroutine declaration is extern plus method prototype and semicolon, or extern forkjoin plus task prototype and semicolon.
 
@@ -114826,10 +114855,11 @@ An extern subroutine declaration is extern plus method prototype and semicolon, 
 
 規定の性質: `definition`。
 
+- [test_interface_extern_and_generate_items.sv](../tests/ch25/test_interface_extern_and_generate_items.sv): ex_fn_bus は extern function int ext_add(input int x) を、ex_items_bus は extern forkjoin task work() を宣言し、接続したモジュールの定義が result=107 と mask=11 を出す。 区別: インターフェースが extern の関数と forkjoin タスクを呼び、構成要素が駆動した値を出力するので、extern 宣言や generate 項目、modport の式を誤ると値が変わる。
 
 ### SV2023-A.1.6-EXTRACT-INTERFACE-GENERATE-ITEM
 
-A.1.6 / normal / テスト未対応
+A.1.6 / normal / テスト対応あり・実行未確認
 
 An interface/generate item is an optionally repeatedly attributed module-common item or extern task/function declaration.
 
@@ -114837,6 +114867,7 @@ An interface/generate item is an optionally repeatedly attributed module-common 
 
 規定の性質: `definition`。
 
+- [test_interface_extern_and_generate_items.sv](../tests/ch25/test_interface_extern_and_generate_items.sv): interface の本体に属性付き initial、always_comb、continuous assign、モジュール実体、generate 領域、loop/conditional generate、elaboration severity task を置き、shadow=a5 plain=1 gen=1 leaf=0 を出す。 区別: インターフェースが extern の関数と forkjoin タスクを呼び、構成要素が駆動した値を出力するので、extern 宣言や generate 項目、modport の式を誤ると値が変わる。
 
 ### SV2023-A.1.6-EXTRACT-INTERFACE-ITEM
 
@@ -115020,7 +115051,7 @@ A non-port program item also permits timeunits subject to clarification 3 or a p
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-DECL-27
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / テスト対応あり・実行未確認
 
 A checker/generate item declaration permits optional rand plus data declaration.
 
@@ -115028,10 +115059,11 @@ A checker/generate item declaration permits optional rand plus data declaration.
 
 規定の性質: `definition`。
 
+- [test_checker_rand_and_nested_checker.sv](../tests/ch17/test_checker_rand_and_nested_checker.sv): checker 本体に rand const int rf = 3 を置き、const の自由変数が初期値 3 を保つことを rf=3 で確かめる。 区別: rand const の自由変数が初期値 3 を保つことと、入れ子 checker の実体が 1+1 を計算することを出力するので、どちらかを取り違えると数値が変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-DECL-28
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / 実行確認あり
 
 A checker/generate item declaration permits function declaration.
 
@@ -115039,10 +115071,11 @@ A checker/generate item declaration permits function declaration.
 
 規定の性質: `definition`。
 
+- [test_checker_body_declaration_kinds.sv](../tests/ch17/test_checker_body_declaration_kinds.sv): checker 本体に関数 twice を宣言し、always_ff が twice(d)=2 を seen に加えるので、関数宣言を許さない実装では値が出ない。 区別: checker の always_ff が、関数・covergroup・clocking・default 指定・空宣言を含む本体の値から cnt と seen を計算するので、宣言が欠けると構文エラーか数値の変化になる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-DECL-29
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / テスト対応あり・実行未確認
 
 A checker/generate item declaration permits checker declaration.
 
@@ -115050,6 +115083,7 @@ A checker/generate item declaration permits checker declaration.
 
 規定の性質: `definition`。
 
+- [test_checker_rand_and_nested_checker.sv](../tests/ch17/test_checker_rand_and_nested_checker.sv): checker 本体に入れ子の checker cb_inner を宣言して実体化し、その出力が 1+1=2 になることを fv=2 で確かめる。 区別: rand const の自由変数が初期値 3 を保つことと、入れ子 checker の実体が 1+1 を計算することを出力するので、どちらかを取り違えると数値が変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-DECL-30
 
@@ -115130,7 +115164,7 @@ A checker/generate item declaration permits empty semicolon.
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-GENERATE
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / 実行確認あり
 
 Checker-generate items permit loop generate,conditional generate,generate region or elaboration severity task, subject to clarification 6.
 
@@ -115138,6 +115172,7 @@ Checker-generate items permit loop generate,conditional generate,generate region
 
 規定の性質: `definition`。
 
+- [test_checker_body_procedural_and_generate_items.sv](../tests/ch17/test_checker_body_procedural_and_generate_items.sv): checker 本体に generate 領域、for の loop generate、if の conditional generate、if (0) の中の elaboration severity task を置き、gen=1 と最終行の出力で非生成枝が実行されないことを確かめる。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-ITEM-20
 
@@ -115152,7 +115187,7 @@ A checker/generate item may be checker/generate item declaration.
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-ITEM-21
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / 実行確認あり
 
 A checker/generate item may be initial construct.
 
@@ -115160,10 +115195,11 @@ A checker/generate item may be initial construct.
 
 規定の性質: `definition`。
 
+- [test_checker_body_procedural_and_generate_items.sv](../tests/ch17/test_checker_body_procedural_and_generate_items.sv): checker 本体の initial が出力 side を 7 にし、side=7 を表示する。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-ITEM-22
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / 実行確認あり
 
 A checker/generate item may be always construct.
 
@@ -115171,10 +115207,11 @@ A checker/generate item may be always construct.
 
 規定の性質: `definition`。
 
+- [test_checker_body_procedural_and_generate_items.sv](../tests/ch17/test_checker_body_procedural_and_generate_items.sv): checker 本体の always_comb が comb=0 を、always_ff が 2 つの立ち上がりで cnt=2 を出す。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-ITEM-23
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / 実行確認あり
 
 A checker/generate item may be final construct.
 
@@ -115182,10 +115219,11 @@ A checker/generate item may be final construct.
 
 規定の性質: `definition`。
 
+- [test_checker_body_procedural_and_generate_items.sv](../tests/ch17/test_checker_body_procedural_and_generate_items.sv): checker 本体の final が実行の最後に d=1 pass_n=2 を表示し、親の行のあとに出る。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-ITEM-24
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / 実行確認あり
 
 A checker/generate item may be assertion item.
 
@@ -115193,10 +115231,11 @@ A checker/generate item may be assertion item.
 
 規定の性質: `definition`。
 
+- [test_checker_body_procedural_and_generate_items.sv](../tests/ch17/test_checker_body_procedural_and_generate_items.sv): checker 本体の concurrent assert が 2 回成功して pass=2、cover property と immediate assertion も受け付けられる。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-ITEM-25
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / 実行確認あり
 
 A checker/generate item may be continuous assignment.
 
@@ -115204,10 +115243,11 @@ A checker/generate item may be continuous assignment.
 
 規定の性質: `definition`。
 
+- [test_checker_body_procedural_and_generate_items.sv](../tests/ch17/test_checker_body_procedural_and_generate_items.sv): checker 本体の continuous assign が reg_out に d を駆動し、reg=1 を表示する。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-ITEM-26
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / 実行確認あり
 
 A checker/generate item may be checker-generate item.
 
@@ -115215,10 +115255,11 @@ A checker/generate item may be checker-generate item.
 
 規定の性質: `definition`。
 
+- [test_checker_body_procedural_and_generate_items.sv](../tests/ch17/test_checker_body_procedural_and_generate_items.sv): checker 本体の checker_generate_item として loop generate と conditional generate を置き、gv0/gv1 の和が gen=1 になる。 区別: initial・always_comb・always_ff・final・assertion・continuous assign・generate の各項目の結果を出力するので、項目が欠けるか動作を誤ると数値か行が変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-PORT-DIRECTIONS
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / テスト対応あり・実行未確認
 
 Checker port directions are input or output.
 
@@ -115226,10 +115267,11 @@ Checker port directions are input or output.
 
 規定の性質: `definition`。
 
+- [test_checker_declaration_and_port_forms.sv](../tests/ch17/test_checker_declaration_and_port_forms.sv): input の a,b,vec と output の y,y2 を明示し、方向を省いた c は前の input を継承する。y=6 がその和を示す。 区別: 各 checker の出力と、checker が駆動した compilation-unit 変数を出力するので、宣言の形・ポートの種類・方向の継承を誤る実装では値が出ないか変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-PORT-ITEM
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / テスト対応あり・実行未確認
 
 A checker-port item has repeated attributes,optional input/output direction,property-formal type,identifier,repeated variable dimensions and optional default property actual.
 
@@ -115237,10 +115279,11 @@ A checker-port item has repeated attributes,optional input/output direction,prop
 
 規定の性質: `definition`。
 
+- [test_checker_declaration_and_port_forms.sv](../tests/ch17/test_checker_declaration_and_port_forms.sv): 各項目は属性、方向、property_formal_type、識別子、variable_dimension、既定値の順で、vec は次元を、y2 は既定値 5 を持ち、本体が 6 にする。 区別: 各 checker の出力と、checker が駆動した compilation-unit 変数を出力するので、宣言の形・ポートの種類・方向の継承を誤る実装では値が出ないか変わる。
 
 ### SV2023-A.1.8-EXTRACT-CHECKER-PORT-LIST
 
-A.1.8 / normal / テスト未対応
+A.1.8 / normal / テスト対応あり・実行未確認
 
 A checker-port list has one or more comma-separated checker-port items.
 
@@ -115248,10 +115291,11 @@ A checker-port list has one or more comma-separated checker-port items.
 
 規定の性質: `definition`。
 
+- [test_checker_declaration_and_port_forms.sv](../tests/ch17/test_checker_declaration_and_port_forms.sv): ck_ports のポート並びは属性付きの a、b、c、vec、y、y2 の 6 項目をカンマで並べ、y=6 を出力する。 区別: 各 checker の出力と、checker が駆動した compilation-unit 変数を出力するので、宣言の形・ポートの種類・方向の継承を誤る実装では値が出ないか変わる。
 
 ### SV2023-A.1.9-EXTRACT-CLASS-ATTRIBUTED-38
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A class item permits zero or more attributes before a class property.
 
@@ -115259,10 +115303,11 @@ A class item permits zero or more attributes before a class property.
 
 規定の性質: `definition`。
 
+- [test_syntax_class_item_kinds.sv](../tests/ch8/test_syntax_class_item_kinds.sv): class property の前に (* attr *) を置いた attr_prop=12 が total=72 に入る。 区別: 各 qualifier のプロパティ・メソッド・制約の値を total と randomize の結果で出力するので、class item の種類や qualifier、制約の形を誤ると数値が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CLASS-ATTRIBUTED-39
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A class item permits zero or more attributes before a class method.
 
@@ -115270,6 +115315,7 @@ A class item permits zero or more attributes before a class method.
 
 規定の性質: `definition`。
 
+- [test_syntax_class_item_kinds.sv](../tests/ch8/test_syntax_class_item_kinds.sv): class method の前に (* attr *) を置いた total() が 72 を返す。 区別: 各 qualifier のプロパティ・メソッド・制約の値を total と randomize の結果で出力するので、class item の種類や qualifier、制約の形を誤ると数値が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CLASS-ATTRIBUTED-40
 
@@ -115284,7 +115330,7 @@ A class item permits zero or more attributes before a class constraint.
 
 ### SV2023-A.1.9-EXTRACT-CLASS-ATTRIBUTED-41
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A class item permits zero or more attributes before a class declaration.
 
@@ -115292,6 +115338,7 @@ A class item permits zero or more attributes before a class declaration.
 
 規定の性質: `definition`。
 
+- [test_syntax_class_item_kinds.sv](../tests/ch8/test_syntax_class_item_kinds.sv): 入れ子の class Inner の前に (* attr *) を置き、item_base::Inner::v=13 を読む。 区別: 各 qualifier のプロパティ・メソッド・制約の値を total と randomize の結果で出力するので、class item の種類や qualifier、制約の形を誤ると数値が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CLASS-ATTRIBUTED-42
 
@@ -115328,7 +115375,7 @@ Class constraints are either constraint prototypes or constraint declarations.
 
 ### SV2023-A.1.9-EXTRACT-CLASS-ITEM-QUALIFIERS
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 Class-item qualifiers are static,protected or local; property qualifiers additionally permit rand/randc; method qualifiers permit optional pure followed by virtual or a class-item qualifier. Apply clarification 10 to all these qualifier productions.
 
@@ -115336,10 +115383,11 @@ Class-item qualifiers are static,protected or local; property qualifiers additio
 
 規定の性質: `definition`。
 
+- [test_syntax_class_item_kinds.sv](../tests/ch8/test_syntax_class_item_kinds.sv): static/protected/local のプロパティとメソッド、rand/randc、static/protected/local のメソッド修飾子を使い、total=72 と r=5 rc=1 が値と可視性を示す。 区別: 各 qualifier のプロパティ・メソッド・制約の値を total と randomize の結果で出力するので、class item の種類や qualifier、制約の形を誤ると数値が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CLASS-METHOD-46
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A class method permits repeated method qualifiers before a task declaration.
 
@@ -115347,10 +115395,11 @@ A class method permits repeated method qualifiers before a task declaration.
 
 規定の性質: `definition`。
 
+- [test_syntax_class_method_kinds.sv](../tests/ch8/test_syntax_class_method_kinds.sv): method qualifier を task 宣言の前に置いた local task lt と protected task pt を宣言し、pt を bump_pt から呼んで q=10 になる。 区別: 修飾子付きのメソッド・各種コンストラクタ・extern 定義・純粋仮想の実装を呼び出した値を出力するので、メソッドの形を取り違えると数値か構文が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CLASS-METHOD-47
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A class method permits repeated method qualifiers before a function declaration.
 
@@ -115358,10 +115407,11 @@ A class method permits repeated method qualifiers before a function declaration.
 
 規定の性質: `definition`。
 
+- [test_syntax_class_method_kinds.sv](../tests/ch8/test_syntax_class_method_kinds.sv): method qualifier を function 宣言の前に置いた protected virtual function pv と local static function ls を宣言し、pv=6 ls=5 を返す。 区別: 修飾子付きのメソッド・各種コンストラクタ・extern 定義・純粋仮想の実装を呼び出した値を出力するので、メソッドの形を取り違えると数値か構文が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CLASS-METHOD-48
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A class method permits repeated method qualifiers before a class constructor declaration.
 
@@ -115369,10 +115419,11 @@ A class method permits repeated method qualifiers before a class constructor dec
 
 規定の性質: `definition`。
 
+- [test_syntax_class_method_kinds.sv](../tests/ch8/test_syntax_class_method_kinds.sv): m_local の local function new() は qualifier 付きの class_constructor_declaration で、static make が呼んで v=21 になる。 区別: 修飾子付きのメソッド・各種コンストラクタ・extern 定義・純粋仮想の実装を呼び出した値を出力するので、メソッドの形を取り違えると数値か構文が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CLASS-PARAMETER-ITEMS
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 Class items also permit semicolon-terminated local-parameter/parameter declarations or empty semicolon; parameter items follow clarification 7.
 
@@ -115380,10 +115431,11 @@ Class items also permit semicolon-terminated local-parameter/parameter declarati
 
 規定の性質: `definition`。
 
+- [test_syntax_class_item_kinds.sv](../tests/ch8/test_syntax_class_item_kinds.sv): class item として localparam int L=10、parameter int P=9（clarification 7 により localparam）、空のセミコロンを置き、total=72 に P と L が入る。 区別: 各 qualifier のプロパティ・メソッド・制約の値を total と randomize の結果で出力するので、class item の種類や qualifier、制約の形を誤ると数値が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CLASS-PROPERTY
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A class property is data_declaration preceded by zero or more property qualifiers, or const followed by repeated class-item qualifiers,data type,const identifier,optional constant expression initializer and semicolon.
 
@@ -115391,6 +115443,7 @@ A class property is data_declaration preceded by zero or more property qualifier
 
 規定の性質: `definition`。
 
+- [test_syntax_class_item_kinds.sv](../tests/ch8/test_syntax_class_item_kinds.sv): qualifier 付き data_declaration の形（rand int r など）と、const のあとに class_item_qualifier・型・名前・初期値を置く形（const static int K=4）の両方を使い、total=72 が全部の和になる。 区別: 各 qualifier のプロパティ・メソッド・制約の値を total と randomize の結果で出力するので、class item の種類や qualifier、制約の形を誤ると数値が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CONSTRUCTOR-ARGUMENTS
 
@@ -115405,7 +115458,7 @@ Constructor arguments are one or more comma-separated tf_port_item or default en
 
 ### SV2023-A.1.9-EXTRACT-CONSTRUCTOR-DECLARATION
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A constructor is function,optional class scope,new,optional parentheses containing optional constructor arguments,semicolon,repeated block-item declarations,optional super.new call with optional arguments/default,then function statements,endfunction and optional :new label.
 
@@ -115413,10 +115466,11 @@ A constructor is function,optional class scope,new,optional parentheses containi
 
 規定の性質: `definition`。
 
+- [test_syntax_class_method_kinds.sv](../tests/ch8/test_syntax_class_method_kinds.sv): m_der の function new は block_item_declaration の int tmp、super.new(a+1)、q=tmp を持ち、endfunction : new で終わり、f=5 g=4 になる。 区別: 修飾子付きのメソッド・各種コンストラクタ・extern 定義・純粋仮想の実装を呼び出した値を出力するので、メソッドの形を取り違えると数値か構文が変わる。
 
 ### SV2023-A.1.9-EXTRACT-CONSTRUCTOR-PROTOTYPE
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A constructor prototype is function new,optional parentheses with optional constructor-argument list,and semicolon.
 
@@ -115424,10 +115478,11 @@ A constructor prototype is function new,optional parentheses with optional const
 
 規定の性質: `definition`。
 
+- [test_syntax_class_method_kinds.sv](../tests/ch8/test_syntax_class_method_kinds.sv): m_extern は extern function new(int a) のプロトタイプだけを持ち、クラス外の定義が v=a+1 を計算して e=8 になる。 区別: 修飾子付きのメソッド・各種コンストラクタ・extern 定義・純粋仮想の実装を呼び出した値を出力するので、メソッドの形を取り違えると数値か構文が変わる。
 
 ### SV2023-A.1.9-EXTRACT-EXTERN-METHOD-PROTOTYPE
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A class method may be extern,repeated method qualifiers,method prototype and semicolon; an extern constructor uses its class-constructor prototype.
 
@@ -115435,6 +115490,7 @@ A class method may be extern,repeated method qualifiers,method prototype and sem
 
 規定の性質: `definition`。
 
+- [test_syntax_class_method_kinds.sv](../tests/ch8/test_syntax_class_method_kinds.sv): m_der の extern function int h(int x) と extern task tk(input int x) をクラス外で定義し、h(2)=6、tk(4) のあと t() で q=10 になる。 区別: 修飾子付きのメソッド・各種コンストラクタ・extern 定義・純粋仮想の実装を呼び出した値を出力するので、メソッドの形を取り違えると数値か構文が変わる。
 
 ### SV2023-A.1.9-EXTRACT-INTERFACE-CLASS-ITEMS
 
@@ -115449,7 +115505,7 @@ Interface-class items permit type declarations,attributed interface-class method
 
 ### SV2023-A.1.9-EXTRACT-INTERFACE-CLASS-METHOD
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 An interface-class method is pure virtual method_prototype semicolon.
 
@@ -115457,10 +115513,11 @@ An interface-class method is pure virtual method_prototype semicolon.
 
 規定の性質: `definition`。
 
+- [test_syntax_class_and_interface_class_headers.sv](../tests/ch8/test_syntax_class_and_interface_class_headers.sv): ic_base の (* attr *) pure virtual function T f と (* attr *) pure virtual task t が interface class method で、c_impl が両方を実装して f=3 count=4 になる。 区別: final class・extends の引数・implements・interface class の型とメソッドを実体化して呼び出した値を出力するので、ヘッダの要素を誤ると値が変わる。
 
 ### SV2023-A.1.9-EXTRACT-METHOD-PROTOTYPE-KINDS
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A method prototype is a task prototype or function prototype.
 
@@ -115468,10 +115525,11 @@ A method prototype is a task prototype or function prototype.
 
 規定の性質: `definition`。
 
+- [test_syntax_class_method_kinds.sv](../tests/ch8/test_syntax_class_method_kinds.sv): method_prototype の task 側を pure virtual task t と extern task tk で、function 側を pure virtual function f と extern function h で使う。 区別: 修飾子付きのメソッド・各種コンストラクタ・extern 定義・純粋仮想の実装を呼び出した値を出力するので、メソッドの形を取り違えると数値か構文が変わる。
 
 ### SV2023-A.1.9-EXTRACT-PURE-VIRTUAL-PROTOTYPE
 
-A.1.9 / normal / テスト未対応
+A.1.9 / normal / 実行確認あり
 
 A class method may be pure virtual followed by repeated class-item qualifiers,method prototype and semicolon, subject to clarification 8.
 
@@ -115479,10 +115537,11 @@ A class method may be pure virtual followed by repeated class-item qualifiers,me
 
 規定の性質: `definition`。
 
+- [test_syntax_class_method_kinds.sv](../tests/ch8/test_syntax_class_method_kinds.sv): virtual class m_base の pure virtual function f と pure virtual task t を m_der が実装し、f=5 と q=10 になる。 区別: 修飾子付きのメソッド・各種コンストラクタ・extern 定義・純粋仮想の実装を呼び出した値を出力するので、メソッドの形を取り違えると数値か構文が変わる。
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-BLOCK
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 A constraint block is a brace-delimited zero-or-more list of constraint-block items; each item is solve-before or constraint expression.
 
@@ -115490,6 +115549,7 @@ A constraint block is a brace-delimited zero-or-more list of constraint-block it
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The class has a constraint block with no items, a block with one soft expression, and blocks with several items; randomize() succeeds and prints a=5 b=4 c=6 d=8 arr=1,2,3, so the empty block and the multi-item blocks are all accepted. 区別: A tool that required at least one item in a constraint block would reject c_empty, and the randomize() result would not be printed.
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-DECLARATION
 
@@ -115515,7 +115575,7 @@ A constraint expression permits disable soft constraint_primary and semicolon.
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-FOREACH
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 A constraint expression permits foreach with parenthesized array identifier and bracketed loop variables,then constraint_set.
 
@@ -115523,10 +115583,11 @@ A constraint expression permits foreach with parenthesized array identifier and 
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The foreach constraint fixes every element of the fixed array arr from its index, and the printed arr is 1,2,3. 区別: A tool that did not iterate the array or bound the loop variable i would leave arr elements random, and the printed arr would not be 1,2,3.
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-IF
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 A constraint expression permits if with parenthesized expression,constraint_set,and optional else constraint_set.
 
@@ -115534,10 +115595,11 @@ A constraint expression permits if with parenthesized expression,constraint_set,
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The if-else constraint takes the c == 6 branch because a is 5, and the printed c is 6; the else branch is the single expression c == 7 without braces. 区別: A tool that did not evaluate the guard with the solved a, or that misparsed the single-expression branches, would print c=7 or a random c.
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-IMPLICATION
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 A constraint expression permits expression followed by implication arrow and constraint_set.
 
@@ -115545,10 +115607,11 @@ A constraint expression permits expression followed by implication arrow and con
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The implication guard b > 0 is true, so the braced constraint set { b == 4; b < 5; } applies and the printed b is 4; the class also has b > 0 as a separate constraint. 区別: A tool that treated the implication as a conjunction of the guard or ignored the braced set would leave b free, and the printed b would not be 4.
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-SOFT-EXPRESSION
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 A constraint expression permits optional soft followed by expression_or_dist and semicolon.
 
@@ -115556,10 +115619,11 @@ A constraint expression permits optional soft followed by expression_or_dist and
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The soft constraint on a has no conflicting hard constraint, so it is kept and the printed a is 5; the soft keyword is followed by an expression and a semicolon. 区別: A tool that discarded a satisfiable soft constraint would randomize a to another value, and the printed a would not be 5.
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-EXPR-UNIQUE
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 A constraint expression permits uniqueness_constraint and semicolon.
 
@@ -115567,6 +115631,7 @@ A constraint expression permits uniqueness_constraint and semicolon.
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The uniqueness constraint on the three 2-bit variables is applied, and the printed distinct is 1, meaning u, v and w differ. 区別: A tool that ignored unique would let two of the three variables be equal, and distinct would sometimes print 0.
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-PRIMARY
 
@@ -115592,7 +115657,7 @@ A prototype has optional extern/pure qualifier,optional static,constraint,option
 
 ### SV2023-A.1.10-EXTRACT-CONSTRAINT-SET
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 A constraint set is one constraint expression or braces containing zero or more constraint expressions.
 
@@ -115600,10 +115665,11 @@ A constraint set is one constraint expression or braces containing zero or more 
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The if branches use a single constraint expression as their set, and the implication uses a braced set of two expressions; the printed c=6 and b=4 show both set forms were applied. 区別: A tool that required braces everywhere or allowed only one expression inside braces would reject one of the two forms and change c or b.
 
 ### SV2023-A.1.10-EXTRACT-DISTRIBUTION-ITEMS
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 A distribution item is a value range with optional weight or default :/ expression; items are comma-separated. Weights are := expression or :/ expression.
 
@@ -115611,10 +115677,11 @@ A distribution item is a value range with optional weight or default :/ expressi
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The distribution lists a value range [8:8] with the weight := 1 and a default item with the weight :/ 0, so only 8 has a nonzero weight and the printed d is 8. 区別: A tool that ignored the zero weight of the default item would allow values other than 8, and the printed d would not be 8.
 
 ### SV2023-A.1.10-EXTRACT-EXPRESSION-DISTRIBUTION
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 expression_or_dist is an expression optionally followed by dist and a brace-delimited nonempty distribution list.
 
@@ -115622,6 +115689,7 @@ expression_or_dist is an expression optionally followed by dist and a brace-deli
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The expression d is followed by dist and a brace-delimited list of two items, the value range [8:8] and default :/ 0, and the printed d is 8. 区別: A tool that did not parse expression dist { ... } would not apply the distribution, and d would not be fixed at 8.
 
 ### SV2023-A.1.10-EXTRACT-EXTERN-CONSTRAINT
 
@@ -115647,7 +115715,7 @@ A solve-before item has solve,comma-separated one-or-more constraint primaries,b
 
 ### SV2023-A.1.10-EXTRACT-UNIQUENESS
 
-A.1.10 / normal / テスト未対応
+A.1.10 / normal / テスト対応あり・実行未確認
 
 A uniqueness constraint is unique followed by a brace-delimited range list subject to clarification 13.
 
@@ -115655,6 +115723,7 @@ A uniqueness constraint is unique followed by a brace-delimited range list subje
 
 規定の性質: `definition`。
 
+- [test_constraint_grammar_forms.sv](../tests/ch18/test_constraint_grammar_forms.sv): The unique constraint is followed by a braced range list of the three variables only, and the printed distinct is 1. 区別: A tool that parsed the range list as one object or added other variables would not force all three values apart, and distinct could print 0.
 
 ### SV2023-A.1.11-EXTRACT-ANONYMOUS-ITEM-92
 
@@ -115730,7 +115799,7 @@ An anonymous-program item may be class constructor declaration.
 
 ### SV2023-A.1.11-EXTRACT-ANONYMOUS-ITEM-98
 
-A.1.11 / normal / テスト未対応
+A.1.11 / normal / テスト対応あり・実行未確認
 
 An anonymous-program item may be empty semicolon.
 
@@ -115738,6 +115807,7 @@ An anonymous-program item may be empty semicolon.
 
 規定の性質: `definition`。
 
+- [test_anonymous_program_empty_item.sv](../tests/ch24/test_anonymous_program_empty_item.sv): The anonymous program in anon_pkg holds a lone semicolon before the class counter, one after it, and the function twice; the named program prints class member=7 and function=42. 区別: A tool that did not accept the empty anonymous-program item would reject the package, so the class member and the function result would not be printed.
 
 ### SV2023-A.1.11-EXTRACT-ANONYMOUS-PROGRAM
 
@@ -115921,7 +115991,7 @@ A package/generate item declaration may be assertion-item declaration.
 
 ### SV2023-A.1.11-EXTRACT-PACKAGE-DECL-90
 
-A.1.11 / normal / テスト未対応
+A.1.11 / normal / 実行確認あり
 
 A package/generate item declaration may be empty semicolon.
 
@@ -115929,6 +115999,7 @@ A package/generate item declaration may be empty semicolon.
 
 規定の性質: `definition`。
 
+- [test_package_empty_item_declaration.sv](../tests/ch26/test_package_empty_item_declaration.sv): The package has a lone semicolon between BASE and TOTAL and another after the function; the module prints base=3, total=7 and twice=14. 区別: A tool that rejected the empty package item would not compile the package, and the three printed values would be missing.
 
 ### SV2023-A.1.11-EXTRACT-PACKAGE-ITEMS
 
@@ -116196,7 +116267,7 @@ A user-defined net declaration has nettype identifier, optional delay control, n
 
 ### SV2023-A.2.2.1-EXTRACT-CASTING-TYPE
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 A casting type is simple type, constant primary, signing, string or const.
 
@@ -116204,10 +116275,11 @@ A casting type is simple type, constant primary, signing, string or const.
 
 規定の性質: `definition`。
 
+- [test_data_type_scoped_and_reference_forms.sv](../tests/ch6/test_data_type_scoped_and_reference_forms.sv): int' と pkg::nib_t'（simple_type）、4' と type(i)'（constant_primary）、signed'/unsigned'（signing）、string'、const' の 5 つの枝をすべてキャストに使い、値を出力する。 区別: パッケージ・クラスのスコープを持つ型と type_reference、各種キャストの値を出力するので、スコープの解決やキャストの種類を誤ると数値が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-CLASS-SCOPE
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 A class scope is class type followed by ::; class type starts package-scoped class identifier with optional parameter assignment and permits repeated :: class identifiers each optionally parameterized; interface-class type permits only the initial such form.
 
@@ -116215,10 +116287,11 @@ A class scope is class type followed by ::; class type starts package-scoped cla
 
 規定の性質: `definition`。
 
+- [test_data_type_scoped_and_reference_forms.sv](../tests/ch6/test_data_type_scoped_and_reference_forms.sv): typedef P#(3)::T p3_t がパラメータ付きの class_type に :: を続ける形で、p3=101（3 ビット）を出力する。 区別: パッケージ・クラスのスコープを持つ型と type_reference、各種キャストの値を出力するので、スコープの解決やキャストの種類を誤ると数値が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-CHANDLE
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits chandle.
 
@@ -116226,6 +116299,7 @@ A data type permits chandle.
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): chandle ch を宣言し、ch == null が 1 になることを出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-CLASS
 
@@ -116252,7 +116326,7 @@ A data type permits package-scoped covergroup identifier.
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-ENUM
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits enum, optional base type, nonempty brace-delimited comma-separated enum names and repeated packed dimensions.
 
@@ -116260,10 +116334,11 @@ A data type permits enum, optional base type, nonempty brace-delimited comma-sep
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): color_t、range_t、state_t、tbase_t の enum を宣言し、col=1 rng=11 st=7 tb=3 を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-EVENT
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits event.
 
@@ -116271,10 +116346,11 @@ A data type permits event.
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): event ev を宣言し、-> ev の直後に ev.triggered=1 を読む。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-INT-ATOM
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits integer-atom type and optional signing.
 
@@ -116282,10 +116358,11 @@ A data type permits integer-atom type and optional signing.
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): byte、shortint、int、longint、integer、time の 6 つの integer_atom_type を宣言し、値 b8=-2 s16=-32768 i=7 t=6 を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-INT-VECTOR
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits integer-vector type, optional signing and repeated packed dimensions.
 
@@ -116293,10 +116370,11 @@ A data type permits integer-vector type, optional signing and repeated packed di
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): logic [7:0] p1、logic [3:0][1:0] p2、bit signed [3:0][1:0] ps など、integer_vector_type に signing と複数の packed_dimension を付けた宣言の値を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-NAMED
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 A data type permits optionally class/package-scoped type identifier with repeated packed dimensions.
 
@@ -116304,10 +116382,11 @@ A data type permits optionally class/package-scoped type identifier with repeate
 
 規定の性質: `definition`。
 
+- [test_data_type_scoped_and_reference_forms.sv](../tests/ch6/test_data_type_scoped_and_reference_forms.sv): typedef pkg::nib_t [1:0] wide_t がパッケージ・スコープの型名と packed_dimension を使い、wide=5a を出力する。 区別: パッケージ・クラスのスコープを持つ型と type_reference、各種キャストの値を出力するので、スコープの解決やキャストの種類を誤ると数値が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-NONINTEGER
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits non-integer type.
 
@@ -116315,10 +116394,11 @@ A data type permits non-integer type.
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): shortreal sr=1.5、real rr=2.25、realtime rt=3.5 を宣言し、その値を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-STRING
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits string.
 
@@ -116326,10 +116406,11 @@ A data type permits string.
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): string str = "abc" を宣言し、str.len()=3 と内容を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-STRUCT-UNION
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits struct/union keyword form, optional packed with optional signing, nonempty brace-delimited member list and repeated packed dimensions, subject to clarification 17.
 
@@ -116337,10 +116418,11 @@ A data type permits struct/union keyword form, optional packed with optional sig
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): struct packed signed の sp、packed_dimension 付きの sp2、union soft packed の us、union packed の up を宣言し、sp=10/1 sp2=10100101 us=0101 up=0110 を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-TYPE-REFERENCE
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 A data type permits type reference subject to clarification 18.
 
@@ -116348,10 +116430,11 @@ A data type permits type reference subject to clarification 18.
 
 規定の性質: `definition`。
 
+- [test_data_type_scoped_and_reference_forms.sv](../tests/ch6/test_data_type_scoped_and_reference_forms.sv): data_type の枝として var を前に置いた type_reference の宣言 2 つを使い、d=42 e=9 を出力する（clarification 18 の var 付き）。 区別: パッケージ・クラスのスコープを持つ型と type_reference、各種キャストの値を出力するので、スコープの解決やキャストの種類を誤ると数値が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-DATA-VIRTUAL
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data type permits virtual with optional interface keyword, interface identifier, optional parameter assignments and optional dot modport identifier.
 
@@ -116359,10 +116442,11 @@ A data type permits virtual with optional interface keyword, interface identifie
 
 規定の性質: `definition`。
 
+- [test_virtual_interface_data_type_forms.sv](../tests/ch25/test_virtual_interface_data_type_forms.sv): virtual vif_bus、virtual interface vif_bus.writer、virtual vif_par #(8) の 3 つの書き方（interface キーワードの有無・modport・パラメータ値）を使い、data=11 par=c3 を出力する。 区別: virtual interface の各宣言から同じインスタンスを読み書きし、パラメータ付きのものは 8 ビット、modport 付きのものは書き込みができることを出力するので、型の解釈を誤ると値が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-ENUM-BASE
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 Enum base is integer atom with optional signing, integer vector with optional signing and at most one packed dimension, or type identifier with at most one packed dimension subject to clarification 19.
 
@@ -116370,10 +116454,11 @@ Enum base is integer atom with optional signing, integer vector with optional si
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): color_t は bit [1:0]、state_t は logic [2:0]、tbase_t は typedef two_t を base にし、clarification 19 の 3 つの形を使う。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-ENUM-NAME
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 An enum name has optional bracketed integral number with optional colon integral number, and optional constant-expression initializer.
 
@@ -116381,10 +116466,11 @@ An enum name has optional bracketed integral number with optional colon integral
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): range_t の ONE[2] と TEN[2:4] = 10 が one=0/1 と ten=10/11/12 を生み、enum_identifier の範囲と初期値を使う。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-IMPLICIT-TYPE
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 A data-type-or-implicit is a data type or implicit type; implicit type consists of optional signing and repeated packed dimensions.
 
@@ -116392,10 +116478,11 @@ A data-type-or-implicit is a data type or implicit type; implicit type consists 
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): var [3:0] imp と var signed [3:0] imp2 は data_type を省いた implicit_data_type で、imp=a imp2=-2 を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-INCOMPLETE-SCOPED
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 An incomplete class-scoped type starts type identifier :: type identifier or class type and recursively appends :: type identifier or class type; data-or-incomplete permits it or data type.
 
@@ -116403,10 +116490,11 @@ An incomplete class-scoped type starts type identifier :: type identifier or cla
 
 規定の性質: `definition`。
 
+- [test_data_type_scoped_and_reference_forms.sv](../tests/ch6/test_data_type_scoped_and_reference_forms.sv): typedef Outer::Nested::bits2_t b2_t が type_identifier に :: を 2 回続ける incomplete_class_scoped_type で、b2=11 を出力する。 区別: パッケージ・クラスのスコープを持つ型と type_reference、各種キャストの値を出力するので、スコープの解決やキャストの種類を誤ると数値が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-INTEGER
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 Integer type is integer-vector or integer-atom type.
 
@@ -116414,10 +116502,11 @@ Integer type is integer-vector or integer-atom type.
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): integer_type の両方の枝（integer_atom_type の int と integer_vector_type の bit/logic/reg）を宣言し、値を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-MEMBER
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 A structure/union member has repeated attributes, optional random qualifier, data type or void, variable-assignment list and semicolon, subject to clarification 20.
 
@@ -116425,10 +116514,11 @@ A structure/union member has repeated attributes, optional random qualifier, dat
 
 規定の性質: `definition`。
 
+- [test_tagged_union_keywords_and_members.sv](../tests/ch7/test_tagged_union_keywords_and_members.sv): su_t のメンバに属性と rand を付け、tu_t に void の Invalid と int の Valid を置き、clarification 20 の 2 条件を満たす使い方で値を出力する。 区別: struct・union・soft union・tagged union の値を出力し、tagged union は現在のタグの枝だけを読むので、キーワードやメンバの解釈を誤ると値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-NET-PORT
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 A net-port type is optional built-in net type plus data type/implicit type, nettype identifier, or interconnect plus implicit type.
 
@@ -116436,10 +116526,11 @@ A net-port type is optional built-in net type plus data type/implicit type, nett
 
 規定の性質: `definition`。
 
+- [test_interconnect_and_net_port_types.sv](../tests/ch6/test_interconnect_and_net_port_types.sv): net_port_type の 3 つの枝、wire [3:0]（net type と implicit type）、nib_net（nettype_identifier）、interconnect [3:0]（interconnect と implicit type）をポートに使い、nty=c を出力する。 区別: interconnect の網を 2 段のモジュールに通した値と、nettype・wire・データ型だけの各ポートを通した値を出力するので、宣言や接続を誤ると値が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-SIMPLE-TYPE
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 Simple type is integer type, noninteger type, package-scoped type identifier or package-scoped parameter identifier.
 
@@ -116447,10 +116538,11 @@ Simple type is integer type, noninteger type, package-scoped type identifier or 
 
 規定の性質: `definition`。
 
+- [test_data_type_scoped_and_reference_forms.sv](../tests/ch6/test_data_type_scoped_and_reference_forms.sv): simple_type の整数型 int、非整数型でない pkg::nib_t（ps_type_identifier）、pkg::W（ps_parameter_identifier）をキャストの型に使い、int=5 nib=a param=2 を出力する。 区別: パッケージ・クラスのスコープを持つ型と type_reference、各種キャストの値を出力するので、スコープの解決やキャストの種類を誤ると数値が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-STRUCT-UNION-KEYWORDS
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 A struct/union keyword form is struct, or union optionally followed by soft or tagged.
 
@@ -116458,10 +116550,11 @@ A struct/union keyword form is struct, or union optionally followed by soft or t
 
 規定の性質: `definition`。
 
+- [test_tagged_union_keywords_and_members.sv](../tests/ch7/test_tagged_union_keywords_and_members.sv): struct（su_t）、union tagged（tu_t）、union soft（us_t）、union（u_t）の 4 つのキーワード形を使い、struct=11 union=a soft=b tagged=9 を出す。 区別: struct・union・soft union・tagged union の値を出力し、tagged union は現在のタグの枝だけを読むので、キーワードやメンバの解釈を誤ると値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-TYPE-REFERENCE
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 A type reference is type with parenthesized expression subject to clarification 21, or parenthesized data/incomplete-class-scoped type.
 
@@ -116469,10 +116562,11 @@ A type reference is type with parenthesized expression subject to clarification 
 
 規定の性質: `definition`。
 
+- [test_data_type_scoped_and_reference_forms.sv](../tests/ch6/test_data_type_scoped_and_reference_forms.sv): var type(i + 1) d は式からの type_reference、var type(logic [3:0]) e はデータ型からの type_reference で、d=42 e=9 を出力する。 区別: パッケージ・クラスのスコープを持つ型と type_reference、各種キャストの値を出力するので、スコープの解決やキャストの種類を誤ると数値が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-TYPE-SET-ATOM
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 ATOM type/qualifier alternatives are byte, shortint, int, longint, integer, time.
 
@@ -116480,10 +116574,11 @@ ATOM type/qualifier alternatives are byte, shortint, int, longint, integer, time
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): byte/shortint/int/longint/integer/time の 6 つをすべて宣言し、それぞれの値を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-TYPE-SET-NET
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / テスト対応あり・実行未確認
 
 NET type/qualifier alternatives are supply0, supply1, tri, triand, trior, trireg, tri0, tri1, uwire, wire, wand, wor.
 
@@ -116491,10 +116586,12 @@ NET type/qualifier alternatives are supply0, supply1, tri, triand, trior, trireg
 
 規定の性質: `definition`。
 
+- [test_net_type_forms.sv](../tests/ch6/test_net_type_forms.sv): supply0/supply1/tri/triand/trior/tri0/tri1/uwire/wire/wand/wor の 11 種の網を宣言し、triand と wand に 1 と 0、trior に 1 と 0、wor に 0 を 2 つ駆動して、s0=0 s1=1 t=1 ta=0 tor=1 t0=0 t1=1 uw=1 w=1 wa=1 wo=0 を表示する。
+- [test_charge_strength_forms.sv](../tests/ch28/test_charge_strength_forms.sv): 12 番目の net type である trireg を small/medium/large の charge strength 付きで宣言し、ドライバを切った後に held: Sm1 Me1 La1 を表示する。
 
 ### SV2023-A.2.2.1-EXTRACT-TYPE-SET-NONINTEGER
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 NONINTEGER type/qualifier alternatives are shortreal, real, realtime.
 
@@ -116502,10 +116599,11 @@ NONINTEGER type/qualifier alternatives are shortreal, real, realtime.
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): shortreal、real、realtime の 3 つを宣言し、sr=1.5 rr=2.25 rt=3.5 を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-TYPE-SET-SIGN
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 SIGN type/qualifier alternatives are signed, unsigned.
 
@@ -116513,10 +116611,11 @@ SIGN type/qualifier alternatives are signed, unsigned.
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): byte signed、byte unsigned、logic signed [3:0]、logic unsigned [3:0] と signed/unsigned の両方を使い、bs=-1 bu=255 ls=-2 lu=14 を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-TYPE-SET-VECTOR
 
-A.2.2.1 / normal / テスト未対応
+A.2.2.1 / normal / 実行確認あり
 
 VECTOR type/qualifier alternatives are bit, logic, reg.
 
@@ -116524,6 +116623,7 @@ VECTOR type/qualifier alternatives are bit, logic, reg.
 
 規定の性質: `definition`。
 
+- [test_data_type_keyword_forms.sv](../tests/ch6/test_data_type_keyword_forms.sv): bit vb、logic vl、reg vr の 3 つの integer_vector_type を宣言し、vb=1 vl=0 vr=1 を出力する。 区別: 各データ型の変数の値・符号・幅・長さを出力するので、型の種類や符号、次元を誤る実装では数値か構文が変わる。
 
 ### SV2023-A.2.2.1-EXTRACT-VAR-PORT
 
@@ -116539,7 +116639,7 @@ A variable-port type is data type or var followed by data type/implicit type.
 
 ### SV2023-A.2.2.2-EXTRACT-DRIVE-HIGHZ0-STRENGTH1
 
-A.2.2.2 / normal / テスト未対応
+A.2.2.2 / normal / 実行確認あり
 
 Drive strength allows parenthesized highz0, strength1 in that order.
 
@@ -116547,10 +116647,11 @@ Drive strength allows parenthesized highz0, strength1 in that order.
 
 規定の性質: `definition`。
 
+- [test_drive_strength_forms.sv](../tests/ch28/test_drive_strength_forms.sv): buf (highz0, strong1) の順序を使い、a=0 で HiZ、a=1 で St1 になる。 区別: 6 つの順序の drive strength を %v で出力するので、強さの組み合わせや highz の位置を誤る実装では各欄が変わる。
 
 ### SV2023-A.2.2.2-EXTRACT-DRIVE-HIGHZ1-STRENGTH0
 
-A.2.2.2 / normal / テスト未対応
+A.2.2.2 / normal / 実行確認あり
 
 Drive strength allows parenthesized highz1, strength0 in that order.
 
@@ -116558,10 +116659,11 @@ Drive strength allows parenthesized highz1, strength0 in that order.
 
 規定の性質: `definition`。
 
+- [test_drive_strength_forms.sv](../tests/ch28/test_drive_strength_forms.sv): buf (highz1, weak0) の順序を使い、a=0 で We0、a=1 で HiZ になる。 区別: 6 つの順序の drive strength を %v で出力するので、強さの組み合わせや highz の位置を誤る実装では各欄が変わる。
 
 ### SV2023-A.2.2.2-EXTRACT-DRIVE-STRENGTH0-HIGHZ1
 
-A.2.2.2 / normal / テスト未対応
+A.2.2.2 / normal / 実行確認あり
 
 Drive strength allows parenthesized strength0, highz1 in that order.
 
@@ -116569,10 +116671,11 @@ Drive strength allows parenthesized strength0, highz1 in that order.
 
 規定の性質: `definition`。
 
+- [test_drive_strength_forms.sv](../tests/ch28/test_drive_strength_forms.sv): buf (pull0, highz1) の順序を使い、a=0 で Pu0、a=1 で HiZ になる。 区別: 6 つの順序の drive strength を %v で出力するので、強さの組み合わせや highz の位置を誤る実装では各欄が変わる。
 
 ### SV2023-A.2.2.2-EXTRACT-DRIVE-STRENGTH0-STRENGTH1
 
-A.2.2.2 / normal / テスト未対応
+A.2.2.2 / normal / 実行確認あり
 
 Drive strength allows parenthesized strength0, strength1 in that order.
 
@@ -116580,10 +116683,11 @@ Drive strength allows parenthesized strength0, strength1 in that order.
 
 規定の性質: `definition`。
 
+- [test_drive_strength_forms.sv](../tests/ch28/test_drive_strength_forms.sv): buf (weak0, supply1) の順序を使い、a=0 で We0、a=1 で Su1 を %v が示す。 区別: 6 つの順序の drive strength を %v で出力するので、強さの組み合わせや highz の位置を誤る実装では各欄が変わる。
 
 ### SV2023-A.2.2.2-EXTRACT-DRIVE-STRENGTH1-HIGHZ0
 
-A.2.2.2 / normal / テスト未対応
+A.2.2.2 / normal / 実行確認あり
 
 Drive strength allows parenthesized strength1, highz0 in that order.
 
@@ -116591,10 +116695,11 @@ Drive strength allows parenthesized strength1, highz0 in that order.
 
 規定の性質: `definition`。
 
+- [test_drive_strength_forms.sv](../tests/ch28/test_drive_strength_forms.sv): buf (supply1, highz0) の順序を使い、a=0 で HiZ、a=1 で Su1 になる。 区別: 6 つの順序の drive strength を %v で出力するので、強さの組み合わせや highz の位置を誤る実装では各欄が変わる。
 
 ### SV2023-A.2.2.2-EXTRACT-DRIVE-STRENGTH1-STRENGTH0
 
-A.2.2.2 / normal / テスト未対応
+A.2.2.2 / normal / 実行確認あり
 
 Drive strength allows parenthesized strength1, strength0 in that order.
 
@@ -116602,6 +116707,7 @@ Drive strength allows parenthesized strength1, strength0 in that order.
 
 規定の性質: `definition`。
 
+- [test_drive_strength_forms.sv](../tests/ch28/test_drive_strength_forms.sv): buf (strong1, pull0) の順序を使い、a=0 で Pu0、a=1 で St1 を %v が示す。 区別: 6 つの順序の drive strength を %v で出力するので、強さの組み合わせや highz の位置を誤る実装では各欄が変わる。
 
 ### SV2023-A.2.2.2-EXTRACT-STRENGTH-SETS
 
@@ -116616,7 +116722,7 @@ strength0 is supply0/strong0/pull0/weak0; strength1 is supply1/strong1/pull1/wea
 
 ### SV2023-A.2.2.3-EXTRACT-DELAY-VALUE
 
-A.2.2.3 / normal / テスト未対応
+A.2.2.3 / normal / テスト対応あり・実行未確認
 
 A delay value is unsigned number, real number, package-scoped identifier, time literal or 1step.
 
@@ -116624,10 +116730,11 @@ A delay value is unsigned number, real number, package-scoped identifier, time l
 
 規定の性質: `definition`。
 
+- [test_gate_delay_forms.sv](../tests/ch28/test_gate_delay_forms.sv): 1step、符号なし数 8、実数 3.5、時間リテラル 2.5ns、パッケージ付き識別子 dpkg::D の 5 つの delay_value を各ゲートに使い、立ち上がり時刻 step_rise=10.001 と ps_rise=19.000 などで確かめる。 区別: 各ゲートの立ち上がり・立ち下がり・ターンオフの時刻を出力するので、遅延値の種類や 2 値/3 値の順序を誤る実装では時刻が変わる。
 
 ### SV2023-A.2.2.3-EXTRACT-DELAY2
 
-A.2.2.3 / normal / テスト未対応
+A.2.2.3 / normal / テスト対応あり・実行未確認
 
 delay2 is # delay value or # parenthesized one or two comma-separated mintypmax expressions.
 
@@ -116635,10 +116742,11 @@ delay2 is # delay value or # parenthesized one or two comma-separated mintypmax 
 
 規定の性質: `definition`。
 
+- [test_gate_delay_forms.sv](../tests/ch28/test_gate_delay_forms.sv): and #(6, 7) の 2 値の形を n 入力ゲートに使い、rise=16.000 fall=37.000 になる。 区別: 各ゲートの立ち上がり・立ち下がり・ターンオフの時刻を出力するので、遅延値の種類や 2 値/3 値の順序を誤る実装では時刻が変わる。
 
 ### SV2023-A.2.2.3-EXTRACT-DELAY3
 
-A.2.2.3 / normal / テスト未対応
+A.2.2.3 / normal / テスト対応あり・実行未確認
 
 delay3 is # delay value or # parenthesized one to three comma-separated mintypmax expressions.
 
@@ -116646,6 +116754,7 @@ delay3 is # delay value or # parenthesized one to three comma-separated mintypma
 
 規定の性質: `definition`。
 
+- [test_gate_delay_forms.sv](../tests/ch28/test_gate_delay_forms.sv): buf #(4, 5, 6) の 3 値と buf #(2, 3, 4.5) の 3 値を使い、rise=14.000 fall=35.000、ターンオフが 14.500 になる。 区別: 各ゲートの立ち上がり・立ち下がり・ターンオフの時刻を出力するので、遅延値の種類や 2 値/3 値の順序を誤る実装では時刻が変わる。
 
 ### SV2023-A.2.3-EXTRACT-DIM-LIST-70
 
@@ -116756,7 +116865,7 @@ The list of parameter assignments is one or more comma-separated parameter assig
 
 ### SV2023-A.2.3-EXTRACT-LIST-66
 
-A.2.3 / normal / テスト未対応
+A.2.3 / normal / 実行確認あり
 
 The list of UDP port identifiers is one or more comma-separated port identifier entries.
 
@@ -116764,6 +116873,7 @@ The list of UDP port identifiers is one or more comma-separated port identifier 
 
 規定の性質: `definition`。
 
+- [test_udp_port_identifier_list.sv](../tests/ch29/test_udp_port_identifier_list.sv): input a, b, c; が 3 つの port_identifier をカンマで並べる UDP ポート並びで、111 で y=0、110 で y=1 になる。 区別: 3 入力の UDP を 1 つの input 宣言の並びで宣言し、表の結果を出力するので、リストの解釈や端子の順序を誤ると値が変わる。
 
 ### SV2023-A.2.3-EXTRACT-LIST-67
 
@@ -116912,7 +117022,7 @@ Variable assignments permit identifier with repeated variable dimensions and opt
 
 ### SV2023-A.2.5-EXTRACT-ASSOCIATIVE
 
-A.2.5 / normal / テスト未対応
+A.2.5 / normal / 実行確認あり
 
 An associative dimension is bracketed data type or bracketed asterisk.
 
@@ -116920,6 +117030,7 @@ An associative dimension is bracketed data type or bracketed asterisk.
 
 規定の性質: `definition`。
 
+- [test_declaration_range_forms.sv](../tests/ch7/test_declaration_range_forms.sv): int a1 [string]、int a2 [*]、int a3 [int] の 3 つの形を使い、a1=10 a2=11 a3=12 を出力する。 区別: 各次元の両端の要素やメソッドで書いた値を出力するので、次元の種類や範囲・大きさを誤る実装では値か構文が変わる。
 
 ### SV2023-A.2.5-EXTRACT-PACKED
 
@@ -116934,7 +117045,7 @@ A packed dimension is bracketed constant range or unsized dimension subject to c
 
 ### SV2023-A.2.5-EXTRACT-QUEUE
 
-A.2.5 / normal / テスト未対応
+A.2.5 / normal / 実行確認あり
 
 A queue dimension is bracketed dollar with optional colon constant-expression bound.
 
@@ -116942,10 +117053,11 @@ A queue dimension is bracketed dollar with optional colon constant-expression bo
 
 規定の性質: `definition`。
 
+- [test_declaration_range_forms.sv](../tests/ch7/test_declaration_range_forms.sv): int q1 [$] と int q2 [$:3] の 2 つの形を使い、q1=13/14、q2 は 15/16/17 で size=3 になる。 区別: 各次元の両端の要素やメソッドで書いた値を出力するので、次元の種類や範囲・大きさを誤る実装では値か構文が変わる。
 
 ### SV2023-A.2.5-EXTRACT-UNPACKED
 
-A.2.5 / normal / テスト未対応
+A.2.5 / normal / 実行確認あり
 
 An unpacked dimension is bracketed constant range or bracketed constant expression.
 
@@ -116953,10 +117065,11 @@ An unpacked dimension is bracketed constant range or bracketed constant expressi
 
 規定の性質: `definition`。
 
+- [test_declaration_range_forms.sv](../tests/ch7/test_declaration_range_forms.sv): int u1 [0:3]（範囲）と int u2 [4]（大きさ）、int u3 [1:0][2]（2 次元）を使い、u1=5 u2=13 u3=15 を出力する。 区別: 各次元の両端の要素やメソッドで書いた値を出力するので、次元の種類や範囲・大きさを誤る実装では値か構文が変わる。
 
 ### SV2023-A.2.5-EXTRACT-UNSIZED
 
-A.2.5 / normal / テスト未対応
+A.2.5 / normal / 実行確認あり
 
 An unsized dimension is empty brackets.
 
@@ -116964,10 +117077,11 @@ An unsized dimension is empty brackets.
 
 規定の性質: `definition`。
 
+- [test_declaration_range_forms.sv](../tests/ch7/test_declaration_range_forms.sv): int d1 [] の空の角括弧を使い、new[2] のあと d1=18/19 size=2 になる。 区別: 各次元の両端の要素やメソッドで書いた値を出力するので、次元の種類や範囲・大きさを誤る実装では値か構文が変わる。
 
 ### SV2023-A.2.5-EXTRACT-VARIABLE
 
-A.2.5 / normal / テスト未対応
+A.2.5 / normal / 実行確認あり
 
 A variable dimension is unsized, unpacked, associative or queue dimension.
 
@@ -116975,6 +117089,7 @@ A variable dimension is unsized, unpacked, associative or queue dimension.
 
 規定の性質: `definition`。
 
+- [test_declaration_range_forms.sv](../tests/ch7/test_declaration_range_forms.sv): variable_dimension の 4 つの枝（unsized の d1、unpacked の u1/u2/u3、associative の a1/a2/a3、queue の q1/q2）をすべて宣言し、それぞれの値を出力する。 区別: 各次元の両端の要素やメソッドで書いた値を出力するので、次元の種類や範囲・大きさを誤る実装では値か構文が変わる。
 
 ### SV2023-A.2.6-EXTRACT-BODY-ANSI
 
@@ -117011,7 +117126,7 @@ A function declaration is function with optional dynamic override specifiers sub
 
 ### SV2023-A.2.6-EXTRACT-DPI-EXPORT
 
-A.2.6 / normal / テスト未対応
+A.2.6 / normal / 実行確認あり
 
 A DPI export has export, DPI specification string, optional C identifier =, function/task keyword, matching identifier and semicolon.
 
@@ -117019,10 +117134,11 @@ A DPI export has export, DPI specification string, optional C identifier =, func
 
 規定の性質: `definition`。
 
+- [test_dpi_import_export_forms.sv](../tests/ch35/test_dpi_import_export_forms.sv): export "DPI-C" function sv_triple、export "DPI-C" slink = function sv_square、export "DPI-C" task sv_bump の 3 通りを使い、C から呼ばれた結果 tri=12 sq=25 bump=4 を出力する。 区別: import した関数・タスクと、C から呼ばれた export の結果を出力するので、宣言の種類や C 名、pure/context を誤ると値が変わる。
 
 ### SV2023-A.2.6-EXTRACT-DPI-IMPORT
 
-A.2.6 / normal / テスト未対応
+A.2.6 / normal / 実行確認あり
 
 A DPI import has import, DPI specification string, optional function/task import property, optional C identifier =, prototype and semicolon; function properties context/pure, task property context.
 
@@ -117030,10 +117146,11 @@ A DPI import has import, DPI specification string, optional function/task import
 
 規定の性質: `definition`。
 
+- [test_dpi_import_export_forms.sv](../tests/ch35/test_dpi_import_export_forms.sv): import "DPI-C" の宣言を、名前付き引数の関数、pure、context、context タスク、c_identifier 付き、ポート並びなしの 6 通りで使い、add=5 pure=10 ctx=54 link=107 flat=42 を出力する。 区別: import した関数・タスクと、C から呼ばれた export の結果を出力するので、宣言の種類や C 名、pure/context を誤ると値が変わる。
 
 ### SV2023-A.2.6-EXTRACT-DPI-PROTOTYPES
 
-A.2.6 / normal / テスト未対応
+A.2.6 / normal / 実行確認あり
 
 DPI function/task prototypes use ordinary prototypes, constrained by A.10(26,27).
 
@@ -117041,6 +117158,7 @@ DPI function/task prototypes use ordinary prototypes, constrained by A.10(26,27)
 
 規定の性質: `definition`。
 
+- [test_dpi_import_export_forms.sv](../tests/ch35/test_dpi_import_export_forms.sv): DPI の import 宣言が普通の function_prototype（di_add の引数付き、di_flat の引数なし）と task_prototype（di_task）を使い、その呼び出しの値が返る。 区別: import した関数・タスクと、C から呼ばれた export の結果を出力するので、宣言の種類や C 名、pure/context を誤ると値が変わる。
 
 ### SV2023-A.2.6-EXTRACT-DPI-STRING
 
@@ -117198,7 +117316,7 @@ A modport clocking declaration is clocking followed by clocking identifier.
 
 ### SV2023-A.2.9-EXTRACT-MODPORT-DECL
 
-A.2.9 / normal / テスト未対応
+A.2.9 / normal / 実行確認あり
 
 A modport declaration has one or more comma-separated modport items and semicolon; each item has identifier and parenthesized nonempty comma-separated port-declarations list.
 
@@ -117206,10 +117324,11 @@ A modport declaration has one or more comma-separated modport items and semicolo
 
 規定の性質: `definition`。
 
+- [test_interface_modport_forms.sv](../tests/ch25/test_interface_modport_forms.sv): 1 つの modport 宣言に master と slave の 2 つの modport_item をカンマで並べ、それぞれの方向で count=8 を出す。 区別: modport を通した駆動・読み出し・タスクと関数の呼び出しの結果を出力するので、modport の項目や方向、import の形を誤ると数値が変わる。
 
 ### SV2023-A.2.9-EXTRACT-MODPORT-PORTS
 
-A.2.9 / normal / テスト未対応
+A.2.9 / normal / 実行確認あり
 
 Each modport-port declaration has repeated attributes before simple ports, task/function ports or clocking declaration.
 
@@ -117217,10 +117336,11 @@ Each modport-port declaration has repeated attributes before simple ports, task/
 
 規定の性質: `definition`。
 
+- [test_interface_modport_forms.sv](../tests/ch25/test_interface_modport_forms.sv): master の項目に属性付きの simple ports、import の tf ports、clocking の 3 種を置き、slave も同じ 3 種を持ち、data=0f valid=1 count=8 になる。 区別: modport を通した駆動・読み出し・タスクと関数の呼び出しの結果を出力するので、modport の項目や方向、import の形を誤ると数値が変わる。
 
 ### SV2023-A.2.9-EXTRACT-MODPORT-SIMPLE
 
-A.2.9 / normal / テスト未対応
+A.2.9 / normal / テスト対応あり・実行未確認
 
 Simple ports have direction followed by nonempty comma-separated port identifiers or .identifier(optional expression).
 
@@ -117228,10 +117348,11 @@ Simple ports have direction followed by nonempty comma-separated port identifier
 
 規定の性質: `definition`。
 
+- [test_interface_extern_and_generate_items.sv](../tests/ch25/test_interface_extern_and_generate_items.sv): modport tgt に output mask の単純な port_identifier と、input .low(shadow[3:0])・input .fixed(2) の明示式を置き、low=5 を出力する。 区別: インターフェースが extern の関数と forkjoin タスクを呼び、構成要素が駆動した値を出力するので、extern 宣言や generate 項目、modport の式を誤ると値が変わる。
 
 ### SV2023-A.2.9-EXTRACT-MODPORT-TF
 
-A.2.9 / normal / テスト未対応
+A.2.9 / normal / テスト対応あり・実行未確認
 
 Task/function ports have import or export followed by nonempty comma-separated method prototypes or task/function identifiers.
 
@@ -117239,6 +117360,7 @@ Task/function ports have import or export followed by nonempty comma-separated m
 
 規定の性質: `definition`。
 
+- [test_interface_extern_and_generate_items.sv](../tests/ch25/test_interface_extern_and_generate_items.sv): modport tgt に export work（識別子）、export function int ext_add(input int x)（プロトタイプ）、modport fn に import function int local_double(input int x) を置き、result=107 mask=11 になる。 区別: インターフェースが extern の関数と forkjoin タスクを呼び、構成要素が駆動した値を出力するので、extern 宣言や generate 項目、modport の式を誤ると値が変わる。
 
 ### SV2023-A.2.10-EXTRACT-ABORT-ACCEPT-ON
 
@@ -117286,7 +117408,7 @@ sync_reject_on requires parenthesized expression_or_dist followed by property ex
 
 ### SV2023-A.2.10-EXTRACT-ALWAYS
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 always permits a property with optional bracketed cycle-delay range; s_always requires bracketed constant range.
 
@@ -117294,10 +117416,11 @@ always permits a property with optional bracketed cycle-delay range; s_always re
 
 規定の性質: `definition`。
 
+- [test_property_temporal_operator_forms.sv](../tests/ch16/test_property_temporal_operator_forms.sv): always p fails in every phase because p is 0 at some current or future tick after the start, and always [1:2] p and s_always [1:2] p fail only where p is 0 at the first or second later tick: always columns 1,1,1,1 and 0,1,1,1. 区別: The unbounded always fails as soon as p drops at tick 4 of the first phase, while the ranged forms pass there, so the printed columns separate the range start from the current tick.
 
 ### SV2023-A.2.10-EXTRACT-ASSERT
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 assert property uses parenthesized property specification followed by action block.
 
@@ -117305,10 +117428,11 @@ assert property uses parenthesized property specification followed by action blo
 
 規定の性質: `definition`。
 
+- [test_property_statement_forms.sv](../tests/ch16/test_property_statement_forms.sv): The labeled assert property with a pass and an else statement runs the pass action three times and the else action twice over the six ticks, because the disable iff suppresses the fifth tick and the second and sixth ticks have a=1, b=0. 区別: The printed pass and fail counts show that the action block, the pass statement, the else statement and the disable iff clause all take effect.
 
 ### SV2023-A.2.10-EXTRACT-ASSERTION-DECL
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Assertion-item declarations are property, sequence or let declarations.
 
@@ -117316,6 +117440,7 @@ Assertion-item declarations are property, sequence or let declarations.
 
 規定の性質: `definition`。
 
+- [test_property_declaration_and_argument_forms.sv](../tests/ch16/test_property_declaration_and_argument_forms.sv): The module declares a let both, a sequence s_ab and three properties as assertion item declarations, and the printed counts show all of them in use: both inside p_simple, s_ab as a property actual and the properties as instances. 区別: A tool that did not accept one of the three declaration kinds would not compile the module, and the counts that depend on them would be missing.
 
 ### SV2023-A.2.10-EXTRACT-ASSERTION-VARIABLE
 
@@ -117330,7 +117455,7 @@ Assertion-variable declarations are variable data type, variable-declaration-ass
 
 ### SV2023-A.2.10-EXTRACT-ASSUME
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 assume property uses parenthesized property specification followed by action block.
 
@@ -117338,6 +117463,7 @@ assume property uses parenthesized property specification followed by action blo
 
 規定の性質: `definition`。
 
+- [test_property_statement_forms.sv](../tests/ch16/test_property_statement_forms.sv): The assume property with the same property specification and disable iff runs its else action twice, at the ticks where a=1 and b=0, which the printed assume fail count of 2 shows. 区別: An assume that was not checked in simulation would leave the fail count at 0 and print a different line.
 
 ### SV2023-A.2.10-EXTRACT-CONCURRENT-ITEM
 
@@ -117352,7 +117478,7 @@ A concurrent assertion item is optionally labeled concurrent assertion statement
 
 ### SV2023-A.2.10-EXTRACT-COVER
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 cover property uses parenthesized property specification followed by statement or null.
 
@@ -117360,10 +117486,11 @@ cover property uses parenthesized property specification followed by statement o
 
 規定の性質: `definition`。
 
+- [test_property_statement_forms.sv](../tests/ch16/test_property_statement_forms.sv): The cover property with a statement matches once when a at the second tick and b at the third tick are both 1, and the cover property with a null statement compiles and matches at the same attempt. 区別: The printed cover count of 1 shows the pass statement runs once for the successful attempt; a tool that ignored the sequence or the clock would print 0.
 
 ### SV2023-A.2.10-EXTRACT-COVER-SEQUENCE
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 cover sequence uses parentheses with optional clocking event, optional disable iff(expression_or_dist), and sequence expression, followed by statement/null; concurrent statement alternatives include this and assert/assume/cover/restrict property.
 
@@ -117371,10 +117498,11 @@ cover sequence uses parentheses with optional clocking event, optional disable i
 
 規定の性質: `definition`。
 
+- [test_property_statement_forms.sv](../tests/ch16/test_property_statement_forms.sv): The cover sequence with its own clocking event and disable iff matches the a ##1 b at the second and third ticks and does not match the attempt started at the fifth tick, where dis is high, printing 1. 区別: The count of 1 rather than 2 shows the disable iff of the cover sequence removed the attempt that starts while dis is high.
 
 ### SV2023-A.2.10-EXTRACT-CYCLE-DELAY
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Cycle delay is ## constant primary, ## bracketed cycle-delay range, ##[*] or ##[+].
 
@@ -117382,10 +117510,11 @@ Cycle delay is ## constant primary, ## bracketed cycle-delay range, ##[*] or ##[
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): ##[1:2] a and ##1 a fail in the phase where a is high only at the start tick, while ##[*] a passes there; in the all-high phase all three pass; the printed cyc, delay1 and cyc_star counts are 1/1/0 and 0/0/0. 区別: ##[*] allows zero ticks while ##[+] and ##[1:2] need a later tick, so the mixed phase separates the forms and a tool that treated them alike would print the same number in all four columns.
 
 ### SV2023-A.2.10-EXTRACT-EVENTUALLY
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 s_eventually permits property with optional bracketed cycle-delay range; eventually requires bracketed constant range.
 
@@ -117393,10 +117522,11 @@ s_eventually permits property with optional bracketed cycle-delay range; eventua
 
 規定の性質: `definition`。
 
+- [test_property_temporal_operator_forms.sv](../tests/ch16/test_property_temporal_operator_forms.sv): eventually [1:2] p fails only in the third and fourth phases, where p is 0 at both later ticks, and passes in the first two, giving 0,0,1,1; s_eventually [1:2] p agrees because both ticks exist. 区別: The ranged weak form is true when the ticks in the range do not exist, but here they do, so the counts show that only the two named ticks are inspected.
 
 ### SV2023-A.2.10-EXTRACT-EXPECT
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 expect uses parenthesized property specification followed by action block.
 
@@ -117404,10 +117534,11 @@ expect uses parenthesized property specification followed by action block.
 
 規定の性質: `definition`。
 
+- [test_property_statement_forms.sv](../tests/ch16/test_property_statement_forms.sv): The expect statement that starts at the first tick fails because b is 0 at the second, and the one that starts at the second tick passes because b is 1 at the third; the printed line is pass=1 fail=1. 区別: The expect statement blocks the process until its property completes, so the two counters distinguish the failing and passing property.
 
 ### SV2023-A.2.10-EXTRACT-FIRST-MATCH
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 first_match takes a parenthesized sequence and zero or more comma match items.
 
@@ -117415,10 +117546,11 @@ first_match takes a parenthesized sequence and zero or more comma match items.
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): first_match (a ##[1:2] b, fm = fm + 1) fails in the mixed phase, where b never comes, and in the all-high phase it matches once and runs the match item once, so the printed fm is 0 then 1. 区別: The match item counts the one match that first_match reports, so a tool that reported both match lengths would print 2 for fm.
 
 ### SV2023-A.2.10-EXTRACT-IF-CASE
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Property expressions permit if(expression_or_dist) property with optional else property, or case(expression_or_dist), one or more property-case items and endcase; each case item is expression-or-dist list colon property semicolon, or default optional colon property semicolon.
 
@@ -117426,10 +117558,11 @@ Property expressions permit if(expression_or_dist) property with optional else p
 
 規定の性質: `definition`。
 
+- [test_property_if_case_forms.sv](../tests/ch16/test_property_if_case_forms.sv): The if property takes the v branch for the three nonzero sel values and the !v branch for sel 0, and the case property takes the 0,1 item, the 2 item and the defaults with and without a colon; the five printed lines show counts 0/1/1, 1/0/1, 1/0/0, 0/1/1 and 0/0/0. 区別: The phases with sel 2 and v 0 and 1 swap the if and case results, and the last line shows the default without a colon being taken for sel 3.
 
 ### SV2023-A.2.10-EXTRACT-IMPLICATION-31
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits sequence expression |-> property expression.
 
@@ -117437,10 +117570,11 @@ A property expression permits sequence expression |-> property expression.
 
 規定の性質: `definition`。
 
+- [test_property_implication_operator_forms.sv](../tests/ch16/test_property_implication_operator_forms.sv): With x high at tick 1, the end of the antecedent go ##1 a, the overlapping |-> passes (0) while |=> needs x one tick later and fails (1), as the first printed line shows. 区別: A tool that started the consequent one tick late, like |=>, would print 1 for |-> in the first phase.
 
 ### SV2023-A.2.10-EXTRACT-IMPLICATION-32
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits sequence expression |=> property expression.
 
@@ -117448,10 +117582,11 @@ A property expression permits sequence expression |=> property expression.
 
 規定の性質: `definition`。
 
+- [test_property_implication_operator_forms.sv](../tests/ch16/test_property_implication_operator_forms.sv): With x high at tick 2, one tick after the antecedent ends, the nonoverlapping |=> passes (0) while |-> fails (1), as the second printed line shows. 区別: A tool that used the end tick for |=> would print 1 instead of 0 for the second phase.
 
 ### SV2023-A.2.10-EXTRACT-IMPLICATION-33
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits sequence expression #-# property expression.
 
@@ -117459,10 +117594,11 @@ A property expression permits sequence expression #-# property expression.
 
 規定の性質: `definition`。
 
+- [test_property_implication_operator_forms.sv](../tests/ch16/test_property_implication_operator_forms.sv): The overlapping followed-by #-# passes where x is high at the end tick of go ##1 a and fails where x comes one tick later, printing 0 then 1 then 1. 区別: The followed-by is the dual of the implication, so its counts must follow the end tick, not the tick after it.
 
 ### SV2023-A.2.10-EXTRACT-IMPLICATION-34
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits sequence expression #=# property expression.
 
@@ -117470,6 +117606,7 @@ A property expression permits sequence expression #=# property expression.
 
 規定の性質: `definition`。
 
+- [test_property_implication_operator_forms.sv](../tests/ch16/test_property_implication_operator_forms.sv): The nonoverlapping followed-by #=# passes where x is high one tick after the antecedent ends and fails where x is at the end tick, printing 1 then 0 then 1. 区別: A tool that treated #=# as #-# would print 0 for the first phase instead of 1.
 
 ### SV2023-A.2.10-EXTRACT-MATCH-METHOD
 
@@ -117484,7 +117621,7 @@ A sequence-method call is sequence instance dot method identifier; a match item 
 
 ### SV2023-A.2.10-EXTRACT-NOT
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Property expression permits not followed by property expression.
 
@@ -117492,6 +117629,7 @@ Property expression permits not followed by property expression.
 
 規定の性質: `definition`。
 
+- [test_property_binary_operator_forms.sv](../tests/ch16/test_property_binary_operator_forms.sv): In the second phase start is 1 and p is 1 at that tick, so not p is false and the a_not fail count is 1; in the fourth phase p is 0 at the start tick and not p is true, so the count is 0. 区別: The printed not column of the two phases would be 0 and 1 if a tool evaluated not p as p, so the expected counts separate the negation from its operand.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-ARGS
 
@@ -117506,7 +117644,7 @@ Property argument lists permit optional positional actuals separated by commas f
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-DECL
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Property declaration has identifier and optional parentheses with optional ports, semicolon, repeated assertion-variable declarations, property specification with optional semicolon, endproperty and optional identifier label.
 
@@ -117514,6 +117652,7 @@ Property declaration has identifier and optional parentheses with optional ports
 
 規定の性質: `definition`。
 
+- [test_property_declaration_and_argument_forms.sv](../tests/ch16/test_property_declaration_and_argument_forms.sv): p_simple has no port list and no semicolon before its end label, p_args has a port list, an assertion variable declaration and a semicolon, and p_prop ends without a label; the instances show simple and empty at 1 and property at 3. 区別: The three declarations differ in the optional port list, the semicolon and the end label, and their instances still elaborate and fail only where the bodies say.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-INSTANCE
 
@@ -117528,7 +117667,7 @@ Property instance is package-scoped or hierarchical property identifier optional
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-AND
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits binary property and property.
 
@@ -117536,10 +117675,11 @@ A property expression permits binary property and property.
 
 規定の性質: `definition`。
 
+- [test_property_binary_operator_forms.sv](../tests/ch16/test_property_binary_operator_forms.sv): p and q fails in the phases whose starting tick does not have both p and q (phases 2, 3, 4 and 5), and passes only in the first phase where both are 1, giving fail counts 0,1,1,1,1. 区別: A conjunction evaluated as a disjunction would pass in phases 2 and 3 where one operand is 1, so the printed and column would differ.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-IFF
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits binary property iff property.
 
@@ -117547,10 +117687,11 @@ A property expression permits binary property iff property.
 
 規定の性質: `definition`。
 
+- [test_property_binary_operator_forms.sv](../tests/ch16/test_property_binary_operator_forms.sv): p iff q is true in the two phases where p and q agree at the starting tick (both 1 in the first, both 0 in the fourth) and false in the others, so its fail counts are 0,1,1,0,1. 区別: An implementation that treated iff as or or as implies would not produce the same pass in the fourth phase, where both operands are 0.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-IMPLIES
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits binary property implies property.
 
@@ -117558,10 +117699,11 @@ A property expression permits binary property implies property.
 
 規定の性質: `definition`。
 
+- [test_property_binary_operator_forms.sv](../tests/ch16/test_property_binary_operator_forms.sv): p implies q is false only when p is 1 and q is 0 at the starting tick, so the implies fail counts are 0,1,1,0,1 across the five phases. 区別: The implication column separates the fourth phase (p false, q false) from the second (p true, q false), which a conjunction or an equivalence would not do.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-OR
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits binary property or property.
 
@@ -117569,6 +117711,7 @@ A property expression permits binary property or property.
 
 規定の性質: `definition`。
 
+- [test_property_binary_operator_forms.sv](../tests/ch16/test_property_binary_operator_forms.sv): p or q is false at the fourth phase start tick where both are 0 and true in the other phases where at least one is 1, so its fail counts are 1,0,0,1,0 over the five phases. 区別: A disjunction that needed both operands, or ignored the starting value of q, would not fail only in the fourth phase and pass in the other four.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-S-UNTIL
 
@@ -117594,7 +117737,7 @@ A property expression permits binary property s_until_with property.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-UNTIL
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits binary property until property.
 
@@ -117602,10 +117745,11 @@ A property expression permits binary property until property.
 
 規定の性質: `definition`。
 
+- [test_property_binary_operator_forms.sv](../tests/ch16/test_property_binary_operator_forms.sv): p until q passes when q comes at the next tick after p at the start tick (phases 2 and 5) and fails in phase 3 where q never comes and p drops and in phase 4 where p is already 0, giving 0,0,1,1,0. 区別: The weak until must still fail once p drops with no q before it; a tool that made it strong would also fail phase 1 where q holds at the start tick.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OP-UNTIL-WITH
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A property expression permits binary property until_with property.
 
@@ -117613,10 +117757,11 @@ A property expression permits binary property until_with property.
 
 規定の性質: `definition`。
 
+- [test_property_binary_operator_forms.sv](../tests/ch16/test_property_binary_operator_forms.sv): until_with also needs p at the tick where q holds, so it fails in phase 2 where q comes one tick after p dropped but passes in phase 5 where p is still 1 then, giving 0,1,1,1,0. 区別: The until_with column separates it from until exactly in the second phase, so a tool that dropped the overlapping p requirement would print 0 there.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-OTHER
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Property expressions permit property instance or clocking event followed by property expression.
 
@@ -117624,10 +117769,11 @@ Property expressions permit property instance or clocking event followed by prop
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): The property instance p_a is used as an operand of and beside the clocking event form (@(posedge clk) a), and the prop column is 0 in both phases, where a is high at the start tick. 区別: Both the instance and the clocked subexpression must contribute the value of a at the start tick; a tool that dropped one would fail the all-high phase or the mixed one.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-PAREN
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Property expression permits parenthesized property expression.
 
@@ -117635,6 +117781,7 @@ Property expression permits parenthesized property expression.
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): The parenthesized property expression (a) passes in both phases, where a is high at the start tick, and the paren column is 0 in both printed lines. 区別: The parentheses enclose the whole property expression, so a tool that misparsed them would not compile the assertion or would move the failure.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-PORTS
 
@@ -117660,7 +117807,7 @@ Property expression permits sequence expression.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-SPEC
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Property specification has optional clocking event, optional disable iff(expression_or_dist), then property expression.
 
@@ -117668,6 +117815,7 @@ Property specification has optional clocking event, optional disable iff(express
 
 規定の性質: `definition`。
 
+- [test_property_statement_forms.sv](../tests/ch16/test_property_statement_forms.sv): The first two assertions use a property specification with a clocking event and a disable iff clause, the cover sequence has both optional parts, and the property p_clocked has no clock in its specification but a clock in its declaration; the printed counts are 3/2 for the first and 3/3 for the last. 区別: The last assertion fails at the fifth tick, where dis is high, because its property specification has no disable iff, so the two counts separate the optional clauses.
 
 ### SV2023-A.2.10-EXTRACT-PROPERTY-STRONG
 
@@ -117693,7 +117841,7 @@ Property expression permits weak(sequence expression).
 
 ### SV2023-A.2.10-EXTRACT-RANGES
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A repetition count-or-range is constant expression or cycle-delay range; cycle-delay range is constant expression colon constant expression or dollar.
 
@@ -117701,6 +117849,7 @@ A repetition count-or-range is constant expression or cycle-delay range; cycle-d
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): The cycle-delay range ##[1:2] and the repetition ranges [*1:3] and [*2] are used with constant bounds, and their fail counts in the two phases are 1 and 0 for the delay range and 0 and 0 for [*1:3]. 区別: The range [1:2] fails when neither tick has a, while [*1:3] passes with the single a at the start tick, so the counts separate the ranged delay from the ranged repetition.
 
 ### SV2023-A.2.10-EXTRACT-REPETITIONS
 
@@ -117715,7 +117864,7 @@ Boolean abbreviations allow consecutive, nonconsecutive and goto repetition; seq
 
 ### SV2023-A.2.10-EXTRACT-RESTRICT
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 restrict property uses parenthesized property specification followed by semicolon.
 
@@ -117723,10 +117872,11 @@ restrict property uses parenthesized property specification followed by semicolo
 
 規定の性質: `definition`。
 
+- [test_property_statement_forms.sv](../tests/ch16/test_property_statement_forms.sv): The restrict property with its parenthesized property specification and semicolon elaborates beside the assertions, which still print their counts, and changes no simulated value. 区別: A tool that rejected restrict property would not compile the test; one that treated it as an assertion would add failures to the other counts.
 
 ### SV2023-A.2.10-EXTRACT-SEQUENCE-AND
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Sequence expression permits binary sequence and sequence.
 
@@ -117734,6 +117884,7 @@ Sequence expression permits binary sequence and sequence.
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): The conjunction (a ##1 b) and (a ##2 c) passes only in the all-high phase, where both sequences match from the same start tick, and fails in the mixed phase, printing 0 then 1. 区別: An and that required the same end tick would behave like intersect and fail in the all-high phase too, so the pass shows the two operands may end at different ticks.
 
 ### SV2023-A.2.10-EXTRACT-SEQUENCE-ATOM
 
@@ -117748,7 +117899,7 @@ A sequence instance or parenthesized sequence with repeated comma match items ma
 
 ### SV2023-A.2.10-EXTRACT-SEQUENCE-CHAIN
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 A sequence expression permits initial cycle-delay range then sequence and repeated delay/sequence pairs, or sequence followed by one or more delay/sequence pairs; an expression_or_dist can have optional boolean abbreviation.
 
@@ -117756,6 +117907,7 @@ A sequence expression permits initial cycle-delay range then sequence and repeat
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): The chain a ##1 b ##1 c needs all three values at three consecutive ticks and fails in the phase where only a is high; the leading delay ##1 a fails there too, and both pass in the all-high phase. 区別: A chain that dropped one of the delays would pass in the mixed phase, so the printed chain and delay1 counts of 1 and 1 show the whole chain is required.
 
 ### SV2023-A.2.10-EXTRACT-SEQUENCE-DECL
 
@@ -117781,7 +117933,7 @@ A sequence instance has package-scoped/hierarchical identifier with optional par
 
 ### SV2023-A.2.10-EXTRACT-SEQUENCE-INTERSECT
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Sequence expression permits binary sequence intersect sequence.
 
@@ -117789,10 +117941,11 @@ Sequence expression permits binary sequence intersect sequence.
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): a ##1 b intersect a ##1 c passes in the all-high phase because both end at the same tick, while a ##1 b intersect a ##2 c fails there, so intersect and intersect_diff print 0 and 1. 区別: Intersect requires the same end tick; a tool that treated it as and would print 0 for intersect_diff as well.
 
 ### SV2023-A.2.10-EXTRACT-SEQUENCE-OR
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Sequence expression permits binary sequence or sequence.
 
@@ -117800,6 +117953,7 @@ Sequence expression permits binary sequence or sequence.
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): The disjunction (a ##1 b) or (a ##2 c) fails in the mixed phase where neither sequence matches and passes in the all-high phase where both do, printing 1 then 0. 区別: The or must require at least one matching sequence; a tool that made it vacuous would print 0 in the mixed phase.
 
 ### SV2023-A.2.10-EXTRACT-SEQUENCE-PORT
 
@@ -117814,7 +117968,7 @@ Sequence ports form a nonempty comma-separated list; each has repeated attribute
 
 ### SV2023-A.2.10-EXTRACT-SEQUENCE-WITHIN
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 Sequence expression permits binary sequence within sequence.
 
@@ -117822,10 +117976,11 @@ Sequence expression permits binary sequence within sequence.
 
 規定の性質: `definition`。
 
+- [test_sequence_operator_and_delay_forms.sv](../tests/ch16/test_sequence_operator_and_delay_forms.sv): a ##1 b within a ##2 c passes in the all-high phase because the shorter sequence fits inside the longer one, while a ##2 c within a ##1 b fails there; within and within_rev print 0 and 1. 区別: The reverse nesting cannot fit, so the two counts show that within tests containment and not mere co-occurrence.
 
 ### SV2023-A.2.10-EXTRACT-TEMP-NEXTTIME
 
-A.2.10 / normal / テスト未対応
+A.2.10 / normal / テスト対応あり・実行未確認
 
 nexttime permits a property expression with or without preceding bracketed constant-expression delay.
 
@@ -117833,6 +117988,7 @@ nexttime permits a property expression with or without preceding bracketed const
 
 規定の性質: `definition`。
 
+- [test_property_temporal_operator_forms.sv](../tests/ch16/test_property_temporal_operator_forms.sv): nexttime p and nexttime [2] p fail in the phases where p is 0 at the next tick or at the second next tick: the printed pairs are 0/0, 1/0, 1/1 and 1/1 for p 11110000, 00110000, 00010000 and 00000001. 区別: The two counts differ in the second and third phases, so a tool that ignored the bracketed count or read the current tick would not print those pairs.
 
 ### SV2023-A.2.10-EXTRACT-TEMP-S-NEXTTIME
 
@@ -117858,7 +118014,7 @@ throughout combines expression_or_dist on the left with sequence expression on t
 
 ### SV2023-A.2.11-EXTRACT-BIN-KINDS
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 Bins keywords are bins, illegal_bins and ignore_bins; bins/options may also be coverage option.
 
@@ -117866,6 +118022,7 @@ Bins keywords are bins, illegal_bins and ignore_bins; bins/options may also be c
 
 規定の性質: `definition`。
 
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): The bins keywords bins, ignore_bins and illegal_bins all appear in cg_ign; the ignored value 1 is removed, the illegal value 15 is never sampled, and the group prints 100. 区別: A tool that treated ignore_bins as a normal bin would change the total or leave the value covered, and the printed ignore coverage would not be 100.
 
 ### SV2023-A.2.11-EXTRACT-BINS-DEFAULT
 
@@ -117880,7 +118037,7 @@ A bins/option entry permits bins keyword, identifier with optional size brackets
 
 ### SV2023-A.2.11-EXTRACT-BINS-DEFAULT-SEQUENCE
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A bins/option entry permits bins keyword, identifier = default sequence, optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -117888,10 +118045,11 @@ A bins/option entry permits bins keyword, identifier = default sequence, optiona
 
 規定の性質: `definition`。
 
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_tr declares bins allother = default sequence; the transition 6 => 7 matches no explicit transition bin and leaves none pending, so allother is covered and the group prints 87.5. 区別: Without the default sequence bin the count would be 6 of 7 bins, and a tool that did not implement it would print a different number.
 
 ### SV2023-A.2.11-EXTRACT-BINS-RANGE
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A bins/option entry permits optional wildcard, bins keyword, identifier with optional brackets containing optional covergroup expression, = brace-delimited range list, optional with expression and optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -117899,10 +118057,11 @@ A bins/option entry permits optional wildcard, bins keyword, identifier with opt
 
 規定の性質: `definition`。
 
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_ranges declares the value bin low with {[0:2]} and high with {[5:$]}; the samples 1 to 8 cover low, mid, high and single, and the group prints 100. 区別: A tool that did not parse the [low:high] and [low:$] ranges would leave values out and print less than 100.
 
 ### SV2023-A.2.11-EXTRACT-BINS-SET
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A bins/option entry permits optional wildcard, bins keyword, identifier with optional size brackets, = set expression, optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -117910,10 +118069,11 @@ A bins/option entry permits optional wildcard, bins keyword, identifier with opt
 
 規定の性質: `definition`。
 
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_set declares bins fromset = set_vals, where set_vals is the two-element array {2, 3}; the samples 2 and 3 cover the bin and the group prints 100. 区別: A tool that did not evaluate the array as the set of bin values would not cover the bin, and the set coverage would not be 100.
 
 ### SV2023-A.2.11-EXTRACT-BINS-TRANS
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A bins/option entry permits optional wildcard, bins keyword, identifier with optional empty brackets, = transition list, optional iff; all parenthesized with/iff expressions follow their respective grammar productions.
 
@@ -117921,6 +118081,7 @@ A bins/option entry permits optional wildcard, bins keyword, identifier with opt
 
 規定の性質: `definition`。
 
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_tr declares five named transition bins and the open array tarr[] from two parenthesized transition sets; the printed transition coverage of 87.5 is seven covered bins of eight. 区別: A tool that did not parse a transition list with several parenthesized sets or the open array form would change the number of bins and the printed coverage.
 
 ### SV2023-A.2.11-EXTRACT-BINS-WITH
 
@@ -117935,7 +118096,7 @@ A bins/option entry permits optional wildcard, bins keyword, identifier with opt
 
 ### SV2023-A.2.11-EXTRACT-BINSOF
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A select condition is binsof(bins expression) with optional intersect brace-delimited range list; bins expression is variable identifier or coverpoint identifier optionally dot bin identifier.
 
@@ -117943,10 +118104,11 @@ A select condition is binsof(bins expression) with optional intersect brace-deli
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The bins selection both0 uses binsof(ca.v[0]) and binsof(cb.w[0]) on named bins, and not2 uses binsof(ca) on the coverpoint with intersect {2}; both are covered by the samples and the group prints 82.8125. 区別: A tool that did not resolve binsof of a coverpoint bin or of a coverpoint itself would reject the selections and lose those bins.
 
 ### SV2023-A.2.11-EXTRACT-BLOCK-EVENT
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 Block-event expressions combine with or, or use begin/end hierarchical block/task/function identifier; identifiers include hierarchical tf/block or optionally hierarchical/class-scoped method.
 
@@ -117954,10 +118116,11 @@ Block-event expressions combine with or, or use begin/end hierarchical block/tas
 
 規定の性質: `definition`。
 
+- [test_covergroup_block_event_forms.sv](../tests/ch19/test_covergroup_block_event_forms.sv): The coverage event @@(begin work or end job) joins a begin of the task work and an end of the named block job with or; the sample at the end of job sees bv=2 and covers bin two, and the group prints 50. 区別: A tool that did not trigger on the end of the named block would cover no bin at all, and the printed coverage would be 0 instead of 50.
 
 ### SV2023-A.2.11-EXTRACT-COVERAGE-EXPRESSIONS
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 with-covergroup expressions follow clarification 31, set-covergroup expressions clarification 32; integer-covergroup expression is covergroup expression or dollar; cross-set expression is covergroup expression.
 
@@ -117965,10 +118128,11 @@ with-covergroup expressions follow clarification 31, set-covergroup expressions 
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The with-covergroup expression ca == 0 uses the crossed coverpoint names, the set-covergroup expression is the array literal of tuples, and the matches expression is $ in withall; all bins are covered and the group prints 82.8125. 区別: A tool that did not resolve the coverpoint names in the with expression or the $ in matches would reject or misselect the bins, changing the coverage.
 
 ### SV2023-A.2.11-EXTRACT-COVERAGE-RANGES
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A covergroup range list is nonempty comma-separated values/ranges; each permits expression, bracketed low:high, $:high, low:$, center +/- delta or center +%- percentage.
 
@@ -117976,10 +118140,11 @@ A covergroup range list is nonempty comma-separated values/ranges; each permits 
 
 規定の性質: `definition`。
 
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): The covergroup range lists use [0:2], [5:$], [0:6], [$:15], [6 +/- 1] and [4 +%- 50]; the y samples 6 and 3 cover the absolute, relative and [$:15] ranges, and the group prints 100. 区別: A tool that did not implement the tolerance tokens or the [$:high] form would lose those bins, and the tolerance coverage would not be 100.
 
 ### SV2023-A.2.11-EXTRACT-COVERGROUP
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A covergroup declaration has identifier, optional parentheses with optional tf ports, optional coverage event, semicolon, repeated coverage specifications/options, endgroup and optional identifier label; the extends form has extends identifier, semicolon, body and same ending, subject to clarification 29.
 
@@ -117987,10 +118152,11 @@ A covergroup declaration has identifier, optional parentheses with optional tf p
 
 規定の性質: `definition`。
 
+- [test_covergroup_declaration_and_option_forms.sv](../tests/ch19/test_covergroup_declaration_and_option_forms.sv): cg_m is declared with two ports, a clocking event, options, coverpoints and an end label, and the class covergroup extends form adds extra; the printed coverages are 75 for the module and 75 for the derived class. 区別: The declaration forms differ in the optional port list, coverage event, coverage specifications and end label and in the extends alternative; a tool that rejected one would lose its printed coverage.
 
 ### SV2023-A.2.11-EXTRACT-COVERPOINT
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A coverpoint has optional typed identifier label, expression, optional iff(expression), and bins-or-empty; bins body is literal braces containing repeated attributed bins/options terminated by semicolons, or a single semicolon.
 
@@ -117998,10 +118164,11 @@ A coverpoint has optional typed identifier label, expression, optional iff(expre
 
 規定の性質: `definition`。
 
+- [test_covergroup_declaration_and_option_forms.sv](../tests/ch19/test_covergroup_declaration_and_option_forms.sv): The coverpoint has the data type int and the label cp, the expression v, the iff guard v >= lo, and a braces body with two bins; the bare coverpoint's body is one semicolon, and the module coverage of 75 reflects both. 区別: A tool that did not accept the typed label or the lone semicolon would not compile the group, and the module coverage would be missing.
 
 ### SV2023-A.2.11-EXTRACT-CROSS
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A cross permits optional identifier label, cross keyword, at least two comma-separated cross items, optional iff(expression) and cross body; each item is coverpoint or variable identifier.
 
@@ -118009,10 +118176,11 @@ A cross permits optional identifier label, cross keyword, at least two comma-sep
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): x2 is a cross of the two coverpoints ca and cb with a label, an iff guard on en and a braces body; x1 uses the same two items with a lone semicolon body, and the printed covergroup coverage is 82.8125 from the 31.25 and 100 of the two crosses. 区別: A tool that did not accept the label, the two cross items, the iff guard or the semicolon body would not elaborate the group, so the printed coverage would be missing.
 
 ### SV2023-A.2.11-EXTRACT-CROSS-BODY
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A cross body is brace-delimited repeated function declarations or bins-selection/option entries with semicolon, or a single semicolon; bins selections/options permit repeated attributes.
 
@@ -118020,10 +118188,11 @@ A cross body is brace-delimited repeated function declarations or bins-selection
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The x2 body holds the function diagonal returning a CrossQueueType and a bins selection that calls it, plus an option and the bins selections; all its bins are covered and the printed coverage is 82.8125. 区別: A tool that rejected a function declaration in a cross body would not compile the group, so the fnx bin would be missing and the coverage would differ.
 
 ### SV2023-A.2.11-EXTRACT-EVENT
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 Coverage events are clocking event, with function sample(optional tf-port list), or @@(block event expression).
 
@@ -118031,10 +118200,12 @@ Coverage events are clocking event, with function sample(optional tf-port list),
 
 規定の性質: `definition`。
 
+- [test_covergroup_declaration_and_option_forms.sv](../tests/ch19/test_covergroup_declaration_and_option_forms.sv): cg_m carries a clocking event and is sampled at the three clock ticks where v is 1, 2 and 3, giving 75; the class covergroup cg is sampled only by the explicit sample(1) calls, giving 50 and 75.
+- [test_covergroup_block_event_forms.sv](../tests/ch19/test_covergroup_block_event_forms.sv): cg carries @@(begin work or end job) and is sampled when work begins and when job ends; the end sample sees bv=2 and covers one of the two bins, so the printed coverage is 50.
 
 ### SV2023-A.2.11-EXTRACT-GENERAL-EXPRESSION
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A covergroup expression is an expression subject to clarification 33.
 
@@ -118042,10 +118213,11 @@ A covergroup expression is an expression subject to clarification 33.
 
 規定の性質: `definition`。
 
+- [test_covergroup_declaration_and_option_forms.sv](../tests/ch19/test_covergroup_declaration_and_option_forms.sv): The covergroup expression in the iff guard is v >= lo, with the covergroup port lo, and in cg it is the sample method argument x; the samples 1, 2 and 3 cover both bins, giving 75 for the module group. 区別: An expression context that did not admit the port or the sample argument would not compile the guard, so the coverage would not be printed.
 
 ### SV2023-A.2.11-EXTRACT-SELECT-AND
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A select expression permits select && select, subject to matches precedence in clarification 30.
 
@@ -118053,10 +118225,11 @@ A select expression permits select && select, subject to matches precedence in c
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The selection both0 joins two binsof conditions with &&, and the sample (0,0) covers the bin; the group prints 82.8125 with all eleven x2 bins covered. 区別: A tool that parsed && as || would select more products but the bin would still be covered; a parser failure would drop the bin and change the total.
 
 ### SV2023-A.2.11-EXTRACT-SELECT-CONDITION
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A select expression permits select condition, subject to matches precedence in clarification 30.
 
@@ -118064,10 +118237,11 @@ A select expression permits select condition, subject to matches precedence in c
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The selection paren uses binsof(ca) intersect {[0:1]} and binsof(cb) intersect {3}, and the samples cover it; the group prints 82.8125. 区別: A tool that did not parse intersect with a range list in a select condition would drop the bin and change the printed coverage.
 
 ### SV2023-A.2.11-EXTRACT-SELECT-IDENTIFIER
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A select expression permits cross identifier, subject to matches precedence in clarification 30.
 
@@ -118075,10 +118249,11 @@ A select expression permits cross identifier, subject to matches precedence in c
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The selection selx is the cross identifier x1, which selects all bins of x1; the sample (0,0) covers it and the group prints 82.8125. 区別: A tool that did not accept a cross identifier as a select expression would lose the bin and change the printed coverage.
 
 ### SV2023-A.2.11-EXTRACT-SELECT-NEGATED
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A select expression permits ! select condition, subject to matches precedence in clarification 30.
 
@@ -118086,10 +118261,11 @@ A select expression permits ! select condition, subject to matches precedence in
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The selection not2 negates binsof(ca) intersect {2}, so it takes the ca bins other than v[2]; the sample (0,0) covers it and the group prints 82.8125. 区別: A tool that applied the negation to binsof(ca) alone, before the intersect, would select the wrong bins and the total number of bins would change.
 
 ### SV2023-A.2.11-EXTRACT-SELECT-OR
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A select expression permits select || select, subject to matches precedence in clarification 30.
 
@@ -118097,10 +118273,11 @@ A select expression permits select || select, subject to matches precedence in c
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The selection any1 joins binsof(ca.v[1]) and binsof(cb.w[1]) with ||, and the samples (1,1) and (1,3) cover the bin; the group prints 82.8125. 区別: A tool that treated || as && would require both conditions and might not cover the bin, changing the cross coverage.
 
 ### SV2023-A.2.11-EXTRACT-SELECT-PAREN
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A select expression permits parenthesized select expression, subject to matches precedence in clarification 30.
 
@@ -118108,10 +118285,11 @@ A select expression permits parenthesized select expression, subject to matches 
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The selection paren puts the first disjunction in parentheses, (binsof(ca) intersect {[0:1]}) || (binsof(cb) intersect {3}), and the bin is covered; the group prints 82.8125. 区別: A tool that misparsed the parenthesis would combine the conditions differently and could change which products are selected.
 
 ### SV2023-A.2.11-EXTRACT-SELECT-SET
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A select expression permits cross-set expression with optional matches integer-covergroup expression, subject to matches precedence in clarification 30.
 
@@ -118119,10 +118297,11 @@ A select expression permits cross-set expression with optional matches integer-c
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The selection setx is the cross set expression '{ '{1, 1} }, an array literal of one tuple, and the sample (1,1) covers it; the group prints 82.8125. 区別: A tool that did not evaluate the array literal of tuples as the selected cross products would drop the bin and change the coverage.
 
 ### SV2023-A.2.11-EXTRACT-SELECT-WITH
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A select expression permits select expression with(with-covergroup expression) and optional matches integer-covergroup expression, subject to matches precedence in clarification 30.
 
@@ -118130,10 +118309,11 @@ A select expression permits select expression with(with-covergroup expression) a
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The selections withx and withm filter the cross identifier x1 with (ca == 0) and add matches 1, and withall uses matches $; the samples cover all three and the group prints 82.8125. 区別: A tool that did not apply the with expression to the value tuples of the candidate bin tuples would select the wrong bins, and matches $ would not select <v[0],w[0]>.
 
 ### SV2023-A.2.11-EXTRACT-SELECTION
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A bins selection is bins keyword identifier = select expression with optional iff(expression).
 
@@ -118141,6 +118321,7 @@ A bins selection is bins keyword identifier = select expression with optional if
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): The bins selection cond is bins cond = binsof(ca) intersect {[0:1]} iff (en), with the optional iff guard true; the samples cover it and the group prints 82.8125. 区別: A tool that ignored the iff guard would still cover the bin here; a tool that rejected the selection form would drop it and change the total.
 
 ### SV2023-A.2.11-EXTRACT-SPEC-OPTION
 
@@ -118155,7 +118336,7 @@ Coverage specification/option has repeated attributes followed by coverpoint/cro
 
 ### SV2023-A.2.11-EXTRACT-TRANSITION-REPEAT
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A transition-range list is range-list item optionally followed by [* repeat], [-> repeat] or [= repeat]; repeat is covergroup expression or expression colon expression.
 
@@ -118163,10 +118344,11 @@ A transition-range list is range-list item optionally followed by [* repeat], [-
 
 規定の性質: `definition`。
 
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): The transition bins use the consecutive repetition [* 2] and [* 1:2], the goto repetition [-> 1] and the nonconsecutive repetition [= 1]; t5 = (5 => 6 [* 1:2]) matches 5 => 6 and contributes to the printed 87.5. 区別: A tool that did not parse a repetition range after a transition would not compile cg_tr, and the transition coverage would be missing.
 
 ### SV2023-A.2.11-EXTRACT-TRANSITIONS
 
-A.2.11 / normal / テスト未対応
+A.2.11 / normal / テスト対応あり・実行未確認
 
 A transition list is nonempty comma-separated parenthesized transition sets; each set contains one or more transition-range lists separated by =>.
 
@@ -118174,6 +118356,7 @@ A transition list is nonempty comma-separated parenthesized transition sets; eac
 
 規定の性質: `definition`。
 
+- [test_covergroup_bins_and_range_forms.sv](../tests/ch19/test_covergroup_bins_and_range_forms.sv): cg_tr declares t1 from (1 => 2) and tarr[] from (2 => 3), (3 => 4); the samples 1 to 8 make those transitions, and the group prints 87.5 with seven of eight bins covered. 区別: A tool that did not treat a parenthesized transition set as a sequence of values would not cover t1 or tarr, and the printed coverage would be lower.
 
 ### SV2023-A.2.12-EXTRACT-LET-DECL
 
@@ -118611,7 +118794,7 @@ A program instantiation has program identifier, optional parameter assignment, n
 
 ### SV2023-A.4.1.4-EXTRACT-CHECKER
 
-A.4.1.4 / normal / テスト未対応
+A.4.1.4 / normal / テスト対応あり・実行未確認
 
 Checker instantiation uses package-scoped checker identifier, one instance name, parentheses with optional checker-port connections and semicolon.
 
@@ -118619,10 +118802,11 @@ Checker instantiation uses package-scoped checker identifier, one instance name,
 
 規定の性質: `definition`。
 
+- [test_checker_instantiation_connection_forms.sv](../tests/ch17/test_checker_instantiation_connection_forms.sv): ck_inst_pkg::ck_add is instantiated five times with one instance name each and a port list; the printed sums are 7, 7, 7, 7 and 7 and the parity of a is 1, which shows all five instances elaborated and computed the sum. 区別: The checker name is package-qualified and each instance has its own name, so a tool that required an unqualified name or rejected the package scope would not compile the test.
 
 ### SV2023-A.4.1.4-EXTRACT-CHECKER-PORTS
 
-A.4.1.4 / normal / テスト未対応
+A.4.1.4 / normal / テスト対応あり・実行未確認
 
 Checker-port list uses either ordered or named entries; ordered entries have attributes and optional property actual; named entries have attributes and .formal identifier optionally followed by parentheses with optional property actual, or wildcard .*, constrained by clarification 34.
 
@@ -118630,10 +118814,11 @@ Checker-port list uses either ordered or named entries; ordered entries have att
 
 規定の性質: `definition`。
 
+- [test_checker_instantiation_connection_forms.sv](../tests/ch17/test_checker_instantiation_connection_forms.sv): The five instances connect by position, by position with an attribute and the last actual left empty, by fully explicit names with .flag() empty, by implicit names .a, .b, .c, and by .*; the printed omitted, empty, implicit and wildcard sums are all 7. 区別: Each connection form must bind the same formals to the same actuals; a tool that shifted the empty ordered actual or the .* connections would print a different sum for that instance.
 
 ### SV2023-A.4.2-EXTRACT-BLOCK
 
-A.4.2 / normal / テスト未対応
+A.4.2 / normal / 実行確認あり
 
 A generate block is a single generate item, or optional prefix label then begin with optional label, repeated items, end with optional label.
 
@@ -118641,10 +118826,11 @@ A generate block is a single generate item, or optional prefix label then begin 
 
 規定の性質: `definition`。
 
+- [test_generate_block_and_item_forms.sv](../tests/ch27/test_generate_block_and_item_forms.sv): The blocks include a single-item block (the instance in the a loop), an unlabeled begin-end block in g_add, the prefix label form g_pre : begin, and the named block g_if with the same label after end; the printed nets are non-x from every block. 区別: A tool that rejected a single-item block or the prefix label would lose the net that block drives, and the corresponding bit would print x rather than 0 or 1.
 
 ### SV2023-A.4.2-EXTRACT-CONDITIONAL
 
-A.4.2 / normal / テスト未対応
+A.4.2 / normal / 実行確認あり
 
 Conditional generate is if(constant expression) generate block with optional else block, or case(constant expression) nonempty case-generate items endcase; case items have nonempty comma-separated constants colon block or default optional colon block.
 
@@ -118652,10 +118838,11 @@ Conditional generate is if(constant expression) generate block with optional els
 
 規定の性質: `definition`。
 
+- [test_generate_block_and_item_forms.sv](../tests/ch27/test_generate_block_and_item_forms.sv): The if generate selects g_if for SEL=3 and the case generate takes the 2,3 item for SEL=3; a second case takes its default item without a colon and a third its default with a colon, and the printed if, case, default and colon nets are all 1. 区別: A tool that did not accept a default item without a colon would not compile the second case, and w_default would not be printed as 1.
 
 ### SV2023-A.4.2-EXTRACT-FOR
 
-A.4.2 / normal / テスト未対応
+A.4.2 / normal / 実行確認あり
 
 Loop generate is for(genvar initialization; genvar expression; genvar iteration) generate block; initialization permits optional genvar before identifier = constant expression.
 
@@ -118663,10 +118850,11 @@ Loop generate is for(genvar initialization; genvar expression; genvar iteration)
 
 規定の性質: `definition`。
 
+- [test_generate_block_and_item_forms.sv](../tests/ch27/test_generate_block_and_item_forms.sv): The loops initialize the genvar with the keyword in the header and by a separate genvar declaration, and their bodies drive w_single, w_add, w_pre and w_post; the four printed vectors are 10, 10, 10 and 10. 区別: A tool that did not accept the optional genvar keyword or the separate initialization would lose one of the loops, and that vector would print x instead of 10.
 
 ### SV2023-A.4.2-EXTRACT-ITEMS
 
-A.4.2 / normal / テスト未対応
+A.4.2 / normal / 実行確認あり
 
 Generate items are module/interface/checker-or-generate items constrained by the enclosing construct under clarification 35.
 
@@ -118674,6 +118862,7 @@ Generate items are module/interface/checker-or-generate items constrained by the
 
 規定の性質: `definition`。
 
+- [test_generate_block_and_item_forms.sv](../tests/ch27/test_generate_block_and_item_forms.sv): The block g_items holds an interface instance gi_ifc fi(), a continuous assignment to fi.sig and an always_comb, and it drives w_items; the printed items value is 1. 区別: A tool that did not accept an interface instance or an always_comb as a generate item would not elaborate g_items, and items would print x instead of 1.
 
 ### SV2023-A.4.2-EXTRACT-ITERATION
 
@@ -118688,7 +118877,7 @@ Genvar iteration is identifier assignment-operator genvar-expression, prefix inc
 
 ### SV2023-A.4.2-EXTRACT-REGION
 
-A.4.2 / normal / テスト未対応
+A.4.2 / normal / 実行確認あり
 
 Generate region is generate followed by zero or more generate items and endgenerate.
 
@@ -118696,6 +118885,7 @@ Generate region is generate followed by zero or more generate items and endgener
 
 規定の性質: `definition`。
 
+- [test_generate_block_and_item_forms.sv](../tests/ch27/test_generate_block_and_item_forms.sv): The module has an empty generate region, generate followed directly by endgenerate, and the other constructs outside it; the printed nets show single=10 add=10 pre=10 post=10 and if=1 case=1. 区別: A tool that required at least one item in a generate region would not compile the empty region, and no values would print.
 
 ### SV2023-A.5.1-EXTRACT-UDP-DECL
 
@@ -118711,7 +118901,7 @@ A UDP declaration uses non-ANSI header with one or more port declarations or ANS
 
 ### SV2023-A.5.1-EXTRACT-UDP-EXTERN
 
-A.5.1 / normal / テスト未対応
+A.5.1 / normal / テスト対応あり・実行未確認
 
 UDP extern declarations allow extern followed by ANSI or non-ANSI header.
 
@@ -118719,6 +118909,7 @@ UDP extern declarations allow extern followed by ANSI or non-ANSI header.
 
 規定の性質: `definition`。
 
+- [test_udp_extern_and_wildcard_header.sv](../tests/ch29/test_udp_extern_and_wildcard_header.sv): u_and and u_xor have extern declarations with non-ANSI headers and u_mux one with an ANSI header; their definitions use primitive name ( .* ), and the printed outputs are 0/0/1/0 for and, 0/1/1/0 for xor and 1 and 1 for the mux. 区別: A tool that did not accept an extern UDP header, or that took the port order from the wildcard definition instead of the extern header, would not compile the test or would print other outputs.
 
 ### SV2023-A.5.1-EXTRACT-UDP-HEADERS
 
@@ -118734,7 +118925,7 @@ UDP headers permit repeated attributes then primitive identifier, parenthesized 
 
 ### SV2023-A.5.1-EXTRACT-UDP-WILDCARD
 
-A.5.1 / normal / テスト未対応
+A.5.1 / normal / テスト対応あり・実行未確認
 
 Wildcard UDP declaration uses attributed primitive identifier(.*);, zero or more UDP port declarations, body, endprimitive and optional identifier label.
 
@@ -118742,6 +118933,7 @@ Wildcard UDP declaration uses attributed primitive identifier(.*);, zero or more
 
 規定の性質: `definition`。
 
+- [test_udp_extern_and_wildcard_header.sv](../tests/ch29/test_udp_extern_and_wildcard_header.sv): The three definitions use the attributed primitive name ( .* ) header, two with port declarations and one without, and end with endprimitive with or without a label; their printed outputs match the tables, e.g. and=0 for a=1 b=0 and mux=1 for s=0 a=1 b=0. 区別: A tool that did not accept the wildcard header, its attributes or a definition without port declarations would not compile the test, and the outputs would be missing.
 
 ### SV2023-A.5.2-EXTRACT-UDP-LISTS
 
@@ -118949,7 +119141,7 @@ Blocking assignment permits operator assignment.
 
 ### SV2023-A.6.2-EXTRACT-BLOCKS
 
-A.6.2 / normal / テスト未対応
+A.6.2 / normal / 実行確認あり
 
 initial takes statement/null; always, always_comb, always_latch and always_ff take statement; final takes function statement.
 
@@ -118957,6 +119149,7 @@ initial takes statement/null; always, always_comb, always_latch and always_ff ta
 
 規定の性質: `definition`。
 
+- [test_syntax_structured_procedure_forms.sv](../tests/ch9/test_syntax_structured_procedure_forms.sv): initial, always, always_comb, always_latch and always_ff run their bodies and final runs at the end: the prints show comb 3 then 6, latch 1 held after its enable falls, ff 2 after two edges and the final line with counter 3. 区別: A wrong block keyword or a missing final execution would change the comb, latch, ff or final line of the expected output.
 
 ### SV2023-A.6.2-EXTRACT-NONBLOCKING
 
@@ -118984,7 +119177,7 @@ Operator assignment is variable lvalue, assignment operator and expression; oper
 
 ### SV2023-A.6.2-EXTRACT-PROCEDURAL-CONTINUOUS
 
-A.6.2 / normal / テスト未対応
+A.6.2 / normal / 実行確認あり
 
 Procedural continuous assignment permits assign variable-assignment, deassign variable-lvalue, force variable/net-assignment or release variable/net-lvalue; variable assignment is variable lvalue = expression.
 
@@ -118992,10 +119185,11 @@ Procedural continuous assignment permits assign variable-assignment, deassign va
 
 規定の性質: `definition`。
 
+- [test_syntax_procedural_continuous_assignment_forms.sv](../tests/ch10/test_syntax_procedural_continuous_assignment_forms.sv): assign makes v 5 and ignores a write of 9; deassign leaves 5 and a write gives 3; force gives 12 and ignores a write of 1; release leaves 12 and a write gives 2; force on net n gives 7 over a driver change to 2 and release returns 2. 区別: If any procedural continuous assignment did not override the writes or end, the printed v or n value would differ from 5, 3, 12, 2, 7 or 2.
 
 ### SV2023-A.6.3-EXTRACT-ACTION
 
-A.6.3 / normal / テスト未対応
+A.6.3 / normal / 実行確認あり
 
 Action block is statement/null or optional statement followed by else statement/null.
 
@@ -119003,10 +119197,11 @@ Action block is statement/null or optional statement followed by else statement/
 
 規定の性質: `definition`。
 
+- [test_syntax_action_block_and_simple_assertions.sv](../tests/ch16/test_syntax_action_block_and_simple_assertions.sv): assert, assume and cover with a pass statement, a null statement, an else statement only, and a pass statement before else print the pass or fail action their results select. 区別: An action block that ran the wrong statement would print a wrong or missing line among the seven action lines.
 
 ### SV2023-A.6.3-EXTRACT-PARALLEL
 
-A.6.3 / normal / テスト未対応
+A.6.3 / normal / 実行確認あり
 
 Parallel block is fork with optional identifier label, repeated declarations then statements/null, join/join_any/join_none with optional identifier label.
 
@@ -119014,10 +119209,11 @@ Parallel block is fork with optional identifier label, repeated declarations the
 
 規定の性質: `definition`。
 
+- [test_syntax_sequential_and_parallel_block_forms.sv](../tests/ch9/test_syntax_sequential_and_parallel_block_forms.sv): fork blocks with labels, a declaration, join, join_any and join_none log seq=4 all1 all3 joined any1 anydone nonedone any3 none3: join waited for both branches, join_any for the first and join_none for none. 区別: A different join keyword would move joined, anydone or nonedone to another place in the log or run a branch that should still be pending.
 
 ### SV2023-A.6.3-EXTRACT-SEQUENTIAL
 
-A.6.3 / normal / テスト未対応
+A.6.3 / normal / 実行確認あり
 
 Sequential block is begin with optional identifier label, repeated declarations then statements/null, end with optional identifier label.
 
@@ -119025,10 +119221,11 @@ Sequential block is begin with optional identifier label, repeated declarations 
 
 規定の性質: `definition`。
 
+- [test_syntax_sequential_and_parallel_block_forms.sv](../tests/ch9/test_syntax_sequential_and_parallel_block_forms.sv): the labelled begin block with a declaration and nested begin blocks with and without a label increments a to 4 and logs seq=4 before the parallel blocks. 区別: A sequential block that did not run its declarations and statements in order would log another value for seq or none.
 
 ### SV2023-A.6.4-EXTRACT-FUNCTION
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Function statement aliases statement; function-statement-or-null additionally allows repeated attributes followed by semicolon; semantic restrictions still apply.
 
@@ -119036,6 +119233,7 @@ Function statement aliases statement; function-statement-or-null additionally al
 
 規定の性質: `definition`。
 
+- [test_syntax_function_and_subroutine_call_forms.sv](../tests/ch13/test_syntax_function_and_subroutine_call_forms.sv): the function body is a block with a label, an attributed null statement and return statements; with_return returns 0 for -1 and 3 for 2, and the void function just_log adds to log. 区別: A function statement that did not accept the label, attribute or null statement would not compile, and a wrong return would change 0 or 3.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-16
 
@@ -119063,7 +119261,7 @@ Statement items permit nonblocking assignment plus semicolon.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-18
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit procedural continuous assignment plus semicolon.
 
@@ -119071,10 +119269,11 @@ Statement items permit procedural continuous assignment plus semicolon.
 
 規定の性質: `definition`。
 
+- [test_syntax_procedural_continuous_assignment_forms.sv](../tests/ch10/test_syntax_procedural_continuous_assignment_forms.sv): the assign and force statements are statement items: assign sets v to 5, force sets 12, and deassign and release end them, so the prints show 5 and 12 while they are active. 区別: If a procedural continuous assignment could not stand as a statement item, the test would not compile or the override would not appear in the print.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-19
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit case statement.
 
@@ -119082,10 +119281,11 @@ Statement items permit case statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_case_statement_forms.sv](../tests/ch12/test_syntax_case_statement_forms.sv): case statements used as statement items print plain 10 20 30, no default 1 2, casez 1 2 3 and casex 1 1. 区別: A case that could not be a statement item would not compile, and a wrong item selection would change one of these numbers.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-20
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit conditional statement.
 
@@ -119093,10 +119293,11 @@ Statement items permit conditional statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_conditional_statement_forms.sv](../tests/ch12/test_syntax_conditional_statement_forms.sv): conditional statements as statement items print chain: zero one two many, null arms done, unique first, unique0 no match and priority first. 区別: A conditional that could not be a statement item would not compile, and a wrong predicate would change one of these lines.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-21
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit subroutine-call statement.
 
@@ -119104,10 +119305,11 @@ Statement items permit subroutine-call statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_function_and_subroutine_call_forms.sv](../tests/ch13/test_syntax_function_and_subroutine_call_forms.sv): the task call add(3), the void function call just_log() and the void cast void'(with_return(1)) are subroutine call statements; total is 107 and log is 2. 区別: If the call statement or the void cast did not execute the call, total or log would be smaller.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-22
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit disable statement.
 
@@ -119115,6 +119317,7 @@ Statement items permit disable statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_disable_and_wait_forms.sv](../tests/ch9/test_syntax_disable_and_wait_forms.sv): disable stop_me is a statement item that ends the task at n=1, and disable inner_block ends its block at n=11, so the statements after each disabled target do not run. 区別: If disable did not terminate its target, n would be 101 or 111 instead of 1 or 11.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-23
 
@@ -119129,7 +119332,7 @@ Statement items permit event trigger.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-24
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit loop statement.
 
@@ -119137,10 +119340,11 @@ Statement items permit loop statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): forever, repeat, while, do while and for loops are statement items; they print counts 3, 3, 4, 2 and the for sums a=30, b=4, c=3, d=4, empty=2. 区別: A loop that could not be a statement item would not compile, and a wrong pass count would change one of the printed numbers.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-25
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit jump statement.
 
@@ -119148,10 +119352,11 @@ Statement items permit jump statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_function_and_subroutine_call_forms.sv](../tests/ch13/test_syntax_function_and_subroutine_call_forms.sv): continue at i=2 and break at i=5 are jump statements that make the loop sum 8, and return without an expression in early leaves its addition undone. 区別: If continue or break did not jump, sum would include 2 or 5, and if return did not leave early, total would be 207.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-26
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit parallel block.
 
@@ -119159,10 +119364,11 @@ Statement items permit parallel block.
 
 規定の性質: `definition`。
 
+- [test_syntax_sequential_and_parallel_block_forms.sv](../tests/ch9/test_syntax_sequential_and_parallel_block_forms.sv): the fork blocks are parallel block statement items; join logs all1 all3 joined, join_any logs any1 anydone and join_none logs nonedone before any3 and none3. 区別: If a parallel block could not be a statement item, the log would lack one of its lines or put a branch in the wrong place.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-27
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit procedural timing-control statement.
 
@@ -119170,10 +119376,11 @@ Statement items permit procedural timing-control statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_timing_control_and_event_expressions.sv](../tests/ch9/test_syntax_timing_control_and_event_expressions.sv): the delay controls #1 and #(2:2:2) and the event controls print at 41 and 43 and at 2, 3, 4, 5, 6, 10, 15 and 25, so each prefixes its statement. 区別: If a procedural timing control could not stand as a statement item, the test would not compile or the print would be missing or at another time.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-28
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit sequential block.
 
@@ -119181,10 +119388,11 @@ Statement items permit sequential block.
 
 規定の性質: `definition`。
 
+- [test_syntax_sequential_and_parallel_block_forms.sv](../tests/ch9/test_syntax_sequential_and_parallel_block_forms.sv): the begin block with its label and declarations is a sequential block statement item that computes and logs seq=4. 区別: If a sequential block could not be a statement item, the test would not compile or seq would differ.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-29
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit wait statement.
 
@@ -119192,10 +119400,11 @@ Statement items permit wait statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_disable_and_wait_forms.sv](../tests/ch9/test_syntax_disable_and_wait_forms.sv): wait (n == 12) with a null statement and wait (n == 13) with a statement are statement items and return at n=12 and n=13, and wait fork returns at n=16. 区別: If wait could not stand as a statement item, the test would not compile or the prints would appear at another n or not at all.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-30
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit procedural assertion statement.
 
@@ -119203,10 +119412,11 @@ Statement items permit procedural assertion statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_action_block_and_simple_assertions.sv](../tests/ch16/test_syntax_action_block_and_simple_assertions.sv): assert, assume and cover are procedural assertion statements used as statement items, and their action blocks print for both true and false expressions. 区別: If a procedural assertion could not be a statement item, the test would not compile or an action line would be missing.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-31
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / テスト対応あり・実行未確認
 
 Statement items permit clocking drive plus semicolon.
 
@@ -119214,10 +119424,11 @@ Statement items permit clocking drive plus semicolon.
 
 規定の性質: `definition`。
 
+- [test_syntax_clocking_drive_forms.sv](../tests/ch14/test_syntax_clocking_drive_forms.sv): the clocking drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 are statement items and make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181. 区別: If a clocking drive could not be a statement item, the test would not compile or one of the printed d values would differ.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-32
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit randsequence statement.
 
@@ -119225,10 +119436,11 @@ Statement items permit randsequence statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_randcase_and_randsequence_forms.sv](../tests/ch18/test_syntax_randcase_and_randsequence_forms.sv): the randsequence statement with one production is a statement item and runs once, so n is 1. 区別: If randsequence could not be a statement item or did not run its production, n would be 0 or the test would not compile.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-33
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / 実行確認あり
 
 Statement items permit randcase statement.
 
@@ -119236,10 +119448,11 @@ Statement items permit randcase statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_randcase_and_randsequence_forms.sv](../tests/ch18/test_syntax_randcase_and_randsequence_forms.sv): the randcase statements are statement items; ten repetitions with weights 0, 1 and 0 run only the second item, so c1 is 10 and c0 and c2 are 0. 区別: If randcase could not be a statement item or picked a zero-weight item, c0 or c2 would be nonzero.
 
 ### SV2023-A.6.4-EXTRACT-ITEM-34
 
-A.6.4 / normal / テスト未対応
+A.6.4 / normal / テスト対応あり・実行未確認
 
 Statement items permit expect-property statement.
 
@@ -119247,6 +119460,7 @@ Statement items permit expect-property statement.
 
 規定の性質: `definition`。
 
+- [test_syntax_expect_property_statement.sv](../tests/ch16/test_syntax_expect_property_statement.sv): the expect statements are statement items that run their pass statement at 5 and 25 and their else statement at 15 when the clocked expression is false. 区別: If expect could not be a statement item, the test would not compile, and a wrong property result would move or remove the lines.
 
 ### SV2023-A.6.4-EXTRACT-STATEMENT
 
@@ -119284,7 +119498,7 @@ Delay-or-event control is delay control, event control or repeat(expression) eve
 
 ### SV2023-A.6.5-EXTRACT-DISABLE
 
-A.6.5 / normal / テスト未対応
+A.6.5 / normal / 実行確認あり
 
 Disable statements target a hierarchical task, hierarchical block or fork, ending in semicolon.
 
@@ -119292,10 +119506,11 @@ Disable statements target a hierarchical task, hierarchical block or fork, endin
 
 規定の性質: `definition`。
 
+- [test_syntax_disable_and_wait_forms.sv](../tests/ch9/test_syntax_disable_and_wait_forms.sv): disable stop_me ends the task at n=1, disable inner_block ends its block at n=11 and disable fork at 7 kills the branch that would add 100 at 11, so n stays 16. 区別: If a disable did not end its task, block or fork, n would be 101, 111 or 116 and the last print would be at 11.
 
 ### SV2023-A.6.5-EXTRACT-EVENT
 
-A.6.5 / normal / テスト未対応
+A.6.5 / normal / テスト対応あり・実行未確認
 
 Event control is clocking event, @* or @(*); clocking event permits @ package-scoped identifier, @ hierarchical identifier or @(event expression).
 
@@ -119303,6 +119518,8 @@ Event control is clocking event, @* or @(*); clocking event permits @ package-sc
 
 規定の性質: `definition`。
 
+- [test_syntax_timing_control_and_event_expressions.sv](../tests/ch9/test_syntax_timing_control_and_event_expressions.sv): the event controls @(e_a or e_b), @(e_c, e_d), @named, @(edge clk), @((e_x) or e_y), @(negedge clk), @(posedge clk iff en), repeat (3) @(posedge clk), @holder.he and @ev_pkg::p print at 2, 3, 4, 5, 6, 10, 15, 25, 36 and 35.
+- [test_syntax_star_event_controls.sv](../tests/ch9/test_syntax_star_event_controls.sv): the star event controls always @* and always @(*) run when a and b change and print 1: star reads a=1 and 2: paren star reads b=1.
 
 ### SV2023-A.6.5-EXTRACT-EVENT-EXPRESSIONS
 
@@ -119317,7 +119534,7 @@ Event expression permits optional edge identifier then expression with optional 
 
 ### SV2023-A.6.5-EXTRACT-JUMP
 
-A.6.5 / normal / テスト未対応
+A.6.5 / normal / 実行確認あり
 
 Jump statements are return with optional expression, break or continue, each with semicolon.
 
@@ -119325,6 +119542,7 @@ Jump statements are return with optional expression, break or continue, each wit
 
 規定の性質: `definition`。
 
+- [test_syntax_function_and_subroutine_call_forms.sv](../tests/ch13/test_syntax_function_and_subroutine_call_forms.sv): return with an expression gives 0 and 3, return without one leaves early before its addition, continue skips i=2 and break stops at i=5, so total is 107 and sum is 8. 区別: A wrong jump would change total or sum, for example 207 if return did not leave early or 10 if break did not stop.
 
 ### SV2023-A.6.5-EXTRACT-TRIGGER
 
@@ -119339,7 +119557,7 @@ An event trigger is -> selected hierarchical event identifier semicolon, or ->> 
 
 ### SV2023-A.6.5-EXTRACT-WAIT
 
-A.6.5 / normal / テスト未対応
+A.6.5 / normal / テスト対応あり・実行未確認
 
 Wait statements permit wait(expression) statement/null, wait fork semicolon, or wait_order(nonempty comma-separated hierarchical identifiers) action block.
 
@@ -119347,10 +119565,12 @@ Wait statements permit wait(expression) statement/null, wait fork semicolon, or 
 
 規定の性質: `definition`。
 
+- [test_syntax_disable_and_wait_forms.sv](../tests/ch9/test_syntax_disable_and_wait_forms.sv): wait (n == 12) with a null statement returns at n=12 and wait (n == 13) with a statement returns at n=13, and wait fork returns at n=16 after the branch at 3.
+- [test_syntax_wait_order_forms.sv](../tests/ch15/test_syntax_wait_order_forms.sv): wait_order (first, second) prints 3: two in order, wait_order (late_first, late_second) runs its else action at 4, and wait_order (ok_first, ok_second, ok_third) with a null action returns at 7.
 
 ### SV2023-A.6.6-EXTRACT-IF
 
-A.6.6 / normal / テスト未対応
+A.6.6 / normal / 実行確認あり
 
 Conditional statement has optional unique/unique0/priority, if(predicate) statement/null, repeated else-if arms and optional else arm.
 
@@ -119358,10 +119578,11 @@ Conditional statement has optional unique/unique0/priority, if(predicate) statem
 
 規定の性質: `definition`。
 
+- [test_syntax_conditional_statement_forms.sv](../tests/ch12/test_syntax_conditional_statement_forms.sv): the if chain prints zero one two many, null as then and else prints nothing, unique if takes its first matching arm, unique0 with no match is allowed and priority if takes its matching arm. 区別: A wrong qualifier or arm selection would change one of the five conditional lines.
 
 ### SV2023-A.6.6-EXTRACT-PREDICATE
 
-A.6.6 / normal / テスト未対応
+A.6.6 / normal / テスト対応あり・実行未確認
 
 A conditional predicate has one or more expression-or-pattern terms joined by &&&; pattern term is expression matches pattern.
 
@@ -119369,10 +119590,11 @@ A conditional predicate has one or more expression-or-pattern terms joined by &&
 
 規定の性質: `definition`。
 
+- [test_syntax_cond_predicate_forms.sv](../tests/ch12/test_syntax_cond_predicate_forms.sv): two- and three-term predicates joined by &&& print two terms true and three terms true, a false second term prints second term false, and the pattern terms print each matches line. 区別: If &&& combined the terms with or or ignored one, the false predicate would print its wrong line or a true one would not print.
 
 ### SV2023-A.6.7-EXTRACT-CASE
 
-A.6.7 / normal / テスト未対応
+A.6.7 / normal / テスト対応あり・実行未確認
 
 A case statement has optional unique/unique0/priority then case/casez/casex(expression), nonempty case items and endcase; matched-pattern variant adds matches and uses case-pattern items; inside variant uses only case keyword plus inside and case-inside items.
 
@@ -119380,10 +119602,12 @@ A case statement has optional unique/unique0/priority then case/casez/casex(expr
 
 規定の性質: `definition`。
 
+- [test_syntax_case_statement_forms.sv](../tests/ch12/test_syntax_case_statement_forms.sv): case, casez and casex with unique, unique0 and priority print plain 10 20 30, no default 1 2, casez 1 2 3, casex 1 1, qualifiers 1 2 1 and null and default r=9.
+- [test_syntax_case_matches_and_inside_forms.sv](../tests/ch12/test_syntax_case_matches_and_inside_forms.sv): case with matches prints matches 1 2 3 4 for the pattern items and case with inside prints ranges 1 2 3 4 5 6 0.
 
 ### SV2023-A.6.7-EXTRACT-CASE-ITEMS
 
-A.6.7 / normal / テスト未対応
+A.6.7 / normal / テスト対応あり・実行未確認
 
 Ordinary case items use a nonempty comma expression list colon statement/null; pattern items use pattern with optional &&& expression colon statement/null; inside items use range-list colon statement/null; all permit default with optional colon and statement/null.
 
@@ -119391,10 +119615,12 @@ Ordinary case items use a nonempty comma expression list colon statement/null; p
 
 規定の性質: `definition`。
 
+- [test_syntax_case_statement_forms.sv](../tests/ch12/test_syntax_case_statement_forms.sv): items with the expression list 1, 2, default with and without a colon and a null statement item print plain 10 20 30, no default 1 2 and null and default r=9.
+- [test_syntax_case_matches_and_inside_forms.sv](../tests/ch12/test_syntax_case_matches_and_inside_forms.sv): pattern items with &&& and inside items with range lists and default print matches 1 2 3 4 and ranges 1 2 3 4 5 6 0.
 
 ### SV2023-A.6.7-EXTRACT-RANDCASE
 
-A.6.7 / normal / テスト未対応
+A.6.7 / normal / 実行確認あり
 
 randcase contains one or more expression-weight colon statement/null items and ends with endcase.
 
@@ -119402,10 +119628,11 @@ randcase contains one or more expression-weight colon statement/null items and e
 
 規定の性質: `definition`。
 
+- [test_syntax_randcase_and_randsequence_forms.sv](../tests/ch18/test_syntax_randcase_and_randsequence_forms.sv): the randcase items with weights 0, 1 and 0 run the second item ten times and never the zero-weight items, and the item with a null statement changes nothing. 区別: If a zero-weight item were chosen, c0 or c2 would be nonzero, and a null item that ran a statement would change c0.
 
 ### SV2023-A.6.7-EXTRACT-VALUE-RANGE
 
-A.6.7 / normal / テスト未対応
+A.6.7 / normal / テスト対応あり・実行未確認
 
 A range list is nonempty and comma-separated; value ranges are expression or bracketed low:high, $:high, low:$, center +/- delta, or center +%- percentage.
 
@@ -119413,10 +119640,11 @@ A range list is nonempty and comma-separated; value ranges are expression or bra
 
 規定の性質: `definition`。
 
+- [test_syntax_case_matches_and_inside_forms.sv](../tests/ch12/test_syntax_case_matches_and_inside_forms.sv): case inside returns 1 for [2:4] at 3, 2 for [10 +/- 2] at 9, 3 for the value 20, 4 for [30 +%- 10] at 31, 5 for [250:$] at 252, 6 for [$:240] at 240 and 0 for 100. 区別: A wrong bound, tolerance or $ value would make one of these inputs match another item or default.
 
 ### SV2023-A.6.7.1-EXTRACT-ASSIGNMENT-PATTERN
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 Assignment patterns permit apostrophe braces containing nonempty expressions, structure-key colon expression pairs, array-key colon expression pairs, or a constant replication count followed by brace-delimited nonempty expressions.
 
@@ -119424,6 +119652,7 @@ Assignment patterns permit apostrophe braces containing nonempty expressions, st
 
 規定の性質: `definition`。
 
+- [test_syntax_assignment_pattern_forms.sv](../tests/ch10/test_syntax_assignment_pattern_forms.sv): patterns with positional expressions, member keys, default, a type name, a type parameter, a replication and array keys print pos=12 named=34 dflt=55 typed=67 param_typed=89 arr=1 0 0 2 rep=7 7 7. 区別: A pattern that set the wrong member or element would change one of these printed values.
 
 ### SV2023-A.6.7.1-EXTRACT-KEYS
 
@@ -119438,7 +119667,7 @@ Structure keys are member identifier or assignment-pattern key; array keys are c
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-CONSTANT
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 A matching pattern permits constant expression.
 
@@ -119446,10 +119675,11 @@ A matching pattern permits constant expression.
 
 規定の性質: `definition`。
 
+- [test_syntax_pattern_matching_forms.sv](../tests/ch12/test_syntax_pattern_matching_forms.sv): the constant pattern 7 returns constant, the parenthesized constant (8) returns parenthesized, and 9 falls to default. 区別: If the constant or parenthesized pattern matched another value, the three printed results would differ.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-LVALUE
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 Assignment-pattern net/variable lvalues use apostrophe braces containing nonempty comma-separated corresponding net/variable lvalues.
 
@@ -119457,10 +119687,11 @@ Assignment-pattern net/variable lvalues use apostrophe braces containing nonempt
 
 規定の性質: `definition`。
 
+- [test_syntax_assignment_pattern_forms.sv](../tests/ch10/test_syntax_assignment_pattern_forms.sv): the variable lvalue pattern '{va, vb} = '{3, 4} prints 3 and 4, and the net lvalue pattern in the continuous assignment prints n0=1 and n1=2. 区別: If a pattern lvalue assigned the wrong target or value, the printed 3, 4, 1 or 2 would differ.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-NAMED
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 A matching pattern permits apostrophe braces containing nonempty comma-separated member identifier colon pattern entries.
 
@@ -119468,10 +119699,11 @@ A matching pattern permits apostrophe braces containing nonempty comma-separated
 
 規定の性質: `definition`。
 
+- [test_syntax_pattern_matching_forms.sv](../tests/ch12/test_syntax_pattern_matching_forms.sv): the named pattern '{a: 1, b: .v} matches a=1,b=5 and prints named a1 b5, '{a: 2, b: 3} prints named a2 b3, and a=4,b=4 falls to default. 区別: If a member name in the pattern named another member, the bound v or the selected item would change.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-PAREN
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 A matching pattern permits parenthesized pattern.
 
@@ -119479,10 +119711,11 @@ A matching pattern permits parenthesized pattern.
 
 規定の性質: `definition`。
 
+- [test_syntax_pattern_matching_forms.sv](../tests/ch12/test_syntax_pattern_matching_forms.sv): the parenthesized pattern (8) matches 8 and returns parenthesized, while 7 is constant and 9 falls to default. 区別: If the parentheses changed the pattern, 8 would not print parenthesized or 7 or 9 would.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-POSITIONAL
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 A matching pattern permits apostrophe braces containing nonempty comma-separated patterns.
 
@@ -119490,10 +119723,11 @@ A matching pattern permits apostrophe braces containing nonempty comma-separated
 
 規定の性質: `definition`。
 
+- [test_syntax_pattern_matching_forms.sv](../tests/ch12/test_syntax_pattern_matching_forms.sv): the positional pattern '{1, .v} matches a=1,b=5 and prints position 1 5, '{2, 3} prints position 2 3, and a=4,b=4 falls to default. 区別: If the members were bound in another order, the printed position values would differ.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-TAGGED
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 A matching pattern permits tagged member identifier with optional nested pattern.
 
@@ -119501,10 +119735,11 @@ A matching pattern permits tagged member identifier with optional nested pattern
 
 規定の性質: `definition`。
 
+- [test_syntax_pattern_matching_forms.sv](../tests/ch12/test_syntax_pattern_matching_forms.sv): the tagged patterns match tagged Valid (9) and tagged Invalid and print valid 9 and invalid. 区別: If the tag or the nested value were not matched, the printed lines would be wrong.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-TYPES
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 Assignment-pattern expression has optional package-scoped type identifier, package-scoped parameter identifier, integer atom type or type-reference type; its constant form requires every member constant under clarification 37.
 
@@ -119512,10 +119747,11 @@ Assignment-pattern expression has optional package-scoped type identifier, packa
 
 規定の性質: `definition`。
 
+- [test_syntax_assignment_pattern_forms.sv](../tests/ch10/test_syntax_assignment_pattern_forms.sv): the type prefixes pair_t, PT, int and type(1) give typed=67, param_typed=89, ia=ffffffff and type reference=ffffffff. 区別: If a type prefix named the wrong type or were ignored, one of these values would differ.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-VARIABLE
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 A matching pattern permits dot variable identifier.
 
@@ -119523,10 +119759,11 @@ A matching pattern permits dot variable identifier.
 
 規定の性質: `definition`。
 
+- [test_syntax_pattern_matching_forms.sv](../tests/ch12/test_syntax_pattern_matching_forms.sv): the variable pattern .v matches 42 and binds it, so the print is variable 42. 区別: If the variable pattern did not bind the matched value, the printed number would differ or the item would not match.
 
 ### SV2023-A.6.7.1-EXTRACT-PATTERN-WILDCARD
 
-A.6.7.1 / normal / テスト未対応
+A.6.7.1 / normal / テスト対応あり・実行未確認
 
 A matching pattern permits .*.
 
@@ -119534,10 +119771,11 @@ A matching pattern permits .*.
 
 規定の性質: `definition`。
 
+- [test_syntax_pattern_matching_forms.sv](../tests/ch12/test_syntax_pattern_matching_forms.sv): the wildcard pattern .* matches 0 and prints wildcard. 区別: If .* did not match every value, the case would fall through and print nothing.
 
 ### SV2023-A.6.8-EXTRACT-FOR-INIT
 
-A.6.8 / normal / テスト未対応
+A.6.8 / normal / 実行確認あり
 
 For initialization permits a list of variable assignments or nonempty comma-separated for-variable declarations; each declaration has optional var, data type and one or more comma-separated identifier = expression entries, subject to clarification 18.
 
@@ -119545,6 +119783,7 @@ For initialization permits a list of variable assignments or nonempty comma-sepa
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): for (i = 0, j = 10; ...) gives a=30, for (int k = 0, m = 2; ...) gives b=4, for (int p = 0, int q = 1; ...) gives c=3 and for (var int s = 0; ...) gives d=4. 区別: If an initialization form declared or assigned another variable, one of a, b, c or d would differ.
 
 ### SV2023-A.6.8-EXTRACT-FOR-STEP
 
@@ -119559,7 +119798,7 @@ For step has nonempty comma-separated operator assignments, increment/decrement 
 
 ### SV2023-A.6.8-EXTRACT-LOOP-DO
 
-A.6.8 / normal / テスト未対応
+A.6.8 / normal / 実行確認あり
 
 Loop statement permits do statement/null while(expression) semicolon.
 
@@ -119567,10 +119806,11 @@ Loop statement permits do statement/null while(expression) semicolon.
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): the do while loop runs its statement twice and prints do=2. 区別: If the body did not run before the test, do would be 1 or the loop would not end.
 
 ### SV2023-A.6.8-EXTRACT-LOOP-FOR
 
-A.6.8 / normal / テスト未対応
+A.6.8 / normal / 実行確認あり
 
 Loop statement permits for(optional initialization; optional expression; optional step) statement/null.
 
@@ -119578,10 +119818,11 @@ Loop statement permits for(optional initialization; optional expression; optiona
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): the for loops run 3, 2, 2 and 4 times and the empty for with break runs twice, printing a=30 b=4 c=3 d=4 empty=2. 区別: A wrong condition or missing part would change one of these counts.
 
 ### SV2023-A.6.8-EXTRACT-LOOP-FOREACH
 
-A.6.8 / normal / テスト未対応
+A.6.8 / normal / 実行確認あり
 
 Loop statement permits foreach(package-scoped/hierarchical array identifier[loop variables]) statement.
 
@@ -119589,10 +119830,11 @@ Loop statement permits foreach(package-scoped/hierarchical array identifier[loop
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): foreach sums the six elements of m2 to 21 and counts 6, and it reads the package array to 6 and the instance array to 60. 区別: If foreach visited another set of elements, sum, count, pkg or hier would differ.
 
 ### SV2023-A.6.8-EXTRACT-LOOP-FOREVER
 
-A.6.8 / normal / テスト未対応
+A.6.8 / normal / 実行確認あり
 
 Loop statement permits forever statement/null.
 
@@ -119600,10 +119842,11 @@ Loop statement permits forever statement/null.
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): forever runs its statement until the break at the third pass and prints forever=3. 区別: If forever stopped early or did not run, forever would not be 3 or the loop would not end.
 
 ### SV2023-A.6.8-EXTRACT-LOOP-REPEAT
 
-A.6.8 / normal / テスト未対応
+A.6.8 / normal / 実行確認あり
 
 Loop statement permits repeat(expression) statement/null.
 
@@ -119611,10 +119854,11 @@ Loop statement permits repeat(expression) statement/null.
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): repeat (3) adds three and repeat (0) adds nothing, so repeat=3. 区別: If repeat used another count, repeat would be 0, 4 or 103.
 
 ### SV2023-A.6.8-EXTRACT-LOOP-VARS
 
-A.6.8 / normal / テスト未対応
+A.6.8 / normal / 実行確認あり
 
 Foreach loop variables are optional index identifiers separated by zero or more commas, allowing omitted dimension indices.
 
@@ -119622,10 +119866,11 @@ Foreach loop variables are optional index identifiers separated by zero or more 
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): foreach (m2[, j]) prints columns 1 1 1 and foreach (m2[i, ]) prints rows 1 1, and foreach (m2[, ]) leaves both 0: an omitted loop variable skips that dimension. 区別: If an omitted index still iterated, the column, row or both counter would be larger.
 
 ### SV2023-A.6.8-EXTRACT-LOOP-WHILE
 
-A.6.8 / normal / テスト未対応
+A.6.8 / normal / 実行確認あり
 
 Loop statement permits while(expression) statement/null.
 
@@ -119633,10 +119878,11 @@ Loop statement permits while(expression) statement/null.
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): while (while_count < 4) adds four times and prints while=4. 区別: If the condition were tested differently, while would be 3, 5 or the loop would not end.
 
 ### SV2023-A.6.9-EXTRACT-CALL
 
-A.6.9 / normal / テスト未対応
+A.6.9 / normal / 実行確認あり
 
 Subroutine-call statements permit subroutine call semicolon or void apostrophe parenthesized function call semicolon.
 
@@ -119644,6 +119890,7 @@ Subroutine-call statements permit subroutine call semicolon or void apostrophe p
 
 規定の性質: `definition`。
 
+- [test_syntax_function_and_subroutine_call_forms.sv](../tests/ch13/test_syntax_function_and_subroutine_call_forms.sv): add(3) and just_log() are subroutine call statements and void'(with_return(1)) is the void cast form; total is 107 and log is 2. 区別: If the call statement or the void cast did not run its subroutine, total or log would be smaller.
 
 ### SV2023-A.6.10-EXTRACT-ASSERTION-ITEMS
 
@@ -119658,7 +119905,7 @@ Assertion items are concurrent or optionally labeled deferred-immediate assertio
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSERT-FINAL
 
-A.6.10 / normal / テスト未対応
+A.6.10 / normal / テスト対応あり・実行未確認
 
 Deferred immediate assert has final before parenthesized expression then action block.
 
@@ -119666,10 +119913,11 @@ Deferred immediate assert has final before parenthesized expression then action 
 
 規定の性質: `definition`。
 
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assert final (a == 6) sees 6 at the end of step 1 and prints 1 assert final sees 6. 区別: If the check ran when reached or in another step, it would see another value or not print.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSERT-ZERO
 
-A.6.10 / normal / テスト未対応
+A.6.10 / normal / テスト対応あり・実行未確認
 
 Deferred immediate assert has #0 before parenthesized expression then action block.
 
@@ -119677,10 +119925,11 @@ Deferred immediate assert has #0 before parenthesized expression then action blo
 
 規定の性質: `definition`。
 
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assert #0 reached with a=0 and followed by a=5 fails in the observed region and its else action prints 0 assert zero sees 5. 区別: If the check ran when reached, it would see 0 and print wrong.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSUME-FINAL
 
-A.6.10 / normal / テスト未対応
+A.6.10 / normal / テスト対応あり・実行未確認
 
 Deferred immediate assume has final before parenthesized expression then action block.
 
@@ -119688,10 +119937,11 @@ Deferred immediate assume has final before parenthesized expression then action 
 
 規定の性質: `definition`。
 
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assume final (a == 13) sees 13 at the end of step 5 and prints 5 assume final pass. 区別: If the check used another value or time, the assumption would fail or print nothing.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-ASSUME-ZERO
 
-A.6.10 / normal / テスト未対応
+A.6.10 / normal / テスト対応あり・実行未確認
 
 Deferred immediate assume has #0 before parenthesized expression then action block.
 
@@ -119699,10 +119949,11 @@ Deferred immediate assume has #0 before parenthesized expression then action blo
 
 規定の性質: `definition`。
 
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): assume #0 reached before a=12 sees 12 in the observed region and prints 4 assume zero pass. 区別: If the check ran when reached, the assumption would fail and its else action would print wrong.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-COVER-FINAL
 
-A.6.10 / normal / テスト未対応
+A.6.10 / normal / テスト対応あり・実行未確認
 
 Deferred immediate cover has final before parenthesized expression then statement/null.
 
@@ -119710,10 +119961,11 @@ Deferred immediate cover has final before parenthesized expression then statemen
 
 規定の性質: `definition`。
 
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): cover final (a == 9) sees 9 at the end of step 3 and runs its statement, printing 3 cover final sees 9. 区別: If the cover used another value or time, the line would be missing.
 
 ### SV2023-A.6.10-EXTRACT-DEFERRED-COVER-ZERO
 
-A.6.10 / normal / テスト未対応
+A.6.10 / normal / テスト対応あり・実行未確認
 
 Deferred immediate cover has #0 before parenthesized expression then statement/null.
 
@@ -119721,10 +119973,11 @@ Deferred immediate cover has #0 before parenthesized expression then statement/n
 
 規定の性質: `definition`。
 
+- [test_syntax_deferred_immediate_assertions.sv](../tests/ch16/test_syntax_deferred_immediate_assertions.sv): cover #0 reached before a=8 sees 8 in the observed region and runs its statement, printing 2 cover zero sees 8. 区別: If the cover ran when reached, it would see 7 and print nothing.
 
 ### SV2023-A.6.10-EXTRACT-SIMPLE-ASSERT
 
-A.6.10 / normal / テスト未対応
+A.6.10 / normal / 実行確認あり
 
 Simple immediate assert uses parenthesized expression then action block.
 
@@ -119732,10 +119985,11 @@ Simple immediate assert uses parenthesized expression then action block.
 
 規定の性質: `definition`。
 
+- [test_syntax_action_block_and_simple_assertions.sv](../tests/ch16/test_syntax_action_block_and_simple_assertions.sv): assert (a == 0) runs its pass statement and assert (a == 1) runs its else statement, while the null action prints nothing. 区別: If the pass and fail actions were exchanged or the null action printed, the assert lines would differ.
 
 ### SV2023-A.6.10-EXTRACT-SIMPLE-ASSUME
 
-A.6.10 / normal / テスト未対応
+A.6.10 / normal / 実行確認あり
 
 Simple immediate assume uses parenthesized expression then action block.
 
@@ -119743,10 +119997,11 @@ Simple immediate assume uses parenthesized expression then action block.
 
 規定の性質: `definition`。
 
+- [test_syntax_action_block_and_simple_assertions.sv](../tests/ch16/test_syntax_action_block_and_simple_assertions.sv): assume (a == 0) runs its pass statement and assume (a == 1) runs its else statement. 区別: If the pass and fail actions were exchanged, the assume lines would differ.
 
 ### SV2023-A.6.10-EXTRACT-SIMPLE-COVER
 
-A.6.10 / normal / テスト未対応
+A.6.10 / normal / 実行確認あり
 
 Simple immediate cover uses parenthesized expression then statement/null.
 
@@ -119754,6 +120009,7 @@ Simple immediate cover uses parenthesized expression then statement/null.
 
 規定の性質: `definition`。
 
+- [test_syntax_action_block_and_simple_assertions.sv](../tests/ch16/test_syntax_action_block_and_simple_assertions.sv): cover (a == 0) runs its statement and prints cover true statement, and cover (a == 1) with a null statement prints nothing. 区別: If the cover ignored the true expression or ran the null statement, the cover line would be missing or extra.
 
 ### SV2023-A.6.11-EXTRACT-CLOCKING
 
@@ -119779,7 +120035,7 @@ Clocking items are default skew declaration semicolon, direction and nonempty co
 
 ### SV2023-A.6.11-EXTRACT-DRIVE
 
-A.6.11 / normal / テスト未対応
+A.6.11 / normal / テスト対応あり・実行未確認
 
 Clocking drive is selected hierarchical clockvar <= optional cycle delay then expression; cycle delay is ## integral number, ## identifier or ##(expression).
 
@@ -119787,6 +120043,7 @@ Clocking drive is selected hierarchical clockvar <= optional cycle delay then ex
 
 規定の性質: `definition`。
 
+- [test_syntax_clocking_drive_forms.sv](../tests/ch14/test_syntax_clocking_drive_forms.sv): the drives cb.d <= ##1 2, ##(2) 3, ##N 4 and ##(N+1) 5 make d 2 at 61, 3 at 101, 4 at 141 and 5 at 181, and the drive without a cycle delay makes 1 at 421. 区別: A wrong cycle delay would put a value at another printed time or leave d at 0.
 
 ### SV2023-A.6.11-EXTRACT-SKEW
 
@@ -119897,7 +120154,7 @@ A rule is production list with optional := weight and optional code block follow
 
 ### SV2023-A.7.1-EXTRACT-BLOCK
 
-A.7.1 / normal / テスト未対応
+A.7.1 / normal / テスト対応あり・実行未確認
 
 A specify block is specify, repeated specparam/pulsestyle/showcancelled/path/system-timing-check items, endspecify.
 
@@ -119905,10 +120162,11 @@ A specify block is specify, repeated specparam/pulsestyle/showcancelled/path/sys
 
 規定の性質: `definition`。
 
+- [test_syntax_specify_block_items.sv](../tests/ch30/test_syntax_specify_block_items.sv): the specify block holds specparam tdelay, the four pulse style and cancellation declarations, four paths and a $width check; tdelay = 6 delays the path output y to the filtered pulse at 13 and 19 and the wide pulse at 36 and 43, and the $width violation sets the notifier to 1. 区別: If an item kind could not stand in the specify block, the test would not compile or the delayed and filtered pulse times would differ.
 
 ### SV2023-A.7.1-EXTRACT-PULSE
 
-A.7.1 / normal / テスト未対応
+A.7.1 / normal / テスト対応あり・実行未確認
 
 Pulse-style declarations use pulsestyle_onevent or pulsestyle_ondetect followed by path-output list and semicolon; cancellation declarations similarly use showcancelled or noshowcancelled.
 
@@ -119916,6 +120174,7 @@ Pulse-style declarations use pulsestyle_onevent or pulsestyle_ondetect followed 
 
 規定の性質: `definition`。
 
+- [test_syntax_specify_block_items.sv](../tests/ch30/test_syntax_specify_block_items.sv): pulsestyle_ondetect y turns y to x at 13 for the pulse of width 3, while pulsestyle_onevent z and the default w and v turn at 16, and showcancelled and noshowcancelled are declared with their path outputs. 区別: If a pulse style declaration were ignored, y or z would turn to x at the other time or not at all.
 
 ### SV2023-A.7.2-EXTRACT-EDGE-FULL
 
@@ -120523,7 +120782,7 @@ Randomize call has repeated attributes, optional parentheses containing optional
 
 ### SV2023-A.8.2-EXTRACT-SYSTEM-CALL
 
-A.8.2 / normal / テスト未対応
+A.8.2 / normal / テスト対応あり・実行未確認
 
 System tf call permits identifier with optional parentheses/arguments; identifier(data type with optional comma expression); or identifier(expression, repeated optionally omitted expressions and optional trailing optionally omitted clocking event).
 
@@ -120531,6 +120790,8 @@ System tf call permits identifier with optional parentheses/arguments; identifie
 
 規定の性質: `definition`。
 
+- [test_system_tf_call_forms_without_assertions.sv](../tests/ch13/test_system_tf_call_forms_without_assertions.sv): データ型・式・括弧なしのシステム関数呼び出しを実際に使い、対応する出力行の値で確かめる
+- [test_sampled_value_functions_with_clocking_event.sv](../tests/ch16/test_sampled_value_functions_with_clocking_event.sv): 空の式と時計イベントを伴うサンプル値関数を実際に使い、対応する出力行の値で確かめる
 
 ### SV2023-A.8.2-EXTRACT-TF-CALL
 
@@ -120569,7 +120830,7 @@ Constant expressions permit constant primary, unary operator plus repeated attri
 
 ### SV2023-A.8.3-EXTRACT-CONSTANT-RANGES
 
-A.8.3 / normal / テスト未対応
+A.8.3 / normal / 実行確認あり
 
 Constant range-expression is constant expression or constant part-select; constant part-select is constant low:high or constant base +:/-: constant width.
 
@@ -120577,6 +120838,7 @@ Constant range-expression is constant expression or constant part-select; consta
 
 規定の性質: `definition`。
 
+- [test_part_select_and_constant_range_forms.sv](../tests/ch11/test_part_select_and_constant_range_forms.sv): constant_range の V[7:4]、constant_indexed_range の V[8 +: 4] と V[11 -: 4]、パラメータを添字にした V[4 +: 4] と V[7:4] を localparam にし、const 行に c 5 5 5 c c を出させる。 区別: +: と -: の向きを取り違える実装や、constant range を定数式でない添字で評価する実装では、const 行の 5 つの値が期待値と一致しない。
 
 ### SV2023-A.8.3-EXTRACT-EXPRESSION-ASSIGN
 
@@ -120652,7 +120914,7 @@ Expression grammar permits primary.
 
 ### SV2023-A.8.3-EXTRACT-EXPRESSION-TAGGED
 
-A.8.3 / normal / テスト未対応
+A.8.3 / normal / テスト対応あり・実行未確認
 
 Expression grammar permits tagged member identifier with optional primary.
 
@@ -120660,6 +120922,7 @@ Expression grammar permits tagged member identifier with optional primary.
 
 規定の性質: `definition`。
 
+- [test_tagged_union_expression_and_matches_precedence.sv](../tests/ch11/test_tagged_union_expression_and_matches_precedence.sv): tagged Invalid のように値のないメンバーと tagged Valid(42) のように primary を伴うメンバーを式に使い、a matches tagged Invalid などで 1 1 0 を出させる。 区別: tagged の後の primary を任意として扱わない実装は、値のあるメンバーの式を受理せず、タグの比較が誤っていれば tag 行が 1 1 0 にならない。
 
 ### SV2023-A.8.3-EXTRACT-EXPRESSION-UNARY
 
@@ -120720,7 +120983,7 @@ Constant parameter expression is constant mintypmax, data type or dollar; parame
 
 ### SV2023-A.8.3-EXTRACT-PART-SELECT
 
-A.8.3 / normal / テスト未対応
+A.8.3 / normal / 実行確認あり
 
 Part-select range is constant range or indexed range; indexed range has expression base and constant width with +: or -:; genvar expression is constant expression.
 
@@ -120728,6 +120991,7 @@ Part-select range is constant range or indexed range; indexed range has expressi
 
 規定の性質: `definition`。
 
+- [test_part_select_and_constant_range_forms.sv](../tests/ch11/test_part_select_and_constant_range_forms.sv): part_select_range の constant_range と indexed_range を、定数の添字と実行時の添字、+: と -: の両方で使い、var 行に c 5 5 7 8 1 を出させる。loop generate の条件 gi < W は genvar を含む constant expression で、生成された 4 つのブロックが gen 行に 4 5 6 7 を出す。 区別: indexed_range の幅を定数でない式として扱う実装や、実行時の base を許さない実装では var 行の 7 と 8 が期待値にならず、loop generate の条件を定数式として評価しない実装では gen 行の 4 つの値が決まらない。
 
 ### SV2023-A.8.4-EXTRACT-CAST
 
@@ -120775,7 +121039,7 @@ A constant primary may be specparam identifier with optional bracketed constant-
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-32
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A constant primary may be genvar identifier subject to clarification 44.
 
@@ -120783,10 +121047,11 @@ A constant primary may be genvar identifier subject to clarification 44.
 
 規定の性質: `definition`。
 
+- [test_genvar_constant_primary_in_loop_generate.sv](../tests/ch27/test_genvar_constant_primary_in_loop_generate.sv): loop generate のブロックの内側で genvar k を定数式に使い、localparam PROD = k * 10 + j とベクタ幅 [k:0] を決め、g[1] などの行に幅と値を出させる。 区別: genvar を loop generate の内側の constant primary として扱わない実装では、幅や localparam が genvar の値にならず、g[1] などの行が期待値にならない。
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-33
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A constant primary may be formal-port identifier with constant select.
 
@@ -120794,6 +121059,7 @@ A constant primary may be formal-port identifier with constant select.
 
 規定の性質: `definition`。
 
+- [test_let_expression_constant_and_runtime.sv](../tests/ch11/test_let_expression_constant_and_runtime.sv): let 宣言の仮引数 a と b を、定数の let 式の右辺で constant primary として使い、maxc(3, 7) から 7 を出させる。 区別: let の仮引数を constant primary として扱わない実装では、定数の let 式が 7 にならず、const 行が期待値にならない。
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-34
 
@@ -120855,7 +121121,7 @@ A constant primary may be constant function call with optional bracketed constan
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-39
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A constant primary may be constant let expression.
 
@@ -120863,6 +121129,7 @@ A constant primary may be constant let expression.
 
 規定の性質: `definition`。
 
+- [test_let_expression_constant_and_runtime.sv](../tests/ch11/test_let_expression_constant_and_runtime.sv): 定数の実引数を持つ let 式を localparam の値にし、const 行に 7 9 4 を出させる。 区別: constant_let_expression を constant primary として扱わない実装では、localparam を決められず const 行が出ない。
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-40
 
@@ -120888,7 +121155,7 @@ A constant primary may be constant cast.
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-42
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A constant primary may be constant assignment pattern expression.
 
@@ -120896,10 +121163,11 @@ A constant primary may be constant assignment pattern expression.
 
 規定の性質: `definition`。
 
+- [test_constant_assignment_pattern_members_in_constant_contexts.sv](../tests/ch10/test_constant_assignment_pattern_members_in_constant_contexts.sv): メンバーがすべて定数式の代入パターンを localparam にして、PP、TBL、R3、SUM の値を出力させる。 区別: constant_assignment_pattern_expression を constant primary として受理しない実装ではパラメータを決められず、PP= などの行が出ない。
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-43
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / テスト対応あり・実行未確認
 
 A constant primary may be type reference subject to clarification 45.
 
@@ -120907,10 +121175,11 @@ A constant primary may be type reference subject to clarification 45.
 
 規定の性質: `definition`。
 
+- [test_type_reference_declare_cast_compare.sv](../tests/ch6/test_type_reference_declare_cast_compare.sv): type(w12) と type(logic [11:0]) の比較を localparam EQ にし、2 つの型参照をconstant primary として 1 を出させる。 区別: type_reference を constant primary として扱わない実装はコンパイルできず、型の一致を誤れば EQ=1 の行が 0 になる。
 
 ### SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-44
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A constant primary may be null.
 
@@ -120918,10 +121187,11 @@ A constant primary may be null.
 
 規定の性質: `definition`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): クラス型の localparam を null で初期化し、null 行の最後の値として 1 を出させる。 区別: null を constant primary として受理しない実装はコンパイルできず、null を別の値として扱う実装では null 行の最後が 1 にならない。
 
 ### SV2023-A.8.4-EXTRACT-IMPLICIT-HANDLE
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 Implicit class handles are this,super or this.super, constrained by clarification 46.
 
@@ -120929,10 +121199,11 @@ Implicit class handles are this,super or this.super, constrained by clarificatio
 
 規定の性質: `definition`。
 
+- [test_this_and_super_in_out_of_block_methods.sv](../tests/ch8/test_this_and_super_in_out_of_block_methods.sv): クラス宣言と out-of-block のメソッドで this、super、this.super を使い、同じ名前の仮引数や派生クラスのプロパティではなく、現在のオブジェクトと基底クラスのプロパティを選ばせて値を出力させる。 区別: implicit_class_handle を現在のオブジェクトとして解決しない実装では、this や super の行が仮引数や派生クラスのプロパティの値になり、期待値と一致しない。
 
 ### SV2023-A.8.4-EXTRACT-LITERAL
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 Primary literals are number,time literal,unbased unsized literal or string literal; time literals use unsigned/fixed-point number immediately followed by s/ms/us/ns/ps/fs under clarification 49.
 
@@ -120940,6 +121211,7 @@ Primary literals are number,time literal,unbased unsized literal or string liter
 
 規定の性質: `definition`。
 
+- [test_primary_literal_forms_number_time_unbased_string.sv](../tests/ch5/test_primary_literal_forms_number_time_unbased_string.sv): 数値リテラルの 2 進・8 進・10 進・16 進と符号付き、アンダースコア、時刻リテラル 10ns、基数のない '1 と '0、文字列リテラル "abc" を使い、unbased、number、string、bits、time の各行を出させる。 区別: 基数や符号、アンダースコアを無視する実装では number 行が aa aa aa aa -128 にならず、時刻リテラルの単位を落とす実装では time 行が 10 にならない。
 
 ### SV2023-A.8.4-EXTRACT-MODULE-PRIMARY
 
@@ -120954,7 +121226,7 @@ Module-path primary is number,identifier,module-path concatenation/multiple-conc
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-46
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A primary may be primary literal.
 
@@ -120962,10 +121234,11 @@ A primary may be primary literal.
 
 規定の性質: `definition`。
 
+- [test_primary_literal_forms_number_time_unbased_string.sv](../tests/ch5/test_primary_literal_forms_number_time_unbased_string.sv): primary_literal の各形（数、時刻、基数のない 0 と 1、文字列）を式の primary として使い、unbased、number、string、bits、time の各行を出させる。 区別: 文字列や時刻リテラルを primary_literal として受理しない実装はコンパイルできず、基数のないリテラルの幅を文脈から決めない実装では unbased 行が ff 00 -1 にならない。
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-47
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A primary may be optionally class-qualified/package-scoped hierarchical identifier and select.
 
@@ -120973,6 +121246,7 @@ A primary may be optionally class-qualified/package-scoped hierarchical identifi
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): 階層名に続くビット選択と部品選択 u.mem[1]、u.mem[1][7:4]、u.v[3:2]、メンバー選択 u.st.hi を式の primary として使い、var 行と sel 行を出させる。 区別: 階層名の後ろの select を primary として評価しない実装はコンパイルできず、選択の幅や位置を誤る実装では var 行や sel 行が期待値にならない。
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-48
 
@@ -121024,7 +121298,7 @@ A primary may be function call with optional bracketed range expression.
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-52
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A primary may be let expression.
 
@@ -121032,6 +121306,7 @@ A primary may be let expression.
 
 規定の性質: `definition`。
 
+- [test_let_expression_constant_and_runtime.sv](../tests/ch11/test_let_expression_constant_and_runtime.sv): let 式 maxc(x, y) を実行時の式の primary として r に代入し、runtime 行に 15 15 10 を出させる。 区別: let 式を primary として展開しない実装はコンパイルできず、実引数の置換を誤る実装ではruntime 行の 3 つの値が期待値にならない。
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-53
 
@@ -121046,7 +121321,7 @@ A primary may be parenthesized mintypmax expression.
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-54
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / テスト対応あり・実行未確認
 
 A primary may be cast.
 
@@ -121054,10 +121329,11 @@ A primary may be cast.
 
 規定の性質: `definition`。
 
+- [test_type_reference_declare_cast_compare.sv](../tests/ch6/test_type_reference_declare_cast_compare.sv): 型参照を使うキャスト type(w12)'(16'hABCD) などを primary として使い、下位 12 ビットのbcd を cast 行に出す。 区別: cast を primary として受理しない実装はコンパイルできず、キャストの型の幅で切り捨てない実装では cast 行の bcd が期待値にならない。
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-55
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A primary may be assignment-pattern expression.
 
@@ -121065,6 +121341,7 @@ A primary may be assignment-pattern expression.
 
 規定の性質: `definition`。
 
+- [test_constant_assignment_pattern_members_in_constant_contexts.sv](../tests/ch10/test_constant_assignment_pattern_members_in_constant_contexts.sv): 型を付けた代入パターンを式の primary として localparam に代入し、PP= と TBL= の行を出させる。 区別: assignment_pattern_expression を primary として受理しない実装はコンパイルできず、メンバーの評価を誤る実装では PP= や TBL= の値が期待値にならない。
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-56
 
@@ -121080,7 +121357,7 @@ A primary may be streaming concatenation.
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-57
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / テスト対応あり・実行未確認
 
 A primary may be sequence-method call.
 
@@ -121088,10 +121365,11 @@ A primary may be sequence-method call.
 
 規定の性質: `definition`。
 
+- [test_sequence_match_item_and_triggered_method.sv](../tests/ch16/test_sequence_match_item_and_triggered_method.sv): sequence インスタンスの triggered メソッドを式の primary として wait の条件に使い、hseq と lseq の行を出させる。 区別: sequence メソッド呼び出しを primary として受理しない実装はコンパイルできず、終了点でない時刻に真を返す実装では wait がすぐに終わって行の順序が変わる。
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-58
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A primary may be this under clarification 46.
 
@@ -121099,10 +121377,11 @@ A primary may be this under clarification 46.
 
 規定の性質: `definition`。
 
+- [test_this_and_super_in_out_of_block_methods.sv](../tests/ch8/test_this_and_super_in_out_of_block_methods.sv): クラスの中で this を primary として使い、現在のオブジェクトのプロパティの値を出力させる。 区別: this を現在のオブジェクトとして解決しない実装では、this を使う式が同じ名前の仮引数の値になり、期待値と一致しない。
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-59
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A primary may be dollar under clarification 47.
 
@@ -121110,10 +121389,11 @@ A primary may be dollar under clarification 47.
 
 規定の性質: `definition`。
 
+- [test_queue_dollar_primary_in_selects.sv](../tests/ch7/test_queue_dollar_primary_in_selects.sv): queue の選択の中で $ を primary として使い、最後の要素の添字として読み書きし、$-1 や入れ子の選択でも値を出力させる。 区別: $ を queue の最後の添字として解決しない実装では、$ を使う行の値が期待値にならない。
 
 ### SV2023-A.8.4-EXTRACT-PRIMARY-60
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 A primary may be null.
 
@@ -121121,10 +121401,11 @@ A primary may be null.
 
 規定の性質: `definition`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): null を式の primary としてハンドルと比較し、null 行に 1 1 1 を出させる。 区別: null を primary として受理しない実装はコンパイルできず、未初期化のハンドルと null を区別しない実装では null 行が期待値にならない。
 
 ### SV2023-A.8.4-EXTRACT-QUALIFIER
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 Class qualifier has optional local:: under clarification 48 followed by optional implicit-class-handle dot or class scope.
 
@@ -121132,10 +121413,12 @@ Class qualifier has optional local:: under clarification 48 followed by optional
 
 規定の性質: `definition`。
 
+- [test_inline_constraint_local_qualifier_binding.sv](../tests/ch18/test_inline_constraint_local_qualifier_binding.sv): local:: を付けたクラス修飾子を実際に使い、対応する出力行の値で確かめる
+- [test_this_and_super_in_out_of_block_methods.sv](../tests/ch8/test_this_and_super_in_out_of_block_methods.sv): this と super の暗黙のクラスハンドルを実際に使い、対応する出力行の値で確かめる
 
 ### SV2023-A.8.4-EXTRACT-SELECT
 
-A.8.4 / normal / テスト未対応
+A.8.4 / normal / 実行確認あり
 
 Bit-select is zero or more bracketed expressions; select has optional repeated .member with bit-select followed by final .member, then bit-select and optional bracketed part-select; nonrange select omits part-select. Constant variants replace every expression and part-select with constant forms.
 
@@ -121143,6 +121426,7 @@ Bit-select is zero or more bracketed expressions; select has optional repeated .
 
 規定の性質: `definition`。
 
+- [test_part_select_and_constant_range_forms.sv](../tests/ch11/test_part_select_and_constant_range_forms.sv): 部品選択の後にメンバー選択を続けた bx.p.hi、メンバーのビット選択 bx.p.lo[3:2]、配列要素のビット選択 mem[idx - 5][3:0]、ビット選択と部品選択 v[15:12] を使い、sel 行と sel2 行を出させる。 区別: member_identifier と bit_select の繰り返しを受理しない実装はコンパイルできず、選択の順序を誤る実装では sel 行と sel2 行が期待値にならない。
 
 ### SV2023-A.8.5-EXTRACT-NET-LVALUE
 
@@ -121352,7 +121636,7 @@ String literal is ordinary double-quoted or triple-double-quoted; contents repea
 
 ### SV2023-A.9.1-EXTRACT-ATTRIBUTE
 
-A.9.1 / normal / テスト未対応
+A.9.1 / normal / 実行確認あり
 
 Attribute instance is (* nonempty comma-separated attribute specifications *); each specification is identifier with optional constant-expression initializer.
 
@@ -121360,6 +121644,7 @@ Attribute instance is (* nonempty comma-separated attribute specifications *); e
 
 規定の性質: `definition`。
 
+- [test_attribute_instance_specifications.sv](../tests/ch5/test_attribute_instance_specifications.sv): モジュール、net、変数、インスタンス、名前付きポート接続、二項演算子、関数呼び出しの前に属性インスタンスを置き、1 つは 3 つの属性指定 (top_attr, width = 8, note = "hi") にして、値が属性のない設計と同じになることを attr 行と fn 行で出させる。 区別: 複数の属性指定をコンマで区切る形を受理しない実装はコンパイルできず、= の後のconstant_expression を評価しない実装では属性の値が決まらない。
 
 ### SV2023-A.9.2-EXTRACT-BLOCK-COMMENT
 
@@ -121387,7 +121672,7 @@ One-line comment starts // and ends at newline; comments may be one-line or bloc
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-ARRAY-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category array_identifier uses identifier grammar.
 
@@ -121395,10 +121680,11 @@ The identifier category array_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): fixed-size の unpacked array の名前 arr を使い、arr[1] に 7 を入れて idx 行と var 行にその値を出させる。 区別: array_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「idx 1 7」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-BIN-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category bin_identifier uses identifier grammar.
 
@@ -121406,6 +121692,7 @@ The identifier category bin_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_covergroup_identifiers_and_bins_with.sv](../tests/ch19/test_covergroup_identifiers_and_bins_with.sv): coverpoint の bins の名前 zero、low、even、one を宣言し、サンプルでその被覆を数えさせる。 区別: bin_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「cg 6/11」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-BLOCK-IDENTIFIER
 
@@ -121420,7 +121707,7 @@ The identifier category block_identifier uses identifier grammar.
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-CELL-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category cell_identifier uses identifier grammar.
 
@@ -121428,10 +121715,11 @@ The identifier category cell_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_config_library_cell_and_topmodule_names.sv](../tests/ch33/test_config_library_cell_and_topmodule_names.sv): config の cell 節でセルの名前 cfg_a と cfg_b を使い、%L に結合先のセル名を出させる。 区別: cell_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「b test_config_library_cell_and_topmodule_names.u1 work.cfg_b」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-CHECKER-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category checker_identifier uses identifier grammar.
 
@@ -121439,10 +121727,11 @@ The identifier category checker_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_program_and_checker_generate_items.sv](../tests/ch24/test_program_and_checker_generate_items.sv): checker の名前 ck を宣言し、モジュールで ck c1 (clk, a); として実体化して chk ok の行を出させる。 区別: checker_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「chk ok 5」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-CLASS-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category class_identifier uses identifier grammar.
 
@@ -121450,10 +121739,11 @@ The identifier category class_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): class の名前 base_c、item、item2、abs_c、conc_c を宣言し、new でオブジェクトを作ってその値を出させる。 区別: class_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「class 1 12 3」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-CLASS-VARIABLE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category class_variable_identifier uses variable_identifier grammar.
 
@@ -121461,10 +121751,11 @@ The identifier category class_variable_identifier uses variable_identifier gramm
 
 規定の性質: `definition`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): クラスのプロパティ a、b、CI、arr、q を宣言し、randomize とメソッドで読んだ値を qual 行に出させる。 区別: class_variable_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「qual 1 1 5 0」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-CLOCKING-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category clocking_identifier uses identifier grammar.
 
@@ -121472,10 +121763,11 @@ The identifier category clocking_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_clocking_block_and_signal_names.sv](../tests/ch14/test_clocking_block_and_signal_names.sv): clocking block の名前 cb を宣言し、cb.d と cb.q でサンプル値と駆動値を読ませる。 区別: clocking_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「t 6 in 1 1」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-CONFIG-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category config_identifier uses identifier grammar.
 
@@ -121483,10 +121775,11 @@ The identifier category config_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_config_library_cell_and_topmodule_names.sv](../tests/ch33/test_config_library_cell_and_topmodule_names.sv): config の名前 cfg_ids を宣言し、その design と cell の指定を適用させる。 区別: config_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「top test_config_library_cell_and_topmodule_names work.test_config_library_cell_and_topmodule_names」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-CONST-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category const_identifier uses identifier grammar.
 
@@ -121494,10 +121787,11 @@ The identifier category const_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): クラスの中で const のプロパティ CI を宣言し、qual 行にその値 5 を出させる。 区別: const_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「qual 1 1 5 0」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-CONSTRAINT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category constraint_identifier uses identifier grammar.
 
@@ -121505,10 +121799,11 @@ The identifier category constraint_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): constraint の名前 ca、cb、cs を宣言し、randomize でそれらを満たさせる。 区別: constraint_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「class 1 12 3」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-COVER-POINT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category cover_point_identifier uses identifier grammar.
 
@@ -121516,10 +121811,11 @@ The identifier category cover_point_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_covergroup_identifiers_and_bins_with.sv](../tests/ch19/test_covergroup_identifiers_and_bins_with.sv): coverpoint の名前 cp_a と cp_b を宣言し、cross とサンプルで使わせる。 区別: cover_point_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「cg 6/11」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-COVERGROUP-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category covergroup_identifier uses identifier grammar.
 
@@ -121527,10 +121823,11 @@ The identifier category covergroup_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_covergroup_identifiers_and_bins_with.sv](../tests/ch19/test_covergroup_identifiers_and_bins_with.sv): covergroup の名前 cg_inst を宣言し、new と sample で使わせる。 区別: covergroup_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「cg 6/11」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-COVERGROUP-VARIABLE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category covergroup_variable_identifier uses variable_identifier grammar.
 
@@ -121538,10 +121835,11 @@ The identifier category covergroup_variable_identifier uses variable_identifier 
 
 規定の性質: `definition`。
 
+- [test_covergroup_identifiers_and_bins_with.sv](../tests/ch19/test_covergroup_identifiers_and_bins_with.sv): covergroup のインスタンス変数 cg_inst を new で作り、c.cg_inst.sample() で使わせる。 区別: covergroup_variable_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「cg 6/11」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-CROSS-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category cross_identifier uses identifier grammar.
 
@@ -121549,10 +121847,11 @@ The identifier category cross_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_covergroup_identifiers_and_bins_with.sv](../tests/ch19/test_covergroup_identifiers_and_bins_with.sv): cross の名前 cx を宣言し、2 つの coverpoint の組み合わせの被覆を数えさせる。 区別: cross_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「cg 6/11」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-DYNAMIC-ARRAY-VARIABLE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category dynamic_array_variable_identifier uses variable_identifier grammar.
 
@@ -121560,10 +121859,11 @@ The identifier category dynamic_array_variable_identifier uses variable_identifi
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): dynamic array の変数 dyn を new[2] で作り、その要素の和 17 を var 行に出す。 区別: dynamic_array_variable_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「var a5 7 7 17 12」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-ENUM-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category enum_identifier uses identifier grammar.
 
@@ -121571,10 +121871,11 @@ The identifier category enum_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): 列挙値 E_ONE と E_TWO を宣言し、e に E_TWO を入れて cats 行に 2 を出させる。 区別: enum_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「cats 3 c 8 2 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-FORMAL-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category formal_identifier uses identifier grammar.
 
@@ -121582,10 +121883,11 @@ The identifier category formal_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): task と function の仮引数 formal_in、formal_out、formal_a、formal_b を宣言し、呼び出しの結果を var 行に出す。 区別: formal_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「var a5 7 7 17 12」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-FORMAL-PORT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category formal_port_identifier uses identifier grammar.
 
@@ -121593,10 +121895,11 @@ The identifier category formal_port_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_let_expression_constant_and_runtime.sv](../tests/ch11/test_let_expression_constant_and_runtime.sv): let 宣言の形式的なポート a と b を宣言し、maxc(3, 7) の評価に使わせる。 区別: formal_port_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「const 7 9 4」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-FUNCTION-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category function_identifier uses identifier grammar.
 
@@ -121604,10 +121907,11 @@ The identifier category function_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): function の名前 f_mul を宣言し、f_mul(3, 4) の結果 12 を var 行に出す。 区別: function_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「var a5 7 7 17 12」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-GENERATE-BLOCK-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category generate_block_identifier uses identifier grammar.
 
@@ -121615,10 +121919,11 @@ The identifier category generate_block_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): loop generate のブロック名 g_loop を宣言し、g_loop[0].gn と g_loop[1].gn の和 3 を net 行に出す。 区別: generate_block_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 3 3 3 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-GENVAR-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category genvar_identifier uses identifier grammar.
 
@@ -121626,10 +121931,11 @@ The identifier category genvar_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): genvar の名前 g を宣言し、生成ブロックの値を g + 1 で決めさせる。 区別: genvar_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 3 3 3 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-ARRAY-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category hierarchical_array_identifier uses hierarchical_identifier grammar.
 
@@ -121637,10 +121943,11 @@ The identifier category hierarchical_array_identifier uses hierarchical_identifi
 
 規定の性質: `definition`。
 
+- [test_root_and_array_scope_hierarchical_names.sv](../tests/ch23/test_root_and_array_scope_hierarchical_names.sv): foreach の対象にインスタンス u の配列 mem を階層名で指定し、mem の 4 つの要素を出す。 区別: hierarchical_array_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「mem 0 11」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-BLOCK-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category hierarchical_block_identifier uses hierarchical_identifier grammar.
 
@@ -121648,10 +121955,11 @@ The identifier category hierarchical_block_identifier uses hierarchical_identifi
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): インスタンス u の名前付きブロック inner の変数 bx を u.inner.bx で読み、blk 行に 6 を出させる。 区別: hierarchical_block_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「blk 6」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-EVENT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category hierarchical_event_identifier uses hierarchical_identifier grammar.
 
@@ -121659,10 +121967,11 @@ The identifier category hierarchical_event_identifier uses hierarchical_identifi
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): インスタンス u の event ev を -> u.ev で起こし、@(u.ev) で待つプロセスに event を出させる。 区別: hierarchical_event_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「event」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-NET-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category hierarchical_net_identifier uses hierarchical_identifier grammar.
 
@@ -121670,10 +121979,11 @@ The identifier category hierarchical_net_identifier uses hierarchical_identifier
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): インスタンス u の net n1 を u.n1 で読み、net 行に 0 を出させる。 区別: hierarchical_net_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 0 0101」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-PARAMETER-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category hierarchical_parameter_identifier uses hierarchical_identifier grammar.
 
@@ -121681,10 +121991,11 @@ The identifier category hierarchical_parameter_identifier uses hierarchical_iden
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): インスタンス u のパラメータ P を u.P で読み、param 行に 2 を出させる。 区別: hierarchical_parameter_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「param 2 19」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-PROPERTY-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category hierarchical_property_identifier uses hierarchical_identifier grammar.
 
@@ -121692,10 +122003,11 @@ The identifier category hierarchical_property_identifier uses hierarchical_ident
 
 規定の性質: `definition`。
 
+- [test_sequence_match_item_and_triggered_method.sv](../tests/ch16/test_sequence_match_item_and_triggered_method.sv): サブモジュール sub のプロパティ p_ab を assert property (u.p_ab) で階層名から使い、prop 25 を出させる。 区別: hierarchical_property_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「prop 25」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-SEQUENCE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category hierarchical_sequence_identifier uses hierarchical_identifier grammar.
 
@@ -121703,6 +122015,7 @@ The identifier category hierarchical_sequence_identifier uses hierarchical_ident
 
 規定の性質: `definition`。
 
+- [test_sequence_match_item_and_triggered_method.sv](../tests/ch16/test_sequence_match_item_and_triggered_method.sv): サブモジュール sub の sequence s_cd を u.s_cd.triggered で階層名から使い、hseq を出させる。 区別: hierarchical_sequence_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「hseq」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-TASK-IDENTIFIER
 
@@ -121717,7 +122030,7 @@ The identifier category hierarchical_task_identifier uses hierarchical_identifie
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-TF-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category hierarchical_tf_identifier uses hierarchical_identifier grammar.
 
@@ -121725,10 +122038,11 @@ The identifier category hierarchical_tf_identifier uses hierarchical_identifier 
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): インスタンス u の function f_add を u.f_add(5) で呼び、call 行に 7 を出させる。 区別: hierarchical_tf_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「call 7 4」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-HIERARCHICAL-VARIABLE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category hierarchical_variable_identifier uses hierarchical_identifier grammar.
 
@@ -121736,10 +122050,11 @@ The identifier category hierarchical_variable_identifier uses hierarchical_ident
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): インスタンス u の変数 v と mem を u.v、u.mem[1] で読み、var 行に 3 と 5a を出させる。 区別: hierarchical_variable_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「var 3 5a a」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-INDEX-VARIABLE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category index_variable_identifier uses identifier grammar.
 
@@ -121747,10 +122062,11 @@ The identifier category index_variable_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): foreach (arr[i]) の添字 i を宣言し、idx 行に添字と要素を出させる。 区別: index_variable_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「idx 1 7」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-INOUT-PORT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category inout_port_identifier uses identifier grammar.
 
@@ -121758,10 +122074,11 @@ The identifier category inout_port_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): モジュール id_leaf の inout ポート io を宣言し、net 行にその値 2 を出させる。 区別: inout_port_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 3 3 3 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-INPUT-PORT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category input_port_identifier uses identifier grammar.
 
@@ -121769,10 +122086,11 @@ The identifier category input_port_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): モジュール id_leaf の input ポート i を宣言し、出力 o を i + 1 で決めさせる。 区別: input_port_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 3 3 3 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-INSTANCE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category instance_identifier uses identifier grammar.
 
@@ -121780,6 +122098,7 @@ The identifier category instance_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): モジュール id_leaf のインスタンス名 u_leaf を宣言し、u_leaf.o を net 行に出す。 区別: instance_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 3 3 3 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-INTERFACE-IDENTIFIER
 
@@ -121794,7 +122113,7 @@ The identifier category interface_identifier uses identifier grammar.
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-INTERFACE-PORT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category interface_port_identifier uses identifier grammar.
 
@@ -121802,10 +122121,11 @@ The identifier category interface_port_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_interface_port_and_modport_names.sv](../tests/ch25/test_interface_port_and_modport_names.sv): モジュール ip_user のインターフェースポート名 bus を宣言し、bus.d と bus.ifc_int を読ませる。 区別: interface_port_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「iport 32 7」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-LIBRARY-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category library_identifier uses identifier grammar.
 
@@ -121813,10 +122133,11 @@ The identifier category library_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_config_library_cell_and_topmodule_names.sv](../tests/ch33/test_config_library_cell_and_topmodule_names.sv): config の default liblist と %L でライブラリ名 work を使い、top 行と b 行に work を出させる。 区別: library_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「top test_config_library_cell_and_topmodule_names work.test_config_library_cell_and_topmodule_names」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-MEMBER-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category member_identifier uses identifier grammar.
 
@@ -121824,10 +122145,11 @@ The identifier category member_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): packed struct のメンバー hi と lo を宣言し、pr.hi と pr.lo に値を入れて a5 を出させる。 区別: member_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「var a5 7 7 17 12」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-METHOD-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category method_identifier uses identifier grammar.
 
@@ -121835,10 +122157,11 @@ The identifier category method_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): クラスのメソッド read、geta、who を宣言し、o1.who() と o3.who() の 1 と 2 を virt 行に出させる。 区別: method_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「virt 1 2 7」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-MODPORT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category modport_identifier uses identifier grammar.
 
@@ -121846,10 +122169,11 @@ The identifier category modport_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_interface_port_and_modport_names.sv](../tests/ch25/test_interface_port_and_modport_names.sv): interface の modport 名 mp を宣言し、ip_ifc.mp bus のポート型に使わせる。 区別: modport_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「iport 32 7」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-MODULE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category module_identifier uses identifier grammar.
 
@@ -121857,10 +122181,11 @@ The identifier category module_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): モジュールの名前 id_leaf を宣言し、そのインスタンスの出力を net 行に出させる。 区別: module_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 3 3 3 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-NET-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category net_identifier uses identifier grammar.
 
@@ -121868,10 +122193,11 @@ The identifier category net_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): net の名前 n1 と io1 を宣言し、net 行に 3 と 2 を出させる。 区別: net_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 3 3 3 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-NETTYPE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category nettype_identifier uses identifier grammar.
 
@@ -121879,10 +122205,11 @@ The identifier category nettype_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_nettype_identifier_and_net.sv](../tests/ch6/test_nettype_identifier_and_net.sv): nettype の名前 nibble を宣言し、nibble n; の net を 4'h9 で駆動して nettype 行に 9 を出させる。 区別: nettype_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「nettype 9」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-OUTPUT-PORT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category output_port_identifier uses identifier grammar.
 
@@ -121890,10 +122217,11 @@ The identifier category output_port_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): モジュール id_leaf の output ポート o を宣言し、連続代入で i + 1 を駆動させる。 区別: output_port_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 3 3 3 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-PACKAGE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category package_identifier uses identifier grammar.
 
@@ -121901,10 +122229,11 @@ The identifier category package_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_package_and_type_scope_names.sv](../tests/ch26/test_package_and_type_scope_names.sv): package の名前 pkg1 を宣言し、pkg1::x と pkg1::P と pkg1::f(3) で読ませる。 区別: package_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「scope 6 4 6」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-PARAMETER-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category parameter_identifier uses identifier grammar.
 
@@ -121912,10 +122241,11 @@ The identifier category parameter_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): parameter の名前 P と localparam の名前 LP を宣言し、cats 行に 3 と c を出させる。 区別: parameter_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「cats 3 c 8 2 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-PORT-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category port_identifier uses identifier grammar.
 
@@ -121923,10 +122253,11 @@ The identifier category port_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): モジュール id_leaf のポート i、o、io を名前付き接続 .i(v1)、.o(n1)、.io(io1) で結び、net 行に値を出させる。 区別: port_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「net 3 3 3 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-PROGRAM-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category program_identifier uses identifier grammar.
 
@@ -121934,10 +122265,11 @@ The identifier category program_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_program_and_checker_generate_items.sv](../tests/ch24/test_program_and_checker_generate_items.sv): program の名前 prog を宣言し、その generate された initial 手続きに値を出させる。 区別: program_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「prog 1」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-PROPERTY-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category property_identifier uses identifier grammar.
 
@@ -121945,10 +122277,11 @@ The identifier category property_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_sequence_match_item_and_triggered_method.sv](../tests/ch16/test_sequence_match_item_and_triggered_method.sv): property の名前 p_ab を宣言し、サブモジュールの assert property (u.p_ab) で使わせる。 区別: property_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「prop 25」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-RS-PRODUCTION-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category rs_production_identifier uses identifier grammar.
 
@@ -121956,10 +122289,11 @@ The identifier category rs_production_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_randsequence_production_names.sv](../tests/ch18/test_randsequence_production_names.sv): randsequence のプロダクション名 main、shown_first、shown_second を宣言し、first とsecond を順に出す。 区別: rs_production_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「first」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-SEQUENCE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 The identifier category sequence_identifier uses identifier grammar.
 
@@ -121967,10 +122301,11 @@ The identifier category sequence_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_sequence_match_item_and_triggered_method.sv](../tests/ch16/test_sequence_match_item_and_triggered_method.sv): sequence の名前 s_ef を宣言し、s_ef.triggered を wait の条件に使わせる。 区別: sequence_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「lseq」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-SIGNAL-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category signal_identifier uses identifier grammar.
 
@@ -121978,6 +122313,7 @@ The identifier category signal_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_clocking_block_and_signal_names.sv](../tests/ch14/test_clocking_block_and_signal_names.sv): clocking block の中で input d と output q の信号名を宣言し、サンプル値と駆動値を出させる。 区別: signal_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「t 6 in 1 1」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-SPECPARAM-IDENTIFIER
 
@@ -121992,7 +122328,7 @@ The identifier category specparam_identifier uses identifier grammar.
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-TASK-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category task_identifier uses identifier grammar.
 
@@ -122000,6 +122336,7 @@ The identifier category task_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): task の名前 t_add を宣言し、t_add(4, sum) の結果 7 を var 行に出す。 区別: task_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「var a5 7 7 17 12」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-TERMINAL-IDENTIFIER
 
@@ -122014,7 +122351,7 @@ The identifier category terminal_identifier uses identifier grammar.
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-TF-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category tf_identifier uses identifier grammar.
 
@@ -122022,10 +122359,11 @@ The identifier category tf_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): task と function の名前を呼び出しの tf_identifier として使い、t_add と f_mul の結果を出させる。 区別: tf_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「var a5 7 7 17 12」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-TOPMODULE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category topmodule_identifier uses identifier grammar.
 
@@ -122033,10 +122371,11 @@ The identifier category topmodule_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_config_library_cell_and_topmodule_names.sv](../tests/ch33/test_config_library_cell_and_topmodule_names.sv): config の design 節でトップモジュール名を指定し、top 行にその名前を出させる。 区別: topmodule_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「top test_config_library_cell_and_topmodule_names work.test_config_library_cell_and_topmodule_names」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-TYPE-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category type_identifier uses identifier grammar.
 
@@ -122044,10 +122383,11 @@ The identifier category type_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): typedef の名前 e_t と pair_t を宣言し、$bits(pair_t) の 8 を cats 行に出す。 区別: type_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「cats 3 c 8 2 2」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-UDP-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 The identifier category udp_identifier uses identifier grammar.
 
@@ -122055,6 +122395,7 @@ The identifier category udp_identifier uses identifier grammar.
 
 規定の性質: `definition`。
 
+- [test_udp_identifier_and_combinational_table.sv](../tests/ch29/test_udp_identifier_and_combinational_table.sv): UDP の名前 udp_and を primitive で宣言し、udp_and のインスタンスの値を udp 行に出させる。 区別: udp_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「udp 1 x 0」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ALIAS-VARIABLE-IDENTIFIER
 
@@ -122070,7 +122411,7 @@ The identifier category variable_identifier uses identifier grammar.
 
 ### SV2023-A.9.3-EXTRACT-ARRAY-SCOPES
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 Package-scoped/hierarchical array identifier may be prefixed by implicit-class-handle dot,class scope or package scope.
 
@@ -122078,10 +122419,11 @@ Package-scoped/hierarchical array identifier may be prefixed by implicit-class-h
 
 規定の性質: `definition`。
 
+- [test_root_and_array_scope_hierarchical_names.sv](../tests/ch23/test_root_and_array_scope_hierarchical_names.sv): パッケージ hp2 をスコープにした配列 hp2::parr を foreach の対象にし、parr 行に 4 と 5 を出させる。 区別: array_scope を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「parr 0 4」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-C-IDENTIFIER
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 C identifiers begin alphabetic/underscore and continue with alphanumeric/underscore, subject to clarification 54.
 
@@ -122089,6 +122431,7 @@ C identifiers begin alphabetic/underscore and continue with alphanumeric/undersc
 
 規定の性質: `definition`。
 
+- [test_c_identifier_dpi_linkage_names.sv](../tests/ch35/test_c_identifier_dpi_linkage_names.sv): DPI の import で C のリンク名 _c_ident9 と c_ident2 を指定し、C の関数を呼んで 20 と103 を出させる。 区別: c_identifier を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「cident 20 103」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-ESCAPED
 
@@ -122104,7 +122447,7 @@ Escaped identifier starts backslash, continues printable non-whitespace ASCII ch
 
 ### SV2023-A.9.3-EXTRACT-HIERARCHICAL
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 Hierarchical identifier permits optional $root., repeated identifier with constant bit-select followed by dot, then final identifier.
 
@@ -122112,6 +122455,8 @@ Hierarchical identifier permits optional $root., repeated identifier with consta
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): インスタンスとブロックをたどる階層名と選択を実際に使い、対応する出力行の値で確かめる
+- [test_root_and_array_scope_hierarchical_names.sv](../tests/ch23/test_root_and_array_scope_hierarchical_names.sv): $root から始まる階層名を実際に使い、対応する出力行の値で確かめる
 
 ### SV2023-A.9.3-EXTRACT-IDENTIFIER
 
@@ -122127,7 +122472,7 @@ Identifier is simple or escaped identifier.
 
 ### SV2023-A.9.3-EXTRACT-PACKAGE-SCOPE
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 Package scope is package identifier :: or $unit::. Package-scoped class/covergroup/checker/ordinary identifiers permit optional package scope.
 
@@ -122135,10 +122480,11 @@ Package scope is package identifier :: or $unit::. Package-scoped class/covergro
 
 規定の性質: `definition`。
 
+- [test_package_and_type_scope_names.sv](../tests/ch26/test_package_and_type_scope_names.sv): パッケージスコープ pkg1:: と $unit:: で変数・パラメータ・関数・型を読み、scope 行とunit 行を出させる。 区別: package_scope を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「scope 6 4 6」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-PARAMETER-SCOPE
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 Package-scoped parameter identifier permits optional package/class scope, or zero or more generate-block identifiers with optional constant index and dot before parameter identifier.
 
@@ -122146,10 +122492,11 @@ Package-scoped parameter identifier permits optional package/class scope, or zer
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): generate ブロックの添字付きの localparam blk[0].LP、パッケージの hp::PP、インスタンスのu.P を足して param 行に 2 と 19 を出させる。 区別: parameter_scope を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「param 2 19」の行が期待値にならない。
 
 ### SV2023-A.9.3-EXTRACT-SCOPED-HIERARCHICAL
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / テスト対応あり・実行未確認
 
 Net/property/sequence/task-function identifier forms permit optionally package-scoped corresponding simple identifier or corresponding hierarchical identifier.
 
@@ -122157,6 +122504,8 @@ Net/property/sequence/task-function identifier forms permit optionally package-s
 
 規定の性質: `definition`。
 
+- [test_hierarchical_identifier_forms_through_instances.sv](../tests/ch23/test_hierarchical_identifier_forms_through_instances.sv): パッケージスコープと階層名の関数・netを実際に使い、対応する出力行の値で確かめる
+- [test_sequence_match_item_and_triggered_method.sv](../tests/ch16/test_sequence_match_item_and_triggered_method.sv): 階層名の property と sequenceを実際に使い、対応する出力行の値で確かめる
 
 ### SV2023-A.9.3-EXTRACT-SIMPLE
 
@@ -122184,7 +122533,7 @@ System tf identifier is dollar followed by at least one alphanumeric/underscore/
 
 ### SV2023-A.9.3-EXTRACT-TYPE-SCOPE
 
-A.9.3 / normal / テスト未対応
+A.9.3 / normal / 実行確認あり
 
 Package-scoped type identifier permits optional local:: under clarification 48, package scope or class scope.
 
@@ -122192,6 +122541,7 @@ Package-scoped type identifier permits optional local:: under clarification 48, 
 
 規定の性質: `definition`。
 
+- [test_package_and_type_scope_names.sv](../tests/ch26/test_package_and_type_scope_names.sv): パッケージスコープ pkg1::nib_t、パッケージとクラスのスコープ pkg1::c::inner_t、クラススコープ c2::t2 で型を読み、type 行に 4 32 2 を出させる。 区別: type_scope を識別子として宣言または使用できない実装ではこのテストはコンパイルできず、別の名前に解決する実装では「type 4 32 2」の行が期待値にならない。
 
 ### SV2023-A.9.4-EXTRACT-WHITESPACE
 
@@ -122219,7 +122569,7 @@ An ANSI module/interface/program header package import must be followed by a par
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-10
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 One declaration cannot combine protected with local or rand with randc, or repeat static or virtual.
 
@@ -122227,10 +122577,11 @@ One declaration cannot combine protected with local or rand with randc, or repea
 
 規定の性質: `mandatory`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): 1 つの宣言に local と rand を 1 つずつ、別の宣言に randc を 1 つ、const と static を1 つずつ置き、qual 行に制約を満たした値と 5 と 0 を出させる。 区別: 同じ宣言に protected と local や rand と randc を同時に許す実装、または static や virtual を 2 回許す実装は、この設計を受理しないか別の意味に解釈する。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-11
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Static constraints cannot use dynamic override specifiers.
 
@@ -122238,10 +122589,11 @@ Static constraints cannot use dynamic override specifiers.
 
 規定の性質: `mandatory`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): static constraint cs { a != 3; } を置き、randomize の結果が a の範囲 0:3 から 3 を除いたものになることを qual 行の 1 で示す。 区別: static constraint に dynamic override 指定子を要求する実装や、static constraint をrandomize に参加させない実装では、a が 3 になり qual 行の最初の値が 0 になる。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-12
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Constraint-primary parentheses are permitted only for an array built-in method, such as size().
 
@@ -122249,10 +122601,11 @@ Constraint-primary parentheses are permitted only for an array built-in method, 
 
 規定の性質: `mandatory`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): constraint cb { q.size() == 0; } のように、配列の組込みメソッド size() の括弧をconstraint primary に使い、randomize の成功 1 を class 行に出す。 区別: size() の括弧を配列の組込みメソッド以外にも許す実装は制約の意味が変わり、size() の呼び出しを制約で拒む実装では randomize が失敗して class 行の最初が 0 になる。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-13
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 Uniqueness-constraint range-list expressions must denote singular or array variables under 18.5.4.
 
@@ -122260,6 +122613,7 @@ Uniqueness-constraint range-list expressions must denote singular or array varia
 
 規定の性質: `mandatory`。
 
+- [test_uniqueness_constraint_forms.sv](../tests/ch18/test_uniqueness_constraint_forms.sv): unique {a, b, c} のように単独の変数を並べ、unique {arr} のように配列変数を 1 つ置き、randomize の成功 1 と、3 つの比較がすべて 1 であることを uniq 行と arr 行に出す。 区別: 単独でない式や配列でない式を range list に許す実装はこの設計を受理せず、unique を無視する実装では uniq 行と arr 行の比較が 1 にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-14
 
@@ -122288,7 +122642,7 @@ An import statement cannot appear directly in class scope.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-16
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 Charge strength requires trireg; vectored/scalared requires at least one packed dimension.
 
@@ -122296,10 +122650,11 @@ Charge strength requires trireg; vectored/scalared requires at least one packed 
 
 規定の性質: `mandatory`。
 
+- [test_charge_strength_and_vectored_net_declarations.sv](../tests/ch6/test_charge_strength_and_vectored_net_declarations.sv): trireg (large) t で電荷の強さ large を trireg にだけ使い、wire vectored [3:0] と wire scalared [3:0] を packed dimension 付きで宣言して、charge 行に 1 と a と 5 を出させる。 区別: 電荷の強さを trireg 以外の net に許す実装、または vectored や scalared を packed dimension なしで許す実装は、この設計を受理しないか別の強さに解釈する。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-17
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 A struct with packed dimensions requires packed; a union with packed dimensions requires soft and/or packed.
 
@@ -122307,6 +122662,7 @@ A struct with packed dimensions requires packed; a union with packed dimensions 
 
 規定の性質: `mandatory`。
 
+- [test_packed_struct_union_dimensions_and_rand_member.sv](../tests/ch7/test_packed_struct_union_dimensions_and_rand_member.sv): packed dimension を伴う struct に packed を付け、packed dimension を伴う union にも packed を付け、packed 行に幅 12 12 と値 5a9 56a を出させる。 区別: packed を付けない struct や union に packed dimension を許す実装はこの設計を受理せず、packed 配列の幅や値を誤る実装では packed 行が 12 12 5a9 56a にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-18
 
@@ -122334,7 +122690,7 @@ An enum base type identifier denotes an integer atom type, with no additional pa
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-2
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Port declarations obey 23.2.2.2: ref ports are variable, inout ports are not variable, only variable output ports can be initialized and only input ports can have default values.
 
@@ -122342,10 +122698,11 @@ Port declarations obey 23.2.2.2: ref ports are variable, inout ports are not var
 
 規定の性質: `mandatory`。
 
+- [test_ansi_port_ref_inout_initialized_output_default_input.sv](../tests/ch23/test_ansi_port_ref_inout_initialized_output_default_input.sv): ANSI ポートリストで ref int r を変数として宣言し、inout wor [3:0] io を net として宣言し、output int count = 7 を初期化し、input var int step = 10 に既定値を与えて、t2 行と t6 行を出させる。 区別: ref ポートを変数でなく net にする実装、inout ポートを変数にする実装、出力でないポートを初期化する実装、または入力でないポートに既定値を与える実装は、この設計を受理せずt2 行と t6 行が出ない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-20
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 A void struct/union member is permitted only in a tagged union; a random qualifier is permitted only in an unpacked structure.
 
@@ -122353,10 +122710,11 @@ A void struct/union member is permitted only in a tagged union; a random qualifi
 
 規定の性質: `mandatory`。
 
+- [test_packed_struct_union_dimensions_and_rand_member.sv](../tests/ch7/test_packed_struct_union_dimensions_and_rand_member.sv): tagged union に void のメンバー None を置き、tagged None を代入して tag 行の最初に 1 を出させ、unpacked struct に rand int ra を置いて us.ra == 3 で randomize し、rand 行に1 と 3 を出させる。 区別: void のメンバーを tagged union 以外で許す実装、または rand 修飾子を unpacked でない構造体で許す実装は、この設計を受理しないか別の値を出す。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-21
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 A type-reference argument expression cannot contain hierarchical references or references to dynamic-object elements.
 
@@ -122364,6 +122722,7 @@ A type-reference argument expression cannot contain hierarchical references or r
 
 規定の性質: `mandatory`。
 
+- [test_type_reference_declare_cast_compare.sv](../tests/ch6/test_type_reference_declare_cast_compare.sv): type_reference の引数に階層参照や動的オブジェクトの要素を含めず、type(s6)'(8'hFF) のように単純な変数だけを使い、cast 行に -1 を出させる。 区別: type_reference の引数に階層参照を許す実装は不正な型を解決し、動的オブジェクトの要素を含めない正常な使い方で cast 行が -1 にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-22
 
@@ -122402,7 +122761,7 @@ An unsized packed dimension is allowed only as the sole packed dimension in a DP
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-25
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Dynamic override specifiers are legal only on method declarations inside non-interface class scope.
 
@@ -122410,6 +122769,7 @@ Dynamic override specifiers are legal only on method declarations inside non-int
 
 規定の性質: `mandatory`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): class item の virtual function who を class item2 で上書きし、o1.who() の 1 と o3.who() の 2 を virt 行に出す。 区別: interface class でないクラスのメソッド以外に dynamic override 指定子を許す実装、または virtual の上書きを解決しない実装では、virt 行の 1 と 2 が期待値にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-26
 
@@ -122471,7 +122831,7 @@ A timeunits declaration used as a non-port module/interface/program or package i
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-30
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 matches has higher precedence than && and ||.
 
@@ -122479,10 +122839,11 @@ matches has higher precedence than && and ||.
 
 規定の性質: `mandatory`。
 
+- [test_tagged_union_expression_and_matches_precedence.sv](../tests/ch11/test_tagged_union_expression_and_matches_precedence.sv): matches を && と || の被演算子として括弧なしで並べ、prec 行に 1 1 0 を出させる。 区別: matches の優先順位が && や || より低い実装では括弧なしの式が別に解釈され、prec 行の3 つの値が期待値にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-31
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 The with_covergroup_expression at footnote 31 must have a result assignment compatible with an integral type under 19.5.1.1.
 
@@ -122490,6 +122851,7 @@ The with_covergroup_expression at footnote 31 must have a result assignment comp
 
 規定の性質: `mandatory`。
 
+- [test_covergroup_identifiers_and_bins_with.sv](../tests/ch19/test_covergroup_identifiers_and_bins_with.sv): bins even[] = {[0:3]} with (item % 2 == 0) の with 式を整数の結果を持つ式にして、偶数だけをビンに残し、cg 行の分母を 11 にさせる。 区別: with 式の結果を整数として扱わない実装はビンの数を変え、cg 行の分母が 11 にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-32
 
@@ -122504,7 +122866,7 @@ The set_covergroup_expression at footnote 32 must satisfy the restrictions of 19
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-33
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 Footnote-33 coverage expressions must satisfy restrictions of 19.5.
 
@@ -122512,6 +122874,7 @@ Footnote-33 coverage expressions must satisfy restrictions of 19.5.
 
 規定の性質: `mandatory`。
 
+- [test_covergroup_identifiers_and_bins_with.sv](../tests/ch19/test_covergroup_identifiers_and_bins_with.sv): coverpoint の式 x と with 式 item % 2 == 0 を 19.5 の制限を満たす整数式にして、サンプルしたビンの数を cg 行に出す。 区別: covergroup の式を 19.5 の制限の外の型にも許す実装はビンの評価を変え、cg 行の値が期待値にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-34
 
@@ -122527,7 +122890,7 @@ A port-connection list contains the . * token pair at most once.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-35
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Generate items in interfaces must be interface/generate items; in modules outside interfaces they must be module/generate items; in checkers they must be checker/generate items.
 
@@ -122535,6 +122898,9 @@ Generate items in interfaces must be interface/generate items; in modules outsid
 
 規定の性質: `mandatory`。
 
+- [test_interface_generate_items.sv](../tests/ch27/test_interface_generate_items.sv): interface の generate 項目を実際に使い、対応する出力行の値で確かめる
+- [test_identifier_categories_in_declarations.sv](../tests/ch5/test_identifier_categories_in_declarations.sv): module の generate 項目を実際に使い、対応する出力行の値で確かめる
+- [test_program_and_checker_generate_items.sv](../tests/ch24/test_program_and_checker_generate_items.sv): checker の generate 項目を実際に使い、対応する出力行の値で確かめる
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-36
 
@@ -122631,7 +122997,7 @@ A tf-call can omit parentheses only for a task, void function or class method; d
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-43
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Scope randomize forbids null and the optional parenthesized identifier list following with.
 
@@ -122639,6 +123005,7 @@ Scope randomize forbids null and the optional parenthesized identifier list foll
 
 規定の性質: `mandatory`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): スコープ randomize の std::randomize(sr) with { sr == 5; } に識別子リストも null も付けず、scope 行に成功 2 と 5 と 3 を出させる。 区別: スコープ randomize で with の後の識別子リストや null を許す実装はこの設計を別に解釈し、scope 行の値が期待値にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-44
 
@@ -122702,7 +123069,7 @@ local:: is legal only in an inline constraint block.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-49
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Whitespace cannot follow the numeric portion of a time literal before its unit.
 
@@ -122710,10 +123077,11 @@ Whitespace cannot follow the numeric portion of a time literal before its unit.
 
 規定の性質: `mandatory`。
 
+- [test_primary_literal_forms_number_time_unbased_string.sv](../tests/ch5/test_primary_literal_forms_number_time_unbased_string.sv): 時刻リテラルの数 10 の直後に空白を置かずに単位 ns を続け、#10ns の遅延の後の時刻を time 行に 10 として出させる。 区別: 数と単位の間の空白を許す実装は時刻リテラルを別のトークンに分け、time 行の時刻が 10 にならないかコンパイルできない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-5
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Program-generate items cannot contain an item illegal outside generate in that program.
 
@@ -122721,10 +123089,11 @@ Program-generate items cannot contain an item illegal outside generate in that p
 
 規定の性質: `mandatory`。
 
+- [test_program_and_checker_generate_items.sv](../tests/ch24/test_program_and_checker_generate_items.sv): program の generate の中に、program 宣言の外でも許される変数宣言と initial 手続きを置き、prog 行に 1 と 2 を出させる。 区別: program の外で許されない項目を generate の中だけで許す実装、または許される項目をgenerate の中で拒む実装は、prog 行を出さない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-50
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 A constant let expression requires constant actual arguments and a constant RHS when its formal arguments are treated as constant primaries.
 
@@ -122732,10 +123101,11 @@ A constant let expression requires constant actual arguments and a constant RHS 
 
 規定の性質: `mandatory`。
 
+- [test_let_expression_constant_and_runtime.sv](../tests/ch11/test_let_expression_constant_and_runtime.sv): 定数の実引数を持つ let 式を localparam の値にし、仮引数を constant primary として右辺を定数式に評価して、const 行に 7 9 4 を出させる。 区別: 定数でない実引数や、仮引数を constant primary として扱わない実装では、const 行のlet の値が期待値にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-51
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 A variable lvalue assigned in a sequence match item must use constant selects.
 
@@ -122743,10 +123113,11 @@ A variable lvalue assigned in a sequence match item must use constant selects.
 
 規定の性質: `mandatory`。
 
+- [test_sequence_match_item_and_triggered_method.sv](../tests/ch16/test_sequence_match_item_and_triggered_method.sv): sequence match item (e, seen[1:0] = 2'b10) で、変数の lvalue に定数のビット選択 seen[1:0] を使い、seen 行に 2 を出させる。 区別: match item の lvalue に定数でない選択を許す実装や、定数の選択を拒む実装では、seen 行の値が 2 にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-52
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 A streaming concatenation cannot be nested in another variable lvalue, cannot be increment/decrement target, and can be assignment target only for simple = or nonblocking <=.
 
@@ -122754,10 +123125,11 @@ A streaming concatenation cannot be nested in another variable lvalue, cannot be
 
 規定の性質: `mandatory`。
 
+- [test_streaming_concatenation_variable_lvalue.sv](../tests/ch11/test_streaming_concatenation_variable_lvalue.sv): streaming concatenation を他の変数 lvalue に入れ子にせず、++ や -- の対象にもせず、単純代入 = と非ブロッキング代入 <= の対象にして、right 行と nba 行を出させる。 区別: streaming concatenation を入れ子の lvalue や増減の対象に許す実装、または = と <= 以外の代入の対象に許す実装は、この設計を受理しないか別の値を出す。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-53
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Whitespace cannot follow the apostrophe of an unbased unsized literal.
 
@@ -122765,6 +123137,7 @@ Whitespace cannot follow the apostrophe of an unbased unsized literal.
 
 規定の性質: `mandatory`。
 
+- [test_primary_literal_forms_number_time_unbased_string.sv](../tests/ch5/test_primary_literal_forms_number_time_unbased_string.sv): 基数のない unsized リテラルのアポストロフィの直後に空白を置かずに 1 と 0 を続け、unbased 行に ff 00 -1 を出させる。 区別: アポストロフィの後の空白を許す実装は '1 を別のトークンに分け、unbased 行の値が期待値にならないかコンパイルできない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-54
 
@@ -122779,7 +123152,7 @@ Simple and C identifiers are nonempty, start with alphabetic or underscore and c
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-55
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 A system task/function identifier cannot be escaped or have whitespace immediately after its dollar sign.
 
@@ -122787,6 +123160,7 @@ A system task/function identifier cannot be escaped or have whitespace immediate
 
 規定の性質: `mandatory`。
 
+- [test_primary_literal_forms_number_time_unbased_string.sv](../tests/ch5/test_primary_literal_forms_number_time_unbased_string.sv): システム名 $bits と $time を $ の直後に空白を置かずに使い、エスケープした \$bits はユーザー変数として 3 を出す。bits 行、sys 行、time 行を確かめる。 区別: $ の直後の空白を許す実装や、エスケープした名前をシステム名として解決する実装では、sys 行の 16 と 3 が期待値にならない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-56
 
@@ -122802,7 +123176,7 @@ The grammar end-of-file marker denotes end of file.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-6
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 Checker-generate items cannot contain an item illegal outside generate in that checker.
 
@@ -122810,6 +123184,7 @@ Checker-generate items cannot contain an item illegal outside generate in that c
 
 規定の性質: `mandatory`。
 
+- [test_program_and_checker_generate_items.sv](../tests/ch24/test_program_and_checker_generate_items.sv): checker の generate の中に、checker 宣言の外でも許される並行アサーションを置き、chk ok の行を出させる。 区別: checker の外で許されない項目を generate の中だけで許す実装、または並行アサーションをgenerate の中で拒む実装は、chk ok の行を出さない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-7
 
@@ -122824,7 +123199,7 @@ A parameter class item means localparam.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-8
 
-A.10 / normal / テスト未対応
+A.10 / normal / 実行確認あり
 
 A pure virtual method or pure constraint cannot have a final specifier.
 
@@ -122832,10 +123207,11 @@ A pure virtual method or pure constraint cannot have a final specifier.
 
 規定の性質: `mandatory`。
 
+- [test_class_item_qualifiers_and_constraints.sv](../tests/ch8/test_class_item_qualifiers_and_constraints.sv): virtual class の pure virtual function pure1 を final を付けずに宣言し、派生クラスの定義から 7 を virt 行に出す。 区別: pure virtual の宣言に final を許す実装、または pure virtual を派生クラスで定義することを拒む実装は、virt 行の 7 を出さない。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-9
 
-A.10 / normal / テスト未対応
+A.10 / normal / テスト対応あり・実行未確認
 
 A class-constructor argument list contains default at most once.
 
@@ -122843,6 +123219,7 @@ A class-constructor argument list contains default at most once.
 
 規定の性質: `mandatory`。
 
+- [test_constructor_default_argument.sv](../tests/ch8/test_constructor_default_argument.sv): 派生クラスのコンストラクタの引数リストに default を 1 回だけ置き、引数なしの new で 1 と 2、new(5, 7) で 5 と 7 を ctor 行に出す。 区別: default を 2 回以上許す実装はこの設計を受理せず、default を基底クラスの引数リストに展開しない実装では ctor 行の 1 2 が期待値にならない。
 
 ### SV2023-B-EXTRACT-KEYWORD-ACCEPT-ON
 

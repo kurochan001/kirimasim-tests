@@ -1,0 +1,5 @@
+first: W=4 N=2 M=3 bits=4 dout=11
+first: W=6 N=5 M=3 bits=4 dout=15
+first: W=7 N=2 M=3 bits=4 dout=13
+second: A=2 B=3 C=5 U=3 V=8 y=13
+empty: b5=1 b6=0 y4=13

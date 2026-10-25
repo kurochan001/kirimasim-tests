@@ -1,0 +1,6 @@
+unbased ff 00 -1
+number aa aa aa aa -128
+string abc 3
+bits 24 8
+sys 16 3
+time 10

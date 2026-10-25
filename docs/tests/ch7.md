@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 459 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 462 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -61,9 +61,11 @@
 | [`test_illegal_struct_member_default_not_constant`](../../tests/ch7/test_illegal_struct_member_default_not_constant.sv) | the default value of a structure member has to be a constant expression; a variable is an error | 7.2.2 | standard only | illegal design |
 | [`test_illegal_union_holding_struct_member_default`](../../tests/ch7/test_illegal_union_holding_struct_member_default.sv) | a member of an unpacked structure that contains a union cannot have an individual default member value | 7.2.2 | standard only | illegal design |
 | [`test_illegal_string_in_untagged_union`](../../tests/ch7/test_illegal_string_in_untagged_union.sv) | a dynamic type such as string can be a member of a tagged union only, not of an untagged union | 7.3 | standard only | illegal design |
+| [`test_tagged_union_keywords_and_members`](../../tests/ch7/test_tagged_union_keywords_and_members.sv) | The four struct and union keyword forms, a tagged union with a void member and a value member that is read only through its tag, a soft union, a packed struct inside a struct, and structure members with an attribute, a random qualifier and packed and unpacked types | 7.3 7.3.2 7.2 A.2.2.1 | standard only |  |
 | [`test_illegal_hard_packed_union_sizes`](../../tests/ch7/test_illegal_hard_packed_union_sizes.sv) | The members of a packed union without soft have to be of the same size | 7.3.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_packed_union_real_member`](../../tests/ch7/test_illegal_packed_union_real_member.sv) | a packed union cannot have a member of a non-integral type such as real | 7.3.1 6.11.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_packed_nested_member_write`](../../tests/ch7/test_packed_nested_member_write.sv) | 7.3 Packed Nested Member Write Test | 7.3.1 7.2.1 | Icarus Verilog 13.0 |  |
+| [`test_packed_struct_union_dimensions_and_rand_member`](../../tests/ch7/test_packed_struct_union_dimensions_and_rand_member.sv) | A packed dimension with the struct keyword needs the packed keyword, and with the union keyword needs the packed and/or soft keyword; the packed array of packed structs and the packed array of packed unions have 12 bits each, a void member is used in a tagged union, and a rand member of an unpacked struct is randomized | 7.3.1 7.3.2 A.10 | standard only |  |
 | [`test_packed_union`](../../tests/ch7/test_packed_union.sv) | Test packed union | 7.3.1 | Icarus Verilog 13.0 |  |
 | [`test_packed_union_mixed_two_four_state`](../../tests/ch7/test_packed_union_mixed_two_four_state.sv) | a packed union with a 2-state and a 4-state member is 4-state as a whole; reading the 2-state member turns x and z into 0, and writing it stores known bits | 7.3.1 6.11.2 6.8 | standard only | x/z |
 | [`test_packed_union_struct_member`](../../tests/ch7/test_packed_union_struct_member.sv) | Packed union with a struct member: reading and writing through both views | 7.3.1 | Icarus Verilog 13.0 |  |
@@ -92,6 +94,7 @@
 | [`test_array_select`](../../tests/ch7/test_array_select.sv) | Test array selections | 7.4 11.5.1 | Icarus Verilog 13.0 |  |
 | [`test_array_slicing_edge_cases`](../../tests/ch7/test_array_slicing_edge_cases.sv) | Test: Array slicing edge cases | 7.4 11.5.1 | Icarus Verilog 13.0 |  |
 | [`test_assign_index`](../../tests/ch7/test_assign_index.sv) | Indexed assignments | 7.4 12.7.3 | Icarus Verilog 13.0 |  |
+| [`test_declaration_range_forms`](../../tests/ch7/test_declaration_range_forms.sv) | Packed dimensions as a constant range, unpacked dimensions as a constant range and as a constant expression with more than one dimension, associative dimensions with a data type and with the asterisk index, a queue dimension with and without a bound, an unsized dimension for a dynamic array, and a variable dimension built from these | 7.4 7.5 7.8 7.10 A.2.5 | Verilator 5.052 |  |
 | [`test_mem`](../../tests/ch7/test_mem.sv) | Various array types | 7.4 7.5 7.8 7.10 | Verilator 5.052 |  |
 | [`test_memory_array_ops`](../../tests/ch7/test_memory_array_ops.sv) | Tests various memory and array operations | 7.4 7.5 7.8 7.10 7.12 | Verilator 5.052 |  |
 | [`test_memory_edge_cases`](../../tests/ch7/test_memory_edge_cases.sv) | Memory and array edge cases: initialization, bounds, dynamic arrays, queues and associative arrays | 7.4 7.5 7.8 7.10 | Verilator 5.052 |  |

@@ -1,0 +1,8 @@
+two terms true
+second term false
+three terms true
+expression and pattern
+matches constant
+matches parenthesized constant
+matches variable 1
+matches wildcard

@@ -1,0 +1,11 @@
+assign: v=5
+write under assign: v=5
+deassign: v=5
+write after deassign: v=3
+force variable: v=12
+write under force: v=12
+release variable: v=12
+write after release: v=2
+force net: n=7
+driver change under force: n=7
+release net: n=2

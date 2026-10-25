@@ -1,0 +1,7 @@
+pos=12 named=34 dflt=55
+typed=67 param_typed=89 ia=ffffffff
+arr=1 0 0 2
+rep=7 7 7
+variable lvalue=3 4
+net lvalue=1 2
+type reference=ffffffff

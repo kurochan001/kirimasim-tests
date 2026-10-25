@@ -1,0 +1,7 @@
+assert pass action
+assert fail else action
+assert fail with pass action
+assume pass action
+assume fail else action
+assume fail with pass action
+cover true statement

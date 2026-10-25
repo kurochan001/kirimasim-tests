@@ -1,0 +1,5 @@
+named: pn=a wide=5a b2=11 p3=101 it=7
+class: count=4 nested=5
+ref: d=42 e=9
+cast: int=5 nib=a param=2 size=5 signed=-1 unsigned=4294967295
+cast: string=2 const=8 typeexpr=5 typedata=10

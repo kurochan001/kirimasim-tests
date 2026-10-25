@@ -1,0 +1,10 @@
+atom: b8=-2 s16=-32768 i32=-3 l64=5 i=7 t=6
+vector: vb=1 vl=0 vr=1 bs=-1 bu=255 ls=-2 lu=14
+packed: pd=1010 ps=11111111 imp=a imp2=-2 sp=10/1 sp2=10100101
+real: sr=1.5 rr=2.25 rt=3.5
+string: len=3 s=abc
+chandle null=1 event=1
+enum: col=1 rng=11 st=7 tb=3 one=0/1 ten=10/11/12
+struct: s2=7 s3=5
+union: soft=0101 packed=0110
+net: wn=7

@@ -6,22 +6,22 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 6706 |
+| Tests | 6799 |
 | Clauses in scope | 980 |
 | Clauses out of scope | 179 |
 | Clauses with a direct test | 980/980 |
 | Clauses with at least two direct tests | 980/980 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 159 |
+| Clauses with two tests or fewer | 147 |
 | Clauses with only standard-only tests | 237 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 570 |
-| Icarus Verilog 13.0 only | 3228 |
-| Verilator 5.052 only | 1307 |
-| standard only | 1601 |
+| both releases | 582 |
+| Icarus Verilog 13.0 only | 3233 |
+| Verilator 5.052 only | 1339 |
+| standard only | 1645 |
 
 ## By chapter
 
@@ -29,36 +29,36 @@
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 86 | 15 | 5.7 | 0 | 11 |
 | 4 | Scheduling semantics | 410 | 27 | 15.2 | 0 | 16 |
-| 5 | Lexical conventions | 340 | 16 | 21.2 | 0 | 7 |
-| 6 | Data types | 553 | 76 | 7.3 | 0 | 106 |
-| 7 | Aggregate data types | 459 | 49 | 9.4 | 0 | 78 |
-| 8 | Classes | 282 | 43 | 6.6 | 0 | 66 |
-| 9 | Processes | 177 | 25 | 7.1 | 0 | 28 |
-| 10 | Assignment statements | 199 | 18 | 11.1 | 0 | 43 |
-| 11 | Operators and expressions | 817 | 42 | 19.5 | 0 | 43 |
-| 12 | Procedural programming statements | 169 | 17 | 9.9 | 0 | 23 |
-| 13 | Tasks and functions (subroutines) | 190 | 15 | 12.7 | 0 | 16 |
-| 14 | Clocking blocks | 75 | 15 | 5.0 | 0 | 16 |
-| 15 | Interprocess synchronization and communication | 55 | 21 | 2.6 | 0 | 17 |
-| 16 | Assertions | 308 | 67 | 4.6 | 0 | 235 |
-| 17 | Checkers | 52 | 9 | 5.8 | 0 | 37 |
-| 18 | Constrained random value generation | 126 | 44 | 2.9 | 0 | 53 |
-| 19 | Functional coverage | 84 | 22 | 3.8 | 0 | 70 |
+| 5 | Lexical conventions | 343 | 16 | 21.4 | 0 | 7 |
+| 6 | Data types | 560 | 76 | 7.4 | 0 | 111 |
+| 7 | Aggregate data types | 462 | 49 | 9.4 | 0 | 80 |
+| 8 | Classes | 287 | 43 | 6.7 | 0 | 67 |
+| 9 | Processes | 182 | 25 | 7.3 | 0 | 28 |
+| 10 | Assignment statements | 201 | 18 | 11.2 | 0 | 44 |
+| 11 | Operators and expressions | 821 | 42 | 19.5 | 0 | 44 |
+| 12 | Procedural programming statements | 175 | 17 | 10.3 | 0 | 26 |
+| 13 | Tasks and functions (subroutines) | 192 | 15 | 12.8 | 0 | 16 |
+| 14 | Clocking blocks | 77 | 15 | 5.1 | 0 | 17 |
+| 15 | Interprocess synchronization and communication | 56 | 21 | 2.7 | 0 | 18 |
+| 16 | Assertions | 320 | 67 | 4.8 | 0 | 246 |
+| 17 | Checkers | 57 | 9 | 6.3 | 0 | 40 |
+| 18 | Constrained random value generation | 131 | 44 | 3.0 | 0 | 55 |
+| 19 | Functional coverage | 89 | 22 | 4.0 | 0 | 75 |
 | 20 | Utility system tasks and system functions | 255 | 31 | 8.2 | 0 | 36 |
 | 21 | Input/output system tasks and system functions | 178 | 47 | 3.8 | 0 | 37 |
 | 22 | Compiler directives | 347 | 21 | 16.5 | 0 | 13 |
-| 23 | Modules and hierarchy | 200 | 32 | 6.2 | 0 | 59 |
-| 24 | Programs | 41 | 7 | 5.9 | 0 | 16 |
-| 25 | Interfaces | 112 | 12 | 9.3 | 0 | 42 |
-| 26 | Packages | 79 | 6 | 13.2 | 0 | 12 |
-| 27 | Generate constructs | 100 | 5 | 20.0 | 0 | 2 |
-| 28 | Gate-level and switch-level modeling | 241 | 26 | 9.3 | 0 | 46 |
-| 29 | User-defined primitives | 77 | 14 | 5.5 | 0 | 11 |
-| 30 | Specify blocks | 50 | 21 | 2.4 | 0 | 22 |
+| 23 | Modules and hierarchy | 206 | 32 | 6.4 | 0 | 61 |
+| 24 | Programs | 43 | 7 | 6.1 | 0 | 17 |
+| 25 | Interfaces | 116 | 12 | 9.7 | 0 | 43 |
+| 26 | Packages | 81 | 6 | 13.5 | 0 | 12 |
+| 27 | Generate constructs | 102 | 5 | 20.4 | 0 | 2 |
+| 28 | Gate-level and switch-level modeling | 244 | 26 | 9.4 | 0 | 48 |
+| 29 | User-defined primitives | 80 | 14 | 5.7 | 0 | 12 |
+| 30 | Specify blocks | 51 | 21 | 2.4 | 0 | 23 |
 | 31 | Timing checks | 51 | 19 | 2.7 | 0 | 41 |
 | 32 | Backannotation using the standard delay format | 47 | 10 | 4.7 | 0 | 32 |
-| 33 | Configuring the contents of a design | 35 | 9 | 3.9 | 0 | 25 |
-| 35 | Direct programming interface | 98 | 18 | 5.4 | 0 | 43 |
+| 33 | Configuring the contents of a design | 36 | 9 | 4.0 | 0 | 25 |
+| 35 | Direct programming interface | 100 | 18 | 5.6 | 0 | 43 |
 | 36 | Programming language interface (PLI/VPI) overview | 83 | 17 | 4.9 | 0 | 36 |
 | 37 | VPI object model diagrams | 179 | 94 | 1.9 | 0 | 164 |
 | 38 | VPI routine definitions | 82 | 45 | 1.8 | 0 | 34 |
@@ -139,4 +139,4 @@ These clauses are cited by tests but carry a tag in `tools/clauses.txt` that say
 
 ## Cited clauses missing from tools/clauses.txt
 
-6.12.2
+6.3.3, 6.12.2

@@ -1,0 +1,10 @@
+p 10000 q 10000: not 1, or 0, and 0, implies 0, iff 0
+  until 0, s_until 0, until_with 0, s_until_with 0
+p 10000 q 01000: not 1, or 0, and 1, implies 1, iff 1
+  until 0, s_until 0, until_with 1, s_until_with 1
+p 10000 q 00000: not 1, or 0, and 1, implies 1, iff 1
+  until 1, s_until 1, until_with 1, s_until_with 1
+p 00000 q 01000: not 0, or 1, and 1, implies 0, iff 0
+  until 1, s_until 1, until_with 1, s_until_with 1
+p 11000 q 01000: not 1, or 0, and 1, implies 1, iff 1
+  until 0, s_until 0, until_with 0, s_until_with 0

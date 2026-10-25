@@ -1,0 +1,6 @@
+a=0 b=0: and=0 xor=0
+a=0 b=1: and=0 xor=1
+a=1 b=0: and=0 xor=1
+a=1 b=1: and=1 xor=0
+s=0 a=1 b=0: mux=1
+s=1 a=1 b=1: mux=1

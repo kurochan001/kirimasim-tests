@@ -1,0 +1,6 @@
+int: constant parenthesized neither
+var: variable 42
+wild: wildcard
+tag: valid 9 invalid
+pos: position 1 5 position 2 3 other position
+named: named a1 b5 named a2 b3 other named

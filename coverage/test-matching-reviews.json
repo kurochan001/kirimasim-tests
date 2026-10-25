@@ -16938,6 +16938,255 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch23/test_syntax_bind_instance_array_bit_select.sv",
+      "inputs_sha256": "38d732f7d49093bc97a22a885d352b70ca1539053dc85b98d050435752a4d22b",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.1.4-EXTRACT-BIND-INSTANCE-GRAMMAR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "A.1.4 が bind_instantiation の後ろにセミコロンを置く形は A.4.1 の各枝がすでにセミコロンで終わるのと重なり、区切りの数が解釈問題として未決（BIND-SEMICOLON-GRAMMAR）のため登録しない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_syntax_bind_instance_array_bit_select.sv",
+              "contains": "bind test_syntax_bind_instance_array_bit_select.larr[1] probe #(.ID(4)) u_arr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_bind_instantiation_kinds.sv",
+      "inputs_sha256": "8bee9b62c4e0e813d4cb4ca87541910d97452fdca1278cca6b2bb13e5ad84f30",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.1.4-EXTRACT-BIND-SCOPE-GRAMMAR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "A.1.4 の bind 文のセミコロンが A.4.1 の実体化のセミコロンと重なる点が解釈問題として未決（BIND-SEMICOLON-GRAMMAR）のため登録しない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_bind_instantiation_kinds.sv",
+              "contains": "bind bk_cpu bk_mod_probe u_mp (.x(a));"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_syntax_parameter_port_list_forms.sv",
+      "inputs_sha256": "82c99eba56ccf61af80f75862e33062f9c964d2fe104ffc69912f34353c44517",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A-EXTRACT-GRAMMAR-START"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "BNF の開始記号と |・[ ]・{ }・上付き番号の記法は規格の読み方を定めるもので、設計の動作を出力で観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_syntax_parameter_port_list_forms.sv",
+              "contains": "module first_alt #(W = 4, parameter int N = 2, localparam int M = 3,"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A-EXTRACT-GRAMMAR-TYPOGRAPHY"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "太字と通常文字の区別は規格の組版の約束で、設計の動作として観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_syntax_parameter_port_list_forms.sv",
+              "contains": "module empty_param #() (input logic a, output logic b);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.1-EXTRACT-LIBRARY-TEXT"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "library_text はライブラリ・マップ・ファイルの開始記号で、SystemVerilog のソースではない。どのランナーもライブラリ・マップ・ファイルを渡さないため、テストで実行して観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_syntax_parameter_port_list_forms.sv",
+              "contains": "module first_alt #(W = 4, parameter int N = 2, localparam int M = 3,"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.1-EXTRACT-LIBRARY-DECLARATION"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "library 宣言はライブラリ・マップ・ファイルの中だけに現れ、ランナーがそのファイルをツールに渡さないため、設計の出力として観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_syntax_parameter_port_list_forms.sv",
+              "contains": "module empty_param #() (input logic a, output logic b);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.1-EXTRACT-LIBRARY-INCLUDE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "include 文もライブラリ・マップ・ファイルの中だけの構文で、SystemVerilog のソースとして実行する手段がない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_syntax_parameter_port_list_forms.sv",
+              "contains": "module empty_param #() (input logic a, output logic b);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.2-EXTRACT-DESCRIPTION-14"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "config 宣言をソースに置くことは両リリースが受け付けるが、どちらも config を実行せず（Icarus は skipped と報告する）、design 文や use 文が選ぶセルを出力で確かめられない。受理だけのテストは不可なので保留する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_syntax_parameter_port_list_forms.sv",
+              "contains": "module first_alt #(W = 4, parameter int N = 2, localparam int M = 3,"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.5-EXTRACT-CONFIG-SOURCE-GRAMMAR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "config 宣言の design 文・規則・localparam の効果はライブラリ・マップとセルの選択を通じて現れるが、ランナーはライブラリ・マップも config の選択も渡さず、両リリースは config を無視するため、選択の結果を出力で観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_syntax_parameter_port_list_forms.sv",
+              "contains": "module empty_param #() (input logic a, output logic b);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.5-EXTRACT-CONFIG-EXPANSION-GRAMMAR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "use 文・liblist 文・セル選択子の効果は、ライブラリ・マップで結合したセルの実体を通してしか現れず、単一ファイルのテストで観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_syntax_parameter_port_list_forms.sv",
+              "contains": "module empty_param #() (input logic a, output logic b);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_body_declaration_kinds.sv",
+      "inputs_sha256": "6c8f35af2bb2d851882880584beb3b66ed3488e597a5ad52a7c5ea2fd081e8f8",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A-EXTRACT-GRAMMAR-PLUS-PROSE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "BNF だけでは構文・意味が完結せず本文と A.10 も適用するという規則は、個々の生成規則のテストが本文の節を併記することで満たしており、単独の出力では観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_body_declaration_kinds.sv",
+              "contains": "default disable iff (d != 1'b0 && d != 1'b1);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_declaration_range_forms.sv",
+      "inputs_sha256": "9b5b6e086e41a05b319f487e07c62e3f5731ad283a8e86a5f5100a090351827c",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.5-EXTRACT-PACKED"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "packed_dimension の constant_range は test_declaration_range_forms が使うが、unsized_dimension は DPI import の唯一の packed 次元としてのみ合法で、両リリースともその構文を受け付けず、C 側で次元を観測する手段も定かでないため保留する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_declaration_range_forms.sv",
+              "contains": "logic [3:0][1:0] p2;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_import_export_forms.sv",
+      "inputs_sha256": "bfc6823b635500a7ab972999b5e676cc53f4863a4e4e9de1bae88e45827898e6",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.6-EXTRACT-DPI-STRING"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "\"DPI\" は 35.5.4 がコンパイル時の警告またはエラーを要求する廃止された指定子で、ツールがエラーにすれば正常系のテストとして成立しない。\"DPI-C\" 側は test_dpi_import_export_forms が使うが、\"DPI\" の効果はツール依存なので保留する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_export_forms.sv",
+              "contains": "import \"DPI-C\" function int di_add(input int a, input int b);"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
