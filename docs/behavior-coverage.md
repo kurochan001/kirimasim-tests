@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.77%、実行 33.69%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.79%、実行 33.70%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7363/12319 (59.77%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4150/12319 (33.69%)。
-- 登録済みだがテスト未対応: 4956 動作。
+- 登録済み動作に対するテスト設計網羅率: 7365/12319 (59.79%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4152/12319 (33.70%)。
+- 登録済みだがテスト未対応: 4954 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -75,7 +75,7 @@
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 881/12319 動作確認、古い入力との対応 65 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 883/12319 動作確認、古い入力との対応 65 件。
 
 ## 章・附属書別の調査状態
 
@@ -98,7 +98,7 @@
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 55。
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 292。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 7。
-- 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 57。
+- 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 59。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 155。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 131。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 144。
@@ -44584,7 +44584,7 @@ Variables without explicit order are solved with the last ordered group.
 
 ### SV2023-18.5.10-EXTRACT-STATIC-BLOCK
 
-18.5.10 / normal / テスト未対応
+18.5.10 / normal / 実行確認あり
 
 A constraint block may be declared static.
 
@@ -44592,10 +44592,11 @@ A constraint block may be declared static.
 
 規定の性質: `permission`。
 
+- [test_static_constraint_mode.sv](../tests/ch18/test_static_constraint_mode.sv): クラス scm_obj で constraint c_s を static constraint として宣言し、通常の constraint c_d と併用する。static 指定子付きの宣言が受理され、a.c_s.constraint_mode(0) と b.c_s.constraint_mode() が同じ状態を返すことを期待出力で確認する。 区別: static キーワード付きの constraint 宣言を受理しない実装ではコンパイルできず、期待出力の行が得られない。また static 宣言が通常の constraint と同じ意味になってしまう実装では、後段の a.c_s=1 と a.v=5 が b からの切替を反映しない。宣言の受理と static 制約としての動作の両方が、この要求の観測になる。
 
 ### SV2023-18.5.10-EXTRACT-STATIC-MODE-SHARED
 
-18.5.10 / normal / テスト未対応
+18.5.10 / normal / 実行確認あり
 
 constraint_mode on a static constraint changes its state for all instances of that class constraint in all objects.
 
@@ -44603,6 +44604,7 @@ constraint_mode on a static constraint changes its state for all instances of th
 
 規定の性質: `mandatory`。
 
+- [test_static_constraint_mode.sv](../tests/ch18/test_static_constraint_mode.sv): 2個のオブジェクト a,b を作り、a.c_s.constraint_mode(0) で static 制約 c_s を切り、b.c_s.constraint_mode() が 0 を返すことを見る。通常制約 c_d を a で切っても b.c_d は 1 のままである。さらに b.c_s.constraint_mode(1) の後、a.c_s.constraint_mode() が 1 を返し、a.randomize() の v が 5 になることを比べる。 区別: static 制約の状態をオブジェクトごとに持つ実装では、a で切っても b.c_s が 1 のままになり、b で入れても a.c_s が 0 のままになる。期待出力の b.c_s=0 と a.c_s=1/a.v=5 は、状態が全オブジェクトで共有され、通常制約 c_d は共有されないことを同時に示す。
 
 ### SV2023-18.5.10-EXTRACT-STATIC-NO-SPECIFIER
 

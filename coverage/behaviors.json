@@ -149925,7 +149925,25 @@
       "acceptance": "A constraint block may be declared static.",
       "source_note": "IEEE 1800-2023 18.5.10; complete own-body source review, blocks B002, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch18/test_static_constraint_mode.sv",
+          "observation": "クラス scm_obj で constraint c_s を static constraint として宣言し、通常の constraint c_d と併用する。static 指定子付きの宣言が受理され、a.c_s.constraint_mode(0) と b.c_s.constraint_mode() が同じ状態を返すことを期待出力で確認する。 区別: static キーワード付きの constraint 宣言を受理しない実装ではコンパイルできず、期待出力の行が得られない。また static 宣言が通常の constraint と同じ意味になってしまう実装では、後段の a.c_s=1 と a.v=5 が b からの切替を反映しない。宣言の受理と static 制約としての動作の両方が、この要求の観測になる。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "875e74a7c7d55ad69f0413362d5243da958faca8a801ed61d7f3ec60f2fadc8d",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_static_constraint_mode.sv",
+              "contains": "  static constraint c_s { v == 4'd5; }"
+            },
+            {
+              "file": "tests/ch18/test_static_constraint_mode.expected",
+              "contains": "after turning both off in a: b.c_s=0 b.c_d=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "18.5.10",
@@ -149944,7 +149962,29 @@
       "acceptance": "constraint_mode on a static constraint changes its state for all instances of that class constraint in all objects.",
       "source_note": "IEEE 1800-2023 18.5.10; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch18/test_static_constraint_mode.sv",
+          "observation": "2個のオブジェクト a,b を作り、a.c_s.constraint_mode(0) で static 制約 c_s を切り、b.c_s.constraint_mode() が 0 を返すことを見る。通常制約 c_d を a で切っても b.c_d は 1 のままである。さらに b.c_s.constraint_mode(1) の後、a.c_s.constraint_mode() が 1 を返し、a.randomize() の v が 5 になることを比べる。 区別: static 制約の状態をオブジェクトごとに持つ実装では、a で切っても b.c_s が 1 のままになり、b で入れても a.c_s が 0 のままになる。期待出力の b.c_s=0 と a.c_s=1/a.v=5 は、状態が全オブジェクトで共有され、通常制約 c_d は共有されないことを同時に示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "875e74a7c7d55ad69f0413362d5243da958faca8a801ed61d7f3ec60f2fadc8d",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_static_constraint_mode.sv",
+              "contains": "    a.c_s.constraint_mode(0);"
+            },
+            {
+              "file": "tests/ch18/test_static_constraint_mode.sv",
+              "contains": "    b.c_s.constraint_mode(1);"
+            },
+            {
+              "file": "tests/ch18/test_static_constraint_mode.expected",
+              "contains": "after turning c_s on in b: a.c_s=1 a.v=5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "18.5.10",

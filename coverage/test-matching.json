@@ -3,8 +3,8 @@
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
   "test_files": 6009,
-  "linked_test_files": 3508,
-  "unlinked_test_files": 2501,
+  "linked_test_files": 3509,
+  "unlinked_test_files": 2500,
   "chapters": [
     {
       "chapter": "ch3",
@@ -99,8 +99,8 @@
     {
       "chapter": "ch18",
       "test_files": 64,
-      "linked_test_files": 24,
-      "unlinked_test_files": 40
+      "linked_test_files": 25,
+      "unlinked_test_files": 39
     },
     {
       "chapter": "ch19",
@@ -61838,11 +61838,12 @@
         "18.9"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-18.5.10-EXTRACT-STATIC-BLOCK",
+        "SV2023-18.5.10-EXTRACT-STATIC-MODE-SHARED"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-18.5.10-EXTRACT-STATIC-BLOCK",
-        "SV2023-18.5.10-EXTRACT-STATIC-MODE-SHARED",
         "SV2023-18.9-EXTRACT-CONSTRAINT-GETTER",
         "SV2023-18.9-EXTRACT-CONSTRAINT-MODE",
         "SV2023-18.9-EXTRACT-CONSTRAINT-MODE-SIGNATURE",
@@ -404640,7 +404641,7 @@
     "oracle_issue": 49,
     "partial_observation": 530
   },
-  "registry_sha256": "e9fd716fb96b47f2cc9aa68aeb43fff75f63b786153a6891d42c08850f1ac757",
+  "registry_sha256": "d95483719b9e9273b2d0c758189b362287987311b9962aa961024d3a053b315f",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "0b990f94f59f479a27cf458dafca26bc8100764f8482e34c82cd3095610303bd"
 }
