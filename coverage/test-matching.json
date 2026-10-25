@@ -3,8 +3,8 @@
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
   "test_files": 6009,
-  "linked_test_files": 3503,
-  "unlinked_test_files": 2506,
+  "linked_test_files": 3504,
+  "unlinked_test_files": 2505,
   "chapters": [
     {
       "chapter": "ch3",
@@ -201,8 +201,8 @@
     {
       "chapter": "ch36",
       "test_files": 55,
-      "linked_test_files": 39,
-      "unlinked_test_files": 16
+      "linked_test_files": 40,
+      "unlinked_test_files": 15
     },
     {
       "chapter": "ch37",
@@ -134514,10 +134514,14 @@
         "5.6.3"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-36.3-EXTRACT-NAME-CASE",
+        "SV2023-5.6.3-EXTRACT-PLI-SYSTEM-EXTENSION",
+        "SV2023-5.6.3-EXTRACT-SYSTEM-NAME-CHARACTERS",
+        "SV2023-5.6.3-EXTRACT-SYSTEM-PREFIX"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-36.3-EXTRACT-NAME-CASE",
         "SV2023-36.3.1-EXTRACT-NAME-REGISTRY",
         "SV2023-38.37.1-EXTRACT-SIZED-FUNCTION-CALLBACK",
         "SV2023-38.37.1-EXTRACT-SYSTF-CALLBACK-POINTERS",
@@ -134527,10 +134531,7 @@
         "SV2023-38.37.1-EXTRACT-SYSTF-USER-ARGUMENT",
         "SV2023-38.37.1-EXTRACT-USER-SYSTF-REGISTER",
         "SV2023-5.6.3-EXTRACT-NO-ESCAPED-SYSTEM-NAME",
-        "SV2023-5.6.3-EXTRACT-PLI-SYSTEM-EXTENSION",
         "SV2023-5.6.3-EXTRACT-SYSTEM-CALL-ARGUMENT-FORMS",
-        "SV2023-5.6.3-EXTRACT-SYSTEM-NAME-CHARACTERS",
-        "SV2023-5.6.3-EXTRACT-SYSTEM-PREFIX",
         "SV2023-5.6.3-EXTRACT-SYSTEM-TASK-ZERO-TIME",
         "SV2023-5.6.3-EXTRACT-TOOL-SYSTEM-EXTENSION"
       ],
@@ -404635,7 +404636,7 @@
     "oracle_issue": 49,
     "partial_observation": 530
   },
-  "registry_sha256": "08d9874a45f5fa1dc13a7e72ecb9cbab1071db30bfd226e81b96859314bf2edd",
+  "registry_sha256": "819034e9957f0146440c16e0eb4a63135fa090cfd8ca983dcd6a30f5b59c6b81",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "0b990f94f59f479a27cf458dafca26bc8100764f8482e34c82cd3095610303bd"
 }

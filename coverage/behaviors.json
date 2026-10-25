@@ -9617,7 +9617,29 @@
       "acceptance": "PLI applications may define additional system tasks/functions under the PLI registration rules.",
       "source_note": "IEEE 1800-2023 5.6.3; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_systf_names.sv",
+          "observation": "C の vlog_startup_routines から vpi_register_systf を6回呼び、$vt_Case などのユーザー定義システムタスクを PLI で登録する。SV 側はその6名をシステムタスク呼び出しとして実行し、期待出力の6行が各登録名で表示されることを比べる。 区別: PLI による追加のシステムタスク定義を受理しない実装では $vt_Case などが未定義のシステムタスクになり、期待出力の行が出力されない。6名がそれぞれ登録名で実行されることは、Clause 36 の登録規則で追加されたシステムタスクが設計の識別子ではなくシステム呼び出しとして解決されたことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b9ca0190a68836d90fada4ad6bdf98c574487c11c9c923f3e518f161ba38df1a",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_names.sv",
+              "contains": "    $vt_Case;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_names.c",
+              "contains": "vpi_register_systf(&d);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_names.expected",
+              "contains": "$vt_Case ran"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.6.3",
@@ -9653,7 +9675,25 @@
       "acceptance": "A system task/function name has a dollar prefix followed by at least one letter, digit, underscore or dollar sign; following characters use that same set.",
       "source_note": "IEEE 1800-2023 5.6.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_systf_names.sv",
+          "observation": "$vt_Case、$vt_case、$vt_dollar$in$name、$vt_digits_0123456789、72文字の2名という、$ の後に英字・数字・アンダースコア・ドル記号を含む名前を6個登録して呼ぶ。期待出力は6名がそのまま表示されることを比べる。 区別: system_tf_identifier の文字集合を狭める実装（$ を名前の途中で拒否する、数字を拒否する、長さを制限する）では、該当する呼び出しが解決されず期待出力の行が欠ける。6行がすべて表示されることは、$ 前置と英字・数字・_・$ からなる名前を文法どおり受理したことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b9ca0190a68836d90fada4ad6bdf98c574487c11c9c923f3e518f161ba38df1a",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_names.sv",
+              "contains": "    $vt_digits_0123456789;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_names.expected",
+              "contains": "$vt_dollar$in$name ran"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.6.3",
@@ -9671,7 +9711,25 @@
       "acceptance": "A leading dollar sign introduces a system task/function name rather than a user design identifier.",
       "source_note": "IEEE 1800-2023 5.6.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_systf_names.sv",
+          "observation": "$vt_Case などの $ で始まる6名を、ユーザー定義のシステムタスクとして呼び出す。いずれも通常のタスク呼び出しとして実行され、期待出力に登録名の行が現れることを比べる。 区別: $ を通常の設計識別子の一部として扱う実装では $vt_Case がシステムタスクとして解決されず、期待出力の行が出力されない。6名がシステムタスクとして実行されることは、先頭の $ が設計識別子ではなくシステムタスク/関数を導入することを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b9ca0190a68836d90fada4ad6bdf98c574487c11c9c923f3e518f161ba38df1a",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_names.sv",
+              "contains": "    $vt_Case;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_names.expected",
+              "contains": "$vt_Case ran"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.6.3",
@@ -264623,7 +264681,25 @@
       "acceptance": "User system task/function names are case-sensitive, unbounded in size and significant in every character.",
       "source_note": "IEEE 1800-2023 36.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_systf_names.sv",
+          "observation": "vpi_register_systf で6個のユーザー定義システムタスクを登録し、$vt_Case と $vt_case（大文字小文字だけが違う）、$vt_dollar$in$name（名前の途中に $）、$vt_digits_0123456789（数字）、最後の1文字だけが違う72文字の2名を呼ぶ。各タスクは登録名を user_data として受け取り、期待出力は6行すべてが異なる登録名で表示されることを比べる。 区別: 名前を大文字小文字で区別しない実装では $vt_Case と $vt_case が同じタスクに解決して片方の行が重複・欠落し、長さを切り詰める実装では72文字の2名が同じ名前になり最後の1文字の差が失われる。6行がすべて異なることは、$ で始まり英字・数字・_・$ を含む名前を全文字有意で受理したことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b9ca0190a68836d90fada4ad6bdf98c574487c11c9c923f3e518f161ba38df1a",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_names.sv",
+              "contains": "    $vt_dollar$in$name;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_names.expected",
+              "contains": "$vt_a_long_name_that_goes_on_well_past_the_usual_length_of_identifiers_x ran"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.3",

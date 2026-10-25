@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.69%、実行 33.63%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.72%、実行 33.66%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7353/12319 (59.69%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4143/12319 (33.63%)。
-- 登録済みだがテスト未対応: 4966 動作。
+- 登録済み動作に対するテスト設計網羅率: 7357/12319 (59.72%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4147/12319 (33.66%)。
+- 登録済みだがテスト未対応: 4962 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -64,7 +64,7 @@
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 913/12319 動作確認、古い入力との対応 65 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 917/12319 動作確認、古い入力との対応 65 件。
 - `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:16.559292+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -85,7 +85,7 @@
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 99。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 29。
-- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 77。
+- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 80。
 - 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 594。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 274。
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 159。
@@ -116,7 +116,7 @@
 - 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 23。
 - 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 71。
-- 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 26。
+- 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 27。
 - 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1497。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 199。
 - 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 77。
@@ -3468,7 +3468,7 @@ Whitespace cannot separate the leading dollar sign from the rest of a system ide
 
 ### SV2023-5.6.3-EXTRACT-PLI-SYSTEM-EXTENSION
 
-5.6.3 / normal / テスト未対応
+5.6.3 / normal / 実行確認あり
 
 PLI applications may define additional system tasks/functions under the PLI registration rules.
 
@@ -3476,6 +3476,7 @@ PLI applications may define additional system tasks/functions under the PLI regi
 
 規定の性質: `permission`。
 
+- [test_vpi_systf_names.sv](../tests/ch36/test_vpi_systf_names.sv): C の vlog_startup_routines から vpi_register_systf を6回呼び、$vt_Case などのユーザー定義システムタスクを PLI で登録する。SV 側はその6名をシステムタスク呼び出しとして実行し、期待出力の6行が各登録名で表示されることを比べる。 区別: PLI による追加のシステムタスク定義を受理しない実装では $vt_Case などが未定義のシステムタスクになり、期待出力の行が出力されない。6名がそれぞれ登録名で実行されることは、Clause 36 の登録規則で追加されたシステムタスクが設計の識別子ではなくシステム呼び出しとして解決されたことを示す。
 
 ### SV2023-5.6.3-EXTRACT-SYSTEM-CALL-ARGUMENT-FORMS
 
@@ -3490,7 +3491,7 @@ System calls use the prescribed optional ordinary argument list, data-type argum
 
 ### SV2023-5.6.3-EXTRACT-SYSTEM-NAME-CHARACTERS
 
-5.6.3 / normal / テスト未対応
+5.6.3 / normal / 実行確認あり
 
 A system task/function name has a dollar prefix followed by at least one letter, digit, underscore or dollar sign; following characters use that same set.
 
@@ -3498,10 +3499,11 @@ A system task/function name has a dollar prefix followed by at least one letter,
 
 規定の性質: `definition`。
 
+- [test_vpi_systf_names.sv](../tests/ch36/test_vpi_systf_names.sv): $vt_Case、$vt_case、$vt_dollar$in$name、$vt_digits_0123456789、72文字の2名という、$ の後に英字・数字・アンダースコア・ドル記号を含む名前を6個登録して呼ぶ。期待出力は6名がそのまま表示されることを比べる。 区別: system_tf_identifier の文字集合を狭める実装（$ を名前の途中で拒否する、数字を拒否する、長さを制限する）では、該当する呼び出しが解決されず期待出力の行が欠ける。6行がすべて表示されることは、$ 前置と英字・数字・_・$ からなる名前を文法どおり受理したことを示す。
 
 ### SV2023-5.6.3-EXTRACT-SYSTEM-PREFIX
 
-5.6.3 / normal / テスト未対応
+5.6.3 / normal / 実行確認あり
 
 A leading dollar sign introduces a system task/function name rather than a user design identifier.
 
@@ -3509,6 +3511,7 @@ A leading dollar sign introduces a system task/function name rather than a user 
 
 規定の性質: `definition`。
 
+- [test_vpi_systf_names.sv](../tests/ch36/test_vpi_systf_names.sv): $vt_Case などの $ で始まる6名を、ユーザー定義のシステムタスクとして呼び出す。いずれも通常のタスク呼び出しとして実行され、期待出力に登録名の行が現れることを比べる。 区別: $ を通常の設計識別子の一部として扱う実装では $vt_Case がシステムタスクとして解決されず、期待出力の行が出力されない。6名がシステムタスクとして実行されることは、先頭の $ が設計識別子ではなくシステムタスク/関数を導入することを示す。
 
 ### SV2023-5.6.3-EXTRACT-SYSTEM-TASK-ZERO-TIME
 
@@ -83150,7 +83153,7 @@ A user system task/function name must begin with $.
 
 ### SV2023-36.3-EXTRACT-NAME-CASE
 
-36.3 / normal / テスト未対応
+36.3 / normal / 実行確認あり
 
 User system task/function names are case-sensitive, unbounded in size and significant in every character.
 
@@ -83158,6 +83161,7 @@ User system task/function names are case-sensitive, unbounded in size and signif
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_names.sv](../tests/ch36/test_vpi_systf_names.sv): vpi_register_systf で6個のユーザー定義システムタスクを登録し、$vt_Case と $vt_case（大文字小文字だけが違う）、$vt_dollar$in$name（名前の途中に $）、$vt_digits_0123456789（数字）、最後の1文字だけが違う72文字の2名を呼ぶ。各タスクは登録名を user_data として受け取り、期待出力は6行すべてが異なる登録名で表示されることを比べる。 区別: 名前を大文字小文字で区別しない実装では $vt_Case と $vt_case が同じタスクに解決して片方の行が重複・欠落し、長さを切り詰める実装では72文字の2名が同じ名前になり最後の1文字の差が失われる。6行がすべて異なることは、$ で始まり英字・数字・_・$ を含む名前を全文字有意で受理したことを示す。
 
 ### SV2023-36.3-EXTRACT-NAME-CHARACTERS
 
