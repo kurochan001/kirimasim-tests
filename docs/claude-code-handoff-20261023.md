@@ -1,17 +1,28 @@
 # Claude Codeへのハンドオフ（2026-10-23）
 
+> **現在の値（2026-10-25 更新）**
+> 本文は20%到達時点（2026-10-23）の記録です。現在の正本は
+> [`coverage/behavior-summary.json`](../coverage/behavior-summary.json) で、値は次のとおりです。
+>
+> - 要求対応：**7,440 / 12,319（60.39%）**、実行成功：**4,153（33.71%）**
+> - 未対応：4,879、解釈保留：21行、分母：未承認（`provisional`）
+> - テスト：6,038本（対応登録済み3,540本、未登録2,498本）
+> - 75%＝9,240要求まで、あと**1,800要求**
+
 ## 最初に把握すること
 
 この資料は、IEEE 1800-2023に対する既存テストの要求照合と動作カバレッジ管理の引き継ぎです。
-直近の依頼「暫定設計網羅率が20%を超えるまで既存テストの照合を繰り返す」は達成済みです。
-現在は引き継ぎ資料を作成した状態で、次の到達率の指定や追加テストの実装は行っていません。
+20%到達時点の記録で、その後の50%到達作業と追加の照合は
+[50%到達作業のハンドオフ](claude-code-handoff-20261023-50percent.md)にあります。
+現在の値は上の枠と[`coverage/behavior-summary.json`](../coverage/behavior-summary.json)を正とし、
+本文中の数値は各時点の履歴として読んでください。
 
-**10%到達分と20%到達分の両方が未コミットです。作業ツリーを保持して開始してください。**
-このハンドオフ作成ではcommit/pushを行っていません。
+10%到達分と20%到達分はその後コミット・push済みです（本資料も `a30cddb` で追加）。
+作業ツリーを保持する必要はありません。
 
 - 作業場所：`/Users/mitsuyuki/Projects/kirimasim-tests`
 - ブランチ：`main`
-- HEAD：`f9436fadc025540e5aedf113d5bee96a2b9b23e5`（`Match compiler directive tests to IEEE requirements`）
+- 資料作成時のHEAD：`f9436fadc025540e5aedf113d5bee96a2b9b23e5`（`Match compiler directive tests to IEEE requirements`）
 - origin：`https://github.com/kurochan001/kirimasim-tests.git`
 - 日時の基準：Asia/Tokyo。以下の数値は資料作成時のローカル作業ツリーの値です。
 - ユーザー指定の指示は`AGENTS.md`相当の`@RTK.md`です。現在のworkspaceには実ファイルがなく、
@@ -32,9 +43,10 @@
 20%到達作業では既存テストの刺激・期待値を照合し、対応根拠と保留判断を登録しました。
 SystemVerilog/Cテストの新規追加・入力変更・再実行は行わず、保存済みの実行証跡を照合しています。
 
-## 現在の計測値
+## 20%到達時点の計測値（2026-10-23、履歴）
 
 正本は[`coverage/behavior-summary.json`](../coverage/behavior-summary.json)です。
+以下の数値は20%到達時点のもので、現在値は冒頭の枠を参照してください。
 
 - 固定分母：12,319要求行。
 - 対応済み：2,465要求。暫定設計網羅率 **20.009741050409936%**（通常表示20.01%）。
@@ -102,9 +114,10 @@ PDFの図表は必要に応じて視覚確認してください。規格本文�
 python3 tools/requirement_source.py --cache /tmp/claude-requirement-source.json
 ```
 
-## 未コミットの変更
+## 当時の未コミットの変更（履歴）
 
 ハンドオフ作成直前、以下の12 trackedファイルが変更されていました。
+これらはその後にコミット・push済みです。
 
 ```text
 README.md
@@ -263,9 +276,10 @@ mainの保存済み結果と、resultsブランチへNightlyが出すその回�
 
 ```text
 /Users/mitsuyuki/Projects/kirimasim-tests で、
-docs/claude-code-handoff-20261023.md を読み、現在の未コミット変更を保持して状況を把握してください。
-10%到達分と20%到達分が未コミットです。
-直近の20%超過目標は2,465/12,319要求、暫定設計網羅率20.009741%で達成済みです。
-正本・保留判断・AND集合証拠・資料の確認手順を引き継いでください。
+docs/claude-code-handoff-20261023.md と
+docs/claude-code-handoff-20261023-50percent.md を読み、状況を把握してください。
+現在は要求対応7,440/12,319（60.39%）、実行成功4,153（33.71%）です。
+次の目標は75%（9,240要求）で、あと1,800要求です。
+正本は coverage/behavior-summary.json、保留判断・AND集合証拠・資料の確認手順を引き継いでください。
 次の具体的な作業指示は別途伝えます。
 ```
