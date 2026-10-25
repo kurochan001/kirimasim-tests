@@ -38,15 +38,15 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **6013 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **6015 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3553 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 1146 |
-| The standard only, where neither simulator follows it | 1314 |
+| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 1147 |
+| The standard only, where neither simulator follows it | 1315 |
 
-754 tests depend on x or z values (`:fourstate: yes`). 436 tests come with C code: 65 DPI tests (`:dpi_c:`) and 371 VPI tests (`:vpi_c:`). 1556 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 24 tests check the exit code of the simulation (`:expected_exit:`). 15 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 10 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+755 tests depend on x or z values (`:fourstate: yes`). 436 tests come with C code: 65 DPI tests (`:dpi_c:`) and 371 VPI tests (`:vpi_c:`). 1556 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 24 tests check the exit code of the simulation (`:expected_exit:`). 15 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 10 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -67,7 +67,7 @@ The suite has **6013 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 17 | Checkers | 31 |  | 10 | 21 |
 | 18 | Constrained random value generation | 64 | 1 | 45 | 18 |
 | 19 | Functional coverage | 84 |  | 14 | 70 |
-| 20 | Utility system tasks and system functions | 196 | 171 | 13 | 12 |
+| 20 | Utility system tasks and system functions | 198 | 171 | 14 | 13 |
 | 21 | Input/output system tasks and system functions | 104 | 84 | 6 | 14 |
 | 22 | Compiler directives | 326 | 314 | 7 | 5 |
 | 23 | Modules and hierarchy | 134 | 91 | 16 | 27 |
@@ -157,10 +157,10 @@ illegal designs that use a reserved keyword as a name. The
 for requirements that had none, and their
 [second run](docs/gap-tests-2-20261024.md) adds 933 more. On 2026-10-25 the
 [first pass over the unregistered tests](docs/existing-test-matching-unregistered-20261025.md)
-linked 20 tests to 30 requirements, including four new tests written for
+linked 22 tests to 39 requirements, including six new tests written for
 stimuli that the existing tests lacked. Provisional design coverage is
-**59.834402% (7,371/12,319)**; provisional execution coverage is
-**33.566036% (4,135/12,319)**. Clauses 1 to 40 alone are at 62.86% (5,963/9,486).
+**59.907460% (7,380/12,319)**; provisional execution coverage is
+**33.566036% (4,135/12,319)**. Clauses 1 to 40 alone are at 62.96% (5,972/9,486).
 Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.

@@ -23,7 +23,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 17 | [Checkers](ch17.md) | 31 |  |
 | 18 | [Constrained random value generation](ch18.md) | 64 |  |
 | 19 | [Functional coverage](ch19.md) | 84 |  |
-| 20 | [Utility system tasks and system functions](ch20.md) | 196 |  |
+| 20 | [Utility system tasks and system functions](ch20.md) | 198 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 104 |  |
 | 22 | [Compiler directives](ch22.md) | 326 | 248 |
 | 23 | [Modules and hierarchy](ch23.md) | 134 |  |

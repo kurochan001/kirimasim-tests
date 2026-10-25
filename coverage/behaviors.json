@@ -165776,7 +165776,29 @@
       "acceptance": "Array queries accept an array/integral data expression or type; $left/$right/$low/$high/$increment/$size optionally select a dimension defaulting to 1, and all return integer.",
       "source_note": "IEEE 1800-2023 20.7; complete own-body source review, blocks B002, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_array_query_types_and_invalid.sv",
+          "observation": "$size/$left/$right/$low/$high/$increment を、データ式 Ram とデータ型 int・byte・longint・Word・string の両方で呼ぶ。次元引数を省略した $size(Ram) と $left(Ram) が次元1を選び、明示した $size(Ram,1) と $size(Ram,2) が各次元を選ぶことを確認する。6関数すべての結果を整数として比較する。 区別: 型引数を受け付けない実装では $size(int) などがコンパイルできないか0 を返す。次元引数の既定を1としない実装では $size(Ram) が10 にならない。次元を明示した呼び出しが別の次元を選ぶ実装では Ram の1/2次元の値が入れ替わる。式と型の両方、既定次元と明示次元、6関数のすべてを同じテストで観測する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "    chk(\"size(int)\", $size(int), 32);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "    chk(\"size(Ram)\", $size(Ram), 10);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.expected",
+              "contains": "ok   high(Ram,2) = 16"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.7",
@@ -165922,7 +165944,29 @@
       "acceptance": "An otherwise legal query is legal in a constant expression when type(first_argument) is legal and fixed-size and any dimension expression is constant.",
       "source_note": "IEEE 1800-2023 20.7; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_array_query_types_and_invalid.sv",
+          "observation": "localparam int LP_WORD = $size(Word);、LP_RAM1 = $size(Ram,1);、LP_RAM2 = $size(Ram,2); を宣言し、それぞれ 16、10、16 になることを確認する。LP_WORD を使って logic [LP_WORD-1:0] uses_word を宣言し、その $bits が 16 になることも確認する。 区別: 固定サイズの型に対する問い合わせを定数式として受理しない実装では、localparam の宣言でコンパイルが止まるか、LP_WORD が0 や x になる。次元式が定数でないとして拒否する実装では LP_RAM2 が得られない。3つの localparam と、それを使ったベクタ幅16が、定数式での利用を観測する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "  localparam int LP_WORD = $size(Word);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "    chk(\"constant size(Ram,2)\", LP_RAM2, 16);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.expected",
+              "contains": "ok   bits of uses_word = 16"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.7",
@@ -165940,7 +165984,25 @@
       "acceptance": "After expanding intermediate typedefs, array dimensions number from slowest varying as 1 through successively faster dimensions.",
       "source_note": "IEEE 1800-2023 20.7; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_array_query_functions.sv",
+          "observation": "unpacked 次元 [1:5][2:8] と packed 次元 [3:0][2:1] を持つ n について、$size(n,1)=5、$size(n,2)=7、$size(n,3)=4、$size(n,4)=2 を確認する。同じ次元を typedef packed_reg で宣言した pn でも同じ4値になる。次元1が最も遅く変化する [1:5]、次元4が最も速い [2:1] であることを、各次元のサイズの違いで示す。 区別: 次元番号を宣言順や速い順に付ける実装では、$size(n,1) が 2 や 4 になり、$size(n,3) が 5 や 7 になる。typedef を展開せずに番号を付ける実装では pn の値が n と食い違う。5/7/4/2 の4値が、unpacked を先に、packed を後に、それぞれ遅い順から番号付けたことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2e7a2792d870f0362bd74b8e632cdb9dcbe2024dcc39ace0fd3bc711a801bd80",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_query_functions.sv",
+              "contains": "    chk(\"size(n,1)\", $size(n, 1), 5);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_functions.expected",
+              "contains": "ok   size(n,3) = 4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.7",
@@ -165958,7 +166020,25 @@
       "acceptance": "$dimensions returns all packed/unpacked static/dynamic array dimensions, 1 for strings or nonarray simple-bit-vector-equivalent types, and 0 for other types.",
       "source_note": "IEEE 1800-2023 20.7; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_array_query_functions.sv",
+          "observation": "$dimensions が、n（packed 2 + unpacked 2）で4、packed のみの pv で2、unpacked 配列 ua（int の packed 次元を含む）で2、動的配列 dyn で2、8ビットの v で1、string の s で1、int の iv で1、real の r で0 になることを確認する。 区別: packed と unpacked の合計を数えない実装では n が2、ua が1、dyn が1 になる。string や simple bit vector を1、real などの非配列型を0 としない実装では s/v/r の値が変わる。8つの値が、packed/unpacked/動的/string/simple bit vector/その他の各分類を分けて示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2e7a2792d870f0362bd74b8e632cdb9dcbe2024dcc39ace0fd3bc711a801bd80",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_query_functions.sv",
+              "contains": "    chk(\"dimensions(dyn)\", $dimensions(dyn), 2);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_functions.expected",
+              "contains": "ok   dimensions(dyn) = 2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.7",
@@ -166012,7 +166092,29 @@
       "acceptance": "$increment is 1 for fixed left>=right and -1 for fixed left<right; dynamic arrays/queues return -1.",
       "source_note": "IEEE 1800-2023 20.7; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_array_query_types_and_invalid.sv",
+          "observation": "固定次元について、Ram の1次元 [0:9] は left<right なので $increment=-1、2次元 [16:1] は left>right なので +1、int は +1 になることを確認する。動的配列 dyn と空のキュー q、要素を1つ入れた q のいずれも $increment=-1 になることを確認する。 区別: left と right の比較を逆にする実装では Ram の1次元と2次元の符号が入れ替わる。動的配列やキューに +1 を返す実装では dyn/q が1 になる。固定次元の両方向と、動的・キュー（空と非空）の -1 を分けて観測する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "    chk(\"increment(Ram,1)\", $increment(Ram, 1), -1);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "    chk(\"increment(q) after push\", $increment(q), -1);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.expected",
+              "contains": "ok   increment(Ram,2) = 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.7",
@@ -166030,7 +166132,29 @@
       "acceptance": "A dimension-specific query whose operand has zero dimensions, or whose requested dimension is out of range, returns all x, while the distinct dimension-count functions retain their explicitly defined zero result.",
       "source_note": "IEEE 1800-2023 20.7; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_array_query_types_and_invalid.sv",
+          "observation": "次元を持たない real の変数 r に対する $left(r) と $size(r,1)、範囲外の次元を指定した $left(int,2)、$size(string,2)、$left(logic [7:0],2) が、いずれも32ビット全x になることを確認する。同じ real に対して $dimensions(r)=0、$unpacked_dimensions(r)=0 になることも確認する。 区別: 無効な次元に0 を返す実装では、5つの x 検査がすべて BAD になる。次元数関数まで x にする実装では $dimensions(r) と $unpacked_dimensions(r) が0 にならない。5つの無効な問い合わせが x を返し、次元数関数だけが定義どおり0 を保つことを同時に観測する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "    chkx(\"left(real)\", $left(r));"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "    chk(\"dimensions(real)\", $dimensions(r), 0);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.expected",
+              "contains": "ok   left(logic[7:0],2) = x"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.7",
@@ -166138,7 +166262,25 @@
       "acceptance": "Predefined-width integer types act as a single packed [width-1:0] dimension for querying.",
       "source_note": "IEEE 1800-2023 20.7; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_array_query_functions.sv",
+          "observation": "int、byte、longint、integer の各変数について、$size が 32、8、64、32、$left が 31、7、63、31、$right が int で 0、$increment が int で 1 になることを確認する。各型が [幅-1:0] の1つの packed 次元として扱われることを、幅と両端の値で示す。 区別: predefined-width の整数を次元なしの型として扱う実装では、$size/$left/$right が 0 や x になり、$dimensions も 0 になる。32/8/64/32 の幅と 31/7/63/31 の左端、0 の右端、+1 の増分は、各型が [n-1:0] の単一 packed 次元であることを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2e7a2792d870f0362bd74b8e632cdb9dcbe2024dcc39ace0fd3bc711a801bd80",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_query_functions.sv",
+              "contains": "    chk(\"size(iv)\", $size(iv), 32);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_functions.expected",
+              "contains": "ok   left(gv) = 31"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.7",
@@ -166156,7 +166298,29 @@
       "acceptance": "$right returns the right bound or least significant packed index; an empty dynamic array/queue returns -1.",
       "source_note": "IEEE 1800-2023 20.7; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_array_query_types_and_invalid.sv",
+          "observation": "$right が、Ram の unpacked 次元 [0:9] で9、packed 次元 [16:1] で1（最下位ビット）、int で0 になることを確認する。空の動的配列 dyn と空のキュー q で -1、要素を1つ入れた q で0 になることも確認する。 区別: packed 次元の右端を最上位ビットとする実装では Ram の2次元が16 になる。空の動的配列やキューに0 を返す実装では dyn/q が -1 にならない。固定次元・packed・空の動的・空のキュー・非空のキューの5通りが、右端の定義と空の特別扱いを分けて観測する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "    chk(\"right(Ram,2)\", $right(Ram, 2), 1);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.sv",
+              "contains": "    chk(\"right(q) empty\", $right(q), -1);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_types_and_invalid.expected",
+              "contains": "ok   right(dyn) empty = -1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.7",
@@ -166210,7 +166374,25 @@
       "acceptance": "$unpacked_dimensions returns the unpacked static/dynamic dimension count of an array, and 0 for other types.",
       "source_note": "IEEE 1800-2023 20.7; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_array_query_functions.sv",
+          "observation": "$unpacked_dimensions が、n で2、packed のみの pv で0、unpacked 配列 ua で1、動的配列 dyn で1、int の iv で0、real の r で0 になることを確認する。 区別: unpacked 次元だけを数えない実装では n が4、pv が2、ua が2、dyn が2 になる。packed 次元を数えてしまう実装では pv や iv が0 にならない。2/0/1/1/0/0 の値が、unpacked の静的・動的次元だけを数え、他の型で0 を返すことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2e7a2792d870f0362bd74b8e632cdb9dcbe2024dcc39ace0fd3bc711a801bd80",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_array_query_functions.sv",
+              "contains": "    chk(\"unpacked(dyn)\", $unpacked_dimensions(dyn), 1);"
+            },
+            {
+              "file": "tests/ch20/test_array_query_functions.expected",
+              "contains": "ok   unpacked(ua) = 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.7",

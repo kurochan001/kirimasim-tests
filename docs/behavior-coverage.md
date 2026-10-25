@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.83%、実行 33.70%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.91%、実行 33.70%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7371/12319 (59.83%)。
+- 登録済み動作に対するテスト設計網羅率: 7380/12319 (59.91%)。
 - 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4152/12319 (33.70%)。
-- 登録済みだがテスト未対応: 4948 動作。
+- 登録済みだがテスト未対応: 4939 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -100,7 +100,7 @@
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 7。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 59。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 156。
-- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 131。
+- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 140。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 144。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 297。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 50。
@@ -50898,7 +50898,7 @@ $isunbounded requires a parameter name, optionally package/hierarchy qualified, 
 
 ### SV2023-20.7-EXTRACT-ARRAY-QUERY-SYNTAX
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 Array queries accept an array/integral data expression or type; $left/$right/$low/$high/$increment/$size optionally select a dimension defaulting to 1, and all return integer.
 
@@ -50906,6 +50906,7 @@ Array queries accept an array/integral data expression or type; $left/$right/$lo
 
 規定の性質: `definition`。
 
+- [test_array_query_types_and_invalid.sv](../tests/ch20/test_array_query_types_and_invalid.sv): $size/$left/$right/$low/$high/$increment を、データ式 Ram とデータ型 int・byte・longint・Word・string の両方で呼ぶ。次元引数を省略した $size(Ram) と $left(Ram) が次元1を選び、明示した $size(Ram,1) と $size(Ram,2) が各次元を選ぶことを確認する。6関数すべての結果を整数として比較する。 区別: 型引数を受け付けない実装では $size(int) などがコンパイルできないか0 を返す。次元引数の既定を1としない実装では $size(Ram) が10 にならない。次元を明示した呼び出しが別の次元を選ぶ実装では Ram の1/2次元の値が入れ替わる。式と型の両方、既定次元と明示次元、6関数のすべてを同じテストで観測する。
 
 ### SV2023-20.7-EXTRACT-ASSOCIATIVE-BOUNDS
 
@@ -50956,7 +50957,7 @@ Associative dimension queries require integral index types.
 
 ### SV2023-20.7-EXTRACT-CONSTANT-ARRAY-QUERY
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 An otherwise legal query is legal in a constant expression when type(first_argument) is legal and fixed-size and any dimension expression is constant.
 
@@ -50964,10 +50965,11 @@ An otherwise legal query is legal in a constant expression when type(first_argum
 
 規定の性質: `permission`。
 
+- [test_array_query_types_and_invalid.sv](../tests/ch20/test_array_query_types_and_invalid.sv): localparam int LP_WORD = $size(Word);、LP_RAM1 = $size(Ram,1);、LP_RAM2 = $size(Ram,2); を宣言し、それぞれ 16、10、16 になることを確認する。LP_WORD を使って logic [LP_WORD-1:0] uses_word を宣言し、その $bits が 16 になることも確認する。 区別: 固定サイズの型に対する問い合わせを定数式として受理しない実装では、localparam の宣言でコンパイルが止まるか、LP_WORD が0 や x になる。次元式が定数でないとして拒否する実装では LP_RAM2 が得られない。3つの localparam と、それを使ったベクタ幅16が、定数式での利用を観測する。
 
 ### SV2023-20.7-EXTRACT-DIMENSION-NUMBERING
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 After expanding intermediate typedefs, array dimensions number from slowest varying as 1 through successively faster dimensions.
 
@@ -50975,10 +50977,11 @@ After expanding intermediate typedefs, array dimensions number from slowest vary
 
 規定の性質: `mandatory`。
 
+- [test_array_query_functions.sv](../tests/ch20/test_array_query_functions.sv): unpacked 次元 [1:5][2:8] と packed 次元 [3:0][2:1] を持つ n について、$size(n,1)=5、$size(n,2)=7、$size(n,3)=4、$size(n,4)=2 を確認する。同じ次元を typedef packed_reg で宣言した pn でも同じ4値になる。次元1が最も遅く変化する [1:5]、次元4が最も速い [2:1] であることを、各次元のサイズの違いで示す。 区別: 次元番号を宣言順や速い順に付ける実装では、$size(n,1) が 2 や 4 になり、$size(n,3) が 5 や 7 になる。typedef を展開せずに番号を付ける実装では pn の値が n と食い違う。5/7/4/2 の4値が、unpacked を先に、packed を後に、それぞれ遅い順から番号付けたことを示す。
 
 ### SV2023-20.7-EXTRACT-DIMENSIONS
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 $dimensions returns all packed/unpacked static/dynamic array dimensions, 1 for strings or nonarray simple-bit-vector-equivalent types, and 0 for other types.
 
@@ -50986,6 +50989,7 @@ $dimensions returns all packed/unpacked static/dynamic array dimensions, 1 for s
 
 規定の性質: `definition`。
 
+- [test_array_query_functions.sv](../tests/ch20/test_array_query_functions.sv): $dimensions が、n（packed 2 + unpacked 2）で4、packed のみの pv で2、unpacked 配列 ua（int の packed 次元を含む）で2、動的配列 dyn で2、8ビットの v で1、string の s で1、int の iv で1、real の r で0 になることを確認する。 区別: packed と unpacked の合計を数えない実装では n が2、ua が1、dyn が1 になる。string や simple bit vector を1、real などの非配列型を0 としない実装では s/v/r の値が変わる。8つの値が、packed/unpacked/動的/string/simple bit vector/その他の各分類を分けて示す。
 
 ### SV2023-20.7-EXTRACT-DYNAMIC-CURRENT
 
@@ -51001,7 +51005,7 @@ Dimension queries on a dynamic array/queue describe its current state.
 
 ### SV2023-20.7-EXTRACT-INCREMENT
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 $increment is 1 for fixed left>=right and -1 for fixed left<right; dynamic arrays/queues return -1.
 
@@ -51009,10 +51013,11 @@ $increment is 1 for fixed left>=right and -1 for fixed left<right; dynamic array
 
 規定の性質: `definition`。
 
+- [test_array_query_types_and_invalid.sv](../tests/ch20/test_array_query_types_and_invalid.sv): 固定次元について、Ram の1次元 [0:9] は left<right なので $increment=-1、2次元 [16:1] は left>right なので +1、int は +1 になることを確認する。動的配列 dyn と空のキュー q、要素を1つ入れた q のいずれも $increment=-1 になることを確認する。 区別: left と right の比較を逆にする実装では Ram の1次元と2次元の符号が入れ替わる。動的配列やキューに +1 を返す実装では dyn/q が1 になる。固定次元の両方向と、動的・キュー（空と非空）の -1 を分けて観測する。
 
 ### SV2023-20.7-EXTRACT-INVALID-DIMENSION
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 A dimension-specific query whose operand has zero dimensions, or whose requested dimension is out of range, returns all x, while the distinct dimension-count functions retain their explicitly defined zero result.
 
@@ -51020,6 +51025,7 @@ A dimension-specific query whose operand has zero dimensions, or whose requested
 
 規定の性質: `mandatory`。
 
+- [test_array_query_types_and_invalid.sv](../tests/ch20/test_array_query_types_and_invalid.sv): 次元を持たない real の変数 r に対する $left(r) と $size(r,1)、範囲外の次元を指定した $left(int,2)、$size(string,2)、$left(logic [7:0],2) が、いずれも32ビット全x になることを確認する。同じ real に対して $dimensions(r)=0、$unpacked_dimensions(r)=0 になることも確認する。 区別: 無効な次元に0 を返す実装では、5つの x 検査がすべて BAD になる。次元数関数まで x にする実装では $dimensions(r) と $unpacked_dimensions(r) が0 にならない。5つの無効な問い合わせが x を返し、次元数関数だけが定義どおり0 を保つことを同時に観測する。
 
 ### SV2023-20.7-EXTRACT-LEFT-BOUND
 
@@ -51058,7 +51064,7 @@ Querying a dynamically sized type identifier directly is an error.
 
 ### SV2023-20.7-EXTRACT-PREDEFINED-INTEGER-DIMENSION
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 Predefined-width integer types act as a single packed [width-1:0] dimension for querying.
 
@@ -51066,10 +51072,11 @@ Predefined-width integer types act as a single packed [width-1:0] dimension for 
 
 規定の性質: `mandatory`。
 
+- [test_array_query_functions.sv](../tests/ch20/test_array_query_functions.sv): int、byte、longint、integer の各変数について、$size が 32、8、64、32、$left が 31、7、63、31、$right が int で 0、$increment が int で 1 になることを確認する。各型が [幅-1:0] の1つの packed 次元として扱われることを、幅と両端の値で示す。 区別: predefined-width の整数を次元なしの型として扱う実装では、$size/$left/$right が 0 や x になり、$dimensions も 0 になる。32/8/64/32 の幅と 31/7/63/31 の左端、0 の右端、+1 の増分は、各型が [n-1:0] の単一 packed 次元であることを示す。
 
 ### SV2023-20.7-EXTRACT-RIGHT-BOUND
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 $right returns the right bound or least significant packed index; an empty dynamic array/queue returns -1.
 
@@ -51077,6 +51084,7 @@ $right returns the right bound or least significant packed index; an empty dynam
 
 規定の性質: `definition`。
 
+- [test_array_query_types_and_invalid.sv](../tests/ch20/test_array_query_types_and_invalid.sv): $right が、Ram の unpacked 次元 [0:9] で9、packed 次元 [16:1] で1（最下位ビット）、int で0 になることを確認する。空の動的配列 dyn と空のキュー q で -1、要素を1つ入れた q で0 になることも確認する。 区別: packed 次元の右端を最上位ビットとする実装では Ram の2次元が16 になる。空の動的配列やキューに0 を返す実装では dyn/q が -1 にならない。固定次元・packed・空の動的・空のキュー・非空のキューの5通りが、右端の定義と空の特別扱いを分けて観測する。
 
 ### SV2023-20.7-EXTRACT-SIZE
 
@@ -51092,7 +51100,7 @@ $size returns the dimension element count, equal to high-low+1 for nonassociativ
 
 ### SV2023-20.7-EXTRACT-UNPACKED-DIMENSIONS
 
-20.7 / normal / テスト未対応
+20.7 / normal / テスト対応あり・実行未確認
 
 $unpacked_dimensions returns the unpacked static/dynamic dimension count of an array, and 0 for other types.
 
@@ -51100,6 +51108,7 @@ $unpacked_dimensions returns the unpacked static/dynamic dimension count of an a
 
 規定の性質: `definition`。
 
+- [test_array_query_functions.sv](../tests/ch20/test_array_query_functions.sv): $unpacked_dimensions が、n で2、packed のみの pv で0、unpacked 配列 ua で1、動的配列 dyn で1、int の iv で0、real の r で0 になることを確認する。 区別: unpacked 次元だけを数えない実装では n が4、pv が2、ua が2、dyn が2 になる。packed 次元を数えてしまう実装では pv や iv が0 にならない。2/0/1/1/0/0 の値が、unpacked の静的・動的次元だけを数え、他の型で0 を返すことを示す。
 
 ### SV2023-20.7.1-EXTRACT-INNER-VARIABLE-DIMENSION
 

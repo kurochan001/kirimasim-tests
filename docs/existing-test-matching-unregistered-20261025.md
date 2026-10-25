@@ -6,9 +6,9 @@
 テストの刺激と期待出力をIEEE 1800-2023の本文に照らし、独立した検証担当の反証を経て、
 合格した対応だけを台帳へ取り込みました。
 
-- 新たに対応登録したテスト：20本（未登録2,514本 → 2,498本）。このうち4本は、刺激が足りず保留にしていた要求のために新しく書いたテストです。
-- 新たに対応した要求：30行（7,341行 → 7,371行）。
-- 暫定設計網羅率：59.590876% → **59.834402%**（7,371/12,319）。
+- 新たに対応登録したテスト：22本（未登録2,514本 → 2,498本）。このうち6本は、刺激が足りず保留にしていた要求のために新しく書いたテストです。
+- 新たに対応した要求：39行（7,341行 → 7,380行）。
+- 暫定設計網羅率：59.590876% → **59.907460%**（7,380/12,319）。
 - 暫定実行確認率：33.566036%（4,135/12,319）のまま。シミュレータは再実行していません。
 - 対応を保留した判断：490本・1,061ペア（`citation_refinement` 33、`compound_requirement` 109、`oracle_issue` 49、`partial_observation` 530）。
 
@@ -60,7 +60,7 @@
 | 6.18 / 8.27 | [test_typedef_declaration_forms](../tests/ch6/test_typedef_declaration_forms.sv) | `CLASS-FORWARD-OMISSION` |
 | A.2.1.3 | [test_typedef_declaration_forms](../tests/ch6/test_typedef_declaration_forms.sv) | `TYPEDEF`、`FORWARD-TYPES` |
 
-上記16本に、次の節の新規4本を加えた20本が今回の登録です。
+上記16本に、次の節の新規6本を加えた22本が今回の登録です。
 主な観測は次のとおりです。
 
 - **36.3 / 5.6.3**：大文字小文字だけが違う2名、名前に`$`を含む名、数字を含む名、
@@ -80,9 +80,9 @@
 - **18.5.10**：`static constraint`の宣言と、constraint_modeが全オブジェクトで共有されること。
   通常制約`c_d`が共有されない対照も同じ出力に含みます。
 
-## 刺激の追記で解消した保留（新規テスト4本）
+## 刺激の追記で解消した保留（新規テスト6本）
 
-既存テストの刺激が要求の全条件に届かず保留にしていた4件について、新しいテストを追加しました。
+既存テストの刺激が要求の全条件に届かず保留にしていた13要求について、新しいテスト6本を追加しました。
 期待値は規格本文から先に導き、Icarus Verilog 13.0（一部は Verilator 5.052 も）で一致を確認しています。
 
 | 要求 | 新規テスト | 追加した刺激 | `:oracle:` |
@@ -91,12 +91,15 @@
 | 5.7.1 `FILL-CONTEXT` | [test_unsized_fill_all_values](../tests/ch5/test_unsized_fill_all_values.sv) | `'0`/`'1`/`'x`/`'z` × 8/33/65ビット、自己決定幅の`$bits('1)` | iverilog |
 | 5.8 `TIME-NUMERIC-FORM` | [test_time_literal_units_and_fraction](../tests/ch5/test_time_literal_units_and_fraction.sv) | `fs/ps/ns/us/ms/s`の6単位と固定小数点`3.5ns` | iverilog + verilator |
 | 11.4.6 `RIGHT-ONLY-WILDCARD` | [test_wildcard_lhs_unknown](../tests/ch11/test_wildcard_lhs_unknown.sv) | LHSのx/z（非ワイルド）、RHSの`?`/x/zがLHSの0/1/x/zに一致、既知不一致による0確定 | iverilog |
+| 20.7 `DIMENSION-NUMBERING`、`PREDEFINED-INTEGER-DIMENSION`、`DIMENSIONS`、`UNPACKED-DIMENSIONS` | [test_array_query_functions](../tests/ch20/test_array_query_functions.sv) | 4次元配列の次元番号、typedef展開、整数型の単一packed次元、packed/unpacked/動的/string/realの次元数 | verilator |
+| 20.7 `ARRAY-QUERY-SYNTAX`、`CONSTANT-ARRAY-QUERY`、`INCREMENT`、`RIGHT-BOUND`、`INVALID-DIMENSION` | [test_array_query_types_and_invalid](../tests/ch20/test_array_query_types_and_invalid.sv) | 型引数、定数式、空キュー/動的配列の-1、無効次元の全x | spec |
 
 - **5.6.1**：Icarus 13.0は1文字名`\#`を特別な名前として誤解析するため、`#`は`\a#b`の内部で刺激しています。他の93文字は単独名で宣言し、文字コードを連結表示して1文字ずつ解決を確認します。
 - **5.7.1**：既存テストは`'0`/`'1`だけだったため、`'x`/`'z`と33/65ビットの文脈、自己決定幅1を追加しました。
 - **5.8**：単位`ns`の整数だけだったため、6単位すべてと固定小数点部を追加しました。
 - **11.4.6**：最初の検証では「RHSのワイルドカードがLHSの既知0と向き合う行がない」と指摘され、`0000 ==? ????`など4行を追加して再検証を受けました。LHSのx/zが非ワイルドであること、RHSのワイルドカードが0/1/x/zのすべてに一致すること、既知不一致が0を確定することを分けて観測します。
-- 4本とも`lint_metadata.py`を通し、`runsim.py`で`:oracle:`の記載どおりの結果を確認しました。Verilatorは2状態なので`'x`/`'z`のテストと、4状態のRHSを定数以外に持つワイルドカード比較は実行できません。
+- **20.7**：配列クエリは、Icarus 13.0が型引数と定数式を受理せず、空キューの`$right`/`$increment`に0を返し、`int dyn[]`を0次元と数えるため、実行可能な4要求と仕様専用の5要求に分けました。実行可能側はVerilator 5.052で一致し、Icarusは動的配列の次元数だけ異なります。
+- 6本とも`lint_metadata.py`を通し、`runsim.py`で`:oracle:`の記載どおりの結果を確認しました。Verilatorは2状態なので`'x`/`'z`のテストと、4状態のRHSを定数以外に持つワイルドカード比較は実行できません。
 
 ## 却下した対応案
 
@@ -141,7 +144,7 @@
 
 ## 残りと次の候補
 
-- テスト総数は6,013本（今回の新規4本を含む）。未登録は2,498本で、このうち候補要求が全くないテストが約380本あり、
+- テスト総数は6,015本（今回の新規6本を含む）。未登録は2,498本で、このうち候補要求が全くないテストが約380本あり、
   要求台帳側の分割・観測可能化が必要です。
 - 未対応要求4,952行のうち、未登録テストが候補になるのは約1,970行です。
   残りは候補テスト自体がなく、新規テストの対象です。

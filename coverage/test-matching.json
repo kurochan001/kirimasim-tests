@@ -2,8 +2,8 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 6013,
-  "linked_test_files": 3515,
+  "test_files": 6015,
+  "linked_test_files": 3517,
   "unlinked_test_files": 2498,
   "chapters": [
     {
@@ -110,8 +110,8 @@
     },
     {
       "chapter": "ch20",
-      "test_files": 196,
-      "linked_test_files": 42,
+      "test_files": 198,
+      "linked_test_files": 44,
       "unlinked_test_files": 154
     },
     {
@@ -67522,6 +67522,86 @@
         {
           "clause": "7.5",
           "descendant_requirement_count": 19
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_array_query_functions.sv",
+      "inputs_sha256": "2e7a2792d870f0362bd74b8e632cdb9dcbe2024dcc39ace0fd3bc711a801bd80",
+      "cited_clauses": [
+        "20.7"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-20.7-EXTRACT-DIMENSION-NUMBERING",
+        "SV2023-20.7-EXTRACT-DIMENSIONS",
+        "SV2023-20.7-EXTRACT-PREDEFINED-INTEGER-DIMENSION",
+        "SV2023-20.7-EXTRACT-UNPACKED-DIMENSIONS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-20.7-EXTRACT-ARRAY-QUERY-SYNTAX",
+        "SV2023-20.7-EXTRACT-ASSOCIATIVE-BOUNDS",
+        "SV2023-20.7-EXTRACT-ASSOCIATIVE-COUNT",
+        "SV2023-20.7-EXTRACT-ASSOCIATIVE-EXTREMA",
+        "SV2023-20.7-EXTRACT-CONSTANT-ARRAY-QUERY",
+        "SV2023-20.7-EXTRACT-DYNAMIC-CURRENT",
+        "SV2023-20.7-EXTRACT-INCREMENT",
+        "SV2023-20.7-EXTRACT-INVALID-DIMENSION",
+        "SV2023-20.7-EXTRACT-LEFT-BOUND",
+        "SV2023-20.7-EXTRACT-LOW-HIGH",
+        "SV2023-20.7-EXTRACT-RIGHT-BOUND",
+        "SV2023-20.7-EXTRACT-SIZE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-20.7-EXTRACT-ASSOCIATIVE-INDEX-TYPE",
+        "SV2023-20.7-EXTRACT-NO-DYNAMIC-TYPE-QUERY"
+      ],
+      "broader_citations": [
+        {
+          "clause": "20.7",
+          "descendant_requirement_count": 1
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_array_query_types_and_invalid.sv",
+      "inputs_sha256": "9ab8feca0ac9e0c12ea4cada2cc1643c64b3205c000e4304e493699e5ec8b160",
+      "cited_clauses": [
+        "20.7"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-20.7-EXTRACT-ARRAY-QUERY-SYNTAX",
+        "SV2023-20.7-EXTRACT-CONSTANT-ARRAY-QUERY",
+        "SV2023-20.7-EXTRACT-INCREMENT",
+        "SV2023-20.7-EXTRACT-INVALID-DIMENSION",
+        "SV2023-20.7-EXTRACT-RIGHT-BOUND"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-20.7-EXTRACT-ASSOCIATIVE-BOUNDS",
+        "SV2023-20.7-EXTRACT-ASSOCIATIVE-COUNT",
+        "SV2023-20.7-EXTRACT-ASSOCIATIVE-EXTREMA",
+        "SV2023-20.7-EXTRACT-DIMENSION-NUMBERING",
+        "SV2023-20.7-EXTRACT-DIMENSIONS",
+        "SV2023-20.7-EXTRACT-DYNAMIC-CURRENT",
+        "SV2023-20.7-EXTRACT-LEFT-BOUND",
+        "SV2023-20.7-EXTRACT-LOW-HIGH",
+        "SV2023-20.7-EXTRACT-PREDEFINED-INTEGER-DIMENSION",
+        "SV2023-20.7-EXTRACT-SIZE",
+        "SV2023-20.7-EXTRACT-UNPACKED-DIMENSIONS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-20.7-EXTRACT-ASSOCIATIVE-INDEX-TYPE",
+        "SV2023-20.7-EXTRACT-NO-DYNAMIC-TYPE-QUERY"
+      ],
+      "broader_citations": [
+        {
+          "clause": "20.7",
+          "descendant_requirement_count": 1
         }
       ]
     },
@@ -404749,7 +404829,7 @@
     "oracle_issue": 49,
     "partial_observation": 530
   },
-  "registry_sha256": "2c6fa6bc2e36a086a296d321dc9ab6761e4fad6e16524dcc160dc34753fd0759",
+  "registry_sha256": "d8477a1922b12606fa3d0582e25fd4af2bed5a4315b3bbbde80c3ac23529368c",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "0b990f94f59f479a27cf458dafca26bc8100764f8482e34c82cd3095610303bd"
 }
