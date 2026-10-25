@@ -3,8 +3,8 @@
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
   "test_files": 6009,
-  "linked_test_files": 3510,
-  "unlinked_test_files": 2499,
+  "linked_test_files": 3511,
+  "unlinked_test_files": 2498,
   "chapters": [
     {
       "chapter": "ch3",
@@ -129,8 +129,8 @@
     {
       "chapter": "ch23",
       "test_files": 134,
-      "linked_test_files": 63,
-      "unlinked_test_files": 71
+      "linked_test_files": 64,
+      "unlinked_test_files": 70
     },
     {
       "chapter": "ch24",
@@ -86721,7 +86721,9 @@
         "6.7.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-23.3.3.7.1-EXTRACT-INTERCONNECT-MERGE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-0",
@@ -86809,7 +86811,6 @@
         "SV2023-23.3.3.7-EXTRACT-DOMINATING-DELAY-STRENGTH",
         "SV2023-23.3.3.7-EXTRACT-EXTERNAL-FALLBACK",
         "SV2023-23.3.3.7-EXTRACT-SELECTED-DELAY-STRENGTH",
-        "SV2023-23.3.3.7.1-EXTRACT-INTERCONNECT-MERGE",
         "SV2023-23.3.3.7.1-EXTRACT-INTERCONNECT-TYPE",
         "SV2023-6.6.8-EXTRACT-INTERCONNECT-ALIAS",
         "SV2023-6.6.8-EXTRACT-INTERCONNECT-HETEROGENEOUS-ARRAY",
@@ -404642,7 +404643,7 @@
     "oracle_issue": 49,
     "partial_observation": 530
   },
-  "registry_sha256": "494f71566578e922c63a26e517c15b1773b50e48bf71f6a7a5effa7e0ee8706f",
+  "registry_sha256": "bb1c8934af47438d3b334ae02182054249cf56c5c9c7e5ff576b881584acfbaa",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "0b990f94f59f479a27cf458dafca26bc8100764f8482e34c82cd3095610303bd"
 }

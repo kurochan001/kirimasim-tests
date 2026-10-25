@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.79%、実行 33.70%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.80%、実行 33.70%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7366/12319 (59.79%)。
+- 登録済み動作に対するテスト設計網羅率: 7367/12319 (59.80%)。
 - 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4152/12319 (33.70%)。
-- 登録済みだがテスト未対応: 4953 動作。
+- 登録済みだがテスト未対応: 4952 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -103,7 +103,7 @@
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 131。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 144。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 297。
-- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 49。
+- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 50。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 9。
 - 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 41。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 37。
@@ -64530,7 +64530,7 @@ The simulated net uses the table-selected type and that net delay; a selected tr
 
 ### SV2023-23.3.3.7.1-EXTRACT-INTERCONNECT-MERGE
 
-23.3.3.7.1 / normal / テスト未対応
+23.3.3.7.1 / normal / テスト対応あり・実行未確認
 
 Any port connection involving interconnect shall merge its connected nets.
 
@@ -64538,6 +64538,7 @@ Any port connection involving interconnect shall merge its connected nets.
 
 規定の性質: `mandatory`。
 
+- [test_interconnect_port_merge.sv](../tests/ch23/test_interconnect_port_merge.sv): interconnect n を inout wire を駆動するモジュール、inout wor を駆動するモジュール、input wire logic で読むモジュールの3つのポート接続に使う。wire 側は 0、wor 側は 1 を駆動し、期待出力 'test_interconnect_port_merge.r sees 1' は、接続されたネットが1本に統合されて wor の解決規則で 1 になったことを比べる。 区別: interconnect を含むポート接続で dominating/dominated ネットを統合しない実装では、wire 駆動と wor 駆動が別のネットに残り、読む側は 0 か x を見る。期待値 1 は、wire の 0 と wor の 1 が同じ1本のネットで解決され、wor が支配したことを示す。
 
 ### SV2023-23.3.3.7.1-EXTRACT-INTERCONNECT-TYPE
 
