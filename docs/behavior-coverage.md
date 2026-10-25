@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.72%、実行 33.66%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.75%、実行 33.69%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7357/12319 (59.72%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4147/12319 (33.66%)。
-- 登録済みだがテスト未対応: 4962 動作。
+- 登録済み動作に対するテスト設計網羅率: 7360/12319 (59.75%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4150/12319 (33.69%)。
+- 登録済みだがテスト未対応: 4959 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -64,7 +64,7 @@
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 917/12319 動作確認、古い入力との対応 65 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 918/12319 動作確認、古い入力との対応 65 件。
 - `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:16.559292+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -75,7 +75,7 @@
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 878/12319 動作確認、古い入力との対応 65 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 881/12319 動作確認、古い入力との対応 65 件。
 
 ## 章・附属書別の調査状態
 
@@ -91,9 +91,9 @@
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 159。
 - 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 76。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 86。
-- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 397。
+- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 398。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 46。
-- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 61。
+- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 62。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 29。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 55。
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 292。
@@ -103,7 +103,7 @@
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 131。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 144。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 297。
-- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 48。
+- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 49。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 9。
 - 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 41。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 37。
@@ -30125,7 +30125,7 @@ An indexing select is one array/bit/part/indexed-part indexing operation whose p
 
 ### SV2023-11.5.3-EXTRACT-LONGEST-STATIC-PREFIX
 
-11.5.3 / normal / テスト未対応
+11.5.3 / normal / 実行確認あり
 
 The longest static prefix is the identifier/field/index select that cannot extend to a larger static field/index select in the expression.
 
@@ -30133,6 +30133,7 @@ The longest static prefix is the identifier/field/index select that cannot exten
 
 規定の性質: `definition`。
 
+- [test_static_prefix_disjoint_field_drivers.sv](../tests/ch11/test_static_prefix_disjoint_field_drivers.sv): packed struct の value.high を assign で連続駆動し、同じ struct の value.low を initial の手続き代入で書く。期待出力 first=a3（high=a, low=3）と second=5c（high=5, low=c）は、value.high と value.low がそれぞれ独立した最長静的プレフィックスとして扱われ、片方の連続駆動が他方の手続き書込みを禁じないことを比べる。 区別: 最長静的プレフィックスを struct 全体 value と誤る実装では value.high の連続駆動と value.low の手続き書込みが同じ変数への競合になり、コンパイルエラーまたは second の low が c にならない。first の a3 と second の 5c が両方出ることは、フィールド選択 value.high/value.low がそれぞれ最長静的プレフィックスであり、互いに素であることを示す。
 
 ### SV2023-11.5.3-EXTRACT-STATIC-BASE-PREFIX
 
@@ -33868,7 +33869,7 @@ An unqualified directly recursive nonvoid class function call cannot omit its pa
 
 ### SV2023-13.6-EXTRACT-DPI-SUBROUTINES
 
-13.6 / normal / テスト未対応
+13.6 / normal / 実行確認あり
 
 DPI imported foreign subroutines are called like SV subroutines, and SV tasks/functions may be exported to foreign code under Chapter 35 rules.
 
@@ -33876,6 +33877,7 @@ DPI imported foreign subroutines are called like SV subroutines, and SV tasks/fu
 
 規定の性質: `permission`。
 
+- [test_dpi_import_calls_exported_value.sv](../tests/ch13/test_dpi_import_calls_exported_value.sv): import "DPI-C" context function int c_fetch() を通常の SystemVerilog 関数のように呼び、C 側の c_fetch が export "DPI-C" function sv_value を呼び出して 23 を取得し 1 を足して返す。期待出力 result=24 と calls=1 は、インポートされた外来関数の呼び出しと、エクスポートされた SV 関数の外来コードからの呼び出しの往復を比べる。 区別: インポート関数を SV 関数と同じ呼び出し規則で扱わない実装では c_fetch() の戻り値が 24 にならない。SV 関数のエクスポートを解決しない実装では C の sv_value 呼び出しが失敗するか calls が 1 にならず、result も変わる。result=24 と calls=1 の両方が、双方向の DPI 呼び出しが実際に機能したことを示す。
 
 ### SV2023-13.7-EXTRACT-SUBROUTINE-FORWARD-LOOKUP
 
@@ -62484,7 +62486,7 @@ A package import in an ANSI module/interface/program header requires a following
 
 ### SV2023-23.2.1-EXTRACT-HEADER-STYLES
 
-23.2.1 / normal / テスト未対応
+23.2.1 / normal / 実行確認あり
 
 Non-ANSI headers end after their port-list semicolon and use local body declarations for port characteristics; ANSI headers include those declarations and optional parameter ports before their terminating semicolon.
 
@@ -62492,6 +62494,7 @@ Non-ANSI headers end after their port-list semicolon and use local body declarat
 
 規定の性質: `mandatory`。
 
+- [test_module_header_styles.sv](../tests/ch23/test_module_header_styles.sv): 非ANSIヘッダの module test_module_header_styles_old(a, y); でポートリストのセミコロン後に parameter MSB と input/output 宣言をモジュール本体内に置き、ANSIヘッダの module automatic test_module_header_styles_dec import ... #(int CODE_BITS = 2, localparam int OUT_BITS = 1 << CODE_BITS) (input [CODE_BITS-1:0] code, ...) でポート宣言とパラメータポートをヘッダ内に置く。期待出力 y6=111010（MSB=5 の非ANSI）と onehot=01000000 (8 bits)（CODE_BITS=3 の ANSI）が両スタイルの宣言を反映する。 区別: 非ANSIスタイルでヘッダをポートリストのセミコロンで終わらせず本体宣言をヘッダに含める実装、またはANSIスタイルでポート宣言・パラメータポートをヘッダ外に置く実装は、どちらかのモジュールがコンパイルできず期待出力の行が欠ける。y6 の6ビット値と onehot の8ビット幅は、各スタイルで宣言した方向・サイズ・パラメータが実際に適用されたことを示す。
 
 ### SV2023-23.2.1-EXTRACT-MODULE-GRAMMAR
 

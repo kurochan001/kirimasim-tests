@@ -3,8 +3,8 @@
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
   "test_files": 6009,
-  "linked_test_files": 3504,
-  "unlinked_test_files": 2505,
+  "linked_test_files": 3507,
+  "unlinked_test_files": 2502,
   "chapters": [
     {
       "chapter": "ch3",
@@ -57,8 +57,8 @@
     {
       "chapter": "ch11",
       "test_files": 807,
-      "linked_test_files": 335,
-      "unlinked_test_files": 472
+      "linked_test_files": 336,
+      "unlinked_test_files": 471
     },
     {
       "chapter": "ch12",
@@ -69,8 +69,8 @@
     {
       "chapter": "ch13",
       "test_files": 161,
-      "linked_test_files": 74,
-      "unlinked_test_files": 87
+      "linked_test_files": 75,
+      "unlinked_test_files": 86
     },
     {
       "chapter": "ch14",
@@ -129,8 +129,8 @@
     {
       "chapter": "ch23",
       "test_files": 134,
-      "linked_test_files": 62,
-      "unlinked_test_files": 72
+      "linked_test_files": 63,
+      "unlinked_test_files": 71
     },
     {
       "chapter": "ch24",
@@ -24899,12 +24899,13 @@
         "6.5"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-11.5.3-EXTRACT-LONGEST-STATIC-PREFIX"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-11.5.3-EXTRACT-FIELD-PREFIX",
         "SV2023-11.5.3-EXTRACT-INDEX-PREFIX",
-        "SV2023-11.5.3-EXTRACT-LONGEST-STATIC-PREFIX",
         "SV2023-11.5.3-EXTRACT-STATIC-BASE-PREFIX",
         "SV2023-11.5.3-EXTRACT-STATIC-FIELD-PREFIX",
         "SV2023-11.5.3-EXTRACT-STATIC-INDEX-PREFIX",
@@ -34875,10 +34876,11 @@
         "35.7"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-13.6-EXTRACT-DPI-SUBROUTINES"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-13.6-EXTRACT-DPI-SUBROUTINES",
         "SV2023-35.5.1.3-EXTRACT-ATTRIBUTES",
         "SV2023-35.5.1.3-EXTRACT-CONTEXT-REQUIRED",
         "SV2023-35.5.1.3-EXTRACT-DEFAULT-ATTRIBUTES",
@@ -87005,12 +87007,13 @@
         "23.10.2.2"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-23.2.1-EXTRACT-HEADER-STYLES"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-23.10.2.2-EXTRACT-DIFFERENT-INSTANCE-PARAMETER-STYLES",
         "SV2023-23.10.2.2-EXTRACT-NAMED-PARAMETERS",
-        "SV2023-23.2.1-EXTRACT-HEADER-STYLES",
         "SV2023-23.2.1-EXTRACT-MODULE-GRAMMAR",
         "SV2023-23.2.1-EXTRACT-MODULE-HEADER-FIELDS",
         "SV2023-23.2.1-EXTRACT-PARAMETER-PORT-GRAMMAR",
@@ -404636,7 +404639,7 @@
     "oracle_issue": 49,
     "partial_observation": 530
   },
-  "registry_sha256": "819034e9957f0146440c16e0eb4a63135fa090cfd8ca983dcd6a30f5b59c6b81",
+  "registry_sha256": "1df4eed7303e4fe48aff8eca0a6c9b09f09a83241df8372ef4707e5305591fe3",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "0b990f94f59f479a27cf458dafca26bc8100764f8482e34c82cd3095610303bd"
 }

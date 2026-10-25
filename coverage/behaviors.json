@@ -108899,7 +108899,29 @@
       "acceptance": "The longest static prefix is the identifier/field/index select that cannot extend to a larger static field/index select in the expression.",
       "source_note": "IEEE 1800-2023 11.5.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_static_prefix_disjoint_field_drivers.sv",
+          "observation": "packed struct の value.high を assign で連続駆動し、同じ struct の value.low を initial の手続き代入で書く。期待出力 first=a3（high=a, low=3）と second=5c（high=5, low=c）は、value.high と value.low がそれぞれ独立した最長静的プレフィックスとして扱われ、片方の連続駆動が他方の手続き書込みを禁じないことを比べる。 区別: 最長静的プレフィックスを struct 全体 value と誤る実装では value.high の連続駆動と value.low の手続き書込みが同じ変数への競合になり、コンパイルエラーまたは second の low が c にならない。first の a3 と second の 5c が両方出ることは、フィールド選択 value.high/value.low がそれぞれ最長静的プレフィックスであり、互いに素であることを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "50da2f7b12636bb03d3501b447ccf30cd9eefce2c2a048240412752b70e42424",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_static_prefix_disjoint_field_drivers.sv",
+              "contains": "  assign value.high = drive;"
+            },
+            {
+              "file": "tests/ch11/test_static_prefix_disjoint_field_drivers.sv",
+              "contains": "    value.low = 4'h3;"
+            },
+            {
+              "file": "tests/ch11/test_static_prefix_disjoint_field_drivers.expected",
+              "contains": "first=a3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "11.5.3",
@@ -121294,7 +121316,29 @@
       "acceptance": "DPI imported foreign subroutines are called like SV subroutines, and SV tasks/functions may be exported to foreign code under Chapter 35 rules.",
       "source_note": "IEEE 1800-2023 13.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_dpi_import_calls_exported_value.sv",
+          "observation": "import \"DPI-C\" context function int c_fetch() を通常の SystemVerilog 関数のように呼び、C 側の c_fetch が export \"DPI-C\" function sv_value を呼び出して 23 を取得し 1 を足して返す。期待出力 result=24 と calls=1 は、インポートされた外来関数の呼び出しと、エクスポートされた SV 関数の外来コードからの呼び出しの往復を比べる。 区別: インポート関数を SV 関数と同じ呼び出し規則で扱わない実装では c_fetch() の戻り値が 24 にならない。SV 関数のエクスポートを解決しない実装では C の sv_value 呼び出しが失敗するか calls が 1 にならず、result も変わる。result=24 と calls=1 の両方が、双方向の DPI 呼び出しが実際に機能したことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ca3684c1404dda0f119441e18dc2ee4d4637f24fdf497daeba56267bb63df4aa",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_dpi_import_calls_exported_value.sv",
+              "contains": "  import \"DPI-C\" context function int c_fetch();"
+            },
+            {
+              "file": "tests/ch13/test_dpi_import_calls_exported_value.sv",
+              "contains": "  function int sv_value(); calls++; return 23; endfunction"
+            },
+            {
+              "file": "tests/ch13/test_dpi_import_calls_exported_value.expected",
+              "contains": "result=24"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.6",
@@ -199108,7 +199152,29 @@
       "acceptance": "Non-ANSI headers end after their port-list semicolon and use local body declarations for port characteristics; ANSI headers include those declarations and optional parameter ports before their terminating semicolon.",
       "source_note": "IEEE 1800-2023 23.2.1; complete own-body source review, blocks B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_module_header_styles.sv",
+          "observation": "非ANSIヘッダの module test_module_header_styles_old(a, y); でポートリストのセミコロン後に parameter MSB と input/output 宣言をモジュール本体内に置き、ANSIヘッダの module automatic test_module_header_styles_dec import ... #(int CODE_BITS = 2, localparam int OUT_BITS = 1 << CODE_BITS) (input [CODE_BITS-1:0] code, ...) でポート宣言とパラメータポートをヘッダ内に置く。期待出力 y6=111010（MSB=5 の非ANSI）と onehot=01000000 (8 bits)（CODE_BITS=3 の ANSI）が両スタイルの宣言を反映する。 区別: 非ANSIスタイルでヘッダをポートリストのセミコロンで終わらせず本体宣言をヘッダに含める実装、またはANSIスタイルでポート宣言・パラメータポートをヘッダ外に置く実装は、どちらかのモジュールがコンパイルできず期待出力の行が欠ける。y6 の6ビット値と onehot の8ビット幅は、各スタイルで宣言した方向・サイズ・パラメータが実際に適用されたことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d7ec7522805e97785bbe24cd146fe4fcb2150bbd069aff3d16aa3d28f2875618",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_module_header_styles.sv",
+              "contains": "module test_module_header_styles_old(a, y);"
+            },
+            {
+              "file": "tests/ch23/test_module_header_styles.sv",
+              "contains": "module automatic test_module_header_styles_dec"
+            },
+            {
+              "file": "tests/ch23/test_module_header_styles.expected",
+              "contains": "y6=111010 onehot=01000000 (8 bits) depth=12"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.2.1",
