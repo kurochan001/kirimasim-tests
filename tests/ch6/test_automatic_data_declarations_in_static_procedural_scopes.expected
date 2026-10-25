@@ -1,0 +1,12 @@
+task: s=5 a=5
+task: s=10 a=5
+task: s=15 a=5
+function: 101101
+function: 101102
+function: 101103
+block: ba=1
+block: ba=3
+block: ba=5
+fork: k=0 at 1
+fork: k=1 at 2
+fork: k=2 at 3

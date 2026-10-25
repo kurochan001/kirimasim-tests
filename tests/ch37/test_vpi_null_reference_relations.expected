@@ -1,0 +1,5 @@
+vpi_handle(vpiSysTfCall, NULL): $vt_root on line 45, argument 11, user systf $vt_root
+vpi_iterate(vpiModule, NULL) (2): test_vpi_null_reference_relations test_vpi_null_reference_relations_other
+vpi_iterate(vpiUserSystf, NULL), $vt_ names (2): $vt_root $vt_seven
+vpi_handle(vpiSysTfCall, NULL): $vt_root on line 46, argument 22, user systf $vt_root
+$vt_seven returns 7

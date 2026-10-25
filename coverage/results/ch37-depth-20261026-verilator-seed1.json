@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch37/test_vpi_array_var": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_array_var.sv:34:8: Unsupported or unknown PLI call: '$vt_array'",
+   "inputs_sha256": "72e571e80b8d2c8985b60abbaaad72d77a001c8814299db4d4e08148ef98bab0"
+  }
+ },
+ "generated_at": "2026-10-25T15:43:02.822987+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

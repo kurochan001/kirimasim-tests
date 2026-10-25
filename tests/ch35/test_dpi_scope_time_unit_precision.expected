@@ -1,0 +1,15 @@
+top: unit -9 precision -12; null scope: unit -12 precision -12
+top: scaled real time in its unit 1234.567
+top: null scope simulation time high 0 low 1234567
+top: null scope scaled real time 1234567.0
+top: every call returned 0: 1
+b: unit -6 precision -8; null scope: unit -12 precision -12
+b: scaled real time in its unit 2.500
+b: null scope simulation time high 0 low 2500000
+b: null scope scaled real time 2500000.0
+b: every call returned 0: 1
+b: unit -6 precision -8; null scope: unit -12 precision -12
+b: scaled real time in its unit 5000.000
+b: null scope simulation time high 1 low 705032704
+b: null scope scaled real time 5000000000.0
+b: every call returned 0: 1

@@ -1,0 +1,6 @@
+bits: sb=8 sh=16 in=32 ub=3 lg=2
+sb: SN=-2 SZ=0 SP=1 e_sb<0=1
+sh: H2=1001
+in: I1=1 IN=-5 e_in<0=1
+ub: U6=6 U7=7 e_ub<0=0
+lg: L1=01 L3=11

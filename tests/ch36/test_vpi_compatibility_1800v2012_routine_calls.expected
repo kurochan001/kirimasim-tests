@@ -1,0 +1,28 @@
+vpi_compare_objects calls vpi_compare_objects_1800v2012
+vpi_control calls vpi_control_1800v2012
+vpi_get calls vpi_get_1800v2012
+vpi_get_str calls vpi_get_str_1800v2012
+vpi_get_value calls vpi_get_value_1800v2012
+vpi_handle calls vpi_handle_1800v2012
+vpi_handle_by_index calls vpi_handle_by_index_1800v2012
+vpi_handle_by_multi_index calls vpi_handle_by_multi_index_1800v2012
+vpi_handle_by_name calls vpi_handle_by_name_1800v2012
+vpi_handle_multi calls vpi_handle_multi_1800v2012
+vpi_iterate calls vpi_iterate_1800v2012
+vpi_put_value calls vpi_put_value_1800v2012
+vpi_register_cb calls vpi_register_cb_1800v2012
+vpi_scan calls vpi_scan_1800v2012
+vpi_handle_by_name and vpi_get_str(vpiFullName): test_vpi_compatibility_1800v2012_routine_calls.r
+vpi_get(vpiSize): 8
+vpi_get_value: 18
+vpi_put_value of 52, then vpi_get_value: 52
+vpi_handle_by_index(r, 2): 1
+vpi_handle_by_multi_index(arr, {1, 2}): 9
+vpi_handle(vpiModule, r): test_vpi_compatibility_1800v2012_routine_calls
+vpi_iterate(vpiNet) and vpi_scan: w (1)
+vpi_compare_objects: r and r 1, r and w 0
+vpi_handle_multi(vpiInterModPath): vpiInterModPath
+vpi_register_cb: cbAfterDelay registered, cbEndOfSimulation registered
+at 2: r = 34
+callback at 3: r = 52, vpi_control(vpiFinish, 0)
+end of simulation callback

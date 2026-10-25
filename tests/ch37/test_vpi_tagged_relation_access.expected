@@ -1,0 +1,5 @@
+w: vpiLeftRange 7, vpiRightRange 4
+v: vpiLeftRange 0, vpiRightRange 5
+w[5] = 1: vpiParent test_vpi_tagged_relation_access.w
+vpiArgument of the call (3): 3 9 10
+vpiInternalScope of outer (2): first second

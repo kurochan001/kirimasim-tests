@@ -1,0 +1,13 @@
+a: whole array NULL and 0, or in C layout with its total size: 1
+a: every element has an address holding its value: 1
+m: whole array NULL and 0, or in C layout with its total size: 1
+m: every element has an address holding its value: 1
+r: whole array NULL and 0, or in C layout with its total size: 1
+r: every element has an address holding its value: 1
+b: whole array NULL and 0, or in C layout with its total size: 1
+b: every element has an address holding its value: 1
+p: each element address NULL or the representation of an individual value: 1
+q: each element address NULL or the representation of an individual value: 1
+s: each element address NULL or the representation of an individual value: 1
+l: each element address NULL or the representation of an individual value: 1
+w: each element address NULL or the representation of an individual value: 1

@@ -1,0 +1,13 @@
+svLogicVecVal is s_vpi_vecval: 1
+l40 chunk 0: aval 0000000f bval 000000c5
+l40 chunk 1: aval 000000af bval 00000030
+ps chunk 0: aval 00000a5a bval 00000900
+pu chunk 0: aval 00000036 bval 000000c0
+integer chunk 0: aval 00001235 bval f0000001
+time chunk 0: aval 00000002 bval 00000000
+time chunk 1: aval 00000101 bval 80000100
+la chunk 0: aval 00000c39 bval 00000605
+b36 chunks 87654321 9, l36 aval 87654321 9 bval 00000000 0
+2-state chunks equal the aval chunks: 1
+svGetBitselLogic l40 bits 39 37 36: 1 3 2, svGetBitselBit b36 bit 35: 1
+ol 00zz11xx

@@ -1,0 +1,6 @@
+dv=1 c=1 rnmos=Pu1 We1 Pu1 rpmos=HiZ HiZ
+dv=1 c=0 rnmos=HiZ HiZ HiZ rpmos=Pu1 We1
+dv=0 c=0 rnmos=HiZ HiZ HiZ rpmos=Pu0 We0
+dv=0 nc=0 pc=1 rcmos=HiZ HiZ HiZ
+dv=0 nc=1 pc=1 rcmos=Pu0 We0 Pu1
+dv=1 nc=0 pc=0 rcmos=Pu1 We1 Pu1

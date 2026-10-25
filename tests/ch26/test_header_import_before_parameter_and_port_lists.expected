@@ -1,0 +1,3 @@
+module: q1=5a5 q2=0f0 bits=12 s1=6
+interface: seen=5a5 bits=12
+program: N=24

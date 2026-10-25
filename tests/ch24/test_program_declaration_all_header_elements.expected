@@ -1,0 +1,3 @@
+top sum=19 y=21 done=11
+ansi sum=19 width=8 bumps=1,1,1
+nonansi y=21 width=8 bumps=1,2,3

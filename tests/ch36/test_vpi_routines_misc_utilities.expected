@@ -1,0 +1,6 @@
+vpi_get_vlog_info returned 1: argv[0] given 1, +vt_mode=fast among the options 1, product and version given 1
+vpi_compare_objects: r and r again 1, r and s 0, r and r from an iteration 1
+vpi_release_handle: of an iterator not scanned to its end 1, of a handle of r 1; r found again: 5
+design at 10: r=5 s=6
+design at 20: r=5 s=6
+end of simulation at 25, vpi_control(vpiFinish, 0) returned 1

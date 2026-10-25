@@ -1,0 +1,5 @@
+ids: c1=1 c2=2 c3=1 c4=3 c5=3
+new objects: 1 1 1 1 1
+constructor calls: 3
+shared Node: 1 1
+a.tag=orig c1.tag=copy arr[1].n.v=99

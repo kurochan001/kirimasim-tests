@@ -1,0 +1,7 @@
+deferred pass at 0
+deferred fail at 1
+conc fail at 2
+deferred pass at 4
+conc pass at 6
+top pd=42
+program a=21 doubled=42

@@ -1,0 +1,5 @@
+x: b -4 i 100000 l -7000000000 r 3.75 s -1234
+ra in C order: 0.5 1.5 2.5, ba in C order: 1 2 3 4
+y: b 9 i -5 l 1099511627776 r -0.50 s 321
+a.n 3, a.v in C order: 11/00 22/00 33/00, a.w in C order: 0123456789 abcdef0123
+sv in C order: 0a 0b 0c, sw in C order: ff00000001 80ffffffff

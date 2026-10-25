@@ -1,0 +1,9 @@
+void: get=42
+byte: -120
+shortint: -30000
+int: 300000
+longint: 3298534883328
+real: 3.125 shortreal: 1.50
+chandle: null=0 deref=77
+string: first second
+bit: 1 0 logic: 1 0

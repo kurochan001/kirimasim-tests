@@ -1,0 +1,10 @@
+vpiModule from the top (2): u1 u2
+vpiNet from the top (2): in mid
+vpiNet from u1 (3): a inv y
+vpiNamedEvent from the top (2): start stop
+vpiNamedEvent from u2 (1): done
+vpiModule of mid: test_vpi_untagged_relation_access
+vpiModule of u1.inv: test_vpi_untagged_relation_access.u1
+vpiModule of u2.a: test_vpi_untagged_relation_access.u2
+vpiModule of stop: test_vpi_untagged_relation_access
+vpiModule of u2.done: test_vpi_untagged_relation_access.u2

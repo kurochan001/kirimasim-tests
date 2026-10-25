@@ -1,0 +1,8 @@
+vpi_mcd_open: one channel each 1, not channel 1 or the MSB 1, two different channels 1
+vpi_mcd_name of the first: test_vpi_routines_mcd_files_a.txt
+vpi_mcd_printf to the first returned 13, vpi_mcd_vprintf to the second returned 19
+vpi_mcd_flush returned 0, vpi_mcd_close of both returned 0
+test_vpi_routines_mcd_files_a.txt: to both: 3 a1
+test_vpi_routines_mcd_files_a.txt: only to a: 5
+test_vpi_routines_mcd_files_b.txt: to both: 3 a1
+test_vpi_routines_mcd_files_b.txt: only to b: 42 beef

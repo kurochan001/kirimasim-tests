@@ -1,0 +1,5 @@
+t=1 np_d=9 np_u=x nm=7 nn=6 nal=16 npk=9
+t=11 ns_a=5 ns_b=10
+t=14 ns_a=8 ns_b=10
+t=21 ns_b=10 nm=9 nn=7 nal=19 npk=12
+t=24 ns_b=13

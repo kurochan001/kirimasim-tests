@@ -1,0 +1,33 @@
+comb abc=00x y=0
+comb abc=010 y=1
+comb abc=0z1 y=x
+comb abc=100 y=1
+comb abc=110 y=1
+comb abc=111 y=0
+comb abc=1x1 y=0
+comb abc=10x y=x
+comb abc=x10 y=x
+ff initial q=1
+ff r d=0 q=0
+ff n, * q=0
+ff R d=1 q=1
+ff r d=0 q=0
+ff e=0 q=1
+ff r e=0 q=1
+ff e rises q=1
+ff r d=0 q=0
+pn start q=x
+pn (0x) d=1 q=1
+pn (10) on d q=1
+pn (x1) d=0 q=0
+pn (1x) q=0
+pn (x0) q=0
+pn (01) on d q=0
+pn (01) d=1 q=1
+tog initial q=0
+tog r q=1
+tog f q=1
+tog r q=0
+tog (0x) q=x
+tog (x0) q=x
+tog r from x q=1

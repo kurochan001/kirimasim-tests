@@ -1,0 +1,8 @@
+vpi_get(vpiSize): vec 6, one 1, bus 4
+vpi_get(vpiVector): vec 1, one 0, bus 1
+vpi_get(vpiScalar): vec 0, one 1, bus 0
+vpi_get_str(vpiName): vec vec, bus bus
+vpi_get_str(vpiFullName): test_vpi_property_kinds_access_routines.bus
+vpi_get_value(vpiBinStrVal) of vec: 101100
+vpi_get_value(vpiBinStrVal) of bus: 1100
+vpi_get_delays of the module path: rise 3, fall 5

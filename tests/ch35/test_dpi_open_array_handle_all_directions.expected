@@ -1,0 +1,10 @@
+svOpenArrayHandle is void *: 1
+input i: sum 18, svGetArrayPtr NULL or the same elements 1
+output o: 5 elements from 4 to 0
+n by value 41
+o 28 21 14 7 0
+io 1001 1002, ol a5 3c, ib 010
+on 42, ion f0
+c_fill: room for 2 elements
+c_fill: room for 5 elements
+f2 101 102, f5 109 108 107 106 105

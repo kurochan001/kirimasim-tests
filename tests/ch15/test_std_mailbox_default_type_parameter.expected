@@ -1,0 +1,7 @@
+new(): 100 of 100 try_put stored, num 100
+int string real byte put, num 4
+int message: try_get(string)<0 1, try_peek(real)<0 1, num 4
+int message: try_get(int)>0 1, value 5, num 3
+string message: try_get(int)<0 1, try_get(string)>0 1, value five
+real message: try_peek(byte)<0 1, try_get(real)>0 1, value 5.5
+byte message: try_get(int)<0 1, try_get(byte)>0 1, value -5, num 0

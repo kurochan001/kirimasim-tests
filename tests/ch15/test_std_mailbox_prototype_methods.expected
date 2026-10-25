@@ -1,0 +1,11 @@
+new(): 100 of 100 try_put stored, num 100
+new(2): try_put>0 1 1 0, num 2
+5: put returned, num 2
+6: try_get>0 1 got 1, num 2
+10: get returned -7, num 0
+11: peek returned 70, num 1
+12: empty: try_get 0, try_peek 0, variable 55
+try_peek>0 1 copied 70, num 1
+FIFO: 2 4, then try_get 0, num 0
+fn_ops: 15
+result types: num int, try_put int, try_get int, try_peek int

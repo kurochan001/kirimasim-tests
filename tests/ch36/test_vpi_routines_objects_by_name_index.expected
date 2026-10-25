@@ -1,0 +1,10 @@
+vpi_handle_by_name of the full name: test_vpi_routines_objects_by_name_index.u1.v = 10
+vpi_handle_by_name of v in u1: test_vpi_routines_objects_by_name_index.u1.v = 10
+vpi_handle_by_index of vec, 2: value 1
+vpi_handle_by_index of vec, 3: value 0
+vpi_handle_by_index of arr, 1: value 9
+vpi_handle_by_multi_index of grid, 1 2: value 5
+vpi_handle_by_multi_index of grid, 0 1: value 1
+vpi_handle_by_multi_index of grid, 1 2 2: value 1
+vpi_handle_by_multi_index of grid, 1 2 1: value 0
+design: grid[1][2]=5

@@ -1,0 +1,9 @@
+bits: v12=12 vs=6 vm=8 n12=12
+minus one: v12=4095 vs=-1 vm=-1
+decl: v12~logic[11:0]=1 vs~bit signed[5:0]=1 vs~logic signed[5:0]=0
+net: n12=fff
+cast: -1 bcd 44
+== 1 0
+!= 0 1
+=== 1 !== 0
+v12 matches w12: 1 EQ=1

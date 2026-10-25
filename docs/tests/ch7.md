@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 456 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 459 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -178,6 +178,7 @@
 | [`test_illegal_dynamic_new_nonblocking_assignment`](../../tests/ch7/test_illegal_dynamic_new_nonblocking_assignment.sv) | the dynamic array new constructor can be the right-hand side of a declaration assignment or a blocking assignment, but not of a nonblocking assignment | 7.5.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_dynamic_new_to_fixed_array`](../../tests/ch7/test_illegal_dynamic_new_to_fixed_array.sv) | the dynamic array new constructor can be assigned only to a dynamic array, not to a fixed-size array | 7.5.1 | Verilator 5.052 | illegal design |
 | [`test_illegal_dynamic_new_to_slice`](../../tests/ch7/test_illegal_dynamic_new_to_slice.sv) | the target of a dynamic array new constructor is a dynamic array named without a range select; a slice of dynamic arrays is not allowed | 7.5.1 | Verilator 5.052 | illegal design |
+| [`test_syntax_dynamic_array_new_assignment`](../../tests/ch7/test_syntax_dynamic_array_new_assignment.sv) | blocking assignments of new[size] and new[size](init) to a dynamic array variable and to elements of arrays of dynamic arrays set the size and the elements | 7.5.1 A.6.2 | Verilator 5.052 |  |
 | [`test_dynamic_array_size_edge`](../../tests/ch7/test_dynamic_array_size_edge.sv) | Test dynamic array size() edge cases | 7.5.2 | Verilator 5.052 |  |
 | [`test_dyn_array_delete`](../../tests/ch7/test_dyn_array_delete.sv) | Test dynamic array delete | 7.5.3 | Icarus Verilog 13.0 |  |
 | [`test_array_assign_2`](../../tests/ch7/test_array_assign_2.sv) | Test array assignments | 7.6 7.5 10.9.1 | Verilator 5.052 |  |
@@ -322,6 +323,7 @@
 | [`test_queue_size`](../../tests/ch7/test_queue_size.sv) | Test queue size | 7.10 7.10.2 | Icarus Verilog 13.0 |  |
 | [`test_sv_queue`](../../tests/ch7/test_sv_queue.sv) | Queues: push, pop, insert, delete and the $ index | 7.10 7.10.2 | Icarus Verilog 13.0 |  |
 | [`test_value_queue_ops`](../../tests/ch7/test_value_queue_ops.sv) | Test for queue value operations | 7.10 7.10.2 | Verilator 5.052 |  |
+| [`test_queue_dollar_primary_in_selects`](../../tests/ch7/test_queue_dollar_primary_in_selects.sv) | The $ primary in a select of a queue stands for the last index of that queue, in element selects for reading and writing, in expressions such as $-1, in slices and in a select nested in the index of another queue | 7.10.1 7.10 A.8.4 A.10 | Verilator 5.052 |  |
 | [`test_queue_invalid_index_read_defaults`](../../tests/ch7/test_queue_invalid_index_read_defaults.sv) | reading a queue with an index below 0, above $, or with an x or z bit returns the nonexistent-entry value of its element type: 0 for int, x for logic, the empty string for string | 7.10.1 7.4.5 | Icarus Verilog 13.0 | x/z |
 | [`test_queue_invalid_index_write_ignored_warning`](../../tests/ch7/test_queue_invalid_index_write_ignored_warning.sv) | a write to a queue with an index below 0, above $+1, or with an x or z bit is ignored with a run-time warning, while a write to [$+1] appends an element | 7.10.1 | Icarus Verilog 13.0 | exit code, x/z |
 | [`test_queue_slice_bounds_clip_and_empty`](../../tests/ch7/test_queue_slice_bounds_clip_and_empty.sv) | a queue slice Q[a:b] takes variable bounds, clips a below 0 to 0 and b above $ to $, is empty when a > b or a bound has an x or z bit, and Q[n:n] holds just Q[n] or is empty when n is out of range | 7.10.1 | standard only | x/z |
@@ -354,6 +356,7 @@
 | [`test_queue_refs_outdated_by_bounded_push_and_assignment`](../../tests/ch7/test_queue_refs_outdated_by_bounded_push_and_assignment.sv) | a queue assignment that gives the same value as push_back outdates every reference to the old elements while push_back keeps them, and push_front on a full bounded queue outdates only the reference to the dropped last element | 7.10.4 7.10.3 13.5.2 | Verilator 5.052 |  |
 | [`test_bounded_queue_assign_discards_beyond_bound`](../../tests/ch7/test_bounded_queue_assign_discards_beyond_bound.sv) | assigning a longer queue value to a bounded queue keeps the elements up to the bound and drops, with a warning, those beyond it | 7.10.5 7.10 7.10.4 | standard only | exit code |
 | [`test_bounded_queue_methods_discard_beyond_bound`](../../tests/ch7/test_bounded_queue_methods_discard_beyond_bound.sv) | push_back, push_front, insert and a write to [$+1] on a full bounded queue act as on an unbounded queue and then drop, with a warning, the element above the bound | 7.10.5 7.10 | Icarus Verilog 13.0 | exit code |
+| [`test_array_and_class_method_call_forms`](../../tests/ch7/test_array_and_class_method_call_forms.sv) | Method calls on a primary or on this or super, with attribute instances after the method name, and array manipulation calls named by an identifier or by unique, and, or and xor, with and without parentheses, an iterator argument and a with clause, and with a select after the call | 7.12 7.12.1 7.12.3 8.11 8.15 A.8.2 | Verilator 5.052 |  |
 | [`test_array_method_corner`](../../tests/ch7/test_array_method_corner.sv) | Tests find, sort, sum, min, max, unique methods | 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 |  |
 | [`test_array_method_index_argument`](../../tests/ch7/test_array_method_index_argument.sv) | The second argument of an array method names the index method of its iterator, also where an element has a member named index | 7.12 7.12.4 7.12.1 | standard only |  |
 | [`test_array_method_iterator_index_names_and_selects`](../../tests/ch7/test_array_method_iterator_index_names_and_selects.sv) | array method calls use item and index as default names, an iterator argument names the element only inside the with expression, an index argument renames the index method, index() returns int or the associative index type, and selects and methods on the result follow the with clause or the call | 7.12 7.12.1 7.12.4 | standard only |  |

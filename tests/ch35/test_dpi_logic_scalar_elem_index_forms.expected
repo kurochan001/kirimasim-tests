@@ -1,0 +1,12 @@
+numbered get l1: 1zx0
+variable get l1: 1zx0
+numbered get l2: x01 z1x
+variable get l2: x01 z1x
+numbered get l3: 1x z0 xz 01
+variable get l3: 1x z0 xz 01
+after numbered put l1: zx01
+after numbered put l2: 01z xz0
+after numbered put l3: z0 x1 0x 1z
+final l1: x10z
+final l2: z0x 1xz
+final l3: 0z 1x x0 z1

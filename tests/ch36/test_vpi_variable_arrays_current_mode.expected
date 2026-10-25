@@ -1,0 +1,11 @@
+vpiReg is vpiLogicVar: 1, vpiRegArray is vpiArrayVar: 1
+types: mem vpiRegArray, ia vpiRegArray, ta vpiRegArray, ra vpiRegArray, lv vpiReg, iv vpiIntegerVar, tv vpiTimeVar, rv vpiRealVar
+vpiMemory of the module: mem among them 1, types vpiRegArray
+vpiMemoryWord of mem: 4 objects, types vpiReg
+vpiVariables of the module: ia:vpiRegArray iv:vpiIntegerVar lv:vpiReg mem:vpiRegArray ra:vpiRegArray rv:vpiRealVar ta:vpiRegArray tv:vpiTimeVar
+vpiReg of mem: 4 objects, types vpiReg
+vpiReg of ia: 2 objects, types vpiIntegerVar
+vpiReg of ta: 2 objects, types vpiTimeVar
+vpiReg of ra: 2 objects, types vpiRealVar
+vpiRegArray of the module: ia mem ra ta
+design: 1 2 3 4.0 5 6 7 8.0

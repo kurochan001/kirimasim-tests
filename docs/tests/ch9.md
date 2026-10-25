@@ -1,6 +1,6 @@
 # Clause 9: Processes
 
-[All chapters](README.md). 176 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 177 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -144,6 +144,7 @@
 | [`test_intra_assignment_timing`](../../tests/imported/ch9/test_intra_assignment_timing.sv) | A delay or event control inside an assignment computes the right side when the statement runs; a blocking one assigns when the control is met, choosing the target's element then, and a nonblocking one with a delay updates the target chosen when the statement runs in the NBA region that many time steps later, every one of them taking effect | 9.4.5 10.4.1 10.4.2 4.9.4 | Icarus Verilog 13.0 |  |
 | [`test_intra_event_blocking_saves_rhs`](../../tests/ch9/test_intra_event_blocking_saves_rhs.sv) | a blocking assignment with an intra-assignment event control reads its right-hand side when reached, blocks its process until the event, and only then writes the saved value | 9.4.5 | Icarus Verilog 13.0 |  |
 | [`test_intra_repeat_count_not_positive_or_unknown`](../../tests/ch9/test_intra_repeat_count_not_positive_or_unknown.sv) | an intra-assignment repeat event control whose count is zero, negative, x or z assigns at once without waiting for any event, while positive counts wait that many events | 9.4.5 | standard only | x/z |
+| [`test_syntax_intra_assignment_timing_forms`](../../tests/ch9/test_syntax_intra_assignment_timing_forms.sv) | blocking assignments with an intra-assignment #delay, #(expression), event control, repeat event control and named-event control, and nonblocking assignments without and with each kind of control | 9.4.5 10.4.1 10.4.2 A.6.2 A.6.4 A.6.5 | Icarus Verilog 13.0 |  |
 | [`test_process_threads_distinct`](../../tests/ch9/test_process_threads_distinct.sv) | Each initial, always and final procedure, each parallel statement of a fork and each process started by fork-join_none runs as a thread of its own | 9.5 9.7 9.3.2 | Verilator 5.052 |  |
 | [`test_process_control_statement_forms`](../../tests/ch9/test_process_control_statement_forms.sv) | each form of the process control statements runs as its syntax says, wait with an expression and a statement or a null statement, wait fork, wait_order with each kind of action block, and disable of a task, a block and fork | 9.6 15.5.4 | standard only |  |
 | [`test_process_control_wait_disable_parentage`](../../tests/ch9/test_process_control_wait_disable_parentage.sv) | wait fork waits only for the children of its own process, a named disable ends a block from an unrelated process and from a child of the block, and disable fork ends only the children of its own process | 9.6 9.6.1 9.6.2 9.6.3 | Icarus Verilog 13.0 |  |

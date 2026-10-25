@@ -1,0 +1,5 @@
+y in C order: 35 9c
+z: aval 26, C bit 5 1, C bit 0 0
+u in C order: 10 11 12 20 21 22 30 31 32
+ou[3] 300 ou[2] 200 ou[1] 100
+open: dimension 1 2:1, dimension 0 7:0, index 2 9c, index 1 35

@@ -1,0 +1,7 @@
+types: ia vpiIntegerVar, ta vpiTimeVar, ra vpiRealVar, rg vpiReg, iv vpiIntegerVar, tv vpiTimeVar, rv vpiRealVar
+mem is a vpiMemory or a vpiRegArray: 1
+mem word 0 (vpi_handle_by_index) is a vpiMemoryWord or a vpiReg: 1
+vpiVariables of the module: iv rv tv among them 1, rg among them 0, vpiReg or vpiRegArray objects 0
+vpiReg of each vpiRegArray of the module: objects other than vpiReg 0
+vpiRegArray of the module: ia ta ra among them 0
+design: 1 2 3 4.0 5 6 7 8.0

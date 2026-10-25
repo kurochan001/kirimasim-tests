@@ -1,0 +1,8 @@
+by value: byte -5 shortint -300 int 70000 longint 5000000000 real 2.50 shortreal 0.75
+by value: chandle to 1234, string abc, bit 1, logic 1
+by reference: bit [7:0] c3, logic [3:0] aval 9 bval 0
+by reference: integer aval fffffffe bval 00000000, time 00000002 80000001
+by handle: oa[2] 30 oa[0] 10
+c_in returned 15
+ob -100 orl 6.25 os out obt 1 opl 5a ioi 10
+results: -7 -32000 123456789 -9000000000 1.125 0.500 res 1 0

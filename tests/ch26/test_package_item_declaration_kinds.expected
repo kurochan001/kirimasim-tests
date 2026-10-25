@@ -1,0 +1,5 @@
+shared=5a
+counter=7 step=2 bumped=9
+twice(5)=10 LP=11 PP=12
+name=tag
+randomize=1 base=12 x=13

@@ -1,0 +1,4 @@
+types: mem vpiMemory, ia vpiIntegerVar, ta vpiTimeVar, rg vpiReg, iv vpiIntegerVar, tv vpiTimeVar, rv vpiRealVar
+vpiMemory of the module: mem among them 1, types vpiMemory
+vpiMemoryWord of mem: 4 objects, types vpiMemoryWord
+design: 1 2 3 5 6 7 8.0

@@ -1,0 +1,7 @@
+by value: byte -3 shortint 30000 int 1 longint 6000000000 bit 1 logic 1 byte unsigned 200
+integer: aval fffffff7 bval 00000000
+time: aval 00000003 00000005 bval 00000000 00000000
+bit [7:0] a5, logic [5:0] aval 29 bval 00, reg [3:0] aval c bval 0
+named bit [2:0] base 6
+oi I_TWO 2, oig IG_SEVEN 7
+c_next(B_M3) -2, c_next(3) B_FOUR

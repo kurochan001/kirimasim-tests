@@ -1,0 +1,4 @@
+at read-only synch of 10: vpiSimTime 10
+vpiScaledRealTime of the top module 10.0, of sub 1.0
+time queue: 25 40 50
+design at 50: x=1 y=1

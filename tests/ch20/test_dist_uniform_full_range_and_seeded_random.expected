@@ -1,0 +1,12 @@
+from 5: $random = -2147138048, seed 345346; $dist_uniform = -2147138048, seed 345346
+from 5: $random = 230383387, seed -1917100901; $dist_uniform = 230383387, seed -1917100901
+from 5: $random = -547878722, seed 1599604512; $dist_uniform = -547878722, seed 1599604512
+from -1: $random = 2147415551, seed -69068; $dist_uniform = 2147415551, seed -69068
+from -1: $random = 1671993799, seed -475490395; $dist_uniform = 1671993799, seed -475490395
+from -1: $random = -178662678, seed 1968820258; $dist_uniform = -178662678, seed 1968820258
+from 123456789: $random = -620606282, seed 1526876882; $dist_uniform = -620606282, seed 1526876882
+from 123456789: $random = -915106158, seed 1232376875; $dist_uniform = -915106158, seed 1232376875
+from 123456789: $random = -770976092, seed 1376507248; $dist_uniform = -770976092, seed 1376507248
+from 2026: $random = -2007549424, seed 139933795; $dist_uniform = -2007549424, seed 139933795
+from 2026: $random = -736612184, seed 1410870856; $dist_uniform = -736612184, seed 1410870856
+from 2026: $random = 1073658239, seed -1073825879; $dist_uniform = 1073658239, seed -1073825879

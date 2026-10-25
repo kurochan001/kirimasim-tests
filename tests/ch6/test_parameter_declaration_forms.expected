@@ -1,0 +1,8 @@
+N=1 bits(T)=3 E'(1)=GREEN W=4 D=8
+  S=-3 bits(S)=8 U=165 bits(U)=8
+  bits(T1)=8 bits(T2)=4 ARR=10,20 LN=2 bits(LT)=4
+  BP=5 BQ=6 BL=15 BL2=14 bits(BL)=4 bits(BLT)=8
+N=3 bits(T)=16 E'(1)=SQUARE W=5 D=10
+  S=-3 bits(S)=8 U=165 bits(U)=8
+  bits(T1)=8 bits(T2)=5 ARR=7,9 LN=4 bits(LT)=5
+  BP=5 BQ=6 BL=15 BL2=14 bits(BL)=4 bits(BLT)=8

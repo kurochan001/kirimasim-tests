@@ -1,0 +1,5 @@
+t=5 y1=St1 y2=Pu0 buf=10 mux=1
+t=6 y1=St1 y2=Pu0
+t=8 y1=St1 y2=St1
+t=10 y1=Pu0 y2=St1 buf=11 mux=1
+t=11 buf=01 mux=1

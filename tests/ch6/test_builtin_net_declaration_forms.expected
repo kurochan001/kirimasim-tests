@@ -1,0 +1,7 @@
+t=11 w_and=0001 w_or=0111 w_cat=35
+t=13 w_and=0001 w_or=0101
+t=15 w_and=0000 w_or=0101 w_cat=35
+t=23 w_and=0101 w_or=1111 w_cat=05 w_pair=f,5
+t=23 w_and[0]=We1 w_and[1]=Pu0 t_hold[0]=St1
+t=33 w_or=1111 w_cat=f5 t_hold[0]=Sm1 t_hold[1]=SmX
+t=37 w_or=zzzz

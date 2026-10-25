@@ -1031,23 +1031,25 @@ found three remaining points, all fixed:
 
 ### Matching rounds of 2026-10-25 and 2026-10-26
 
-Eight pending batches (p01, p05, p07, p12, p09, p10, p13, p15) were
-independently verified and merged. Of 875 proposals, 858 were accepted
-and 17 rejected; 444 new tests were added. Nine tests found defective
-were repaired (two `input var` ports, four diagnostic locations, a comment
-width and two `:oracle:` entries) before the merge. Five tests with
-remaining semantic defects stayed out. Restoring the ch22 include
-fixtures changed the include-directory digest of ten existing mappings;
-they were rehashed and re-run, and the baseline update records why.
+Thirteen pending batches (p01, p05, p07, p12, p09, p10, p13, p15 and
+the annex batches a01-a05, g05, g08, g09, h01, h02) were independently
+verified and merged. Of 1388 proposals, 1365 were accepted and 23
+rejected; 620 new tests were added. Eighteen tests found defective were
+repaired (eight `input var` ports, four diagnostic locations, a comment
+width, three `:oracle:` entries and a clause citation) before the merge.
+Four tests with remaining semantic defects stayed out. Restoring the ch22
+include fixtures changed the include-directory digest of ten existing
+mappings; they were rehashed and re-run, and the baseline updates record
+why.
 
 ### Current state
 
-After these commits the suite has 6482 tests in 37 chapters, 1308 of them
-generated. By `:oracle:`, 3746 list Icarus Verilog 13.0, 1229 list
-Verilator 5.052, and 1507 follow the standard only. 824 tests depend on
-x or z values, 442 have C code (65 DPI and 377 VPI), 1653 are illegal
-designs, and 29 set an expected exit code. The requirement ledger maps
-8201 of 12319 rows (66.57%), with 4541 executed (36.86%).
+After these commits the suite has 6658 tests in 37 chapters, 1308 of them
+generated. By `:oracle:`, 3795 list Icarus Verilog 13.0, 1292 list
+Verilator 5.052, and 1571 follow the standard only. 847 tests depend on
+x or z values, 489 have C code (83 DPI and 406 VPI), 1684 are illegal
+designs, and 33 set an expected exit code. The requirement ledger maps
+8702 of 12319 rows (70.64%), with 4853 executed (39.39%).
 
 ### Tests added in this work
 

@@ -1,0 +1,13 @@
+d=0 en=0 bufif0=0 bufif1=z notif0=1 notif1=zz
+d=1 en=0 bufif0=1 bufif1=z notif0=0 notif1=zz
+d=0 en=1 bufif0=z bufif1=0 notif0=z notif1=11
+d=1 en=1 bufif0=z bufif1=1 notif0=z notif1=00
+t=10 t1=Pu0 t2=Pu0
+t=11 t1=Pu0 t2=Pu0
+t=13 t1=St1 t2=St1
+t=18 t1=St1 t2=St1
+t=20 t1=HiZ t2=HiZ
+t=21 t1=HiZ t2=HiZ
+t=23 t1=St1 t2=St1
+t=26 t1=St1 t2=St1
+t=28 t1=Pu0 t2=Pu0

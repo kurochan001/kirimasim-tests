@@ -1,0 +1,7 @@
+uniform(0, 999) from seed 0: 570, new seed -1844104698
+uniform(0, 999) from seed 259341593: 570, new seed -1844104698
+uniform(0, 999) from seed 1511872763: 0, new seed 0
+uniform(0, 999) again: 570, new seed -1844104698
+exponential(1000) from seed 0: 561, new seed -1844104698
+normal(0, 1000) from seed 0: 446, new seed 1082744015
+normal(0, 1000) from seed 259341593: 446, new seed 1082744015

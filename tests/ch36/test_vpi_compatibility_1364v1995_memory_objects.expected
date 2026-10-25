@@ -1,0 +1,11 @@
+vpi_handle_by_name calls vpi_handle_by_name_1364v1995
+vpi_handle_by_index calls vpi_handle_by_index_1364v1995
+vpi_iterate calls vpi_iterate_1364v1995
+vpi_scan calls vpi_scan_1364v1995
+vpi_get calls vpi_get_1364v1995
+vpi_get_value calls vpi_get_value_1364v1995
+type of mem: vpiMemory
+vpiMemory of the module: 1 of type vpiMemory
+vpiMemoryWord of mem: 4 of type vpiMemoryWord
+vpi_handle_by_index(mem, 1): vpiMemoryWord, value 90
+type of ia: vpiIntegerVar

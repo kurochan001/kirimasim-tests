@@ -1,0 +1,10 @@
+vpi_iterate calls vpi_iterate_1364v2005
+vpi_scan calls vpi_scan_1364v2005
+vpi_handle_by_name calls vpi_handle_by_name_1364v2005
+vpi_get calls vpi_get_1364v2005
+vpiVariables of the top module (3): i t x
+vpiRegArray of arrays (1): rmem
+type of arrays.ia: vpiIntegerVar
+type of arrays.ta: vpiTimeVar
+type of arrays.ra: vpiRealVar
+type of arrays.rmem: vpiRegArray

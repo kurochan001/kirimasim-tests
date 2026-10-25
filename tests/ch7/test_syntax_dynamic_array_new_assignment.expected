@@ -1,0 +1,9 @@
+d size=3: 0 0 0
+d size=2: 5 6
+d size=4: 5 6 0 0
+fix[0] size=0:
+fix[1] size=3: 5 6 7
+dd size=2
+dd[0] size=5: 0 0 0 0 9
+dd[1] size=0:
+d size=0:

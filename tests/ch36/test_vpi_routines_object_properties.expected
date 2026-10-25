@@ -1,0 +1,5 @@
+vpi_get: vpiSize of sv 70, vpiSigned of sv 1, vpiSigned of u 0, vpiVector of sv 1, vpiScalar of sv 0, vpiScalar of u 1
+vpi_get64: vpiObjId of a and b equal 1, nonzero 1, of c different 1, of n 0, PLI_INT64 of 8 bytes
+vpi_get_str: vpiName of sv sv, vpiFullName of sv test_vpi_routines_object_properties.sv
+vpi_get_str: vpiName of u1 u1, vpiFullName of u1 test_vpi_routines_object_properties.u1, vpiDefName of u1 test_vpi_routines_object_properties_leaf
+design: sv=-5 u=1

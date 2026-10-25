@@ -1,0 +1,7 @@
+n=0 r="" len=0
+n=1 r="ab" len=2
+n=2 r="abab" len=4
+n=3 r="ababab" len=6
+k=2 r="xy-xy-" len=6
+twice(k)=4 r="ab.ab.ab.ab." len=12
+v=10101010

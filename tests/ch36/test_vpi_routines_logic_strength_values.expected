@@ -1,0 +1,6 @@
+vpi_get_value of r: vpiBinStrVal 00001111, vpiIntVal 15
+vpi_get_value of wk: vpiStrengthVal logic vpi0 1, s0 vpiWeakDrive 1
+vpi_get_value of fl: vpiStrengthVal logic vpiZ 1
+vpi_put_value of 90 to r, then vpi_get_value: 90
+vpi_put_value of pull 1 to fl, then vpi_get_value: logic vpi1 1, s1 vpiPullDrive 1
+design at 2: r=5a fl=Pu1

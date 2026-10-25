@@ -1,0 +1,8 @@
+v=1 en=1 tran=St1 St1 rtran=Pu1 tranif1=St1 St1 tranif0=HiZ rtranif1=Pu1 rtranif0=HiZ
+v=0 en=1 tran=St0 St0 rtran=Pu0 tranif1=St0 St0 tranif0=HiZ rtranif1=Pu0 rtranif0=HiZ
+v=0 en=0 tran=St0 St0 rtran=Pu0 tranif1=HiZ HiZ tranif0=St0 rtranif1=HiZ rtranif0=Pu0
+v=1 en=0 tran=St1 St1 rtran=Pu1 tranif1=HiZ HiZ tranif0=St1 rtranif1=HiZ rtranif0=Pu1
+t=12 tranif1=HiZ HiZ
+t=14 tranif1=St1 St1
+t=18 tranif1=St1 St1
+t=20 tranif1=HiZ HiZ

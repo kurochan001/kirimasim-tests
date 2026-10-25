@@ -1,0 +1,20 @@
+dv=0 c=1 nmos=Pu0 Pu0 pmos=HiZ pmos_vdd=HiZ
+dv=1 c=1 nmos=Pu1 Pu1 pmos=HiZ pmos_vdd=HiZ
+dv=1 c=0 nmos=HiZ HiZ pmos=Pu1 pmos_vdd=St1
+dv=0 c=0 nmos=HiZ HiZ pmos=Pu0 pmos_vdd=St1
+dv=0 nc=0 pc=1 cmos=HiZ HiZ cmos_vdd=HiZ
+dv=0 nc=1 pc=1 cmos=Pu0 Pu0 cmos_vdd=St1
+dv=0 nc=0 pc=0 cmos=Pu0 Pu0 cmos_vdd=St1
+dv=1 nc=1 pc=0 cmos=Pu1 Pu1 cmos_vdd=St1
+t=10 nmos=St0 St0 cmos=St0 St0
+t=11 nmos=St0 St0 cmos=St0 St0
+t=13 nmos=St1 St1 cmos=St0 St0
+t=15 nmos=St1 St1 cmos=St1 St1
+t=20 nmos=St1 St1 cmos=St1 St1
+t=22 nmos=HiZ HiZ cmos=St1 St1
+t=24 nmos=HiZ HiZ cmos=HiZ HiZ
+t=27 nmos=St1 St1 cmos=HiZ HiZ
+t=29 nmos=St1 St1 cmos=St1 St1
+t=33 nmos=St1 St1 cmos=St1 St1
+t=35 nmos=St0 St0 cmos=St1 St1
+t=37 nmos=St0 St0 cmos=St0 St0

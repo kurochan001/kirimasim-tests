@@ -1,0 +1,8 @@
+primary 4 4
+unary -4 -5
+pre 4 4
+post 4 3
+assign 14 7 21 9 12
+binary 9 20
+cond 10 20
+inside 1 0 1 0

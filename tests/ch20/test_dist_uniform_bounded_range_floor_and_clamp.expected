@@ -1,0 +1,12 @@
+uniform(-10, 10) = -6, seed 852656806
+uniform(-10, 10) = 8, seed -438629137
+uniform(-10, 10) = -5, seed 1023442532
+uniform(-10, 10) = -3, seed 1580485141
+uniform(-10, 10) = -2, seed 1639408594
+uniform(-10, 10) = 9, seed -205612757
+uniform(-10, 10) = -1, seed 1989334640
+uniform(-10, 10) = -5, seed 1055483825
+from -77: uniform(-10, 10) = 10, seed -5318312
+from 648451823: uniform(-10, 10) = -10, seed 100
+from -1271221770: uniform(0, 9) = 9, seed -1
+from -1271221770: uniform(-20, -11) = -11, seed -1

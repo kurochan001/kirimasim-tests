@@ -1,0 +1,13 @@
+exponential(10) from 1 = 110, seed 69070, draws 1
+exponential(1000) from 1 = 11037, seed 69070, draws 1
+exponential(1000) from 12345 = 1617, seed 852656806, draws 1
+exponential(10) from 2026 = 34, seed 139933795, draws 1
+exponential(10) from -77 = 0, seed -5318312, draws 1
+exponential(1000) from -77 = 1, seed -5318312, draws 1
+exponential(10) from 424242 = 2, seed -762800373, draws 1
+exponential(10) from 987654321 = 2, seed -669265218, draws 1
+exponential(10) from 31337 = 7, seed -2130552042, draws 1
+exponential(1000) from 31337 = 685, seed -2130552042, draws 1
+exponential(10) from 648451823 = 159, seed 100, draws 1
+exponential(1000) from -1271221770 = 0, seed -1, draws 1
+exponential(2147483647) from -1271221770 = -256, seed -1, draws 1

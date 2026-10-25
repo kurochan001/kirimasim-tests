@@ -1,0 +1,4 @@
+vpi_printf: 7 apples, 1f
+vpi_vprintf: 12 pears, ff
+returned 25 and 26, vpi_flush returned 0
+design: done

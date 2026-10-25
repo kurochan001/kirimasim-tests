@@ -1,0 +1,9 @@
+new: default then try_get(1)>0 0, new(1) then try_get(1)>0 1
+new(-1), put(2): try_get(1)>0 1, again 0
+new(0), put(): try_get(2)>0 0, try_get(1)>0 1, again 0
+new(2), get(): try_get(2)>0 0, try_get(1)>0 1, again 0
+new(2), try_get()>0 1, then try_get(2)>0 0, try_get(1)>0 1
+function take_one: 1, try_get returns int
+5: one key put
+10: get(2) returned
+11: try_get(1)>0 0

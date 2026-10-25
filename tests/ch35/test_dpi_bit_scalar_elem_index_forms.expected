@@ -1,0 +1,12 @@
+numbered get s1: 1101
+variable get s1: 1101
+numbered get s2: 100 110
+variable get s2: 100 110
+numbered get s3: 10 00 11 01
+variable get s3: 10 00 11 01
+after numbered put s1: 0010
+after numbered put s2: 011 001
+after numbered put s3: 01 11 00 10
+final s1: 0111
+final s2: 010 111
+final s3: 00 10 10 11

@@ -1,0 +1,4 @@
+m1: o=1111 W2=8 bits(T)=8
+m2: o=11111111 W2=16 bits(T)=16
+b1: size=3 bits(T)=8
+b2: size=2 bits(T)=32

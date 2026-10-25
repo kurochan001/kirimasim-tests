@@ -3,7 +3,7 @@
 :description: An unpacked array of variables is an array var whose size is its number of elements and whose range is its leftmost unpacked dimension; its elements, by iteration or by index, are array members named with their index, with their index expressions and the array as parent, and can be written through VPI (IEEE 1800-2023 Sections 37.17 and 37.20)
 :tags: ch37
 :type: simulation
-:lrm: 1800-2023 37.17 37.20 38.19 38.34
+:lrm: 1800-2023 37.17 37.20 38.19 38.34 37.4.2
 :oracle: spec
 :spec_check: ai
 :fourstate: no
@@ -20,7 +20,9 @@
 // 28), with the array as vpiParent (detail 26), and its vpiIndex iteration
 // gives the index (detail 18). The element q[3] of the int array is an int
 // var. §37.20: the vpiMemory method gives arrays of variables, among them mem.
-// vpi_put_value on mem[1] writes that element (38.34).
+// vpi_put_value on mem[1] writes that element (38.34). §37.4.2: the
+// integer and Boolean properties are read with vpi_get as PLI_INT32 and the
+// name properties with vpi_get_str as PLI_BYTE8 *.
 
 module test_vpi_array_var;
   logic [7:0] mem [0:3];

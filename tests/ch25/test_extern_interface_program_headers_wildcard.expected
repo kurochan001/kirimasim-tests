@@ -1,0 +1,3 @@
+diff d=5 tick=1
+cfg inv=111010 width=6
+drv val=41 tick=1 sum total=123

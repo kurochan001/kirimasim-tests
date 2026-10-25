@@ -1,0 +1,5 @@
+vpi_get_cb_info of drop: reason cbValueChange 1, routine on_drop 1, object test_vpi_routines_simulation_callbacks.r, user data drop
+design: r=3 at 40
+time callback at 15: vpi_remove_cb of drop returned 1
+keep saw: 1@10 2@20 3@30
+drop saw: 1@10

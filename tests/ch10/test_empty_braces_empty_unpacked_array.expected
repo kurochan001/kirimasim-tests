@@ -1,0 +1,6 @@
+before: q=2 d=3 sq=3
+one item: q=1 q[0]=7
+after { }: q=0 d=0 sq=0
+refilled: q=1 q[0]=9 d=2 d[0]=5
+r before=3
+r returned=0

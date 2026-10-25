@@ -1,0 +1,7 @@
+sab=110 mux=0 inv=0 and=0
+sab=011 mux=1 inv=0 and=1
+sab=101 mux=1 inv=1 and=0
+initial: set=1 alat=0
+load 1: lat=1 set=1 alat=1
+load 0: lat=0 set=0 alat=0
+hold: lat=0 set=0 alat=0

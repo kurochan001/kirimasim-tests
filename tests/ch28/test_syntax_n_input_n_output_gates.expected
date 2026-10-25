@@ -1,0 +1,10 @@
+abc=000 and=0 nand=1 or=0 nor=1 xor=0 xnor=1 and3=0 one=1 not=111
+abc=011 and=0 nand=1 or=1 nor=0 xor=1 xnor=0 and3=0 one=1 not=000
+abc=110 and=1 nand=0 or=1 nor=0 xor=0 xnor=1 and3=0 one=0 not=001
+abc=111 and=1 nand=0 or=1 nor=0 xor=0 xnor=1 and3=1 one=0 not=000
+t=10 d1=We1 d2=We1 o1=St0 o2=St0 o3=St0
+t=11 d1=We1 d2=We1 o1=St0 o2=St0 o3=St0
+t=13 d1=We1 d2=We1 o1=Pu1 o2=Pu1 o3=Pu1
+t=17 d1=Pu0 d2=Pu0 o1=Pu1 o2=Pu1 o3=Pu1
+t=21 d1=We1 d2=We1 o1=Pu1 o2=Pu1 o3=Pu1
+t=23 d1=We1 d2=We1 o1=St0 o2=St0 o3=St0

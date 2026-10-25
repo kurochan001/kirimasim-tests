@@ -1,0 +1,6 @@
+vpiInterfaceDecl is vpiVirtualInterfaceVar: 1
+class defn holder found: 1
+vpiInterfaceDecl of the class defn: NULL
+typespec of h: vpiClassTypespec
+vpiInterfaceDecl of the class typespec: vif vpiVirtualInterfaceVar
+design: n=3

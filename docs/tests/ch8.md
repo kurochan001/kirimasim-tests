@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 279 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 282 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -72,6 +72,7 @@
 | [`test_illegal_static_constructor`](../../tests/ch8/test_illegal_static_constructor.sv) | a constructor cannot be declared static | 8.7 8.10 | Verilator 5.052 | illegal design |
 | [`test_illegal_virtual_constructor`](../../tests/ch8/test_illegal_virtual_constructor.sv) | a constructor cannot be declared virtual | 8.7 8.20 | Verilator 5.052 | illegal design |
 | [`test_property_initializer_after_super_new`](../../tests/ch8/test_property_initializer_after_super_new.sv) | The initializers of a derived class's properties run after the base class constructor and before the rest of the derived constructor | 8.7 8.17 | Icarus Verilog 13.0 |  |
+| [`test_syntax_class_new_assignment_targets`](../../tests/ch8/test_syntax_class_new_assignment_targets.sv) | blocking assignments of class new to a plain handle, a this. member, a class-scoped static member, a package-scoped variable and selected array elements, with new(args), a typed D::new(args) and a shallow copy new h | 8.7 8.8 8.9 8.11 8.12 A.6.2 | Verilator 5.052 |  |
 | [`test_class_typed_constructor_forms_and_specializations`](../../tests/ch8/test_class_typed_constructor_forms_and_specializations.sv) | a constructor call is new with optional arguments, preceded by a class scope to construct an object of that class, also of a specialization of a parameterized class, or new followed by an expression for a shallow copy | 8.8 8.12 8.25.1 | Verilator 5.052 |  |
 | [`test_illegal_shallow_copy_of_non_handle`](../../tests/ch8/test_illegal_shallow_copy_of_non_handle.sv) | the expression after new in a shallow copy has to be an object handle | 8.8 8.12 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_typed_new_not_assignment_compatible`](../../tests/ch8/test_illegal_typed_new_not_assignment_compatible.sv) | the class of a typed constructor call has to be assignment compatible with the target | 8.8 8.16 | Icarus Verilog 13.0 | illegal design |
@@ -94,6 +95,7 @@
 | [`test_class_this_super`](../../tests/ch8/test_class_this_super.sv) | this and super keywords | 8.11 8.15 | Verilator 5.052 |  |
 | [`test_illegal_this_in_static_method`](../../tests/ch8/test_illegal_this_in_static_method.sv) | the this handle cannot be used in a static class method | 8.11 8.10 | Verilator 5.052 | illegal design |
 | [`test_illegal_type_this_outside_class`](../../tests/ch8/test_illegal_type_this_outside_class.sv) | type(this) cannot be used outside a class | 8.11 6.23 | Verilator 5.052 | illegal design |
+| [`test_this_and_super_in_out_of_block_methods`](../../tests/ch8/test_this_and_super_in_out_of_block_methods.sv) | this, super and this.super used inside a class declaration and inside out-of-block method declarations (a constructor and two functions) select the property of the current object or of its base class instead of a same-named argument or the derived property | 8.11 8.15 8.24 A.8.4 A.10 | Verilator 5.052 |  |
 | [`test_this_expr`](../../tests/ch8/test_this_expr.sv) | Test this expression | 8.11 | Icarus Verilog 13.0 |  |
 | [`test_type_this`](../../tests/ch8/test_type_this.sv) | type(this) is the type of the enclosing class, also in a subclass, where it names the subclass | 8.11 6.23 | standard only |  |
 | [`test_assign_class`](../../tests/ch8/test_assign_class.sv) | Test for class assignment | 8.12 8.4 | Icarus Verilog 13.0 |  |
@@ -107,6 +109,7 @@
 | [`test_copy_obj`](../../tests/ch8/test_copy_obj.sv) | Test object copy | 8.12 | Icarus Verilog 13.0 |  |
 | [`test_illegal_typed_constructor_shallow_copy`](../../tests/ch8/test_illegal_typed_constructor_shallow_copy.sv) | a typed constructor call cannot be used for a shallow copy | 8.12 8.8 | Icarus Verilog 13.0 | illegal design |
 | [`test_shallow_copy_array_properties`](../../tests/ch8/test_shallow_copy_array_properties.sv) | A shallow copy with new copies the elements of dynamic array, queue and fixed-size array properties | 8.12 7.5 7.10 | Verilator 5.052 |  |
+| [`test_shallow_copy_operand_handle_forms`](../../tests/ch8/test_shallow_copy_operand_handle_forms.sv) | The operand of a shallow copy new is an expression that evaluates to an object handle, such as a class variable, a function call, an array element or a property of another object; each copy is a new object with the properties of the one the handle refers to, without a constructor call | 8.12 A.2.4 A.10 | Verilator 5.052 |  |
 | [`test_class_extends`](../../tests/ch8/test_class_extends.sv) | Test class extends | 8.13 8.20 8.22 | standard only |  |
 | [`test_class_extends_2`](../../tests/ch8/test_class_extends_2.sv) | Test: Class inheritance extends | 8.13 8.14 8.20 8.22 | Verilator 5.052 |  |
 | [`test_class_inherit`](../../tests/ch8/test_class_inherit.sv) | Test: extends, super.new, method override, parent reference | 8.13 8.15 8.20 | Verilator 5.052 |  |

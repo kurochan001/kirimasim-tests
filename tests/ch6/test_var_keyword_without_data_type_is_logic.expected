@@ -1,0 +1,6 @@
+v1=x bits=1
+v1=z
+v6=1z0x01 bits=6
+vs=-10 negative=1 bits=8 wide=fffffff6
+vb=-2 bits=8
+pv=xxx bits=3

@@ -1,0 +1,7 @@
+v_imp=1010 v_imp2=xxxx v_one=x bits=4,1,8
+v_neg=-16 below_zero=1 v_static=11 C_LIM=9 C_ALL=12
+C_OBJ.val=4
+bump_auto=11,21,31
+bump_static=1011,1021,1031
+k=2 ck=6
+k=5 ck=15

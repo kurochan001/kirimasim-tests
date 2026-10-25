@@ -1,0 +1,6 @@
+design: a=5 b=30
+$vt_count: user data before NULL 1, vpi_put_userdata returned 1, count 1
+$vt_count: user data before NULL 0, count 2
+$vt_count: user data before NULL 1, vpi_put_userdata returned 1, count 1
+$vt_sum: type vpiSysFunc 1, sysfunctype vpiIntFunc 1, tfname $vt_sum, calltf 1, compiletf 1, user data sum data
+$vt_count: type vpiSysTask 1, tfname $vt_count, calltf 1, compiletf 1, user data count data

@@ -1,0 +1,21 @@
+svGetLogicArrElem1VecVal a1[5]: chunk1 aval 0f1 bval ff0, chunk0 aval f0c00005 bval ff000000
+svGetLogicArrElemVecVal a1[4]: chunk1 aval 0f1 bval ff0, chunk0 aval f0c00004 bval ff000000
+svGetLogicArrElem2VecVal a2[2][3]: chunk1 aval 0f2 bval ff0, chunk0 aval f0be0023 bval ff000000
+svGetLogicArrElemVecVal a2[1][4]: chunk1 aval 0f2 bval ff0, chunk0 aval f0be0014 bval ff000000
+svGetLogicArrElem3VecVal a3[1][0][7]: chunk1 aval 0f3 bval ff0, chunk0 aval f0f00107 bval ff000000
+svGetLogicArrElemVecVal a3[2][1][6]: chunk1 aval 0f3 bval ff0, chunk0 aval f0f00216 bval ff000000
+a1[5] = x5a2222z0x5
+a1[4] = zx1xzc00004
+a1[3] = 5z1x111z003
+a2[1][4] = zx2xzbe0014
+a2[1][3] = 5z23333x0z3
+a2[2][4] = z5bx4444z24
+a2[2][3] = zx2xzbe0023
+a3[2][0][7] = zx3xzf00207
+a3[2][0][6] = 53x5555z2x6
+a3[2][1][7] = zx3xzf00217
+a3[2][1][6] = zx3xzf00216
+a3[1][0][7] = zx3xzf00107
+a3[1][0][6] = zx3xzf00106
+a3[1][1][7] = 5cz666x6z17
+a3[1][1][6] = zx3xzf00116

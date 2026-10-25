@@ -1,0 +1,4 @@
+SP_A=44 SP_B=45 bits(SP_A)=8 bits(SP_B)=8
+SP_C=9 bits(SP_C)=4 SP_R=2.5 tSLOW=5
+t=12 y=0
+t=14 y=1

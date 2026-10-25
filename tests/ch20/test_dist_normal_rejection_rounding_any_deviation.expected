@@ -1,0 +1,11 @@
+normal(0, 10) from 104729 = 3, seed 426514639, draws 2
+normal(0, 10) from 1256748 = -6, seed 822448602, draws 2
+normal(0, 10) from 3025058 = -5, seed 765498170, draws 8
+normal(0, 10) from 2652865 = 16, seed -1843320461, draws 6
+normal(0, 10) from 47514 = -7, seed 1078766598, draws 4
+normal(0, 10) from 4189160 = -1, seed -121977354, draws 2
+normal(0, 10) from 498897 = 0, seed -480936915, draws 4
+normal(25, 0) from 3025058 = 25, seed 765498170, draws 8
+normal(0, -10) from 1256748 = 6, seed 822448602, draws 2
+normal(-100, 10) from 2652865 = -84, seed -1843320461, draws 6
+normal(1000, 300) from 104729 = 1089, seed 426514639, draws 2

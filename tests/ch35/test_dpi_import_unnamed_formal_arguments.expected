@@ -1,0 +1,4 @@
+mix: 70809 10002
+split: q=5 r=7
+step: acc=125
+task: out=18 io=8

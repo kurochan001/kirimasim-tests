@@ -1,0 +1,5 @@
+vpi_iterate(vpiModule) of the top module, then vpi_scan: 3 objects: d1 d2 s
+vpi_iterate(vpiNet) of d1, then vpi_scan: 2 objects: i inner
+vpi_handle(vpiModule) of d1.inner: test_vpi_routines_traverse_hierarchy.d1
+vpi_handle_multi(vpiInterModPath) of s.o and d1.i: type vpiInterModPath 1
+design: w=1 d1.inner=1

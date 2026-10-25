@@ -1,0 +1,4 @@
+5: vpi_get_delays: 3 4
+5: vpi_put_delays: 7 9, then vpi_get_delays: 7 9
+17: y=1
+39: y=0
