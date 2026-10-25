@@ -1,0 +1,3 @@
+[0:3]: up[0]=w up[1]=x up[2]=y up[3]=z
+[3:0]: dn[3]=w dn[2]=x dn[1]=y dn[0]=z
+longer text: abcd

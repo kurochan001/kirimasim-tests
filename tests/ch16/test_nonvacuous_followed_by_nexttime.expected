@@ -1,0 +1,5 @@
+s0 #-# (go |-> x): passes 5; failures 25 35 45 55 65 75
+s1 #=# (go |-> x): passes 35; failures 5 25 45 55 65 75
+s2 |-> nexttime [2] (go |-> x): passes 35; failures 25
+s3 |-> s_nexttime (go |-> x): passes 55; failures 25
+s4 |-> s_nexttime [2] (go |-> x): passes 55; failures 25

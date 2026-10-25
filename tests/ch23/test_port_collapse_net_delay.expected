@@ -1,0 +1,6 @@
+wand #3 inside, wire #7 outside: driven inside 011100, outside 011100
+wire #3 inside, wand #7 outside: driven inside 001110, outside 001110
+tri0 #3 inside, wire #7 outside: driven inside 011100, outside 011100
+wire #3 inside, tri1 #7 outside: driven inside 001110, outside 001110
+wire #3 inside, wire #7 outside: driven inside 001110, outside 001110
+wand #7 inside, wire #3 outside: driven inside 001110, outside 001110

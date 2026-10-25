@@ -1,0 +1,6 @@
+integral with start and count: n=4 w32=81828384
+24-bit words: n=6 858687 88898a
+12-bit words: n=4 b8c d8e next=8f
+short read: n=1 high byte=90
+at the end: n=0
+write-only descriptor: n=0

@@ -1,0 +1,9 @@
+a9 (if (en)) failures at 25
+a10 (if ($sampled(en))) failures at 35
+a7 passes at 75 (i=0); failures at 65 (i=1)
+a_w (resumed from wait) failures at
+a_w2 (after #0) failures at 85
+a_c (always_comb) failures at 105
+a_l (always_latch) failures at 105
+a_t (task disabled) failures at 115
+a_d1, a_d2 (p_out disabled) failures at; after_d 0

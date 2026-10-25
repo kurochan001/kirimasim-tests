@@ -1,0 +1,3 @@
+SQ(1 + 2): 5
+TWICE(bump()): 3 calls=2
+SCOPE(5): 1015

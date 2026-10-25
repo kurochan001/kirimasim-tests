@@ -1,0 +1,4 @@
+go |-> x: passes 25 35; failures 5
+go ##1 x: passes 15 35; failures 15 45 45 55
+strong(go ##1 x): passes 15 35; failures 15 45 45 55
+weak(go ##1 x): passes 15 35; failures 15 45 45 55

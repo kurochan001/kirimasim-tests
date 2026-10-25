@@ -1,0 +1,8 @@
+a: seek=0 position after write=5
+a+: read at 1=b seek=0 position after write=6
+file: abcXYZ
+past the end: seek=0 position=5 size=2
+test_fseek_gap.bin: 65 66 0 0 0 90
+before the start: seek=-1
+seek to 5: seek=0 read=Z
+rewind: code=0 read=A

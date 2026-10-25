@@ -1,0 +1,6 @@
+always [1:2] (go |-> x): passes 55; failures 75
+s_always [1:2] (go |-> x): passes 65; failures 75
+s_eventually (go |-> x): passes 45 95; failures
+s_eventually [1:2] (go |-> x): passes 45; failures 85
+eventually [1:2] (go |-> x): passes 55; failures 85
+not always (not (go |-> x)): passes 5 45; failures

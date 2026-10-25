@@ -1,0 +1,7 @@
+int read 0: 65 eof=0
+int read 1: 255 eof=0
+int read 2: 128 eof=0
+int read 3: 127 eof=0
+int read 4: -1 eof=1
+8-bit read of byte FF: ff
+8-bit read at the end: ff

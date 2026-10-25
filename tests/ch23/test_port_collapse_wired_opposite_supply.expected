@@ -1,0 +1,8 @@
+wand inside, supply1 outside:    outside 11111 inside 11111
+triand inside, supply1 outside:  outside 11111 inside 11111
+wor inside, supply0 outside:     outside 00000 inside 00000
+trior inside, supply0 outside:   outside 00000 inside 00000
+supply0 inside, wor outside:     outside 00000 inside 00000
+supply0 inside, trior outside:   outside 00000 inside 00000
+supply1 inside, wand outside:    outside 11111 inside 11111
+supply1 inside, triand outside:  outside 11111 inside 11111

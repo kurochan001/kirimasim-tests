@@ -1,0 +1,5 @@
+rst high: failed: g_inner child interface program plain_i plain_p
+r_gen high: failed: top g_plain g_shadow child interface program plain_i plain_p
+r_if high: failed: top g_plain g_shadow g_inner child program plain_i plain_p
+r_pg high: failed: top g_plain g_shadow g_inner child interface plain_i plain_p
+nothing high: failed: top g_plain g_shadow g_inner child interface program plain_i plain_p

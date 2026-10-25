@@ -1,0 +1,4 @@
+three: n=3 a=1 b=2 c=3
+suppressed: n=2 a=1 b=3 c=-1
+two of three: n=2 a=1 b=2 c=-1
+one of three: n=1 a=1 b=-1 c=-1

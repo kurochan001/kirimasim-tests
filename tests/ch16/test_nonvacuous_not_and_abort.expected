@@ -1,0 +1,7 @@
+accept_on (c) (go |=> x): passes in phases 1; failures in phases 3
+sync_accept_on (c) (go |=> x): passes in phases 1 5; failures in phases 3 4
+reject_on (c) (go |=> x): passes in phases 1; failures in phases 3 4 5 6
+sync_reject_on (c) (go |=> x): passes in phases 1 5; failures in phases 3 4 6
+not reject_on (c) (go |=> x): passes in phases 3; failures in phases 1 2
+not sync_reject_on (c) (go |=> x): passes in phases 3 4; failures in phases 1 2 5
+not (go |=> x): passes in phases 3 4; failures in phases 1 2 5 6

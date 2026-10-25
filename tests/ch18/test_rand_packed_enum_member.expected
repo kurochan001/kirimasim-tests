@@ -1,0 +1,4 @@
+struct member: ok=1 s.kind=01, union member: u.kind=10
+struct member: ok=1 s.kind=10, union member: u.kind=01, e=11
+enum variable 2'b01: ok=0 e=11
+50 calls: e not a named value 0 times

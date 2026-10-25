@@ -1,0 +1,5 @@
+inactive at 10: comb_v=0 cont_v=0
+later at 11: comb_v=1 cont_v=1
+reactive at 20: ff_v=0 mod_ff=1
+re-inactive at 20: ff_v=0
+re-nba at 20: ff_v=1

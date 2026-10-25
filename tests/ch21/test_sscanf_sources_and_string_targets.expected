@@ -1,0 +1,7 @@
+literal source: n=2 a=1 b=2
+string source: n=2 a=3 b=5
+integral source: n=2 a=6 b=7
+byte array source: n=2 a=4 b=4
+integral target: n=1 wxyz
+byte array target: n=1 abba
+string target: n=1 hello len=5

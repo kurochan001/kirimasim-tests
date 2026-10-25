@@ -1,0 +1,14 @@
+supply0 inside, wire outside:    outside 00000 inside 00000
+supply0 inside, tri outside:     outside 00000 inside 00000
+supply0 inside, wand outside:    outside 00000 inside 00000
+supply0 inside, triand outside:  outside 00000 inside 00000
+supply0 inside, tri0 outside:    outside 00000 inside 00000
+supply0 inside, tri1 outside:    outside 00000 inside 00000
+supply0 inside, supply0 outside: outside 00000 inside 00000
+supply1 inside, wire outside:    outside 11111 inside 11111
+supply1 inside, tri outside:     outside 11111 inside 11111
+supply1 inside, wor outside:     outside 11111 inside 11111
+supply1 inside, trior outside:   outside 11111 inside 11111
+supply1 inside, tri0 outside:    outside 11111 inside 11111
+supply1 inside, tri1 outside:    outside 11111 inside 11111
+supply1 inside, supply1 outside: outside 11111 inside 11111

@@ -1,0 +1,7 @@
+replace and add: ok=1 a=11 b=6
+added constraint against inherited c_b: ok=0 b=5
+abstract subclass block, concrete leaf: ok=1 p=31
+abstract subclass external block, concrete leaf: ok=1 p=32
+concrete subclass block: ok=1 p=33
+concrete subclass external block: ok=1 p=34
+pure again, then implemented: ok=1 a=21 b<200=1

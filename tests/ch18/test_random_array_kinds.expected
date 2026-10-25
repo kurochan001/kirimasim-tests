@@ -1,0 +1,5 @@
+ok=1 fixed: 10 11 12
+dyn: size 3, 30 31 32
+q: size 2, 7 8
+aa: size 2, aa[5]=5 aa[9]=9
+rc over 4 calls: ok=1 masks f f

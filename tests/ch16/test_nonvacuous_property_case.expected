@@ -1,0 +1,2 @@
+case with default: passes 5 45 55 75; failures 35 85 95
+case without default: passes 5 25; failures 35

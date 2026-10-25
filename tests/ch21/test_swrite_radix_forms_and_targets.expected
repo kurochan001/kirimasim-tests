@@ -1,0 +1,8 @@
+swrite: [ 10] len=3
+swriteb: [00001010]
+swriteh: [0a]
+swriteo: [012]
+swrite mixed: [a= 10 b=5]
+integral exact: beef
+integral wider: 000000006162
+integral narrower: YZ

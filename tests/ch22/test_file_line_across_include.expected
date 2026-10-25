@@ -1,0 +1,3 @@
+inner: line=3 ends with loc_inner.svh=1 contains include_loc_ch22=1
+outer: before line=28 after line=30
+outer: ends with own name=1 same after include=1

@@ -1,0 +1,5 @@
+macro in text: 14, in default: 12
+macro in actual: bits=24 value=030400
+nested actuals: 109
+define in text: before=0 after=70
+undef in text: before=1 after=0

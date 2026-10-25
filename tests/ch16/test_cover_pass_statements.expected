@@ -1,0 +1,3 @@
+cover property pass statement at ticks 2 7 15
+cover sequence pass statement at ticks 2 3 4 7 15
+match item of the equivalent assertion at ticks 2 3 4 7 12 15

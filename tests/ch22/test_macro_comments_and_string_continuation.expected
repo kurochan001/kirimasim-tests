@@ -1,0 +1,4 @@
+line comment: 15
+continued line comment: 23
+block comment: 34
+string continuation: [abcdef] len=6

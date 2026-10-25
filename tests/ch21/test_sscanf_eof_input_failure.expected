@@ -1,0 +1,9 @@
+empty: n=-1 a=-1 b=-1
+white space only: n=-1 a=-1 b=-1
+literal then end: n=-1 a=-1 b=-1
+end before second: n=1 a=12 b=-1
+end inside width: n=1 a=12 b=-1
+end before comma: n=1 a=12 b=-1
+end after white space: n=1 a=12 b=-1
+mismatch first: n=0 a=-1 b=-1
+mismatch second: n=1 a=3 b=-1

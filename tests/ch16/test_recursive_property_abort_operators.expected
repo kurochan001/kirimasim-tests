@@ -1,0 +1,3 @@
+phase 1 (busy 1110, stop between T+1 and T+2): accept_on 0, reject_on 1, sync_accept_on 1, sync_reject_on 1
+phase 2 (busy 1110, stop at T+2): accept_on 0, reject_on 1, sync_accept_on 0, sync_reject_on 1
+phase 3 (busy 1100, no stop): accept_on 1, reject_on 1, sync_accept_on 1, sync_reject_on 1

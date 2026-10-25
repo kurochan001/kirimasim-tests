@@ -1,0 +1,10 @@
+wand inside, wire outside:       outside 00z1z inside 00z1z
+wand inside, tri outside:        outside 00z1z inside 00z1z
+triand inside, wire outside:     outside 00z1z inside 00z1z
+triand inside, tri outside:      outside 00z1z inside 00z1z
+wand inside, wand outside:       outside 00z1z inside 00z1z
+wand inside, triand outside:     outside 00z1z inside 00z1z
+triand inside, wand outside:     outside 00z1z inside 00z1z
+triand inside, triand outside:   outside 00z1z inside 00z1z
+wand inside, supply0 outside:    outside 00000 inside 00000
+triand inside, supply0 outside:  outside 00000 inside 00000

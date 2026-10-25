@@ -1,0 +1,5 @@
+bad_d=%d: xxxxxxxx
+bad_h=%h: xxxxxxxx
+bad_b=%b: xxxxxxxx
+bad_o=%o: xxxxxxxx
+good_h=%h: 11111110

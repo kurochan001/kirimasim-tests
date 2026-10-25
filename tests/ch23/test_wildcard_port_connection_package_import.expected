@@ -1,0 +1,3 @@
+star_only (.*): p=5
+named_ref (.p, .*): p=8
+explicit_ref (.p(p), .*): p=8

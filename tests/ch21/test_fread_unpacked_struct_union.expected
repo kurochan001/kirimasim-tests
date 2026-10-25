@@ -1,0 +1,2 @@
+struct: n=7 a=01 b=0203 c=04050607
+union: n=2 h=0809 next=0a

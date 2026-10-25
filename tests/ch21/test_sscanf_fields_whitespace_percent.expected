@@ -1,0 +1,13 @@
+width: n=2 a=123 b=45
+string width: n=2 s=ab t=cd
+end at letter: n=2 a=12 s=ab
+leading white space: n=1 a=7
+%c after %d: n=2 a=5 c=32
+%c first: n=1 c=32
+format space before %c: n=2 a=5 c=120
+format space before comma: n=2 a=3 b=4
+no format space: n=1 a=3 b=-1
+null as white space: n=2 a=1 b=2
+percent: n=2 a=50 b=60
+percent mismatch: n=1 a=50 b=-1
+leading percent: n=1 a=7

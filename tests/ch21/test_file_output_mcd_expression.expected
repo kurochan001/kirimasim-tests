@@ -1,0 +1,7 @@
+with stdout
+test_mcd_expr_a.txt: variable
+test_mcd_expr_a.txt: or of two
+test_mcd_expr_a.txt: function
+test_mcd_expr_a.txt: with stdout
+test_mcd_expr_b.txt: or of two
+test_mcd_expr_b.txt: conditional

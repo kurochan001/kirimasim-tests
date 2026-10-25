@@ -1,0 +1,5 @@
+@(posedge ca) a |-> @(posedge c1) x: passes 10; failures 44
+@(posedge cb) a |=> @(posedge c1) x: passes 104; failures 74
+@(posedge cc) if (sel) @(posedge c1) x else @(posedge c2) y: passes 164 190; failures 130 224
+@(posedge cm) m1 ##[1:2] m2 |=> @(posedge c1) x: passes 260 270; failures 275
+@(posedge cd) d ##1 @(posedge c1) x: passes 334; failures 364

@@ -1,0 +1,7 @@
+getter bits: rand_mode 32, constraint_mode 32
+x.rand_mode(2), c_x.constraint_mode(2): x0 y1 c_x0 c_y1
+x.rand_mode(3), c_x.constraint_mode(3): x1 y1 c_x1 c_y1
+o.rand_mode(2), o.constraint_mode(2): x0 y0 c_x0 c_y0
+o.rand_mode(1), o.constraint_mode(1): x1 y1 c_x1 c_y1
+objs[0]: x1 y1 c_x1 c_y1, objs[1]: x1 y0 c_x1 c_y0
+w.inner: x0 y1 c_x1 c_y0, getters through w.inner: 0 0

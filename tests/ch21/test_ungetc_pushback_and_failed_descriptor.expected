@@ -1,0 +1,11 @@
+read 80, position 1
+ungetc 90 -> 0
+read 90
+read 81
+ungetc 89 -> 0
+read 89
+read 82
+read -1
+file again: 80 81 82
+size 3
+failed open: fd 0, ungetc -> -1, ftell -> -1

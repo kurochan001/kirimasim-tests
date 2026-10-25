@@ -1,0 +1,5 @@
+if (sel) (go |-> x): passes 25 55 75; failures 35
+go |=> (g2 |-> x): passes 15 45; failures 35
+p_imp(go, x): passes 25 45 55 75; failures 5 35
+p_gate_q(go, g2 |-> x): passes 45 75; failures 35
+disable iff (r) go |-> x: passes 25 75; failures 5 35

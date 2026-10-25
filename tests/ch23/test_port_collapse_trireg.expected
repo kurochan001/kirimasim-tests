@@ -1,0 +1,13 @@
+wire inside, trireg outside:     outside x0011 inside x0011
+tri inside, trireg outside:      outside x0011 inside x0011
+trireg inside, wire outside:     outside x0011 inside x0011
+trireg inside, tri outside:      outside x0011 inside x0011
+trireg inside, trireg outside:   outside x0011 inside x0011
+trireg inside, tri0 outside:     outside x0010 inside x0010
+trireg inside, tri1 outside:     outside x0111 inside x0111
+trireg inside, supply0 outside:  outside 00000 inside 00000
+trireg inside, supply1 outside:  outside 11111 inside 11111
+tri0 inside, trireg outside:     outside x0010 inside x0010
+tri1 inside, trireg outside:     outside x0111 inside x0111
+supply0 inside, trireg outside:  outside 00000 inside 00000
+supply1 inside, trireg outside:  outside 11111 inside 11111

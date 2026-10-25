@@ -8979,7 +8979,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "48a75d022de8fa65e9590cdb2138ee43252e477d00a4e4d5ed0a1337e15ffb16",
+      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
       "reviewed_on": "2026-10-23",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9027,7 +9027,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "48a75d022de8fa65e9590cdb2138ee43252e477d00a4e4d5ed0a1337e15ffb16",
+      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
       "reviewed_on": "2026-10-23",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",

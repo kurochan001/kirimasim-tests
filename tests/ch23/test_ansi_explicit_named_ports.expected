@@ -1,0 +1,8 @@
+pi: h=a l=5
+ps: st.f=2a
+pz: 1 bit
+po: c7
+pp: 24
+pq: 1 bit, outside z
+ifc.ip: iv[2]=9
+prg.op: 6

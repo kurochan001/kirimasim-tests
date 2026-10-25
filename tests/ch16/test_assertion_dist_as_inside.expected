@@ -1,0 +1,4 @@
+assert dist: passes 5 25 35 65; failures 15 45 55 75
+assert inside: passes 5 25 35 65; failures 15 45 55 75
+cover dist: 5 25 35 65
+assume dist: passes 5 25 35 65; failures 15 45 55 75

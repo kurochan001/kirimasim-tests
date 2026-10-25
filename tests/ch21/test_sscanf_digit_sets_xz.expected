@@ -1,0 +1,19 @@
+b: n=1 10xxzz_1 ?unknown=1
+b then d: n=2 00000011 2
+o: n=1 7xxzz_1 ?unknown=1
+o: n=1 342391
+o then d: n=2 15 8
+h: n=1 afxxzz_9 ?unknown=1
+h: n=1 01234567
+h: n=1 89abcdef
+x: n=1 bcz
+h then s: n=2 0000001f g
+d: n=1 1234
+d: n=1 7890
+d: n=1 -56
+d: n=1 xxxxxxxxxxxxxxxx
+d: n=1 xxxxxxxxxxxxxxxx
+d: n=1 zzzzzzzzzzzzzzzz
+d: n=1 zzzzzzzzzzzzzzzz
+d: n=1 ?unknown=1
+d then s: n=2 12 a

@@ -1,0 +1,24 @@
+drive 1: trireg (small) inside, wire outside:            outside St1 inside St1
+drive 1: trireg (large) inside, wire outside:            outside St1 inside St1
+drive 1: trireg inside, wire outside:                    outside St1 inside St1
+drive 1: wire inside, trireg (small) outside:            outside St1 inside St1
+drive 1: trireg (small) inside, trireg (large) outside:  outside St1 inside St1
+drive 1: trireg (large) inside, trireg (small) outside:  outside St1 inside St1
+hold 1:  trireg (small) inside, wire outside:            outside Sm1 inside Sm1
+hold 1:  trireg (large) inside, wire outside:            outside La1 inside La1
+hold 1:  trireg inside, wire outside:                    outside Me1 inside Me1
+hold 1:  wire inside, trireg (small) outside:            outside Sm1 inside Sm1
+hold 1:  trireg (small) inside, trireg (large) outside:  outside La1 inside La1
+hold 1:  trireg (large) inside, trireg (small) outside:  outside Sm1 inside Sm1
+drive 0: trireg (small) inside, wire outside:            outside St0 inside St0
+drive 0: trireg (large) inside, wire outside:            outside St0 inside St0
+drive 0: trireg inside, wire outside:                    outside St0 inside St0
+drive 0: wire inside, trireg (small) outside:            outside St0 inside St0
+drive 0: trireg (small) inside, trireg (large) outside:  outside St0 inside St0
+drive 0: trireg (large) inside, trireg (small) outside:  outside St0 inside St0
+hold 0:  trireg (small) inside, wire outside:            outside Sm0 inside Sm0
+hold 0:  trireg (large) inside, wire outside:            outside La0 inside La0
+hold 0:  trireg inside, wire outside:                    outside Me0 inside Me0
+hold 0:  wire inside, trireg (small) outside:            outside Sm0 inside Sm0
+hold 0:  trireg (small) inside, trireg (large) outside:  outside La0 inside La0
+hold 0:  trireg (large) inside, trireg (small) outside:  outside Sm0 inside Sm0

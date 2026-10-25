@@ -1,0 +1,5 @@
+checker: fail at 10
+checker: pass at 20
+checker: fail at 30
+checker: fail at 40
+module: fail@10 pass@20 fail@30 fail@40

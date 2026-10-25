@@ -1,0 +1,4 @@
+after overwrite: aa bb ee ee ee ee
+2-D written, read 1-D: 10 11 12 20 21 22
+2-D read back: 10 11 12 / 20 21 22
+2-D binary read back: 0001 0010 / 0100 1000

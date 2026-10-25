@@ -1,0 +1,16 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch17/test_checker_procedures_reactive_renba": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_procedures_reactive_renba.sv:36: syntax error",
+   "inputs_sha256": "61d50dea2f82adac50e41781f632fa86ba4afd07d0227469ffca9b6aa80dc04f"
+  }
+ },
+ "generated_at": "2026-10-25T15:10:20.539124+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

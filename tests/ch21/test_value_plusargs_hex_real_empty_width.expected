@@ -1,0 +1,10 @@
+%x Ff: 00ff
+%h aB: 00ab
+%g 2.5: 2.5000
+%g 1.5e3: 1500.0000
+%G -4E-2: -0.0400
+empty %d: found=1 d=0
+empty %s: found=1 s=[] len=0
+3f into 16 bits: 003f
+1ff into 8 bits: ff
+-5 into 64 bits: fffffffffffffffb

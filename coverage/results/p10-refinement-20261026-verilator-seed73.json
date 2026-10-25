@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch17/test_checker_procedures_reactive_renba": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'inactive at 10: comb_v=1 cont_v=1', expected 'inactive at 10: comb_v=0 cont_v=0'",
+   "inputs_sha256": "61d50dea2f82adac50e41781f632fa86ba4afd07d0227469ffca9b6aa80dc04f"
+  }
+ },
+ "generated_at": "2026-10-25T15:10:29.594580+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

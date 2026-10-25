@@ -1,0 +1,10 @@
+$fgetc: Q
+$ungetc: code=0
+$fgets: code=8 Q7 line
+$sscanf: code=1 a=7
+$fscanf: code=2 a=12 b=34
+$fread integral: code=2 w=4142
+$fread mem: code=4 m=43 44 45 46
+$fread mem start: code=2 m=00 00 47 48
+$fread mem start count: code=1 m=00 49 00 00
+$fread mem count: code=2 m=4a 4b 00 00

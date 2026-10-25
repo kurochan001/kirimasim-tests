@@ -1,0 +1,5 @@
+test_fflush_1.txt: both;
+test_fflush_2.txt: both;
+test_fflush_3.txt: three;
+test_fflush_1.txt: both;one more;
+test_fflush_4.txt: four;

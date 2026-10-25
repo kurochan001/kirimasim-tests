@@ -1,0 +1,6 @@
+%d: n=1 x=12 next=97
+;%d,: n=1 x=34 next=32
+,%d: n=1 x=56 next=32
+ %c: n=1 c=122
+%*d %d: n=1 x=88
+%*d,%d: n=0 x=88 next=59

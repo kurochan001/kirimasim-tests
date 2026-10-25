@@ -1,0 +1,854 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch16/test_assertion_dist_as_inside": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_assertion_dist_as_inside.sv:37: syntax error",
+   "inputs_sha256": "f81facdef89b732a81c80fe3c39e16b2e8b3da4440199c828af6afea1e9bd7b2"
+  },
+  "ch16/test_assume_property_actions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_assume_property_actions.sv:39: syntax error",
+   "inputs_sha256": "b34cc0d7765d29cd6bae1c833a47ef8f7bdef9d4ceca08046e97880e23736dbc"
+  },
+  "ch16/test_concurrent_assert_actions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_concurrent_assert_actions.sv:46: syntax error",
+   "inputs_sha256": "8fa34bbbcf4035cfa51b36013ae4630ada58f28169266a9bb985019075156df1"
+  },
+  "ch16/test_concurrent_assertion_names_and_control": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_concurrent_assertion_names_and_control.sv:43: syntax error",
+   "inputs_sha256": "097cb225d6758597d3e65ef1def77b4a62f9a17be8f1ff197067fa6383eefaf8"
+  },
+  "ch16/test_concurrent_assertion_places_and_kinds": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_concurrent_assertion_places_and_kinds.sv:35: syntax error",
+   "inputs_sha256": "78734a89ff02413464e3cdf33d80397c143b388291bf6197ffe0ff35d2365338"
+  },
+  "ch16/test_cover_pass_statements": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_cover_pass_statements.sv:47: syntax error",
+   "inputs_sha256": "7eedffa81cbc6befbaaabdda101ebc6a84e0e2418786bcfcb8f1edc787b06718"
+  },
+  "ch16/test_default_clocking_assertion_clocks": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_default_clocking_assertion_clocks.sv:36: syntax error",
+   "inputs_sha256": "6147b03a1064d849cf4586f705e09c5d42f889d613b9a73ea724cd89accc5240"
+  },
+  "ch16/test_default_disable_iff_nested_module": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_default_disable_iff_nested_module.sv:35: syntax error",
+   "inputs_sha256": "bd3138cce98098fdc9dd09ac0d51001fc2a5b937798840f8021666391bfe1ed6"
+  },
+  "ch16/test_default_disable_iff_scopes": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_default_disable_iff_scopes.sv:35: syntax error",
+   "inputs_sha256": "563437eff834fe0e78dbb865492aecab27dbb7115663aa159475db523ccb9ec5"
+  },
+  "ch16/test_expect_action_control": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_expect_action_control.sv:40: syntax error",
+   "inputs_sha256": "c42d8a6af3b446d27c59d8499079711cf8729114f7d12771cfa61159d764df35"
+  },
+  "ch16/test_illegal_mutual_recursion_no_time_advance": {
+   "status": "pass",
+   "inputs_sha256": "e33b117406f87b95fe3834c08cbe0c135aa0a7d5f8528c016a52d1ff5018f941"
+  },
+  "ch16/test_illegal_negated_property_reaching_recursion": {
+   "status": "pass",
+   "inputs_sha256": "4389f56600f9cef53e1f0c3ef12e782ae7336ff1cf5b13424ae7e27e54f8568d"
+  },
+  "ch16/test_illegal_overlapping_antecedent_no_match": {
+   "status": "pass",
+   "inputs_sha256": "47685b3a1529dcd0cc0f453d5986825ded402f50188be2b0df4db5573867c993"
+  },
+  "ch16/test_illegal_property_local_inout_formal": {
+   "status": "pass",
+   "inputs_sha256": "a551a97444386bc92a7233f189e2bdda3efbec6f1711c6411c7fd6e79b7c253f"
+  },
+  "ch16/test_illegal_recursive_property_actual_expression": {
+   "status": "pass",
+   "inputs_sha256": "1a35f32ca66d65d53c6a48ecf0d59a94bd289238b8bf043a1129519e930ecfde"
+  },
+  "ch16/test_illegal_recursive_property_disable_iff": {
+   "status": "pass",
+   "inputs_sha256": "c0681f71fc9b8cb1ad5e3b53773583b08d21c91433833033fbea5f043f03cc04"
+  },
+  "ch16/test_illegal_recursive_property_no_time_advance": {
+   "status": "pass",
+   "inputs_sha256": "df991c6c8b18719e24a2fd7622e99b4592a2296332f22728eaceb902e5ff1f38"
+  },
+  "ch16/test_illegal_recursive_property_s_always": {
+   "status": "pass",
+   "inputs_sha256": "1b3b34957f1e08b631cac0454595fac0ad77f04a3fe17eb2dd7a2bea14f33045"
+  },
+  "ch16/test_illegal_recursive_property_s_eventually": {
+   "status": "pass",
+   "inputs_sha256": "b6aee11dd1e5fddea67e5e817d658b69073de2818ef2335920450091ae1b10ec"
+  },
+  "ch16/test_illegal_recursive_property_s_nexttime": {
+   "status": "pass",
+   "inputs_sha256": "95447f642be3481e77425ede881880d767a9d2e21f604ed97bfcae38f0cba815"
+  },
+  "ch16/test_illegal_recursive_property_s_until": {
+   "status": "pass",
+   "inputs_sha256": "8f1f7480af4b99e5e104f63fe9393a4349d64bcdcb13ac84b7626bc480b61045"
+  },
+  "ch16/test_illegal_recursive_property_s_until_with": {
+   "status": "pass",
+   "inputs_sha256": "b1a71c469d878e76d68982edd964a91ad926b9779f0e0f3e629092f0a59b2009"
+  },
+  "ch16/test_illegal_sequence_property_no_match": {
+   "status": "pass",
+   "inputs_sha256": "a7b5f742fd54249231641331effc4cd5331c70ba51f5d52c1e86b12269623512"
+  },
+  "ch16/test_multiclock_implication_if_sync": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_multiclock_implication_if_sync.sv:55: syntax error",
+   "inputs_sha256": "4b721f6cabe82112fc3ccea73e42561dd9754f85c93b667453188f315bbe4a2a"
+  },
+  "ch16/test_nonvacuous_always_eventually": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_nonvacuous_always_eventually.sv:43: syntax error",
+   "inputs_sha256": "a7ffb56763877a414ad4045c61dd8db0980f6c2770f3bc8fd435e4ed509841a7"
+  },
+  "ch16/test_nonvacuous_followed_by_nexttime": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_nonvacuous_followed_by_nexttime.sv:38: syntax error",
+   "inputs_sha256": "bbe68aca90157319e6eb8e062fc1ae20c0817c99fe8b88ea6a2cbe3c5ce77bc8"
+  },
+  "ch16/test_nonvacuous_if_nonoverlap_instance_disable": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_nonvacuous_if_nonoverlap_instance_disable.sv:40: syntax error",
+   "inputs_sha256": "db7b135d901659137ccb7acefc16243f4db9ba4812f152ed22cdfd713dc29cc1"
+  },
+  "ch16/test_nonvacuous_not_and_abort": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_nonvacuous_not_and_abort.sv:48: syntax error",
+   "inputs_sha256": "5bf2f3779d2ded6531c8292c79c19f03e47c3cbffacd7d8b4edbc1b2887e7ecd"
+  },
+  "ch16/test_nonvacuous_property_case": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_nonvacuous_property_case.sv:38: syntax error",
+   "inputs_sha256": "bcb5c32aa5f5babb4144eddf93706a21c676cf47b841a445a8ce21d25a67e2bb"
+  },
+  "ch16/test_nonvacuous_sequence_strong_weak": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_nonvacuous_sequence_strong_weak.sv:34: syntax error",
+   "inputs_sha256": "2495ef8c2153c891c89e023df8819d55b00b2bbebeff03a16786a1f1a499a24b"
+  },
+  "ch16/test_nonvacuous_until_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_nonvacuous_until_forms.sv:42: syntax error",
+   "inputs_sha256": "4bcedff43e39bd0c547428e4ecd914aea2bb8237279f812dd8655b025858803a"
+  },
+  "ch16/test_procedural_assertion_clock_inference": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_procedural_assertion_clock_inference.sv:59: syntax error",
+   "inputs_sha256": "c2dac6a0bc4c709e7011900dcbd9bfdd20ec7c364dbefbb330c87e340a14ccaf"
+  },
+  "ch16/test_procedural_assertion_queue_rules": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_procedural_assertion_queue_rules.sv:56: sorry: concurrent_assertion_item not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+   "inputs_sha256": "14254b2374c7fa554d1a5fc7b6c6584b36faedfd14ec59118116f5c11c5ca807"
+  },
+  "ch16/test_recursive_property_abort_operators": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_recursive_property_abort_operators.sv:36: syntax error",
+   "inputs_sha256": "358e9d8531760648770382cd54535ec22136b1cf7709902fbaa280cfa4c34984"
+  },
+  "ch16/test_static_assertions_start_every_tick": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_static_assertions_start_every_tick.sv:30: sorry: concurrent_assertion_item not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+   "inputs_sha256": "51454f07a20a25b698209ea16952b1ccd016c76d8e2f608d28a188cf45fc38ab"
+  },
+  "ch17/test_checker_assertion_sampling_as_module": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_assertion_sampling_as_module.sv:30: syntax error",
+   "inputs_sha256": "e17f99392bb9dd5564bcea6b9fe27fcbee92aa58c5aabbdad339d4408a123420"
+  },
+  "ch17/test_checker_procedures_reactive_renba": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_procedures_reactive_renba.sv:36: syntax error",
+   "inputs_sha256": "66882fca1d99bbf88f8db8ca8a8cb65eddd8de5ae55249904046ecb32aecde30"
+  },
+  "ch18/test_constraint_bidirectional_solver": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_constraint_bidirectional_solver.sv:47: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "1d8da3c67de411615a432b1e5ef655a59ccc5c0085ad9cde54dce723a955d184"
+  },
+  "ch18/test_constraint_guard_and_table": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_constraint_guard_and_table.sv:47: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "cf2a5cd284c1a8980c8a5b8eff942c47e75bfe09f2fe6c774eec7a181aa84e63"
+  },
+  "ch18/test_constraint_guard_not_nested": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_constraint_guard_not_nested.sv:51: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "8331a2a7b4e93866a8f4c9249d741a29b7e1ed6f169510ff03e82d90ab808756"
+  },
+  "ch18/test_constraint_guard_or_table": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_constraint_guard_or_table.sv:47: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "aa8fe32af92fd04975bf61e6a855bb7c2b54254a7d782a73623e64aa50cf65fa"
+  },
+  "ch18/test_constraint_inherit_add_and_pure_chain": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_constraint_inherit_add_and_pure_chain.sv:34: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "eaea5f70f6bcdf449cb2d8821944bc274339eb23b83f6bc17a3303f3c5afff23"
+  },
+  "ch18/test_constraint_mode_hierarchy": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_constraint_mode_hierarchy.sv:33: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "77482e8acd7cbbc6345e098a172ca7c8d8a230209dbac4e55c79e73d0b0da98f"
+  },
+  "ch18/test_illegal_constraint_block_and_prototype": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_constraint_block_and_prototype\\\\.sv:(24|25):'",
+   "inputs_sha256": "838310c83e942513a5d5380c0633246e86c0695e8609293794c89fda6714e989"
+  },
+  "ch18/test_illegal_constraint_extends_no_override": {
+   "status": "pass",
+   "inputs_sha256": "36bac4d981830e88c9fa75ee6982b456002ab40e206d76a18250503d41208777"
+  },
+  "ch18/test_illegal_constraint_final_replaced": {
+   "status": "pass",
+   "inputs_sha256": "6387e845682c71f0430d38dbc67811d444645a74669892e8766640579fdc5312"
+  },
+  "ch18/test_illegal_constraint_initial_override": {
+   "status": "pass",
+   "inputs_sha256": "2e209cf7cd2f232445ce3778e275a5a94cd941339b19444766a614a88afaa8f3"
+  },
+  "ch18/test_illegal_constraint_specifier_block_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "ffedef02c2205876112bbac694eed204f3bf529b340ca6d5e9e36fe653bb4c3b"
+  },
+  "ch18/test_illegal_constraint_specifier_prototype_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "171ff01e6a0bea7f74bf1fcb04963022a98bfcfe4ed76edabfcf653045a385c2"
+  },
+  "ch18/test_illegal_dist_default_no_weight": {
+   "status": "pass",
+   "inputs_sha256": "48b6352959201c466d3e8eaee42e4e0b39092f102acd590bf55b34d70875e01c"
+  },
+  "ch18/test_illegal_dist_no_rand_variable": {
+   "status": "pass",
+   "inputs_sha256": "08a014366dc352e6899c00dc61da0c09e910cb631a86fe11b30f11c83fdcb72d"
+  },
+  "ch18/test_illegal_dist_randc_variable": {
+   "status": "pass",
+   "inputs_sha256": "f278ffc0dd868bbc75f9a4f68ed5bdb96fac48d5b362045c8c43fd9c4a6cd9d1"
+  },
+  "ch18/test_illegal_dist_real_range_colon_equal": {
+   "status": "pass",
+   "inputs_sha256": "0020e0cb01821729c77bf08e9d5c50c68ac09529ed32a271864edd606124f659"
+  },
+  "ch18/test_illegal_dist_real_range_no_weight": {
+   "status": "pass",
+   "inputs_sha256": "29b0225f91ea7bdceebba8edde631f5073242f62bf3b1c1b1cad9e18920cb33c"
+  },
+  "ch18/test_illegal_extern_constraint_before_class": {
+   "status": "pass",
+   "inputs_sha256": "a49681bf4c4b8277e3bc2d817e55611b6820ee7e45e37c687fea806bf7944a93"
+  },
+  "ch18/test_illegal_extern_constraint_other_scope": {
+   "status": "pass",
+   "inputs_sha256": "b1b4b803421848cdf08fef6fa18edbcc949ceb74276c1882a7f3951d8c74989e"
+  },
+  "ch18/test_illegal_extern_constraint_two_blocks": {
+   "status": "pass",
+   "inputs_sha256": "1aa6043e2b070f346316626ea4dcc4b27dce16c109fcb963449dfee6b9ee4cee"
+  },
+  "ch18/test_illegal_pure_constraint_not_implemented": {
+   "status": "pass",
+   "inputs_sha256": "5e39fe0d1075b302f87b347cd58cae1123b90fe17bdeade4a6083f14e6c4c820"
+  },
+  "ch18/test_illegal_pure_constraint_with_block": {
+   "status": "pass",
+   "inputs_sha256": "e78d4a71ee984f86e1ed92e2e3ee66a0cca7ca099cfe54bc55aebcdf41288bfa"
+  },
+  "ch18/test_illegal_pure_constraint_with_external": {
+   "status": "pass",
+   "inputs_sha256": "11f1c68d1d5638b939abbfca6fb29fcf6ccc6a11c9cefd43f594f833ced91ffc"
+  },
+  "ch18/test_illegal_pure_constraint_with_prototype": {
+   "status": "pass",
+   "inputs_sha256": "217da53822d8512d95b540da06eb87a6d3505232e639911c1d1747747a46d90f"
+  },
+  "ch18/test_illegal_rand_mode_nonexistent": {
+   "status": "pass",
+   "inputs_sha256": "6413b0c022caa1e7ebcf80852ee5f7e1bfb17750b943643159d0cb36eaaff1c4"
+  },
+  "ch18/test_illegal_rand_mode_override": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_rand_mode_override\\\\.sv:23:'; the first is: tests/ch18/test_illegal_rand_mode_override.sv:30: Error: randomize is not a method of class rmo_obj.",
+   "inputs_sha256": "36a2278b0eb89c16f4ad609e8d372d4ebe6f59022ba7478ef63c2553728b6c49"
+  },
+  "ch18/test_illegal_solve_before_circular": {
+   "status": "pass",
+   "inputs_sha256": "915741832a7d597fa10b82c2e8cafb26b28effcbb028d322345c25b07005dd35"
+  },
+  "ch18/test_illegal_solve_before_parentheses": {
+   "status": "pass",
+   "inputs_sha256": "724290ede56c5d044fd424c51addbad85dc4b5ecf3d0f778fa88c679d42b4313"
+  },
+  "ch18/test_illegal_solve_before_unpacked_array": {
+   "status": "pass",
+   "inputs_sha256": "db0f86746d06cae22a735d80fdddfec114b3fe9bad2e9974a5f203872c350202"
+  },
+  "ch18/test_mode_method_signatures": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_mode_method_signatures.sv:35: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "b75847b484d5429443f85c50a53928ed2d486dcc159e96d006ede4031926181c"
+  },
+  "ch18/test_rand_mode_inactive_handle": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_rand_mode_inactive_handle.sv:28: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "24227295c4de06a76dd61827921667d95bba6cf04095d2156436fe3f774befc2"
+  },
+  "ch18/test_rand_mode_struct_members": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_rand_mode_struct_members.sv:26: syntax error",
+   "inputs_sha256": "fad2454abdc0c91d038e6d2eca6eccc71fdd3deab3dcf2390983362eab40ff39"
+  },
+  "ch18/test_rand_packed_enum_member": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_rand_packed_enum_member.sv:50: syntax error",
+   "inputs_sha256": "cf2c43054e5d5a673a0b1d8bfa46d70abd306f471b5b5eae772e5754b9d9453d"
+  },
+  "ch18/test_randc_8bit_two_cycles": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_randc_8bit_two_cycles.sv:40: Error: randomize is not a method of class r8c_obj.",
+   "inputs_sha256": "740d4331e85edba8045af60ff3e8db90268f189530f051f26e6503116d7fd50b"
+  },
+  "ch18/test_randc_permutation_recomputed": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_randc_permutation_recomputed.sv:39: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "37cd72269641cd8f234868ad3e166aae7d34098634590d4c089052bbf21a680a"
+  },
+  "ch18/test_randc_static_shared_cycle": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_randc_static_shared_cycle.sv:46: Error: randomize is not a method of class rsc_base.",
+   "inputs_sha256": "f56a78dae7ae1740c5b0da8e478a7c5ceb4cece896b0cab4f15d061e2b7a82c8"
+  },
+  "ch18/test_random_array_kinds": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_random_array_kinds.sv:40: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "5f507af3935909e9c976e4a9880bbf6b1158948d623424be9bbe14104d36c950"
+  },
+  "ch18/test_random_array_resize_modes": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_random_array_resize_modes.sv:34: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "866c87a452cfe5442b422af6f3ce0ac9a809a19f2ac2225ff524c13d497fda19"
+  },
+  "ch18/test_random_array_size_handles": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_random_array_size_handles.sv:36: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "01d2592b36bbe16d05c0222f20330980c398e005d01832e10a387dec9bef8675"
+  },
+  "ch18/test_randomize_callback_override": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_randomize_callback_override.sv:35: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "09300f0edf4abb64b001236b0eda7d53a239a0d66a984dacfc23edcea3797c14"
+  },
+  "ch21/test_ferror_after_failed_open": {
+   "status": "pass",
+   "inputs_sha256": "c70f338f562c453cd048d5d1cfdaf84dbeeff2151c04f3b694d279994ef9ce16"
+  },
+  "ch21/test_fflush_mcd_fd_and_all": {
+   "status": "pass",
+   "inputs_sha256": "7088527d2303884f5165deb8b02d6f0f8e6a924bbc0a98f590e92466ca729bdd"
+  },
+  "ch21/test_fgetc_byte_ff_and_eof": {
+   "status": "pass",
+   "inputs_sha256": "537e13276327e35914a9c8a59e1d8dab9c6dc97bd578e7cc3bab15316661e1fe"
+  },
+  "ch21/test_fgets_fill_newline_eof": {
+   "status": "pass",
+   "inputs_sha256": "c24018ab9f67cf7e2acd8fb648804e75784cc3931da4fa67f005fac86aaa6819"
+  },
+  "ch21/test_file_output_mcd_expression": {
+   "status": "pass",
+   "inputs_sha256": "316dfaf4868527648fc2f1da0c258b3ea5dcd4812c6923cf49e00bec07e7ecec"
+  },
+  "ch21/test_file_read_functions_all_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch21/test_file_read_functions_all_forms.sv:61: error: The function $fread has been called with missing/empty parameters.",
+   "inputs_sha256": "b89437d8f183e63600b9513eae9ff39fd628d1de0edb81d7fd5137e1484d0a6e"
+  },
+  "ch21/test_fread_unpacked_struct_union": {
+   "status": "known",
+   "reason": "compile failed: tests/ch21/test_fread_unpacked_struct_union.sv:25: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "9bff800b52a41bc4f6bec852f40521673837347cc64beae40d61b0ef9d699ec8"
+  },
+  "ch21/test_fread_word_widths_and_result": {
+   "status": "pass",
+   "inputs_sha256": "c10aeded90371fac75c14a095b720b11d6937d5ff148e994d759f8d92a817ec4"
+  },
+  "ch21/test_fscanf_leaves_conflict_unread": {
+   "status": "pass",
+   "inputs_sha256": "4298946681f579ab4777d1e1933ba82a5bc2fbcb6ccd05eb0c690bfec9851126"
+  },
+  "ch21/test_fscanf_unformatted_u_z": {
+   "status": "pass",
+   "inputs_sha256": "ddcc78ff3576b837d10bb1223fef084043af447f5ad05de1dbb2f63b4e1a0fa3"
+  },
+  "ch21/test_fseek_append_and_gap": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a: seek=0 position after write=2', expected 'a: seek=0 position after write=5'",
+   "inputs_sha256": "b5345f4653d084ad4b92bd908db872d0936a697d7a9825e49d8b6ccf5e66c592"
+  },
+  "ch21/test_readmem_dynamic_array_not_resized": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'dynamic of 3, 5 words: size=3 a1 a2 a3'",
+   "inputs_sha256": "d6896660615c1147ac573d3c7b60cafd963d324853871f5edfbb5dfd114410e6"
+  },
+  "ch21/test_readmemh_directions_and_addresses": {
+   "status": "pass",
+   "inputs_sha256": "e4922308e25efcf52730f04b11862571ac645ca8aa31d75f722f3e90c305a644"
+  },
+  "ch21/test_readmemh_incomplete_multidim": {
+   "status": "pass",
+   "inputs_sha256": "326f228cd69f4cca26aef72593ca99670feab09a2a53650b98722eebdcb0969d"
+  },
+  "ch21/test_readmemh_word_count_warning": {
+   "status": "pass",
+   "inputs_sha256": "7a154d7410de3fbff655a41c29b81c5e401bdc6852ce4bb6032da3ee4fc43779"
+  },
+  "ch21/test_sformat_assignment_rules": {
+   "status": "pass",
+   "inputs_sha256": "ee848f14d1bdf4a9dcca396a8cbfb1bec5715d99a1608e09e6503a11d2445020"
+  },
+  "ch21/test_sformat_only_second_argument_is_format": {
+   "status": "pass",
+   "inputs_sha256": "68061320b6a9030956053040518f3e7e4d838c5d4ed37d97d87a4416afa07461"
+  },
+  "ch21/test_sformat_too_few_arguments_warns": {
+   "status": "pass",
+   "inputs_sha256": "a7d86e9f2ecb7340ca63cacdb77848e29de9e11c697f04c41a145f1c2dc62a77"
+  },
+  "ch21/test_sformat_too_many_arguments_warns": {
+   "status": "pass",
+   "inputs_sha256": "efc01092a482a93587315a760f5d7d20144c0cee580ac13e5edf23f784375cfd"
+  },
+  "ch21/test_sscanf_digit_sets_xz": {
+   "status": "pass",
+   "inputs_sha256": "2d1e3b9ac288eb77266a4f78fc0b345800e6be938e4d65c0b4950b69076620f7"
+  },
+  "ch21/test_sscanf_eof_input_failure": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'white space only: n=0 a=-1 b=-1', expected 'white space only: n=-1 a=-1 b=-1'",
+   "inputs_sha256": "08a3fbb6b7085e731e947537becc482d979ac5501569442de030383e5f90088e"
+  },
+  "ch21/test_sscanf_excess_arguments_ignored": {
+   "status": "pass",
+   "inputs_sha256": "fa05d1b2e57267d04ab51f6c63190d1879aca5578484e27e30f3e8f887b995b8"
+  },
+  "ch21/test_sscanf_fields_whitespace_percent": {
+   "status": "pass",
+   "inputs_sha256": "d49f6ae61f55d81ecbef54cf30b662d59e68ca114ef7c02b74f0ae30016efaf0"
+  },
+  "ch21/test_sscanf_format_from_variables": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'literal: n=2 a=12 b=7'",
+   "inputs_sha256": "ab45bb89c62fee97049606c8d4c1f53b70bb32e30bfe9ff1bfa28e9cc1381837"
+  },
+  "ch21/test_sscanf_m_hierarchical_path": {
+   "status": "pass",
+   "inputs_sha256": "d8f37217d1f3b5a679b7a28e2a9f4c74e69db128d5397d80fea9469a30a09efe"
+  },
+  "ch21/test_sscanf_real_conversions": {
+   "status": "pass",
+   "inputs_sha256": "da95e06cb83974221501e8433f8b16b1d5143677a55315dd2baf3c1fc1ee7384"
+  },
+  "ch21/test_sscanf_sources_and_string_targets": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'literal source: n=2 a=1 b=2'",
+   "inputs_sha256": "a09345b48deea42b673b3e9b1cc1919834b1baa9254693979b9c4da46f147bc1"
+  },
+  "ch21/test_sscanf_t_uses_timeformat": {
+   "status": "pass",
+   "inputs_sha256": "5873403eec45d1b4f1fb00560db4201d75a3daf4b9d99e1e8b0850369531ebeb"
+  },
+  "ch21/test_sscanf_truncation_and_infinity": {
+   "status": "pass",
+   "inputs_sha256": "94678ef8b3b373019cc243f247c8c95b0add5496cbd88d018517d8daec8c6d33"
+  },
+  "ch21/test_sscanf_unknown_bits_return_eof": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'x in input: n=1', expected 'x in input: n=-1'",
+   "inputs_sha256": "910b671fd12c99d2fc97aeb5bf7550786b1cc7e5378630f601e38f1a233386c2"
+  },
+  "ch21/test_sscanf_v_strength_values": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SORRY: tests/ch21/test_sscanf_v_strength_values.sv:26: $s...', expected 'St1: n=1 1'",
+   "inputs_sha256": "c39677e7e4d262f5a3984016871f2a2ef130216a7cff84199a45e774e01ea98f"
+  },
+  "ch21/test_swrite_radix_forms_and_targets": {
+   "status": "pass",
+   "inputs_sha256": "9cf3c3c96526ceae9c8c935341cea0874944f6ae7b33eb0d3f8f097d30cb2f3f"
+  },
+  "ch21/test_swrite_unpacked_byte_array_order": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'ERROR:tests/ch21/test_swrite_unpacked_byte_array_order.sv...', expected '[0:3]: up[0]=w up[1]=x up[2]=y up[3]=z'",
+   "inputs_sha256": "d36ea02faf54149a8072a90c52a45adb8b05248c41a2c138f1efbe48ef2d09b9"
+  },
+  "ch21/test_ungetc_pushback_and_failed_descriptor": {
+   "status": "pass",
+   "inputs_sha256": "5c4aca4712acc9093c43d377e777ada09277a3914e068743aa499baafc405e6b"
+  },
+  "ch21/test_value_plusargs_hex_real_empty_width": {
+   "status": "pass",
+   "inputs_sha256": "3ab24f5309ae2d48dac28de9c5fbcf387172a77ef27e2166f97e7087a539929d"
+  },
+  "ch21/test_value_plusargs_illegal_characters": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'WARNING: tests/ch21/test_value_plusargs_illegal_character...', expected 'bad_d=%d: xxxxxxxx'",
+   "inputs_sha256": "ce24084561797ab703d336fb47b066692fff2df85cb4ff894c7daacc9696463d"
+  },
+  "ch21/test_value_plusargs_not_found_silent": {
+   "status": "pass",
+   "inputs_sha256": "179f9a5d34b2ce09b97898f021ca5c35af66657c5c1d0a6210a798589517754c"
+  },
+  "ch21/test_writemem_dynamic_array_no_addresses": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'hex: @=0 back=5a 00 c3'",
+   "inputs_sha256": "d159a029b115b5f469861f378a125f2760c7724b5a99f69f6a79d5210133e5c0"
+  },
+  "ch21/test_writemem_overwrite_and_multidim": {
+   "status": "pass",
+   "inputs_sha256": "4697d7bfc9c9dbe775194f1516cc5bfcbbb16e28580adca08c1f806b99a3a739"
+  },
+  "ch22/test_begin_keywords_1800_2009_additions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch22/test_begin_keywords_1800_2009_additions.sv:54: syntax error",
+   "inputs_sha256": "f98ae76d6585c103941d9f590dc533ac3395822af356e4c96a09228c5970f772"
+  },
+  "ch22/test_begin_keywords_1800_2012_additions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch22/test_begin_keywords_1800_2012_additions.sv:45: syntax error",
+   "inputs_sha256": "d7296e6fad8d9bb1b24d3e703007c42f0f29ec92e2b43d5a4b67472b662ede15"
+  },
+  "ch22/test_begin_keywords_all_nine_versions": {
+   "status": "pass",
+   "inputs_sha256": "52e8ae5900f56a45b66d9f7dc1f123aee178dcf0404b3f2b42cc194aa0d3e191"
+  },
+  "ch22/test_begin_keywords_nested_restore": {
+   "status": "pass",
+   "inputs_sha256": "441ffa85ee44a9a5a3e1958d00dbdd42057ee4f4a307ae913c987ef73604e9bf"
+  },
+  "ch22/test_file_line_across_include": {
+   "status": "pass",
+   "inputs_sha256": "6b1f49ded970f2c5122555016c144b6e4b12ee8f5459753e30038b7ecf8c47e4"
+  },
+  "ch22/test_ifdef_branches_and_expressions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch22/test_ifdef_branches_and_expressions.sv:49: error: `elsif without a macro name.",
+   "inputs_sha256": "e74e687208dfdec73abf9961dd1922d2216091b35a06ccdce742905fe1b478a8"
+  },
+  "ch22/test_ifdef_directive_names_not_defined": {
+   "status": "known",
+   "reason": "compile failed: tests/ch22/test_ifdef_directive_names_not_defined.sv:36: error: `ifdef without a macro name.",
+   "inputs_sha256": "cd389a12e1993b1c1e54eb455135ad86159365660fc5fd58ecc18f9213da81d0"
+  },
+  "ch22/test_ifdef_hidden_directives_and_spacing": {
+   "status": "known",
+   "reason": "compile failed: tests/ch22/test_ifdef_hidden_directives_and_spacing.sv:39: error: This `ifdef lacks an `endif.",
+   "inputs_sha256": "4d971dd45efc82f02d5a240a8dc29f42aade0a031653d72570d31267c2e66bd3"
+  },
+  "ch22/test_illegal_default_nettype_supply0": {
+   "status": "pass",
+   "inputs_sha256": "38d4bc3cb30313e505fdc6540eb92667244272505de30444fdca23320fc96450"
+  },
+  "ch22/test_illegal_ignored_block_unterminated_string": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "141801d852d58a0f24e2baec32746e0c9d1b3c8d03ccf528a2611b60654b1159"
+  },
+  "ch22/test_include_fifteen_levels": {
+   "status": "pass",
+   "inputs_sha256": "689973b893d181aa37161d1e9c640b8a4a7b1b450c8a3fcaaa3f96b961c5a72d"
+  },
+  "ch22/test_macro_actual_substituted_literally": {
+   "status": "pass",
+   "inputs_sha256": "efc10cd3fc9db3a1e26e53438b653e46e9fd146f6b7bf2e232f99ffb1115ec7d"
+  },
+  "ch22/test_macro_comments_and_string_continuation": {
+   "status": "known",
+   "reason": "compile failed: tests/ch22/test_macro_comments_and_string_continuation.sv:26: Unterminated comment in define",
+   "inputs_sha256": "b3eaa06ec98e788101a8eddbb34bba65781395c46b9f5f363aae73a668140287"
+  },
+  "ch22/test_macro_empty_actuals_and_defaults": {
+   "status": "pass",
+   "inputs_sha256": "6f106cbfb6f445675c35d51eeafd15436592531cfd2509af816558a5004084bd"
+  },
+  "ch22/test_macro_expansion_after_substitution": {
+   "status": "pass",
+   "inputs_sha256": "aebd03a5b57a72522cc16ccd5d193a24bde1a7338a618306cce1ba1ee7b2accd"
+  },
+  "ch22/test_macro_grave_triple_quote": {
+   "status": "known",
+   "reason": "compile failed: tests/ch22/test_macro_grave_triple_quote.sv:48: error: Missing closing quote for string.",
+   "inputs_sha256": "e8402372589659ba51b72ecd0dc55d901101d0954beb93c7fbf22d9bdde54413"
+  },
+  "ch22/test_macro_quotes_escapes_and_paste": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'string literal: alice meets `WHO', expected 'string literal: x meets `WHO'",
+   "inputs_sha256": "7f4685006cc81e73878057a22bc8f4a45669ca4eac1f9e6067caf1da52e9c0e1"
+  },
+  "ch22/test_macro_triple_quoted_string_newline": {
+   "status": "known",
+   "reason": "compile failed: tests/ch22/test_macro_triple_quoted_string_newline.sv:21: syntax error",
+   "inputs_sha256": "406dad362af6543414c595e90af88ee5fb6ad33debf4838a0adbd45e6f9d92f4"
+  },
+  "ch22/test_macro_use_space_before_arguments": {
+   "status": "pass",
+   "inputs_sha256": "a809ecb39980ffe2171b58bff4b4bbee0aaf9bb246aa0e6518624c42288869c4"
+  },
+  "ch22/test_resetall_ends_unconnected_drive": {
+   "status": "pass",
+   "inputs_sha256": "14bebf237b8d2df83c3e0c557e33d67147d0e96978012691a1af6ede04d978a1"
+  },
+  "ch23/test_ansi_explicit_named_ports": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_ansi_explicit_named_ports.sv:46: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "e108d124100c86ea3c1a6633e55075980ac8d1cbc59042a85bb5c01576cc59fa"
+  },
+  "ch23/test_defparam_last_in_source_text_wins": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'm.A=2 m.B=4 m.C=5 m.E=8', expected 'm.A=2 m.B=4 m.C=6 m.E=8'",
+   "inputs_sha256": "3e84f7196311feaeb7bec21ff87670aa7be6195b603dbd4cc3a50cbb5d68bb1e"
+  },
+  "ch23/test_defparam_targets_module_interface_program": {
+   "status": "pass",
+   "inputs_sha256": "26e9cda0feb3caad342c6b1dad6e03244c8371e7d3e242159761466ee5742a52"
+  },
+  "ch23/test_extern_module_headers_wildcard_definition": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_extern_module_headers_wildcard_definition.sv:32: syntax error",
+   "inputs_sha256": "c735bb0a02b2bac921586c834a18ae9c6aec9014e8f6063339b00e08ddf202c0"
+  },
+  "ch23/test_illegal_defparam_array_sibling_instance": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "634d8ac6b283ce6ab7f5e64b200c4c76836eaf67d6d7e0c9d96d49baf1a4a273"
+  },
+  "ch23/test_illegal_defparam_generate_changes_outside": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "f77c22c1ad4c74a1ec065145ce80825e26f84e71d9316ccc065587c6e04ed46c"
+  },
+  "ch23/test_illegal_defparam_generate_sibling_iteration": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "1f0841ec9f46cf0fb876f569a1953e222efa19f12b8fa9c82353ba1cc6e61b4d"
+  },
+  "ch23/test_illegal_defparam_instance_array_changes_outside": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "5931b2edb4025d488e557788dc57638ffd71ed015fa44e4e3673982d80ccce88"
+  },
+  "ch23/test_illegal_defparam_rhs_other_module_parameter": {
+   "status": "pass",
+   "inputs_sha256": "f6b45b3e3b6ebe1423b952929b251e2fd1d53ef973cef0039b8222aaf43f6465"
+  },
+  "ch23/test_illegal_defparam_rhs_variable": {
+   "status": "pass",
+   "inputs_sha256": "0ae9510ea4bd3e22b62d5874c45e4d59e17aeb606cedb6a90c62bcddb5aadf26"
+  },
+  "ch23/test_illegal_generate_path_select_not_constant": {
+   "status": "pass",
+   "inputs_sha256": "69de252a3346e7bee42aca44f32da112a55e169d7ce81a6766ec6243aa51d7b7"
+  },
+  "ch23/test_illegal_hierarchical_read_into_checker": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_hierarchical_read_into_checker\\\\.sv:29:'; the first is: tests/ch23/test_illegal_hierarchical_read_into_checker.sv:21: syntax error",
+   "inputs_sha256": "ee8061d88bcdb833b511631fb60debcee7efe3470e1d88aacfcf3464ffa93924"
+  },
+  "ch23/test_illegal_hierarchical_ref_automatic_task_variable": {
+   "status": "pass",
+   "inputs_sha256": "17b4e46cda77f7d3caa63477e4de0fe79ebfe47ab776e9906655ff98910815b5"
+  },
+  "ch23/test_illegal_hierarchical_ref_unnamed_generate_block": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "fda6ee0252fe4c30450e28051856c544de21d0f0b4ddd29700c27f1c992e6ee6"
+  },
+  "ch23/test_illegal_identifier_declared_twice_in_scope": {
+   "status": "pass",
+   "inputs_sha256": "44b2b5c720a572e8b20790f13f1e063c7a207a85388b52e04345b5f4ce6b2d3a"
+  },
+  "ch23/test_illegal_inout_port_nettype_one_side": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_inout_port_nettype_one_side\\\\.sv:33:'; the first is: tests/ch23/test_illegal_inout_port_nettype_one_side.sv:24: syntax error",
+   "inputs_sha256": "85b54a13def43f941b9d914221642fbb7444974d269a3936ac490edb2b69b652"
+  },
+  "ch23/test_illegal_instance_array_path_without_select": {
+   "status": "pass",
+   "inputs_sha256": "00c86c0037464fb18177699e09f929bc4677a7174a9b5df9cf799b4aed2d5a13"
+  },
+  "ch23/test_illegal_instance_select_out_of_range": {
+   "status": "pass",
+   "inputs_sha256": "8a17683ebaacee2eb7e33475328760bc414e48b15ec42f9333f2dba55d605399"
+  },
+  "ch23/test_illegal_interface_port_connected_to_net": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interface_port_connected_to_net\\\\.sv:31:'; the first is: tests/ch23/test_illegal_interface_port_connected_to_net.sv:25: syntax error",
+   "inputs_sha256": "12d656690d7d3bb74e67742977402010b3284071fddae898bae97e1a708f389f"
+  },
+  "ch23/test_illegal_named_connection_concatenated_port_member": {
+   "status": "pass",
+   "inputs_sha256": "a2722991437d5f5d671fc93c46960af90e97ad027f9e49df51eb7189f0efe08b"
+  },
+  "ch23/test_illegal_named_connection_port_bit_select": {
+   "status": "pass",
+   "inputs_sha256": "1b1ed18ee5706e58b9333bcecc2291a569819edf2a776255f4e7382adbe31383"
+  },
+  "ch23/test_illegal_named_connection_port_part_select": {
+   "status": "pass",
+   "inputs_sha256": "ed70aefbb70241a78f5d7354d24ff08924578e12c120ec0624fb5e323e77dc29"
+  },
+  "ch23/test_illegal_parameter_assignment_mixed_ordered_named": {
+   "status": "pass",
+   "inputs_sha256": "d2756507507d37bba4d64d7c3f18ba9855ba085680934f4b7475b31a01f91839"
+  },
+  "ch23/test_illegal_port_connection_different_nettypes": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_port_connection_different_nettypes\\\\.sv:36:'; the first is: tests/ch23/test_illegal_port_connection_different_nettypes.sv:24: syntax error",
+   "inputs_sha256": "5905f32afe506afa7224a304bc2685b26ff5dd70a72939a5dcd228717688220d"
+  },
+  "ch23/test_illegal_port_connection_nettype_data_type_mismatch": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_port_connection_nettype_data_type_mismatch\\\\.sv:34:'; the first is: tests/ch23/test_illegal_port_connection_nettype_data_type_mismatch.sv:24: syntax error",
+   "inputs_sha256": "f58fcf8772b3b8329d28986cd293b6346c1382cc15a75583044c9bc4e31ffd36"
+  },
+  "ch23/test_interconnect_merge_net_types": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_interconnect_merge_net_types.sv:53: syntax error",
+   "inputs_sha256": "44edfbc441dfbebb1947696fc683a65821d27f9cfabdf89c5c93ebcade9fc28a"
+  },
+  "ch23/test_interconnect_port_inheritance_typeless": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_interconnect_port_inheritance_typeless.sv:32: syntax error",
+   "inputs_sha256": "28f91d493c532306ac1d6fc1c5f9979f9041732f48630540522e971a4316463b"
+  },
+  "ch23/test_interconnect_terminal_wire_resolution": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_interconnect_terminal_wire_resolution.sv:42: syntax error",
+   "inputs_sha256": "b87ef27fb9813431a1ba9334b8ce982391b0f4c5e4d11a3bda5d9789ea58d87d"
+  },
+  "ch23/test_module_declaration_all_header_elements": {
+   "status": "pass",
+   "inputs_sha256": "b9dde2159d8cd96933843e38e4597a4c9694145b7cc8f192830a5f1a0db4874a"
+  },
+  "ch23/test_parameter_ordered_list_skips_localparam": {
+   "status": "pass",
+   "inputs_sha256": "e887f1aacdc0ff52d8f1fb45e7d3964e98ca52ec6e95ed2cd39e56f2d3052286"
+  },
+  "ch23/test_parameter_override_type_and_range": {
+   "status": "pass",
+   "inputs_sha256": "9c022298579cb1ff212cc731fade0303a404b70b48ebd3447a0cc8e966cd5839"
+  },
+  "ch23/test_port_collapse_internal_supply": {
+   "status": "pass",
+   "inputs_sha256": "bdc28b209e73a32ae924a9201ff40b54dd97477f9c82507b9f85fd1f05c56737"
+  },
+  "ch23/test_port_collapse_internal_tri0_tri1": {
+   "status": "pass",
+   "inputs_sha256": "85af2f3fcfdcca24e80d17d7d931300cc57becb7bb39ad2d5bc364599c740f5b"
+  },
+  "ch23/test_port_collapse_internal_wand": {
+   "status": "pass",
+   "inputs_sha256": "39251885622e6e5c02280661bb1be8eb27adadaf6dbf674a9bdb2f6db8cb58f0"
+  },
+  "ch23/test_port_collapse_internal_wire": {
+   "status": "pass",
+   "inputs_sha256": "7cc98142bc8bdf7097e9a9020d7ceb13c99f2f71669b33059662e7adac7fe6a2"
+  },
+  "ch23/test_port_collapse_internal_wor": {
+   "status": "pass",
+   "inputs_sha256": "817067dbcd7faafbb33f6bb50c043248b1efa2775ba44103b57cb31b373107f5"
+  },
+  "ch23/test_port_collapse_net_delay": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_net_delay.sv:41: sorry: Net delays not supported.",
+   "inputs_sha256": "819e8f2e6cd164bec3708eefcc3c57044d91b0a190454205e06097eec5c42093"
+  },
+  "ch23/test_port_collapse_trireg": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_trireg.sv:45: syntax error",
+   "inputs_sha256": "977573b9b1158d6f090b19f792a2d819499c312c8828011f5d10b6ae37e57e42"
+  },
+  "ch23/test_port_collapse_trireg_charge_strength": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_port_collapse_trireg_charge_strength.sv:38: sorry: trireg nets not supported.",
+   "inputs_sha256": "9527e03246331fe4e7b04bf3b2f5046910a6a714ef98e77686928f057353d09a"
+  },
+  "ch23/test_port_collapse_uwire_supply": {
+   "status": "pass",
+   "inputs_sha256": "d3d148f88baa5f067d90eb0a210546ae376d0ccb43ad3c1b3b03098b94d94921"
+  },
+  "ch23/test_port_collapse_wired_opposite_supply": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'wand inside, supply1 outside:    outside 10111 inside 10111', expected 'wand inside, supply1 outside:    outside 11111 inside 11111'",
+   "inputs_sha256": "05bfab287b0e26cdc47d7064421f691b78e8884e665e070645fea34854a59855"
+  },
+  "ch23/test_port_connection_blank_omitted_empty": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'p6: n=z d=7', expected 'p6: n=z d=z'",
+   "inputs_sha256": "33ac6c7cd327135001fcd4783c5cc66374e5aea2abcdaf8fb0a28091ed270671"
+  },
+  "ch23/test_port_default_value_module_scope": {
+   "status": "pass",
+   "inputs_sha256": "f9dd5520320123d473cd0c008d1725d0c16db2fd056ab357af352a6462d48ba6"
+  },
+  "ch23/test_port_expression_assignment_rules": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'u1=0 u2=13 u3=13 u4=13 u5=0 u6=10', expected 'u1=16 u2=253 u3=-3 u4=13 u5=16 u6=26'",
+   "inputs_sha256": "02900adc0120790f3f777eb4c53954ce15a37afa078cb0e78e92599b1d5da16a"
+  },
+  "ch23/test_port_net_and_variable_connections": {
+   "status": "pass",
+   "inputs_sha256": "f59b9fa8e508f102ea652fef7545a03691aa546beb193be4de7b92396ec52b23"
+  },
+  "ch23/test_subroutine_unit_before_parent_module": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'child: which_f()=2 only_parent()=4', expected 'child: which_f()=1 only_parent()=4'",
+   "inputs_sha256": "a59498bdf1a2d68d7b50ca184deaa64cdf1e496e07b7aa1e260fc403360ff0ff"
+  },
+  "ch23/test_type_parameter_override_dependent_value": {
+   "status": "pass",
+   "inputs_sha256": "27b8d3fb248d7c67d6f057bdea47764af8895bb7fba9ec115f8a608f11151b22"
+  },
+  "ch23/test_upward_name_resolution_order": {
+   "status": "pass",
+   "inputs_sha256": "5f264210082d332de03dd0eb67a6a9c82a92bc859100f39dc19206a26c576c46"
+  },
+  "ch23/test_upward_name_search_after_partial_match": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_upward_name_search_after_partial_match.sv:28: error: Unable to bind wire/reg/memory `sc.q' in `test_upward_name_search_after_partial_match.mid.bot.leaf'",
+   "inputs_sha256": "b14c5f9e97e0fea4d289ef73cd73035cd11413f6cfbbcafda181eeb87f3a2a37"
+  },
+  "ch23/test_vpi_ansi_port_inheritance": {
+   "status": "pass",
+   "inputs_sha256": "d531e4a9a23f96a329744e50ce6a347539db15679dfdf0c0af740baaa9c94a58"
+  },
+  "ch23/test_wildcard_port_connection_defaults": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'w2: a=1 b=6 c=9 e=2', expected 'w2: a=1 b=6 c=z e=2'",
+   "inputs_sha256": "e80948bf03613ed84f1ff7320c3784d2da1a01d6d660c2b05d04a440aee77e63"
+  },
+  "ch23/test_wildcard_port_connection_package_import": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_wildcard_port_connection_package_import.sv:49: error: Unable to bind wire/reg/memory `p' in `test_wildcard_port_connection_package_import.n'",
+   "inputs_sha256": "8fa5d2bde2afc5db8840ac2a93f7ecd6a0b3fadc3ed06980853c28e3fb712290"
+  }
+ },
+ "generated_at": "2026-10-25T15:06:15.714744+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

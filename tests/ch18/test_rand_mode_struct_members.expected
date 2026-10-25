@@ -1,0 +1,3 @@
+p.a off: ok=1 a=7 b=12 modes=01
+p off: ok=0 a=7 b=0 modes=00
+p on again: ok=1 a=20 b=25 modes=11

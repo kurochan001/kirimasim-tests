@@ -6,22 +6,22 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 6294 |
+| Tests | 6482 |
 | Clauses in scope | 975 |
 | Clauses out of scope | 184 |
 | Clauses with a direct test | 975/975 |
 | Clauses with at least two direct tests | 975/975 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 196 |
+| Clauses with two tests or fewer | 178 |
 | Clauses with only standard-only tests | 238 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 520 |
-| Icarus Verilog 13.0 only | 3164 |
-| Verilator 5.052 only | 1208 |
-| standard only | 1402 |
+| both releases | 548 |
+| Icarus Verilog 13.0 only | 3198 |
+| Verilator 5.052 only | 1229 |
+| standard only | 1507 |
 
 ## By chapter
 
@@ -40,14 +40,14 @@
 | 13 | Tasks and functions (subroutines) | 187 | 15 | 12.5 | 0 | 16 |
 | 14 | Clocking blocks | 75 | 15 | 5.0 | 0 | 16 |
 | 15 | Interprocess synchronization and communication | 52 | 21 | 2.5 | 0 | 16 |
-| 16 | Assertions | 268 | 67 | 4.0 | 0 | 203 |
-| 17 | Checkers | 31 | 9 | 3.4 | 0 | 21 |
-| 18 | Constrained random value generation | 64 | 44 | 1.5 | 0 | 18 |
+| 16 | Assertions | 303 | 67 | 4.5 | 0 | 235 |
+| 17 | Checkers | 33 | 9 | 3.7 | 0 | 22 |
+| 18 | Constrained random value generation | 104 | 44 | 2.4 | 0 | 48 |
 | 19 | Functional coverage | 84 | 22 | 3.8 | 0 | 70 |
 | 20 | Utility system tasks and system functions | 235 | 31 | 7.6 | 0 | 31 |
-| 21 | Input/output system tasks and system functions | 131 | 47 | 2.8 | 0 | 20 |
-| 22 | Compiler directives | 327 | 21 | 15.6 | 0 | 6 |
-| 23 | Modules and hierarchy | 136 | 32 | 4.2 | 0 | 29 |
+| 21 | Input/output system tasks and system functions | 170 | 47 | 3.6 | 0 | 31 |
+| 22 | Compiler directives | 347 | 21 | 16.5 | 0 | 13 |
+| 23 | Modules and hierarchy | 188 | 32 | 5.9 | 0 | 53 |
 | 24 | Programs | 38 | 7 | 5.4 | 0 | 16 |
 | 25 | Interfaces | 106 | 12 | 8.8 | 0 | 39 |
 | 26 | Packages | 71 | 6 | 11.8 | 0 | 10 |

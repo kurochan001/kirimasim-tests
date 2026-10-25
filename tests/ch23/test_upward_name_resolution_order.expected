@@ -1,0 +1,7 @@
+leaf: x=6
+leaf: nb.v=1
+leaf: pb.w=20
+leaf: upward_bot.i=3 bot.i=3
+leaf: parent_f()=33
+leaf: upward_mid.val=70
+top: bot.y=9 leaf.y=1

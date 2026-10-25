@@ -1,0 +1,4 @@
+TQ(X): [first X<nl>second bob] len=18
+AFTER_OPEN: 5
+TTAIL(1): [x`]
+MIXT(7): [7-`x-]

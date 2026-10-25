@@ -1,0 +1,51 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  },
+  "ch22/test_directive_scope_across_include_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  },
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  },
+  "ch22/test_illegal_include_absolute_path_not_searched": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  },
+  "ch22/test_illegal_include_line_trailing_code": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  },
+  "ch22/test_include_file_declarations": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  },
+  "ch22/test_include_guard_twice": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  },
+  "ch22/test_include_guard_two_files": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  },
+  "ch22/test_include_nested": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  },
+  "ch22/test_resetall_restores_defaults_keeps_macros": {
+   "status": "pass",
+   "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010"
+  }
+ },
+ "generated_at": "2026-10-25T15:05:38.835073+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

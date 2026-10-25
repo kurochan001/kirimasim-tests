@@ -1,0 +1,5 @@
+sformat later literal: <%0d7>
+swrite later literal: <7>
+string format: v=ff
+integral format: v=ab
+specifiers: 1010|17|ab|cd|-5|A|str|1.5e+03|3.14|0.5|1|test_sformat_only_second_argument_is_format|St1|%

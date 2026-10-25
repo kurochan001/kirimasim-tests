@@ -1,0 +1,3 @@
+top: test_sscanf_m_hierarchical_path v=41
+u1 first: test_sscanf_m_hierarchical_path.u1 v=42
+u1 middle: test_sscanf_m_hierarchical_path.u1 v=43 w=x

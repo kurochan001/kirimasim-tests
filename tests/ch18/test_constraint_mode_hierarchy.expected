@@ -1,0 +1,10 @@
+all on: ok=1 a=1 b=20 c=3 e=4 modes=1111
+inherited c_a off: ok=1 a=9 b=20 modes=0111
+c_c off: ok=1 c=7 modes=0101
+external c_e off: ok=1 e=8 modes=0100
+all on again: ok=1 a=1 b=20 c=3 e=4 modes=1111
+all off: ok=1 a=5 b=6 c=7 e=8 modes=0000
+objs: modes 1111 1011
+objs[1] with b == 50: ok=1 b=50
+objs[0] with b == 50: ok=0
+w.inner c_c off: ok=1 c=70 modes=1101

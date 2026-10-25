@@ -1,0 +1,11 @@
+5: initial procedure
+15: always procedure
+25: module
+35: interface
+45: program
+55: generate block
+65: checker
+75: labeled assert property with disable iff
+95: assume property
+105: cover property
+125: cover sequence

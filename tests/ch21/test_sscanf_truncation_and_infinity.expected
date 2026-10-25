@@ -1,0 +1,8 @@
+h into 8 bits: n=1 45
+d into byte: n=1 44
+b into 4 bits: n=1 0101
+s into 3 bytes: n=1 def
+real 1e400: n=1 +inf=1
+real -2e999: n=1 -inf=1
+realtime 3e500: n=1 +inf=1
+shortreal 1e50: n=1 +inf=1

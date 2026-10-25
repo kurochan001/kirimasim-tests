@@ -1,0 +1,4 @@
+a (tri0 port, no driver): 0
+b (tri1 port, no driver): 1
+c (wire 1 here, wand 0 inside mid): 0
+d (tri0 port inside mid2, no driver): 0

@@ -1,0 +1,4 @@
+uwire inside, supply0 outside:   outside 00000 inside 00000
+uwire inside, supply1 outside:   outside 11111 inside 11111
+supply0 inside, uwire outside:   outside 00000 inside 00000
+supply1 inside, uwire outside:   outside 11111 inside 11111

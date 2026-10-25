@@ -1,0 +1,4 @@
+no addresses: a1 a2 ee ee ee ee ee ee ee ee b1 ee c1 c2 ee ee
+start 4: ee ee ee ee d1 d2 ee ee ee d3 d4 ee ee ee ee ee
+start 2 finish 7: ee ee f1 ee ee f2 f3 ee ee ee ee ee ee ee ee ee
+start 11 finish 6 at 5: ee ee ee ee ee ee ee e4 e3 ee e2 e1 ee ee ee ee

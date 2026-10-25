@@ -1,0 +1,6 @@
+x off: ok=1 x=50 y=49, nonrandom z: w=71
+x on again: ok=1 x=6
+h off: h=0 h.v=1
+o.randomize() with h off: ok=1 h.v=99
+h.randomize(): ok=1 h.v in [10:20]=1
+h on again: ok=1 h.v in [10:20]=1

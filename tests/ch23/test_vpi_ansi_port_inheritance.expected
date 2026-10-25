@@ -1,0 +1,19 @@
+u1.a: inout logic net, 1 bits
+u1.b: inout logic net, 1 bits
+u2.x: inout logic net, 6 bits
+u2.y: inout logic net, 6 bits
+u2.z: input logic net, 1 bits
+u3.s: inout logic net, 1 bits
+u3.t: output logic net, 1 bits
+u4.p: input logic variable, 4 bits
+u4.q: input logic variable, 4 bits
+u4.r: input logic net, 1 bits
+u4.g: input net array of 2
+u4.h: input logic net, 1 bits
+u4.e: output signed integer variable, 32 bits
+u4.f: output signed logic net, 3 bits
+u4.k: output logic variable, 1 bits
+u4.v: output logic variable, 2 bits
+u5.a5: input logic net, 1 bits
+u5.b5: output logic net, 3 bits
+u1.a=z u2.x=zzzzzz u3.s=z

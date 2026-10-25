@@ -1,0 +1,5 @@
+5: fail action in test_concurrent_assertion_names_and_control.g_u
+15: a_deep
+35: a_other
+45: a_deep
+calls through the asserted property 2, through the unused one 0

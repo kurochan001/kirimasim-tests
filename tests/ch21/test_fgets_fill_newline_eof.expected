@@ -1,0 +1,7 @@
+32-bit: n=4 [abcd]
+28-bit: n=3 [efg]
+string: n=1 [<nl>]
+string: n=3 [hi<nl>]
+string: n=2 [xy]
+at the end: n=0
+write-only descriptor: n=0

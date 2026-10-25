@@ -1,0 +1,3 @@
+t1 (buf 1, UDP 0): x
+t2 (UDP 1): 1
+t3 (port 0): not gives 1, UDP gives 0

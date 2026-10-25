@@ -1,0 +1,10 @@
+wor inside, wire outside:        outside 10z1z inside 10z1z
+wor inside, tri outside:         outside 10z1z inside 10z1z
+trior inside, wire outside:      outside 10z1z inside 10z1z
+trior inside, tri outside:       outside 10z1z inside 10z1z
+wor inside, wor outside:         outside 10z1z inside 10z1z
+wor inside, trior outside:       outside 10z1z inside 10z1z
+trior inside, wor outside:       outside 10z1z inside 10z1z
+trior inside, trior outside:     outside 10z1z inside 10z1z
+wor inside, supply1 outside:     outside 11111 inside 11111
+trior inside, supply1 outside:   outside 11111 inside 11111

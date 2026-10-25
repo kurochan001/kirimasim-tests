@@ -1,0 +1,9 @@
+a1 (posedge clk) failures at 55
+a2 (posedge clk iff en) failures at 75 75
+a3 (delay in the procedure) failures at 28
+a4 (second event control) failures at 38
+a5 (clk used in the body) failures at 48
+a6 (event variable) failures at 84
+a7 (clocking block) failures at 95
+a8 (two qualifying expressions) failures at 108
+a10 (event variable used in the body) failures at 118
