@@ -1,0 +1,1119 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch10/test_illegal_alias_given_twice": {
+   "status": "pass",
+   "inputs_sha256": "3b920a131122a2457622e5fbb42b874b1f3647f3225ab8664fe57b4454a6db8a"
+  },
+  "ch10/test_illegal_alias_members_of_different_widths": {
+   "status": "pass",
+   "inputs_sha256": "b2035c3188bff4503322b5585aab29a00ea6224d07a4f3dd4083fd515d1d1ef5"
+  },
+  "ch10/test_illegal_alias_net_to_itself": {
+   "status": "pass",
+   "inputs_sha256": "12ddc2a327e345ce582069561db29b0bf19b4b147e52ace2932295d11ddffe71"
+  },
+  "ch10/test_illegal_alias_wand_to_wor": {
+   "status": "pass",
+   "inputs_sha256": "16c6b5630c516ebb8002b1f1df6b4091f56948b855f9bae85b7d443977e01b3b"
+  },
+  "ch10/test_illegal_charge_strength_on_wire": {
+   "status": "pass",
+   "inputs_sha256": "a8e8722c56b9e1237521ed0f95cb91553f5e8cfcb1d927443cb6abef2632cee2"
+  },
+  "ch10/test_illegal_interconnect_declaration_assignment": {
+   "status": "pass",
+   "inputs_sha256": "9ddb2bdc97c79471c474ab7b10015410e509d8c6436a53c6084d8f894334bcc3"
+  },
+  "ch10/test_illegal_lhs_assignment_pattern_member_width": {
+   "status": "pass",
+   "inputs_sha256": "5c18d48e0393a7e50b9a84436a6eaf49129cab9c90970f188e053b71c2e9874b"
+  },
+  "ch10/test_illegal_lhs_assignment_pattern_with_keys": {
+   "status": "pass",
+   "inputs_sha256": "5c697b40d466d8298080a04b619516716d5f75dd59902f1ba712e223711762de"
+  },
+  "ch10/test_illegal_struct_pattern_default_not_castable": {
+   "status": "pass",
+   "inputs_sha256": "946c4fa70e4c312b509a68aaeeaf9e5601d2dee9f1ef8062230c5228af46bb68"
+  },
+  "ch10/test_illegal_struct_pattern_key_value_not_castable": {
+   "status": "pass",
+   "inputs_sha256": "55b2cfafb6176d688f0a69a2e254df70659e6b70c9e961e3a86fe4e8a9bbac04"
+  },
+  "ch10/test_illegal_typed_lhs_assignment_pattern_member_width": {
+   "status": "pass",
+   "inputs_sha256": "cf9ec6419d33dd82b760b00b7258a438a476e51bd4ae91c30c4450796b0c1043"
+  },
+  "ch10/test_illegal_typed_lhs_assignment_pattern_with_keys": {
+   "status": "pass",
+   "inputs_sha256": "f150fd5e52351a11567a0de4961cf40bec9b5028573dad60e4016b13461a2947"
+  },
+  "ch10/test_illegal_unpacked_concat_in_default_pattern_item": {
+   "status": "pass",
+   "inputs_sha256": "0d5d40e6f8421c494f107569a0c8101994829aff6f4f9c120b3be82a6060e006"
+  },
+  "ch10/test_illegal_unpacked_concat_nested_in_unpacked_concat": {
+   "status": "pass",
+   "inputs_sha256": "7f5feef88710d8f55b6d40d37ce1111e218561a3f9aaefc1a08868d78f43fb4c"
+  },
+  "ch10/test_illegal_unpacked_concat_to_associative_array": {
+   "status": "pass",
+   "inputs_sha256": "347702c5a0c8fcdc51b73c9fd41da6d2c18ce57f0daabb71c713378660a71c07"
+  },
+  "ch10/test_illegal_variable_driven_by_gate_and_module_output": {
+   "status": "pass",
+   "inputs_sha256": "b555dc5c15ace41fe88b9dbe3dde7a5074d47258ff4fde95d6d8de758df5011b"
+  },
+  "ch11/test_illegal_assignment_operator_in_continuous_assign": {
+   "status": "pass",
+   "inputs_sha256": "f94be9da9eddd8682dc95edb392ee1f1fb0661b6948d6abb1ac2674e980034dd"
+  },
+  "ch11/test_illegal_assignment_operator_in_event_expression": {
+   "status": "pass",
+   "inputs_sha256": "8731b48ca5fcb872b3f57352d549a81ab14f85aea050356978daa9c5e319393f"
+  },
+  "ch11/test_illegal_assignment_operator_in_procedural_assign": {
+   "status": "pass",
+   "inputs_sha256": "7e3c1d40a10a227073180952352f1ec5b1c9d6a197ed5fac3a5e16c178eab21e"
+  },
+  "ch11/test_illegal_conditional_operands_not_equivalent": {
+   "status": "pass",
+   "inputs_sha256": "5b3c9cb992818de70fe2f03f8335a4e1b594ba9f9f033b709c1dbac1288664f2"
+  },
+  "ch11/test_illegal_select_of_concatenation_as_lvalue": {
+   "status": "pass",
+   "inputs_sha256": "a47b627d4c80994de772f655f300fe036414467d5d8004c41e45e9eca04b86fa"
+  },
+  "ch11/test_illegal_stream_slice_size_negative": {
+   "status": "pass",
+   "inputs_sha256": "ceec04f2fa2eec4d42d4a46a9a50e0a3842286650ccf5cf4df44824e7d3ed218"
+  },
+  "ch11/test_illegal_stream_with_on_scalar": {
+   "status": "pass",
+   "inputs_sha256": "0380fc6035f9fab9fd942d882bd73caadd37f301415cc8219580d4c4d212d25f"
+  },
+  "ch11/test_illegal_stream_with_on_two_dimensional_array": {
+   "status": "pass",
+   "inputs_sha256": "6c2b31c1314fd64a9012477a28a2a6e766e2ae8e0d5b1c9126d657671b06f24f"
+  },
+  "ch11/test_illegal_tagged_expression_member_not_in_type": {
+   "status": "pass",
+   "inputs_sha256": "edd8f9c62d9225ffeca6e9e2c183d2045b38d54a9b00b48dbbdc4d28fa4cbcad"
+  },
+  "ch11/test_illegal_tagged_expression_value_of_wrong_type": {
+   "status": "pass",
+   "inputs_sha256": "a1dbade00d68aa3b66363f8e3b54fb0821e48c3b8fb1260833ff1390960c86d2"
+  },
+  "ch11/test_illegal_tagged_expression_without_context_type": {
+   "status": "pass",
+   "inputs_sha256": "93407e39d04b3a4d751bde93917be1e6a1d00a1582fbef6213dfc3859efefb8d"
+  },
+  "ch12/test_illegal_case_matches_member_not_in_type": {
+   "status": "pass",
+   "inputs_sha256": "6339dc6d3fa0eb3e30ecda28efdde9726216101558c4cf8345546157efab97c5"
+  },
+  "ch12/test_illegal_for_init_declares_after_existing": {
+   "status": "pass",
+   "inputs_sha256": "9f8ac5781a72eaff58d580666bfa6c296ccf7f4074b04320a580c56247a1bf01"
+  },
+  "ch12/test_illegal_for_type_reference_without_var": {
+   "status": "pass",
+   "inputs_sha256": "d2bb497a71224d3dc818129bf8e7076a58b9687c445396718fd7171bb0a8811d"
+  },
+  "ch12/test_illegal_foreach_loop_variable_named_as_array": {
+   "status": "pass",
+   "inputs_sha256": "05271a0d9b2b232b4d42ace79049166c8a145cda4460e7083200587f8896ae30"
+  },
+  "ch12/test_illegal_if_matches_pattern_of_other_type": {
+   "status": "pass",
+   "inputs_sha256": "66497227560af6c91f2816eebd810e650c97e75dddf215d83d42c2719ecb5204"
+  },
+  "ch12/test_illegal_net_type_reference_without_net_type": {
+   "status": "pass",
+   "inputs_sha256": "2550bec39015e0034bb477f20286c771e0e3dde94214acbeb37977782993db3e"
+  },
+  "ch12/test_illegal_pattern_constant_of_real_type": {
+   "status": "pass",
+   "inputs_sha256": "c08091abad3c6b38291a7d221a03390f1ca069632e9a8c6bdd95cdc704ecbcdf"
+  },
+  "ch12/test_illegal_pattern_identifier_used_twice": {
+   "status": "pass",
+   "inputs_sha256": "66feb3ac5d7d89402b1440c17f5b6ed7bce182854b6e18561b18a0fc0faf32ca"
+  },
+  "ch12/test_illegal_priority_if_second_else_unique_if": {
+   "status": "pass",
+   "inputs_sha256": "39f29a451f6fd35ba3c5a42b25d870266ec0e2b9d79534d515a1e52ae02c39eb"
+  },
+  "ch12/test_illegal_unique0_if_else_priority_if": {
+   "status": "pass",
+   "inputs_sha256": "71846c996734525a926a9a09e211855298f403edaf2b53a532add98edef0271b"
+  },
+  "ch12/test_illegal_unique_if_else_unique0_if": {
+   "status": "pass",
+   "inputs_sha256": "52f32f4a5316760370f8196e796f24487c62110513215c55437a06e8988f1b3e"
+  },
+  "ch13/test_illegal_constant_function_calls_nonconstant_function": {
+   "status": "pass",
+   "inputs_sha256": "6e1dd6cda9c7d3181aa4c2045d867fa89e4dcd2e8dbc5e23e8648a19830605b0"
+  },
+  "ch13/test_illegal_default_argument_in_non_ansi_declaration": {
+   "status": "pass",
+   "inputs_sha256": "7a27a394de6fe6683778db5835018c48da102a1ba9ae746f062c821f9145d83b"
+  },
+  "ch13/test_illegal_inout_argument_not_lvalue": {
+   "status": "pass",
+   "inputs_sha256": "197aadb6d13c2b6a6f40558411b6932c03c8cdf7fb727932205faa94c606effe"
+  },
+  "ch13/test_illegal_ref_actual_expression": {
+   "status": "pass",
+   "inputs_sha256": "b41c757f80b8dd98bc8c916a5566e513f54684e14e81c1bd0f81bc08682f958e"
+  },
+  "ch13/test_illegal_ref_in_static_function": {
+   "status": "pass",
+   "inputs_sha256": "dea30c9e45dcbdedb967a11982afebb7bcc4a6c66c18a4b88b098ac9eb912c6a"
+  },
+  "ch14/test_illegal_clocking_inout_expression_not_lvalue": {
+   "status": "pass",
+   "inputs_sha256": "f178b4573d6baca74272de88f067d082cc53eb83a39d63ae1f968559086b8c7b"
+  },
+  "ch14/test_illegal_clocking_input_expression_with_assignment": {
+   "status": "pass",
+   "inputs_sha256": "c8b12aecc162ea773bd3831b81544c538346fb2759a1febc85c17ac3fbfa7c32"
+  },
+  "ch14/test_illegal_clocking_output_expression_not_lvalue": {
+   "status": "pass",
+   "inputs_sha256": "76baf6ad34aee75fddf31381ebe2df6ae01b74d720151986d987442febecdf23"
+  },
+  "ch14/test_illegal_clocking_output_variable_force": {
+   "status": "pass",
+   "inputs_sha256": "0f27096718d3d20d8df427d19f81ad0debd331a629ee325f5411121d3742ffb2"
+  },
+  "ch16/test_illegal_assertion_expression_assignment_operator": {
+   "status": "pass",
+   "inputs_sha256": "577fa4f5659d632c0f104b525735baa16badac241edb9e53f0ac130474c86925"
+  },
+  "ch16/test_illegal_assertion_expression_increment": {
+   "status": "pass",
+   "inputs_sha256": "004bda27cf51e7701208382ad71ba2eb9f6cb86b22e88c4ea0d618aa8e38543a"
+  },
+  "ch16/test_illegal_attached_call_chandle_input": {
+   "status": "pass",
+   "inputs_sha256": "e351248fba065de67d0445ce649d3a770638021beace243393a564165e283aaa"
+  },
+  "ch16/test_illegal_attached_call_inout_argument": {
+   "status": "pass",
+   "inputs_sha256": "8da70158f0bb62601706ab8040ad037162fad170683e54c33a264dcfdf0aa8dd"
+  },
+  "ch16/test_illegal_attached_call_local_variable_before_assignment": {
+   "status": "pass",
+   "inputs_sha256": "762d2c753946d791a2b415ea8396a96e349cb1f0077b9c614e3008c18f12a448"
+  },
+  "ch16/test_illegal_attached_call_local_variable_by_reference": {
+   "status": "pass",
+   "inputs_sha256": "db63cd4f8835e3e824a355922142f1c4379e2f0835e0ef52741f593711c938bb"
+  },
+  "ch16/test_illegal_attached_call_output_argument": {
+   "status": "pass",
+   "inputs_sha256": "dba82eee02e44dc538b225f29ede3492d414890760831da908b189ed6860b91c"
+  },
+  "ch16/test_illegal_call_attached_to_empty_match": {
+   "status": "pass",
+   "inputs_sha256": "1386f8c27c2d5b5b6404724d4828b92face5ab8c2d118a71c4478eb9681cd5f6"
+  },
+  "ch16/test_illegal_cycle_delay_mintypmax": {
+   "status": "pass",
+   "inputs_sha256": "91eefca5cc902acc7c2d8544fae48a65f20edcaacf2fe61e7694528e9d2baeb3"
+  },
+  "ch16/test_illegal_cycle_delay_real_value": {
+   "status": "pass",
+   "inputs_sha256": "13d28bd422d7a1989d4d5a97a438520f36d17a41d42d3fc7c61440b7da6b2be0"
+  },
+  "ch16/test_illegal_disable_iff_local_variable": {
+   "status": "pass",
+   "inputs_sha256": "b369fb4d9f12c9f3af55daef6fbe131fae0671ce690a20b1e92892efa3019c66"
+  },
+  "ch16/test_illegal_disable_iff_matched": {
+   "status": "pass",
+   "inputs_sha256": "73ac47ee16db9f6544f8157859399db7ac313a71fb9fa8c287d7366122530aa0"
+  },
+  "ch16/test_illegal_disable_iff_sampled_function_no_clock": {
+   "status": "pass",
+   "inputs_sha256": "b8a06514e459ad3dc94d3b7474a7416d2ba3313c2740e0078cd74b4c18cca3c2"
+  },
+  "ch16/test_illegal_disable_iff_sequence_matched": {
+   "status": "pass",
+   "inputs_sha256": "51980552c07b71fb9dcdf093fb3d8973e6aa4f7e24c2d030c571addf61e247d5"
+  },
+  "ch16/test_illegal_global_clock_future_function_in_action_block": {
+   "status": "pass",
+   "inputs_sha256": "a1015f0669234ba9f0eaab956198a65e8add5aca4ac0d4155952c71c39eeee3c"
+  },
+  "ch16/test_illegal_global_clock_future_function_with_call_match_item": {
+   "status": "pass",
+   "inputs_sha256": "707f0fd957a5de0fd94c39c9d7ab72a2174a23c6d9302fc21066dd9346ec2236"
+  },
+  "ch16/test_illegal_global_clock_future_function_with_local_assignment": {
+   "status": "pass",
+   "inputs_sha256": "4e7461eeabc3d768f768b8c36fb43c60358a22e8bca17ff81de21425588d4aa5"
+  },
+  "ch16/test_illegal_global_clock_future_function_without_global_clocking": {
+   "status": "pass",
+   "inputs_sha256": "118aaafb047544b7ef9fa715b4ca4d78b57aa84b9de9190458cba2b14d07ddb4"
+  },
+  "ch16/test_illegal_global_clock_future_functions_nested": {
+   "status": "pass",
+   "inputs_sha256": "600296f33777921ddfdc94bc09256a14dd5e4958f3c4416c1855e4f81044d95f"
+  },
+  "ch16/test_illegal_local_variable_assignment_on_empty_match": {
+   "status": "pass",
+   "inputs_sha256": "8692d842fc90a1f81f02e68abd35335c5855b76e685b2756968986241abbc6ed"
+  },
+  "ch16/test_illegal_local_variable_chandle_type": {
+   "status": "pass",
+   "inputs_sha256": "bd3b053f1642c4211eacf15c0bcad89abab6c7fe46bafc61d6c4953f4995359c"
+  },
+  "ch16/test_illegal_local_variable_in_clocking_event": {
+   "status": "pass",
+   "inputs_sha256": "2bc7c88cc018ddf405ec44cda94e75430279b02c321d407ad24d442bff61cadf"
+  },
+  "ch16/test_illegal_local_variable_sibling_thread": {
+   "status": "pass",
+   "inputs_sha256": "725e240f2fb13785694d72393806145be03614c430826ad75ce635416a8d9f56"
+  },
+  "ch16/test_illegal_local_variable_unassigned_compound_assignment": {
+   "status": "pass",
+   "inputs_sha256": "81ada9c7030a8ae81cd8bd77da4138788b6576685342157e59ebebe237e4dd9e"
+  },
+  "ch16/test_illegal_local_variable_unassigned_increment": {
+   "status": "pass",
+   "inputs_sha256": "ceb6a90c4002b232c2a86f80f569f3bbd31010c860014ea770d60562709f18f1"
+  },
+  "ch16/test_illegal_local_variable_unassigned_reference": {
+   "status": "pass",
+   "inputs_sha256": "30d3edd199568f14ccece9f2c6162977be1f944b7d4b4b0c829d1771cbd5e93a"
+  },
+  "ch16/test_illegal_matched_on_local_input_formal": {
+   "status": "pass",
+   "inputs_sha256": "030e67f6fdd440d010f33845ca45df036aff842e658192070737ebae09b95ead"
+  },
+  "ch16/test_illegal_multiclock_two_leading_clocks": {
+   "status": "pass",
+   "inputs_sha256": "b38f1a4fd0ef59b98c045bc2a37b5ee0ff2055fe66c9869c818fbe721d08516d"
+  },
+  "ch16/test_illegal_mutual_recursion_no_time_advance": {
+   "status": "pass",
+   "inputs_sha256": "3542a086824abaf95054d6469b2013a38c99cc67c6190e0701db33187cceb17c"
+  },
+  "ch16/test_illegal_negated_property_reaching_recursion": {
+   "status": "pass",
+   "inputs_sha256": "36ae235ef0f62242fde404f773bba1e1f9f89c0a28eb9ba5c956f363a2b7733a"
+  },
+  "ch16/test_illegal_nonoverlapping_antecedent_no_match": {
+   "status": "pass",
+   "inputs_sha256": "18068ec3b903d25fddf8bb11b8e1aa9c2d8e713f7cc4896e7be1b290cbd424d8"
+  },
+  "ch16/test_illegal_overlapping_antecedent_empty_only": {
+   "status": "pass",
+   "inputs_sha256": "60b72a8ee2ea343d3521a216741e98bc8449f8fe49adfee4bb263a0aa1a4ed5b"
+  },
+  "ch16/test_illegal_overlapping_antecedent_no_match": {
+   "status": "pass",
+   "inputs_sha256": "2bef906e8905ca224d6666b13a0cf76370205a0a24763459469c0454f4e50976"
+  },
+  "ch16/test_illegal_past_automatic_clock": {
+   "status": "pass",
+   "inputs_sha256": "3e89430d34b3ad96c4cf53f95348a9cc78e7d1a12abea99715388d825012831f"
+  },
+  "ch16/test_illegal_plain_sequence_property_empty_match": {
+   "status": "pass",
+   "inputs_sha256": "dbef6d94b9b2b9d200fd9ced3ed0dbabda6230e8971eaa4b06bdb5bd8fea529b"
+  },
+  "ch16/test_illegal_property_disable_iff_local_variable": {
+   "status": "pass",
+   "inputs_sha256": "9721fda997c6b31e480131ad27997e91b72663657c4077f5b855c7b629d0bd02"
+  },
+  "ch16/test_illegal_property_dollar_outside_bound": {
+   "status": "pass",
+   "inputs_sha256": "79a4ddb76b83af26ae7ad78d4401a25eb4691cf978ac420c1609a47a5b857dc4"
+  },
+  "ch16/test_illegal_property_dollar_typed_formal": {
+   "status": "pass",
+   "inputs_sha256": "3dcea87e0d07b8c4c1f2e83b8463350e4c8a0c0a292cd06e145fe38a595e50b0"
+  },
+  "ch16/test_illegal_property_instance_disable_iff_as_operand": {
+   "status": "pass",
+   "inputs_sha256": "3ecf9fd652ec739e0d56cdcbd0c8e44af605b8bbfb7ee6da75e6f29f8f4bed1b"
+  },
+  "ch16/test_illegal_property_instance_flattened_not_legal": {
+   "status": "pass",
+   "inputs_sha256": "b03e8c40a2e37cdf2176eaea4a5d3217c60c49816d01e4c423247ca7dfee5f5e"
+  },
+  "ch16/test_illegal_property_local_inout_formal": {
+   "status": "pass",
+   "inputs_sha256": "905a3eb289dc2c706ca381cccba2b475fd8fb72adf4ad0e65682fc6488d33034"
+  },
+  "ch16/test_illegal_property_local_output_formal": {
+   "status": "pass",
+   "inputs_sha256": "1fb8b52adcbb10bf8a3cb3c57e5dfaf35e72a98fee216ade25ad4df3ae711336"
+  },
+  "ch16/test_illegal_recursive_property_actual_expression": {
+   "status": "pass",
+   "inputs_sha256": "78eb77852ba84b9252c1fad08f0c16cfc7e59d42dc8bc12679f4a3c295e2b30a"
+  },
+  "ch16/test_illegal_recursive_property_disable_iff": {
+   "status": "pass",
+   "inputs_sha256": "49bf7b7a824927bb369160d87ac0b76ad1940ca74349f16c7d95a948a389a66d"
+  },
+  "ch16/test_illegal_recursive_property_negated": {
+   "status": "pass",
+   "inputs_sha256": "aa49a6ffd6f2e31e25e2224c6c11e191b2b98362d52abe88952d32c35c1c990b"
+  },
+  "ch16/test_illegal_recursive_property_no_time_advance": {
+   "status": "pass",
+   "inputs_sha256": "13f414b515252c4fb09963edc7e6157a6806423b3c601af50165b0bcdda3c2c6"
+  },
+  "ch16/test_illegal_recursive_property_s_always": {
+   "status": "pass",
+   "inputs_sha256": "a13fbdb37a1d252de017f346dcd2d9d45e5433fe55009c0ab248c8b6e75a9157"
+  },
+  "ch16/test_illegal_recursive_property_s_eventually": {
+   "status": "pass",
+   "inputs_sha256": "0ea4a48dfbb8a7410d530b51b4b06bd857633336dde714708c99ddcb34c74adc"
+  },
+  "ch16/test_illegal_recursive_property_s_nexttime": {
+   "status": "pass",
+   "inputs_sha256": "759c0bedffcb47a979b6aace5cda81a1ce56ce453ee3a6cdd4ca72c539303d2d"
+  },
+  "ch16/test_illegal_recursive_property_s_until": {
+   "status": "pass",
+   "inputs_sha256": "ed831073fa8bf8284d47cc463e6da071e72a0c8f1979f6be070e29c3a8511698"
+  },
+  "ch16/test_illegal_recursive_property_s_until_with": {
+   "status": "pass",
+   "inputs_sha256": "a42e8b272f0774adf871bbdd210f21fd0984e62b578ef7264ed19fa3ca896f7c"
+  },
+  "ch16/test_illegal_repetition_goto_on_match_item": {
+   "status": "pass",
+   "inputs_sha256": "2dfbb8a47cd70dbc916a1946eb61fb67f51c54e4be56b1990011de75d2607e2f"
+  },
+  "ch16/test_illegal_repetition_goto_on_sequence": {
+   "status": "pass",
+   "inputs_sha256": "a6cd49dc6b029206ce17250e3fb257043bc3cd03120ce91f936f42b35a9b06b9"
+  },
+  "ch16/test_illegal_repetition_nonconsecutive_on_sequence": {
+   "status": "pass",
+   "inputs_sha256": "9df22a5de489908232b781f50f9d32bbfcb59e68286310b450cef8331c287933"
+  },
+  "ch16/test_illegal_sampled_function_in_clock_expression_unclocked": {
+   "status": "pass",
+   "inputs_sha256": "37e439c49e0bf7eb7c3ad1b7e5a76fd6cbb0e5d9d167f7218eedb39fe1336fe7"
+  },
+  "ch16/test_illegal_sampled_function_in_disable_condition_unclocked": {
+   "status": "pass",
+   "inputs_sha256": "415fc73628e259d356385314cf59f69cf164f9121a11751b2d33109c6f2ab7ec"
+  },
+  "ch16/test_illegal_sampled_function_local_variable_argument": {
+   "status": "pass",
+   "inputs_sha256": "2691abc256953e757ddcbaae2254a6a8f6419d008123cebcf8bbf1c8a62ef95e"
+  },
+  "ch16/test_illegal_sampled_function_matched_argument": {
+   "status": "pass",
+   "inputs_sha256": "4d3850fd5082f49d36d2430f4f720c27886d6056aa01e9f1051988a1d62f666a"
+  },
+  "ch16/test_illegal_sequence_cycle_through_bodies": {
+   "status": "pass",
+   "inputs_sha256": "e1a7e07d0530fb0b6555f7a39a715f26466eed9cc6f19e340633fc32a2ecffe8"
+  },
+  "ch16/test_illegal_sequence_cycle_through_default_actual": {
+   "status": "pass",
+   "inputs_sha256": "e3ab17c83a733597259e117b942b3cb2bf398f8873aa797cf7cbdc4aab81398d"
+  },
+  "ch16/test_illegal_sequence_dollar_actual_exact_delay": {
+   "status": "pass",
+   "inputs_sha256": "a2495b3f305b69ec53e30bbfc3ca667837cfe764412984770dcb144145dd02d8"
+  },
+  "ch16/test_illegal_sequence_dollar_actual_typed_formal": {
+   "status": "pass",
+   "inputs_sha256": "0844eee1f5f1423434bded996cbd7e3587102ba78e825237c446f6880506d44e"
+  },
+  "ch16/test_illegal_sequence_event_formal_actual_not_event": {
+   "status": "pass",
+   "inputs_sha256": "5782ed65b9b83034460aa6524317ddf304a6a66ab0eaa9d3007d9e087e85ce56"
+  },
+  "ch16/test_illegal_sequence_event_formal_as_boolean": {
+   "status": "pass",
+   "inputs_sha256": "7a03e12eb875308858d74145413c70580039b360892f9a1e561d1bd32f729534"
+  },
+  "ch16/test_illegal_sequence_event_formal_with_edge": {
+   "status": "pass",
+   "inputs_sha256": "e2c1f3fdd08194b261481b478b06cfe587ff27469a7578e29a08e6bd8bca94c1"
+  },
+  "ch16/test_illegal_sequence_formal_actual_property": {
+   "status": "pass",
+   "inputs_sha256": "f92cfe104f27889243e224f74fc835e12ec7a049be47e3c544f6a83fdd465212"
+  },
+  "ch16/test_illegal_sequence_formal_chandle_type": {
+   "status": "pass",
+   "inputs_sha256": "60b63aec559657d5b61b0e16f0578b29da1cd06b9331062e0d5987c3599b2b2a"
+  },
+  "ch16/test_illegal_sequence_formal_event_default_not_event": {
+   "status": "pass",
+   "inputs_sha256": "64d766b69078d2b9d80fda4d80e258b866236f72654551439edf87e30f09b00c"
+  },
+  "ch16/test_illegal_sequence_formal_goto_operand": {
+   "status": "pass",
+   "inputs_sha256": "c16994fc044d3c3d722d96dd17e6466387f350256ad68197a0d4882e53136efa"
+  },
+  "ch16/test_illegal_sequence_inout_formal_without_local": {
+   "status": "pass",
+   "inputs_sha256": "ae6bab77e87fa4da7ecd33308821e50d01763835329a1345df9e6edde5694738"
+  },
+  "ch16/test_illegal_sequence_input_formal_without_local": {
+   "status": "pass",
+   "inputs_sha256": "ce94dbe36b85dbe3c504c4d4352055fcbcc85a3b805af0ae869eb9d32eaeb3c7"
+  },
+  "ch16/test_illegal_sequence_local_formal_event_type": {
+   "status": "pass",
+   "inputs_sha256": "7567e05053808f8aff1d57f75171099c96321b251180fbb5b05869a328355166"
+  },
+  "ch16/test_illegal_sequence_local_formal_without_type": {
+   "status": "pass",
+   "inputs_sha256": "e9bdb1dfb2bdad4ba3c63b070586cfc6cafa16f5f77291f42e8690bdaee88156"
+  },
+  "ch16/test_illegal_sequence_local_formals_share_actual": {
+   "status": "pass",
+   "inputs_sha256": "c04b0ae45ed376026f0057668842d0d6e00450ed05e4c73dbc46f3d79c4cbf42"
+  },
+  "ch16/test_illegal_sequence_local_inout_default": {
+   "status": "pass",
+   "inputs_sha256": "70ee1cb159d21582c164eaab03a4703061db72168a6e44f2ab1fc1c0de6c017a"
+  },
+  "ch16/test_illegal_sequence_local_inout_empty_match": {
+   "status": "pass",
+   "inputs_sha256": "d21eb676268c87f1e6a8648e98fe3676568b19e38f90155b9b612b81625cbfe3"
+  },
+  "ch16/test_illegal_sequence_local_input_actual_unassigned": {
+   "status": "pass",
+   "inputs_sha256": "3239d2667742bc8277e03e73c817971847ecac1d00719eb9c3e3073f7fbc777a"
+  },
+  "ch16/test_illegal_sequence_local_output_default": {
+   "status": "pass",
+   "inputs_sha256": "5ad716429b201f425c9589ce57446f73367d60cbfe09596dea0f2e122baa00db"
+  },
+  "ch16/test_illegal_sequence_local_output_unassigned": {
+   "status": "pass",
+   "inputs_sha256": "c1fadf49266d124080bddc268d419cf7e85723df414c5132c732b7ff58ef04ec"
+  },
+  "ch16/test_illegal_sequence_output_formal_without_local": {
+   "status": "pass",
+   "inputs_sha256": "eabc3bafe5fdd85f440aebe1a1ef6f9f6c49ac5a2c80a4d7a3dcb5a63adda6e5"
+  },
+  "ch16/test_illegal_sequence_property_empty_match": {
+   "status": "pass",
+   "inputs_sha256": "448fdf3a9d69830479440ec68c8ff6b87e06eedde29d8c2cb733e7cd70551bc2"
+  },
+  "ch16/test_illegal_sequence_property_no_match": {
+   "status": "pass",
+   "inputs_sha256": "7f21adbf38c5c3f547152178699e41d4cb6cf0da444fefdb906e3db541f74604"
+  },
+  "ch16/test_illegal_sequence_typed_formal_delay_bit_vector": {
+   "status": "pass",
+   "inputs_sha256": "d2e3a8a50bd45de7d40681512b2cc600d711ab7a51c7181610dae6c668fb5df7"
+  },
+  "ch16/test_illegal_sequence_typed_formal_match_assignment": {
+   "status": "pass",
+   "inputs_sha256": "265e90e97f7121bc87a8d61c71e4fddddc24537e420d03eb788e43490cc4f8a5"
+  },
+  "ch16/test_illegal_sequence_typed_formal_match_increment": {
+   "status": "pass",
+   "inputs_sha256": "a72d3b6e989bec917fc82bf39ac3d746ceaa8a2425d470dbea8b91a87c9e2323"
+  },
+  "ch16/test_illegal_sequence_typed_formal_repetition_byte": {
+   "status": "pass",
+   "inputs_sha256": "d7648481a89b7c0a8eadfd7bda3f99ae6e886c9c2edd24cef362cd3115e4435e"
+  },
+  "ch16/test_illegal_sequence_untyped_delay_actual_variable": {
+   "status": "pass",
+   "inputs_sha256": "2da8ed5cdeb9866e6abed277f0d50933ea6ac49e267731321f9803e64f8146ff"
+  },
+  "ch16/test_illegal_sequence_untyped_repetition_actual_variable": {
+   "status": "pass",
+   "inputs_sha256": "1a0ec66bcc8ad84c0ea06e972e96c2fb857fc18ad66dbfc11c82e9f7367bffe1"
+  },
+  "ch16/test_illegal_strong_sequence_property_empty_match": {
+   "status": "pass",
+   "inputs_sha256": "6e45b3dcaaee6d580d995fcede22252d5649516de98f011a71eed106926ea0be"
+  },
+  "ch16/test_illegal_triggered_ending_clock_differs": {
+   "status": "pass",
+   "inputs_sha256": "6bb4e3915ab030df777d45c5936a6cbd313c813c1bd1322ce75074c95b0ea0c4"
+  },
+  "ch16/test_illegal_triggered_local_variable_formal_read_first": {
+   "status": "pass",
+   "inputs_sha256": "12b4686f51a964645002395a43c8bbdd72e811896297d4c8b615319f38f5a964"
+  },
+  "ch16/test_illegal_triggered_local_variable_subexpression": {
+   "status": "pass",
+   "inputs_sha256": "4ae77b72a7003ff1f49b06fc974e6d37b7090a5ab9a912fa32d403e986a3a51a"
+  },
+  "ch16/test_illegal_triggered_on_local_inout_formal": {
+   "status": "pass",
+   "inputs_sha256": "d8ea98168ad9ceb2a06ef94063a8565b3de6e00fa7df17cb3b6ae71d055cbb0f"
+  },
+  "ch16/test_illegal_weak_sequence_property_empty_match": {
+   "status": "pass",
+   "inputs_sha256": "652922116aac1d2f597eb7b74f11a63241cde97df64a2a199f5c6164ae16aa2e"
+  },
+  "ch18/test_illegal_constraint_extends_no_override": {
+   "status": "pass",
+   "inputs_sha256": "bdbc84578834088036fbe1e7c45b0f169877cb528ca768625f11d22a04acc2a2"
+  },
+  "ch18/test_illegal_constraint_final_replaced": {
+   "status": "pass",
+   "inputs_sha256": "82658181089043423951dae6ac92990c6736b96777a3bf861773f57f918527f5"
+  },
+  "ch18/test_illegal_constraint_initial_override": {
+   "status": "pass",
+   "inputs_sha256": "75665777a213ab53f3065846d05ec0b5607caa82c2d025ff344ca0dc1f4929c6"
+  },
+  "ch18/test_illegal_constraint_specifier_block_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "dd4217b54b8b722613437c04773b689d99bd5de838d224bace3769e8f0ae0b2a"
+  },
+  "ch18/test_illegal_constraint_specifier_prototype_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "17b482131b4b06aa4720b5b0139f9135465c7210cc3f2ec2fa4fac3fe8bfc9e3"
+  },
+  "ch18/test_illegal_dist_no_rand_variable": {
+   "status": "pass",
+   "inputs_sha256": "8359a0be251bdaa0315ac78a8069da0cd2bc8b8d67a01beffef0848f770fc935"
+  },
+  "ch18/test_illegal_dist_real_range_colon_equal": {
+   "status": "pass",
+   "inputs_sha256": "f8ba4daafb9e8bbc3ff00af55e18b4b6350a703ba9443ce4bdad3f1741842f5c"
+  },
+  "ch18/test_illegal_dist_real_range_no_weight": {
+   "status": "pass",
+   "inputs_sha256": "6718784e62445d9515877f6894748ad53ac80d09e585dedeb2297f52403696cb"
+  },
+  "ch18/test_illegal_dist_two_defaults": {
+   "status": "pass",
+   "inputs_sha256": "bff2c13e6608447ad1a911c072d44c653086dca52e37eb22bd6cc10e9323b351"
+  },
+  "ch18/test_illegal_extern_constraint_before_class": {
+   "status": "pass",
+   "inputs_sha256": "ddbdef1241ac88f6386429112dac8a76df33227a857cb640cfde760592f4d534"
+  },
+  "ch18/test_illegal_extern_constraint_other_scope": {
+   "status": "pass",
+   "inputs_sha256": "a78411972dae1f2a30322c4c5d9fefe1b0f054d9a20ce32a102bdc14132d5b16"
+  },
+  "ch18/test_illegal_inline_constraint_super_unresolved": {
+   "status": "pass",
+   "inputs_sha256": "e928869ef7a122131097002e1bab7fd2a20ea5f834319d4c47ffa7c8eda83836"
+  },
+  "ch18/test_illegal_pure_constraint_with_external": {
+   "status": "pass",
+   "inputs_sha256": "6d6b91f342b612773b4f2dbf3f4d784419d170500bbdc497b7314d10ca255a5c"
+  },
+  "ch18/test_illegal_pure_constraint_with_prototype": {
+   "status": "pass",
+   "inputs_sha256": "a2b5f93c6781f78ba0ffc5addfe2275f9e0d73ce9ab385f7ef7d3b8ffb79098b"
+  },
+  "ch18/test_illegal_scope_randomize_with_list": {
+   "status": "pass",
+   "inputs_sha256": "603976f9217e062d1cfdd9d638581f83ef9df84d27f8adfba0721651d7c2f94a"
+  },
+  "ch18/test_illegal_soft_constraint_state_only": {
+   "status": "pass",
+   "inputs_sha256": "39c28a24106afddb0470ea962536d5f9cb5c3e0a7679b5d148912a9afe67f338"
+  },
+  "ch18/test_illegal_solve_before_circular": {
+   "status": "pass",
+   "inputs_sha256": "44883443b6dead20e1e22ad6744c4826bc3d1eb3617bf2b200c8fd7639f2816f"
+  },
+  "ch18/test_illegal_solve_before_parentheses": {
+   "status": "pass",
+   "inputs_sha256": "11ea4a8765437c8195ee76a5d945364e40cf3314c8724f242cc418078a0cd030"
+  },
+  "ch18/test_illegal_solve_before_state_variable": {
+   "status": "pass",
+   "inputs_sha256": "dec47db8b5c5360f453423006011c224c8453bfc093fc9106daf101872198449"
+  },
+  "ch18/test_illegal_solve_before_unpacked_array": {
+   "status": "pass",
+   "inputs_sha256": "eb2c02f6c38ce183594197b6c7678709cf9d47344c70ef469ee3dcb34a5386ca"
+  },
+  "ch19/test_illegal_cg_default_sequence_array": {
+   "status": "pass",
+   "inputs_sha256": "ea11bbb85308060f9f8994f2eb3e8c29fda204c92d73d0f6bf1d3af7ab138ccb"
+  },
+  "ch19/test_illegal_cg_sample_arg_in_option": {
+   "status": "pass",
+   "inputs_sha256": "401f8b28a458684fec14d42ceb28faeb7d791c6b356291cf26308a3dc5b1922e"
+  },
+  "ch20/test_illegal_array_query_dynamic_type_name": {
+   "status": "pass",
+   "inputs_sha256": "953ea3e859c74357394a65d7d35314e000cab87f27eecb615ce89c215e59447c"
+  },
+  "ch22/test_illegal_default_nettype_supply0": {
+   "status": "pass",
+   "inputs_sha256": "ff3741860ddac3c1973ec7f970963c3a1376671901ea47f8c675f94858ad6ef6"
+  },
+  "ch22/test_illegal_include_absolute_path_in_angle_brackets": {
+   "status": "pass",
+   "inputs_sha256": "581c45073b536d47c8ddf7d8c46d0aab8e9408832c4880fdb153a138fc467b9e"
+  },
+  "ch23/test_illegal_bind_instance_name_clashes_target_item": {
+   "status": "pass",
+   "inputs_sha256": "be4ea9a86de0b688fd05800ce61bc81fb4cfbc6dc6a3a6df35c4a60baaba6024"
+  },
+  "ch23/test_illegal_bind_module_into_interface": {
+   "status": "pass",
+   "inputs_sha256": "c5359e5a83ad609552a4d927db9b8bcc678d4c0447ba9b7c94683f6c7b303f96"
+  },
+  "ch23/test_illegal_bind_type_override_not_matching": {
+   "status": "pass",
+   "inputs_sha256": "39270acb6dc6b1792688cc0da860e6202f368b1919b72e0f3732b3426f4ee8b4"
+  },
+  "ch23/test_illegal_bind_under_bound_instance": {
+   "status": "pass",
+   "inputs_sha256": "325c32e32acdcbf0bb21f16c23b5a7ca1b11852acb711cf7c953df5d8c8fbf29"
+  },
+  "ch23/test_illegal_implicit_name_port_declared_later": {
+   "status": "pass",
+   "inputs_sha256": "61fdaaae531fce4434dbae0a8ac3a01215e7477b6ecb88764541601d9da6f643"
+  },
+  "ch23/test_illegal_interconnect_left_after_elaboration": {
+   "status": "pass",
+   "inputs_sha256": "9677405f02f40f95f3eb0bfbe05d73b14bce3a6f0390fa9b6634f97e5b0f0e38"
+  },
+  "ch23/test_illegal_interconnect_port_default": {
+   "status": "pass",
+   "inputs_sha256": "1a160c604507a8b8290946ed2bef4cfcaf01c296e7ee10ba0f7f8d79b70062c1"
+  },
+  "ch25/test_illegal_function_exported_by_two_modules": {
+   "status": "pass",
+   "inputs_sha256": "0d0c4b3b9a6bb31f3888ad15ea93150d30397750941ce9c2bc5500a75eeedf63"
+  },
+  "ch25/test_illegal_hierarchical_task_definition_not_declared": {
+   "status": "pass",
+   "inputs_sha256": "799fe2866105cb5d55c47b0df56e3089229d055cbd0b6e075fd33062afaaddf7"
+  },
+  "ch25/test_illegal_modport_export_task_not_defined": {
+   "status": "pass",
+   "inputs_sha256": "56c83aef2190886105a87bf2043056d28404a9f95c4c7cb1062bc6ad811c0c2b"
+  },
+  "ch25/test_illegal_modport_export_task_prototype_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "41133dbb3571dd10f3da464c9ae6524df06f661d4d0c17642f16f5e86ca3a61d"
+  },
+  "ch25/test_illegal_modport_header_connection_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "5d01f5005e6615b2b269986dcdc3f131c8c30385b6617bb4a1ae68dc87738605"
+  },
+  "ch25/test_illegal_modport_prototype_argument_count": {
+   "status": "pass",
+   "inputs_sha256": "94017dfb9a648db4d56863e4671ea69f45124df1abf7b9f343900e70b5337d73"
+  },
+  "ch25/test_illegal_modport_prototype_default_without_name": {
+   "status": "pass",
+   "inputs_sha256": "086f59b0cced72dfa90af5093edce835264b6519e4046de26a6a8f79ca1064c2"
+  },
+  "ch25/test_illegal_modport_prototype_formal_name_differs": {
+   "status": "pass",
+   "inputs_sha256": "c50128ed4491027312469646104f5e0ad83866d697c1c508ad5e385dbe191b87"
+  },
+  "ch25/test_illegal_modport_prototype_type_not_matching": {
+   "status": "pass",
+   "inputs_sha256": "38b4607bef9fdc1e01df2287a63829fb1937226cd26313c2fd6e674f7cf5d882"
+  },
+  "ch25/test_illegal_modport_prototype_unpacked_dimension_without_name": {
+   "status": "pass",
+   "inputs_sha256": "85a41c5dccf2d575f01202e515724523f2c97cd2611bb7e71d21adbdc955feac"
+  },
+  "ch25/test_illegal_specify_ref_port_terminal": {
+   "status": "pass",
+   "inputs_sha256": "07884b3e6c0ad557d3a9ab435878ff3b290d0e1ffd0bbfce1806257df4ca6754"
+  },
+  "ch25/test_illegal_task_exported_by_two_modules": {
+   "status": "pass",
+   "inputs_sha256": "9a9e920dbb1f7f106bbcf6372a4f00dc0710c407c33749c032aeb557d7343518"
+  },
+  "ch25/test_illegal_virtual_interface_as_interface_item": {
+   "status": "pass",
+   "inputs_sha256": "0fcaba168fb668a7f2083c540f5bb771ea621506d6e44446fcd43cb3cb1336ea"
+  },
+  "ch25/test_illegal_virtual_interface_as_union_member": {
+   "status": "pass",
+   "inputs_sha256": "2846e85f79ccfaba9b7d3c2343ebdd11feb516e6f029be1f1fca41003b070d4e"
+  },
+  "ch25/test_illegal_virtual_interface_with_interface_port": {
+   "status": "pass",
+   "inputs_sha256": "f92ddaf5de3319a679d59f62ee2ddfe7424fc785df85550f06047c2470e246dd"
+  },
+  "ch25/test_illegal_virtual_interface_with_outside_reference": {
+   "status": "pass",
+   "inputs_sha256": "edd1326a31bee6c37ec2d303ccfc484a1f7ec6d2b07b53da8dcedde0cd90c8a4"
+  },
+  "ch30/test_illegal_edge_parallel_path_part_select_destination": {
+   "status": "pass",
+   "inputs_sha256": "a19d84a872e2f988c17476553806e128638f4eadcea3212caff41a3b27fbadf4"
+  },
+  "ch30/test_illegal_specify_edge_path_same_edge_and_condition": {
+   "status": "pass",
+   "inputs_sha256": "4d269751a5a19193ab24012f80dff1c3a6e01a0c7a23bc7b22996f7e522a327a"
+  },
+  "ch33/test_illegal_config_constant_function": {
+   "status": "pass",
+   "inputs_sha256": "d863684c3b71f94003bfb93d8b83222fe9962c2bc21dc6c654fa7732195e90d3"
+  },
+  "ch33/test_illegal_config_generate_scope_path": {
+   "status": "pass",
+   "inputs_sha256": "ec1d36f2b7c043811ec13c89ff926f4623c6bc5f6fd0d8ea5bc696ce8c958496"
+  },
+  "ch33/test_illegal_config_hierarchical_name_in_expression": {
+   "status": "pass",
+   "inputs_sha256": "f26388d2cd1e35d368bf03fc05d4495f9372b84e370ed6b36b4bb73050a6421b"
+  },
+  "ch33/test_illegal_config_index_not_literal": {
+   "status": "pass",
+   "inputs_sha256": "688e1718997a9e880decd7c06e78a6b32c48b297f9015aa9a3bcdfd3adc0c814"
+  },
+  "ch33/test_illegal_config_instance_array_path": {
+   "status": "pass",
+   "inputs_sha256": "daafb4ab4652a12fa9e0df089280c364b3af8720bdc265f477f7041264c6588d"
+  },
+  "ch33/test_illegal_config_localparam_not_literal": {
+   "status": "pass",
+   "inputs_sha256": "411e7376a751a57a4a01f9abe41ab9a7ec020677ae91944c74a7525babeeb63f"
+  },
+  "ch33/test_illegal_config_package_binding": {
+   "status": "pass",
+   "inputs_sha256": "bb8165201bfa9826b579cae22f8e32460dc2c899d2378f3ae7efbf9cd69e2885"
+  },
+  "ch35/test_illegal_dpi_import_override_specifier": {
+   "status": "pass",
+   "inputs_sha256": "5c9ce5e8c0ded5c729717d42fa4b7aecdceebfd41e869bbab2b16926fe81fb4e"
+  },
+  "ch35/test_illegal_dpi_import_ref_formal": {
+   "status": "pass",
+   "inputs_sha256": "755891ad2405b98eb3d47a0bd73fdf878689a33618606c9c74f258905b039520"
+  },
+  "ch35/test_illegal_dpi_import_struct_result": {
+   "status": "pass",
+   "inputs_sha256": "0986bb36b700dec067e8d2826d54918bf4f2962d8d3a235e62f9f57dd08dc8b8"
+  },
+  "ch35/test_illegal_dpi_pure_function_output": {
+   "status": "pass",
+   "inputs_sha256": "b82e27dec700d920c506bc2307ddefd7a9c6196fa62efd1553c3361ba96accf0"
+  },
+  "ch35/test_illegal_dpi_pure_import_task": {
+   "status": "pass",
+   "inputs_sha256": "39252cdc44584cd02989afb605c84390f3b24a265c01914ebd26e723a8a460f5"
+  },
+  "ch6/test_illegal_bitstream_cast_fixed_size_mismatch": {
+   "status": "pass",
+   "inputs_sha256": "6679501e2192d901b92f5caa98d4eeab1a62a273a6b11e15481d50c5fb6954fb"
+  },
+  "ch6/test_illegal_cast_real_array_to_unpacked_array": {
+   "status": "pass",
+   "inputs_sha256": "ece1f1b4f92b1bf6c1bb631cbd3d80773f9ed17d15d5d60143b0a31b43c285d1"
+  },
+  "ch6/test_illegal_chandle_in_untagged_union": {
+   "status": "pass",
+   "inputs_sha256": "070cdc6e3b40bb0baa1a2e0a1c25beb3dc924ceed452f3c3e7082fd5c2bed021"
+  },
+  "ch6/test_illegal_chandle_port": {
+   "status": "pass",
+   "inputs_sha256": "cbd944782f4ae679749d2586f9e5159415998fd71568e8779e13dfb7d5e683c8"
+  },
+  "ch6/test_illegal_continuous_assign_reads_class_member": {
+   "status": "pass",
+   "inputs_sha256": "9a89af2143e8a4d97dc923f70dd6c35d946b1a723a715aa976fe9facebbefa31"
+  },
+  "ch6/test_illegal_dollar_assigned_to_real_parameter": {
+   "status": "pass",
+   "inputs_sha256": "57fff85e9cde53ebfc05af283da775acabff4add759250362edaa4ee7274e691"
+  },
+  "ch6/test_illegal_dollar_in_ordinary_expression": {
+   "status": "pass",
+   "inputs_sha256": "774756978495d1a777e9de1c9d44328442b5847a3e9c99e2929145e6570dbde7"
+  },
+  "ch6/test_illegal_dollar_with_operator_in_value_range": {
+   "status": "pass",
+   "inputs_sha256": "1c97e237aa79d298e4787b425b606893ca8fed982becf3694b528c6507560cde"
+  },
+  "ch6/test_illegal_interconnect_charge_strength": {
+   "status": "pass",
+   "inputs_sha256": "df87c1635d3687f3ebdec6712eb7be4d5a1653127524bebd9cd929b5d5d5a734"
+  },
+  "ch6/test_illegal_interconnect_data_type": {
+   "status": "pass",
+   "inputs_sha256": "9dfc970701ee18609bd9a4962b0015d28671d045aa5aee5c2ec5386098ef3a0f"
+  },
+  "ch6/test_illegal_interconnect_declaration_assignment": {
+   "status": "pass",
+   "inputs_sha256": "f75c89e08c608b966d91b10ed34fbbcb26eed2e1e2e0ce0e7b186e0500df7648"
+  },
+  "ch6/test_illegal_interconnect_drive_strength": {
+   "status": "pass",
+   "inputs_sha256": "d8ebe5b7edad8abf6893ca02ada1a8df65afbc59fdadf0f2b40c6fe6066ddd33"
+  },
+  "ch6/test_illegal_interconnect_two_delays": {
+   "status": "pass",
+   "inputs_sha256": "421319cf35c47c3ba524f1f68d1860313f37ddf675ec44cad760d5502b92a21a"
+  },
+  "ch6/test_illegal_nettype_declares_variable": {
+   "status": "pass",
+   "inputs_sha256": "c7002d6dcf1c6a4620a0158714c78ce1c19365c37f61b8bf7170eae06178d5d1"
+  },
+  "ch6/test_illegal_nettype_resolver_nonstatic_method": {
+   "status": "pass",
+   "inputs_sha256": "cc4e59a52e4429cb28bbf5c584be30b8eb9e555293ff86b3203a564eab1d41c7"
+  },
+  "ch6/test_illegal_nettype_resolver_resizes_driver_array": {
+   "status": "pass",
+   "inputs_sha256": "e21af73d41de2c4b03e944173bc21b1f7e173c9e257d7fb59753eeae16258d8d"
+  },
+  "ch6/test_illegal_nettype_resolver_return_type": {
+   "status": "pass",
+   "inputs_sha256": "485586805c26cd687ddfc2799f420674ef04503fb26768b9ba17c217e4f20239"
+  },
+  "ch6/test_illegal_nettype_resolver_side_effect": {
+   "status": "pass",
+   "inputs_sha256": "110357e3d286931dd2e85787c5c07064075016c0b72aa0b0c2fae89146371f76"
+  },
+  "ch6/test_illegal_nettype_resolver_writes_driver_array": {
+   "status": "pass",
+   "inputs_sha256": "d5e8234eb4836aa9ef13aef8d4e81b7bbc5e0f8027ccfef6dcb64fdbb972a59d"
+  },
+  "ch6/test_illegal_nettype_unresolved_two_drivers": {
+   "status": "pass",
+   "inputs_sha256": "f34145911bfc39ba94f68cd0eda3b9fed2cd7d4097c8b5fc28a28c3f047dffa0"
+  },
+  "ch6/test_illegal_string_replication_real_multiplier": {
+   "status": "pass",
+   "inputs_sha256": "7fbb903c326efd9c6c924a842d67ef937471e5e4fd4a2efe4ff855278d2e5264"
+  },
+  "ch6/test_illegal_type_operator_dynamic_array_element": {
+   "status": "pass",
+   "inputs_sha256": "6fb186fb2b98818c83fb559b072564a345515f5938af0d792b6c2fc117c5c6bc"
+  },
+  "ch6/test_illegal_type_operator_hierarchical_reference": {
+   "status": "pass",
+   "inputs_sha256": "8a144dc0edab00e900ad6a7f94ed92f4dc2febcedc44bcca7f6707257aed534a"
+  },
+  "ch6/test_illegal_type_reference_variable_without_var": {
+   "status": "pass",
+   "inputs_sha256": "00287ec728133ed8d781242b244288ff492f5f8a79f6725c059c96e7797d8425"
+  },
+  "ch7/test_illegal_assoc_argument_different_index_type": {
+   "status": "pass",
+   "inputs_sha256": "284d798e275c86bce873a137ce7a4c14d5de2a03c61387e3043fb09fdc329486"
+  },
+  "ch7/test_illegal_assoc_assign_different_index_type": {
+   "status": "pass",
+   "inputs_sha256": "6ec35d40491c7e6c3bf8e67d65fa98999b5f4aaf434ba7b39c3f5bb9a28ab5d9"
+  },
+  "ch7/test_illegal_assoc_first_argument_type": {
+   "status": "pass",
+   "inputs_sha256": "de6cfbadf34b2f0ae8fa3f6de1296c92295e8a66bbdaad0c7d5374e744762882"
+  },
+  "ch7/test_illegal_assoc_index_declares_enum": {
+   "status": "pass",
+   "inputs_sha256": "ca36e40c9b446301dc24493ab013185c5262276822eb34f1256752f732af01c0"
+  },
+  "ch7/test_illegal_assoc_index_declares_struct": {
+   "status": "pass",
+   "inputs_sha256": "41a617a782e88111c4592d1e5f0454ba84a898175c2e939ee1d8331910cdef4a"
+  },
+  "ch7/test_illegal_assoc_last_argument_type": {
+   "status": "pass",
+   "inputs_sha256": "2916ac0ebec321635c974c27c3b054784fec015bf1f66466e30a8140eaa2f65a"
+  },
+  "ch7/test_illegal_assoc_next_argument_type": {
+   "status": "pass",
+   "inputs_sha256": "a41cb7049852c6b25e5f58b9d9a2b8a94771e0770790782d7dada302a2e27615"
+  },
+  "ch7/test_illegal_assoc_prev_argument_type": {
+   "status": "pass",
+   "inputs_sha256": "a4a9a8cb27269ea5a3b12e48257b86a3217aa983637e04fba0fd45cbeecd47cd"
+  },
+  "ch7/test_illegal_class_index_with_other_class": {
+   "status": "pass",
+   "inputs_sha256": "1b33000d86a675212934da23b0fa58ad0403528d4dc24c7659b2a0a8608b313a"
+  },
+  "ch7/test_illegal_dynamic_array_to_assoc_argument": {
+   "status": "pass",
+   "inputs_sha256": "31fe4b4162a2096f78cb6ae4910094fa4e28b5985279375d5ba9648e89b37372"
+  },
+  "ch7/test_illegal_iterator_argument_without_with": {
+   "status": "pass",
+   "inputs_sha256": "63979c9de52d59ebc71946fb4f6f6aed16d5675ce0a218bf2d8622e39a8f8025"
+  },
+  "ch7/test_illegal_min_with_struct_expression": {
+   "status": "pass",
+   "inputs_sha256": "9ad9cd17e1fd33536308795fdb4d41a17116082138568574dde7e902c6cd2052"
+  },
+  "ch7/test_illegal_packed_tagged_union_real_member": {
+   "status": "pass",
+   "inputs_sha256": "b7992f482fb5bf5cb3e00e70bf937019a039151b512b45545647e9ebc734288f"
+  },
+  "ch7/test_illegal_rand_member_in_packed_struct": {
+   "status": "pass",
+   "inputs_sha256": "f2bdc7e0a063737930accde41d01a83cd863119a1c1ea4dfa179ea535f6da5df"
+  },
+  "ch7/test_illegal_rand_member_in_union": {
+   "status": "pass",
+   "inputs_sha256": "430e56c5a7600c325ffcd161ff5a8d35c07c13470eab0a940bf52dfc009b09d3"
+  },
+  "ch7/test_illegal_reduction_and_with_real_expression": {
+   "status": "pass",
+   "inputs_sha256": "5ed3c99a9da1c97426affe70af2f3e0462238cd98536240f43eeee2994e52f42"
+  },
+  "ch7/test_illegal_rsort_with_struct_expression": {
+   "status": "pass",
+   "inputs_sha256": "f56badd597c2f7e13fa683b4fa6e0df6f87d7765d6fabb2d93c089dac852a5c9"
+  },
+  "ch7/test_illegal_slice_element_type_not_equivalent": {
+   "status": "pass",
+   "inputs_sha256": "48287c85dc70f0a2b3941294232c405d10dc04f2cafad93e39e8e91c50a8cf2a"
+  },
+  "ch7/test_illegal_slice_of_two_dimensions": {
+   "status": "pass",
+   "inputs_sha256": "0706a86e33af6530b3690bcabf78b18c90614c194c758c357f1da7d36c68913a"
+  },
+  "ch7/test_illegal_sort_with_struct_expression": {
+   "status": "pass",
+   "inputs_sha256": "28b3513789c752911a1d80893c239c80230c99fdb0aaa67c80f0d1973f2116a5"
+  },
+  "ch7/test_illegal_void_member_in_struct": {
+   "status": "pass",
+   "inputs_sha256": "5dcee01cd476b7d5a5de21dd918d13e0afe9745005ca224bc015f74ec6ffd87b"
+  },
+  "ch7/test_illegal_void_member_in_untagged_union": {
+   "status": "pass",
+   "inputs_sha256": "de9c3dabb285af43a2ae03f15a0f409b8b320f2eb0c7595b9f5465d239960a96"
+  },
+  "ch7/test_illegal_wildcard_array_find": {
+   "status": "pass",
+   "inputs_sha256": "a9139dc3a3a44b152fef997bc935760f428347f0591d51486df0fda5f8b3f6d5"
+  },
+  "ch8/test_illegal_class_implements_type_parameter": {
+   "status": "pass",
+   "inputs_sha256": "caeb788819289adc8d47f026f59eb1e3c8a668e83b5177ad88ec061eafd74b76"
+  },
+  "ch8/test_illegal_class_method_virtual_twice": {
+   "status": "pass",
+   "inputs_sha256": "a9bef93343dc4093fac04ace7cedddc80c079f61f944948d78fa8077cea2b88d"
+  },
+  "ch8/test_illegal_const_static_instance_constant": {
+   "status": "pass",
+   "inputs_sha256": "761cf2be7f2feadfc1f3c6bddb5ad129d720ccc328d44ce16894ca073d5b38ba"
+  },
+  "ch8/test_illegal_constructor_default_twice": {
+   "status": "pass",
+   "inputs_sha256": "304581748baa9d958a4b993c66f362f2c257bc19b9af867b326dde96de912ed6"
+  },
+  "ch8/test_illegal_extern_body_outside_class_scope": {
+   "status": "pass",
+   "inputs_sha256": "f387635100988f0ae7d02596e6998e9ccfe82102ede5646ff964b4bfa9e7abe6"
+  },
+  "ch8/test_illegal_extern_type_name_resolves_differently": {
+   "status": "pass",
+   "inputs_sha256": "60b19d7470622888a3d5800afb7816f43616ef5b92aba126b25b64db19be4625"
+  },
+  "ch8/test_illegal_final_pure_virtual": {
+   "status": "pass",
+   "inputs_sha256": "74ec92180a7d48cd83a868f52860c7108f967d84e62a2405bc28c656250835e2"
+  },
+  "ch8/test_illegal_forward_class_scope_prefix_in_variable_declaration": {
+   "status": "pass",
+   "inputs_sha256": "97a46c5ac05357c15b844b0c6f0d6be214c226644fa91e48a551d84031037874"
+  },
+  "ch8/test_illegal_implements_forward_typedef": {
+   "status": "pass",
+   "inputs_sha256": "5a5d3163be8568ae838138d33104d812c7fc79faf79e60ab7bc21185349f5296"
+  },
+  "ch8/test_illegal_interface_class_extends_type_parameter": {
+   "status": "pass",
+   "inputs_sha256": "75b802a8795b5363224ad637797df34cc8b5bdfa56fa93f3fb230b5f63918bef"
+  },
+  "ch8/test_illegal_interface_class_parameter_conflict": {
+   "status": "pass",
+   "inputs_sha256": "cfb4e19fc7ae37eaf19d36b6b4b5fccaa1436004de9dad8b062defa2233d4da8"
+  },
+  "ch8/test_illegal_interface_class_typedef_conflict": {
+   "status": "pass",
+   "inputs_sha256": "9739e41ac73b3105ec36ab8e19f41613bbf2938e96e3be41998b6f831106bfda"
+  },
+  "ch8/test_illegal_interface_extends_forward_typedef": {
+   "status": "pass",
+   "inputs_sha256": "a53aa69ef2f72a63dc302252767c460a7dbbe91f146388a2f0e908ac18ec90d4"
+  },
+  "ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration": {
+   "status": "pass",
+   "inputs_sha256": "6fdd4c62147cfa1c7c746f224dad4b74ec6ae787c281746c55de3778bad7c8cd"
+  },
+  "ch8/test_illegal_override_specifier_outside_class": {
+   "status": "pass",
+   "inputs_sha256": "df9336b8b3155fd1b1c700390c7335199f9f7fb90564938afbcc520c63b41969"
+  },
+  "ch8/test_illegal_pure_constraint_final": {
+   "status": "pass",
+   "inputs_sha256": "f70560d53387609a425827a5b25700c2531fded43f0d43bc3b56c7b9daff0806"
+  },
+  "ch8/test_illegal_pure_virtual_method_final": {
+   "status": "pass",
+   "inputs_sha256": "cffd89f76c7da68f7776c4142025a884db1c2429ee1432de7d5c641cee3a4039"
+  },
+  "ch8/test_illegal_static_instance_constant": {
+   "status": "pass",
+   "inputs_sha256": "62b9de3d8a96141de5f92225573c6296a3db2ec3c035526e57450a602259264b"
+  },
+  "ch8/test_illegal_super_new_default_without_default": {
+   "status": "pass",
+   "inputs_sha256": "fba672b762e62442af41c5bce7804ddb5159c6f2b31fe38f552ddb89f4d9e614"
+  },
+  "ch8/test_illegal_weak_reference_non_class": {
+   "status": "pass",
+   "inputs_sha256": "6e24c4514bef82fd9bd50bc666db8a2f4f42b4b18ce0dda4f575923e7b4ea925"
+  },
+  "ch9/test_illegal_class_extends_process": {
+   "status": "pass",
+   "inputs_sha256": "4595c9e1d080dc20c96123af6ad80cc7d5b128244118da4b81c4509f0c9234f2"
+  },
+  "ch9/test_illegal_comma_event_expression_positional_actual": {
+   "status": "pass",
+   "inputs_sha256": "ac26f94d6da017145de046453671a1b22fb57023286f619de995c61a86c1a10f"
+  },
+  "ch9/test_illegal_override_specifier_on_module_function": {
+   "status": "pass",
+   "inputs_sha256": "a51b6cc5107b2e215195603d705de9f1a7a4cc72dcb0e98199bf14d77e0a970e"
+  },
+  "imported/ch21/test_empty_argument_matrix": {
+   "status": "pass",
+   "inputs_sha256": "10ca0a607ff9ee0ef92c8519e49ace57288d6170fd94fdaf7458c6ef61cd7ad5"
+  },
+  "imported/ch21/test_file_output_initial": {
+   "status": "pass",
+   "inputs_sha256": "546e58cc7cacbbed91e82ec163251e9d172e5d5c63a293da57e33e13b98e36c7"
+  },
+  "imported/ch22/test_unconnected_drive_none_module": {
+   "status": "pass",
+   "inputs_sha256": "3657f8978b8d0ca097789459a56c87af8adfbd09050188916255cc13f9c2861e"
+  },
+  "imported/ch3/test_delay_negative_real_to_minus_one_const": {
+   "status": "pass",
+   "inputs_sha256": "7d48a96f74db3d9743663f1c376050c5487c7deb99c470cccbe52f80671dc1e1"
+  }
+ },
+ "generated_at": "2026-10-25T22:23:59.392020+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

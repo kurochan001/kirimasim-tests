@@ -23924,7 +23924,7 @@
           "observation": "解決関数 sum_res を持つ nettype sum_t でネット n を宣言し2つの継続代入で駆動する合法な部分に加え、32行目で同じ nettype を変数宣言 var sum_t v; に使い、その行でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: nettype を typedef と同じくデータ型として変数宣言にも使わせる誤実装は 32行目を受理し、エラーが出ないので不合格になる。ネット n の宣言と駆動は合法な対照で、nettype 全般を拒否する実装は手前の行で報告するため一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "53b62b5f1946eecbe0764373d470bd10273321146cd6bd3d0ac6dcffeb7c8ca0",
+          "inputs_sha256": "c7002d6dcf1c6a4620a0158714c78ce1c19365c37f61b8bf7170eae06178d5d1",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_nettype_declares_variable.sv",
@@ -24107,7 +24107,7 @@
           "observation": "読むだけの解決関数 sum_res を持つ sum_t と、ドライバ配列の要素を書き換える(if (d[i] > 9) d[i] = 9; が33行目)clip_res を解決関数とする clip_t を宣言し、それぞれのネットを2つの継続代入で駆動する。書込み行か clip_t の宣言行(39行目)でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 入力引数の動的配列への書込みを通常の関数と同様に許す誤実装は設計を受理し、33/39行目のエラーが出ないので不合格になる。配列を読むだけの sum_res と sum_t は合法な対照で、解決関数全般を拒否する実装は別の行で報告し一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "591d45577b1b78829a6feb544441648fd6543d61f28cd8364321613e4ab111b6",
+          "inputs_sha256": "d5e8234eb4836aa9ef13aef8d4e81b7bbc5e0f8027ccfef6dcb64fdbb972a59d",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_nettype_resolver_writes_driver_array.sv",
@@ -24143,7 +24143,7 @@
           "observation": "読むだけの解決関数 sum_res を持つ sum_t と、最初のドライバ値を返した後にドライバ配列を d.delete() で空にする(32行目)first_res を解決関数とする first_t を宣言し、それぞれのネットを2つの継続代入で駆動する。delete の行か first_t の宣言行(36行目)でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 入力の動的配列の大きさの変更を許す誤実装は設計を受理し、32/36行目のエラーが出ないので不合格になる。sum_res と sum_t は合法な対照で、そこを拒否する実装は別の行で報告し一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "53133d4f89b4cfa8daa993d39a18da84c1cb260c5d669ecf084366e65f488575",
+          "inputs_sha256": "e21af73d41de2c4b03e944173bc21b1f7e173c9e257d7fb59753eeae16258d8d",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_nettype_resolver_resizes_driver_array.sv",
@@ -24179,7 +24179,7 @@
           "observation": "自分の戻り値変数だけを書く sum_res を持つ sum_t と、モジュール変数 calls を calls++ で書き換える(33行目)counting_res を解決関数とする counting_t を宣言し、それぞれのネットを2つの継続代入で駆動する。calls++ の行か counting_t の宣言行(39行目)でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 解決関数の副作用を検査しない誤実装は関数外の変数への書込みを受理し、33/39行目のエラーが出ないので不合格になる。副作用のない sum_res は合法な対照で、解決関数全般を拒否する実装は別の行で報告し一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "9b49b9bf92b904ab23ca99f168cb97b0d30cb93399932f21150012415d03d368",
+          "inputs_sha256": "110357e3d286931dd2e85787c5c07064075016c0b72aa0b0c2fae89146371f76",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_nettype_resolver_side_effect.sv",
@@ -24273,7 +24273,7 @@
           "observation": "int を返す sum_res を解決関数とする int の nettype sum_t(合法)と、longint を返す wide_res を解決関数とする int の nettype wide_t(36行目)を宣言し、それぞれのネットを2つの継続代入で駆動する。wide_t の宣言行か wide_res の見出し(30行目)でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 解決関数の戻り値型を nettype のデータ型と照合しない誤実装(代入互換なら受け付けるなど)は wide_t を受理し、30/36行目のエラーが出ないので不合格になる。戻り値型が一致する sum_t は合法な対照で、そこを拒否する実装は別の行で報告し一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "96dc1148bce6219ea802315355f4fe9c24a4db3e1ffd4ddd25920f9cf39424fd",
+          "inputs_sha256": "485586805c26cd687ddfc2799f420674ef04503fb26768b9ba17c217e4f20239",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_nettype_resolver_return_type.sv",
@@ -24310,7 +24310,7 @@
           "observation": "クラス resolvers の static メソッド sum_static を解決関数とする static_t(合法)と、同じ本体の非 static メソッド sum_dyn を解決関数とする dyn_t(37行目)を宣言し、それぞれのネットを2つの継続代入で駆動する。dyn_t の宣言行でのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: クラスメソッドが static かどうかを検査しない誤実装は dyn_t を受理し、37行目のエラーが出ないので不合格になる。static メソッドを使う static_t は合法な対照で、クラスメソッドの解決関数全般を拒否する実装は36行目で報告するため一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f208a1bd7c7f87efd01ae5acf19a628163116fd015b3b7ae36be6e154eb7da19",
+          "inputs_sha256": "cc4e59a52e4429cb28bbf5c584be30b8eb9e555293ff86b3203a564eab1d41c7",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_nettype_resolver_nonstatic_method.sv",
@@ -24390,7 +24390,7 @@
           "observation": "解決関数のない nettype raw_t のネット one を1つの継続代入で駆動し(合法)、解決関数を持つ sum_t のネット s を2つの継続代入で駆動する(合法)。raw_t のネット r には2つの継続代入を与え(42行目が2つ目)、r の宣言(36行目)、1つ目のドライバ(41行目)、2つ目のドライバのいずれかでのエラーを求める。両シミュレータとも nettype 自体を扱えないため、期待結果は 6.6.7 の規定だけから導いている。 区別: 解決関数のないユーザ定義 nettype のネットに複数ドライバを許す誤実装(最後の代入値を採るなど)は受理し、36/41/42行目のエラーが出ないので不合格になる。1ドライバの one と解決関数付きの s は合法な対照で、ドライバ数を区別せず拒否する実装は別の行で報告し一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "657e288617be570aa3773d7507f88ea4773220c73bbd4f62acdea975c814a8f4",
+          "inputs_sha256": "f34145911bfc39ba94f68cd0eda3b9fed2cd7d4097c8b5fc28a28c3f047dffa0",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_nettype_unresolved_two_drivers.sv",
@@ -31216,7 +31216,7 @@
           "observation": "モジュール test_illegal_chandle_port_m の入力ポートを chandle 型の変数ポートにする (input var chandle h) (28行目)でのエラーを求める。chandle をサブルーチンの引数と戻り値に使う関数 pass は合法で、合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: ポートに chandle 型を許す誤実装は28行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。var を付けた変数ポートにしてあるので、ネットに2状態でない型を使う別の違反(6.7.1)は重ならない。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1a3070e075d776aecf3ba081a011343fbb3644f2d85e48f6aeb33d5cda58325a",
+          "inputs_sha256": "cbd944782f4ae679749d2586f9e5159415998fd71568e8779e13dfb7d5e683c8",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_chandle_port.sv",
@@ -31260,7 +31260,7 @@
           "observation": "tagged の付かない共用体型 u_t のメンバに chandle h を置く typedef union { chandle h; int i; } u_t; (29行目)でのエラーを求める。合法な部分(関数の chandle 引数と戻り値、クラスの chandle プロパティ、null の代入、chandle または null との ==・!=・===・!== の比較、if (b) による真偽の判定)は制御版が Verilator で 1 0 1 0 と null を表示する。 区別: タグなし共用体に chandle を許す誤実装は29行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理する)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f98913e4d27c2153834424e18d965ada62cf7fe8099fd5e1ab7d004bba477ce9",
+          "inputs_sha256": "070cdc6e3b40bb0baa1a2e0a1c25beb3dc924ceed452f3c3e7082fd5c2bed021",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_chandle_in_untagged_union.sv",
@@ -32395,7 +32395,7 @@
           "observation": "s = {r{t}}; (r は real 変数、33行目)でのエラーを求める。{n{t}} と {0{t}} は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "efab596d826f862d23bbc51d6eb1591548bbde52bc9404cd00707054111bc4ba",
+          "inputs_sha256": "7fbb903c326efd9c6c924a842d67ef937471e5e4fd4a2efe4ff855278d2e5264",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_string_replication_real_multiplier.sv",
@@ -36120,7 +36120,7 @@
           "observation": "pay_t::data_t bad_v; (34行目、pay_t はインタフェース型 typedef)でのエラーを求める。typedef pay_t::data_t data_alias_t; は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "da7d28846f2178e245d36ea05a318c8bb1c1ddbb9ad097778ab3c07bdf0dc107",
+          "inputs_sha256": "6fdd4c62147cfa1c7c746f224dad4b74ec6ae787c281746c55de3778bad7c8cd",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv",
@@ -41875,7 +41875,7 @@
           "observation": "$ を int 変数への代入の右辺に使う k = $; (40行目)でのエラーを求める。合法な部分(パラメータ P = $ と、それを代入した Q = P の $isunbounded、キューの選択 q[$] と演算子付きの q[$-1]、値の範囲 [5:$])は、制御版が Verilator で 1 1 9 7 1 を表示する。 区別: $ を規格が挙げる文脈以外の普通の式にも許す誤実装は40行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を未対応として拒否し、規則による診断ではないので数えない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cd4c7956f0356b30a2cb05fb407d659551a092169e292a2fb5379bd3101cdbf9",
+          "inputs_sha256": "774756978495d1a777e9de1c9d44328442b5847a3e9c99e2929145e6570dbde7",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_dollar_in_ordinary_expression.sv",
@@ -41974,7 +41974,7 @@
           "observation": "値の範囲の端に演算子付きの $ を書く k = 7 inside {[0:$ - 1]}; (41行目)でのエラーを求める。キューの選択では演算子が使える q[$-1] と、$ 単独の範囲 [5:$] は合法な対照で、制御版が Verilator で 1 1 9 7 1 を表示する。 区別: $ に演算子を付けた式をキューの選択以外でも許す誤実装は41行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1baf0f915848a8b66e479aaea08f67a999cc8a87ce3f12ec68c70f5e33c2e602",
+          "inputs_sha256": "1c97e237aa79d298e4787b425b606893ca8fed982becf3694b528c6507560cde",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_dollar_with_operator_in_value_range.sv",
@@ -42018,7 +42018,7 @@
           "observation": "real 型の値パラメータに $ を代入する parameter real RP = $; (35行目)でのエラーを求める。型を書かないパラメータ P と、単純ビットベクタ型 int のパラメータ IP への $ の代入は合法な対照で、制御版は Verilator で $isunbounded の 1 1 を表示する。 区別: $ を単純ビットベクタ型でない(real の)パラメータにも許す誤実装は35行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を未対応として拒否し、数えない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ed99ff6ccfdb23335ff3b6766fec4dd8c032f56271d76b190017507b75d5b7c",
+          "inputs_sha256": "57fff85e9cde53ebfc05af283da775acabff4add759250362edaa4ee7274e691",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_dollar_assigned_to_real_parameter.sv",
@@ -44123,7 +44123,7 @@
           "observation": "var type(da[0]) v; で型演算子の式に動的配列 da の要素を参照させ、その行（27行目）でのエラーを照合する。固定長配列の要素 fa[0] に適用した var type(fa[0]) ok; は合法な対照。 区別: 動的オブジェクトの要素参照を型演算子の式で禁止しない誤実装はこの設計を受理し、テストは不合格になる。対照の固定長配列要素の行は合法なので、要素参照一般を拒否する実装は別の行（26行目）で失敗して区別される。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1fdc1311f64f1fa40a2df4b0de82a3ccb60c5876670b0b7715d2a30721a36185",
+          "inputs_sha256": "6fb186fb2b98818c83fb559b072564a345515f5938af0d792b6c2fc117c5c6bc",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_type_operator_dynamic_array_element.sv",
@@ -44159,7 +44159,7 @@
           "observation": "var type(u.w) v; で型演算子の式に階層参照 u.w（インスタンス u の変数）を使い、その行（31行目）でのエラーを :expected_stderr_regex: で照合する。同じ形でローカル変数 w に適用した var type(w) ok; は合法な対照として置いている。 区別: 型演算子の式中の階層参照を禁止しない誤実装は、この設計を受理して（または ok の行など別の箇所で失敗して）テストが不合格になる。エラーは1つだけで、違反は 31 行目の階層参照だけ。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5c262a475c3770c1fcd75bd4da2e595964b8c8da1b688de110a2cb2193285bd2",
+          "inputs_sha256": "8a144dc0edab00e900ad6a7f94ed92f4dc2febcedc44bcca7f6707257aed534a",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_type_operator_hierarchical_reference.sv",
@@ -44493,7 +44493,7 @@
           "observation": "変数宣言 type(a) bad; で var を付けずに型参照をデータ型として使い、その行（25行目）でのエラーを照合する。var を付けた var type(a) good; は合法な対照。 区別: 型参照の前の var を要求しない誤実装はこの宣言を受理し、テストは不合格になる。var 付きの宣言は合法なので、型参照の宣言一般を拒否する実装は 24 行目で失敗して区別される。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cb4ff280eb6dd710942072be851fb6171347dbcfa35c2dc6251123fbec0c02c6",
+          "inputs_sha256": "00287ec728133ed8d781242b244288ff492f5f8a79f6725c059c96e7797d8425",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_type_reference_variable_without_var.sv",
@@ -44925,7 +44925,7 @@
           "observation": "l = l2_t'(r); (r は real 要素、37行目)でのエラーを求める。s = s4_t'(w) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c7bd31c2d345034f4c6d804872716d25206f2a6fb9dcfcc26d894f8275faa1a1",
+          "inputs_sha256": "ece1f1b4f92b1bf6c1bb631cbd3d80773f9ed17d15d5d60143b0a31b43c285d1",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_cast_real_array_to_unpacked_array.sv",
@@ -46645,7 +46645,7 @@
           "observation": "struct packed { rand bit [3:0] a; bit [3:0] b; } bad;(33行目)でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "0a5519f37646305f3fb08fcc5938a8f19d726842ea227aadddc6b0bfdf518a49",
+          "inputs_sha256": "f2bdc7e0a063737930accde41d01a83cd863119a1c1ea4dfa179ea535f6da5df",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_rand_member_in_packed_struct.sv",
@@ -46666,7 +46666,7 @@
           "observation": "union { rand int a; int b; } bad;(32行目)でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "357754ad196b8a3b8aa728cc147303a7ac598701ace4c4f34124e180eb0f17ce",
+          "inputs_sha256": "430e56c5a7600c325ffcd161ff5a8d35c07c13470eab0a940bf52dfc009b09d3",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_rand_member_in_union.sv",
@@ -46870,7 +46870,7 @@
           "observation": "union { void none; int i; } bad;(29行目)でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "06445122ff9d03d88170d338c0c9f911f92cbaedd4a736e22da462d60c57ffbc",
+          "inputs_sha256": "de9c3dabb285af43a2ae03f15a0f409b8b320f2eb0c7595b9f5465d239960a96",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_void_member_in_untagged_union.sv",
@@ -46891,7 +46891,7 @@
           "observation": "struct { void none; int lo; } bad;(30行目)でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "77cc76424df9e92a1247649360f841164938048d9dc6d3b35ae8d96155ae5b3a",
+          "inputs_sha256": "5dcee01cd476b7d5a5de21dd918d13e0afe9745005ca224bc015f74ec6ffd87b",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_void_member_in_struct.sv",
@@ -47471,7 +47471,7 @@
           "observation": "typedef union { chandle h; int i; } u_t;(29行目)でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f98913e4d27c2153834424e18d965ada62cf7fe8099fd5e1ab7d004bba477ce9",
+          "inputs_sha256": "070cdc6e3b40bb0baa1a2e0a1c25beb3dc924ceed452f3c3e7082fd5c2bed021",
           "evidence": [
             {
               "file": "tests/ch6/test_illegal_chandle_in_untagged_union.sv",
@@ -48225,7 +48225,7 @@
           "observation": "packed な tagged 共用体のメンバに real r を置く union tagged packed { bit [7:0] a; real r; } bad;(28行目)でのエラーを求める。大きさの違うパックド型のメンバ(8ビット、4ビット)と void メンバを持つ packed tagged 共用体型 ok_t は合法な対照で、その $bits(ok_t) はタグ2ビットと最大メンバ8ビットの和 10 になる(両シミュレータとも tagged 共用体に未対応のため、制御版は規格からの値)。 区別: packed tagged 共用体のメンバにパックドでない型を許す誤実装は28行目でエラーを出さず不合格になる。メンバの大きさの一致まで求める誤実装は ok_t の宣言を拒否するが、それは対照の行であり、要求の『大きさは違ってよい』は ok_t の宣言で示される。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c849fbebd59d2f6c2e68c2b849c7f368fd146617ef8530912c0e939a53c9c4cd",
+          "inputs_sha256": "b7992f482fb5bf5cb3e00e70bf937019a039151b512b45545647e9ebc734288f",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_packed_tagged_union_real_member.sv",
@@ -51005,7 +51005,7 @@
           "observation": "2次元配列 a の両方の次元を範囲で選ぶ b2 = a[1:2][0:1]; (37行目)でのエラーを求める。1つ目の次元を単一の添字で選び2つ目をスライスする row = a[1][2:3] と、1つ目の次元だけのスライス rows = a[1:2] は合法な対照で、制御版は Verilator で 6 7 4 11 を表示する。 区別: 2つの次元のスライスを許す誤実装は37行目でエラーを出さず不合格になる(Verilator 5.052 はこれをスライスのスライスとして受け、代入先との次元の不一致だけを報告するので数えない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b383897d07bfb90e77386a90b2d464d3f9fce82f4f0b0716df417545eef97a05",
+          "inputs_sha256": "0706a86e33af6530b3690bcabf78b18c90614c194c758c357f1da7d36c68913a",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_slice_of_two_dimensions.sv",
@@ -54039,7 +54039,7 @@
           "observation": "byte b [2] を int a [4] のスライス a[1:2] へ代入する a[1:2] = b; (37行目)でのエラーを求める。a[1:2] = s と c = a[0:1] は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e80973234343774b7024ad339861cc2dfcd86403313145cab322973b91e9bb77",
+          "inputs_sha256": "48287c85dc70f0a2b3941294232c405d10dc04f2cafad93e39e8e91c50a8cf2a",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_slice_element_type_not_equivalent.sv",
@@ -54356,7 +54356,7 @@
           "observation": "int bad [enum {CYAN, MAGENTA}]; (33行目)でのエラーを求める。int ok [key_t] (key_t は typedef の列挙型)は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "883a129366c34f054893d4e2f7114ea3154d63824be63926b13917d886094445",
+          "inputs_sha256": "ca36e40c9b446301dc24493ab013185c5262276822eb34f1256752f732af01c0",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_index_declares_enum.sv",
@@ -54377,7 +54377,7 @@
           "observation": "int bad [struct packed { bit [3:0] hi, lo; }]; (32行目)でのエラーを求める。int ok [key_t] (key_t は typedef のパックド構造体)は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "ab02caca7939fdc6be7da3661b88abc3f3fb0914dd37fb1527e60679d8d131b6",
+          "inputs_sha256": "41a617a782e88111c4592d1e5f0454ba84a898175c2e939ee1d8331910cdef4a",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_index_declares_struct.sv",
@@ -55828,7 +55828,7 @@
           "observation": "クラス base_c を添字型とする連想配列 m を、base_c と無関係なクラス other_c のハンドル o で添字付けする m[o] = 4; (46行目)でのエラーを求める。base_c のハンドル、派生クラス derived_c のハンドル、null による書き込みは合法な対照で、制御版は Verilator で 3 1 2 を表示する。 区別: 添字のクラスの継承関係を検査しない誤実装は46行目でエラーを出さず不合格になる(Verilator 5.052 はこの行を受理し、生成した C++ のコンパイルで初めて失敗するので数えない)。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "3b1aec8ded8b73c145fa62db4733475a4f722b4338405ec6ebdf902a6707e4e9",
+          "inputs_sha256": "1b33000d86a675212934da23b0fa58ad0403528d4dc24c7659b2a0a8608b313a",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_class_index_with_other_class.sv",
@@ -57283,7 +57283,7 @@
           "observation": "string 添字の連想配列 m に real 変数 r を渡す st = m.first(r); (38行目)でのエラーを求める。string 変数 s を渡す st = m.first(s); は合法で、制御版は Verilator で 1 b 1 (最小の添字 \"b\")を表示する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "81ff4010d002ec1cf5e72f8a35b43a74453d135f6c48b8a5a8e46e4b22141507",
+          "inputs_sha256": "de6cfbadf34b2f0ae8fa3f6de1296c92295e8a66bbdaad0c7d5374e744762882",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_first_argument_type.sv",
@@ -57510,7 +57510,7 @@
           "observation": "string 添字の連想配列 m に real 変数 r を渡す st = m.last(r); (38行目)でのエラーを求める。string 変数 s を渡す st = m.last(s); は合法で、制御版は Verilator で 1 d 2 (最大の添字 \"d\")を表示する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "08c97e4008e0b662d14af8b374fa8cc743cc0fa2852443455caf8cf9a0664e10",
+          "inputs_sha256": "2916ac0ebec321635c974c27c3b054784fec015bf1f66466e30a8140eaa2f65a",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_last_argument_type.sv",
@@ -57672,7 +57672,7 @@
           "observation": "string 添字の連想配列 m に real 変数 r を渡す st = m.next(r); (39行目)でのエラーを求める。string 変数 s を渡す st = m.next(s); は合法で、制御版は Verilator で 1 d 2 (\"b\" の次の添字 \"d\")を表示する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "235f96ebd350b8cb8aeafef9c26994ffdf7b736420d25347c0be44b6f90bfc0d",
+          "inputs_sha256": "a41cb7049852c6b25e5f58b9d9a2b8a94771e0770790782d7dada302a2e27615",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_next_argument_type.sv",
@@ -57951,7 +57951,7 @@
           "observation": "string 添字の連想配列 m (要素 \"b\" と \"d\")の prev() に real 変数 r を参照引数として渡す st = m.prev(r); (39行目)でのエラーを求める。s = \"d\" としてから string 変数 s を渡す st = m.prev(s); は合法な対照で、制御版は Verilator で 1 b 1 を表示する。 区別: prev() の引数の型を配列の添字型と照合しない誤実装(real を文字列へ、またはその逆へ暗黙に変換する実装)は39行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c492769e080aa52bb8c269408c9d852085c2d094b0a5c03e09038a2dfc81ae4f",
+          "inputs_sha256": "a4a9a8cb27269ea5a3b12e48257b86a3217aa983637e04fba0fd45cbeecd47cd",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_prev_argument_type.sv",
@@ -58169,7 +58169,7 @@
           "observation": "string 添字の連想配列 m に real 変数 r を渡す st = m.first(r); (38行目)でのエラーを求める。string 変数 s を渡す st = m.first(s); は合法で、制御版は Verilator で 1 b 1 (最小の添字 \"b\")を表示する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "81ff4010d002ec1cf5e72f8a35b43a74453d135f6c48b8a5a8e46e4b22141507",
+          "inputs_sha256": "de6cfbadf34b2f0ae8fa3f6de1296c92295e8a66bbdaad0c7d5374e744762882",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_first_argument_type.sv",
@@ -58190,7 +58190,7 @@
           "observation": "string 添字の連想配列 m に real 変数 r を渡す st = m.last(r); (38行目)でのエラーを求める。string 変数 s を渡す st = m.last(s); は合法で、制御版は Verilator で 1 d 2 (最大の添字 \"d\")を表示する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "08c97e4008e0b662d14af8b374fa8cc743cc0fa2852443455caf8cf9a0664e10",
+          "inputs_sha256": "2916ac0ebec321635c974c27c3b054784fec015bf1f66466e30a8140eaa2f65a",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_last_argument_type.sv",
@@ -58211,7 +58211,7 @@
           "observation": "string 添字の連想配列 m に real 変数 r を渡す st = m.next(r); (39行目)でのエラーを求める。string 変数 s を渡す st = m.next(s); は合法で、制御版は Verilator で 1 d 2 (\"b\" の次の添字 \"d\")を表示する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "235f96ebd350b8cb8aeafef9c26994ffdf7b736420d25347c0be44b6f90bfc0d",
+          "inputs_sha256": "a41cb7049852c6b25e5f58b9d9a2b8a94771e0770790782d7dada302a2e27615",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_next_argument_type.sv",
@@ -58232,7 +58232,7 @@
           "observation": "string 添字の連想配列 m に real 変数 r を渡す st = m.prev(r); (39行目)でのエラーを求める。string 変数 s を渡す st = m.prev(s); は合法で、制御版は Verilator で 1 b 1 (\"d\" の前の添字 \"b\")を表示する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c492769e080aa52bb8c269408c9d852085c2d094b0a5c03e09038a2dfc81ae4f",
+          "inputs_sha256": "a4a9a8cb27269ea5a3b12e48257b86a3217aa983637e04fba0fd45cbeecd47cd",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_assoc_prev_argument_type.sv",
@@ -62842,7 +62842,7 @@
           "observation": "r.rsort with (item); (38行目)でのエラーを求める。r.rsort with (item.key); は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "709d2fd95dccc570c972442c7ecd941ef5b859efe1ff3be6cce300ec208e64ff",
+          "inputs_sha256": "f56badd597c2f7e13fa683b4fa6e0df6f87d7765d6fabb2d93c089dac852a5c9",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_rsort_with_struct_expression.sv",
@@ -62997,7 +62997,7 @@
           "observation": "r.sort with (item); (37行目)でのエラーを求める。r.sort with (item.key); は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e970ef4ae91ca78bbe09572e64f18a121f0d7bb6c47343bc18b770b0d37d49bf",
+          "inputs_sha256": "28b3513789c752911a1d80893c239c80230c99fdb0aaa67c80f0d1973f2116a5",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_sort_with_struct_expression.sv",
@@ -63316,7 +63316,7 @@
           "observation": "int配列aについて、withなしの a.and() と、加算が定義される real 式での a.sum with (real'(item)) は合法で、ビットANDが定義されない real 式を with に与えた a.and with (real'(item))(30行)だけが違反となり、30行でのエラーを期待する。 区別: with式の型に演算が定義されているかを検査しない実装(Verilator 5.052 がこれ)は設計を受理して30行のエラーを出さず不合格になる。合法な a.and() や sum with real を拒否する実装は別の行でエラーを出す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bccb62aeb1b16fed8cdcb29803daf99f0ae884d4f4f145f2ea770f9dd08a7696",
+          "inputs_sha256": "5ed3c99a9da1c97426affe70af2f3e0462238cd98536240f43eeee2994e52f42",
           "evidence": [
             {
               "file": "tests/ch7/test_illegal_reduction_and_with_real_expression.sv",
@@ -65446,7 +65446,7 @@
           "observation": "pure virtual function :final int h(); (33行目)でのエラーを求める。virtual function :final int g() と pure virtual function int f() は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "de1d5b6732eb6f6a45c684f11f2945af91e521a4b105f2ddb11ab943254b0516",
+          "inputs_sha256": "cffd89f76c7da68f7776c4142025a884db1c2429ee1432de7d5c641cee3a4039",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_pure_virtual_method_final.sv",
@@ -65471,7 +65471,7 @@
           "observation": "pure constraint :final c2; (34行目)でのエラーを求める。pure constraint c1; と constraint :final limit { x < 8; } は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "03bdb6ac7fea51f314277fa204b2d1e7735963d9215f212795e8db043f1d0be2",
+          "inputs_sha256": "f70560d53387609a425827a5b25700c2531fded43f0d43bc3b56c7b9daff0806",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_pure_constraint_final.sv",
@@ -65548,7 +65548,7 @@
           "observation": "virtual virtual function int g(); (27行目)でのエラーを求める。virtual function int f(); は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c9dfa17400eea0c621e2f555fc8cbb1f94341db03aebed362cfbaebd43e67917",
+          "inputs_sha256": "a9bef93343dc4093fac04ace7cedddc80c079f61f944948d78fa8077cea2b88d",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_class_method_virtual_twice.sv",
@@ -65600,7 +65600,7 @@
           "observation": "引数のない基底コンストラクタを持つクラスの派生クラス bad_c のコンストラクタ引数並びに default を2回書く function new(default, default); (48行目)でのエラーを求める。default が空に展開されるので、引数名の重複という別の違反は重ならない。default を1回だけ使う ok_c の function new(default, int c = 9) と super.new(default) は合法な対照で、規格から new(5) と new() の結果 5 9 4 9 になる(両シミュレータとも default 引数に未対応)。 区別: コンストラクタ引数並びの default の回数を数えない誤実装は48行目でエラーを出さず不合格になる。合法な対照の行は設計の違反を指定行の1つに限るためのもので、判定は指定行でエラーが報告されるかを見る。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "11d9bda1af5e32a7c3149e83370fa1a90b92f39c88098dfc67afa0603d806754",
+          "inputs_sha256": "304581748baa9d958a4b993c66f362f2c257bc19b9af867b326dde96de912ed6",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_constructor_default_twice.sv",
@@ -65665,7 +65665,7 @@
           "observation": "モジュールの関数 function :final int twice(int x); (31行目)でのエラーを求める。クラスのメソッド function :final int get() は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "6a647bafa26f43fc9201cc8621024bb44d2667a269d77aa67776e8c0c60ee7b3",
+          "inputs_sha256": "df9336b8b3155fd1b1c700390c7335199f9f7fb90564938afbcc520c63b41969",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_override_specifier_outside_class.sv",
@@ -71443,7 +71443,7 @@
           "observation": "typedef class later_c で前方宣言しただけの later_c について、later_c::small_t の typedef（27行目）を合法な対照とし、プロパティ bad_v の型に直接使う29行目を違反とする。:expected_stderr_regex: は29行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "238b6b77bc9382b2ba65fff7db142a8854c26298b9de2b1e3b4f024c0f76c273",
+          "inputs_sha256": "97a46c5ac05357c15b844b0c6f0d6be214c226644fa91e48a551d84031037874",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_forward_class_scope_prefix_in_variable_declaration.sv",
@@ -71464,7 +71464,7 @@
           "observation": "インタフェースポート p 経由の typedef p.pay_c pay_t について、pay_t::data_t の typedef（32行目）を合法な対照とし、変数 bad_v の型に直接使う34行目を違反とする。:expected_stderr_regex: は34行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "da7d28846f2178e245d36ea05a318c8bb1c1ddbb9ad097778ab3c07bdf0dc107",
+          "inputs_sha256": "6fdd4c62147cfa1c7c746f224dad4b74ec6ae787c281746c55de3778bad7c8cd",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv",
@@ -71853,7 +71853,7 @@
           "observation": "pack_c の試作宣言 put(tag_t t, word_t w) では tag_t は先に宣言された pack_c::tag_t、word_t は（クラスの word_t が試作宣言の後に宣言されるので）defs_pkg から import した byte に解決する。外部宣言の見出しでは tag_t は同じ pack_c::tag_t（合法な対照）だが word_t は pack_c::word_t（shortint）に解決する。:expected_stderr_regex: は見出し39行目または試作宣言35行目を指す。 区別: 試作宣言と見出しで同じ識別子の解決先を比べない実装は設計を受理して失敗する。試作宣言でも後方のクラス内 typedef を見る誤実装も、両方が pack_c::word_t になり受理して失敗する。tag_t まで不一致とみなす実装は同じ行で報告するが、受理する実装との区別は word_t で付く。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "6bd89a23b943e61932d177e59d0f75162ad89156acf1798622c43c9862ef63b9",
+          "inputs_sha256": "60b19d7470622888a3d5800afb7816f43616ef5b92aba126b25b64db19be4625",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_extern_type_name_resolves_differently.sv",
@@ -71914,7 +71914,7 @@
           "observation": "モジュール内で宣言した sq_c の外部宣言 sq_c::area を、その後にある generate ブロック g の中に置く（31行目、試作宣言の27行目でも可として :expected_stderr_regex: は (27|31) を指す）。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c3fd31c988f5120418fcc4748c46cf352402a651bad6c9e5f39c13fc82eb5ab8",
+          "inputs_sha256": "f387635100988f0ae7d02596e6998e9ccfe82102ede5646ff964b4bfa9e7abe6",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_extern_body_outside_class_scope.sv",
@@ -73830,7 +73830,7 @@
           "observation": "class early implements later_if; の行（later_if は前方 typedef のみ）での誤りを期待する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2edb12b44b5bcf6a2428e96ca06b9c6df0ca88b4976e276bf24e59fb3d3630d7",
+          "inputs_sha256": "5a5d3163be8568ae838138d33104d812c7fc79faf79e60ab7bc21185349f5296",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_implements_forward_typedef.sv",
@@ -73847,7 +73847,7 @@
           "observation": "interface class derived_if extends base_if; の行（base_if は前方 typedef のみ）での誤りを期待する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "390a023a1423d528791010c39a843c68c0080042987085a5dd59acee74d689d6",
+          "inputs_sha256": "a53aa69ef2f72a63dc302252767c460a7dbbe91f146388a2f0e908ac18ec90d4",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_interface_extends_forward_typedef.sv",
@@ -73913,7 +73913,7 @@
           "observation": "既定値が interface class put_if である型パラメータ T を extends する interface class wrap_if #(type T = put_if) extends T; の行での誤りを期待する。 区別: 型パラメータが interface class に解決されれば extends を許す実装（Verilator 5.052 の挙動）は設計を受理し、負テストが失敗する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "4e12abd5eddb6cc465fa6e9911e1c7c7a1effd46b73941d7ea8c4fe32db5c38b",
+          "inputs_sha256": "75b802a8795b5363224ad637797df34cc8b5bdfa56fa93f3fb230b5f63918bef",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_interface_class_extends_type_parameter.sv",
@@ -74348,7 +74348,7 @@
           "observation": "interface class port_if extends reader_if, writer_if; の行（word_t が衝突）での誤りを期待する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d3037d594aee906a83b1a90ed0b81debd6479ec0a7b3cd4118976e2417738c7b",
+          "inputs_sha256": "9739e41ac73b3105ec36ab8e19f41613bbf2938e96e3be41998b6f831106bfda",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_interface_class_typedef_conflict.sv",
@@ -74365,7 +74365,7 @@
           "observation": "interface class c_if extends a_if, b_if; の行（パラメータ W が衝突）での誤りを期待する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "768f591b88ad7a7e957c0b322d5b51ee6c159a2d74e25ca8ad84dbbeffcea357",
+          "inputs_sha256": "cfb4e19fc7ae37eaf19d36b6b4b5fccaa1436004de9dad8b062defa2233d4da8",
           "evidence": [
             {
               "file": "tests/ch8/test_illegal_interface_class_parameter_conflict.sv",
@@ -75888,7 +75888,7 @@
           "observation": "モジュール内の function :final int plain_f()（29行目、:expected_stderr_regex: が指す）が違反。クラス base_c の virtual function :final int get()（23行目）は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "255985d26b1754af04efd17c98024be368581d7c4c62250ae743db13ca09170f",
+          "inputs_sha256": "a51b6cc5107b2e215195603d705de9f1a7a4cc72dcb0e98199bf14d77e0a970e",
           "evidence": [
             {
               "file": "tests/ch9/test_illegal_override_specifier_on_module_function.sv",
@@ -78883,7 +78883,7 @@
           "observation": "event 型の形式引数 ev と x を持つシーケンス s_ev に、括弧で囲んだ (posedge clk, negedge clk) を位置指定の第1実引数として渡す ok_a（30行目）を合法な対照とし、括弧なしで posedge clk, negedge clk, a と渡す bad_a（31行目）を違反とする。:expected_stderr_regex: は31行目を指す。 区別: 括弧なしのコンマ区切りイベント式を1つの実引数として受け付ける誤実装は bad_a を受理して失敗する。括弧付きのイベント式実引数まで拒否する実装は30行目でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "7b7c3c346e05c5a26f04d5cc33fe1afa34051fa3315d1d08b63e142b65d2851d",
+          "inputs_sha256": "ac26f94d6da017145de046453671a1b22fb57023286f619de995c61a86c1a10f",
           "evidence": [
             {
               "file": "tests/ch9/test_illegal_comma_event_expression_positional_actual.sv",
@@ -78996,7 +78996,7 @@
           "observation": "実定数 -0.5 の遅延 #(-0.5) を initial で待ち、起床時刻を $time で \"woke at %0d\" に表示する。期待行 \"woke at 18446744073709551615\" は、負値を64ビット時間変数の2の補数として解釈して得られる最大時刻と一致する。 区別: 負遅延を絶対値1として扱う実装は \"woke at 1\"、0として扱う実装は \"woke at 0\"、32ビット幅で2の補数化する実装は \"woke at 4294967295\" を表示し、期待行と一致しない。時間変数と同じ64ビットの2の補数解釈だけが期待値を再現する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "199322dfa01c3ef29e768785a0be1f9bcad34f5a3220ebfe221355a673182587",
+          "inputs_sha256": "7d48a96f74db3d9743663f1c376050c5487c7deb99c470cccbe52f80671dc1e1",
           "evidence": [
             {
               "file": "tests/imported/ch3/test_delay_negative_real_to_minus_one_const.sv",
@@ -82789,7 +82789,7 @@
           "observation": "process 型の変数 p の宣言と process::self() の代入（25・27行目）を合法な対照とし、class my_proc_c extends process（21行目）を違反とする。:expected_stderr_regex: は21行目を指す。 区別: 組込みクラス process を通常のクラスとして継承させる誤実装は21行目を受理して失敗する。process 型の変数や self() まで扱えない実装は25・27行目でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5fc4f4c755e01a1d52ea087b5e99b2e88feb69611f29aa391e17a13ea9218834",
+          "inputs_sha256": "4595c9e1d080dc20c96123af6ad80cc7d5b128244118da4b81c4509f0c9234f2",
           "evidence": [
             {
               "file": "tests/ch9/test_illegal_class_extends_process.sv",
@@ -84077,7 +84077,7 @@
           "observation": "wire (medium) w; と wire に電荷強度を付けた宣言の行での誤りを期待する。 区別: 電荷強度を trireg 以外の net 型にも許す実装は設計を受理し、負テストが失敗する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a82f5620f97c2b636d50484d1dc005118a09ab18a2d9cdb5660a5d92c84fb161",
+          "inputs_sha256": "a8e8722c56b9e1237521ed0f95cb91553f5e8cfcb1d927443cb6abef2632cee2",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_charge_strength_on_wire.sv",
@@ -84149,7 +84149,7 @@
           "observation": "ネット宣言代入を持つ wire w = 1'b1 と、宣言代入なしで src_m の出力と dst_m の入力をつなぐ interconnect ic_ok を合法な対照とし、interconnect ic_bad = w（33行目）を違反とする。:expected_stderr_regex: は33行目を指す。 区別: interconnect に他のネットと同じくネット宣言代入を許す誤実装は33行目を受理して失敗する。interconnect の宣言自体やポート間の接続を拒否する実装は対照の行でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f0ac50cff4b1f8ab9fa898b713bf1f2f07efde0021dcee5a58ec18d9940e6420",
+          "inputs_sha256": "9ddb2bdc97c79471c474ab7b10015410e509d8c6436a53c6084d8f894334bcc3",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_interconnect_declaration_assignment.sv",
@@ -84523,7 +84523,7 @@
           "observation": "変数 v を buf ゲート g_v の出力（33行目）とインスタンス u_v の出力ポート（34行目）で駆動する（:expected_stderr_regex: は (33|34)）。ゲートだけで駆動される p とモジュール出力だけで駆動される q は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "462b7a2f54012b439776b104d38a2f77e168d2a07e59b91587647410f09f907e",
+          "inputs_sha256": "b555dc5c15ace41fe88b9dbe3dde7a5074d47258ff4fde95d6d8de758df5011b",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_variable_driven_by_gate_and_module_output.sv",
@@ -89876,7 +89876,7 @@
           "observation": "メンバ int a・real r・クラスハンドル h の構造体について、h を名前で null にして default:3 を int と real のメンバだけに適用する '{h:null, default:3} を合法な対照とし、default:3 だけで h にも適用される '{default:3}（39行目）を違反とする。:expected_stderr_regex: は39行目を指す。 区別: default の値が各メンバの型へキャストできるかを検査しない誤実装は39行目を受理して失敗する（Verilator 5.052 は受理して C++ のコンパイルで失敗する）。名前キーが default より優先されることを無視する実装は対照の行でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b5a09f7754d54366de2d06ef6e1840a559717d27d42425f0da37918a3c9f6a15",
+          "inputs_sha256": "946c4fa70e4c312b509a68aaeeaf9e5601d2dee9f1ef8062230c5228af46bb68",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_struct_pattern_default_not_castable.sv",
@@ -90181,7 +90181,7 @@
           "observation": "クラスハンドルのメンバ h に h:5 を与える（36行目、:expected_stderr_regex: が指す）。'{a:2.5, r:1, h:null} は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "45ef6904a89fa9dfbd207499474695ceb4b89979d093e8363fa685934e3a7426",
+          "inputs_sha256": "55b2cfafb6176d688f0a69a2e254df70659e6b70c9e961e3a86fe4e8a9bbac04",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_struct_pattern_key_value_not_castable.sv",
@@ -90603,7 +90603,7 @@
           "observation": "連想配列 aa への {b, c}（34行目、:expected_stderr_regex: が指す）。固定サイズ f2、動的配列 d、キュー q への {b, c} は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e80f0501b5be888001291974b9e81b67aa0d8df420bea0458c509b039c97118d",
+          "inputs_sha256": "347702c5a0c8fcdc51b73c9fd41da6d2c18ce57f0daabb71c713378660a71c07",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_unpacked_concat_to_associative_array.sv",
@@ -90843,7 +90843,7 @@
           "observation": "2×2 の配列 m の位置指定パターンで、各行（非 default の項目）を unpacked 配列の連結 {b, c} と {a1, b} で与える行を合法な対照とし、default 項目に {a1, b} を与える '{default: {a1, b}}（30行目）を違反とする。default 項目は代入類似の文脈でないので、{a1, b} は unpacked 配列 a1 を含む整数の連結になり違法。:expected_stderr_regex: は30行目を指す。 区別: default 項目も代入類似の文脈として unpacked 配列の連結を許す誤実装は30行目を受理して失敗する（Verilator 5.052 は受理する）。非 default の項目での unpacked 配列の連結を拒否する実装は29行目でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "31f532e6ba107c1e502ad183249e96ee6ec918fd928f29da52f3af1623bf8b74",
+          "inputs_sha256": "0d5d40e6f8421c494f107569a0c8101994829aff6f4f9c120b3be82a6060e006",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_unpacked_concat_in_default_pattern_item.sv",
@@ -90883,7 +90883,7 @@
           "observation": "unpacked 配列の連結の項目として、ベクトルの連結 {c}（32ビット、1要素）と文字列の連結 {\"ab\", s2} を使う行を合法な対照とし、unpacked 配列の連結になるはずの {a1, b} を項目にする {a2, {a1, b}}（35行目）を違反とする。:expected_stderr_regex: は35行目を指す。 区別: 入れ子の unpacked 配列の連結を許す誤実装は {a2, {a1, b}} を4要素として受理して失敗する。内側の波括弧をすべて拒否する実装はベクトルや文字列の連結の対照の行でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "71aca2c4a690dbc4e8e380031b8ea34037d4627eb69c7b0e0cedc02ed2c89617",
+          "inputs_sha256": "7f5feef88710d8f55b6d40d37ce1111e218561a3f9aaefc1a08868d78f43fb4c",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_unpacked_concat_nested_in_unpacked_concat.sv",
@@ -91059,7 +91059,7 @@
           "observation": "8ビットのネット w8 と4ビット2本の連結 {hi4, lo4}（合計8ビット）の alias を合法な対照とし、8ビットの x8 と4ビットの n4 の alias（29行目）を違反とする。:expected_stderr_regex: は29行目を指す。 区別: メンバのビット数の一致を検査しない（狭い方に合わせて重ねる）誤実装は29行目を受理して失敗する。連結のメンバを1つのネットとして幅を比べる誤実装は対照の行でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "af0e7f3ebb16de54c238bb054f568216cbb85bdcce8fcfd688ba65eaeaaebe53",
+          "inputs_sha256": "b2035c3188bff4503322b5585aab29a00ea6224d07a4f3dd4083fd515d1d1ef5",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_alias_members_of_different_widths.sv",
@@ -91269,7 +91269,7 @@
           "observation": "2本の wire の alias と2本の wand の alias を合法な対照とし、wand のネット wa と wor のネット wo の alias（29行目）を違反とする。:expected_stderr_regex: は29行目を指す。 区別: ネット型の一致を検査せずポート接続と同じ緩い規則で受け付ける誤実装は29行目を受理して失敗する（Verilator 5.052 は受理する）。wire 以外のネット型の alias をすべて拒否する実装は wand 同士の対照の行でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "6559c068d52474215e473d558fb2957c9c68e9ba2890cabfba7e277dbf6c1a8d",
+          "inputs_sha256": "16c6b5630c516ebb8002b1f1df6b4091f56948b855f9bae85b7d443977e01b3b",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_alias_wand_to_wor.sv",
@@ -91400,7 +91400,7 @@
           "observation": "alias s = s（27行目、:expected_stderr_regex: が指す）。alias a = b は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b2d3df6db9ce74e8590dfe8dc2798e0be1c5be85b3b34d083bf5f2f1f7713684",
+          "inputs_sha256": "12ddc2a327e345ce582069561db29b0bf19b4b147e52ace2932295d11ddffe71",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_alias_net_to_itself.sv",
@@ -91421,7 +91421,7 @@
           "observation": "alias p = q を2回（29・30行目、:expected_stderr_regex: は (29|30)）。alias r = s と alias s = t は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "97d1116fa9dd38ae174d68cd109a5fdd2512b218633eac08ccdbb3183a8a2589",
+          "inputs_sha256": "3b920a131122a2457622e5fbb42b874b1f3647f3225ab8664fe57b4454a6db8a",
           "evidence": [
             {
               "file": "tests/ch10/test_illegal_alias_given_twice.sv",
@@ -95132,7 +95132,7 @@
           "observation": "@((a = b))（34行目、:expected_stderr_regex: が指す）。@(a or b) と c = (a = b) は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "090c3448e36ee85c605586af169d9ffa9b1313770a1aec0d3860b02d0aa27436",
+          "inputs_sha256": "8731b48ca5fcb872b3f57352d549a81ab14f85aea050356978daa9c5e319393f",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_assignment_operator_in_event_expression.sv",
@@ -95157,7 +95157,7 @@
           "observation": "assign v = (a = b)（29行目、:expected_stderr_regex: が指す）。assign v = a + b と c = (a = b) は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "dc65de9b039c9e20170f763954cc3963edc990c93e0db5746e10331fc0806b83",
+          "inputs_sha256": "7e3c1d40a10a227073180952352f1ec5b1c9d6a197ed5fac3a5e16c178eab21e",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_assignment_operator_in_procedural_assign.sv",
@@ -95178,7 +95178,7 @@
           "observation": "モジュールの連続代入 assign w = (a = b)（29行目、:expected_stderr_regex: が指す）。assign w2 = a + b と initial 手続きの c = (a = b) は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "be5f71fd9604d43cdd1e19ff53a7801230fe8f9429ad75a36cebe3432480f3e7",
+          "inputs_sha256": "f94be9da9eddd8682dc95edb392ee1f1fb0661b6948d6abb1ac2674e980034dd",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_assignment_operator_in_continuous_assign.sv",
@@ -111197,7 +111197,7 @@
           "observation": "条件演算子の第2・第3オペランドとして、同じ型の int 配列2つ（ia と ib）、real と int、クラスハンドルと null を合法な対照とし、それまでの規則に当てはまらない int[3] と byte[3]（等価でない型）を使う sel ? ia : ba（39行目）を違反とする。:expected_stderr_regex: は39行目を指す。 区別: 集合型のオペランドに等価性を求めず代入互換などで受け付ける誤実装は39行目を受理して失敗する。等価な配列同士や、整数・実数・クラスの規則に当たる組合せまで拒否する実装は36〜38行目でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cf3d89da4219f2e1b22b3c73280594e5d811dcb200c24c4935a741890c9ffbeb",
+          "inputs_sha256": "5b3c9cb992818de70fe2f03f8335a4e1b594ba9f9f033b709c1dbac1288664f2",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_conditional_operands_not_equivalent.sv",
@@ -111682,7 +111682,7 @@
           "observation": "連結の選択を読む c = {a, b}[3:2] と d = {a + b}[1:0]、連結全体への代入 {a, b} = 8'h3c を合法な対照とし、連結の部分選択への代入 {a, b}[3:2] = 2'b11（31行目）を違反とする。:expected_stderr_regex: は31行目を指す。 区別: 連結の選択を左辺として受け付ける誤実装は31行目を受理して失敗する（Verilator 5.052 は受理する）。連結の選択の読出しや連結全体の左辺を拒否する実装は28〜30行目でエラーを出し、指定行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "16be782502c624e9790515a3735ec91d9af4e06aa8abfe543877d48142150b8a",
+          "inputs_sha256": "a47b627d4c80994de772f655f300fe036414467d5d8004c41e45e9eca04b86fa",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_select_of_concatenation_as_lvalue.sv",
@@ -113770,7 +113770,7 @@
           "observation": "値 -2 のパラメータ S をスライスサイズにする {<<S{w}}（31行目、:expected_stderr_regex: が指す）。{<<4{w}} と {<<byte{w}} は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b9c822f26a591c03a3e5175f5f93c5a1ce75181f10558c1563f0fbcd5229d985",
+          "inputs_sha256": "ceec04f2fa2eec4d42d4a46a9a50e0a3842286650ccf5cf4df44824e7d3ed218",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_stream_slice_size_negative.sv",
@@ -114239,7 +114239,7 @@
           "observation": "int 変数 n への n with [0 +: 2]（31行目、:expected_stderr_regex: が指す）。fa with [1 +: 2] と q with [0 +: 2] は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "134aaeb922b7a515375d5a16e49aef2468bc56dc5545b23a7c3343c08c4c7b43",
+          "inputs_sha256": "0380fc6035f9fab9fd942d882bd73caadd37f301415cc8219580d4c4d212d25f",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_stream_with_on_scalar.sv",
@@ -114260,7 +114260,7 @@
           "observation": "2次元の unpacked 配列 m への m with [0 +: 1]（31行目、:expected_stderr_regex: が指す）。fa with [0 +: 2] と m[1] with [0 +: 2] は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "9f233001c504e0635e33ededd9601a0f3a523eeeb898d50aef48bae57a498363",
+          "inputs_sha256": "6c2b31c1314fd64a9012477a28a2a6e766e2ae8e0d5b1c9126d657671b06f24f",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_stream_with_on_two_dimensional_array.sv",
@@ -118355,7 +118355,7 @@
           "observation": "$display(\"%p\", tagged Valid 5)（35行目、:expected_stderr_regex: が指す）。vi への代入、vint_t'(tagged Valid 4)、vi = sel ? tagged Valid 6 : tagged Invalid は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "59e2e7fbbc7760a59b14c167fcd937e8b76f6b5fd4663f83b94074a433b8cd02",
+          "inputs_sha256": "93407e39d04b3a4d751bde93917be1e6a1d00a1582fbef6213dfc3859efefb8d",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_tagged_expression_without_context_type.sv",
@@ -118376,7 +118376,7 @@
           "observation": "vint_t の変数 vi への tagged Count 5（38行目、:expected_stderr_regex: が指す）。vi への tagged Valid 23、tagged Invalid、cnt_t の ci への tagged Count 4 は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "0b448615b7bd1c73c71a5d511617a58fbb541a1e006e1cd4ad94e04fbee53ca9",
+          "inputs_sha256": "edd8f9c62d9225ffeca6e9e2c183d2045b38d54a9b00b48dbbdc4d28fa4cbcad",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_tagged_expression_member_not_in_type.sv",
@@ -118397,7 +118397,7 @@
           "observation": "int のメンバ Valid にクラスハンドル h を与える tagged Valid h（37行目、:expected_stderr_regex: が指す）。tagged Valid k（int）と tagged Obj h は合法な対照。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "461032d8abea5a072f02b6b7d8093b4c00fe14444a9cf44cd1ebc8bc76f68b32",
+          "inputs_sha256": "a1dbade00d68aa3b66363f8e3b54fb0821e48c3b8fb1260833ff1390960c86d2",
           "evidence": [
             {
               "file": "tests/ch11/test_illegal_tagged_expression_value_of_wrong_type.sv",
@@ -120297,7 +120297,7 @@
           "observation": "unique で始まる if-else-if 列の最初の else の直後に unique0 を書いた行（32行目）を違法とし、:expected_stderr_regex: はその行を指す。同じ初期ブロックの最初の文は、unique if の else 側に begin-end を置いてその中に unique0 if を入れた形で、規格が入れ子の修飾付き if に求める書き方であり合法である。設計中の違反は32行目だけである。 区別: 修飾子を if-else-if 列全体ではなく個々の if に付くものとして扱い、else の直後の unique0 を受理する処理系は「違法な設計が受理された」で失敗する。begin-end で包んだ合法な入れ子（29行目付近）でエラーを出し32行目で出さない処理系も regex に一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "d0f17ddeb2d019e8149f21c3a67aa2713a7b6f575a0a96cabac9e0967a792abe",
+          "inputs_sha256": "52f32f4a5316760370f8196e796f24487c62110513215c55437a06e8988f1b3e",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_unique_if_else_unique0_if.sv",
@@ -120318,7 +120318,7 @@
           "observation": "unique0 で始まる if-else-if 列の最初の else の直後に priority を書いた26行目が唯一の違反で、regex は26行目を指す。unique0 を書いた列の先頭（25行目）は合法。 区別: 修飾子を列全体でなく個々の if に付くものとして扱い、else 直後の priority を受理する処理系は「違法な設計が受理された」で失敗する（Verilator 5.052 がそうである）。列の先頭の unique0 は合法で、違反は26行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f16bd83c720243a16866f6d2aa8499985d71f027761b28de488d7cee32745a5a",
+          "inputs_sha256": "71846c996734525a926a9a09e211855298f403edaf2b53a532add98edef0271b",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_unique0_if_else_priority_if.sv",
@@ -120335,7 +120335,7 @@
           "observation": "priority で始まる if-else-if 列で、最初の else if は修飾なし、2番目の else の直後に unique を書いた27行目が唯一の違反。regex は27行目を指す。最初の else の後だけでなく列の途中の else の後にも修飾子を置けないことを確かめる。 区別: 列の途中の else 直後の修飾子を受理する処理系は受理されて失敗する。修飾子のない else if（26行目）は合法で、違反は27行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cf00171c5de156a8bc78a33d01c22ee04c9b70a291297f0cdfc0a09bfdd4ad80",
+          "inputs_sha256": "39f29a451f6fd35ba3c5a42b25d870266ec0e2b9d79534d515a1e52ae02c39eb",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_priority_if_second_else_unique_if.sv",
@@ -122054,7 +122054,7 @@
           "observation": "case (a) matches の a は Small と Wide のメンバーを持つ a_t 型で、2つ目の項目 tagged Big .w は別の型 b_t のメンバー名を使う（38行目）。regex は38行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cd4b6314fe1b210dc5527bbd07215b798238082c9e532eafb42a0f08160d9e7a",
+          "inputs_sha256": "6339dc6d3fa0eb3e30ecda28efdde9726216101558c4cf8345546157efab97c5",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_case_matches_member_not_in_type.sv",
@@ -122075,7 +122075,7 @@
           "observation": "real メンバー R に対して定数パターン 1.5（real 型）を使う29行目を違法とし、同じメンバーに識別子パターン .r を使う30行目は合法の対照である。regex は29行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "9a21a9d8a090d788af1b0951853040a77f7120b275f4d567c812404449fafe6f",
+          "inputs_sha256": "c08091abad3c6b38291a7d221a03390f1ca069632e9a8c6bdd95cdc704ecbcdf",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_pattern_constant_of_real_type.sv",
@@ -122127,7 +122127,7 @@
           "observation": "1つのパターン tagged Pair '{.x, .x} の中で識別子 x を2つの位置に使う32行目を違法とする。31行目は異なる識別子 .x, .y を使う合法なパターン、33行目は別の case 項目で x を再利用する合法な例で、パターンごとに新しいスコープができることを示す対照である。regex は32行目を指す。 区別: 1つのパターン内の識別子の重複を検査しない処理系は設計を受理して失敗する。パターンのスコープを case 文全体で共有する誤実装は33行目（別の項目での x の再利用）でエラーを出し、32行目を指す regex に一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b049c88db18d6f78ed19987ec856b9bc847a0d6e9c8a8f5614e343aa201cbdf1",
+          "inputs_sha256": "66feb3ac5d7d89402b1440c17f5b6ed7bce182854b6e18561b18a0fc0faf32ca",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_pattern_identifier_used_twice.sv",
@@ -122314,7 +122314,7 @@
           "observation": "パターン照合 case の式 a は既知の型 a_t（メンバー Small, Wide）を持ち、2つ目の case パターン tagged Big .w は a_t に無いメンバー名を使うので a の型を持たない（38行目）。1つ目と3つ目の項目は a_t のメンバーで合法である。regex は38行目を指す。 区別: case パターンの型を式の型と静的に照合しない処理系は設計を受理するか、実行時に一致しない項目として扱って失敗する。合法なパターン（Small, Wide）でエラーを出す処理系は38行目を指す regex に一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "cd4b6314fe1b210dc5527bbd07215b798238082c9e532eafb42a0f08160d9e7a",
+          "inputs_sha256": "6339dc6d3fa0eb3e30ecda28efdde9726216101558c4cf8345546157efab97c5",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_case_matches_member_not_in_type.sv",
@@ -122589,7 +122589,7 @@
           "observation": "if の述語 k matches tagged Val .x で、int 型の k をタグ付き共用体のパターンと照合する31行目を違法とする。30行目の v matches tagged Val .x は v の型 opt_t のパターンで合法の対照である。regex は31行目を指す。 区別: e matches p の e と p の型が同じであることを静的に検査しない処理系は31行目を受理して失敗する。合法な30行目でエラーを出す処理系は regex に一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "002e043bd6739461ca1c04c7ef2f6753aa25b205f623de2337d782f07bba895e",
+          "inputs_sha256": "66497227560af6c91f2816eebd810e650c97e75dddf215d83d42c2719ecb5204",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_if_matches_pattern_of_other_type.sv",
@@ -122701,7 +122701,7 @@
           "observation": "for (var type(limit) j = 0; ...) は合法、for (type(limit) i = 0; ...) は var を欠く変数宣言で違法（27行目）。regex は27行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5a36b940a6f8a29a70b01526e26ba4b1cf70703dba04a33cbb287bc1066911a5",
+          "inputs_sha256": "d2bb497a71224d3dc818129bf8e7076a58b9687c445396718fd7171bb0a8811d",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_for_type_reference_without_var.sv",
@@ -122722,7 +122722,7 @@
           "observation": "wire type(w) w1 と var type(w) v は合法、type(w) w2 = w; はネット型キーワードも var も無い（27行目）。regex は27行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "9fbbc0aab84e26ee69988912a9a2ab4a1758dc75f6f044b97cce08b6097ae26b",
+          "inputs_sha256": "2550bec39015e0034bb477f20286c771e0e3dde94214acbeb37977782993db3e",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_net_type_reference_without_net_type.sv",
@@ -122822,7 +122822,7 @@
           "observation": "初期化部で i と k の両方を局所宣言する for と、どちらも宣言しない for (x = 0, z = 1; ...) は合法で、既存の x への代入と局所変数 y の宣言を混ぜる for (x = 0, int y = 0; ...)（27行目）を違法とする。regex は27行目を指す。 区別: 局所宣言と既存変数への代入の混在を許す処理系（Verilator 5.052 はそうである）は設計を受理して失敗する。複数の局所宣言や複数の代入（合法）を拒否する処理系は25/26行目でエラーを出し、27行目を指す regex に一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "43f37833dd6d67b10b582e7018eea917892791337f8e6167b7e5fe78e74c5850",
+          "inputs_sha256": "9f8ac5781a72eaff58d580666bfa6c296ccf7f4074b04320a580c56247a1bf01",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_for_init_declares_after_existing.sv",
@@ -123407,7 +123407,7 @@
           "observation": "int arr [2][3] に対して foreach (arr[i, j]) は合法で、2つ目のループ変数を配列と同じ名前 arr にした foreach (arr[i, arr])（26行目）を違法とする。ループ変数の数は次元数（2）以内なので、違反は名前の衝突だけである。regex は26行目を指す。 区別: ループ変数と配列の同名を検査しない処理系は、ループ変数 arr が配列を隠すだけの設計として受理して失敗する。合法な25行目でエラーを出す処理系は regex に一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "9ed721e86ee8b36c0986432ce108083164756bc97e665d9f1f7fde1aaa8822a1",
+          "inputs_sha256": "05271a0d9b2b232b4d42ace79049166c8a145cda4460e7083200587f8896ae30",
           "evidence": [
             {
               "file": "tests/ch12/test_illegal_foreach_loop_variable_named_as_array.sv",
@@ -126983,7 +126983,7 @@
           "observation": "f はモジュール変数 base を読む非定数関数 g を呼ぶので定数関数でなく、localparam P = f(1)（54行目）が違法。regex は g の読み出し（33行目）、f の呼び出し（50行目）、P（54行目）のいずれかを許す。対照として、h は定数関数 k と局所キュー q の組み込みメソッド push_back()/size() を呼び、tag は暗黙の結果変数 tag の putc()/substr() を呼ぶ。これらは規格が明示的に許す形で、Q = h(2) と S = tag(1) は合法。 区別: 定数関数内の非定数関数呼び出しを検査しない処理系は P を受理して失敗する。規格が特に許す局所変数・暗黙変数の組み込みメソッド呼び出し（h の39〜42行目、tag の45〜47行目）と定数関数 k の呼び出しは合法な文脈で、Q と S は定数関数呼び出しとして合法であり、違反は f が g を呼ぶことだけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e9a50259581ce6a7d0153ac6e062683be23db57aeedacdca2225b61b17da932c",
+          "inputs_sha256": "6e1dd6cda9c7d3181aa4c2045d867fa89e4dcd2e8dbc5e23e8648a19830605b0",
           "evidence": [
             {
               "file": "tests/ch13/test_illegal_constant_function_calls_nonconstant_function.sv",
@@ -127845,7 +127845,7 @@
           "observation": "void 関数 bump の inout 引数 io に r + 1 を渡す28行目が違法、bump(r) は合法。regex は28行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "54c2f910108a03b51885333901869045aaa48318035945b5a9fb55a697a2fb60",
+          "inputs_sha256": "197aadb6d13c2b6a6f40558411b6932c03c8cdf7fb727932205faa94c606effe",
           "evidence": [
             {
               "file": "tests/ch13/test_illegal_inout_argument_not_lvalue.sv",
@@ -128339,7 +128339,7 @@
           "observation": "show(ref int a) に式 i + 1 を渡す行を33行目のエラーとして期待し、変数 i の show(i) は合法。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "45e38057564bf9b96d437da0548268f03880d27bbd8997a145bf972a9ac7bf73",
+          "inputs_sha256": "b41c757f80b8dd98bc8c916a5566e513f54684e14e81c1bd0f81bc08682f958e",
           "evidence": [
             {
               "file": "tests/ch13/test_illegal_ref_actual_expression.sv",
@@ -128678,7 +128678,7 @@
           "observation": "タスク t は本体で引数を宣言する非 ANSI 形式で、input int b = 3;（29行目）が既定値を与えるので違法（文法上は list_of_tf_variable_identifiers の = expression として書ける）。ANSI 形式の引数リストで既定値を与える関数 f(input int a, input int b = 3) と f(1) の呼び出しは合法な対照。regex は29行目を指す。 区別: 非 ANSI 宣言の既定値を検査しない処理系は受理して失敗する（Verilator 5.052 がそうである）。ANSI 形式の既定値を持つ f は合法で、違反は29行目だけである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。Icarus 13.0 は29行目を構文エラーとするが、規則の検出とはいえないので oracle に含めない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "dcca85ed0eada95aec171af85dcd8298704a404ac2649e52063255f01108d180",
+          "inputs_sha256": "7a27a394de6fe6683778db5835018c48da102a1ba9ae746f062c821f9145d83b",
           "evidence": [
             {
               "file": "tests/ch13/test_illegal_default_argument_in_non_ansi_declaration.sv",
@@ -130294,7 +130294,7 @@
           "observation": "input i2 = (a = b);（30行目）が違法、input i1 = a & b; と input i3 = a[1:0]; は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "13b8e194015726465c7239bc51d9cdde3b9654d3b04a9cbf5367022b01bd2c16",
+          "inputs_sha256": "c8b12aecc162ea773bd3831b81544c538346fb2759a1febc85c17ac3fbfa7c32",
           "evidence": [
             {
               "file": "tests/ch14/test_illegal_clocking_input_expression_with_assignment.sv",
@@ -130315,7 +130315,7 @@
           "observation": "output o = a + b;（27行目）が違法、output p = {a, b}; は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e08d25b22562e63d6adf01aa598dc76904067b3ce2fd1e25a29d551f02b3a0c7",
+          "inputs_sha256": "76baf6ad34aee75fddf31381ebe2df6ae01b74d720151986d987442febecdf23",
           "evidence": [
             {
               "file": "tests/ch14/test_illegal_clocking_output_expression_not_lvalue.sv",
@@ -130336,7 +130336,7 @@
           "observation": "inout io = a & b;（27行目）が違法、inout v = a[1:0]; は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a8cb280443910c21be4f03eda18527c183b25acea90ba287adfab879f65ca585",
+          "inputs_sha256": "f178b4573d6baca74272de88f067d082cc53eb83a39d63ae1f968559086b8c7b",
           "evidence": [
             {
               "file": "tests/ch14/test_illegal_clocking_inout_expression_not_lvalue.sv",
@@ -132297,7 +132297,7 @@
           "observation": "initial 内の force y = a;（32行目）が違法、force w = a; は合法。regex は32行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "9a6bb91a6f812d1402edd88e8c3b6360f1f777168ec88ea25e315f828bb7ec36",
+          "inputs_sha256": "0f27096718d3d20d8df427d19f81ad0debd331a629ee325f5411121d3742ffb2",
           "evidence": [
             {
               "file": "tests/ch14/test_illegal_clocking_output_variable_force.sv",
@@ -138357,7 +138357,7 @@
           "observation": "p_bad の a ##1 (cnt++ > 0)（32行目）が違法、p_loc の (a, k = 0) ##1 (b, k++) は合法。regex は32行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "73cae3f818acaa7fb5837aeadacb092d0d15a13f7c07e03f4eae915e6f8ebaf5",
+          "inputs_sha256": "004bda27cf51e7701208382ad71ba2eb9f6cb86b22e88c4ea0d618aa8e38543a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_assertion_expression_increment.sv",
@@ -138378,7 +138378,7 @@
           "observation": "p_bad の a ##1 ((cnt += 1) > 0)（31行目）が違法、p_loc は合法。regex は31行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "de575009323fef96635c5d9e03a08c1428b6d76c906a456d587aa4d591d28221",
+          "inputs_sha256": "577fa4f5659d632c0f104b525735baa16badac241edb9e53f0ac130474c86925",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_assertion_expression_assignment_operator.sv",
@@ -138596,7 +138596,7 @@
           "observation": "p_bad の ##(1.5)（27行目）が整数値でなく違法、p_ok の ##(1 + 1) は合法。regex は27行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "4bf92fb2713c3de72737375e03097a88de5439664947a37d9e954960e2b419e8",
+          "inputs_sha256": "13d28bd422d7a1989d4d5a97a438520f36d17a41d42d3fc7c61440b7da6b2be0",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_cycle_delay_real_value.sv",
@@ -138951,7 +138951,7 @@
           "observation": "p_bad の遅延 ##(1:2:3)（25行目）は、文法上は括弧付きの constant_mintypmax_expression として書けるが、定数式でない min:typ:max なので違法。p_ok の ##(2)（括弧付きの定数式）は合法。regex は25行目を指す。 区別: min:typ:max の遅延を受理して typ などの値を使う処理系は受理して失敗する。Verilator 5.052 はこの行を構文エラーとするが、文法が許す形を構文として扱えないことによるので oracle に含めない。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "ef141d5ccd24f59566c3b502987f5526937c478014d24586cb5bce18b9145982",
+          "inputs_sha256": "91eefca5cc902acc7c2d8544fae48a65f20edcaacf2fe61e7694528e9d2baeb3",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_cycle_delay_mintypmax.sv",
@@ -139256,7 +139256,7 @@
           "observation": "p_bad の s_d(a, b, n)（33行目）が変数 n を遅延の仮引数 d に渡して違法、p_ok の s_d(a, b, D)（パラメータ）と p_lit の s_d(a, b, 1) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "de0f5dd66fdde8b3d7f0e0b705ec9493370ed3f0a5921c0d5dfc55d8cf1190e3",
+          "inputs_sha256": "2da8ed5cdeb9866e6abed277f0d50933ea6ac49e267731321f9803e64f8146ff",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_untyped_delay_actual_variable.sv",
@@ -139281,7 +139281,7 @@
           "observation": "p_bad の s_r(b, n)（32行目）が変数 n を繰り返し回数の仮引数 k に渡して違法、p_ok の s_r(b, C) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "3357cd4f22bf313e5793aae8125ccd91818f80dd74cda047710a2d17e0cb747e",
+          "inputs_sha256": "1a0ec66bcc8ad84c0ea06e972e96c2fb857fc18ad66dbfc11c82e9f7367bffe1",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_untyped_repetition_actual_variable.sv",
@@ -139506,7 +139506,7 @@
           "observation": "p_bad の s_d(a, b, $)（36行目）が違法、p_up の s_up(a, b, $) と p_pass の s_pass(a, b, $)（m を s_up へそのまま渡す）は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "4eefecc2d5ba93c496d7bcc96736745e3b67ec71a93ce2d6cafbd2a0da7462b4",
+          "inputs_sha256": "a2495b3f305b69ec53e30bbfc3ca667837cfe764412984770dcb144145dd02d8",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_dollar_actual_exact_delay.sv",
@@ -139531,7 +139531,7 @@
           "observation": "p_bad の s_t(a, b, $)（33行目、m は int 型）が違法、p_up の s_up(a, b, $)（m は型なし）と p_t の s_t(a, b, 3) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bfebd73dcef7ecd9dd9b6c6898f917acc739f7b36b46ecd9cfb97ef9ca1dd5c6",
+          "inputs_sha256": "0844eee1f5f1423434bded996cbd7e3587102ba78e825237c446f6880506d44e",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_dollar_actual_typed_formal.sv",
@@ -139661,7 +139661,7 @@
           "observation": "名前付き列 s_ch の仮引数 h を、アサーション式の被演算子に許されない chandle 型で宣言した31行目を唯一の違反とする（s_ch は実体化しないので、宣言だけが違反の場所である）。s_ok の仮引数は sequence、bit、int 型、s_un の仮引数は型なしで、どちらも実体化して使う合法な形。regex は31行目を指す。 区別: 列の仮引数の型を検査しない処理系は受理して失敗する。要求が許す型なしと、16.8.1 の sequence 型、16.6 が許す bit/int 型を合法な形として置いている。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5007ce30c23bf7953ced968ffaa8b52ba72984c013bc95413705614ebfb6530c",
+          "inputs_sha256": "60b63aec559657d5b61b0e16f0578b29da1cd06b9331062e0d5987c3599b2b2a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_formal_chandle_type.sv",
@@ -139854,7 +139854,7 @@
           "observation": "s1 の本体（32行目）が s2 を、s2 の本体が s1 を実体化して閉路となり違法。s0 が s_leaf を実体化するのは合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "54900abded138f81221aedfef323246c3322bf7f3a6082df7292c3db1c1f25c2",
+          "inputs_sha256": "e1a7e07d0530fb0b6555f7a39a715f26466eed9cc6f19e340633fc32a2ecffe8",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_cycle_through_bodies.sv",
@@ -139879,7 +139879,7 @@
           "observation": "s3 の仮引数 x の既定の実引数 s4（31行目）と、s4 の本体の s3(b) が閉路となり違法。s5 の既定 s_leaf は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "eb97e4bc58ce8413e926d5449d4c58d6868c9b519ce70485899f26261efe5251",
+          "inputs_sha256": "e3ab17c83a733597259e117b942b3cb2bf398f8873aa797cf7cbdc4aab81398d",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_cycle_through_default_actual.sv",
@@ -140090,7 +140090,7 @@
           "observation": "列 s_bad が event 型の仮引数 ev に posedge を付けて事象式にする31行目を唯一の違反とする。logic 型の仮引数 sig に posedge を付ける s_sig と、event 型の仮引数をそのまま事象式に使う s_ev（実引数 posedge clk）は合法。regex は31行目を指す。 区別: エッジと組み合わせる仮引数の型を検査しない処理系は受理して失敗する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "ffd7a66a15f68f1668334c13c0f6b37b311dae3f937d471c1b8ef820d8deedca",
+          "inputs_sha256": "e2c1f3fdd08194b261481b478b06cfe587ff27469a7578e29a08e6bd8bca94c1",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_event_formal_with_edge.sv",
@@ -140134,7 +140134,7 @@
           "observation": "s_bad の a ##1 ev（27行目）が event 仮引数をブール式に使って違法、s_ev の @(ev) a ##1 b と c_ev の s_ev(posedge clk) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "45848cb3463a5bada8232be56bb155e0f7606d397a0f3dcbcbbeb9b2ca9468a4",
+          "inputs_sha256": "7a03e12eb875308858d74145413c70580039b360892f9a1e561d1bd32f729534",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_event_formal_as_boolean.sv",
@@ -140159,7 +140159,7 @@
           "observation": "c_bad の s_ev(a ##1 b)（28行目）が違法、c_ok の s_ev(posedge clk) と c_neg の s_ev(negedge clk) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f59f455361a08457475d39537f9e39dd6a72613640deefeffbd91e4f479f4df7",
+          "inputs_sha256": "5782ed65b9b83034460aa6524317ddf304a6a66ab0eaa9d3007d9e087e85ce56",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_event_formal_actual_not_event.sv",
@@ -140325,7 +140325,7 @@
           "observation": "p_bad の s_s(a |-> b)（28行目）が違法、p_seq の s_s(a ##1 b) と p_bool の s_s(b) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "809da64281767262b505985cecfe8861002900ec39472bd8d354860afe4555cf",
+          "inputs_sha256": "f92cfe104f27889243e224f74fc835e12ec7a049be47e3c544f6a83fdd465212",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_formal_actual_property.sv",
@@ -140346,7 +140346,7 @@
           "observation": "s_bad の c ##1 q[->2]（29行目）が違法、s_ok の c ##1 q[*2] は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "45206920daaab2f0b96ff306459285d3b97c74430e0b40e341d680bcfd9b3edc",
+          "inputs_sha256": "c16994fc044d3c3d722d96dd17e6466387f350256ad68197a0d4882e53136efa",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_formal_goto_operand.sv",
@@ -140398,7 +140398,7 @@
           "observation": "s_bad の x ##d y（33行目、d は bit [7:0]）が違法、s_i（int）と s_s（shortint）の同じ遅延は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b119853ce8a97dcfb8aa7b6d108d8b111bd90f7d8e52b80fdd73aa872e6adc7d",
+          "inputs_sha256": "d2e3a8a50bd45de7d40681512b2cc600d711ab7a51c7181610dae6c668fb5df7",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_typed_formal_delay_bit_vector.sv",
@@ -140427,7 +140427,7 @@
           "observation": "s_bad の x[*k]（30行目、k は byte）が違法、s_l（longint）の同じ繰り返しは合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "21d0a0b10d89550e80d7926db435d334d7d09668f0b85169796ab7af0d354940",
+          "inputs_sha256": "d7648481a89b7c0a8eadfd7bda3f99ae6e886c9c2edd24cef362cd3115e4435e",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_typed_formal_repetition_byte.sv",
@@ -140483,7 +140483,7 @@
           "observation": "s_ch の chandle 型の仮引数 h（31行目）が違法、s_ok の sequence/bit/int 型の仮引数は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5007ce30c23bf7953ced968ffaa8b52ba72984c013bc95413705614ebfb6530c",
+          "inputs_sha256": "60b63aec559657d5b61b0e16f0578b29da1cd06b9331062e0d5987c3599b2b2a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_formal_chandle_type.sv",
@@ -140504,7 +140504,7 @@
           "observation": "s_bad の event 型の仮引数 ev の既定 a ##1 b（26行目）が event 式でなく違法、s_ok の既定 posedge clk は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "df8c441e1220de0b7852bbddf2278870352691cc8d8bde4553b5e62e7a4b4d24",
+          "inputs_sha256": "64d766b69078d2b9d80fda4d80e258b866236f72654551439edf87e30f09b00c",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_formal_event_default_not_event.sv",
@@ -140560,7 +140560,7 @@
           "observation": "s_bad の (a, x = 1)（28行目）が違法、s_loc の (a, y = 1) ##1 (b, y++) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e73609858b1ac31ec4693fb796ca6631abf3ed7f42303b053b973b4aaa0653f5",
+          "inputs_sha256": "265e90e97f7121bc87a8d61c71e4fddddc24537e420d03eb788e43490cc4f8a5",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_typed_formal_match_assignment.sv",
@@ -140581,7 +140581,7 @@
           "observation": "s_bad の (a, x++)（28行目）が違法、s_loc は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1ec897f2bb5ef3bd9a28812bf36350dddab3898c3364904f466116063878a941",
+          "inputs_sha256": "a72d3b6e989bec917fc82bf39ac3d746ceaa8a2425d470dbea8b91a87c9e2323",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_typed_formal_match_increment.sv",
@@ -140633,7 +140633,7 @@
           "observation": "s_in(local int v)(方向なしなので input)の実引数に、use_in の初期値も先行する代入もない局所変数 y を渡す(c ##1 s_in(y))。この参照点で y は未代入で、34 行でのエラーを求める。 区別: 入力局所形式引数の実引数が参照する局所変数の代入状態を検査しない誤実装は設計を受け付け、未代入の値で初期化して実行してしまうので、エラーが出ずテストは不合格になる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c06861aa52185a4bb986bf3dfe6ececb69119c8ed9197890797387aeb5e9a4dc",
+          "inputs_sha256": "3239d2667742bc8277e03e73c817971847ecac1d00719eb9c3e3073f7fbc777a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_local_input_actual_unassigned.sv",
@@ -140769,7 +140769,7 @@
           "observation": "input logic x に local がない宣言の行 27 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "064ec8fcc9cfcb4cf8fab1a6bbfdda00d92c63a9dcf506a9f1510b4aaf2ea1ee",
+          "inputs_sha256": "ce94dbe36b85dbe3c504c4d4352055fcbcc85a3b805af0ae869eb9d32eaeb3c7",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_input_formal_without_local.sv",
@@ -140786,7 +140786,7 @@
           "observation": "output logic x に local がない宣言の行 27 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "363f62e296862f03631e5223b98e554b12779925c3428acf7df24e845c61fbd9",
+          "inputs_sha256": "eabc3bafe5fdd85f440aebe1a1ef6f9f6c49ac5a2c80a4d7a3dcb5a63adda6e5",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_output_formal_without_local.sv",
@@ -140803,7 +140803,7 @@
           "observation": "inout logic x に local がない宣言の行 27 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "0311395ab13ebc33829ffda390090a3fbce899b240ba677e05192fca1879d732",
+          "inputs_sha256": "ae6bab77e87fa4da7ecd33308821e50d01763835329a1345df9e6edde5694738",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_inout_formal_without_local.sv",
@@ -140958,7 +140958,7 @@
           "observation": "local inout int v = 0 の行 27 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "ce63e7119490a5c2ecee34b642b10dcfb4dcc6f814934ee96e2178ce9ec89e1c",
+          "inputs_sha256": "70ee1cb159d21582c164eaab03a4703061db72168a6e44f2ab1fc1c0de6c017a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_local_inout_default.sv",
@@ -140975,7 +140975,7 @@
           "observation": "local output int v = 0 の行 27 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "ff9b4d5b812013f87994e5eddc941d1c5c4c54d8b80fcd3dbd25cf5f6fceaafc",
+          "inputs_sha256": "5ad716429b201f425c9589ce57446f73367d60cbfe09596dea0f2e122baa00db",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_local_output_default.sv",
@@ -141115,7 +141115,7 @@
           "observation": "s_t(y).triggered の行 33 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "0778339dec4cf659a047c18142d34430d4a8d4a9cfd59857744f16c9c84f9999",
+          "inputs_sha256": "d8ea98168ad9ceb2a06ef94063a8565b3de6e00fa7df17cb3b6ae71d055cbb0f",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_triggered_on_local_inout_formal.sv",
@@ -141136,7 +141136,7 @@
           "observation": "s_m(d).matched の行 30 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a391ecf76da35cdae68abdedde0e6f8457740a0666605744381a56fd9cda1d47",
+          "inputs_sha256": "030e67f6fdd440d010f33845ca45df036aff842e658192070737ebae09b95ead",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_matched_on_local_input_formal.sv",
@@ -141188,7 +141188,7 @@
           "observation": "局所 inout 形式引数 v を持つ s_e の本体 (a, v += 1)[*0:1] は0回の繰り返しで空一致を許し、そのインスタンス s_e(y) を use_e で使う。v は y(初期値 0)から初期化され、照合項目は空一致しない a に付くので、違反は『inout/output の局所形式引数を持つインスタンスが空一致を許す』ことだけ。:expected_stderr_regex: は本体の行(29)かインスタンスの行(34)でのエラーを求める。 区別: この規則を検査しない誤実装は設計を受け付け(エラーなし)、テストは不合格になる。別の行(宣言の見出しや cover の行)だけで報告する実装も、正規表現の行番号と一致せず検出される。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "66cc42654cc8ae23c312935f73210456986ec4f05216703da510db8ce4f3a2eb",
+          "inputs_sha256": "d21eb676268c87f1e6a8648e98fe3676568b19e38f90155b9b612b81625cbfe3",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_local_inout_empty_match.sv",
@@ -141228,7 +141228,7 @@
           "observation": "s_two(local inout int p, local output int q) のインスタンス s_two(y, y) で、同じ局所変数 y(初期値 0 で代入済み)を inout と output の2つの局所形式引数に結び付ける。それ以外は合法(y は局所変数、本体は空一致しない)で、32 行でのエラーを求める。 区別: 同じ局所変数を2つの inout/output 局所形式引数へ結ぶことを検査しない誤実装は設計を受け付けるか、写し戻しの順序に依存した結果で実行してしまい、エラーが出ずテストは不合格になる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "942ad973b46ffc2b4d06c2b99493f734c2e795829e8699f6e25ecdd1a5d9edf8",
+          "inputs_sha256": "c04b0ae45ed376026f0057668842d0d6e00450ed05e4c73dbc46f3d79c4cbf42",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_local_formals_share_actual.sv",
@@ -141286,7 +141286,7 @@
           "observation": "s_maybe(local output int v) の本体 (a, v = d) or b では b を通る一致が v を代入しないまま終わる。呼び出し側は y を読まないので、未代入の参照という別の違反はない。本体の行(29)かインスタンスの行(34)でのエラーを求める。 区別: 一致の終わりに出力局所形式引数が未代入になり得ることを検査しない誤実装は設計を受け付け、エラーが出ずテストは不合格になる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "40b9e8e3cbdfc6c02e3885f697780c67ae2ff8ee8cd1befdecebc08f590a7e96",
+          "inputs_sha256": "c1fadf49266d124080bddc268d419cf7e85723df414c5132c732b7ff58ef04ec",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_local_output_unassigned.sv",
@@ -142049,7 +142049,7 @@
           "observation": "p_bad の (a ##1 b)[->2]（29行目）が違法、p_ok の (a ##1 b)[*2] と p_g の (a && b)[->2] は合法。regex は29行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "47612af6c41a2cb6cbe1e5eecce210c0e9bb7a3af2509919fdfe4cd77e9f0fa7",
+          "inputs_sha256": "a6cd49dc6b029206ce17250e3fb257043bc3cd03120ce91f936f42b35a9b06b9",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_repetition_goto_on_sequence.sv",
@@ -142070,7 +142070,7 @@
           "observation": "p_bad の (a ##1 b)[=2]（29行目）が違法、p_ok の (a ##1 b)[*2] と p_n の (a && b)[=2] は合法。regex は29行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "635edbb46c2cb492348ad227db077d97a1bdeb7c18f6a0f7a73a05c96ec40d1f",
+          "inputs_sha256": "9df22a5de489908232b781f50f9d32bbfcb59e68286310b450cef8331c287933",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_repetition_nonconsecutive_on_sequence.sv",
@@ -142091,7 +142091,7 @@
           "observation": "プロパティ p_bad の (b, k = k + 1)[->2]（31行目）が違法、p_ok の (b, k = k + 1)[*2] は合法。regex は31行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "05cf3aff36226aeab3ebd6db4eb8e410606809fe35af0033ce712fbf833c7fef",
+          "inputs_sha256": "2dfbb8a47cd70dbc916a1946eb61fb67f51c54e4be56b1990011de75d2607e2f",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_repetition_goto_on_match_item.sv",
@@ -142818,7 +142818,7 @@
           "observation": "a_bad の disable iff ($rose(rst))（30行目）が違法、a_ok の disable iff ($rose(rst, @(posedge clk))) と a_body の本体の $rose(a) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "06ce750f335f32463220e0e95702642f795c9ce6823b286c07d746ca492e7262",
+          "inputs_sha256": "415fc73628e259d356385314cf59f69cf164f9121a11751b2d33109c6f2ab7ec",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sampled_function_in_disable_condition_unclocked.sv",
@@ -142839,7 +142839,7 @@
           "observation": "a_bad の @(posedge clk iff $stable(en))（28行目）が違法、a_ok の @(posedge clk iff $stable(en, @(posedge clk))) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "2362d531a1ab95d468534417bd51840bd83607aaff591e25de8eee1e6b625677",
+          "inputs_sha256": "37e439c49e0bf7eb7c3ad1b7e5a76fd6cbb0e5d9d167f7218eedb39fe1336fe7",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sampled_function_in_clock_expression_unclocked.sv",
@@ -143036,7 +143036,7 @@
           "observation": "q2 <= $past(d, 1, , @(posedge g));（31行目）が違法、q1 <= $past(d, 1, , @(posedge clk)); は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e147bacdbe4da7fd2372d552f2640cc1818878d6f5b55fc17f549b050804a406",
+          "inputs_sha256": "3e89430d34b3ad96c4cf53f95348a9cc78e7d1a12abea99715388d825012831f",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_past_automatic_clock.sv",
@@ -143088,7 +143088,7 @@
           "observation": "p_bad の $past(k)（30行目）が違法、p_ok の k == $past(d) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e946d5ea4233f79eb2a929fb6217e6df657c718d5658e3a0788caf9c477eb428",
+          "inputs_sha256": "2691abc256953e757ddcbaae2254a6a8f6419d008123cebcf8bbf1c8a62ef95e",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sampled_function_local_variable_argument.sv",
@@ -143109,7 +143109,7 @@
           "observation": "a_bad の $rose(s.matched)（27行目）が違法、a_ok の c ##1 s.matched |-> $rose(a) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "578d718fe4950176c1c64c864b2f362c0939f6604d40a090dd365572666d9748",
+          "inputs_sha256": "4d3850fd5082f49d36d2430f4f720c27886d6056aa01e9f1051988a1d62f666a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sampled_function_matched_argument.sv",
@@ -144040,7 +144040,7 @@
           "observation": "p_bad の (a, k = 1) |-> $future_gclk(b)（34行目、アサーション a_bad の行も regex に含む）が違法、p_loc の (a, k = 1) |-> k == 1 と a_fut の a |-> $future_gclk(b) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e69ef2736cfac9dff3e0d75d95f167541ecbee16afcc59f7d45433159f49d6c5",
+          "inputs_sha256": "4e7461eeabc3d768f768b8c36fb43c60358a22e8bca17ff81de21425588d4aa5",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_global_clock_future_function_with_local_assignment.sv",
@@ -144065,7 +144065,7 @@
           "observation": "a_bad の (a, note()) |-> $rising_gclk(b)（33行目）が違法、a_call の (a, note()) |-> b と a_fut の a |-> $rising_gclk(b) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "dd4381a8c70a4515c56bdf7ea0ae8d5aafc8d8b2230812e42bb9458a4430caf3",
+          "inputs_sha256": "707f0fd957a5de0fd94c39c9d7ab72a2174a23c6d9302fc21066dd9346ec2236",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_global_clock_future_function_with_call_match_item.sv",
@@ -144117,7 +144117,7 @@
           "observation": "グローバルクロッキングを宣言したモジュールで、a_bad が $steady_gclk の引数の中で $falling_gclk を呼ぶ28行目を唯一の違反とする。同じ2つの関数を入れ子にせず || で並べる a_ok は合法。regex は28行目を指す。 区別: 未来の関数の入れ子を検査しない処理系は受理して失敗する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "606331fadc6e31dc778389c326496689d65c4db5ffd7ced54a56431cffa50107",
+          "inputs_sha256": "600296f33777921ddfdc94bc09256a14dd5e4958f3c4416c1855e4f81044d95f",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_global_clock_future_functions_nested.sv",
@@ -144161,7 +144161,7 @@
           "observation": "a_bad の fail 動作 $display(\"%b\", $future_gclk(a))（28行目）が違法、a_ok の $display(\"%b\", $past_gclk(a)) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "02bcb8721884d0571502310da928aee0ec08a47bb2faa23910ab563b3a6ebd3c",
+          "inputs_sha256": "a1015f0669234ba9f0eaab956198a65e8add5aca4ac0d4155952c71c39eeee3c",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_global_clock_future_function_in_action_block.sv",
@@ -144255,7 +144255,7 @@
           "observation": "a_bad の $rising_gclk(b)（25行目）が違法、a_ok の $rose(b) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "64daf6e2c7f1e0c7443a8b9eec46d746efa84dbdf4f41eb8ba2abfa1a3e9bb5b",
+          "inputs_sha256": "118aaafb047544b7ef9fa715b4ca4d78b57aa84b9de9190458cba2b14d07ddb4",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_global_clock_future_function_without_global_clocking.sv",
@@ -145293,7 +145293,7 @@
           "observation": "列 s1 は posedge clk1 で終わる。a_same は posedge clk1 の文脈で s1.triggered を、a_multi は posedge clk2 から posedge clk1 へ切り替えた後に s1.triggered を使い、どちらも合法。a_bad は posedge clk2 の文脈で s1.triggered を使う（30行目）ので違法。regex は30行目を指す。 区別: triggered の対象の終了クロックと文脈のクロックの一致を検査しない処理系は受理して失敗する。多クロックの使用自体を禁じる処理系は a_multi も報告するが、合否は違反の行の報告で決まる。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "48635520e1186456dbce0bb92be949da5059d4c32ed2fc802a6746f83bc50f56",
+          "inputs_sha256": "6bb4e3915ab030df777d45c5936a6cbd313c813c1bd1322ce75074c95b0ea0c4",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_triggered_ending_clock_differs.sv",
@@ -145395,7 +145395,7 @@
           "observation": "p_bad の a ##1 (c == x)（38行目）が未代入の x を使って違法、p_ok と p_init（(a, z = z) ##1 (c == z);）は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "3706d8dc21517b4014bcbe2a4561b7456523f5545c193dbcca595c7cc9dd4f38",
+          "inputs_sha256": "30d3edd199568f14ccece9f2c6162977be1f944b7d4b4b0c829d1771cbd5e93a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_local_variable_unassigned_reference.sv",
@@ -145420,7 +145420,7 @@
           "observation": "p_bad の (a, x++)（38行目）が未代入の x を使って違法、p_ok と p_init（(a, z++) ##1 (c == z);）は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5f38063bba7a295e195e12b39922eda8b449316558324179d4b6969c4687e666",
+          "inputs_sha256": "ceb6a90c4002b232c2a86f80f569f3bbd31010c860014ea770d60562709f18f1",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_local_variable_unassigned_increment.sv",
@@ -145445,7 +145445,7 @@
           "observation": "p_bad の (a, x += d)（38行目）が未代入の x を使って違法、p_ok と p_init（(a, z += d) ##1 (c == z);）は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "840c2b7c9b3ed8e0ed749eff2d302733ff907684921a9f473a7bd86fcd071d41",
+          "inputs_sha256": "81ada9c7030a8ae81cd8bd77da4138788b6576685342157e59ebebe237e4dd9e",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_local_variable_unassigned_compound_assignment.sv",
@@ -145607,7 +145607,7 @@
           "observation": "p_bad の chandle h;（33行目）が違法、p_ok の宣言は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "455c7cd4d8da7b045e2545d6c46118a5d3910fd95df2c0351eeda08cbe184ec0",
+          "inputs_sha256": "bd3b053f1642c4211eacf15c0bcad89abab6c7fe46bafc61d6c4953f4995359c",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_local_variable_chandle_type.sv",
@@ -145805,7 +145805,7 @@
           "observation": "p_bad が局所変数 c2 をクロッキング事象 @(posedge c2) に使う35行目を唯一の違反とする。p_ok は局所変数 k をビット選択 v[k] と配列の添字 arr[k] に使い、静的変数と同様に式を作れることを示す合法な形。regex は p_bad の本体とアサーション a_bad の行を許す。 区別: クロッキング事象中の局所変数を検査しない処理系は受理して失敗する。局所変数を選択や添字に使うこと自体を禁じる処理系は p_ok も報告するが、合否は違反の行の報告で決まる。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "5d26073f7f94ffae03f069f90190c2d1ef4bb6c021653b6a3467fa33dc487f45",
+          "inputs_sha256": "2bc7c88cc018ddf405ec44cda94e75430279b02c321d407ad24d442bff61cadf",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_local_variable_in_clocking_event.sv",
@@ -145964,7 +145964,7 @@
           "observation": "p_bad で局所変数の代入 k = d を空一致を許す b[*0:2] に付けた32行目を唯一の違反とする。p_ok は同じ代入を、少なくとも1サイクルの長さを持つ a ##1 b[*0:2] に付ける合法な形。regex は p_bad の本体とアサーション a_bad の行を許す。 区別: 代入を付ける部分列の空一致を検査しない処理系は受理して失敗する。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "12bb7188ac9b79da970ce51888f86627b317b8a52acfbccf00e449eb412f2d3c",
+          "inputs_sha256": "8692d842fc90a1f81f02e68abd35335c5855b76e685b2756968986241abbc6ed",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_local_variable_assignment_on_empty_match.sv",
@@ -146265,7 +146265,7 @@
           "observation": "p_bad で and の左の被演算子だけが x に代入し、右の被演算子が x を参照する32行目を唯一の違反とする。p_ok は and の前で x に代入し、両方の被演算子で参照する合法な形。regex は p_bad の本体とアサーション a_bad の行を許す。 区別: 並列の兄弟スレッドの代入を見えるものとして扱う処理系は受理して失敗する（Verilator 5.052 がそうである）。右の被演算子から見て x は未代入なので、これは並列スレッドについての流れの規則（F.5.4）の直接の帰結であり、要求が述べる場合そのものである。判定は regex に一致するエラー行が1つあれば合格なので、対照の行は誤って報告されても合否を変えないが、設計中の違反を1つにして、違反の行を報告せず対照の行だけを報告する処理系を不合格にする。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "9d37d5de5e7b0a0bdd5130d6a4f7cf0a5d7a07f93759623d44c489bc1aa367df",
+          "inputs_sha256": "725e240f2fb13785694d72393806145be03614c430826ad75ce635416a8d9f56",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_local_variable_sibling_thread.sv",
@@ -146323,7 +146323,7 @@
           "observation": "p_bad の s_rd(v + 1).triggered（40行目）が違法、p_ok の s_sub(v).triggered は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "ac95fa4ddcdf219a0409b0fb5928325c4ca3d64aa2cc2686295cdfa4032b9ddf",
+          "inputs_sha256": "4ae77b72a7003ff1f49b06fc974e6d37b7090a5ab9a912fa32d403e986a3a51a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_triggered_local_variable_subexpression.sv",
@@ -146348,7 +146348,7 @@
           "observation": "s_bad の (c == lv) ##1 (a, lv = d)（33行目、インスタンスの行も regex に含む）が違法、s_sub の (a, lv = d) ##1 (c == lv) と p_ok は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "04aaf5e64ba7f7492ccea1515a1c853e831b38dcdeaec3d2f4f05026f99aa104",
+          "inputs_sha256": "12b4686f51a964645002395a43c8bbdd72e811896297d4c8b615319f38f5a964",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_triggered_local_variable_formal_read_first.sv",
@@ -146612,7 +146612,7 @@
           "observation": "p_bad の (a, f_in(k), k = d)（43行目）が違法、p_ok の (a, k = d, f_in(k)) と p_flow の (a, k = d) ##1 (b, f_in(k)) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b61fcdc529261fe5e3289afb6247345bb5c1171c47c1c74bb6ff7f35771cc445",
+          "inputs_sha256": "762d2c753946d791a2b415ea8396a96e349cb1f0077b9c614e3008c18f12a448",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_attached_call_local_variable_before_assignment.sv",
@@ -146637,7 +146637,7 @@
           "observation": "p_bad の (a, k = d, t_ref(k))（43行目）が違法、p_ok と p_flow は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a6aab8b1dcece1432e903ef08a880e444e3c56be395365a137ce6e065a2bc653",
+          "inputs_sha256": "db63cd4f8835e3e824a355922142f1c4379e2f0835e0ef52741f593711c938bb",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_attached_call_local_variable_by_reference.sv",
@@ -146693,7 +146693,7 @@
           "observation": "a_bad の (b[*0:2], note())（29行目）が違法、a_ok の (a ##1 b[*0:2], note()) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "96755661b0b8afd051de25ebccdf60bbe0c71c480fdfeffda4e17760a362e6e6",
+          "inputs_sha256": "1386f8c27c2d5b5b6404724d4828b92face5ab8c2d118a71c4478eb9681cd5f6",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_call_attached_to_empty_match.sv",
@@ -146714,7 +146714,7 @@
           "observation": "p_bad の (b[*0:2], k = d)（32行目）が違法、p_ok の (a ##1 b[*0:2], k = d) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "12bb7188ac9b79da970ce51888f86627b317b8a52acfbccf00e449eb412f2d3c",
+          "inputs_sha256": "8692d842fc90a1f81f02e68abd35335c5855b76e685b2756968986241abbc6ed",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_local_variable_assignment_on_empty_match.sv",
@@ -146836,7 +146836,7 @@
           "observation": "disable iff (v != 0) の行 27 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bc479ea9a0e6b54542c914340ab442b5a261270d2a5634bf418cc2c1ddc6c602",
+          "inputs_sha256": "9721fda997c6b31e480131ad27997e91b72663657c4077f5b855c7b629d0bd02",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_property_disable_iff_local_variable.sv",
@@ -146857,7 +146857,7 @@
           "observation": "disable iff (s_m.matched) の行 29 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "ef386765b40487758ee0fc07c69a65611b984ba2ff8e5872aa6640f21b3b3e79",
+          "inputs_sha256": "73ac47ee16db9f6544f8157859399db7ac313a71fb9fa8c287d7366122530aa0",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_disable_iff_matched.sv",
@@ -146874,7 +146874,7 @@
           "observation": "disable iff ($rose(r1)) の行 25 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "8bc45d84930544cb79ec736105bcb0869574fcb037a5f3d578f46655476c73ba",
+          "inputs_sha256": "b8a06514e459ad3dc94d3b7474a7416d2ba3313c2740e0078cd74b4c18cca3c2",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_disable_iff_sampled_function_no_clock.sv",
@@ -147061,7 +147061,7 @@
           "observation": "p_d($) の行 29 でのエラーを求める(形式引数は int hi)。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bb95e03aaf6ad11d474457b91e823b6cd0515e9938c89b997f1c457410fc5ddb",
+          "inputs_sha256": "3dcea87e0d07b8c4c1f2e83b8463350e4c8a0c0a292cd06e145fe38a595e50b0",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_property_dollar_typed_formal.sv",
@@ -147082,7 +147082,7 @@
           "observation": "a ##1 (b == x) の行 27 か p_e($) の行 30 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "ba52905d3b9cee4076fd0a5892883c8580d3dd1dfe3fd0e26f8972098e1fdbe5",
+          "inputs_sha256": "79a4ddb76b83af26ae7ad78d4401a25eb4691cf978ac420c1609a47a5b857dc4",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_property_dollar_outside_bound.sv",
@@ -148169,7 +148169,7 @@
           "observation": "a_bad の p_seq(a |-> c)（30行目）が違法、a_ok の p_seq(a ##1 c) は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "4cec8ac444b173e76d1a50f95adf511a458aca221db3876077a58a438fab24bf",
+          "inputs_sha256": "b03e8c40a2e37cdf2176eaea4a5d3217c60c49816d01e4c423247ca7dfee5f5e",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_property_instance_flattened_not_legal.sv",
@@ -148194,7 +148194,7 @@
           "observation": "a_bad の a |-> p_dis（33行目）が違法、a_top の p_dis と a_nodis の a |-> p_plain は合法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "e2a04909db9e7c876bdc8c3184c40ec7e1e36ead03cdf910f3794683f6884207",
+          "inputs_sha256": "3ecf9fd652ec739e0d56cdcbd0c8e44af605b8bbfb7ee6da75e6f29f8f4bed1b",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_property_instance_disable_iff_as_operand.sv",
@@ -148268,7 +148268,7 @@
           "observation": "p_bad の後件 b[*0:2]（27行目）が空一致を許して違法、p_ok の後件 b[*1:2] は合法。regex は27行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f64374e4bada015f589747532e91d5ecab388e321dab44d25938ddda414d6b1f",
+          "inputs_sha256": "dbef6d94b9b2b9d200fd9ced3ed0dbabda6230e8971eaa4b06bdb5bd8fea529b",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_plain_sequence_property_empty_match.sv",
@@ -148289,7 +148289,7 @@
           "observation": "p_bad の後件 weak(b[*0:2])（27行目）が空一致を許して違法、p_ok の後件 weak(b[*1:2]) は合法。regex は27行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "8966ee63b9e78fdd3ab9a5f1e61a40865bd4120c1c94ac520221d6927dca27a9",
+          "inputs_sha256": "652922116aac1d2f597eb7b74f11a63241cde97df64a2a199f5c6164ae16aa2e",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_weak_sequence_property_empty_match.sv",
@@ -148310,7 +148310,7 @@
           "observation": "p_bad の後件 strong(b[*0:2])（27行目）が空一致を許して違法、p_ok の後件 strong(b[*1:2]) は合法。regex は27行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f6a9eb0b693e0cc3de18602c822828db741c11f863e429d92e6ee5a217061f1c",
+          "inputs_sha256": "6e45b3dcaaee6d580d995fcede22252d5649516de98f011a71eed106926ea0be",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_strong_sequence_property_empty_match.sv",
@@ -150794,7 +150794,7 @@
           "observation": "再帰でないp_after(s |=> p_hold(p))の宣言が再帰property p_holdをinstance化し、assertionでnot p_after(go, x)とnotを適用する。依存グラフでp_afterから再帰propertyへ到達できるので、not適用行(38行)でのエラーを要求する。 区別: notの対象が直接再帰instanceである場合だけを検査し依存先をたどらない実装はこの設計を受理し、38行でのエラーが出ずテストが失敗する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "4389f56600f9cef53e1f0c3ef12e782ae7336ff1cf5b13424ae7e27e54f8568d",
+          "inputs_sha256": "36ae235ef0f62242fde404f773bba1e1f9f89c0a28eb9ba5c956f363a2b7733a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_negated_property_reaching_recursion.sv",
@@ -150830,7 +150830,7 @@
           "observation": "not ack_each(rq, ak)で32行のエラーを要求(not)。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "90c9a54eb09b096d876bba6ac348503f4e50b66a0f1c5268efe10a0eb86821c6",
+          "inputs_sha256": "aa49a6ffd6f2e31e25e2224c6c11e191b2b98362d52abe88952d32c35c1c990b",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_recursive_property_negated.sv",
@@ -150847,7 +150847,7 @@
           "observation": "再帰property p_holdのinstanceにs_nexttimeを適用したassertion行(32行)のエラーを要求(s_nexttime)。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "95447f642be3481e77425ede881880d767a9d2e21f604ed97bfcae38f0cba815",
+          "inputs_sha256": "759c0bedffcb47a979b6aace5cda81a1ce56ce453ee3a6cdd4ca72c539303d2d",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_recursive_property_s_nexttime.sv",
@@ -150864,7 +150864,7 @@
           "observation": "再帰property p_holdのinstanceにs_eventuallyを適用したassertion行(32行)のエラーを要求(s_eventually)。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b6aee11dd1e5fddea67e5e817d658b69073de2818ef2335920450091ae1b10ec",
+          "inputs_sha256": "0ea4a48dfbb8a7410d530b51b4b06bd857633336dde714708c99ddcb34c74adc",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_recursive_property_s_eventually.sv",
@@ -150881,7 +150881,7 @@
           "observation": "再帰property p_holdのinstanceにs_alwaysを適用したassertion行(32行)のエラーを要求(s_always)。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1b3b34957f1e08b631cac0454595fac0ad77f04a3fe17eb2dd7a2bea14f33045",
+          "inputs_sha256": "a13fbdb37a1d252de017f346dcd2d9d45e5433fe55009c0ab248c8b6e75a9157",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_recursive_property_s_always.sv",
@@ -150898,7 +150898,7 @@
           "observation": "再帰property p_holdのinstanceにs_untilを適用したassertion行(32行)のエラーを要求(s_until)。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "8f1f7480af4b99e5e104f63fe9393a4349d64bcdcb13ac84b7626bc480b61045",
+          "inputs_sha256": "ed831073fa8bf8284d47cc463e6da071e72a0c8f1979f6be070e29c3a8511698",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_recursive_property_s_until.sv",
@@ -150915,7 +150915,7 @@
           "observation": "再帰property p_holdのinstanceにs_until_withを適用したassertion行(32行)のエラーを要求(s_until_with)。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b1a71c469d878e76d68982edd964a91ad926b9779f0e0f3e629092f0a59b2009",
+          "inputs_sha256": "a42e8b272f0774adf871bbdd210f21fd0984e62b578ef7264ed19fa3ca896f7c",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_recursive_property_s_until_with.sv",
@@ -150967,7 +150967,7 @@
           "observation": "1'b1 |=>の後で自身をinstance化する(他の点では合法な)再帰property p_recの本体をdisable iff (rst)で始め、宣言(28/29行)またはそのinstanceを使うassertion(32行)でのエラーを要求する。 区別: 再帰propertyの宣言内のdisable iffを禁止しない実装はこの設計を受理し、:expected_stderr_regex:の行にエラーが出ずテストが失敗する。違反はdisable iffの一点だけである。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "c0681f71fc9b8cb1ad5e3b53773583b08d21c91433833033fbea5f043f03cc04",
+          "inputs_sha256": "49bf7b7a824927bb369160d87ac0b76ad1940ca74349f16c7d95a948a389a66d",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_recursive_property_disable_iff.sv",
@@ -151003,7 +151003,7 @@
           "observation": "p and (1'b1 |-> p_stuck(p))で(28|29|32)行のエラーを要求。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "df991c6c8b18719e24a2fd7622e99b4592a2296332f22728eaceb902e5ff1f38",
+          "inputs_sha256": "13f414b515252c4fb09963edc7e6157a6806423b3c601af50165b0bcdda3c2c6",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_recursive_property_no_time_advance.sv",
@@ -151020,7 +151020,7 @@
           "observation": "p_ping/p_pongの相互instance(|->の後)で(30|31|34|35|38)行のエラーを要求。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e33b117406f87b95fe3834c08cbe0c135aa0a7d5f8528c016a52d1ff5018f941",
+          "inputs_sha256": "3542a086824abaf95054d6469b2013a38c99cc67c6190e0701db33187cceb17c",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_mutual_recursion_no_time_advance.sv",
@@ -151161,7 +151161,7 @@
           "observation": "再帰instance p_count(n - 1, p)の実引数n - 1が、自身の形式引数nを含み、形式引数そのものでもlocal変数形式引数への束縛でもない(nは通常のuntyped形式引数)設計で、宣言(31/32行)またはinstance使用行(35行)でのエラーを要求する。もう一方の実引数pは形式引数そのもので合法。 区別: 制約4を検査しない実装はこの設計を受理し、:expected_stderr_regex:の行でエラーが出ずテストが失敗する。nをlocal input intにすれば合法になる点をコメントで対照している。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "1a35f32ca66d65d53c6a48ecf0d59a94bd289238b8bf043a1129519e930ecfde",
+          "inputs_sha256": "78eb77852ba84b9252c1fad08f0c16cfc7e59d42dc8bc12679f4a3c295e2b30a",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_recursive_property_actual_expression.sv",
@@ -151233,7 +151233,7 @@
           "observation": "property p_out(local output int v)で27行のエラーを要求。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "95afbb46d852b0d71d229dfe151064da8905fd89915d5693a17021935b7753e5",
+          "inputs_sha256": "1fb8b52adcbb10bf8a3cb3c57e5dfaf35e72a98fee216ade25ad4df3ae711336",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_property_local_output_formal.sv",
@@ -151250,7 +151250,7 @@
           "observation": "property p_io(local inout int v)で26行のエラーを要求。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a551a97444386bc92a7233f189e2bdda3efbec6f1711c6411c7fd6e79b7c253f",
+          "inputs_sha256": "905a3eb289dc2c706ca381cccba2b475fd8fb72adf4ad0e65682fc6488d33034",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_property_local_inout_formal.sv",
@@ -151443,7 +151443,7 @@
           "observation": "|=>の前件に、長さの異なる2operandのintersectで一度もmatchしない(a ##1 b) intersect (a ##2 b)を使い、その行(22行)でのエラーを要求する負テスト。 区別: 前件がmatchを1つも許さないことを検査しない実装はこの設計を受理し、:expected_stderr_regex:の22行のエラーが出ずテストが失敗する。空matchのみの前件は許可側であり、違反条件はmatch皆無の場合だけである。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "ef3f6001d5658d5682e40bbce3cb18aa9f41928e789807c9526559aa70283310",
+          "inputs_sha256": "18068ec3b903d25fddf8bb11b8e1aa9c2d8e713f7cc4896e7be1b290cbd424d8",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_nonoverlapping_antecedent_no_match.sv",
@@ -151479,7 +151479,7 @@
           "observation": "a[*0] |-> c(空matchのみの前件)で22行のエラーを要求。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "bc37a21b43edb139f6ba13c48bdd428b20ccc03cf51f18b917f74abb36552070",
+          "inputs_sha256": "60b72a8ee2ea343d3521a216741e98bc8449f8fe49adfee4bb263a0aa1a4ed5b",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_overlapping_antecedent_empty_only.sv",
@@ -151496,7 +151496,7 @@
           "observation": "((a ##1 b) intersect (a ##2 b)) |-> c(match皆無の前件)で25行のエラーを要求。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "47685b3a1529dcd0cc0f453d5986825ded402f50188be2b0df4db5573867c993",
+          "inputs_sha256": "2bef906e8905ca224d6666b13a0cf76370205a0a24763459469c0454f4e50976",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_overlapping_antecedent_no_match.sv",
@@ -151544,7 +151544,7 @@
           "observation": "(a ##1 b)[*0:1]をpropertyとし22行のエラーを要求(空match)。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "cb8aa7bead69398bf0dddf495ec7703104ef90c6b9efb19a6bea530ea58fd17d",
+          "inputs_sha256": "448fdf3a9d69830479440ec68c8ff6b87e06eedde29d8c2cb733e7cd70551bc2",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_property_empty_match.sv",
@@ -151561,7 +151561,7 @@
           "observation": "(a ##1 b) intersect (a ##2 b)をpropertyとし25行のエラーを要求(match皆無)。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a7b5f742fd54249231641331effc4cd5331c70ba51f5d52c1e86b12269623512",
+          "inputs_sha256": "7f21adbf38c5c3f547152178699e41d4cb6cf0da444fefdb906e3db541f74604",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_sequence_property_no_match.sv",
@@ -156676,7 +156676,7 @@
           "observation": "@(posedge ck) x or @(negedge ck) yをassertする。orの両辺のsemantic leading clockがposedge ckとnegedge ckで一意でないmulticlocked最大propertyなので、その行(23行)でのエラーを要求する負テスト。 区別: 最大propertyのsemantic leading clockの一意性を検査しない実装はこの設計を受理し、23行のエラーが出ずテストが失敗する。defaultを継承してよいという許可側は違反条件ではない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "ae134094a1f862504f13d93a6cf3036b269799f8c9953fe6e02cdb150d62db6b",
+          "inputs_sha256": "b38f1a4fd0ef59b98c045bc2a37b5ee0ff2055fe66c9869c818fbe721d08516d",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_multiclock_two_leading_clocks.sv",
@@ -161468,7 +161468,7 @@
           "observation": "typedef class ecb_obj; の後、class ecb_obj の宣言より前に constraint ecb_obj::c_pos { v > 0; } を置き、27行でのエラーを要求する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a49681bf4c4b8277e3bc2d817e55611b6820ee7e45e37c687fea806bf7944a93",
+          "inputs_sha256": "ddbdef1241ac88f6386429112dac8a76df33227a857cb640cfde760592f4d534",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_extern_constraint_before_class.sv",
@@ -161485,7 +161485,7 @@
           "observation": "パッケージ ecs_pkg で宣言したクラス ecs_obj の暗黙形プロトタイプ c_pos を、モジュール内の constraint ecs_pkg::ecs_obj::c_pos { v > 0; } で完成させようとし、33行でのエラーを要求する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b1b4b803421848cdf08fef6fa18edbcc949ceb74276c1882a7f3951d8c74989e",
+          "inputs_sha256": "a78411972dae1f2a30322c4c5d9fefe1b0f054d9a20ce32a102bdc14132d5b16",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_extern_constraint_other_scope.sv",
@@ -161638,7 +161638,7 @@
           "observation": "派生クラス ceo_derived で、基底の c_a を置き換える constraint :extends c_a（合法）と、基底に同名の制約が無い constraint :extends c_new を宣言し、c_new の行（29行）でのエラーを要求する。 区別: :extends を検査しない（置き換え先が無くても新しい制約として追加する）誤実装は設計を受理して ok を表示するので、29行の照合に失敗する（Verilator 5.052 はこの形で受理する）。同じクラスの :extends c_a は基底の c_a を置き換える合法な使い方で、設計の中のエラーは c_new の1か所だけにしている。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "36bac4d981830e88c9fa75ee6982b456002ab40e206d76a18250503d41208777",
+          "inputs_sha256": "bdbc84578834088036fbe1e7c45b0f169877cb528ca768625f11d22a04acc2a2",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_constraint_extends_no_override.sv",
@@ -161678,7 +161678,7 @@
           "observation": "基底 cfr_base が constraint :initial :final c_lock（final と initial の組み合わせ、置き換え無しなので合法）と final でない c_open を持ち、派生 cfr_derived が c_open（合法）と c_lock を再宣言する。c_lock の置き換え（30行）か final 宣言（25行）でのエラーを要求する。 区別: final を検査せず派生クラスでの置き換えを許す誤実装（Verilator 5.052 は受理する）は設計を受理するので、30行または25行の照合に失敗する。final でない c_open の置き換えと :initial :final の組み合わせは合法な使い方で、設計の中のエラーは c_lock の置き換えの1か所だけにしている。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "6387e845682c71f0430d38dbc67811d444645a74669892e8766640579fdc5312",
+          "inputs_sha256": "82658181089043423951dae6ac92990c6736b96777a3bf861773f57f918527f5",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_constraint_final_replaced.sv",
@@ -161795,7 +161795,7 @@
           "observation": "派生 cio2_derived で、基底の c_a を置き換える constraint :initial c_a と、置き換え無しの constraint :initial c_b（合法）を宣言し、c_a の行（28行）でのエラーを要求する。 区別: :initial を検査せず基底の制約の置き換えを許す誤実装（Verilator 5.052 は受理する）は設計を受理するので、28行の照合に失敗する。置き換えの無い :initial c_b は合法な使い方で、設計の中のエラーは c_a の1か所だけにしている。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "2e209cf7cd2f232445ce3778e275a5a94cd941339b19444766a614a88afaa8f3",
+          "inputs_sha256": "75665777a213ab53f3065846d05ec0b5607caa82c2d025ff344ca0dc1f4929c6",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_constraint_initial_override.sv",
@@ -161835,7 +161835,7 @@
           "observation": "extern constraint :extends c_a; と、:extends の無い外部ブロック constraint csb_derived::c_a { v > 5; } を組み合わせ、プロトタイプ（31行）かブロック（35行）でのエラーを要求する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "ffedef02c2205876112bbac694eed204f3bf529b340ca6d5e9e36fe653bb4c3b",
+          "inputs_sha256": "dd4217b54b8b722613437c04773b689d99bd5de838d224bace3769e8f0ae0b2a",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_constraint_specifier_block_mismatch.sv",
@@ -161856,7 +161856,7 @@
           "observation": "指定子の無い extern constraint c_x; と、:final 付きの外部ブロック constraint :final csp_obj::c_x { v > 0; } を組み合わせ、プロトタイプ（26行）かブロック（31行）でのエラーを要求する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "171ff01e6a0bea7f74bf1fcb04963022a98bfcfe4ed76edabfcf653045a385c2",
+          "inputs_sha256": "17b482131b4b06aa4720b5b0139f9135465c7210cc3f2ec2fa4fac3fe8bfc9e3",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_constraint_specifier_prototype_mismatch.sv",
@@ -162035,7 +162035,7 @@
           "observation": "抽象クラス pwp_abstract に pure constraint c_a; と暗黙形プロトタイプ constraint c_a; を置き、どちらかの行（25/26行）でのエラーを要求する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "217da53822d8512d95b540da06eb87a6d3505232e639911c1d1747747a46d90f",
+          "inputs_sha256": "a2b5f93c6781f78ba0ffc5addfe2275f9e0d73ce9ab385f7ef7d3b8ffb79098b",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_pure_constraint_with_prototype.sv",
@@ -162052,7 +162052,7 @@
           "observation": "抽象クラス pwe_abstract の pure constraint c_a; に対し、クラスの後に外部ブロック constraint pwe_abstract::c_a { v > 0; } を置き、外部ブロック（34行）か pure 宣言（27行）でのエラーを要求する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "11f1c68d1d5638b939abbfca6fb29fcf6ccc6a11c9cefd43f594f833ced91ffc",
+          "inputs_sha256": "6d6b91f342b612773b4f2dbf3f4d784419d170500bbdc497b7314d10ca255a5c",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_pure_constraint_with_external.sv",
@@ -162178,7 +162178,7 @@
           "observation": "x dist {[0:3] :/ 1, default :/ 1, default :/ 2} の2つの default に対し、その行でのエラーを要求する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "b2f61446c992b982d5b23e50bb1a5df85a71ecb9ffd6091574ca4349456ee700",
+          "inputs_sha256": "bff2c13e6608447ad1a911c072d44c653086dca52e37eb22bd6cc10e9323b351",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_dist_two_defaults.sv",
@@ -162265,7 +162265,7 @@
           "observation": "rand real r に r dist {[1.0:2.0] := 1, 3 := 1} を課し、その行（25行）でのエラーを要求する。s dist {0.5 := 1, [1.0:2.0] :/ 1} は合法。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "0020e0cb01821729c77bf08e9d5c50c68ac09529ed32a271864edd606124f659",
+          "inputs_sha256": "f8ba4daafb9e8bbc3ff00af55e18b4b6350a703ba9443ce4bdad3f1741842f5c",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_dist_real_range_colon_equal.sv",
@@ -162286,7 +162286,7 @@
           "observation": "rand real r に r dist {[1.0:2.0], 3 := 1} を課し、その行（25行）でのエラーを要求する。s dist {3, [1.0:2.0] :/ 1} は合法。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "29b0225f91ea7bdceebba8edde631f5073242f62bf3b1c1b1cad9e18920cb33c",
+          "inputs_sha256": "6718784e62445d9515877f6894748ad53ac80d09e585dedeb2297f52403696cb",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_dist_real_range_no_weight.sv",
@@ -162358,7 +162358,7 @@
           "observation": "rand でない状態変数 limit だけの式に limit dist {[0:3] := 1} を課し、その行（25行）でのエラーを要求する。同じクラスの v + limit dist {[2:9] := 1} は rand 変数 v を含み合法。 区別: dist の式に rand 変数が含まれることを検査しない誤実装（Verilator 5.052 は受理する）は設計を受理して25行の照合に失敗する。rand 変数を含む c_ok の dist は合法な使い方で、設計の中のエラーは c_bad の1か所だけにしている。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "08a014366dc352e6899c00dc61da0c09e910cb631a86fe11b30f11c83fdcb72d",
+          "inputs_sha256": "8359a0be251bdaa0315ac78a8069da0cd2bc8b8d67a01beffef0848f770fc935",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_dist_no_rand_variable.sv",
@@ -163341,7 +163341,7 @@
           "observation": "solve q.size() before x（配列の組み込みメソッドに括弧、合法）と solve x before y()（rand int 変数 y に括弧）を並べ、後者の行（28行）でのエラーを要求する。 区別: 順序制約の constraint_primary の括弧を配列メソッドに限らず許す誤実装は設計を受理して照合に失敗する。逆に括弧を一切許さない実装（Verilator 5.052 は合法な q.size() の27行も構文エラーにする）は規格に反し、その点はテストのコメントと差異メモに記録した。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "724290ede56c5d044fd424c51addbad85dc4b5ecf3d0f778fa88c679d42b4313",
+          "inputs_sha256": "11ea4a8765437c8195ee76a5d945364e40cf3314c8724f242cc418078a0cd030",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_solve_before_parentheses.sv",
@@ -163435,7 +163435,7 @@
           "observation": "solve a before b; solve b before c; solve c before a; の3つの順序制約（それぞれ単独では合法）で a, b, c を循環させ、いずれかの行（24/25/26行）でのエラーを要求する。 区別: 順序の循環を検査しない誤実装（Verilator 5.052 は受理する）は設計を受理して照合に失敗する。2変数の直接の循環だけを検査する実装も、3変数を経由した循環を見落として受理する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "915741832a7d597fa10b82c2e8cafb26b28effcbb028d322345c25b07005dd35",
+          "inputs_sha256": "44883443b6dead20e1e22ad6744c4826bc3d1eb3617bf2b200c8fd7639f2816f",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_solve_before_circular.sv",
@@ -163493,7 +163493,7 @@
           "observation": "rand でない int limit を solve limit before v に書き、その行でのエラーを要求する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "859eddb6dcf328740bec595151fe26ffb3d7dbb0631fe752c062c2cae2c389b2",
+          "inputs_sha256": "dec47db8b5c5360f453423006011c224c8453bfc093fc9106daf101872198449",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_solve_before_state_variable.sv",
@@ -163527,7 +163527,7 @@
           "observation": "rand int arr[4] を solve arr before x に書き、その行（28行）でのエラーを要求する。solve d.size before x（括弧なしの array.size）は合法。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "db0f86746d06cae22a735d80fdddfec114b3fe9bad2e9974a5f203872c350202",
+          "inputs_sha256": "eb2c02f6c38ce183594197b6c7678709cf9d47344c70ef469ee3dcb34a5386ca",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_solve_before_unpacked_array.sv",
@@ -166341,7 +166341,7 @@
           "observation": "constraint s_m { soft mode == 4'd3; } が状態変数 mode だけに soft を付ける（29行目）。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e691de4c8e3a5b063ea1ecbcef056da25e20ae645a041f769b94526f313e17be",
+          "inputs_sha256": "39c28a24106afddb0470ea962536d5f9cb5c3e0a7679b5d148912a9afe67f338",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_soft_constraint_state_only.sv",
@@ -167177,7 +167177,7 @@
           "observation": "r1 = o.randomize() with (v) {...}（合法）と r3 = std::randomize(x) with (x) {...}（37行目、違反）。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "ad3edf275e86761b7216198433eb0a3abef9662d1f4ac3c9a3a499af91749410",
+          "inputs_sha256": "603976f9217e062d1cfdd9d638581f83ef9df84d27f8adfba0721651d7c2f94a",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_scope_randomize_with_list.sv",
@@ -167242,7 +167242,7 @@
           "observation": "with { super.w < lim; }（合法、w は基底 scu_base のメンバ）と with { x < super.lim; }（41行目、違反）。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "9427a11b34277b468303df24fc6c8315d8d51c257fb34a67070b16380d62ebb2",
+          "inputs_sha256": "e928869ef7a122131097002e1bab7fd2a20ea5f834319d4c47ffa7c8eda83836",
           "evidence": [
             {
               "file": "tests/ch18/test_illegal_inline_constraint_super_unresolved.sv",
@@ -182593,7 +182593,7 @@
           "observation": "動的配列型の typedef 名 dyn_t を $size の引数にした27行目だけが違反で、その型の変数 v への $size は合法な対照として前の行にあり、:expected_stderr_regex: が27行目のエラーを要求している。 区別: 動的サイズ型の名前への問い合わせを受け付けて何かの値（0 や 1）を返す実装はエラーを出さず、このテストは失敗する。変数側の合法な問い合わせまで拒否する実装は別の行（26行目）でエラーになり regex に合わない。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "23e2f27f33200d931329e9efd3a82a59a13bb12fae1ccdba4658d779650287f7",
+          "inputs_sha256": "953ea3e859c74357394a65d7d35314e000cab87f27eecb615ce89c215e59447c",
           "evidence": [
             {
               "file": "tests/ch20/test_illegal_array_query_dynamic_type_name.sv",
@@ -191188,7 +191188,7 @@
           "observation": "initial手続き・task・function・fork・finalの各所で$display/$write/$displayb/$displayo/$displayh/$swriteに先頭・末尾・隣接カンマの空引数と単独カンマを渡し、空引数が値の前後と間に空白1個ずつを出し、単独カンマが2個の空白（$writeでは\"[  ]\"）になることを比べる。 区別: 空引数を無視する実装では$display(v,,v)が\"  5  5\"、$write(,)が\"[]\"になり、末尾の空引数や3連カンマの3個の空白も変わる。空引数を複数空白にする実装ではone_comma行が\"[  ]\"でなく\"[   ]\"となり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "e0b9c461fdb5487d671ac71c12734c2878f9e20f395f9a0b7cb5fa1dd8fe7bf9",
+          "inputs_sha256": "10ca0a607ff9ee0ef92c8519e49ace57288d6170fd94fdaf7458c6ef61cd7ad5",
           "evidence": [
             {
               "file": "tests/imported/ch21/test_empty_argument_matrix.sv",
@@ -195668,7 +195668,7 @@
           "observation": "$fdisplay/$fwrite/$fstrobe/$fmonitor と各 b/h/o 形式を、mcd・2ファイルのOR・mcd|1・fd・STDOUT の各出力先へ呼び、読み戻したファイル内容で改行の有無・既定基数・時刻末出力・変化時出力を比べる。 区別: $fdisplay が改行を付けない、$fwrite が改行を付ける、$fstrobe が即時出力する、$fmonitor が変化時に再表示しない、b/h/o を無視する実装では、対応する c*.txt の行の改行や 165/10100101/a5 の値が変わり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "3dca43db3a6fac7363378f5d7aa56cc4f2580640ca9a391a01db4417b01690e4",
+          "inputs_sha256": "546e58cc7cacbbed91e82ec163251e9d172e5d5c63a293da57e33e13b98e36c7",
           "evidence": [
             {
               "file": "tests/imported/ch21/test_file_output_initial.sv",
@@ -205753,7 +205753,7 @@
           "observation": "`include のファイル名をマクロ LEX_INCLUDE_FILE で与えて LEX_FROM_INCLUDE=7 を読み込み、`timescale の単位と精度をマクロ LEX_UNIT/LEX_PREC（10ns/1ns）で与えて #1 が 10 ns になることを表示する。ブロックコメント内の `define、行コメント内の `undef、文字列リテラル内の `undef がどれも処理されないことを `ifdef で表示し、文字列は `undef LEX_KEEP_S のまま印字する。 区別: 指令の中でマクロを展開しない実装は `include や `timescale でエラーになるか 10 ns の行が変わる。コメントや文字列の中の指令を認識する実装では block comment/line comment/string の行が processed になり、文字列の印字内容も変わる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_macro_expansion_not_in_comments_or_strings.sv",
@@ -205871,7 +205871,7 @@
           "observation": "` で始まる `timescale と `define の効果を、定義位置の異なる 3 つのモジュールの #1 の長さと SCOPE_VALUE で観測する。1ns/1 の後の scope_first は 1 ns・1、include したファイルの中の `timescale 1us と再定義 2 はそのファイルの終わりの後の scope_included にも効いて 1000 ns・2、後の `timescale 100ns と再定義 3 がそれを置き換えて scope_superseded は 100 ns・3。 区別: 指令の効果を include したファイルの中だけに限る実装では scope_included の行が 1 ns・1 になる。後の指令で置き換えない実装では scope_superseded の行が 1000 ns・2 になり、表示の順序も変わる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_scope_across_include_until_superseded.sv",
@@ -205972,7 +205972,7 @@
           "observation": "`resetall の前に `default_nettype tri0、`unconnected_drive pull1、`celldefine を置き、`define と `include でマクロを定義する。`resetall の前に定義したモジュールは開放入力が 1、暗黙ネットが z だけで 0、インスタンスが cell（vpiCellInstance 1）、後に定義したモジュールは開放入力 z、暗黙ネット z、cell でない（0）。マクロ 2 つは値を保ち、`undef したものは未定義のまま。 区別: 既定値を持つ指令を戻さない実装では after の行が 1/0/cell instance 1 のままになる。既定値を持たない `define を `resetall で消す実装では width 4 や 9 の行がエラーになり、`undef したマクロを戻す実装では undefined の行が defined になる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -206069,7 +206069,7 @@
           "observation": "`include \"/dev/null\" は合法、`include </dev/null>（29 行目）が誤り。:expected_stderr_regex: が 29 行目を照合する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "3afaf1409d98797f1911648996f78077425ccc4093daaeb65dfcd94cfaa03d9f",
+          "inputs_sha256": "581c45073b536d47c8ddf7d8c46d0aab8e9408832c4880fdb153a138fc467b9e",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_absolute_path_in_angle_brackets.sv",
@@ -206090,7 +206090,7 @@
           "observation": "`include \"include_absolute_only_helper.svh\" は合法、`include \"/kirimasim_no_such_dir/include_absolute_only_helper.svh\"（30 行目）が誤り。:expected_stderr_regex: が 30 行目を照合する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_absolute_path_not_searched.sv",
@@ -206160,7 +206160,7 @@
           "observation": "1 つ目の `include の後には行コメントだけを置き（合法）、2 つ目の `include の後の同じ行に localparam 宣言を置く（25 行目）。インクルードファイルはガードで 2 回目に何も宣言しないので、他の誤りは無い。:expected_stderr_regex: は 25 行目を照合する。 区別: `include の行に空白とコメント以外を許す実装は宣言を受け付けて設計を受理する（Verilator 5.052）のでテストが失敗する。コメントまで拒む実装は 23 行目でもエラーを出すが、25 行目の照合は変わらない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_line_trailing_code.sv",
@@ -206315,7 +206315,7 @@
           "observation": "include先のtypedefとfunctionを宣言位置へ挿入し、両memberと関数結果を確認する。",
           "reviewed_on": "2026-10-23",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_include_file_declarations.sv",
@@ -206349,7 +206349,7 @@
           "observation": "同じincludeを2回読み、guardによりparameterが重複せずdepth6とguard定義を観測する。",
           "reviewed_on": "2026-10-23",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_twice.sv",
@@ -206366,7 +206366,7 @@
           "observation": "main/helperの両ファイルで同じinclude由来macro7が使え、3倍21を両方で観測する。compilation unitの構成は固定しない。",
           "reviewed_on": "2026-10-23",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_two_files.sv",
@@ -206383,7 +206383,7 @@
           "observation": "outerがincludeするinnerのparameter5とouterの計算値10を両方確認する。",
           "reviewed_on": "2026-10-23",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_include_nested.sv",
@@ -206472,7 +206472,7 @@
           "observation": "`resetall の前に `define RESETALL_KEEP_WIDTH 4、`define と `undef の RESETALL_GONE、include したファイルの `define RESETALL_FROM_INCLUDE 9 を置き、`resetall の後のモジュールで $bits を 4、RESETALL_GONE を undefined、RESETALL_FROM_INCLUDE を 9 と表示する。 区別: `resetall でテキストマクロを消す実装では `RESETALL_KEEP_WIDTH と `RESETALL_FROM_INCLUDE が未定義になりエラーになる。マクロの状態を戻す実装（undef を取り消す）では undefined の行が defined に変わる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -209647,7 +209647,7 @@
           "observation": "負テスト: 許される値の一覧(wire, tri, tri0, tri1, wand, triand, wor, trior, trireg, uwire, none)にないネット型 supply0 を `default_nettype に与え、その行(23行目)での誤り診断を :expected_stderr_regex: で要求する。モジュール自体は全ネットを宣言した合法な記述で、他に誤りはない。 区別: 一覧外の値を受け付ける実装は設計を受理して不合格になり、別の行で誤りを出す実装も行番号が一致しない。一覧の境界にある実在のネット型 supply0 を使うので、ネット型なら何でも許す実装も検出する。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "38d4bc3cb30313e505fdc6540eb92667244272505de30444fdca23320fc96450",
+          "inputs_sha256": "ff3741860ddac3c1973ec7f970963c3a1376671901ea47f8c675f94858ad6ef6",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_default_nettype_supply0.sv",
@@ -210475,7 +210475,7 @@
           "observation": "インクルードファイルに `begin_keywords \"1364-2005\" だけがあり、インクルード後のモジュールの logic x;（31 行目）が誤り。対の `end_keywords はこのファイルにある。:expected_stderr_regex: が 31 行目を照合する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+          "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
           "evidence": [
             {
               "file": "tests/ch22/begin_keywords_1364_2005_helper.svh",
@@ -225191,7 +225191,7 @@
           "observation": "input interconnect [3:0] a = 4'h0（27 行目）が誤りで、同じヘッダの input logic b = 1'b0 は合法。:expected_stderr_regex: が 27 行目を照合する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "20cbc09dd281c233fae2d103f5ef93a7c319ca5160d2ff20f9f4fd3b5c042eff",
+          "inputs_sha256": "1a160c604507a8b8290946ed2bef4cfcaf01c296e7ee10ba0f7f8d79b70062c1",
           "evidence": [
             {
               "file": "tests/ch23/test_illegal_interconnect_port_default.sv",
@@ -226224,7 +226224,7 @@
           "observation": "インスタンス u の .data 接続は、上位モジュールで data を宣言する行（logic [3:0] data = 4'd5;）より前にあり、:should_fail_because: 付きでその44行目の診断を照合している。同じモジュールのインスタンス ok は、接続より前に明示宣言された q、インスタンス src のポート接続で暗黙に宣言されたネット w（6.10）、パッケージ dl_pkg の wildcard import で見える cfg を .name で接続しており、これらは適法。 区別: .name の名前をモジュール全体（後方の宣言を含む）から探す誤実装は u を受理し、44行目で診断が出ないので負テストが失敗する。.name のために暗黙ネットを作る誤実装も、後の data 宣言との重複を別の行（45行目）で報告するので照合に合わない。規格 23.3.2.3 B011 の「接続より前に宣言（明示・暗黙）または import されていなければエラー」をそのまま刺激している。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "35a0e464b533d2bc1573b6fb7039b7db86c693614c33378cbb6156d0e9ab460b",
+          "inputs_sha256": "61fdaaae531fce4434dbae0a8ac3a01215e7477b6ecb88764541601d9da6f643",
           "evidence": [
             {
               "file": "tests/ch23/test_illegal_implicit_name_port_declared_later.sv",
@@ -226983,7 +226983,7 @@
           "observation": "組み込みネット型の入力cへ1'b0の式を接続し、省略したa1/a4/a70が全ビットzになることをu1の階層参照で見る 区別: 未接続のinputをxや0にする実装ではa1/a4/a70がz以外になり、入力への式接続を拒否する実装はコンパイルできないため、期待行と区別できる",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "8b72edb513e62d52a88bc89822361c1adfabca5075d744b3ef4926ef430651bc",
+          "inputs_sha256": "3657f8978b8d0ca097789459a56c87af8adfbd09050188916255cc13f9c2861e",
           "evidence": [
             {
               "file": "tests/imported/ch22/test_unconnected_drive_none_module.sv",
@@ -230106,7 +230106,7 @@
           "observation": "interconnect ネット link を interconnect ポート（inout interconnect p）だけに接続する（ile_pass u (link)）。両側とも interconnect なので併合後のネットは interconnect のまま残る。:should_fail_because: 付きで、u の37行目、link の宣言36行目、または ile_pass のポート宣言25行目の診断を照合している。対照として interconnect good は同じ ile_pass と wire 出力 ile_drive.o に接続され、併合後は wire になるので適法。 区別: エラボレーション終了時に interconnect 型の模擬ネットが残ることを検査しない誤実装は設計を受理し、負テストが失敗する。規格 23.3.3.7.1 B003（両方 interconnect なら併合後も interconnect、片方だけなら他方の型）と B004（終了時に interconnect の模擬ネットは違法）から、link だけが違反となり good は違反しないことが導ける。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "266624b5e4718a07cfa9402b38eba77a016963bb733e191e33f4fa4750db1747",
+          "inputs_sha256": "9677405f02f40f95f3eb0bfbe05d73b14bce3a6f0390fa9b6634f97e5b0f0e38",
           "evidence": [
             {
               "file": "tests/ch23/test_illegal_interconnect_left_after_elaboration.sv",
@@ -232353,7 +232353,7 @@
           "observation": "bnc_target は logic mon を宣言し、bind bnc_target bnc_mon mon (.a(a)) の35行目（または mon の宣言の29行目）の診断を照合。bind bnc_target bnc_mon chk は適法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a8c3f20ab096ae7728a07253a240f6ef9b92487d410efa08ae40bd737d69cce5",
+          "inputs_sha256": "be4ea9a86de0b688fd05800ce61bc81fb4cfbc6dc6a3a6df35c4a60baaba6024",
           "evidence": [
             {
               "file": "tests/ch23/test_illegal_bind_instance_name_clashes_target_item.sv",
@@ -232501,7 +232501,7 @@
           "observation": "bind btm_target btm_chk #(.T(data_t)) c () の43行目の診断を照合。data_t は上位で typedef logic [3:0]、btm_target で typedef logic [7:0]（6.22.1 で一致しない）。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b5329bbe9050034acd82b5f3c3be08f600e8c4dcbd9e790878cda36db7c7ba4c",
+          "inputs_sha256": "39270acb6dc6b1792688cc0da860e6202f368b1919b72e0f3732b3426f4ee8b4",
           "evidence": [
             {
               "file": "tests/ch23/test_illegal_bind_type_override_not_matching.sv",
@@ -232652,7 +232652,7 @@
           "observation": "bind bub_target bub_chk c () で対象インスタンス t に c を挿入した後、2つ目の bind が対象インスタンス test_illegal_bind_under_bound_instance.t.c（1つ目の bind が作ったインスタンス）に bub_inner i を挿入しようとする。:should_fail_because: 付きで2つ目の bind の36行目の診断を照合している。 区別: bind で作られたインスタンスを通常のインスタンスと同様に bind の対象として受け入れる誤実装は36行目で診断を出さず負テストが失敗する。規格 23.11 B034 の『別の bind_instantiation のスコープの下に bind してはならない』を、bind の第2形式（単一の対象インスタンス）で刺激している。1つ目の bind は通常の対象への挿入で適法。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "3a5c30e76c28e33f669852051e612d443df448e4f7120e0dce9d0be359887813",
+          "inputs_sha256": "325c32e32acdcbf0bb21f16c23b5a7ca1b11852acb711cf7c953df5d8c8fbf29",
           "evidence": [
             {
               "file": "tests/ch23/test_illegal_bind_under_bound_instance.sv",
@@ -234359,7 +234359,7 @@
           "observation": "モジュール hm_user のヘッダが hm_if.src を選び、インスタンス bad の接続が bus.dst を選ぶ 36 行目の不一致だけを違反とし、ヘッダか接続のどちらかの行（29 または 36）の診断を照合している。同じ src を接続で選ぶインスタンス good は適法な対照。 区別: ヘッダと接続の両方で選ばれた modport 名の一致を検査しない実装（一方を優先して使う。Verilator 5.052 がそう）は診断を出さず負テストが失敗する。接続での modport 選択そのものを拒否する実装は good の行でエラーを出し、29/36 行目の照合に合わない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "88fdfd349fd688aea03e01022703c7974e0d375bdef4a42e719d072181af65b5",
+          "inputs_sha256": "5d01f5005e6615b2b269986dcdc3f131c8c30385b6617bb4a1ae68dc87738605",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_header_connection_mismatch.sv",
@@ -234785,7 +234785,7 @@
           "observation": "モジュール hmd_target がインタフェースポート b を通して階層名で3つのタスクを定義する。put はインタフェースで extern 宣言され modport tgt で export（合法）、get は modport でプロトタイプ付き export のみ（合法）、clear はインタフェースにも modport にも宣言がない。:expected_stderr_regex: は b.clear の定義行（37行）でのエラーを要求する。 区別: extern 宣言も modport の export もない階層名定義を受理する誤実装はエラーを出さず不合格になる。extern と export の両方を要求する誤実装は get の定義行（34行）で報告し、37行と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "647cfba62ed952db880fa211cabd3daa3ab008c41cc397e424b0f464295dd241",
+          "inputs_sha256": "799fe2866105cb5d55c47b0df56e3089229d055cbd0b6e075fd33062afaaddf7",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_hierarchical_task_definition_not_declared.sv",
@@ -234843,7 +234843,7 @@
           "observation": "modport tgt が put と get を export する。mxd_full は両方定義（インスタンス ok、合法）、mxd_partial は put だけを定義し、そのインスタンス u は get を定義しない。:expected_stderr_regex: は mxd_partial のヘッダ行（40行）か u の行（49行）を要求する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a313e8927556257202a185e41ac5999eb4936ab871d1f532ad6f04175022e5ab",
+          "inputs_sha256": "56c83aef2190886105a87bf2043056d28404a9f95c4c7cb1062bc6ad811c0c2b",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_export_task_not_defined.sv",
@@ -234864,7 +234864,7 @@
           "observation": "modport tgt がプロトタイプ task put(input int v) を export する。mxp_ok は同じシグネチャで定義（合法）、mxp_bad は引数型を logic [7:0] にして定義する。:expected_stderr_regex: は mxp_bad の put 定義行（37行）か u の行（45行）を要求する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "254af1f533354c407d2d0f032cdaa82cae3254c14f24f5caeceafed83808d65c",
+          "inputs_sha256": "41133dbb3571dd10f3da464c9ae6524df06f661d4d0c17642f16f5e86ca3a61d",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_export_task_prototype_mismatch.sv",
@@ -234934,7 +234934,7 @@
           "observation": "宣言 twice(input int v) に対し、modport ok は bit signed [31:0]（6.22.1 e で int と一致）、modport bad は bit signed [0:31]（int と等価だが範囲が [31:0] でないので不一致）でプロトタイプを書く。bad に接続する mpt_bad_user は呼び出しをしない。エラーは bad の行（31行）。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b7929701e9317ee1d98b523fd901b7cbdc9471f3c1b8d6b5d5ca660086eb6b0e",
+          "inputs_sha256": "38b4607bef9fdc1e01df2287a63829fb1937226cd26313c2fd6e674f7cf5d882",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_prototype_type_not_matching.sv",
@@ -234955,7 +234955,7 @@
           "observation": "2引数の宣言 sum(a, b) に対し、modport ok は2引数、modport bad は1引数のプロトタイプで import する。bad に接続するモジュールは呼び出しをせず、呼び出し側の引数不足ではなくプロトタイプ自体の不一致だけがエラーになる。エラーは bad の行（30行）。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "beb2cecb6e5d52b1b4ae18859973d46a202714688cf6b8522a63e3524ff4247b",
+          "inputs_sha256": "94017dfb9a648db4d56863e4671ea69f45124df1abf7b9f343900e70b5337d73",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_prototype_argument_count.sv",
@@ -234972,7 +234972,7 @@
           "observation": "宣言の仮引数名 a, b に対し、modport ok は a, b、modport anon は名前なし（どちらも合法）、modport bad は x, y と書く。呼び出しはすべて位置結合。エラーは bad の行（31行）か bad 経由の呼び出し行（43行）。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "7ee428259ed3e755eb721e41337fe4bdb5b544e42057ebbdf4b2594b24c24b38",
+          "inputs_sha256": "c50128ed4491027312469646104f5e0ad83866d697c1c508ad5e385dbe191b87",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_prototype_formal_name_differs.sv",
@@ -235014,7 +235014,7 @@
           "observation": "modport ok は b に名前を付けてデフォルト 2 を与える（合法）。modport bad は2番目の引数に名前なしでデフォルト 5 を与える。エラーは bad の行（31行）。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "30ee0f6aacac0a30c889f95d960572e4df96ca0ddf96c54bc129e772009b304d",
+          "inputs_sha256": "086f59b0cced72dfa90af5093edce835264b6519e4046de26a6a8f79ca1064c2",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_prototype_default_without_name.sv",
@@ -235031,7 +235031,7 @@
           "observation": "宣言 first(input int v[2]) に対し、modport ok は v[2] と名前付きで次元を宣言（合法）、modport bad は名前なしで [2] を書く。エラーは bad の行（31行）。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "eb5f977413a4b711df848c91d729326c54103ccd953bc6a3a6ab9c5ab697a31c",
+          "inputs_sha256": "85a41c5dccf2d575f01202e515724523f2c97cd2611bb7e71d21adbdc955feac",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_modport_prototype_unpacked_dimension_without_name.sv",
@@ -235298,7 +235298,7 @@
           "observation": "インタフェース mte_bus で count を extern forkjoin、put を forkjoin なしの extern で宣言し、modport tgt で両方を export する。同じバス bus に mte_target の2インスタンス t1/t2 を接続し、両方が count と put を定義する。count の二重定義は extern forkjoin により合法、put の二重 export がエラーで、:expected_stderr_regex: は put の定義行または t1/t2 の行を要求する。 区別: 同名タスクの複数モジュールからの export を常に許す誤実装はエラーを出さず不合格になる。extern forkjoin でも複数定義を拒否する誤実装は count の定義行（33行）で報告し得て、正規表現の行（36/43/44行）とずれる。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "81625e6546cd417729f84fc1dead5f2b9ef055e129e1c802dd7b91cfb01de1cb",
+          "inputs_sha256": "9a9e920dbb1f7f106bbcf6372a4f00dc0710c407c33749c032aeb557d7343518",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_task_exported_by_two_modules.sv",
@@ -235342,7 +235342,7 @@
           "observation": "インタフェース mfe_bus の extern function peek を modport tgt で export し、mfe_target が b.peek を定義する。インタフェース solo には1インスタンス only だけを接続し（合法な対照）、インタフェース bus には t1 と t2 の2インスタンスを接続して peek を二重に export させる。:expected_stderr_regex: は関数定義行または t1/t2 のインスタンス行でのエラーを要求する。 区別: 関数の複数モジュールからの export を（タスクの extern forkjoin と同様に）許す誤実装は設計を受理してエラーを出さず不合格になる。1つの export まで拒否する誤実装は only の行（37行）で報告し、正規表現の行（30/38/39行）と一致しない。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "b4595830cad7f77a73083965f79099101a4457c687d6262648d92181368b7b53",
+          "inputs_sha256": "0d0c4b3b9a6bb31f3888ad15ea93150d30397750941ce9c2bc5500a75eeedf63",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_function_exported_by_two_modules.sv",
@@ -235753,7 +235753,7 @@
           "observation": "interface vor_if は assign d = test_illegal_virtual_interface_with_outside_reference.src; を持つ。モジュールは vor_if a () をインスタンス化し（合法）、virtual vor_plain_if vp（合法）と virtual vor_if v;（38行目、// illegal）を宣言する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "af1ca2e938ed444dfa0b4e3e1c5f3bcd9aa322a567605514f8b23acbe052089b",
+          "inputs_sha256": "edd1326a31bee6c37ec2d303ccfc484a1f7ec6d2b07b53da8dcedde0cd90c8a4",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_virtual_interface_with_outside_reference.sv",
@@ -235774,7 +235774,7 @@
           "observation": "interface vip_wrap_if(vip_base_if base) をモジュールで vip_wrap_if w (b) とインスタンス化し（合法）、virtual vip_base_if vb（合法）と virtual vip_wrap_if v;（36行目、// illegal）を宣言する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "d518e9ad2337a6ca48664425db27a63d96e6163946cd1a53da3a48fa479e547f",
+          "inputs_sha256": "f92ddaf5de3319a679d59f62ee2ddfe7424fc785df85550f06047c2470e246dd",
           "evidence": [
             {
               "file": "tests/ch25/test_illegal_virtual_interface_with_interface_port.sv",
@@ -262694,7 +262694,7 @@
           "observation": "(posedge clk *> (q[3:2], s : d))（合法）と (posedge c2 => (q[1:0] : d[1:0]))（29行目、// illegal、c2 と q[1:0] はともに2ビット）。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "266288325d466a31acd6651556a402fcd46c780c395c7624651c44511db8319f",
+          "inputs_sha256": "a19d84a872e2f988c17476553806e128638f4eadcea3212caff41a3b27fbadf4",
           "evidence": [
             {
               "file": "tests/ch30/test_illegal_edge_parallel_path_part_select_destination.sv",
@@ -264791,7 +264791,7 @@
           "observation": "specify 内で if (en) (posedge clk => (q[0] : d)) = (2, 3); と同じ辺・条件・経路の if (en) (posedge clk => (q[0] : d)) = (6, 7); を宣言する。:expected_stderr_regex: は27行目または29行目を指す。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "93c18bd159a6e130d2e354c9b9b159a7ab7dbcc7c37be5feecbb51f2f93c0290",
+          "inputs_sha256": "4d269751a5a19193ab24012f80dff1c3a6e01a0c7a23bc7b22996f7e522a327a",
           "evidence": [
             {
               "file": "tests/ch30/test_illegal_specify_edge_path_same_edge_and_condition.sv",
@@ -282028,7 +282028,7 @@
           "observation": "config cfgpk の cell 句 `cell cfgpk_a use work.cfgpk_b;` がパッケージ cfgpk_a の束縛を別パッケージ cfgpk_b へ変えようとしており、:expected_stderr_regex: はその36行目でのエラーを要求する。 区別: 33.4 はconfigがmodule/primitive/interface/programの束縛は変えられるがpackageの束縛は変えてはならないと定める。packageもmoduleと同様に束縛変更可能と誤実装したツールは、この設計を受理して V=2 などを表示し、36行目のエラーが出ないので負テストが失敗する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "67dd959faa838d619ae98bdb03471538230a77ba9dc1d0fed8cf2180f9644344",
+          "inputs_sha256": "bb8165201bfa9826b579cae22f8e32460dc2c899d2378f3ae7efbf9cd69e2885",
           "evidence": [
             {
               "file": "tests/ch33/test_illegal_config_package_binding.sv",
@@ -282736,7 +282736,7 @@
           "observation": "config cfgix の36行目の上書き `use #(.W(cfgix_top.TABLE[cfgix_top.K]))` は、階層名中の添字に設計のパラメータ cfgix_top.K を使っており、:expected_stderr_regex: は36行目のエラーを要求する。 区別: 33.4.3 は階層名中の添字式がリテラルかconfigのlocalparamだけを参照できると定める。添字に設計のパラメータを許す誤実装は W=3 として受理し36行目でエラーを出さず、負テストが失敗する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "05df004ee20abb501398c8665373839226e476ea754ddc351f27f2eb61c6bc92",
+          "inputs_sha256": "688e1718997a9e880decd7c06e78a6b32c48b297f9015aa9a3bcdfd3adc0c814",
           "evidence": [
             {
               "file": "tests/ch33/test_illegal_config_index_not_literal.sv",
@@ -282790,7 +282790,7 @@
           "observation": "35行目 `use #(.W(cfggs_top.g.P))` が generate ブロック g を通り、:expected_stderr_regex: が35行目のエラーを要求する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "393c87cfb9aca889b690abc1fec83c22ca28fb23b12e7e5e3c17763686804307",
+          "inputs_sha256": "ec1d36f2b7c043811ec13c89ff926f4623c6bc5f6fd0d8ea5bc696ce8c958496",
           "evidence": [
             {
               "file": "tests/ch33/test_illegal_config_generate_scope_path.sv",
@@ -282807,7 +282807,7 @@
           "observation": "36行目 `use #(.W(cfgia_top.arr[0].P))` がインスタンス配列の要素を通り、:expected_stderr_regex: が36行目のエラーを要求する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "c1b3bc8dba6443c8896d2e8d735ed818007b026e90f94207cceb951ad5d32cf0",
+          "inputs_sha256": "daafb4ab4652a12fa9e0df089280c364b3af8720bdc265f477f7041264c6588d",
           "evidence": [
             {
               "file": "tests/ch33/test_illegal_config_instance_array_path.sv",
@@ -282891,7 +282891,7 @@
           "observation": "config cfgcf の38行目の上書き `use #(.W(cfgcf_pkg::twice(3)))` はパッケージのユーザ定義定数関数を呼んでおり、:expected_stderr_regex: は38行目のエラーを要求する。 区別: 33.4.3 は configuration のパラメータ上書きが組込みの定数システム関数以外の定数関数を参照してはならないと定める。ユーザ定義の定数関数を評価して受理する誤実装は W=6 となり38行目でエラーを出さず、負テストが失敗する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "bf3c2e375e50a5d45feaead8dfe10f69794fa5faf38b29ea7dad83c09f3dee8a",
+          "inputs_sha256": "d863684c3b71f94003bfb93d8b83222fe9962c2bc21dc6c654fa7732195e90d3",
           "evidence": [
             {
               "file": "tests/ch33/test_illegal_config_constant_function.sv",
@@ -288171,7 +288171,7 @@
           "observation": "23行目 `import \"DPI-C\" pure task c_step(input int v);` で import task に pure を付け、:expected_stderr_regex: が23行目のエラーを要求する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "f85559b3fd0a01ca7e87aa0c4d42842e4154529c2d0c33819ec025b8a71127a0",
+          "inputs_sha256": "39252cdc44584cd02989afb605c84390f3b24a265c01914ebd26e723a8a460f5",
           "evidence": [
             {
               "file": "tests/ch35/test_illegal_dpi_pure_import_task.sv",
@@ -288188,7 +288188,7 @@
           "observation": "23行目の pure import 関数 c_split が output int hi を持ち、:expected_stderr_regex: が23行目のエラーを要求する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "6f38d67d8b2eba634a92ce96cc684e698924665a0fb4fa17aab307055467a976",
+          "inputs_sha256": "b82e27dec700d920c506bc2307ddefd7a9c6196fa62efd1553c3361ba96accf0",
           "evidence": [
             {
               "file": "tests/ch35/test_illegal_dpi_pure_function_output.sv",
@@ -289246,7 +289246,7 @@
           "observation": "import 宣言 `import \"DPI-C\" function void c_bump(ref int x);` が形式引数に ref を使っており、:expected_stderr_regex: はこの23行目のエラーを要求する。 区別: 35.5.4 は import 宣言で ref 修飾を使えないと定める。ネイティブ関数と同じく ref を受理する誤実装は23行目でエラーを出さず（Verilator 5.052 のように受理し）、負テストが失敗する。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "7a0ff09b663bd2bcf541f3cc516c598b952936923ca0f9979177f84390705880",
+          "inputs_sha256": "755891ad2405b98eb3d47a0bd73fdf878689a33618606c9c74f258905b039520",
           "evidence": [
             {
               "file": "tests/ch35/test_illegal_dpi_import_ref_formal.sv",

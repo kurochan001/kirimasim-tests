@@ -4,7 +4,7 @@
   "reviews": [
     {
       "test": "tests/ch13/test_illegal_ref_in_static_function.sv",
-      "inputs_sha256": "f67482c9179826bfed3feac35948bedf9782168c66a8c2af2bbb1865828341b4",
+      "inputs_sha256": "dea30c9e45dcbdedb967a11982afebb7bcc4a6c66c18a4b88b098ac9eb912c6a",
       "reviewed_on": "2026-10-22",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -417,7 +417,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_interconnect_data_type.sv",
-      "inputs_sha256": "3dd9ef95c4c76ff6b8bc2b19aa946f3351dce7cbcef10a53e1acebafaa8f0915",
+      "inputs_sha256": "9dfc970701ee18609bd9a4962b0015d28671d045aa5aee5c2ec5386098ef3a0f",
       "reviewed_on": "2026-10-22",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -597,7 +597,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_iterator_argument_without_with.sv",
-      "inputs_sha256": "ea537458ee960b1d48f8e05d1022dba33969889191a84fc6aea44148de8c6c1d",
+      "inputs_sha256": "63979c9de52d59ebc71946fb4f6f6aed16d5675ce0a218bf2d8622e39a8f8025",
       "reviewed_on": "2026-10-22",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -787,7 +787,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_final_pure_virtual.sv",
-      "inputs_sha256": "e9c960210e629dcf79253592555b68f5a36c9c01e01ca99247094693665a7586",
+      "inputs_sha256": "74ec92180a7d48cd83a868f52860c7108f967d84e62a2405bc28c656250835e2",
       "reviewed_on": "2026-10-22",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -844,7 +844,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_static_instance_constant.sv",
-      "inputs_sha256": "7c4ed3f2838109886a961319c2fea45a2732eb811e2d6c29e56b29ba4b95175c",
+      "inputs_sha256": "62b9de3d8a96141de5f92225573c6296a3db2ec3c035526e57450a602259264b",
       "reviewed_on": "2026-10-22",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -866,7 +866,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_super_new_default_without_default.sv",
-      "inputs_sha256": "34b111a45b7cc491978e242fc8361dc216fca10239e9cd990597c773f1e47d81",
+      "inputs_sha256": "fba672b762e62442af41c5bce7804ddb5159c6f2b31fe38f552ddb89f4d9e614",
       "reviewed_on": "2026-10-22",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -8979,7 +8979,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "reviewed_on": "2026-10-23",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9027,7 +9027,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "reviewed_on": "2026-10-23",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -14428,7 +14428,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_multiclock_two_leading_clocks.sv",
-      "inputs_sha256": "ae134094a1f862504f13d93a6cf3036b269799f8c9953fe6e02cdb150d62db6b",
+      "inputs_sha256": "b38f1a4fd0ef59b98c045bc2a37b5ee0ff2055fe66c9869c818fbe721d08516d",
       "reviewed_on": "2026-10-25",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -14497,7 +14497,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_negated.sv",
-      "inputs_sha256": "90c9a54eb09b096d876bba6ac348503f4e50b66a0f1c5268efe10a0eb86821c6",
+      "inputs_sha256": "aa49a6ffd6f2e31e25e2224c6c11e191b2b98362d52abe88952d32c35c1c990b",
       "reviewed_on": "2026-10-25",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -15676,7 +15676,7 @@
     },
     {
       "test": "tests/imported/ch22/test_unconnected_drive_none_module.sv",
-      "inputs_sha256": "8b72edb513e62d52a88bc89822361c1adfabca5075d744b3ef4926ef430651bc",
+      "inputs_sha256": "3657f8978b8d0ca097789459a56c87af8adfbd09050188916255cc13f9c2861e",
       "reviewed_on": "2026-10-25",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -15896,7 +15896,7 @@
     },
     {
       "test": "tests/imported/ch21/test_empty_argument_matrix.sv",
-      "inputs_sha256": "e0b9c461fdb5487d671ac71c12734c2878f9e20f395f9a0b7cb5fa1dd8fe7bf9",
+      "inputs_sha256": "10ca0a607ff9ee0ef92c8519e49ace57288d6170fd94fdaf7458c6ef61cd7ad5",
       "reviewed_on": "2026-10-25",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -15944,7 +15944,7 @@
     },
     {
       "test": "tests/imported/ch21/test_file_output_initial.sv",
-      "inputs_sha256": "3dca43db3a6fac7363378f5d7aa56cc4f2580640ca9a391a01db4417b01690e4",
+      "inputs_sha256": "546e58cc7cacbbed91e82ec163251e9d172e5d5c63a293da57e33e13b98e36c7",
       "reviewed_on": "2026-10-25",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",

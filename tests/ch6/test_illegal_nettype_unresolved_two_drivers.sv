@@ -4,7 +4,7 @@
 :tags: ch6
 :type: elaboration
 :lrm: 1800-2023 6.6.7 10.3
-:oracle: spec
+:oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no

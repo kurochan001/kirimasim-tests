@@ -4190,7 +4190,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_alias_given_twice.sv",
-      "inputs_sha256": "97d1116fa9dd38ae174d68cd109a5fdd2512b218633eac08ccdbb3183a8a2589",
+      "inputs_sha256": "3b920a131122a2457622e5fbb42b874b1f3647f3225ab8664fe57b4454a6db8a",
       "cited_clauses": [
         "10.11"
       ],
@@ -4250,7 +4250,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_alias_members_of_different_widths.sv",
-      "inputs_sha256": "af0e7f3ebb16de54c238bb054f568216cbb85bdcce8fcfd688ba65eaeaaebe53",
+      "inputs_sha256": "b2035c3188bff4503322b5585aab29a00ea6224d07a4f3dd4083fd515d1d1ef5",
       "cited_clauses": [
         "10.11"
       ],
@@ -4278,7 +4278,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_alias_net_to_itself.sv",
-      "inputs_sha256": "b2d3df6db9ce74e8590dfe8dc2798e0be1c5be85b3b34d083bf5f2f1f7713684",
+      "inputs_sha256": "12ddc2a327e345ce582069561db29b0bf19b4b147e52ace2932295d11ddffe71",
       "cited_clauses": [
         "10.11"
       ],
@@ -4338,7 +4338,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_alias_wand_to_wor.sv",
-      "inputs_sha256": "6559c068d52474215e473d558fb2957c9c68e9ba2890cabfba7e277dbf6c1a8d",
+      "inputs_sha256": "16c6b5630c516ebb8002b1f1df6b4091f56948b855f9bae85b7d443977e01b3b",
       "cited_clauses": [
         "10.11"
       ],
@@ -4556,7 +4556,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_charge_strength_on_wire.sv",
-      "inputs_sha256": "a82f5620f97c2b636d50484d1dc005118a09ab18a2d9cdb5660a5d92c84fb161",
+      "inputs_sha256": "a8e8722c56b9e1237521ed0f95cb91553f5e8cfcb1d927443cb6abef2632cee2",
       "cited_clauses": [
         "10.3"
       ],
@@ -4909,7 +4909,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_interconnect_declaration_assignment.sv",
-      "inputs_sha256": "f0ac50cff4b1f8ab9fa898b713bf1f2f07efde0021dcee5a58ec18d9940e6420",
+      "inputs_sha256": "9ddb2bdc97c79471c474ab7b10015410e509d8c6436a53c6084d8f894334bcc3",
       "cited_clauses": [
         "10.3.1"
       ],
@@ -4928,7 +4928,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_lhs_assignment_pattern_member_width.sv",
-      "inputs_sha256": "911ec72a249fd2338b7eb810726f345e0a3fea9c0b3ac66a72dd9e226cdc54f3",
+      "inputs_sha256": "5c18d48e0393a7e50b9a84436a6eaf49129cab9c90970f188e053b71c2e9874b",
       "cited_clauses": [
         "10.9"
       ],
@@ -4958,7 +4958,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_lhs_assignment_pattern_with_keys.sv",
-      "inputs_sha256": "6b8543d0dcd4d976f08aece4a5a63f47dafed517c635aab99eb1b8ef9623c457",
+      "inputs_sha256": "5c697b40d466d8298080a04b619516716d5f75dd59902f1ba712e223711762de",
       "cited_clauses": [
         "10.9"
       ],
@@ -5191,7 +5191,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_struct_pattern_default_not_castable.sv",
-      "inputs_sha256": "b5a09f7754d54366de2d06ef6e1840a559717d27d42425f0da37918a3c9f6a15",
+      "inputs_sha256": "946c4fa70e4c312b509a68aaeeaf9e5601d2dee9f1ef8062230c5228af46bb68",
       "cited_clauses": [
         "10.9.2"
       ],
@@ -5255,7 +5255,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_struct_pattern_key_value_not_castable.sv",
-      "inputs_sha256": "45ef6904a89fa9dfbd207499474695ceb4b89979d093e8363fa685934e3a7426",
+      "inputs_sha256": "55b2cfafb6176d688f0a69a2e254df70659e6b70c9e961e3a86fe4e8a9bbac04",
       "cited_clauses": [
         "10.9.2"
       ],
@@ -5350,7 +5350,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_typed_lhs_assignment_pattern_member_width.sv",
-      "inputs_sha256": "65f0edfd8e984fa7ceec8be6074f71d0cd006f9904ca10b89d5aef7514e378bc",
+      "inputs_sha256": "cf9ec6419d33dd82b760b00b7258a438a476e51bd4ae91c30c4450796b0c1043",
       "cited_clauses": [
         "10.9"
       ],
@@ -5410,7 +5410,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_typed_lhs_assignment_pattern_with_keys.sv",
-      "inputs_sha256": "08a41b76170ab7434bf08b2a704d75fa5f8fa9888fb29b290f35b3b08e09506b",
+      "inputs_sha256": "f150fd5e52351a11567a0de4961cf40bec9b5028573dad60e4016b13461a2947",
       "cited_clauses": [
         "10.9"
       ],
@@ -5502,7 +5502,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_unpacked_concat_in_default_pattern_item.sv",
-      "inputs_sha256": "31f532e6ba107c1e502ad183249e96ee6ec918fd928f29da52f3af1623bf8b74",
+      "inputs_sha256": "0d5d40e6f8421c494f107569a0c8101994829aff6f4f9c120b3be82a6060e006",
       "cited_clauses": [
         "10.10.3"
       ],
@@ -5586,7 +5586,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_unpacked_concat_nested_in_unpacked_concat.sv",
-      "inputs_sha256": "71aca2c4a690dbc4e8e380031b8ea34037d4627eb69c7b0e0cedc02ed2c89617",
+      "inputs_sha256": "7f5feef88710d8f55b6d40d37ce1111e218561a3f9aaefc1a08868d78f43fb4c",
       "cited_clauses": [
         "10.10.3"
       ],
@@ -5606,7 +5606,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_unpacked_concat_to_associative_array.sv",
-      "inputs_sha256": "e80f0501b5be888001291974b9e81b67aa0d8df420bea0458c509b039c97118d",
+      "inputs_sha256": "347702c5a0c8fcdc51b73c9fd41da6d2c18ce57f0daabb71c713378660a71c07",
       "cited_clauses": [
         "10.10"
       ],
@@ -5725,7 +5725,7 @@
     },
     {
       "test": "tests/ch10/test_illegal_variable_driven_by_gate_and_module_output.sv",
-      "inputs_sha256": "462b7a2f54012b439776b104d38a2f77e168d2a07e59b91587647410f09f907e",
+      "inputs_sha256": "b555dc5c15ace41fe88b9dbe3dde7a5074d47258ff4fde95d6d8de758df5011b",
       "cited_clauses": [
         "10.3.2",
         "6.5"
@@ -16765,7 +16765,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_assignment_operator_in_continuous_assign.sv",
-      "inputs_sha256": "be5f71fd9604d43cdd1e19ff53a7801230fe8f9429ad75a36cebe3432480f3e7",
+      "inputs_sha256": "f94be9da9eddd8682dc95edb392ee1f1fb0661b6948d6abb1ac2674e980034dd",
       "cited_clauses": [
         "11.3.6"
       ],
@@ -16792,7 +16792,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_assignment_operator_in_event_expression.sv",
-      "inputs_sha256": "090c3448e36ee85c605586af169d9ffa9b1313770a1aec0d3860b02d0aa27436",
+      "inputs_sha256": "8731b48ca5fcb872b3f57352d549a81ab14f85aea050356978daa9c5e319393f",
       "cited_clauses": [
         "11.3.6"
       ],
@@ -16819,7 +16819,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_assignment_operator_in_procedural_assign.sv",
-      "inputs_sha256": "dc65de9b039c9e20170f763954cc3963edc990c93e0db5746e10331fc0806b83",
+      "inputs_sha256": "7e3c1d40a10a227073180952352f1ec5b1c9d6a197ed5fac3a5e16c178eab21e",
       "cited_clauses": [
         "11.3.6"
       ],
@@ -16919,7 +16919,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_conditional_operands_not_equivalent.sv",
-      "inputs_sha256": "cf3d89da4219f2e1b22b3c73280594e5d811dcb200c24c4935a741890c9ffbeb",
+      "inputs_sha256": "5b3c9cb992818de70fe2f03f8335a4e1b594ba9f9f033b709c1dbac1288664f2",
       "cited_clauses": [
         "11.4.11"
       ],
@@ -17467,7 +17467,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_select_of_concatenation_as_lvalue.sv",
-      "inputs_sha256": "16be782502c624e9790515a3735ec91d9af4e06aa8abfe543877d48142150b8a",
+      "inputs_sha256": "a47b627d4c80994de772f655f300fe036414467d5d8004c41e45e9eca04b86fa",
       "cited_clauses": [
         "11.4.12"
       ],
@@ -17620,7 +17620,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_stream_slice_size_negative.sv",
-      "inputs_sha256": "b9c822f26a591c03a3e5175f5f93c5a1ce75181f10558c1563f0fbcd5229d985",
+      "inputs_sha256": "ceec04f2fa2eec4d42d4a46a9a50e0a3842286650ccf5cf4df44824e7d3ed218",
       "cited_clauses": [
         "11.4.14.2"
       ],
@@ -17666,7 +17666,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_stream_with_on_scalar.sv",
-      "inputs_sha256": "134aaeb922b7a515375d5a16e49aef2468bc56dc5545b23a7c3343c08c4c7b43",
+      "inputs_sha256": "0380fc6035f9fab9fd942d882bd73caadd37f301415cc8219580d4c4d212d25f",
       "cited_clauses": [
         "11.4.14.4"
       ],
@@ -17695,7 +17695,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_stream_with_on_two_dimensional_array.sv",
-      "inputs_sha256": "9f233001c504e0635e33ededd9601a0f3a523eeeb898d50aef48bae57a498363",
+      "inputs_sha256": "6c2b31c1314fd64a9012477a28a2a6e766e2ae8e0d5b1c9126d657671b06f24f",
       "cited_clauses": [
         "11.4.14.4"
       ],
@@ -17745,7 +17745,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_tagged_expression_member_not_in_type.sv",
-      "inputs_sha256": "0b448615b7bd1c73c71a5d511617a58fbb541a1e006e1cd4ad94e04fbee53ca9",
+      "inputs_sha256": "edd8f9c62d9225ffeca6e9e2c183d2045b38d54a9b00b48dbbdc4d28fa4cbcad",
       "cited_clauses": [
         "11.9"
       ],
@@ -17769,7 +17769,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_tagged_expression_value_of_wrong_type.sv",
-      "inputs_sha256": "461032d8abea5a072f02b6b7d8093b4c00fe14444a9cf44cd1ebc8bc76f68b32",
+      "inputs_sha256": "a1dbade00d68aa3b66363f8e3b54fb0821e48c3b8fb1260833ff1390960c86d2",
       "cited_clauses": [
         "11.9"
       ],
@@ -17793,7 +17793,7 @@
     },
     {
       "test": "tests/ch11/test_illegal_tagged_expression_without_context_type.sv",
-      "inputs_sha256": "59e2e7fbbc7760a59b14c167fcd937e8b76f6b5fd4663f83b94074a433b8cd02",
+      "inputs_sha256": "93407e39d04b3a4d751bde93917be1e6a1d00a1582fbef6213dfc3859efefb8d",
       "cited_clauses": [
         "11.9"
       ],
@@ -34817,7 +34817,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_case_matches_member_not_in_type.sv",
-      "inputs_sha256": "cd4b6314fe1b210dc5527bbd07215b798238082c9e532eafb42a0f08160d9e7a",
+      "inputs_sha256": "6339dc6d3fa0eb3e30ecda28efdde9726216101558c4cf8345546157efab97c5",
       "cited_clauses": [
         "12.6.1",
         "12.6"
@@ -34943,7 +34943,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_for_init_declares_after_existing.sv",
-      "inputs_sha256": "43f37833dd6d67b10b582e7018eea917892791337f8e6167b7e5fe78e74c5850",
+      "inputs_sha256": "9f8ac5781a72eaff58d580666bfa6c296ccf7f4074b04320a580c56247a1bf01",
       "cited_clauses": [
         "12.7.1",
         "12.7"
@@ -34976,7 +34976,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_for_type_reference_without_var.sv",
-      "inputs_sha256": "5a36b940a6f8a29a70b01526e26ba4b1cf70703dba04a33cbb287bc1066911a5",
+      "inputs_sha256": "d2bb497a71224d3dc818129bf8e7076a58b9687c445396718fd7171bb0a8811d",
       "cited_clauses": [
         "12.7",
         "6.23"
@@ -35014,7 +35014,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_foreach_loop_variable_named_as_array.sv",
-      "inputs_sha256": "9ed721e86ee8b36c0986432ce108083164756bc97e665d9f1f7fde1aaa8822a1",
+      "inputs_sha256": "05271a0d9b2b232b4d42ace79049166c8a145cda4460e7083200587f8896ae30",
       "cited_clauses": [
         "12.7.3"
       ],
@@ -35103,7 +35103,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_if_matches_pattern_of_other_type.sv",
-      "inputs_sha256": "002e043bd6739461ca1c04c7ef2f6753aa25b205f623de2337d782f07bba895e",
+      "inputs_sha256": "66497227560af6c91f2816eebd810e650c97e75dddf215d83d42c2719ecb5204",
       "cited_clauses": [
         "12.6.2",
         "12.6"
@@ -35140,7 +35140,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_net_type_reference_without_net_type.sv",
-      "inputs_sha256": "9fbbc0aab84e26ee69988912a9a2ab4a1758dc75f6f044b97cce08b6097ae26b",
+      "inputs_sha256": "2550bec39015e0034bb477f20286c771e0e3dde94214acbeb37977782993db3e",
       "cited_clauses": [
         "12.7",
         "6.23"
@@ -35178,7 +35178,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_pattern_constant_of_real_type.sv",
-      "inputs_sha256": "9a21a9d8a090d788af1b0951853040a77f7120b275f4d567c812404449fafe6f",
+      "inputs_sha256": "c08091abad3c6b38291a7d221a03390f1ca069632e9a8c6bdd95cdc704ecbcdf",
       "cited_clauses": [
         "12.6",
         "12.6.1"
@@ -35218,7 +35218,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_pattern_identifier_used_twice.sv",
-      "inputs_sha256": "b049c88db18d6f78ed19987ec856b9bc847a0d6e9c8a8f5614e343aa201cbdf1",
+      "inputs_sha256": "66feb3ac5d7d89402b1440c17f5b6ed7bce182854b6e18561b18a0fc0faf32ca",
       "cited_clauses": [
         "12.6",
         "12.6.1"
@@ -35256,7 +35256,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_priority_if_second_else_unique_if.sv",
-      "inputs_sha256": "cf00171c5de156a8bc78a33d01c22ee04c9b70a291297f0cdfc0a09bfdd4ad80",
+      "inputs_sha256": "39f29a451f6fd35ba3c5a42b25d870266ec0e2b9d79534d515a1e52ae02c39eb",
       "cited_clauses": [
         "12.4.2"
       ],
@@ -35403,7 +35403,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_unique0_if_else_priority_if.sv",
-      "inputs_sha256": "f16bd83c720243a16866f6d2aa8499985d71f027761b28de488d7cee32745a5a",
+      "inputs_sha256": "71846c996734525a926a9a09e211855298f403edaf2b53a532add98edef0271b",
       "cited_clauses": [
         "12.4.2"
       ],
@@ -35433,7 +35433,7 @@
     },
     {
       "test": "tests/ch12/test_illegal_unique_if_else_unique0_if.sv",
-      "inputs_sha256": "d0f17ddeb2d019e8149f21c3a67aa2713a7b6f575a0a96cabac9e0967a792abe",
+      "inputs_sha256": "52f32f4a5316760370f8196e796f24487c62110513215c55437a06e8988f1b3e",
       "cited_clauses": [
         "12.4.2"
       ],
@@ -42085,7 +42085,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_constant_function_calls_nonconstant_function.sv",
-      "inputs_sha256": "e9a50259581ce6a7d0153ac6e062683be23db57aeedacdca2225b61b17da932c",
+      "inputs_sha256": "6e1dd6cda9c7d3181aa4c2045d867fa89e4dcd2e8dbc5e23e8648a19830605b0",
       "cited_clauses": [
         "13.4.3"
       ],
@@ -42349,7 +42349,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_default_argument_in_non_ansi_declaration.sv",
-      "inputs_sha256": "dcca85ed0eada95aec171af85dcd8298704a404ac2649e52063255f01108d180",
+      "inputs_sha256": "7a27a394de6fe6683778db5835018c48da102a1ba9ae746f062c821f9145d83b",
       "cited_clauses": [
         "13.5.3"
       ],
@@ -42669,7 +42669,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_inout_argument_not_lvalue.sv",
-      "inputs_sha256": "54c2f910108a03b51885333901869045aaa48318035945b5a9fb55a697a2fb60",
+      "inputs_sha256": "197aadb6d13c2b6a6f40558411b6932c03c8cdf7fb727932205faa94c606effe",
       "cited_clauses": [
         "13.5"
       ],
@@ -42944,7 +42944,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_ref_actual_expression.sv",
-      "inputs_sha256": "45e38057564bf9b96d437da0548268f03880d27bbd8997a145bf972a9ac7bf73",
+      "inputs_sha256": "b41c757f80b8dd98bc8c916a5566e513f54684e14e81c1bd0f81bc08682f958e",
       "cited_clauses": [
         "13.5.2"
       ],
@@ -43203,7 +43203,7 @@
     },
     {
       "test": "tests/ch13/test_illegal_ref_in_static_function.sv",
-      "inputs_sha256": "f67482c9179826bfed3feac35948bedf9782168c66a8c2af2bbb1865828341b4",
+      "inputs_sha256": "dea30c9e45dcbdedb967a11982afebb7bcc4a6c66c18a4b88b098ac9eb912c6a",
       "cited_clauses": [
         "13.5.2",
         "13.4.2"
@@ -43241,7 +43241,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch13/test_illegal_ref_in_static_function.sv",
-        "inputs_sha256": "f67482c9179826bfed3feac35948bedf9782168c66a8c2af2bbb1865828341b4",
+        "inputs_sha256": "dea30c9e45dcbdedb967a11982afebb7bcc4a6c66c18a4b88b098ac9eb912c6a",
         "reviewed_on": "2026-10-22",
         "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -49302,7 +49302,7 @@
     },
     {
       "test": "tests/ch14/test_illegal_clocking_inout_expression_not_lvalue.sv",
-      "inputs_sha256": "a8cb280443910c21be4f03eda18527c183b25acea90ba287adfab879f65ca585",
+      "inputs_sha256": "f178b4573d6baca74272de88f067d082cc53eb83a39d63ae1f968559086b8c7b",
       "cited_clauses": [
         "14.5"
       ],
@@ -49324,7 +49324,7 @@
     },
     {
       "test": "tests/ch14/test_illegal_clocking_input_expression_with_assignment.sv",
-      "inputs_sha256": "13b8e194015726465c7239bc51d9cdde3b9654d3b04a9cbf5367022b01bd2c16",
+      "inputs_sha256": "c8b12aecc162ea773bd3831b81544c538346fb2759a1febc85c17ac3fbfa7c32",
       "cited_clauses": [
         "14.5"
       ],
@@ -49346,7 +49346,7 @@
     },
     {
       "test": "tests/ch14/test_illegal_clocking_output_expression_not_lvalue.sv",
-      "inputs_sha256": "e08d25b22562e63d6adf01aa598dc76904067b3ce2fd1e25a29d551f02b3a0c7",
+      "inputs_sha256": "76baf6ad34aee75fddf31381ebe2df6ae01b74d720151986d987442febecdf23",
       "cited_clauses": [
         "14.5"
       ],
@@ -49394,7 +49394,7 @@
     },
     {
       "test": "tests/ch14/test_illegal_clocking_output_variable_force.sv",
-      "inputs_sha256": "9a6bb91a6f812d1402edd88e8c3b6360f1f777168ec88ea25e315f828bb7ec36",
+      "inputs_sha256": "0f27096718d3d20d8df427d19f81ad0debd331a629ee325f5411121d3742ffb2",
       "cited_clauses": [
         "14.16.2"
       ],
@@ -55395,7 +55395,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_assertion_expression_assignment_operator.sv",
-      "inputs_sha256": "de575009323fef96635c5d9e03a08c1428b6d76c906a456d587aa4d591d28221",
+      "inputs_sha256": "577fa4f5659d632c0f104b525735baa16badac241edb9e53f0ac130474c86925",
       "cited_clauses": [
         "16.6"
       ],
@@ -55426,7 +55426,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_assertion_expression_increment.sv",
-      "inputs_sha256": "73cae3f818acaa7fb5837aeadacb092d0d15a13f7c07e03f4eae915e6f8ebaf5",
+      "inputs_sha256": "004bda27cf51e7701208382ad71ba2eb9f6cb86b22e88c4ea0d618aa8e38543a",
       "cited_clauses": [
         "16.6"
       ],
@@ -55703,7 +55703,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_attached_call_chandle_input.sv",
-      "inputs_sha256": "088b91774b7c692a02bbda7f93fd4403532a18b0131aa90ca746f28582ff809a",
+      "inputs_sha256": "e351248fba065de67d0445ce649d3a770638021beace243393a564165e283aaa",
       "cited_clauses": [
         "16.11"
       ],
@@ -55726,7 +55726,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_attached_call_inout_argument.sv",
-      "inputs_sha256": "4ec2d08f985743e538a986e1ebb0c4f86bb1a00a0de6692d760085adc04e0ae3",
+      "inputs_sha256": "8da70158f0bb62601706ab8040ad037162fad170683e54c33a264dcfdf0aa8dd",
       "cited_clauses": [
         "16.11"
       ],
@@ -55749,7 +55749,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_attached_call_local_variable_before_assignment.sv",
-      "inputs_sha256": "b61fcdc529261fe5e3289afb6247345bb5c1171c47c1c74bb6ff7f35771cc445",
+      "inputs_sha256": "762d2c753946d791a2b415ea8396a96e349cb1f0077b9c614e3008c18f12a448",
       "cited_clauses": [
         "16.11"
       ],
@@ -55775,7 +55775,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_attached_call_local_variable_by_reference.sv",
-      "inputs_sha256": "a6aab8b1dcece1432e903ef08a880e444e3c56be395365a137ce6e065a2bc653",
+      "inputs_sha256": "db63cd4f8835e3e824a355922142f1c4379e2f0835e0ef52741f593711c938bb",
       "cited_clauses": [
         "16.11"
       ],
@@ -55801,7 +55801,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_attached_call_output_argument.sv",
-      "inputs_sha256": "d1c82c8d49de336318cd9d923d55698a4131f4f08c248fa3b00f54103d608b68",
+      "inputs_sha256": "dba82eee02e44dc538b225f29ede3492d414890760831da908b189ed6860b91c",
       "cited_clauses": [
         "16.11"
       ],
@@ -55824,7 +55824,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_call_attached_to_empty_match.sv",
-      "inputs_sha256": "96755661b0b8afd051de25ebccdf60bbe0c71c480fdfeffda4e17760a362e6e6",
+      "inputs_sha256": "1386f8c27c2d5b5b6404724d4828b92face5ab8c2d118a71c4478eb9681cd5f6",
       "cited_clauses": [
         "16.11"
       ],
@@ -55850,7 +55850,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_cycle_delay_mintypmax.sv",
-      "inputs_sha256": "ef141d5ccd24f59566c3b502987f5526937c478014d24586cb5bce18b9145982",
+      "inputs_sha256": "91eefca5cc902acc7c2d8544fae48a65f20edcaacf2fe61e7694528e9d2baeb3",
       "cited_clauses": [
         "16.7"
       ],
@@ -56021,7 +56021,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_cycle_delay_real_value.sv",
-      "inputs_sha256": "4bf92fb2713c3de72737375e03097a88de5439664947a37d9e954960e2b419e8",
+      "inputs_sha256": "13d28bd422d7a1989d4d5a97a438520f36d17a41d42d3fc7c61440b7da6b2be0",
       "cited_clauses": [
         "16.7"
       ],
@@ -56369,7 +56369,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_disable_iff_local_variable.sv",
-      "inputs_sha256": "6be71cdbda87f360960e61437ced1775856f53a4cbc4bd7c097548a5740b55b0",
+      "inputs_sha256": "b369fb4d9f12c9f3af55daef6fbe131fae0671ce690a20b1e92892efa3019c66",
       "cited_clauses": [
         "16.6"
       ],
@@ -56397,7 +56397,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_disable_iff_matched.sv",
-      "inputs_sha256": "ef386765b40487758ee0fc07c69a65611b984ba2ff8e5872aa6640f21b3b3e79",
+      "inputs_sha256": "73ac47ee16db9f6544f8157859399db7ac313a71fb9fa8c287d7366122530aa0",
       "cited_clauses": [
         "16.12"
       ],
@@ -56553,7 +56553,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_disable_iff_sampled_function_no_clock.sv",
-      "inputs_sha256": "8bc45d84930544cb79ec736105bcb0869574fcb037a5f3d578f46655476c73ba",
+      "inputs_sha256": "b8a06514e459ad3dc94d3b7474a7416d2ba3313c2740e0078cd74b4c18cca3c2",
       "cited_clauses": [
         "16.12"
       ],
@@ -56605,7 +56605,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_disable_iff_sequence_matched.sv",
-      "inputs_sha256": "d1d0ee6545f43080755d446d5a8c23aa0dde5a16ab412b9c818591de018b9318",
+      "inputs_sha256": "51980552c07b71fb9dcdf093fb3d8973e6aa4f7e24c2d030c571addf61e247d5",
       "cited_clauses": [
         "16.6"
       ],
@@ -56633,7 +56633,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_global_clock_future_function_in_action_block.sv",
-      "inputs_sha256": "02bcb8721884d0571502310da928aee0ec08a47bb2faa23910ab563b3a6ebd3c",
+      "inputs_sha256": "a1015f0669234ba9f0eaab956198a65e8add5aca4ac0d4155952c71c39eeee3c",
       "cited_clauses": [
         "16.9.4"
       ],
@@ -56709,7 +56709,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_global_clock_future_function_with_call_match_item.sv",
-      "inputs_sha256": "dd4381a8c70a4515c56bdf7ea0ae8d5aafc8d8b2230812e42bb9458a4430caf3",
+      "inputs_sha256": "707f0fd957a5de0fd94c39c9d7ab72a2174a23c6d9302fc21066dd9346ec2236",
       "cited_clauses": [
         "16.9.4"
       ],
@@ -56747,7 +56747,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_global_clock_future_function_with_local_assignment.sv",
-      "inputs_sha256": "e69ef2736cfac9dff3e0d75d95f167541ecbee16afcc59f7d45433159f49d6c5",
+      "inputs_sha256": "4e7461eeabc3d768f768b8c36fb43c60358a22e8bca17ff81de21425588d4aa5",
       "cited_clauses": [
         "16.9.4"
       ],
@@ -56785,7 +56785,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_global_clock_future_function_without_global_clocking.sv",
-      "inputs_sha256": "64daf6e2c7f1e0c7443a8b9eec46d746efa84dbdf4f41eb8ba2abfa1a3e9bb5b",
+      "inputs_sha256": "118aaafb047544b7ef9fa715b4ca4d78b57aa84b9de9190458cba2b14d07ddb4",
       "cited_clauses": [
         "16.9.4"
       ],
@@ -56823,7 +56823,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_global_clock_future_functions_nested.sv",
-      "inputs_sha256": "606331fadc6e31dc778389c326496689d65c4db5ffd7ced54a56431cffa50107",
+      "inputs_sha256": "600296f33777921ddfdc94bc09256a14dd5e4958f3c4416c1855e4f81044d95f",
       "cited_clauses": [
         "16.9.4"
       ],
@@ -56919,7 +56919,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_local_variable_assignment_on_empty_match.sv",
-      "inputs_sha256": "12bb7188ac9b79da970ce51888f86627b317b8a52acfbccf00e449eb412f2d3c",
+      "inputs_sha256": "8692d842fc90a1f81f02e68abd35335c5855b76e685b2756968986241abbc6ed",
       "cited_clauses": [
         "16.10",
         "16.11"
@@ -56974,7 +56974,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_local_variable_chandle_type.sv",
-      "inputs_sha256": "455c7cd4d8da7b045e2545d6c46118a5d3910fd95df2c0351eeda08cbe184ec0",
+      "inputs_sha256": "bd3b053f1642c4211eacf15c0bcad89abab6c7fe46bafc61d6c4953f4995359c",
       "cited_clauses": [
         "16.10"
       ],
@@ -57113,7 +57113,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_local_variable_in_clocking_event.sv",
-      "inputs_sha256": "5d26073f7f94ffae03f069f90190c2d1ef4bb6c021653b6a3467fa33dc487f45",
+      "inputs_sha256": "2bc7c88cc018ddf405ec44cda94e75430279b02c321d407ad24d442bff61cadf",
       "cited_clauses": [
         "16.10"
       ],
@@ -57247,7 +57247,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_local_variable_sibling_thread.sv",
-      "inputs_sha256": "9d37d5de5e7b0a0bdd5130d6a4f7cf0a5d7a07f93759623d44c489bc1aa367df",
+      "inputs_sha256": "725e240f2fb13785694d72393806145be03614c430826ad75ce635416a8d9f56",
       "cited_clauses": [
         "16.10"
       ],
@@ -57292,7 +57292,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_local_variable_unassigned_compound_assignment.sv",
-      "inputs_sha256": "840c2b7c9b3ed8e0ed749eff2d302733ff907684921a9f473a7bd86fcd071d41",
+      "inputs_sha256": "81ada9c7030a8ae81cd8bd77da4138788b6576685342157e59ebebe237e4dd9e",
       "cited_clauses": [
         "16.10"
       ],
@@ -57339,7 +57339,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_local_variable_unassigned_increment.sv",
-      "inputs_sha256": "5f38063bba7a295e195e12b39922eda8b449316558324179d4b6969c4687e666",
+      "inputs_sha256": "ceb6a90c4002b232c2a86f80f569f3bbd31010c860014ea770d60562709f18f1",
       "cited_clauses": [
         "16.10"
       ],
@@ -57386,7 +57386,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_local_variable_unassigned_reference.sv",
-      "inputs_sha256": "3706d8dc21517b4014bcbe2a4561b7456523f5545c193dbcca595c7cc9dd4f38",
+      "inputs_sha256": "30d3edd199568f14ccece9f2c6162977be1f944b7d4b4b0c829d1771cbd5e93a",
       "cited_clauses": [
         "16.10"
       ],
@@ -57478,7 +57478,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_matched_on_local_input_formal.sv",
-      "inputs_sha256": "a391ecf76da35cdae68abdedde0e6f8457740a0666605744381a56fd9cda1d47",
+      "inputs_sha256": "030e67f6fdd440d010f33845ca45df036aff842e658192070737ebae09b95ead",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -57514,7 +57514,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_multiclock_two_leading_clocks.sv",
-      "inputs_sha256": "ae134094a1f862504f13d93a6cf3036b269799f8c9953fe6e02cdb150d62db6b",
+      "inputs_sha256": "b38f1a4fd0ef59b98c045bc2a37b5ee0ff2055fe66c9869c818fbe721d08516d",
       "cited_clauses": [
         "16.16.1",
         "16.16"
@@ -57569,7 +57569,7 @@
       ],
       "scoped_review": {
         "test": "tests/ch16/test_illegal_multiclock_two_leading_clocks.sv",
-        "inputs_sha256": "ae134094a1f862504f13d93a6cf3036b269799f8c9953fe6e02cdb150d62db6b",
+        "inputs_sha256": "b38f1a4fd0ef59b98c045bc2a37b5ee0ff2055fe66c9869c818fbe721d08516d",
         "reviewed_on": "2026-10-25",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -57639,7 +57639,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_mutual_recursion_no_time_advance.sv",
-      "inputs_sha256": "e33b117406f87b95fe3834c08cbe0c135aa0a7d5f8528c016a52d1ff5018f941",
+      "inputs_sha256": "3542a086824abaf95054d6469b2013a38c99cc67c6190e0701db33187cceb17c",
       "cited_clauses": [
         "16.12.17",
         "16.12.7"
@@ -57673,7 +57673,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_negated_property_reaching_recursion.sv",
-      "inputs_sha256": "4389f56600f9cef53e1f0c3ef12e782ae7336ff1cf5b13424ae7e27e54f8568d",
+      "inputs_sha256": "36ae235ef0f62242fde404f773bba1e1f9f89c0a28eb9ba5c956f363a2b7733a",
       "cited_clauses": [
         "16.12.17",
         "16.12.3",
@@ -57710,7 +57710,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_nonoverlapping_antecedent_no_match.sv",
-      "inputs_sha256": "ef3f6001d5658d5682e40bbce3cb18aa9f41928e789807c9526559aa70283310",
+      "inputs_sha256": "18068ec3b903d25fddf8bb11b8e1aa9c2d8e713f7cc4896e7be1b290cbd424d8",
       "cited_clauses": [
         "16.12.22",
         "16.12.7",
@@ -57743,7 +57743,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_overlapping_antecedent_empty_only.sv",
-      "inputs_sha256": "bc37a21b43edb139f6ba13c48bdd428b20ccc03cf51f18b917f74abb36552070",
+      "inputs_sha256": "60b72a8ee2ea343d3521a216741e98bc8449f8fe49adfee4bb263a0aa1a4ed5b",
       "cited_clauses": [
         "16.12.22",
         "16.12.7"
@@ -57775,7 +57775,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_overlapping_antecedent_no_match.sv",
-      "inputs_sha256": "47685b3a1529dcd0cc0f453d5986825ded402f50188be2b0df4db5573867c993",
+      "inputs_sha256": "2bef906e8905ca224d6666b13a0cf76370205a0a24763459469c0454f4e50976",
       "cited_clauses": [
         "16.12.22",
         "16.12.7",
@@ -57810,7 +57810,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_past_automatic_clock.sv",
-      "inputs_sha256": "e147bacdbe4da7fd2372d552f2640cc1818878d6f5b55fc17f549b050804a406",
+      "inputs_sha256": "3e89430d34b3ad96c4cf53f95348a9cc78e7d1a12abea99715388d825012831f",
       "cited_clauses": [
         "16.9.3"
       ],
@@ -58019,7 +58019,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_plain_sequence_property_empty_match.sv",
-      "inputs_sha256": "f64374e4bada015f589747532e91d5ecab388e321dab44d25938ddda414d6b1f",
+      "inputs_sha256": "dbef6d94b9b2b9d200fd9ced3ed0dbabda6230e8971eaa4b06bdb5bd8fea529b",
       "cited_clauses": [
         "16.12.2"
       ],
@@ -58063,7 +58063,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_property_disable_iff_local_variable.sv",
-      "inputs_sha256": "bc479ea9a0e6b54542c914340ab442b5a261270d2a5634bf418cc2c1ddc6c602",
+      "inputs_sha256": "9721fda997c6b31e480131ad27997e91b72663657c4077f5b855c7b629d0bd02",
       "cited_clauses": [
         "16.12"
       ],
@@ -58115,7 +58115,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_property_dollar_outside_bound.sv",
-      "inputs_sha256": "ba52905d3b9cee4076fd0a5892883c8580d3dd1dfe3fd0e26f8972098e1fdbe5",
+      "inputs_sha256": "79a4ddb76b83af26ae7ad78d4401a25eb4691cf978ac420c1609a47a5b857dc4",
       "cited_clauses": [
         "16.12"
       ],
@@ -58167,7 +58167,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_property_dollar_typed_formal.sv",
-      "inputs_sha256": "bb95e03aaf6ad11d474457b91e823b6cd0515e9938c89b997f1c457410fc5ddb",
+      "inputs_sha256": "3dcea87e0d07b8c4c1f2e83b8463350e4c8a0c0a292cd06e145fe38a595e50b0",
       "cited_clauses": [
         "16.12"
       ],
@@ -58269,7 +58269,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_property_instance_disable_iff_as_operand.sv",
-      "inputs_sha256": "e2a04909db9e7c876bdc8c3184c40ec7e1e36ead03cdf910f3794683f6884207",
+      "inputs_sha256": "3ecf9fd652ec739e0d56cdcbd0c8e44af605b8bbfb7ee6da75e6f29f8f4bed1b",
       "cited_clauses": [
         "16.12.1"
       ],
@@ -58287,7 +58287,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_property_instance_flattened_not_legal.sv",
-      "inputs_sha256": "4cec8ac444b173e76d1a50f95adf511a458aca221db3876077a58a438fab24bf",
+      "inputs_sha256": "b03e8c40a2e37cdf2176eaea4a5d3217c60c49816d01e4c423247ca7dfee5f5e",
       "cited_clauses": [
         "16.12.1"
       ],
@@ -58305,7 +58305,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_property_local_inout_formal.sv",
-      "inputs_sha256": "a551a97444386bc92a7233f189e2bdda3efbec6f1711c6411c7fd6e79b7c253f",
+      "inputs_sha256": "905a3eb289dc2c706ca381cccba2b475fd8fb72adf4ad0e65682fc6488d33034",
       "cited_clauses": [
         "16.12.19",
         "16.8.2"
@@ -58344,7 +58344,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_property_local_output_formal.sv",
-      "inputs_sha256": "95afbb46d852b0d71d229dfe151064da8905fd89915d5693a17021935b7753e5",
+      "inputs_sha256": "1fb8b52adcbb10bf8a3cb3c57e5dfaf35e72a98fee216ade25ad4df3ae711336",
       "cited_clauses": [
         "16.12.19",
         "16.8.2"
@@ -58383,7 +58383,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_actual_expression.sv",
-      "inputs_sha256": "1a35f32ca66d65d53c6a48ecf0d59a94bd289238b8bf043a1129519e930ecfde",
+      "inputs_sha256": "78eb77852ba84b9252c1fad08f0c16cfc7e59d42dc8bc12679f4a3c295e2b30a",
       "cited_clauses": [
         "16.12.17",
         "16.12.19"
@@ -58410,7 +58410,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_disable_iff.sv",
-      "inputs_sha256": "c0681f71fc9b8cb1ad5e3b53773583b08d21c91433833033fbea5f043f03cc04",
+      "inputs_sha256": "49bf7b7a824927bb369160d87ac0b76ad1940ca74349f16c7d95a948a389a66d",
       "cited_clauses": [
         "16.12.17",
         "16.12"
@@ -58468,7 +58468,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_negated.sv",
-      "inputs_sha256": "90c9a54eb09b096d876bba6ac348503f4e50b66a0f1c5268efe10a0eb86821c6",
+      "inputs_sha256": "aa49a6ffd6f2e31e25e2224c6c11e191b2b98362d52abe88952d32c35c1c990b",
       "cited_clauses": [
         "16.12.17",
         "16.12.3"
@@ -58496,7 +58496,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch16/test_illegal_recursive_property_negated.sv",
-        "inputs_sha256": "90c9a54eb09b096d876bba6ac348503f4e50b66a0f1c5268efe10a0eb86821c6",
+        "inputs_sha256": "aa49a6ffd6f2e31e25e2224c6c11e191b2b98362d52abe88952d32c35c1c990b",
         "reviewed_on": "2026-10-25",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -58566,7 +58566,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_no_time_advance.sv",
-      "inputs_sha256": "df991c6c8b18719e24a2fd7622e99b4592a2296332f22728eaceb902e5ff1f38",
+      "inputs_sha256": "13f414b515252c4fb09963edc7e6157a6806423b3c601af50165b0bcdda3c2c6",
       "cited_clauses": [
         "16.12.17",
         "16.12.7"
@@ -58600,7 +58600,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_always.sv",
-      "inputs_sha256": "1b3b34957f1e08b631cac0454595fac0ad77f04a3fe17eb2dd7a2bea14f33045",
+      "inputs_sha256": "a13fbdb37a1d252de017f346dcd2d9d45e5433fe55009c0ab248c8b6e75a9157",
       "cited_clauses": [
         "16.12.17",
         "16.12.11"
@@ -58633,7 +58633,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_eventually.sv",
-      "inputs_sha256": "b6aee11dd1e5fddea67e5e817d658b69073de2818ef2335920450091ae1b10ec",
+      "inputs_sha256": "0ea4a48dfbb8a7410d530b51b4b06bd857633336dde714708c99ddcb34c74adc",
       "cited_clauses": [
         "16.12.17",
         "16.12.13"
@@ -58664,7 +58664,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_nexttime.sv",
-      "inputs_sha256": "95447f642be3481e77425ede881880d767a9d2e21f604ed97bfcae38f0cba815",
+      "inputs_sha256": "759c0bedffcb47a979b6aace5cda81a1ce56ce453ee3a6cdd4ca72c539303d2d",
       "cited_clauses": [
         "16.12.17",
         "16.12.10"
@@ -58697,7 +58697,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_until.sv",
-      "inputs_sha256": "8f1f7480af4b99e5e104f63fe9393a4349d64bcdcb13ac84b7626bc480b61045",
+      "inputs_sha256": "ed831073fa8bf8284d47cc463e6da071e72a0c8f1979f6be070e29c3a8511698",
       "cited_clauses": [
         "16.12.17",
         "16.12.12"
@@ -58728,7 +58728,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_recursive_property_s_until_with.sv",
-      "inputs_sha256": "b1a71c469d878e76d68982edd964a91ad926b9779f0e0f3e629092f0a59b2009",
+      "inputs_sha256": "a42e8b272f0774adf871bbdd210f21fd0984e62b578ef7264ed19fa3ca896f7c",
       "cited_clauses": [
         "16.12.17",
         "16.12.12"
@@ -58823,7 +58823,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_repetition_goto_on_match_item.sv",
-      "inputs_sha256": "05cf3aff36226aeab3ebd6db4eb8e410606809fe35af0033ce712fbf833c7fef",
+      "inputs_sha256": "2dfbb8a47cd70dbc916a1946eb61fb67f51c54e4be56b1990011de75d2607e2f",
       "cited_clauses": [
         "16.9.2"
       ],
@@ -58858,7 +58858,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_repetition_goto_on_sequence.sv",
-      "inputs_sha256": "47612af6c41a2cb6cbe1e5eecce210c0e9bb7a3af2509919fdfe4cd77e9f0fa7",
+      "inputs_sha256": "a6cd49dc6b029206ce17250e3fb257043bc3cd03120ce91f936f42b35a9b06b9",
       "cited_clauses": [
         "16.9.2"
       ],
@@ -58925,7 +58925,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_repetition_nonconsecutive_on_sequence.sv",
-      "inputs_sha256": "635edbb46c2cb492348ad227db077d97a1bdeb7c18f6a0f7a73a05c96ec40d1f",
+      "inputs_sha256": "9df22a5de489908232b781f50f9d32bbfcb59e68286310b450cef8331c287933",
       "cited_clauses": [
         "16.9.2"
       ],
@@ -59111,7 +59111,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sampled_function_in_clock_expression_unclocked.sv",
-      "inputs_sha256": "2362d531a1ab95d468534417bd51840bd83607aaff591e25de8eee1e6b625677",
+      "inputs_sha256": "37e439c49e0bf7eb7c3ad1b7e5a76fd6cbb0e5d9d167f7218eedb39fe1336fe7",
       "cited_clauses": [
         "16.9.3"
       ],
@@ -59154,7 +59154,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sampled_function_in_disable_condition_unclocked.sv",
-      "inputs_sha256": "06ce750f335f32463220e0e95702642f795c9ce6823b286c07d746ca492e7262",
+      "inputs_sha256": "415fc73628e259d356385314cf59f69cf164f9121a11751b2d33109c6f2ab7ec",
       "cited_clauses": [
         "16.9.3"
       ],
@@ -59197,7 +59197,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sampled_function_local_variable_argument.sv",
-      "inputs_sha256": "e946d5ea4233f79eb2a929fb6217e6df657c718d5658e3a0788caf9c477eb428",
+      "inputs_sha256": "2691abc256953e757ddcbaae2254a6a8f6419d008123cebcf8bbf1c8a62ef95e",
       "cited_clauses": [
         "16.9.3"
       ],
@@ -59240,7 +59240,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sampled_function_matched_argument.sv",
-      "inputs_sha256": "578d718fe4950176c1c64c864b2f362c0939f6604d40a090dd365572666d9748",
+      "inputs_sha256": "4d3850fd5082f49d36d2430f4f720c27886d6056aa01e9f1051988a1d62f666a",
       "cited_clauses": [
         "16.9.3"
       ],
@@ -59369,7 +59369,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_cycle_through_bodies.sv",
-      "inputs_sha256": "54900abded138f81221aedfef323246c3322bf7f3a6082df7292c3db1c1f25c2",
+      "inputs_sha256": "e1a7e07d0530fb0b6555f7a39a715f26466eed9cc6f19e340633fc32a2ecffe8",
       "cited_clauses": [
         "16.8"
       ],
@@ -59409,7 +59409,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_cycle_through_default_actual.sv",
-      "inputs_sha256": "eb97e4bc58ce8413e926d5449d4c58d6868c9b519ce70485899f26261efe5251",
+      "inputs_sha256": "e3ab17c83a733597259e117b942b3cb2bf398f8873aa797cf7cbdc4aab81398d",
       "cited_clauses": [
         "16.8"
       ],
@@ -59489,7 +59489,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_dollar_actual_exact_delay.sv",
-      "inputs_sha256": "4eefecc2d5ba93c496d7bcc96736745e3b67ec71a93ce2d6cafbd2a0da7462b4",
+      "inputs_sha256": "a2495b3f305b69ec53e30bbfc3ca667837cfe764412984770dcb144145dd02d8",
       "cited_clauses": [
         "16.8"
       ],
@@ -59529,7 +59529,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_dollar_actual_typed_formal.sv",
-      "inputs_sha256": "bfebd73dcef7ecd9dd9b6c6898f917acc739f7b36b46ecd9cfb97ef9ca1dd5c6",
+      "inputs_sha256": "0844eee1f5f1423434bded996cbd7e3587102ba78e825237c446f6880506d44e",
       "cited_clauses": [
         "16.8"
       ],
@@ -59569,7 +59569,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_event_formal_actual_not_event.sv",
-      "inputs_sha256": "f59f455361a08457475d39537f9e39dd6a72613640deefeffbd91e4f479f4df7",
+      "inputs_sha256": "5782ed65b9b83034460aa6524317ddf304a6a66ab0eaa9d3007d9e087e85ce56",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -59598,7 +59598,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_event_formal_as_boolean.sv",
-      "inputs_sha256": "45848cb3463a5bada8232be56bb155e0f7606d397a0f3dcbcbbeb9b2ca9468a4",
+      "inputs_sha256": "7a03e12eb875308858d74145413c70580039b360892f9a1e561d1bd32f729534",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -59627,7 +59627,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_event_formal_with_edge.sv",
-      "inputs_sha256": "ffd7a66a15f68f1668334c13c0f6b37b311dae3f937d471c1b8ef820d8deedca",
+      "inputs_sha256": "e2c1f3fdd08194b261481b478b06cfe587ff27469a7578e29a08e6bd8bca94c1",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -59654,7 +59654,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_formal_actual_property.sv",
-      "inputs_sha256": "809da64281767262b505985cecfe8861002900ec39472bd8d354860afe4555cf",
+      "inputs_sha256": "f92cfe104f27889243e224f74fc835e12ec7a049be47e3c544f6a83fdd465212",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -59683,7 +59683,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_formal_chandle_type.sv",
-      "inputs_sha256": "5007ce30c23bf7953ced968ffaa8b52ba72984c013bc95413705614ebfb6530c",
+      "inputs_sha256": "60b63aec559657d5b61b0e16f0578b29da1cd06b9331062e0d5987c3599b2b2a",
       "cited_clauses": [
         "16.8",
         "16.8.1"
@@ -59734,7 +59734,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_formal_event_default_not_event.sv",
-      "inputs_sha256": "df8c441e1220de0b7852bbddf2278870352691cc8d8bde4553b5e62e7a4b4d24",
+      "inputs_sha256": "64d766b69078d2b9d80fda4d80e258b866236f72654551439edf87e30f09b00c",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -59763,7 +59763,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_formal_goto_operand.sv",
-      "inputs_sha256": "45206920daaab2f0b96ff306459285d3b97c74430e0b40e341d680bcfd9b3edc",
+      "inputs_sha256": "c16994fc044d3c3d722d96dd17e6466387f350256ad68197a0d4882e53136efa",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -59792,7 +59792,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_inout_formal_without_local.sv",
-      "inputs_sha256": "0311395ab13ebc33829ffda390090a3fbce899b240ba677e05192fca1879d732",
+      "inputs_sha256": "ae6bab77e87fa4da7ecd33308821e50d01763835329a1345df9e6edde5694738",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -59828,7 +59828,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_input_formal_without_local.sv",
-      "inputs_sha256": "064ec8fcc9cfcb4cf8fab1a6bbfdda00d92c63a9dcf506a9f1510b4aaf2ea1ee",
+      "inputs_sha256": "ce94dbe36b85dbe3c504c4d4352055fcbcc85a3b805af0ae869eb9d32eaeb3c7",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -59864,7 +59864,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_local_formal_event_type.sv",
-      "inputs_sha256": "9e8f47ef8ea2061bb8506e2794308c1644be7c23c31d72a226634b891622cb3f",
+      "inputs_sha256": "7567e05053808f8aff1d57f75171099c96321b251180fbb5b05869a328355166",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -59897,7 +59897,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_local_formal_without_type.sv",
-      "inputs_sha256": "13d3bd9fbe1b66e27a71c1d8e1ef69cc98cc01d401e0a6a359b538744aebda4b",
+      "inputs_sha256": "e9bdb1dfb2bdad4ba3c63b070586cfc6cafa16f5f77291f42e8690bdaee88156",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -59930,7 +59930,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_local_formals_share_actual.sv",
-      "inputs_sha256": "942ad973b46ffc2b4d06c2b99493f734c2e795829e8699f6e25ecdd1a5d9edf8",
+      "inputs_sha256": "c04b0ae45ed376026f0057668842d0d6e00450ed05e4c73dbc46f3d79c4cbf42",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -59964,7 +59964,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_local_inout_default.sv",
-      "inputs_sha256": "ce63e7119490a5c2ecee34b642b10dcfb4dcc6f814934ee96e2178ce9ec89e1c",
+      "inputs_sha256": "70ee1cb159d21582c164eaab03a4703061db72168a6e44f2ab1fc1c0de6c017a",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -60000,7 +60000,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_local_inout_empty_match.sv",
-      "inputs_sha256": "66cc42654cc8ae23c312935f73210456986ec4f05216703da510db8ce4f3a2eb",
+      "inputs_sha256": "d21eb676268c87f1e6a8648e98fe3676568b19e38f90155b9b612b81625cbfe3",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -60034,7 +60034,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_local_input_actual_unassigned.sv",
-      "inputs_sha256": "c06861aa52185a4bb986bf3dfe6ececb69119c8ed9197890797387aeb5e9a4dc",
+      "inputs_sha256": "3239d2667742bc8277e03e73c817971847ecac1d00719eb9c3e3073f7fbc777a",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -60068,7 +60068,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_local_output_default.sv",
-      "inputs_sha256": "ff9b4d5b812013f87994e5eddc941d1c5c4c54d8b80fcd3dbd25cf5f6fceaafc",
+      "inputs_sha256": "5ad716429b201f425c9589ce57446f73367d60cbfe09596dea0f2e122baa00db",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -60104,7 +60104,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_local_output_unassigned.sv",
-      "inputs_sha256": "40b9e8e3cbdfc6c02e3885f697780c67ae2ff8ee8cd1befdecebc08f590a7e96",
+      "inputs_sha256": "c1fadf49266d124080bddc268d419cf7e85723df414c5132c732b7ff58ef04ec",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -60138,7 +60138,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_output_formal_without_local.sv",
-      "inputs_sha256": "363f62e296862f03631e5223b98e554b12779925c3428acf7df24e845c61fbd9",
+      "inputs_sha256": "eabc3bafe5fdd85f440aebe1a1ef6f9f6c49ac5a2c80a4d7a3dcb5a63adda6e5",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -60174,7 +60174,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_property_empty_match.sv",
-      "inputs_sha256": "cb8aa7bead69398bf0dddf495ec7703104ef90c6b9efb19a6bea530ea58fd17d",
+      "inputs_sha256": "448fdf3a9d69830479440ec68c8ff6b87e06eedde29d8c2cb733e7cd70551bc2",
       "cited_clauses": [
         "16.12.22",
         "16.12"
@@ -60232,7 +60232,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_property_no_match.sv",
-      "inputs_sha256": "a7b5f742fd54249231641331effc4cd5331c70ba51f5d52c1e86b12269623512",
+      "inputs_sha256": "7f21adbf38c5c3f547152178699e41d4cb6cf0da444fefdb906e3db541f74604",
       "cited_clauses": [
         "16.12.22",
         "16.12.2",
@@ -60292,7 +60292,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_typed_formal_delay_bit_vector.sv",
-      "inputs_sha256": "b119853ce8a97dcfb8aa7b6d108d8b111bd90f7d8e52b80fdd73aa872e6adc7d",
+      "inputs_sha256": "d2e3a8a50bd45de7d40681512b2cc600d711ab7a51c7181610dae6c668fb5df7",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -60321,7 +60321,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_typed_formal_match_assignment.sv",
-      "inputs_sha256": "e73609858b1ac31ec4693fb796ca6631abf3ed7f42303b053b973b4aaa0653f5",
+      "inputs_sha256": "265e90e97f7121bc87a8d61c71e4fddddc24537e420d03eb788e43490cc4f8a5",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -60350,7 +60350,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_typed_formal_match_increment.sv",
-      "inputs_sha256": "1ec897f2bb5ef3bd9a28812bf36350dddab3898c3364904f466116063878a941",
+      "inputs_sha256": "a72d3b6e989bec917fc82bf39ac3d746ceaa8a2425d470dbea8b91a87c9e2323",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -60379,7 +60379,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_typed_formal_repetition_byte.sv",
-      "inputs_sha256": "21d0a0b10d89550e80d7926db435d334d7d09668f0b85169796ab7af0d354940",
+      "inputs_sha256": "d7648481a89b7c0a8eadfd7bda3f99ae6e886c9c2edd24cef362cd3115e4435e",
       "cited_clauses": [
         "16.8.1"
       ],
@@ -60408,7 +60408,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_untyped_delay_actual_variable.sv",
-      "inputs_sha256": "de0f5dd66fdde8b3d7f0e0b705ec9493370ed3f0a5921c0d5dfc55d8cf1190e3",
+      "inputs_sha256": "2da8ed5cdeb9866e6abed277f0d50933ea6ac49e267731321f9803e64f8146ff",
       "cited_clauses": [
         "16.8"
       ],
@@ -60448,7 +60448,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_sequence_untyped_repetition_actual_variable.sv",
-      "inputs_sha256": "3357cd4f22bf313e5793aae8125ccd91818f80dd74cda047710a2d17e0cb747e",
+      "inputs_sha256": "1a0ec66bcc8ad84c0ea06e972e96c2fb857fc18ad66dbfc11c82e9f7367bffe1",
       "cited_clauses": [
         "16.8"
       ],
@@ -60488,7 +60488,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_strong_sequence_property_empty_match.sv",
-      "inputs_sha256": "f6a9eb0b693e0cc3de18602c822828db741c11f863e429d92e6ee5a217061f1c",
+      "inputs_sha256": "6e45b3dcaaee6d580d995fcede22252d5649516de98f011a71eed106926ea0be",
       "cited_clauses": [
         "16.12.2"
       ],
@@ -60512,7 +60512,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_triggered_ending_clock_differs.sv",
-      "inputs_sha256": "48635520e1186456dbce0bb92be949da5059d4c32ed2fc802a6746f83bc50f56",
+      "inputs_sha256": "6bb4e3915ab030df777d45c5936a6cbd313c813c1bd1322ce75074c95b0ea0c4",
       "cited_clauses": [
         "16.9.11"
       ],
@@ -60532,7 +60532,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_triggered_local_variable_formal_read_first.sv",
-      "inputs_sha256": "04aaf5e64ba7f7492ccea1515a1c853e831b38dcdeaec3d2f4f05026f99aa104",
+      "inputs_sha256": "12b4686f51a964645002395a43c8bbdd72e811896297d4c8b615319f38f5a964",
       "cited_clauses": [
         "16.10"
       ],
@@ -60579,7 +60579,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_triggered_local_variable_subexpression.sv",
-      "inputs_sha256": "ac95fa4ddcdf219a0409b0fb5928325c4ca3d64aa2cc2686295cdfa4032b9ddf",
+      "inputs_sha256": "4ae77b72a7003ff1f49b06fc974e6d37b7090a5ab9a912fa32d403e986a3a51a",
       "cited_clauses": [
         "16.10"
       ],
@@ -60626,7 +60626,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_triggered_on_local_inout_formal.sv",
-      "inputs_sha256": "0778339dec4cf659a047c18142d34430d4a8d4a9cfd59857744f16c9c84f9999",
+      "inputs_sha256": "d8ea98168ad9ceb2a06ef94063a8565b3de6e00fa7df17cb3b6ae71d055cbb0f",
       "cited_clauses": [
         "16.8.2"
       ],
@@ -60662,7 +60662,7 @@
     },
     {
       "test": "tests/ch16/test_illegal_weak_sequence_property_empty_match.sv",
-      "inputs_sha256": "8966ee63b9e78fdd3ab9a5f1e61a40865bd4120c1c94ac520221d6927dca27a9",
+      "inputs_sha256": "652922116aac1d2f597eb7b74f11a63241cde97df64a2a199f5c6164ae16aa2e",
       "cited_clauses": [
         "16.12.2"
       ],
@@ -73359,7 +73359,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_constraint_extends_no_override.sv",
-      "inputs_sha256": "36bac4d981830e88c9fa75ee6982b456002ab40e206d76a18250503d41208777",
+      "inputs_sha256": "bdbc84578834088036fbe1e7c45b0f169877cb528ca768625f11d22a04acc2a2",
       "cited_clauses": [
         "18.5.2"
       ],
@@ -73388,7 +73388,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_constraint_final_replaced.sv",
-      "inputs_sha256": "6387e845682c71f0430d38dbc67811d444645a74669892e8766640579fdc5312",
+      "inputs_sha256": "82658181089043423951dae6ac92990c6736b96777a3bf861773f57f918527f5",
       "cited_clauses": [
         "18.5.2"
       ],
@@ -73417,7 +73417,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_constraint_initial_override.sv",
-      "inputs_sha256": "2e209cf7cd2f232445ce3778e275a5a94cd941339b19444766a614a88afaa8f3",
+      "inputs_sha256": "75665777a213ab53f3065846d05ec0b5607caa82c2d025ff344ca0dc1f4929c6",
       "cited_clauses": [
         "18.5.2"
       ],
@@ -73496,7 +73496,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_constraint_specifier_block_mismatch.sv",
-      "inputs_sha256": "ffedef02c2205876112bbac694eed204f3bf529b340ca6d5e9e36fe653bb4c3b",
+      "inputs_sha256": "dd4217b54b8b722613437c04773b689d99bd5de838d224bace3769e8f0ae0b2a",
       "cited_clauses": [
         "18.5.2",
         "18.5.1"
@@ -73533,7 +73533,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_constraint_specifier_prototype_mismatch.sv",
-      "inputs_sha256": "171ff01e6a0bea7f74bf1fcb04963022a98bfcfe4ed76edabfcf653045a385c2",
+      "inputs_sha256": "17b482131b4b06aa4720b5b0139f9135465c7210cc3f2ec2fa4fac3fe8bfc9e3",
       "cited_clauses": [
         "18.5.2",
         "18.5.1"
@@ -73640,7 +73640,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_dist_no_rand_variable.sv",
-      "inputs_sha256": "08a014366dc352e6899c00dc61da0c09e910cb631a86fe11b30f11c83fdcb72d",
+      "inputs_sha256": "8359a0be251bdaa0315ac78a8069da0cd2bc8b8d67a01beffef0848f770fc935",
       "cited_clauses": [
         "18.5.3"
       ],
@@ -73712,7 +73712,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_dist_real_range_colon_equal.sv",
-      "inputs_sha256": "0020e0cb01821729c77bf08e9d5c50c68ac09529ed32a271864edd606124f659",
+      "inputs_sha256": "f8ba4daafb9e8bbc3ff00af55e18b4b6350a703ba9443ce4bdad3f1741842f5c",
       "cited_clauses": [
         "18.5.3"
       ],
@@ -73747,7 +73747,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_dist_real_range_no_weight.sv",
-      "inputs_sha256": "29b0225f91ea7bdceebba8edde631f5073242f62bf3b1c1b1cad9e18920cb33c",
+      "inputs_sha256": "6718784e62445d9515877f6894748ad53ac80d09e585dedeb2297f52403696cb",
       "cited_clauses": [
         "18.5.3"
       ],
@@ -73782,7 +73782,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_dist_two_defaults.sv",
-      "inputs_sha256": "b2f61446c992b982d5b23e50bb1a5df85a71ecb9ffd6091574ca4349456ee700",
+      "inputs_sha256": "bff2c13e6608447ad1a911c072d44c653086dca52e37eb22bd6cc10e9323b351",
       "cited_clauses": [
         "18.5.3"
       ],
@@ -73817,7 +73817,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_extern_constraint_before_class.sv",
-      "inputs_sha256": "a49681bf4c4b8277e3bc2d817e55611b6820ee7e45e37c687fea806bf7944a93",
+      "inputs_sha256": "ddbdef1241ac88f6386429112dac8a76df33227a857cb640cfde760592f4d534",
       "cited_clauses": [
         "18.5.1"
       ],
@@ -73841,7 +73841,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_extern_constraint_other_scope.sv",
-      "inputs_sha256": "b1b4b803421848cdf08fef6fa18edbcc949ceb74276c1882a7f3951d8c74989e",
+      "inputs_sha256": "a78411972dae1f2a30322c4c5d9fefe1b0f054d9a20ce32a102bdc14132d5b16",
       "cited_clauses": [
         "18.5.1"
       ],
@@ -73911,7 +73911,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_inline_constraint_super_unresolved.sv",
-      "inputs_sha256": "9427a11b34277b468303df24fc6c8315d8d51c257fb34a67070b16380d62ebb2",
+      "inputs_sha256": "e928869ef7a122131097002e1bab7fd2a20ea5f834319d4c47ffa7c8eda83836",
       "cited_clauses": [
         "18.7"
       ],
@@ -74170,7 +74170,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_pure_constraint_with_external.sv",
-      "inputs_sha256": "11f1c68d1d5638b939abbfca6fb29fcf6ccc6a11c9cefd43f594f833ced91ffc",
+      "inputs_sha256": "6d6b91f342b612773b4f2dbf3f4d784419d170500bbdc497b7314d10ca255a5c",
       "cited_clauses": [
         "18.5.2",
         "18.5.1"
@@ -74207,7 +74207,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_pure_constraint_with_prototype.sv",
-      "inputs_sha256": "217da53822d8512d95b540da06eb87a6d3505232e639911c1d1747747a46d90f",
+      "inputs_sha256": "a2b5f93c6781f78ba0ffc5addfe2275f9e0d73ce9ab385f7ef7d3b8ffb79098b",
       "cited_clauses": [
         "18.5.2"
       ],
@@ -74580,7 +74580,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_scope_randomize_with_list.sv",
-      "inputs_sha256": "ad3edf275e86761b7216198433eb0a3abef9662d1f4ac3c9a3a499af91749410",
+      "inputs_sha256": "603976f9217e062d1cfdd9d638581f83ef9df84d27f8adfba0721651d7c2f94a",
       "cited_clauses": [
         "18.7",
         "18.12"
@@ -74660,7 +74660,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_soft_constraint_state_only.sv",
-      "inputs_sha256": "e691de4c8e3a5b063ea1ecbcef056da25e20ae645a041f769b94526f313e17be",
+      "inputs_sha256": "39c28a24106afddb0470ea962536d5f9cb5c3e0a7679b5d148912a9afe67f338",
       "cited_clauses": [
         "18.5.13.1",
         "18.5.13"
@@ -74699,7 +74699,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_solve_before_circular.sv",
-      "inputs_sha256": "915741832a7d597fa10b82c2e8cafb26b28effcbb028d322345c25b07005dd35",
+      "inputs_sha256": "44883443b6dead20e1e22ad6744c4826bc3d1eb3617bf2b200c8fd7639f2816f",
       "cited_clauses": [
         "18.5.9"
       ],
@@ -74726,7 +74726,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_solve_before_parentheses.sv",
-      "inputs_sha256": "724290ede56c5d044fd424c51addbad85dc4b5ecf3d0f778fa88c679d42b4313",
+      "inputs_sha256": "11ea4a8765437c8195ee76a5d945364e40cf3314c8724f242cc418078a0cd030",
       "cited_clauses": [
         "18.5.9"
       ],
@@ -74831,7 +74831,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_solve_before_state_variable.sv",
-      "inputs_sha256": "859eddb6dcf328740bec595151fe26ffb3d7dbb0631fe752c062c2cae2c389b2",
+      "inputs_sha256": "dec47db8b5c5360f453423006011c224c8453bfc093fc9106daf101872198449",
       "cited_clauses": [
         "18.5.9"
       ],
@@ -74860,7 +74860,7 @@
     },
     {
       "test": "tests/ch18/test_illegal_solve_before_unpacked_array.sv",
-      "inputs_sha256": "db0f86746d06cae22a735d80fdddfec114b3fe9bad2e9974a5f203872c350202",
+      "inputs_sha256": "eb2c02f6c38ce183594197b6c7678709cf9d47344c70ef469ee3dcb34a5386ca",
       "cited_clauses": [
         "18.5.9"
       ],
@@ -82950,7 +82950,7 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_default_sequence_array.sv",
-      "inputs_sha256": "88b210c9743ab00719179bc02f3df54344524214465fe5555ee6e8e9fefc779c",
+      "inputs_sha256": "ea11bbb85308060f9f8994f2eb3e8c29fda204c92d73d0f6bf1d3af7ab138ccb",
       "cited_clauses": [
         "19.5.2"
       ],
@@ -82978,7 +82978,7 @@
     },
     {
       "test": "tests/ch19/test_illegal_cg_sample_arg_in_option.sv",
-      "inputs_sha256": "919f7f2e4fbd7fd00e3b6c90eeb0232ef8602a60a4de647809930d1b68ba4a66",
+      "inputs_sha256": "401f8b28a458684fec14d42ceb28faeb7d791c6b356291cf26308a3dc5b1922e",
       "cited_clauses": [
         "19.8.1"
       ],
@@ -89672,7 +89672,7 @@
     },
     {
       "test": "tests/ch20/test_illegal_array_query_dynamic_type_name.sv",
-      "inputs_sha256": "23e2f27f33200d931329e9efd3a82a59a13bb12fae1ccdba4658d779650287f7",
+      "inputs_sha256": "953ea3e859c74357394a65d7d35314e000cab87f27eecb615ce89c215e59447c",
       "cited_clauses": [
         "20.7"
       ],
@@ -104918,7 +104918,7 @@
     },
     {
       "test": "tests/ch22/test_directive_macro_expansion_not_in_comments_or_strings.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.2",
         "22.4",
@@ -105104,7 +105104,7 @@
     },
     {
       "test": "tests/ch22/test_directive_scope_across_include_until_superseded.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.2",
         "22.4",
@@ -105533,7 +105533,7 @@
     },
     {
       "test": "tests/ch22/test_illegal_begin_keywords_spans_include_boundary.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.14"
       ],
@@ -105840,7 +105840,7 @@
     },
     {
       "test": "tests/ch22/test_illegal_default_nettype_supply0.sv",
-      "inputs_sha256": "38d4bc3cb30313e505fdc6540eb92667244272505de30444fdca23320fc96450",
+      "inputs_sha256": "ff3741860ddac3c1973ec7f970963c3a1376671901ea47f8c675f94858ad6ef6",
       "cited_clauses": [
         "22.8"
       ],
@@ -106032,7 +106032,7 @@
     },
     {
       "test": "tests/ch22/test_illegal_include_absolute_path_in_angle_brackets.sv",
-      "inputs_sha256": "3afaf1409d98797f1911648996f78077425ccc4093daaeb65dfcd94cfaa03d9f",
+      "inputs_sha256": "581c45073b536d47c8ddf7d8c46d0aab8e9408832c4880fdb153a138fc467b9e",
       "cited_clauses": [
         "22.4"
       ],
@@ -106058,7 +106058,7 @@
     },
     {
       "test": "tests/ch22/test_illegal_include_absolute_path_not_searched.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.4"
       ],
@@ -106084,7 +106084,7 @@
     },
     {
       "test": "tests/ch22/test_illegal_include_line_trailing_code.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.4"
       ],
@@ -107024,7 +107024,7 @@
     },
     {
       "test": "tests/ch22/test_include_file_declarations.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.4"
       ],
@@ -107105,7 +107105,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_twice.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.4",
         "22.6",
@@ -107173,7 +107173,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.4",
         "22.5.1",
@@ -107251,7 +107251,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch22/test_include_guard_two_files.sv",
-        "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+        "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
         "reviewed_on": "2026-10-23",
         "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -107276,7 +107276,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.4"
       ],
@@ -107299,7 +107299,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch22/test_include_nested.sv",
-        "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+        "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
         "reviewed_on": "2026-10-23",
         "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -108457,7 +108457,7 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "b9d1e7a5c74660680a4433ce0a9b28d53318bee52cf43ec50a5b0378436c7010",
+      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
       "cited_clauses": [
         "22.3",
         "22.5",
@@ -110681,7 +110681,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_bind_instance_name_clashes_target_item.sv",
-      "inputs_sha256": "a8c3f20ab096ae7728a07253a240f6ef9b92487d410efa08ae40bd737d69cce5",
+      "inputs_sha256": "be4ea9a86de0b688fd05800ce61bc81fb4cfbc6dc6a3a6df35c4a60baaba6024",
       "cited_clauses": [
         "23.11"
       ],
@@ -110716,7 +110716,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_bind_module_into_interface.sv",
-      "inputs_sha256": "9d1c699ee0dcda9ca14c955d2bf93945f66ba6f69243e4091805b149244fa982",
+      "inputs_sha256": "c5359e5a83ad609552a4d927db9b8bcc678d4c0447ba9b7c94683f6c7b303f96",
       "cited_clauses": [
         "23.11"
       ],
@@ -110783,7 +110783,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_bind_type_override_not_matching.sv",
-      "inputs_sha256": "b5329bbe9050034acd82b5f3c3be08f600e8c4dcbd9e790878cda36db7c7ba4c",
+      "inputs_sha256": "39270acb6dc6b1792688cc0da860e6202f368b1919b72e0f3732b3426f4ee8b4",
       "cited_clauses": [
         "23.11"
       ],
@@ -110853,7 +110853,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_bind_under_bound_instance.sv",
-      "inputs_sha256": "3a5c30e76c28e33f669852051e612d443df448e4f7120e0dce9d0be359887813",
+      "inputs_sha256": "325c32e32acdcbf0bb21f16c23b5a7ca1b11852acb711cf7c953df5d8c8fbf29",
       "cited_clauses": [
         "23.11"
       ],
@@ -111302,7 +111302,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_implicit_name_port_declared_later.sv",
-      "inputs_sha256": "35a0e464b533d2bc1573b6fb7039b7db86c693614c33378cbb6156d0e9ab460b",
+      "inputs_sha256": "61fdaaae531fce4434dbae0a8ac3a01215e7477b6ecb88764541601d9da6f643",
       "cited_clauses": [
         "23.3.2.3"
       ],
@@ -111647,7 +111647,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_interconnect_left_after_elaboration.sv",
-      "inputs_sha256": "266624b5e4718a07cfa9402b38eba77a016963bb733e191e33f4fa4750db1747",
+      "inputs_sha256": "9677405f02f40f95f3eb0bfbe05d73b14bce3a6f0390fa9b6634f97e5b0f0e38",
       "cited_clauses": [
         "23.3.3.7.1"
       ],
@@ -111666,7 +111666,7 @@
     },
     {
       "test": "tests/ch23/test_illegal_interconnect_port_default.sv",
-      "inputs_sha256": "20cbc09dd281c233fae2d103f5ef93a7c319ca5160d2ff20f9f4fd3b5c042eff",
+      "inputs_sha256": "1a160c604507a8b8290946ed2bef4cfcaf01c296e7ee10ba0f7f8d79b70062c1",
       "cited_clauses": [
         "23.2.2.4"
       ],
@@ -122001,7 +122001,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_function_exported_by_two_modules.sv",
-      "inputs_sha256": "b4595830cad7f77a73083965f79099101a4457c687d6262648d92181368b7b53",
+      "inputs_sha256": "0d0c4b3b9a6bb31f3888ad15ea93150d30397750941ce9c2bc5500a75eeedf63",
       "cited_clauses": [
         "25.7.4"
       ],
@@ -122068,7 +122068,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_hierarchical_task_definition_not_declared.sv",
-      "inputs_sha256": "647cfba62ed952db880fa211cabd3daa3ab008c41cc397e424b0f464295dd241",
+      "inputs_sha256": "799fe2866105cb5d55c47b0df56e3089229d055cbd0b6e075fd33062afaaddf7",
       "cited_clauses": [
         "25.7"
       ],
@@ -122298,7 +122298,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_export_task_not_defined.sv",
-      "inputs_sha256": "a313e8927556257202a185e41ac5999eb4936ab871d1f532ad6f04175022e5ab",
+      "inputs_sha256": "56c83aef2190886105a87bf2043056d28404a9f95c4c7cb1062bc6ad811c0c2b",
       "cited_clauses": [
         "25.7"
       ],
@@ -122329,7 +122329,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_export_task_prototype_mismatch.sv",
-      "inputs_sha256": "254af1f533354c407d2d0f032cdaa82cae3254c14f24f5caeceafed83808d65c",
+      "inputs_sha256": "41133dbb3571dd10f3da464c9ae6524df06f661d4d0c17642f16f5e86ca3a61d",
       "cited_clauses": [
         "25.7"
       ],
@@ -122360,7 +122360,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_header_connection_mismatch.sv",
-      "inputs_sha256": "88fdfd349fd688aea03e01022703c7974e0d375bdef4a42e719d072181af65b5",
+      "inputs_sha256": "5d01f5005e6615b2b269986dcdc3f131c8c30385b6617bb4a1ae68dc87738605",
       "cited_clauses": [
         "25.5"
       ],
@@ -122575,7 +122575,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_prototype_argument_count.sv",
-      "inputs_sha256": "beb2cecb6e5d52b1b4ae18859973d46a202714688cf6b8522a63e3524ff4247b",
+      "inputs_sha256": "94017dfb9a648db4d56863e4671ea69f45124df1abf7b9f343900e70b5337d73",
       "cited_clauses": [
         "25.7"
       ],
@@ -122606,7 +122606,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_prototype_default_without_name.sv",
-      "inputs_sha256": "30ee0f6aacac0a30c889f95d960572e4df96ca0ddf96c54bc129e772009b304d",
+      "inputs_sha256": "086f59b0cced72dfa90af5093edce835264b6519e4046de26a6a8f79ca1064c2",
       "cited_clauses": [
         "25.7"
       ],
@@ -122637,7 +122637,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_prototype_formal_name_differs.sv",
-      "inputs_sha256": "7ee428259ed3e755eb721e41337fe4bdb5b544e42057ebbdf4b2594b24c24b38",
+      "inputs_sha256": "c50128ed4491027312469646104f5e0ad83866d697c1c508ad5e385dbe191b87",
       "cited_clauses": [
         "25.7"
       ],
@@ -122668,7 +122668,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_prototype_type_not_matching.sv",
-      "inputs_sha256": "b7929701e9317ee1d98b523fd901b7cbdc9471f3c1b8d6b5d5ca660086eb6b0e",
+      "inputs_sha256": "38b4607bef9fdc1e01df2287a63829fb1937226cd26313c2fd6e674f7cf5d882",
       "cited_clauses": [
         "25.7",
         "6.22.1"
@@ -122740,7 +122740,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_modport_prototype_unpacked_dimension_without_name.sv",
-      "inputs_sha256": "eb5f977413a4b711df848c91d729326c54103ccd953bc6a3a6ab9c5ab697a31c",
+      "inputs_sha256": "85a41c5dccf2d575f01202e515724523f2c97cd2611bb7e71d21adbdc955feac",
       "cited_clauses": [
         "25.7"
       ],
@@ -122801,7 +122801,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_specify_ref_port_terminal.sv",
-      "inputs_sha256": "f26d41fde77707625f1aa45148a40d5e30a2cd066ddbee8a0793d5b72aea9cb2",
+      "inputs_sha256": "07884b3e6c0ad557d3a9ab435878ff3b290d0e1ffd0bbfce1806257df4ca6754",
       "cited_clauses": [
         "25.6",
         "30.3"
@@ -122821,7 +122821,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_task_exported_by_two_modules.sv",
-      "inputs_sha256": "81625e6546cd417729f84fc1dead5f2b9ef055e129e1c802dd7b91cfb01de1cb",
+      "inputs_sha256": "9a9e920dbb1f7f106bbcf6372a4f00dc0710c407c33749c032aeb557d7343518",
       "cited_clauses": [
         "25.7.4"
       ],
@@ -122844,7 +122844,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_virtual_interface_as_interface_item.sv",
-      "inputs_sha256": "45c19647ca4cef275c605175f9f77cd36855cda634f72d09e2b5fd64df765754",
+      "inputs_sha256": "0fcaba168fb668a7f2083c540f5bb771ea621506d6e44446fcd43cb3cb1336ea",
       "cited_clauses": [
         "25.9"
       ],
@@ -122880,7 +122880,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_virtual_interface_as_union_member.sv",
-      "inputs_sha256": "359a4da359a0e43d4319433affbdd5c1550e98f8e73673bc5a5caf255b9d5b93",
+      "inputs_sha256": "2846e85f79ccfaba9b7d3c2343ebdd11feb516e6f029be1f1fca41003b070d4e",
       "cited_clauses": [
         "25.9"
       ],
@@ -123343,7 +123343,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_virtual_interface_with_interface_port.sv",
-      "inputs_sha256": "d518e9ad2337a6ca48664425db27a63d96e6163946cd1a53da3a48fa479e547f",
+      "inputs_sha256": "f92ddaf5de3319a679d59f62ee2ddfe7424fc785df85550f06047c2470e246dd",
       "cited_clauses": [
         "25.9"
       ],
@@ -123382,7 +123382,7 @@
     },
     {
       "test": "tests/ch25/test_illegal_virtual_interface_with_outside_reference.sv",
-      "inputs_sha256": "af1ca2e938ed444dfa0b4e3e1c5f3bcd9aa322a567605514f8b23acbe052089b",
+      "inputs_sha256": "edd1326a31bee6c37ec2d303ccfc484a1f7ec6d2b07b53da8dcedde0cd90c8a4",
       "cited_clauses": [
         "25.9"
       ],
@@ -149582,7 +149582,7 @@
     },
     {
       "test": "tests/ch30/test_illegal_edge_parallel_path_part_select_destination.sv",
-      "inputs_sha256": "266288325d466a31acd6651556a402fcd46c780c395c7624651c44511db8319f",
+      "inputs_sha256": "a19d84a872e2f988c17476553806e128638f4eadcea3212caff41a3b27fbadf4",
       "cited_clauses": [
         "30.4.3"
       ],
@@ -149788,7 +149788,7 @@
     },
     {
       "test": "tests/ch30/test_illegal_specify_edge_path_same_edge_and_condition.sv",
-      "inputs_sha256": "93c18bd159a6e130d2e354c9b9b159a7ab7dbcc7c37be5feecbb51f2f93c0290",
+      "inputs_sha256": "4d269751a5a19193ab24012f80dff1c3a6e01a0c7a23bc7b22996f7e522a327a",
       "cited_clauses": [
         "30.4.4.3"
       ],
@@ -157203,7 +157203,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_constant_function.sv",
-      "inputs_sha256": "bf3c2e375e50a5d45feaead8dfe10f69794fa5faf38b29ea7dad83c09f3dee8a",
+      "inputs_sha256": "d863684c3b71f94003bfb93d8b83222fe9962c2bc21dc6c654fa7732195e90d3",
       "cited_clauses": [
         "33.4.3",
         "13.4.3"
@@ -157311,7 +157311,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_generate_scope_path.sv",
-      "inputs_sha256": "393c87cfb9aca889b690abc1fec83c22ca28fb23b12e7e5e3c17763686804307",
+      "inputs_sha256": "ec1d36f2b7c043811ec13c89ff926f4623c6bc5f6fd0d8ea5bc696ce8c958496",
       "cited_clauses": [
         "33.4.3",
         "27.5"
@@ -157352,7 +157352,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_hierarchical_name_in_expression.sv",
-      "inputs_sha256": "2f9dc5d567fa8eb222e2742ac1596e6ec4755db9e066aec677dfb8c87b48f22d",
+      "inputs_sha256": "f26388d2cd1e35d368bf03fc05d4495f9372b84e370ed6b36b4bb73050a6421b",
       "cited_clauses": [
         "33.4.3"
       ],
@@ -157381,7 +157381,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_index_not_literal.sv",
-      "inputs_sha256": "05df004ee20abb501398c8665373839226e476ea754ddc351f27f2eb61c6bc92",
+      "inputs_sha256": "688e1718997a9e880decd7c06e78a6b32c48b297f9015aa9a3bcdfd3adc0c814",
       "cited_clauses": [
         "33.4.3"
       ],
@@ -157411,7 +157411,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_instance_array_path.sv",
-      "inputs_sha256": "c1b3bc8dba6443c8896d2e8d735ed818007b026e90f94207cceb951ad5d32cf0",
+      "inputs_sha256": "daafb4ab4652a12fa9e0df089280c364b3af8720bdc265f477f7041264c6588d",
       "cited_clauses": [
         "33.4.3",
         "23.3.3.5"
@@ -157474,7 +157474,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_localparam_not_literal.sv",
-      "inputs_sha256": "6fa6f35f95e2d2bc918db7b74f630dd31c714cc6a3617265d76178791e7423d0",
+      "inputs_sha256": "411e7376a751a57a4a01f9abe41ab9a7ec020677ae91944c74a7525babeeb63f",
       "cited_clauses": [
         "33.4.3",
         "33.4.1"
@@ -157510,7 +157510,7 @@
     },
     {
       "test": "tests/ch33/test_illegal_config_package_binding.sv",
-      "inputs_sha256": "67dd959faa838d619ae98bdb03471538230a77ba9dc1d0fed8cf2180f9644344",
+      "inputs_sha256": "bb8165201bfa9826b579cae22f8e32460dc2c899d2378f3ae7efbf9cd69e2885",
       "cited_clauses": [
         "33.4",
         "33.4.1.4",
@@ -162302,7 +162302,7 @@
     },
     {
       "test": "tests/ch35/test_illegal_dpi_import_override_specifier.sv",
-      "inputs_sha256": "36016e8dfacee2cfbc54f487371954a0f994326bbc17e1558e59b7e97e8a66de",
+      "inputs_sha256": "5c9ce5e8c0ded5c729717d42fa4b7aecdceebfd41e869bbab2b16926fe81fb4e",
       "cited_clauses": [
         "35.5.4",
         "8.20"
@@ -162346,7 +162346,7 @@
     },
     {
       "test": "tests/ch35/test_illegal_dpi_import_ref_formal.sv",
-      "inputs_sha256": "7a0ff09b663bd2bcf541f3cc516c598b952936923ca0f9979177f84390705880",
+      "inputs_sha256": "755891ad2405b98eb3d47a0bd73fdf878689a33618606c9c74f258905b039520",
       "cited_clauses": [
         "35.5.4",
         "35.5.6"
@@ -162438,7 +162438,7 @@
     },
     {
       "test": "tests/ch35/test_illegal_dpi_import_struct_result.sv",
-      "inputs_sha256": "f18c49f2afab486cc95954c4e8824ca6226374f4dc6e0bf10f395c1cb0488b08",
+      "inputs_sha256": "0986bb36b700dec067e8d2826d54918bf4f2962d8d3a235e62f9f57dd08dc8b8",
       "cited_clauses": [
         "35.5.4",
         "35.5.5"
@@ -162539,7 +162539,7 @@
     },
     {
       "test": "tests/ch35/test_illegal_dpi_pure_function_output.sv",
-      "inputs_sha256": "6f38d67d8b2eba634a92ce96cc684e698924665a0fb4fa17aab307055467a976",
+      "inputs_sha256": "b82e27dec700d920c506bc2307ddefd7a9c6196fa62efd1553c3361ba96accf0",
       "cited_clauses": [
         "35.5.1.3",
         "35.5.2"
@@ -162569,7 +162569,7 @@
     },
     {
       "test": "tests/ch35/test_illegal_dpi_pure_import_task.sv",
-      "inputs_sha256": "f85559b3fd0a01ca7e87aa0c4d42842e4154529c2d0c33819ec025b8a71127a0",
+      "inputs_sha256": "39252cdc44584cd02989afb605c84390f3b24a265c01914ebd26e723a8a460f5",
       "cited_clauses": [
         "35.5.1.3",
         "35.5.4"
@@ -244768,7 +244768,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_bitstream_cast_fixed_size_mismatch.sv",
-      "inputs_sha256": "2041a6e2e877791b69eef0427ff2df518d5b1bfbabd8eada00c8e476b490fdaa",
+      "inputs_sha256": "6679501e2192d901b92f5caa98d4eeab1a62a273a6b11e15481d50c5fb6954fb",
       "cited_clauses": [
         "6.24.3"
       ],
@@ -244876,7 +244876,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_cast_real_array_to_unpacked_array.sv",
-      "inputs_sha256": "c7bd31c2d345034f4c6d804872716d25206f2a6fb9dcfcc26d894f8275faa1a1",
+      "inputs_sha256": "ece1f1b4f92b1bf6c1bb631cbd3d80773f9ed17d15d5d60143b0a31b43c285d1",
       "cited_clauses": [
         "6.24.1"
       ],
@@ -245305,7 +245305,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_chandle_in_untagged_union.sv",
-      "inputs_sha256": "f98913e4d27c2153834424e18d965ada62cf7fe8099fd5e1ab7d004bba477ce9",
+      "inputs_sha256": "070cdc6e3b40bb0baa1a2e0a1c25beb3dc924ceed452f3c3e7082fd5c2bed021",
       "cited_clauses": [
         "6.14",
         "7.3"
@@ -245398,7 +245398,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_chandle_port.sv",
-      "inputs_sha256": "1a3070e075d776aecf3ba081a011343fbb3644f2d85e48f6aeb33d5cda58325a",
+      "inputs_sha256": "cbd944782f4ae679749d2586f9e5159415998fd71568e8779e13dfb7d5e683c8",
       "cited_clauses": [
         "6.14"
       ],
@@ -245730,7 +245730,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_continuous_assign_reads_class_member.sv",
-      "inputs_sha256": "2dc0bd0354e9506e9f63838cd686ecc4c7d3131f3b281bda4fb6b888ee5934c7",
+      "inputs_sha256": "9a89af2143e8a4d97dc923f70dd6c35d946b1a723a715aa976fe9facebbefa31",
       "cited_clauses": [
         "6.21",
         "8.4",
@@ -246017,7 +246017,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_dollar_assigned_to_real_parameter.sv",
-      "inputs_sha256": "1ed99ff6ccfdb23335ff3b6766fec4dd8c032f56271d76b190017507b75d5b7c",
+      "inputs_sha256": "57fff85e9cde53ebfc05af283da775acabff4add759250362edaa4ee7274e691",
       "cited_clauses": [
         "6.20.7"
       ],
@@ -246050,7 +246050,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_dollar_in_ordinary_expression.sv",
-      "inputs_sha256": "cd4c7956f0356b30a2cb05fb407d659551a092169e292a2fb5379bd3101cdbf9",
+      "inputs_sha256": "774756978495d1a777e9de1c9d44328442b5847a3e9c99e2929145e6570dbde7",
       "cited_clauses": [
         "6.20.7"
       ],
@@ -246153,7 +246153,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_dollar_with_operator_in_value_range.sv",
-      "inputs_sha256": "1baf0f915848a8b66e479aaea08f67a999cc8a87ce3f12ec68c70f5e33c2e602",
+      "inputs_sha256": "1c97e237aa79d298e4787b425b606893ca8fed982becf3694b528c6507560cde",
       "cited_clauses": [
         "6.20.7"
       ],
@@ -247856,7 +247856,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_interconnect_charge_strength.sv",
-      "inputs_sha256": "c76b44375b8f1dc378217040222fc8c14ed082eae639bb989dc32767650449b3",
+      "inputs_sha256": "df87c1635d3687f3ebdec6712eb7be4d5a1653127524bebd9cd929b5d5d5a734",
       "cited_clauses": [
         "6.7.1",
         "6.6.8"
@@ -247913,7 +247913,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_interconnect_data_type.sv",
-      "inputs_sha256": "3dd9ef95c4c76ff6b8bc2b19aa946f3351dce7cbcef10a53e1acebafaa8f0915",
+      "inputs_sha256": "9dfc970701ee18609bd9a4962b0015d28671d045aa5aee5c2ec5386098ef3a0f",
       "cited_clauses": [
         "6.7.1",
         "6.6.8"
@@ -247948,7 +247948,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch6/test_illegal_interconnect_data_type.sv",
-        "inputs_sha256": "3dd9ef95c4c76ff6b8bc2b19aa946f3351dce7cbcef10a53e1acebafaa8f0915",
+        "inputs_sha256": "9dfc970701ee18609bd9a4962b0015d28671d045aa5aee5c2ec5386098ef3a0f",
         "reviewed_on": "2026-10-22",
         "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -247971,7 +247971,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_interconnect_declaration_assignment.sv",
-      "inputs_sha256": "591fbfc4ef7533579cdb5afedabecc2570c37292f7644b622fb6243fae777bf9",
+      "inputs_sha256": "f75c89e08c608b966d91b10ed34fbbcb26eed2e1e2e0ce0e7b186e0500df7648",
       "cited_clauses": [
         "6.7.1",
         "6.6.8"
@@ -248007,7 +248007,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_interconnect_drive_strength.sv",
-      "inputs_sha256": "f6fcafa7b168e100b731ee0ec5dd75c2a08c5ba4ed82b99fe6688efd3b2f6238",
+      "inputs_sha256": "d8ebe5b7edad8abf6893ca02ada1a8df65afbc59fdadf0f2b40c6fe6066ddd33",
       "cited_clauses": [
         "6.7.1",
         "6.6.8"
@@ -248094,7 +248094,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_interconnect_two_delays.sv",
-      "inputs_sha256": "4436e0c8136a937dafffabd449a6e82ce0a0e386345e62a0fbc2c71ea55a0e15",
+      "inputs_sha256": "421319cf35c47c3ba524f1f68d1860313f37ddf675ec44cad760d5502b92a21a",
       "cited_clauses": [
         "6.7.1",
         "6.6.8"
@@ -248375,7 +248375,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_nettype_declares_variable.sv",
-      "inputs_sha256": "53b62b5f1946eecbe0764373d470bd10273321146cd6bd3d0ac6dcffeb7c8ca0",
+      "inputs_sha256": "c7002d6dcf1c6a4620a0158714c78ce1c19365c37f61b8bf7170eae06178d5d1",
       "cited_clauses": [
         "6.6.7"
       ],
@@ -248416,7 +248416,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_nettype_resolver_nonstatic_method.sv",
-      "inputs_sha256": "f208a1bd7c7f87efd01ae5acf19a628163116fd015b3b7ae36be6e154eb7da19",
+      "inputs_sha256": "cc4e59a52e4429cb28bbf5c584be30b8eb9e555293ff86b3203a564eab1d41c7",
       "cited_clauses": [
         "6.6.7",
         "8.10"
@@ -248463,7 +248463,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_nettype_resolver_resizes_driver_array.sv",
-      "inputs_sha256": "53133d4f89b4cfa8daa993d39a18da84c1cb260c5d669ecf084366e65f488575",
+      "inputs_sha256": "e21af73d41de2c4b03e944173bc21b1f7e173c9e257d7fb59753eeae16258d8d",
       "cited_clauses": [
         "6.6.7"
       ],
@@ -248504,7 +248504,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_nettype_resolver_return_type.sv",
-      "inputs_sha256": "96dc1148bce6219ea802315355f4fe9c24a4db3e1ffd4ddd25920f9cf39424fd",
+      "inputs_sha256": "485586805c26cd687ddfc2799f420674ef04503fb26768b9ba17c217e4f20239",
       "cited_clauses": [
         "6.6.7"
       ],
@@ -248545,7 +248545,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_nettype_resolver_side_effect.sv",
-      "inputs_sha256": "9b49b9bf92b904ab23ca99f168cb97b0d30cb93399932f21150012415d03d368",
+      "inputs_sha256": "110357e3d286931dd2e85787c5c07064075016c0b72aa0b0c2fae89146371f76",
       "cited_clauses": [
         "6.6.7"
       ],
@@ -248586,7 +248586,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_nettype_resolver_writes_driver_array.sv",
-      "inputs_sha256": "591d45577b1b78829a6feb544441648fd6543d61f28cd8364321613e4ab111b6",
+      "inputs_sha256": "d5e8234eb4836aa9ef13aef8d4e81b7bbc5e0f8027ccfef6dcb64fdbb972a59d",
       "cited_clauses": [
         "6.6.7"
       ],
@@ -248627,7 +248627,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_nettype_unresolved_two_drivers.sv",
-      "inputs_sha256": "657e288617be570aa3773d7507f88ea4773220c73bbd4f62acdea975c814a8f4",
+      "inputs_sha256": "f34145911bfc39ba94f68cd0eda3b9fed2cd7d4097c8b5fc28a28c3f047dffa0",
       "cited_clauses": [
         "6.6.7",
         "10.3"
@@ -250062,7 +250062,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_string_replication_real_multiplier.sv",
-      "inputs_sha256": "efab596d826f862d23bbc51d6eb1591548bbde52bc9404cd00707054111bc4ba",
+      "inputs_sha256": "7fbb903c326efd9c6c924a842d67ef937471e5e4fd4a2efe4ff855278d2e5264",
       "cited_clauses": [
         "6.16"
       ],
@@ -250251,7 +250251,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_type_operator_dynamic_array_element.sv",
-      "inputs_sha256": "1fdc1311f64f1fa40a2df4b0de82a3ccb60c5876670b0b7715d2a30721a36185",
+      "inputs_sha256": "6fb186fb2b98818c83fb559b072564a345515f5938af0d792b6c2fc117c5c6bc",
       "cited_clauses": [
         "6.23"
       ],
@@ -250279,7 +250279,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_type_operator_hierarchical_reference.sv",
-      "inputs_sha256": "5c262a475c3770c1fcd75bd4da2e595964b8c8da1b688de110a2cb2193285bd2",
+      "inputs_sha256": "8a144dc0edab00e900ad6a7f94ed92f4dc2febcedc44bcca7f6707257aed534a",
       "cited_clauses": [
         "6.23"
       ],
@@ -250460,7 +250460,7 @@
     },
     {
       "test": "tests/ch6/test_illegal_type_reference_variable_without_var.sv",
-      "inputs_sha256": "cb4ff280eb6dd710942072be851fb6171347dbcfa35c2dc6251123fbec0c02c6",
+      "inputs_sha256": "00287ec728133ed8d781242b244288ff492f5f8a79f6725c059c96e7797d8425",
       "cited_clauses": [
         "6.23"
       ],
@@ -276276,7 +276276,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_assoc_argument_different_index_type.sv",
-      "inputs_sha256": "9021b064639c15f2ed09bf6424f6f8bcee1e777a92742bcb9415b40f156b562a",
+      "inputs_sha256": "284d798e275c86bce873a137ce7a4c14d5de2a03c61387e3043fb09fdc329486",
       "cited_clauses": [
         "7.9.10"
       ],
@@ -276403,7 +276403,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_assoc_assign_different_index_type.sv",
-      "inputs_sha256": "98d403ef965f1024856c9c47c3ad8e86e00c16585fbf15ac75aaa9a4977ad014",
+      "inputs_sha256": "6ec35d40491c7e6c3bf8e67d65fa98999b5f4aaf434ba7b39c3f5bb9a28ab5d9",
       "cited_clauses": [
         "7.9.9"
       ],
@@ -276423,7 +276423,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_assoc_first_argument_type.sv",
-      "inputs_sha256": "81ff4010d002ec1cf5e72f8a35b43a74453d135f6c48b8a5a8e46e4b22141507",
+      "inputs_sha256": "de6cfbadf34b2f0ae8fa3f6de1296c92295e8a66bbdaad0c7d5374e744762882",
       "cited_clauses": [
         "7.9.4",
         "7.9.8"
@@ -276471,7 +276471,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_assoc_index_declares_enum.sv",
-      "inputs_sha256": "883a129366c34f054893d4e2f7114ea3154d63824be63926b13917d886094445",
+      "inputs_sha256": "ca36e40c9b446301dc24493ab013185c5262276822eb34f1256752f732af01c0",
       "cited_clauses": [
         "7.8"
       ],
@@ -276501,7 +276501,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_assoc_index_declares_struct.sv",
-      "inputs_sha256": "ab02caca7939fdc6be7da3661b88abc3f3fb0914dd37fb1527e60679d8d131b6",
+      "inputs_sha256": "41a617a782e88111c4592d1e5f0454ba84a898175c2e939ee1d8331910cdef4a",
       "cited_clauses": [
         "7.8"
       ],
@@ -276531,7 +276531,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_assoc_last_argument_type.sv",
-      "inputs_sha256": "08c97e4008e0b662d14af8b374fa8cc743cc0fa2852443455caf8cf9a0664e10",
+      "inputs_sha256": "2916ac0ebec321635c974c27c3b054784fec015bf1f66466e30a8140eaa2f65a",
       "cited_clauses": [
         "7.9.5",
         "7.9.8"
@@ -276559,7 +276559,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_assoc_next_argument_type.sv",
-      "inputs_sha256": "235f96ebd350b8cb8aeafef9c26994ffdf7b736420d25347c0be44b6f90bfc0d",
+      "inputs_sha256": "a41cb7049852c6b25e5f58b9d9a2b8a94771e0770790782d7dada302a2e27615",
       "cited_clauses": [
         "7.9.6",
         "7.9.8"
@@ -276588,7 +276588,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_assoc_prev_argument_type.sv",
-      "inputs_sha256": "c492769e080aa52bb8c269408c9d852085c2d094b0a5c03e09038a2dfc81ae4f",
+      "inputs_sha256": "a4a9a8cb27269ea5a3b12e48257b86a3217aa983637e04fba0fd45cbeecd47cd",
       "cited_clauses": [
         "7.9.7",
         "7.9.8"
@@ -276715,7 +276715,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_class_index_with_other_class.sv",
-      "inputs_sha256": "3b1aec8ded8b73c145fa62db4733475a4f722b4338405ec6ebdf902a6707e4e9",
+      "inputs_sha256": "1b33000d86a675212934da23b0fa58ad0403528d4dc24c7659b2a0a8608b313a",
       "cited_clauses": [
         "7.8.3"
       ],
@@ -276754,7 +276754,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_dynamic_array_to_assoc_argument.sv",
-      "inputs_sha256": "82d41c5d6491ab9cdd92209026e0cc43c0a7d2db9e411d845b30f5ba67e9e7d4",
+      "inputs_sha256": "31fe4b4162a2096f78cb6ae4910094fa4e28b5985279375d5ba9648e89b37372",
       "cited_clauses": [
         "7.9.10"
       ],
@@ -277348,7 +277348,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_iterator_argument_without_with.sv",
-      "inputs_sha256": "ea537458ee960b1d48f8e05d1022dba33969889191a84fc6aea44148de8c6c1d",
+      "inputs_sha256": "63979c9de52d59ebc71946fb4f6f6aed16d5675ce0a218bf2d8622e39a8f8025",
       "cited_clauses": [
         "7.12",
         "7.12.3"
@@ -277388,7 +277388,7 @@
       ],
       "scoped_review": {
         "test": "tests/ch7/test_illegal_iterator_argument_without_with.sv",
-        "inputs_sha256": "ea537458ee960b1d48f8e05d1022dba33969889191a84fc6aea44148de8c6c1d",
+        "inputs_sha256": "63979c9de52d59ebc71946fb4f6f6aed16d5675ce0a218bf2d8622e39a8f8025",
         "reviewed_on": "2026-10-22",
         "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -277478,7 +277478,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_min_with_struct_expression.sv",
-      "inputs_sha256": "ef64b78d208262608cd7701f3bb976af46139cb902d0bb9e2ecc004d327439bb",
+      "inputs_sha256": "9ad9cd17e1fd33536308795fdb4d41a17116082138568574dde7e902c6cd2052",
       "cited_clauses": [
         "7.12.1"
       ],
@@ -277714,7 +277714,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_packed_tagged_union_real_member.sv",
-      "inputs_sha256": "c849fbebd59d2f6c2e68c2b849c7f368fd146617ef8530912c0e939a53c9c4cd",
+      "inputs_sha256": "b7992f482fb5bf5cb3e00e70bf937019a039151b512b45545647e9ebc734288f",
       "cited_clauses": [
         "7.3.2"
       ],
@@ -277911,7 +277911,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_rand_member_in_packed_struct.sv",
-      "inputs_sha256": "0a5519f37646305f3fb08fcc5938a8f19d726842ea227aadddc6b0bfdf518a49",
+      "inputs_sha256": "f2bdc7e0a063737930accde41d01a83cd863119a1c1ea4dfa179ea535f6da5df",
       "cited_clauses": [
         "7.2"
       ],
@@ -277944,7 +277944,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_rand_member_in_union.sv",
-      "inputs_sha256": "357754ad196b8a3b8aa728cc147303a7ac598701ace4c4f34124e180eb0f17ce",
+      "inputs_sha256": "430e56c5a7600c325ffcd161ff5a8d35c07c13470eab0a940bf52dfc009b09d3",
       "cited_clauses": [
         "7.2"
       ],
@@ -277977,7 +277977,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_reduction_and_with_real_expression.sv",
-      "inputs_sha256": "bccb62aeb1b16fed8cdcb29803daf99f0ae884d4f4f145f2ea770f9dd08a7696",
+      "inputs_sha256": "5ed3c99a9da1c97426affe70af2f3e0462238cd98536240f43eeee2994e52f42",
       "cited_clauses": [
         "7.12.3"
       ],
@@ -278003,7 +278003,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_rsort_with_struct_expression.sv",
-      "inputs_sha256": "709d2fd95dccc570c972442c7ecd941ef5b859efe1ff3be6cce300ec208e64ff",
+      "inputs_sha256": "f56badd597c2f7e13fa683b4fa6e0df6f87d7765d6fabb2d93c089dac852a5c9",
       "cited_clauses": [
         "7.12.2"
       ],
@@ -278113,7 +278113,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_slice_element_type_not_equivalent.sv",
-      "inputs_sha256": "e80973234343774b7024ad339861cc2dfcd86403313145cab322973b91e9bb77",
+      "inputs_sha256": "48287c85dc70f0a2b3941294232c405d10dc04f2cafad93e39e8e91c50a8cf2a",
       "cited_clauses": [
         "7.6"
       ],
@@ -278144,7 +278144,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_slice_of_two_dimensions.sv",
-      "inputs_sha256": "b383897d07bfb90e77386a90b2d464d3f9fce82f4f0b0716df417545eef97a05",
+      "inputs_sha256": "0706a86e33af6530b3690bcabf78b18c90614c194c758c357f1da7d36c68913a",
       "cited_clauses": [
         "7.4.5"
       ],
@@ -278228,7 +278228,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_sort_with_struct_expression.sv",
-      "inputs_sha256": "e970ef4ae91ca78bbe09572e64f18a121f0d7bb6c47343bc18b770b0d37d49bf",
+      "inputs_sha256": "28b3513789c752911a1d80893c239c80230c99fdb0aaa67c80f0d1973f2116a5",
       "cited_clauses": [
         "7.12.2"
       ],
@@ -278741,7 +278741,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_void_member_in_struct.sv",
-      "inputs_sha256": "77cc76424df9e92a1247649360f841164938048d9dc6d3b35ae8d96155ae5b3a",
+      "inputs_sha256": "5dcee01cd476b7d5a5de21dd918d13e0afe9745005ca224bc015f74ec6ffd87b",
       "cited_clauses": [
         "7.2"
       ],
@@ -278774,7 +278774,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_void_member_in_untagged_union.sv",
-      "inputs_sha256": "06445122ff9d03d88170d338c0c9f911f92cbaedd4a736e22da462d60c57ffbc",
+      "inputs_sha256": "de9c3dabb285af43a2ae03f15a0f409b8b320f2eb0c7595b9f5465d239960a96",
       "cited_clauses": [
         "7.2"
       ],
@@ -278807,7 +278807,7 @@
     },
     {
       "test": "tests/ch7/test_illegal_wildcard_array_find.sv",
-      "inputs_sha256": "a2a2a861d383c238d05349bf63893a63def0ebc03272ee932b18f67512ad04eb",
+      "inputs_sha256": "a9139dc3a3a44b152fef997bc935760f428347f0591d51486df0fda5f8b3f6d5",
       "cited_clauses": [
         "7.8.1",
         "7.12.1"
@@ -291692,7 +291692,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_class_implements_type_parameter.sv",
-      "inputs_sha256": "d85fc7e8d98131a13ceb98754c1d791e6e06178d3d5dd17662176e875a855f0d",
+      "inputs_sha256": "caeb788819289adc8d47f026f59eb1e3c8a668e83b5177ad88ec061eafd74b76",
       "cited_clauses": [
         "8.26.4"
       ],
@@ -291736,7 +291736,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_class_method_virtual_twice.sv",
-      "inputs_sha256": "c9dfa17400eea0c621e2f555fc8cbb1f94341db03aebed362cfbaebd43e67917",
+      "inputs_sha256": "a9bef93343dc4093fac04ace7cedddc80c079f61f944948d78fa8077cea2b88d",
       "cited_clauses": [
         "8.3"
       ],
@@ -291895,7 +291895,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_const_static_instance_constant.sv",
-      "inputs_sha256": "085099620d00cda25b313646a660caba07571ef1db4ed7e75bebd480d579c20a",
+      "inputs_sha256": "761cf2be7f2feadfc1f3c6bddb5ad129d720ccc328d44ce16894ca073d5b38ba",
       "cited_clauses": [
         "8.19",
         "8.9"
@@ -291943,7 +291943,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_constructor_default_twice.sv",
-      "inputs_sha256": "11d9bda1af5e32a7c3149e83370fa1a90b92f39c88098dfc67afa0603d806754",
+      "inputs_sha256": "304581748baa9d958a4b993c66f362f2c257bc19b9af867b326dde96de912ed6",
       "cited_clauses": [
         "8.3"
       ],
@@ -292029,7 +292029,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_extern_body_outside_class_scope.sv",
-      "inputs_sha256": "c3fd31c988f5120418fcc4748c46cf352402a651bad6c9e5f39c13fc82eb5ab8",
+      "inputs_sha256": "f387635100988f0ae7d02596e6998e9ccfe82102ede5646ff964b4bfa9e7abe6",
       "cited_clauses": [
         "8.24",
         "27.5"
@@ -292193,7 +292193,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_extern_type_name_resolves_differently.sv",
-      "inputs_sha256": "6bd89a23b943e61932d177e59d0f75162ad89156acf1798622c43c9862ef63b9",
+      "inputs_sha256": "60b19d7470622888a3d5800afb7816f43616ef5b92aba126b25b64db19be4625",
       "cited_clauses": [
         "8.24"
       ],
@@ -292332,7 +292332,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_final_pure_virtual.sv",
-      "inputs_sha256": "e9c960210e629dcf79253592555b68f5a36c9c01e01ca99247094693665a7586",
+      "inputs_sha256": "74ec92180a7d48cd83a868f52860c7108f967d84e62a2405bc28c656250835e2",
       "cited_clauses": [
         "8.20",
         "8.21"
@@ -292368,7 +292368,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch8/test_illegal_final_pure_virtual.sv",
-        "inputs_sha256": "e9c960210e629dcf79253592555b68f5a36c9c01e01ca99247094693665a7586",
+        "inputs_sha256": "74ec92180a7d48cd83a868f52860c7108f967d84e62a2405bc28c656250835e2",
         "reviewed_on": "2026-10-22",
         "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -292443,7 +292443,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_forward_class_scope_prefix_in_variable_declaration.sv",
-      "inputs_sha256": "238b6b77bc9382b2ba65fff7db142a8854c26298b9de2b1e3b4f024c0f76c273",
+      "inputs_sha256": "97a46c5ac05357c15b844b0c6f0d6be214c226644fa91e48a551d84031037874",
       "cited_clauses": [
         "8.23",
         "8.27"
@@ -292499,7 +292499,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_implements_forward_typedef.sv",
-      "inputs_sha256": "2edb12b44b5bcf6a2428e96ca06b9c6df0ca88b4976e276bf24e59fb3d3630d7",
+      "inputs_sha256": "5a5d3163be8568ae838138d33104d812c7fc79faf79e60ab7bc21185349f5296",
       "cited_clauses": [
         "8.26.4"
       ],
@@ -292843,7 +292843,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_interface_class_extends_type_parameter.sv",
-      "inputs_sha256": "4e12abd5eddb6cc465fa6e9911e1c7c7a1effd46b73941d7ea8c4fe32db5c38b",
+      "inputs_sha256": "75b802a8795b5363224ad637797df34cc8b5bdfa56fa93f3fb230b5f63918bef",
       "cited_clauses": [
         "8.26.4"
       ],
@@ -293084,7 +293084,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_interface_class_parameter_conflict.sv",
-      "inputs_sha256": "768f591b88ad7a7e957c0b322d5b51ee6c159a2d74e25ca8ad84dbbeffcea357",
+      "inputs_sha256": "cfb4e19fc7ae37eaf19d36b6b4b5fccaa1436004de9dad8b062defa2233d4da8",
       "cited_clauses": [
         "8.26.6.2"
       ],
@@ -293139,7 +293139,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_interface_class_typedef_conflict.sv",
-      "inputs_sha256": "d3037d594aee906a83b1a90ed0b81debd6479ec0a7b3cd4118976e2417738c7b",
+      "inputs_sha256": "9739e41ac73b3105ec36ab8e19f41613bbf2938e96e3be41998b6f831106bfda",
       "cited_clauses": [
         "8.26.6.2"
       ],
@@ -293177,7 +293177,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_interface_extends_forward_typedef.sv",
-      "inputs_sha256": "390a023a1423d528791010c39a843c68c0080042987085a5dd59acee74d689d6",
+      "inputs_sha256": "a53aa69ef2f72a63dc302252767c460a7dbbe91f146388a2f0e908ac18ec90d4",
       "cited_clauses": [
         "8.26.4"
       ],
@@ -293297,7 +293297,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_interface_typedef_scope_prefix_in_variable_declaration.sv",
-      "inputs_sha256": "da7d28846f2178e245d36ea05a318c8bb1c1ddbb9ad097778ab3c07bdf0dc107",
+      "inputs_sha256": "6fdd4c62147cfa1c7c746f224dad4b74ec6ae787c281746c55de3778bad7c8cd",
       "cited_clauses": [
         "8.23",
         "6.18"
@@ -293698,7 +293698,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_override_specifier_outside_class.sv",
-      "inputs_sha256": "6a647bafa26f43fc9201cc8621024bb44d2667a269d77aa67776e8c0c60ee7b3",
+      "inputs_sha256": "df9336b8b3155fd1b1c700390c7335199f9f7fb90564938afbcc520c63b41969",
       "cited_clauses": [
         "8.3"
       ],
@@ -293761,7 +293761,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_pure_constraint_final.sv",
-      "inputs_sha256": "03bdb6ac7fea51f314277fa204b2d1e7735963d9215f212795e8db043f1d0be2",
+      "inputs_sha256": "f70560d53387609a425827a5b25700c2531fded43f0d43bc3b56c7b9daff0806",
       "cited_clauses": [
         "8.3"
       ],
@@ -293792,7 +293792,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_pure_virtual_method_final.sv",
-      "inputs_sha256": "de1d5b6732eb6f6a45c684f11f2945af91e521a4b105f2ddb11ab943254b0516",
+      "inputs_sha256": "cffd89f76c7da68f7776c4142025a884db1c2429ee1432de7d5c641cee3a4039",
       "cited_clauses": [
         "8.3"
       ],
@@ -293990,7 +293990,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_static_instance_constant.sv",
-      "inputs_sha256": "7c4ed3f2838109886a961319c2fea45a2732eb811e2d6c29e56b29ba4b95175c",
+      "inputs_sha256": "62b9de3d8a96141de5f92225573c6296a3db2ec3c035526e57450a602259264b",
       "cited_clauses": [
         "8.19",
         "8.9"
@@ -294013,7 +294013,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch8/test_illegal_static_instance_constant.sv",
-        "inputs_sha256": "7c4ed3f2838109886a961319c2fea45a2732eb811e2d6c29e56b29ba4b95175c",
+        "inputs_sha256": "62b9de3d8a96141de5f92225573c6296a3db2ec3c035526e57450a602259264b",
         "reviewed_on": "2026-10-22",
         "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -294080,7 +294080,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_super_new_default_without_default.sv",
-      "inputs_sha256": "34b111a45b7cc491978e242fc8361dc216fca10239e9cd990597c773f1e47d81",
+      "inputs_sha256": "fba672b762e62442af41c5bce7804ddb5159c6f2b31fe38f552ddb89f4d9e614",
       "cited_clauses": [
         "8.17"
       ],
@@ -294111,7 +294111,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/ch8/test_illegal_super_new_default_without_default.sv",
-        "inputs_sha256": "34b111a45b7cc491978e242fc8361dc216fca10239e9cd990597c773f1e47d81",
+        "inputs_sha256": "fba672b762e62442af41c5bce7804ddb5159c6f2b31fe38f552ddb89f4d9e614",
         "reviewed_on": "2026-10-22",
         "reviewer": "Codex (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -294710,7 +294710,7 @@
     },
     {
       "test": "tests/ch8/test_illegal_weak_reference_non_class.sv",
-      "inputs_sha256": "0686302b9f4fd754660884dce8b02a7235c0093b1519efb531c4b829612b925b",
+      "inputs_sha256": "6e24c4514bef82fd9bd50bc666db8a2f4f42b4b18ce0dda4f575923e7b4ea925",
       "cited_clauses": [
         "8.30.1"
       ],
@@ -301422,7 +301422,7 @@
     },
     {
       "test": "tests/ch9/test_illegal_class_extends_process.sv",
-      "inputs_sha256": "5fc4f4c755e01a1d52ea087b5e99b2e88feb69611f29aa391e17a13ea9218834",
+      "inputs_sha256": "4595c9e1d080dc20c96123af6ad80cc7d5b128244118da4b81c4509f0c9234f2",
       "cited_clauses": [
         "9.7"
       ],
@@ -301469,7 +301469,7 @@
     },
     {
       "test": "tests/ch9/test_illegal_comma_event_expression_positional_actual.sv",
-      "inputs_sha256": "7b7c3c346e05c5a26f04d5cc33fe1afa34051fa3315d1d08b63e142b65d2851d",
+      "inputs_sha256": "ac26f94d6da017145de046453671a1b22fb57023286f619de995c61a86c1a10f",
       "cited_clauses": [
         "9.4",
         "16.8.2"
@@ -302058,7 +302058,7 @@
     },
     {
       "test": "tests/ch9/test_illegal_override_specifier_on_module_function.sv",
-      "inputs_sha256": "255985d26b1754af04efd17c98024be368581d7c4c62250ae743db13ca09170f",
+      "inputs_sha256": "a51b6cc5107b2e215195603d705de9f1a7a4cc72dcb0e98199bf14d77e0a970e",
       "cited_clauses": [
         "9.2",
         "8.20"
@@ -462874,7 +462874,7 @@
     },
     {
       "test": "tests/imported/ch21/test_empty_argument_matrix.sv",
-      "inputs_sha256": "e0b9c461fdb5487d671ac71c12734c2878f9e20f395f9a0b7cb5fa1dd8fe7bf9",
+      "inputs_sha256": "10ca0a607ff9ee0ef92c8519e49ace57288d6170fd94fdaf7458c6ef61cd7ad5",
       "cited_clauses": [
         "21.2.1",
         "21.3.3"
@@ -462909,7 +462909,7 @@
       ],
       "scoped_review": {
         "test": "tests/imported/ch21/test_empty_argument_matrix.sv",
-        "inputs_sha256": "e0b9c461fdb5487d671ac71c12734c2878f9e20f395f9a0b7cb5fa1dd8fe7bf9",
+        "inputs_sha256": "10ca0a607ff9ee0ef92c8519e49ace57288d6170fd94fdaf7458c6ef61cd7ad5",
         "reviewed_on": "2026-10-25",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -462999,7 +462999,7 @@
     },
     {
       "test": "tests/imported/ch21/test_file_output_initial.sv",
-      "inputs_sha256": "3dca43db3a6fac7363378f5d7aa56cc4f2580640ca9a391a01db4417b01690e4",
+      "inputs_sha256": "546e58cc7cacbbed91e82ec163251e9d172e5d5c63a293da57e33e13b98e36c7",
       "cited_clauses": [
         "21.3.1",
         "21.3.2",
@@ -463039,7 +463039,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/imported/ch21/test_file_output_initial.sv",
-        "inputs_sha256": "3dca43db3a6fac7363378f5d7aa56cc4f2580640ca9a391a01db4417b01690e4",
+        "inputs_sha256": "546e58cc7cacbbed91e82ec163251e9d172e5d5c63a293da57e33e13b98e36c7",
         "reviewed_on": "2026-10-25",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -463149,7 +463149,7 @@
     },
     {
       "test": "tests/imported/ch22/test_unconnected_drive_none_module.sv",
-      "inputs_sha256": "8b72edb513e62d52a88bc89822361c1adfabca5075d744b3ef4926ef430651bc",
+      "inputs_sha256": "3657f8978b8d0ca097789459a56c87af8adfbd09050188916255cc13f9c2861e",
       "cited_clauses": [
         "22.9",
         "23.3.2.1",
@@ -463192,7 +463192,7 @@
       "broader_citations": [],
       "scoped_review": {
         "test": "tests/imported/ch22/test_unconnected_drive_none_module.sv",
-        "inputs_sha256": "8b72edb513e62d52a88bc89822361c1adfabca5075d744b3ef4926ef430651bc",
+        "inputs_sha256": "3657f8978b8d0ca097789459a56c87af8adfbd09050188916255cc13f9c2861e",
         "reviewed_on": "2026-10-25",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -463721,7 +463721,7 @@
     },
     {
       "test": "tests/imported/ch3/test_delay_negative_real_to_minus_one_const.sv",
-      "inputs_sha256": "199322dfa01c3ef29e768785a0be1f9bcad34f5a3220ebfe221355a673182587",
+      "inputs_sha256": "7d48a96f74db3d9743663f1c376050c5487c7deb99c470cccbe52f80671dc1e1",
       "cited_clauses": [
         "3.14.1",
         "6.12.1",
@@ -464588,7 +464588,7 @@
     "oracle_issue": 51,
     "partial_observation": 618
   },
-  "registry_sha256": "fd0ea1fd09c26bfde9ab271422b928444c370d22b6b8e2d47f4b8efc35ce9c40",
+  "registry_sha256": "c406fc5aa2b8155ade42bf5cb932ae87fdbeb65c6d6abaa4f1043d5fd0600f2f",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
-  "review_ledger_sha256": "7e5f4442ed0d21368b580e5cb8cdf905b311962ebc6d12b3ecebc7302d5bddb2"
+  "review_ledger_sha256": "0cf69fb8eee8fca400b47a95d0c8cbd947838c4a327b98af06593049aa64cb75"
 }

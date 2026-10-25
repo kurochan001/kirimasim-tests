@@ -42,47 +42,47 @@ The suite has **6799 tests** in 37 chapters. 1308 of them are generated (`tests/
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3815 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4092 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 1339 |
-| The standard only, where neither simulator follows it | 1645 |
+| The standard only, where neither simulator follows it | 1368 |
 
 855 tests depend on x or z values (`:fourstate: yes`). 512 tests come with C code: 97 DPI tests (`:dpi_c:`) and 415 VPI tests (`:vpi_c:`). 1695 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 20 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 19 name the top-level module (`:top_module:`), and 12 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 86 | 63 | 12 | 11 |
+| 3 | Design and verification building blocks | 86 | 64 | 12 | 10 |
 | 4 | Scheduling semantics | 410 | 389 | 5 | 16 |
 | 5 | Lexical conventions | 343 | 323 | 13 | 7 |
-| 6 | Data types | 560 | 321 | 128 | 111 |
-| 7 | Aggregate data types | 462 | 151 | 231 | 80 |
-| 8 | Classes | 287 | 46 | 174 | 67 |
-| 9 | Processes | 182 | 133 | 21 | 28 |
-| 10 | Assignment statements | 201 | 116 | 41 | 44 |
-| 11 | Operators and expressions | 821 | 687 | 90 | 44 |
-| 12 | Procedural programming statements | 175 | 121 | 28 | 26 |
-| 13 | Tasks and functions (subroutines) | 192 | 99 | 77 | 16 |
-| 14 | Clocking blocks | 77 |  | 60 | 17 |
+| 6 | Data types | 560 | 345 | 128 | 87 |
+| 7 | Aggregate data types | 462 | 174 | 231 | 57 |
+| 8 | Classes | 287 | 66 | 174 | 47 |
+| 9 | Processes | 182 | 136 | 21 | 25 |
+| 10 | Assignment statements | 201 | 132 | 41 | 28 |
+| 11 | Operators and expressions | 821 | 698 | 90 | 33 |
+| 12 | Procedural programming statements | 175 | 132 | 28 | 15 |
+| 13 | Tasks and functions (subroutines) | 192 | 104 | 77 | 11 |
+| 14 | Clocking blocks | 77 | 4 | 60 | 13 |
 | 15 | Interprocess synchronization and communication | 56 | 2 | 36 | 18 |
-| 16 | Assertions | 320 | 20 | 54 | 246 |
+| 16 | Assertions | 320 | 114 | 54 | 152 |
 | 17 | Checkers | 57 |  | 17 | 40 |
-| 18 | Constrained random value generation | 131 | 2 | 74 | 55 |
-| 19 | Functional coverage | 89 |  | 14 | 75 |
-| 20 | Utility system tasks and system functions | 255 | 197 | 22 | 36 |
-| 21 | Input/output system tasks and system functions | 178 | 128 | 13 | 37 |
-| 22 | Compiler directives | 347 | 323 | 11 | 13 |
-| 23 | Modules and hierarchy | 206 | 119 | 26 | 61 |
+| 18 | Constrained random value generation | 131 | 22 | 74 | 35 |
+| 19 | Functional coverage | 89 | 2 | 14 | 73 |
+| 20 | Utility system tasks and system functions | 255 | 198 | 22 | 35 |
+| 21 | Input/output system tasks and system functions | 178 | 130 | 13 | 35 |
+| 22 | Compiler directives | 347 | 326 | 11 | 10 |
+| 23 | Modules and hierarchy | 206 | 126 | 26 | 54 |
 | 24 | Programs | 43 | 21 | 5 | 17 |
-| 25 | Interfaces | 116 | 16 | 57 | 43 |
+| 25 | Interfaces | 116 | 32 | 57 | 27 |
 | 26 | Packages | 81 | 53 | 16 | 12 |
 | 27 | Generate constructs | 102 | 93 | 7 | 2 |
 | 28 | Gate-level and switch-level modeling | 244 | 193 | 3 | 48 |
 | 29 | User-defined primitives | 80 | 57 | 11 | 12 |
-| 30 | Specify blocks | 51 | 27 | 1 | 23 |
+| 30 | Specify blocks | 51 | 29 | 1 | 21 |
 | 31 | Timing checks | 51 | 10 |  | 41 |
 | 32 | Backannotation using the standard delay format | 47 | 15 |  | 32 |
-| 33 | Configuring the contents of a design | 36 | 4 | 7 | 25 |
+| 33 | Configuring the contents of a design | 36 | 11 | 7 | 18 |
 | 34 | Protected envelopes | — | | | |
-| 35 | Direct programming interface | 100 |  | 57 | 43 |
+| 35 | Direct programming interface | 100 | 5 | 57 | 38 |
 | 36 | Programming language interface (PLI/VPI) overview | 83 | 28 | 19 | 36 |
 | 37 | VPI object model diagrams | 179 | 14 | 1 | 164 |
 | 38 | VPI routine definitions | 82 | 43 | 5 | 34 |

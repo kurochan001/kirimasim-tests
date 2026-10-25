@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 75.04%、実行 41.59%。**
+**全規格の要求台帳ベース（暫定）: 設計 75.04%、実行 42.78%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -16,7 +16,7 @@
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
 - 登録済み動作に対するテスト設計網羅率: 9244/12319 (75.04%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5123/12319 (41.59%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5270/12319 (42.78%)。
 - 登録済みだがテスト未対応: 3075 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
@@ -47,12 +47,16 @@
 - `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2764/12319 動作確認、古い入力との対応 256 件。
+- `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 131/12319 動作確認、古い入力との対応 0 件。
+- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 13/12319 動作確認、古い入力との対応 245 件。
+- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 245 件。
 - `ch19-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:12:42.328492+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch19-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.443253+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch19-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.556516+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `ch22-rehash-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:05:38.835073+00:00 / 5/12319 動作確認、古い入力との対応 0 件。
-- `ch22-rehash-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:05:47.728789+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `ch22-rehash-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:05:47.728454+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
+- `ch22-rehash-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:05:38.835073+00:00 / 0/12319 動作確認、古い入力との対応 11 件。
+- `ch22-rehash-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:05:47.728789+00:00 / 0/12319 動作確認、古い入力との対応 11 件。
+- `ch22-rehash-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:05:47.728454+00:00 / 0/12319 動作確認、古い入力との対応 11 件。
 - `ch37-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:43:02.687407+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch37-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:43:02.822987+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch37-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:43:02.963097+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -67,21 +71,21 @@
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 195/12319 動作確認、古い入力との対応 14 件。
-- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 329/12319 動作確認、古い入力との対応 14 件。
-- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 329/12319 動作確認、古い入力との対応 14 件。
-- `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 612/12319 動作確認、古い入力との対応 6 件。
-- `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
-- `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
-- `gap4-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T14:32:08.355598+00:00 / 191/12319 動作確認、古い入力との対応 1 件。
-- `gap4-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.687753+00:00 / 141/12319 動作確認、古い入力との対応 1 件。
-- `gap4-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.575982+00:00 / 141/12319 動作確認、古い入力との対応 1 件。
-- `gap5-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:06:15.714744+00:00 / 108/12319 動作確認、古い入力との対応 1 件。
-- `gap5-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.553737+00:00 / 71/12319 動作確認、古い入力との対応 1 件。
-- `gap5-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.656775+00:00 / 71/12319 動作確認、古い入力との対応 1 件。
-- `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 119/12319 動作確認、古い入力との対応 0 件。
-- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 208/12319 動作確認、古い入力との対応 0 件。
-- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 208/12319 動作確認、古い入力との対応 0 件。
+- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 195/12319 動作確認、古い入力との対応 194 件。
+- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 329/12319 動作確認、古い入力との対応 194 件。
+- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 329/12319 動作確認、古い入力との対応 194 件。
+- `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 612/12319 動作確認、古い入力との対応 17 件。
+- `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 348/12319 動作確認、古い入力との対応 17 件。
+- `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 348/12319 動作確認、古い入力との対応 17 件。
+- `gap4-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T14:32:08.355598+00:00 / 191/12319 動作確認、古い入力との対応 7 件。
+- `gap4-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.687753+00:00 / 141/12319 動作確認、古い入力との対応 7 件。
+- `gap4-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.575982+00:00 / 141/12319 動作確認、古い入力との対応 7 件。
+- `gap5-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:06:15.714744+00:00 / 108/12319 動作確認、古い入力との対応 30 件。
+- `gap5-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.553737+00:00 / 71/12319 動作確認、古い入力との対応 30 件。
+- `gap5-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.656775+00:00 / 71/12319 動作確認、古い入力との対応 30 件。
+- `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 119/12319 動作確認、古い入力との対応 3 件。
+- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 208/12319 動作確認、古い入力との対応 3 件。
+- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 208/12319 動作確認、古い入力との対応 3 件。
 - `gap7-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T17:06:51.310506+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.035626+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.037049+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
@@ -94,7 +98,7 @@
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 926/12319 動作確認、古い入力との対応 76 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 926/12319 動作確認、古い入力との対応 88 件。
 - `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:16.559292+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -111,7 +115,7 @@
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 917/12319 動作確認、古い入力との対応 76 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 917/12319 動作確認、古い入力との対応 88 件。
 
 ## 章・附属書別の調査状態
 
@@ -3482,7 +3486,7 @@ An escaped identifier begins with backslash and terminates at whitespace.
 
 ### SV2023-5.6.1-EXTRACT-ESCAPE-CHARACTER-DOMAIN
 
-5.6.1 / normal / テスト対応あり・実行未確認
+5.6.1 / normal / 実行確認あり
 
 Escaped identifiers may contain printable ASCII values 33 through 126, excluding whitespace.
 
@@ -3863,7 +3867,7 @@ A decimal based literal may contain x/z/? only as its sole value digit, with all
 
 ### SV2023-5.7.1-EXTRACT-FILL-CONTEXT
 
-5.7.1 / normal / テスト対応あり・実行未確認
+5.7.1 / normal / 実行確認あり
 
 An unbased-unsized single-bit literal fills all context-required bits with its specified 0/1/x/z value.
 
@@ -4055,7 +4059,7 @@ Negative integer values use two's-complement representation.
 
 ### SV2023-5.7.1-EXTRACT-UNSIZED-LARGE-WIDTH
 
-5.7.1 / normal / テスト対応あり・実行未確認
+5.7.1 / normal / 実行確認あり
 
 An unsized value needing more than 32 bits retains at least all value bits and, when signed, a sign bit.
 
@@ -4191,7 +4195,7 @@ A real literal may be explicitly cast to shortreal using the casting rules.
 
 ### SV2023-5.8-EXTRACT-TIME-NUMERIC-FORM
 
-5.8 / normal / テスト対応あり・実行未確認
+5.8 / normal / 実行確認あり
 
 A time literal uses an integer or fixed-point numeric part and one of fs/ps/ns/us/ms/s.
 
@@ -7025,7 +7029,7 @@ A newly defined nettype requires an explicit data type; a declared net uses that
 
 ### SV2023-6.6.7-EXTRACT-NETTYPE-OBJECT-KIND
 
-6.6.7 / error / テスト対応あり・実行未確認
+6.6.7 / error / 実行確認あり
 
 A nettype names a net data type and optional resolver and is used to declare nets rather than variables.
 
@@ -7084,7 +7088,7 @@ A resolution function has automatic lifetime or otherwise preserves no state inf
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-INPUT-WRITES
 
-6.6.7 / error / テスト対応あり・実行未確認
+6.6.7 / error / 実行確認あり
 
 A resolution function must not write any part of its driver-array input argument.
 
@@ -7096,7 +7100,7 @@ A resolution function must not write any part of its driver-array input argument
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-RESIZE
 
-6.6.7 / error / テスト対応あり・実行未確認
+6.6.7 / error / 実行確認あり
 
 A resolution function must not resize its dynamic driver-array argument.
 
@@ -7108,7 +7112,7 @@ A resolution function must not resize its dynamic driver-array argument.
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NO-SIDE-EFFECTS
 
-6.6.7 / error / テスト対応あり・実行未確認
+6.6.7 / error / 実行確認あり
 
 A resolution function has no side effects.
 
@@ -7143,7 +7147,7 @@ Parameterized class-method variants may implement resolver specializations under
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-RETURN-TYPE
 
-6.6.7 / error / テスト対応あり・実行未確認
+6.6.7 / error / 実行確認あり
 
 A user resolver returns the matching nettype data type T.
 
@@ -7155,7 +7159,7 @@ A user resolver returns the matching nettype data type T.
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-STATIC-METHOD
 
-6.6.7 / error / テスト対応あり・実行未確認
+6.6.7 / error / 実行確認あり
 
 A class method used as a resolver is class-static, since resolution has no associated class object.
 
@@ -7179,7 +7183,7 @@ Distinct nettypes may share a data type while specifying different resolution fu
 
 ### SV2023-6.6.7-EXTRACT-UNRESOLVED-USER-NET-DRIVERS
 
-6.6.7 / error / テスト対応あり・実行未確認
+6.6.7 / error / 実行確認あり
 
 Without a resolver, a user-defined-nettype net must not have multiple drivers.
 
@@ -9176,7 +9180,7 @@ Chandles cannot be used in packed types.
 
 ### SV2023-6.14-EXTRACT-NO-PORT
 
-6.14 / error / テスト対応あり・実行未確認
+6.14 / error / 実行確認あり
 
 Chandles cannot be used in port data types.
 
@@ -9188,7 +9192,7 @@ Chandles cannot be used in port data types.
 
 ### SV2023-6.14-EXTRACT-NO-UNTAGGED-UNION
 
-6.14 / error / テスト対応あり・実行未確認
+6.14 / error / 実行確認あり
 
 Chandles cannot be used in untagged unions.
 
@@ -12264,7 +12268,7 @@ A dollar actual argument to a sequence/property/checker is permitted when forwar
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-CONTEXT-LIMIT
 
-6.20.7 / error / テスト対応あり・実行未確認
+6.20.7 / error / 実行確認あり
 
 Standalone dollar is allowed only in the explicitly listed queue, range, coverage, temporal-argument/bound and parameter contexts.
 
@@ -12309,7 +12313,7 @@ A dollar cycle-delay upper bound denotes a finite but unbounded maximum.
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-ENTIRE-EXPRESSION
 
-6.20.7 / error / テスト対応あり・実行未確認
+6.20.7 / error / 実行確認あり
 
 Dollar must be a complete self-contained expression except that queue select expressions can combine it with operators.
 
@@ -12321,7 +12325,7 @@ Dollar must be a complete self-contained expression except that queue select exp
 
 ### SV2023-6.20.7-EXTRACT-DOLLAR-PARAMETER-TYPE
 
-6.20.7 / error / テスト対応あり・実行未確認
+6.20.7 / error / 実行確認あり
 
 A dollar value may be assigned only to a value parameter of a simple bit-vector type.
 
@@ -12653,7 +12657,7 @@ An explicit static variable in an automatic task/function/block retains static l
 
 ### SV2023-6.21-EXTRACT-UNIT-STATIC
 
-6.21 / normal / テスト対応あり・実行未確認
+6.21 / normal / 実行確認あり
 
 Variables outside the listed design/subroutine scopes are compilation-unit-local and static.
 
@@ -13000,7 +13004,7 @@ A nettype matches itself and nets declared using it within its type identifier s
 
 ### SV2023-6.23-EXTRACT-NO-DYNAMIC-ELEMENT-OPERAND
 
-6.23 / error / テスト対応あり・実行未確認
+6.23 / error / 実行確認あり
 
 A type operator expression cannot reference elements of dynamic objects.
 
@@ -13012,7 +13016,7 @@ A type operator expression cannot reference elements of dynamic objects.
 
 ### SV2023-6.23-EXTRACT-NO-HIERARCHICAL-OPERAND
 
-6.23 / error / テスト対応あり・実行未確認
+6.23 / error / 実行確認あり
 
 A type operator expression cannot contain hierarchical references.
 
@@ -13119,7 +13123,7 @@ type(this) denotes the type of the enclosing class.
 
 ### SV2023-6.23-EXTRACT-TYPE-VAR-PREFIX
 
-6.23 / error / テスト対応あり・実行未確認
+6.23 / error / 実行確認あり
 
 A variable declaration using a type reference must prefix it with var.
 
@@ -13795,7 +13799,7 @@ A structure declaration does not support a C-style structure tag identifier befo
 
 ### SV2023-7.2-EXTRACT-RANDOM-ONLY-UNPACKED-STRUCT
 
-7.2 / error / テスト対応あり・実行未確認
+7.2 / error / 実行確認あり
 
 A random qualifier on a struct/union member is permitted only for an unpacked structure.
 
@@ -13866,7 +13870,7 @@ An unpacked structure can contain any data type under the specific member/defaul
 
 ### SV2023-7.2-EXTRACT-VOID-ONLY-TAGGED
 
-7.2 / error / テスト対応あり・実行未確認
+7.2 / error / 実行確認あり
 
 A void member is permitted only in a tagged union.
 
@@ -14333,7 +14337,7 @@ Tagged packed representation rules apply recursively to nested tagged unions.
 
 ### SV2023-7.3.2-EXTRACT-PACKED-TAGGED-MEMBERS
 
-7.3.2 / error / テスト対応あり・実行未確認
+7.3.2 / error / 実行確認あり
 
 Packed tagged union members must have packed types, but their sizes may differ.
 
@@ -15027,7 +15031,7 @@ An invalid unpacked-array index read for a virtual interface element returns nul
 
 ### SV2023-7.4.5-EXTRACT-ONE-SLICE-DIMENSION
 
-7.4.5 / error / テスト対応あり・実行未確認
+7.4.5 / error / 実行確認あり
 
 An expression can slice only one array dimension; other dimensions may have single indices.
 
@@ -15745,7 +15749,7 @@ A missing associative entry is allocated when used as an assignment target or ac
 
 ### SV2023-7.8-EXTRACT-ASSOCIATIVE-DECLARATION
 
-7.8 / error / テスト対応あり・実行未確認
+7.8 / error / 実行確認あり
 
 An associative array declares an element type legal for fixed arrays, an identifier and an existing index type or wildcard *; the bracketed index type cannot itself declare a new type.
 
@@ -15997,7 +16001,7 @@ Class associative index ordering is deterministic but arbitrary; no numeric/addr
 
 ### SV2023-7.8.3-EXTRACT-CLASS-OR-DERIVED
 
-7.8.3 / error / テスト対応あり・実行未確認
+7.8.3 / error / 実行確認あり
 
 A class-index array accepts handles of its declared class or derived classes; other types cause a type-check error.
 
@@ -16544,7 +16548,7 @@ Associative-array prev is an int-returning method whose index argument is passed
 
 ### SV2023-7.9.7-INDEX-ARGUMENT-TYPE
 
-7.9.7 / error / テスト対応あり・実行未確認
+7.9.7 / error / 実行確認あり
 
 The prev() reference argument has an index type appropriate to the associative array.
 
@@ -16597,7 +16601,7 @@ If a traversal argument integral type is narrower than the index type, the retur
 
 ### SV2023-7.9.8-EXTRACT-TRAVERSAL-ASSIGNMENT-COMPATIBLE
 
-7.9.8 / error / テスト対応あり・実行未確認
+7.9.8 / error / 実行確認あり
 
 first/last/next/prev require an argument assignment compatible with the associative index type.
 
@@ -17881,7 +17885,7 @@ and() returns the bitwise AND of all element values or all per-element with-expr
 
 ### SV2023-7.12.3-EXTRACT-OPERATOR-DEFINED
 
-7.12.3 / error / テスト対応あり・実行未確認
+7.12.3 / error / 実行確認あり
 
 Omitting with requires the corresponding operation on element type; supplying with requires it on expression type.
 
@@ -18249,7 +18253,7 @@ The class grammar defines permitted property/const/method forms with static/loca
 
 ### SV2023-8.3-EXTRACT-NO-PURE-FINAL
 
-8.3 / error / テスト対応あり・実行未確認
+8.3 / error / 実行確認あり
 
 A pure virtual method or pure constraint cannot be declared final.
 
@@ -18275,7 +18279,7 @@ A declaration may contain static and virtual each at most once.
 
 ### SV2023-8.3-EXTRACT-ONE-CONSTRUCTOR-DEFAULT
 
-8.3 / error / テスト対応あり・実行未確認
+8.3 / error / 実行確認あり
 
 A constructor argument list may contain the default keyword at most once.
 
@@ -20024,7 +20028,7 @@ An out-of-block method requires a class-body extern prototype with full argument
 
 ### SV2023-8.24-EXTRACT-EXTERN-SAME-NAME-RESOLUTION
 
-8.24 / error / テスト対応あり・実行未確認
+8.24 / error / 実行確認あり
 
 Each corresponding prototype and external header identifier must resolve to the same declaration, or an error is required.
 
@@ -20512,7 +20516,7 @@ Interface extends inherits its parameters/typedefs; implements does not inherit 
 
 ### SV2023-8.26.4-EXTRACT-NO-FORWARD-INTERFACE-BASE
 
-8.26.4 / error / テスト対応あり・実行未確認
+8.26.4 / error / 実行確認あり
 
 An interface must be fully declared before being implemented/extended; a forward typedef does not suffice.
 
@@ -20536,7 +20540,7 @@ A class cannot implement a type parameter even if that parameter resolves to an 
 
 ### SV2023-8.26.4-EXTRACT-NO-INTERFACE-EXTENDS-PARAMETER
 
-8.26.4 / error / テスト対応あり・実行未確認
+8.26.4 / error / 実行確認あり
 
 An interface class cannot extend a type parameter even if it resolves to an interface class.
 
@@ -20666,7 +20670,7 @@ Matching parameter types/values or absence of uses does not remove a name collis
 
 ### SV2023-8.26.6.2-EXTRACT-REDECLARE-PARAMETER-TYPE-CONFLICT
 
-8.26.6.2 / error / テスト対応あり・実行未確認
+8.26.6.2 / error / 実行確認あり
 
 An interface subclass inheriting same-named type/parameter declarations from different interface classes must override every collision with its own declaration.
 
@@ -21568,7 +21572,7 @@ All always_comb requirements apply to always_latch except the intended logic-sha
 
 ### SV2023-9.2.2.4-EXTRACT-EXACTLY-ONE-EVENT
 
-9.2.2.4 / error / テスト対応あり・実行未確認
+9.2.2.4 / error / 実行確認あり
 
 always_ff must contain exactly one event control and no blocking timing controls.
 
@@ -22089,7 +22093,7 @@ A label before any procedural nondeclaration statement uses identifier colon and
 
 ### SV2023-9.4-EXTRACT-COMMA-ACTUAL-PARENTHESES
 
-9.4 / error / テスト対応あり・実行未確認
+9.4 / error / 実行確認あり
 
 An event expression with comma-separated components used as a positional actual argument must be parenthesized.
 
@@ -22145,7 +22149,7 @@ Timing statements support delay/event/cycle controls with statement-or-null, rep
 
 ### SV2023-9.4.1-EXTRACT-NEGATIVE-DELAY-UNSIGNED
 
-9.4.1 / normal / テスト対応あり・実行未確認
+9.4.1 / normal / 実行確認あり
 
 A negative delay is interpreted as a two-complement unsigned integer of time-variable width.
 
@@ -23208,7 +23212,7 @@ A function cannot suspend its own current process.
 
 ### SV2023-9.7-EXTRACT-NO-PROCESS-EXTENSION
 
-9.7 / error / テスト対応あり・実行未確認
+9.7 / error / 実行確認あり
 
 Attempting to extend process is a compilation error.
 
@@ -23530,7 +23534,7 @@ vectored/scalared require at least one packed dimension.
 
 ### SV2023-10.3-EXTRACT-CONTINUOUS-FORMS
 
-10.3 / normal / テスト対応あり・実行未確認
+10.3 / normal / 実行確認あり
 
 Continuous assignment is available through a net declaration assignment or a standalone continuous assign statement.
 
@@ -23578,7 +23582,7 @@ Net declarations support built-in net type with permitted strength/advisory/type
 
 ### SV2023-10.3-EXTRACT-TRIREG-CHARGE-ONLY
 
-10.3 / error / テスト対応あり・実行未確認
+10.3 / error / 実行確認あり
 
 Charge strength may be specified only with trireg.
 
@@ -23602,7 +23606,7 @@ A net declaration assignment is a continuous driver declared together with the n
 
 ### SV2023-10.3.1-EXTRACT-NO-INTERCONNECT-INITIALIZER
 
-10.3.1 / error / テスト対応あり・実行未確認
+10.3.1 / error / 実行確認あり
 
 An interconnect net cannot have a declaration assignment.
 
@@ -23854,7 +23858,7 @@ A drive strength cannot specify both highz1 and highz0 in either order.
 
 ### SV2023-10.3.4-EXTRACT-ONE-STRENGTH-KEYWORDS
 
-10.3.4 / normal / テスト対応あり・実行未確認
+10.3.4 / normal / 実行確認あり
 
 The one-value strengths are supply1/strong1/pull1/weak1/highz1.
 
@@ -23914,7 +23918,7 @@ A drive strength provides one value for assigned one and one for assigned zero.
 
 ### SV2023-10.3.4-EXTRACT-ZERO-STRENGTH-KEYWORDS
 
-10.3.4 / normal / テスト対応あり・実行未確認
+10.3.4 / normal / 実行確認あり
 
 The zero-value strengths are supply0/strong0/pull0/weak0/highz0.
 
@@ -23997,7 +24001,7 @@ With intra-assignment timing, LHS index/handle/virtual-interface evaluation occu
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-SEQUENTIAL
 
-10.4.1 / normal / テスト対応あり・実行未確認
+10.4.1 / normal / 実行確認あり
 
 A blocking assignment finishes before the next statement in its sequential block but does not block other parallel branches.
 
@@ -24981,7 +24985,7 @@ A default key can fill structure members including nested structure members and 
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-DEFAULT-TYPE
 
-10.9.2 / error / テスト対応あり・実行未確認
+10.9.2 / error / 実行確認あり
 
 For simple-vector, self-type-matching or nonarray/nonstruct members, default evaluates in each member assignment context and must be castable; invalid type application is an error.
 
@@ -25227,7 +25231,7 @@ An assignment-like unpacked-array target makes braces an unpacked array concaten
 
 ### SV2023-10.10.3-EXTRACT-CONCAT-IN-NONDEFAULT-PATTERN
 
-10.10.3 / error / テスト対応あり・実行未確認
+10.10.3 / error / 実行確認あり
 
 A nondefault assignment-pattern item has assignment-like context and may itself contain an unpacked concatenation; default items lack that permission.
 
@@ -25239,7 +25243,7 @@ A nondefault assignment-pattern item has assignment-like context and may itself 
 
 ### SV2023-10.10.3-EXTRACT-NO-NESTED-UNTYPED-CONCAT
 
-10.10.3 / error / テスト対応あり・実行未確認
+10.10.3 / error / 実行確認あり
 
 An unpacked concatenation cannot directly contain another unpacked concatenation because its items require self-determined types; vector/string concatenations may be items.
 
@@ -25287,7 +25291,7 @@ Multiple alias statements involving the same nets accumulate connectivity under 
 
 ### SV2023-10.11-EXTRACT-ALIAS-EQUAL-WIDTH
 
-10.11 / error / テスト対応あり・実行未確認
+10.11 / error / 実行確認あり
 
 Every alias member must have the same bit count with packed-union-style overlays, independent of the host.
 
@@ -25346,7 +25350,7 @@ Alias statements may appear wherever module instance statements are allowed.
 
 ### SV2023-10.11-EXTRACT-ALIAS-SAME-NET-TYPE
 
-10.11 / error / テスト対応あり・実行未確認
+10.11 / error / 実行確認あり
 
 Aliased signals must have the same compatible net type; mismatched wired net types are a fatal error.
 
@@ -25382,7 +25386,7 @@ Variables and hierarchical references are prohibited in aliases; violating alias
 
 ### SV2023-10.11-EXTRACT-NO-DUPLICATE-SELF-ALIAS
 
-10.11 / error / テスト対応あり・実行未確認
+10.11 / error / 実行確認あり
 
 An individual signal cannot be aliased to itself and a specific alias relation cannot be specified more than once.
 
@@ -26424,7 +26428,7 @@ For a concatenated LHS, assignment-expression type is unsigned integral with wid
 
 ### SV2023-11.3.6-EXTRACT-NO-ASSIGNMENT-EVENT-CONTINUOUS
 
-11.3.6 / error / テスト対応あり・実行未確認
+11.3.6 / error / 実行確認あり
 
 Assignment operators are prohibited in event expressions, procedural-continuous RHS expressions and expressions outside procedural statements.
 
@@ -27359,7 +27363,7 @@ If either integral equality operand is unsigned, comparison is unsigned with zer
 
 ### SV2023-11.4.6-EXTRACT-RIGHT-ONLY-WILDCARD
 
-11.4.6 / normal / テスト対応あり・実行未確認
+11.4.6 / normal / 実行確認あり
 
 An RHS wildcard matches any 0/1/x/z LHS bit; LHS unknowns are not wildcards and other bits follow logical equality.
 
@@ -29239,7 +29243,7 @@ A class/interface conditional with one literal null branch has the other branch 
 
 ### SV2023-11.4.11-EXTRACT-OTHER-EQUIVALENT-TYPES
 
-11.4.11 / error / テスト対応あり・実行未確認
+11.4.11 / error / 実行確認あり
 
 For other conditional operand categories not handled by prior rules, both branch types must be equivalent.
 
@@ -29324,7 +29328,7 @@ Concatenation uses braces without an apostrophe, unlike assignment-pattern aggre
 
 ### SV2023-11.4.12-EXTRACT-CONCAT-SELECT
 
-11.4.12 / error / テスト対応あり・実行未確認
+11.4.12 / error / 実行確認あり
 
 Concatenation bits may be read by selecting a packed [n-1:0] representation, but such a select cannot be an lvalue or equivalent assignment target.
 
@@ -30050,7 +30054,7 @@ Streaming with accepts a bracketed integral single-index, colon range or indexed
 
 ### SV2023-11.4.14.4-EXTRACT-WITH-ARRAY-TYPE
 
-11.4.14.4 / error / テスト対応あり・実行未確認
+11.4.14.4 / error / 実行確認あり
 
 The receiver before streaming with must be a one-dimensional unpacked array, including a queue.
 
@@ -31036,7 +31040,7 @@ A signed high-impedance sign bit is replicated when extending width.
 
 ### SV2023-11.9-EXTRACT-TAGGED-CONTEXT-TYPE
 
-11.9 / error / テスト対応あり・実行未確認
+11.9 / error / 実行確認あり
 
 A tagged union expression requires its type from context and only permits that type member names and corresponding member-value types.
 
@@ -31478,7 +31482,7 @@ if has a conditional predicate and statement-or-null, optional else-if chain and
 
 ### SV2023-12.4-EXTRACT-IF-TRUE
 
-12.4 / normal / テスト対応あり・実行未確認
+12.4 / normal / 実行確認あり
 
 A condition that is logically true/nonzero takes the true statement; zero or ambiguous x/z truth does not.
 
@@ -31632,7 +31636,7 @@ unique/unique0 specify mutually exclusive conditions, permitting parallel condit
 
 ### SV2023-12.4.2-EXTRACT-WHOLE-CHAIN-QUALIFIER
 
-12.4.2 / error / テスト対応あり・実行未確認
+12.4.2 / error / 実行確認あり
 
 An if qualifier applies to the whole chain and cannot be inserted immediately after else within that chain; nested qualified if needs a separate block.
 
@@ -32159,7 +32163,7 @@ A pattern match yields a known one-bit zero/one, never x/z, and successful ident
 
 ### SV2023-12.6-EXTRACT-PATTERN-KNOWN-TYPE
 
-12.6 / error / テスト対応あり・実行未確認
+12.6 / error / 実行確認あり
 
 Patterns and their nested components have types determined by the matched expression; constant patterns must be integral and all matches are statically type checked.
 
@@ -32172,7 +32176,7 @@ Patterns and their nested components have types determined by the matched expres
 
 ### SV2023-12.6-EXTRACT-PATTERN-LOCAL-IDENTIFIERS
 
-12.6 / error / テスト対応あり・実行未確認
+12.6 / error / 実行確認あり
 
 Each pattern introduces a scope with implicit position-typed variables whose identifiers must be unique within that pattern.
 
@@ -32232,7 +32236,7 @@ The controller evaluates once, patterns are tested in exact source order ignorin
 
 ### SV2023-12.6.1-EXTRACT-MATCHES-CASE-TYPE
 
-12.6.1 / error / テスト対応あり・実行未確認
+12.6.1 / error / 実行確認あり
 
 The controlling expression has a known type matching every case pattern type and is statically checked.
 
@@ -32326,7 +32330,7 @@ priority/unique qualifiers are permitted on pattern-matching if constructs under
 
 ### SV2023-12.6.2-EXTRACT-PATTERN-IF-TYPE
 
-12.6.2 / error / テスト対応あり・実行未確認
+12.6.2 / error / 実行確認あり
 
 Each matches expression and pattern must have the same statically known type.
 
@@ -32382,7 +32386,7 @@ Loop grammar supports forever/repeat/while/for/do-while/foreach with their state
 
 ### SV2023-12.7-EXTRACT-TYPE-REFERENCE-PREFIX
 
-12.7 / error / テスト対応あり・実行未確認
+12.7 / error / 実行確認あり
 
 A type reference used in a net declaration requires a net-type prefix and in a variable declaration requires var.
 
@@ -32407,7 +32411,7 @@ A for loop may use an externally declared control variable, which is shared by o
 
 ### SV2023-12.7.1-EXTRACT-FOR-ALL-OR-NONE-LOCAL
 
-12.7.1 / error / テスト対応あり・実行未確認
+12.7.1 / error / 実行確認あり
 
 A for initializer cannot mix locally declared control variables with assignments to previously declared control variables.
 
@@ -32563,7 +32567,7 @@ Outside designated indexing, loop indices auto-cast to int for fixed/dynamic arr
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-NO-ARRAY-NAME
 
-12.7.3 / error / テスト対応あり・実行未確認
+12.7.3 / error / 実行確認あり
 
 No foreach loop variable may have the same identifier as its array.
 
@@ -33572,7 +33576,7 @@ An elaboration-time constant call requires a qualifying function local to the ca
 
 ### SV2023-13.4.3-EXTRACT-CONSTANT-CALLS
 
-13.4.3 / error / テスト対応あり・実行未確認
+13.4.3 / error / 実行確認あり
 
 A constant function cannot call nonconstant user functions; built-in methods on local variables including implicit result variables are specially permitted even if not otherwise constant methods.
 
@@ -34074,7 +34078,7 @@ ref static accepts only statically lived variables/properties/members/elements o
 
 ### SV2023-13.5.3-EXTRACT-ANSI-DEFAULT-ONLY
 
-13.5.3 / error / テスト対応あり・実行未確認
+13.5.3 / error / 実行確認あり
 
 Default arguments are permitted only with ANSI formal declarations.
 
@@ -34505,7 +34509,7 @@ Zero/default output skew drives in the clock event Re-NBA region.
 
 ### SV2023-14.5-EXTRACT-CLOCKING-PORT-COMPATIBILITY
 
-14.5 / error / テスト対応あり・実行未確認
+14.5 / error / 実行確認あり
 
 Input/inout associated expressions must be legal module input-port actuals; output/inout expressions must be legal module output-port actuals.
 
@@ -37261,7 +37265,7 @@ Boolean expressions in sequences/properties use sampled variable values; clockin
 
 ### SV2023-16.6-EXTRACT-SIDE-EFFECTS
 
-16.6 / error / テスト対応あり・実行未確認
+16.6 / error / 実行確認あり
 
 Assertion expression evaluation shall have no side effects except C assignment/increment/decrement in sequence match items with a local-variable lvalue.
 
@@ -37398,7 +37402,7 @@ A linear sequence matches a finite interval of consecutive clock ticks when each
 
 ### SV2023-16.7-EXTRACT-NO-MINTYPMAX
 
-16.7 / error / テスト対応あり・実行未確認
+16.7 / error / 実行確認あり
 
 A cycle-delay constant_primary shall not contain a constant_mintypmax_expression that is not also a constant_expression.
 
@@ -37482,7 +37486,7 @@ An instance shall provide actuals for all formals without defaults; supplied act
 
 ### SV2023-16.8-EXTRACT-CONSTANT-DELAY-ACTUAL
 
-16.8 / error / テスト対応あり・実行未確認
+16.8 / error / 実行確認あり
 
 An untyped formal used in a cycle delay or repetition bound requires an elaboration-time constant actual.
 
@@ -37531,7 +37535,7 @@ A sequence formal may have a default actual resolved in the declaration scope; a
 
 ### SV2023-16.8-EXTRACT-DOLLAR-ACTUAL
 
-16.8 / error / テスト対応あり・実行未確認
+16.8 / error / 実行確認あり
 
 A $ actual requires an untyped formal whose every use is a delay-range upper bound or another sequence actual.
 
@@ -37567,7 +37571,7 @@ Sequence formals may stand for identifiers, expressions, sequence expressions, e
 
 ### SV2023-16.8-EXTRACT-FORMAL-TYPES
 
-16.8 / error / テスト対応あり・実行未確認
+16.8 / error / 実行確認あり
 
 Supported sequence formal data types are assertion-operand types permitted by 16.6 and untyped, with the sequence specialization of 16.8.1.
 
@@ -37675,7 +37679,7 @@ Other typed formals require a cast-compatible self-determined actual type; non-l
 
 ### SV2023-16.8.1-EXTRACT-EDGE-OPERAND
 
-16.8.1 / error / テスト対応あり・実行未確認
+16.8.1 / error / 実行確認あり
 
 A formal intended as the operand of an edge_identifier to form an event expression shall not have type event.
 
@@ -37687,7 +37691,7 @@ A formal intended as the operand of an edge_identifier to form an event expressi
 
 ### SV2023-16.8.1-EXTRACT-EVENT-FORMAL
 
-16.8.1 / error / テスト対応あり・実行未確認
+16.8.1 / error / 実行確認あり
 
 An event formal requires an event_expression actual and may be referenced only where an event_expression is legal.
 
@@ -37735,7 +37739,7 @@ Pass by value is not a supported sequence argument-passing mode; a local variabl
 
 ### SV2023-16.8.1-EXTRACT-SEQUENCE-FORMAL
 
-16.8.1 / error / テスト対応あり・実行未確認
+16.8.1 / error / 実行確認あり
 
 A sequence formal requires a sequence_expr actual and may be referenced only where a sequence_expr is legal or as the operand of triggered/matched.
 
@@ -37748,7 +37752,7 @@ A sequence formal requires a sequence_expr actual and may be referenced only whe
 
 ### SV2023-16.8.1-EXTRACT-TYPED-DELAY-BOUND
 
-16.8.1 / error / テスト対応あり・実行未確認
+16.8.1 / error / 実行確認あり
 
 A typed formal used in cycle-delay or repetition bounds shall have type shortint, int or longint.
 
@@ -37761,7 +37765,7 @@ A typed formal used in cycle-delay or repetition bounds shall have type shortint
 
 ### SV2023-16.8.1-EXTRACT-TYPED-DOMAIN
 
-16.8.1 / error / テスト対応あり・実行未確認
+16.8.1 / error / 実行確認あり
 
 A typed sequence formal shall have type sequence or an assertion operand type permitted by 16.6; its actual restrictions also apply to declared defaults.
 
@@ -37774,7 +37778,7 @@ A typed sequence formal shall have type sequence or an assertion operand type pe
 
 ### SV2023-16.8.1-EXTRACT-TYPED-MATCH-LVALUE
 
-16.8.1 / error / テスト対応あり・実行未確認
+16.8.1 / error / 実行確認あり
 
 A typed formal shall not be a sequence-match assignment/increment/decrement lvalue unless it is a local-variable formal.
 
@@ -37787,7 +37791,7 @@ A typed formal shall not be a sequence-match assignment/increment/decrement lval
 
 ### SV2023-16.8.2-EXTRACT-ACTUAL-ASSIGNED
 
-16.8.2 / error / テスト対応あり・実行未確認
+16.8.2 / error / 実行確認あり
 
 An input/inout actual referencing a local variable shall not reference it while unassigned in the instantiation context.
 
@@ -37823,7 +37827,7 @@ Each attempt of a named-sequence instance creates a new copy of every local form
 
 ### SV2023-16.8.2-EXTRACT-DIRECTION-LOCAL
 
-16.8.2 / error / テスト対応あり・実行未確認
+16.8.2 / error / 実行確認あり
 
 A port item specifying input, inout or output shall also specify local.
 
@@ -37872,7 +37876,7 @@ local designates a sequence local-variable formal; its optional direction defaul
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-DEFAULT
 
-16.8.2 / error / テスト対応あり・実行未確認
+16.8.2 / error / 実行確認あり
 
 An input local formal may declare a default actual under 16.8; an inout/output local formal shall not have a default.
 
@@ -37909,7 +37913,7 @@ Local designation, direction and type extend to following identifier-only port i
 
 ### SV2023-16.8.2-EXTRACT-METHOD-INPUT-RESTRICTION
 
-16.8.2 / error / テスト対応あり・実行未確認
+16.8.2 / error / 実行確認あり
 
 triggered or matched shall not be applied to a sequence instance having an input or inout local formal.
 
@@ -37922,7 +37926,7 @@ triggered or matched shall not be applied to a sequence instance having an input
 
 ### SV2023-16.8.2-EXTRACT-NO-EMPTY-OUTPUT
 
-16.8.2 / error / テスト対応あり・実行未確認
+16.8.2 / error / 実行確認あり
 
 A sequence instance with inout/output local formals shall not admit an empty match.
 
@@ -37934,7 +37938,7 @@ A sequence instance with inout/output local formals shall not admit an empty mat
 
 ### SV2023-16.8.2-EXTRACT-NO-OUTPUT-ALIAS
 
-16.8.2 / error / テスト対応あり・実行未確認
+16.8.2 / error / 実行確認あり
 
 Two or more inout/output local formals in one instance shall not bind the same actual local variable.
 
@@ -37957,7 +37961,7 @@ An inout/output actual shall be exactly a reference to an in-scope local variabl
 
 ### SV2023-16.8.2-EXTRACT-OUTPUT-DEFINITE-ASSIGNMENT
 
-16.8.2 / error / テスト対応あり・実行未確認
+16.8.2 / error / 実行確認あり
 
 It is an error if any sequence match completes with an inout/output local formal unassigned.
 
@@ -38164,7 +38168,7 @@ Nonconsecutive repetition has the same occurrence-count condition as goto but ca
 
 ### SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS
 
-16.9.2 / error / テスト対応あり・実行未確認
+16.9.2 / error / 実行確認あり
 
 Consecutive repetition permits general sequences; goto and nonconsecutive repetition require Boolean expressions and cannot apply to an expression with an attached sequence match item.
 
@@ -38350,7 +38354,7 @@ A sampled-value function may explicitly use a clock different from its call cont
 
 ### SV2023-16.9.3-EXTRACT-DISABLE-CLOCK-EXPLICIT
 
-16.9.3 / error / テスト対応あり・実行未確認
+16.9.3 / error / 実行確認あり
 
 A sampled-value function in a disable condition or clock expression shall be explicitly clocked.
 
@@ -38412,7 +38416,7 @@ Automatic variables are illegal in $past clocking events and its gating expressi
 
 ### SV2023-16.9.3-EXTRACT-NO-LOCAL-MATCHED
 
-16.9.3 / error / テスト対応あり・実行未確認
+16.9.3 / error / 実行確認あり
 
 Sampled-value function argument expressions shall not reference assertion local variables or the sequence method matched.
 
@@ -38677,7 +38681,7 @@ $future_gclk(v) returns v sampled at the next global clock tick using 16.5.1 fut
 
 ### SV2023-16.9.4-EXTRACT-FUTURE-MATCH-ITEMS
 
-16.9.4 / error / テスト対応あり・実行未確認
+16.9.4 / error / 実行確認あり
 
 Future global-clock functions shall not be used in assertions containing sequence match items.
 
@@ -38690,7 +38694,7 @@ Future global-clock functions shall not be used in assertions containing sequenc
 
 ### SV2023-16.9.4-EXTRACT-FUTURE-NESTING
 
-16.9.4 / error / テスト対応あり・実行未確認
+16.9.4 / error / 実行確認あり
 
 Future global-clock functions shall not be nested.
 
@@ -39038,7 +39042,7 @@ triggered applies to a named sequence instance with optional arguments, an untyp
 
 ### SV2023-16.9.11-EXTRACT-TRIGGERED-CLOCK
 
-16.9.11 / error / テスト対応あり・実行未確認
+16.9.11 / error / 実行確認あり
 
 In multiclock use, the ending clock of the triggered operand sequence instance shall equal the clock of the method call context.
 
@@ -39073,7 +39077,7 @@ At and/intersect completion operand threads merge, retaining the latest assigned
 
 ### SV2023-16.10-EXTRACT-ASSIGN-BEFORE-REFERENCE
 
-16.10 / error / テスト対応あり・実行未確認
+16.10 / error / 実行確認あり
 
 A local shall be assigned before reference, whether by initializer or match item; increment/decrement and compound assignments also read the prior value.
 
@@ -39171,7 +39175,7 @@ Assertion locals are either local-variable formals or variables in assertion_var
 
 ### SV2023-16.10-EXTRACT-LOCAL-EXPRESSIONS
 
-16.10 / error / テスト対応あり・実行未確認
+16.10 / error / 実行確認あり
 
 Locals may be used in sequence/property expressions like same-typed static variables, including selects/array indices, but shall not occur in clocking event expressions.
 
@@ -39229,7 +39233,7 @@ Assertion locals have no default initial values; locals lacking initializers sta
 
 ### SV2023-16.10-EXTRACT-NO-EMPTY-ASSIGNMENT
 
-16.10 / error / テスト対応あり・実行未確認
+16.10 / error / 実行確認あり
 
 A subsequence with an attached local assignment shall not admit an empty match.
 
@@ -39324,7 +39328,7 @@ Local assignments may be attached to a repetition operand to accumulate values a
 
 ### SV2023-16.10-EXTRACT-SIBLING-ISOLATION
 
-16.10 / error / テスト対応あり・実行未確認
+16.10 / error / 実行確認あり
 
 Assignments in one parallel operand cannot be accessed in a sibling operand.
 
@@ -39347,7 +39351,7 @@ A passed local flows out of triggered only if it flows out of the sequence insta
 
 ### SV2023-16.10-EXTRACT-TRIGGERED-LOCAL-ACTUAL
 
-16.10 / error / テスト対応あり・実行未確認
+16.10 / error / 実行確認あり
 
 Passing a local through triggered requires it to be an entire actual, not a proper subexpression; the bound formal shall be assigned inside the named sequence before being referenced.
 
@@ -39430,7 +39434,7 @@ All attached calls execute at every sequence end point, in listed order; asserti
 
 ### SV2023-16.11-EXTRACT-LOCAL-CALL-ARGUMENT
 
-16.11 / error / テスト対応あり・実行未確認
+16.11 / error / 実行確認あり
 
 A local is usable in an attached-call actual if it flows out of the sequence or is assigned earlier in the match-item list; any argument containing a local shall be passed by value.
 
@@ -39443,7 +39447,7 @@ A local is usable in an attached-call actual if it flows out of the sequence or 
 
 ### SV2023-16.11-EXTRACT-NO-EMPTY-CALL
 
-16.11 / error / テスト対応あり・実行未確認
+16.11 / error / 実行確認あり
 
 Attaching a subroutine call or any sequence_match_item to a sequence admitting an empty match is an error.
 
@@ -39479,7 +39483,7 @@ A property declaration defines behavior but produces no verification result by i
 
 ### SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS
 
-16.12 / error / テスト対応あり・実行未確認
+16.12 / error / 実行確認あり
 
 Disable expressions may use sequence.triggered but shall not reference assertion locals or sequence.matched; sampled-value functions other than $sampled require explicit clocks there.
 
@@ -39529,7 +39533,7 @@ A disable iff (expression_or_dist) prefix on a property_expr forms a property_sp
 
 ### SV2023-16.12-EXTRACT-DOLLAR-ACTUAL
 
-16.12 / error / テスト対応あり・実行未確認
+16.12 / error / 実行確認あり
 
 A $ property actual requires an untyped formal whose uses are range upper bounds or actuals in a sequence/property instance.
 
@@ -39807,7 +39811,7 @@ Property formals, defaults and actual binding obey the sequence formal rules of 
 
 ### SV2023-16.12.1-EXTRACT-INSTANCE-LEGALITY
 
-16.12.1 / error / テスト対応あり・実行未確認
+16.12.1 / error / 実行確認あり
 
 A property instance used as property_expr/property_spec is legal only if substituting its body and actuals yields a legal construct; an operand of a property-building operator cannot introduce disable iff.
 
@@ -39831,7 +39835,7 @@ An unqualified sequence property is weak in assert property and assume property,
 
 ### SV2023-16.12.2-EXTRACT-NO-EMPTY-PROPERTY
 
-16.12.2 / error / テスト対応あり・実行未確認
+16.12.2 / error / 実行確認あり
 
 A sequential property sequence_expr shall not admit an empty match.
 
@@ -40592,7 +40596,7 @@ Property case linearly searches nondefault items, evaluates the first matching i
 
 ### SV2023-16.12.17-EXTRACT-NO-DEPENDENT-NEGATION
 
-16.12.17 / error / テスト対応あり・実行未確認
+16.12.17 / error / 実行確認あり
 
 not shall not be applied to an expression instantiating a property that depends on a recursive property under F.7.
 
@@ -40604,7 +40608,7 @@ not shall not be applied to an expression instantiating a property that depends 
 
 ### SV2023-16.12.17-EXTRACT-NO-NEGATION-STRONG
 
-16.12.17 / error / テスト対応あり・実行未確認
+16.12.17 / error / 実行確認あり
 
 not, s_nexttime, s_eventually, s_always, s_until and s_until_with shall not be applied to a property expression instantiating a recursive property.
 
@@ -40621,7 +40625,7 @@ not, s_nexttime, s_eventually, s_always, s_until and s_until_with shall not be a
 
 ### SV2023-16.12.17-EXTRACT-NO-RECURSIVE-DISABLE
 
-16.12.17 / error / テスト対応あり・実行未確認
+16.12.17 / error / 実行確認あり
 
 A recursive property declaration shall not contain disable iff.
 
@@ -40633,7 +40637,7 @@ A recursive property declaration shall not contain disable iff.
 
 ### SV2023-16.12.17-EXTRACT-POSITIVE-TIME
 
-16.12.17 / error / テスト対応あり・実行未確認
+16.12.17 / error / 実行確認あり
 
 Every recursive instance in a recursive or mutually recursive property shall occur after a positive advance in time.
 
@@ -40670,7 +40674,7 @@ accept_on, reject_on, sync_accept_on and sync_reject_on may occur in recursive p
 
 ### SV2023-16.12.17-EXTRACT-RECURSIVE-ACTUALS
 
-16.12.17 / error / テスト対応あり・実行未確認
+16.12.17 / error / 実行確認あり
 
 For recursive instance q in property p, each actual shall either be exactly a p formal, contain no p formal, or bind a q local-variable formal.
 
@@ -40704,7 +40708,7 @@ Typed property formals obey the sequence typed-formal rules except the following
 
 ### SV2023-16.12.19-EXTRACT-INPUT-ONLY
 
-16.12.19 / error / テスト対応あり・実行未確認
+16.12.19 / error / 実行確認あり
 
 Property local formals shall have explicit or inferred direction input; inout/output property local formals are illegal.
 
@@ -40805,7 +40809,7 @@ A sequence is degenerate when it admits no match or only empty matches, and nond
 
 ### SV2023-16.12.22-EXTRACT-NONOVERLAPPED-MATCHABLE
 
-16.12.22 / error / テスト対応あり・実行未確認
+16.12.22 / error / 実行確認あり
 
 The antecedent of |=> shall admit at least one match and may admit only empty matches.
 
@@ -40817,7 +40821,7 @@ The antecedent of |=> shall admit at least one match and may admit only empty ma
 
 ### SV2023-16.12.22-EXTRACT-OVERLAPPED-NONDEGENERATE
 
-16.12.22 / error / テスト対応あり・実行未確認
+16.12.22 / error / 実行確認あり
 
 The antecedent of |-> shall be nondegenerate.
 
@@ -40830,7 +40834,7 @@ The antecedent of |-> shall be nondegenerate.
 
 ### SV2023-16.12.22-EXTRACT-PROPERTY-NONDEGENERATE
 
-16.12.22 / error / テスト対応あり・実行未確認
+16.12.22 / error / 実行確認あり
 
 A sequence used as a property shall be nondegenerate and shall not admit an empty match.
 
@@ -42518,7 +42522,7 @@ Clock events apply throughout their scope until superseded; the maximal property
 
 ### SV2023-16.16-EXTRACT-MULTICLOCK-LEADING
 
-16.16 / error / テスト対応あり・実行未確認
+16.16 / error / 実行確認あり
 
 A multiclocked sequence/property may inherit a default leading clock, but a maximal concurrent-assertion multiclocked property shall have a unique semantic leading clock.
 
@@ -44365,7 +44369,7 @@ An outside-class constraint definition requires a corresponding class constraint
 
 ### SV2023-18.5.1-EXTRACT-EXTERNAL-SCOPE-ORDER
 
-18.5.1 / error / テスト対応あり・実行未確認
+18.5.1 / error / 実行確認あり
 
 An external constraint block shall appear after its class declaration in the same scope.
 
@@ -44403,7 +44407,7 @@ An implicit prototype without an external block is an empty no-effect constraint
 
 ### SV2023-18.5.2-EXTRACT-EXTENDS-REQUIRES-OVERRIDE
 
-18.5.2 / error / テスト対応あり・実行未確認
+18.5.2 / error / 実行確認あり
 
 A constraint specified :extends shall override a base constraint; otherwise it is an error.
 
@@ -44415,7 +44419,7 @@ A constraint specified :extends shall override a base constraint; otherwise it i
 
 ### SV2023-18.5.2-EXTRACT-FINAL-CONSTRAINT
 
-18.5.2 / error / テスト対応あり・実行未確認
+18.5.2 / error / 実行確認あり
 
 A final constraint shall not be replaced by a subclass; final may combine with initial or extends.
 
@@ -44461,7 +44465,7 @@ initial and extends constraint specifiers are mutually exclusive.
 
 ### SV2023-18.5.2-EXTRACT-INITIAL-NO-OVERRIDE
 
-18.5.2 / error / テスト対応あり・実行未確認
+18.5.2 / error / 実行確認あり
 
 A constraint specified :initial shall not override a base constraint; doing so is an error.
 
@@ -44473,7 +44477,7 @@ A constraint specified :initial shall not override a base constraint; doing so i
 
 ### SV2023-18.5.2-EXTRACT-MATCH-PROTOTYPE-SPECIFIERS
 
-18.5.2 / error / テスト対応あり・実行未確認
+18.5.2 / error / 実行確認あり
 
 initial/extends/final shall appear consistently on both a constraint prototype and its external block, or neither; mismatched use is an error.
 
@@ -44573,7 +44577,7 @@ A distribution permits at most one default item, which shall use :/ with an expl
 
 ### SV2023-18.5.3-EXTRACT-DIST-ITEM-TYPES
 
-18.5.3 / error / テスト対応あり・実行未確認
+18.5.3 / error / 実行確認あり
 
 Distribution items/ranges may be integral or real; a real range requires an explicit :/ weight.
 
@@ -44597,7 +44601,7 @@ dist uses a comma-separated list of values/ranges and optional weights or defaul
 
 ### SV2023-18.5.3-EXTRACT-DIST-RAND-REQUIRED
 
-18.5.3 / error / テスト対応あり・実行未確認
+18.5.3 / error / 実行確認あり
 
 A dist expression shall contain at least one rand variable.
 
@@ -45038,7 +45042,7 @@ rand object-member variables and constraints solve simultaneously with the conta
 
 ### SV2023-18.5.9-EXTRACT-ARRAY-METHOD-PARENS
 
-18.5.9 / error / テスト対応あり・実行未確認
+18.5.9 / error / 実行確認あり
 
 Parentheses in ordering constraint primaries are permitted only for array built-in methods such as size().
 
@@ -45073,7 +45077,7 @@ A block may contain value and ordering constraints together.
 
 ### SV2023-18.5.9-EXTRACT-ORDER-ACYCLIC
 
-18.5.9 / error / テスト対応あり・実行未確認
+18.5.9 / error / 実行確認あり
 
 Explicit ordering shall have no circular dependencies.
 
@@ -51722,7 +51726,7 @@ $low returns left for increment -1 and right for increment 1; $high returns the 
 
 ### SV2023-20.7-EXTRACT-NO-DYNAMIC-TYPE-QUERY
 
-20.7 / error / テスト対応あり・実行未確認
+20.7 / error / 実行確認あり
 
 Querying a dynamically sized type identifier directly is an error.
 
@@ -54450,7 +54454,7 @@ $display appends a newline while $write otherwise performs the same operation wi
 
 ### SV2023-21.2.1-EXTRACT-EMPTY-ARGUMENTS
 
-21.2.1 / normal / テスト対応あり・実行未確認
+21.2.1 / normal / 実行確認あり
 
 Leading/trailing/adjacent commas denote empty display arguments producing one space each; a lone comma denotes two empty arguments.
 
@@ -54474,7 +54478,7 @@ Every literal percent format except %m/%l/%% requires a corresponding following 
 
 ### SV2023-21.2.1-EXTRACT-LITERAL-PERCENT
 
-21.2.1 / normal / テスト対応あり・実行未確認
+21.2.1 / normal / 実行確認あり
 
 %% emits one percent character but occupies two percent bytes in the literal, unlike single-character backslash escape encoding.
 
@@ -54652,7 +54656,7 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-TIME
 
-21.2.1.1 / normal / テスト対応あり・実行未確認
+21.2.1.1 / normal / 実行確認あり
 
 %t/%T selects current time format output.
 
@@ -54923,7 +54927,7 @@ Decimal display of all bits high impedance uses a single z character subject to 
 
 ### SV2023-21.2.1.3-EXTRACT-DECIMAL-PART-X
 
-21.2.1.3 / normal / テスト対応あり・実行未確認
+21.2.1.3 / normal / 実行確認あり
 
 Decimal display of some but not all bits unknown uses a single X character subject to field padding.
 
@@ -54985,7 +54989,7 @@ For hex/octal, a digit group with all group bits high impedance prints z.
 
 ### SV2023-21.2.1.3-EXTRACT-GROUP-PART-X
 
-21.2.1.3 / normal / テスト対応あり・実行未確認
+21.2.1.3 / normal / 実行確認あり
 
 For hex/octal, a digit group with some but not all group bits unknown prints X.
 
@@ -54997,7 +55001,7 @@ For hex/octal, a digit group with some but not all group bits unknown prints X.
 
 ### SV2023-21.2.1.3-EXTRACT-GROUP-PART-Z
 
-21.2.1.3 / normal / テスト対応あり・実行未確認
+21.2.1.3 / normal / 実行確認あり
 
 For hex/octal, a digit group with some but not all group bits high impedance and no unknown bits prints Z.
 
@@ -55746,7 +55750,7 @@ fopen shall reuse closed channels.
 
 ### SV2023-21.3.2-EXTRACT-FILE-DISPLAY-FORMS
 
-21.3.2 / normal / テスト対応あり・実行未確認
+21.3.2 / normal / 実行確認あり
 
 fdisplay/fwrite/fstrobe/fmonitor and their b/h/o variants follow corresponding display task semantics with a required first fd/mcd output-destination argument.
 
@@ -58915,7 +58919,7 @@ Unpacked structures appear as named fork-join scopes with members mapped by the 
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-LEXING
 
-22.2 / normal / 実行確認あり
+22.2 / normal / テスト対応あり・実行未確認
 
 Macros expand inside directives, while directives are not recognized inside comments or string literals.
 
@@ -58950,7 +58954,7 @@ Unless specifically multiline, a compiler directive shall occupy one line.
 
 ### SV2023-22.2-EXTRACT-DIRECTIVE-PREFIX-SCOPE
 
-22.2 / normal / 実行確認あり
+22.2 / normal / テスト対応あり・実行未確認
 
 Directives begin with ASCII grave accent 0x60; their scope runs from processing through the current compilation unit until superseded or compilation ends.
 
@@ -58974,7 +58978,7 @@ Subject to individual syntax/placement rules, language elements may precede a di
 
 ### SV2023-22.3-EXTRACT-RESET-DEFAULTS
 
-22.3 / normal / 実行確認あり
+22.3 / normal / テスト対応あり・実行未確認
 
 resetall restores directives having defaults and leaves directives without defaults, including define/include, unaffected.
 
@@ -59022,7 +59026,7 @@ Angle-bracket includes search only an implementation-dependent standard-files lo
 
 ### SV2023-22.4-EXTRACT-INCLUDE-LINE
 
-22.4 / error / 実行確認あり
+22.4 / error / テスト対応あり・実行未確認
 
 Only whitespace or a comment may share the include directive line.
 
@@ -59789,7 +59793,7 @@ default_nettype applies only outside design elements and the latest occurrence g
 
 ### SV2023-22.8-EXTRACT-NETTYPE-VALUES
 
-22.8 / error / テスト対応あり・実行未確認
+22.8 / error / 実行確認あり
 
 default_nettype accepts wire, tri, tri0, tri1, wand, triand, wor, trior, trireg, uwire or none.
 
@@ -64233,7 +64237,7 @@ An implicit-name connection never creates an implicit net; absence of a matching
 
 ### SV2023-23.3.2.3-EXTRACT-IMPLICIT-PRIOR-DECLARATION
 
-23.3.2.3 / error / テスト対応あり・実行未確認
+23.3.2.3 / error / 実行確認あり
 
 The matching name shall be declared explicitly/implicitly or imported explicitly/by wildcard from a package before the .name connection.
 
@@ -64448,7 +64452,7 @@ A built-in-net inout accepts compatible nets/concatenations or no connection, bu
 
 ### SV2023-23.3.3.3-EXTRACT-NET-INPUT
 
-23.3.3.3 / normal / テスト対応あり・実行未確認
+23.3.3.3 / normal / 実行確認あり
 
 A built-in-net input accepts a compatible expression and has all-z when unconnected.
 
@@ -64508,7 +64512,7 @@ A generic interface port accepts any interface instance type; a named interface 
 
 ### SV2023-23.3.3.5-EXTRACT-INSTANCE-BROADCAST
 
-23.3.3.5 / normal / テスト対応あり・実行未確認
+23.3.3.5 / normal / 実行確認あり
 
 A connection matching the size/type of one arrayed instance port connects to every instance.
 
@@ -65573,7 +65577,7 @@ Two interconnect nets merge as interconnect; one interconnect and one other type
 
 ### SV2023-23.3.3.7.1-EXTRACT-NO-RESIDUAL-INTERCONNECT
 
-23.3.3.7.1 / error / テスト対応あり・実行未確認
+23.3.3.7.1 / error / 実行確認あり
 
 At elaboration end, no simulated net may retain interconnect type.
 
@@ -66425,7 +66429,7 @@ Binding into an interface permits only interface or checker instantiations.
 
 ### SV2023-23.11-EXTRACT-NO-NESTED-BIND
 
-23.11 / error / テスト対応あり・実行未確認
+23.11 / error / 実行確認あり
 
 A bind cannot insert an instantiation underneath another bound instantiation scope.
 
@@ -66995,7 +66999,7 @@ Only nets/variables in an interface port list can be connected externally by nam
 
 ### SV2023-25.5-EXTRACT-MODPORT-BOTH-MATCH
 
-25.5 / error / テスト対応あり・実行未確認
+25.5 / error / 実行確認あり
 
 If both header and connection select a modport, the two selected modport names shall be identical.
 
@@ -67146,7 +67150,7 @@ Multiple connected module instances may define an interface task through extern 
 
 ### SV2023-25.7-EXTRACT-HIERARCHICAL-METHOD-DECLARATION
 
-25.7 / error / テスト対応あり・実行未確認
+25.7 / error / 実行確認あり
 
 A module-defined hierarchical interface method must be declared extern in the interface or export in a modport.
 
@@ -67169,7 +67173,7 @@ Interface subroutines may be defined in the interface or connected modules and d
 
 ### SV2023-25.7-EXTRACT-MISSING-MISMATCHED-EXPORT
 
-25.7 / error / テスト対応あり・実行未確認
+25.7 / error / 実行確認あり
 
 A connected module must define every exported subroutine and exactly match an exported prototype; absence/mismatch is an elaboration error.
 
@@ -67270,7 +67274,7 @@ Calling an interface extern forkjoin task with no connected definition reports a
 
 ### SV2023-25.7.4-EXTRACT-MULTIPLE-TASK-EXPORT
 
-25.7.4 / error / テスト対応あり・実行未確認
+25.7.4 / error / 実行確認あり
 
 Multiple modules exporting the same task name is normally an error; extern forkjoin in the interface permits multiple connected definitions.
 
@@ -67282,7 +67286,7 @@ Multiple modules exporting the same task name is normally an error; extern forkj
 
 ### SV2023-25.7.4-EXTRACT-NO-MULTIPLE-FUNCTION-EXPORT
 
-25.7.4 / error / テスト対応あり・実行未確認
+25.7.4 / error / 実行確認あり
 
 Functions cannot be exported from multiple modules.
 
@@ -67381,7 +67385,7 @@ An interface instance/hierarchy affected by an external defparam cannot be assig
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-EXTERNAL-REFERENCES
 
-25.9 / error / テスト対応あり・実行未確認
+25.9 / error / 実行確認あり
 
 A virtual interface declaration cannot use an interface containing out-of-body hierarchical references or ports referencing other interfaces.
 
@@ -73419,7 +73423,7 @@ A primitive definition names the UDP, then either port identifiers with later de
 
 ### SV2023-29.3.1-EXTRACT-UDP-SCALAR-PORTS
 
-29.3.1 / error / テスト対応あり・実行未確認
+29.3.1 / error / 実行確認あり
 
 UDPs require one output and one or more scalar inputs; inout and vector ports are forbidden.
 
@@ -79697,7 +79701,7 @@ Each parsed cell maps by its source filename against path specifications in ever
 
 ### SV2023-33.4-EXTRACT-CONFIG-BINDABLE-KINDS
 
-33.4 / error / テスト対応あり・実行未確認
+33.4 / error / 実行確認あり
 
 Configs may change module/primitive/interface/program binding, but cannot change package binding.
 
@@ -79955,7 +79959,7 @@ Other parameter identifiers resolve starting in the configured instance parent s
 
 ### SV2023-33.4.3-EXTRACT-INDEX-OPERANDS
 
-33.4.3 / error / テスト対応あり・実行未確認
+33.4.3 / error / 実行確認あり
 
 Index expressions in hierarchical names may reference only literals or configuration localparams.
 
@@ -79978,7 +79982,7 @@ Configuration localparams require an assigned literal value.
 
 ### SV2023-33.4.3-EXTRACT-NO-GENERATED-ARRAY-PATH
 
-33.4.3 / error / テスト対応あり・実行未確認
+33.4.3 / error / 実行確認あり
 
 Override hierarchy paths cannot traverse generate scopes or arrays of instances.
 
@@ -80003,7 +80007,7 @@ Configuration parameter overrides cannot use positional notation.
 
 ### SV2023-33.4.3-EXTRACT-NO-USER-CONSTANT-FUNCTION
 
-33.4.3 / error / テスト対応あり・実行未確認
+33.4.3 / error / 実行確認あり
 
 Configuration overrides cannot reference constant functions except built-in constant system functions.
 
@@ -82944,7 +82948,7 @@ For a noncontext import, calls requiring context through VPI or SV exports have 
 
 ### SV2023-35.5.1.3-EXTRACT-PURE-ELIGIBILITY
 
-35.5.1.3 / error / テスト対応あり・実行未確認
+35.5.1.3 / error / 実行確認あり
 
 Only a side-effect-free function depending solely on input values may be pure; an imported task must never be pure.
 
@@ -83336,7 +83340,7 @@ Multiple imported definitions of the same SV subroutine name in one scope are fo
 
 ### SV2023-35.5.4-EXTRACT-NO-REF
 
-35.5.4 / error / テスト対応あり・実行未確認
+35.5.4 / error / 実行確認あり
 
 Import declarations cannot use ref; actual foreign passing mechanics remain transparent to SV.
 
@@ -110604,7 +110608,7 @@ Define cbEndOfCompile to invoke when simulation data compilation/build ends.
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CBENDOFSIMULATION
 
-38.36.3 / normal / テスト対応あり・実行未確認
+38.36.3 / normal / 実行確認あり
 
 Define cbEndOfSimulation to invoke when simulation ends from empty event queue or $finish.
 
