@@ -174502,7 +174502,31 @@
           "clause": "16.9.2",
           "descendant_requirement_count": 6
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch39/test_vpi_assertion_cover_no_failure.sv",
+        "inputs_sha256": "8d42d6d3c945582d094c5aee3d4a0f7316f70d1013467ec104108050eb6e6449",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-16.14.3-EXTRACT-PROPERTY-COUNTERS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "期待出力は 'failure callbacks: 0' の1行だけで、cover property が報告すべき試行回数・成功回数・空成功回数を assertion API で取得しておらず、cbAssertionFailure を一切呼ばない実装でも同じ出力になる。同じ設計内で失敗コールバックが出る対照も置かれていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch39/test_vpi_assertion_cover_no_failure.sv",
+                "contains": "c1: cover property (@(posedge clk) a ##1 b);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch39/test_vpi_assertion_cover_start.sv",
@@ -174583,7 +174607,31 @@
           "clause": "16.9.2",
           "descendant_requirement_count": 6
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch39/test_vpi_assertion_cover_start.sv",
+        "inputs_sha256": "73040da14355781bb3a8dd95df5cebebae7e9f061e90ffc353a1462b8794220a",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-39.4.2-EXTRACT-ASSERTION-CBASSERTIONSTART"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "cbAssertionStart が 5/15/25/35 の各クロック刻みで4回発火することは観測するが、要求の後半「検証文でインスタンス化されていない property/sequence インスタンスは開始しない」は、そのようなインスタンスのハンドルを取得して開始コールバックを置く刺激がなく、期待出力にも現れない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch39/test_vpi_assertion_cover_start.sv",
+                "contains": "c1: cover property (@(posedge clk) a ##1 b);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch39/test_vpi_assertion_cover_success.sv",
@@ -174656,7 +174704,31 @@
           "clause": "39.4.2",
           "descendant_requirement_count": 1
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch39/test_vpi_assertion_cover_success.sv",
+        "inputs_sha256": "8f294f579c61325862575d8248c56f27f02b6c9aaabb922b89bca0a4f3583f02",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-16.14.3-EXTRACT-PROPERTY-COUNTERS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "成功コールバック1件（cb_time 15、attemptStartTime 5）だけを観測し、cover property が報告すべき試行回数・成功回数・空成功回数を assertion API から取得していない。系列 a ##1 b は1試行で多重マッチしないため「1試行あたり最大1回」という条件も区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch39/test_vpi_assertion_cover_success.sv",
+                "contains": "c1: cover property (@(posedge clk) a ##1 b);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch39/test_vpi_assertion_deferred_queue.sv",
@@ -175148,7 +175220,35 @@
           "clause": "39.4.2",
           "descendant_requirement_count": 1
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch39/test_vpi_assertion_immediate_callbacks.sv",
+        "inputs_sha256": "5bf8e1de1112e4c145077e9b069fefcbd2a6e1d7a3da79b19dbfbbbb5d086e1c",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-39.3.1-EXTRACT-ASSERTION-NAVIGATION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "vpi_iterate(vpiAssertion, NULL) が即時 assert/assume/cover の3個を返し、それらのハンドルへ置いたコールバックが各実行で発火することは観測するが、要求が挙げる property と sequence の公開・ナビゲーションは、設計に並行アサーションがないため刺激にも期待出力にも含まれない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch39/test_vpi_assertion_immediate_callbacks.sv",
+                "contains": "chk_cover: cover (v > 0);"
+              },
+              {
+                "file": "tests/ch39/test_vpi_assertion_immediate_callbacks.c",
+                "contains": "it = vpi_iterate(vpiAssertion, NULL);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch39/test_vpi_assertion_immediate_disable.sv",
@@ -175203,7 +175303,31 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch39/test_vpi_assertion_immediate_disable.sv",
+        "inputs_sha256": "43711e453d36faee143cc7660d6c8f283b99498ce917cd4f1c3ca8a61da32bd1",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-39.5.2-EXTRACT-ASSERTION-CONTROL-TARGET"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "vpi_control(vpiAssertionDisable, ...) を反復で得た即時アサーションの文ハンドルに適用し pass=0 fail=0 を観測するが、要求の否定条件「sequence/property インスタンスのハンドルは対象にならない」は、そのようなハンドルを渡す刺激がないため観測されない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch39/test_vpi_assertion_immediate_disable.sv",
+                "contains": "chk: assert (v) passes++; else fails++;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch39/test_vpi_assertion_immediate_handles.sv",
@@ -175465,7 +175589,31 @@
           "clause": "39.4.2",
           "descendant_requirement_count": 1
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch39/test_vpi_assertion_per_instance_control.sv",
+        "inputs_sha256": "3425d2bb4e3e8d4e0ca65bd11be25a23d476674f8f3c643dfaa6d90a2ee50a6b",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-39.3.1-EXTRACT-ASSERTION-INSTANCE-IDENTITY"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "要求は「ハンドルは特定インスタンスの特定アサーションを指す」と「無名アサーションは名前で見つからない」の2条件を持つ。テストは前者を、2インスタンスの別ハンドル・u1 だけの disable/enable 効果・u2 側 disable コールバック0件で強く観測するが、無名アサーションを名前で検索する刺激がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch39/test_vpi_assertion_per_instance_control.sv",
+                "contains": "ci_leaf u1(.clk(clk), .a(a), .passes(p1), .fails(f1));"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch39/test_vpi_assertion_procedural_callbacks.sv",
@@ -175540,7 +175688,31 @@
           "clause": "16.14.6",
           "descendant_requirement_count": 12
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch39/test_vpi_assertion_procedural_callbacks.sv",
+        "inputs_sha256": "1ed9d5c0df0a3550a428e8d00041d5313a9a4d11bb4da29aec32d07340de8f97",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-16.14.6-EXTRACT-PROCEDURAL-QUEUE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "en=1 で手続きが文に到達した刻み（5,15,45,55,65）だけ試行が始まり、到達しない25,35では始まらないことを観測するが、要求の「現在の引数値を持つ待ち行列」と「1ステップ内に複数回 queue できる」は刺激になく、即時評価と queue 後の成熟を区別する出力もない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch39/test_vpi_assertion_procedural_callbacks.sv",
+                "contains": "a1: assert property (a ##1 b) passes++; else fails++;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch39/test_vpi_assertion_procedural_queue.sv",
@@ -175966,7 +176138,31 @@
       "different_case_kind_ids": [
         "SV2023-16.14.1-EXTRACT-ASSERT-ACTION-CONTENT"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch39/test_vpi_assertion_system_control.sv",
+        "inputs_sha256": "7ddab04122963dd08e2d0290e32b5ae15d3d7c6c58f15e4899a06914a1582046",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSDISABLEPASSACTION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "120 の disable pass action 後、125 開始の試行が 145 に成功しても pass は 0、fail は 2 のままで、pass action の抑止と fail action への無影響を観測する。ただし制御時点に実行中の試行がないため「既存の試行に影響しない」という条件は観測できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch39/test_vpi_assertion_system_control.sv",
+                "contains": "$vt_system(\"disable pass action\");"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch39/test_vpi_assertion_system_lock_reset.sv",
@@ -179191,6 +179387,36 @@
                 "contains": "r == `SV_COV_ERROR ? \"an error\" : \"accepted\""
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.2.1-EXTRACT-COMMON-COVERAGE-API"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "4 つの coverage type に同じ CHECK 呼び出しを繰り返すが、要求 c) の拡張性と d) の部分階層の被覆情報取得は観測しない。NOCOV でも accepted と表示するため、型ごとに実機能がサポートされているかも区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_api_minimum_types.sv",
+                "contains": "r = $coverage_control(`SV_COV_CHECK, types[k], `SV_COV_HIER, u);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.2.1-EXTRACT-REQUIRED-FSM-TRANSITION"
+            ],
+            "disposition": "citation_refinement",
+            "explanation": "FSM 遷移被覆のサポートを要求するが、40.3.1 は遷移用の coverage_type マクロを定義せず、テストも FSM_STATE しか渡さない。API から遷移被覆を指定する手段が無いため、テスト側の刺激ではこの要求を観測できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_api_minimum_types.sv",
+                "contains": "int types[4] = '{`SV_COV_STATEMENT, `SV_COV_TOGGLE, `SV_COV_FSM_STATE, `SV_COV_ASSERTION};"
+              }
+            ]
           }
         ]
       }
@@ -179390,7 +179616,31 @@
         "SV2023-26.3-EXTRACT-PACKAGE-COMPILE-ORDER",
         "SV2023-26.3-EXTRACT-WILDCARD-AMBIGUITY"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch40/test_coverage_control_package_scope.sv",
+        "inputs_sha256": "206857f8fb9e6c416825f779eda4990e9295b39d89cd36625600096b84331bf1",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE"
+            ],
+            "disposition": "citation_refinement",
+            "explanation": "40.3.2.1 と Table 40-2 は module 定義名と instance path だけを scope として定め、package を被覆 scope にする要求行が無い。テストの package scope という前提は引用節から導けず、被覆の有無も NOCOV を許すため区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_control_package_scope.sv",
+                "contains": "check = $coverage_control(`SV_COV_CHECK, `SV_COV_STATEMENT, `SV_COV_HIER,"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch40/test_coverage_control_program_scope.sv",
@@ -179576,7 +179826,46 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch40/test_coverage_definition_control.sv",
+        "inputs_sha256": "103636d747eeeae68c6f0851a31e7a127bafdea4b0232a4fedb075319aa472f3",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-COVERAGE-START"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "u1 の start 後に新しいビットが増えることを見るが、既に収集中の start が無効である条件と、simulation 開始時の自動収集を刺激しない。start が NOCOV を返す実装では検査全体が真になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_definition_control.sv",
+                "contains": "start_u1 != `SV_COV_ERROR && max_u1 != `SV_COV_ERROR &&"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-COVERAGE-STOP"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "stop 中に値が変わらないことは見るが、停止前の値が非零であることと、収集していない状態でのstop が無効であることを確かめない。全値 0 の実装でも同じ行が 1 になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_definition_control.sv",
+                "contains": "show(\"while the definition is stopped, neither instance changes\","
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch40/test_coverage_fsm_pragma_states.sv",
@@ -179681,6 +179970,36 @@
               {
                 "file": "tests/ch40/test_coverage_fsm_pragma_states.sv",
                 "contains": "started != `SV_COV_OK"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.2.2-EXTRACT-FSM-COVERAGE-DEFINITION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "start が OK でない場合に全行を yes にするため、FSM 被覆を全く収集しない実装でも通る。3 つの FSM は状態数と遷移数がともに 4/3/3 で、max=10 が状態被覆と遷移被覆を区別しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_fsm_pragma_states.sv",
+                "contains": "yes_no(started != `SV_COV_OK || (max_mid == 10 && max_end == 10)));"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.4-EXTRACT-FSM-EXPLICIT-OVERRIDE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "pragma を無視して自動抽出しても 3 つの FSM の合計上限は 10 になり得るため、明示指定が自動抽出を上書きしたことを出力から区別できない。開始が OK でなければ全行 yes になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_fsm_pragma_states.sv",
+                "contains": "// tool state_vector {hi, lo} c_fsm enum c_states"
               }
             ]
           }
@@ -179801,7 +180120,46 @@
           "clause": "40.4",
           "descendant_requirement_count": 13
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch40/test_coverage_get_values.sv",
+        "inputs_sha256": "1bb47c92e3a82c339c755e6bbbc5132f6f2deef9ce600808d03cbc91ba03b317",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "current が 0 と max の間にあり減少しないことだけを見る。max=0 なら 0 で自明に真になり、正の被覆数や current/max の割合、coverable item の同一性を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_get_values.sv",
+                "contains": "cur0[i] >= 0 && cur0[i] <= max1[i] && cur1[i] >= 0 && cur1[i] <= max1[i]"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "同一 simulation の 2 時点で max が等しいことだけを見る。常に 0 を返す実装でも通り、同じ設計の別 compile 間で一定であることや stop/reset を跨ぐ不変性を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_get_values.sv",
+                "contains": "expect_ok(i, \"maximum is the same at both times\", max1[i] == max0[i]);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch40/test_coverage_predefined_constants.sv",
@@ -179908,6 +180266,36 @@
                 "contains": "toggle1 == toggle0 ? \"yes\" : \"no\""
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-COVERAGE-START"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "SV_COV_START を一度も呼ばず、既に収集開始済みの状態での無効性と、simulation 開始時の自動収集を観測しない。stop の戻り値も確認していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_reset_and_stop.sv",
+                "contains": "r = $coverage_control(`SV_COV_STOP, `SV_COV_TOGGLE, `SV_COV_HIER,"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-CONTROL-IDEMPOTENCE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "同じ coverage_type に対する stop の反復が無く、reset の反復も無い。2 回の stop は型が異なるため、反復呼び出しが無効であることを区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_reset_and_stop.sv",
+                "contains": "r = $coverage_control(`SV_COV_STOP, `SV_COV_STATEMENT, `SV_COV_HIER,"
+              }
+            ]
           }
         ]
       }
@@ -179972,7 +180360,61 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch40/test_coverage_reset_merge.sv",
+        "inputs_sha256": "5f10693914d2bdbff5e2d76cd14f5339ab375192bfa5f5db0aba452b0eba9146",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.5-EXTRACT-SAVE-PRESERVATION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "save→reset→merge で old_value に戻ることを見るが、old_value が非零であることを要求しない。save が NOCOV を返す実装では全ての等式が空虚に真になり、保存と検索を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_reset_merge.sv",
+                "contains": "saved != `SV_COV_OK || merged != `SV_COV_OK || after == old_value);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.4-EXTRACT-MERGE-STATUS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "save が OK のとき merge が OK になる条件だけを見る。存在するが要求型を持たないデータのNOCOV、未保存名や wrong-design の ERROR、merge 失敗時の無効性を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_reset_merge.sv",
+                "contains": "show(\"a merge after a save that gave OK gives OK\","
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-COVERAGE-RESET"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "reset が OK を返すことだけを確認し、reset 直後の値が 0 であることや、被覆の無い scope へのreset が無効であることを観測しない。後続の merge が値を戻すため、reset の効果自体も見えない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_reset_merge.sv",
+                "contains": "reset_done = $coverage_control(`SV_COV_RESET, `SV_COV_TOGGLE, `SV_COV_HIER, u);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch40/test_coverage_root_hierarchy.sv",
@@ -180030,7 +180472,46 @@
       "different_case_kind_ids": [
         "SV2023-23.3.1-EXTRACT-REQUIRE-TOP"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch40/test_coverage_root_hierarchy.sv",
+        "inputs_sha256": "60389a6170d9f358c81c7bb931dd702d08a637c36b996dccb562af9d571b45b3",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "$root と唯一の top instance の max/current が等しいことだけを見る。両方が 0 でも通り、$root が設計全体を指し、子孫を含むことを示す非零の対照が無い。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_root_hierarchy.sv",
+                "contains": "== $coverage_get_max(t, `SV_COV_HIER, test_coverage_root_hierarchy)"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "定義名と instance path の集計差を比べておらず、$root と top の等値だけでは Table 40-2 の定義名/instance の区別を観測しない。全型で 0 でも同じ 3 行になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_root_hierarchy.sv",
+                "contains": "== $coverage_get(t, `SV_COV_HIER, test_coverage_root_hierarchy)"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch40/test_coverage_save_after_stop.sv",
@@ -180087,7 +180568,61 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch40/test_coverage_save_after_stop.sv",
+        "inputs_sha256": "91257a495f49ba47719d858efbe364fb9d0ae6304343b8d1892ccd21065a3d99",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-COVERAGE-STOP"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "stop 前の値が非零であることを確かめず、stop 中に信号が変化しても値が変わらないことだけを見る。収集が元々無い実装では 0==0 で通り、stop の効果を反証できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_after_stop.sv",
+                "contains": "$display(\"stopped coverage does not change: %0d\", value_after == value_before);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.5-EXTRACT-SAVE-PRESERVATION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "stop 中の save が OK/NOCOV のいずれでも許され、merge も save が OK のときだけ OK を要求する。保存データを merge で読み戻して値が復元することを観測せず、NOCOV 実装でも通る。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_after_stop.sv",
+                "contains": "saved = $coverage_save(`SV_COV_TOGGLE, \"test_coverage_save_after_stop_db\");"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.4-EXTRACT-MERGE-STATUS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "save 成功時の merge OK だけを条件付きで見る。存在するが型違いの NOCOV、未保存名・wrong-design の ERROR、merge 失敗時の無効性を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_after_stop.sv",
+                "contains": "saved != `SV_COV_OK || merged == `SV_COV_OK);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch40/test_coverage_save_merge.sv",
@@ -180116,7 +180651,61 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch40/test_coverage_save_merge.sv",
+        "inputs_sha256": "53d6801232129c5a3f0c5ade6e5cbbb3be3a824c6ae87c82b9a1c570efc5f7ed",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.5-EXTRACT-SAVE-STATUS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "save の戻り値が 3 値のどれかであることと再 save の一致だけを見る。被覆の有無に応じたOK/NOCOV の区別、失敗時の ERROR と名前エントリ削除を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_merge.sv",
+                "contains": "saved inside {`SV_COV_OK, `SV_COV_NOCOV, `SV_COV_ERROR});"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.4-EXTRACT-MERGE-STATUS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "未保存名の ERROR は見るが、保存済み名の OK は save 成功時のみ条件付きで、型違いで見つかった場合の NOCOV と wrong-design の ERROR を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_merge.sv",
+                "contains": "expect_ok(\"merge of a name never saved gives ERROR\", missing == `SV_COV_ERROR);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.5-EXTRACT-SAVE-PRESERVATION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "save 前後の current が等しいことだけを見る。両方が 0 でも通り、保存したデータを merge で読み戻せることと、save が状態を変えないことを非零値で確かめない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_merge.sv",
+                "contains": "expect_ok(\"saving does not change the toggle coverage\", cov_after == cov_before);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch40/test_coverage_save_merge_all_types.sv",
@@ -180174,7 +180763,79 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch40/test_coverage_save_merge_all_types.sv",
+        "inputs_sha256": "1adb7d421cac70e60db920181d203184b13a34cebe5caa9c5a7651fbc721d374",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-40.2.1-EXTRACT-REQUIRED-ASSERTION",
+              "SV2023-40.2.1-EXTRACT-REQUIRED-FSM-STATE",
+              "SV2023-40.2.1-EXTRACT-REQUIRED-STATEMENT",
+              "SV2023-40.2.1-EXTRACT-REQUIRED-TOGGLE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "check が NOCOV なら save も NOCOV/ERROR でよいため、各 coverage type を全く持たない実装でも全行 yes になる。assertion/FSM state/statement/toggle が実際に収集・照会できることを観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_merge_all_types.sv",
+                "contains": "check[i] == `SV_COV_NOCOV ? saved[i] inside {`SV_COV_NOCOV, `SV_COV_ERROR}"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.2.1-EXTRACT-REQUIRED-FSM-TRANSITION"
+            ],
+            "disposition": "citation_refinement",
+            "explanation": "FSM 遷移被覆のサポートを要求するが、40.3.1 に遷移用の coverage_type マクロが無く、テストもFSM_STATE だけを 4 型として渡す。遷移被覆を指定する刺激が存在しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_merge_all_types.sv",
+                "contains": "int types[4] = '{`SV_COV_ASSERTION, `SV_COV_FSM_STATE, `SV_COV_STATEMENT, `SV_COV_TOGGLE};"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.5-EXTRACT-SAVE-STATUS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "被覆が無いとき save が NOCOV でも ERROR でもよいとしているため、両者を区別しない。被覆がある場合も OK と ERROR の両方を許し、保存失敗時の名前削除も観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_merge_all_types.sv",
+                "contains": "check[i] == `SV_COV_NOCOV ? saved[i] inside {`SV_COV_NOCOV, `SV_COV_ERROR}"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.4-EXTRACT-MERGE-STATUS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "save が OK の名前だけを merge し、OK になることだけを見る。型違いで見つかったデータのNOCOV、未保存名・wrong-design の ERROR、merge 失敗時の無効性を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_save_merge_all_types.sv",
+                "contains": "yes_no(saved[i] != `SV_COV_OK || merged[i] == `SV_COV_OK)"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch40/test_coverage_scope_sums.sv",
@@ -180257,6 +180918,36 @@
                 "contains": "yes_no(hdef == h1 + h2)"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.2.2-EXTRACT-COVERAGE-AGGREGATION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "定義の max/current が instance の和に等しいことだけを見る。全値が 0 でも yes になり、item の同一性や重複排除、非零の被覆を用意した合計を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_scope_sums.sv",
+                "contains": "yes_no(def == m1 + m2)"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "同一 simulation 内で stop/reset/start の前後比だけを見る。常に 0 の実装でも通り、別 compile 間の一定性や、coverable item の集合が変わらないことを観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_scope_sums.sv",
+                "contains": "$display(\"%s maximum unchanged by stop, reset and start: %s\", name, yes_no(max_before == max_after));"
+              }
+            ]
           }
         ]
       }
@@ -180317,7 +181008,46 @@
       "different_case_kind_ids": [
         "SV2023-23.3.1-EXTRACT-REQUIRE-TOP"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch40/test_coverage_uninstantiated_module.sv",
+        "inputs_sha256": "af00830bbc97c4da118a7400292b4efc5dec1cf3c99296c16b616ce67fedb46f",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.2-EXTRACT-GET-MAX-RESULT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "被覆の無い module で max が NOCOV=0 になることだけを見る。-2 の overflow、-1 の error、正の最大値の条件を観測せず、常に 0 を返す実装でも通る。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_uninstantiated_module.sv",
+                "contains": "maximum = $coverage_get_max(`SV_COV_TOGGLE, `SV_COV_MODULE, \"cov_unused\");"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.3-EXTRACT-CURRENT-COVERAGE-STATUS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "被覆の無い module で current が NOCOV=0 になることだけを見る。-2 の overflow、-1 の error、正の被覆数を観測せず、常に 0 を返す実装でも通る。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_coverage_uninstantiated_module.sv",
+                "contains": "current = $coverage_get(`SV_COV_TOGGLE, `SV_COV_MODULE, \"cov_unused\");"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch40/test_vpi_coverage_assertion.sv",
@@ -180438,6 +181168,116 @@
                 "contains": "if (!collected)\n            continue;"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.5.2-EXTRACT-COVERED-MAX"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "4 つの assertion handle で covered max が 1 になることは見るが、要求が並べる FSM-state handle を刺激せず、assertion 以外の coverable entity の個数を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.sv",
+                "contains": "#40 $vt_coverage(started == `SV_COV_OK);"
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.c",
+                "contains": "vpi_printf(\"%s: covered max %d\\n\", e->name, (int)vpi_get(vpiCoveredMax, h));"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.5.2-EXTRACT-COVERED-ENTITIES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "assertion handle の vpiCovered だけを、収集が OK のときに限って検査する。statement/signal/FSM/FSM-state handle を刺激せず、collected=0 なら全検査を飛ばすため未収集実装でも通る。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.sv",
+                "contains": "#40 $vt_coverage(started == `SV_COV_OK);"
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.c",
+                "contains": "check(e->name, \"covered\", (int)vpi_get(vpiCovered, h), e->covered);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTDISABLECOVERED"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "disable count が 0 であることだけを、収集 OK 時に見る。disable された assertion を置かず、非零の disable や disable と failure の区別を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.sv",
+                "contains": "#40 $vt_coverage(started == `SV_COV_OK);"
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.c",
+                "contains": "disabled = (int)vpi_get(vpiAssertDisableCovered, h);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTKILLCOVERED"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "kill count が 0 であることだけを見る。kill された assertion を置かず、非零の kill やkill と failure の区別を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.sv",
+                "contains": "#40 $vt_coverage(started == `SV_COV_OK);"
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.c",
+                "contains": "killed = (int)vpi_get(vpiAssertKillCovered, h);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTVACUOUSSUCCESSCOVERED"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "vacuous success count が 0 であることだけを見る。vacuous に成功する property を置かず、非零の vacuous と通常成功の区別を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.sv",
+                "contains": "#40 $vt_coverage(started == `SV_COV_OK);"
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.c",
+                "contains": "vacuous = (int)vpi_get(vpiAssertVacuousSuccessCovered, h);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.5.2-EXTRACT-COVER-SEQUENCE-COUNT-EXCEPTION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "cover property/sequence が 1 つも無く、cover sequence の count 規則を刺激しない。assert property の成功回数だけでは cover sequence の例外条件を反証できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_assertion.sv",
+                "contains": "a_pass: assert property (@(posedge clk) on ##1 on);"
+              }
+            ]
           }
         ]
       }
@@ -180537,6 +181377,63 @@
               {
                 "file": "tests/ch40/test_vpi_coverage_control.sv",
                 "contains": "$vt_cov"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL-TARGETS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "top instance 1 つに対する reset と stop だけで、start/check や他の target 種別、複数 instance 間の独立性を刺激しない。coverage_get が常に 0 でも期待出力になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_control.sv",
+                "contains": "$vt_cov(\"reset\");"
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_control.c",
+                "contains": "vpi_control(vpiCoverageReset, vpiToggleCoverage, top);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-COVERAGE-RESET"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "VPI reset 直後の current が 0 であることだけを見る。reset 前の非零値や、reset が子階層も含むか、被覆の無い scope への無効性を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_control.sv",
+                "contains": "$display(\"toggle coverage right after vpiCoverageReset: %0d\","
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_control.c",
+                "contains": "vpi_control(vpiCoverageReset, vpiToggleCoverage, top);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-COVERAGE-STOP"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "stop 後に信号をトグルしても current が変わらないことだけを見る。stop 前の値が非零であることと、未収集状態での stop の無効性を確かめない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_control.sv",
+                "contains": "$display(\"toggle coverage unchanged after vpiCoverageStop: %s\","
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_control.c",
+                "contains": "vpi_control(vpiCoverageStop, vpiToggleCoverage, top);"
               }
             ]
           }
@@ -181107,6 +182004,63 @@
                 "contains": "$vt_cov_ctl"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL-TARGETS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "u1 の reset/stop だけを刺激し、start/check や、より深い階層・定義名 scope の target を観測しない。u1 と u2 の値が共に 0 でも 2 行は yes になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_instance_control.sv",
+                "contains": "$vt_cov_ctl(\"reset\", \"test_vpi_coverage_instance_control.u1\");"
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_instance_control.c",
+                "contains": "vpiHandle inst = vpi_handle_by_name(target, NULL);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-COVERAGE-RESET"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "reset 後の u1 が 0 で u2 が不変であることを見るが、reset 前の u1 が非零であることを要求しない。全値 0 の実装でも通り、reset の clear 効果を反証できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_instance_control.sv",
+                "contains": "yes_no(b1 == 0 && b2 == a2));"
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_instance_control.c",
+                "contains": "vpi_control(strcmp(op, \"reset\") == 0 ? vpiCoverageReset : vpiCoverageStop,"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-40.3.2.1-EXTRACT-COVERAGE-STOP"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "stop 中に u1 をトグルしても値が変わらないことだけを見る。stop 前の値が非零であること、未収集状態での stop、他 instance への影響を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch40/test_vpi_coverage_instance_control.sv",
+                "contains": "yes_no(c1 == b1));"
+              },
+              {
+                "file": "tests/ch40/test_vpi_coverage_instance_control.c",
+                "contains": "vpi_control(strcmp(op, \"reset\") == 0 ? vpiCoverageReset : vpiCoverageStop,"
+              }
+            ]
           }
         ]
       }
@@ -181287,6 +182241,24 @@
                 "contains": "            static int attr_value = 1;\n            if (attr_value == 1) begin"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-DUPLICATE-WARNING",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-LAST-WINS",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-METADATA",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-SUFFIX-PLACEMENT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "属性はモジュール宣言の前に書かれるだけで、検査は module_exists = 1 など自分で初期化した定数を比較している。重複した同名属性の後勝ち、属性値の式の型、演算子や関数名への後置属性、重複時の警告のいずれも刺激せず、属性を捨てる実装でも期待出力は変わらない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_attrib_module.sv",
+                "contains": "(* top_module, clock_domain = \"fast\" *)"
+              }
+            ]
           }
         ]
       }
@@ -181315,7 +182287,38 @@
         "SV2023-5.12-EXTRACT-NO-ATTRIBUTE-IN-VALUE",
         "SV2023-5.12-EXTRACT-NO-NESTED-ATTRIBUTES"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_attrib_signal.sv",
+        "inputs_sha256": "8dde4ca1afeaa8f210edb3d99759633602e0213486702b00a8c6b3b17364c51a",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-DEFAULT",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-EXPRESSION-TYPE",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-INSTANCE-SYNTAX",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-PREFIX-PLACEMENT",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-SUFFIX-PLACEMENT",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-LAST-WINS",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-DUPLICATE-WARNING",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-METADATA"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "属性付きの信号を宣言し、その信号へ自分で値を代入して比べているだけで、属性の既定値・式の型・重複時の後勝ち・後置属性・重複警告・保持値を読む検査がない。属性をすべて無視する実装でも Test 1〜5 は PASS する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_attrib_signal.sv",
+                "contains": "(* dont_touch, optimize = 0 *)"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_attribute_latch_generate.sv",
@@ -181358,7 +182361,55 @@
         "SV2023-5.12-EXTRACT-NO-ATTRIBUTE-IN-VALUE",
         "SV2023-5.12-EXTRACT-NO-NESTED-ATTRIBUTES"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_attribute_latch_generate.sv",
+        "inputs_sha256": "8d6f0d438cd573910e40b5bf32cb8ccc4b2c1fb3965e77c11dcc3bfa31512325",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-DEFAULT",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-EXPRESSION-TYPE",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-INSTANCE-SYNTAX",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-PREFIX-PLACEMENT",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-SUFFIX-PLACEMENT",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-LAST-WINS",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-DUPLICATE-WARNING",
+              "SV2023-5.12-EXTRACT-ATTRIBUTE-METADATA"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "(* mark = \"test\" *) を logic marked_sig に付けるが、marked_sig には 1 を代入して 1 と比べるだけで、属性値・型・既定値・重複時の後勝ち・後置属性・警告を観測しない。属性を捨てる実装でも 4/4 の出力は変わらない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_attribute_latch_generate.sv",
+                "contains": "(* mark = \"test\" *)"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-27.4-EXTRACT-GENERATE-ARRAY-INDICES",
+              "SV2023-9.2.2.3-EXTRACT-LATCH-CHECK",
+              "SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RULES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "gen_loop[0..1] は連続した添字で、sparse な genvar 値や 0 回反復でも宣言が存在する条件を刺激しない。always_latch は data への単一ドライバで latched logic として動く合法例だけで、latched logic でない場合の警告や 9.2.2.2 の always_comb 制約の適用を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_attribute_latch_generate.sv",
+                "contains": "gen_loop[0].gen_sig = 1;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_boundary_values.sv",
@@ -181775,7 +182826,36 @@
         "SV2023-23.6-EXTRACT-INSTANCE-SELECT",
         "SV2023-23.6-EXTRACT-NO-CHECKER-HIERARCHY"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_escaped_identifier_with_dot.sv",
+        "inputs_sha256": "660eddce995536c567839502803a30d66263a5c8ba51e020a08e5155d47be718",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.6.1-EXTRACT-ESCAPE-NAME-EQUIVALENCE",
+              "SV2023-5.6.1-EXTRACT-ESCAPED-KEYWORD-NAME",
+              "SV2023-23.6-EXTRACT-HIERARCHICAL-BRANCHES",
+              "SV2023-23.6-EXTRACT-HIERARCHICAL-ROOT-LOCAL",
+              "SV2023-23.6-EXTRACT-HIERARCHICAL-SYNTAX",
+              "SV2023-23.6-EXTRACT-HIERARCHICAL-USES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "escaped 名の先頭バックスラッシュと終端空白を除いた同一性（simple 名との同一視）や、escaped keyword を user 識別子として使う刺激がない。階層参照は c.\\w.x の下方参照と名前付きブロック blk.bv の読みだけで、$root・定数添字・escaped 名の後の空白+ピリオド区切り・タスク/関数/assertion action block・書き込み/イベント/サブルーチン参照は観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_escaped_identifier_with_dot.sv",
+                "contains": "initial begin : blk"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_format_hex.sv",
@@ -181831,7 +182911,33 @@
         "SV2023-5.7.1-EXTRACT-DECIMAL-UNKNOWN-SINGLE",
         "SV2023-5.7.1-EXTRACT-SIGN-PLACEMENT"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_format_hex.sv",
+        "inputs_sha256": "d36bff6bfafce036c2e6a817bb727ad05929527adb7cf7caf6df5866b5dba7dd",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.7.1-EXTRACT-BASE-VALUE-DIGITS",
+              "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
+              "SV2023-11.5.1-EXTRACT-CONSTANT-SELECT-DEFINITION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "hex literal を同じ hex literal と比べる検査が中心で（0 や 57005 との比較は Test 3/8 のみ）、基数ごとの不正桁の拒否、size 宣言のビット幅、val8[7:4] が定数選択であることのいずれも結果を変えない。桁の legality や size を誤って受理する実装でも期待出力は変わらない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_format_hex.sv",
+                "contains": "if (val8[7:4] == 4'h5 && val8[3:0] == 4'hA) begin"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_free_format_layout.sv",
@@ -181925,7 +183031,34 @@
           "clause": "5.6",
           "descendant_requirement_count": 18
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch5/test_identifier_forms.sv",
+        "inputs_sha256": "20c631e5fd9833cd46b8c382ca533bf2d3a4476bfdfb229b52c45cb4983ad348",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.6-EXTRACT-IDENTIFIER-FORMS",
+              "SV2023-5.6-EXTRACT-SIMPLE-CHARACTERS",
+              "SV2023-5.6-EXTRACT-IDENTIFIER-MINIMUM-LIMIT",
+              "SV2023-27.4-EXTRACT-GENERATE-ARRAY-INDICES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "simple 名だけで escaped 形式を使わず、$ や数字を含む名前、1024 文字の長さ下限、不正文字の拒否を刺激しない。gen_blk[0..2] は連続した添字で、sparse な genvar 値や 0 回反復でも宣言が存在する条件を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_identifier_forms.sv",
+                "contains": "for (i = 0; i < 3; i++) begin : gen_blk"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_identifier_if_suffix.sv",
@@ -181956,7 +183089,33 @@
           "clause": "5.6",
           "descendant_requirement_count": 18
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch5/test_identifier_if_suffix.sv",
+        "inputs_sha256": "c5859e8c411d15c3f3697bf4a059b634633da7f26bbfa2d465eee1142b7712e2",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.6-EXTRACT-IDENTIFIER-FORMS",
+              "SV2023-5.6-EXTRACT-SIMPLE-CHARACTERS",
+              "SV2023-5.6-EXTRACT-IDENTIFIER-MINIMUM-LIMIT"
+            ],
+            "disposition": "citation_refinement",
+            "explanation": "このテストが確かめるのは「if」で終わる名前がキーワードと解釈されないことで、5.6.2 のキーワード境界（既に別テストが対応）に属する。候補の 5.6 の 3 要求（識別子の形式・文字集合・1024 文字の長さ下限）はいずれも刺激しておらず、:lrm: の 5.6 の引用は対応付けの根拠にならない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_identifier_if_suffix.sv",
+                "contains": "function automatic int set_if(int index = 0);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_identifier_leading_underscore.sv",
@@ -183263,7 +184422,32 @@
         "SV2023-5.7.1-EXTRACT-DECIMAL-UNKNOWN-SINGLE",
         "SV2023-5.7.1-EXTRACT-SIGN-PLACEMENT"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_int_literal_edge_cases.sv",
+        "inputs_sha256": "8581873e2eb113986d1a496c871753de792b3740ee393902eb861ffda03b2f29",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
+              "SV2023-5.7.1-EXTRACT-PLAIN-DECIMAL"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "10 進は 12345 や -100 を同じ字面と比較し、size 付きは 8'd255 を 255 と比べるだけで、size 宣言のビット幅や基数なし 10 進の字句形式を区別できない。1_000_000 の underscore は既存の NUMERIC-UNDERSCORE が対応済みで、ここでの追加観測はない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_int_literal_edge_cases.sv",
+                "contains": "lval = 8'd255;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_lexical_comments_and_keyword_identifiers.sv",
@@ -183369,7 +184553,36 @@
         "SV2023-5.7.1-EXTRACT-SIGN-PLACEMENT",
         "SV2023-5.7.2-EXTRACT-REAL-DECIMAL-SIDES"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_lexical_numbers.sv",
+        "inputs_sha256": "c694b719cf3f7b99b645fb9a2dce5762ace341b1606ddd3435c8430888aad401",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.7.1-EXTRACT-X-DIGIT-GROUP",
+              "SV2023-5.7.1-EXTRACT-Z-DIGIT-GROUP",
+              "SV2023-5.7.1-EXTRACT-QUESTION-Z",
+              "SV2023-5.7.1-EXTRACT-XZ-CASE",
+              "SV2023-5.7.1-EXTRACT-UNSIZED-MINIMUM",
+              "SV2023-5.7.1-EXTRACT-UNSIZED-LARGE-WIDTH"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "x/z/? はすべて 8'b1010_xxxx 形の下位 4 ビットに置き、上位ニブルが 1010 であることしか見ない。z と ? は下位が 0 でも通るため high-impedance を観測せず、hex/octal の x 桁や大文字 X/Z も使わない。'hDEAD は 32 ビット宛先との比較で零拡張されるため、unsized の 32 ビット下限や35 ビット以上の幅も区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_lexical_numbers.sv",
+                "contains": "val_with_z = 8'b1010_zzzz;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_lexical_strings.sv",
@@ -183496,6 +184709,37 @@
                 "contains": "module test_lexical_strings"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-5.9-EXTRACT-QUOTED-CHARACTERS",
+              "SV2023-5.9-EXTRACT-RAW-NONPRINTABLE-LATITUDE",
+              "SV2023-5.9-EXTRACT-STRING-CAST-ASSIGNMENT-EQUIVALENCE",
+              "SV2023-5.9-EXTRACT-STRING-ESCAPE-FORMS",
+              "SV2023-5.9-EXTRACT-STRING-IMPLICIT-CONVERSION",
+              "SV2023-5.9-EXTRACT-STRING-MULTIDIMENSIONAL-PACKED",
+              "SV2023-5.9-EXTRACT-STRING-NO-STANDARD-LIMIT",
+              "SV2023-5.9.1-EXTRACT-BELL",
+              "SV2023-5.9.1-EXTRACT-FORMFEED",
+              "SV2023-5.9.1-EXTRACT-VERTICAL-TAB",
+              "SV2023-5.9.1-EXTRACT-HEX-ESCAPE-WIDTH",
+              "SV2023-5.9.1-EXTRACT-OCTAL-ESCAPE-WIDTH",
+              "SV2023-5.9.1-EXTRACT-OCTAL-ESCAPE-RANGE-LATITUDE",
+              "SV2023-5.9.1-EXTRACT-BACKSLASH-PLUS-CONTINUATION",
+              "SV2023-5.9.1-EXTRACT-DOUBLE-BACKSLASH-NOT-CONTINUATION",
+              "SV2023-5.9.1-EXTRACT-OTHER-ESCAPED-CHARACTER",
+              "SV2023-5.9.1-EXTRACT-TRIPLE-ESCAPES-SUPPORTED"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "escape は \\n \\t \\\\ \\\" の 4 種だけを len() で比較し、変換後の文字値や内容を確かめない。\\a \\f \\v、hex/octal escape（宣言だけで未使用）、未定義 escape の文字保持、行継続、triple-quoted、生の非印字文字、長さ上限、cast や多次元 packed への変換はいずれも刺激がない。「Hello, World!」を同じ字面と比べる検査も暗黙変換の誤りを区別しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_lexical_strings.sv",
+                "contains": "if (str_escape_newline.len() == 11)"
+              }
+            ]
           }
         ]
       }
@@ -183542,7 +184786,33 @@
         "SV2023-5.7.1-EXTRACT-DECIMAL-UNKNOWN-SINGLE",
         "SV2023-5.7.1-EXTRACT-SIGN-PLACEMENT"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_literal_base.sv",
+        "inputs_sha256": "7871518ec4679251c776c897ce7a90d14112a81e018ca79bb16c584f3fad18e8",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.7.1-EXTRACT-BASE-VALUE-DIGITS",
+              "SV2023-5.7.1-EXTRACT-BASED-LETTER",
+              "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "基数間の値比較（8'o377==8'hFF など）は既存の INTEGER-RADICES と HEX-CASE が対応済みで、不正桁の拒否、基数文字の大文字形（8'H.. など）、size 宣言のビット幅は刺激しない。16'h1234 を 16'd4660 と比べても size は結果を変えない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_literal_base.sv",
+                "contains": "val8 = 8'o377;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_literal_corner.sv",
@@ -183884,7 +185154,32 @@
         "SV2023-5.7.1-EXTRACT-DECIMAL-UNKNOWN-SINGLE",
         "SV2023-5.7.1-EXTRACT-SIGN-PLACEMENT"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_logic_literal_edge_cases.sv",
+        "inputs_sha256": "1b266b561920dca59b53c724b8917dc0b86ccf990bbd79fec2accb78185896fe",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
+              "SV2023-5.7.1-EXTRACT-INTEGER-LITERAL-LOGIC"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "8'hAB などを同じ値の binary literal と比べる交叉検査が中心で、4 ビット宛先への 8'hAB は size を無視しても B に切り捨てられるため size 宣言のビット幅を区別できない。literal が論理ベクトルであること（範囲の向きや宣言された符号）を結果から見る検査もない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_logic_literal_edge_cases.sv",
+                "contains": "sval = 8'hAB;  // Truncates to lower 4 bits"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_nested_literal_replication_members.sv",
@@ -184053,7 +185348,32 @@
           "clause": "6.12",
           "descendant_requirement_count": 5
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch5/test_real_literal_edge_cases.sv",
+        "inputs_sha256": "cc50c21d54ac3c6804d5b243bc59e8728ab5f4616d0fa2b8e93cdd7b11a5224c",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.7.2-EXTRACT-SHORTREAL-EXPLICIT-CAST",
+              "SV2023-6.12-EXTRACT-REAL-VARIABLE-CATEGORY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "shortreal への cast は使っておらず、real r の宣言と演算だけでは real/shortreal/realtime が同じ実変数カテゴリに属することを観測しない。カテゴリ固有の制約は別の error 要求が扱う。3.14 や 1.5e3 の値は既存の REAL-NOTATIONS などが対応済み。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_real_literal_edge_cases.sv",
+                "contains": "real r;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_string_literal_to_unpacked_byte_array.sv",
@@ -184224,7 +185544,31 @@
         "SV2023-22.7-EXTRACT-TIMESCALE-PRECISION",
         "SV2023-22.7-EXTRACT-TIMESCALE-VALUES"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_time_literal_scaled_to_unit.sv",
+        "inputs_sha256": "d22f3404e76d370430975e0ac53ed3b01e3b4f59c2526b72ff3ea62291074fc9",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT"
+            ],
+            "disposition": "citation_refinement",
+            "explanation": "テストは `timescale 10ns/1ns を明示しており、22.7 が定める既定の時間単位・精度（実装依存）を観測しない。:lrm: の 22.7 は時間リテラルの解釈を示すために引かれており、既定値の要求への対応付けには使えない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_time_literal_scaled_to_unit.sv",
+                "contains": "`timescale 10ns/1ns"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch5/test_time_literal_scaling.sv",
@@ -184440,7 +185784,33 @@
         "SV2023-5.7.1-EXTRACT-DECIMAL-UNKNOWN-SINGLE",
         "SV2023-5.7.1-EXTRACT-SIGN-PLACEMENT"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_unsized_fill_wide_part_select_nba.sv",
+        "inputs_sha256": "7d0fe61fd21fd035e938ab64fc4946a81614a7e664cb5d633e2e129adec31edc",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.7.1-EXTRACT-FILL-SELF-WIDTH",
+              "SV2023-11.5.1-EXTRACT-CONSTANT-SELECT-DEFINITION",
+              "SV2023-10.4.2-EXTRACT-LESS-EQUAL-CONTEXT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "'0/'1 はすべて 33/65 ビットの文脈（part-select や ~ の被演算数）で使い、自己決定文脈での幅 1 を観測しない。a[32:0] などは定数範囲だが、定数選択であることが結果を変える使い方をしておらず、<= は非ブロッキング代入の文脈だけで関係演算子の文脈がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_unsized_fill_wide_part_select_nba.sv",
+                "contains": "g[32:0] = g[32:0] ^ '1;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch6/test_automatic_var.sv",
@@ -401665,14 +403035,14 @@
       "broader_citations": []
     }
   ],
-  "scoped_review_test_files": 433,
+  "scoped_review_test_files": 463,
   "review_disposition_counts": {
-    "citation_refinement": 28,
-    "compound_requirement": 107,
+    "citation_refinement": 33,
+    "compound_requirement": 108,
     "oracle_issue": 45,
-    "partial_observation": 398
+    "partial_observation": 458
   },
   "registry_sha256": "50423d857f5356bed8ece642ac57c72c052719859c7cbd199dc4bca88c1fea58",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
-  "review_ledger_sha256": "3c9f7f446c3bc9f61459fbf93d5625276fee70d8f1b0ae121a41f3c4554af342"
+  "review_ledger_sha256": "d6ed5d2eeb5d4040b4fd278ccae8fe5b37dc560bc0fa6d8c771e4273561193c6"
 }
