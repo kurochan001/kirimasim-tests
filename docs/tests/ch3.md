@@ -1,6 +1,6 @@
 # Clause 3: Design and verification building blocks
 
-[All chapters](README.md). 69 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 71 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -49,8 +49,10 @@
 | [`test_delay_scaled_by_unit_rounded_by_precision`](../../tests/ch3/test_delay_scaled_by_unit_rounded_by_precision.sv) | The same delay literal waits for different times in modules with different time units, and a delay is rounded to the time precision of its module, so #1.26 is 1 ns, 12.6 ns or 13 ns and #0.0237 and #0.0251 with a 10 ns precision are 20 ns and 30 ns | 3.14 3.14.1 3.14.2.2 | Icarus Verilog 13.0 |  |
 | [`test_illegal_timeprecision_coarser_than_timeunit`](../../tests/ch3/test_illegal_timeprecision_coarser_than_timeunit.sv) | A module whose timeprecision declaration is coarser than its timeunit declaration is rejected | 3.14 3.14.2.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_time_unit_strings_scale_by_1000`](../../tests/ch3/test_time_unit_strings_scale_by_1000.sv) | Eighteen modules, one for each time unit of 1, 10 or 100 s, ms, us, ns, ps or fs, wait #1; a module with the unit 1fs sees each wait end after the matching number of femtoseconds, each unit string 1000 times the next smaller one | 3.14 3.14.2.2 | Icarus Verilog 13.0 |  |
+| [`test_delay_negative_real_to_minus_one_const`](../../tests/imported/ch3/test_delay_negative_real_to_minus_one_const.sv) | a wait on -0.5 as a real constant ends at 18446744073709551615 | 3.14.1 6.12.1 9.4.1 20.3.1 | standard only | top module, x/z |
 | [`test_delay_rounding_each_delay`](../../tests/ch3/test_delay_rounding_each_delay.sv) | Each delay is rounded to the time precision before it is scheduled, so three delays of 0.16 units advance 0.6 and not 0.5 | 3.14.1 3.14.2.1 20.3.3 | Icarus Verilog 13.0 |  |
 | [`test_delay_time_unit_suffix`](../../tests/ch3/test_delay_time_unit_suffix.sv) | A delay may carry its own time unit, which is converted to the time unit and precision of the scope, independent of \`timescale | 3.14.1 5.8 20.3.3 | Icarus Verilog 13.0 |  |
+| [`test_delay_value_matrix`](../../tests/imported/ch3/test_delay_value_matrix.sv) | Delays known only when they run give the same times as constant ones: variables, expressions, function calls, reals rounded to the precision, x and z, vectors, in delay controls, intra-assignment delays and ->>, in procedures, tasks and fork branches, and in a module of another timescale | 3.14.1 9.4.1 9.4.5 15.5.2 | Icarus Verilog 13.0 | x/z |
 | [`test_time_value_rounding`](../../tests/ch3/test_time_value_rounding.sv) | delays are rounded to the time precision of the design element that contains them, also when another element of the design has a finer precision | 3.14.1 3.14.2.2 20.3.3 | Icarus Verilog 13.0 |  |
 | [`test_timescale_precision_rounding`](../../tests/ch3/test_timescale_precision_rounding.sv) | A \`timescale with a unit of 10ns and a precision of 1ns rounds delays to a tenth of its unit, and $realtime reports them in that unit | 3.14.1 3.14.2.1 20.3.3 | Icarus Verilog 13.0 |  |
 | [`test_illegal_timescale_precision_coarse`](../../tests/ch3/test_illegal_timescale_precision_coarse.sv) | A \`timescale whose time precision is coarser than its time unit is illegal | 3.14.2.1 3.14.1 | Icarus Verilog 13.0 | illegal design |

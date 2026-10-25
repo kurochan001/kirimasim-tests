@@ -1,6 +1,6 @@
 # Clause 6: Data types
 
-[All chapters](README.md). 538 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 539 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -114,6 +114,7 @@
 | [`test_illegal_const_implicit_type_without_var`](../../tests/ch6/test_illegal_const_implicit_type_without_var.sv) | a variable declaration that gives only a packed range instead of a data type needs the var keyword; const with a range alone is illegal | 6.8 | Icarus Verilog 13.0 | illegal design |
 | [`test_logic_type`](../../tests/ch6/test_logic_type.sv) | Test logic type | 6.8 | Icarus Verilog 13.0 |  |
 | [`test_logic_val`](../../tests/ch6/test_logic_val.sv) | Logic Value Tests | 6.8 | Icarus Verilog 13.0 |  |
+| [`test_package_call_matrix`](../../tests/imported/ch6/test_package_call_matrix.sv) | a package's function, task and variable, and a function that reads the variable, used from initial, always_comb, always_ff, always @*, a continuous assignment, a net declaration assignment, an initial value, a module function, a final procedure, a generate block, an instance and its port connection | 6.8 9.2 10.3 13.4 23.3.2 26.3 | standard only | top module, x/z |
 | [`test_reg_edge_cases`](../../tests/ch6/test_reg_edge_cases.sv) | reg variables: initial x, x and z values, selects, signed reg | 6.8 6.11 | Icarus Verilog 13.0 | x/z |
 | [`test_reg_init`](../../tests/ch6/test_reg_init.sv) | Test register initialization | 6.8 10.5 | Icarus Verilog 13.0 |  |
 | [`test_uninitialized_package_and_class_variables`](../../tests/ch6/test_uninitialized_package_and_class_variables.sv) | 4-state variables in a package and class properties without an initializer start as x, and 2-state ones as 0 | 6.8 26.2 8.7 | Icarus Verilog 13.0 | x/z |

@@ -6,16 +6,16 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
-| 3 | [Design and verification building blocks](ch3.md) | 69 |  |
+| 3 | [Design and verification building blocks](ch3.md) | 71 |  |
 | 4 | [Scheduling semantics](ch4.md) | 387 | 325 |
 | 5 | [Lexical conventions](ch5.md) | 317 | 248 |
-| 6 | [Data types](ch6.md) | 538 | 7 |
+| 6 | [Data types](ch6.md) | 539 | 7 |
 | 7 | [Aggregate data types](ch7.md) | 456 | 14 |
 | 8 | [Classes](ch8.md) | 264 |  |
-| 9 | [Processes](ch9.md) | 141 |  |
-| 10 | [Assignment statements](ch10.md) | 165 |  |
+| 9 | [Processes](ch9.md) | 143 |  |
+| 10 | [Assignment statements](ch10.md) | 169 |  |
 | 11 | [Operators and expressions](ch11.md) | 808 | 316 |
-| 12 | [Procedural programming statements](ch12.md) | 143 |  |
+| 12 | [Procedural programming statements](ch12.md) | 144 |  |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 161 | 14 |
 | 14 | [Clocking blocks](ch14.md) | 63 |  |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 52 |  |
@@ -23,15 +23,15 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 17 | [Checkers](ch17.md) | 31 |  |
 | 18 | [Constrained random value generation](ch18.md) | 64 |  |
 | 19 | [Functional coverage](ch19.md) | 84 |  |
-| 20 | [Utility system tasks and system functions](ch20.md) | 198 |  |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 104 |  |
-| 22 | [Compiler directives](ch22.md) | 326 | 248 |
-| 23 | [Modules and hierarchy](ch23.md) | 134 |  |
+| 20 | [Utility system tasks and system functions](ch20.md) | 199 |  |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 110 |  |
+| 22 | [Compiler directives](ch22.md) | 327 | 248 |
+| 23 | [Modules and hierarchy](ch23.md) | 136 |  |
 | 24 | [Programs](ch24.md) | 38 |  |
 | 25 | [Interfaces](ch25.md) | 106 |  |
 | 26 | [Packages](ch26.md) | 71 |  |
 | 27 | [Generate constructs](ch27.md) | 98 |  |
-| 28 | [Gate-level and switch-level modeling](ch28.md) | 233 | 136 |
+| 28 | [Gate-level and switch-level modeling](ch28.md) | 234 | 136 |
 | 29 | [User-defined primitives](ch29.md) | 73 |  |
 | 30 | [Specify blocks](ch30.md) | 49 |  |
 | 31 | [Timing checks](ch31.md) | 51 |  |

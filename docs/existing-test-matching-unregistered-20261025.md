@@ -6,9 +6,9 @@
 テストの刺激と期待出力をIEEE 1800-2023の本文に照らし、独立した検証担当の反証を経て、
 合格した対応だけを台帳へ取り込みました。
 
-- 新たに対応登録したテスト：24本（未登録2,514本 → 2,498本）。内訳は、刺激が足りず保留にしていた要求のために新しく書いた6本と、シミュレータ側のCTestスイートから取り込んだ2本です。
-- 新たに対応した要求：41行（7,341行 → 7,382行）。
-- 暫定設計網羅率：59.590876% → **59.923695%**（7,382/12,319）。
+- 新たに対応登録したテスト：45本（未登録2,514本 → 2,498本）。内訳は、刺激が足りず保留にしていた要求のために新しく書いた6本と、シミュレータ側のCTestスイートから取り込んだ23本です。
+- 新たに対応した要求：99行（7,341行 → 7,440行）。
+- 暫定設計網羅率：59.590876% → **60.394513%**（7,440/12,319）。65%まで残り568行です。
 - 暫定実行確認率：33.566036%（4,135/12,319）のまま。シミュレータは再実行していません。
 - 対応を保留した判断：490本・1,061ペア（`citation_refinement` 33、`compound_requirement` 109、`oracle_issue` 49、`partial_observation` 530）。
 
@@ -60,7 +60,7 @@
 | 6.18 / 8.27 | [test_typedef_declaration_forms](../tests/ch6/test_typedef_declaration_forms.sv) | `CLASS-FORWARD-OMISSION` |
 | A.2.1.3 | [test_typedef_declaration_forms](../tests/ch6/test_typedef_declaration_forms.sv) | `TYPEDEF`、`FORWARD-TYPES` |
 
-上記16本に、次の2節の新規8本を加えた24本が今回の登録です。
+上記16本に、次の2節の新規29本を加えた45本が今回の登録です。
 主な観測は次のとおりです。
 
 - **36.3 / 5.6.3**：大文字小文字だけが違う2名、名前に`$`を含む名、数字を含む名、
@@ -101,30 +101,39 @@
 - **20.7**：配列クエリは、Icarus 13.0が型引数と定数式を受理せず、空キューの`$right`/`$increment`に0を返し、`int dyn[]`を0次元と数えるため、実行可能な4要求と仕様専用の5要求に分けました。実行可能側はVerilator 5.052で一致し、Icarusは動的配列の次元数だけ異なります。
 - 6本とも`lint_metadata.py`を通し、`runsim.py`で`:oracle:`の記載どおりの結果を確認しました。Verilatorは2状態なので`'x`/`'z`のテストと、4状態のRHSを定数以外に持つワイルドカード比較は実行できません。
 
-## シミュレータ側の CTest スイートからの取り込み（2本）
+## シミュレータ側の CTest スイートからの取り込み（23本）
 
 `../kirimasim` の `tests/suite` には、同じメタデータ形式（`:lrm:`、`:oracle:`、`:expected_stdout:`）を持つ SystemVerilog テストが2,818本あります。
 既存スイートとはファイル名・内容の重複がなく、そのまま取り込める形式です。ただし次の制約があります。
 
-- 57本の違法系は`:expected_stderr_regex:`を持たないため、そのままでは取り込めません。
-- 61本は`:args:`にシミュレータ固有のオプションを持ちます。
+- 2,125本は `:expected_stderr:`（警告・エラー文字列の完全一致）を持ち、このスイートの `:expected_stderr_regex:` 形式ではないため、そのままでは取り込めません。
+- 57本の違法系は `:expected_stderr_regex:` がありません。
+- 61本は `:args:` にシミュレータ固有のオプションを持ちます。
 - 26本は最初の引用節が附属書Aで、ディレクトリ規約（`chNN`）に合いません。
-- `:tags:`は`proc`や`sched`などの分類なので`chNN`へ書き換え、`:generator:`はこのリポジトリに生成器がないため外し、ファイル名には`test_`を付けます。
+- `:tags:` は `proc` や `sched` などの分類なので `chNN` へ書き換え、`:generator:` はこのリポジトリに生成器がないため外し、ファイル名には `test_` を付けます。
 
-これらを除いた2,717本は、未対応要求の候補になります。822要求が候補を得て、そのうち184要求は唯一候補です。
-今回は Pilot として8本を取り込み、リンクが増える2本だけを残しました。
+このうち540本を一括で取り込み、要求優先で照合しました。未対応要求の候補は641行あり、**すべてリンクできれば65.13%** に届く計算でした。
+実際に登録できたのは21本・58行で、残りは部分観測・複合要求・診断未検査として保留しました。登録に至らなかった519本は、未登録テストを増やさないため取り下げました（元の kirimasim 側に残っています）。
 
-| 要求 | 取り込んだテスト | 元のテスト | 内容 |
-|---|---|---|---|
-| 6.21 `UNIT-STATIC` | [test_unit_variables](../tests/ch3/test_unit_variables.sv) | `hier/unit_variables.sv` | コンパイル単位の変数が静的で時刻0前に初期化され、モジュール間で共有される |
-| 5.7.1 `UNSIZED-LARGE-WIDTH` | [test_unsized_wide_literal](../tests/ch5/test_unsized_wide_literal.sv) | `values/unsized_wide_literal.sv` | 32ビットを超える unsized 10進リテラルが切り詰められない |
+| 章 | 取り込んで登録したテストの例 | 主な要求 |
+|---|---|---|
+| 21 | test_display_radix_forms、test_display_finish、test_time_format_matrix、test_empty_argument_matrix | 書式、%%、%t、空引数 |
+| 21 | test_file_close_fd、test_file_output_initial | ファイル記述子、fdisplay |
+| 23 | test_net_port_merge_kinds、test_instance_arrays | Table 23-1 のポート崩壊、インスタンス配列 |
+| 9 | test_edge_matrix、test_delay_value_matrix | エッジ表9-2、x/z 遅延 |
+| 10 | test_delay_matrix、test_procedural_continuous_assign、test_net_strengths_wire | ベクタ遅延、force、強度 |
+| 6/12/20/22/28 | test_package_call_matrix、test_cond_truth、test_time_query_matrix、test_unconnected_drive_none_module、test_gate_containers | 連続代入、if の真理値、時刻問い合わせ、未接続ポート、ゲート配列 |
 
-- `test_unit_variables` は Icarus と Verilator の両方で一致します。
-- `test_unsized_wide_literal` は Icarus で一致し、Verilator 5.052 は40ビット符号拡張で不一致です。これはシミュレータ側の規格違反として記録できます。
-- 8本のうち、`test_always_star` は検証で却下しました。`always @*` の本体が `runs++` や `y = y` で自分が書く変数を読むため、規格どおりなら同一時刻で収束せず、Icarus の一致は非規格な自己書込み除外に依存します。
-- `test_chandle_null` と `test_enum_methods` は、対応する要求が既存テストで埋まっていて新しいリンクが増えないため、取り下げました。`test_enum_methods` は既存テストと名前が衝突したため、復元しています。
+- 取り込んだテストは `tests/imported/chNN/` に置き、既存章のディレクトリ内容（入力ダイジェスト）を変えないようにしています。
+- 期待値は元の suite のものをそのまま使わず、各バッチで規格本文から再導出し、独立検証を受けました。
+- `test_always_star` は `always @*` 本体の自己読みで規格上も非収束になるため却下しました。
+- `test_instance_arrays` と `test_net_port_merge_kinds` は `:oracle:` が実際のシミュレータ結果と一致しません。期待値は規格どおりなのでリンクは成立しますが、`:oracle:` の修正候補です。
 
-残る2,700本以上の取り込みは、章ごとに候補を選び、この Pilot と同じく「取り込み → 規格から期待値を再確認 → 独立検証 → 統合」で進めます。
+### 65% への見通し
+
+- 現在60.39%。65%には残り568行が必要です。
+- 取り込み候補の上限は65.13%で、残る候補をすべて完全観測できた場合のぎりぎりです。実際の登録率は約24%なので、この pool だけでは62%前後が現実的な到達点です。
+- 65%に届かせるには、`:expected_stderr:` を持つ2,125本の警告系テストの正規化、または未対応要求（約4,900行）への新規テスト作成が必要です。
 
 ## 却下した対応案
 
@@ -169,7 +178,7 @@
 
 ## 残りと次の候補
 
-- テスト総数は6,017本（今回の新規8本を含む）。未登録は2,498本で、このうち候補要求が全くないテストが約380本あり、
+- テスト総数は6,038本（今回の新規29本を含む）。未登録は2,498本で、このうち候補要求が全くないテストが約380本あり、
   要求台帳側の分割・観測可能化が必要です。
 - 未対応要求4,952行のうち、未登録テストが候補になるのは約1,970行です。
   残りは候補テスト自体がなく、新規テストの対象です。

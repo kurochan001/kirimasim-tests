@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.92%、実行 33.70%。**
+**全規格の要求台帳ベース（暫定）: 設計 60.39%、実行 33.71%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7382/12319 (59.92%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4152/12319 (33.70%)。
-- 登録済みだがテスト未対応: 4937 動作。
+- 登録済み動作に対するテスト設計網羅率: 7440/12319 (60.39%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4153/12319 (33.71%)。
+- 登録済みだがテスト未対応: 4879 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -56,8 +56,8 @@
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 201/12319 動作確認、古い入力との対応 3 件。
-- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 331/12319 動作確認、古い入力との対応 3 件。
-- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 331/12319 動作確認、古い入力との対応 3 件。
+- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 332/12319 動作確認、古い入力との対応 3 件。
+- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 332/12319 動作確認、古い入力との対応 3 件。
 - `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 612/12319 動作確認、古い入力との対応 6 件。
 - `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
 - `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
@@ -89,11 +89,11 @@
 - 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 595。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 274。
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 159。
-- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 76。
-- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 86。
+- 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 94。
+- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 96。
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 399。
-- 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 46。
-- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 62。
+- 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 47。
+- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 63。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 29。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 55。
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 292。
@@ -101,9 +101,9 @@
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 59。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 156。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 140。
-- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 144。
+- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 156。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 297。
-- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 50。
+- 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 66。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 9。
 - 25 Interfaces: 解釈保留なし 23/25、登録 63、テスト対応 41。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 37。
@@ -21958,7 +21958,7 @@ Timing statements support delay/event/cycle controls with statement-or-null, rep
 
 ### SV2023-9.4.1-EXTRACT-NEGATIVE-DELAY-UNSIGNED
 
-9.4.1 / normal / テスト未対応
+9.4.1 / normal / テスト対応あり・実行未確認
 
 A negative delay is interpreted as a two-complement unsigned integer of time-variable width.
 
@@ -21966,6 +21966,7 @@ A negative delay is interpreted as a two-complement unsigned integer of time-var
 
 規定の性質: `mandatory`。
 
+- [test_delay_negative_real_to_minus_one_const.sv](../tests/imported/ch3/test_delay_negative_real_to_minus_one_const.sv): 実定数 -0.5 の遅延 #(-0.5) を initial で待ち、起床時刻を $time で "woke at %0d" に表示する。期待行 "woke at 18446744073709551615" は、負値を64ビット時間変数の2の補数として解釈して得られる最大時刻と一致する。 区別: 負遅延を絶対値1として扱う実装は "woke at 1"、0として扱う実装は "woke at 0"、32ビット幅で2の補数化する実装は "woke at 4294967295" を表示し、期待行と一致しない。時間変数と同じ64ビットの2の補数解釈だけが期待値を再現する。
 
 ### SV2023-9.4.1-EXTRACT-PROCEDURAL-DELAY
 
@@ -21992,7 +21993,7 @@ A procedural delay may contain a specparam; an SDF override causes the delay exp
 
 ### SV2023-9.4.1-EXTRACT-UNKNOWN-DELAY-ZERO
 
-9.4.1 / boundary / テスト未対応
+9.4.1 / boundary / テスト対応あり・実行未確認
 
 A delay expression evaluating to x or z is interpreted as zero delay.
 
@@ -22000,6 +22001,7 @@ A delay expression evaluating to x or z is interpreted as zero delay.
 
 規定の性質: `mandatory`。
 
+- [test_delay_value_matrix.sv](../tests/imported/ch3/test_delay_value_matrix.sv): 8'bx の変数 dx と 8'bz の変数 dz を遅延式に使う #(dx)・#(dz) を initial・static/automatic タスク・fork 分岐で実行し、直前の shortreal 遅延の行と同じ時刻 203 に "initial: x"/"initial: z" が並ぶことを期待行で比べる。 区別: x/z を零遅延でなく1時間単位などとして扱う実装では、各 x/z 行の時刻が 204 以降にずれ、後続の unsigned vector 行の時刻もずれる。x だけを零にし z を非零にする実装、またはその逆の実装でも対応する行の時刻が変わり、期待行に一致しない。
 
 ### SV2023-9.4.2-EXTRACT-CLOCKING-SAMPLED-EVENT
 
@@ -22014,7 +22016,7 @@ An event on a clocking block input/inout uses its clocking-event-sampled synchro
 
 ### SV2023-9.4.2-EXTRACT-EDGE-0-0
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar 0-to-0 transition produces no posedge/negedge event.
 
@@ -22022,6 +22024,7 @@ A scalar 0-to-0 transition produces no posedge/negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を 0 から 0 へ、v={3'b101,0} の最下位ビットを 0 から 0 へ、u={3'b000,1'b0} の上位3ビットを 0 から 0 へ、b[2] と net n を 0 から 0 へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。00 行の var・lsb・bit・net は pos=0 neg=0 edge=0 any=0、LSB が 0 のままの upper 行は pos=0 neg=0 edge=0 any=0 になることを比べる。 区別: 同一値の書き換えでも事象を出す実装（新しい値が0であることだけを見る posedge）では 00 の pos が1になり、negedge を0への書き込み全般とする実装では neg が1になる。期待はどちらも0で、any も0なので値が変わっていないことも確かめられる。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-0-1
 
@@ -22038,7 +22041,7 @@ A scalar 0-to-1 transition produces a posedge event.
 
 ### SV2023-9.4.2-EXTRACT-EDGE-0-X
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar 0-to-x transition produces a posedge event.
 
@@ -22046,10 +22049,11 @@ A scalar 0-to-x transition produces a posedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を 0 から x へ、v={3'b101,0} の最下位ビットを 0 から x へ、u={3'b000,1'b0} の上位3ビットを 0 から x へ、b[2] と net n を 0 から x へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。0x 行の var・lsb・bit・net は pos=1 neg=0 edge=1 any=1、LSB が 0 のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: posedge を0から1だけと定義する実装では 0x の pos が0になり、0からxへの遷移を negedge とする実装では neg が1になる。期待 pos=1 neg=0 は表9-2の0行x列だけを許す。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-0-Z
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar 0-to-z transition produces a posedge event.
 
@@ -22057,6 +22061,7 @@ A scalar 0-to-z transition produces a posedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を 0 から z へ、v={3'b101,0} の最下位ビットを 0 から z へ、u={3'b000,1'b0} の上位3ビットを 0 から z へ、b[2] と net n を 0 から z へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。0z 行の var・lsb・bit・net は pos=1 neg=0 edge=1 any=1、LSB が 0 のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: posedge を0から1だけと定義する実装では 0z の pos が0になり、0からzへの遷移を negedge とする実装では neg が1になる。期待 pos=1 neg=0 は表9-2の0行z列だけを許す。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-1-0
 
@@ -22072,7 +22077,7 @@ A scalar 1-to-0 transition produces a negedge event.
 
 ### SV2023-9.4.2-EXTRACT-EDGE-1-1
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar 1-to-1 transition produces no posedge/negedge event.
 
@@ -22080,10 +22085,11 @@ A scalar 1-to-1 transition produces no posedge/negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を 1 から 1 へ、v={3'b101,1} の最下位ビットを 1 から 1 へ、u={3'b111,1'b0} の上位3ビットを 1 から 1 へ、b[2] と net n を 1 から 1 へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。11 行の var・lsb・bit・net は pos=0 neg=0 edge=0 any=0、LSB が 1 のままの upper 行は pos=0 neg=0 edge=0 any=0 になることを比べる。 区別: 同一値の書き換えでも事象を出す実装（新しい値が1であることだけを見る posedge）では 11 の pos が1になり、negedge を1からの書き込み全般とする実装では neg が1になる。期待はどちらも0で、any も0である。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-1-X
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar 1-to-x transition produces a negedge event.
 
@@ -22091,10 +22097,11 @@ A scalar 1-to-x transition produces a negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を 1 から x へ、v={3'b101,1} の最下位ビットを 1 から x へ、u={3'b111,1'b0} の上位3ビットを 1 から x へ、b[2] と net n を 1 から x へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。1x 行の var・lsb・bit・net は pos=0 neg=1 edge=1 any=1、LSB が 1 のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: negedge を1から0だけと定義する実装では 1x の neg が0になり、1からxへの遷移を posedge とする実装では pos が1になる。期待 pos=0 neg=1 は表9-2の1行x列だけを許す。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-1-Z
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar 1-to-z transition produces a negedge event.
 
@@ -22102,10 +22109,11 @@ A scalar 1-to-z transition produces a negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を 1 から z へ、v={3'b101,1} の最下位ビットを 1 から z へ、u={3'b111,1'b0} の上位3ビットを 1 から z へ、b[2] と net n を 1 から z へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。1z 行の var・lsb・bit・net は pos=0 neg=1 edge=1 any=1、LSB が 1 のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: negedge を1から0だけと定義する実装では 1z の neg が0になり、1からzへの遷移を posedge とする実装では pos が1になる。期待 pos=0 neg=1 は表9-2の1行z列だけを許す。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-DIRECTIONS
 
-9.4.2 / normal / テスト未対応
+9.4.2 / normal / テスト対応あり・実行未確認
 
 posedge detects 0 to 1/x/z and x/z to 1; negedge detects 1 to 0/x/z and x/z to 0.
 
@@ -22113,10 +22121,11 @@ posedge detects 0 to 1/x/z and x/z to 1; negedge detects 1 to 0/x/z and x/z to 0
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): 0/1/x/z の16通りの遷移を与え、01・0x・0z・x1・z1 では pos=1 neg=0、10・1x・1z・x0・z0 では pos=0 neg=1、交差しない 00・11・xx・zz・xz・zx では pos=0 neg=0 となることを、var の行と lsb・upper・bit・net の行で比べる。 区別: posedge を0から1だけ、negedge を1から0だけと定義する実装では 0x・0z・x1・z1 の pos と 1x・1z・x0・z0 の neg が0のままになり、x/z への遷移をエッジイベントとする実装では 0x・0z・1x・1z の neg が1になって期待行と区別できる。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-LSB-ONLY
 
-9.4.2 / normal / テスト未対応
+9.4.2 / normal / テスト対応あり・実行未確認
 
 An edge expression event is determined only by its least significant bit.
 
@@ -22124,10 +22133,11 @@ An edge expression event is determined only by its least significant bit.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): 同じ 01 の遷移で、v={3'b101,lsb} の lsb だけを0から1に変えた lsb 行と、u の上位3ビットだけを000から111に変えて lsb を0のままにした upper 行を比べる。lsb 行は pos=1 neg=0 edge=1、upper 行は pos=0 neg=0 edge=0 で any=1 になる。 区別: ベクトルの全ビットの変化を OR して posedge とする実装では、上位ビットだけが変わった 01 upper の pos が1になり、edge も1になる。最上位ビットなど lsb 以外を見る実装では 01 lsb の pos が0になる。期待行は lsb だけを見る規則と一致する。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-X-0
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar x-to-0 transition produces a negedge event.
 
@@ -22135,10 +22145,11 @@ A scalar x-to-0 transition produces a negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を x から 0 へ、v={3'b101,x} の最下位ビットを x から 0 へ、u={3'bxxx,1'b0} の上位3ビットを x から 0 へ、b[2] と net n を x から 0 へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。x0 行の var・lsb・bit・net は pos=0 neg=1 edge=1 any=1、LSB が x のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: negedge を1から0だけと定義する実装では x0 の neg が0になり、xから0への遷移を posedge とする実装では pos が1になる。期待 pos=0 neg=1 は表9-2のx行0列だけを許す。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-X-1
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar x-to-1 transition produces a posedge event.
 
@@ -22146,10 +22157,11 @@ A scalar x-to-1 transition produces a posedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を x から 1 へ、v={3'b101,x} の最下位ビットを x から 1 へ、u={3'bxxx,1'b0} の上位3ビットを x から 1 へ、b[2] と net n を x から 1 へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。x1 行の var・lsb・bit・net は pos=1 neg=0 edge=1 any=1、LSB が x のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: posedge を0から1だけと定義する実装では x1 の pos が0になり、xから1への遷移を negedge とする実装では neg が1になる。期待 pos=1 neg=0 は表9-2のx行1列だけを許す。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-X-X
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar x-to-x transition produces no posedge/negedge event.
 
@@ -22157,10 +22169,11 @@ A scalar x-to-x transition produces no posedge/negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を x から x へ、v={3'b101,x} の最下位ビットを x から x へ、u={3'bxxx,1'b0} の上位3ビットを x から x へ、b[2] と net n を x から x へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。xx 行の var・lsb・bit・net は pos=0 neg=0 edge=0 any=0、LSB が x のままの upper 行は pos=0 neg=0 edge=0 any=0 になることを比べる。 区別: 同一値の書き換えでも事象を出す実装では xx の pos か neg が1になり、any を常に1にする実装では any が1になる。期待 pos=0 neg=0 any=0 はxからxを無事象とする表9-2の対角だけを許す。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-X-Z
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar x-to-z transition produces no posedge/negedge event.
 
@@ -22168,10 +22181,11 @@ A scalar x-to-z transition produces no posedge/negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を x から z へ、v={3'b101,x} の最下位ビットを x から z へ、u={3'bxxx,1'b0} の上位3ビットを x から z へ、b[2] と net n を x から z へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。xz 行の var・lsb・bit・net は pos=0 neg=0 edge=0 any=1、LSB が x のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: xからzへの変化を posedge 又は negedge とする実装では xz の pos か neg が1になる。期待 pos=0 neg=0 edge=0 で any=1 なので、値は変わったがエッジイベントではないことが分かり、表9-2のx行z列を区別できる。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-Z-0
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar z-to-0 transition produces a negedge event.
 
@@ -22179,10 +22193,11 @@ A scalar z-to-0 transition produces a negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を z から 0 へ、v={3'b101,z} の最下位ビットを z から 0 へ、u={3'bzzz,1'b0} の上位3ビットを z から 0 へ、b[2] と net n を z から 0 へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。z0 行の var・lsb・bit・net は pos=0 neg=1 edge=1 any=1、LSB が z のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: negedge を1から0だけと定義する実装では z0 の neg が0になり、zから0への遷移を posedge とする実装では pos が1になる。期待 pos=0 neg=1 は表9-2のz行0列だけを許す。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-Z-1
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar z-to-1 transition produces a posedge event.
 
@@ -22190,10 +22205,11 @@ A scalar z-to-1 transition produces a posedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を z から 1 へ、v={3'b101,z} の最下位ビットを z から 1 へ、u={3'bzzz,1'b0} の上位3ビットを z から 1 へ、b[2] と net n を z から 1 へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。z1 行の var・lsb・bit・net は pos=1 neg=0 edge=1 any=1、LSB が z のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: posedge を0から1だけと定義する実装では z1 の pos が0になり、zから1への遷移を negedge とする実装では neg が1になる。期待 pos=1 neg=0 は表9-2のz行1列だけを許す。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-Z-X
 
-9.4.2 / boundary / テスト未対応
+9.4.2 / boundary / テスト対応あり・実行未確認
 
 A scalar z-to-x transition produces no posedge/negedge event.
 
@@ -22201,6 +22217,7 @@ A scalar z-to-x transition produces no posedge/negedge event.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): s を z から x へ、v={3'b101,z} の最下位ビットを z から x へ、u={3'bzzz,1'b0} の上位3ビットを z から x へ、b[2] と net n を z から x へ書き換える。書き換え直前に80個のカウンタを0にし、直後に always・initial・automatic task・fork の pos/neg/edge/any を表示する。zx 行の var・lsb・bit・net は pos=0 neg=0 edge=0 any=1、LSB が z のままの upper 行は pos=0 neg=0 edge=0 any=1 になることを比べる。 区別: zからxへの変化を posedge 又は negedge とする実装では zx の pos か neg が1になる。期待 pos=0 neg=0 edge=0 で any=1 なので、値は変わったがエッジイベントではないことが分かり、表9-2のz行x列を区別できる。
 
 ### SV2023-9.4.2-EXTRACT-EDGE-Z-Z
 
@@ -22216,7 +22233,7 @@ A scalar z-to-z transition produces no posedge/negedge event.
 
 ### SV2023-9.4.2-EXTRACT-EITHER-EDGE
 
-9.4.2 / normal / テスト未対応
+9.4.2 / normal / テスト対応あり・実行未確認
 
 edge triggers whenever posedge or negedge would trigger.
 
@@ -22224,6 +22241,7 @@ edge triggers whenever posedge or negedge would trigger.
 
 規定の性質: `mandatory`。
 
+- [test_edge_matrix.sv](../tests/imported/ch9/test_edge_matrix.sv): 16通りの遷移すべてで edge 列を pos 列と neg 列に並べて表示し、01・10・0x・1z・x1・z0 など pos か neg のどちらかが1の12通りで edge=1、00・11・xx・zz と xz・zx の6通りで edge=0 になることを比べる。 区別: edge を posedge だけ（又は negedge だけ）とする実装では 10 や 01 の片方で edge が0になり、edge を単なる値の変化とする実装では xz と zx の edge が1になって any=1 の期待行と食い違う。edge=pos|neg の12通りと無事象6通りを分けて観測できる。
 
 ### SV2023-9.4.2-EXTRACT-EVENT-SYNCHRONIZATION
 
@@ -23301,7 +23319,7 @@ vectored/scalared require at least one packed dimension.
 
 ### SV2023-10.3-EXTRACT-CONTINUOUS-FORMS
 
-10.3 / normal / テスト未対応
+10.3 / normal / テスト対応あり・実行未確認
 
 Continuous assignment is available through a net declaration assignment or a standalone continuous assign statement.
 
@@ -23309,6 +23327,7 @@ Continuous assignment is available through a net declaration assignment or a sta
 
 規定の性質: `definition`。
 
+- [test_package_call_matrix.sv](../tests/imported/ch6/test_package_call_matrix.sv): `wire [7:0] y_netdecl_func_n = pk::g(a_netdecl_func);` のnet宣言代入と `assign y_cont_func = pk::g(a_cont_func);` のstandalone連続代入を同じモジュールに置き、初期値と2回の入力更新の0/1/2行でnetdeclが e0/09/4d、contが ea/8c/73 と追従する値を比べる。 区別: net宣言代入だけを実装しないツールでは y_netdecl_func_n が未駆動のxとなって `0 func netdecl e0` が食い違い、standalone assignだけを実装しないツールでは y_cont_func がxのままかコンパイルが止まって `0 func cont ea` 以降が得られない。
 
 ### SV2023-10.3-EXTRACT-CONTINUOUS-GRAMMAR
 
@@ -23523,7 +23542,7 @@ If a continuous RHS changes during pending propagation, reevaluate its RHS.
 
 ### SV2023-10.3.3-EXTRACT-INERTIAL-RESCHEDULE
 
-10.3.3 / normal / テスト未対応
+10.3.3 / normal / テスト対応あり・実行未確認
 
 If the reevaluated RHS differs from current LHS, compute delay from current LHS/new RHS/statement delays and schedule the new value after that delay.
 
@@ -23531,6 +23550,7 @@ If the reevaluated RHS differs from current LHS, compute delay from current LHS/
 
 規定の性質: `mandatory`。
 
+- [test_delay_matrix.sv](../tests/imported/ch10/test_delay_matrix.sv): `assign #(2,5,3) vv = v;` で z 状態の vv に対し 106ns に 4'b0011、107ns に 4'b0111 を与え、先に予約された 108ns の 3 ではなく 108.5 が z のまま 109.5 に 7 が現れる表示行を比べる。 区別: 2回目のRHS変化で先行イベントを取り消して再計算しない実装では 108.5 に vv=3 または 7 が現れ、109.5 vv=7 の手前で値が変わる。現在のLHS(z)と新RHS(7)からライズ遅延を選ばない実装でも 109.5 の行がずれる。
 
 ### SV2023-10.3.3-EXTRACT-NET-DELAY-ALL-DRIVERS
 
@@ -23559,7 +23579,7 @@ Only one delay is allowed on assignment to a user-nettype net or array of such n
 
 ### SV2023-10.3.3-EXTRACT-VECTOR-FALL-DELAY
 
-10.3.3 / normal / テスト未対応
+10.3.3 / normal / テスト対応あり・実行未確認
 
 A vector RHS transition from nonzero to zero uses the falling delay.
 
@@ -23567,10 +23587,11 @@ A vector RHS transition from nonzero to zero uses the falling delay.
 
 規定の性質: `mandatory`。
 
+- [test_delay_matrix.sv](../tests/imported/ch10/test_delay_matrix.sv): `assign #(2,5,3) vv = v;` の4ビットnet vv に 4'b0101→4'b0000（86ns）と 4'b1x00→4'b0000（226ns）の非ゼロ→ゼロ遷移を与え、vv がそれぞれ5ns後の 91.5 と 231.5 に 0 へ変わる表示行を、直前の vv=5/X の行と比べる。 区別: 非ゼロ→ゼロにライズ遅延2nsを使う実装では vv が 88.5 と 228.5 に 0 となり、91.5 vv=0 と 231.5 vv=0 の期待行と食い違う。ターンオフ遅延を使う実装でも両行が z のままになる。
 
 ### SV2023-10.3.3-EXTRACT-VECTOR-OTHER-RISE-DELAY
 
-10.3.3 / normal / テスト未対応
+10.3.3 / normal / テスト対応あり・実行未確認
 
 Other vector value transitions use the rising delay.
 
@@ -23578,10 +23599,11 @@ Other vector value transitions use the rising delay.
 
 規定の性質: `mandatory`。
 
+- [test_delay_matrix.sv](../tests/imported/ch10/test_delay_matrix.sv): `assign #(2,5,3) vv = v;` の vv に 4'b0000→4'b0101（80ns）と 4'b0111→4'b1x00（220ns）の非ゼロ・非z遷移を与え、vv がライズ遅延2ns後の 82.5 と 222.5 に 5 と X へ変わる表示行を、直前の0/7の行と比べる。 区別: これらの遷移にフォール遅延5nsを使う実装では vv の変化が 85.5/225.5 へ遅れ、82.5 vv=5 と 222.5 vv=X の期待行と食い違う。遷移を無視する実装では 220ns 以降も vv=7 のままになる。
 
 ### SV2023-10.3.3-EXTRACT-VECTOR-TURNOFF-DELAY
 
-10.3.3 / normal / テスト未対応
+10.3.3 / normal / テスト対応あり・実行未確認
 
 A vector transition to z uses the turn-off delay.
 
@@ -23589,6 +23611,7 @@ A vector transition to z uses the turn-off delay.
 
 規定の性質: `mandatory`。
 
+- [test_delay_matrix.sv](../tests/imported/ch10/test_delay_matrix.sv): `assign #(2,5,3) vv = v;` の vv に 4'b0000→4'bzzzz（100ns）の z への遷移を与え、vv がターンオフ遅延3ns後の 103.5 に z へ変わる表示行を、直前 91.5 の vv=0 と直後 108.5 の vv=z の行と比べる。 区別: z への遷移にライズ遅延2nsやフォール遅延5nsを使う実装では vv が 102.5 または 105.5 に z となり、103.5 vv=z の期待行と食い違う。z を無視する実装では vv が 0 のまま残る。
 
 ### SV2023-10.3.4-EXTRACT-DEFAULT-STRONG
 
@@ -23617,7 +23640,7 @@ A drive strength cannot specify both highz1 and highz0 in either order.
 
 ### SV2023-10.3.4-EXTRACT-ONE-STRENGTH-KEYWORDS
 
-10.3.4 / normal / テスト未対応
+10.3.4 / normal / テスト対応あり・実行未確認
 
 The one-value strengths are supply1/strong1/pull1/weak1/highz1.
 
@@ -23625,6 +23648,8 @@ The one-value strengths are supply1/strong1/pull1/weak1/highz1.
 
 規定の性質: `definition`。
 
+- [test_net_strengths_wire.sv](../tests/imported/ch10/test_net_strengths_wire.sv): 16個のwireをsupply/strong/pull/weakの1値・0値強度の全対で2ドライバ競合させ、入力01/10でsusu=x、sust=0/1、pust=1/0、wepu=1/0などが強度順の解決値になる表示を比べる。
+- [test_net_highz_strengths.sv](../tests/imported/ch10/test_net_highz_strengths.sv): highz1を一方の値に使ったh3〜h5をstrong/pull/weakの相手と競合させ、a=1,b=zの1zでhist.st=z、1xでhist.st=xとなる表示を比べる。
 
 ### SV2023-10.3.4-EXTRACT-STRENGTH-ORDER
 
@@ -23675,7 +23700,7 @@ A drive strength provides one value for assigned one and one for assigned zero.
 
 ### SV2023-10.3.4-EXTRACT-ZERO-STRENGTH-KEYWORDS
 
-10.3.4 / normal / テスト未対応
+10.3.4 / normal / テスト対応あり・実行未確認
 
 The zero-value strengths are supply0/strong0/pull0/weak0/highz0.
 
@@ -23683,6 +23708,8 @@ The zero-value strengths are supply0/strong0/pull0/weak0/highz0.
 
 規定の性質: `definition`。
 
+- [test_net_strengths_wire.sv](../tests/imported/ch10/test_net_strengths_wire.sv): 16個のwireをsupply/strong/pull/weakの0値強度の全対で2ドライバ競合させ、入力01/10でsusu=x、stsu=1/0、pust=1/0、west=1/0などが強度順の解決値になる表示を比べる。
+- [test_net_highz_strengths.sv](../tests/imported/ch10/test_net_highz_strengths.sv): highz0を一方の値に使ったh0〜h2をstrong/pull/weakの相手と競合させ、a=0,b=zの0zでsthi.st=z、0xでsthi.st=xとなる表示を比べる。
 
 ### SV2023-10.4-EXTRACT-PROCEDURAL-FLOW-TRIGGER
 
@@ -23755,7 +23782,7 @@ With intra-assignment timing, LHS index/handle/virtual-interface evaluation occu
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-SEQUENTIAL
 
-10.4.1 / normal / テスト未対応
+10.4.1 / normal / テスト対応あり・実行未確認
 
 A blocking assignment finishes before the next statement in its sequential block but does not block other parallel branches.
 
@@ -23763,6 +23790,7 @@ A blocking assignment finishes before the next statement in its sequential block
 
 規定の性質: `mandatory`。
 
+- [test_intra_assignment_timing.sv](../tests/imported/ch9/test_intra_assignment_timing.sv): `a = #3 b;` の直後の$displayが3nsに a=1 を示し、`arr[idx] = #2 7;` の待機中に並行fork分岐が idx を3へ変えて、7nsに arr[0]=0 のまま arr[3]=7 となる表示を比べる。 区別: ブロッキング代入が後続文より先に完了しない実装では `3 blocking a=1` が a=0 となり、待機中に並行分岐を実行しない実装では idx が0のままで arr[0]=7/arr[3]=0 となって `7 element chosen late` の行と食い違う。
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-UNTIMED-EVAL-ORDER
 
@@ -24106,7 +24134,7 @@ A net force overrides all its gate/module/continuous drivers until release.
 
 ### SV2023-10.6.2-EXTRACT-FORCE-TARGETS
 
-10.6.2 / normal / テスト未対応
+10.6.2 / normal / テスト対応あり・実行未確認
 
 force/release permit whole singular variables/nets, constant bit/part selections of eligible vector nets and concatenations of these.
 
@@ -24114,10 +24142,11 @@ force/release permit whole singular variables/nets, constant bit/part selections
 
 規定の性質: `definition`。
 
+- [test_procedural_continuous_assign.sv](../tests/imported/ch10/test_procedural_continuous_assign.sv): `force v`・`force w`・`force u.n` の全体名、`force wp[5:2]` の定数パート選択、`force wb[7]` の定数ビット選択、`force {cv2, w2}` の連結へ異なる値をforceし、各対象だけが 3e/92/ed12 へ変わりrelease後に元のドライバ値へ戻る表示を比べる。 区別: パート選択や連結をforceできない実装ではコンパイルが止まるかnet全体がffとなり、`initial net part forced 3e`・`initial net bit forced 92`・`initial concat forced ed12` と食い違う。対象のビット位置や連結順を誤る実装でもこれらの値が変わる。
 
 ### SV2023-10.6.2-EXTRACT-FORCE-VARIABLE-OVERRIDE
 
-10.6.2 / normal / テスト未対応
+10.6.2 / normal / テスト対応あり・実行未確認
 
 A variable force overrides procedural, continuous and procedural-assign drivers until release.
 
@@ -24125,6 +24154,7 @@ A variable force overrides procedural, continuous and procedural-assign drivers 
 
 規定の性質: `mandatory`。
 
+- [test_procedural_continuous_assign.sv](../tests/imported/ch10/test_procedural_continuous_assign.sv): 手続き代入だけの変数 v、連続代入で駆動される変数 cv、procedural assign 中の変数 av へ force し、v への手続き書込みと src の変化が無視されて ed→a9/aa が保たれ、release 後に cv が連続代入の 57 へ戻る表示を比べる。 区別: 連続代入をforceが上書きしない実装では `initial driven var forced` が13のままか `initial driven var settled` が57へ戻らず、procedural assignを上書きしない実装では `initial assign forced aa` と `follows` がaaにならず、手続き代入を止めない実装では `initial var written` が78になる。
 
 ### SV2023-10.6.2-EXTRACT-NO-FORCE-MIXED-DRIVEN-VARIABLE
 
@@ -31204,7 +31234,7 @@ if has a conditional predicate and statement-or-null, optional else-if chain and
 
 ### SV2023-12.4-EXTRACT-IF-TRUE
 
-12.4 / normal / テスト未対応
+12.4 / normal / テスト対応あり・実行未確認
 
 A condition that is logically true/nonzero takes the true statement; zero or ambiguous x/z truth does not.
 
@@ -31212,6 +31242,7 @@ A condition that is logically true/nonzero takes the true statement; zero or amb
 
 規定の性質: `mandatory`。
 
+- [test_cond_truth.sv](../tests/imported/ch12/test_cond_truth.sv): v に 2'b1x（1 のビットがあり零でないことが既知）、2'b0x、2'b0z、2'b00（既知の零）を順に代入し、if (v) が最初の文を実行するのは 1x のときだけで、x・z・零では else 側になることを 1x:true・0x:false・0z:false・00:false の4行で比べる。 区別: x や z を含む値をすべて真とする実装では 0x:true と 0z:true が現れ、逆に完全に既知の非零値だけを真とする実装では 1x:false が現れる。零を真とする実装では 00:true が現れるため、どれも期待4行と区別できる。
 
 ### SV2023-12.4-EXTRACT-NONZERO-TEST
 
@@ -32930,7 +32961,7 @@ Function formals initially default to input then inherit the preceding explicit 
 
 ### SV2023-13.4-EXTRACT-FUNCTION-DIRECTIONS
 
-13.4 / normal / テスト未対応
+13.4 / normal / 実行確認あり
 
 Function input/output/inout copy-in/out and ref semantics match the corresponding task argument directions.
 
@@ -32938,6 +32969,7 @@ Function input/output/inout copy-in/out and ref semantics match the correspondin
 
 規定の性質: `mandatory`。
 
+- [test_function_kinds_argument_directions_and_fork.sv](../tests/ch3/test_function_kinds_argument_directions_and_fork.sv): scaleにinput/output/inout/refの4方向の仮引数を渡し、outputのg_oと呼出し前5のinoutのg_ioが呼出し中は5と7のまま、戻り時に3と14へ複写され、refのg_rは呼出し中に既に12で戻り後も12であることを、呼出し中と戻り後の表示で比べる。 区別: outputを呼出し中に複写する実装では"during scale"のg_oが3になり、output/inoutを戻さない実装では"after scale"が5と7のままになる。refを値渡しする実装ではseen_rが4となって"during scale"が変わり、inputを渡さない実装ではa*10が0となって"value: y=26"が崩れる。
 
 ### SV2023-13.4-EXTRACT-FUNCTION-FORMAL-STYLES
 
@@ -53693,7 +53725,7 @@ $display appends a newline while $write otherwise performs the same operation wi
 
 ### SV2023-21.2.1-EXTRACT-EMPTY-ARGUMENTS
 
-21.2.1 / normal / テスト未対応
+21.2.1 / normal / テスト対応あり・実行未確認
 
 Leading/trailing/adjacent commas denote empty display arguments producing one space each; a lone comma denotes two empty arguments.
 
@@ -53701,6 +53733,7 @@ Leading/trailing/adjacent commas denote empty display arguments producing one sp
 
 規定の性質: `mandatory`。
 
+- [test_empty_argument_matrix.sv](../tests/imported/ch21/test_empty_argument_matrix.sv): initial手続き・task・function・fork・finalの各所で$display/$write/$displayb/$displayo/$displayh/$swriteに先頭・末尾・隣接カンマの空引数と単独カンマを渡し、空引数が値の前後と間に空白1個ずつを出し、単独カンマが2個の空白（$writeでは"[  ]"）になることを比べる。 区別: 空引数を無視する実装では$display(v,,v)が"  5  5"、$write(,)が"[]"になり、末尾の空引数や3連カンマの3個の空白も変わる。空引数を複数空白にする実装ではone_comma行が"[  ]"でなく"[   ]"となり、期待行と区別できる。
 
 ### SV2023-21.2.1-EXTRACT-FORMAT-ARGUMENT
 
@@ -53715,7 +53748,7 @@ Every literal percent format except %m/%l/%% requires a corresponding following 
 
 ### SV2023-21.2.1-EXTRACT-LITERAL-PERCENT
 
-21.2.1 / normal / テスト未対応
+21.2.1 / normal / テスト対応あり・実行未確認
 
 %% emits one percent character but occupies two percent bytes in the literal, unlike single-character backslash escape encoding.
 
@@ -53723,6 +53756,7 @@ Every literal percent format except %m/%l/%% requires a corresponding following 
 
 規定の性質: `mandatory`。
 
+- [test_display_finish.sv](../tests/imported/ch21/test_display_finish.sv): $write("a")に続けて$display("b 100%%")を呼び、2行目が"ab 100%"とパーセント1文字になり、%%が後続の式引数を消費しないことを比べる。 区別: %%を2文字のまま出力する実装では2行目が"ab 100%%"になり、%%を2個の書式指定子として扱い式引数を要求する実装では引数不足のエラーや余分な出力になるため、期待行と区別できる。
 
 ### SV2023-21.2.1-EXTRACT-NO-ARGUMENTS
 
@@ -53818,7 +53852,7 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-HIERARCHY
 
-21.2.1.1 / normal / テスト未対応
+21.2.1.1 / normal / テスト対応あり・実行未確認
 
 %m/%M selects hierarchical name output.
 
@@ -53826,10 +53860,11 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 規定の性質: `definition`。
 
+- [test_time_query_matrix.sv](../tests/imported/ch20/test_time_query_matrix.sv): $display("%m %l: ...")をモジュールtopとfineのinitial、task、function、名前付きgenerateブロック内のtask、fork分岐から呼び、%mが呼び出した要素の階層名（top.u、top.u.t_task、top.u.f_function、top.u.g.t、top）になることを比べる。 区別: %mを空文字やインスタンス名だけ（u）で置き換える実装では各行の先頭がtop.uやtop.u.g.tにならず、task名・function名・名前付きgenerateブロック名を含む階層名にならないため、期待行と区別できる。
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-LIBRARY
 
-21.2.1.1 / normal / テスト未対応
+21.2.1.1 / normal / テスト対応あり・実行未確認
 
 %l/%L selects library binding output.
 
@@ -53837,6 +53872,7 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 規定の性質: `definition`。
 
+- [test_time_query_matrix.sv](../tests/imported/ch20/test_time_query_matrix.sv): 同じ$displayの%lで、モジュールfineのインスタンス上とモジュールtopの束縛がそれぞれwork.fine、work.topと表示されることを比べる（lib.mapのないファイルは33.3.1によりworkライブラリ）。 区別: %lを空文字・セル名だけ（fine）・階層名（top.u）で表示する実装では"work.fine"/"work.top"と異なり、既定ライブラリ名workとセル名の組を出しているかを区別できる。
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-OCTAL
 
@@ -53886,7 +53922,7 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-TIME
 
-21.2.1.1 / normal / テスト未対応
+21.2.1.1 / normal / テスト対応あり・実行未確認
 
 %t/%T selects current time format output.
 
@@ -53894,6 +53930,7 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 規定の性質: `definition`。
 
+- [test_display_radix_forms.sv](../tests/imported/ch21/test_display_radix_forms.sv): $timeformat(-9,3," ns",10)の後でreal時刻t=1.25nsを%tと%0tで表示し、"[  1.250 ns]"と最小幅の"[1.250 ns]"、t+0.0006が3桁に丸まった"[1.251 ns]"になることを比べる。 区別: %tを現在の時刻書式で整形しない実装（既定の幅20・単位1psの生値・接尾辞なし）では角括弧内の文字列が変わり、単位ns・精度3桁・接尾辞と幅10、%0tの最小幅が効いていることを区別できる。
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-TWO-STATE
 
@@ -53941,7 +53978,7 @@ Integer format specifiers support all integral types, enums, packed aggregates a
 
 ### SV2023-21.2.1.1-EXTRACT-LIBRARY-FORMAT
 
-21.2.1.1 / normal / テスト未対応
+21.2.1.1 / normal / テスト対応あり・実行未確認
 
 %l/%L prints library.cell for the library and cell binding of the invoking module.
 
@@ -53949,6 +53986,7 @@ Integer format specifiers support all integral types, enums, packed aggregates a
 
 規定の性質: `mandatory`。
 
+- [test_time_query_matrix.sv](../tests/imported/ch20/test_time_query_matrix.sv): 同じ%lをモジュールfineの本体・task・function・名前付きgenerateブロック内のtaskから呼び、いずれもwork.fine（ライブラリworkとセルfine）を出し、モジュールtop側はwork.topを出すことを比べる。 区別: %lを呼び出し元インスタンスの階層名（top.u）やセル名だけ（fine）で表示する実装、%mと同じ値を出す実装では"work.fine"/"work.top"の組が変わり、library.cell形式を区別できる。
 
 ### SV2023-21.2.1.1-EXTRACT-PREFER-FWRITE
 
@@ -54010,7 +54048,7 @@ Real/shortreal formats provide the C-language formatting capabilities described 
 
 ### SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL
 
-21.2.1.1 / normal / テスト未対応
+21.2.1.1 / normal / テスト対応あり・実行未確認
 
 %t uses $timeformat settings for uniform units, precision and presentation across differently scaled modules.
 
@@ -54018,6 +54056,7 @@ Real/shortreal formats provide the C-language formatting capabilities described 
 
 規定の性質: `mandatory`。
 
+- [test_time_format_matrix.sv](../tests/imported/ch21/test_time_format_matrix.sv): タイムスケール10ns・1us・1ps・1nsの4モジュールから同じ時刻値7を%tで表示し、$timeformat(-9,3," ns",12)の下で70.000 ns・7000.000 ns・0.007 ns・7.000 nsと同じ単位・精度・接尾辞・幅12で出ることを比べる。 区別: %tがモジュール自身のタイムスケールで表示する実装ではm1usの行が7.000 us等になり、$timeformatを呼び出したモジュールだけに効かせる実装でも他モジュールの行が変わるため、期待行と区別できる。
 
 ### SV2023-21.2.1.1-EXTRACT-TWO-STATE-WORD-ORDER
 
@@ -54145,7 +54184,7 @@ Decimal display of all bits high impedance uses a single z character subject to 
 
 ### SV2023-21.2.1.3-EXTRACT-DECIMAL-PART-X
 
-21.2.1.3 / normal / テスト未対応
+21.2.1.3 / normal / テスト対応あり・実行未確認
 
 Decimal display of some but not all bits unknown uses a single X character subject to field padding.
 
@@ -54153,6 +54192,7 @@ Decimal display of some but not all bits unknown uses a single X character subje
 
 規定の性質: `mandatory`。
 
+- [test_display_radix_forms.sv](../tests/imported/ch21/test_display_radix_forms.sv): 8ビットv=8'hA5と6ビットx=6'b10x1z0を$displayで無指定表示し、x側が6ビットの10進自動幅2文字に一部未知を表す大文字Xを右詰め（先頭に空白1個を入れた" X"）で出し、行が"165  X"になることを比べる。 区別: 一部未知の10進を小文字x・大文字Z・数値に置き換える実装や、6ビットの自動幅を2文字にしない実装では"165  X"の行が変わり、期待行と区別できる。
 
 ### SV2023-21.2.1.3-EXTRACT-DECIMAL-PART-Z
 
@@ -54205,7 +54245,7 @@ For hex/octal, a digit group with all group bits high impedance prints z.
 
 ### SV2023-21.2.1.3-EXTRACT-GROUP-PART-X
 
-21.2.1.3 / normal / テスト未対応
+21.2.1.3 / normal / テスト対応あり・実行未確認
 
 For hex/octal, a digit group with some but not all group bits unknown prints X.
 
@@ -54213,10 +54253,11 @@ For hex/octal, a digit group with some but not all group bits unknown prints X.
 
 規定の性質: `mandatory`。
 
+- [test_display_radix_forms.sv](../tests/imported/ch21/test_display_radix_forms.sv): 6ビットx=6'b10x1z0を$displayhで表示し、下位4ビット群x1z0が一部だけ未知なので大文字X1文字になり、上位2ビット群10が2になる"a5 2X"を比べる。 区別: 群内の一部未知を小文字xや大文字Zで表示する実装、未知ビットを0として数値にする実装では"a5 2X"の行が"a5 2x"や"a5 2Z"などに変わり、期待行と区別できる。
 
 ### SV2023-21.2.1.3-EXTRACT-GROUP-PART-Z
 
-21.2.1.3 / normal / テスト未対応
+21.2.1.3 / normal / テスト対応あり・実行未確認
 
 For hex/octal, a digit group with some but not all group bits high impedance and no unknown bits prints Z.
 
@@ -54224,6 +54265,7 @@ For hex/octal, a digit group with some but not all group bits high impedance and
 
 規定の性質: `mandatory`。
 
+- [test_display_radix_forms.sv](../tests/imported/ch21/test_display_radix_forms.sv): 同じ6ビットxを$displayoで表示し、下位3ビット群1z0が一部だけzで未知ビットなしなので大文字Z、上位群10xが未知を含むので大文字Xになり、行が"245 XZ"になることを比べる。 区別: 群内の一部zを小文字zや0として扱う実装、未知の無い群までXにする実装では"XZ"の2文字が変わり、zとxを群ごとに別の大文字で出していることを区別できる。
 
 ### SV2023-21.2.1.3-EXTRACT-RADIX-GROUPS
 
@@ -54932,7 +54974,7 @@ STDIN=0x80000000 is preopened for reading; STDOUT=0x80000001 and STDERR=0x800000
 
 ### SV2023-21.3.1-EXTRACT-REUSE-CHANNELS
 
-21.3.1 / normal / テスト未対応
+21.3.1 / normal / テスト対応あり・実行未確認
 
 fopen shall reuse closed channels.
 
@@ -54940,10 +54982,11 @@ fopen shall reuse closed channels.
 
 規定の性質: `mandatory`。
 
+- [test_file_close_fd.sv](../tests/imported/ch21/test_file_close_fd.sv): fd で開いた s2a.txt を $fclose した直後に s2b.txt を $fopen(..., "w") し、返る e が閉じた d と等しい（同じチャネルを再利用した）ことを e == d の表示で比べる。 区別: 閉じたチャネルを再利用しない実装では e != d となり "s2 reused 0" が出力され、期待行 "s2 reused 1" と区別できる。
 
 ### SV2023-21.3.2-EXTRACT-FILE-DISPLAY-FORMS
 
-21.3.2 / normal / テスト未対応
+21.3.2 / normal / テスト対応あり・実行未確認
 
 fdisplay/fwrite/fstrobe/fmonitor and their b/h/o variants follow corresponding display task semantics with a required first fd/mcd output-destination argument.
 
@@ -54951,6 +54994,7 @@ fdisplay/fwrite/fstrobe/fmonitor and their b/h/o variants follow corresponding d
 
 規定の性質: `mandatory`。
 
+- [test_file_output_initial.sv](../tests/imported/ch21/test_file_output_initial.sv): $fdisplay/$fwrite/$fstrobe/$fmonitor と各 b/h/o 形式を、mcd・2ファイルのOR・mcd|1・fd・STDOUT の各出力先へ呼び、読み戻したファイル内容で改行の有無・既定基数・時刻末出力・変化時出力を比べる。 区別: $fdisplay が改行を付けない、$fwrite が改行を付ける、$fstrobe が即時出力する、$fmonitor が変化時に再表示しない、b/h/o を無視する実装では、対応する c*.txt の行の改行や 165/10100101/a5 の値が変わり、期待行と区別できる。
 
 ### SV2023-21.3.2-EXTRACT-MCD-EXPRESSION
 
@@ -63085,7 +63129,7 @@ A module is top-level only if absent from all module-instantiation statements, i
 
 ### SV2023-23.3.2-EXTRACT-INSTANCE-ARRAY
 
-23.3.2 / normal / テスト未対応
+23.3.2 / normal / テスト対応あり・実行未確認
 
 Module instance ranges create arrays using the gate/primitive instance-array syntax and semantics.
 
@@ -63093,6 +63137,7 @@ Module instance ranges create arrays using the gate/primitive instance-array syn
 
 規定の性質: `mandatory`。
 
+- [test_instance_arrays.sv](../tests/imported/ch23/test_instance_arrays.sv): モジュールinv2をdown[3:0]とup[0:3]のインスタンス配列にし、8ビットのa8を各2ビット入力へ左右の端からスライスして、down_y/up_yと各要素のa、2次元gridの要素名を階層参照で見る 区別: インスタンス範囲を配列にせず単一インスタンスにする実装や、右端インデックスへのLSB割当を逆にする実装では、down[3].a=11/down[0].a=00やdown_y=00011011のビット配置が変わり、2次元grid[1][0].a=10も出ない
 
 ### SV2023-23.3.2-EXTRACT-INSTANCE-FORWARD-DEFINITION
 
@@ -63498,7 +63543,7 @@ A built-in-net inout accepts compatible nets/concatenations or no connection, bu
 
 ### SV2023-23.3.3.3-EXTRACT-NET-INPUT
 
-23.3.3.3 / normal / テスト未対応
+23.3.3.3 / normal / テスト対応あり・実行未確認
 
 A built-in-net input accepts a compatible expression and has all-z when unconnected.
 
@@ -63506,6 +63551,7 @@ A built-in-net input accepts a compatible expression and has all-z when unconnec
 
 規定の性質: `mandatory`。
 
+- [test_unconnected_drive_none_module.sv](../tests/imported/ch22/test_unconnected_drive_none_module.sv): 組み込みネット型の入力cへ1'b0の式を接続し、省略したa1/a4/a70が全ビットzになることをu1の階層参照で見る 区別: 未接続のinputをxや0にする実装ではa1/a4/a70がz以外になり、入力への式接続を拒否する実装はコンパイルできないため、期待行と区別できる
 
 ### SV2023-23.3.3.3-EXTRACT-NET-OUTPUT
 
@@ -63553,7 +63599,7 @@ A generic interface port accepts any interface instance type; a named interface 
 
 ### SV2023-23.3.3.5-EXTRACT-INSTANCE-BROADCAST
 
-23.3.3.5 / normal / テスト未対応
+23.3.3.5 / normal / テスト対応あり・実行未確認
 
 A connection matching the size/type of one arrayed instance port connects to every instance.
 
@@ -63561,6 +63607,7 @@ A connection matching the size/type of one arrayed instance port connects to eve
 
 規定の性質: `mandatory`。
 
+- [test_gate_containers.sv](../tests/imported/ch28/test_gate_containers.sv): 3:0のandゲート配列とbufif1/bufif0配列へ、単一インスタンスの端子と同じ1ビット幅のb/enを接続し、arr・tri・busの全ビットが各インスタンスに同じb/enが届いたときの値になることを見る 区別: 1ビット接続を先頭インスタンスにしか配線しない実装では、残りのインスタンスのb/enがzになり、1001行でarrが1xxx、triが0x、busが1010と異なる値になって期待行と区別できる
 
 ### SV2023-23.3.3.5-EXTRACT-INSTANCE-PACKED-DISTRIBUTION
 
@@ -63621,7 +63668,7 @@ For internal wire/tri and external wire/tri, Table 23-1 selects the external net
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-1
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wire/tri and external wand/triand, Table 23-1 selects the external net type.
 
@@ -63629,10 +63676,11 @@ For internal wire/tri and external wand/triand, Table 23-1 selects the external 
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部wireのinoutポートと外部wandのネットを接続し、cv=1・pv=0のとき結合後のネットが0（wandの0優先）になることを49列の表示で見る 区別: 表23-1で外部wandを選ばず内部wireのままにする実装では、1と0のドライバが衝突してxになり、10行の2列目が0でなくxになる
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-2
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wire/tri and external wor/trior, Table 23-1 selects the external net type.
 
@@ -63640,6 +63688,7 @@ For internal wire/tri and external wor/trior, Table 23-1 selects the external ne
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部wireのinoutポートと外部worのネットを接続し、cv=1・pv=0のとき結合後のネットが1（worの1優先）になることを49列の表示で見る 区別: 表23-1で外部worを選ばず内部wireのままにする実装では、1と0のドライバが衝突してxになり、10行の3列目が1でなくxになる
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-3
 
@@ -63654,7 +63703,7 @@ For internal wire/tri and external trireg, Table 23-1 selects the external net t
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-4
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wire/tri and external tri0, Table 23-1 selects the external net type.
 
@@ -63662,10 +63711,11 @@ For internal wire/tri and external tri0, Table 23-1 selects the external net typ
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部wireのinoutポートと外部tri0のネットを接続し、両ドライバがzのとき結合後のネットが0（tri0のプルダウン）になることを49列の表示で見る 区別: 表23-1で外部tri0を選ばず内部wireのままにする実装では、両ドライバzのときzになり、zz行の4列目が0でなくzになる
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-5
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wire/tri and external tri1, Table 23-1 selects the external net type.
 
@@ -63673,6 +63723,7 @@ For internal wire/tri and external tri1, Table 23-1 selects the external net typ
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部wireのinoutポートと外部tri1のネットを接続し、両ドライバがzのとき結合後のネットが1（tri1のプルアップ）になることを49列の表示で見る 区別: 表23-1で外部tri1を選ばず内部wireのままにする実装では、両ドライバzのときzになり、zz行の5列目が1でなくzになる
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-6
 
@@ -63687,7 +63738,7 @@ For internal wire/tri and external uwire, Table 23-1 selects the external net ty
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-7
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wire/tri and external supply0, Table 23-1 selects the external net type.
 
@@ -63695,10 +63746,11 @@ For internal wire/tri and external supply0, Table 23-1 selects the external net 
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部wireのinoutポート（c_wire）と外部supply0のネットn_wire_supply0をinoutで結合し、cv=1・pv=0の10行で、結合後のn_wire_supply0（49個の値の6番目）が0になることを期待出力と比べる。 区別: 表23-1で外部supply0を選ばず内部wireのままにする実装では、1と0の強いドライバの衝突でxになる。その実装では10行の6番目が0でなくxになり、期待行と区別できる。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-8
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wire/tri and external supply1, Table 23-1 selects the external net type.
 
@@ -63706,10 +63758,11 @@ For internal wire/tri and external supply1, Table 23-1 selects the external net 
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部wireのinoutポートと外部supply1のネットn_wire_supply1をinoutで結合し、cv=0・pv=0の00行で、結合後のn_wire_supply1（49個の値の7番目）が1になることを期待出力と比べる。 区別: 表23-1で外部supply1を選ばず内部wireのままにする実装では、0と0の解決で0になる。その実装では00行の7番目が1でなく0になり、期待行と区別できる。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-0
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wand/triand and external wire/tri, Table 23-1 selects the internal net type.
 
@@ -63717,6 +63770,7 @@ For internal wand/triand and external wire/tri, Table 23-1 selects the internal 
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部wandのinoutポート（c_wand）と外部wireのネットn_wand_wireをinoutで結合し、cv=1・pv=0の10行で、結合後のn_wand_wire（49個の値の8番目）が0になることを期待出力と比べる。 区別: 表23-1で内部wandを選ばず外部wireにする実装では、1と0の衝突でxになる。その実装では10行の8番目が0でなくxになり、期待行と区別できる。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-1
 
@@ -63786,7 +63840,7 @@ For internal wand/triand and external uwire, Table 23-1 selects the external net
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-7
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wand/triand and external supply0, Table 23-1 selects the external net type.
 
@@ -63794,10 +63848,11 @@ For internal wand/triand and external supply0, Table 23-1 selects the external n
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部wandのinoutポートと外部supply0のネットn_wand_supply0をinoutで結合し、cv=1・pv=1の11行で、結合後のn_wand_supply0（49個の値の13番目）が0になることを期待出力と比べる。 区別: 表23-1で外部supply0を選ばず内部wandのままにする実装では、1と1のwired-ANDが1になる。その実装では11行の13番目が0でなく1になり、期待行と区別できる。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-8
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wand/triand and external supply1, Table 23-1 selects the external net type.
 
@@ -63805,10 +63860,11 @@ For internal wand/triand and external supply1, Table 23-1 selects the external n
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部wandのinoutポートと外部supply1のネットn_wand_supply1をinoutで結合し、cv=0・pv=0の00行で、結合後のn_wand_supply1（49個の値の14番目）が1になることを期待出力と比べる。 区別: 表23-1で外部supply1を選ばず内部wandのままにする実装では、0と0のwired-ANDが0になる。その実装では00行の14番目が1でなく0になり、期待行と区別できる。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-0
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wor/trior and external wire/tri, Table 23-1 selects the internal net type.
 
@@ -63816,6 +63872,7 @@ For internal wor/trior and external wire/tri, Table 23-1 selects the internal ne
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部worのinoutポート（c_wor）と外部wireのネットn_wor_wireをinoutで結合し、cv=1・pv=0の10行で、結合後のn_wor_wire（49個の値の15番目）が1になることを期待出力と比べる。 区別: 表23-1で内部worを選ばず外部wireにする実装では、1と0の衝突でxになる。その実装では10行の15番目が1でなくxになり、期待行と区別できる。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-1
 
@@ -63885,7 +63942,7 @@ For internal wor/trior and external uwire, Table 23-1 selects the external net t
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-7
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wor/trior and external supply0, Table 23-1 selects the external net type.
 
@@ -63893,10 +63950,11 @@ For internal wor/trior and external supply0, Table 23-1 selects the external net
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部worのinoutポートと外部supply0のネットn_wor_supply0をinoutで結合し、cv=1・pv=1の11行で、結合後のn_wor_supply0（49個の値の20番目）が0になることを期待出力と比べる。 区別: 表23-1で外部supply0を選ばず内部worのままにする実装では、1と1のwired-ORが1になる。その実装では11行の20番目が0でなく1になり、期待行と区別できる。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-8
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal wor/trior and external supply1, Table 23-1 selects the external net type.
 
@@ -63904,6 +63962,7 @@ For internal wor/trior and external supply1, Table 23-1 selects the external net
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部worのinoutポートと外部supply1のネットn_wor_supply1をinoutで結合し、cv=0・pv=0の00行で、結合後のn_wor_supply1（49個の値の21番目）が1になることを期待出力と比べる。 区別: 表23-1で外部supply1を選ばず内部worのままにする実装では、0と0のwired-ORが0になる。その実装では00行の21番目が1でなく0になり、期待行と区別できる。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-0
 
@@ -64006,7 +64065,7 @@ For internal trireg and external supply1, Table 23-1 selects the external net ty
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-0
 
-23.3.3.7 / normal / テスト未対応
+23.3.3.7 / normal / テスト対応あり・実行未確認
 
 For internal tri0 and external wire/tri, Table 23-1 selects the internal net type.
 
@@ -64014,6 +64073,7 @@ For internal tri0 and external wire/tri, Table 23-1 selects the internal net typ
 
 規定の性質: `mandatory`。
 
+- [test_net_port_merge_kinds.sv](../tests/imported/ch23/test_net_port_merge_kinds.sv): 内部tri0のinoutポート（c_tri0）と外部wireのネットn_tri0_wireをinoutで結合し、両ドライバがzのzz行で、結合後のn_tri0_wire（49個の値の22番目）が0になることを期待出力と比べる。 区別: 表23-1で内部tri0を選ばず外部wireにする実装では、駆動のないネットがzのままになる。その実装ではzz行の22番目が0でなくzになり、期待行と区別できる。
 
 ### SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-1
 

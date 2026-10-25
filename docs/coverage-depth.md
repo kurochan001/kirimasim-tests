@@ -6,37 +6,37 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 6017 |
+| Tests | 6038 |
 | Clauses in scope | 974 |
 | Clauses out of scope | 185 |
 | Clauses with a direct test | 974/974 |
 | Clauses with at least two direct tests | 974/974 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 228 |
+| Clauses with two tests or fewer | 225 |
 | Clauses with only standard-only tests | 238 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 457 |
-| Icarus Verilog 13.0 only | 3098 |
+| Icarus Verilog 13.0 only | 3108 |
 | Verilator 5.052 only | 1147 |
-| standard only | 1315 |
+| standard only | 1326 |
 
 ## By chapter
 
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 69 | 15 | 4.6 | 0 | 6 |
+| 3 | Design and verification building blocks | 71 | 15 | 4.7 | 0 | 7 |
 | 4 | Scheduling semantics | 387 | 27 | 14.3 | 0 | 6 |
 | 5 | Lexical conventions | 317 | 16 | 19.8 | 0 | 5 |
-| 6 | Data types | 538 | 76 | 7.1 | 0 | 101 |
+| 6 | Data types | 539 | 76 | 7.1 | 0 | 102 |
 | 7 | Aggregate data types | 456 | 49 | 9.3 | 0 | 78 |
 | 8 | Classes | 264 | 43 | 6.1 | 0 | 55 |
-| 9 | Processes | 141 | 25 | 5.6 | 0 | 16 |
-| 10 | Assignment statements | 165 | 18 | 9.2 | 0 | 32 |
+| 9 | Processes | 143 | 25 | 5.7 | 0 | 17 |
+| 10 | Assignment statements | 169 | 18 | 9.4 | 0 | 34 |
 | 11 | Operators and expressions | 808 | 42 | 19.2 | 0 | 40 |
-| 12 | Procedural programming statements | 143 | 16 | 8.9 | 0 | 20 |
+| 12 | Procedural programming statements | 144 | 16 | 9.0 | 0 | 20 |
 | 13 | Tasks and functions (subroutines) | 161 | 15 | 10.7 | 0 | 14 |
 | 14 | Clocking blocks | 63 | 15 | 4.2 | 0 | 12 |
 | 15 | Interprocess synchronization and communication | 52 | 21 | 2.5 | 0 | 16 |
@@ -44,15 +44,15 @@
 | 17 | Checkers | 31 | 9 | 3.4 | 0 | 21 |
 | 18 | Constrained random value generation | 64 | 44 | 1.5 | 0 | 18 |
 | 19 | Functional coverage | 84 | 22 | 3.8 | 0 | 70 |
-| 20 | Utility system tasks and system functions | 198 | 31 | 6.4 | 0 | 13 |
-| 21 | Input/output system tasks and system functions | 104 | 47 | 2.2 | 0 | 14 |
-| 22 | Compiler directives | 326 | 21 | 15.5 | 0 | 5 |
-| 23 | Modules and hierarchy | 134 | 32 | 4.2 | 0 | 27 |
+| 20 | Utility system tasks and system functions | 199 | 31 | 6.4 | 0 | 14 |
+| 21 | Input/output system tasks and system functions | 110 | 47 | 2.3 | 0 | 18 |
+| 22 | Compiler directives | 327 | 21 | 15.6 | 0 | 6 |
+| 23 | Modules and hierarchy | 136 | 32 | 4.2 | 0 | 27 |
 | 24 | Programs | 38 | 7 | 5.4 | 0 | 16 |
 | 25 | Interfaces | 106 | 12 | 8.8 | 0 | 39 |
 | 26 | Packages | 71 | 6 | 11.8 | 0 | 10 |
 | 27 | Generate constructs | 98 | 5 | 19.6 | 0 | 2 |
-| 28 | Gate-level and switch-level modeling | 233 | 26 | 9.0 | 0 | 45 |
+| 28 | Gate-level and switch-level modeling | 234 | 26 | 9.0 | 0 | 45 |
 | 29 | User-defined primitives | 73 | 14 | 5.2 | 0 | 10 |
 | 30 | Specify blocks | 49 | 21 | 2.3 | 0 | 21 |
 | 31 | Timing checks | 51 | 19 | 2.7 | 0 | 41 |

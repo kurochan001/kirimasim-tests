@@ -1,6 +1,6 @@
 # Clause 9: Processes
 
-[All chapters](README.md). 141 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 143 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -97,6 +97,7 @@
 | [`test_clocked_value_timing`](../../tests/ch9/test_clocked_value_timing.sv) | A variable updated by a clocked always procedure, read one time unit after each edge | 9.4.2 10.4.2 | Icarus Verilog 13.0 |  |
 | [`test_edge_detection`](../../tests/ch9/test_edge_detection.sv) | Edge Detection Tests | 9.4.2 10.4.2 | Icarus Verilog 13.0 |  |
 | [`test_edge_event_never_changes`](../../tests/ch9/test_edge_event_never_changes.sv) | @(edge v) resumes only on the transitions of Table 9-2, never for a variable that keeps its initial x | 9.4.2 | Icarus Verilog 13.0 | x/z |
+| [`test_edge_matrix`](../../tests/imported/ch9/test_edge_matrix.sv) | posedge, negedge, edge and any change on every transition among 0, 1, x and z, on a variable, a vector's least significant bit, upper bits alone, a bit-select, and a net, waited on in always, initial, automatic task and fork | 9.4.2 9.4.2.3 | standard only | top module, x/z |
 | [`test_event_chain_propagation`](../../tests/ch9/test_event_chain_propagation.sv) | A chain of always @(signal) blocks settles in one time slot | 9.4.2 4.4.2.2 | Icarus Verilog 13.0 |  |
 | [`test_event_control_on_expression`](../../tests/ch9/test_event_control_on_expression.sv) | An event control on an operator expression waits for a change of the expression's value, not for any change of its operands | 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_event_control_posedge`](../../tests/ch9/test_event_control_posedge.sv) | Waiting for @(posedge clk) in an initial block | 9.4.2 | Icarus Verilog 13.0 |  |
@@ -117,6 +118,7 @@
 | [`test_wait_sequence_same_slot_twice`](../../tests/ch9/test_wait_sequence_same_slot_twice.sv) | A second wait on an already triggered sequence completes in the same time step | 9.4.4 16.13.5 | standard only |  |
 | [`test_wait_sequence_triggered`](../../tests/ch9/test_wait_sequence_triggered.sv) | A wait statement on the triggered method of a named sequence unblocks in the time step in which the sequence reaches its end point, and triggered is false again once time advances | 9.4.4 16.9.11 16.13.6 9.4.3 | standard only |  |
 | [`test_intra_assignment_repeat_nonblocking`](../../tests/ch9/test_intra_assignment_repeat_nonblocking.sv) | A nonblocking assignment with an intra-assignment repeat event control takes the right-hand value when it executes and assigns it after the given number of events; the count is evaluated once, and a count of zero or less assigns without waiting | 9.4.5 10.4.2 | Icarus Verilog 13.0 |  |
+| [`test_intra_assignment_timing`](../../tests/imported/ch9/test_intra_assignment_timing.sv) | A delay or event control inside an assignment computes the right side when the statement runs; a blocking one assigns when the control is met, choosing the target's element then, and a nonblocking one with a delay updates the target chosen when the statement runs in the NBA region that many time steps later, every one of them taking effect | 9.4.5 10.4.1 10.4.2 4.9.4 | Icarus Verilog 13.0 |  |
 | [`test_process_threads_distinct`](../../tests/ch9/test_process_threads_distinct.sv) | Each initial, always and final procedure, each parallel statement of a fork and each process started by fork-join_none runs as a thread of its own | 9.5 9.7 9.3.2 | Verilator 5.052 |  |
 | [`test_process_control_statement_forms`](../../tests/ch9/test_process_control_statement_forms.sv) | each form of the process control statements runs as its syntax says, wait with an expression and a statement or a null statement, wait fork, wait_order with each kind of action block, and disable of a task, a block and fork | 9.6 15.5.4 | standard only |  |
 | [`test_process_control_wait_disable_parentage`](../../tests/ch9/test_process_control_wait_disable_parentage.sv) | wait fork waits only for the children of its own process, a named disable ends a block from an unrelated process and from a child of the block, and disable fork ends only the children of its own process | 9.6 9.6.1 9.6.2 9.6.3 | Icarus Verilog 13.0 |  |

@@ -2,14 +2,14 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 6017,
-  "linked_test_files": 3519,
+  "test_files": 6038,
+  "linked_test_files": 3540,
   "unlinked_test_files": 2498,
   "chapters": [
     {
       "chapter": "ch3",
-      "test_files": 69,
-      "linked_test_files": 51,
+      "test_files": 71,
+      "linked_test_files": 53,
       "unlinked_test_files": 18
     },
     {
@@ -26,8 +26,8 @@
     },
     {
       "chapter": "ch6",
-      "test_files": 538,
-      "linked_test_files": 339,
+      "test_files": 539,
+      "linked_test_files": 340,
       "unlinked_test_files": 199
     },
     {
@@ -44,14 +44,14 @@
     },
     {
       "chapter": "ch9",
-      "test_files": 141,
-      "linked_test_files": 65,
+      "test_files": 143,
+      "linked_test_files": 67,
       "unlinked_test_files": 76
     },
     {
       "chapter": "ch10",
-      "test_files": 165,
-      "linked_test_files": 90,
+      "test_files": 169,
+      "linked_test_files": 94,
       "unlinked_test_files": 75
     },
     {
@@ -62,8 +62,8 @@
     },
     {
       "chapter": "ch12",
-      "test_files": 143,
-      "linked_test_files": 66,
+      "test_files": 144,
+      "linked_test_files": 67,
       "unlinked_test_files": 77
     },
     {
@@ -110,26 +110,26 @@
     },
     {
       "chapter": "ch20",
-      "test_files": 198,
-      "linked_test_files": 44,
+      "test_files": 199,
+      "linked_test_files": 45,
       "unlinked_test_files": 154
     },
     {
       "chapter": "ch21",
-      "test_files": 104,
-      "linked_test_files": 44,
+      "test_files": 110,
+      "linked_test_files": 50,
       "unlinked_test_files": 60
     },
     {
       "chapter": "ch22",
-      "test_files": 326,
-      "linked_test_files": 310,
+      "test_files": 327,
+      "linked_test_files": 311,
       "unlinked_test_files": 16
     },
     {
       "chapter": "ch23",
-      "test_files": 134,
-      "linked_test_files": 64,
+      "test_files": 136,
+      "linked_test_files": 66,
       "unlinked_test_files": 70
     },
     {
@@ -158,8 +158,8 @@
     },
     {
       "chapter": "ch28",
-      "test_files": 233,
-      "linked_test_files": 188,
+      "test_files": 234,
+      "linked_test_files": 189,
       "unlinked_test_files": 45
     },
     {
@@ -35903,7 +35903,31 @@
           "clause": "13.4",
           "descendant_requirement_count": 34
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch13/test_function_argument_passing.sv",
+        "inputs_sha256": "a089a80cba04eb959aa4b7c5f334088bd1d2806fc05e434e59dc90170bd8c7ea",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-13.4-EXTRACT-FUNCTION-FORMAL-STYLES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "add_valuesなどは`function ... (int a, int b)`のANSI形式だけで、`function int f; input int x;`のような本体内の方向宣言を使った関数宣言を観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch13/test_function_argument_passing.sv",
+                "contains": "    function automatic int add_values(int a, int b);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch13/test_function_call.sv",
@@ -39075,6 +39099,21 @@
                 "contains": "w.recur(3, n);"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-13.3.1-EXTRACT-CLASS-TASK-AUTOMATIC"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "class walkerのtaskは`task automatic recur`と明示的にautomaticで宣言されており、automaticを省いたclass taskが自動的にautomaticになることを区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch13/test_recursive_class_task_ref_argument.sv",
+                "contains": "  task automatic recur(int d, ref int n);"
+              }
+            ]
           }
         ]
       }
@@ -39601,7 +39640,31 @@
         "SV2023-13.3.1-EXTRACT-TASK-AUTOMATIC-HIERARCHY",
         "SV2023-8.6-EXTRACT-AUTOMATIC-METHOD-LIFETIME"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch13/test_scope_nesting.sv",
+        "inputs_sha256": "0a203db5cf8187db6fcef3ca39c75206c8780026c8a3d181ac77384da4d45c15",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-13.4.2-EXTRACT-CLASS-FUNCTION-AUTOMATIC"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "classの`get_double()`はメンバーを読むだけで、自動変数や再帰呼出しを持たず、automaticを省いたclass関数が各呼出し固有の記憶域を持つことを観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch13/test_scope_nesting.sv",
+                "contains": "        function int get_double();"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch13/test_scopes_task_function_class.sv",
@@ -110091,6 +110154,7 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTIONS",
         "SV2023-3.8-EXTRACT-FUNCTION-DIRECTIONS",
         "SV2023-3.8-EXTRACT-FUNCTION-FORK",
         "SV2023-3.8-EXTRACT-SUBROUTINE-CATEGORIES",
@@ -110103,7 +110167,6 @@
       "unapproved_candidate_ids": [
         "SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL",
         "SV2023-13.4-EXTRACT-FUNCTION-DIRECTION-DEFAULT",
-        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTIONS",
         "SV2023-13.4-EXTRACT-FUNCTION-FORMAL-STYLES",
         "SV2023-13.4-EXTRACT-FUNCTION-GRAMMAR",
         "SV2023-13.4-EXTRACT-FUNCTION-PROCESS-CONTROL",
@@ -110158,7 +110221,106 @@
           "clause": "13.5",
           "descendant_requirement_count": 28
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch3/test_function_kinds_argument_directions_and_fork.sv",
+        "inputs_sha256": "f9d756adf32c4b82412cb1da10d41286c0af08b578953b99bb01452dda2eda84",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-13.4-EXTRACT-FUNCTION-DIRECTION-DEFAULT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "scaleの4仮引数はすべて方向を明示し、`twice(int v)`は1個だけなので先頭formalの既定inputしか起こさず、後続formalの方向継承とconst/static refの継承を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_function_kinds_argument_directions_and_fork.sv",
+                "contains": "  function automatic int scale(input int a, output int o, inout int io, ref int r);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-13.4-EXTRACT-FUNCTION-GRAMMAR"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "automatic/static lifetimeと明示戻り型、ANSI仮引数、void、本体文は使うが、interface/class scope、dynamic override指定子、暗黙戻り型、本体側仮引数、閉じ名を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_function_kinds_argument_directions_and_fork.sv",
+                "contains": "  function automatic int scale(input int a, output int o, inout int io, ref int r);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-13.4-EXTRACT-FUNCTION-PROCESS-CONTROL"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "候補の関数は値を返すだけで、process::self().kill()や他プロセスのkill/suspend/resumeを関数内から呼ぶ刺激がなく、9.7の制約下の動作を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_function_kinds_argument_directions_and_fork.sv",
+                "contains": "  function void spawn();"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-13.4-EXTRACT-FUNCTION-RETURN-TYPE-CATEGORIES"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "関数の戻り型はintとvoidだけで、real、struct/union、enum、string、chandle、virtual interface、class、event、covergroup、type referenceの各型を宣言していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_function_kinds_argument_directions_and_fork.sv",
+                "contains": "  function int twice(int v);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "関数仮引数の型はすべて明示され、型を省いたformalのlogic既定・直前formalからの型継承・型を省いた配列formalを起こしていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_function_kinds_argument_directions_and_fork.sv",
+                "contains": "  function automatic int scale(input int a, output int o, inout int io, ref int r);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-13.4-EXTRACT-IMPLICIT-LOGIC-RETURN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "戻り型は`int`/`void`と明示され、`function [3:0] f`のような範囲だけの暗黙logicや、戻り型を完全に省いたスカラーlogicの関数を宣言していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_function_kinds_argument_directions_and_fork.sv",
+                "contains": "  function int twice(int v);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch3/test_global_precision_from_timeprecision.sv",
@@ -161402,7 +161564,31 @@
           "clause": "13.4",
           "descendant_requirement_count": 34
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch37/test_vpi_subroutine_body_stmt.sv",
+        "inputs_sha256": "5e6a52c74e4c7b49696e8708580fd5ca16c47f71117a127b73bf1e57c077e51e",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "VPIで空のvoid関数本体f0()の文構造は見るが、nonvoidの空本体が関数名の結果変数の現在値を返すことと、本体文の逐次実行順は観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch37/test_vpi_subroutine_body_stmt.sv",
+                "contains": "  function void f0();"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch37/test_vpi_sys_func_call_value_info.sv",
@@ -242904,7 +243090,92 @@
           "clause": "9.2.2.2",
           "descendant_requirement_count": 14
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch9/test_always_comb_edge_cases.sv",
+        "inputs_sha256": "25f934d3782e2f9e9d98b7565749570bb3c0c64a180f82c28642a647d61e4af9",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-9.2.2.2-EXTRACT-TIME-ZERO-EXECUTION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M08: initial が時刻0で a=b=0 に代入し #1 後に sum を検査する。a/b の x→0 変化でも always_comb は再実行されるため、時刻0の自動起動がなくても sum=0 になり、\"once at time zero, after all initial and always procedures have been started\" を区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch9/test_always_comb_edge_cases.sv",
+                "contains": "        a = 0; b = 0; c = 0; sel = 0;"
+              },
+              {
+                "file": "tests/ch9/test_always_comb_edge_cases.sv",
+                "contains": "        #1;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2.2.2-EXTRACT-TIME-ZERO-EXECUTION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M08: initial が時刻0で a=b=0 に代入し #1 後に sum を検査する。a/b の x→0 変化でも always_comb は再実行されるため、時刻0の自動起動がなくても sum=0 になり、\"once at time zero, after all initial and always procedures have been started\" を区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch9/test_always_comb_edge_cases.sv",
+                "contains": "        a = 0; b = 0; c = 0; sel = 0;"
+              },
+              {
+                "file": "tests/ch9/test_always_comb_edge_cases.sv",
+                "contains": "        #1;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2.2.2-EXTRACT-TIME-ZERO-EXECUTION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M08: initial が時刻0で a=b=0 に代入し #1 後に sum を検査する。a/b の x→0 変化でも always_comb は再実行されるため、時刻0の自動起動がなくても sum=0 になり、\"once at time zero, after all initial and always procedures have been started\" を区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch9/test_always_comb_edge_cases.sv",
+                "contains": "        a = 0; b = 0; c = 0; sel = 0;"
+              },
+              {
+                "file": "tests/ch9/test_always_comb_edge_cases.sv",
+                "contains": "        #1;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2.2.2-EXTRACT-TIME-ZERO-EXECUTION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M08: initial が時刻0で a=b=0 に代入し #1 後に sum を検査する。a/b の x→0 変化でも always_comb は再実行されるため、時刻0の自動起動がなくても sum=0 になり、\"once at time zero, after all initial and always procedures have been started\" を区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch9/test_always_comb_edge_cases.sv",
+                "contains": "        a = 0; b = 0; c = 0; sel = 0;"
+              },
+              {
+                "file": "tests/ch9/test_always_comb_edge_cases.sv",
+                "contains": "        #1;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch9/test_always_comb_latch.sv",
@@ -243167,7 +243438,76 @@
       "different_case_kind_ids": [
         "SV2023-9.2.2.2.2-EXTRACT-NO-COMB-BLOCKING"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+        "inputs_sha256": "9f4bbf763237ad935d9106cbd79987464bb5dab22b6f07bc971e51ec431b0748",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-9.2.2.2.1-EXTRACT-EXCLUDE-WRITTEN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M12: runs をブロック内で読み書きする場合の自己再起動抑止（runs が 1→2→3 にだけ増える）は観測するが、呼ばれた関数内で書かれる式を感度から除く条件は刺激していない。関数内書き込みだけを誤って感度に残す実装でも期待行は変わらない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+                "contains": "    runs++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2.2.2.1-EXTRACT-EXCLUDE-WRITTEN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M12: runs をブロック内で読み書きする場合の自己再起動抑止（runs が 1→2→3 にだけ増える）は観測するが、呼ばれた関数内で書かれる式を感度から除く条件は刺激していない。関数内書き込みだけを誤って感度に残す実装でも期待行は変わらない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+                "contains": "    runs++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2.2.2.1-EXTRACT-EXCLUDE-WRITTEN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M12: runs をブロック内で読み書きする場合の自己再起動抑止（runs が 1→2→3 にだけ増える）は観測するが、呼ばれた関数内で書かれる式を感度から除く条件は刺激していない。関数内書き込みだけを誤って感度に残す実装でも期待行は変わらない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+                "contains": "    runs++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2.2.2.1-EXTRACT-EXCLUDE-WRITTEN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M12: runs をブロック内で読み書きする場合の自己再起動抑止（runs が 1→2→3 にだけ増える）は観測するが、呼ばれた関数内で書かれる式を感度から除く条件は刺激していない。関数内書き込みだけを誤って感度に残す実装でも期待行は変わらない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch9/test_always_comb_sensitivity_exceptions.sv",
+                "contains": "    runs++;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch9/test_always_comb_vs_always_star.sv",
@@ -405082,16 +405422,2528 @@
         "SV2023-7.4.5-EXTRACT-ONE-SLICE-DIMENSION"
       ],
       "broader_citations": []
+    },
+    {
+      "test": "tests/imported/ch10/test_delay_matrix.sv",
+      "inputs_sha256": "beaba72d15286acf8b399af0419784cbb47fde4ec1652cb8199404fe35cb87d3",
+      "cited_clauses": [
+        "10.3.3",
+        "28.16",
+        "28.6",
+        "29.10",
+        "4.4.2.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-10.3.3-EXTRACT-INERTIAL-RESCHEDULE",
+        "SV2023-10.3.3-EXTRACT-VECTOR-FALL-DELAY",
+        "SV2023-10.3.3-EXTRACT-VECTOR-OTHER-RISE-DELAY",
+        "SV2023-10.3.3-EXTRACT-VECTOR-TURNOFF-DELAY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-10.3.3-EXTRACT-CONTINUOUS-PROPAGATION-DELAY",
+        "SV2023-10.3.3-EXTRACT-DECLARATION-ASSIGNMENT-DELAY",
+        "SV2023-10.3.3-EXTRACT-INERTIAL-CANCEL-DIFFERENT",
+        "SV2023-10.3.3-EXTRACT-INERTIAL-NO-REDUNDANT-EVENT",
+        "SV2023-10.3.3-EXTRACT-INERTIAL-REEVALUATE",
+        "SV2023-10.3.3-EXTRACT-NET-DELAY-ALL-DRIVERS",
+        "SV2023-28.16-EXTRACT-DELAY-0-1-2",
+        "SV2023-28.16-EXTRACT-DELAY-0-1-3",
+        "SV2023-28.16-EXTRACT-DELAY-0-X-2",
+        "SV2023-28.16-EXTRACT-DELAY-0-X-3",
+        "SV2023-28.16-EXTRACT-DELAY-0-Z-2",
+        "SV2023-28.16-EXTRACT-DELAY-0-Z-3",
+        "SV2023-28.16-EXTRACT-DELAY-1-0-2",
+        "SV2023-28.16-EXTRACT-DELAY-1-0-3",
+        "SV2023-28.16-EXTRACT-DELAY-1-X-2",
+        "SV2023-28.16-EXTRACT-DELAY-1-X-3",
+        "SV2023-28.16-EXTRACT-DELAY-1-Z-2",
+        "SV2023-28.16-EXTRACT-DELAY-1-Z-3",
+        "SV2023-28.16-EXTRACT-DELAY-COUNTS",
+        "SV2023-28.16-EXTRACT-DELAY-INDEPENDENT-STRENGTH",
+        "SV2023-28.16-EXTRACT-DELAY-X-0-2",
+        "SV2023-28.16-EXTRACT-DELAY-X-0-3",
+        "SV2023-28.16-EXTRACT-DELAY-X-1-2",
+        "SV2023-28.16-EXTRACT-DELAY-X-1-3",
+        "SV2023-28.16-EXTRACT-DELAY-X-Z-2",
+        "SV2023-28.16-EXTRACT-DELAY-X-Z-3",
+        "SV2023-28.16-EXTRACT-DELAY-Z-0-2",
+        "SV2023-28.16-EXTRACT-DELAY-Z-0-3",
+        "SV2023-28.16-EXTRACT-DELAY-Z-1-2",
+        "SV2023-28.16-EXTRACT-DELAY-Z-1-3",
+        "SV2023-28.16-EXTRACT-DELAY-Z-X-2",
+        "SV2023-28.16-EXTRACT-DELAY-Z-X-3",
+        "SV2023-28.16-EXTRACT-GATE-DELAY-MEANING",
+        "SV2023-28.16-EXTRACT-NET-DELAY-MEANING",
+        "SV2023-28.16-EXTRACT-THREE-DELAYS",
+        "SV2023-28.6-EXTRACT-THREE-STATE-AMBIGUITY",
+        "SV2023-28.6-EXTRACT-THREE-STATE-DELAYS",
+        "SV2023-28.6-EXTRACT-THREE-STATE-KEYWORDS",
+        "SV2023-28.6-EXTRACT-THREE-STATE-TERMINALS",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-Z",
+        "SV2023-29.10-EXTRACT-LEVEL-DOMINANCE-RESULT",
+        "SV2023-4.4.2.3-EXTRACT-INACTIVE-AFTER-ACTIVE",
+        "SV2023-4.4.2.3-EXTRACT-ZERO-DELAY-INACTIVE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-10.3.3-EXTRACT-USER-NETTYPE-ONE-DELAY"
+      ],
+      "broader_citations": [
+        {
+          "clause": "28.16",
+          "descendant_requirement_count": 8
+        }
+      ],
+      "scoped_review": {
+        "test": "tests/imported/ch10/test_delay_matrix.sv",
+        "inputs_sha256": "beaba72d15286acf8b399af0419784cbb47fde4ec1652cb8199404fe35cb87d3",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-10.3.3-EXTRACT-DECLARATION-ASSIGNMENT-DELAY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "wire #5 dw = a はスカラーで宣言代入の遅延だけを持ち同じnetに別ドライバが無いため、遅延を他のドライバへ加算しないことと、ベクタでライズ/フォールをビット単位に適用しないことを観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch10/test_delay_matrix.sv",
+                "contains": "wire #5 dw = a;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-10.3.3-EXTRACT-INERTIAL-NO-REDUNDANT-EVENT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "短パルスの取り消しは「予約値と異なる新RHSで予約イベントを外す」こととしてs1の行に出るが、RHSが現在のLHSと等しいときに同値イベントを予約しないこと自体は同じ値を書くイベントなので出力値に差が現れず区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch10/test_delay_matrix.sv",
+                "contains": "assign #5 s1 = a;"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch10/test_net_highz_strengths.sv",
+      "inputs_sha256": "a95024c796a1463fe79a083b4f3b0f9c03b8d0a5bb62f2959ea7a38a29f501c2",
+      "cited_clauses": [
+        "10.3.4",
+        "28.11",
+        "28.12.2",
+        "28.12.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-10.3.4-EXTRACT-ONE-STRENGTH-KEYWORDS",
+        "SV2023-10.3.4-EXTRACT-ZERO-STRENGTH-KEYWORDS"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-10.3.4-EXTRACT-ONE-STRENGTH-KEYWORDS",
+        "SV2023-10.3.4-EXTRACT-ZERO-STRENGTH-KEYWORDS"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-10.3.4-EXTRACT-DEFAULT-STRONG",
+        "SV2023-10.3.4-EXTRACT-STRENGTH-ORDER",
+        "SV2023-10.3.4-EXTRACT-STRENGTH-POSITION",
+        "SV2023-10.3.4-EXTRACT-TWO-STRENGTHS",
+        "SV2023-28.11-EXTRACT-DRIVING-STRENGTHS",
+        "SV2023-28.11-EXTRACT-LEVEL-HIGHZ0",
+        "SV2023-28.11-EXTRACT-LEVEL-HIGHZ1",
+        "SV2023-28.11-EXTRACT-LEVEL-LARGE0",
+        "SV2023-28.11-EXTRACT-LEVEL-LARGE1",
+        "SV2023-28.11-EXTRACT-LEVEL-MEDIUM0",
+        "SV2023-28.11-EXTRACT-LEVEL-MEDIUM1",
+        "SV2023-28.11-EXTRACT-LEVEL-PULL0",
+        "SV2023-28.11-EXTRACT-LEVEL-PULL1",
+        "SV2023-28.11-EXTRACT-LEVEL-SMALL0",
+        "SV2023-28.11-EXTRACT-LEVEL-SMALL1",
+        "SV2023-28.11-EXTRACT-LEVEL-STRONG0",
+        "SV2023-28.11-EXTRACT-LEVEL-STRONG1",
+        "SV2023-28.11-EXTRACT-LEVEL-SUPPLY0",
+        "SV2023-28.11-EXTRACT-LEVEL-SUPPLY1",
+        "SV2023-28.11-EXTRACT-LEVEL-WEAK0",
+        "SV2023-28.11-EXTRACT-LEVEL-WEAK1",
+        "SV2023-28.11-EXTRACT-STORAGE-STRENGTHS",
+        "SV2023-28.11-EXTRACT-STRENGTH-COMPONENTS",
+        "SV2023-28.11-EXTRACT-STRENGTH-SCALE-VALUES",
+        "SV2023-28.12.2-EXTRACT-AMBIGUOUS-CLASSES",
+        "SV2023-28.12.2-EXTRACT-EQUAL-OPPOSITE-UNKNOWN",
+        "SV2023-28.12.2-EXTRACT-HIGHZ-GATE-UNKNOWN",
+        "SV2023-28.12.2-EXTRACT-KNOWN-RANGES-COMBINATION",
+        "SV2023-28.12.2-EXTRACT-UNKNOWN-RANGE-NOTATION",
+        "SV2023-28.12.3-EXTRACT-AMBIGUOUS-GAP-FILL",
+        "SV2023-28.12.3-EXTRACT-AMBIGUOUS-STRONG-REMAINS",
+        "SV2023-28.12.3-EXTRACT-AMBIGUOUS-WEAK-ELIMINATION"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-28.12.2-EXTRACT-AMBIGUOUS-UNION-TEXT"
+      ],
+      "different_case_kind_ids": [
+        "SV2023-10.3.4-EXTRACT-NO-BOTH-HIGHZ",
+        "SV2023-10.3.4-EXTRACT-STRENGTH-SCOPE",
+        "SV2023-28.11-EXTRACT-NO-BOTH-HIGHZ"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/imported/ch10/test_net_strengths_wire.sv",
+      "inputs_sha256": "d0ab1f9c26056be7c395c9029b812ebdacf21a7e678472b94628656287ff03c0",
+      "cited_clauses": [
+        "10.3.4",
+        "28.11",
+        "28.12.1",
+        "28.12.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-10.3.4-EXTRACT-ONE-STRENGTH-KEYWORDS",
+        "SV2023-10.3.4-EXTRACT-ZERO-STRENGTH-KEYWORDS"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-10.3.4-EXTRACT-ONE-STRENGTH-KEYWORDS",
+        "SV2023-10.3.4-EXTRACT-ZERO-STRENGTH-KEYWORDS"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-10.3.4-EXTRACT-DEFAULT-STRONG",
+        "SV2023-10.3.4-EXTRACT-STRENGTH-ORDER",
+        "SV2023-10.3.4-EXTRACT-STRENGTH-POSITION",
+        "SV2023-10.3.4-EXTRACT-TWO-STRENGTHS",
+        "SV2023-28.11-EXTRACT-DRIVING-STRENGTHS",
+        "SV2023-28.11-EXTRACT-LEVEL-HIGHZ0",
+        "SV2023-28.11-EXTRACT-LEVEL-HIGHZ1",
+        "SV2023-28.11-EXTRACT-LEVEL-LARGE0",
+        "SV2023-28.11-EXTRACT-LEVEL-LARGE1",
+        "SV2023-28.11-EXTRACT-LEVEL-MEDIUM0",
+        "SV2023-28.11-EXTRACT-LEVEL-MEDIUM1",
+        "SV2023-28.11-EXTRACT-LEVEL-PULL0",
+        "SV2023-28.11-EXTRACT-LEVEL-PULL1",
+        "SV2023-28.11-EXTRACT-LEVEL-SMALL0",
+        "SV2023-28.11-EXTRACT-LEVEL-SMALL1",
+        "SV2023-28.11-EXTRACT-LEVEL-STRONG0",
+        "SV2023-28.11-EXTRACT-LEVEL-STRONG1",
+        "SV2023-28.11-EXTRACT-LEVEL-SUPPLY0",
+        "SV2023-28.11-EXTRACT-LEVEL-SUPPLY1",
+        "SV2023-28.11-EXTRACT-LEVEL-WEAK0",
+        "SV2023-28.11-EXTRACT-LEVEL-WEAK1",
+        "SV2023-28.11-EXTRACT-STORAGE-STRENGTHS",
+        "SV2023-28.11-EXTRACT-STRENGTH-COMPONENTS",
+        "SV2023-28.11-EXTRACT-STRENGTH-SCALE-VALUES",
+        "SV2023-28.12.1-EXTRACT-LIKE-VALUE-MAXIMUM",
+        "SV2023-28.12.1-EXTRACT-STRONGER-KNOWN-DRIVER",
+        "SV2023-28.12.2-EXTRACT-AMBIGUOUS-CLASSES",
+        "SV2023-28.12.2-EXTRACT-EQUAL-OPPOSITE-UNKNOWN",
+        "SV2023-28.12.2-EXTRACT-HIGHZ-GATE-UNKNOWN",
+        "SV2023-28.12.2-EXTRACT-KNOWN-RANGES-COMBINATION",
+        "SV2023-28.12.2-EXTRACT-UNKNOWN-RANGE-NOTATION"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-28.12.2-EXTRACT-AMBIGUOUS-UNION-TEXT"
+      ],
+      "different_case_kind_ids": [
+        "SV2023-10.3.4-EXTRACT-NO-BOTH-HIGHZ",
+        "SV2023-10.3.4-EXTRACT-STRENGTH-SCOPE",
+        "SV2023-28.11-EXTRACT-NO-BOTH-HIGHZ"
+      ],
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/imported/ch10/test_net_strengths_wire.sv",
+        "inputs_sha256": "d0ab1f9c26056be7c395c9029b812ebdacf21a7e678472b94628656287ff03c0",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-10.3.4-EXTRACT-STRENGTH-POSITION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "assign直後の強度位置は受理し、別テストではnet型直後の位置も使うが、強度の後ろに遅延が続く形（strength→delay3）を一度も使っておらず、位置関係全体と駆動値への強度適用を同じ刺激で観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch10/test_net_strengths_wire.sv",
+                "contains": "assign (supply1, supply0) n0 = a;"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch10/test_procedural_continuous_assign.sv",
+      "inputs_sha256": "a4f30d4888e4b299886d5a938ca6f956171947b7c6d3033be446171532730c5e",
+      "cited_clauses": [
+        "10.6.1",
+        "10.6.2",
+        "23.6"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-10.6.2-EXTRACT-FORCE-TARGETS",
+        "SV2023-10.6.2-EXTRACT-FORCE-VARIABLE-OVERRIDE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-10.6.1-EXTRACT-ASSIGN-OVERRIDE",
+        "SV2023-10.6.1-EXTRACT-DEASSIGN-RETENTION",
+        "SV2023-10.6.1-EXTRACT-REASSIGN-REPLACES",
+        "SV2023-10.6.2-EXTRACT-FORCE-NET-OVERRIDE",
+        "SV2023-10.6.2-EXTRACT-RELEASE-CONTINUOUS-RESTORES",
+        "SV2023-10.6.2-EXTRACT-RELEASE-NET-RESOLVES",
+        "SV2023-10.6.2-EXTRACT-RELEASE-UNDRIVEN-RETAINS",
+        "SV2023-23.6-EXTRACT-HIERARCHICAL-BRANCHES",
+        "SV2023-23.6-EXTRACT-HIERARCHICAL-ROOT-LOCAL",
+        "SV2023-23.6-EXTRACT-HIERARCHICAL-SYNTAX",
+        "SV2023-23.6-EXTRACT-HIERARCHICAL-USES"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-10.6.1-EXTRACT-ASSIGN-TARGET",
+        "SV2023-10.6.2-EXTRACT-NO-FORCE-MIXED-DRIVEN-VARIABLE",
+        "SV2023-10.6.2-EXTRACT-NO-FORCE-VARIABLE-SELECT",
+        "SV2023-23.6-EXTRACT-HIERARCHICAL-EXCLUSIONS",
+        "SV2023-23.6-EXTRACT-HIERARCHICAL-UNIQUENESS",
+        "SV2023-23.6-EXTRACT-INSTANCE-SELECT",
+        "SV2023-23.6-EXTRACT-NO-CHECKER-HIERARCHY"
+      ],
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/imported/ch10/test_procedural_continuous_assign.sv",
+        "inputs_sha256": "a4f30d4888e4b299886d5a938ca6f956171947b7c6d3033be446171532730c5e",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-10.6.1-EXTRACT-REASSIGN-REPLACES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "各ブロックで同じ変数へのprocedural assignは1回だけで、既にassign中の変数へ2回目のassignを行っておらず、新しいassignが古いassignを暗黙にdeassignする規則を実行していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch10/test_procedural_continuous_assign.sv",
+                "contains": "assign av = src;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-10.6.2-EXTRACT-FORCE-NET-OVERRIDE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "連続代入や2本の連続ドライバで駆動されるnetへのforceとreleaseは見るが、ゲート出力やモジュール出力を含むnetをforceしておらず、すべてのドライバ種を上書きすることを観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch10/test_procedural_continuous_assign.sv",
+                "contains": "force w = src ^ 8'hff;"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch12/test_cond_truth.sv",
+      "inputs_sha256": "4e617a5cc07d8a454f423c22168dfd0c0443a8eb660c4e99ee0067c04f515713",
+      "cited_clauses": [
+        "12.4",
+        "11.4.5",
+        "11.4.7"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-12.4-EXTRACT-IF-TRUE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-11.4.5-EXTRACT-CASE-EQ",
+        "SV2023-11.4.5-EXTRACT-CASE-KNOWN",
+        "SV2023-11.4.5-EXTRACT-CASE-NE",
+        "SV2023-11.4.5-EXTRACT-CHANDLE-EQUALITY",
+        "SV2023-11.4.5-EXTRACT-CLASS-EQUALITY",
+        "SV2023-11.4.5-EXTRACT-EQUALITY-ONE-BIT",
+        "SV2023-11.4.5-EXTRACT-EQUALITY-PRECEDENCE",
+        "SV2023-11.4.5-EXTRACT-LOGICAL-EQ",
+        "SV2023-11.4.5-EXTRACT-LOGICAL-NE",
+        "SV2023-11.4.5-EXTRACT-LOGICAL-UNKNOWN",
+        "SV2023-11.4.5-EXTRACT-REAL-LOGICAL-EQUALITY",
+        "SV2023-11.4.5-EXTRACT-SIGNED-EQUALITY",
+        "SV2023-11.4.5-EXTRACT-UNSIGNED-EQUALITY",
+        "SV2023-11.4.7-EXTRACT-AND-SHORT-CIRCUIT",
+        "SV2023-11.4.7-EXTRACT-EQUIVALENCE",
+        "SV2023-11.4.7-EXTRACT-IMPLICATION",
+        "SV2023-11.4.7-EXTRACT-IMPLICATION-SHORT-CIRCUIT",
+        "SV2023-11.4.7-EXTRACT-LEFT-EVALUATED",
+        "SV2023-11.4.7-EXTRACT-LOGICAL-NOT",
+        "SV2023-11.4.7-EXTRACT-LOGICAL-PRECEDENCE",
+        "SV2023-11.4.7-EXTRACT-LOGICAL-RESULT",
+        "SV2023-11.4.7-EXTRACT-OR-SHORT-CIRCUIT",
+        "SV2023-12.4-EXTRACT-BLOCK-ELSE-GROUPING",
+        "SV2023-12.4-EXTRACT-DANGLING-ELSE",
+        "SV2023-12.4-EXTRACT-IF-FALSE-ELSE",
+        "SV2023-12.4-EXTRACT-IF-GRAMMAR",
+        "SV2023-12.4-EXTRACT-NONZERO-TEST"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "12.4",
+          "descendant_requirement_count": 20
+        }
+      ],
+      "scoped_review": {
+        "test": "tests/imported/ch12/test_cond_truth.sv",
+        "inputs_sha256": "4e617a5cc07d8a454f423c22168dfd0c0443a8eb660c4e99ee0067c04f515713",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-12.4-EXTRACT-BLOCK-ELSE-GROUPING"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "if はすべて `if (v) 文 else 文` の単文で、入れ子の if を begin-end で囲む刺激がない。else が内側の if と外側の if のどちらに付くかで出力が変わる形を使っておらず、begin-end が else の対応を強制する規則を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch12/test_cond_truth.sv",
+                "contains": "    if (v) $display(\"1x:true\"); else $display(\"1x:false\");"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-12.4-EXTRACT-DANGLING-ELSE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "このテストの if はすべて直後に else を持ち、else を省略した入れ子の if がない。「最も近い、else のない if」に else が付くことを、外側と内側で結果が変わる刺激で確かめていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch12/test_cond_truth.sv",
+                "contains": "    if (v) $display(\"0x:true\"); else $display(\"0x:false\");"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch20/test_time_query_matrix.sv",
+      "inputs_sha256": "5e4e05acab80d10b1b62ab6e795d377287d1a5446bc9c788f4cbf3cb4f81c45d",
+      "cited_clauses": [
+        "20.3",
+        "20.4.1",
+        "21.2.1.1",
+        "21.2.1.5",
+        "3.14.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-HIERARCHY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-LIBRARY",
+        "SV2023-21.2.1.1-EXTRACT-LIBRARY-FORMAT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-20.3-EXTRACT-TIME-FUNCTIONS",
+        "SV2023-20.4.1-EXTRACT-COMPILATION-SCOPE",
+        "SV2023-20.4.1-EXTRACT-CURRENT-SCOPE",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-0",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-1",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-2",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG1",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG10",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG11",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG12",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG13",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG14",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG15",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG2",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG3",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG4",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG5",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG6",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG7",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG8",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-NEG9",
+        "SV2023-20.4.1-EXTRACT-EXPONENT-RANGE",
+        "SV2023-20.4.1-EXTRACT-NAMED-SCOPE",
+        "SV2023-20.4.1-EXTRACT-ROOT-SCOPE",
+        "SV2023-20.4.1-EXTRACT-TIMESCALE-QUERIES",
+        "SV2023-21.2.1.1-EXTRACT-DEFAULT-RADIX",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-BINARY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-CHAR",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-DECIMAL",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-FOUR-STATE",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-HEX",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-OCTAL",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-PATTERN",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-STRENGTH",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-STRING",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-TIME",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-TWO-STATE",
+        "SV2023-21.2.1.1-EXTRACT-FOUR-STATE-WORD-ORDER",
+        "SV2023-21.2.1.1-EXTRACT-PREFER-FWRITE",
+        "SV2023-21.2.1.1-EXTRACT-REAL-C-FORMATTING",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-EXPONENTIAL",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-FIXED",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-GENERAL",
+        "SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL",
+        "SV2023-21.2.1.1-EXTRACT-TWO-STATE-WORD-ORDER",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-AGGREGATES",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-COUNT",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-TWO-STATE",
+        "SV2023-21.2.1.5-EXTRACT-HIERARCHY-NO-ARG",
+        "SV2023-3.14.2-EXTRACT-TIME-SPECIFICATION-FORMS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-21.2.1.1-EXTRACT-DEFAULT-STRING",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-VALIDITY",
+        "SV2023-21.2.1.1-EXTRACT-INTEGRAL-FORMAT-DOMAIN"
+      ],
+      "broader_citations": [
+        {
+          "clause": "20.3",
+          "descendant_requirement_count": 5
+        },
+        {
+          "clause": "3.14.2",
+          "descendant_requirement_count": 16
+        }
+      ]
+    },
+    {
+      "test": "tests/imported/ch21/test_display_finish.sv",
+      "inputs_sha256": "7e0c5de21adccd15fd3f34abd097139bb552c3e5476248bedaa5db7e2479d87a",
+      "cited_clauses": [
+        "21.2.1",
+        "20.2",
+        "9.2.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.2.1-EXTRACT-LITERAL-PERCENT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-20.2-EXTRACT-CONTROL-DEFAULT",
+        "SV2023-20.2-EXTRACT-CONTROL-SYNTAX",
+        "SV2023-20.2-EXTRACT-DIAGNOSTICS-ONE",
+        "SV2023-20.2-EXTRACT-DIAGNOSTICS-TWO",
+        "SV2023-20.2-EXTRACT-DIAGNOSTICS-ZERO",
+        "SV2023-20.2-EXTRACT-EXIT",
+        "SV2023-20.2-EXTRACT-FINISH",
+        "SV2023-20.2-EXTRACT-STOP",
+        "SV2023-21.2.1-EXTRACT-ARGUMENT-ORDER",
+        "SV2023-21.2.1-EXTRACT-BACKSLASH-ESCAPES",
+        "SV2023-21.2.1-EXTRACT-DISPLAY-NAMES",
+        "SV2023-21.2.1-EXTRACT-DISPLAY-NEWLINE",
+        "SV2023-21.2.1-EXTRACT-EMPTY-ARGUMENTS",
+        "SV2023-21.2.1-EXTRACT-NO-ARGUMENTS",
+        "SV2023-9.2.1-EXTRACT-ONCE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-21.2.1-EXTRACT-FORMAT-ARGUMENT"
+      ],
+      "broader_citations": [
+        {
+          "clause": "21.2.1",
+          "descendant_requirement_count": 79
+        }
+      ]
+    },
+    {
+      "test": "tests/imported/ch21/test_display_radix_forms.sv",
+      "inputs_sha256": "bdd6bba3ce4872bac3ffbda3d6487049ad96113c2ba8f547472a724b6efeb01c",
+      "cited_clauses": [
+        "21.2.1",
+        "21.2.1.3",
+        "21.3.3",
+        "20.4.2",
+        "21.2.1.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-TIME",
+        "SV2023-21.2.1.3-EXTRACT-DECIMAL-PART-X",
+        "SV2023-21.2.1.3-EXTRACT-GROUP-PART-X",
+        "SV2023-21.2.1.3-EXTRACT-GROUP-PART-Z"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-20.4.2-EXTRACT-PRINT-CURRENT",
+        "SV2023-20.4.2-EXTRACT-PRINT-FORMAT",
+        "SV2023-20.4.2-EXTRACT-PRINT-SPECIAL-NAMES",
+        "SV2023-20.4.2-EXTRACT-PRINT-TIMESCALE",
+        "SV2023-20.4.2-EXTRACT-PRINT-UNIT-ROOT",
+        "SV2023-21.2.1-EXTRACT-ARGUMENT-ORDER",
+        "SV2023-21.2.1-EXTRACT-BACKSLASH-ESCAPES",
+        "SV2023-21.2.1-EXTRACT-DISPLAY-NAMES",
+        "SV2023-21.2.1-EXTRACT-DISPLAY-NEWLINE",
+        "SV2023-21.2.1-EXTRACT-EMPTY-ARGUMENTS",
+        "SV2023-21.2.1-EXTRACT-LITERAL-PERCENT",
+        "SV2023-21.2.1-EXTRACT-NO-ARGUMENTS",
+        "SV2023-21.2.1.1-EXTRACT-DEFAULT-RADIX",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-BINARY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-CHAR",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-DECIMAL",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-FOUR-STATE",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-HEX",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-HIERARCHY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-LIBRARY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-OCTAL",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-PATTERN",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-STRENGTH",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-STRING",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-TWO-STATE",
+        "SV2023-21.2.1.1-EXTRACT-FOUR-STATE-WORD-ORDER",
+        "SV2023-21.2.1.1-EXTRACT-LIBRARY-FORMAT",
+        "SV2023-21.2.1.1-EXTRACT-PREFER-FWRITE",
+        "SV2023-21.2.1.1-EXTRACT-REAL-C-FORMATTING",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-EXPONENTIAL",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-FIXED",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-GENERAL",
+        "SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL",
+        "SV2023-21.2.1.1-EXTRACT-TWO-STATE-WORD-ORDER",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-AGGREGATES",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-COUNT",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-TWO-STATE",
+        "SV2023-21.2.1.3-EXTRACT-BINARY-FOUR-STATE",
+        "SV2023-21.2.1.3-EXTRACT-DECIMAL-ALL-X",
+        "SV2023-21.2.1.3-EXTRACT-DECIMAL-ALL-Z",
+        "SV2023-21.2.1.3-EXTRACT-DECIMAL-PART-Z",
+        "SV2023-21.2.1.3-EXTRACT-DECIMAL-RIGHT",
+        "SV2023-21.2.1.3-EXTRACT-GROUP-ALL-X",
+        "SV2023-21.2.1.3-EXTRACT-GROUP-ALL-Z",
+        "SV2023-21.2.1.3-EXTRACT-RADIX-GROUPS",
+        "SV2023-21.3.3-EXTRACT-FORMAT-MISMATCH",
+        "SV2023-21.3.3-EXTRACT-SFORMAT-ASSIGNMENT",
+        "SV2023-21.3.3-EXTRACT-SFORMAT-STRING",
+        "SV2023-21.3.3-EXTRACT-SFORMATF-RESULT",
+        "SV2023-21.3.3-EXTRACT-SWRITE-TARGET"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-21.2.1-EXTRACT-FORMAT-ARGUMENT",
+        "SV2023-21.2.1.1-EXTRACT-DEFAULT-STRING",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-VALIDITY",
+        "SV2023-21.2.1.1-EXTRACT-INTEGRAL-FORMAT-DOMAIN"
+      ],
+      "broader_citations": [
+        {
+          "clause": "21.2.1",
+          "descendant_requirement_count": 79
+        }
+      ],
+      "scoped_review": {
+        "test": "tests/imported/ch21/test_display_radix_forms.sv",
+        "inputs_sha256": "bdd6bba3ce4872bac3ffbda3d6487049ad96113c2ba8f547472a724b6efeb01c",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-21.2.1-EXTRACT-BACKSLASH-ESCAPES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "文字列中のバックスラッシュは$writehの末尾の\"\\n\"だけで、改行1種しか使わない。Table 5-1の\\\\・\\\"・\\t・\\v・\\f・\\a・\\ooo・\\xhh・行継続などを一つも含まず、各エスケープが1文字の値になることや桁数を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_display_radix_forms.sv",
+                "contains": "    $writeh(\" \", v, \"\\n\");"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-21.2.1-EXTRACT-DISPLAY-NAMES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "8つの名前はradix_formsで引数リスト付きで使われるが、引数リスト自体を省略した呼び出し（$display; や$write;）が一つもなく、各名前の出力はDEFAULT-RADIX側の基数観測と重なる。名前の欠落以外の誤実装を出力行で区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_display_radix_forms.sv",
+                "contains": "    $displayb(v, \" \", x);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-21.2.1.1-EXTRACT-DEFAULT-RADIX"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "無指定式の基数は$display/$displayb/$displayo/$displayhと$writeb/$writeo/$writehで観測するが、素の$writeに式を渡す箇所が$write(\"|\")だけで、$writeの既定10進表示を確かめていない。$swrite側もb/o/hの3つだけで、素の$swriteと素の$writeの組が欠ける。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_display_radix_forms.sv",
+                "contains": "    $write(\"|\");"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-21.2.1.1-EXTRACT-FORMAT-PATTERN",
+              "SV2023-21.2.1.1-EXTRACT-FORMAT-STRENGTH"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "%pと%vの書式指定子を一つも使わず、assignment pattern表示もネット信号強度表示も出力行に現れない。値の基数表示だけでは、%pや%vを別形式で表示する誤実装と区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_display_radix_forms.sv",
+                "contains": "    $displayh(v, \" \", x);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-21.2.1.3-EXTRACT-DECIMAL-ALL-X",
+              "SV2023-21.2.1.3-EXTRACT-DECIMAL-ALL-Z",
+              "SV2023-21.2.1.3-EXTRACT-DECIMAL-PART-Z"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "x=6'b10x1z0は一部のビットだけが未知で、10進では大文字Xになる（DECIMAL-PART-Xとして別に登録）。全ビット未知のx、全ビットz、一部だけzで未知なしの値を10進表示する刺激がなく、小文字x・小文字z・大文字Zを区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_display_radix_forms.sv",
+                "contains": "    $display(v, \" \", x);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-21.3.3-EXTRACT-SWRITE-TARGET"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "$swriteb/$swriteo/$swriteh の出力先はすべて string 変数 out で、整数変数や unpacked byte 配列への書き込み、配列の左端から右端への文字順、5.9 の代入規則を観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_display_radix_forms.sv",
+                "contains": "    $swriteb(out, v);"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch21/test_empty_argument_matrix.sv",
+      "inputs_sha256": "e0b9c461fdb5487d671ac71c12734c2878f9e20f395f9a0b7cb5fa1dd8fe7bf9",
+      "cited_clauses": [
+        "21.2.1",
+        "21.3.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.2.1-EXTRACT-EMPTY-ARGUMENTS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.2.1-EXTRACT-ARGUMENT-ORDER",
+        "SV2023-21.2.1-EXTRACT-BACKSLASH-ESCAPES",
+        "SV2023-21.2.1-EXTRACT-DISPLAY-NAMES",
+        "SV2023-21.2.1-EXTRACT-DISPLAY-NEWLINE",
+        "SV2023-21.2.1-EXTRACT-LITERAL-PERCENT",
+        "SV2023-21.2.1-EXTRACT-NO-ARGUMENTS",
+        "SV2023-21.3.3-EXTRACT-FORMAT-MISMATCH",
+        "SV2023-21.3.3-EXTRACT-SFORMAT-ASSIGNMENT",
+        "SV2023-21.3.3-EXTRACT-SFORMAT-STRING",
+        "SV2023-21.3.3-EXTRACT-SFORMATF-RESULT",
+        "SV2023-21.3.3-EXTRACT-SWRITE-TARGET"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-21.2.1-EXTRACT-FORMAT-ARGUMENT"
+      ],
+      "broader_citations": [
+        {
+          "clause": "21.2.1",
+          "descendant_requirement_count": 79
+        }
+      ],
+      "scoped_review": {
+        "test": "tests/imported/ch21/test_empty_argument_matrix.sv",
+        "inputs_sha256": "e0b9c461fdb5487d671ac71c12734c2878f9e20f395f9a0b7cb5fa1dd8fe7bf9",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-21.2.1-EXTRACT-NO-ARGUMENTS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "このテストはカンマで表す空引数だけを扱い、引数リストが空の$display()/$display;と$write()/$write;を一度も呼ばない。そのため引数なしの$displayが改行だけを出し、$writeが何も出力しないことを区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_empty_argument_matrix.sv",
+                "contains": "    $write(\"initial $write one_comma [\"); $write(,); $write(\"]\\n\");"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch21/test_file_close_fd.sv",
+      "inputs_sha256": "1d4cdadd1ac615e88acd8a176be31c8c341e0b57af7bf07b21a331f3c149b635",
+      "cited_clauses": [
+        "21.3.1",
+        "21.3.2",
+        "21.3.4.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.3.1-EXTRACT-REUSE-CHANNELS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.3.1-EXTRACT-BINARY-MODE",
+        "SV2023-21.3.1-EXTRACT-CLOSE-FILES",
+        "SV2023-21.3.1-EXTRACT-CLOSE-MONITORS",
+        "SV2023-21.3.1-EXTRACT-FD-NO-BROADCAST",
+        "SV2023-21.3.1-EXTRACT-FD-RESERVED",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-APPEND",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-APPEND-UPDATE",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-READ",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-READ-UPDATE",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-WRITE",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-WRITE-UPDATE",
+        "SV2023-21.3.1-EXTRACT-FOPEN-DESCRIPTOR",
+        "SV2023-21.3.1-EXTRACT-FOPEN-STRINGS",
+        "SV2023-21.3.1-EXTRACT-MCD-MASK",
+        "SV2023-21.3.1-EXTRACT-MCD-RESERVED",
+        "SV2023-21.3.1-EXTRACT-OPEN-FAILURE",
+        "SV2023-21.3.1-EXTRACT-PREOPENED-FILES",
+        "SV2023-21.3.2-EXTRACT-FILE-DISPLAY-FORMS",
+        "SV2023-21.3.2-EXTRACT-MCD-EXPRESSION",
+        "SV2023-21.3.2-EXTRACT-MULTIPLE-FMONITORS",
+        "SV2023-21.3.4.2-EXTRACT-FGETS-RESULT",
+        "SV2023-21.3.4.2-EXTRACT-FGETS-TERMINATION"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/imported/ch21/test_file_close_fd.sv",
+        "inputs_sha256": "1d4cdadd1ac615e88acd8a176be31c8c341e0b57af7bf07b21a331f3c149b635",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-21.3.1-EXTRACT-CLOSE-FILES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "fclose で閉じた後に新しい出力や読み出しを試みておらず、閉じた fd への入出力が禁止されることを観測していない。期待出力は fmonitor/fstrobe の取り消しと再利用番号への不出力だけを示す。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_file_close_fd.sv",
+                "contains": "    $fclose(d);"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch21/test_file_output_initial.sv",
+      "inputs_sha256": "3dca43db3a6fac7363378f5d7aa56cc4f2580640ca9a391a01db4417b01690e4",
+      "cited_clauses": [
+        "21.3.1",
+        "21.3.2",
+        "21.3.4.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.3.2-EXTRACT-FILE-DISPLAY-FORMS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.3.1-EXTRACT-BINARY-MODE",
+        "SV2023-21.3.1-EXTRACT-CLOSE-FILES",
+        "SV2023-21.3.1-EXTRACT-CLOSE-MONITORS",
+        "SV2023-21.3.1-EXTRACT-FD-NO-BROADCAST",
+        "SV2023-21.3.1-EXTRACT-FD-RESERVED",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-APPEND",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-APPEND-UPDATE",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-READ",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-READ-UPDATE",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-WRITE",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-WRITE-UPDATE",
+        "SV2023-21.3.1-EXTRACT-FOPEN-DESCRIPTOR",
+        "SV2023-21.3.1-EXTRACT-FOPEN-STRINGS",
+        "SV2023-21.3.1-EXTRACT-MCD-MASK",
+        "SV2023-21.3.1-EXTRACT-MCD-RESERVED",
+        "SV2023-21.3.1-EXTRACT-OPEN-FAILURE",
+        "SV2023-21.3.1-EXTRACT-PREOPENED-FILES",
+        "SV2023-21.3.1-EXTRACT-REUSE-CHANNELS",
+        "SV2023-21.3.2-EXTRACT-MCD-EXPRESSION",
+        "SV2023-21.3.2-EXTRACT-MULTIPLE-FMONITORS",
+        "SV2023-21.3.4.2-EXTRACT-FGETS-RESULT",
+        "SV2023-21.3.4.2-EXTRACT-FGETS-TERMINATION"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/imported/ch21/test_file_output_initial.sv",
+        "inputs_sha256": "3dca43db3a6fac7363378f5d7aa56cc4f2580640ca9a391a01db4417b01690e4",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-21.3.1-EXTRACT-MCD-MASK"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "m1|1 と m1|m2 への出力でビットORとビット0の標準出力は観測するが、mcd が1ビットだけ立つ32ビット値であることや各ファイルのビット位置を検査していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_file_output_initial.sv",
+                "contains": "    d = m1 | 1;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-21.3.1-EXTRACT-PREOPENED-FILES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "STDOUT=32'h8000_0001 への書き込みは行うが、STDERR=32'h8000_0002 を開かず、STDIN=32'h8000_0000 もこのテストでは使わないため、3つの予約値のうち STDERR の追加モードを観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_file_output_initial.sv",
+                "contains": "    d = 32'h8000_0001;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-21.3.2-EXTRACT-MCD-EXPRESSION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "mcd を変数 d と三項演算子 i == 0 ? m1 : m2 で渡すが、式の値が32ビット符号なしであること（幅・符号）を検査しておらず、型の条件を観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch21/test_file_output_initial.sv",
+                "contains": "    for (i = 0; i < 2; i++) $fmonitor(i == 0 ? m1 : m2, \"w \", w);"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch21/test_time_format_matrix.sv",
+      "inputs_sha256": "3d9c06623fb0857a53a096e84a7a748151628c36a1ad426dce38d0a5771bc5b8",
+      "cited_clauses": [
+        "21.2.1.1",
+        "20.4.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-20.4.3-EXTRACT-DEFAULT-FORMAT-PRECISION",
+        "SV2023-20.4.3-EXTRACT-DEFAULT-FORMAT-SUFFIX",
+        "SV2023-20.4.3-EXTRACT-DEFAULT-FORMAT-UNIT",
+        "SV2023-20.4.3-EXTRACT-DEFAULT-FORMAT-WIDTH",
+        "SV2023-20.4.3-EXTRACT-GLOBAL-TIMEFORMAT",
+        "SV2023-21.2.1.1-EXTRACT-DEFAULT-RADIX",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-BINARY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-CHAR",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-DECIMAL",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-FOUR-STATE",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-HEX",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-HIERARCHY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-LIBRARY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-OCTAL",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-PATTERN",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-STRENGTH",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-STRING",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-TIME",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-TWO-STATE",
+        "SV2023-21.2.1.1-EXTRACT-FOUR-STATE-WORD-ORDER",
+        "SV2023-21.2.1.1-EXTRACT-LIBRARY-FORMAT",
+        "SV2023-21.2.1.1-EXTRACT-PREFER-FWRITE",
+        "SV2023-21.2.1.1-EXTRACT-REAL-C-FORMATTING",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-EXPONENTIAL",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-FIXED",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-GENERAL",
+        "SV2023-21.2.1.1-EXTRACT-TWO-STATE-WORD-ORDER",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-AGGREGATES",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-COUNT",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-TWO-STATE"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-20.4.3-EXTRACT-FORMAT-PRECISION-DOMAIN-TEXT"
+      ],
+      "different_case_kind_ids": [
+        "SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN",
+        "SV2023-21.2.1.1-EXTRACT-DEFAULT-STRING",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-VALIDITY",
+        "SV2023-21.2.1.1-EXTRACT-INTEGRAL-FORMAT-DOMAIN"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/imported/ch22/test_unconnected_drive_none_module.sv",
+      "inputs_sha256": "8b72edb513e62d52a88bc89822361c1adfabca5075d744b3ef4926ef430651bc",
+      "cited_clauses": [
+        "22.9",
+        "23.3.2.1",
+        "23.3.2.2",
+        "23.3.3.3",
+        "23.3.3.5",
+        "28.10"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-23.3.3.3-EXTRACT-NET-INPUT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-22.9-EXTRACT-UNCONNECTED-PAIRING",
+        "SV2023-22.9-EXTRACT-UNCONNECTED-RESET",
+        "SV2023-22.9-PULL-DECLARATION",
+        "SV2023-23.3.2.1-EXTRACT-POSITIONAL-EXPRESSION",
+        "SV2023-23.3.2.1-EXTRACT-POSITIONAL-ORDER",
+        "SV2023-23.3.2.2-EXTRACT-NAMED-EMPTY",
+        "SV2023-23.3.2.2-EXTRACT-NAMED-ORDER-INDEPENDENT",
+        "SV2023-23.3.2.2-EXTRACT-NAMED-PARENTHESES",
+        "SV2023-23.3.3.3-EXTRACT-NET-OUTPUT",
+        "SV2023-23.3.3.3-EXTRACT-PORT-TYPE-TIMEZERO",
+        "SV2023-23.3.3.5-EXTRACT-INSTANCE-BROADCAST",
+        "SV2023-28.10-EXTRACT-PULL-DEFAULT-STRENGTH",
+        "SV2023-28.10-EXTRACT-PULL-VALUES"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-22.9-EXTRACT-UNCONNECTED-PULL",
+        "SV2023-23.3.2.2-EXTRACT-NAMED-PORT-NAME",
+        "SV2023-23.3.2.2-EXTRACT-NO-DUPLICATE-CONNECTION",
+        "SV2023-23.3.3.3-EXTRACT-NET-INOUT",
+        "SV2023-23.3.3.5-EXTRACT-INSTANCE-PACKED-DISTRIBUTION",
+        "SV2023-23.3.3.5-EXTRACT-INSTANCE-UNPACKED-DISTRIBUTION",
+        "SV2023-23.3.3.5-EXTRACT-UNPACKED-PORT-SHAPE",
+        "SV2023-28.10-EXTRACT-PULL-NO-DELAY"
+      ],
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/imported/ch22/test_unconnected_drive_none_module.sv",
+        "inputs_sha256": "8b72edb513e62d52a88bc89822361c1adfabca5075d744b3ef4926ef430651bc",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-23.3.2.1-EXTRACT-POSITIONAL-EXPRESSION",
+              "SV2023-23.3.2.2-EXTRACT-NAMED-EMPTY",
+              "SV2023-23.3.2.2-EXTRACT-NAMED-PARENTHESES",
+              "SV2023-23.3.3.3-EXTRACT-NET-OUTPUT",
+              "SV2023-23.3.3.3-EXTRACT-PORT-TYPE-TIMEZERO",
+              "SV2023-23.3.3.5-EXTRACT-INSTANCE-BROADCAST"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "未接続入力のzと式接続は見るが、既定値付き入力の省略・空名前接続、出力の変数/連結、refポート、括弧なしの拒否、時刻0の値変更イベント、配列インスタンスのブロードキャストをいずれも刺激しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch22/test_unconnected_drive_none_module.sv",
+                "contains": "  leaf u2(.a1(), .a4(), .a70(), .c(1'b0), .y(y2));"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch23/test_instance_arrays.sv",
+      "inputs_sha256": "bc9c9c3cab1a7097145e838e3aede2a374342802f68e008987a2cf73d316be16",
+      "cited_clauses": [
+        "23.3.3.5",
+        "23.3.2",
+        "21.2.1.5"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-23.3.2-EXTRACT-INSTANCE-ARRAY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.2.1.5-EXTRACT-HIERARCHY-NO-ARG",
+        "SV2023-23.3.2-EXTRACT-INSTANCE-FORWARD-DEFINITION",
+        "SV2023-23.3.2-EXTRACT-INSTANCE-GRAMMAR",
+        "SV2023-23.3.2-EXTRACT-INSTANCE-PARAMETER-EXPRESSIONS",
+        "SV2023-23.3.3.5-EXTRACT-INSTANCE-BROADCAST"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-23.3.2-EXTRACT-INSTANCE-PARENTHESES",
+        "SV2023-23.3.2-EXTRACT-NO-MIXED-POSITIONAL",
+        "SV2023-23.3.2-EXTRACT-ONE-WILDCARD",
+        "SV2023-23.3.3.5-EXTRACT-INSTANCE-PACKED-DISTRIBUTION",
+        "SV2023-23.3.3.5-EXTRACT-INSTANCE-UNPACKED-DISTRIBUTION",
+        "SV2023-23.3.3.5-EXTRACT-UNPACKED-PORT-SHAPE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "23.3.2",
+          "descendant_requirement_count": 17
+        }
+      ],
+      "scoped_review": {
+        "test": "tests/imported/ch23/test_instance_arrays.sv",
+        "inputs_sha256": "bc9c9c3cab1a7097145e838e3aede2a374342802f68e008987a2cf73d316be16",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-23.3.2-EXTRACT-INSTANCE-FORWARD-DEFINITION",
+              "SV2023-23.3.2-EXTRACT-INSTANCE-GRAMMAR",
+              "SV2023-23.3.2-EXTRACT-INSTANCE-PARAMETER-EXPRESSIONS",
+              "SV2023-23.3.3.5-EXTRACT-INSTANCE-BROADCAST"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "モジュールは使用前に定義され、接続はlogic変数だけでnet・interface・eventを含まず、パラメータ値の順序/名前付き指定やmintypmax・型・$の式もない。1ビットenのブロードキャストはあるが、プリミティブ配列・スライス・複数ドライバを併せて見るtest_gate_containers.svを代表に採る。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch23/test_instance_arrays.sv",
+                "contains": "  inv2 each [2:0] (.a(per), .en(1'b0), .y(per_y));"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch23/test_net_port_merge_kinds.sv",
+      "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+      "cited_clauses": [
+        "23.3.3.7",
+        "4.9.6",
+        "6.6",
+        "28.12",
+        "28.15"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-1",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-2",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-4",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-5",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-7",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-8",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-0",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-7",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-8",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-0",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-7",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-8",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-0"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-0",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-3",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-6",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-1",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-2",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-3",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-4",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-5",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-6",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-1",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-2",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-3",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-4",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-5",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-6",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-0",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-1",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-2",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-3",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-4",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-5",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-6",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-7",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-8",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-1",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-2",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-3",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-4",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-5",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-6",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-7",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-4-8",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-0",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-1",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-2",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-3",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-4",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-5",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-6",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-7",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-5-8",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-0",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-1",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-2",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-3",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-4",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-5",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-6",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-7",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-6-8",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-0",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-1",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-2",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-3",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-4",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-5",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-6",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-7",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-7-8",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-0",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-1",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-2",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-3",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-4",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-5",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-6",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-7",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-8-8",
+        "SV2023-23.3.3.7-EXTRACT-COLLAPSE-DEFINITIONS",
+        "SV2023-23.3.3.7-EXTRACT-DOMINATING-DELAY-STRENGTH",
+        "SV2023-23.3.3.7-EXTRACT-EXTERNAL-FALLBACK",
+        "SV2023-23.3.3.7-EXTRACT-SELECTED-DELAY-STRENGTH",
+        "SV2023-28.12-EXTRACT-STRENGTH-RESOLUTION",
+        "SV2023-28.12-EXTRACT-USER-NET-NO-STRENGTH",
+        "SV2023-28.15-EXTRACT-NET-STRENGTH-CATEGORIES",
+        "SV2023-4.9.6-EXTRACT-INOUT-PORT-FLOW",
+        "SV2023-4.9.6-EXTRACT-INPUT-PORT-FLOW",
+        "SV2023-4.9.6-EXTRACT-OUTPUT-PORT-FLOW",
+        "SV2023-4.9.6-EXTRACT-PORT-NO-STRENGTH-LOSS",
+        "SV2023-4.9.6-EXTRACT-PRIMITIVE-EXPRESSION-INPUT",
+        "SV2023-4.9.6-EXTRACT-PRIMITIVE-NET-INPUT-DIRECT",
+        "SV2023-4.9.6-EXTRACT-PRIMITIVE-OUTPUT-DIRECT",
+        "SV2023-4.9.6-EXTRACT-PRIMITIVE-OUTPUT-EVENT",
+        "SV2023-6.6-EXTRACT-BUILTIN-NET-TYPES",
+        "SV2023-6.6-EXTRACT-NET-DRIVER-VALUE",
+        "SV2023-6.6-EXTRACT-NET-TYPE-CATEGORIES",
+        "SV2023-6.6-EXTRACT-ORDINARY-UNDRIVEN-NET"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "23.3.3.7",
+          "descendant_requirement_count": 4
+        },
+        {
+          "clause": "6.6",
+          "descendant_requirement_count": 130
+        },
+        {
+          "clause": "28.12",
+          "descendant_requirement_count": 14
+        },
+        {
+          "clause": "28.15",
+          "descendant_requirement_count": 4
+        }
+      ],
+      "scoped_review": {
+        "test": "tests/imported/ch23/test_net_port_merge_kinds.sv",
+        "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-0",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-3",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-0-6"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "wire/tri同士は外部型と内部型が同じで値に差が出ず、triregとuwireの外部ネットはこのテストに存在しないため、0-0・0-3・0-6の表23-1選択を区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
+                "contains": "module c_wire (inout wire w, input logic v);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-1",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-2"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "内部と外部が同じネット型（wand同士・wor同士）なので、表どおり外部型を選ぶ実装と内部型を選ぶ実装で結合後の解決値が全16行で同一になり、どちらを選んだかを出力から区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
+                "contains": "module c_wand (inout wand w, input logic v);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-2",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-4",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-5",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-1",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-4",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-5"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "warnとなる6組は結合後のネット型の選択が解決値に出るが、要求の「警告を発行する」条件をテストが観測しない。:expected_stderr_regex: がなく、警告の有無は判定に含まれない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
+                "contains": "module c_wand (inout wand w, input logic v);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-3",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-1-6",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-3",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-2-6",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-0",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-1",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-2",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-3",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-4",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-5",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-6",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-7",
+              "SV2023-23.3.3.7-EXTRACT-COLLAPSE-3-8"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "このテストにはtriregとuwireのネット・ポートが一つもなく、内部triregの9組（3-0〜3-8）と外部trireg・外部uwireの4組（1-3・1-6・2-3・2-6）は結合の刺激自体が存在しない。他の候補テストもtrireg/uwireのネットを持たない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
+                "contains": "module c_wire (inout wire w, input logic v);"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch28/test_gate_containers.sv",
+      "inputs_sha256": "ae8b0a88d3d7b6384eda6c168cceb1298fcbb15f3c590e5e879a07987547e4a9",
+      "cited_clauses": [
+        "28.3.5",
+        "28.3.6",
+        "28.4",
+        "28.6",
+        "27.5",
+        "23.3.3.5"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-23.3.3.5-EXTRACT-INSTANCE-BROADCAST"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-27.5-EXTRACT-CONDITIONAL-ELABORATION",
+        "SV2023-27.5-EXTRACT-CONDITIONAL-NAMED-UNNAMED",
+        "SV2023-27.5-EXTRACT-CONDITIONAL-SINGLE-ITEM",
+        "SV2023-27.5-EXTRACT-DIRECT-NESTING-KINDS",
+        "SV2023-27.5-EXTRACT-DIRECT-NESTING-SCOPE",
+        "SV2023-27.5-EXTRACT-GENERATE-DANGLING-ELSE",
+        "SV2023-27.5-EXTRACT-RECURSIVE-MODULE",
+        "SV2023-28.3.5-EXTRACT-INSTANCE-RANGE",
+        "SV2023-28.3.5-EXTRACT-NO-RANGE-SCALAR",
+        "SV2023-28.3.6-EXTRACT-ARRAY-INSTANCE-REFERENCE",
+        "SV2023-28.3.6-EXTRACT-ARRAY-TERMINAL-BROADCAST",
+        "SV2023-28.3.6-EXTRACT-TERMINAL-LIST",
+        "SV2023-28.4-EXTRACT-N-INPUT-DELAYS",
+        "SV2023-28.4-EXTRACT-N-INPUT-EXTENSION",
+        "SV2023-28.4-EXTRACT-N-INPUT-KEYWORDS",
+        "SV2023-28.4-EXTRACT-N-INPUT-TERMINALS",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-0-0",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-0-1",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-0-X",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-0-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-1-0",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-1-1",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-1-X",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-1-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-X-0",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-X-1",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-X-X",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-X-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-Z-0",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-Z-1",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-Z-X",
+        "SV2023-28.4-EXTRACT-TRUTH-AND-Z-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-0-0",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-0-1",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-0-X",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-0-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-1-0",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-1-1",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-1-X",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-1-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-X-0",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-X-1",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-X-X",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-X-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-Z-0",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-Z-1",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-Z-X",
+        "SV2023-28.4-EXTRACT-TRUTH-NAND-Z-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-0-0",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-0-1",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-0-X",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-0-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-1-0",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-1-1",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-1-X",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-1-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-X-0",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-X-1",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-X-X",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-X-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-Z-0",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-Z-1",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-Z-X",
+        "SV2023-28.4-EXTRACT-TRUTH-NOR-Z-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-0-0",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-0-1",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-0-X",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-0-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-1-0",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-1-1",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-1-X",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-1-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-X-0",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-X-1",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-X-X",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-X-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-Z-0",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-Z-1",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-Z-X",
+        "SV2023-28.4-EXTRACT-TRUTH-OR-Z-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-0-0",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-0-1",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-0-X",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-0-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-1-0",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-1-1",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-1-X",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-1-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-X-0",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-X-1",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-X-X",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-X-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-Z-0",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-Z-1",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-Z-X",
+        "SV2023-28.4-EXTRACT-TRUTH-XNOR-Z-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-0-0",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-0-1",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-0-X",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-0-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-1-0",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-1-1",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-1-X",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-1-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-X-0",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-X-1",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-X-X",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-X-Z",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-Z-0",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-Z-1",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-Z-X",
+        "SV2023-28.4-EXTRACT-TRUTH-XOR-Z-Z",
+        "SV2023-28.6-EXTRACT-THREE-STATE-AMBIGUITY",
+        "SV2023-28.6-EXTRACT-THREE-STATE-DELAYS",
+        "SV2023-28.6-EXTRACT-THREE-STATE-KEYWORDS",
+        "SV2023-28.6-EXTRACT-THREE-STATE-TERMINALS",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-0-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-1-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-X-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF0-Z-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-0-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-1-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-X-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-0",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-1",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-X",
+        "SV2023-28.6-EXTRACT-TRUTH-BUFIF1-Z-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-0-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-1-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-X-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF0-Z-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-0-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-1-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-X-Z",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-0",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-1",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-X",
+        "SV2023-28.6-EXTRACT-TRUTH-NOTIF1-Z-Z"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-23.3.3.5-EXTRACT-INSTANCE-PACKED-DISTRIBUTION",
+        "SV2023-23.3.3.5-EXTRACT-INSTANCE-UNPACKED-DISTRIBUTION",
+        "SV2023-23.3.3.5-EXTRACT-UNPACKED-PORT-SHAPE",
+        "SV2023-27.5-EXTRACT-CONDITIONAL-NAME-REUSE",
+        "SV2023-28.3.5-EXTRACT-INSTANCE-RANGE-CONTIGUOUS",
+        "SV2023-28.3.6-EXTRACT-ARRAY-INTERCONNECT-WIDTH",
+        "SV2023-28.3.6-EXTRACT-ARRAY-TERMINAL-PARTITION"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/imported/ch3/test_delay_negative_real_to_minus_one_const.sv",
+      "inputs_sha256": "199322dfa01c3ef29e768785a0be1f9bcad34f5a3220ebfe221355a673182587",
+      "cited_clauses": [
+        "3.14.1",
+        "6.12.1",
+        "9.4.1",
+        "20.3.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-9.4.1-EXTRACT-NEGATIVE-DELAY-UNSIGNED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-20.3.1-EXTRACT-TIME-RESULT",
+        "SV2023-3.14.1-EXTRACT-LOCAL-ROUNDING-INDEPENDENCE",
+        "SV2023-3.14.1-EXTRACT-RELATIVE-DECIMAL-RESOLUTION",
+        "SV2023-3.14.1-EXTRACT-ROUND-LOCAL-PRECISION",
+        "SV2023-6.12.1-EXTRACT-ASSIGNMENT-IMPLICIT-INTEGER",
+        "SV2023-6.12.1-EXTRACT-ASSIGNMENT-IMPLICIT-REAL",
+        "SV2023-6.12.1-EXTRACT-HALF-AWAY-FROM-ZERO",
+        "SV2023-6.12.1-EXTRACT-REAL-TO-INTEGER-ROUND",
+        "SV2023-6.12.1-EXTRACT-UNKNOWN-BITS-TO-REAL",
+        "SV2023-9.4.1-EXTRACT-PROCEDURAL-DELAY",
+        "SV2023-9.4.1-EXTRACT-SPECPARAM-DELAY-SDF",
+        "SV2023-9.4.1-EXTRACT-UNKNOWN-DELAY-ZERO"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/imported/ch3/test_delay_value_matrix.sv",
+      "inputs_sha256": "6b6258d0b51d8f038b72e4c7deb8b7269dd932f33fcf75fe1073f07bdfa6a4e8",
+      "cited_clauses": [
+        "3.14.1",
+        "9.4.1",
+        "9.4.5",
+        "15.5.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-9.4.1-EXTRACT-UNKNOWN-DELAY-ZERO"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-15.5.2-EXTRACT-EVENT-WAIT-FORM",
+        "SV2023-15.5.2-EXTRACT-WAIT-BEFORE-TRIGGER",
+        "SV2023-3.14.1-EXTRACT-LOCAL-ROUNDING-INDEPENDENCE",
+        "SV2023-3.14.1-EXTRACT-RELATIVE-DECIMAL-RESOLUTION",
+        "SV2023-3.14.1-EXTRACT-ROUND-LOCAL-PRECISION",
+        "SV2023-9.4.1-EXTRACT-NEGATIVE-DELAY-UNSIGNED",
+        "SV2023-9.4.1-EXTRACT-PROCEDURAL-DELAY",
+        "SV2023-9.4.1-EXTRACT-SPECPARAM-DELAY-SDF",
+        "SV2023-9.4.5-EXTRACT-BLOCKING-DELAY-EQUIVALENCE",
+        "SV2023-9.4.5-EXTRACT-BLOCKING-EVENT-EQUIVALENCE",
+        "SV2023-9.4.5-EXTRACT-BLOCKING-REPEAT-EQUIVALENCE",
+        "SV2023-9.4.5-EXTRACT-INTRA-BLOCKING-NONBLOCKING",
+        "SV2023-9.4.5-EXTRACT-INTRA-GRAMMAR",
+        "SV2023-9.4.5-EXTRACT-INTRA-RHS-BEFORE-CONTROL",
+        "SV2023-9.4.5-EXTRACT-NONPOSITIVE-UNKNOWN-REPEAT",
+        "SV2023-9.4.5-EXTRACT-REPEAT-COUNT-EVALUATED-ONCE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/imported/ch6/test_package_call_matrix.sv",
+      "inputs_sha256": "2115f3fc9ee27f8c14e5786cb0992834a53cbbdd9a3870c7c426f09fc8d995ef",
+      "cited_clauses": [
+        "6.8",
+        "9.2",
+        "10.3",
+        "13.4",
+        "23.3.2",
+        "26.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-10.3-EXTRACT-CONTINUOUS-FORMS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-10.3-EXTRACT-CONTINUOUS-GRAMMAR",
+        "SV2023-10.3-EXTRACT-CONTINUOUS-RHS-DRIVE",
+        "SV2023-10.3-EXTRACT-NET-DECLARATION-GRAMMAR",
+        "SV2023-13.4-EXTRACT-FUNCTION-BODY-SEQUENTIAL",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTION-DEFAULT",
+        "SV2023-13.4-EXTRACT-FUNCTION-DIRECTIONS",
+        "SV2023-13.4-EXTRACT-FUNCTION-FORMAL-STYLES",
+        "SV2023-13.4-EXTRACT-FUNCTION-GRAMMAR",
+        "SV2023-13.4-EXTRACT-FUNCTION-PROCESS-CONTROL",
+        "SV2023-13.4-EXTRACT-FUNCTION-RETURN-TYPE-CATEGORIES",
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-DEFAULT",
+        "SV2023-13.4-EXTRACT-IMPLICIT-LOGIC-RETURN",
+        "SV2023-23.3.2-EXTRACT-INSTANCE-ARRAY",
+        "SV2023-23.3.2-EXTRACT-INSTANCE-FORWARD-DEFINITION",
+        "SV2023-23.3.2-EXTRACT-INSTANCE-GRAMMAR",
+        "SV2023-23.3.2-EXTRACT-INSTANCE-PARAMETER-EXPRESSIONS",
+        "SV2023-26.3-EXTRACT-CURRENT-SCOPE-LOOKUP",
+        "SV2023-26.3-EXTRACT-EXPLICIT-IMPORT-ONLY",
+        "SV2023-26.3-EXTRACT-LOCAL-VISIBILITY",
+        "SV2023-26.3-EXTRACT-OUTER-SCOPE-IMPORT",
+        "SV2023-26.3-EXTRACT-PACKAGE-REFERENCE-SYNTAX",
+        "SV2023-26.3-EXTRACT-POTENTIAL-VISIBILITY",
+        "SV2023-6.8-EXTRACT-AGGREGATE-TYPE-MODIFIERS",
+        "SV2023-6.8-EXTRACT-DEFAULT-CHANDLE",
+        "SV2023-6.8-EXTRACT-DEFAULT-CLASS",
+        "SV2023-6.8-EXTRACT-DEFAULT-ENUM",
+        "SV2023-6.8-EXTRACT-DEFAULT-EVENT",
+        "SV2023-6.8-EXTRACT-DEFAULT-FOUR-STATE",
+        "SV2023-6.8-EXTRACT-DEFAULT-INTERFACE-CLASS",
+        "SV2023-6.8-EXTRACT-DEFAULT-REAL",
+        "SV2023-6.8-EXTRACT-DEFAULT-STRING",
+        "SV2023-6.8-EXTRACT-DEFAULT-TWO-STATE",
+        "SV2023-6.8-EXTRACT-DEFAULT-VIRTUAL-INTERFACE",
+        "SV2023-6.8-EXTRACT-EXPLICIT-SIGNING",
+        "SV2023-6.8-EXTRACT-GROUPED-VARIABLES",
+        "SV2023-6.8-EXTRACT-INTEGER-VECTOR-MODIFIERS",
+        "SV2023-6.8-EXTRACT-NEGATIVE-ASSIGNMENT",
+        "SV2023-6.8-EXTRACT-RUNTIME-INITIAL-EXPRESSION",
+        "SV2023-6.8-EXTRACT-SIGNED-ATOM-DEFAULTS",
+        "SV2023-6.8-EXTRACT-STATIC-PREINITIALIZATION",
+        "SV2023-6.8-EXTRACT-VAR-OPTIONAL-TYPE",
+        "SV2023-6.8-EXTRACT-VARIABLE-DATA-CATEGORIES",
+        "SV2023-6.8-EXTRACT-VARIABLE-DECLARATOR-FORMS",
+        "SV2023-6.8-EXTRACT-VARIABLE-INITIALIZER",
+        "SV2023-6.8-EXTRACT-VARIABLE-MODIFIERS",
+        "SV2023-6.8-EXTRACT-VARIABLE-STORAGE",
+        "SV2023-6.8-EXTRACT-VIRTUAL-INTERFACE-TYPE",
+        "SV2023-6.8-FOUR-STATE-DEFAULT",
+        "SV2023-6.8-TWO-STATE-DEFAULT",
+        "SV2023-9.2-EXTRACT-CALLED-SUBROUTINES",
+        "SV2023-9.2-EXTRACT-FINAL-ONCE-END",
+        "SV2023-9.2-EXTRACT-INITIAL-ALWAYS-START",
+        "SV2023-9.2-EXTRACT-NO-INITIAL-ALWAYS-ORDER",
+        "SV2023-9.2-EXTRACT-PROCEDURE-GRAMMAR",
+        "SV2023-9.2-EXTRACT-STRUCTURED-PROCEDURE-KINDS",
+        "SV2023-9.2-EXTRACT-UNLIMITED-PROCEDURE-COUNT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-10.3-EXTRACT-ADVISORY-PACKED-DIMENSION",
+        "SV2023-10.3-EXTRACT-TRIREG-CHARGE-ONLY",
+        "SV2023-13.4-EXTRACT-FUNCTION-TYPE-FOOTNOTES",
+        "SV2023-13.4-EXTRACT-FUNCTION-WRITABLE-ARG-CONTEXT",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TASK",
+        "SV2023-13.4-EXTRACT-NO-FUNCTION-TIMING",
+        "SV2023-23.3.2-EXTRACT-INSTANCE-PARENTHESES",
+        "SV2023-23.3.2-EXTRACT-NO-MIXED-POSITIONAL",
+        "SV2023-23.3.2-EXTRACT-ONE-WILDCARD",
+        "SV2023-26.3-EXTRACT-EXPLICIT-IMPORT-COLLISION",
+        "SV2023-26.3-EXTRACT-IMPORT-NO-REEXPORT-PATH",
+        "SV2023-26.3-EXTRACT-LATE-DECLARATION-COLLISION",
+        "SV2023-26.3-EXTRACT-LEXICAL-SEARCH-END",
+        "SV2023-26.3-EXTRACT-NO-CLASS-IMPORT",
+        "SV2023-26.3-EXTRACT-PACKAGE-COMPILE-ORDER",
+        "SV2023-26.3-EXTRACT-WILDCARD-AMBIGUITY",
+        "SV2023-6.8-EXTRACT-IMPLICIT-VARIABLE-TYPE-REQUIRES-VAR",
+        "SV2023-6.8-EXTRACT-NO-AUTOMATIC-OUTSIDE-PROCEDURE",
+        "SV2023-6.8-EXTRACT-PACKED-STRUCT-DIMENSION",
+        "SV2023-6.8-EXTRACT-TYPE-REFERENCE-PREFIX",
+        "SV2023-9.2-EXTRACT-OVERRIDE-CLASS-ONLY"
+      ],
+      "broader_citations": [
+        {
+          "clause": "9.2",
+          "descendant_requirement_count": 36
+        },
+        {
+          "clause": "10.3",
+          "descendant_requirement_count": 27
+        },
+        {
+          "clause": "13.4",
+          "descendant_requirement_count": 34
+        },
+        {
+          "clause": "23.3.2",
+          "descendant_requirement_count": 17
+        }
+      ],
+      "scoped_review": {
+        "test": "tests/imported/ch6/test_package_call_matrix.sv",
+        "inputs_sha256": "2115f3fc9ee27f8c14e5786cb0992834a53cbbdd9a3870c7c426f09fc8d995ef",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-23.3.2-EXTRACT-INSTANCE-ARRAY",
+              "SV2023-23.3.2-EXTRACT-INSTANCE-FORWARD-DEFINITION",
+              "SV2023-23.3.2-EXTRACT-INSTANCE-GRAMMAR",
+              "SV2023-23.3.2-EXTRACT-INSTANCE-PARAMETER-EXPRESSIONS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "配列インスタンスがなく、モジュールchildは使用前に一度だけ定義され、接続は変数と式だけでnet・interface・eventを含まない。インスタンスのパラメータ値（順序/名前付き）もパラメータ式（mintypmax・型・$・式省略）もない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  child s(.i_func(a_sub_func)"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-NO-INITIAL-ALWAYS-ORDER"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M01: initial と always_comb/always_ff/always @*/final を同じ module に置くが、表示は initial の #10/#20/#30 の後だけで、initial と always の起動順に依存する値や時刻を比べていない。全 initial が先に実行されると仮定する実装でも出力は同じで、順序の不在は観測されない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  always_comb y_comb_func = pk::g(a_comb_func);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-PROCEDURE-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M02: initial の空文形（initial ;）と always_latch を使わず、task/function も automatic と既定の寿命だけで static/automatic の対照がない。initial/always_comb/always_ff/always/final の一部を受理することは示すが、文法 9-1 の全選択肢を刺激していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  final $display(\"final func %h\", pk::g(8'h20));"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-UNLIMITED-PROCEDURE-COUNT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M03: この設計の initial/always 手続きは数十個で、手続き数に上限を課す誤実装（例: 32 個）でも通る。多数の手続きを受理することは示すが、上限がないこと自体は有限の設計では観測できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  always_comb y_comb_func = pk::g(a_comb_func);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-NO-INITIAL-ALWAYS-ORDER"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M01: initial と always_comb/always_ff/always @*/final を同じ module に置くが、表示は initial の #10/#20/#30 の後だけで、initial と always の起動順に依存する値や時刻を比べていない。全 initial が先に実行されると仮定する実装でも出力は同じで、順序の不在は観測されない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  always_comb y_comb_func = pk::g(a_comb_func);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-PROCEDURE-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M02: initial の空文形（initial ;）と always_latch を使わず、task/function も automatic と既定の寿命だけで static/automatic の対照がない。initial/always_comb/always_ff/always/final の一部を受理することは示すが、文法 9-1 の全選択肢を刺激していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  final $display(\"final func %h\", pk::g(8'h20));"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-UNLIMITED-PROCEDURE-COUNT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M03: この設計の initial/always 手続きは数十個で、手続き数に上限を課す誤実装（例: 32 個）でも通る。多数の手続きを受理することは示すが、上限がないこと自体は有限の設計では観測できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  always_comb y_comb_func = pk::g(a_comb_func);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-NO-INITIAL-ALWAYS-ORDER"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M01: initial と always_comb/always_ff/always @*/final を同じ module に置くが、表示は initial の #10/#20/#30 の後だけで、initial と always の起動順に依存する値や時刻を比べていない。全 initial が先に実行されると仮定する実装でも出力は同じで、順序の不在は観測されない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  always_comb y_comb_func = pk::g(a_comb_func);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-PROCEDURE-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M02: initial の空文形（initial ;）と always_latch を使わず、task/function も automatic と既定の寿命だけで static/automatic の対照がない。initial/always_comb/always_ff/always/final の一部を受理することは示すが、文法 9-1 の全選択肢を刺激していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  final $display(\"final func %h\", pk::g(8'h20));"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-UNLIMITED-PROCEDURE-COUNT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M03: この設計の initial/always 手続きは数十個で、手続き数に上限を課す誤実装（例: 32 個）でも通る。多数の手続きを受理することは示すが、上限がないこと自体は有限の設計では観測できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  always_comb y_comb_func = pk::g(a_comb_func);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-10.3-EXTRACT-CONTINUOUS-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "standalone assignは変数y_cont_funcへの遅延・強度なしの1件だけで、netへのstandalone代入、drive strengthやdelay3、変数代入のdelay control、カンマ区切りの代入リストを一度も起こしていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "assign y_cont_func = pk::g(a_cont_func);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-10.3-EXTRACT-NET-DECLARATION-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "組込みnet型wireにデータ型と宣言代入を付けた形だけで、strength・advisory・type・delayの選択肢、ユーザー定義nettypeとその遅延、interconnectの限定宣言子を一度も宣言していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "wire [7:0] y_netdecl_func_n = pk::g(a_netdecl_func);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-NO-INITIAL-ALWAYS-ORDER"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M01: initial と always_comb/always_ff/always @*/final を同じ module に置くが、表示は initial の #10/#20/#30 の後だけで、initial と always の起動順に依存する値や時刻を比べていない。全 initial が先に実行されると仮定する実装でも出力は同じで、順序の不在は観測されない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  always_comb y_comb_func = pk::g(a_comb_func);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-PROCEDURE-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M02: initial の空文形（initial ;）と always_latch を使わず、task/function も automatic と既定の寿命だけで static/automatic の対照がない。initial/always_comb/always_ff/always/final の一部を受理することは示すが、文法 9-1 の全選択肢を刺激していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  final $display(\"final func %h\", pk::g(8'h20));"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.2-EXTRACT-UNLIMITED-PROCEDURE-COUNT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M03: この設計の initial/always 手続きは数十個で、手続き数に上限を課す誤実装（例: 32 個）でも通る。多数の手続きを受理することは示すが、上限がないこと自体は有限の設計では観測できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch6/test_package_call_matrix.sv",
+                "contains": "  always_comb y_comb_func = pk::g(a_comb_func);"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch9/test_edge_matrix.sv",
+      "inputs_sha256": "95d3f696fe09ea1b45b8a061e5bddfb60863171d6521bd3d961b23aa643c8f68",
+      "cited_clauses": [
+        "9.4.2",
+        "9.4.2.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-9.4.2-EXTRACT-EDGE-0-0",
+        "SV2023-9.4.2-EXTRACT-EDGE-0-X",
+        "SV2023-9.4.2-EXTRACT-EDGE-0-Z",
+        "SV2023-9.4.2-EXTRACT-EDGE-1-1",
+        "SV2023-9.4.2-EXTRACT-EDGE-1-X",
+        "SV2023-9.4.2-EXTRACT-EDGE-1-Z",
+        "SV2023-9.4.2-EXTRACT-EDGE-DIRECTIONS",
+        "SV2023-9.4.2-EXTRACT-EDGE-LSB-ONLY",
+        "SV2023-9.4.2-EXTRACT-EDGE-X-0",
+        "SV2023-9.4.2-EXTRACT-EDGE-X-1",
+        "SV2023-9.4.2-EXTRACT-EDGE-X-X",
+        "SV2023-9.4.2-EXTRACT-EDGE-X-Z",
+        "SV2023-9.4.2-EXTRACT-EDGE-Z-0",
+        "SV2023-9.4.2-EXTRACT-EDGE-Z-1",
+        "SV2023-9.4.2-EXTRACT-EDGE-Z-X",
+        "SV2023-9.4.2-EXTRACT-EITHER-EDGE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-9.4.2-EXTRACT-CLOCKING-SAMPLED-EVENT",
+        "SV2023-9.4.2-EXTRACT-EDGE-0-1",
+        "SV2023-9.4.2-EXTRACT-EDGE-1-0",
+        "SV2023-9.4.2-EXTRACT-EDGE-Z-Z",
+        "SV2023-9.4.2-EXTRACT-EVENT-SYNCHRONIZATION",
+        "SV2023-9.4.2-EXTRACT-EXTRA-REEVALUATION-LATITUDE",
+        "SV2023-9.4.2-EXTRACT-METHOD-DEPENDENCY-REEVALUATION",
+        "SV2023-9.4.2-EXTRACT-NONEDGE-RESULT-CHANGE",
+        "SV2023-9.4.2.3-EXTRACT-IFF-NOT-OWN-SENSITIVITY",
+        "SV2023-9.4.2.3-EXTRACT-IFF-PRECEDENCE",
+        "SV2023-9.4.2.3-EXTRACT-IFF-QUALIFIER",
+        "SV2023-9.4.2.3-EXTRACT-IFF-TRUE-ONLY"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-9.4.2-EXTRACT-HANDLE-CHANGE-EVENT"
+      ],
+      "different_case_kind_ids": [
+        "SV2023-9.4.2-EXTRACT-METHOD-EVENT-ELIGIBILITY",
+        "SV2023-9.4.2-EXTRACT-SINGULAR-EVENT-RESULT"
+      ],
+      "broader_citations": [
+        {
+          "clause": "9.4.2",
+          "descendant_requirement_count": 13
+        }
+      ],
+      "scoped_review": {
+        "test": "tests/imported/ch9/test_edge_matrix.sv",
+        "inputs_sha256": "95d3f696fe09ea1b45b8a061e5bddfb60863171d6521bd3d961b23aa643c8f68",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-9.4.2-EXTRACT-CLOCKING-SAMPLED-EVENT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M01: clocking ブロックを1つも宣言せず、イベント式は logic の変数・ベクトル・ビット選択・net だけである。clocking block の input/inout を待ち、クロック事象でサンプルした同期値を使う条件を起こしていないので、サンプル前の値を待つ誤実装と区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_edge_matrix.sv",
+                "contains": "  always @(posedge s) cnt[0]++;"
+              },
+              {
+                "file": "tests/imported/ch9/test_edge_matrix.sv",
+                "contains": "  logic s, n;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.2-EXTRACT-CLOCKING-SAMPLED-EVENT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M01: clocking ブロックを1つも宣言せず、イベント式は logic の変数・ベクトル・ビット選択・net だけである。clocking block の input/inout を待ち、クロック事象でサンプルした同期値を使う条件を起こしていないので、サンプル前の値を待つ誤実装と区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_edge_matrix.sv",
+                "contains": "  always @(posedge s) cnt[0]++;"
+              },
+              {
+                "file": "tests/imported/ch9/test_edge_matrix.sv",
+                "contains": "  logic s, n;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.2-EXTRACT-CLOCKING-SAMPLED-EVENT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M01: clocking ブロックを1つも宣言せず、イベント式は logic の変数・ベクトル・ビット選択・net だけである。clocking block の input/inout を待ち、クロック事象でサンプルした同期値を使う条件を起こしていないので、サンプル前の値を待つ誤実装と区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_edge_matrix.sv",
+                "contains": "  always @(posedge s) cnt[0]++;"
+              },
+              {
+                "file": "tests/imported/ch9/test_edge_matrix.sv",
+                "contains": "  logic s, n;"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/imported/ch9/test_intra_assignment_timing.sv",
+      "inputs_sha256": "b6035a222cbea4c995f549d648236c3ec66e3f1df91f2ea616f490f24186931f",
+      "cited_clauses": [
+        "9.4.5",
+        "10.4.1",
+        "10.4.2",
+        "4.9.4"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-10.4.1-EXTRACT-BLOCKING-SEQUENTIAL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-10.4.1-EXTRACT-ASSIGNMENT-OPERATOR-SET",
+        "SV2023-10.4.1-EXTRACT-BLOCKING-FORMS",
+        "SV2023-10.4.1-EXTRACT-BLOCKING-LVALUE-TIMING",
+        "SV2023-10.4.1-EXTRACT-BLOCKING-UNTIMED-EVAL-ORDER",
+        "SV2023-10.4.1-EXTRACT-EQUALS-CONTEXT",
+        "SV2023-10.4.2-EXTRACT-CONCURRENT-NBA-INDETERMINATE",
+        "SV2023-10.4.2-EXTRACT-DIFFERENT-BLOCKS-NOT-SUFFICIENT",
+        "SV2023-10.4.2-EXTRACT-LESS-EQUAL-CONTEXT",
+        "SV2023-10.4.2-EXTRACT-NBA-EVAL-ORDER",
+        "SV2023-10.4.2-EXTRACT-NBA-GRAMMAR",
+        "SV2023-10.4.2-EXTRACT-NBA-LOCATION-CAPTURE",
+        "SV2023-10.4.2-EXTRACT-NBA-TRIGGERED-WORK",
+        "SV2023-10.4.2-EXTRACT-NONBLOCKING-FLOW",
+        "SV2023-10.4.2-EXTRACT-ORDERED-NBA-UPDATES",
+        "SV2023-10.4.2-EXTRACT-TWO-PHASE-NBA",
+        "SV2023-4.9.4-EXTRACT-NBA-DELAY-SLOT",
+        "SV2023-4.9.4-EXTRACT-NBA-LHS-SAMPLE",
+        "SV2023-4.9.4-EXTRACT-NBA-RHS-SAMPLE",
+        "SV2023-9.4.5-EXTRACT-BLOCKING-DELAY-EQUIVALENCE",
+        "SV2023-9.4.5-EXTRACT-BLOCKING-EVENT-EQUIVALENCE",
+        "SV2023-9.4.5-EXTRACT-BLOCKING-REPEAT-EQUIVALENCE",
+        "SV2023-9.4.5-EXTRACT-INTRA-BLOCKING-NONBLOCKING",
+        "SV2023-9.4.5-EXTRACT-INTRA-GRAMMAR",
+        "SV2023-9.4.5-EXTRACT-INTRA-RHS-BEFORE-CONTROL",
+        "SV2023-9.4.5-EXTRACT-NONPOSITIVE-UNKNOWN-REPEAT",
+        "SV2023-9.4.5-EXTRACT-REPEAT-COUNT-EVALUATED-ONCE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-10.4.2-EXTRACT-NO-AUTOMATIC-DYNAMIC-NBA"
+      ],
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/imported/ch9/test_intra_assignment_timing.sv",
+        "inputs_sha256": "b6035a222cbea4c995f549d648236c3ec66e3f1df91f2ea616f490f24186931f",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-BLOCKING-EVENT-EQUIVALENCE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M09: a = @(posedge clk) b + 1 で代入が事象の後（時刻15）になることは観測するが、待つ間 b は20 のままで、事象の後に右辺を評価する実装でも同じ21になる。右辺を待つ前に保存する条件を区別できず、等価な一時変数＋制御＋最終代入との対応も確かめていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = @(posedge clk) b + 1;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-BLOCKING-REPEAT-EQUIVALENCE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M10: ブロッキング代入の intra-assignment repeat（a = repeat(3) @(posedge clk) b の形）を1つも使っていない。test_intra_assignment_timing にあるのは遅延と単発の事象制御だけで、repeat の回数待ち・右辺の保存・最終代入の等価性を観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = @(posedge clk) b + 1;"
+              },
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = #3 b;               // the value 1, taken at time 0"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-INTRA-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M11: ブロッキングの遅延（a = #3 b）と事象（a = @(posedge clk) b + 1）、非ブロッキングの遅延（y <= #2 b）は使うが、ブロッキングの repeat、非ブロッキングの事象制御と repeat を使っていない。代入の種類と制御の種類の6通りのうち3通りだけなので、文法全体の証拠にならない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    y <= #2 b;              // 20, two steps from now"
+              },
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = #3 b;               // the value 1, taken at time 0"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-NONPOSITIVE-UNKNOWN-REPEAT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M12: a = repeat(N) @(ev) b の形の intra-assignment repeat を1つも使っていない。test_intra_assignment_timing にある repeat (4) #1 は手続きの繰り返しで、代入内の repeat 事象待ちではないため、繰り返し回数が0以下・x/z のときに事象待ちをせず代入する条件を起こしていない。ch3 の負の実遅延のテストも遅延制御だけで、repeat の回数の境界ではない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = @(posedge clk) b + 1;"
+              },
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    repeat (4) #1 $display(\"%0t pipeline y=%0d\", $time, y);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-BLOCKING-EVENT-EQUIVALENCE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M09: a = @(posedge clk) b + 1 で代入が事象の後（時刻15）になることは観測するが、待つ間 b は20 のままで、事象の後に右辺を評価する実装でも同じ21になる。右辺を待つ前に保存する条件を区別できず、等価な一時変数＋制御＋最終代入との対応も確かめていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = @(posedge clk) b + 1;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-BLOCKING-REPEAT-EQUIVALENCE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M10: ブロッキング代入の intra-assignment repeat（a = repeat(3) @(posedge clk) b の形）を1つも使っていない。test_intra_assignment_timing にあるのは遅延と単発の事象制御だけで、repeat の回数待ち・右辺の保存・最終代入の等価性を観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = @(posedge clk) b + 1;"
+              },
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = #3 b;               // the value 1, taken at time 0"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-INTRA-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M11: ブロッキングの遅延（a = #3 b）と事象（a = @(posedge clk) b + 1）、非ブロッキングの遅延（y <= #2 b）は使うが、ブロッキングの repeat、非ブロッキングの事象制御と repeat を使っていない。代入の種類と制御の種類の6通りのうち3通りだけなので、文法全体の証拠にならない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    y <= #2 b;              // 20, two steps from now"
+              },
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = #3 b;               // the value 1, taken at time 0"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-NONPOSITIVE-UNKNOWN-REPEAT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M12: a = repeat(N) @(ev) b の形の intra-assignment repeat を1つも使っていない。test_intra_assignment_timing にある repeat (4) #1 は手続きの繰り返しで、代入内の repeat 事象待ちではないため、繰り返し回数が0以下・x/z のときに事象待ちをせず代入する条件を起こしていない。ch3 の負の実遅延のテストも遅延制御だけで、repeat の回数の境界ではない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = @(posedge clk) b + 1;"
+              },
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    repeat (4) #1 $display(\"%0t pipeline y=%0d\", $time, y);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-10.4.1-EXTRACT-BLOCKING-FORMS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "時刻付き変数代入 a = #3 b と通常の = だけを使い、dynamic new、qualifier付きclass new、複合代入、increment/decrement式を一度も実行していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "a = #3 b;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-10.4.2-EXTRACT-DIFFERENT-BLOCKS-NOT-SUFFICIENT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "同一initialブロック内の順序付きNBA更新（23/24/25ns）は見るが、異なるブロックのNBAが実行時刻の順で確定する例（時刻8と12から16へ予約する形）を起こしておらず、ブロックが違うだけでは不定でないことを観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "y <= #3 i * 10;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-10.4.2-EXTRACT-NBA-EVAL-ORDER"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "NBAのLHSインデックスが待機中に変わらないため、LHS位置とRHS式のどちらを先に評価しても同じ値になり、規格が順序を定めないことを出力で区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "arr[1] <= #1 99;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-BLOCKING-EVENT-EQUIVALENCE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M09: a = @(posedge clk) b + 1 で代入が事象の後（時刻15）になることは観測するが、待つ間 b は20 のままで、事象の後に右辺を評価する実装でも同じ21になる。右辺を待つ前に保存する条件を区別できず、等価な一時変数＋制御＋最終代入との対応も確かめていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = @(posedge clk) b + 1;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-BLOCKING-REPEAT-EQUIVALENCE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M10: ブロッキング代入の intra-assignment repeat（a = repeat(3) @(posedge clk) b の形）を1つも使っていない。test_intra_assignment_timing にあるのは遅延と単発の事象制御だけで、repeat の回数待ち・右辺の保存・最終代入の等価性を観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = @(posedge clk) b + 1;"
+              },
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = #3 b;               // the value 1, taken at time 0"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-INTRA-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M11: ブロッキングの遅延（a = #3 b）と事象（a = @(posedge clk) b + 1）、非ブロッキングの遅延（y <= #2 b）は使うが、ブロッキングの repeat、非ブロッキングの事象制御と repeat を使っていない。代入の種類と制御の種類の6通りのうち3通りだけなので、文法全体の証拠にならない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    y <= #2 b;              // 20, two steps from now"
+              },
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = #3 b;               // the value 1, taken at time 0"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-9.4.5-EXTRACT-NONPOSITIVE-UNKNOWN-REPEAT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "M12: a = repeat(N) @(ev) b の形の intra-assignment repeat を1つも使っていない。test_intra_assignment_timing にある repeat (4) #1 は手続きの繰り返しで、代入内の repeat 事象待ちではないため、繰り返し回数が0以下・x/z のときに事象待ちをせず代入する条件を起こしていない。ch3 の負の実遅延のテストも遅延制御だけで、repeat の回数の境界ではない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    a = @(posedge clk) b + 1;"
+              },
+              {
+                "file": "tests/imported/ch9/test_intra_assignment_timing.sv",
+                "contains": "    repeat (4) #1 $display(\"%0t pipeline y=%0d\", $time, y);"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
-  "scoped_review_test_files": 492,
+  "scoped_review_test_files": 512,
   "review_disposition_counts": {
     "citation_refinement": 34,
-    "compound_requirement": 109,
+    "compound_requirement": 111,
     "oracle_issue": 49,
-    "partial_observation": 536
+    "partial_observation": 609
   },
-  "registry_sha256": "06c83ffb31a82533589ef04e3df825ed68fe64b13dd342eb8bb4b10db87cbade",
+  "registry_sha256": "4ee00cab6dd10ca79d1e35630b83df6972d0515fc01c5df998d59034f89b9d21",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
-  "review_ledger_sha256": "0fa18e7c3bf41ec9a251dbfda15fb253e81614aed4009ee6b930a56f5a79495f"
+  "review_ledger_sha256": "d0078eabf39e4ef7a2304c8957ac387bd07ce800fc131866696fc01bb8e185ea"
 }
