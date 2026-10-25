@@ -19,15 +19,15 @@
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 457 |
-| Icarus Verilog 13.0 only | 3108 |
+| Icarus Verilog 13.0 only | 3105 |
 | Verilator 5.052 only | 1147 |
-| standard only | 1326 |
+| standard only | 1329 |
 
 ## By chapter
 
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 71 | 15 | 4.7 | 0 | 7 |
+| 3 | Design and verification building blocks | 71 | 15 | 4.7 | 0 | 8 |
 | 4 | Scheduling semantics | 387 | 27 | 14.3 | 0 | 6 |
 | 5 | Lexical conventions | 317 | 16 | 19.8 | 0 | 5 |
 | 6 | Data types | 539 | 76 | 7.1 | 0 | 102 |
@@ -47,7 +47,7 @@
 | 20 | Utility system tasks and system functions | 199 | 31 | 6.4 | 0 | 14 |
 | 21 | Input/output system tasks and system functions | 110 | 47 | 2.3 | 0 | 18 |
 | 22 | Compiler directives | 327 | 21 | 15.6 | 0 | 6 |
-| 23 | Modules and hierarchy | 136 | 32 | 4.2 | 0 | 27 |
+| 23 | Modules and hierarchy | 136 | 32 | 4.2 | 0 | 29 |
 | 24 | Programs | 38 | 7 | 5.4 | 0 | 16 |
 | 25 | Interfaces | 106 | 12 | 8.8 | 0 | 39 |
 | 26 | Packages | 71 | 6 | 11.8 | 0 | 10 |

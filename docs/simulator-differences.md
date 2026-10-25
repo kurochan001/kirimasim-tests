@@ -747,3 +747,11 @@ A later review of the 194 tests with `:oracle: spec` whose result Lyra did not
 match (2026-10-25) found no further expected output to be wrong, but two
 tests whose diagnostic regular expression required the format of Icarus
 Verilog and Verilator, since fixed; see the [review](lyra-disagreement-review-20261025.md).
+
+## Cases added by the 2026-10-25 imported tests
+
+### Icarus Verilog 13.0: results (imported tests)
+
+| Clause | What it does | Tests |
+| --- | --- | --- |
+| 23.3.3.7 (Table 23-1), 28.12.4 | When a port connects a wand or wor net with a supply net, it applies the wired logic of the wand or wor although the strengths differ, and when it connects supply0 with supply1 it keeps both supplies and gives x, where Table 23-1 makes one net of the external net's kind. Six of the merged pairs of the test differ. | `imported/ch23/test_net_port_merge_kinds` |

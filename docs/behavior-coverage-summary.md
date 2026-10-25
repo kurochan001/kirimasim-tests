@@ -134,6 +134,15 @@
   計測元: 2026-10-23T20:48:16.559292+00:00 / `keyword-tests-20261024-verilator-seed73.json`。
   失敗 0、既知不一致 4、未対応 0、未実行 6943、古い証跡 0、違法系の判定根拠未承認 493 行。
 - `icarus` / Icarus Verilog version 13.0 (stable) (v13_0-dirty): 0/12319 (0.00%)。
+  計測元: 2026-10-25T08:34:28.086983+00:00 / `oracle-refinement-20261025-icarus13.json`。
+  失敗 0、既知不一致 15、未対応 0、未実行 7425、古い証跡 0、違法系の判定根拠未承認 0 行。
+- `verilator` / Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905: 0/12319 (0.00%)。
+  計測元: 2026-10-25T08:34:28.290523+00:00 / `oracle-refinement-20261025-verilator-seed1.json`。
+  失敗 0、既知不一致 15、未対応 0、未実行 7425、古い証跡 0、違法系の判定根拠未承認 0 行。
+- `verilator` / Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905: 0/12319 (0.00%)。
+  計測元: 2026-10-25T08:34:28.496835+00:00 / `oracle-refinement-20261025-verilator-seed73.json`。
+  失敗 0、既知不一致 15、未対応 0、未実行 7425、古い証跡 0、違法系の判定根拠未承認 0 行。
+- `icarus` / Icarus Verilog version 13.0 (stable) (v13_0-dirty): 0/12319 (0.00%)。
   計測元: 2026-10-24T23:12:32.819720+00:00 / `regex-refinement-20261025-icarus13.json`。
   失敗 0、既知不一致 2、未対応 0、未実行 7438、古い証跡 0、違法系の判定根拠未承認 0 行。
 - `verilator` / Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905: 0/12319 (0.00%)。

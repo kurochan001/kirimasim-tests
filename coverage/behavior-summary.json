@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "4ee00cab6dd10ca79d1e35630b83df6972d0515fc01c5df998d59034f89b9d21",
+  "registry_sha256": "281aa1b4d0af1209c0100f18c238c95800522da2c4ede1131f00d3732cd63346",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -7026,6 +7026,63 @@
           "unreviewed_oracle": 493,
           "stale": 0,
           "not_run": 6943,
+          "unmapped": 4858,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "oracle-refinement-20261025-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+        "generated_at": "2026-10-25T08:34:28.086983+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 15,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 7425,
+          "unmapped": 4858,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "oracle-refinement-20261025-verilator-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-25T08:34:28.290523+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 15,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 7425,
+          "unmapped": 4858,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "oracle-refinement-20261025-verilator-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-25T08:34:28.496835+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 15,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 7425,
           "unmapped": 4858,
           "interpretation_pending": 21
         }

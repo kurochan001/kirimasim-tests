@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "imported/ch23/test_instance_arrays": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/imported/ch23/test_instance_arrays.sv:34:26: Input port connection 'a' as part of a module instance array requires 2 or 4 bits, but connection's VARREF 'a8' generates 8 bits. (IEEE 1800-2023 23.3.3)",
+   "inputs_sha256": "c2d17cb7368f95745ad21be952da195ffd17fee482788d63fe7d762051baf1cc"
+  },
+  "imported/ch23/test_net_port_merge_kinds": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/imported/ch23/test_net_port_merge_kinds.sv:119:8: Unsupported: Conflicting pull directions.",
+   "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321"
+  },
+  "imported/ch3/test_delay_value_matrix": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/imported/ch3/test_delay_value_matrix.sv:82:5: Unsupported tristate construct: DELAY",
+   "inputs_sha256": "13b191718ebf88bd62cc550583de54738498caee59420144c07f6cc3ab6b5536"
+  }
+ },
+ "generated_at": "2026-10-25T08:34:28.290523+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

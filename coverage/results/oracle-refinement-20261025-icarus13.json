@@ -1,0 +1,26 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "imported/ch23/test_instance_arrays": {
+   "status": "known",
+   "reason": "compile failed: tests/imported/ch23/test_instance_arrays.sv:34: sorry: Multi-dimensional arrays of instances are not yet supported.",
+   "inputs_sha256": "c2d17cb7368f95745ad21be952da195ffd17fee482788d63fe7d762051baf1cc"
+  },
+  "imported/ch23/test_net_port_merge_kinds": {
+   "status": "known",
+   "reason": "output differs: line 1 is '00 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 ...', expected '00 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 ...'",
+   "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321"
+  },
+  "imported/ch3/test_delay_value_matrix": {
+   "status": "known",
+   "reason": "compile failed: tests/imported/ch3/test_delay_value_matrix.sv:120: vvp.tgt sorry: ->> is not currently supported.",
+   "inputs_sha256": "13b191718ebf88bd62cc550583de54738498caee59420144c07f6cc3ab6b5536"
+  }
+ },
+ "generated_at": "2026-10-25T08:34:28.086983+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

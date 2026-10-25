@@ -75024,7 +75024,7 @@
           "observation": "8'bx の変数 dx と 8'bz の変数 dz を遅延式に使う #(dx)・#(dz) を initial・static/automatic タスク・fork 分岐で実行し、直前の shortreal 遅延の行と同じ時刻 203 に \"initial: x\"/\"initial: z\" が並ぶことを期待行で比べる。 区別: x/z を零遅延でなく1時間単位などとして扱う実装では、各 x/z 行の時刻が 204 以降にずれ、後続の unsigned vector 行の時刻もずれる。x だけを零にし z を非零にする実装、またはその逆の実装でも対応する行の時刻が変わり、期待行に一致しない。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "6b6258d0b51d8f038b72e4c7deb8b7269dd932f33fcf75fe1073f07bdfa6a4e8",
+          "inputs_sha256": "13b191718ebf88bd62cc550583de54738498caee59420144c07f6cc3ab6b5536",
           "evidence": [
             {
               "file": "tests/imported/ch3/test_delay_value_matrix.sv",
@@ -202201,7 +202201,7 @@
           "observation": "モジュールinv2をdown[3:0]とup[0:3]のインスタンス配列にし、8ビットのa8を各2ビット入力へ左右の端からスライスして、down_y/up_yと各要素のa、2次元gridの要素名を階層参照で見る 区別: インスタンス範囲を配列にせず単一インスタンスにする実装や、右端インデックスへのLSB割当を逆にする実装では、down[3].a=11/down[0].a=00やdown_y=00011011のビット配置が変わり、2次元grid[1][0].a=10も出ない",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "bc9c9c3cab1a7097145e838e3aede2a374342802f68e008987a2cf73d316be16",
+          "inputs_sha256": "c2d17cb7368f95745ad21be952da195ffd17fee482788d63fe7d762051baf1cc",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_instance_arrays.sv",
@@ -203624,7 +203624,7 @@
           "observation": "内部wireのinoutポートと外部wandのネットを接続し、cv=1・pv=0のとき結合後のネットが0（wandの0優先）になることを49列の表示で見る 区別: 表23-1で外部wandを選ばず内部wireのままにする実装では、1と0のドライバが衝突してxになり、10行の2列目が0でなくxになる",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -203661,7 +203661,7 @@
           "observation": "内部wireのinoutポートと外部worのネットを接続し、cv=1・pv=0のとき結合後のネットが1（worの1優先）になることを49列の表示で見る 区別: 表23-1で外部worを選ばず内部wireのままにする実装では、1と0のドライバが衝突してxになり、10行の3列目が1でなくxになる",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -203717,7 +203717,7 @@
           "observation": "内部wireのinoutポートと外部tri0のネットを接続し、両ドライバがzのとき結合後のネットが0（tri0のプルダウン）になることを49列の表示で見る 区別: 表23-1で外部tri0を選ばず内部wireのままにする実装では、両ドライバzのときzになり、zz行の4列目が0でなくzになる",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -203754,7 +203754,7 @@
           "observation": "内部wireのinoutポートと外部tri1のネットを接続し、両ドライバがzのとき結合後のネットが1（tri1のプルアップ）になることを49列の表示で見る 区別: 表23-1で外部tri1を選ばず内部wireのままにする実装では、両ドライバzのときzになり、zz行の5列目が1でなくzになる",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -203810,7 +203810,7 @@
           "observation": "内部wireのinoutポート（c_wire）と外部supply0のネットn_wire_supply0をinoutで結合し、cv=1・pv=0の10行で、結合後のn_wire_supply0（49個の値の6番目）が0になることを期待出力と比べる。 区別: 表23-1で外部supply0を選ばず内部wireのままにする実装では、1と0の強いドライバの衝突でxになる。その実装では10行の6番目が0でなくxになり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -203851,7 +203851,7 @@
           "observation": "内部wireのinoutポートと外部supply1のネットn_wire_supply1をinoutで結合し、cv=0・pv=0の00行で、結合後のn_wire_supply1（49個の値の7番目）が1になることを期待出力と比べる。 区別: 表23-1で外部supply1を選ばず内部wireのままにする実装では、0と0の解決で0になる。その実装では00行の7番目が1でなく0になり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -203892,7 +203892,7 @@
           "observation": "内部wandのinoutポート（c_wand）と外部wireのネットn_wand_wireをinoutで結合し、cv=1・pv=0の10行で、結合後のn_wand_wire（49個の値の8番目）が0になることを期待出力と比べる。 区別: 表23-1で内部wandを選ばず外部wireにする実装では、1と0の衝突でxになる。その実装では10行の8番目が0でなくxになり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -204047,7 +204047,7 @@
           "observation": "内部wandのinoutポートと外部supply0のネットn_wand_supply0をinoutで結合し、cv=1・pv=1の11行で、結合後のn_wand_supply0（49個の値の13番目）が0になることを期待出力と比べる。 区別: 表23-1で外部supply0を選ばず内部wandのままにする実装では、1と1のwired-ANDが1になる。その実装では11行の13番目が0でなく1になり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -204088,7 +204088,7 @@
           "observation": "内部wandのinoutポートと外部supply1のネットn_wand_supply1をinoutで結合し、cv=0・pv=0の00行で、結合後のn_wand_supply1（49個の値の14番目）が1になることを期待出力と比べる。 区別: 表23-1で外部supply1を選ばず内部wandのままにする実装では、0と0のwired-ANDが0になる。その実装では00行の14番目が1でなく0になり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -204129,7 +204129,7 @@
           "observation": "内部worのinoutポート（c_wor）と外部wireのネットn_wor_wireをinoutで結合し、cv=1・pv=0の10行で、結合後のn_wor_wire（49個の値の15番目）が1になることを期待出力と比べる。 区別: 表23-1で内部worを選ばず外部wireにする実装では、1と0の衝突でxになる。その実装では10行の15番目が1でなくxになり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -204284,7 +204284,7 @@
           "observation": "内部worのinoutポートと外部supply0のネットn_wor_supply0をinoutで結合し、cv=1・pv=1の11行で、結合後のn_wor_supply0（49個の値の20番目）が0になることを期待出力と比べる。 区別: 表23-1で外部supply0を選ばず内部worのままにする実装では、1と1のwired-ORが1になる。その実装では11行の20番目が0でなく1になり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -204325,7 +204325,7 @@
           "observation": "内部worのinoutポートと外部supply1のネットn_wor_supply1をinoutで結合し、cv=0・pv=0の00行で、結合後のn_wor_supply1（49個の値の21番目）が1になることを期待出力と比べる。 区別: 表23-1で外部supply1を選ばず内部worのままにする実装では、0と0のwired-ORが0になる。その実装では00行の21番目が1でなく0になり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",
@@ -204537,7 +204537,7 @@
           "observation": "内部tri0のinoutポート（c_tri0）と外部wireのネットn_tri0_wireをinoutで結合し、両ドライバがzのzz行で、結合後のn_tri0_wire（49個の値の22番目）が0になることを期待出力と比べる。 区別: 表23-1で内部tri0を選ばず外部wireにする実装では、駆動のないネットがzのままになる。その実装ではzz行の22番目が0でなくzになり、期待行と区別できる。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "04b17ba55c7ac3ba0c1d64b636cfe8d92294caef69f283b33f06f3e3c0e21f3e",
+          "inputs_sha256": "213a37220a7d291813d582266b5cc65d71ef06068405d2a71829ea0a4b367321",
           "evidence": [
             {
               "file": "tests/imported/ch23/test_net_port_merge_kinds.sv",

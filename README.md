@@ -42,15 +42,15 @@ The suite has **6038 tests** in 37 chapters. 1308 of them are generated (`tests/
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3565 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3562 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 1147 |
-| The standard only, where neither simulator follows it | 1326 |
+| The standard only, where neither simulator follows it | 1329 |
 
 768 tests depend on x or z values (`:fourstate: yes`). 436 tests come with C code: 65 DPI tests (`:dpi_c:`) and 371 VPI tests (`:vpi_c:`). 1556 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 24 tests check the exit code of the simulation (`:expected_exit:`). 15 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 18 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 71 | 53 | 11 | 7 |
+| 3 | Design and verification building blocks | 71 | 52 | 11 | 8 |
 | 4 | Scheduling semantics | 387 | 377 | 4 | 6 |
 | 5 | Lexical conventions | 317 | 305 | 7 | 5 |
 | 6 | Data types | 539 | 314 | 123 | 102 |
@@ -70,7 +70,7 @@ The suite has **6038 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 20 | Utility system tasks and system functions | 199 | 171 | 14 | 14 |
 | 21 | Input/output system tasks and system functions | 110 | 86 | 6 | 18 |
 | 22 | Compiler directives | 327 | 314 | 7 | 6 |
-| 23 | Modules and hierarchy | 136 | 93 | 16 | 27 |
+| 23 | Modules and hierarchy | 136 | 91 | 16 | 29 |
 | 24 | Programs | 38 | 19 | 3 | 16 |
 | 25 | Interfaces | 106 | 14 | 53 | 39 |
 | 26 | Packages | 71 | 50 | 11 | 10 |

@@ -4,7 +4,7 @@
 :tags: ch3
 :type: simulation
 :lrm: 1800-2023 3.14.1 9.4.1 9.4.5 15.5.2
-:oracle: spec iverilog@13.0
+:oracle: spec
 :spec_check: ai
 :fourstate: yes
 :nondeterministic: no
