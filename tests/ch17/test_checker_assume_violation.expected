@@ -1,0 +1,7 @@
+clk_a violation at 5
+clk_b violation at 6
+clk_a violation at 15
+clk_b violation at 18
+clk_a violation at 25
+clk_b violation at 30
+violations: clk_a=3 clk_b=3

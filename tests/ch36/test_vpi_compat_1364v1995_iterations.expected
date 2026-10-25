@@ -1,0 +1,8 @@
+types: mem vpiMemory, ia vpiIntegerVar, ta vpiTimeVar, rg vpiReg, iv vpiIntegerVar, tv vpiTimeVar, rv vpiRealVar
+vpiVariables contains iv rv tv: 1
+rg in vpiVariables: 0, mem in vpiVariables: 0
+vpiReg or vpiRegArray in vpiVariables: 0
+vpiRegArray of the module: NULL
+vpiReg of each vpiRegArray: 0 arrays, 0 objects
+read: mem[0] vpiMemoryWord 1, rg 5
+design: 1 2 3 5 6 7 8.0

@@ -1,0 +1,9 @@
+check is not ERROR: 1
+coverage is collected before any start call: 1
+a start while collecting leaves the values alone: 1
+stop gives OK: 1
+a stopped hierarchy collects no toggle: 1
+a start after a stop gives the checked availability: 1
+a restart collects the toggles again: 1
+reset gives OK, also when repeated: 1
+a reset clears the collected values: 1

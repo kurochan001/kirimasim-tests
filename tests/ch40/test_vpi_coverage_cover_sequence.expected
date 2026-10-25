@@ -1,0 +1,6 @@
+assertion coverage start is not ERROR: 1
+cover sequence: covered max 1
+cover sequence: successes are the matches: 1
+cover sequence: one attempt has several matches: 1
+cover sequence: it is covered: 1
+cover matches: 5

@@ -1,0 +1,17 @@
+coverage checks are not ERROR: 1
+signal: covered max 8
+statement block: covered max 3
+fsm: covered max 3
+fsm states: 3
+fsm state: covered max 1: 1
+fsm state values are 0, 1 and 2: 1
+assertion: covered max 1
+covered is within the maximum: 1
+covered count is at least covered: 1
+statement: the three statements are covered: 1
+statement: covered count is the statement count: 1
+signal: the eight bits are covered: 1
+signal: covered count is the bit count: 1
+fsm: the three states are covered: 1
+assertion: covered is one: 1
+instance toggle coverage includes the signal: 1

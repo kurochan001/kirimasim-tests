@@ -1,0 +1,27 @@
+2: a1 lock
+3: a1 unlock
+4: a1 disable
+5: a1 enable
+6: a1 disable
+6: a1 reset
+7: a1 enable
+8: a1 disable pass action
+9: a1 enable pass action
+10: a1 disable fail action
+11: a1 enable fail action
+12: a1 disable vacuous action
+13: a1 disable pass action
+14: a1 enable nonvacuous action
+15: a1 enable pass action
+16: a1 disable fail action
+17: a1 enable fail action
+18: a1 disable
+18: a1 reset
+19: a1 enable
+20: a1 disable pass action
+21: a1 enable pass action
+22: a1 disable vacuous action
+23: a1 disable pass action
+24: a1 enable nonvacuous action
+25: a1 enable pass action
+callbacks with a wrong handle or reason: 0

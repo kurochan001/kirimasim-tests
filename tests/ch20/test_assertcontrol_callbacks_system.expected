@@ -1,0 +1,35 @@
+1: before: attempts 0, nonvacuous successes 0, vacuous successes 0, failures 0
+26: after phase 1: attempts 3, nonvacuous successes 1, vacuous successes 1, failures 1
+27: after control 7: attempts 3, nonvacuous successes 1, vacuous successes 1, failures 1
+28: after control 9: attempts 3, nonvacuous successes 1, vacuous successes 1, failures 1
+29: after control 11: attempts 3, nonvacuous successes 1, vacuous successes 1, failures 1
+56: after phase 2: attempts 6, nonvacuous successes 2, vacuous successes 2, failures 2
+57: after control 6: attempts 6, nonvacuous successes 2, vacuous successes 2, failures 2
+58: after control 8: attempts 6, nonvacuous successes 2, vacuous successes 2, failures 2
+59: after control 10: attempts 6, nonvacuous successes 2, vacuous successes 2, failures 2
+61: system lock
+62: system unlock
+63: system off
+64: system on
+65: system kill
+66: system on
+67: system disable pass action
+68: system enable pass action
+69: system disable fail action
+70: system enable fail action
+71: system disable vacuous action
+72: system disable pass action
+73: system enable nonvacuous action
+74: system enable pass action
+75: system off
+76: system on
+77: system kill
+78: system on
+79: system disable pass action
+80: system enable pass action
+81: system disable fail action
+82: system enable fail action
+83: system disable vacuous action
+84: system disable pass action
+85: system enable nonvacuous action
+86: system enable pass action

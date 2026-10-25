@@ -1,0 +1,6 @@
+module scope macro is 10: 1
+hierarchy of a definition sums its instances: 1
+module scope of a definition excludes its children: 1
+module scope of a definition sums its instances: 1
+hierarchy of an instance includes its children: 1
+module scope of a leaf instance equals its hierarchy: 1

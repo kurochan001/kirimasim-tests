@@ -1,0 +1,4 @@
+interface: 11
+program: 00
+cu=10 pkg=01 mod=11 gen=00 outer=00
+no ports: n=3

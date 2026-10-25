@@ -157584,7 +157584,33 @@
       "acceptance": "Assertion action blocks are checker action blocks; other checker contents form its body.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_body_items.sv",
+          "observation": "checker の assertion の pass/fail アクションブロックで checker の出力変数 act_pass/act_fail を更新し、final 手続きで数える。default disable iff (d==15) のため 45 のエッジでは動作しないので pass=1・fail=3 になる。 区別: アクションブロックを checker action block として扱わない実装では act_pass/act_fail が更新されず、pass=0 fail=0 になる。また 45 のエッジを数える実装は default disable iff も action block に効かないので pass=2 fail=3 になり、期待値と区別できる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f517da0243da25a664be638832a73eeae0d504280d0061d9e6a2269546326c05",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "a_act: assert property (@(posedge clk) en)"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "act_pass = act_pass + 1;"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "else act_fail = act_fail + 1;"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.expected",
+              "contains": "def=1 seq=1 prop=2 pass=1 fail=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -157602,7 +157628,93 @@
       "acceptance": "A checker body may contain let/sequence/property/function/checker declarations, deferred/concurrent assertions, checker instances, covergroups, variables/assignments, default clocking/disable, permitted procedures and generate blocks.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_body_items.sv",
+          "observation": "checker body に let・sequence・property・function・checker 宣言と実体化・covergroup 宣言と実体化・checker 変数と continuous assign・default clocking・default disable iff・initial・always_comb・always_latch・always_ff・final・generate block・concurrent/deferred assertion を 1 つずつ置き、最終行に各要素の結果をまとめて表示する。 区別: いずれかの要素を持てない実装は構文エラーになる。要素を取り違えると対応する数値が変わる: comb=14 は always_comb が現在値で d^en を出したこと、latch=15 は always_latch が en=1 の間 d を保持したこと、ff=46 は always_ff がサンプル値 cur を加算したこと、gen=5・nested=2 は generate block と入れ子 checker の実体化、def=1 は deferred assertion、seq=1・prop=2 は sequence/let と default clocking/disable の効果を示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f517da0243da25a664be638832a73eeae0d504280d0061d9e6a2269546326c05",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "let is_five = (d == 4'd5);"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "sequence s_five; is_five; endsequence"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "property p_low; d < 4'd8; endproperty"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "function automatic int inc(int x);"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "checker nested(input logic clk, input logic sig, output int n);"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "nested u_nested(.clk(clk), .sig(en), .n(nested_n));"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "covergroup cg @(posedge clk);"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "cg ci = new;"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "default clocking @(posedge clk); endclocking"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "default disable iff (d == 4'd15);"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "a_def: assert #0 (d != 4'd9) else def_fail = def_fail + 1;"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "always_comb comb_q = d ^ {3'b000, en};"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "always_latch if (en) latch_q = d;"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "always_ff @(posedge clk) ff_n <= inc(ff_n) + cur;"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "if (1) begin : g"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "final begin"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.sv",
+              "contains": "assign cur = d;"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.expected",
+              "contains": "comb=14 latch=15 ff=46 gen=5 nested=2"
+            },
+            {
+              "file": "tests/ch17/test_checker_body_items.expected",
+              "contains": "def=1 seq=1 prop=2 pass=1 fail=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -157676,7 +157788,25 @@
       "acceptance": "A checker port with explicit direction shall not omit its type.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_port_without_type.sv",
+          "observation": "checker の最初のポートを `input a` と書き、方向だけを明示して型を省く。17.2 は方向を明示したポートの型の省略をエラーとする。他のポート（output logic y）と module 側は合法。 区別: 明示した方向のポートに型の省略を許す実装はこの設計を受け付ける（Verilator 5.052 がそう）。型のないポートを許すのは方向も省いた場合だけなので、エラーにしない実装は期待結果を満たさない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b52ca32ef8db347310f0c1a73254b2d60757e047b07632f7c8a30e27a6bbcc94",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_port_without_type.sv",
+              "contains": "    input a,"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_port_without_type.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_port_without_type\\.sv:26:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -157694,7 +157824,29 @@
       "acceptance": "A checker generate item shall not contain constructs that would be illegal outside generate in that checker.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_generate_plain_always.sv",
+          "observation": "checker の generate ブロックの中に plain な always 手続きを置く。17.5 により checker では always_comb/always_latch/always_ff だけが許されるので、checker_generate_item にこれを入れることは 17.2 が禁じている。 区別: checker 本体の直下だけを検査して generate ブロックの中を見ない実装はこの設計を受け付ける（Verilator 5.052 がそう）。always の行をエラーとして示す実装だけが期待結果を満たす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d457de8ee0e9f37310c5b099c8de8a0c41dd28a2e3d4f440dd49f0e19ad1e35a",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_generate_plain_always.sv",
+              "contains": "always @(posedge clk) y <= a;"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_generate_plain_always.sv",
+              "contains": "generate"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_generate_plain_always.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_generate_plain_always\\.sv:28:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -157712,7 +157864,37 @@
       "acceptance": "A direction/type-omitted first port is input untyped; otherwise the prior type is inherited by sequence/property rules.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_port_inference.sv",
+          "observation": "inherit_pair では a にだけ型 logic [3:0] を書き、b の型を前のポートから継承させる（4 ビット入力として使う）。first_untyped では最初のポート w の型を省き、untyped のまま 8 ビットの実引数 16 を代入して ~w を 8 ビットで計算する。 区別: 型の継承を行わない実装は b を 1 ビットとみなすので and=0000 or=1010 になる（Verilator 5.052 の実測）。最初のポートを untyped ではなく 1 ビットの logic とする実装は not=255 になる。継承と untyped の両方が期待値 1000/1110/239 に現れる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f4b87225437ea26a6b099380c39f362307f4de7033f892e49bdcbf9d27294232",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_port_inference.sv",
+              "contains": "checker inherit_pair(input logic [3:0] a, b, output logic [3:0] y, z);"
+            },
+            {
+              "file": "tests/ch17/test_checker_port_inference.sv",
+              "contains": "assign y = a & b;"
+            },
+            {
+              "file": "tests/ch17/test_checker_port_inference.sv",
+              "contains": "checker first_untyped(w, output logic [7:0] y);"
+            },
+            {
+              "file": "tests/ch17/test_checker_port_inference.sv",
+              "contains": "assign y = ~w;"
+            },
+            {
+              "file": "tests/ch17/test_checker_port_inference.expected",
+              "contains": "not=239"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -157730,7 +157912,29 @@
       "acceptance": "Checker input formals shall not be modified by the checker.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_writes_input.sv",
+          "observation": "checker の always_comb 手続きが入力 formal a に 4'd0 を代入する。always_comb の文としては合法だが、入力 formal を checker が変更することは 17.2 が禁じている。他の部分は合法。 区別: 入力 formal への代入を許す実装はこの設計を受け付ける。代入の行をエラーとして示す実装だけが期待結果を満たす。Verilator 5.052 は入力への代入として拒否し、Icarus 13.0 は checker 非対応で宣言行で止まる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "debbf37145bc71e3410bc6b455bd5566f58fdcc035fd5f48a502310bbd999f58",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_writes_input.sv",
+              "contains": "always_comb a = 4'd0;"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_writes_input.sv",
+              "contains": "checker write_input(input logic [3:0] a, output logic [3:0] y);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_writes_input.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_writes_input\\.sv:24:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -157748,7 +157952,33 @@
       "acceptance": "Checker names other than formals/internal variables resolve from the checker declaration scope.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B023. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_static_scope.sv",
+          "observation": "module で宣言した checker local_names が、formal でも checker 変数でもない名前 twice を宣言スコープから解決して always_ff の右辺で呼ぶ。checker 自身は int base を持つので、base は checker のものが使われる。 区別: 宣言スコープの名前解決を行わない実装は twice を未定義として拒否するか別の値を出す。h1=1031 は 5 エッジそれぞれで 2*100 + v を加算した値で、twice が module の関数として解決され、base が checker 内の 100（module の 5 ではない）であることを同時に示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6b8af08960b7d4a4b095a65f01fedad3e14bff1f092c358be4f05a70e8d46f76",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_static_scope.sv",
+              "contains": "count <= count + twice(base) + sig;"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.sv",
+              "contains": "function automatic int twice(int x);"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.sv",
+              "contains": "int base = 100;      // local to the checker and static; hides the module base"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.expected",
+              "contains": "h1=1031 f1=2 h2=1010 f2=0 base=5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -157820,7 +158050,33 @@
       "acceptance": "Checker ports may be input or output; omitted direction inherits the previous direction, with input for the first port.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_port_inference.sv",
+          "observation": "checker inherit_pair のポート並びを `input logic [3:0] a, b, output logic [3:0] y, z` と書き、b は方向も型も省き、z は方向だけを省く。最初のポート a は方向を明示しない first_untyped 側で入力として使う。 区別: 方向の継承を行わない実装（Verilator 5.052 はその一つ）は b を入力にできても z を入力とみなし、z への代入をエラーにする。期待値 and=1000 or=1110 は b が入力、z が出力として 4 ビットで結線されたことを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f4b87225437ea26a6b099380c39f362307f4de7033f892e49bdcbf9d27294232",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_port_inference.sv",
+              "contains": "checker inherit_pair(input logic [3:0] a, b, output logic [3:0] y, z);"
+            },
+            {
+              "file": "tests/ch17/test_checker_port_inference.sv",
+              "contains": "assign z = a | b;"
+            },
+            {
+              "file": "tests/ch17/test_checker_port_inference.sv",
+              "contains": "checker first_untyped(w, output logic [7:0] y);"
+            },
+            {
+              "file": "tests/ch17/test_checker_port_inference.expected",
+              "contains": "and=1000 or=1110 not=239"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -157856,7 +158112,49 @@
       "acceptance": "Type/data declarations in a checker are local and static; default clock/disable contexts are inherited from its declaration scope, subject to explicit instance-context functions.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_static_scope.sv",
+          "observation": "checker local_names の型・データ宣言（int base = 100、int count = 0）が checker スコープに局所で静的であること、module の default clocking と default disable iff が継承されることを観測する。2 個の実体 u1/u2 は別々の count を持ち、module の base は 5 のまま。 区別: checker 変数を実体ごとに持たない実装では h1 と h2 が同じ値になる。継承した default disable iff を使わない実装では rst=1 の間の 15 のエッジでも a1 が失敗し f1=3 になる。宣言が checker の外へ漏れる実装では base=5 が 100 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6b8af08960b7d4a4b095a65f01fedad3e14bff1f092c358be4f05a70e8d46f76",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_static_scope.sv",
+              "contains": "int base = 100;      // local to the checker and static; hides the module base"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.sv",
+              "contains": "default clocking @(posedge clk); endclocking"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.sv",
+              "contains": "default disable iff (rst);"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.sv",
+              "contains": "a1: assert property (sig != 4'd9) else fails = fails + 1;"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.sv",
+              "contains": "local_names u1(.sig(v), .hits(h1), .fails(f1));"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.sv",
+              "contains": "local_names u2(.sig(w), .hits(h2), .fails(f2));"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.expected",
+              "contains": "f1=2"
+            },
+            {
+              "file": "tests/ch17/test_checker_static_scope.expected",
+              "contains": "base=5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -157892,7 +158190,37 @@
       "acceptance": "Checker arguments may connect by ordered position, fully explicit named connection, implicit named connection or wildcard name.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_connection_modes.sv",
+          "observation": "同じ checker conn_modes を 4 通りに実体化する: 位置順（u_pos）、完全な名前付き（u_named、formals と別順）、名前だけの暗黙接続（u_implicit、.a .b .sum .diff）、ワイルドカード（u_wild、.*）。すべて 9 と 3 を渡す。 区別: 4 つの接続方法のどれかが別の実引数に結線されたり結線されない実装では、その欄が 12/6 にならない（例: 暗黙接続を位置順と誤解すると pos=12/6 ... implicit=9/3 になる）。4 欄すべてが 12/6 であることが各方法の正しさを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fe8cb76edaad9c04fb178cd1413449343c2384de34c4565b6f34cf9d2b460675",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_connection_modes.sv",
+              "contains": "conn_modes u_pos(a, b, s_pos, d_pos);"
+            },
+            {
+              "file": "tests/ch17/test_checker_connection_modes.sv",
+              "contains": "conn_modes u_named(.diff(d_named), .sum(s_named), .b(b), .a(a));"
+            },
+            {
+              "file": "tests/ch17/test_checker_connection_modes.sv",
+              "contains": "conn_modes u_implicit(.a, .b, .sum, .diff);"
+            },
+            {
+              "file": "tests/ch17/test_checker_connection_modes.sv",
+              "contains": "conn_modes u_wild(.*);"
+            },
+            {
+              "file": "tests/ch17/test_checker_connection_modes.expected",
+              "contains": "pos=12/6 named=12/6 implicit=12/6 wild=12/6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -157946,7 +158274,54 @@
       "acceptance": "A checker instance names an optional package-qualified checker and one instance with an ordered or named argument list, including implicit and wildcard named forms.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_connection_modes.sv",
+          "observation": "名前付き接続（.diff(d_named) など）、暗黙の名前付き接続（.a .b .sum .diff）、.* ワイルドカード、ポートのない checker への空の引数並び u_empty() を実体化する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fe8cb76edaad9c04fb178cd1413449343c2384de34c4565b6f34cf9d2b460675",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_connection_modes.sv",
+              "contains": "conn_modes u_named(.diff(d_named), .sum(s_named), .b(b), .a(a));"
+            },
+            {
+              "file": "tests/ch17/test_checker_connection_modes.sv",
+              "contains": "conn_modes u_implicit(.a, .b, .sum, .diff);"
+            },
+            {
+              "file": "tests/ch17/test_checker_connection_modes.sv",
+              "contains": "conn_modes u_wild(.*);"
+            },
+            {
+              "file": "tests/ch17/test_checker_connection_modes.sv",
+              "contains": "empty_list u_empty();"
+            },
+            {
+              "file": "tests/ch17/test_checker_connection_modes.expected",
+              "contains": "pos=12/6 named=12/6 implicit=12/6 wild=12/6"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch17/test_checker_in_package.sv",
+          "observation": "package の中で宣言した checker を、package 修飾名 chk_pkg::onehot_chk と位置順の引数並びで実体化する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1e329775cdc72a367d71713ea32b2a995807fb2623ec08b4bd3fb73e9cb89e93",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_in_package.sv",
+              "contains": "chk_pkg::onehot_chk c (v, posedge clk);"
+            },
+            {
+              "file": "tests/ch17/test_checker_in_package.expected",
+              "contains": "t=15: 0011 is not one-hot"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -157954,6 +158329,18 @@
             "B002",
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "instance-grammar",
+          "tests": [
+            "tests/ch17/test_checker_connection_modes.sv",
+            "tests/ch17/test_checker_in_package.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "新しいテストが、順序付きの引数並び・完全な名前付き接続・暗黙の名前付き接続・.* ワイルドカード・空の引数並びの 5 つの形を実体化し、既存テストが package 修飾名（chk_pkg::onehot_chk）での実体化を行う。 区別: 文法の各形を受け付けない実装は構文エラーになるか接続が失われて値が変わる。connection_modes の 4 欄が 12/6 で empty list の行が出ること、in_package が package 修飾名で実体化して 15 と 35 を報告することが、5 つの引数並びの形と package 修飾名の両方を示す。"
         }
       ]
     },
@@ -157983,7 +158370,29 @@
       "acceptance": "Procedural concurrent assertions inside a checker follow ordinary procedural assertion queue semantics.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_assertion_placement.sv",
+          "observation": "checker proc_assert の always_ff 手続きの中で、if (en) の下に concurrent assertion p1 を書く。16.14.6 の procedural concurrent assertion として、手続きがその文に到達したときだけ queue に入り、その時刻の Observed 領域で評価される。 区別: 手続き内の concurrent assertion を静的な assertion として常時監視する実装では、d=9 のエッジ 15, 25, 45 すべてで失敗し internal=3 になる。到着時だけ queue に入れる実装では en=1 の 25 だけが失敗し internal=1 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9f457966a5d91cc21a14f440c15364faa188b34ec21c5f75596423876325cceb",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.sv",
+              "contains": "if (en) p1: assert property (@(posedge clk) d != 4'd9)"
+            },
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.sv",
+              "contains": "always_ff @(posedge clk)\n    if (en) p1: assert property"
+            },
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.expected",
+              "contains": "nested: static=3 procedural=1 internal=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -158001,7 +158410,29 @@
       "acceptance": "Static assertions in nested static checkers are treated at the parent checker context and become procedural when their top-level checker ancestor is visited procedurally.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_assertion_placement.sv",
+          "observation": "outer_chk が inner_chk を静的に実体化し、inner_chk は静的な concurrent assertion i1 を持つ。outer_chk を静的に実体化した u_outer_static と、always 手続きの中で実体化した u_outer_proc を比べる。入れ子の static assertion は親の文脈で扱われ、最上位の実体が手続きで訪問されると procedural になる。 区別: 入れ子の static assertion を常に静的に扱う実装では n_proc が n_static と同じ 3 になる。親の実体化に従う実装では、procedural な親が訪問された 25 のエッジだけを数え n_proc=1 になる。bad は 5, 25, 45 のエッジで 1 なので、n_static=3 との差が入れ子の扱いを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9f457966a5d91cc21a14f440c15364faa188b34ec21c5f75596423876325cceb",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.sv",
+              "contains": "inner_chk u_inner(.clk(clk), .bad(bad), .fails(fails));"
+            },
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.sv",
+              "contains": "if (en) outer_chk u_outer_proc(.clk(clk), .bad(bad), .fails(n_proc));"
+            },
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.expected",
+              "contains": "nested: static=3 procedural=1 internal=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -158055,7 +158486,25 @@
       "acceptance": "The .* token pair shall appear at most once in checker port connections.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_two_wildcards.sv",
+          "observation": "checker の実体化の接続並びに `.*` を 2 回書く（.a(a), .*, .*）。17.3 の脚注は `.*` の対が接続並びに 1 回までしか現れてはならないとする。formals と他の接続は合法。 区別: `.*` の重複を許す実装はこの設計を受け付ける。2 つ目の `.*` の行をエラーとして示す実装だけが期待結果を満たす。Verilator 5.052 は Duplicate .* として同じ行で拒否する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "af71f7e8c8bbb45eaf2278c1b60a29298b8e9138e33551d54c9f96ee21cba9c8",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_two_wildcards.sv",
+              "contains": "wild_pair u(.a(a), .*, .*);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_two_wildcards.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_two_wildcards\\.sv:32:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -158073,7 +158522,29 @@
       "acceptance": "A checker output actual shall be a variable_lvalue or net_lvalue.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_output_expression.sv",
+          "observation": "checker の出力 formal y の実引数に式 a & b を渡す。出力の実引数は variable_lvalue か net_lvalue でなければならない（17.3）。他の接続と module 側は合法。 区別: 出力に式を渡せる実装はこの設計を受け付ける。実引数の行をエラーとして示す実装だけが期待結果を満たす。式を左辺値として扱う実装では代入先が定まらないため、値 y も不定になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f9b05a41a2962226164815076841c7adbf6698e6754b2d5ac2640e2d4413f126",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_output_expression.sv",
+              "contains": "out_lvalue u(.a(a), .y(a & b));"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_output_expression.sv",
+              "contains": "checker out_lvalue(input logic a, output logic y);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_output_expression.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_output_expression\\.sv:30:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -158091,7 +158562,29 @@
       "acceptance": "Checker outputs should be treated as continuous assignments from formal to actual executed in Reactive.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "recommendation",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_output_actual.sv",
+          "observation": "checker が出力 q の実引数 qv[1] を Reactive 領域の continuous assignment で駆動し、同じエッジの module の always_ff が qv[1] を読むと 1 つ前のエッジの値を見る。 区別: 出力の実引数への代入を Active 領域や NBA 領域で行う実装では、同じエッジの module の手続きが新しい値を見てしまい、seen が q と同じ値になる（6: q=1 seen=1）。Reactive 領域で駆動する実装だけが seen を 1 エッジ遅らせる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f299d36cf63ac33291266198643f5cf542cf6e506698cebdbc33dc315ae6ce33",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_output_actual.sv",
+              "contains": "chk_delay_output c(.d(d), .clk(clk), .q(qv[1]));"
+            },
+            {
+              "file": "tests/ch17/test_checker_output_actual.sv",
+              "contains": "always_ff @(posedge clk) seen <= qv[1];"
+            },
+            {
+              "file": "tests/ch17/test_checker_output_actual.expected",
+              "contains": "6: q=1 seen=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -158127,7 +158620,33 @@
       "acceptance": "Static concurrent assertions in a static checker begin at every leading event; static deferred assertions are monitored as their expressions change.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_assertion_placement.sv",
+          "observation": "静的に実体化した checker static_asserts が concurrent assertion c1 と deferred assertion d1 を持つ。c1 は 15, 25, 45 のエッジで d=9 のため失敗し、d1 は式が変化した 6, 18, 38 の時点で失敗する（エッジではない）。 区別: 静的な checker の concurrent assertion を先頭のクロックイベントで 1 回だけ始める実装では concurrent=1 になる。deferred assertion をクロックエッジでだけ監視する実装では deferred=2（6, 18, 38 のうち 38 の後はエッジがないため）や 0 になり、式の変化で監視する実装だけが 3 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9f457966a5d91cc21a14f440c15364faa188b34ec21c5f75596423876325cceb",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.sv",
+              "contains": "c1: assert property (@(posedge clk) d != 4'd9) else conc_fail = conc_fail + 1;"
+            },
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.sv",
+              "contains": "d1: assert #0 (d != 4'd9) else def_fail = def_fail + 1;"
+            },
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.sv",
+              "contains": "static_asserts u_static(.clk(clk), .d(d), .conc_fail(conc_fail),"
+            },
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.expected",
+              "contains": "static: concurrent=3 deferred=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -158757,7 +159276,37 @@
       "acceptance": "Checker assumptions may constrain random generation/formal analysis and shall also be checked for violations in simulation.",
       "source_note": "IEEE 1800-2023 17.7.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_assume_violation.sv",
+          "observation": "checker の assume set に入る 2 つの assume property が、どの値でも成立しない f == 0 && f == 1 を要求する。各 assume の else アクションが時刻を表示し、最後に回数を表示する。 区別: assume を拘束のためだけに使い、違反を検査しない実装では clk_a/clk_b violation の行が出ない（violations: clk_a=0 clk_b=0）。検査して Observed 領域で報告する実装だけが 5, 6, 15, 18, 25, 30 の 6 行と 3/3 の回数を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cce843a3ea7463b2619600f191c5f2a9b7d3fb83e6739285aa7d455a2d24b46b",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_violation.sv",
+              "contains": "u_a: assume property (@(posedge clk_a) f == 1'b0 && f == 1'b1)"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.sv",
+              "contains": "u_b: assume property (@(posedge clk_b) f == 1'b0 && f == 1'b1)"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.sv",
+              "contains": "$display(\"clk_a violation at %0d\", $time);"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.expected",
+              "contains": "clk_a violation at 5"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.expected",
+              "contains": "violations: clk_a=3 clk_b=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.2",
@@ -158775,7 +159324,33 @@
       "acceptance": "Assume-based randomization periodically solves the assume set on any property clock event in that set, rather than an explicit randomize() call.",
       "source_note": "IEEE 1800-2023 17.7.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_assume_stability.sv",
+          "observation": "assume set は u1 の 1 文だけで、その property は posedge clk で clocked される。assume set のクロックイベントでない時刻（tick の 8, 18, 28）に、assume set が拘束する x と、どの assume にも現れない y の値を前のエッジの値と比べる。 区別: クロックイベント以外の各タイムステップで自由変数を更新する実装（空の assume set と同じ扱いをする実装）では、tick の時点で x か y が前のエッジの値と異なり changed が 1 以上になる。assume set のイベントだけで解く実装だけが checks=3 changed=0 を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "55974b78fb56ea40321f2677edc3eb41102d73a87c72626283c38ca29eeec0e3",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "u1: assume property (@(posedge clk) x != 8'hff);"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "a_tick: assert property (@(posedge tick) x == last_x && y == last_y)"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "#8 tick = 1'b1;          // 8"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.expected",
+              "contains": "checks=3 changed=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.2",
@@ -158829,7 +159404,37 @@
       "acceptance": "An unsuccessful solve causes an assumption failure only when an unsatisfied property is clocked and checked in Observed.",
       "source_note": "IEEE 1800-2023 17.7.2; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_assume_violation.sv",
+          "observation": "どの値でも成立しない assume の違反が、時刻 0 や値の変化時ではなく、その property のクロックイベント（clk_a の 5, 15, 25 と clk_b の 6, 18, 30）にだけ表示される。2 つのクロックは同じ時刻にエッジを持たない。 区別: 違反を解の探索時や値の更新時に報告する実装では、エッジでない時刻の行が出るか、エッジの回数と合わない。clocked された Observed 領域で報告する実装だけが、各クロックのエッジの時刻だけに 3 行ずつ出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cce843a3ea7463b2619600f191c5f2a9b7d3fb83e6739285aa7d455a2d24b46b",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_violation.sv",
+              "contains": "always #5 clk_a = ~clk_a;    // rising edges at 5, 15, 25"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.sv",
+              "contains": "always #6 clk_b = ~clk_b;    // rising edges at 6, 18, 30"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.expected",
+              "contains": "clk_b violation at 6"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.expected",
+              "contains": "clk_a violation at 25"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.expected",
+              "contains": "clk_b violation at 30"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.2",
@@ -158883,7 +159488,33 @@
       "acceptance": "After a solution updates free variables they remain constant until the next assume-set clock event or the end of the time step, whichever comes first.",
       "source_note": "IEEE 1800-2023 17.7.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_assume_stability.sv",
+          "observation": "assume set のイベント（posedge clk）で解かれた x の値を always_ff で last_x に記録し、次のイベント前の tick（8, 18, 28）に x == last_x を検査する。更新後は次のイベントかタイムステップの終わりまで値が変わらないことを観測する。 区別: 解の更新をタイムステップの途中で繰り返す実装では、tick の時点で x が last_x と異なり changed が増える。更新を 1 回だけ行う実装だけが changed=0 を出す。checks=3 は 3 回とも比較が実行されたことを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "55974b78fb56ea40321f2677edc3eb41102d73a87c72626283c38ca29eeec0e3",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "always_ff @(posedge clk) begin"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "last_x <= x;"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "a_tick: assert property (@(posedge tick) x == last_x && y == last_y)"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.expected",
+              "contains": "checks=3 changed=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.2",
@@ -158901,7 +159532,33 @@
       "acceptance": "Immediately before Observed, implementations shall solve active free checker variables using sampled values of all other variables; active variable sampled values are their current values.",
       "source_note": "IEEE 1800-2023 17.7.2; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_assume_stability.sv",
+          "observation": "always_ff の中で x を読むとき、active な自由変数のサンプル値は現在値なので、Observed 領域の前に解かれた値が last_x に入る。次の tick で x と last_x が一致することを検査し、解が手続きより後に起きていないことを観測する。 区別: サンプル値を Preponed 領域の値（前のステップの解）とする実装では、last_x が 1 つ前の値になり tick で x != last_x となって changed が増える。現在値をサンプルする実装だけが changed=0 を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "55974b78fb56ea40321f2677edc3eb41102d73a87c72626283c38ca29eeec0e3",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "always_ff @(posedge clk) begin"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "last_x <= x;"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "a_tick: assert property (@(posedge tick) x == last_x && y == last_y)"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.expected",
+              "contains": "checks=3 changed=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.2",
@@ -158955,7 +159612,29 @@
       "acceptance": "Active variables absent from a nonempty assume set are unconstrained but explicitly clocked and may randomize at each assume-set event.",
       "source_note": "IEEE 1800-2023 17.7.2; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_assume_stability.sv",
+          "observation": "自由変数 y は assume 文に現れないので非空の assume set の中では拘束されないが、明示的に clocked される。y の値を assume set のイベントで記録し、イベントでない tick の時点で前の値と同じかを検査する。 区別: assume に現れない自由変数を暗黙に clocked（毎ステップ更新）と扱う実装では、tick の時点で y が last_y と異なり changed が増える。非空の assume set のイベントだけで更新する実装だけが changed=0 を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "55974b78fb56ea40321f2677edc3eb41102d73a87c72626283c38ca29eeec0e3",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "rand bit [7:0] y;      // active, mentioned by no assumption"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.sv",
+              "contains": "last_y <= y;"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_stability.expected",
+              "contains": "checks=3 changed=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.2",
@@ -184080,7 +184759,65 @@
       "acceptance": "Control types 6 through 11 leave already executing assertions, including pass/fail action execution, unaffected and do not affect violation report types.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B035. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+          "observation": "a_pass の試行中に 7 を呼ぶとその action は実行されて '7 in flight' が 1、制御後に始まった次の試行は '7 new' でも 1 のまま (実行されない)。pass off 中に 6 を呼ぶと off で始まった試行は '6 in flight' が 0、次の試行は '6 new' が 1。fail action でも 9 が 1/1、8 が 0/1、10 は非空虚 pass で 0/1、11 は空虚 pass で 1/1 になる。各制御の間に置いた unique case の報告はすべて出る。 区別: 6〜11 を実行中の試行にも適用する実装では 7 in flight が 0、6 in flight が 1、9 in flight が 0、8 in flight が 1、10 in flight が 1、11 in flight が 2 などになり、違反報告を止める実装では 6 つの unique case の報告が expected_stderr_regex から欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "496e08e6eb51f45e70a6951adfdf504deed146276dcda49a42a11da2f28217f4",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertcontrol(7);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertcontrol(6);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertcontrol(9);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertcontrol(8);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertcontrol(10);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertcontrol(11);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "7 in flight: passes 1, failures 0"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "6 in flight: passes 0, failures 0"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "9 in flight: passes 0, failures 1"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "8 in flight: passes 0, failures 0"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "10 in flight: passes 0, failures 0"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "11 in flight: passes 1, failures 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184098,7 +184835,67 @@
       "acceptance": "$assertcontrol requires an integer control_type, with optional integer assertion/directive masks, integer levels and hierarchical scope/assertion selectors; shorthand control/action tasks accept optional levels and selector lists.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B002, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+          "observation": "$assertcontrol を 1 引数の $assertcontrol(3) と 2 引数の (4,1)、(4,12)、(4,32)、(5,12)、(7,16) の形で呼び、各 mask が対応する型だけを制御する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "466dec0f60433ada5d8829778356ba9ae63ed59744ef56089165aff9398dd706",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "#7 $assertcontrol(4, 1);              // 7: Off concurrent assertions"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "$assertcontrol(4, 12);                // 56: Off observed and final deferred"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.expected",
+              "contains": "57: off after queue: observed 1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+          "observation": "$assertpassoff(0, a_now) と $assertcontrol(7,31,7,0,a_now) など 9 組を (levels, list) 付きで比べ、shorthand と control が同じ passes/fails を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "496e08e6eb51f45e70a6951adfdf504deed146276dcda49a42a11da2f28217f4",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertpassoff(0, a_now); passes = 0; fails = 0;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "passoff shorthand: passes 0, failures 1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $assertcontrol(1)〜(11)、$assertoff、$asserton、$assertkill、$assertpassoff、$assertpasson、$assertfailoff、$assertfailon、$assertvacuousoff、$assertnonvacuouson を呼び、それぞれ system callback が出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertoff;                        // 75"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "75: system off"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "86: system enable pass action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184107,6 +184904,19 @@
             "B004",
             "B005"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "assertcontrol-argument-forms",
+          "tests": [
+            "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+            "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+            "tests/ch20/test_assertcontrol_callbacks_system.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "Test A は $assertcontrol を (control_type) と (control_type, assertion_type) の形で呼び、整数の control_type と mask を受け付けて効果が変わることを示す。Test B は action の shorthand を(levels, list) 付きで $assertcontrol(control_type, assertion_type, directive_type, levels, 階層名) の同形と比べ、Test C は引数なしの control/action shorthand が system callback を出すことを示す。 区別: いずれかの引数形を受け付けない実装ではコンパイルできないか、選択した assertion だけを制御するはずの行が別の assertion の action を変えて期待値と一致しない。"
         }
       ]
     },
@@ -184118,13 +184928,100 @@
       "acceptance": "assertion_type bitwise-OR combines selected assertion/expect/violation types and defaults to 255.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+          "observation": "a_now・simple immediate・observed deferred の fail action を mask 3、mask 1、mask なしの 255 で制御し、'mask 3'/'mask 1'/'no mask' の 3 行で concurrent/simple/observed の実行を比べる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "496e08e6eb51f45e70a6951adfdf504deed146276dcda49a42a11da2f28217f4",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertcontrol(9, 3);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertcontrol(9, 1);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+              "contains": "$assertcontrol(9);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "mask 3: concurrent 0, simple 0, observed 1"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "mask 1: concurrent 0, simple 1, observed 1"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_action_controls_ongoing.expected",
+              "contains": "no mask: concurrent 0, simple 0, observed 0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+          "observation": "mask を省略した $assertcontrol(4) の後に置いた unique case の報告が出ず、mask を省略した $assertcontrol(3) の後に置いた unique case の報告が出る。$assertcontrol(7,16) は expect の pass action を止め、$assertcontrol(6,16) は再び実行する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "466dec0f60433ada5d8829778356ba9ae63ed59744ef56089165aff9398dd706",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "#2 $assertcontrol(4);                 // 70: Off all assertions"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "test_assertcontrol_off_kill_on_pending\\.sv:135:"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "test_assertcontrol_off_kill_on_pending\\.sv:142:"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "#1 $assertcontrol(7, 16);             // 96: PassOff expect statements"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.expected",
+              "contains": "75: off: expect fail actions 1"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.expected",
+              "contains": "95: on during expect: expect fail actions 3"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.expected",
+              "contains": "105: passoff expect: pass actions 0"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.expected",
+              "contains": "115: passon expect: pass actions 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
           "blocks": [
             "B005"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "assertion-type-mask",
+          "tests": [
+            "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+            "tests/ch20/test_assertcontrol_off_kill_on_pending.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "Test B は assertion_type 3 (=1|2) の FailOff で concurrent と simple immediate の fail action だけが止まり observed deferred (4) は実行され、mask 1 では concurrent だけが止まり、mask を省略した 255 では concurrent・simple immediate・observed deferred がすべて止まることを 示す。Test A は mask を省略した Off が unique の違反報告 (32) も止め、同じく mask を省略した On が再び出し、assertion_type 16 の PassOff/PassOn が expect の pass action を止めたり実行したりすることを示す。 区別: mask を OR として扱わない実装では Test B の 'mask 3' の simple が 1 になり、既定を 255 にしない実装では 'no mask' の observed が 1 になり、mask 1 を全型に広げる実装では 'mask 1' の simple が 0 になる。255 が violation report 型を含まない実装では Test A の行 135 の unique case の報告が現れて expected_stderr_regex に反し、行 142 の報告が欠ける。expect 型 16 を選ばない実装では '105: passoff expect: pass actions 0' の pass が 1 になる。"
         }
       ]
     },
@@ -184500,7 +185397,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-1 with selection arguments to cbAssertionLock.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B067. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 1 の $assertcontrol を呼ぶと、2 に a1 の 'lock' callback が出る。a2 には何も出ない。 区別: control_type 1 を a1 の cbAssertionLock 以外に写す実装では 2 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(1, 1, 1, 0, a1);   // 2: Lock"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"lock\", cbAssertionLock}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "2: a1 lock"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184518,7 +185437,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-10 with selection arguments to cbAssertionEnableNonvacuousAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B076. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 10 の $assertcontrol を呼ぶと、14 に a1 の 'enable nonvacuous action' callback が出る。a2 には何も出ない。 区別: control_type 10 を a1 の cbAssertionEnableNonvacuousAction 以外に写す実装では 14 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(10, 1, 1, 0, a1);  // 14: NonvacuousOn"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"enable nonvacuous action\", cbAssertionEnableNonvacuousAction}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "14: a1 enable nonvacuous action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184536,7 +185477,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-11 with selection arguments to cbAssertionDisableVacuousAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B077. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 11 の $assertcontrol を呼ぶと、12 に a1 の 'disable vacuous action' callback が出る。a2 には何も出ない。 区別: control_type 11 を a1 の cbAssertionDisableVacuousAction 以外に写す実装では 12 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(11, 1, 1, 0, a1);  // 12: VacuousOff"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"disable vacuous action\", cbAssertionDisableVacuousAction}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "12: a1 disable vacuous action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184554,7 +185517,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-2 with selection arguments to cbAssertionUnlock.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B068. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 2 の $assertcontrol を呼ぶと、3 に a1 の 'unlock' callback が出る。a2 には何も出ない。 区別: control_type 2 を a1 の cbAssertionUnlock 以外に写す実装では 3 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(2, 1, 1, 0, a1);   // 3: Unlock"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"unlock\", cbAssertionUnlock}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "3: a1 unlock"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184572,7 +185557,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-3 with selection arguments to cbAssertionEnable.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B069. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 3 の $assertcontrol を呼ぶと、5 に a1 の 'enable' callback が出る。a2 には何も出ない。 区別: control_type 3 を a1 の cbAssertionEnable 以外に写す実装では 5 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(3, 1, 1, 0, a1);   // 5: On"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"enable\", cbAssertionEnable}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "5: a1 enable"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184590,7 +185597,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-4 with selection arguments to cbAssertionDisable.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B070. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 4 の $assertcontrol を呼ぶと、4 に a1 の 'disable' callback が出る。a2 には何も出ない。 区別: control_type 4 を a1 の cbAssertionDisable 以外に写す実装では 4 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(4, 1, 1, 0, a1);   // 4: Off"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"disable\", cbAssertionDisable}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "4: a1 disable"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184608,7 +185637,33 @@
       "acceptance": "Table 20-8 maps assertcontrol-5 with selection arguments to cbAssertionReset + cbAssertionDisable.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と a1 を選択子に付けて $assertcontrol(5,1,1,0,a1) を呼ぶと、6 に a1 の 'disable' と 'reset' の 2 つの callback が出る。a2 には何も出ない。 区別: Table 20-8 の cbAssertionReset + cbAssertionDisable ではなく cbAssertionKill だけを出す実装では 6 の 'disable' 行が欠けて 'kill' 行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(5, 1, 1, 0, a1);   // 6: Kill"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"reset\", cbAssertionReset}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "6: a1 disable"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "6: a1 reset"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184626,7 +185681,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-6 with selection arguments to cbAssertionEnablePassAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 6 の $assertcontrol を呼ぶと、9 に a1 の 'enable pass action' callback が出る。a2 には何も出ない。 区別: control_type 6 を a1 の cbAssertionEnablePassAction 以外に写す実装では 9 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(6, 1, 1, 0, a1);   // 9: PassOn"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"enable pass action\", cbAssertionEnablePassAction}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "9: a1 enable pass action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184644,7 +185721,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-7 with selection arguments to cbAssertionDisablePassAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B074. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 7 の $assertcontrol を呼ぶと、8 に a1 の 'disable pass action' callback が出る。a2 には何も出ない。 区別: control_type 7 を a1 の cbAssertionDisablePassAction 以外に写す実装では 8 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(7, 1, 1, 0, a1);   // 8: PassOff"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"disable pass action\", cbAssertionDisablePassAction}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "8: a1 disable pass action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184662,7 +185761,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-8 with selection arguments to cbAssertionEnableFailAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B073. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 8 の $assertcontrol を呼ぶと、11 に a1 の 'enable fail action' callback が出る。a2 には何も出ない。 区別: control_type 8 を a1 の cbAssertionEnableFailAction 以外に写す実装では 11 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(8, 1, 1, 0, a1);   // 11: FailOn"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"enable fail action\", cbAssertionEnableFailAction}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "11: a1 enable fail action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184680,7 +185801,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-9 with selection arguments to cbAssertionDisableFailAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B075. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と assertion a1 を選択子に付けて control_type 9 の $assertcontrol を呼ぶと、10 に a1 の 'disable fail action' callback が出る。a2 には何も出ない。 区別: control_type 9 を a1 の cbAssertionDisableFailAction 以外に写す実装では 10 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertcontrol(9, 1, 1, 0, a1);   // 10: FailOff"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"disable fail action\", cbAssertionDisableFailAction}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "10: a1 disable fail action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184698,7 +185841,25 @@
       "acceptance": "Table 20-8 maps assertfailoff with selection arguments to cbAssertionDisableFailAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B064. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と a1 を選択子に付けて $assertfailoff を呼ぶと、16 に a1 の 'disable fail action' callback が出る。a2 には何も出ない。 区別: $assertfailoff を a1 の cbAssertionDisableFailAction (9) 以外に写す実装では 16 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "$assertfailoff(0, a1);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "16: a1 disable fail action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184716,7 +185877,25 @@
       "acceptance": "Table 20-8 maps assertfailon with selection arguments to cbAssertionEnableFailAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B062. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と a1 を選択子に付けて $assertfailon を呼ぶと、17 に a1 の 'enable fail action' callback が出る。a2 には何も出ない。 区別: $assertfailon を a1 の cbAssertionEnableFailAction (8) 以外に写す実装では 17 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "$assertfailon(0, a1);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "17: a1 enable fail action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184734,7 +185913,33 @@
       "acceptance": "Table 20-8 maps assertkill with selection arguments to cbAssertionReset + cbAssertionDisable.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B060. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と a1 を選択子に付けて $assertkill(0,a1) を呼ぶと、18 に a1 の 'disable' と 'reset' の 2 つの callback が出る。a2 には何も出ない。 区別: Table 20-8 の cbAssertionReset + cbAssertionDisable ではなく cbAssertionKill だけを出す実装では 18 の 'disable' 行が欠けて 'kill' 行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "#1 $assertkill(0, a1);               // 18"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.c",
+              "contains": "{\"reset\", cbAssertionReset}"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "18: a1 disable"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "18: a1 reset"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184752,7 +185957,25 @@
       "acceptance": "Table 20-8 maps assertnonvacuouson with selection arguments to cbAssertionEnableNonvacuousAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B065. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と a1 を選択子に付けて $assertnonvacuouson を呼ぶと、24 に a1 の 'enable nonvacuous action' callback が出る。a2 には何も出ない。 区別: $assertnonvacuouson を a1 の cbAssertionEnableNonvacuousAction (10) 以外に写す実装では 24 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "$assertnonvacuouson(0, a1);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "24: a1 enable nonvacuous action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184850,7 +186073,25 @@
       "acceptance": "Table 20-8 maps assertpassoff with selection arguments to cbAssertionDisablePassAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B063. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と a1 を選択子に付けて $assertpassoff を呼ぶと、20 に a1 の 'disable pass action' callback が出る。a2 には何も出ない。 区別: $assertpassoff を a1 の cbAssertionDisablePassAction (7) 以外に写す実装では 20 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "$assertpassoff(0, a1);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "20: a1 disable pass action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184868,7 +186109,25 @@
       "acceptance": "Table 20-8 maps assertpasson with selection arguments to cbAssertionEnablePassAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B061. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と a1 を選択子に付けて $assertpasson を呼ぶと、21 に a1 の 'enable pass action' callback が出る。a2 には何も出ない。 区別: $assertpasson を a1 の cbAssertionEnablePassAction (6) 以外に写す実装では 21 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "$assertpasson(0, a1);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "21: a1 enable pass action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184886,7 +186145,25 @@
       "acceptance": "Table 20-8 maps assertvacuousoff with selection arguments to cbAssertionDisableVacuousAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B066. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+          "observation": "levels 0 と a1 を選択子に付けて $assertvacuousoff を呼ぶと、22 に a1 の 'disable vacuous action' callback が出る。a2 には何も出ない。 区別: $assertvacuousoff を a1 の cbAssertionDisableVacuousAction (11) 以外に写す実装では 22 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+              "contains": "$assertvacuousoff(0, a1);"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_selected.expected",
+              "contains": "22: a1 disable vacuous action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184904,7 +186181,33 @@
       "acceptance": "Table 20-8 maps assertcontrol-1 without explicit selection arguments to cbAssertionSysLock.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B067. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数の選択子を付けずに $assertcontrol(1) を呼ぶと 61 に 'system lock' が出て、直後の $assertcontrol(2) で 62 に 'system unlock' が出る。 区別: control_type 1 を cbAssertionSysLock 以外に写す実装では 61 の行の名前が変わるか欠け、cbAssertionSysUnlock を出さない実装では 62 の行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(1);                 // 61: Lock"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysLock, \"lock\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "61: system lock"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "62: system unlock"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184922,7 +186225,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-10 without explicit selection arguments to cbAssertionSysEnableNonvacuousAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B076. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "PassOff の後に引数の選択子なしで $assertcontrol(10) を呼ぶと 73 に 'system enable nonvacuous action' が出る。 区別: control_type 10 を cbAssertionSysEnableNonvacuousAction 以外に写す実装では 73 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(10);                // 73: NonvacuousOn"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysEnableNonvacuousAction, \"enable nonvacuous action\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "73: system enable nonvacuous action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184940,7 +186265,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-11 without explicit selection arguments to cbAssertionSysDisableVacuousAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B077. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数の選択子なしで $assertcontrol(11) を呼ぶと 71 に 'system disable vacuous action' が出る。 区別: control_type 11 を cbAssertionSysDisableVacuousAction 以外に写す実装では 71 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(11);                // 71: VacuousOff"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysDisableVacuousAction, \"disable vacuous action\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "71: system disable vacuous action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184958,7 +186305,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-2 without explicit selection arguments to cbAssertionSysUnlock.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B068. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "Lock の直後に引数の選択子なしで $assertcontrol(2) を呼ぶと 62 に 'system unlock' が出る。 区別: control_type 2 を cbAssertionSysUnlock 以外に写す実装では 62 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(2);                 // 62: Unlock"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysUnlock, \"unlock\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "62: system unlock"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184976,7 +186345,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-3 without explicit selection arguments to cbAssertionSysOn.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B069. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "Off の後に引数の選択子なしで $assertcontrol(3) を呼ぶと 64 に 'system on' が出る。 区別: control_type 3 を cbAssertionSysOn 以外に写す実装では 64 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(3);                 // 64: On"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysOn, \"on\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "64: system on"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -184994,7 +186385,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-4 without explicit selection arguments to cbAssertionSysOff.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B070. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "動いている assertion system に引数の選択子なしで $assertcontrol(4) を呼ぶと 63 に 'system off' が出る。 区別: control_type 4 を cbAssertionSysOff 以外に写す実装では 63 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(4);                 // 63: Off"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysOff, \"off\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "63: system off"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185012,7 +186425,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-5 without explicit selection arguments to cbAssertionSysKill.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B071. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "On の後に引数の選択子なしで $assertcontrol(5) を呼ぶと 65 に 'system kill' が出る。 区別: control_type 5 を cbAssertionSysKill 以外に写す実装では 65 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(5);                 // 65: Kill"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysKill, \"kill\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "65: system kill"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185030,7 +186465,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-6 without explicit selection arguments to cbAssertionSysEnablePassAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B072. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "PassOff の後に引数の選択子なしで $assertcontrol(6) を呼ぶと 68 に 'system enable pass action' が出る。 区別: control_type 6 を cbAssertionSysEnablePassAction 以外に写す実装では 68 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(6);                 // 68: PassOn"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysEnablePassAction, \"enable pass action\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "68: system enable pass action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185048,7 +186505,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-7 without explicit selection arguments to cbAssertionSysDisablePassAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B074. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数の選択子なしで $assertcontrol(7) を呼ぶと 67 に 'system disable pass action' が出る。 区別: control_type 7 を cbAssertionSysDisablePassAction 以外に写す実装では 67 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(7);                 // 67: PassOff"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysDisablePassAction, \"disable pass action\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "67: system disable pass action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185066,7 +186545,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-8 without explicit selection arguments to cbAssertionSysEnableFailAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B073. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "FailOff の後に引数の選択子なしで $assertcontrol(8) を呼ぶと 70 に 'system enable fail action' が出る。 区別: control_type 8 を cbAssertionSysEnableFailAction 以外に写す実装では 70 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(8);                 // 70: FailOn"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysEnableFailAction, \"enable fail action\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "70: system enable fail action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185084,7 +186585,29 @@
       "acceptance": "Table 20-8 maps assertcontrol-9 without explicit selection arguments to cbAssertionSysDisableFailAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B075. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数の選択子なしで $assertcontrol(9) を呼ぶと 69 に 'system disable fail action' が出る。 区別: control_type 9 を cbAssertionSysDisableFailAction 以外に写す実装では 69 の行の名前が変わるか欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "#1 $assertcontrol(9);                 // 69: FailOff"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysDisableFailAction, \"disable fail action\");"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "69: system disable fail action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185102,7 +186625,29 @@
       "acceptance": "Table 20-8 maps assertfailoff without explicit selection arguments to cbAssertionSysDisableFailAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B064. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $assertfailoff を呼ぶと 81 に 'system disable fail action' が出る。 区別: $assertfailoff を cbAssertionSysDisableFailAction 以外の reason に写す実装では 81 の行の名前が変わるか行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$assertfailoff;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysDisableFailAction,"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "81: system disable fail action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185120,7 +186665,29 @@
       "acceptance": "Table 20-8 maps assertfailon without explicit selection arguments to cbAssertionSysEnableFailAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B062. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $assertfailon を呼ぶと 82 に 'system enable fail action' が出る。 区別: $assertfailon を cbAssertionSysEnableFailAction 以外の reason に写す実装では 82 の行の名前が変わるか行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$assertfailon;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysEnableFailAction,"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "82: system enable fail action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185138,7 +186705,29 @@
       "acceptance": "Table 20-8 maps assertkill without explicit selection arguments to cbAssertionSysKill.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B060. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $assertkill を呼ぶと 77 に 'system kill' が出る。 区別: $assertkill を cbAssertionSysKill 以外の reason に写す実装では 77 の行の名前が変わるか行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$assertkill;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysKill,"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "77: system kill"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185156,7 +186745,29 @@
       "acceptance": "Table 20-8 maps assertnonvacuouson without explicit selection arguments to cbAssertionSysEnableNonvacuousAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B065. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $assertnonvacuouson を呼ぶと 85 に 'system enable nonvacuous action' が出る。 区別: $assertnonvacuouson を cbAssertionSysEnableNonvacuousAction 以外の reason に写す実装では 85 の行の名前が変わるか行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$assertnonvacuouson;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysEnableNonvacuousAction,"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "85: system enable nonvacuous action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185174,7 +186785,29 @@
       "acceptance": "Table 20-8 maps assertoff without explicit selection arguments to cbAssertionSysOff.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B059. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $assertoff を呼ぶと 75 に 'system off' が出る。 区別: $assertoff を cbAssertionSysOff 以外の reason に写す実装では 75 の行の名前が変わるか行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$assertoff;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysOff,"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "75: system off"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185192,7 +186825,29 @@
       "acceptance": "Table 20-8 maps asserton without explicit selection arguments to cbAssertionSysOn.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B058. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $asserton を呼ぶと 76 に 'system on' が出る。 区別: $asserton を cbAssertionSysOn 以外の reason に写す実装では 76 の行の名前が変わるか行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$asserton;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysOn,"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "76: system on"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185210,7 +186865,29 @@
       "acceptance": "Table 20-8 maps assertpassoff without explicit selection arguments to cbAssertionSysDisablePassAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B063. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $assertpassoff を呼ぶと 79 に 'system disable pass action' が出る。 区別: $assertpassoff を cbAssertionSysDisablePassAction 以外の reason に写す実装では 79 の行の名前が変わるか行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$assertpassoff;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysDisablePassAction,"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "79: system disable pass action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185228,7 +186905,29 @@
       "acceptance": "Table 20-8 maps assertpasson without explicit selection arguments to cbAssertionSysEnablePassAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B061. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $assertpasson を呼ぶと 80 に 'system enable pass action' が出る。 区別: $assertpasson を cbAssertionSysEnablePassAction 以外の reason に写す実装では 80 の行の名前が変わるか行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$assertpasson;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysEnablePassAction,"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "80: system enable pass action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -185246,7 +186945,29 @@
       "acceptance": "Table 20-8 maps assertvacuousoff without explicit selection arguments to cbAssertionSysDisableVacuousAction.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B066. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+          "observation": "引数なしの $assertvacuousoff を呼ぶと 83 に 'system disable vacuous action' が出る。 区別: $assertvacuousoff を cbAssertionSysDisableVacuousAction 以外の reason に写す実装では 83 の行の名前が変わるか行が欠ける。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+              "contains": "$assertvacuousoff;"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.c",
+              "contains": "place(cbAssertionSysDisableVacuousAction,"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_callbacks_system.expected",
+              "contains": "83: system disable vacuous action"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -186500,7 +188221,41 @@
       "acceptance": "On re-enables selected assertion checking and violation reporting but does not affect expect.",
       "source_note": "IEEE 1800-2023 20.11; complete own-body source review, blocks B034. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+          "observation": "Off の後に $assertcontrol(3,1) で On にすると 25 に次の試行が始まり (27 の Kill で中断)、37 の On の後の 45 の試行が 55 に失敗して総失敗数が 2 になる。$assertcontrol(3,32) で unique 違反報告を On にすると 68 の unique case の報告が再び出て、expect が待っている間に $assertcontrol(3) を呼んでも expect の失敗 action は 95 に実行される。 区別: On が新しい試行を再開しない実装では '56: on: total fails 2' が 1 のままになり、違反報告を再開しない実装では行 130 の報告が expected_stderr_regex に現れず、On が expect を止める実装では '95: on during expect: expect fail actions 3' が 2 のままになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "466dec0f60433ada5d8829778356ba9ae63ed59744ef56089165aff9398dd706",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "#1 $assertcontrol(3, 1);              // 17: On concurrent assertions"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "#1 $assertcontrol(3, 32);             // 68: On unique violation reports"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "#4 $assertcontrol(3);               // 90: On while the expect waits"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+              "contains": "test_assertcontrol_off_kill_on_pending\\.sv:130:"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.expected",
+              "contains": "56: on: total fails 2"
+            },
+            {
+              "file": "tests/ch20/test_assertcontrol_off_kill_on_pending.expected",
+              "contains": "95: on during expect: expect fail actions 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.11",
@@ -292899,7 +294654,45 @@
       "acceptance": "Under 1364-1995 compatibility, vpiVariables includes vpiReg/vpiRegArray is not applicable or absent, per Table 36-10.",
       "source_note": "IEEE 1800-2023 36.12.1; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_compat_1364v1995_iterations.sv",
+          "observation": "1364v1995 互換モードで、モジュールの vpiVariables を反復する。スカラーの integer/time/real 変数 iv rv tv が 3 つとも含まれること（1 行目が 1）、vpiReg のスカラー rg と vpiMemory の mem が含まれないこと（2 行目が 0, 0）、反復したどのオブジェクトの vpiType も vpiReg でも vpiRegArray でもないこと（3 行目が 0）を出力する。同じ実行で rg と mem は名前で引くとそれぞれ vpiReg と vpiMemory として見つかり、値を読める（read 行）。 区別: vpiVariables に vpiReg を含める実装では 2 行目の rg が 1 になり 3 行目も 1 以上になる。vpiMemory の mem を vpiVariables に含める実装では 2 行目の mem が 1 になる。vpiRegArray を 1364-1995 でも作る実装では 3 行目が 1 になる。いずれも表 36-10 の 1364-1995 列の行 5（vpiReg/vpiRegArray は vpiVariables に含まれない）に反する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "925269fc37d73000786361d7afab2477f9e4822afd4f89a0e9008cf86cc576de",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.sv",
+              "contains": "reg [7:0] mem [0:3];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.sv",
+              "contains": "reg [3:0] rg;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.c",
+              "contains": "it = vpi_iterate(vpiVariables, top);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.c",
+              "contains": "regs |= type == vpiReg || type == vpiRegArray;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.expected",
+              "contains": "vpiVariables contains iv rv tv: 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.expected",
+              "contains": "rg in vpiVariables: 0, mem in vpiVariables: 0"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.expected",
+              "contains": "vpiReg or vpiRegArray in vpiVariables: 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.12.1",
@@ -293170,7 +294963,41 @@
       "acceptance": "Under 1364-1995 compatibility, vpiReg iteration on vpiRegArray includes other variable objects is not applicable or absent, per Table 36-10.",
       "source_note": "IEEE 1800-2023 36.12.1; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_compat_1364v1995_iterations.sv",
+          "observation": "1364v1995 互換モードで、モジュールに対する vpiRegArray の反復結果を出力する。反復子が NULL で（vpiRegArray of the module: NULL）、vpiRegArray オブジェクトが 1 つもないため、それぞれに対する vpiReg の反復も 0 arrays, 0 objects になる。同じ実行の types 行で、reg 配列 mem は vpiMemory、integer/time 配列 ia ta は vpiIntegerVar/vpiTimeVar であり、vpiRegArray 型のオブジェクトが存在しないことを示す。 区別: 1800 の挙動をそのまま返す実装では mem/ia/ta などが vpiRegArray として列挙され、0 arrays が 1 以上になる。さらにそれらの vpiReg 反復が vpiIntegerVar や vpiTimeVar を返せば objects が 0 でなくなり、表 36-10 の行 6 が 1364-1995 で N（vpiRegArray 上の vpiReg 反復に他のオブジェクトを含まない）であることに反する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "925269fc37d73000786361d7afab2477f9e4822afd4f89a0e9008cf86cc576de",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.sv",
+              "contains": "#1 $vt_compat;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.c",
+              "contains": "it = vpi_iterate(vpiRegArray, top);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.c",
+              "contains": "vpiHandle eit = vpi_iterate(vpiReg, obj), elem;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.expected",
+              "contains": "vpiRegArray of the module: NULL"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.expected",
+              "contains": "vpiReg of each vpiRegArray: 0 arrays, 0 objects"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.expected",
+              "contains": "types: mem vpiMemory, ia vpiIntegerVar, ta vpiTimeVar, rg vpiReg, iv vpiIntegerVar, tv vpiTimeVar, rv vpiRealVar"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.12.1",
@@ -293444,7 +295271,41 @@
       "acceptance": "Under 1364-1995 compatibility, vpiRegArray iteration includes other variable arrays is not applicable or absent, per Table 36-10.",
       "source_note": "IEEE 1800-2023 36.12.1; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_compat_1364v1995_iterations.sv",
+          "observation": "1364v1995 互換モードで、モジュールの vpiRegArray 反復が NULL を返し（0 個）、vpiRegArray オブジェクトが存在しないことを出力する。同時に types 行で、variable array である整数配列 ia と time 配列 ta がそれぞれ vpiIntegerVar と vpiTimeVar という単一オブジェクト型であり、vpiRegArray ではないことを示す。 区別: 1800 のように variable array を vpiRegArray に含める実装では vpiRegArray 行が NULL でなく ia/ta/mem を列挙し、0 arrays も 2 以上になる。表 36-10 の行 7 は 1364-1995 で N（vpiRegArray 反復に variable array を含まない）なので、期待出力と食い違う。ia/ta を vpiRegArray 型にすると types 行も変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "925269fc37d73000786361d7afab2477f9e4822afd4f89a0e9008cf86cc576de",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.sv",
+              "contains": "integer ia [0:1];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.sv",
+              "contains": "time ta [0:1];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.c",
+              "contains": "it = vpi_iterate(vpiRegArray, top);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.expected",
+              "contains": "vpiRegArray of the module: NULL"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.expected",
+              "contains": "vpiReg of each vpiRegArray: 0 arrays, 0 objects"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compat_1364v1995_iterations.expected",
+              "contains": "types: mem vpiMemory, ia vpiIntegerVar, ta vpiTimeVar, rg vpiReg, iv vpiIntegerVar, tv vpiTimeVar, rv vpiRealVar"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.12.1",
@@ -295216,7 +297077,53 @@
       "acceptance": "Since 1800-2012, vpiInterfaceDecl (alias vpiVirtualInterfaceVar) iteration is disallowed on lexical vpiClassDefn but allowed on active vpiClassTypespec; returned objects are vpiVirtualInterfaceVar rather than vpiRefObj.",
       "source_note": "IEEE 1800-2023 36.12.1; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_interface_decl_class_current_mode.sv",
+          "observation": "現行モード（互換マクロなし）で、vpiInterfaceDecl が vpiVirtualInterfaceVar と等しいこと（1）、クラス定義 holder の vpiClassDefn に対する vpiInterfaceDecl 反復が NULL であること、変数 h の vpiTypespec が vpiClassTypespec であり、その型指定に対する vpiInterfaceDecl 反復が仮想インタフェースメンバ vif を vpiVirtualInterfaceVar として返すことを出力する。 区別: 1800-2012 以降は字句的な vpiClassDefn 上の反復を許さないので、許す実装ではクラス定義の行が NULL でなく vif を返す。型指定上の反復を許さない実装では最終行が NULL になる。vpiRefObj を返す実装では最終行の型が vpiRefObj になる。いずれも行 8/9 の 1800-2012 以降の記述と食い違う。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "65ca3464cfbcd6064ffc3561df6a3c1797ce2c4396fb7357092571121c99caf9",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_interface_decl_class_current_mode.sv",
+              "contains": "virtual vic_if vif;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_interface_decl_class_current_mode.c",
+              "contains": "it = top == NULL ? NULL : vpi_iterate(vpiClassDefn, top);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_interface_decl_class_current_mode.c",
+              "contains": "show(\"vpiInterfaceDecl of the class defn\", vpiInterfaceDecl, defn);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_interface_decl_class_current_mode.c",
+              "contains": "ts = h == NULL ? NULL : vpi_handle(vpiTypespec, h);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_interface_decl_class_current_mode.c",
+              "contains": "show(\"vpiInterfaceDecl of the class typespec\", vpiInterfaceDecl, ts);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_interface_decl_class_current_mode.expected",
+              "contains": "vpiInterfaceDecl is vpiVirtualInterfaceVar: 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_interface_decl_class_current_mode.expected",
+              "contains": "vpiInterfaceDecl of the class defn: NULL"
+            },
+            {
+              "file": "tests/ch36/test_vpi_interface_decl_class_current_mode.expected",
+              "contains": "typespec of h: vpiClassTypespec"
+            },
+            {
+              "file": "tests/ch36/test_vpi_interface_decl_class_current_mode.expected",
+              "contains": "vpiInterfaceDecl of the class typespec: vif vpiVirtualInterfaceVar"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.12.1",
@@ -295234,13 +297141,88 @@
       "acceptance": "Since 1364-2005 vpiMemory is a one-to-many transition and vpiMemoryWord an iterator, not object types; unidimensional reg arrays/elements use vpiRegArray/vpiReg. In 1364-2001 either old or replacement object form was allowed.",
       "source_note": "IEEE 1800-2023 36.12.1; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_variable_arrays_1364v2005_mode.sv",
+          "observation": "1364v2005 モードで、モジュールの vpiMemory 反復が mem を vpiRegArray として返し、mem の vpiType が vpiRegArray であること、mem の vpiMemoryWord 反復がちょうど 4 個で型がすべて vpiReg であることを出力する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "02de2f9b265c93eeb0d32bd6959a7fb64d978d3aff72ea3f5704a494016f45da",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2005_mode.sv",
+              "contains": "reg [7:0] mem [0:3];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2005_mode.c",
+              "contains": "it = vpi_iterate(vpiMemory, top);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2005_mode.c",
+              "contains": "count_types(\"vpiMemoryWord of mem\", vpiMemoryWord, find(\"mem\"));"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2005_mode.expected",
+              "contains": "types: mem vpiRegArray, ia vpiIntegerVar, ta vpiTimeVar, ra vpiRealVar, rg vpiReg"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2005_mode.expected",
+              "contains": "vpiMemory of the module: mem among them 1, types vpiRegArray"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2005_mode.expected",
+              "contains": "vpiMemoryWord of mem: 4 objects, types vpiReg"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch36/test_vpi_variable_arrays_1364v2001_mode.sv",
+          "observation": "1364v2001 モードで、reg 配列 mem が vpiMemory か vpiRegArray のどちらかであり、vpi_handle_by_index(mem, 0) が vpiMemoryWord か vpiReg のどちらかであることを、両方を受け入れる比較の 1 で出力する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e798731310faddb05afa1b34a48a90be2558d4c9c8af33cff5967f63091085be",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2001_mode.sv",
+              "contains": "reg [7:0] mem [0:3];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2001_mode.c",
+              "contains": "type = mem == NULL ? 0 : vpi_get(vpiType, mem);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2001_mode.c",
+              "contains": "vpi_printf(\"mem is a vpiMemory or a vpiRegArray: %d\\n\","
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2001_mode.expected",
+              "contains": "mem is a vpiMemory or a vpiRegArray: 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_1364v2001_mode.expected",
+              "contains": "mem word 0 (vpi_handle_by_index) is a vpiMemoryWord or a vpiReg: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.12.1",
           "blocks": [
             "B017"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "memory-transitions-2005-2001",
+          "tests": [
+            "tests/ch36/test_vpi_variable_arrays_1364v2005_mode.sv",
+            "tests/ch36/test_vpi_variable_arrays_1364v2001_mode.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "1364v2005 モードでは、reg 配列 mem の vpiType が vpiRegArray で、vpiMemory 反復が mem を vpiRegArray として 1 個返し（オブジェクト型ではなく one-to-many transition）、vpiMemoryWord 反復が mem の 4 語をすべて vpiReg として返す（イテレータであってオブジェクト型ではない）。1364v2001 モードでは、同じ mem が vpiMemory または vpiRegArray のいずれかであり、その語が vpiMemoryWord または vpiReg のいずれかであることを、両方を許す判定（1）で確認する。 区別: 1364-2005 で vpiMemory/vpiMemoryWord を従来のオブジェクト型のまま返す実装では、types 行が vpiRegArray でなく vpiMemory になり、vpiMemoryWord の 4 objects の型が vpiReg でなくなる。2001 でどちらの形式も認めない実装は 2 つの 1 行を 0 にする。よって一方でも誤ると期待出力が変わる。"
         }
       ]
     },
@@ -295252,7 +297234,37 @@
       "acceptance": "vpiReg and vpiRegArray are aliases of vpiLogicVar and vpiArrayVar respectively.",
       "source_note": "IEEE 1800-2023 36.12.1; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+          "observation": "現行モード（互換マクロなし）で、vpiReg が vpiLogicVar と等しく、vpiRegArray が vpiArrayVar と等しいことを、実行時に 2 つの比較結果として出力する（vpiReg is vpiLogicVar: 1, vpiRegArray is vpiArrayVar: 1）。このアプリは vpiReg/vpiRegArray の名前で型を表示し、vpiReg の反復や vpiRegArray の反復もその名前で行う。 区別: vpiReg と vpiLogicVar、または vpiRegArray と vpiArrayVar が別の型定数である実装では、対応する比較が 0 になる。表 36-10 の直後の記述は両者を同じ型の別名としているので、期待出力と食い違う。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fa19aa47ad2b319dfef6aa41c8eb8475461066ed92716f4a32f97141882f230a",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "logic [3:0] lv;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "reg [7:0] mem [0:3];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.c",
+              "contains": "vpi_printf(\"vpiReg is vpiLogicVar: %d, vpiRegArray is vpiArrayVar: %d\\n\","
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.c",
+              "contains": "vpiReg == vpiLogicVar, vpiRegArray == vpiArrayVar);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.expected",
+              "contains": "vpiReg is vpiLogicVar: 1, vpiRegArray is vpiArrayVar: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.12.1",
@@ -295270,7 +297282,53 @@
       "acceptance": "Current integer/time/real scalar variables use their scalar VPI object types, while their unpacked arrays are vpiRegArray, unlike the older modes.",
       "source_note": "IEEE 1800-2023 36.12.1; complete own-body source review, blocks B017, B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+          "observation": "現行モードで、スカラーの integer/time/real 変数 iv tv rv の vpiType がそれぞれ vpiIntegerVar/vpiTimeVar/vpiRealVar であること、同じ型のアンパック配列 ia ta ra の vpiType がすべて vpiRegArray（vpiArrayVar）であることを、types 行と vpiVariables の name:type 行で出力する。 区別: 配列 ia/ta/ra を要素のスカラー型 vpiIntegerVar/vpiTimeVar/vpiRealVar として返す実装では types 行と vpiVariables 行の ia/ta/ra が変わる。逆にスカラー iv/tv/rv を vpiRegArray にする実装では iv/vpiIntegerVar などの行が変わる。36.12.1 の行 3/4 の詳細は、現行版では integer/time/real の配列を常に vpiRegArray とし、スカラーはスカラー型のままと定める。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fa19aa47ad2b319dfef6aa41c8eb8475461066ed92716f4a32f97141882f230a",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "integer ia [0:1];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "integer iv;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "time ta [0:1];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "time tv;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "real ra [0:1];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "real rv;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.c",
+              "contains": "vpi_printf(\"types: mem %s, ia %s, ta %s, ra %s, lv %s, iv %s, tv %s, rv %s\\n\","
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.expected",
+              "contains": "types: mem vpiRegArray, ia vpiRegArray, ta vpiRegArray, ra vpiRegArray, lv vpiReg, iv vpiIntegerVar, tv vpiTimeVar, rv vpiRealVar"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.expected",
+              "contains": "vpiVariables of the module: ia:vpiRegArray iv:vpiIntegerVar lv:vpiReg mem:vpiRegArray ra:vpiRegArray rv:vpiRealVar ta:vpiRegArray tv:vpiTimeVar"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.12.1",
@@ -295289,7 +297347,57 @@
       "acceptance": "Current vpiVariables includes regs and variable arrays; vpiReg element iterations and vpiRegArray array iterations can include integer/time/real variable kinds, unlike older modes.",
       "source_note": "IEEE 1800-2023 36.12.1; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+          "observation": "現行モードで、モジュールの vpiVariables 反復に reg の lv（lv:vpiReg）と reg 配列 mem（mem:vpiRegArray）が含まれること、vpiRegArray 反復が ia mem ra ta を返すこと、vpiRegArray に対する vpiReg 反復が ia では vpiIntegerVar、ta では vpiTimeVar、ra では vpiRealVar を 2 個ずつ返すことを出力する。 区別: 現行版で vpiVariables から vpiReg/vpiRegArray を除く実装では vpiVariables 行から lv/mem が消える。vpiRegArray 反復に整数・時間・実数の配列を含めない実装では vpiRegArray 行が mem だけになる。vpiReg 要素反復が要素を vpiReg 型で返す実装では vpiReg of ia/ta/ra の型が vpiReg になる。36.12.1 の行 5〜7 の現行版の記述にそれぞれ反する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fa19aa47ad2b319dfef6aa41c8eb8475461066ed92716f4a32f97141882f230a",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "integer ia [0:1];"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.sv",
+              "contains": "logic [3:0] lv;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.c",
+              "contains": "it = vpi_iterate(vpiVariables, top);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.c",
+              "contains": "count_types(\"vpiReg of ia\", vpiReg, find(\"ia\"));"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.c",
+              "contains": "it = vpi_iterate(vpiRegArray, top);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.expected",
+              "contains": "vpiVariables of the module: ia:vpiRegArray iv:vpiIntegerVar lv:vpiReg mem:vpiRegArray ra:vpiRegArray rv:vpiRealVar ta:vpiRegArray tv:vpiTimeVar"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.expected",
+              "contains": "vpiReg of ia: 2 objects, types vpiIntegerVar"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.expected",
+              "contains": "vpiReg of ta: 2 objects, types vpiTimeVar"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.expected",
+              "contains": "vpiReg of ra: 2 objects, types vpiRealVar"
+            },
+            {
+              "file": "tests/ch36/test_vpi_variable_arrays_current_mode.expected",
+              "contains": "vpiRegArray of the module: ia mem ra ta"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.12.1",
@@ -391606,7 +393714,33 @@
       "acceptance": "Starting already started coverage has no effect; repeated stop/reset with no intervening change is idempotent.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_check_while_stopped.sv",
+          "observation": "同じ cc_probe に対し、収集中に SV_COV_START を続けて 2 回呼び、その間に信号が変化しない状態で $coverage_get を 2 回読む。STOP も 2 回続けて呼び、2 回目も OK を返すことと、停止前後で CHECK の値が変わらないことを確かめる。 区別: 開始済みの階層への START が収集値をリセットしたり、2 回目の STOP が失敗したりすれば value1==value2 または stop==OK の表示が 0 になり、期待値と一致しなくなる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ec9883a36d394a507ce236ef0d966695accfbf03f399b6c3b0ffb8f3f3607c9a",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.sv",
+              "contains": "start2 = $coverage_control(`SV_COV_START, coverage_type, `SV_COV_MODULE, \"cc_probe\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.sv",
+              "contains": "name, stop1 == `SV_COV_OK && stop2 == `SV_COV_OK);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.expected",
+              "contains": "toggle: a repeated start leaves coverage alone: 1"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.expected",
+              "contains": "toggle: stop gives OK: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -391642,7 +393776,33 @@
       "acceptance": "SV_COV_CHECK reports availability, independently of whether collection is currently stopped.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_check_while_stopped.sv",
+          "observation": "同じ階層で CHECK を STOP の前、1 回目の STOP の後、2 回目の STOP の後に呼び、3 回とも同じ値を返すことを表示する。CHECK の後ろでは収集値も変化させていない。 区別: CHECK が収集の有無を返す実装なら、STOP の後の値が NOCOV に変わりcheck is unchanged by stopping の行が 0 になる。可用性を返す実装だけが 1 を表示する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ec9883a36d394a507ce236ef0d966695accfbf03f399b6c3b0ffb8f3f3607c9a",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.sv",
+              "contains": "check1 = $coverage_control(`SV_COV_CHECK, coverage_type, `SV_COV_MODULE, \"cc_probe\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.sv",
+              "contains": "name, check1 == check0 && check2 == check0);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.expected",
+              "contains": "toggle: check is unchanged by stopping: 1"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.expected",
+              "contains": "statement: check is unchanged by stopping: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -391696,7 +393856,33 @@
       "acceptance": "SV_COV_RESET clears available coverage in the selected hierarchy and has no effect where coverage is unavailable.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+          "observation": "cc_work のビット 0 と 7 をトグルした後で SV_COV_RESET を呼び、直後に $coverage_get を読んで 0 であることを表示する。RESET を2 回続けて呼び、どちらも OK を返すことも表示する。 区別: RESET が収集値を消さなければ after_reset==0 の行が 0 になり、2 回目の RESET が失敗すれば reset gives OK, also when repeated が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "812dc57bc8157f6b8b004d1a9252dbf7944fffaeccba3b821ee7b582d5df5691",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+              "contains": "reset1 = $coverage_control(`SV_COV_RESET, `SV_COV_TOGGLE, `SV_COV_MODULE, \"cc_work\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+              "contains": "after_reset = $coverage_get(`SV_COV_TOGGLE"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.expected",
+              "contains": "a reset clears the collected values: 1"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.expected",
+              "contains": "reset gives OK, also when repeated: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -391714,7 +393900,37 @@
       "acceptance": "SV_COV_START starts collection where possible, has no effect if already collecting, and collection starts automatically at simulation start for enabled hierarchy portions.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+          "observation": "START を一度も呼ばずに cc_work のビット 0 をトグルし、$coverage_get が0 より大きいことで自動開始を観測する。収集中の START が値を変えず、STOP 後の START で未トグルのビット 6 が加算されることを表示する。 区別: 自動開始が無ければ before_any_control>0 の行が 0 になり、開始済みのSTART が収集を初期化すれば値が変わり、再 START が収集を再開しなければafter_restart>after_repeated_start の行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "812dc57bc8157f6b8b004d1a9252dbf7944fffaeccba3b821ee7b582d5df5691",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+              "contains": "    u.pulse(0);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+              "contains": "check != `SV_COV_OK || before_any_control > 0);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+              "contains": "check != `SV_COV_OK || after_restart > after_repeated_start);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.expected",
+              "contains": "coverage is collected before any start call: 1"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.expected",
+              "contains": "a restart collects the toggles again: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -391732,7 +393948,33 @@
       "acceptance": "SV_COV_STOP stops collection and has no effect when not collecting.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+          "observation": "ビット 7 を STOP の最中にトグルし、STOP の前後で $coverage_get が変化しないこと（while_stopped == after_repeated_start）を表示する。STOP 自体が OK を返すことも表示する。 区別: STOP が収集を止めなければ停止中のビット 7 が加算されて 2 行が 0 になり、STOP が失敗すれば stop gives OK が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "812dc57bc8157f6b8b004d1a9252dbf7944fffaeccba3b821ee7b582d5df5691",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+              "contains": "stop1 = $coverage_control(`SV_COV_STOP, `SV_COV_TOGGLE, `SV_COV_MODULE, \"cc_work\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.sv",
+              "contains": "while_stopped == after_repeated_start);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.expected",
+              "contains": "a stopped hierarchy collects no toggle: 1"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_start_stop_counts.expected",
+              "contains": "stop gives OK: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -391750,7 +393992,37 @@
       "acceptance": "With SV_COV_HIER, a quoted module definition name selects every instance of that module and descendants; an instance path selects that instance and descendants.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B013, B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_scope_selection.sv",
+          "observation": "m1.u と m2.u の 2 つの cc_leaf インスタンスを持つ m1, m2 について、定義名 \"cc_mid\" + HIER の最大値が両インスタンスの HIER の和に等しく、インスタンスパス m1 + HIER の最大値が m1 の MODULE とその子 m1.u の HIER の和に等しいことを表示する。 区別: HIER が子孫を含まなければ hier_def == hier_m1 + hier_m2 と hier_m1 == module_m1 + hier_m1_leaf の行が 0 になり、定義名とインスタンスパスのどちらかが他方の階層を含まなければ和が合わない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cb58d3cff3c16839c6731d97fe916ae1d4274ceac0c3b1a1db00d389cfbcbb4b",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.sv",
+              "contains": "hier_m1_leaf = $coverage_get_max(`SV_COV_TOGGLE, `SV_COV_HIER, m1.u);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.sv",
+              "contains": "hier_def == hier_m1 + hier_m2);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.sv",
+              "contains": "hier_m1 == module_m1 + hier_m1_leaf"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.expected",
+              "contains": "hierarchy of a definition sums its instances: 1"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.expected",
+              "contains": "hierarchy of an instance includes its children: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -391769,7 +394041,29 @@
       "acceptance": "With SV_COV_HIER, a definition string sums all module instances plus their descendants; an instance path includes that instance and all descendants.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_scope_selection.sv",
+          "observation": "表 40-2 の定義名の行: 定義名 \"cc_mid\" の HIER の最大値が、2 インスタンス m1, m2 の HIER の最大値の和に等しいことを表示する（m1 と m2 が cc_mid の全インスタンス）。 区別: 定義名 + HIER が「全インスタンスとその下の階層の和」でなければ、hier_def == hier_m1 + hier_m2 の行が 1 にならない。片方だけを数えれば和は一致しない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cb58d3cff3c16839c6731d97fe916ae1d4274ceac0c3b1a1db00d389cfbcbb4b",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.sv",
+              "contains": "hier_def = $coverage_get_max(`SV_COV_TOGGLE, `SV_COV_HIER, \"cc_mid\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.sv",
+              "contains": "hier_def == hier_m1 + hier_m2);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.expected",
+              "contains": "hierarchy of a definition sums its instances: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -391787,7 +394081,33 @@
       "acceptance": "With SV_COV_MODULE, a definition string sums all instances of the module excluding their child hierarchy; an instance path selects only that instance without children.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_scope_selection.sv",
+          "observation": "定義名 \"cc_mid\" + MODULE の最大値が、HIER の最大値から 2 つの葉インスタンス m1.u, m2.u の HIER の最大値を引いた値に等しいことを表示する。また葉の m1.u では MODULE と HIER が等しいことを表示する。 区別: MODULE が子階層を含めば module_def == hier_def - hier_m1_leaf - hier_m2_leaf が 0 になり、子を含めないなら差し引きで一致する。葉インスタンスで両者が違えば 2 行目が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cb58d3cff3c16839c6731d97fe916ae1d4274ceac0c3b1a1db00d389cfbcbb4b",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.sv",
+              "contains": "module_def = $coverage_get_max(`SV_COV_TOGGLE, `SV_COV_MODULE, \"cc_mid\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.sv",
+              "contains": "module_def == hier_def - hier_m1_leaf - hier_m2_leaf);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.expected",
+              "contains": "module scope of a definition excludes its children: 1"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.expected",
+              "contains": "module scope of a leaf instance equals its hierarchy: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -391805,7 +394125,33 @@
       "acceptance": "Coverage system functions accept `SV_COV_MODULE as scope_def with module-local semantics (definition-name string: all instances of the module excluding child hierarchy; instance path: only that instance); a conforming tool is not required to predefine `SV_MODULE_COV.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B013, B014. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue COVERAGE-MODULE-MACRO-NAME resolved on 2026-10-24: Complete coverage API definitions, valid operations, statuses, scope rules and FSM description syntax reviewed; the SV_MODULE_COV spelling in the scope prose (B013, B014) is read as `SV_COV_MODULE, the macro defined in 40.3.1 B005 and used consistently by Table 40-2 (B018) and the B032 examples.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_scope_selection.sv",
+          "observation": "モジュール内スコープとして `SV_COV_MODULE を使い（40.3.1 の値 10）、その値が 10 であることと、それを使った定義名・インスタンスパスのクエリが Table 40-2 のモジュール内の意味（子階層を除く）で加算できることを表示する。 区別: `SV_COV_MODULE が 10 でなければ 1 行目が 0 になり、マクロがモジュール内スコープとして解釈されずエラーになれば後続の等式も 0 になる。SV_MODULE_COV という別マクロに依存していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cb58d3cff3c16839c6731d97fe916ae1d4274ceac0c3b1a1db00d389cfbcbb4b",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.sv",
+              "contains": "$display(\"module scope macro is 10: %0d\", `SV_COV_MODULE == 10);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.sv",
+              "contains": "module_leaf_def = $coverage_get_max(`SV_COV_TOGGLE, `SV_COV_MODULE, \"cc_leaf\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.expected",
+              "contains": "module scope macro is 10: 1"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_scope_selection.expected",
+              "contains": "module scope of a definition sums its instances: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -392112,7 +394458,29 @@
       "acceptance": "Table 40-1 maps SV_COV_START / SV_COV_OK to success; not-applicable cells do not prescribe that return for the action.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_control_check_while_stopped.sv",
+          "observation": "可用性が完全な階層（CHECK が OK）では START も OK を返し、2 回目の START も同じ OK を返すことを、CHECK との一致で表示する（table 40-1 の START/OK は成功）。停止後の START も同じ値になる。 区別: 可用性が完全なのに START が OK 以外を返せば start gives the checked availability が 0 になる。テストはツールが OK を返す設計（toggle/statement が計装済み）で実行される。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ec9883a36d394a507ce236ef0d966695accfbf03f399b6c3b0ffb8f3f3607c9a",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.sv",
+              "contains": "start1 = $coverage_control(`SV_COV_START, coverage_type, `SV_COV_MODULE, \"cc_probe\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.sv",
+              "contains": "name, start1 == check0 && start2 == check0);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_control_check_while_stopped.expected",
+              "contains": "statement: start gives the checked availability: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -393939,7 +396307,37 @@
       "acceptance": "For applicable assertions, in-progress attempts equal attempts minus nonvacuous successes,vacuous successes,disabled,killed and failures.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B019, B020. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+          "observation": "5 つの assertion について attempts - (successes + vacuous + disabled + killed + failures) を計算し、すべて 0 になることを表示する。成功 4、空成功 4、無効 4、失敗 4、kill 1、未試行 0 の内訳を作る。 区別: いずれかのカウントが仕様の内訳と違えば counts are as the stimulus が0 になり、式の結果が 0 でなければ no attempt is in progress が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c10cad82ce3f77bd00ed4112cb5bcb7121898400f7e19c5b020b8eca35b28ddf",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+              "contains": "a_vac: assert property (@(posedge clk) never |-> on);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "in_progress = attempts - (successes + vacuous + disabled + killed + failures);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "vpi_printf(\"%s: no attempt is in progress: %d\\n\", e->name, in_progress == 0);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.expected",
+              "contains": "a_kill: no attempt is in progress: 1"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.expected",
+              "contains": "a_vac: no attempt is in progress: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",
@@ -393958,7 +396356,37 @@
       "acceptance": "The in-progress equation does not apply to cover sequence because one attempt may have multiple matches.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_cover_sequence.sv",
+          "observation": "cover sequence `on ##[1:2] on` を 4 回のクロックで試行し、マッチが 5 回（15,25,25,35,35）あることを、SV 側のパス文実行回数とvpiAssertSuccessCovered の一致、および successes > attempts で表示する。 区別: cover sequence で success がマッチ数でなく試行数（1 回）を数える実装では successes == matches と successes > attempts の行が 0 になり、in-progress の式が当てはまらないことが観測できる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9811905c51f35584a156aaee47ab17b6244693594a500e68884f2e4986d5351f",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_cover_sequence.sv",
+              "contains": "c_seq: cover sequence (@(posedge clk) on ##[1:2] on) hits++;"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_cover_sequence.c",
+              "contains": "!collected || (successes == matches && matches == 5)"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_cover_sequence.c",
+              "contains": "!collected || (attempts == 4 && successes > attempts)"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_cover_sequence.expected",
+              "contains": "cover sequence: successes are the matches: 1"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_cover_sequence.expected",
+              "contains": "cover matches: 5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",
@@ -394015,7 +396443,45 @@
       "acceptance": "vpiCoveredMax returns the number of coverable entities for assertion/statement/signal/FSM/state handles; it is always 1 for one assertion or FSM-state handle.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B036, B037. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_max_entities.sv",
+          "observation": "vpiCoveredMax が signal で 8（ビット数）、statement ブロックで 3（文数）、FSM で 3（状態数）、FSM state と assertion で 1 になることを表示する。iteration の順序には依存しない。 区別: いずれかのハンドルで最大値がエンティティ数でなければ、期待した数値の行が一致せず、assertion と state が 1 でなければ the number is always 1 の行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c296d44e807bed93ebda2add18a2b856f6d4e6f05e354e36f3f2833f03e1390c",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.sv",
+              "contains": "#26 $vt_cov(toggle_check, statement_check, assertion_check, fsm_check);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.c",
+              "contains": "vpi_printf(\"signal: covered max %d\\n\", prop(sig, vpiCoveredMax, 0));"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.c",
+              "contains": "vpi_printf(\"fsm: covered max %d\\n\", prop(fsm, vpiCoveredMax, 0));"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.expected",
+              "contains": "signal: covered max 8"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.expected",
+              "contains": "statement block: covered max 3"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.expected",
+              "contains": "fsm state: covered max 1: 1"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.expected",
+              "contains": "assertion: covered max 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",
@@ -394116,7 +396582,33 @@
       "acceptance": "Calling vpi_get_value with an FSM state handle (e.g., from vpi_iterate(vpiFsmStates, fsm_handle)) as obj and a p_vpi_value as value_p fills the s_vpi_value with that state's value in the requested format; the call uses the standard (vpiHandle, p_vpi_value) prototype and no handle-typed second argument form exists.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B044, B045. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue FSM-STATE-VALUE-ARGUMENT resolved on 2026-10-24: Complete own-body VPI coverage constants, query results, control targets and API contracts reviewed; the FSM-state value call (B044) is read as vpi_get_value(fsm_state_handle, value_p), because 38.15 B004-B009 and the K.2 B162 prototype fix the second argument as p_vpi_value.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_max_entities.sv",
+          "observation": "vpi_iterate(vpiFsmStates) で得た各 state ハンドルに vpi_get_value(handle, &value) を呼び、s_vpi_value に状態値が入り、3 つの値が 0,1,2 になることを順序非依存のビットマスクで表示する。 区別: state ハンドルで vpi_get_value が値を返さなければビットマスクが 7 にならず、fsm state values are 0, 1 and 2 の行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c296d44e807bed93ebda2add18a2b856f6d4e6f05e354e36f3f2833f03e1390c",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.sv",
+              "contains": "#26 $vt_cov(toggle_check, statement_check, assertion_check, fsm_check);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.c",
+              "contains": "vpi_get_value(h, &v);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.c",
+              "contains": "vpi_printf(\"fsm state values are 0, 1 and 2: %d\\n\", state_values == 7);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.expected",
+              "contains": "fsm state values are 0, 1 and 2: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",
@@ -394196,7 +396688,37 @@
       "acceptance": "vpi_get(vpiAssertAttemptCovered,assertion_handle) returns the number of attempts.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+          "observation": "vpiAssertAttemptCovered を 5 つの assertion で読み、成功する a_pass と空成功の a_vac と無効の a_dis と失敗の a_fail が 4、kill される a_kill が 1、クロックの来ない a_never が 0 であることを確認する。 区別: 試行回数が仕様と違えば counts are as the stimulus の行が 0 になる。a_dis の無効評価も試行に数えられること、kill 後は試行が始まらないことを含む。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c10cad82ce3f77bd00ed4112cb5bcb7121898400f7e19c5b020b8eca35b28ddf",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+              "contains": "@(posedge clk);\n    #1 $assertkill(0, a_kill);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "attempts = prop(h, vpiAssertAttemptCovered);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "    {\"a_pass\", 4, 4, 0, 0, 0, 0, 1},"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.expected",
+              "contains": "a_pass: counts are as the stimulus: 1"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.expected",
+              "contains": "a_kill: counts are as the stimulus: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",
@@ -394215,7 +396737,29 @@
       "acceptance": "vpi_get(vpiAssertDisableCovered,assertion_handle) returns the number of attempts reaching disabled state, including start under true disable iff.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B014, B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+          "observation": "disable iff (on) が常に真の a_dis について、4 回のクロックで vpiAssertDisableCovered が 4、success と vacuous が 0 になることを確認する。無効評価も attempt に数えられる。 区別: 無効状態への到達が数えられなければ a_dis の counts are as the stimulus が 0 になり、無効を成功に数える実装も successes の不一致で 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c10cad82ce3f77bd00ed4112cb5bcb7121898400f7e19c5b020b8eca35b28ddf",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+              "contains": "a_dis: assert property (@(posedge clk) disable iff (on) (never |-> on));"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "disabled = prop(h, vpiAssertDisableCovered);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.expected",
+              "contains": "a_dis: counts are as the stimulus: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",
@@ -394234,7 +396778,33 @@
       "acceptance": "vpi_get(vpiAssertFailureCovered,assertion_handle) returns the number of failures.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B018, B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+          "observation": "常に偽の never を検査する a_fail について、4 回のクロックで vpiAssertFailureCovered が 4、success が 0、vpiCovered が 0 になることを確認する。 区別: 失敗回数が数えられなければ a_fail の counts are as the stimulus が0 になり、失敗した assertion を covered とする実装も covered の検査で 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c10cad82ce3f77bd00ed4112cb5bcb7121898400f7e19c5b020b8eca35b28ddf",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+              "contains": "a_fail: assert property (@(posedge clk) never) else ;"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "failures = prop(h, vpiAssertFailureCovered);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "    {\"a_fail\", 4, 0, 0, 0, 0, 4, 0},"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.expected",
+              "contains": "a_fail: counts are as the stimulus: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",
@@ -394253,7 +396823,33 @@
       "acceptance": "vpi_get(vpiAssertKillCovered,assertion_handle) returns the number of killed attempts.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B016, B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+          "observation": "5 で試行が始まり完了しない a_kill を 6 で $assertkill(0, a_kill) で kill し、vpiAssertKillCovered が 1、attempt が 1（kill 後は新たな試行が始まらない）、in-progress が 0 になることを確認する。 区別: kill された試行が数えられなければ a_kill の counts are as the stimulus が 0 になり、kill 後も試行が始まる実装では attempt が 1 にならない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c10cad82ce3f77bd00ed4112cb5bcb7121898400f7e19c5b020b8eca35b28ddf",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+              "contains": "#1 $assertkill(0, a_kill);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "killed = prop(h, vpiAssertKillCovered);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "    {\"a_kill\", 1, 0, 0, 0, 1, 0, -1},"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.expected",
+              "contains": "a_kill: counts are as the stimulus: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",
@@ -394272,7 +396868,29 @@
       "acceptance": "vpi_get(vpiAssertSuccessCovered,assertion_handle) returns the number of nonvacuous successes, or matches for a cover sequence.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B010, B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+          "observation": "常に真の on を検査する a_pass について、4 回のクロックで vpiAssertSuccessCovered が 4、attempt が 4、vacuous と failure が 0、vpiCovered が 1 になることを確認する。 区別: 非空成功の回数が数えられなければ a_pass の counts are as the stimulus が 0 になり、covered の検査も 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c10cad82ce3f77bd00ed4112cb5bcb7121898400f7e19c5b020b8eca35b28ddf",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+              "contains": "a_pass: assert property (@(posedge clk) on);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "successes = prop(h, vpiAssertSuccessCovered);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.expected",
+              "contains": "a_pass: counts are as the stimulus: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",
@@ -394291,7 +396909,33 @@
       "acceptance": "vpi_get(vpiAssertVacuousSuccessCovered,assertion_handle) returns the number of vacuous successes.",
       "source_note": "IEEE 1800-2023 40.5.2; complete own-body source review, blocks B012, B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+          "observation": "前件 never が偽の含意 never |-> on を持つ a_vac について、4 回のクロックで vpiAssertVacuousSuccessCovered が 4、success が 0 になることを確認する。 区別: 空成功が数えられなければ a_vac の counts are as the stimulus が 0 になり、空成功を非空成功に数える実装も successes の不一致で 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c10cad82ce3f77bd00ed4112cb5bcb7121898400f7e19c5b020b8eca35b28ddf",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+              "contains": "a_vac: assert property (@(posedge clk) never |-> on);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "vacuous = prop(h, vpiAssertVacuousSuccessCovered);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "    {\"a_vac\", 4, 0, 4, 0, 0, 0, -1},"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.expected",
+              "contains": "a_vac: counts are as the stimulus: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.5.2",

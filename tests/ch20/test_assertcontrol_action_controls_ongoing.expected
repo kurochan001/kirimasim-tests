@@ -1,0 +1,35 @@
+7 in flight: passes 1, failures 0
+7 new: passes 1, failures 0
+6 in flight: passes 0, failures 0
+6 new: passes 1, failures 0
+9 in flight: passes 0, failures 1
+9 new: passes 0, failures 1
+8 in flight: passes 0, failures 0
+8 new: passes 0, failures 1
+10 in flight: passes 0, failures 0
+10 new: passes 1, failures 0
+10 vacuous stays off: passes 0, failures 0
+11 in flight: passes 1, failures 0
+11 new: passes 1, failures 0
+11 nonvacuous stays on: passes 1, failures 0
+mask 3: concurrent 0, simple 0, observed 1
+mask 1: concurrent 0, simple 1, observed 1
+no mask: concurrent 0, simple 0, observed 0
+passoff shorthand: passes 0, failures 1
+passoff control: passes 0, failures 1
+passon shorthand: passes 2, failures 1
+passon control: passes 2, failures 1
+failoff shorthand: passes 2, failures 0
+failoff control: passes 2, failures 0
+failon shorthand: passes 2, failures 1
+failon control: passes 2, failures 1
+nonvacuouson shorthand: passes 1, failures 1
+nonvacuouson control: passes 1, failures 1
+vacuousoff shorthand: passes 1, failures 1
+vacuousoff control: passes 1, failures 1
+off shorthand: passes 0, failures 0
+off control: passes 0, failures 0
+on shorthand: passes 2, failures 1
+on control: passes 2, failures 1
+kill shorthand: passes 0, failures 0
+kill control: passes 0, failures 0

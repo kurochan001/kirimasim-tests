@@ -1,0 +1,18 @@
+toggle: check is OK, NOCOV or PARTIAL: 1
+toggle: stop gives OK: 1
+toggle: check is unchanged by stopping: 1
+toggle: start gives the checked availability: 1
+toggle: a repeated start leaves coverage alone: 1
+toggle: reset gives OK: 1
+toggle: reset clears the collected values: 1
+toggle: check is unchanged by resetting: 1
+toggle: check is NOCOV exactly when the maximum is zero: 1
+statement: check is OK, NOCOV or PARTIAL: 1
+statement: stop gives OK: 1
+statement: check is unchanged by stopping: 1
+statement: start gives the checked availability: 1
+statement: a repeated start leaves coverage alone: 1
+statement: reset gives OK: 1
+statement: reset clears the collected values: 1
+statement: check is unchanged by resetting: 1
+statement: check is NOCOV exactly when the maximum is zero: 1

@@ -1,0 +1,20 @@
+assertion coverage start is not ERROR: 1
+a_never: covered max 1
+a_never: counts are as the stimulus: 1
+a_never: no attempt is in progress: 1
+a_pass: covered max 1
+a_pass: counts are as the stimulus: 1
+a_pass: no attempt is in progress: 1
+a_vac: covered max 1
+a_vac: counts are as the stimulus: 1
+a_vac: no attempt is in progress: 1
+a_dis: covered max 1
+a_dis: counts are as the stimulus: 1
+a_dis: no attempt is in progress: 1
+a_fail: covered max 1
+a_fail: counts are as the stimulus: 1
+a_fail: no attempt is in progress: 1
+a_kill: covered max 1
+a_kill: counts are as the stimulus: 1
+a_kill: no attempt is in progress: 1
+covered: a passed assertion is covered, an unattempted one not: 1

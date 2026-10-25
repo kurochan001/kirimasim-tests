@@ -1,0 +1,15 @@
+16: off during attempt: total fails 1
+36: kill during attempt: total fails 1
+56: on: total fails 2
+final deferred failure
+57: off after queue: observed 1
+58: off before queue: observed 1
+final deferred failure
+59: on: observed 2
+60: kill after queue: observed 2
+61: kill before queue: observed 2
+75: off: expect fail actions 1
+85: kill: expect fail actions 2
+95: on during expect: expect fail actions 3
+105: passoff expect: pass actions 0
+115: passon expect: pass actions 1

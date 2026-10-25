@@ -16797,6 +16797,147 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch17/test_checker_assertion_placement.sv",
+      "inputs_sha256": "9f457966a5d91cc21a14f440c15364faa188b34ec21c5f75596423876325cceb",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-17.3-EXTRACT-INPUT-REWRITING"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "入力実引数の置換（F.4.2）の結果が不正な checker になる場合だけがエラーになる。しかし、その不正は必ず別の規則として現れる: 入れ子 checker の出力実引数に自分の入力 formal を渡せば 17.2 の入力 formal 変更、出力に式を渡せば 17.3 の output_lvalue、const' 実引数を使えば captured_actual である。置換そのものの検査だけを行う実装と、個々の規則を検査する実装を出力で区別できないため、この行には対応付けない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.sv",
+              "contains": "inner_chk u_inner(.clk(clk), .bad(bad), .fails(fails));"
+            },
+            {
+              "file": "tests/ch17/test_checker_assertion_placement.sv",
+              "contains": "outer_chk u_outer_static(.clk(clk), .bad(bad), .fails(n_static));"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_assume_violation.sv",
+      "inputs_sha256": "cce843a3ea7463b2619600f191c5f2a9b7d3fb83e6739285aa7d455a2d24b46b",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-17.7.2-EXTRACT-ASSUME-SET-MEMBERSHIP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "assume set に入るか外れるかは、解の成否を通してしか値に現れない。17.7.2 は「解が見つかることを要求しない」と明記するので、除外された assume があっても値は規格が決めない。拘束の有無は assume の違反報告にも現れない（除外された assume も検査される）。このため集合の構成を出力で区別できず、対応付けない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_violation.sv",
+              "contains": "u_a: assume property (@(posedge clk_a) f == 1'b0 && f == 1'b1)"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.expected",
+              "contains": "violations: clk_a=3 clk_b=3"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-17.7.2-EXTRACT-SOLVE-CURRENT-STEP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "現在のタイムステップで解を探すことは、満たせる解がある場合でもその発見を要求されない（17.7.2 の B010）。満たせない assume を置けば失敗は必ず報告されるが、それは検査の結果であり、探索を行ったかどうかは出力に現れない。探索をしない実装でも同じ行を出すので、区別できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_violation.sv",
+              "contains": "u_a: assume property (@(posedge clk_a) f == 1'b0 && f == 1'b1)"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.expected",
+              "contains": "clk_a violation at 5"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-17.7.2-EXTRACT-SOLVE-FAILURE-FREEDOM"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "解に失敗したとき任意の値を選べてよいこと、解があることを要求しないこと、dead end を避ける必要がないことは、いずれも実装の裁量を述べる許可であり、観測可能な義務を生まない。どの値を選んでも規格に適合するので、期待出力を決められない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_violation.sv",
+              "contains": "rand bit f;      // active: it is never assigned in the checker"
+            },
+            {
+              "file": "tests/ch17/test_checker_assume_violation.expected",
+              "contains": "violations: clk_a=3 clk_b=3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_free_activity.sv",
+      "inputs_sha256": "21583c89482af25aede02d81581d0ee4da8c609a19153762a59e456502ec99f7",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-17.7.2-EXTRACT-RANDOM-INITIALIZATION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "初期化されていない自由変数の「unconstrained random value」は値を表示できない（出力が乱数に依存する）。初期化子を書いた自由変数がその値を保つ枝だけが観測できるが、このテストは表示する自由変数すべてに初期化子を置いており、乱数初期化の枝は刺激していない。よって行全体には対応付けない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_free_activity.sv",
+              "contains": "rand bit [3:0] p = 4'd5;"
+            },
+            {
+              "file": "tests/ch17/test_checker_free_activity.sv",
+              "contains": "rand bit u[0:1] = '{1'b0, 1'b0};"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-17.7.2-EXTRACT-ONE-ASSUME-SET"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "「各実体に assume set がちょうど 1 つあり、空でもよく、static/procedural にかかわらず毎ステップ存在する」ことは集合の存在と個数の規則で、値や報告時刻に現れない。空でない集合と空の集合はそれぞれ別のテストで刺激しているが、1 つであること・毎ステップ存在することは出力で区別できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_free_activity.sv",
+              "contains": "rand bit [7:0] z;"
+            },
+            {
+              "file": "tests/ch17/test_checker_free_activity.expected",
+              "contains": "same=0"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

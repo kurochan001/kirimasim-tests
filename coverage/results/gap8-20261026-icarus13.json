@@ -1,0 +1,161 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch17/test_checker_assertion_placement": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_assertion_placement.sv:28: syntax error",
+   "inputs_sha256": "9f457966a5d91cc21a14f440c15364faa188b34ec21c5f75596423876325cceb"
+  },
+  "ch17/test_checker_assume_stability": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_assume_stability.sv:27: syntax error",
+   "inputs_sha256": "55974b78fb56ea40321f2677edc3eb41102d73a87c72626283c38ca29eeec0e3"
+  },
+  "ch17/test_checker_assume_violation": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_assume_violation.sv:27: syntax error",
+   "inputs_sha256": "cce843a3ea7463b2619600f191c5f2a9b7d3fb83e6739285aa7d455a2d24b46b"
+  },
+  "ch17/test_checker_body_items": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_body_items.sv:29: syntax error",
+   "inputs_sha256": "f517da0243da25a664be638832a73eeae0d504280d0061d9e6a2269546326c05"
+  },
+  "ch17/test_checker_connection_modes": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_connection_modes.sv:24: syntax error",
+   "inputs_sha256": "fe8cb76edaad9c04fb178cd1413449343c2384de34c4565b6f34cf9d2b460675"
+  },
+  "ch17/test_checker_free_activity": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_free_activity.sv:27: syntax error",
+   "inputs_sha256": "21583c89482af25aede02d81581d0ee4da8c609a19153762a59e456502ec99f7"
+  },
+  "ch17/test_checker_port_inference": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_port_inference.sv:26: syntax error",
+   "inputs_sha256": "f4b87225437ea26a6b099380c39f362307f4de7033f892e49bdcbf9d27294232"
+  },
+  "ch17/test_checker_static_scope": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_static_scope.sv:38: syntax error",
+   "inputs_sha256": "6b8af08960b7d4a4b095a65f01fedad3e14bff1f092c358be4f05a70e8d46f76"
+  },
+  "ch17/test_illegal_checker_captured_actual": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_captured_actual\\\\.sv:(25|32):'; the first is: tests/ch17/test_illegal_checker_captured_actual.sv:24: syntax error",
+   "inputs_sha256": "c9795be698785b8b52bc00dbe84d0fc4716736c5530710883649feb9bba70be0"
+  },
+  "ch17/test_illegal_checker_declares_package": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_declares_package\\\\.sv:26:'; the first is: tests/ch17/test_illegal_checker_declares_package.sv:25: syntax error",
+   "inputs_sha256": "87cc5bf4d62d8badcd93ff4a5cc5d8ca8ac372ea966c585693cc25a3775b2a94"
+  },
+  "ch17/test_illegal_checker_dollar_actual": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_dollar_actual\\\\.sv:31:'; the first is: tests/ch17/test_illegal_checker_dollar_actual.sv:24: syntax error",
+   "inputs_sha256": "612dffe349bd61a85d4fe19da513e012b6ac716cd90dc2267efb794dae011441"
+  },
+  "ch17/test_illegal_checker_dynamic_reference": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_dynamic_reference\\\\.sv:29:'; the first is: tests/ch17/test_illegal_checker_dynamic_reference.sv:28: syntax error",
+   "inputs_sha256": "7240577ef6923a6587ee7c9b555a60b749797026ef796916b2451c6b982b635d"
+  },
+  "ch17/test_illegal_checker_generate_plain_always": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_generate_plain_always\\\\.sv:28:'; the first is: tests/ch17/test_illegal_checker_generate_plain_always.sv:25: syntax error",
+   "inputs_sha256": "d457de8ee0e9f37310c5b099c8de8a0c41dd28a2e3d4f440dd49f0e19ad1e35a"
+  },
+  "ch17/test_illegal_checker_in_fork_join_none": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_in_fork_join_none\\\\.sv:33:'; the first is: tests/ch17/test_illegal_checker_in_fork_join_none.sv:24: syntax error",
+   "inputs_sha256": "9fae3cd0f4f5f5d7d16a5384e0e6aebeb175e0117074dbad303719ed1b014cbb"
+  },
+  "ch17/test_illegal_checker_output_expression": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_output_expression\\\\.sv:30:'; the first is: tests/ch17/test_illegal_checker_output_expression.sv:22: syntax error",
+   "inputs_sha256": "f9b05a41a2962226164815076841c7adbf6698e6754b2d5ac2640e2d4413f126"
+  },
+  "ch17/test_illegal_checker_port_without_type": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_port_without_type\\\\.sv:26:'; the first is: tests/ch17/test_illegal_checker_port_without_type.sv:25: syntax error",
+   "inputs_sha256": "b52ca32ef8db347310f0c1a73254b2d60757e047b07632f7c8a30e27a6bbcc94"
+  },
+  "ch17/test_illegal_checker_sequence_output": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_sequence_output\\\\.sv:28:'; the first is: tests/ch17/test_illegal_checker_sequence_output.sv:26: syntax error",
+   "inputs_sha256": "2edc67fd8bbcc2a4191f4ce07a621e32896bb6ac62878e1bf07065f4aaa0136c"
+  },
+  "ch17/test_illegal_checker_two_wildcards": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_two_wildcards\\\\.sv:32:'; the first is: tests/ch17/test_illegal_checker_two_wildcards.sv:24: syntax error",
+   "inputs_sha256": "af71f7e8c8bbb45eaf2278c1b60a29298b8e9138e33551d54c9f96ee21cba9c8"
+  },
+  "ch17/test_illegal_checker_writes_input": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_writes_input\\\\.sv:24:'; the first is: tests/ch17/test_illegal_checker_writes_input.sv:23: syntax error",
+   "inputs_sha256": "debbf37145bc71e3410bc6b455bd5566f58fdcc035fd5f48a502310bbd999f58"
+  },
+  "ch20/test_assertcontrol_action_controls_ongoing": {
+   "status": "known",
+   "reason": "compile failed: tests/ch20/test_assertcontrol_action_controls_ongoing.sv:44: syntax error",
+   "inputs_sha256": "496e08e6eb51f45e70a6951adfdf504deed146276dcda49a42a11da2f28217f4"
+  },
+  "ch20/test_assertcontrol_callbacks_selected": {
+   "status": "known",
+   "reason": "VPI build failed: 16 errors generated.",
+   "inputs_sha256": "28ee6497ab4d8fe0e8880eaea6ae3988a67b06126a9c87489fc3922139b96004"
+  },
+  "ch20/test_assertcontrol_callbacks_system": {
+   "status": "known",
+   "reason": "VPI build failed: 15 errors generated.",
+   "inputs_sha256": "cd89de9a59681a537d1ba20ef32a4f97495bbc8f283e19a944c790793f0d0fc7"
+  },
+  "ch20/test_assertcontrol_off_kill_on_pending": {
+   "status": "known",
+   "reason": "compile failed: tests/ch20/test_assertcontrol_off_kill_on_pending.sv:53: syntax error",
+   "inputs_sha256": "466dec0f60433ada5d8829778356ba9ae63ed59744ef56089165aff9398dd706"
+  },
+  "ch36/test_vpi_compat_1364v1995_iterations": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'types: mem vpiMemory, ia vpiMemory, ta vpiMemory, rg vpiR...', expected 'types: mem vpiMemory, ia vpiIntegerVar, ta vpiTimeVar, rg...'",
+   "inputs_sha256": "925269fc37d73000786361d7afab2477f9e4822afd4f89a0e9008cf86cc576de"
+  },
+  "ch40/test_coverage_control_check_while_stopped": {
+   "status": "known",
+   "reason": "compile failed: tests/ch40/test_coverage_control_check_while_stopped.sv:46: warning: macro SV_COV_MODULE undefined (and assumed null) at this point.",
+   "inputs_sha256": "ec9883a36d394a507ce236ef0d966695accfbf03f399b6c3b0ffb8f3f3607c9a"
+  },
+  "ch40/test_coverage_control_scope_selection": {
+   "status": "known",
+   "reason": "compile failed: tests/ch40/test_coverage_control_scope_selection.sv:50: warning: macro SV_COV_TOGGLE undefined (and assumed null) at this point.",
+   "inputs_sha256": "cb58d3cff3c16839c6731d97fe916ae1d4274ceac0c3b1a1db00d389cfbcbb4b"
+  },
+  "ch40/test_coverage_control_start_stop_counts": {
+   "status": "known",
+   "reason": "compile failed: tests/ch40/test_coverage_control_start_stop_counts.sv:43: warning: macro SV_COV_CHECK undefined (and assumed null) at this point.",
+   "inputs_sha256": "812dc57bc8157f6b8b004d1a9252dbf7944fffaeccba3b821ee7b582d5df5691"
+  },
+  "ch40/test_vpi_coverage_assertion_counts": {
+   "status": "known",
+   "reason": "VPI build failed: 8 errors generated.",
+   "inputs_sha256": "c10cad82ce3f77bd00ed4112cb5bcb7121898400f7e19c5b020b8eca35b28ddf"
+  },
+  "ch40/test_vpi_coverage_cover_sequence": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "9811905c51f35584a156aaee47ab17b6244693594a500e68884f2e4986d5351f"
+  },
+  "ch40/test_vpi_coverage_max_entities": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "c296d44e807bed93ebda2add18a2b856f6d4e6f05e354e36f3f2833f03e1390c"
+  }
+ },
+ "generated_at": "2026-10-25T18:02:58.641182+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

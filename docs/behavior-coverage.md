@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 71.39%、実行 39.98%。**
+**全規格の要求台帳ベース（暫定）: 設計 72.15%、実行 40.01%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 8795/12319 (71.39%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4925/12319 (39.98%)。
-- 登録済みだがテスト未対応: 3524 動作。
+- 登録済み動作に対するテスト設計網羅率: 8888/12319 (72.15%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4929/12319 (40.01%)。
+- 登録済みだがテスト未対応: 3431 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -79,6 +79,9 @@
 - `gap7-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T17:06:51.310506+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.035626+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.037049+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
+- `gap8-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T18:02:58.641182+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `gap8-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318717+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
+- `gap8-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318723+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
@@ -99,7 +102,7 @@
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 916/12319 動作確認、古い入力との対応 76 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 917/12319 動作確認、古い入力との対応 76 件。
 
 ## 章・附属書別の調査状態
 
@@ -121,10 +124,10 @@
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 49。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 55。
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 393。
-- 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 9。
+- 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 32。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 188。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 156。
-- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 195。
+- 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 237。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 271。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 327。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 152。
@@ -140,11 +143,11 @@
 - 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 23。
 - 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 71。
-- 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 120。
+- 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 128。
 - 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1508。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 200。
 - 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 77。
-- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 55。
+- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 75。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
 - A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 289。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
@@ -42892,7 +42895,7 @@ Nets shall not be declared or assigned in checker bodies.
 
 ### SV2023-17.2-EXTRACT-BODY-ACTION
 
-17.2 / normal / テスト未対応
+17.2 / normal / テスト対応あり・実行未確認
 
 Assertion action blocks are checker action blocks; other checker contents form its body.
 
@@ -42900,10 +42903,11 @@ Assertion action blocks are checker action blocks; other checker contents form i
 
 規定の性質: `definition`。
 
+- [test_checker_body_items.sv](../tests/ch17/test_checker_body_items.sv): checker の assertion の pass/fail アクションブロックで checker の出力変数 act_pass/act_fail を更新し、final 手続きで数える。default disable iff (d==15) のため 45 のエッジでは動作しないので pass=1・fail=3 になる。 区別: アクションブロックを checker action block として扱わない実装では act_pass/act_fail が更新されず、pass=0 fail=0 になる。また 45 のエッジを数える実装は default disable iff も action block に効かないので pass=2 fail=3 になり、期待値と区別できる。
 
 ### SV2023-17.2-EXTRACT-BODY-CONTENTS
 
-17.2 / normal / テスト未対応
+17.2 / normal / テスト対応あり・実行未確認
 
 A checker body may contain let/sequence/property/function/checker declarations, deferred/concurrent assertions, checker instances, covergroups, variables/assignments, default clocking/disable, permitted procedures and generate blocks.
 
@@ -42911,6 +42915,7 @@ A checker body may contain let/sequence/property/function/checker declarations, 
 
 規定の性質: `permission`。
 
+- [test_checker_body_items.sv](../tests/ch17/test_checker_body_items.sv): checker body に let・sequence・property・function・checker 宣言と実体化・covergroup 宣言と実体化・checker 変数と continuous assign・default clocking・default disable iff・initial・always_comb・always_latch・always_ff・final・generate block・concurrent/deferred assertion を 1 つずつ置き、最終行に各要素の結果をまとめて表示する。 区別: いずれかの要素を持てない実装は構文エラーになる。要素を取り違えると対応する数値が変わる: comb=14 は always_comb が現在値で d^en を出したこと、latch=15 は always_latch が en=1 の間 d を保持したこと、ff=46 は always_ff がサンプル値 cur を加算したこと、gen=5・nested=2 は generate block と入れ子 checker の実体化、def=1 は deferred assertion、seq=1・prop=2 は sequence/let と default clocking/disable の効果を示す。
 
 ### SV2023-17.2-EXTRACT-DECLARATION-GRAMMAR
 
@@ -42947,7 +42952,7 @@ A checker shall not reference enclosing-scope automatic variables, members/eleme
 
 ### SV2023-17.2-EXTRACT-EXPLICIT-DIRECTION-TYPE
 
-17.2 / error / テスト未対応
+17.2 / error / テスト対応あり・実行未確認
 
 A checker port with explicit direction shall not omit its type.
 
@@ -42955,10 +42960,11 @@ A checker port with explicit direction shall not omit its type.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_port_without_type.sv](../tests/ch17/test_illegal_checker_port_without_type.sv): checker の最初のポートを `input a` と書き、方向だけを明示して型を省く。17.2 は方向を明示したポートの型の省略をエラーとする。他のポート（output logic y）と module 側は合法。 区別: 明示した方向のポートに型の省略を許す実装はこの設計を受け付ける（Verilator 5.052 がそう）。型のないポートを許すのは方向も省いた場合だけなので、エラーにしない実装は期待結果を満たさない。
 
 ### SV2023-17.2-EXTRACT-GENERATE-NO-BYPASS
 
-17.2 / error / テスト未対応
+17.2 / error / テスト対応あり・実行未確認
 
 A checker generate item shall not contain constructs that would be illegal outside generate in that checker.
 
@@ -42966,10 +42972,11 @@ A checker generate item shall not contain constructs that would be illegal outsi
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_generate_plain_always.sv](../tests/ch17/test_illegal_checker_generate_plain_always.sv): checker の generate ブロックの中に plain な always 手続きを置く。17.5 により checker では always_comb/always_latch/always_ff だけが許されるので、checker_generate_item にこれを入れることは 17.2 が禁じている。 区別: checker 本体の直下だけを検査して generate ブロックの中を見ない実装はこの設計を受け付ける（Verilator 5.052 がそう）。always の行をエラーとして示す実装だけが期待結果を満たす。
 
 ### SV2023-17.2-EXTRACT-INFERRED-TYPE
 
-17.2 / normal / テスト未対応
+17.2 / normal / テスト対応あり・実行未確認
 
 A direction/type-omitted first port is input untyped; otherwise the prior type is inherited by sequence/property rules.
 
@@ -42977,10 +42984,11 @@ A direction/type-omitted first port is input untyped; otherwise the prior type i
 
 規定の性質: `mandatory`。
 
+- [test_checker_port_inference.sv](../tests/ch17/test_checker_port_inference.sv): inherit_pair では a にだけ型 logic [3:0] を書き、b の型を前のポートから継承させる（4 ビット入力として使う）。first_untyped では最初のポート w の型を省き、untyped のまま 8 ビットの実引数 16 を代入して ~w を 8 ビットで計算する。 区別: 型の継承を行わない実装は b を 1 ビットとみなすので and=0000 or=1010 になる（Verilator 5.052 の実測）。最初のポートを untyped ではなく 1 ビットの logic とする実装は not=255 になる。継承と untyped の両方が期待値 1000/1110/239 に現れる。
 
 ### SV2023-17.2-EXTRACT-INPUT-READONLY
 
-17.2 / error / テスト未対応
+17.2 / error / 実行確認あり
 
 Checker input formals shall not be modified by the checker.
 
@@ -42988,10 +42996,11 @@ Checker input formals shall not be modified by the checker.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_writes_input.sv](../tests/ch17/test_illegal_checker_writes_input.sv): checker の always_comb 手続きが入力 formal a に 4'd0 を代入する。always_comb の文としては合法だが、入力 formal を checker が変更することは 17.2 が禁じている。他の部分は合法。 区別: 入力 formal への代入を許す実装はこの設計を受け付ける。代入の行をエラーとして示す実装だけが期待結果を満たす。Verilator 5.052 は入力への代入として拒否し、Icarus 13.0 は checker 非対応で宣言行で止まる。
 
 ### SV2023-17.2-EXTRACT-LEXICAL-NAMES
 
-17.2 / normal / テスト未対応
+17.2 / normal / テスト対応あり・実行未確認
 
 Checker names other than formals/internal variables resolve from the checker declaration scope.
 
@@ -42999,6 +43008,7 @@ Checker names other than formals/internal variables resolve from the checker dec
 
 規定の性質: `mandatory`。
 
+- [test_checker_static_scope.sv](../tests/ch17/test_checker_static_scope.sv): module で宣言した checker local_names が、formal でも checker 変数でもない名前 twice を宣言スコープから解決して always_ff の右辺で呼ぶ。checker 自身は int base を持つので、base は checker のものが使われる。 区別: 宣言スコープの名前解決を行わない実装は twice を未定義として拒否するか別の値を出す。h1=1031 は 5 エッジそれぞれで 2*100 + v を加算した値で、twice が module の関数として解決され、base が checker 内の 100（module の 5 ではない）であることを同時に示す。
 
 ### SV2023-17.2-EXTRACT-NO-DESIGN-UNITS
 
@@ -43025,7 +43035,7 @@ Each singular input may have a sequence-style default actual; each singular outp
 
 ### SV2023-17.2-EXTRACT-PORT-DIRECTION
 
-17.2 / normal / テスト未対応
+17.2 / normal / テスト対応あり・実行未確認
 
 Checker ports may be input or output; omitted direction inherits the previous direction, with input for the first port.
 
@@ -43033,6 +43043,7 @@ Checker ports may be input or output; omitted direction inherits the previous di
 
 規定の性質: `mandatory`。
 
+- [test_checker_port_inference.sv](../tests/ch17/test_checker_port_inference.sv): checker inherit_pair のポート並びを `input logic [3:0] a, b, output logic [3:0] y, z` と書き、b は方向も型も省き、z は方向だけを省く。最初のポート a は方向を明示しない first_untyped 側で入力として使う。 区別: 方向の継承を行わない実装（Verilator 5.052 はその一つ）は b を入力にできても z を入力とみなし、z への代入をエラーにする。期待値 and=1000 or=1110 は b が入力、z が出力として 4 ビットで結線されたことを示す。
 
 ### SV2023-17.2-EXTRACT-PORT-TYPES
 
@@ -43047,7 +43058,7 @@ Checker formal types are property-formal types; outputs shall not have type unty
 
 ### SV2023-17.2-EXTRACT-STATIC-LEXICAL
 
-17.2 / normal / テスト未対応
+17.2 / normal / テスト対応あり・実行未確認
 
 Type/data declarations in a checker are local and static; default clock/disable contexts are inherited from its declaration scope, subject to explicit instance-context functions.
 
@@ -43055,6 +43066,7 @@ Type/data declarations in a checker are local and static; default clock/disable 
 
 規定の性質: `mandatory`。
 
+- [test_checker_static_scope.sv](../tests/ch17/test_checker_static_scope.sv): checker local_names の型・データ宣言（int base = 100、int count = 0）が checker スコープに局所で静的であること、module の default clocking と default disable iff が継承されることを観測する。2 個の実体 u1/u2 は別々の count を持ち、module の base は 5 のまま。 区別: checker 変数を実体ごとに持たない実装では h1 と h2 が同じ値になる。継承した default disable iff を使わない実装では rst=1 の間の 15 のエッジでも a1 が失敗し f1=3 になる。宣言が checker の外へ漏れる実装では base=5 が 100 になる。
 
 ### SV2023-17.3-EXTRACT-CAPTURED-ACTUAL-LIMIT
 
@@ -43069,7 +43081,7 @@ A formal whose input actual contains a const cast or procedural automatic value 
 
 ### SV2023-17.3-EXTRACT-CONNECTION-MODES
 
-17.3 / normal / テスト未対応
+17.3 / normal / 実行確認あり
 
 Checker arguments may connect by ordered position, fully explicit named connection, implicit named connection or wildcard name.
 
@@ -43077,6 +43089,7 @@ Checker arguments may connect by ordered position, fully explicit named connecti
 
 規定の性質: `permission`。
 
+- [test_checker_connection_modes.sv](../tests/ch17/test_checker_connection_modes.sv): 同じ checker conn_modes を 4 通りに実体化する: 位置順（u_pos）、完全な名前付き（u_named、formals と別順）、名前だけの暗黙接続（u_implicit、.a .b .sum .diff）、ワイルドカード（u_wild、.*）。すべて 9 と 3 を渡す。 区別: 4 つの接続方法のどれかが別の実引数に結線されたり結線されない実装では、その欄が 12/6 にならない（例: 暗黙接続を位置順と誤解すると pos=12/6 ... implicit=9/3 になる）。4 欄すべてが 12/6 であることが各方法の正しさを示す。
 
 ### SV2023-17.3-EXTRACT-DOLLAR-ACTUAL
 
@@ -43102,7 +43115,7 @@ Checker input actuals substitute for formals under F.4.2 after name resolution; 
 
 ### SV2023-17.3-EXTRACT-INSTANCE-GRAMMAR
 
-17.3 / normal / テスト未対応
+17.3 / normal / テスト対応あり・実行未確認
 
 A checker instance names an optional package-qualified checker and one instance with an ordered or named argument list, including implicit and wildcard named forms.
 
@@ -43110,6 +43123,8 @@ A checker instance names an optional package-qualified checker and one instance 
 
 規定の性質: `definition`。
 
+- [test_checker_connection_modes.sv](../tests/ch17/test_checker_connection_modes.sv): 名前付き接続（.diff(d_named) など）、暗黙の名前付き接続（.a .b .sum .diff）、.* ワイルドカード、ポートのない checker への空の引数並び u_empty() を実体化する。
+- [test_checker_in_package.sv](../tests/ch17/test_checker_in_package.sv): package の中で宣言した checker を、package 修飾名 chk_pkg::onehot_chk と位置順の引数並びで実体化する。
 
 ### SV2023-17.3-EXTRACT-INSTANCE-PLACEMENT
 
@@ -43124,7 +43139,7 @@ Checkers may be instantiated wherever concurrent assertions are allowed except f
 
 ### SV2023-17.3-EXTRACT-INTERNAL-PROCEDURAL-ASSERTIONS
 
-17.3 / normal / テスト未対応
+17.3 / normal / テスト対応あり・実行未確認
 
 Procedural concurrent assertions inside a checker follow ordinary procedural assertion queue semantics.
 
@@ -43132,10 +43147,11 @@ Procedural concurrent assertions inside a checker follow ordinary procedural ass
 
 規定の性質: `mandatory`。
 
+- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): checker proc_assert の always_ff 手続きの中で、if (en) の下に concurrent assertion p1 を書く。16.14.6 の procedural concurrent assertion として、手続きがその文に到達したときだけ queue に入り、その時刻の Observed 領域で評価される。 区別: 手続き内の concurrent assertion を静的な assertion として常時監視する実装では、d=9 のエッジ 15, 25, 45 すべてで失敗し internal=3 になる。到着時だけ queue に入れる実装では en=1 の 25 だけが失敗し internal=1 になる。
 
 ### SV2023-17.3-EXTRACT-NESTED-STATIC-ASSERTIONS
 
-17.3 / normal / テスト未対応
+17.3 / normal / テスト対応あり・実行未確認
 
 Static assertions in nested static checkers are treated at the parent checker context and become procedural when their top-level checker ancestor is visited procedurally.
 
@@ -43143,6 +43159,7 @@ Static assertions in nested static checkers are treated at the parent checker co
 
 規定の性質: `mandatory`。
 
+- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): outer_chk が inner_chk を静的に実体化し、inner_chk は静的な concurrent assertion i1 を持つ。outer_chk を静的に実体化した u_outer_static と、always 手続きの中で実体化した u_outer_proc を比べる。入れ子の static assertion は親の文脈で扱われ、最上位の実体が手続きで訪問されると procedural になる。 区別: 入れ子の static assertion を常に静的に扱う実装では n_proc が n_static と同じ 3 になる。親の実体化に従う実装では、procedural な親が訪問された 25 のエッジだけを数え n_proc=1 になる。bad は 5, 25, 45 のエッジで 1 なので、n_static=3 との差が入れ子の扱いを示す。
 
 ### SV2023-17.3-EXTRACT-ONE-PERSISTENT-COPY
 
@@ -43158,7 +43175,7 @@ Non-static-assertion checker contents exist at every time step with one copy per
 
 ### SV2023-17.3-EXTRACT-ONE-WILDCARD
 
-17.3 / error / テスト未対応
+17.3 / error / 実行確認あり
 
 The .* token pair shall appear at most once in checker port connections.
 
@@ -43166,10 +43183,11 @@ The .* token pair shall appear at most once in checker port connections.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_two_wildcards.sv](../tests/ch17/test_illegal_checker_two_wildcards.sv): checker の実体化の接続並びに `.*` を 2 回書く（.a(a), .*, .*）。17.3 の脚注は `.*` の対が接続並びに 1 回までしか現れてはならないとする。formals と他の接続は合法。 区別: `.*` の重複を許す実装はこの設計を受け付ける。2 つ目の `.*` の行をエラーとして示す実装だけが期待結果を満たす。Verilator 5.052 は Duplicate .* として同じ行で拒否する。
 
 ### SV2023-17.3-EXTRACT-OUTPUT-LVALUE
 
-17.3 / error / テスト未対応
+17.3 / error / テスト対応あり・実行未確認
 
 A checker output actual shall be a variable_lvalue or net_lvalue.
 
@@ -43177,10 +43195,11 @@ A checker output actual shall be a variable_lvalue or net_lvalue.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_output_expression.sv](../tests/ch17/test_illegal_checker_output_expression.sv): checker の出力 formal y の実引数に式 a & b を渡す。出力の実引数は variable_lvalue か net_lvalue でなければならない（17.3）。他の接続と module 側は合法。 区別: 出力に式を渡せる実装はこの設計を受け付ける。実引数の行をエラーとして示す実装だけが期待結果を満たす。式を左辺値として扱う実装では代入先が定まらないため、値 y も不定になる。
 
 ### SV2023-17.3-EXTRACT-OUTPUT-REACTIVE
 
-17.3 / normal / テスト未対応
+17.3 / normal / 実行確認あり
 
 Checker outputs should be treated as continuous assignments from formal to actual executed in Reactive.
 
@@ -43188,6 +43207,7 @@ Checker outputs should be treated as continuous assignments from formal to actua
 
 規定の性質: `recommendation`。
 
+- [test_checker_output_actual.sv](../tests/ch17/test_checker_output_actual.sv): checker が出力 q の実引数 qv[1] を Reactive 領域の continuous assignment で駆動し、同じエッジの module の always_ff が qv[1] を読むと 1 つ前のエッジの値を見る。 区別: 出力の実引数への代入を Active 領域や NBA 領域で行う実装では、同じエッジの module の手続きが新しい値を見てしまい、seen が q と同じ値になる（6: q=1 seen=1）。Reactive 領域で駆動する実装だけが seen を 1 エッジ遅らせる。
 
 ### SV2023-17.3-EXTRACT-STATIC-IN-PROCEDURAL
 
@@ -43202,7 +43222,7 @@ When procedural execution reaches a checker instance, its static concurrent asse
 
 ### SV2023-17.3-EXTRACT-STATIC-IN-STATIC
 
-17.3 / normal / テスト未対応
+17.3 / normal / テスト対応あり・実行未確認
 
 Static concurrent assertions in a static checker begin at every leading event; static deferred assertions are monitored as their expressions change.
 
@@ -43210,6 +43230,7 @@ Static concurrent assertions in a static checker begin at every leading event; s
 
 規定の性質: `mandatory`。
 
+- [test_checker_assertion_placement.sv](../tests/ch17/test_checker_assertion_placement.sv): 静的に実体化した checker static_asserts が concurrent assertion c1 と deferred assertion d1 を持つ。c1 は 15, 25, 45 のエッジで d=9 のため失敗し、d1 は式が変化した 6, 18, 38 の時点で失敗する（エッジではない）。 区別: 静的な checker の concurrent assertion を先頭のクロックイベントで 1 回だけ始める実装では concurrent=1 になる。deferred assertion をクロックエッジでだけ監視する実装では deferred=2（6, 18, 38 のうち 38 の後はエッジがないため）や 0 になり、式の変化で監視する実装だけが 3 になる。
 
 ### SV2023-17.3-EXTRACT-STATIC-PROCEDURAL
 
@@ -43537,7 +43558,7 @@ Packed arrays/structures are active or inactive monolithically, while unpacked a
 
 ### SV2023-17.7.2-EXTRACT-ASSUME-CHECK
 
-17.7.2 / normal / テスト未対応
+17.7.2 / normal / テスト対応あり・実行未確認
 
 Checker assumptions may constrain random generation/formal analysis and shall also be checked for violations in simulation.
 
@@ -43545,10 +43566,11 @@ Checker assumptions may constrain random generation/formal analysis and shall al
 
 規定の性質: `mandatory`。
 
+- [test_checker_assume_violation.sv](../tests/ch17/test_checker_assume_violation.sv): checker の assume set に入る 2 つの assume property が、どの値でも成立しない f == 0 && f == 1 を要求する。各 assume の else アクションが時刻を表示し、最後に回数を表示する。 区別: assume を拘束のためだけに使い、違反を検査しない実装では clk_a/clk_b violation の行が出ない（violations: clk_a=0 clk_b=0）。検査して Observed 領域で報告する実装だけが 5, 6, 15, 18, 25, 30 の 6 行と 3/3 の回数を出す。
 
 ### SV2023-17.7.2-EXTRACT-ASSUME-CLOCK
 
-17.7.2 / normal / テスト未対応
+17.7.2 / normal / テスト対応あり・実行未確認
 
 Assume-based randomization periodically solves the assume set on any property clock event in that set, rather than an explicit randomize() call.
 
@@ -43556,6 +43578,7 @@ Assume-based randomization periodically solves the assume set on any property cl
 
 規定の性質: `mandatory`。
 
+- [test_checker_assume_stability.sv](../tests/ch17/test_checker_assume_stability.sv): assume set は u1 の 1 文だけで、その property は posedge clk で clocked される。assume set のクロックイベントでない時刻（tick の 8, 18, 28）に、assume set が拘束する x と、どの assume にも現れない y の値を前のエッジの値と比べる。 区別: クロックイベント以外の各タイムステップで自由変数を更新する実装（空の assume set と同じ扱いをする実装）では、tick の時点で x か y が前のエッジの値と異なり changed が 1 以上になる。assume set のイベントだけで解く実装だけが checks=3 changed=0 を出す。
 
 ### SV2023-17.7.2-EXTRACT-ASSUME-SET-MEMBERSHIP
 
@@ -43581,7 +43604,7 @@ An empty assume set has an implicit event each step before Observed; its implici
 
 ### SV2023-17.7.2-EXTRACT-FAILURE-REPORT-TIME
 
-17.7.2 / normal / テスト未対応
+17.7.2 / normal / テスト対応あり・実行未確認
 
 An unsuccessful solve causes an assumption failure only when an unsatisfied property is clocked and checked in Observed.
 
@@ -43589,6 +43612,7 @@ An unsuccessful solve causes an assumption failure only when an unsatisfied prop
 
 規定の性質: `mandatory`。
 
+- [test_checker_assume_violation.sv](../tests/ch17/test_checker_assume_violation.sv): どの値でも成立しない assume の違反が、時刻 0 や値の変化時ではなく、その property のクロックイベント（clk_a の 5, 15, 25 と clk_b の 6, 18, 30）にだけ表示される。2 つのクロックは同じ時刻にエッジを持たない。 区別: 違反を解の探索時や値の更新時に報告する実装では、エッジでない時刻の行が出るか、エッジの回数と合わない。clocked された Observed 領域で報告する実装だけが、各クロックのエッジの時刻だけに 3 行ずつ出す。
 
 ### SV2023-17.7.2-EXTRACT-ONE-ASSUME-SET
 
@@ -43614,7 +43638,7 @@ All free checker variables, const/non-const and active/inactive, receive unconst
 
 ### SV2023-17.7.2-EXTRACT-SOLUTION-STABILITY
 
-17.7.2 / normal / テスト未対応
+17.7.2 / normal / テスト対応あり・実行未確認
 
 After a solution updates free variables they remain constant until the next assume-set clock event or the end of the time step, whichever comes first.
 
@@ -43622,10 +43646,11 @@ After a solution updates free variables they remain constant until the next assu
 
 規定の性質: `mandatory`。
 
+- [test_checker_assume_stability.sv](../tests/ch17/test_checker_assume_stability.sv): assume set のイベント（posedge clk）で解かれた x の値を always_ff で last_x に記録し、次のイベント前の tick（8, 18, 28）に x == last_x を検査する。更新後は次のイベントかタイムステップの終わりまで値が変わらないことを観測する。 区別: 解の更新をタイムステップの途中で繰り返す実装では、tick の時点で x が last_x と異なり changed が増える。更新を 1 回だけ行う実装だけが changed=0 を出す。checks=3 は 3 回とも比較が実行されたことを示す。
 
 ### SV2023-17.7.2-EXTRACT-SOLVE-BEFORE-OBSERVED
 
-17.7.2 / normal / テスト未対応
+17.7.2 / normal / テスト対応あり・実行未確認
 
 Immediately before Observed, implementations shall solve active free checker variables using sampled values of all other variables; active variable sampled values are their current values.
 
@@ -43633,6 +43658,7 @@ Immediately before Observed, implementations shall solve active free checker var
 
 規定の性質: `mandatory`。
 
+- [test_checker_assume_stability.sv](../tests/ch17/test_checker_assume_stability.sv): always_ff の中で x を読むとき、active な自由変数のサンプル値は現在値なので、Observed 領域の前に解かれた値が last_x に入る。次の tick で x と last_x が一致することを検査し、解が手続きより後に起きていないことを観測する。 区別: サンプル値を Preponed 領域の値（前のステップの解）とする実装では、last_x が 1 つ前の値になり tick で x != last_x となって changed が増える。現在値をサンプルする実装だけが changed=0 を出す。
 
 ### SV2023-17.7.2-EXTRACT-SOLVE-CURRENT-STEP
 
@@ -43658,7 +43684,7 @@ If solving fails, any active values may be selected; there is no requirement to 
 
 ### SV2023-17.7.2-EXTRACT-UNMENTIONED-ACTIVE
 
-17.7.2 / normal / テスト未対応
+17.7.2 / normal / テスト対応あり・実行未確認
 
 Active variables absent from a nonempty assume set are unconstrained but explicitly clocked and may randomize at each assume-set event.
 
@@ -43666,6 +43692,7 @@ Active variables absent from a nonempty assume set are unconstrained but explici
 
 規定の性質: `mandatory`。
 
+- [test_checker_assume_stability.sv](../tests/ch17/test_checker_assume_stability.sv): 自由変数 y は assume 文に現れないので非空の assume set の中では拘束されないが、明示的に clocked される。y の値を assume set のイベントで記録し、イベントでない tick の時点で前の値と同じかを検査する。 区別: assume に現れない自由変数を暗黙に clocked（毎ステップ更新）と扱う実装では、tick の時点で y が last_y と異なり changed が増える。非空の assume set のイベントだけで更新する実装だけが changed=0 を出す。
 
 ### SV2023-17.7.3-EXTRACT-ASSERTION-INVARIANT
 
@@ -52338,7 +52365,7 @@ Elaboration $warning/$info print messages without otherwise affecting elaboratio
 
 ### SV2023-20.11-EXTRACT-ACTION-ONGOING
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Control types 6 through 11 leave already executing assertions, including pass/fail action execution, unaffected and do not affect violation report types.
 
@@ -52346,10 +52373,11 @@ Control types 6 through 11 leave already executing assertions, including pass/fa
 
 規定の性質: `mandatory`。
 
+- [test_assertcontrol_action_controls_ongoing.sv](../tests/ch20/test_assertcontrol_action_controls_ongoing.sv): a_pass の試行中に 7 を呼ぶとその action は実行されて '7 in flight' が 1、制御後に始まった次の試行は '7 new' でも 1 のまま (実行されない)。pass off 中に 6 を呼ぶと off で始まった試行は '6 in flight' が 0、次の試行は '6 new' が 1。fail action でも 9 が 1/1、8 が 0/1、10 は非空虚 pass で 0/1、11 は空虚 pass で 1/1 になる。各制御の間に置いた unique case の報告はすべて出る。 区別: 6〜11 を実行中の試行にも適用する実装では 7 in flight が 0、6 in flight が 1、9 in flight が 0、8 in flight が 1、10 in flight が 1、11 in flight が 2 などになり、違反報告を止める実装では 6 つの unique case の報告が expected_stderr_regex から欠ける。
 
 ### SV2023-20.11-EXTRACT-ASSERTCONTROL-SYNTAX
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 $assertcontrol requires an integer control_type, with optional integer assertion/directive masks, integer levels and hierarchical scope/assertion selectors; shorthand control/action tasks accept optional levels and selector lists.
 
@@ -52357,10 +52385,13 @@ $assertcontrol requires an integer control_type, with optional integer assertion
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_off_kill_on_pending.sv](../tests/ch20/test_assertcontrol_off_kill_on_pending.sv): $assertcontrol を 1 引数の $assertcontrol(3) と 2 引数の (4,1)、(4,12)、(4,32)、(5,12)、(7,16) の形で呼び、各 mask が対応する型だけを制御する。
+- [test_assertcontrol_action_controls_ongoing.sv](../tests/ch20/test_assertcontrol_action_controls_ongoing.sv): $assertpassoff(0, a_now) と $assertcontrol(7,31,7,0,a_now) など 9 組を (levels, list) 付きで比べ、shorthand と control が同じ passes/fails を出す。
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $assertcontrol(1)〜(11)、$assertoff、$asserton、$assertkill、$assertpassoff、$assertpasson、$assertfailoff、$assertfailon、$assertvacuousoff、$assertnonvacuouson を呼び、それぞれ system callback が出る。
 
 ### SV2023-20.11-EXTRACT-ASSERTION-MASK
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 assertion_type bitwise-OR combines selected assertion/expect/violation types and defaults to 255.
 
@@ -52368,6 +52399,8 @@ assertion_type bitwise-OR combines selected assertion/expect/violation types and
 
 規定の性質: `mandatory`。
 
+- [test_assertcontrol_action_controls_ongoing.sv](../tests/ch20/test_assertcontrol_action_controls_ongoing.sv): a_now・simple immediate・observed deferred の fail action を mask 3、mask 1、mask なしの 255 で制御し、'mask 3'/'mask 1'/'no mask' の 3 行で concurrent/simple/observed の実行を比べる。
+- [test_assertcontrol_off_kill_on_pending.sv](../tests/ch20/test_assertcontrol_off_kill_on_pending.sv): mask を省略した $assertcontrol(4) の後に置いた unique case の報告が出ず、mask を省略した $assertcontrol(3) の後に置いた unique case の報告が出る。$assertcontrol(7,16) は expect の pass action を止め、$assertcontrol(6,16) は再び実行する。
 
 ### SV2023-20.11-EXTRACT-ASSERTION-MASK-1
 
@@ -52467,7 +52500,7 @@ assertion_type mask bit 8 selects Final Deferred Immediate.
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-1
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-1 with selection arguments to cbAssertionLock.
 
@@ -52475,10 +52508,11 @@ Table 20-8 maps assertcontrol-1 with selection arguments to cbAssertionLock.
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 1 の $assertcontrol を呼ぶと、2 に a1 の 'lock' callback が出る。a2 には何も出ない。 区別: control_type 1 を a1 の cbAssertionLock 以外に写す実装では 2 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-10
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-10 with selection arguments to cbAssertionEnableNonvacuousAction.
 
@@ -52486,10 +52520,11 @@ Table 20-8 maps assertcontrol-10 with selection arguments to cbAssertionEnableNo
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 10 の $assertcontrol を呼ぶと、14 に a1 の 'enable nonvacuous action' callback が出る。a2 には何も出ない。 区別: control_type 10 を a1 の cbAssertionEnableNonvacuousAction 以外に写す実装では 14 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-11
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-11 with selection arguments to cbAssertionDisableVacuousAction.
 
@@ -52497,10 +52532,11 @@ Table 20-8 maps assertcontrol-11 with selection arguments to cbAssertionDisableV
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 11 の $assertcontrol を呼ぶと、12 に a1 の 'disable vacuous action' callback が出る。a2 には何も出ない。 区別: control_type 11 を a1 の cbAssertionDisableVacuousAction 以外に写す実装では 12 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-2
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-2 with selection arguments to cbAssertionUnlock.
 
@@ -52508,10 +52544,11 @@ Table 20-8 maps assertcontrol-2 with selection arguments to cbAssertionUnlock.
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 2 の $assertcontrol を呼ぶと、3 に a1 の 'unlock' callback が出る。a2 には何も出ない。 区別: control_type 2 を a1 の cbAssertionUnlock 以外に写す実装では 3 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-3
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-3 with selection arguments to cbAssertionEnable.
 
@@ -52519,10 +52556,11 @@ Table 20-8 maps assertcontrol-3 with selection arguments to cbAssertionEnable.
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 3 の $assertcontrol を呼ぶと、5 に a1 の 'enable' callback が出る。a2 には何も出ない。 区別: control_type 3 を a1 の cbAssertionEnable 以外に写す実装では 5 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-4
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-4 with selection arguments to cbAssertionDisable.
 
@@ -52530,10 +52568,11 @@ Table 20-8 maps assertcontrol-4 with selection arguments to cbAssertionDisable.
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 4 の $assertcontrol を呼ぶと、4 に a1 の 'disable' callback が出る。a2 には何も出ない。 区別: control_type 4 を a1 の cbAssertionDisable 以外に写す実装では 4 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-5
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-5 with selection arguments to cbAssertionReset + cbAssertionDisable.
 
@@ -52541,10 +52580,11 @@ Table 20-8 maps assertcontrol-5 with selection arguments to cbAssertionReset + c
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と a1 を選択子に付けて $assertcontrol(5,1,1,0,a1) を呼ぶと、6 に a1 の 'disable' と 'reset' の 2 つの callback が出る。a2 には何も出ない。 区別: Table 20-8 の cbAssertionReset + cbAssertionDisable ではなく cbAssertionKill だけを出す実装では 6 の 'disable' 行が欠けて 'kill' 行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-6
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-6 with selection arguments to cbAssertionEnablePassAction.
 
@@ -52552,10 +52592,11 @@ Table 20-8 maps assertcontrol-6 with selection arguments to cbAssertionEnablePas
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 6 の $assertcontrol を呼ぶと、9 に a1 の 'enable pass action' callback が出る。a2 には何も出ない。 区別: control_type 6 を a1 の cbAssertionEnablePassAction 以外に写す実装では 9 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-7
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-7 with selection arguments to cbAssertionDisablePassAction.
 
@@ -52563,10 +52604,11 @@ Table 20-8 maps assertcontrol-7 with selection arguments to cbAssertionDisablePa
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 7 の $assertcontrol を呼ぶと、8 に a1 の 'disable pass action' callback が出る。a2 には何も出ない。 区別: control_type 7 を a1 の cbAssertionDisablePassAction 以外に写す実装では 8 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-8
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-8 with selection arguments to cbAssertionEnableFailAction.
 
@@ -52574,10 +52616,11 @@ Table 20-8 maps assertcontrol-8 with selection arguments to cbAssertionEnableFai
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 8 の $assertcontrol を呼ぶと、11 に a1 の 'enable fail action' callback が出る。a2 には何も出ない。 区別: control_type 8 を a1 の cbAssertionEnableFailAction 以外に写す実装では 11 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTCONTROL-9
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-9 with selection arguments to cbAssertionDisableFailAction.
 
@@ -52585,10 +52628,11 @@ Table 20-8 maps assertcontrol-9 with selection arguments to cbAssertionDisableFa
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と assertion a1 を選択子に付けて control_type 9 の $assertcontrol を呼ぶと、10 に a1 の 'disable fail action' callback が出る。a2 には何も出ない。 区別: control_type 9 を a1 の cbAssertionDisableFailAction 以外に写す実装では 10 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTFAILOFF
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertfailoff with selection arguments to cbAssertionDisableFailAction.
 
@@ -52596,10 +52640,11 @@ Table 20-8 maps assertfailoff with selection arguments to cbAssertionDisableFail
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と a1 を選択子に付けて $assertfailoff を呼ぶと、16 に a1 の 'disable fail action' callback が出る。a2 には何も出ない。 区別: $assertfailoff を a1 の cbAssertionDisableFailAction (9) 以外に写す実装では 16 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTFAILON
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertfailon with selection arguments to cbAssertionEnableFailAction.
 
@@ -52607,10 +52652,11 @@ Table 20-8 maps assertfailon with selection arguments to cbAssertionEnableFailAc
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と a1 を選択子に付けて $assertfailon を呼ぶと、17 に a1 の 'enable fail action' callback が出る。a2 には何も出ない。 区別: $assertfailon を a1 の cbAssertionEnableFailAction (8) 以外に写す実装では 17 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTKILL
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertkill with selection arguments to cbAssertionReset + cbAssertionDisable.
 
@@ -52618,10 +52664,11 @@ Table 20-8 maps assertkill with selection arguments to cbAssertionReset + cbAsse
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と a1 を選択子に付けて $assertkill(0,a1) を呼ぶと、18 に a1 の 'disable' と 'reset' の 2 つの callback が出る。a2 には何も出ない。 区別: Table 20-8 の cbAssertionReset + cbAssertionDisable ではなく cbAssertionKill だけを出す実装では 18 の 'disable' 行が欠けて 'kill' 行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTNONVACUOUSON
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertnonvacuouson with selection arguments to cbAssertionEnableNonvacuousAction.
 
@@ -52629,6 +52676,7 @@ Table 20-8 maps assertnonvacuouson with selection arguments to cbAssertionEnable
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と a1 を選択子に付けて $assertnonvacuouson を呼ぶと、24 に a1 の 'enable nonvacuous action' callback が出る。a2 には何も出ない。 区別: $assertnonvacuouson を a1 の cbAssertionEnableNonvacuousAction (10) 以外に写す実装では 24 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTOFF
 
@@ -52656,7 +52704,7 @@ Table 20-8 maps asserton with selection arguments to cbAssertionEnable.
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTPASSOFF
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertpassoff with selection arguments to cbAssertionDisablePassAction.
 
@@ -52664,10 +52712,11 @@ Table 20-8 maps assertpassoff with selection arguments to cbAssertionDisablePass
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と a1 を選択子に付けて $assertpassoff を呼ぶと、20 に a1 の 'disable pass action' callback が出る。a2 には何も出ない。 区別: $assertpassoff を a1 の cbAssertionDisablePassAction (7) 以外に写す実装では 20 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTPASSON
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertpasson with selection arguments to cbAssertionEnablePassAction.
 
@@ -52675,10 +52724,11 @@ Table 20-8 maps assertpasson with selection arguments to cbAssertionEnablePassAc
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と a1 を選択子に付けて $assertpasson を呼ぶと、21 に a1 の 'enable pass action' callback が出る。a2 には何も出ない。 区別: $assertpasson を a1 の cbAssertionEnablePassAction (6) 以外に写す実装では 21 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SELECTED-ASSERTVACUOUSOFF
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertvacuousoff with selection arguments to cbAssertionDisableVacuousAction.
 
@@ -52686,10 +52736,11 @@ Table 20-8 maps assertvacuousoff with selection arguments to cbAssertionDisableV
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_selected.sv](../tests/ch20/test_assertcontrol_callbacks_selected.sv): levels 0 と a1 を選択子に付けて $assertvacuousoff を呼ぶと、22 に a1 の 'disable vacuous action' callback が出る。a2 には何も出ない。 区別: $assertvacuousoff を a1 の cbAssertionDisableVacuousAction (11) 以外に写す実装では 22 の行の名前が変わるか欠け、選択子を無視する実装では a2 の行が余分に出る。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-1
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-1 without explicit selection arguments to cbAssertionSysLock.
 
@@ -52697,10 +52748,11 @@ Table 20-8 maps assertcontrol-1 without explicit selection arguments to cbAssert
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数の選択子を付けずに $assertcontrol(1) を呼ぶと 61 に 'system lock' が出て、直後の $assertcontrol(2) で 62 に 'system unlock' が出る。 区別: control_type 1 を cbAssertionSysLock 以外に写す実装では 61 の行の名前が変わるか欠け、cbAssertionSysUnlock を出さない実装では 62 の行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-10
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-10 without explicit selection arguments to cbAssertionSysEnableNonvacuousAction.
 
@@ -52708,10 +52760,11 @@ Table 20-8 maps assertcontrol-10 without explicit selection arguments to cbAsser
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): PassOff の後に引数の選択子なしで $assertcontrol(10) を呼ぶと 73 に 'system enable nonvacuous action' が出る。 区別: control_type 10 を cbAssertionSysEnableNonvacuousAction 以外に写す実装では 73 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-11
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-11 without explicit selection arguments to cbAssertionSysDisableVacuousAction.
 
@@ -52719,10 +52772,11 @@ Table 20-8 maps assertcontrol-11 without explicit selection arguments to cbAsser
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数の選択子なしで $assertcontrol(11) を呼ぶと 71 に 'system disable vacuous action' が出る。 区別: control_type 11 を cbAssertionSysDisableVacuousAction 以外に写す実装では 71 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-2
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-2 without explicit selection arguments to cbAssertionSysUnlock.
 
@@ -52730,10 +52784,11 @@ Table 20-8 maps assertcontrol-2 without explicit selection arguments to cbAssert
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): Lock の直後に引数の選択子なしで $assertcontrol(2) を呼ぶと 62 に 'system unlock' が出る。 区別: control_type 2 を cbAssertionSysUnlock 以外に写す実装では 62 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-3
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-3 without explicit selection arguments to cbAssertionSysOn.
 
@@ -52741,10 +52796,11 @@ Table 20-8 maps assertcontrol-3 without explicit selection arguments to cbAssert
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): Off の後に引数の選択子なしで $assertcontrol(3) を呼ぶと 64 に 'system on' が出る。 区別: control_type 3 を cbAssertionSysOn 以外に写す実装では 64 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-4
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-4 without explicit selection arguments to cbAssertionSysOff.
 
@@ -52752,10 +52808,11 @@ Table 20-8 maps assertcontrol-4 without explicit selection arguments to cbAssert
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 動いている assertion system に引数の選択子なしで $assertcontrol(4) を呼ぶと 63 に 'system off' が出る。 区別: control_type 4 を cbAssertionSysOff 以外に写す実装では 63 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-5
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-5 without explicit selection arguments to cbAssertionSysKill.
 
@@ -52763,10 +52820,11 @@ Table 20-8 maps assertcontrol-5 without explicit selection arguments to cbAssert
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): On の後に引数の選択子なしで $assertcontrol(5) を呼ぶと 65 に 'system kill' が出る。 区別: control_type 5 を cbAssertionSysKill 以外に写す実装では 65 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-6
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-6 without explicit selection arguments to cbAssertionSysEnablePassAction.
 
@@ -52774,10 +52832,11 @@ Table 20-8 maps assertcontrol-6 without explicit selection arguments to cbAssert
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): PassOff の後に引数の選択子なしで $assertcontrol(6) を呼ぶと 68 に 'system enable pass action' が出る。 区別: control_type 6 を cbAssertionSysEnablePassAction 以外に写す実装では 68 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-7
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-7 without explicit selection arguments to cbAssertionSysDisablePassAction.
 
@@ -52785,10 +52844,11 @@ Table 20-8 maps assertcontrol-7 without explicit selection arguments to cbAssert
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数の選択子なしで $assertcontrol(7) を呼ぶと 67 に 'system disable pass action' が出る。 区別: control_type 7 を cbAssertionSysDisablePassAction 以外に写す実装では 67 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-8
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-8 without explicit selection arguments to cbAssertionSysEnableFailAction.
 
@@ -52796,10 +52856,11 @@ Table 20-8 maps assertcontrol-8 without explicit selection arguments to cbAssert
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): FailOff の後に引数の選択子なしで $assertcontrol(8) を呼ぶと 70 に 'system enable fail action' が出る。 区別: control_type 8 を cbAssertionSysEnableFailAction 以外に写す実装では 70 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTCONTROL-9
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertcontrol-9 without explicit selection arguments to cbAssertionSysDisableFailAction.
 
@@ -52807,10 +52868,11 @@ Table 20-8 maps assertcontrol-9 without explicit selection arguments to cbAssert
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数の選択子なしで $assertcontrol(9) を呼ぶと 69 に 'system disable fail action' が出る。 区別: control_type 9 を cbAssertionSysDisableFailAction 以外に写す実装では 69 の行の名前が変わるか欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTFAILOFF
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertfailoff without explicit selection arguments to cbAssertionSysDisableFailAction.
 
@@ -52818,10 +52880,11 @@ Table 20-8 maps assertfailoff without explicit selection arguments to cbAssertio
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $assertfailoff を呼ぶと 81 に 'system disable fail action' が出る。 区別: $assertfailoff を cbAssertionSysDisableFailAction 以外の reason に写す実装では 81 の行の名前が変わるか行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTFAILON
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertfailon without explicit selection arguments to cbAssertionSysEnableFailAction.
 
@@ -52829,10 +52892,11 @@ Table 20-8 maps assertfailon without explicit selection arguments to cbAssertion
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $assertfailon を呼ぶと 82 に 'system enable fail action' が出る。 区別: $assertfailon を cbAssertionSysEnableFailAction 以外の reason に写す実装では 82 の行の名前が変わるか行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTKILL
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertkill without explicit selection arguments to cbAssertionSysKill.
 
@@ -52840,10 +52904,11 @@ Table 20-8 maps assertkill without explicit selection arguments to cbAssertionSy
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $assertkill を呼ぶと 77 に 'system kill' が出る。 区別: $assertkill を cbAssertionSysKill 以外の reason に写す実装では 77 の行の名前が変わるか行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTNONVACUOUSON
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertnonvacuouson without explicit selection arguments to cbAssertionSysEnableNonvacuousAction.
 
@@ -52851,10 +52916,11 @@ Table 20-8 maps assertnonvacuouson without explicit selection arguments to cbAss
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $assertnonvacuouson を呼ぶと 85 に 'system enable nonvacuous action' が出る。 区別: $assertnonvacuouson を cbAssertionSysEnableNonvacuousAction 以外の reason に写す実装では 85 の行の名前が変わるか行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTOFF
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertoff without explicit selection arguments to cbAssertionSysOff.
 
@@ -52862,10 +52928,11 @@ Table 20-8 maps assertoff without explicit selection arguments to cbAssertionSys
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $assertoff を呼ぶと 75 に 'system off' が出る。 区別: $assertoff を cbAssertionSysOff 以外の reason に写す実装では 75 の行の名前が変わるか行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTON
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps asserton without explicit selection arguments to cbAssertionSysOn.
 
@@ -52873,10 +52940,11 @@ Table 20-8 maps asserton without explicit selection arguments to cbAssertionSysO
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $asserton を呼ぶと 76 に 'system on' が出る。 区別: $asserton を cbAssertionSysOn 以外の reason に写す実装では 76 の行の名前が変わるか行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTPASSOFF
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertpassoff without explicit selection arguments to cbAssertionSysDisablePassAction.
 
@@ -52884,10 +52952,11 @@ Table 20-8 maps assertpassoff without explicit selection arguments to cbAssertio
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $assertpassoff を呼ぶと 79 に 'system disable pass action' が出る。 区別: $assertpassoff を cbAssertionSysDisablePassAction 以外の reason に写す実装では 79 の行の名前が変わるか行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTPASSON
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertpasson without explicit selection arguments to cbAssertionSysEnablePassAction.
 
@@ -52895,10 +52964,11 @@ Table 20-8 maps assertpasson without explicit selection arguments to cbAssertion
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $assertpasson を呼ぶと 80 に 'system enable pass action' が出る。 区別: $assertpasson を cbAssertionSysEnablePassAction 以外の reason に写す実装では 80 の行の名前が変わるか行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CALLBACK-SYSTEM-ASSERTVACUOUSOFF
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 Table 20-8 maps assertvacuousoff without explicit selection arguments to cbAssertionSysDisableVacuousAction.
 
@@ -52906,6 +52976,7 @@ Table 20-8 maps assertvacuousoff without explicit selection arguments to cbAsser
 
 規定の性質: `definition`。
 
+- [test_assertcontrol_callbacks_system.sv](../tests/ch20/test_assertcontrol_callbacks_system.sv): 引数なしの $assertvacuousoff を呼ぶと 83 に 'system disable vacuous action' が出る。 区別: $assertvacuousoff を cbAssertionSysDisableVacuousAction 以外の reason に写す実装では 83 の行の名前が変わるか行が欠ける。
 
 ### SV2023-20.11-EXTRACT-CONTROL-CODE-FAILOFF
 
@@ -53232,7 +53303,7 @@ Off disables selected violation reporting without flushing pending reports, whic
 
 ### SV2023-20.11-EXTRACT-ON
 
-20.11 / normal / テスト未対応
+20.11 / normal / テスト対応あり・実行未確認
 
 On re-enables selected assertion checking and violation reporting but does not affect expect.
 
@@ -53240,6 +53311,7 @@ On re-enables selected assertion checking and violation reporting but does not a
 
 規定の性質: `mandatory`。
 
+- [test_assertcontrol_off_kill_on_pending.sv](../tests/ch20/test_assertcontrol_off_kill_on_pending.sv): Off の後に $assertcontrol(3,1) で On にすると 25 に次の試行が始まり (27 の Kill で中断)、37 の On の後の 45 の試行が 55 に失敗して総失敗数が 2 になる。$assertcontrol(3,32) で unique 違反報告を On にすると 68 の unique case の報告が再び出て、expect が待っている間に $assertcontrol(3) を呼んでも expect の失敗 action は 95 に実行される。 区別: On が新しい試行を再開しない実装では '56: on: total fails 2' が 1 のままになり、違反報告を再開しない実装では行 130 の報告が expected_stderr_regex に現れず、On が expect を止める実装では '95: on during expect: expect fail actions 3' が 2 のままになる。
 
 ### SV2023-20.11-EXTRACT-PASS-OFF
 
@@ -84968,7 +85040,7 @@ Tables 36-1 through 36-9 assign vpi_get_cb_info to retrieve callback information
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-10-1364-1995
 
-36.12.1 / normal / テスト未対応
+36.12.1 / normal / テスト対応あり・実行未確認
 
 Under 1364-1995 compatibility, vpiVariables includes vpiReg/vpiRegArray is not applicable or absent, per Table 36-10.
 
@@ -84976,6 +85048,7 @@ Under 1364-1995 compatibility, vpiVariables includes vpiReg/vpiRegArray is not a
 
 規定の性質: `definition`。
 
+- [test_vpi_compat_1364v1995_iterations.sv](../tests/ch36/test_vpi_compat_1364v1995_iterations.sv): 1364v1995 互換モードで、モジュールの vpiVariables を反復する。スカラーの integer/time/real 変数 iv rv tv が 3 つとも含まれること（1 行目が 1）、vpiReg のスカラー rg と vpiMemory の mem が含まれないこと（2 行目が 0, 0）、反復したどのオブジェクトの vpiType も vpiReg でも vpiRegArray でもないこと（3 行目が 0）を出力する。同じ実行で rg と mem は名前で引くとそれぞれ vpiReg と vpiMemory として見つかり、値を読める（read 行）。 区別: vpiVariables に vpiReg を含める実装では 2 行目の rg が 1 になり 3 行目も 1 以上になる。vpiMemory の mem を vpiVariables に含める実装では 2 行目の mem が 1 になる。vpiRegArray を 1364-1995 でも作る実装では 3 行目が 1 になる。いずれも表 36-10 の 1364-1995 列の行 5（vpiReg/vpiRegArray は vpiVariables に含まれない）に反する。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-10-1364-2001
 
@@ -85040,7 +85113,7 @@ Under 1800-2012/2017/2023 compatibility, vpiVariables includes vpiReg/vpiRegArra
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-11-1364-1995
 
-36.12.1 / normal / テスト未対応
+36.12.1 / normal / テスト対応あり・実行未確認
 
 Under 1364-1995 compatibility, vpiReg iteration on vpiRegArray includes other variable objects is not applicable or absent, per Table 36-10.
 
@@ -85048,6 +85121,7 @@ Under 1364-1995 compatibility, vpiReg iteration on vpiRegArray includes other va
 
 規定の性質: `definition`。
 
+- [test_vpi_compat_1364v1995_iterations.sv](../tests/ch36/test_vpi_compat_1364v1995_iterations.sv): 1364v1995 互換モードで、モジュールに対する vpiRegArray の反復結果を出力する。反復子が NULL で（vpiRegArray of the module: NULL）、vpiRegArray オブジェクトが 1 つもないため、それぞれに対する vpiReg の反復も 0 arrays, 0 objects になる。同じ実行の types 行で、reg 配列 mem は vpiMemory、integer/time 配列 ia ta は vpiIntegerVar/vpiTimeVar であり、vpiRegArray 型のオブジェクトが存在しないことを示す。 区別: 1800 の挙動をそのまま返す実装では mem/ia/ta などが vpiRegArray として列挙され、0 arrays が 1 以上になる。さらにそれらの vpiReg 反復が vpiIntegerVar や vpiTimeVar を返せば objects が 0 でなくなり、表 36-10 の行 6 が 1364-1995 で N（vpiRegArray 上の vpiReg 反復に他のオブジェクトを含まない）であることに反する。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-11-1364-2001
 
@@ -85111,7 +85185,7 @@ Under 1800-2012/2017/2023 compatibility, vpiReg iteration on vpiRegArray include
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-12-1364-1995
 
-36.12.1 / normal / テスト未対応
+36.12.1 / normal / テスト対応あり・実行未確認
 
 Under 1364-1995 compatibility, vpiRegArray iteration includes other variable arrays is not applicable or absent, per Table 36-10.
 
@@ -85119,6 +85193,7 @@ Under 1364-1995 compatibility, vpiRegArray iteration includes other variable arr
 
 規定の性質: `definition`。
 
+- [test_vpi_compat_1364v1995_iterations.sv](../tests/ch36/test_vpi_compat_1364v1995_iterations.sv): 1364v1995 互換モードで、モジュールの vpiRegArray 反復が NULL を返し（0 個）、vpiRegArray オブジェクトが存在しないことを出力する。同時に types 行で、variable array である整数配列 ia と time 配列 ta がそれぞれ vpiIntegerVar と vpiTimeVar という単一オブジェクト型であり、vpiRegArray ではないことを示す。 区別: 1800 のように variable array を vpiRegArray に含める実装では vpiRegArray 行が NULL でなく ia/ta/mem を列挙し、0 arrays も 2 以上になる。表 36-10 の行 7 は 1364-1995 で N（vpiRegArray 反復に variable array を含まない）なので、期待出力と食い違う。ia/ta を vpiRegArray 型にすると types 行も変わる。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-12-1364-2001
 
@@ -85611,7 +85686,7 @@ Under 1800-2012/2017/2023 compatibility, vpiRealVar array object is not applicab
 
 ### SV2023-36.12.1-EXTRACT-INTERFACE-ITERATION
 
-36.12.1 / normal / テスト未対応
+36.12.1 / normal / テスト対応あり・実行未確認
 
 Since 1800-2012, vpiInterfaceDecl (alias vpiVirtualInterfaceVar) iteration is disallowed on lexical vpiClassDefn but allowed on active vpiClassTypespec; returned objects are vpiVirtualInterfaceVar rather than vpiRefObj.
 
@@ -85619,10 +85694,11 @@ Since 1800-2012, vpiInterfaceDecl (alias vpiVirtualInterfaceVar) iteration is di
 
 規定の性質: `mandatory`。
 
+- [test_vpi_interface_decl_class_current_mode.sv](../tests/ch36/test_vpi_interface_decl_class_current_mode.sv): 現行モード（互換マクロなし）で、vpiInterfaceDecl が vpiVirtualInterfaceVar と等しいこと（1）、クラス定義 holder の vpiClassDefn に対する vpiInterfaceDecl 反復が NULL であること、変数 h の vpiTypespec が vpiClassTypespec であり、その型指定に対する vpiInterfaceDecl 反復が仮想インタフェースメンバ vif を vpiVirtualInterfaceVar として返すことを出力する。 区別: 1800-2012 以降は字句的な vpiClassDefn 上の反復を許さないので、許す実装ではクラス定義の行が NULL でなく vif を返す。型指定上の反復を許さない実装では最終行が NULL になる。vpiRefObj を返す実装では最終行の型が vpiRefObj になる。いずれも行 8/9 の 1800-2012 以降の記述と食い違う。
 
 ### SV2023-36.12.1-EXTRACT-MEMORY-TRANSITIONS
 
-36.12.1 / normal / テスト未対応
+36.12.1 / normal / テスト対応あり・実行未確認
 
 Since 1364-2005 vpiMemory is a one-to-many transition and vpiMemoryWord an iterator, not object types; unidimensional reg arrays/elements use vpiRegArray/vpiReg. In 1364-2001 either old or replacement object form was allowed.
 
@@ -85630,10 +85706,12 @@ Since 1364-2005 vpiMemory is a one-to-many transition and vpiMemoryWord an itera
 
 規定の性質: `mandatory`。
 
+- [test_vpi_variable_arrays_1364v2005_mode.sv](../tests/ch36/test_vpi_variable_arrays_1364v2005_mode.sv): 1364v2005 モードで、モジュールの vpiMemory 反復が mem を vpiRegArray として返し、mem の vpiType が vpiRegArray であること、mem の vpiMemoryWord 反復がちょうど 4 個で型がすべて vpiReg であることを出力する。
+- [test_vpi_variable_arrays_1364v2001_mode.sv](../tests/ch36/test_vpi_variable_arrays_1364v2001_mode.sv): 1364v2001 モードで、reg 配列 mem が vpiMemory か vpiRegArray のどちらかであり、vpi_handle_by_index(mem, 0) が vpiMemoryWord か vpiReg のどちらかであることを、両方を受け入れる比較の 1 で出力する。
 
 ### SV2023-36.12.1-EXTRACT-REG-ALIASES
 
-36.12.1 / normal / テスト未対応
+36.12.1 / normal / テスト対応あり・実行未確認
 
 vpiReg and vpiRegArray are aliases of vpiLogicVar and vpiArrayVar respectively.
 
@@ -85641,10 +85719,11 @@ vpiReg and vpiRegArray are aliases of vpiLogicVar and vpiArrayVar respectively.
 
 規定の性質: `definition`。
 
+- [test_vpi_variable_arrays_current_mode.sv](../tests/ch36/test_vpi_variable_arrays_current_mode.sv): 現行モード（互換マクロなし）で、vpiReg が vpiLogicVar と等しく、vpiRegArray が vpiArrayVar と等しいことを、実行時に 2 つの比較結果として出力する（vpiReg is vpiLogicVar: 1, vpiRegArray is vpiArrayVar: 1）。このアプリは vpiReg/vpiRegArray の名前で型を表示し、vpiReg の反復や vpiRegArray の反復もその名前で行う。 区別: vpiReg と vpiLogicVar、または vpiRegArray と vpiArrayVar が別の型定数である実装では、対応する比較が 0 になる。表 36-10 の直後の記述は両者を同じ型の別名としているので、期待出力と食い違う。
 
 ### SV2023-36.12.1-EXTRACT-SCALAR-ARRAY-TYPES
 
-36.12.1 / normal / テスト未対応
+36.12.1 / normal / テスト対応あり・実行未確認
 
 Current integer/time/real scalar variables use their scalar VPI object types, while their unpacked arrays are vpiRegArray, unlike the older modes.
 
@@ -85652,10 +85731,11 @@ Current integer/time/real scalar variables use their scalar VPI object types, wh
 
 規定の性質: `mandatory`。
 
+- [test_vpi_variable_arrays_current_mode.sv](../tests/ch36/test_vpi_variable_arrays_current_mode.sv): 現行モードで、スカラーの integer/time/real 変数 iv tv rv の vpiType がそれぞれ vpiIntegerVar/vpiTimeVar/vpiRealVar であること、同じ型のアンパック配列 ia ta ra の vpiType がすべて vpiRegArray（vpiArrayVar）であることを、types 行と vpiVariables の name:type 行で出力する。 区別: 配列 ia/ta/ra を要素のスカラー型 vpiIntegerVar/vpiTimeVar/vpiRealVar として返す実装では types 行と vpiVariables 行の ia/ta/ra が変わる。逆にスカラー iv/tv/rv を vpiRegArray にする実装では iv/vpiIntegerVar などの行が変わる。36.12.1 の行 3/4 の詳細は、現行版では integer/time/real の配列を常に vpiRegArray とし、スカラーはスカラー型のままと定める。
 
 ### SV2023-36.12.1-EXTRACT-VARIABLE-ITERATIONS
 
-36.12.1 / normal / テスト未対応
+36.12.1 / normal / テスト対応あり・実行未確認
 
 Current vpiVariables includes regs and variable arrays; vpiReg element iterations and vpiRegArray array iterations can include integer/time/real variable kinds, unlike older modes.
 
@@ -85663,6 +85743,7 @@ Current vpiVariables includes regs and variable arrays; vpiReg element iteration
 
 規定の性質: `mandatory`。
 
+- [test_vpi_variable_arrays_current_mode.sv](../tests/ch36/test_vpi_variable_arrays_current_mode.sv): 現行モードで、モジュールの vpiVariables 反復に reg の lv（lv:vpiReg）と reg 配列 mem（mem:vpiRegArray）が含まれること、vpiRegArray 反復が ia mem ra ta を返すこと、vpiRegArray に対する vpiReg 反復が ia では vpiIntegerVar、ta では vpiTimeVar、ra では vpiRealVar を 2 個ずつ返すことを出力する。 区別: 現行版で vpiVariables から vpiReg/vpiRegArray を除く実装では vpiVariables 行から lv/mem が消える。vpiRegArray 反復に整数・時間・実数の配列を含めない実装では vpiRegArray 行が mem だけになる。vpiReg 要素反復が要素を vpiReg 型で返す実装では vpiReg of ia/ta/ra の型が vpiReg になる。36.12.1 の行 5〜7 の現行版の記述にそれぞれ反する。
 
 ### SV2023-36.12.2-EXTRACT-COMPATIBILITY-SUPPORT
 
@@ -112356,7 +112437,7 @@ The predefined coverage macro SV_COV_TOGGLE has integer value 23.
 
 ### SV2023-40.3.2.1-EXTRACT-CONTROL-IDEMPOTENCE
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 Starting already started coverage has no effect; repeated stop/reset with no intervening change is idempotent.
 
@@ -112364,6 +112445,7 @@ Starting already started coverage has no effect; repeated stop/reset with no int
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_check_while_stopped.sv](../tests/ch40/test_coverage_control_check_while_stopped.sv): 同じ cc_probe に対し、収集中に SV_COV_START を続けて 2 回呼び、その間に信号が変化しない状態で $coverage_get を 2 回読む。STOP も 2 回続けて呼び、2 回目も OK を返すことと、停止前後で CHECK の値が変わらないことを確かめる。 区別: 開始済みの階層への START が収集値をリセットしたり、2 回目の STOP が失敗したりすれば value1==value2 または stop==OK の表示が 0 になり、期待値と一致しなくなる。
 
 ### SV2023-40.3.2.1-EXTRACT-CONTROL-RESULTS
 
@@ -112378,7 +112460,7 @@ SV_COV_OK means full availability for check or complete success for other action
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-CHECK
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 SV_COV_CHECK reports availability, independently of whether collection is currently stopped.
 
@@ -112386,6 +112468,7 @@ SV_COV_CHECK reports availability, independently of whether collection is curren
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_check_while_stopped.sv](../tests/ch40/test_coverage_control_check_while_stopped.sv): 同じ階層で CHECK を STOP の前、1 回目の STOP の後、2 回目の STOP の後に呼び、3 回とも同じ値を返すことを表示する。CHECK の後ろでは収集値も変化させていない。 区別: CHECK が収集の有無を返す実装なら、STOP の後の値が NOCOV に変わりcheck is unchanged by stopping の行が 0 になる。可用性を返す実装だけが 1 を表示する。
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-CONTROL-SIGNATURE
 
@@ -112401,7 +112484,7 @@ $coverage_control takes control constant, coverage type, scope definition and mo
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-RESET
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 SV_COV_RESET clears available coverage in the selected hierarchy and has no effect where coverage is unavailable.
 
@@ -112409,10 +112492,11 @@ SV_COV_RESET clears available coverage in the selected hierarchy and has no effe
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_start_stop_counts.sv](../tests/ch40/test_coverage_control_start_stop_counts.sv): cc_work のビット 0 と 7 をトグルした後で SV_COV_RESET を呼び、直後に $coverage_get を読んで 0 であることを表示する。RESET を2 回続けて呼び、どちらも OK を返すことも表示する。 区別: RESET が収集値を消さなければ after_reset==0 の行が 0 になり、2 回目の RESET が失敗すれば reset gives OK, also when repeated が 0 になる。
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-START
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 SV_COV_START starts collection where possible, has no effect if already collecting, and collection starts automatically at simulation start for enabled hierarchy portions.
 
@@ -112420,10 +112504,11 @@ SV_COV_START starts collection where possible, has no effect if already collecti
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_start_stop_counts.sv](../tests/ch40/test_coverage_control_start_stop_counts.sv): START を一度も呼ばずに cc_work のビット 0 をトグルし、$coverage_get が0 より大きいことで自動開始を観測する。収集中の START が値を変えず、STOP 後の START で未トグルのビット 6 が加算されることを表示する。 区別: 自動開始が無ければ before_any_control>0 の行が 0 になり、開始済みのSTART が収集を初期化すれば値が変わり、再 START が収集を再開しなければafter_restart>after_repeated_start の行が 0 になる。
 
 ### SV2023-40.3.2.1-EXTRACT-COVERAGE-STOP
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 SV_COV_STOP stops collection and has no effect when not collecting.
 
@@ -112431,10 +112516,11 @@ SV_COV_STOP stops collection and has no effect when not collecting.
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_start_stop_counts.sv](../tests/ch40/test_coverage_control_start_stop_counts.sv): ビット 7 を STOP の最中にトグルし、STOP の前後で $coverage_get が変化しないこと（while_stopped == after_repeated_start）を表示する。STOP 自体が OK を返すことも表示する。 区別: STOP が収集を止めなければ停止中のビット 7 が加算されて 2 行が 0 になり、STOP が失敗すれば stop gives OK が 0 になる。
 
 ### SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 With SV_COV_HIER, a quoted module definition name selects every instance of that module and descendants; an instance path selects that instance and descendants.
 
@@ -112442,10 +112528,11 @@ With SV_COV_HIER, a quoted module definition name selects every instance of that
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_scope_selection.sv](../tests/ch40/test_coverage_control_scope_selection.sv): m1.u と m2.u の 2 つの cc_leaf インスタンスを持つ m1, m2 について、定義名 "cc_mid" + HIER の最大値が両インスタンスの HIER の和に等しく、インスタンスパス m1 + HIER の最大値が m1 の MODULE とその子 m1.u の HIER の和に等しいことを表示する。 区別: HIER が子孫を含まなければ hier_def == hier_m1 + hier_m2 と hier_m1 == module_m1 + hier_m1_leaf の行が 0 になり、定義名とインスタンスパスのどちらかが他方の階層を含まなければ和が合わない。
 
 ### SV2023-40.3.2.1-EXTRACT-HIERARCHY-SCOPE-TABLE
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 With SV_COV_HIER, a definition string sums all module instances plus their descendants; an instance path includes that instance and all descendants.
 
@@ -112453,10 +112540,11 @@ With SV_COV_HIER, a definition string sums all module instances plus their desce
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_scope_selection.sv](../tests/ch40/test_coverage_control_scope_selection.sv): 表 40-2 の定義名の行: 定義名 "cc_mid" の HIER の最大値が、2 インスタンス m1, m2 の HIER の最大値の和に等しいことを表示する（m1 と m2 が cc_mid の全インスタンス）。 区別: 定義名 + HIER が「全インスタンスとその下の階層の和」でなければ、hier_def == hier_m1 + hier_m2 の行が 1 にならない。片方だけを数えれば和は一致しない。
 
 ### SV2023-40.3.2.1-EXTRACT-MODULE-ONLY-SCOPE
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 With SV_COV_MODULE, a definition string sums all instances of the module excluding their child hierarchy; an instance path selects only that instance without children.
 
@@ -112464,10 +112552,11 @@ With SV_COV_MODULE, a definition string sums all instances of the module excludi
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_scope_selection.sv](../tests/ch40/test_coverage_control_scope_selection.sv): 定義名 "cc_mid" + MODULE の最大値が、HIER の最大値から 2 つの葉インスタンス m1.u, m2.u の HIER の最大値を引いた値に等しいことを表示する。また葉の m1.u では MODULE と HIER が等しいことを表示する。 区別: MODULE が子階層を含めば module_def == hier_def - hier_m1_leaf - hier_m2_leaf が 0 になり、子を含めないなら差し引きで一致する。葉インスタンスで両者が違えば 2 行目が 0 になる。
 
 ### SV2023-40.3.2.1-EXTRACT-MODULE-SCOPE-MACRO-TEXT
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 The module-local scope_def named SV_MODULE_COV in the 40.3.2.1 prose is the predefined macro `SV_COV_MODULE (40.3.1, value 10), as used by Table 40-2 and the Figure 40-1 examples; SV_MODULE_COV is not an additional predefined macro.
 
@@ -112475,6 +112564,7 @@ The module-local scope_def named SV_MODULE_COV in the 40.3.2.1 prose is the pred
 
 規定の性質: `mandatory`。
 
+- [test_coverage_control_scope_selection.sv](../tests/ch40/test_coverage_control_scope_selection.sv): モジュール内スコープとして `SV_COV_MODULE を使い（40.3.1 の値 10）、その値が 10 であることと、それを使った定義名・インスタンスパスのクエリが Table 40-2 のモジュール内の意味（子階層を除く）で加算できることを表示する。 区別: `SV_COV_MODULE が 10 でなければ 1 行目が 0 になり、マクロがモジュール内スコープとして解釈されずエラーになれば後続の等式も 0 になる。SV_MODULE_COV という別マクロに依存していない。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-ERROR
 
@@ -112594,7 +112684,7 @@ Table 40-1 maps SV_COV_START / SV_COV_NOCOV to no coverage; not-applicable cells
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-OK
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 Table 40-1 maps SV_COV_START / SV_COV_OK to success; not-applicable cells do not prescribe that return for the action.
 
@@ -112602,6 +112692,7 @@ Table 40-1 maps SV_COV_START / SV_COV_OK to success; not-applicable cells do not
 
 規定の性質: `definition`。
 
+- [test_coverage_control_check_while_stopped.sv](../tests/ch40/test_coverage_control_check_while_stopped.sv): 可用性が完全な階層（CHECK が OK）では START も OK を返し、2 回目の START も同じ OK を返すことを、CHECK との一致で表示する（table 40-1 の START/OK は成功）。停止後の START も同じ値になる。 区別: 可用性が完全なのに START が OK 以外を返せば start gives the checked availability が 0 になる。テストはツールが OK を返す設計（toggle/statement が計装済み）で実行される。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-START-SV-COV-PARTIAL
 
@@ -113295,7 +113386,7 @@ For assertion vpiCovered, it must have been attempted, succeeded at least once a
 
 ### SV2023-40.5.2-EXTRACT-ASSERTION-IN-PROGRESS
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 For applicable assertions, in-progress attempts equal attempts minus nonvacuous successes,vacuous successes,disabled,killed and failures.
 
@@ -113303,10 +113394,11 @@ For applicable assertions, in-progress attempts equal attempts minus nonvacuous 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_assertion_counts.sv](../tests/ch40/test_vpi_coverage_assertion_counts.sv): 5 つの assertion について attempts - (successes + vacuous + disabled + killed + failures) を計算し、すべて 0 になることを表示する。成功 4、空成功 4、無効 4、失敗 4、kill 1、未試行 0 の内訳を作る。 区別: いずれかのカウントが仕様の内訳と違えば counts are as the stimulus が0 になり、式の結果が 0 でなければ no attempt is in progress が 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-COVER-SEQUENCE-COUNT-EXCEPTION
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 The in-progress equation does not apply to cover sequence because one attempt may have multiple matches.
 
@@ -113314,6 +113406,7 @@ The in-progress equation does not apply to cover sequence because one attempt ma
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_cover_sequence.sv](../tests/ch40/test_vpi_coverage_cover_sequence.sv): cover sequence `on ##[1:2] on` を 4 回のクロックで試行し、マッチが 5 回（15,25,25,35,35）あることを、SV 側のパス文実行回数とvpiAssertSuccessCovered の一致、および successes > attempts で表示する。 区別: cover sequence で success がマッチ数でなく試行数（1 回）を数える実装では successes == matches と successes > attempts の行が 0 になり、in-progress の式が当てはまらないことが観測できる。
 
 ### SV2023-40.5.2-EXTRACT-COVERED-COUNT
 
@@ -113339,7 +113432,7 @@ vpiCovered on assertion/statement/signal/FSM/FSM-state handles returns covered e
 
 ### SV2023-40.5.2-EXTRACT-COVERED-MAX
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 vpiCoveredMax returns the number of coverable entities for assertion/statement/signal/FSM/state handles; it is always 1 for one assertion or FSM-state handle.
 
@@ -113347,6 +113440,7 @@ vpiCoveredMax returns the number of coverable entities for assertion/statement/s
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_max_entities.sv](../tests/ch40/test_vpi_coverage_max_entities.sv): vpiCoveredMax が signal で 8（ビット数）、statement ブロックで 3（文数）、FSM で 3（状態数）、FSM state と assertion で 1 になることを表示する。iteration の順序には依存しない。 区別: いずれかのハンドルで最大値がエンティティ数でなければ、期待した数値の行が一致せず、assertion と state が 1 でなければ the number is always 1 の行が 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-FSM-ITERATOR
 
@@ -113374,7 +113468,7 @@ vpi_handle(vpiFsmStateExpression,fsm_handle) returns the signal/expression encod
 
 ### SV2023-40.5.2-EXTRACT-FSM-STATE-VALUE-CALL-TEXT
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 The FSM-state value is retrieved with vpi_get_value(fsm_state_handle, value_p): the FSM state handle is the object argument and the value is placed in the application-allocated s_vpi_value per the 38.15/K.2 prototype; the 'state-handle' second argument in the 40.5.2 text denotes that p_vpi_value.
 
@@ -113382,6 +113476,7 @@ The FSM-state value is retrieved with vpi_get_value(fsm_state_handle, value_p): 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_max_entities.sv](../tests/ch40/test_vpi_coverage_max_entities.sv): vpi_iterate(vpiFsmStates) で得た各 state ハンドルに vpi_get_value(handle, &value) を呼び、s_vpi_value に状態値が入り、3 つの値が 0,1,2 になることを順序非依存のビットマスクで表示する。 区別: state ハンドルで vpi_get_value が値を返さなければビットマスクが 7 にならず、fsm state values are 0, 1 and 2 の行が 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-FSM-STATES-ITERATOR
 
@@ -113408,7 +113503,7 @@ vpi_get(coverageType,instance_handle) returns the count of covered items of that
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTATTEMPTCOVERED
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 vpi_get(vpiAssertAttemptCovered,assertion_handle) returns the number of attempts.
 
@@ -113416,10 +113511,11 @@ vpi_get(vpiAssertAttemptCovered,assertion_handle) returns the number of attempts
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_assertion_counts.sv](../tests/ch40/test_vpi_coverage_assertion_counts.sv): vpiAssertAttemptCovered を 5 つの assertion で読み、成功する a_pass と空成功の a_vac と無効の a_dis と失敗の a_fail が 4、kill される a_kill が 1、クロックの来ない a_never が 0 であることを確認する。 区別: 試行回数が仕様と違えば counts are as the stimulus の行が 0 になる。a_dis の無効評価も試行に数えられること、kill 後は試行が始まらないことを含む。
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTDISABLECOVERED
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 vpi_get(vpiAssertDisableCovered,assertion_handle) returns the number of attempts reaching disabled state, including start under true disable iff.
 
@@ -113427,10 +113523,11 @@ vpi_get(vpiAssertDisableCovered,assertion_handle) returns the number of attempts
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_assertion_counts.sv](../tests/ch40/test_vpi_coverage_assertion_counts.sv): disable iff (on) が常に真の a_dis について、4 回のクロックで vpiAssertDisableCovered が 4、success と vacuous が 0 になることを確認する。無効評価も attempt に数えられる。 区別: 無効状態への到達が数えられなければ a_dis の counts are as the stimulus が 0 になり、無効を成功に数える実装も successes の不一致で 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTFAILURECOVERED
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 vpi_get(vpiAssertFailureCovered,assertion_handle) returns the number of failures.
 
@@ -113438,10 +113535,11 @@ vpi_get(vpiAssertFailureCovered,assertion_handle) returns the number of failures
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_assertion_counts.sv](../tests/ch40/test_vpi_coverage_assertion_counts.sv): 常に偽の never を検査する a_fail について、4 回のクロックで vpiAssertFailureCovered が 4、success が 0、vpiCovered が 0 になることを確認する。 区別: 失敗回数が数えられなければ a_fail の counts are as the stimulus が0 になり、失敗した assertion を covered とする実装も covered の検査で 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTKILLCOVERED
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 vpi_get(vpiAssertKillCovered,assertion_handle) returns the number of killed attempts.
 
@@ -113449,10 +113547,11 @@ vpi_get(vpiAssertKillCovered,assertion_handle) returns the number of killed atte
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_assertion_counts.sv](../tests/ch40/test_vpi_coverage_assertion_counts.sv): 5 で試行が始まり完了しない a_kill を 6 で $assertkill(0, a_kill) で kill し、vpiAssertKillCovered が 1、attempt が 1（kill 後は新たな試行が始まらない）、in-progress が 0 になることを確認する。 区別: kill された試行が数えられなければ a_kill の counts are as the stimulus が 0 になり、kill 後も試行が始まる実装では attempt が 1 にならない。
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTSUCCESSCOVERED
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 vpi_get(vpiAssertSuccessCovered,assertion_handle) returns the number of nonvacuous successes, or matches for a cover sequence.
 
@@ -113460,10 +113559,11 @@ vpi_get(vpiAssertSuccessCovered,assertion_handle) returns the number of nonvacuo
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_assertion_counts.sv](../tests/ch40/test_vpi_coverage_assertion_counts.sv): 常に真の on を検査する a_pass について、4 回のクロックで vpiAssertSuccessCovered が 4、attempt が 4、vacuous と failure が 0、vpiCovered が 1 になることを確認する。 区別: 非空成功の回数が数えられなければ a_pass の counts are as the stimulus が 0 になり、covered の検査も 0 になる。
 
 ### SV2023-40.5.2-EXTRACT-QUERY-VPIASSERTVACUOUSSUCCESSCOVERED
 
-40.5.2 / normal / テスト未対応
+40.5.2 / normal / テスト対応あり・実行未確認
 
 vpi_get(vpiAssertVacuousSuccessCovered,assertion_handle) returns the number of vacuous successes.
 
@@ -113471,6 +113571,7 @@ vpi_get(vpiAssertVacuousSuccessCovered,assertion_handle) returns the number of v
 
 規定の性質: `mandatory`。
 
+- [test_vpi_coverage_assertion_counts.sv](../tests/ch40/test_vpi_coverage_assertion_counts.sv): 前件 never が偽の含意 never |-> on を持つ a_vac について、4 回のクロックで vpiAssertVacuousSuccessCovered が 4、success が 0 になることを確認する。 区別: 空成功が数えられなければ a_vac の counts are as the stimulus が 0 になり、空成功を非空成功に数える実装も successes の不一致で 0 になる。
 
 ### SV2023-40.5.3-EXTRACT-VPI-COVERAGE-CONTROL
 
