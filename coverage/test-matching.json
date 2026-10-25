@@ -3,8 +3,8 @@
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
   "test_files": 6009,
-  "linked_test_files": 3495,
-  "unlinked_test_files": 2514,
+  "linked_test_files": 3503,
+  "unlinked_test_files": 2506,
   "chapters": [
     {
       "chapter": "ch3",
@@ -27,8 +27,8 @@
     {
       "chapter": "ch6",
       "test_files": 538,
-      "linked_test_files": 338,
-      "unlinked_test_files": 200
+      "linked_test_files": 339,
+      "unlinked_test_files": 199
     },
     {
       "chapter": "ch7",
@@ -57,8 +57,8 @@
     {
       "chapter": "ch11",
       "test_files": 807,
-      "linked_test_files": 334,
-      "unlinked_test_files": 473
+      "linked_test_files": 335,
+      "unlinked_test_files": 472
     },
     {
       "chapter": "ch12",
@@ -87,8 +87,8 @@
     {
       "chapter": "ch16",
       "test_files": 268,
-      "linked_test_files": 191,
-      "unlinked_test_files": 77
+      "linked_test_files": 193,
+      "unlinked_test_files": 75
     },
     {
       "chapter": "ch17",
@@ -117,8 +117,8 @@
     {
       "chapter": "ch21",
       "test_files": 104,
-      "linked_test_files": 42,
-      "unlinked_test_files": 62
+      "linked_test_files": 44,
+      "unlinked_test_files": 60
     },
     {
       "chapter": "ch22",
@@ -213,8 +213,8 @@
     {
       "chapter": "ch38",
       "test_files": 81,
-      "linked_test_files": 58,
-      "unlinked_test_files": 23
+      "linked_test_files": 60,
+      "unlinked_test_files": 21
     },
     {
       "chapter": "ch39",
@@ -21912,7 +21912,149 @@
           "clause": "12.5",
           "descendant_requirement_count": 20
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch11/test_real_equality_is_exact.sv",
+        "inputs_sha256": "06dbe37576d6e6527e9d87370374f3b2180c120f88596472b2e5c4bd18d58d0e",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-12.5-EXTRACT-CASE-COMMON-SIGN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "case の制御式も項目も real 一つずつで、整数オペランドのビット幅も符号も現れない。全式を最長の式の幅へ広げ、いずれかが符号なしなら全部を符号なしで比べる規則を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "    case (sum)"
+              },
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "  real sum;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-12.5-EXTRACT-CASE-COMMON-WIDTH"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "real 同士の比較でビット幅の拡張が起きず、項目も 0.3 の一つだけなので、制御式と全項目を最長の式の幅へそろえる規則を観測しない。現在比べている一組だけで幅を決める誤実装とも区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "    case (sum)"
+              },
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "      0.3: $display"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-12.5-EXTRACT-CASE-GRAMMAR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "通常の case に項目一つと default を置くだけで、casez・casex・case inside・matches、unique/unique0/priority、コロン省略の default を観測しない。文法の各形式を確かめていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "    case (sum)"
+              },
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "      default: $display"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-12.5-EXTRACT-CASE-LINEAR-FIRST"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "項目式が 0.3 の一つだけで、複数の項目を記載順に比べること、探索中は default を無視すること、最初の一致で探索を止めることを区別できない。一致する項目が二つ以上ある刺激がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "    case (sum)"
+              },
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "      0.3: $display"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-12.5-EXTRACT-CASE-NONE-DEFAULT"
+            ],
+            "disposition": "compound_requirement",
+            "explanation": "項目が一致しないときに default を実行する側だけを観測し、default のない case でどの項目文も実行しない側の対照がない。要求の二つの分岐の片方だけなので登録しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "    case (sum)"
+              },
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "      default: $display"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-12.5-EXTRACT-CASE-ONCE-BEFORE-ITEMS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "制御式は変数 sum の参照で副作用がなく、項目式も一つなので、制御式が項目式より前に一度だけ評価されることを出力から区別できない。評価回数を数える刺激がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "    case (sum)"
+              },
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "  real sum;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-6.12-EXTRACT-REAL-VARIABLE-CATEGORY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "real だけを使い、shortreal・realtime を real と同じものとして扱う同義性と、三者をまとめてreal 変数と呼ぶカテゴリを観測しない。0.1+0.2 が 0.3 と等しくならないことは real が double であることの証拠にはなるが、この行の分類の規則は見ていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "  real sum;"
+              },
+              {
+                "file": "tests/ch11/test_real_equality_is_exact.sv",
+                "contains": "    sum = sum + 0.2;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch11/test_real_operand_result_types.sv",
@@ -28265,7 +28407,40 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch11/test_wildcard_eq.sv",
+        "inputs_sha256": "466f93101c3ed5ba5c65a5ba1bbdabf963d4a15fdbe143d6a0e54ec151090663",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.6-EXTRACT-RIGHT-ONLY-WILDCARD",
+              "SV2023-11.4.6-EXTRACT-UNMASKED-UNKNOWN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "LHS の a は 10100101 や 11110000 などすべて既知値で、x/z は RHS にしか現れない。そのため LHS の未知ビットがワイルドカードでないことと、マスクされない LHS の未知が x を生むことを観測せず、RHS のワイルドカードで 1 になることだけを見ている。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch11/test_wildcard_eq.sv",
+                "contains": "        a = 8'b1010_0101;"
+              },
+              {
+                "file": "tests/ch11/test_wildcard_eq.sv",
+                "contains": "        b = 8'b1010_xxxx;"
+              },
+              {
+                "file": "tests/ch11/test_wildcard_eq.expected",
+                "contains": "TEST1 PASS: wildcard eq with X in pattern"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch11/test_wildcard_eq_2.sv",
@@ -45606,7 +45781,9 @@
         "16.16"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-16.5-EXTRACT-CLOCK-TICK"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-16.14.1-EXTRACT-ASSERT-ACTIONS",
@@ -45625,7 +45802,6 @@
         "SV2023-16.16-EXTRACT-EXPLICIT-OVERRIDES",
         "SV2023-16.16-EXTRACT-MAXIMAL-PROPERTY",
         "SV2023-16.16-EXTRACT-NO-DECLARATION-DEFAULT",
-        "SV2023-16.5-EXTRACT-CLOCK-TICK",
         "SV2023-16.5-EXTRACT-GLITCH-FREE",
         "SV2023-16.5-EXTRACT-MULTIPLE-TRANSITIONS",
         "SV2023-16.5-EXTRACT-SAMPLED-OBSERVED"
@@ -45653,7 +45829,151 @@
           "clause": "16.16",
           "descendant_requirement_count": 23
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+        "inputs_sha256": "9677e2a3af38c99aa1685a84433dbe148c81b465ae964ac01a64067243b8e4e2",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-16.16-EXTRACT-CONTEXT-OVERRIDES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "always @(e) による文脈推論クロックは使っているが、default clocking を宣言していないため、推論クロックが既定クロックに優先して先頭クロックになることを観測できない。既定クロックと推論クロックが異なる時刻で競合する刺激が必要。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+                "contains": "  always @(e) assert property (x) else fail_proc++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.16-EXTRACT-DEFAULT-ASSERTION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "default clocking を宣言しておらず、先頭クロックを他に持たない並行アサーションが既定クロックで前置される条件を刺激していない。すべての assert が @(e) か @(posedge clk) を明示しているため、既定クロックを無視する実装でも同じ3行になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+                "contains": "  assert property (@(posedge clk) 1) pass_clk++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.16-EXTRACT-EXPLICIT-OVERRIDES"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "default clocking がなく、明示した先頭クロックが既定クロックに優先する状況を作っていない。@(e) と @(posedge clk) の明示指定だけでは、既定クロックを優先する誤実装と区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+                "contains": "  assert property (@(e) x) else fail_e++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.16-EXTRACT-MAXIMAL-PROPERTY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "入れ子のクロックを持つ property や sequence のインスタンスがなく、クロックイベントがスコープ内で引き継がれ内側のクロックで上書きされること、F.4.1 で平坦化した maximal property が一意であることを出力から観測できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+                "contains": "  event e;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.16-EXTRACT-NO-DECLARATION-DEFAULT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "sequence/property の宣言が一つもなく、default clocking が宣言に付かないこと（clocking block 内の宣言だけが例外）を刺激していない。テストはモジュール直下のassert 文だけで構成されている。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+                "contains": "  logic clk = 0;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.5-EXTRACT-GLITCH-FREE"
+            ],
+            "disposition": "oracle_issue",
+            "explanation": "クロック事象 e は posedge clk から1回だけ発火する清浄な波形で、1タイムステップ内に複数回遷移する刺激がない。規格が『should』で求める性質を満たさない実装でも同じ10/10 の出力になるため、このテストから期待値を導けない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+                "contains": "  always @(posedge clk) -> e;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.5-EXTRACT-MULTIPLE-TRANSITIONS"
+            ],
+            "disposition": "oracle_issue",
+            "explanation": "1タイムステップ内にクロック事象が2回以上遷移する刺激がなく、規格はその場合の挙動を未定義としているため、どの出力を期待値にすべきか決められない。このテストの事象は各時刻に1回だけ発火する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+                "contains": "  initial forever #1 clk = ~clk;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.6-EXTRACT-INFERRED-EVENT-FORM"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "always @(e) の e は単独の event 変数という肯定例だけで、クロッキングブロック識別子やmaximal なエッジ式の形、および推論できない否定例（複数の事象式や単独でない式）を刺激していない。3つの適格形式のうち1つしか観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+                "contains": "  always @(e) assert property (x) else fail_proc++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.6-EXTRACT-INFERRED-CLOCK-STRUCTURE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "always @(e) はブロッキングなタイミング制御を含まず事象制御が1つという肯定例だけを示す。ブロッキング制御を挟む手続き、事象制御が複数ある手続き、修飾子の付いた事象制御の否定例がなく、推論できる条件を反証できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+                "contains": "  always @(posedge clk) -> e;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch16/test_assertion_gated_clock_current_value.sv",
@@ -46405,7 +46725,121 @@
         "SV2023-16.12.2-EXTRACT-NO-EMPTY-PROPERTY",
         "SV2023-16.14.3-EXTRACT-COVER-ACTION-CONTENT"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch16/test_cover_property_restrict.sv",
+        "inputs_sha256": "05deaeae6dc6e5b2c803779670789f0a1452bb49f236c7ee1ccc727585bd35bf",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-16.14.2-EXTRACT-SIMULATION-ASSUME"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "assume property(!a) の失敗が5,55,95の3回で fail アクションだけを実行する。真のときにpass アクションを実行する側は assume 文に pass アクションがなく、pass を実行しない実装でも同じ『assume failures: 3』になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_cover_property_restrict.sv",
+                "contains": "  m_no_a: assume property (@(posedge clk) !a) else assume_fails++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.2-EXTRACT-ASSUME-DEFAULT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "assume 文に else アクションがあり、null アクション（;）を書く場合や else を省略したときに $error を呼ぶ場合を刺激していない。既定のエラー報告を出さない実装でも同じ『assume failures: 3』になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_cover_property_restrict.sv",
+                "contains": "  m_no_a: assume property (@(posedge clk) !a) else assume_fails++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.2-EXTRACT-ASSUME-DISABLED"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "disable iff や $assertcontrol で assume の評価を無効にする刺激がなく、無効な評価でpass/fail のどちらのアクションも実行しないこと、アクション制御が pass/fail の実行を抑えることを観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_cover_property_restrict.sv",
+                "contains": "  m_no_a: assume property (@(posedge clk) !a) else assume_fails++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.2-EXTRACT-ASSERT-COVER-DIST"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "assert/cover の式に dist がなく、dist が inside と等価で重みの指定が無視されることを確かめていない。重み付きの分布を実装しても出力の3行は変わらない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_cover_property_restrict.sv",
+                "contains": "  c_prop: cover property (@(posedge clk) a ##[1:3] b) m_prop.push_back($time);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.2-EXTRACT-BIAS-SYNTAX"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "assume の式に dist { dist_list } を書いておらず、仮定式がバイアスの構文を受理することを観測していない。テストの仮定は !a だけで、分布集合を含まない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_cover_property_restrict.sv",
+                "contains": "  m_no_a: assume property (@(posedge clk) !a) else assume_fails++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.2-EXTRACT-BIAS-NO-RELAXATION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "自由変数もバイアスも使っておらず、バイアスの有無にかかわらず仮定が同じように成立することを確かめていない。バイアスを仮定の検査の緩和に使う誤実装でも同じ出力になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_cover_property_restrict.sv",
+                "contains": "  m_no_a: assume property (@(posedge clk) !a) else assume_fails++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.2-EXTRACT-FORMAL-ASSUME"
+            ],
+            "disposition": "oracle_issue",
+            "explanation": "形式解析で仮定を環境の仮説として使い、証明の義務を負わない性質はシミュレーション出力に現れない。このテストの3行からは形式解析側の扱いを肯定も否定もできない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_cover_property_restrict.sv",
+                "contains": "  m_no_a: assume property (@(posedge clk) !a) else assume_fails++;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch16/test_default_disable_iff.sv",
@@ -49420,7 +49854,76 @@
           "clause": "16.16",
           "descendant_requirement_count": 23
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch16/test_illegal_multiclock_two_leading_clocks.sv",
+        "inputs_sha256": "ae134094a1f862504f13d93a6cf3036b269799f8c9953fe6e02cdb150d62db6b",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-16.16-EXTRACT-CLOCKING-NO-EXPLICIT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "clocking block を宣言しておらず、その中の sequence/property 宣言に明示クロックを書かない規則を刺激していない。23行目はモジュール直下の assert 文で、clocking block 内の宣言ではない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_illegal_multiclock_two_leading_clocks.sv",
+                "contains": "  p_two: assert property (@(posedge ck) x or @(negedge ck) y);   // illegal: two leading clocks"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.16-EXTRACT-CLOCKING-SINGLE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "clocking block がなく、その中で multiclocked な sequence/property を宣言する違反を作っていない。テストの multiclocked property は assert 文の中に直接書かれている。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_illegal_multiclock_two_leading_clocks.sv",
+                "contains": "  p_two: assert property (@(posedge ck) x or @(negedge ck) y);   // illegal: two leading clocks"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.16-EXTRACT-EXTERNAL-INSTANCE-CLOCK"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "clocking block の外で宣言した sequence/property をブロック内でインスタンス化する刺激がなく、そのインスタンスのクロックがブロックのクロックと同一であることを確かめていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_illegal_multiclock_two_leading_clocks.sv",
+                "contains": "module test_illegal_multiclock_two_leading_clocks;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.16-EXTRACT-NO-CLOCK-FALLBACK"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "23行目は @(posedge ck) と @(negedge ck) の明示クロックを持つため、明示・既定・文脈推論のいずれのクロックもない場合に maximal property が一意な先頭クロックを持つことを観測していない。クロックなしの sequence/property インスタンスを置く刺激が必要。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_illegal_multiclock_two_leading_clocks.sv",
+                "contains": "  logic ck, x, y;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch16/test_illegal_nonoverlapping_antecedent_no_match.sv",
@@ -50018,7 +50521,76 @@
         "SV2023-16.12.3-EXTRACT-NEGATION",
         "SV2023-16.12.3-EXTRACT-NEGATION-STRENGTH"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch16/test_illegal_recursive_property_negated.sv",
+        "inputs_sha256": "90c9a54eb09b096d876bba6ac348503f4e50b66a0f1c5268efe10a0eb86821c6",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-16.12.17-EXTRACT-NO-DEPENDENT-NEGATION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "not の対象は再帰 property ack_each 自身のインスタンスで、再帰 property に依存する非再帰 property を否定する形ではない。F.7 の依存関係を通じた否定の禁止は刺激していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_illegal_recursive_property_negated.sv",
+                "contains": "  a_neg: assert property (@(posedge clk) not ack_each(rq, ak)) else fails++;  // illegal"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.12.17-EXTRACT-NO-RECURSIVE-DISABLE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "ack_each の宣言に disable iff がなく、再帰 property の宣言で disable iff を使う違反を作っていない。32行目のエラーは not の適用によるもので、disable iff の制限を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_illegal_recursive_property_negated.sv",
+                "contains": "  property ack_each(req, ack);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.12.17-EXTRACT-POSITIVE-TIME"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "ack_each の再帰インスタンスは 1'b1 |=> で1クロック進む合法な形で、|-> で同一時刻に再帰する違反がない。32行目のエラーが正の時間前進の検査に由来するかは区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_illegal_recursive_property_negated.sv",
+                "contains": "    (req |=> ack) and (1'b1 |=> ack_each(req, ack));"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.12.17-EXTRACT-RECURSIVE-ACTUALS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "再帰呼び出しの実引数は仮引数 req, ack そのもので、条件を満たす形だけを刺激している。別の式を渡す場合や、局所変数仮引数へ束縛する場合の違反がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_illegal_recursive_property_negated.sv",
+                "contains": "    (req |=> ack) and (1'b1 |=> ack_each(req, ack));"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch16/test_illegal_repetition_count_negative.sv",
@@ -53748,7 +54320,9 @@
         "16.14.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-16.14.6.4-EXTRACT-DISABLE-PROCESS"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-16.14.1-EXTRACT-ASSERT-ACTIONS",
@@ -53765,7 +54339,6 @@
         "SV2023-16.14.6.1-EXTRACT-CAPTURE-QUEUE-TIME",
         "SV2023-16.14.6.1-EXTRACT-MATURED-INDEPENDENCE",
         "SV2023-16.14.6.1-EXTRACT-PROCEDURAL-CONDITION",
-        "SV2023-16.14.6.4-EXTRACT-DISABLE-PROCESS",
         "SV2023-16.14.6.4-EXTRACT-DISABLE-SPECIFIC",
         "SV2023-16.14.6.4-EXTRACT-INNER-NO-FLUSH",
         "SV2023-16.14.6.4-EXTRACT-MATURED-IMMUNE",
@@ -53794,7 +54367,61 @@
           "clause": "16.14.6",
           "descendant_requirement_count": 12
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch16/test_procedural_concurrent_assertions.sv",
+        "inputs_sha256": "5c441dbc848ca4cc42a84cf7fda4c98bb0d8fb08e606d779a8153b2abdd22ca5",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-16.14.6.4-EXTRACT-DISABLE-SPECIFIC"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "disable の対象は手続き全体のブロック b_dis で、特定の並行アサーション a_dis だけをdisable する刺激がない。そのアサーションの待ち行列だけが消え、同じ手続きの他のアサーションの待ち行列が残ることも確かめていない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_procedural_concurrent_assertions.sv",
+                "contains": "    if (stop) disable b_dis;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.6.4-EXTRACT-INNER-NO-FLUSH"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "手続きの最外スコープを disable する例だけで、タスクや非最外スコープを disable したときに待ち行列を流さないことを観測していない。内部スコープの disable で残るべき未成熟インスタンスを置く刺激が必要。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_procedural_concurrent_assertions.sv",
+                "contains": "    if (stop) disable b_dis;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.14.6.4-EXTRACT-MATURED-IMMUNE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "disable は a_dis を待ち行列に入れた同じタイムステップで起き、成熟済みの試行が disable の後も継続する多段プロパティがない。成熟後の試行が disable に影響されないことを出力から区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_procedural_concurrent_assertions.sv",
+                "contains": "    a_dis: assert property (1'b0) else f_dis++;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch16/test_property_abort.sv",
@@ -53950,7 +54577,76 @@
         "SV2023-16.12.11-EXTRACT-ALWAYS-BOUNDS",
         "SV2023-16.14.1-EXTRACT-ASSERT-ACTION-CONTENT"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch16/test_property_always_ranges.sv",
+        "inputs_sha256": "08d099df47634e949efa9c54229e5511cb287b03eb91f3146a29976c2f9cbbda",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-16.12.11-EXTRACT-RANGED-ALWAYS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "各フェーズは8クロック続き、always [1:3] の範囲の全ティックが必ず存在する。範囲のティックが存在しないときに弱い always が成立する条件を刺激しておらず、always をs_always と同じに扱う実装でも期待値の 0,1,1 の3行になる。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_property_always_ranges.sv",
+                "contains": "  a_always: assert property (@(posedge clk) go |-> always [1:3] x) else f_always++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.12.11-EXTRACT-STRONG-ALWAYS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "s_always [1:3] の3ティックが常に存在するフェーズだけで、範囲のティックが不足するときに強形が失敗する条件を観測していない。8ティックのフェーズを短く切る刺激がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_property_always_ranges.sv",
+                "contains": "  a_s_always: assert property (@(posedge clk) go |-> s_always [1:3] x) else f_s_always++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.12.15-EXTRACT-STRONG-OPERATORS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "s_always [1:3] だけを、必要なティックが揃ったフェーズで使っている。s_nexttime, s_eventually, s_until, s_until_with, strong と、ティック不足で終了条件が満たされない場合を刺激しておらず、6つの強形のうち1つしか観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_property_always_ranges.sv",
+                "contains": "  a_s_always: assert property (@(posedge clk) go |-> s_always [1:3] x) else f_s_always++;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-16.12.15-EXTRACT-WEAK-OPERATORS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "always [1:3] と always [2:$] だけを、全ティックが存在するフェーズで使い、弱形がクロックの存在や最終的な終了条件を要求しないことを強形との差として観測していない。6つの弱形のうち2つだけで、短いフェーズの対照もない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch16/test_property_always_ranges.sv",
+                "contains": "  a_unbounded: assert property (@(posedge clk) go2 |-> always [2:$] y) else f_unbounded++;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch16/test_property_expression_operands_bind_first.sv",
@@ -57815,7 +58511,226 @@
           "clause": "17.7",
           "descendant_requirement_count": 24
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch17/test_checker_free_variables_assigned.sv",
+        "inputs_sha256": "cd93d637de0294df1e3c7341909f203482874fb93c00820cc0290194fe11c90f",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-ACTIVE-INACTIVE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "代入される自由変数 t が不活性で乱数化されない側だけを観測し、代入されない自由変数が能動で乱数化される側と、unpacked 配列要素ごとに活性が分かれる条件を刺激していない。t の 1,0,1,0 は不活性の対照になるが、能動側の対照がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "  always_ff @clk t <= !t;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-ACTIVITY-GRANULARITY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "自由変数は bit の t と k だけで、packed/unpacked の配列や構造体がない。packed が一括で活性・不活性になり、unpacked の要素が別々に活性を持てることを観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "  rand const bit [3:0] k = 4'd9;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-ASSUME-CHECK"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "checker に assume 文がなく、仮定がシミュレーションで違反として検査・報告されることを刺激していない。t と k の出力だけでは仮定の検査を反証できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "checker toggler (event clk, output bit t_out, output bit [3:0] k_out);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-ASSUME-CLOCK"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "checker の assume set が空で、仮定の時計イベントで解を求める動作がない。explicit な randomize() なしに仮定集合の時計で解が更新されることを観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "checker toggler (event clk, output bit t_out, output bit [3:0] k_out);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-ASSUME-SET-MEMBERSHIP"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "assume 文も checker の入れ子インスタンスもなく、const cast や automatic 値を実引数に持つ仮定が assume set から除かれる条件を刺激していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "checker toggler (event clk, output bit t_out, output bit [3:0] k_out);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-EMPTY-SET-CLOCK"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "assume set は空だが、非 const 自由変数 t は always_ff の左辺なので不活性で、k は const である。空の assume set で能動な自由変数が毎ステップ乱数化され、そのステップの終わりまで一定であることを観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "  always_ff @clk t <= !t;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-FAILURE-REPORT-TIME"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "仮定も解の試行もなく、解に失敗したときに不成立の property が Observed でクロックされ検査されるまで違反が出ないことを観測できない。checker に assume 文がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "  assign t_out = t;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-ONE-ASSUME-SET"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "assume 文が一つもなく、checker インスタンスごとに assume set がちょうど1つ存在することが出力に現れない。複数インスタンスを置いて集合が独立かを見る刺激もない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "  toggler u (posedge clk, t, k);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-RANDOM-INITIALIZATION"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "t も k も宣言で明示的に初期化されており、初期化子のない自由変数が型の既定値ではなくランダム初期値を受ける側を観測していない。k=9 は明示初期化が保たれることだけを示す。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "  rand const bit [3:0] k = 4'd9;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-SOLUTION-STABILITY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "能動な自由変数がなく解の更新が起きないため、解の後で次の assume set 時計イベントまで値が一定であることを観測していない。t は不活性、k は const で、どちらも解の対象外。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "  rand bit t = 1'b0;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-SOLVE-BEFORE-OBSERVED"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "能動な自由変数がなく Observed 直前の解の試行がない。他の変数のサンプル値を使って能動変数を解くこと、能動変数のサンプル値が現在値であることを出力から確かめられない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "  always_ff @clk t <= !t;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-SOLVE-CURRENT-STEP"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "仮定がなく解の試行自体がないため、現在のステップで仮定違反を避ける値を能動変数に選ぶことを観測していない。checker の仮定集合が空である。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "checker toggler (event clk, output bit t_out, output bit [3:0] k_out);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-SOLVE-FAILURE-FREEDOM"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "解の失敗を起こす仮定がなく、失敗したときに任意の値を選んでよいこと、未来の行き止まりを避ける義務がないことを刺激していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "checker toggler (event clk, output bit t_out, output bit [3:0] k_out);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-17.7.2-EXTRACT-UNMENTIONED-ACTIVE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "空でない assume set も能動な自由変数もなく、仮定に現れない能動変数が assume set の時計イベントごとに乱数化されることを観測していない。t は不活性で k は const。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch17/test_checker_free_variables_assigned.sv",
+                "contains": "  rand bit t = 1'b0;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch17/test_checker_generate_instance.sv",
@@ -67367,7 +68282,43 @@
         "SV2023-6.24.3-EXTRACT-FIXED-SIZE-MISMATCH",
         "SV2023-6.24.3-EXTRACT-NO-ASSOCIATIVE-CLASS-DESTINATION"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch20/test_bits_2.sv",
+        "inputs_sha256": "cfd535653befbbf6fca49db3cf2c3b26ab37c6a41108da4efcd3ebd24f0f9336",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-6.24.3-EXTRACT-ASSOCIATIVE-PACK-ORDER",
+              "SV2023-6.24.3-EXTRACT-DESTINATION-LEFT-TO-RIGHT",
+              "SV2023-6.24.3-EXTRACT-DYNAMIC-PACK-ORDER",
+              "SV2023-6.24.3-EXTRACT-DYNAMIC-SOURCE-INCLUDED",
+              "SV2023-6.24.3-EXTRACT-GREEDY-FIRST-DYNAMIC",
+              "SV2023-6.24.3-EXTRACT-PACK-SOURCE-DOMAIN",
+              "SV2023-6.24.3-EXTRACT-RECURSIVE-BITSTREAM-TYPES",
+              "SV2023-6.24.3-EXTRACT-STRING-AS-BYTE-ARRAY",
+              "SV2023-6.24.3-EXTRACT-UNPACK-TWO-STATE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "$bits の結果の幅だけを表示し、bit-stream cast（型'(式) やストリーミング演算子）を一つも行わない。そのため assoc/dynamic/string の詰め順、送り先の左詰め、greedy 配分、4状態ドメイン、unpack 時の4→2状態変換を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch20/test_bits_2.sv",
+                "contains": "if ($bits(my_struct) == 24) begin"
+              },
+              {
+                "file": "tests/ch20/test_bits_2.expected",
+                "contains": "Test 9 PASS: $bits(packed struct) = 24"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch20/test_bits_basic.sv",
@@ -68542,7 +69493,44 @@
           "clause": "20.10",
           "descendant_requirement_count": 7
         }
-      ]
+      ],
+      "scoped_review": {
+        "test": "tests/ch20/test_elaboration_severity_not_generated.sv",
+        "inputs_sha256": "4b23273e813cc7c27e2319433ee4e29f84b166ed42aa92eb3204bb3add66c91d",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-20.10.1-EXTRACT-ELABORATION-CONTEXT",
+              "SV2023-20.10.1-EXTRACT-ELABORATION-DIAGNOSTICS",
+              "SV2023-20.10.1-EXTRACT-ELABORATION-ERROR",
+              "SV2023-20.10.1-EXTRACT-ELABORATION-EXECUTION",
+              "SV2023-20.10.1-EXTRACT-ELABORATION-FATAL",
+              "SV2023-20.10.1-EXTRACT-ELABORATION-NONERROR"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "W=4 で非選択の generate 分岐の $error が実行されないことだけを示し、elaborated な severity 呼び出しを一つも実行しない。procedure 内の $info は runtime タスクだが、severity メッセージは出力比較から除かれ:expected_stderr_regex: もないため、実行時期・メッセージ・file/line・階層名・$fatal の終了を観測できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch20/test_elaboration_severity_not_generated.sv",
+                "contains": "if (W > 8) begin : too_wide"
+              },
+              {
+                "file": "tests/ch20/test_elaboration_severity_not_generated.sv",
+                "contains": "$error(\"W=%0d is too wide\", W);"
+              },
+              {
+                "file": "tests/ch20/test_elaboration_severity_not_generated.expected",
+                "contains": "simulation started with W=4"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch20/test_error_does_not_end_run.sv",
@@ -71290,6 +72278,28 @@
                 "contains": "    $async$and$array(personality, inputs, asynchronous);"
               }
             ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-20.16.2-EXTRACT-LOGIC-PLANES",
+              "SV2023-20.16.3-EXTRACT-PERSONALITY-LOADING",
+              "SV2023-20.16.4-EXTRACT-PLANE-QUESTION",
+              "SV2023-20.16.4-EXTRACT-PLANE-UNKNOWN"
+            ],
+            "disposition": "oracle_issue",
+            "explanation": "非同期 PLA の出力に net（wire）を渡しており、20.16 の output_terms は variable_lvalue という条件に反するため正常系の観測に使えない。加えて nand/nor の平面と ? のドントケアを刺激しておらず、これら4条件は別テストが必要。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
+                "contains": "wire [0:1] asynchronous;"
+              },
+              {
+                "file": "tests/ch20/test_pla_sync_snapshot_versus_async_update.sv",
+                "contains": "$async$and$array(personality, inputs, asynchronous);"
+              }
+            ]
           }
         ]
       }
@@ -72035,7 +73045,39 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch20/test_stochastic_queue_capacity_one_reuse.sv",
+        "inputs_sha256": "c0a0f2c8bb06a91f2107769fda51d2625840233fba51e7789e85ada867545857",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-20.15.5-EXTRACT-STAT-2",
+              "SV2023-20.15.5-EXTRACT-STAT-4",
+              "SV2023-20.15.5-EXTRACT-STAT-5",
+              "SV2023-20.15.5-EXTRACT-STAT-6",
+              "SV2023-20.15.6-EXTRACT-STATUS-7"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "$q_exam は q_stat_code 1（現在長）だけを呼び、2/4/5/6 の平均到着間隔・最短待ち・キュー内最長待ち・平均待ちを表示しない。status 7（メモリ不足）を起こす刺激もなく、$q_initialize は status 0 で成功するだけ。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch20/test_stochastic_queue_capacity_one_reuse.sv",
+                "contains": "$q_exam(27, 1, length, status);"
+              },
+              {
+                "file": "tests/ch20/test_stochastic_queue_capacity_one_reuse.sv",
+                "contains": "$q_initialize(27, 1, 1, status);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch20/test_stochastic_queues.sv",
@@ -73518,7 +74560,69 @@
       "different_case_kind_ids": [
         "SV2023-20.4.3-EXTRACT-FORMAT-UNIT-DOMAIN"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch20/test_timeformat_units_precision.sv",
+        "inputs_sha256": "7d393bb9163f445a76739e0c23d5bdfeef200ab2d2b33f2cf93e6a94e0f20f40",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-20.4.3-EXTRACT-GLOBAL-TIMEFORMAT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "units/precision/suffix と、後の $timeformat が前の設定を置き換えることは4行で観測するが、minimum_field_width は4回とも 0 で、非0幅の詰め物を確かめていない。%t は1モジュールに1つだけで、design 全体の複数モジュールの %t に及ぶことも観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch20/test_timeformat_units_precision.sv",
+                "contains": "$timeformat(-9, 2, \" ns\", 0);"
+              },
+              {
+                "file": "tests/ch20/test_timeformat_units_precision.expected",
+                "contains": "[12.35 ns]"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-20.4.3-EXTRACT-DEFAULT-FORMAT-PRECISION",
+              "SV2023-20.4.3-EXTRACT-DEFAULT-FORMAT-SUFFIX",
+              "SV2023-20.4.3-EXTRACT-DEFAULT-FORMAT-UNIT",
+              "SV2023-20.4.3-EXTRACT-DEFAULT-FORMAT-WIDTH"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "4回とも %t の直前に $timeformat を呼ぶため、既定値（最小の timescale precision の units・precision 0・空接尾辞・幅20）を一度も使っていない。既定 units が 1ps、既定幅が20であることを区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch20/test_timeformat_units_precision.sv",
+                "contains": "$timeformat(-9, 2, \" ns\", 0);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-3.14.2.1-EXTRACT-TIMESCALE-ARGUMENTS",
+              "SV2023-3.14.2.1-EXTRACT-TIMESCALE-UNIT-BOUNDARY"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "`timescale 1ns/1ps を1つ置き、precision 1ps が #12.3456 の丸めに効くことは観測するが、time_unit/time_precision の不正な順序や区切り欠落を拒否すること、別の compilation unit に波及しないことは観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch20/test_timeformat_units_precision.sv",
+                "contains": "`timescale 1ns/1ps"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch20/test_timeunit_exponent_table.sv",
@@ -74870,7 +75974,9 @@
         "21.3.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.3.7-EXTRACT-FERROR-CLEAR"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-21.3.1-EXTRACT-BINARY-MODE",
@@ -74893,13 +75999,42 @@
         "SV2023-21.3.1-EXTRACT-REUSE-CHANNELS",
         "SV2023-21.3.6-EXTRACT-FFLUSH",
         "SV2023-21.3.7-EXTRACT-FERROR",
-        "SV2023-21.3.7-EXTRACT-FERROR-CLEAR",
         "SV2023-21.3.7-EXTRACT-FERROR-TARGET-SIZE",
         "SV2023-21.3.7-FERROR-NO-ERROR"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch21/test_file_fflush_ferror.sv",
+        "inputs_sha256": "6abacdca7de014179a5c19b55c537773801cdbc0ea2eb0f4d0e22bc6742e981e",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-21.3.6-EXTRACT-FFLUSH",
+              "SV2023-21.3.7-EXTRACT-FERROR",
+              "SV2023-21.3.7-EXTRACT-FERROR-TARGET-SIZE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "$fflush は fd を1つ渡す形だけを試し、mcd を渡す形と引数なしで全ファイルを対象にする形を観測しない。$ferror は成功した $fgets の後だけを呼び、実際の I/O エラーで非0のコードと説明文が返る場合、640bit 以上の packed array を宛先にする場合を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch21/test_file_fflush_ferror.sv",
+                "contains": "$fflush(fw);"
+              },
+              {
+                "file": "tests/ch21/test_file_fflush_ferror.expected",
+                "contains": "n=13 text=[flushed text] ferror=0 msg=[]"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch21/test_file_fgetc_ungetc.sv",
@@ -75726,7 +76861,88 @@
         "SV2023-5.9.1-EXTRACT-HEX-ESCAPE-KNOWN-DIGITS",
         "SV2023-5.9.1-EXTRACT-OCTAL-ESCAPE-KNOWN-DIGITS"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch21/test_format_special.sv",
+        "inputs_sha256": "cda99bd501ae32e12380f7c08b34d26df103007f483a7d6429adbb44503b92ed",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.9.1-EXTRACT-NEWLINE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "改行を含む文字列の長さが3であることだけを比べ、\\n が値10の1文字であることを見ていない。長さ1の別の文字（空白など）に置き換える誤実装でも len()==3 で通る。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch21/test_format_special.sv",
+                "contains": "s = $sformatf(\"a\\nb\");"
+              },
+              {
+                "file": "tests/ch21/test_format_special.expected",
+                "contains": "Test 2 PASS: newline"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-5.9.1-EXTRACT-BACKSLASH",
+              "SV2023-5.9.1-EXTRACT-BACKSLASH-PLUS-CONTINUATION",
+              "SV2023-5.9.1-EXTRACT-BELL",
+              "SV2023-5.9.1-EXTRACT-DOUBLE-BACKSLASH-NOT-CONTINUATION",
+              "SV2023-5.9.1-EXTRACT-FORMFEED",
+              "SV2023-5.9.1-EXTRACT-HEX-ESCAPE-WIDTH",
+              "SV2023-5.9.1-EXTRACT-OCTAL-ESCAPE-RANGE-LATITUDE",
+              "SV2023-5.9.1-EXTRACT-OCTAL-ESCAPE-WIDTH",
+              "SV2023-5.9.1-EXTRACT-OTHER-ESCAPED-CHARACTER",
+              "SV2023-5.9.1-EXTRACT-QUOTE",
+              "SV2023-5.9.1-EXTRACT-TRIPLE-ESCAPES-SUPPORTED",
+              "SV2023-5.9.1-EXTRACT-VERTICAL-TAB"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "テストは %%・\\n・\\t だけを使い、\\\\・\\a・\\f・\\v・\\\"・\\xhh・\\ooo・未知のエスケープ・行継続・三重引用符を一つも含まない。そのため12個のエスケープの値や桁数を観測しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch21/test_format_special.sv",
+                "contains": "s = $sformatf(\"100%%\");"
+              },
+              {
+                "file": "tests/ch21/test_format_special.sv",
+                "contains": "s = $sformatf(\"a\\tb\");"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-21.2.1.1-EXTRACT-DEFAULT-RADIX",
+              "SV2023-21.2.1.1-EXTRACT-FORMAT-FOUR-STATE",
+              "SV2023-21.2.1.1-EXTRACT-FORMAT-HIERARCHY",
+              "SV2023-21.2.1.1-EXTRACT-FORMAT-LIBRARY",
+              "SV2023-21.2.1.1-EXTRACT-FORMAT-PATTERN",
+              "SV2023-21.2.1.1-EXTRACT-FORMAT-STRENGTH",
+              "SV2023-21.2.1.1-EXTRACT-FORMAT-TIME",
+              "SV2023-21.2.1.1-EXTRACT-FORMAT-TWO-STATE",
+              "SV2023-21.2.1.1-EXTRACT-LIBRARY-FORMAT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "このテストは 21.2.1.1 の %m・%l・%p・%v・%t・%u・%z を含む書式指定子を一つも使わず、%% と文字列エスケープだけを扱う。そのため階層名・ライブラリ束縛・assignment pattern・強度・時刻・2状態/4状態の各出力形式を区別できる行がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch21/test_format_special.sv",
+                "contains": "s = $sformatf(\"100%%\");"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch21/test_format_specifiers_edge.sv",
@@ -76112,23 +77328,53 @@
         "21.2.1.6"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-HANDLES",
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-STRING"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-21.2.1.6-EXTRACT-COMPACT-PATTERN",
         "SV2023-21.2.1.6-EXTRACT-PATTERN-ARRAY",
         "SV2023-21.2.1.6-EXTRACT-PATTERN-ENUM",
-        "SV2023-21.2.1.6-EXTRACT-PATTERN-HANDLES",
         "SV2023-21.2.1.6-EXTRACT-PATTERN-LIMIT",
         "SV2023-21.2.1.6-EXTRACT-PATTERN-OTHER",
         "SV2023-21.2.1.6-EXTRACT-PATTERN-PACKED-STRUCT",
-        "SV2023-21.2.1.6-EXTRACT-PATTERN-STRING",
         "SV2023-21.2.1.6-EXTRACT-PATTERN-STRUCT",
         "SV2023-21.2.1.6-EXTRACT-SINGULAR-PATTERN"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch21/test_pattern_format_enum_string_null.sv",
+        "inputs_sha256": "f00477dde5e7df2628bddb7e50cbcb20c397e91d53a9a47f01794fd2aca47fc1",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-21.2.1.6-EXTRACT-COMPACT-PATTERN",
+              "SV2023-21.2.1.6-EXTRACT-PATTERN-ARRAY",
+              "SV2023-21.2.1.6-EXTRACT-PATTERN-LIMIT",
+              "SV2023-21.2.1.6-EXTRACT-PATTERN-PACKED-STRUCT",
+              "SV2023-21.2.1.6-EXTRACT-PATTERN-STRUCT",
+              "SV2023-21.2.1.6-EXTRACT-SINGULAR-PATTERN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "このテストは %p の単一式だけを表示し、%0p・unpacked 配列・unpacked/packed 構造体・1024文字を超える出力を刺激しない。SINGULAR-PATTERN の許可は満たすが、要素書式は列挙名・引用符・null の3要求で個別に観測済みで、この許可だけに反する実装を独立した行で区別できない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch21/test_pattern_format_enum_string_null.sv",
+                "contains": "$display(\"enum=%p string=%p handle=%p\", state_value, text_value, absent);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch21/test_plusargs.sv",
@@ -76455,7 +77701,60 @@
       "different_case_kind_ids": [
         "SV2023-21.4.1-EXTRACT-ASSOCIATIVE-LOAD"
       ],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch21/test_readmemh_address_range.sv",
+        "inputs_sha256": "d335055d9bac461e61fe3d983035d13c1d3bbc11f3227a2ef9b6990579e0d689",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-21.4.3-EXTRACT-ROW-MAJOR-LOW-HIGH"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "配列宣言が [0:1][0:2] と両次元とも昇順で、宣言順と数値の昇順が一致するため、宣言順に走査する誤実装でも同じ m[0][2]=11, m[1][0]=22 になる。次元を逆にした宣言で同じ並びを確かめる刺激がない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch21/test_readmemh_address_range.sv",
+                "contains": "logic [7:0] m[0:1][0:2];"
+              },
+              {
+                "file": "tests/ch21/test_readmemh_address_range.sv",
+                "contains": "$readmemh(\"test_readmemh_address_range.txt\", m, 2, 5);"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-21.4.3-EXTRACT-ADDRESS-HIGHEST-DIMENSION",
+              "SV2023-21.4.3-EXTRACT-MULTIDIMENSIONAL-MEMORY",
+              "SV2023-21.4.3-EXTRACT-PACKED-WORD-LAYOUT",
+              "SV2023-21.4.3-EXTRACT-PARTIAL-ADDRESSED-WORD",
+              "SV2023-21.4.3-EXTRACT-PARTIAL-MULTIDIMENSIONAL",
+              "SV2023-21.4.1-EXTRACT-NO-RESIZE-LOAD",
+              "SV2023-21.4.1-EXTRACT-PACKED-ELEMENTS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "ファイルに @ アドレス指令がなく、start..finish の範囲を完全に埋める4語を読むため、@ が最高次元の語だけを選ぶこと、部分的な語の未初期化、入力不足での停止を観測しない。packed 次元は 8bit 1つだけで、複数 packed 次元の語レイアウト、writemem*、動的配列の非リサイズも刺激しない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch21/test_readmemh_address_range.sv",
+                "contains": "logic [7:0] m[0:1][0:2];"
+              },
+              {
+                "file": "tests/ch21/test_readmemh_address_range.sv",
+                "contains": "$readmemh(\"test_readmemh_address_range.txt\", m, 2, 5);"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/ch21/test_readmemh_addresses_comments.sv",
@@ -167014,7 +168313,10 @@
         "37.35"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-38.10-EXTRACT-DELAY-LAYOUT-0-0",
+        "SV2023-38.32-EXTRACT-PUT-LAYOUT-0-0"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-28.16-EXTRACT-DELAY-0-1-2",
@@ -167075,7 +168377,6 @@
         "SV2023-37.35-EXTRACT-PRIMITIVE-INPUT-SIZE",
         "SV2023-37.35-EXTRACT-TERMINAL-ORDER",
         "SV2023-38.10-EXTRACT-DELAY-ARRAY-MEMORY",
-        "SV2023-38.10-EXTRACT-DELAY-LAYOUT-0-0",
         "SV2023-38.10-EXTRACT-DELAY-LAYOUT-0-1",
         "SV2023-38.10-EXTRACT-DELAY-LAYOUT-1-0",
         "SV2023-38.10-EXTRACT-DELAY-LAYOUT-1-1",
@@ -167096,7 +168397,6 @@
         "SV2023-38.32-EXTRACT-PUT-DELAY-TIME-STRUCTURE",
         "SV2023-38.32-EXTRACT-PUT-DELAYS-SIGNATURE",
         "SV2023-38.32-EXTRACT-PUT-INTERMODULE-COUNT",
-        "SV2023-38.32-EXTRACT-PUT-LAYOUT-0-0",
         "SV2023-38.32-EXTRACT-PUT-LAYOUT-0-1",
         "SV2023-38.32-EXTRACT-PUT-LAYOUT-1-0",
         "SV2023-38.32-EXTRACT-PUT-LAYOUT-1-1",
@@ -169385,7 +170685,9 @@
         "38.15"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-38.35-EXTRACT-ONE-VALUE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-38.15-EXTRACT-FORMAT-VPIBINSTRVAL",
@@ -169421,7 +170723,6 @@
         "SV2023-38.15-EXTRACT-VALUE-STRUCTURE",
         "SV2023-38.15-EXTRACT-VECTOR-STRUCTURE",
         "SV2023-38.15-EXTRACT-VECTOR-WORD-ORDER",
-        "SV2023-38.35-EXTRACT-ONE-VALUE",
         "SV2023-38.35-EXTRACT-PROPAGATE-OFF",
         "SV2023-38.35-EXTRACT-PUT-ARRAY-FORMAT",
         "SV2023-38.35-EXTRACT-PUT-ARRAY-INDEX-LENGTH",
@@ -208613,7 +209914,11 @@
         "A.2.2.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-8.27-EXTRACT-CLASS-FORWARD-OMISSION",
+        "SV2023-A.2.1.3-EXTRACT-FORWARD-TYPES",
+        "SV2023-A.2.1.3-EXTRACT-TYPEDEF"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-6.18-EXTRACT-FORWARD-BEFORE-OR-AFTER",
@@ -208632,20 +209937,17 @@
         "SV2023-8.23-EXTRACT-NESTED-TYPES-PUBLIC",
         "SV2023-8.23-EXTRACT-STATIC-SCOPE-ACCESS",
         "SV2023-8.27-EXTRACT-CLASS-CREATES-TYPE",
-        "SV2023-8.27-EXTRACT-CLASS-FORWARD-OMISSION",
         "SV2023-8.27-EXTRACT-FORWARD-CLASS-BEFORE-USE",
         "SV2023-8.27-EXTRACT-FORWARD-PARAMETERIZED",
         "SV2023-A.2.1.3-EXTRACT-BUILTIN-NET",
         "SV2023-A.2.1.3-EXTRACT-DATA-VARIABLE",
         "SV2023-A.2.1.3-EXTRACT-EXPORT",
-        "SV2023-A.2.1.3-EXTRACT-FORWARD-TYPES",
         "SV2023-A.2.1.3-EXTRACT-GENVAR",
         "SV2023-A.2.1.3-EXTRACT-IMPORT",
         "SV2023-A.2.1.3-EXTRACT-INTERCONNECT",
         "SV2023-A.2.1.3-EXTRACT-LIFETIME",
         "SV2023-A.2.1.3-EXTRACT-NETTYPE",
         "SV2023-A.2.1.3-EXTRACT-OTHER-DATA",
-        "SV2023-A.2.1.3-EXTRACT-TYPEDEF",
         "SV2023-A.2.1.3-EXTRACT-USER-NET",
         "SV2023-A.2.2.1-EXTRACT-CASTING-TYPE",
         "SV2023-A.2.2.1-EXTRACT-CLASS-SCOPE",
@@ -248465,7 +249767,35 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_width_ashl_01.sv",
+        "inputs_sha256": "a96ac8c17714c6f8f42984ad3c9aeddd2759d3870d924f5c294b2574305f1e6a",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "符号付き64ビットaの<<<を128ビットへ代入し、符号拡張（1行目の上位f）は見えるが、<<< は符号性によらず下位にゼロを詰めるため、充填では結果の符号性を区別できない。拡張の観測は11.8.2の型伝播と重なる。同一要求は ashr_01 で登録する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_width_ashl_01.sv",
+                "contains": "    a = 64'hffffffffffffffff;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_width_ashl_01.sv",
+                "contains": "    r = a <<< k;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_width_ashl_02.sv",
@@ -248509,7 +249839,35 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_width_ashl_02.sv",
+        "inputs_sha256": "cc03f64da71a83dcfc6f901adbbc212a918eb988075cdc7e29bd271f02bcb3d4",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "127ビット同士の符号なし<<<で拡張も切り詰めもなく、<<< のゼロ充填は符号性に依存しない。4行とも結果の符号性で値が変わらないため、要求を反証できない。同一要求は ashr_01 で登録する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_width_ashl_02.sv",
+                "contains": "    a = 127'h40000000000000000000000000000000;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_width_ashl_02.sv",
+                "contains": "    r = a <<< k;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_width_ashl_03.sv",
@@ -248597,7 +249955,35 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_width_ashl_04.sv",
+        "inputs_sha256": "d3246171926e389324846cc92e47870abdfcbe068632334fc1188d4c6b2da753",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "1000ビット同士の符号なし<<<で、オペランド幅と代入先幅が等しく拡張が起きない。4行はゼロ充填だけで、符号性を反証する値がない。同一要求は ashr_01 で登録する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_width_ashl_04.sv",
+                "contains": "      {40'h36927f6f09, 64'hd75494698b91621f, 64'h2da46b4ab61571e6, 64'hb11a61a5b9c7fe46,"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_width_ashl_04.sv",
+                "contains": "    r = a <<< k;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_width_ashr_01.sv",
@@ -254227,7 +255613,35 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_width_shl_01.sv",
+        "inputs_sha256": "3bfe2b8da69c23d6f9372bd669866544fba1706adbffee46a5eee80bdbf387cc",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "符号付き1000ビットaの<<だが代入先が65ビットで狭く、文脈幅は1000のままなので符号拡張が起きない。<< は常にゼロ充填で、結果の符号性で値が変わる行がない。同一要求は ashr_01 で登録する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_width_shl_01.sv",
+                "contains": "      {40'h0, 64'h0, 64'h0, 64'h0, 64'h0, 64'h0, 64'h0, 64'h0, 64'h8554aa8398ba4,"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_width_shl_01.sv",
+                "contains": "    r = a << k;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_width_shl_02.sv",
@@ -254315,7 +255729,35 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_width_shl_03.sv",
+        "inputs_sha256": "e6d3aa3522995cdb56342f09642f1b80648641ca989d89de4c0c52f25463687e",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "符号付き63ビットaの<<を129ビットへ代入し、1行目に符号拡張が出るが、左シフトの充填は符号性によらずゼロで、結果型の符号性を充填で反証できない。同一要求は ashr_01 で登録する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_width_shl_03.sv",
+                "contains": "    a = 63'h7fffffffffffffff;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_width_shl_03.sv",
+                "contains": "    r = a << k;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_width_shl_04.sv",
@@ -254359,7 +255801,35 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_width_shl_04.sv",
+        "inputs_sha256": "a352566f5c31d7a9574ec25308cf1ec65dad80239083911b412170eee3b9dd97",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "符号なし127ビットaを64ビットの代入先へ<<するため、文脈幅127で拡張は起きず切り詰めだけ。ゼロ充填は符号性と無関係で要求を反証しない。同一要求は ashr_01 で登録する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_width_shl_04.sv",
+                "contains": "    a = 127'h40000000000000000000000000000000;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_width_shl_04.sv",
+                "contains": "    r = a << k;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_width_shr_01.sv",
@@ -254403,7 +255873,35 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_width_shr_01.sv",
+        "inputs_sha256": "1ba449b5a42165ac60835683ab89bd22d661ee0bd9929440cf2ebbf273421556",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "符号付き63ビットaの>>で128ビットへ符号拡張した値にゼロ充填する（1行目が127個の1）。これは論理右シフトの充填規則（既登録）の観測で、符号性は拡張にしか現れず、符号付きでも>>>の符号充填は見ていない。同一要求は ashr_01 で登録する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_width_shr_01.sv",
+                "contains": "    a = 63'h7fffffffffffffff;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_width_shr_01.sv",
+                "contains": "    r = a >> k;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_width_shr_02.sv",
@@ -254535,7 +256033,35 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_width_shr_04.sv",
+        "inputs_sha256": "a685eb3307ac6b8619b6e9487da130a7f60de152dd1d86210c695c4ca68de57a",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.10-EXTRACT-SHIFT-SIGN-CONTEXT"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "符号なし65ビットaを63ビットの代入先へ>>するため拡張が起きず、ゼロ充填だけを観測する。結果の符号性で値が変わる行がない。同一要求は ashr_01 で登録する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_width_shr_04.sv",
+                "contains": "    a = 65'h5;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_width_shr_04.sv",
+                "contains": "    r = a >> k;"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_width_sub_01.sv",
@@ -263696,7 +265222,40 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_xz_weq_03.sv",
+        "inputs_sha256": "a94dd6cf6ca7b95c42a3c4f62e644b2d550b2135e864b7ef3f74f17661fce0f8",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.6-EXTRACT-RIGHT-ONLY-WILDCARD",
+              "SV2023-11.4.6-EXTRACT-UNMASKED-UNKNOWN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "期待が 0 0 0 0 0 1 で x を含まず、LHS の x/z を既知の RHS ビットと比べて x になる行がない。13bit でも LHS の未知がワイルドカードでないことと、マスクされない未知が x を生むことを観測せず、ワイルドカードの一致と既知ビットの不一致だけを見ている。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_xz_weq_03.sv",
+                "contains": "    a = 13'bx01xx10011x11;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_xz_weq_03.sv",
+                "contains": "    a = 13'b00xz01111zx1x;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_xz_weq_03.expected",
+                "contains": "0\n0\n0\n0\n0\n1"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_xz_wne_01.sv",
@@ -263732,7 +265291,40 @@
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
-      "broader_citations": []
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/gen/ch11/test_gen_xz_wne_01.sv",
+        "inputs_sha256": "fe37d259788c20c60e73a2abfa74137faf1c12000215da495096c2da248d4a97",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-11.4.6-EXTRACT-RIGHT-ONLY-WILDCARD",
+              "SV2023-11.4.6-EXTRACT-UNMASKED-UNKNOWN"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "LHS の z は常に RHS の x/z ワイルドカードとだけ向き合い、既知の RHS ビットと比べる行がない。そのため LHS の z がワイルドカードでないことと、マスクされない LHS の z が x を作ることを観測できず、x 側だけの観測にとどまる。同じ要求は weq_01 と wne_03 で代表する。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/gen/ch11/test_gen_xz_wne_01.sv",
+                "contains": "    a = 4'bxzx0;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_xz_wne_01.sv",
+                "contains": "    b = 4'bzx00;"
+              },
+              {
+                "file": "tests/gen/ch11/test_gen_xz_wne_01.expected",
+                "contains": "1\n1\n1\nx\n0\n0"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "test": "tests/gen/ch11/test_gen_xz_wne_02.sv",
@@ -263781,7 +265373,9 @@
         "11.4.5"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-11.4.6-EXTRACT-UNMASKED-UNKNOWN"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-11.4.5-EXTRACT-CASE-EQ",
@@ -263798,7 +265392,6 @@
         "SV2023-11.4.5-EXTRACT-SIGNED-EQUALITY",
         "SV2023-11.4.5-EXTRACT-UNSIGNED-EQUALITY",
         "SV2023-11.4.6-EXTRACT-RIGHT-ONLY-WILDCARD",
-        "SV2023-11.4.6-EXTRACT-UNMASKED-UNKNOWN",
         "SV2023-11.4.6-EXTRACT-WILDCARD-EQ",
         "SV2023-11.4.6-EXTRACT-WILDCARD-HANDLE-EQUALITY",
         "SV2023-11.4.6-EXTRACT-WILDCARD-NE",
@@ -403035,14 +404628,14 @@
       "broader_citations": []
     }
   ],
-  "scoped_review_test_files": 463,
+  "scoped_review_test_files": 490,
   "review_disposition_counts": {
     "citation_refinement": 33,
-    "compound_requirement": 108,
-    "oracle_issue": 45,
-    "partial_observation": 458
+    "compound_requirement": 109,
+    "oracle_issue": 49,
+    "partial_observation": 530
   },
-  "registry_sha256": "50423d857f5356bed8ece642ac57c72c052719859c7cbd199dc4bca88c1fea58",
+  "registry_sha256": "08d9874a45f5fa1dc13a7e72ecb9cbab1071db30bfd226e81b96859314bf2edd",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
-  "review_ledger_sha256": "d6ed5d2eeb5d4040b4fd278ccae8fe5b37dc560bc0fa6d8c771e4273561193c6"
+  "review_ledger_sha256": "0b990f94f59f479a27cf458dafca26bc8100764f8482e34c82cd3095610303bd"
 }

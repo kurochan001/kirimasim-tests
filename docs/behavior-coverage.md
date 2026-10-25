@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.59%、実行 33.57%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.69%、実行 33.63%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7341/12319 (59.59%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4135/12319 (33.57%)。
-- 登録済みだがテスト未対応: 4978 動作。
+- 登録済み動作に対するテスト設計網羅率: 7353/12319 (59.69%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4143/12319 (33.63%)。
+- 登録済みだがテスト未対応: 4966 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -56,15 +56,15 @@
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 201/12319 動作確認、古い入力との対応 3 件。
-- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 328/12319 動作確認、古い入力との対応 3 件。
-- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 328/12319 動作確認、古い入力との対応 3 件。
+- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 331/12319 動作確認、古い入力との対応 3 件。
+- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 331/12319 動作確認、古い入力との対応 3 件。
 - `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 612/12319 動作確認、古い入力との対応 6 件。
 - `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
 - `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 348/12319 動作確認、古い入力との対応 6 件。
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 911/12319 動作確認、古い入力との対応 65 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 913/12319 動作確認、古い入力との対応 65 件。
 - `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:16.559292+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -75,7 +75,7 @@
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 875/12319 動作確認、古い入力との対応 65 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 878/12319 動作確認、古い入力との対応 65 件。
 
 ## 章・附属書別の調査状態
 
@@ -88,20 +88,20 @@
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 77。
 - 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 594。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 274。
-- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 158。
+- 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 159。
 - 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 76。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 86。
-- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 396。
+- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 397。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 46。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 61。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 29。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 55。
-- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 290。
+- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 292。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 7。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 57。
 - 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 152。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 131。
-- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 141。
+- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 144。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 297。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 48。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 9。
@@ -118,11 +118,11 @@
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 71。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 26。
 - 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1497。
-- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 196。
+- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 199。
 - 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 77。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 55。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
-- A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 0。
+- A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 2。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 0。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
@@ -20652,7 +20652,7 @@ A class declaration creates its named type without a separate typedef.
 
 ### SV2023-8.27-EXTRACT-CLASS-FORWARD-OMISSION
 
-8.27 / normal / テスト未対応
+8.27 / normal / 実行確認あり
 
 A category-unspecified forward typedef may resolve to a class just as typedef class does, subject to the general final-category resolution rules.
 
@@ -20660,6 +20660,7 @@ A category-unspecified forward typedef may resolve to a class just as typedef cl
 
 規定の性質: `mandatory`。
 
+- [test_typedef_declaration_forms.sv](../tests/ch6/test_typedef_declaration_forms.sv): typedef Fwd; で種類を書かない前方 typedef を宣言し、class Fwd; の定義より前に typedef Fwd::Inner inner_c; と typedef Fwd::Box#(5) box5_c; で入れ子型を選んでいる。期待出力 deep_t=32 w5_t=5 は、Inner::T=int の 32 bit と Box#(5)::W=logic[4:0] の 5 bit で、無指定の前方 typedef がクラス Fwd とその入れ子型に解決したことを示す。 区別: 無指定の前方 typedef をクラスに解決しない実装では Fwd::Inner と Fwd::Box#(5) の typedef が不正になり、deep_t/w5_t の行が出力されない。クラスには解決しても入れ子スコープやパラメータ付き入れ子クラスを解決できない実装では、deep_t/w5_t が 32/5 以外になるか行が欠ける。
 
 ### SV2023-8.27-EXTRACT-FORWARD-CLASS-BEFORE-USE
 
@@ -27089,7 +27090,7 @@ An RHS wildcard matches any 0/1/x/z LHS bit; LHS unknowns are not wildcards and 
 
 ### SV2023-11.4.6-EXTRACT-UNMASKED-UNKNOWN
 
-11.4.6 / normal / テスト未対応
+11.4.6 / normal / 実行確認あり
 
 Wildcard equality may be x when an LHS x/z is not masked by an RHS wildcard and leaves the relation ambiguous.
 
@@ -27097,6 +27098,7 @@ Wildcard equality may be x when an LHS x/z is not masked by an RHS wildcard and 
 
 規定の性質: `mandatory`。
 
+- [test_gen_xz_wne_03.sv](../tests/gen/ch11/test_gen_xz_wne_03.sv): 13bit の a!=?b を6組実行し、期待 1 1 1 x 1 0 を比べる。4行目は LHS の x（12,6,0桁）と z（8,4桁）が RHS の既知 0 とワイルドカードなしで向き合い、残りのビットは RHS の ワイルドカードか一致なので関係が曖昧なまま x になり、5行目はマスクされない LHS の z があっても既知ビットの不一致で 1 が確定する。 区別: マスクされない LHS の x/z を一致扱いする実装では4行目が x でなく 0、不一致扱いする実装では x でなく 1 になり、期待と食い違う。曖昧でないのに x を返す実装では、既知ビットの不一致がある2行目と5行目が 1 でなく x になる。
 
 ### SV2023-11.4.6-EXTRACT-WILDCARD-EQ
 
@@ -36474,7 +36476,7 @@ A deferred immediate assertion in a function called from different processes has
 
 ### SV2023-16.5-EXTRACT-CLOCK-TICK
 
-16.5 / normal / テスト未対応
+16.5 / normal / 実行確認あり
 
 A concurrent assertion evaluates only at a clock tick: a time step in which its sequence, property, sampled-value function or assertion clocking event occurs.
 
@@ -36482,6 +36484,7 @@ A concurrent assertion evaluates only at a clock tick: a time step in which its 
 
 規定の性質: `definition`。
 
+- [test_assertion_clocked_by_named_event.sv](../tests/ch16/test_assertion_clocked_by_named_event.sv): named event e を posedge clk ごとに 1,3,...,19 の10回だけ発火させ、時刻20で @(e) の並行アサーションが 10 passes / 10 failures、@(posedge clk) のアサーションも 10/10 になることを数える。期待値の10という回数は、クロック刻みの10時刻だけで評価し、間の偶数時刻では評価していないことを比べている。 区別: クロック刻み以外の各タイムステップでも評価する実装では pass_e と fail_e が20になり、1行目が『@(e): 20 passes, 20 failures』に変わる。e を無視して posedge clk だけで評価する実装では1行目が 0 passes, 0 failures になる。
 
 ### SV2023-16.5-EXTRACT-GLITCH-FREE
 
@@ -41395,7 +41398,7 @@ Procedural assertion flushing removes pending transient procedural-order instanc
 
 ### SV2023-16.14.6.4-EXTRACT-DISABLE-PROCESS
 
-16.14.6.4 / normal / テスト未対応
+16.14.6.4 / normal / テスト対応あり・実行未確認
 
 Disabling the outermost procedure scope flushes every pending assertion instance in its process queue, in addition to normal disable effects.
 
@@ -41403,6 +41406,7 @@ Disabling the outermost procedure scope flushes every pending assertion instance
 
 規定の性質: `mandatory`。
 
+- [test_procedural_concurrent_assertions.sv](../tests/ch16/test_procedural_concurrent_assertions.sv): posedge clk の手続き b_dis の中で、3回目のクロック（時刻25）に a_dis を待ち行列へ入れた直後に disable b_dis を実行する。期待出力の『2 failures』は、5 と 15 の2回だけ失敗アクションが走り、25 に入れた未成熟のインスタンスが待ち行列ごと破棄されたことを示す。 区別: disable のときに手続きの待ち行列を流さない実装では、25 に入った a_dis が Observed 領域で成熟して失敗し『3 failures』になる。disable を外した設計でも3回失敗するため、2 という値は待ち行列の流しに対応する。
 
 ### SV2023-16.14.6.4-EXTRACT-DISABLE-SPECIFIC
 
@@ -54506,7 +54510,7 @@ Pattern output uses a valid enum value name, otherwise its base-type representat
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-HANDLES
 
-21.2.1.6 / normal / テスト未対応
+21.2.1.6 / normal / 実行確認あり
 
 Pattern output for chandle/class/interface-class/event/virtual-interface values is implementation dependent, but null handles print null.
 
@@ -54514,6 +54518,7 @@ Pattern output for chandle/class/interface-class/event/virtual-interface values 
 
 規定の性質: `implementation_defined`。
 
+- [test_pattern_format_enum_string_null.sv](../tests/ch21/test_pattern_format_enum_string_null.sv): 未初期化の class handle absent（null）を %p で表示し、同じ行の handle= が実装依存の 0 やアドレスではなく固定の null になることを比べる。 区別: null handle を 0 やオブジェクトアドレスで表示する実装では handle=null が handle=0 などに変わり、null 以外の書式だけを実装した場合は一致しない。
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-LIMIT
 
@@ -54551,7 +54556,7 @@ Pattern output recursively traverses unpacked data and prints packed structure v
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-STRING
 
-21.2.1.6 / normal / テスト未対応
+21.2.1.6 / normal / 実行確認あり
 
 Pattern output puts string values/literals in quotes.
 
@@ -54559,6 +54564,7 @@ Pattern output puts string values/literals in quotes.
 
 規定の性質: `mandatory`。
 
+- [test_pattern_format_enum_string_null.sv](../tests/ch21/test_pattern_format_enum_string_null.sv): string 変数 text_value の値 hello を %p で表示し、同じ行の string= が引用符付きの "hello" になることを比べる。 区別: string を引用符なしで出す実装では string=hello になり、文字列でなく先頭バイトや長さを出す実装でもstring="hello" にならない。
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-STRUCT
 
@@ -55663,7 +55669,7 @@ ferror(fd,str) returns an integral code for the latest I/O operation and writes 
 
 ### SV2023-21.3.7-EXTRACT-FERROR-CLEAR
 
-21.3.7 / normal / テスト未対応
+21.3.7 / normal / 実行確認あり
 
 With no most-recent I/O error, ferror returns 0 and clears its description output.
 
@@ -55671,6 +55677,7 @@ With no most-recent I/O error, ferror returns 0 and clears its description outpu
 
 規定の性質: `mandatory`。
 
+- [test_file_fflush_ferror.sv](../tests/ch21/test_file_fflush_ferror.sv): 書き込み側の $fwrite と $fflush の後、読み側の $fgets が成功した状態で msg を "not cleared" に初期化して $ferror(fr,msg) を呼び、戻り値 0 と msg が空文字列にクリアされることを比べる。 区別: エラーが無いとき 0 を返さない実装では ferror=0 が非0になり、説明文字列をクリアしない実装ではmsg=[] が msg=[not cleared] のままになる。
 
 ### SV2023-21.3.7-EXTRACT-FERROR-TARGET-SIZE
 
@@ -106164,7 +106171,7 @@ The application allocates da as an s_vpi_time array sized from delay count, min/
 
 ### SV2023-38.10-EXTRACT-DELAY-LAYOUT-0-0
 
-38.10 / normal / テスト未対応
+38.10 / normal / テスト対応あり・実行未確認
 
 With mtm_flag=False and pulsere_flag=False, allocate 1 times no_of_delays elements; each consecutive delay uses this order: delay.
 
@@ -106172,6 +106179,7 @@ With mtm_flag=False and pulsere_flag=False, allocate 1 times no_of_delays elemen
 
 規定の性質: `mandatory`。
 
+- [test_vpi_gate_delays.sv](../tests/ch38/test_vpi_gate_delays.sv): and #(3, 5) g1 の primitive g1 を名前で取得し、mtm_flag=0・pulsere_flag=0・no_of_delays=2 の s_vpi_delay と2要素の s_vpi_time 配列を渡して vpi_get_delays を呼ぶ。期待出力の時刻8の 'old delays 3 5' で、da[0] に rise 3、da[1] に fall 5 が入ることを比べる。 区別: 0-0 の表と違って min/typ/max の3要素配置を書き込む実装では da[0] が最小値や別の値になり '3 5' にならない。rise と fall を逆に詰める実装では '5 3' になり、2要素目を書かない実装では '3 0' になる。
 
 ### SV2023-38.10-EXTRACT-DELAY-LAYOUT-0-1
 
@@ -107677,7 +107685,7 @@ Intermodule-path no_of_delays must be 2 or 3.
 
 ### SV2023-38.32-EXTRACT-PUT-LAYOUT-0-0
 
-38.32 / normal / テスト未対応
+38.32 / normal / テスト対応あり・実行未確認
 
 With mtm_flag=False, pulsere_flag=False, provide 1*no_of_delays elements, each delay ordered delay.
 
@@ -107685,6 +107693,7 @@ With mtm_flag=False, pulsere_flag=False, provide 1*no_of_delays elements, each d
 
 規定の性質: `mandatory`。
 
+- [test_vpi_gate_delays.sv](../tests/ch38/test_vpi_gate_delays.sv): 時刻8に primitive g1 へ vpi_put_delays で mtm_flag=0・pulsere_flag=0・no_of_delays=2 の2要素（da[0]=7、da[1]=9）を設定し、直後の 'new delays 7 9' と、a と b が1になる時刻10から7遅れて y=1 になる時刻17、b が0になる時刻30から9遅れて y=0 になる時刻39を比べる。 区別: 0-0 の順序を守らず rise と fall を入れ替える実装では、y の立ち上がりが19、立ち下がりが37になり、'17: y = 1' と '39: y = 0' の両方が変わる。3要素の min/typ/max 配置を要求する実装では da[0]=7 を min、da[1]=9 を typ と解釈し、伝搬時刻が期待値と一致しない。
 
 ### SV2023-38.32-EXTRACT-PUT-LAYOUT-0-1
 
@@ -108082,7 +108091,7 @@ Sequential UDP updates require vpiNoDelay and ignore primitive-instance delay; o
 
 ### SV2023-38.35-EXTRACT-ONE-VALUE
 
-38.35 / normal / テスト未対応
+38.35 / normal / テスト対応あり・実行未確認
 
 vpiOneValue applies one supplied element value to the entire requested section; only one element storage is needed.
 
@@ -108090,6 +108099,7 @@ vpiOneValue applies one supplied element value to the entire requested section; 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_put_value_array.sv](../tests/ch38/test_vpi_put_value_array.sv): 静的 unpacked 配列 arr[0:4] に対し、vpiIntVal で先頭インデックス1から2要素へ11と22を書き、次に vpiOneValue フラグを立てて単一値7をインデックス3から2要素へ書く。タスク復帰後に arr の5要素を表示し、'arr = 0 11 22 7 7' となることを比べる。 区別: vpiOneValue を無視して2要素分の値を要求する実装では、seven[1] の範囲外を読むか2要素目が7以外になり、'arr = 0 11 22 7 7' の4番目か5番目が変わる。単一値を最初の要素にしか適用しない実装では5番目が0のままになる。
 
 ### SV2023-38.35-EXTRACT-PROPAGATE-OFF
 
@@ -114759,7 +114769,7 @@ An export has *::* or a nonempty comma-separated package-import-item list and se
 
 ### SV2023-A.2.1.3-EXTRACT-FORWARD-TYPES
 
-A.2.1.3 / normal / テスト未対応
+A.2.1.3 / normal / 実行確認あり
 
 Forward type keywords are enum, struct, union, class or interface class.
 
@@ -114767,6 +114777,7 @@ Forward type keywords are enum, struct, union, class or interface class.
 
 規定の性質: `definition`。
 
+- [test_typedef_declaration_forms.sv](../tests/ch6/test_typedef_declaration_forms.sv): typedef enum fwd_e;、typedef struct fwd_s;、typedef union fwd_u;、typedef class fwd_c;、typedef interface class fwd_ic; の 5 種類のキーワード付き前方 typedef を宣言し、最終定義前に fwd_e/fwd_s/fwd_u を関数引数、fwd_c/fwd_ic をクラスメンバに使っている。期待 enum_last=2、struct_hi=5、union_n1=12、get=42 が、各前方宣言が後続の enum/struct/union/class/interface class 定義に解決したことを示す。 区別: enum/struct/union/class/interface class のいずれかを forward type keyword として受理しない実装では、その typedef でコンパイルが止まり期待出力が得られない。enum/struct/union の解決を誤る実装では enum_last/struct_hi/union_n1 が 2/5/12 と異なり、class と interface class の解決を誤る実装では usr.ih.get() が 42 にならない。
 
 ### SV2023-A.2.1.3-EXTRACT-GENVAR
 
@@ -114836,7 +114847,7 @@ A data declaration may instead be a type declaration, package import subject to 
 
 ### SV2023-A.2.1.3-EXTRACT-TYPEDEF
 
-A.2.1.3 / normal / テスト未対応
+A.2.1.3 / normal / 実行確認あり
 
 A typedef permits a data/incomplete-class-scoped type and alias with variable dimensions; interface-port identifier plus constant-bit-select dot type and alias; or optional forward type and alias, each terminated by semicolon.
 
@@ -114844,6 +114855,7 @@ A typedef permits a data/incomplete-class-scoped type and alias with variable di
 
 規定の性質: `definition`。
 
+- [test_typedef_declaration_forms.sv](../tests/ch6/test_typedef_declaration_forms.sv): data type に 4 種の variable dimension を付けた pair_t[2]・q_t[$]・aa_t[string]・dyn_t[]、前方クラスの入れ子型を選ぶ typedef Fwd::Inner inner_c と typedef Fwd::Box#(5) box5_c、interface ポート b と arr[1] から data_t を取る typedef、enum/struct/union/class/interface class と無指定の前方 typedef を宣言している。期待 p=3,4/2・q=7,9/2・aa[k]=11/1・d=3/4 が各次元を、deep_t=32・w5_t=5 が入れ子型を、lv=6・av=3 が interface 経由の型を、enum_last=2・struct_hi=5・union_n1=12・m1=-1・bits=16 が前方型の解決を比べる。 区別: variable dimension を別名に付けない実装では p/q/aa/d の size や要素数が変わり、前方クラスの入れ子型を解決しない実装では deep_t/w5_t が 32/5 にならず、interface ポートの型を解決しない実装では lv/av が 6/3 にならず、前方 typedef を受理しない実装では enum_last などの行が出力されない。各 typedef のセミコロン欠落もコンパイル失敗として現れる。
 
 ### SV2023-A.2.1.3-EXTRACT-USER-NET
 

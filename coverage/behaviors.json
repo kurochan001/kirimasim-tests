@@ -71311,7 +71311,33 @@
       "acceptance": "A category-unspecified forward typedef may resolve to a class just as typedef class does, subject to the general final-category resolution rules.",
       "source_note": "IEEE 1800-2023 8.27; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_typedef_declaration_forms.sv",
+          "observation": "typedef Fwd; で種類を書かない前方 typedef を宣言し、class Fwd; の定義より前に typedef Fwd::Inner inner_c; と typedef Fwd::Box#(5) box5_c; で入れ子型を選んでいる。期待出力 deep_t=32 w5_t=5 は、Inner::T=int の 32 bit と Box#(5)::W=logic[4:0] の 5 bit で、無指定の前方 typedef がクラス Fwd とその入れ子型に解決したことを示す。 区別: 無指定の前方 typedef をクラスに解決しない実装では Fwd::Inner と Fwd::Box#(5) の typedef が不正になり、deep_t/w5_t の行が出力されない。クラスには解決しても入れ子スコープやパラメータ付き入れ子クラスを解決できない実装では、deep_t/w5_t が 32/5 以外になるか行が欠ける。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4b2f4cf83c50f28b9d3898715d4988971d6d41f6fbf0c0980c46e7027e0b997e",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef Fwd;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef Fwd::Inner inner_c;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef Fwd::Box#(5) box5_c;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.expected",
+              "contains": "deep_t=32 w5_t=5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "8.27",
@@ -92670,7 +92696,33 @@
       "acceptance": "Wildcard equality may be x when an LHS x/z is not masked by an RHS wildcard and leaves the relation ambiguous.",
       "source_note": "IEEE 1800-2023 11.4.6; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/gen/ch11/test_gen_xz_wne_03.sv",
+          "observation": "13bit の a!=?b を6組実行し、期待 1 1 1 x 1 0 を比べる。4行目は LHS の x（12,6,0桁）と z（8,4桁）が RHS の既知 0 とワイルドカードなしで向き合い、残りのビットは RHS の ワイルドカードか一致なので関係が曖昧なまま x になり、5行目はマスクされない LHS の z があっても既知ビットの不一致で 1 が確定する。 区別: マスクされない LHS の x/z を一致扱いする実装では4行目が x でなく 0、不一致扱いする実装では x でなく 1 になり、期待と食い違う。曖昧でないのに x を返す実装では、既知ビットの不一致がある2行目と5行目が 1 でなく x になる。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9da50bc3039962cadac71b6e372cb3bcb7d6465f7f695248fc5216b051f814b7",
+          "evidence": [
+            {
+              "file": "tests/gen/ch11/test_gen_xz_wne_03.sv",
+              "contains": "    a = 13'bx01xz0xxz110x;"
+            },
+            {
+              "file": "tests/gen/ch11/test_gen_xz_wne_03.sv",
+              "contains": "    b = 13'b00xx0x0z0xx00;"
+            },
+            {
+              "file": "tests/gen/ch11/test_gen_xz_wne_03.sv",
+              "contains": "    a = 13'bzz1z010001101;"
+            },
+            {
+              "file": "tests/gen/ch11/test_gen_xz_wne_03.expected",
+              "contains": "1\n1\n1\nx\n1\n0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "11.4.6",
@@ -128358,7 +128410,25 @@
       "acceptance": "A concurrent assertion evaluates only at a clock tick: a time step in which its sequence, property, sampled-value function or assertion clocking event occurs.",
       "source_note": "IEEE 1800-2023 16.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+          "observation": "named event e を posedge clk ごとに 1,3,...,19 の10回だけ発火させ、時刻20で @(e) の並行アサーションが 10 passes / 10 failures、@(posedge clk) のアサーションも 10/10 になることを数える。期待値の10という回数は、クロック刻みの10時刻だけで評価し、間の偶数時刻では評価していないことを比べている。 区別: クロック刻み以外の各タイムステップでも評価する実装では pass_e と fail_e が20になり、1行目が『@(e): 20 passes, 20 failures』に変わる。e を無視して posedge clk だけで評価する実装では1行目が 0 passes, 0 failures になる。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9677e2a3af38c99aa1685a84433dbe148c81b465ae964ac01a64067243b8e4e2",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_assertion_clocked_by_named_event.sv",
+              "contains": "  assert property (@(e) 1) pass_e++;"
+            },
+            {
+              "file": "tests/ch16/test_assertion_clocked_by_named_event.expected",
+              "contains": "@(e): 10 passes, 10 failures"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5",
@@ -144118,7 +144188,29 @@
       "acceptance": "Disabling the outermost procedure scope flushes every pending assertion instance in its process queue, in addition to normal disable effects.",
       "source_note": "IEEE 1800-2023 16.14.6.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_procedural_concurrent_assertions.sv",
+          "observation": "posedge clk の手続き b_dis の中で、3回目のクロック（時刻25）に a_dis を待ち行列へ入れた直後に disable b_dis を実行する。期待出力の『2 failures』は、5 と 15 の2回だけ失敗アクションが走り、25 に入れた未成熟のインスタンスが待ち行列ごと破棄されたことを示す。 区別: disable のときに手続きの待ち行列を流さない実装では、25 に入った a_dis が Observed 領域で成熟して失敗し『3 failures』になる。disable を外した設計でも3回失敗するため、2 という値は待ち行列の流しに対応する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5c441dbc848ca4cc42a84cf7fda4c98bb0d8fb08e606d779a8153b2abdd22ca5",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_procedural_concurrent_assertions.sv",
+              "contains": "    if (stop) disable b_dis;"
+            },
+            {
+              "file": "tests/ch16/test_procedural_concurrent_assertions.sv",
+              "contains": "    a_dis: assert property (1'b0) else f_dis++;"
+            },
+            {
+              "file": "tests/ch16/test_procedural_concurrent_assertions.expected",
+              "contains": "disabled at the third tick: 2 failures"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.6.4",
@@ -173656,7 +173748,25 @@
       "acceptance": "Pattern output for chandle/class/interface-class/event/virtual-interface values is implementation dependent, but null handles print null.",
       "source_note": "IEEE 1800-2023 21.2.1.6; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "implementation_defined",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_pattern_format_enum_string_null.sv",
+          "observation": "未初期化の class handle absent（null）を %p で表示し、同じ行の handle= が実装依存の 0 やアドレスではなく固定の null になることを比べる。 区別: null handle を 0 やオブジェクトアドレスで表示する実装では handle=null が handle=0 などに変わり、null 以外の書式だけを実装した場合は一致しない。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f00477dde5e7df2628bddb7e50cbcb20c397e91d53a9a47f01794fd2aca47fc1",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_pattern_format_enum_string_null.sv",
+              "contains": "item absent;"
+            },
+            {
+              "file": "tests/ch21/test_pattern_format_enum_string_null.expected",
+              "contains": "handle=null"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.6",
@@ -173746,7 +173856,25 @@
       "acceptance": "Pattern output puts string values/literals in quotes.",
       "source_note": "IEEE 1800-2023 21.2.1.6; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_pattern_format_enum_string_null.sv",
+          "observation": "string 変数 text_value の値 hello を %p で表示し、同じ行の string= が引用符付きの \"hello\" になることを比べる。 区別: string を引用符なしで出す実装では string=hello になり、文字列でなく先頭バイトや長さを出す実装でもstring=\"hello\" にならない。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f00477dde5e7df2628bddb7e50cbcb20c397e91d53a9a47f01794fd2aca47fc1",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_pattern_format_enum_string_null.sv",
+              "contains": "string text_value = \"hello\";"
+            },
+            {
+              "file": "tests/ch21/test_pattern_format_enum_string_null.expected",
+              "contains": "string=\"hello\""
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.6",
@@ -176052,7 +176180,25 @@
       "acceptance": "With no most-recent I/O error, ferror returns 0 and clears its description output.",
       "source_note": "IEEE 1800-2023 21.3.7; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_file_fflush_ferror.sv",
+          "observation": "書き込み側の $fwrite と $fflush の後、読み側の $fgets が成功した状態で msg を \"not cleared\" に初期化して $ferror(fr,msg) を呼び、戻り値 0 と msg が空文字列にクリアされることを比べる。 区別: エラーが無いとき 0 を返さない実装では ferror=0 が非0になり、説明文字列をクリアしない実装ではmsg=[] が msg=[not cleared] のままになる。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6abacdca7de014179a5c19b55c537773801cdbc0ea2eb0f4d0e22bc6742e981e",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_file_fflush_ferror.sv",
+              "contains": "msg = \"not cleared\";"
+            },
+            {
+              "file": "tests/ch21/test_file_fflush_ferror.expected",
+              "contains": "n=13 text=[flushed text] ferror=0 msg=[]"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.3.7",
@@ -346618,7 +346764,29 @@
       "acceptance": "With mtm_flag=False and pulsere_flag=False, allocate 1 times no_of_delays elements; each consecutive delay uses this order: delay.",
       "source_note": "IEEE 1800-2023 38.10; complete own-body source review, blocks B023. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_gate_delays.sv",
+          "observation": "and #(3, 5) g1 の primitive g1 を名前で取得し、mtm_flag=0・pulsere_flag=0・no_of_delays=2 の s_vpi_delay と2要素の s_vpi_time 配列を渡して vpi_get_delays を呼ぶ。期待出力の時刻8の 'old delays 3 5' で、da[0] に rise 3、da[1] に fall 5 が入ることを比べる。 区別: 0-0 の表と違って min/typ/max の3要素配置を書き込む実装では da[0] が最小値や別の値になり '3 5' にならない。rise と fall を逆に詰める実装では '5 3' になり、2要素目を書かない実装では '3 0' になる。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "aee6c4cd246090f7af373ff6e6baa1f5fe69ed62ec26c11615da1420db72669d",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.sv",
+              "contains": "and #(3, 5) g1 (y, a, b);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.c",
+              "contains": "vpi_get_delays(g, &d);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.expected",
+              "contains": "8: old delays 3 5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.10",
@@ -351090,7 +351258,33 @@
       "acceptance": "With mtm_flag=False, pulsere_flag=False, provide 1*no_of_delays elements, each delay ordered delay.",
       "source_note": "IEEE 1800-2023 38.32; complete own-body source review, blocks B022. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_gate_delays.sv",
+          "observation": "時刻8に primitive g1 へ vpi_put_delays で mtm_flag=0・pulsere_flag=0・no_of_delays=2 の2要素（da[0]=7、da[1]=9）を設定し、直後の 'new delays 7 9' と、a と b が1になる時刻10から7遅れて y=1 になる時刻17、b が0になる時刻30から9遅れて y=0 になる時刻39を比べる。 区別: 0-0 の順序を守らず rise と fall を入れ替える実装では、y の立ち上がりが19、立ち下がりが37になり、'17: y = 1' と '39: y = 0' の両方が変わる。3要素の min/typ/max 配置を要求する実装では da[0]=7 を min、da[1]=9 を typ と解釈し、伝搬時刻が期待値と一致しない。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "aee6c4cd246090f7af373ff6e6baa1f5fe69ed62ec26c11615da1420db72669d",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.sv",
+              "contains": "#8 $vt_delays;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.c",
+              "contains": "vpi_put_delays(g, &d);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.expected",
+              "contains": "8: new delays 7 9"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.expected",
+              "contains": "17: y = 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.32",
@@ -352371,7 +352565,29 @@
       "acceptance": "vpiOneValue applies one supplied element value to the entire requested section; only one element storage is needed.",
       "source_note": "IEEE 1800-2023 38.35; complete own-body source review, blocks B024. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_value_array.sv",
+          "observation": "静的 unpacked 配列 arr[0:4] に対し、vpiIntVal で先頭インデックス1から2要素へ11と22を書き、次に vpiOneValue フラグを立てて単一値7をインデックス3から2要素へ書く。タスク復帰後に arr の5要素を表示し、'arr = 0 11 22 7 7' となることを比べる。 区別: vpiOneValue を無視して2要素分の値を要求する実装では、seven[1] の範囲外を読むか2要素目が7以外になり、'arr = 0 11 22 7 7' の4番目か5番目が変わる。単一値を最初の要素にしか適用しない実装では5番目が0のままになる。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9078f6a5a5b8b5872b32e6c49a1a852b3a483eb61fcd65f20051771cbe35634f",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_array.sv",
+              "contains": "$vt_fill;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_array.c",
+              "contains": "v.flags = vpiOneValue;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_array.expected",
+              "contains": "arr = 0 11 22 7 7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.35",
@@ -369276,7 +369492,45 @@
       "acceptance": "Forward type keywords are enum, struct, union, class or interface class.",
       "source_note": "IEEE 1800-2023 A.2.1.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_typedef_declaration_forms.sv",
+          "observation": "typedef enum fwd_e;、typedef struct fwd_s;、typedef union fwd_u;、typedef class fwd_c;、typedef interface class fwd_ic; の 5 種類のキーワード付き前方 typedef を宣言し、最終定義前に fwd_e/fwd_s/fwd_u を関数引数、fwd_c/fwd_ic をクラスメンバに使っている。期待 enum_last=2、struct_hi=5、union_n1=12、get=42 が、各前方宣言が後続の enum/struct/union/class/interface class 定義に解決したことを示す。 区別: enum/struct/union/class/interface class のいずれかを forward type keyword として受理しない実装では、その typedef でコンパイルが止まり期待出力が得られない。enum/struct/union の解決を誤る実装では enum_last/struct_hi/union_n1 が 2/5/12 と異なり、class と interface class の解決を誤る実装では usr.ih.get() が 42 にならない。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4b2f4cf83c50f28b9d3898715d4988971d6d41f6fbf0c0980c46e7027e0b997e",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef enum fwd_e;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef struct fwd_s;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef union fwd_u;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef class fwd_c;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef interface class fwd_ic;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.expected",
+              "contains": "enum_last=2 struct_hi=5 union_n1=12 m1=-1 bits=16"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.expected",
+              "contains": "get=42"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.2.1.3",
@@ -369403,7 +369657,69 @@
       "acceptance": "A typedef permits a data/incomplete-class-scoped type and alias with variable dimensions; interface-port identifier plus constant-bit-select dot type and alias; or optional forward type and alias, each terminated by semicolon.",
       "source_note": "IEEE 1800-2023 A.2.1.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_typedef_declaration_forms.sv",
+          "observation": "data type に 4 種の variable dimension を付けた pair_t[2]・q_t[$]・aa_t[string]・dyn_t[]、前方クラスの入れ子型を選ぶ typedef Fwd::Inner inner_c と typedef Fwd::Box#(5) box5_c、interface ポート b と arr[1] から data_t を取る typedef、enum/struct/union/class/interface class と無指定の前方 typedef を宣言している。期待 p=3,4/2・q=7,9/2・aa[k]=11/1・d=3/4 が各次元を、deep_t=32・w5_t=5 が入れ子型を、lv=6・av=3 が interface 経由の型を、enum_last=2・struct_hi=5・union_n1=12・m1=-1・bits=16 が前方型の解決を比べる。 区別: variable dimension を別名に付けない実装では p/q/aa/d の size や要素数が変わり、前方クラスの入れ子型を解決しない実装では deep_t/w5_t が 32/5 にならず、interface ポートの型を解決しない実装では lv/av が 6/3 にならず、前方 typedef を受理しない実装では enum_last などの行が出力されない。各 typedef のセミコロン欠落もコンパイル失敗として現れる。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4b2f4cf83c50f28b9d3898715d4988971d6d41f6fbf0c0980c46e7027e0b997e",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef int pair_t [2];"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef byte q_t [$];"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef int aa_t [string];"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef logic [3:0] dyn_t [];"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef Fwd::Inner inner_c;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef Fwd::Box#(5) box5_c;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef b.data_t local_t;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef arr[1].data_t arr_t;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef enum fwd_e;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.sv",
+              "contains": "typedef fwd_any;"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.expected",
+              "contains": "p=3,4/2 q=7,9/2 aa[k]=11/1 d=3/4"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.expected",
+              "contains": "deep_t=32 w5_t=5"
+            },
+            {
+              "file": "tests/ch6/test_typedef_declaration_forms.expected",
+              "contains": "lv=6 av=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.2.1.3",
