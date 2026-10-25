@@ -1,0 +1,3 @@
+member+int+default: i1=300 i2=5 m=300 w=300 b=3 bs=3 l8=03 bu=03 sh=3
+int twice+byte+default: i1=9 i2=9 m=9 w=9 b=-1 bs=-1 l8=aa bu=aa sh=170
+default+member+byte: i1=4 i2=4 m=4 w=4 b=2 bs=2 l8=04 bu=04 sh=6

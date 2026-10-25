@@ -1,0 +1,7 @@
+forced: w=3
+a=10: w=12
+b=20: w=30
+released: w=10
+assign: r=20
+a=7: r=14 w=7
+deassigned, a=8: r=14

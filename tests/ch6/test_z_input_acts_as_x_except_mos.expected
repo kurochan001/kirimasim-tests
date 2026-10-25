@@ -1,0 +1,7 @@
+gates z: and=x or=x buf=x
+gates x: and=x or=x buf=x
+operators z: &=x |=x ~=x +=x eq=x ?:=1xx0
+operators x: &=x |=x ~=x +=x eq=x ?:=1xx0
+mos z: nmos=z pmos=z
+mos x: nmos=x pmos=x
+case equality: z===z 1 z===x 0

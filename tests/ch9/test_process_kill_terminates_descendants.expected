@@ -1,0 +1,4 @@
+before: p=WAITING c=WAITING g=WAITING p2=FINISHED c2=WAITING
+after p.kill(): p=KILLED c=KILLED g=KILLED
+after p2.kill(): c2=KILLED
+t=22 done flags: p=0 c=0 g=0 c2=0

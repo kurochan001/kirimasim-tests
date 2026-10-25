@@ -1,0 +1,6 @@
+ref:   t=1 h.v=11
+ref:   t=3 h.v=22
+ref:   after return h.v=22
+inout: t=5 h.v=33
+inout: t=7 h.v=33
+inout: after return h.v=44

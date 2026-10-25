@@ -1,0 +1,4 @@
+rtoi=3 itor=-7.0 r2b=3ff8000000000000 b2r=2.5
+s2b=3f000000 b2s=1.5 signed=-4 unsigned=12
+bits v1=4 v2=5 size arr=12
+generate: negative

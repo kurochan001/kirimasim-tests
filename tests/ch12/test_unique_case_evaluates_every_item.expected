@@ -1,0 +1,5 @@
+unique  v=1: ctl evaluated 1 time(s), seen=111, nctl at items 1 1 1, took 1
+unique  v=2: ctl evaluated 1 time(s), seen=111, nctl at items 1 1 1, took 2
+unique  v=9: ctl evaluated 1 time(s), seen=111, nctl at items 1 1 1, took default
+unique0 v=1: ctl evaluated 1 time(s), seen=111, nctl at items 1 1 1, took 1
+unique0 v=9: ctl evaluated 1 time(s), seen=111, nctl at items 1 1 1, took none

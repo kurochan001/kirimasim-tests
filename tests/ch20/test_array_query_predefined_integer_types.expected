@@ -1,0 +1,7 @@
+byte 7 0 0 7 8 1 1 type 7 8
+shortint 15 0 0 15 16 1 1 type 15 16
+int 31 0 0 31 32 1 1 type 31 32
+longint 63 0 0 63 64 1 1 type 63 64
+integer 31 0 0 31 32 1 1 type 31 32
+time 63 0 0 63 64 1 1 type 63 64
+int array: dims 2 dim2 31 0 32

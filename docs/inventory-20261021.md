@@ -1029,13 +1029,22 @@ found three remaining points, all fixed:
   comparing them; the start and stop of the whole definition are checked
   too.
 
+### Matching round of 2026-10-25
+
+Four pending batches (p01, p05, p07, p12) were independently verified and
+merged: 397 mappings accepted, 5 rejected, and 256 new tests added. Six
+tests found defective were repaired (an `input var int` port, three
+diagnostic line numbers, a comment width and one `:oracle:` entry) before
+the merge.
+
 ### Current state
 
-After these commits the suite has 3801 tests in 37 chapters, 812 of them
-generated. By `:oracle:`, 2528 list Icarus Verilog 13.0, 770 list
-Verilator 5.052, and 503 follow the standard only. 568 tests depend on
-x or z values, 208 have C code (29 DPI and 179 VPI), 173 are illegal
-designs, and 5 set an expected exit code.
+After these commits the suite has 6294 tests in 37 chapters, 1308 of them
+generated. By `:oracle:`, 3684 list Icarus Verilog 13.0, 1208 list
+Verilator 5.052, and 1402 follow the standard only. 800 tests depend on
+x or z values, 441 have C code (65 DPI and 376 VPI), 1594 are illegal
+designs, and 25 set an expected exit code. The requirement ledger maps
+7787 of 12319 rows (63.21%), with 4378 executed (35.54%).
 
 ### Tests added in this work
 

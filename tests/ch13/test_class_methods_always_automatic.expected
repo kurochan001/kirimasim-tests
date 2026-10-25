@@ -1,0 +1,3 @@
+class task, calls at 0 and 1: 1 2
+class function sum_down(4) = 10
+static module function static_sum_down(4) = 0

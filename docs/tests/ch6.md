@@ -1,14 +1,17 @@
 # Clause 6: Data types
 
-[All chapters](README.md). 539 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 542 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_local_var_edge_cases`](../../tests/ch6/test_local_var_edge_cases.sv) | Local variable edge cases | 6 | Icarus Verilog 13.0 |  |
 | [`test_data_type_of_parameter_variable_and_net`](../../tests/ch6/test_data_type_of_parameter_variable_and_net.sv) | A parameter, a variable and a net of one 4-bit data type each hold a value of that type, so values outside its range wrap and its addition is 4-bit, while two variables with the same 8 bits read differently because byte is signed and bit [7:0] is not | 6.2 6.18 6.20.2 6.11 | Icarus Verilog 13.0 |  |
 | [`test_user_types_built_from_other_types`](../../tests/ch6/test_user_types_built_from_other_types.sv) | User-defined types are built from other user-defined types (a packed array of a 4-bit type, a packed structure of both, an unpacked array of the structure) and declare objects whose sizes and parts follow the types they are built from | 6.2 6.18 7.2.1 7.4.1 | Verilator 5.052 |  |
+| [`test_four_state_two_state_and_real_storage`](../../tests/ch6/test_four_state_two_state_and_real_storage.sv) | Each bit of a logic vector, and of types built from logic, holds 0, 1, x or z on its own, while a 2-state bit holds only 0 or 1 and a real holds a real number, with x and z bits converted to 0 | 6.3.1 6.11.2 6.12.1 6.8 | Icarus Verilog 13.0 | x/z |
 | [`test_logic_basic`](../../tests/ch6/test_logic_basic.sv) | Logic Basic Tests | 6.3.1 6.11 | Icarus Verilog 13.0 |  |
+| [`test_logic_value_meanings`](../../tests/ch6/test_logic_value_meanings.sv) | The four basic values behave as false 0, true 1, unknown x and high-impedance z, and 0 and 1 are complements of each other | 6.3.1 12.4 11.4.7 6.6.1 | Icarus Verilog 13.0 | x/z |
 | [`test_value_logic`](../../tests/ch6/test_value_logic.sv) | Test for logic value operations | 6.3.1 11.4.8 | Icarus Verilog 13.0 | x/z |
+| [`test_z_input_acts_as_x_except_mos`](../../tests/ch6/test_z_input_acts_as_x_except_mos.sv) | A z at the input of a logic gate or in an expression has the same effect as an x, while a MOS switch passes the z and case equality tells z from x | 6.3.1 28.4 28.5 28.7 11.4.3 11.4.5 11.4.8 11.4.11 | Icarus Verilog 13.0 | x/z |
 | [`test_gate_drive_strength_beside_net_value`](../../tests/ch6/test_gate_drive_strength_beside_net_value.sv) | Gate instances with drive strengths give their outputs those strengths, a stronger gate output wins over a weaker one on the same net, and the strength stays beside the value of the net: nets of different strength compare equal, and an assignment carries only the value | 6.3.2 28.3.2 28.12.1 21.2.1.4 | Icarus Verilog 13.0 | x/z |
 | [`test_illegal_charge_strength_on_tri1_net`](../../tests/ch6/test_illegal_charge_strength_on_tri1_net.sv) | A charge strength in the declaration of a tri1 net is rejected | 6.3.2 6.3.2.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_charge_strength_on_wand_net`](../../tests/ch6/test_illegal_charge_strength_on_wand_net.sv) | A charge strength in the declaration of a wand net is rejected | 6.3.2 6.3.2.1 | Icarus Verilog 13.0 | illegal design |

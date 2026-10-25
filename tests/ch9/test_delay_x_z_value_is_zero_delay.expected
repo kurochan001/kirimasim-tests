@@ -1,0 +1,3 @@
+after #dx: t=3 flag=1
+after #dz: t=3 flag=1
+after #4 then #dz: t=7 flag2=1

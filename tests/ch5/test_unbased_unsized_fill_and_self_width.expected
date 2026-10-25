@@ -1,0 +1,9 @@
+'0: 000000000000000000
+'1: 3fffffffffffffffff
+compare: 1 0
+'x: xxxxxxxxxxxxxxxxxx
+'z: zzzzzzzzzzzzzzzzzz
+'X: xxxxxxxxxxxxxxxxxx
+'Z: zzzzzzzzzzzzzzzzzz
+self: 1 1 1 1 unsigned=1
+unsigned compare: 1

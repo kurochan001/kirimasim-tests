@@ -1,0 +1,2 @@
+first branch: c=1, b=11, statement after b ran at t=5
+second branch: ran at t=0, saw b=0 at t=2

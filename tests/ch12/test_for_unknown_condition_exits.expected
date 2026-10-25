@@ -1,0 +1,7 @@
+1-bit condition set to x by the step: 1 iteration(s), c=x
+1-bit condition set to z by the step: 1 iteration(s), c=z
+1-bit condition kept at 1: 4 iteration(s) until break
+k < 4'bxxxx: 0 iteration(s)
+k < 4'bzzzz: 0 iteration(s)
+limit 10 changed to x in iteration 2: 2 iteration(s)
+limit 10 changed to z in iteration 2: 2 iteration(s)

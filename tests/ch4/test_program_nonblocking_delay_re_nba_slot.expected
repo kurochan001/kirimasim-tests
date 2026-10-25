@@ -1,0 +1,4 @@
+at 1 after #0: u=0
+at 2: u=4
+at 3: u2=6 g_copy=0
+at 4: u2_copy=6 g_copy=1

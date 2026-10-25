@@ -1,0 +1,5 @@
+module function:        A=6 bits=6
+package function:       B=16 bits=16
+$unit function:         C=15 bits=15
+static class method:    D=7 bits=7
+parameterized class K=5: E=15 bits=15

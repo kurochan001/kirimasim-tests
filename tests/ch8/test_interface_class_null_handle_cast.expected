@@ -1,0 +1,7 @@
+null ext_if to ext_if: ok=1 dest null=1
+null ext_if to base_if: ok=1 dest null=1
+null base_if to ext_if: ok=0 dest kept=1
+null base_if to item_c: ok=0 dest kept=1
+base_if with an object to ext_if: ok=1 twice=10
+base_if with an object to item_c: ok=1 id=5
+literal null to ext_if: ok=1 dest null=1

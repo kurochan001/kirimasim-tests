@@ -1,0 +1,6 @@
+concat: 5678
+bits: 12 16
+arith: 773
+default: ffff
+compare: 1 0
+cast: -2

@@ -1,0 +1,7 @@
+with else    111: evaluated 1 took s1
+with else    011: evaluated 12+ took s2
+with else    001: evaluated 123 took s3
+with else    000: evaluated 123 took default
+without else 010: evaluated 12 took s2
+without else 001: evaluated 123 took s3
+without else 000: evaluated 123 took none

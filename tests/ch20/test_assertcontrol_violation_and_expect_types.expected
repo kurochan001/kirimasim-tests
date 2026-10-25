@@ -1,0 +1,5 @@
+both on: immediate 1 expect 1
+failoff 16: immediate 2 expect 1
+failoff 15: immediate 2 expect 2
+assertfailoff: immediate 2 expect 2
+assertfailon: immediate 3 expect 3

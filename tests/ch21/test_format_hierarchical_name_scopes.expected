@@ -1,0 +1,7 @@
+test_format_hierarchical_name_scopes
+test_format_hierarchical_name_scopes.u1
+test_format_hierarchical_name_scopes.u1.show_task
+test_format_hierarchical_name_scopes.u1.show_func
+test_format_hierarchical_name_scopes.u1.named_blk 5
+[test_format_hierarchical_name_scopes.u1.lab]
+test_format_hierarchical_name_scopes.gen_blk

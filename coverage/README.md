@@ -117,6 +117,8 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - `results/gap-tests-2-20261024-*.json`: 同じ作業の2回目で独立検証を終えた新規テスト933本と、入力ハッシュが変わった`tests/ch22`の既存4本の実行結果。
   Icarus 13.0は529 pass・408 known、Verilator 5.052はseed 1/73とも504 pass・433 knownです。
   [追加内容と照合結果](../docs/gap-tests-2-20261024.md)を参照してください。
+- `results/gap4-20261025-*.json`: 保留していた照合案のうち、p01・p05・p07・p12の4区間を独立検証して取り込んだ256本の実行結果。
+  Icarus 13.0は132 pass・124 known、Verilator 5.052はseed 1/73とも129 pass・127 knownです。
 - `results/regex-refinement-20261025-*.json`: 判定の正規表現をメッセージの書式に依存しない形に直した`ch16`の2本の再実行。
   Icarus 13.0は2 known、Verilator 5.052はseed 1/73とも1 pass・1 knownです。
   [見直しの記録](../docs/lyra-disagreement-review-20261025.md)を参照してください。

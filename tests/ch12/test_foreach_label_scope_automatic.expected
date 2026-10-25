@@ -1,0 +1,9 @@
+after foreach (arr[k]): module k=100, arr = 0 1 2
+body of lbl: foreach: test_foreach_label_scope_automatic.blk.lbl
+t=12 j=0
+t=13 j=0
+t=14 j=1
+t=15 j=1
+t=16 j=2
+t=17 j=2
+t=17 done

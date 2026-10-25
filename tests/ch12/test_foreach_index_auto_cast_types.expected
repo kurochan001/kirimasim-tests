@@ -1,0 +1,8 @@
+fixed [7:5]: i=7 bits=32 i-10=-3 cast bits=16
+fixed [7:5]: i=6 bits=32 i-10=-4 cast bits=16
+fixed [7:5]: i=5 bits=32 i-10=-5 cast bits=16
+dynamic: i=0 bits=32 i-10=-10
+dynamic: i=1 bits=32 i-10=-9
+assoc [byte]: k=-3 bits=8
+assoc [bit [3:0]]: k=15 bits=4 k+4'd1=0
+assoc [string]: k=xyz len=3

@@ -1,0 +1,4 @@
+two iterations: ITBSTBST i=2
+no iteration:   IT i=5
+no init, no step: TBTBTBT i=3
+no condition: IBSBSB i=2

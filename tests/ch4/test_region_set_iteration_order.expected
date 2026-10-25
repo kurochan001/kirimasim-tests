@@ -1,0 +1,4 @@
+program at 1: a=1 b=2 c=3 d=4
+after #0: m_copy=0
+waiter: pv=1 m_copy=0
+at 2: m_copy=1

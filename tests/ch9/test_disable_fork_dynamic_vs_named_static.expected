@@ -1,0 +1,2 @@
+disable fork: blk_done=1
+named disable: blk2_done=0 blk2_left=2 at t=2

@@ -1,0 +1,3 @@
+t=2 timing only: nw=0 nd=0 ne=0
+t=4 read:        nw=1 nd=1 ne=1 kw=5 kd=6 ke=0
+t=5 ei again:    nw=1 nd=1 ne=1 ke=7

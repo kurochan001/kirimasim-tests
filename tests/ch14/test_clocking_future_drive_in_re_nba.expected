@@ -1,0 +1,4 @@
+t=7 end of time step: w=1
+t=15 end of time step: u=1
+t=16 woken at 7 by the NBA of flag_w: w=0
+t=16 woken at 15 by the NBA of flag_u: u=0

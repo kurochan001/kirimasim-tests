@@ -1,0 +1,11 @@
+a      runs=1 y=8 z=0 w=2 arr=7,0,0,0
+wn     runs=2 y=8 z=0 w=2 arr=8,0,0,0
+f      runs=3 y=14 z=0 w=2 arr=8,0,0,0
+t1     runs=4 y=14 z=0 w=2 arr=8,0,0,0
+sel    runs=5 y=14 z=0 w=2 arr=8,0,0,0
+ci     runs=6 y=14 z=2 w=2 arr=8,0,0,0
+b      runs=7 y=14 z=9 w=2 arr=8,0,0,0
+en     runs=8 y=14 z=9 w=1 arr=8,0,0,0
+idx    runs=9 y=14 z=9 w=1 arr=8,0,8,0
+y      runs=9 y=99 z=9 w=1 arr=8,0,8,0
+arr[3] runs=9 y=99 z=9 w=1 arr=8,0,8,77

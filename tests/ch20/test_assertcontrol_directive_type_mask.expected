@@ -1,0 +1,7 @@
+none off: assert 2, cover 2, assume 2
+directive 1: assert 0, cover 2, assume 2
+directive 2: assert 2, cover 0, assume 2
+directive 4: assert 2, cover 2, assume 0
+directive 6: assert 2, cover 0, assume 0
+directive 5: assert 0, cover 2, assume 0
+no directive_type: assert 0, cover 0, assume 0

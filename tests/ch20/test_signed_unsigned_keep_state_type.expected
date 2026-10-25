@@ -1,0 +1,4 @@
+x/z: xxxxxxxx zzzzzzzz 00000000 00000000
+bits: 8 8 8 8
+negative: 1 0 1 0
+types: 1 1 0 1

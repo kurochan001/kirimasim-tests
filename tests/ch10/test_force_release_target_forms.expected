@@ -1,0 +1,4 @@
+forced:   v8=a5 nw=9 n8=10100100 m4=1011 sv=1
+writes:   v8=a5 nw=9 n8=10111111 m4=1011 sv=1
+s8=00:    v8=a5 nw=9 n8=10100100 m4=1011 sv=1
+released: v8=a5 nw=3 n8=00000000 m4=0110 sv=1

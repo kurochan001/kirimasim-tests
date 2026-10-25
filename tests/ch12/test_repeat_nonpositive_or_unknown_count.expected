@@ -1,0 +1,8 @@
+int 0: 0 iterations
+int -2: 0 iterations
+signed 4'b1111 (-1): 0 iterations
+4'bxxxx: 0 iterations
+4'bzzzz: 0 iterations
+4'b01x1: 0 iterations
+unsigned 4'b1111 (15): 15 iterations
+int 2: 2 iterations

@@ -1,0 +1,17 @@
+4'b0100: then
+4'b1000: then
+4'b0000: else
+4'b00x0: else
+4'bz000: else
+4'b0x0z: else
+4-bit ifs without else: taken=2
+1'b1: then
+1'b0: else
+1'bx: else
+1'bz: else
+1-bit ifs without else: taken=1
+int -3: then
+int 0: else
+real 0.25: then
+real 0.0: else
+int and real ifs without else: taken=2

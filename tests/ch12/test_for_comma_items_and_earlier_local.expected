@@ -1,0 +1,2 @@
+assigned x, y: 0/10,z=1 3/9,z=2 6/8,z=4; after: x=9 y=7 z=8 calls=3
+declared a, b, c: 2/20/22 3/20/21 4/20/20; module a=100

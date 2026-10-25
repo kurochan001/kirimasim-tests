@@ -1,0 +1,9 @@
+start     runs=1 y_mem=20 y_vec=0 y_f=2 y_k=0
+mem[3]    runs=2 y_mem=20 y_vec=0 y_f=2 y_k=0
+vec[0]    runs=2 y_mem=20 y_vec=0 y_f=2 y_k=0
+vec[2]    runs=3 y_mem=20 y_vec=1 y_f=2 y_k=0
+arr2[0]   runs=3 y_mem=20 y_vec=1 y_f=2 y_k=0
+arr2[1]   runs=4 y_mem=20 y_vec=1 y_f=4 y_k=0
+cb.k      runs=4 y_mem=20 y_vec=1 y_f=4 y_k=0
+fread.fk  runs=4 y_mem=20 y_vec=1 y_f=4 y_k=0
+idx       runs=5 y_mem=30 y_vec=1 y_f=10 y_k=9

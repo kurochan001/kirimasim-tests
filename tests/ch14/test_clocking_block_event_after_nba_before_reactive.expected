@@ -1,0 +1,3 @@
+waiting for posedge clk: q=0
+waiting for @(cb): q=1 pv=0
+at 6: q=1 pv=1

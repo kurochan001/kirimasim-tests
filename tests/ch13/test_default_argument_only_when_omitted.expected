@@ -1,0 +1,5 @@
+use_id(got, 5): got=5 calls=0
+use_id(got): got=101 calls=1
+use_id(.seen(got), .id(9)): got=9 calls=1
+use_id(.seen(got)): got=102 calls=2
+use_id(got, 7): got=7 calls=2

@@ -1,0 +1,5 @@
+right after <=: pv=0
+waiter: pv=5 flag_copy=0 module_seen=0
+at 2: pv=5 flag_copy=1 module_seen=5
+at 3: pv=5
+at 4: pv=7 module_seen=7

@@ -1,0 +1,28 @@
+none:
+  simple immediate failed
+  observed deferred failed
+  final deferred failed
+  concurrent failed
+mask 1:
+  simple immediate failed
+  observed deferred failed
+  final deferred failed
+mask 2:
+  observed deferred failed
+  final deferred failed
+  concurrent failed
+mask 4:
+  simple immediate failed
+  final deferred failed
+  concurrent failed
+mask 8:
+  simple immediate failed
+  observed deferred failed
+  concurrent failed
+mask 10:
+  observed deferred failed
+  concurrent failed
+mask 5:
+  simple immediate failed
+  final deferred failed
+no mask:

@@ -1,0 +1,4 @@
+on: expect fail actions 1
+locked, failoff: expect fail actions 2
+unlocked, failoff: expect fail actions 2
+failon: expect fail actions 3

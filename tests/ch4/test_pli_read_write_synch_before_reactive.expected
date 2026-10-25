@@ -1,0 +1,2 @@
+cbReadWriteSynch at 10: a=1 a2=1 p=0, writes w=3
+cbReadOnlySynch at 10: w=3 c=4 b=1 p=2

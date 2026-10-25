@@ -1,0 +1,4 @@
+s4: bits=4 s4(8'hFF)=-1 below zero=1 s4(8'b0000x01z)=x01z
+u8: bits=8 u8(16'hFFFF)=255 below zero=0
+one: bits=1 one(2'b10)=0 one(2'b11)=1 one(2'b0x)=x one(2'b1z)=z
+void note called twice: total=7

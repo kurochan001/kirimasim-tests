@@ -1,0 +1,4 @@
+right after r <= x <= y: r=0
+next step: r=1
+x=6: r=0 q=0
+if: 6 <= 5 not taken

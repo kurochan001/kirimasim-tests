@@ -1,0 +1,4 @@
+t=1 disabled work before it started
+t=7 run 1 of work over, count=2
+t=10 disabled work between its runs
+t=13 run 2 of work over, count=3

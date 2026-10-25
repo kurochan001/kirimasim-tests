@@ -1,0 +1,5 @@
+cbNextSimTime at 10: a=0
+design at 10: v=7
+cbAtStartOfSimTime at 20: b=0
+design at 20: w=5
+design at 25: w_copy=5 w_time=20

@@ -1,0 +1,5 @@
+ext: -16 240 111110000 011110000
+bits: 8 8 4 8
+pattern: f0 f0 1x0z 1x0z
+sign: 1 0 0 1
+unknown: 1 1

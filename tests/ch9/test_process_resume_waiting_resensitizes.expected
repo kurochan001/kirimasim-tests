@@ -1,0 +1,6 @@
+t=2 after suspend: pe=SUSPENDED pc=SUSPENDED pd1=SUSPENDED pd2=SUSPENDED
+t=4 still: pe=SUSPENDED pc=SUSPENDED
+t=5 pc saw flag
+t=7 pe woke on e
+t=10 pd1 delay over
+t=12 pd2 delay over

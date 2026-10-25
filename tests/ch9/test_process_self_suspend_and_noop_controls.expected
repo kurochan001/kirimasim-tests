@@ -1,0 +1,7 @@
+t=1 pr own status=RUNNING
+t=2 controller own status=RUNNING, pr=SUSPENDED
+t=2 after suspend: pr=SUSPENDED pf=FINISHED pk=KILLED
+t=2 after resume: pw=WAITING pf=FINISHED
+t=4 resuming pr
+t=4 pr continues
+t=30 pw delay over

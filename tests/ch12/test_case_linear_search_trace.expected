@@ -1,0 +1,7 @@
+with default    v=1: trace C1 took one or two
+with default    v=2: trace C12 took one or two
+with default    v=3: trace C123 took three
+with default    v=4: trace C12324 took four
+with default    v=9: trace C12324 took default
+without default v=7: trace C567 took six or seven
+without default v=9: trace C567 took none

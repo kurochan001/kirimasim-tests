@@ -1,0 +1,4 @@
+t=4 before posedge: a=0
+t=5 after posedge: a=1 b=7
+t=8 before go: a=1
+t=9 after go: a=21 b=30

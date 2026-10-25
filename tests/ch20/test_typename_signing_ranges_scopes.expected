@@ -1,0 +1,6 @@
+[int][byte][integer][bit][logic]
+[int unsigned][bit signed][logic signed][shortint unsigned]
+[15:2] [7:0] [1:4]
+$[3:1] $[0:1]
+struct{bit a;bit b;}tn_scope_pkg::pair_t
+struct{bit x;bit y;}test_typename_signing_ranges_scopes.local_t

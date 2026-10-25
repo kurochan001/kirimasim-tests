@@ -1,0 +1,3 @@
+through ext_if: get=abcd get2=1234, bits of get2: 16
+ext_if::wide_t: 16 bits
+in impl_c: word_t 4 bits, W = 5

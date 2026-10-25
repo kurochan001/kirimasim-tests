@@ -1,0 +1,8 @@
+unsized: 1 1 1 1
+wide: 500000001 1 6000000000 1 1
+plain: -12 12 12 -2
+literal type: left=3 right=0 value=1x0z PS=-6 bits=4
+sext signed: 11111010 11111010
+sext negative: 11111010 11111010
+zext unsigned: 00001010 00001010
+sext positive: 00000101 00000101

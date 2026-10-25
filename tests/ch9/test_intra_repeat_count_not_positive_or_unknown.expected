@@ -1,0 +1,7 @@
+count 0:     t=2 a=10
+count -2:    t=2 a=11
+count x:     t=2 a=12
+count z:     t=2 a=13
+signed -1:   t=2 a=14
+count 2:     t=15 a=15
+unsigned 3:  t=45 a=16

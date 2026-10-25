@@ -1,0 +1,7 @@
+unique  100: seen=111 took s1
+unique  010: seen=111 took s2
+unique  001: seen=111 took s3
+unique  000: seen=111 took else
+unique0 100: seen=111 took s1
+unique0 010: seen=111 took s2
+unique0 000: seen=111 took none

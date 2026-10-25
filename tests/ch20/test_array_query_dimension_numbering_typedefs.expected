@@ -1,0 +1,5 @@
+dim 1: z 6 7 2 w 6 7 2
+dim 2: z 2 3 2 w 2 3 2
+dim 3: z 7 4 4 w 7 4 4
+dim 4: z 0 2 3 w 0 2 3
+dimensions z=4 w=4 unpacked z=2 w=2

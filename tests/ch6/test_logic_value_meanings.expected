@@ -1,0 +1,4 @@
+if: 0=F 1=T x=F z=F
+complement: ~0=1 ~1=0 !0=1 !1=0 ~0110=1001
+unknown: x^x=x x-x=x 0&x=0 1|x=1
+nets: z,0=0 z,1=1 1,0=x x,0=x

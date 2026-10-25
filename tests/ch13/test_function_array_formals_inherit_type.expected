@@ -1,0 +1,4 @@
+total: element bits e=4 f=4, sizes e=2 f=3
+total = 30
+total_bytes: element bits e=8 f=8, sizes e=2 f=3
+total_bytes = -2

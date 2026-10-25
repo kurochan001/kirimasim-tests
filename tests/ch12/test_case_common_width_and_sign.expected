@@ -1,0 +1,5 @@
+a + b, items 4'd0 5'd17: default
+a + b, item 4'd0: 4'd0
+wide = 16, items 4'd0 p+q: p + q
+sn = -1, signed items: -8'sd1
+sn = -1, with unsigned item 4'd3: 8'sh0F

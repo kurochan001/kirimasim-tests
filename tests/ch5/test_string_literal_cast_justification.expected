@@ -1,0 +1,3 @@
+wide: assign=00616263 cast=00616263
+narrow: assign=6263 cast=6263
+unpacked: assign=97 98 99 cast=97 98 99

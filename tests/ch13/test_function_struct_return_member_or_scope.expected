@@ -1,0 +1,3 @@
+result: a=3 b=4
+mk.a outside the function: 300
+full hierarchical name: 300

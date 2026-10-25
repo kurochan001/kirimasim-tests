@@ -1,0 +1,7 @@
+space_a: P=10 $bits(T)=32 v=11 n=12 u=13 f=14 t=15
+space_b: P=20 $bits(T)=64 v=21 n=22 u=23 f=24 t=25
+named block x=2
+unnamed block x=3
+function x=4 task x=5 module x=1
+space_if: P=40 $bits(T)=16 v=41 n=42 f=43 t=44
+space_pkg: P=30 $bits(T)=8 v=31 f=32

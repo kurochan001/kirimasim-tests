@@ -1,0 +1,6 @@
+assign q = a: q=10
+assign q = b: q=20
+a=11:         q=20
+b=21:         q=21
+deassigned:   q=21
+q=5, a=13:    q=5

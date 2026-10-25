@@ -1,0 +1,4 @@
+early: VALUE=1 LATE_FLAG=0
+late: VALUE=2 LATE_FLAG=1 INNER=5
+at 2ns: early_flag=1 late_flag=0
+at 12ns: early_flag=1 late_flag=1

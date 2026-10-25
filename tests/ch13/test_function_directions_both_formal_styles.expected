@@ -1,0 +1,9 @@
+function, formals in parentheses:
+  inside: i=1 r=100 v=100 o=-1 io=10 out=5 x=11
+  after: v=100 o=5 io=11
+function, formals declared in the body:
+  inside: i=1 r=100 v=100 o=-1 io=10 out=5 x=11
+  after: v=100 o=5 io=11
+task:
+  inside: i=1 r=100 v=100 o=-1 io=10 out=5 x=11
+  after: v=100 o=5 io=11

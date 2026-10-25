@@ -1,0 +1,5 @@
+at 1 after #0: x=0 z=0
+strobe at 1: x=5 z=9
+at 3: arr=0 0 0
+at 4 active: arr[1]=0
+strobe at 4: arr=0 7 0

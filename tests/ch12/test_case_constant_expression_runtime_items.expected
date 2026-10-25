@@ -1,0 +1,9 @@
+TARGET=12 x=5 y=7: sum
+TARGET=12 x=3 y=4: product
+TARGET=12 x=20 y=8: difference
+TARGET=12 x=12 y=0: sum
+TARGET=12 x=1 y=1: none
+1'b0 m=011: bit 2
+1'b0 m=101: bit 1
+1'b0 m=110: bit 0
+1'b0 m=111: no zero bit

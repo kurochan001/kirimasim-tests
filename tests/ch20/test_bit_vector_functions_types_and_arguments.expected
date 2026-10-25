@@ -1,0 +1,6 @@
+types: 32 1 1 0 0
+ba: 1 1 1 0 0
+la: 1 1 1 1 1
+st: 3 0 0 1 1
+dq: 2 0 0 0 22
+uses: 20 not onehot0 1

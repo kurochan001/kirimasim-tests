@@ -1,0 +1,2 @@
+cbNBASynch at 10: e=1 d=0, writes x=8
+cbReadOnlySynch at 10: x=8 d_seen=0 d=1

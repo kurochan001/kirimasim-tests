@@ -1,0 +1,6 @@
+pass: d=1
+program: act_count=1 module_count=0
+pass: d=2
+program: act_count=2 module_count=1
+fail: d=3
+program: act_count=3 module_count=2

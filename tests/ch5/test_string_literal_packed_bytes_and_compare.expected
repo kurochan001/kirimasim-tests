@@ -1,0 +1,4 @@
+grid4: 61 62 63 64 same_as_flat=1
+grid2: 00 00 61 62
+string compare: 1 1
+concat: bcd len=3

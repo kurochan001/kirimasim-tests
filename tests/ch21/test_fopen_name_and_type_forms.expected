@@ -1,0 +1,6 @@
+fd bit31: 1 1 1 distinct=1
+mcd bit31=0 bit0=0 ones=1
+l: [literal]
+s: [string]
+i: [integral]
+m: [multichannel]

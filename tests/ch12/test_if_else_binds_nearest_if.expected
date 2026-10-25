@@ -1,0 +1,14 @@
+plain   p=1 q=1: inner-then
+plain   p=1 q=0: else
+plain   p=0 q=1: -
+plain   p=0 q=0: -
+grouped p=1 q=1: inner-then
+grouped p=1 q=0: -
+grouped p=0 q=1: else
+grouped p=0 q=0: else
+two     p=1 q=1: inner-then
+two     p=1 q=0: first-else
+two     p=0 q=0: second-else
+three   p=1 q=1 r=0: else
+three   p=1 q=0 r=0: -
+three   p=0 q=0 r=0: -

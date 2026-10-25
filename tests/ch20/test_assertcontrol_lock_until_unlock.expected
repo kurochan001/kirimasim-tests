@@ -1,0 +1,5 @@
+20: all on: ac 2, ai 2
+40: concurrent locked, assertoff: ac 2, ai 0
+60: concurrent locked, asserton, failoff: ac 2, ai 0
+80: concurrent unlocked, immediate locked, off: ac 0, ai 2
+100: immediate unlocked, on, failoff immediate: ac 2, ai 0

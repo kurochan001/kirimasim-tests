@@ -1,0 +1,6 @@
+driven:         wg=1 wm=1 wc=1
+forced:         wg=0 wm=0 wc=0
+forced, a=0:    wg=0 wm=0 wc=0
+forced, a=1:    wg=0 wm=0 wc=0
+just released:  wg=1 wm=1 wc=1
+released, a=b=0: wg=0 wm=0 wc=0

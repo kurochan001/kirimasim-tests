@@ -1,0 +1,4 @@
+start:       y=1 z=0
+obj.m = 5:   y=1 z=0
+obj = other: y=1 z=0
+arg = 2:     y=102 z=100

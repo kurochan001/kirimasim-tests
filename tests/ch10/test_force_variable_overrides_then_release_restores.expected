@@ -1,0 +1,6 @@
+before force: vp=0 vc=1 va=2
+forced:       vp=55 vc=55 va=55
+writes:       vp=55 vc=55 va=55
+released:     vp=55 vc=3 va=4
+new sources:  vp=55 vc=5 va=6
+vp written:   vp=9 vc=5 va=6

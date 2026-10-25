@@ -1,0 +1,7 @@
+int+default: {7,3} {7,3} {7,3}
+index+default: {3,3} {100,50} {3,3}
+type+index: {9,9} {1,2} {1,2}
+two matching types: {3,4} {3,4} {3,4}
+default+byte: {5,1} {5,1} {5,1}
+md int: 6 6 6 / 6 6 6
+md index+default: 7 8 9 / 2 2 2

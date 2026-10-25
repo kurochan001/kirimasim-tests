@@ -1,0 +1,2 @@
+cbAtEndOfSimTime at 10: b=1 p=2 q=3, writes w=4
+cbReadOnlySynch at 10: w=4 c=5 r=8

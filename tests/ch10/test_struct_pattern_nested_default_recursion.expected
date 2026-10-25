@@ -1,0 +1,4 @@
+default: A=10 B=10 C=10 arr=10,10,10 barr=10,10
+member+byte+default: A=1 B=2 C=7 arr=2,2,2 barr=7,7
+int+default: A=5 B=5 C=0 arr=5,5,5 barr=0,0
+inner_t+default: A=1 B=3 C=4 arr=1,1,1 barr=1,1

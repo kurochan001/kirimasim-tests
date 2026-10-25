@@ -1,0 +1,4 @@
+parts: 1000 2000 3000 4000
+operators: 42 58
+case: 50 60 8 70
+escaped: 7

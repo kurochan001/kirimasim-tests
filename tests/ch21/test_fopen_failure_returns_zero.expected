@@ -1,0 +1,9 @@
+r=0 err=1 msg=1
+rb=0
+r+=0
+r+b=0
+rb+=0
+nodir w=0 err=1 msg=1
+nodir mcd=0
+present r nonzero=1
+present r+ nonzero=1

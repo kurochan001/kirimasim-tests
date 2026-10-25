@@ -1,0 +1,4 @@
+combo(y, x):              1340 x=1 y=1
+combo(y, x, 5):           1541 x=2 y=1
+combo(y, x, , 6):         1362 x=3 y=1
+combo(.c(8), .r(x), .a(2)): 2383 x=4 y=1

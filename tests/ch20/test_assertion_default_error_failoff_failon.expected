@@ -1,0 +1,4 @@
+default: pass statements 0, else clauses 1
+failoff: pass statements 0, else clauses 1
+failon: pass statements 0, else clauses 2
+failoff assume: pass statements 0, else clauses 2

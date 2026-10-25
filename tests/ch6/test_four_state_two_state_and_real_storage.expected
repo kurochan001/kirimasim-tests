@@ -1,0 +1,6 @@
+bits: 0zx1
+bits after v[1]=0: 0z01
+built: z1x0 x1z0 zx
+two-state: 1000 0000000f 00001101
+real: unset=0.0 logic_unset=x from_xz=9.0
+real fraction: 2.75

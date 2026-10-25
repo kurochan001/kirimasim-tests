@@ -1,0 +1,4 @@
+block h=9
+module h=5 unit h=2 g=1
+k=10 j=30
+child: pick=100 only_in_parent=300

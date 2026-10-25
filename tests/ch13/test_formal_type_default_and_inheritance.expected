@@ -1,0 +1,11 @@
+task bits: a=1 b=32 c=32 d=1 e=4 f=4
+task values: a=x c=-5 d=z
+task outputs: e_out=000010xz f_out=00000110
+task bits: a=1 b=32 c=32 d=1 e=4 f=4
+task values: a=0 c=3 d=1
+function bits: a=1 b=32 c=32 d=1 e=4 f=4
+function values: a=x c=-5 d=z e=01xz f=1001
+function result: 4
+function bits: a=1 b=32 c=32 d=1 e=4 f=4
+function values: a=0 c=3 d=1 e=0000 f=0001
+function result: 4

@@ -1,0 +1,3 @@
+static task, same instance, calls at 0 and 1: 2 2
+automatic task, same instance, calls at 4 and 5: 1 2
+static task, instances k1 and k2, calls at 10 and 11: 10 20

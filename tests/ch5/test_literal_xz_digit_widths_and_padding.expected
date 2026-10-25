@@ -1,0 +1,10 @@
+x digits: 0101xxxx0101 101xxx101 1x1
+z digits: 0101zzzz0101 101zzz101 1z1
+? digits: 0101zzzz0101 101zzz101 1z1
+case: 1 1 x0z1 xxxzzz
+pad: xxxxxxx1 zzzzzzz0 00000010 xxxxxxxx0111
+pad octal: zzzzzz010 000000010
+unsized x: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+unsized z: zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz1001
+unsized ?: zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz0
+unsized 9: 0000000000000000000000000000000000001001

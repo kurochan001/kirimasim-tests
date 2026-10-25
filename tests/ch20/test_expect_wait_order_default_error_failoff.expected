@@ -1,0 +1,3 @@
+default: pass statements 0, expect else 1, wait_order else 1
+failoff: pass statements 0, expect else 1, wait_order else 2
+failon: pass statements 0, expect else 2, wait_order else 2

@@ -1,0 +1,11 @@
+A	a=1
+A	a=2
+B b=00000101
+B b=00000110
+O b=011 a=3
+O b=011 a=4
+H b=c8
+H b=ca
+H b=ab
+H b=ab
+H b=ff

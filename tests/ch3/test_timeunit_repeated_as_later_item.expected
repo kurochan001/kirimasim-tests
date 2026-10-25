@@ -1,0 +1,5 @@
+Time scale of (test_timeunit_repeated_as_later_item) is 1ns / 1ps
+Time scale of (test_timeunit_repeated_as_later_item.m) is 1us / 1ns
+Time scale of (test_timeunit_repeated_as_later_item.i) is 100ps / 10ps
+flag at 0.500
+after wait_two at 20.500

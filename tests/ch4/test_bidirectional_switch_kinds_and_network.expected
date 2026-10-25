@@ -1,0 +1,4 @@
+kinds: tran St1 St0 tranif1 St1 HiZ tranif0 St0 HiZ
+kinds: rtran Pu1 We0 rtranif1 Pu1 rtranif0 Pu0
+network: n1=St1 n2=St1 n3=Pu1 n4=Pu1
+network: n1=St0 n2=St0 n3=Pu0 n4=Pu0

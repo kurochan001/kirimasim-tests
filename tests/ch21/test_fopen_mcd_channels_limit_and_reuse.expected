@@ -1,0 +1,8 @@
+onehot=1 bit0_or_bit31=0 distinct=1 all=7ffffffe
+31st=00000000
+to three and four and stdout
+reuse of 6: 1
+reuse of 1 and 2: 1
+file 1: [only one]
+file 3: [to three and four and stdout]
+file 4: [to three and four and stdout]

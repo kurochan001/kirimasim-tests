@@ -1,0 +1,8 @@
+new[5](d): at 1 d[1]=10
+new[5](d): after the task size=5 d[1]=10, task read 10
+assignment: at 1 d[1]=10
+assignment: after the task size=4 d[1]=42, task read 10
+delete(): at 1 d[1]=10
+delete(): after the task size=3 d[1]=0, task read 10
+assoc delete(5): at 1 aa[5]=10
+assoc delete(5): after the task aa[5]=7, task read 10

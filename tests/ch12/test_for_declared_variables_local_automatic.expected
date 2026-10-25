@@ -1,0 +1,11 @@
+after for (int i ...): module i=100
+after for (i = 0 ...): module i=3
+body of for (i = 0 ...): test_for_declared_variables_local_automatic.blk
+body of lbl: for (int k ...): test_for_declared_variables_local_automatic.blk.lbl
+t=12 j=0
+t=13 j=0
+t=14 j=1
+t=15 j=1
+t=16 j=2
+t=17 j=2
+t=17 done

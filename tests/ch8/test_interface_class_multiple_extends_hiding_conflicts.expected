@@ -1,0 +1,4 @@
+chan_if: elem_t 16 bits, word_t 12 bits, src elem_t 8 bits
+chan_if: DEPTH=6 N=3 W=12 KIND=3 VERSION=4
+through chan_if: count=2 read(0)=35 read(1)=-25 peek=10500
+through src_if: count=3 read(2)=5; root_if handle set: 1
