@@ -162086,7 +162086,33 @@
       "acceptance": "A custom argument-bearing sample method may accept data from automatic procedures, process instances and assertion sequence/property match contexts, following their sampling rules.",
       "source_note": "IEEE 1800-2023 19.8.1; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_sample_from_contexts.sv",
+          "observation": "covergroup cg の sample メソッドを int 引数付きで上書きし、(1) automatic 関数 from_function の局所変数 j+1=1、(2) fork した2つのプロセスそれぞれの automatic k=2,3、(3) sequence s_pass の局所変数 lv（(1, lv = d) で Preponed の d を保持し次のティックで sample）から値を渡す。期待出力 1/8、3/8、4/8 は、3種類の文脈から渡った値がそれぞれ別のビンを被覆したことを比べる。 区別: 上書き sample が自動関数・プロセスインスタンス・アサーション系列の文脈から引数を受け取れない実装では、該当する g.sample 呼び出しが値を渡せず、1/8、3/8、4/8 のいずれかが小さくなる。sequence の lv が Preponed の d（2 と 6）ではなく NBA 後の d（6 と 7）を渡す実装では最後が 5/8 になる。3つの数値が、各文脈からの引数渡しと系列のサンプリング規則の両方を示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "557e57b6a18d6362dc97a72574419b97f087a89070ba6493f0deb333cef280d0",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_sample_from_contexts.sv",
+              "contains": "    g.sample(local_v);"
+            },
+            {
+              "file": "tests/ch19/test_cg_sample_from_contexts.sv",
+              "contains": "        g.sample(k);"
+            },
+            {
+              "file": "tests/ch19/test_cg_sample_from_contexts.sv",
+              "contains": "    (1, lv = d) ##1 (1, g.sample(lv));"
+            },
+            {
+              "file": "tests/ch19/test_cg_sample_from_contexts.expected",
+              "contains": "sequence match items: 4/8"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.8.1",

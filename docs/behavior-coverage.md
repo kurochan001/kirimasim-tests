@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7365/12319 (59.79%)。
+- 登録済み動作に対するテスト設計網羅率: 7366/12319 (59.79%)。
 - 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4152/12319 (33.70%)。
-- 登録済みだがテスト未対応: 4954 動作。
+- 登録済みだがテスト未対応: 4953 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -99,7 +99,7 @@
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 292。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 7。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 59。
-- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 155。
+- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 156。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 131。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 144。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 297。
@@ -49524,7 +49524,7 @@ void stop() stops coverage collection on a group/point/cross.
 
 ### SV2023-19.8.1-EXTRACT-CUSTOM-SAMPLE-CONTEXT
 
-19.8.1 / normal / テスト未対応
+19.8.1 / normal / テスト対応あり・実行未確認
 
 A custom argument-bearing sample method may accept data from automatic procedures, process instances and assertion sequence/property match contexts, following their sampling rules.
 
@@ -49532,6 +49532,7 @@ A custom argument-bearing sample method may accept data from automatic procedure
 
 規定の性質: `permission`。
 
+- [test_cg_sample_from_contexts.sv](../tests/ch19/test_cg_sample_from_contexts.sv): covergroup cg の sample メソッドを int 引数付きで上書きし、(1) automatic 関数 from_function の局所変数 j+1=1、(2) fork した2つのプロセスそれぞれの automatic k=2,3、(3) sequence s_pass の局所変数 lv（(1, lv = d) で Preponed の d を保持し次のティックで sample）から値を渡す。期待出力 1/8、3/8、4/8 は、3種類の文脈から渡った値がそれぞれ別のビンを被覆したことを比べる。 区別: 上書き sample が自動関数・プロセスインスタンス・アサーション系列の文脈から引数を受け取れない実装では、該当する g.sample 呼び出しが値を渡せず、1/8、3/8、4/8 のいずれかが小さくなる。sequence の lv が Preponed の d（2 と 6）ではなく NBA 後の d（6 と 7）を渡す実装では最後が 5/8 になる。3つの数値が、各文脈からの引数渡しと系列のサンプリング規則の両方を示す。
 
 ### SV2023-19.8.1-EXTRACT-SAMPLE-LOOKUP
 

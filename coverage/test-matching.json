@@ -3,8 +3,8 @@
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
   "test_files": 6009,
-  "linked_test_files": 3509,
-  "unlinked_test_files": 2500,
+  "linked_test_files": 3510,
+  "unlinked_test_files": 2499,
   "chapters": [
     {
       "chapter": "ch3",
@@ -105,8 +105,8 @@
     {
       "chapter": "ch19",
       "test_files": 84,
-      "linked_test_files": 63,
-      "unlinked_test_files": 21
+      "linked_test_files": 64,
+      "unlinked_test_files": 20
     },
     {
       "chapter": "ch20",
@@ -65777,7 +65777,9 @@
         "16.5.1"
       ],
       "negative_test": false,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-19.8.1-EXTRACT-CUSTOM-SAMPLE-CONTEXT"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-16.10-EXTRACT-AND-INTERSECT-FLOW",
@@ -65813,7 +65815,6 @@
         "SV2023-16.5.1-EXTRACT-METHOD-CURRENT",
         "SV2023-16.5.1-EXTRACT-PREPONED",
         "SV2023-16.5.1-EXTRACT-SINGLE-VARIABLE",
-        "SV2023-19.8.1-EXTRACT-CUSTOM-SAMPLE-CONTEXT",
         "SV2023-19.8.1-EXTRACT-SAMPLE-LOOKUP"
       ],
       "interpretation_pending_ids": [],
@@ -404641,7 +404642,7 @@
     "oracle_issue": 49,
     "partial_observation": 530
   },
-  "registry_sha256": "d95483719b9e9273b2d0c758189b362287987311b9962aa961024d3a053b315f",
+  "registry_sha256": "494f71566578e922c63a26e517c15b1773b50e48bf71f6a7a5effa7e0ee8706f",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "0b990f94f59f479a27cf458dafca26bc8100764f8482e34c82cd3095610303bd"
 }
