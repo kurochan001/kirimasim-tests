@@ -282398,7 +282398,29 @@
       "acceptance": "Use without a library qualifier inherits the parent cell library; selected instance module spelling need not equal bound cell name.",
       "source_note": "IEEE 1800-2023 33.4.1.6; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch33/test_config_use_without_library.sv",
+          "observation": "config の use 節で library を省いた instance u2 と cell u3 が、親セルのライブラリ work にある別名セル cfgnl_leaf_b / cfgnl_cell_d に束縛され、u1=aa u2=bb u3=dd となる。u1 は束縛されず cfgnl_leaf_a の aa のまま。 区別: ライブラリ省略時に親セルの library を継承せず束縛を無視する実装では u2=aa・u3=cc になり、instance の module 名と束縛先 cell 名が異なる束縛を許さない実装では bb/dd が得られないので、期待出力が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d85be4b226337cc9ed233d85f5d9dd20c5f3144629cf46252611ef3502a5dbda",
+          "evidence": [
+            {
+              "file": "tests/ch33/test_config_use_without_library.sv",
+              "contains": "  instance test_config_use_without_library.u2 use cfgnl_leaf_b;"
+            },
+            {
+              "file": "tests/ch33/test_config_use_without_library.sv",
+              "contains": "  cell cfgnl_cell_c use cfgnl_cell_d;"
+            },
+            {
+              "file": "tests/ch33/test_config_use_without_library.expected",
+              "contains": "u1=aa u2=bb u3=dd"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "33.4.1.6",
@@ -289085,7 +289107,29 @@
       "acceptance": "Equivalent-signature import/export declarations in different scopes may use differing formal names/default values.",
       "source_note": "IEEE 1800-2023 35.5.4; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_import_formal_names_defaults.sv",
+          "observation": "同じ C 関数 dpi_mix を package では仮引数 a,b・既定 b=2、module では x,y・既定 5,7 と別名・別既定で宣言し、呼び出しがそれぞれの宣言の名前と既定に束縛されて 1003, 402, 501, 507 になる。 区別: 宣言ごとの仮引数名と既定値を使わず最初の宣言を共有する実装では module 側の 501/507 が別の値になり、名前付き束縛 .y(1) も解決できないため期待出力が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "14c739536cd4830246e56748139b3d33200a2664f41d34cbfdb57f9674f1eb3e",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_formal_names_defaults.sv",
+              "contains": "  import \"DPI-C\" dpi_mix = function int mix_xy(input int x = 5, input int y = 7);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_import_formal_names_defaults.sv",
+              "contains": "    $display(\"module, all defaults: %0d\", mix_xy());"
+            },
+            {
+              "file": "tests/ch35/test_dpi_import_formal_names_defaults.expected",
+              "contains": "module, all defaults: 507"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.5.4",
@@ -290620,7 +290664,33 @@
       "acceptance": "One open packed dimension matches any collection of actual packed dimensions; unpacked dimensions match individually under 7.7 and each open unpacked dimension accepts any corresponding size.",
       "source_note": "IEEE 1800-2023 35.5.6.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_open_array_unsized_ranges_per_call.sv",
+          "observation": "1 個の open packed 次元 bit [] が x1 の 2 次元 packed [3:0][1:0] を 7:0 に、x2 の [0:4] を 4:0 に線形化・正規化して一致し、open unpacked 次元が各実引数の異なる範囲 (2:1,0:2) と (5:5,3:0) をそのまま受ける。 区別: open packed 次元を実引数の packed 次元数や宣言範囲に固定する実装、open unpacked 次元を固定サイズにする実装では dimension 行と要素読み出しの値が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4b470d5e45a48fd4486e9c78210c2961763386f273fcff3043dabf7911fe972d",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_open_array_unsized_ranges_per_call.sv",
+              "contains": "  import \"DPI-C\" function void c_show(input string name, input bit [] x [][]);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_unsized_ranges_per_call.sv",
+              "contains": "    c_show(\"x2\", x2);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_unsized_ranges_per_call.expected",
+              "contains": "x1: dimension 0 7:0, dimension 1 2:1, dimension 2 0:2"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_unsized_ranges_per_call.expected",
+              "contains": "x2: dimension 0 4:0, dimension 1 5:5, dimension 2 3:0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.5.6.1",
@@ -291679,7 +291749,33 @@
       "acceptance": "The simulator must make an export task return 1 when its return propagates a disable, otherwise 0, subject to the self-target exception.",
       "source_note": "IEEE 1800-2023 35.9; complete own-body source review, blocks B004, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_export_task_disable_status.sv",
+          "observation": "上位ブロック worker の disable で戻る export task sv_stop_worker の戻り値が厳密に 1 で svIsDisabledState も 1、自分自身を disable する sv_self では戻り値 0・svIsDisabledState 0 になる。 区別: 非零なら何でも返す実装（2 など）や自己 disable でも 1 を返す実装では、期待している 1 と 0 の組が変わるため区別できる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "152a61c61e5110b36c1f3cf481e2c42748ac38960345914b9d5abed7d6063c3a",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_export_task_disable_status.sv",
+              "contains": "    disable worker;"
+            },
+            {
+              "file": "tests/ch35/test_dpi_export_task_disable_status.sv",
+              "contains": "    disable sv_self;"
+            },
+            {
+              "file": "tests/ch35/test_dpi_export_task_disable_status.expected",
+              "contains": "parent block disabled: exported task returned 1, svIsDisabledState 1"
+            },
+            {
+              "file": "tests/ch35/test_dpi_export_task_disable_status.expected",
+              "contains": "exported task disabled itself: returned 0, svIsDisabledState 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.9",
@@ -292163,13 +292259,72 @@
       "acceptance": "SV task/function arguments are not passed as C arguments to the PLI application; read/write them using the VPI argument-access routines.",
       "source_note": "IEEE 1800-2023 36.4; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_systf_argument_on_demand.sv",
+          "observation": "$vt_ignore は引数を読まないので bump() が走らず calls=0、$vt_read は vpi_get_value で 1 回読むので calls=1・値 1。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8d1e6912aa20f5cf1f1853c8386ac0c61c65bd8d02d4084696cc79b1609af85f",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_argument_on_demand.sv",
+              "contains": "    $vt_read(bump());"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_argument_on_demand.sv",
+              "contains": "    $vt_ignore(bump());"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_argument_on_demand.expected",
+              "contains": "after $vt_ignore: calls=0"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_argument_on_demand.expected",
+              "contains": "after $vt_read: calls=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch36/test_vpi_systf_calltf_writes_arguments.sv",
+          "observation": "calltf が vpi_iterate(vpiArgument) で引数を取り、vpi_get_value で読み、vpi_put_value で第 1 実引数へ和を書き戻すので a=6 b=7、$vt_set は c=3c にする。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "91c2468100ec40c4226aa54e51c78115b557ad854dc13b6e06b56ed50ce2677d",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_calltf_writes_arguments.sv",
+              "contains": "    $vt_add(a, 5);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_calltf_writes_arguments.sv",
+              "contains": "    $vt_set(c, 8'h3c);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_calltf_writes_arguments.expected",
+              "contains": "a=6 b=7 c=3c"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.4",
           "blocks": [
             "B004"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "36.4-read-write",
+          "tests": [
+            "tests/ch36/test_vpi_systf_argument_on_demand.sv",
+            "tests/ch36/test_vpi_systf_calltf_writes_arguments.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "ユーザー systf の実引数を、読む側は vpi_get_value、書く側は vpi_put_value の VPI 引数アクセス routine で扱う。未読の引数は評価されず（calls=0）、読んだ引数だけが評価され（calls=1）、書き込みは実引数 a,b,c に反映される（a=6 b=7 c=3c）。引数が C 関数の引数として渡っていないことを、この二方向の観測で示す。 区別: 引数を C の関数引数として渡す実装では $vt_ignore の bump() が呼び出し時に評価されて calls=1 になり、vpi_put_value の書き戻しも実引数に反映されないため、どちらかの成員の期待出力が変わる。"
         }
       ]
     },
@@ -292181,7 +292336,25 @@
       "acceptance": "A user system task/function invocation may supply arguments accessible to its associated PLI application.",
       "source_note": "IEEE 1800-2023 36.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_systf_argument_on_demand.sv",
+          "observation": "ユーザー system task $vt_read の呼び出しに渡した実引数 bump() が PLI アプリから vpi_get_value で読め、値 1 として出力される。 区別: ユーザー systf の呼び出し引数が PLI アプリへ渡らず読めない実装では、$vt_read の値行が出ないか値が変わるため期待出力と一致しない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8d1e6912aa20f5cf1f1853c8386ac0c61c65bd8d02d4084696cc79b1609af85f",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_argument_on_demand.sv",
+              "contains": "    $vt_read(bump());"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_argument_on_demand.expected",
+              "contains": "$vt_read reads 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.4",
@@ -292314,13 +292487,112 @@
       "acceptance": "A VPI application must include normative vpi_user.h and sv_vpi_user.h, which supply function declarations, constants, structures and interface data.",
       "source_note": "IEEE 1800-2023 36.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
+          "observation": "vpi_user.h の 41 routine の宣言を、戻り型・引数型・ポインタ段数・可変引数まで K.2 の型とコンパイル時に比較し、全て 1 と表示する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c6c98247b4e7f90c75129f0091b753e8f1a204a3cf06c36dd19489dca111ef8d",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_routine_declarations.sv",
+              "contains": "module test_vpi_user_h_routine_declarations;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_routine_declarations.expected",
+              "contains": "vpi_flush: PLI_INT32 (void) 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_routine_declarations.expected",
+              "contains": "vpi_get64: PLI_INT64 (PLI_INT32 property, vpiHandle object) 1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch36/test_vpi_user_h_type_declarations.sv",
+          "observation": "vpi_user.h の PLI_TYPES/SVPI_TYPES、PLI_* 整数型、vpiHandle、6 つの構造体の字段順と s_/p_ typedef、VPI_USER_H ガードを照合し、全て 1 と表示する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f7448c8d404812323a5670b08cb565c17e3b0a65860e1cadf2447b0bdda61be6",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_type_declarations.sv",
+              "contains": "module test_vpi_user_h_type_declarations;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_type_declarations.expected",
+              "contains": "PLI_TYPES defined 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_type_declarations.expected",
+              "contains": "PLI_INT32 is int 1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch36/test_vpi_user_h_structure_constants.sv",
+          "observation": "vpi_user.h の構造体定義の 54 定数を K.2 の順に表示し、各値が規格の数値と一致することを確認する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "36e10bdc32d7118ecebd1d860be580c3d00ac470bc6ee1299b3beba98a88562d",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_structure_constants.sv",
+              "contains": "module test_vpi_user_h_structure_constants;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_structure_constants.expected",
+              "contains": "vpiScaledRealTime 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_structure_constants.expected",
+              "contains": "vpiStrongDrive 64"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch36/test_sv_vpi_user_h_declarations.sv",
+          "observation": "sv_vpi_user.h を単独で include すると VPI_USER_H が定義され、SV_VPI_USER_H ガード、assertion step/attempt 構造体、vpi_assertion_callback_func、vpi_register_assertion_cb が M.2 どおりに宣言される。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7a75ccece3b372f18c47794779e0553aa8abafd4a82bb018a9946bb0a1678f47",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_declarations.sv",
+              "contains": "module test_sv_vpi_user_h_declarations;"
+            },
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_declarations.expected",
+              "contains": "VPI_USER_H defined by including sv_vpi_user.h alone 1"
+            },
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_declarations.expected",
+              "contains": "SV_VPI_USER_H defined and a second include adds nothing 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.7",
           "blocks": [
             "B002"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "36.7-header-contents",
+          "tests": [
+            "tests/ch36/test_vpi_user_h_routine_declarations.sv",
+            "tests/ch36/test_vpi_user_h_type_declarations.sv",
+            "tests/ch36/test_vpi_user_h_structure_constants.sv",
+            "tests/ch36/test_sv_vpi_user_h_declarations.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "4 本がそれぞれ vpi_user.h または sv_vpi_user.h を最初に include し、(1) 41 routine の戻り型・引数型・可変引数宣言、(2) PLI_* 型・vpiHandle・delay/value/error/callback 構造体の字段と typedef・include guard、(3) 構造体定義の 54 定数の値、(4) sv_vpi_user.h 単独 include で vpi_user.h が入り assertion step/attempt 構造体と register routine が宣言されること、を照合する。両ヘッダが関数宣言・定数・構造体を供給することを AND で覆う。 区別: ヘッダが routine 宣言・型・構造体・定数のいずれかを欠く、型や字段順が違う、値を誤る、または sv_vpi_user.h が vpi_user.h を include しない実装では、該当行が 0 になるか行が欠落してコンパイルが止まるため、期待出力と一致しない。"
         }
       ]
     },
@@ -292770,7 +293042,25 @@
       "acceptance": "Create user system tasks/functions via vpi_register_systf; registration must precede elaboration or reference resolution.",
       "source_note": "IEEE 1800-2023 36.9.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_systf_registration_fields.sv",
+          "observation": "vpi_register_systf で登録した $vt_mark の compiletf が simulation 開始前に 2 回走り、登録データ付きで calltf が各呼び出しに応答する。登録が elaboration・参照解決より前であることを示す。 区別: 登録が参照解決より後だと $vt_mark の呼び出しが解決されず、compiletf の「2 before the start of simulation」も成立しないため、期待出力が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c74f531eac923ff40b56111ce3bef91a6dcc80c6264248253984031be96b89c2",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_registration_fields.sv",
+              "contains": "    $vt_mark;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_registration_fields.expected",
+              "contains": "compiletf of $vt_mark: 2 calls, 2 before the start of simulation, 2 with the user data"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.9.1",
@@ -294026,7 +294316,37 @@
       "acceptance": "Tables 36-1 through 36-9 assign vpi_mcd_open and vpi_mcd_close to open a file for writing or close one/more files respectively; exact arguments, return values and restrictions follow Clause 38.",
       "source_note": "IEEE 1800-2023 36.11; complete own-body source review, blocks B044. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_routines_mcd_files.sv",
+          "observation": "vpi_mcd_open で 2 つのファイルを開くと、それぞれ channel 1 でも MSB でもない 1 ビットの別チャネルが返り、vpi_mcd_close が両方まとめて 0 を返す。その後 design が両ファイルを読める。 区別: mcd_open のチャネル割当や mcd_close の戻り値・対象が規格と違えば「one channel each ...」「...close of both returned 0」の行が変わるか、ファイルが読めなくなる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "401c4c162eb00e789cb00fa4126c4dfafa4d150d3248c2bbca9543795dc7a20a",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_routines_mcd_files.sv",
+              "contains": "    show(\"test_vpi_routines_mcd_files_b.txt\");"
+            },
+            {
+              "file": "tests/ch36/test_vpi_routines_mcd_files.c",
+              "contains": "    PLI_UINT32 b = vpi_mcd_open((PLI_BYTE8 *)\"test_vpi_routines_mcd_files_b.txt\");"
+            },
+            {
+              "file": "tests/ch36/test_vpi_routines_mcd_files.c",
+              "contains": "    closed = vpi_mcd_close(a | b);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_routines_mcd_files.expected",
+              "contains": "vpi_mcd_open: one channel each 1, not channel 1 or the MSB 1, two different channels 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_routines_mcd_files.expected",
+              "contains": "vpi_mcd_flush returned 0, vpi_mcd_close of both returned 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "36.11",
@@ -303328,7 +303648,29 @@
       "acceptance": "37.6 defines a one-to-one relation from interface to expression/distribution, using tag vpiDefaultDisableIff; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.6; complete own-body source review, blocks B001, B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_interface_relations.sv",
+          "observation": "interface の default disable iff (rst) が vpi_handle(vpiDefaultDisableIff, iface) で式 rst として取れ、default disable iff を持たない interface p では NULL になる。 区別: 関係のタグや向きを誤る実装では o1 で rst が取れず、または p で非 NULL が返るため、期待している rst/NULL の組が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a37544b2e13fec047f0d924188d84884cb09305daf688add1a937968ab43da69",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interface_relations.sv",
+              "contains": "  default disable iff (rst);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_relations.expected",
+              "contains": "vpiDefaultDisableIff of o1: rst"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_relations.expected",
+              "contains": "vpiDefaultDisableIff of p: NULL"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.6",
@@ -304726,7 +305068,29 @@
       "acceptance": "37.9 defines a one-to-one relation from program to expression/distribution, using tag vpiDefaultDisableIff; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.9; complete own-body source review, blocks B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_program_relations.sv",
+          "observation": "program の default disable iff (rst) が vpi_handle(vpiDefaultDisableIff, program) で式 rst として取れ、default disable iff を持たない program q では NULL になる。 区別: program からの vpiDefaultDisableIff 関係を実装しない、または式の無い program で非 NULL を返す実装では、rst/NULL の期待行が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8f73d52f90c5e7f5ae88fb9507a7aac5a9ceba405248e458a1b19ddff3ecda8e",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_program_relations.sv",
+              "contains": "  default disable iff (rst);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_program_relations.expected",
+              "contains": "vpiDefaultDisableIff of p1: rst"
+            },
+            {
+              "file": "tests/ch37/test_vpi_program_relations.expected",
+              "contains": "vpiDefaultDisableIff of q: NULL"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.9",
@@ -311845,7 +312209,29 @@
       "acceptance": "37.12 defines a one-to-many relation from scope to concurrent assertion, using the untagged concurrent assertion access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.12; complete own-body source review, blocks B002, B003, B004, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_scope_item_back_relations.sv",
+          "observation": "生成ブロック g（スコープ）から vpi_iterate(vpiConcurrentAssertions) で並行アサーション ca を取り出し、その名前と、ca から vpiScope で戻った先が g 自身（完全名 test_vpi_scope_item_back_relations.g）であることを表示する。 区別: スコープから並行アサーションへの一対多関係を欠く実装では「g vpiConcurrentAssertions: none」になり、ca の代わりに別の項目を返す実装や vpiScope が g を返さない実装では名前・完全名の行が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ae2075517fe45da32b31d0e9473c7c971d68323d36d58d3871033f95ce22ac1a",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_scope_item_back_relations.sv",
+              "contains": "ca: assert property (pd);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_scope_item_back_relations.c",
+              "contains": "show(\"g\", g, vpiConcurrentAssertions, \"vpiConcurrentAssertions\");"
+            },
+            {
+              "file": "tests/ch37/test_vpi_scope_item_back_relations.expected",
+              "contains": "g vpiConcurrentAssertions: ca; vpiScope: test_vpi_scope_item_back_relations.g"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.12",
@@ -313741,7 +314127,33 @@
       "acceptance": "37.13 defines a one-to-one relation from IO declaration to module, using the untagged module access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.13; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_module_port_io_decl_relations.sv",
+          "observation": "インスタンス u1 の io 宣言 a/y/z を vpi_iterate(vpiIODecl) で列挙し、各 io 宣言から vpi_handle(vpiModule) で戻った先が同じインスタンス u1 であること（vpi_compare_objects）とその完全名を表示する。ポートの無いトップでは io 宣言も 0 個になる。 区別: io 宣言からモジュールへの関係を欠く実装では「module NULL」または「same instance 0」になり、別インスタンスを返す実装では完全名が u2 などに変わる。io 宣言の列挙自体を欠くと「io decls of u1: 0」になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9fc98237807a113469bc01b7bdd685b6d96cb7039e2848379b123f0d3aa3978c",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_module_port_io_decl_relations.sv",
+              "contains": "test_vpi_module_port_io_decl_relations_leaf u1(.a(a1), .y(y1), .z(z1));"
+            },
+            {
+              "file": "tests/ch37/test_vpi_module_port_io_decl_relations.c",
+              "contains": "back = vpi_handle(vpiModule, h);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_module_port_io_decl_relations.c",
+              "contains": "back != NULL && mod != NULL && vpi_compare_objects(back, mod)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_module_port_io_decl_relations.expected",
+              "contains": "a input, module test_vpi_module_port_io_decl_relations.u1, same instance 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.13",
@@ -316129,7 +316541,33 @@
       "acceptance": "Reference objects can be obtained through port connections, expressions using them, or instance/subroutine IO declarations.",
       "source_note": "IEEE 1800-2023 37.15; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_ref_obj_kinds_relations.sv",
+          "observation": "ref obj を 3 経路で取得する。ポート接続では m の interface/ref ポートの low conn と interface ポートの high conn、ref obj を使う式では $vt_ref の引数 r, r[1], s.v, t、インスタンスの io 宣言では各 io 宣言の vpiExpr を取り、それぞれ actual・型・親を表示する。 区別: どの取得経路かが欠けると expected の該当行が「not a ref obj」「none」「not found」に変わる。例えば io 宣言の vpiExpr が ref obj でなければ「io decl r: not a ref obj」になり、式経由の取得を欠けば $vt_ref の行が「not a ref obj」になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b2acc59bb6850e48b24a00df2d645b160c61fe4d083c31b00574802db3b9eb93",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_ref_obj_kinds_relations.sv",
+              "contains": "#1 $vt_ref(\"r\", r);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_ref_obj_kinds_relations.c",
+              "contains": "vpiHandle args = vpi_iterate(vpiArgument, vpi_handle(vpiSysTfCall, NULL));"
+            },
+            {
+              "file": "tests/ch37/test_vpi_ref_obj_kinds_relations.c",
+              "contains": "io = vpi_handle(vpiExpr, ios[i].h);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_ref_obj_kinds_relations.expected",
+              "contains": "io decl r: expr ref obj r"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.15",
@@ -321103,7 +321541,33 @@
       "acceptance": "Interconnect-array vpiSize is its element count; a nonarray interconnect net uses the connected net size.",
       "source_note": "IEEE 1800-2023 37.16; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_interconnect_net_type_size.sv",
+          "observation": "interconnect 配列 ia [0:2] の vpiSize が要素数 3、非配列 interconnect net iw [3:0] の vpiSize が接続先 wand ポートの 4 になる。 区別: 配列の vpiSize をビット数や接続先 net のサイズにする実装では 3 でなく 1 や 4 になり、非配列 net を常に 1 とする実装では iw の size が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "472d4360e5bf96832ff9eebfd646cece46c281d6e4cc3900078a3a75a7f58cb1",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interconnect_net_type_size.sv",
+              "contains": "interconnect [3:0] iw;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interconnect_net_type_size.sv",
+              "contains": "interconnect ia [0:2];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interconnect_net_type_size.expected",
+              "contains": "iw: interconnect net 1, net type vpiInterconnect, resolved net type vpiWand, size 4"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interconnect_net_type_size.expected",
+              "contains": "ia: interconnect array 1, net type vpiInterconnect, size 3, typespec NULL 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.16",
@@ -321268,7 +321732,33 @@
       "acceptance": "vpiElement traverses packed-array nets one dimension at a time, removing the leftmost range at each level until leaf struct/union/enum nets; it differs from flattened vpiNet iteration.",
       "source_note": "IEEE 1800-2023 37.16; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_net_members_elements_parents.sv",
+          "observation": "2 次元 packed array net pa（nmep_ps_t [2:0][1:0]）に対し vpiElement が 1 次元ずつ pa[0..2]、次に pa[1][0..1]、最後に struct net のメンバーを返す。各段階で型・親・packed array member を表示し、平坦化した vpiNet 反復とは別の段階性を示す。 区別: vpiElement を平坦化して一度に全要素や net bit を返す実装では「elements of pa: 3」「elements of pa[1]: 2」の段数・個数が変わり、pa[1][0] が struct net でなくなる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2636b8615e9ae92f719ffae55b7c6b2369e6754318726410d9f7fd5f9291269",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_members_elements_parents.sv",
+              "contains": "wire nmep_ps_t [2:0][1:0] pa;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_members_elements_parents.expected",
+              "contains": "elements of pa: 3"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_members_elements_parents.expected",
+              "contains": "elements of pa[1]: 2"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_members_elements_parents.expected",
+              "contains": "struct net pa[1][0], full name test_vpi_net_members_elements_parents.pa[1][0], decompiled pa[1][0], parent pa, struct/union member 0, packed array member 1, array member 0, indices 0 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.16",
@@ -321371,7 +321861,33 @@
       "acceptance": "Member vpiDecompile/vpiFullName include all struct/union prefixes needed to identify the element; vpiName excludes these. All three include selected indices/slices. Name lookup uses decompiled names with a non-top context and full names at top level.",
       "source_note": "IEEE 1800-2023 37.16; complete own-body source review, blocks B020. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_net_members_elements_parents.sv",
+          "observation": "su.inner.m の vpiName が「m」（接頭辞なし）、vpiFullName が test...su.inner.m、vpiDecompile が su.inner.m になる。pa[1][0] では名前・完全名・decompile のすべてに添字が残る。トップからの完全名とモジュール内の decompile 名の両方で vpi_handle_by_name が同じオブジェクトを返す。 区別: vpiName に接頭辞を含める実装では m でなく su.inner.m になり、full/decompile から接頭辞や添字を落とす実装では各行の名前が短くなる。decompile 形式の検索を欠く実装では「by decompiled name in the module 0」になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a2636b8615e9ae92f719ffae55b7c6b2369e6754318726410d9f7fd5f9291269",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_members_elements_parents.sv",
+              "contains": "wire nmep_ps_t [2:0][1:0] pa;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_members_elements_parents.expected",
+              "contains": "logic net m, full name test_vpi_net_members_elements_parents.su.inner.m, decompiled su.inner.m, parent inner, struct/union member 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_members_elements_parents.expected",
+              "contains": "struct net pa[1][0], full name test_vpi_net_members_elements_parents.pa[1][0], decompiled pa[1][0], parent pa, struct/union member 0, packed array member 1, array member 0, indices 0 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_members_elements_parents.expected",
+              "contains": "su.inner.m by full name from the top 1, by decompiled name in the module 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.16",
@@ -321427,7 +321943,33 @@
       "acceptance": "vpiPorts returns port bits for a net-bit reference and entire ports for an entire net/array net.",
       "source_note": "IEEE 1800-2023 37.16; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_net_ports_portinst_bits.sv",
+          "observation": "2 ビット net u.v 全体の vpiPorts はポート v 全体を返し、bit u.v[1] の vpiPorts はポート v のポートビットを返す（親をたどってポート名 v を表示）。 区別: net bit でもポート全体を返す実装では「vpiPorts of u.v[1]: port v of u」になり、逆に全体でポートビットを返す実装では「port bit of port v」になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2c0adf22c3b91de43c9f861cf9915bce541ea18a5734708876020b028836fa66",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_ports_portinst_bits.sv",
+              "contains": "npp_mod u (.v(tw), .s(ts), .cx(tc + 2'b01));"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_ports_portinst_bits.expected",
+              "contains": "vpiPorts of u.v: port v of u"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_ports_portinst_bits.expected",
+              "contains": "vpiPorts of u.v[1]: port bit of port v"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_ports_portinst_bits.c",
+              "contains": "show(\"vpiPorts of u.v[1]\", vpiPorts, v ? vpi_handle_by_index(v, 1) : NULL);"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.16",
@@ -321493,7 +322035,37 @@
       "acceptance": "vpiPortInst returns corresponding port bits/scalar ports for bit/scalar references, except complex high-connection expressions with indeterminate bit mapping return the whole port; an entire net/array returns whole ports.",
       "source_note": "IEEE 1800-2023 37.16; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_net_ports_portinst_bits.sv",
+          "observation": "vpiPortInst が、net 全体 tw ではポート v、bit tw[0] ではポートビット、scalar ts ではスカラーポート s、複雑な high connection（tc + 2 ビット定数）の bit tc[0] ではビット対応が定まらないためポート cx 全体を返す。 区別: 複雑な式でポートビットを返す実装では「vpiPortInst of tc[0]: port bit of port cx」になり、scalar にポートビットを返す実装では ts の行が変わり、bit 参照でポート全体を返す実装では tw[0] の行が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2c0adf22c3b91de43c9f861cf9915bce541ea18a5734708876020b028836fa66",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_ports_portinst_bits.sv",
+              "contains": "wire [3:0] tw;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_ports_portinst_bits.expected",
+              "contains": "vpiPortInst of tw: port v of u"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_ports_portinst_bits.expected",
+              "contains": "vpiPortInst of tw[0]: port bit of port v"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_ports_portinst_bits.expected",
+              "contains": "vpiPortInst of ts: port s of u"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_ports_portinst_bits.expected",
+              "contains": "vpiPortInst of tc[0]: port cx of u"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.16",
@@ -321511,7 +322083,29 @@
       "acceptance": "Unpacked net ranges iterate leftmost to rightmost; bit/logic/packed-array net packed ranges do likewise; left/right bound relations select the leftmost packed dimension.",
       "source_note": "IEEE 1800-2023 37.16; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_net_kinds_ranges_sizes.sv",
+          "observation": "unpacked 2 次元 an [0:2][5:4] の vpiRange が 0:2, 5:4 の順（左端から右端）、packed 2 次元 lv [3:0][1:0] が 3:0, 1:0 の順になる。lv の vpiLeftRange/vpiRightRange は左端 packed 次元の 3 と 0 を返す。 区別: 範囲の反復順を逆にする実装では an が「5:4 0:2」、lv が「1:0 3:0」になり、left/right を最右次元から取る実装では lv の left/right が 1/0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0ba03d6dc8c8104377a1f98672e6f3393bdae4695438574dabc61662f2c2c1d9",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_kinds_ranges_sizes.sv",
+              "contains": "wire logic [3:0][1:0] lv;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_kinds_ranges_sizes.expected",
+              "contains": "lv: logic net, size 8, scalar 0, vector 1, ranges 3:0 1:0, left 3 right 0, type string vpiNet or vpiLogicNet 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_kinds_ranges_sizes.expected",
+              "contains": "an: array net, size 6, scalar 0, vector 1, ranges 0:2 5:4, type string vpiArrayNet or vpiNetArray 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.16",
@@ -321529,7 +322123,37 @@
       "acceptance": "Bit/logic nets without packed dimensions and net bits are scalar, not vector. Enums inherit their base-type flags; other integral nets are vector, not scalar. Array nets inherit element flags; all other net kinds have both flags false.",
       "source_note": "IEEE 1800-2023 37.16; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_net_kinds_ranges_sizes.sv",
+          "observation": "packed 次元の無い logic net s1 と net bit は scalar 1/vector 0、packed 次元のある logic lv/w4 と integer/time net は vector 1/scalar 0。enum は基底型を継承し enn(logic[2:0]) は vector、en1(logic) は scalar。array net は要素のフラグを継承し an は vector、sn は scalar。unpacked struct net usn は両方 0。 区別: scalar/vector を次元数でなく型種別だけで決める実装では s1・usn・en1・sn の行が変わり、enum の基底継承を欠くと en1 が vector 1 に、array の要素継承を欠くと sn が vector になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0ba03d6dc8c8104377a1f98672e6f3393bdae4695438574dabc61662f2c2c1d9",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_kinds_ranges_sizes.sv",
+              "contains": "wire logic [3:0][1:0] lv;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_kinds_ranges_sizes.expected",
+              "contains": "s1: logic net, size 1, scalar 1, vector 0, ranges none, type string vpiNet or vpiLogicNet 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_kinds_ranges_sizes.expected",
+              "contains": "en1: enum net, size 1, scalar 1, vector 0"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_kinds_ranges_sizes.expected",
+              "contains": "usn: struct net, size 2, scalar 0, vector 0"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_kinds_ranges_sizes.expected",
+              "contains": "sn: array net, size 4, scalar 1, vector 0, ranges 3:0, type string vpiArrayNet or vpiNetArray 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.16",
@@ -321637,7 +322261,37 @@
       "acceptance": "Continuous assignments and primitive terminals cross hierarchy boundaries but are accessed only from scalar nets or bit-selects.",
       "source_note": "IEEE 1800-2023 37.16; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_net_terminals_module_typespec.sv",
+          "observation": "スカラー net tn から、子インスタンス l 内のプリミティブ端子（g の terminal 1）と継続代入（l.pout への代入）が階層を越えて得られる。ベクタ lv2 からは端子 0 個、その bit lv2[1] からは gv の terminal 1 が得られる。 区別: 階層を越えない実装では tn の prim terms/cont assigns が none になり、ベクタ全体から端子を返す実装では「prim terms of l.lv2: none」が terminal 付きに変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "59a6ed49d7630fa2d2bc0634a493327a372ce3f018f0b7d7819b390a30228c11",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_terminals_module_typespec.sv",
+              "contains": "ntmt_leaf l (.pin(tn), .pout(to));"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_terminals_module_typespec.expected",
+              "contains": "prim terms of tn: terminal 1 of test_vpi_net_terminals_module_typespec.l.g"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_terminals_module_typespec.expected",
+              "contains": "cont assigns of tn: assignment to test_vpi_net_terminals_module_typespec.l.pout"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_terminals_module_typespec.expected",
+              "contains": "prim terms of l.lv2: none"
+            },
+            {
+              "file": "tests/ch37/test_vpi_net_terminals_module_typespec.expected",
+              "contains": "prim terms of l.lv2[1]: terminal 1 of test_vpi_net_terminals_module_typespec.l.gv"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.16",
@@ -326677,7 +327331,37 @@
       "acceptance": "Struct/union/class member vpiDecompile/vpiFullName contain all necessary parent/member prefixes; vpiName omits those prefixes. All include element/slice indices. Name lookup requires decompiled form in non-top context and full form at top.",
       "source_note": "IEEE 1800-2023 37.17; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_variable_parent_prefixes.sv",
+          "observation": "ra[1].k の vpiName が k、vpiFullName が test...ra[1].k、vpiDecompile が ra[1].k。ra[1].w[0] は名前・完全名・decompile のすべてに添字が残る。クラス変数経由の非静的メンバー obj.m は vpiFullName が NULL、vpiDecompile が obj.m。完全名（トップから）と decompile 名（モジュール内）の両方で検索できる。 区別: 接頭辞や添字を落とす実装では各 name/full/decompile の列が変わり、クラスメンバーの full name を非 NULL にする実装では「argument obj.m: name m, full name NULL」が変わる。decompile 形式の検索を欠く実装では「by decompiled name in the module 0」になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a3e455f562ee97a790750a5ec5eb2fc9f8217eb67323473393b74d81decc4ab5",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_variable_parent_prefixes.sv",
+              "contains": "rec_t ra [0:1];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_parent_prefixes.expected",
+              "contains": "ra[1].k: name k, full name test_vpi_variable_parent_prefixes.ra[1].k, decompiled ra[1].k, parent ra[1] (is ra[1] 1), constant select 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_parent_prefixes.expected",
+              "contains": "ra[1].w[0]: name w[0], full name test_vpi_variable_parent_prefixes.ra[1].w[0], decompiled ra[1].w[0], parent w (is w 1), constant select 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_parent_prefixes.expected",
+              "contains": "argument obj.m: name m, full name NULL, decompiled obj.m, parent obj (is obj 1), constant select 0"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_parent_prefixes.expected",
+              "contains": "ra[1].in.c by full name from the top 1, by decompiled name in the module 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.17",
@@ -326884,7 +327568,49 @@
       "acceptance": "Dimensionless bit/logic variables and variable bits are scalar; dimensioned bit/logic, packed struct/union/array and integer/time/shortint/int/longint/byte variables are vector. Enums inherit base-type flags, arrays inherit element flags, and all other kinds have both flags false.",
       "source_note": "IEEE 1800-2023 37.17; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_variable_kinds_flags_sizes.sv",
+          "observation": "次元なし logic l1 と bit b1 は scalar、packed 次元付き l5/b6 は vector。enum は基底型を継承し e3(logic[2:0]) vector、e1(bit) scalar、ei(int) vector。integer/time/shortint/int/longint/byte は vector。packed struct/union ps/pu は vector、unpacked struct/union us/uu は両方 0。array var は要素を継承し as1(logic) scalar、av4(logic[3:0]) vector、ar(real) 両方 0。shortreal/string/chandle/class/VI/real は両方 0。 区別: enum の基底継承や array の要素継承を欠く実装では e1/as1/av4/ar の行が変わり、unpacked struct/union を vector にする実装では us/uu が変わる。l1/b1 を vector、l5/b6 を scalar にする実装では各行が入れ替わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "79de908988d25a3c7fb5be7f539789eb379d1d54477d06376c3445f033975a71",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.sv",
+              "contains": "logic l1;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.expected",
+              "contains": "l1: logic var, scalar 1, vector 0, size 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.expected",
+              "contains": "l5: logic var, scalar 0, vector 1, size 5"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.expected",
+              "contains": "e1: enum var, scalar 1, vector 0, size 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.expected",
+              "contains": "us: struct var, scalar 0, vector 0, size 3"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.expected",
+              "contains": "as1: array var, scalar 1, vector 0, size 2"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.expected",
+              "contains": "av4: array var, scalar 0, vector 1, size 3"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.expected",
+              "contains": "ar: array var, scalar 0, vector 0, size 2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.17",
@@ -334006,7 +334732,33 @@
       "acceptance": "37.27 defines a one-to-many relation from scope to named event, using the untagged named event access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.27; complete own-body source review, blocks B001, B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_named_event_waiters_lifetime.sv",
+          "observation": "class defn evc（スコープ）から vpi_iterate(vpiNamedEvent) で ce（automatic）と sce（static）、vpi_iterate(vpiNamedEventArray) で cea と scea を取り出し、名前と lifetime を表示する。モジュール以外のスコープ種別でも scope->named event の一対多が働くことを示す。 区別: class defn からの named event 反復を欠く実装では「named events of evc:」が空になり、static の sce/scea を落とす実装では名前が ce/cea だけになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d148caa259adfc3118cd88ad9fda5966426cd9e6da22fc288f01763db46d5eb6",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_named_event_waiters_lifetime.sv",
+              "contains": "class evc;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_event_waiters_lifetime.c",
+              "contains": "events(\"named events of evc\", vpiNamedEvent, defn, defn, 0);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_event_waiters_lifetime.expected",
+              "contains": "named events of evc: ce (automatic 1, class defn is evc 1) sce (automatic 0, class defn is evc 1)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_event_waiters_lifetime.expected",
+              "contains": "named event arrays of evc: cea (automatic 1, class defn is evc 1) scea (automatic 0, class defn is evc 1)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.27",
@@ -334088,7 +334840,33 @@
       "acceptance": "37.27 defines a one-to-one relation from named event to module, using the untagged module access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.27; complete own-body source review, blocks B001, B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_untagged_relation_access.sv",
+          "observation": "named event stop から vpi_handle(vpiModule) でトップモジュールの完全名、u2.done から u2 の完全名を得る。event が属するモジュールを一対一で返す。 区別: event からモジュールへの関係を NULL や別スコープにする実装では「vpiModule of u2.done: test...u2」が「(none)」や親モジュール名に変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e5e4c873bc54a36a330c30405377a18fef0694fc34d5f96e04840f02f31b9112",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_untagged_relation_access.sv",
+              "contains": "event done;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_untagged_relation_access.c",
+              "contains": "one(\"vpiModule\", vpiModule, \"u2.done\");"
+            },
+            {
+              "file": "tests/ch37/test_vpi_untagged_relation_access.expected",
+              "contains": "vpiModule of stop: test_vpi_untagged_relation_access"
+            },
+            {
+              "file": "tests/ch37/test_vpi_untagged_relation_access.expected",
+              "contains": "vpiModule of u2.done: test_vpi_untagged_relation_access.u2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.27",
@@ -334874,7 +335652,58 @@
       "acceptance": "Named events support triggering via vpi_put_value; named-event arrays support indexed/multi-indexed element access.",
       "source_note": "IEEE 1800-2023 37.27; complete own-body source review, blocks B001, B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_named_events.sv",
+          "observation": "go に 2 プロセスが待機し、vpi_put_value(go) の後に resumed=2、待機数 0 になる。lane[1] は index 1 の named event で parent は lane。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "607d96fdf48468699557b90e3c8c1256072e3cf1be2ff10d713bf53df0e24b0d",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_named_events.sv",
+              "contains": "event go, done;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_events.c",
+              "contains": "vpi_put_value(go, NULL, NULL, vpiNoDelay);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_events.expected",
+              "contains": "go: array member 0, waiting processes 2"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_events.expected",
+              "contains": "resumed: 2"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_events.expected",
+              "contains": "go: waiting processes 0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch37/test_vpi_select_objects_event_arrays.sv",
+          "observation": "2 次元 named event 配列 ea の要素 ea[1][3] を vpi_handle_by_multi_index で取得し、named event であり parent が ea、indices が 3 1 であることを表示する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "29eae146961515746592779cd1e8c7d352d8dc0da597481ae0f80246535e316b",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_select_objects_event_arrays.sv",
+              "contains": "event ea [0:1][2:4];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_select_objects_event_arrays.c",
+              "contains": "el = vpi_handle_by_multi_index(ea, 2, idx);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_select_objects_event_arrays.expected",
+              "contains": "ea[1][3]: named event 1, parent is ea 1, indices: 3 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.27",
@@ -334883,6 +335712,18 @@
             "B002",
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "event-trigger-and-multi-index",
+          "tests": [
+            "tests/ch37/test_vpi_named_events.sv",
+            "tests/ch37/test_vpi_select_objects_event_arrays.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "vpi_put_value による named event の発火（待機プロセス数 2→0、resumed 2）と、named event 配列の multi-index 要素アクセス（ea[1][3] が named event、parent ea、indices 3 1）を 2 つのテストで分担して観測する。 区別: vpi_put_value がイベントを発火しなければ resumed が 0 のまま待機数も減らず、multi-index アクセスを欠く実装では「ea[1][3]: NULL」になる。"
         }
       ]
     },
@@ -338799,7 +339640,33 @@
       "acceptance": "37.32 defines a one-to-one relation from class typespec to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.32; complete own-body source review, blocks B002, B003, B004, B005, B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_class_object_members.sv",
+          "observation": "クラス変数 p のクラス型指定子から vpi_handle(vpiClassDefn) で宣言型 packet、p のオブジェクトの型指定子からは生成型 linked を得る。型指定子が指す class definition を一対一で返す。 区別: 型指定子からクラス定義への関係を欠く実装では「declared type of (none)」や「object created as (none)」になり、宣言型と生成型を同じ定義にする実装では linked が packet になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ae36668fc4d36b3582a52c40a1517966d28d7f98bf22a4efc6d4f41d0745d2c1",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_object_members.sv",
+              "contains": "class linked extends packet #(6);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_object_members.c",
+              "contains": "name_of(vpi_handle(vpiClassDefn, vpi_handle(vpiClassTypespec, p)))"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_object_members.c",
+              "contains": "name_of(vpi_handle(vpiClassDefn, vpi_handle(vpiClassTypespec, obj)))"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_object_members.expected",
+              "contains": "p: declared type of packet, its object created as linked"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.32",
@@ -338935,7 +339802,33 @@
       "acceptance": "37.32 defines a one-to-one relation from variables to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.32; complete own-body source review, blocks B002, B003, B004, B005, B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_class_object_members.sv",
+          "observation": "クラス変数 q から vpi_handle(vpiClassTypespec) で型指定子を取り、その vpiParameter 反復がオブジェクト側と同じ K=3(local 1), W=6(local 0) を返す。 区別: 変数からクラス型指定子への関係を欠く実装では「parameters of the class typespec of q:」が空になり、別の型を返す実装では W の値が既定の 4 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ae36668fc4d36b3582a52c40a1517966d28d7f98bf22a4efc6d4f41d0745d2c1",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_object_members.sv",
+              "contains": "packet #(6) q, r, p, n, o1, o2;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_object_members.c",
+              "contains": "ts = vpi_handle(vpiClassTypespec, q);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_object_members.expected",
+              "contains": "parameters of the object: K = 3 (local 1), W = 6 (local 0)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_object_members.expected",
+              "contains": "parameters of the class typespec of q: K = 3 (local 1), W = 6 (local 0)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.32",
@@ -339725,7 +340618,37 @@
       "acceptance": "Specialization variables/methods/events/event arrays include static and automatic declarations, excluding implicit built-in methods without explicit declarations.",
       "source_note": "IEEE 1800-2023 37.32; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_class_specialization_members.sv",
+          "observation": "パラメータ化クラス base #(8) の変数 b8 の型指定子（特殊化）から、変数 s_cnt(static)/vif/vifs/x とメソッド get/sget(static)/t を列挙し、組み込みメソッド new/randomize を含まない。vifs は vpiVariables では 1 個の vpiArrayVar、vpiVirtualInterfaceVar では vif と 2 要素に分かれる。 区別: static メンバーを落とす実装では s_cnt/sget が消え、組み込みメソッドを含める実装では methods に new/randomize が増える。vpiVariables を要素に分解する実装では「vifs among the variables as one vpiArrayVar: 0」になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "377a2492bd6cfa822de844cb4cd22ac66f809ccb6ec883eb59fe71dbb175446a",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_specialization_members.sv",
+              "contains": "base #(8) b8;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_specialization_members.expected",
+              "contains": "variables: s_cnt vif vifs x"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_specialization_members.expected",
+              "contains": "vifs among the variables as one vpiArrayVar: 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_specialization_members.expected",
+              "contains": "virtual interface vars: 3, of type vpiVirtualInterfaceVar 3, vif among them 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_specialization_members.expected",
+              "contains": "methods: get sget t, leading back 3 of 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.32",
@@ -342434,7 +343357,58 @@
       "acceptance": "Primitive terminal values are readable with vpi_get_value; primitive delays support get/put_delays and primitive values support get/put_value only under the stated sequential-UDP restriction.",
       "source_note": "IEEE 1800-2023 37.35; complete own-body source review, blocks B002, B003, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_udp_defn_entries.sv",
+          "observation": "UDP インスタンス u1 の prim term を vpi_iterate(vpiPrimTerm) で回し、各 term を vpiBinStrVal で vpi_get_value して \"terminals: 0 output 1, 1 input 1, 2 input 1\" を出し、順序 UDP の u2 に vpi_put_value(vpiScalarVal, vpi1, NULL, vpiNoDelay) を掛けて \"hit after vpi_put_value: 1\" を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fd774037a94e64c3ba2d20a061a155e315323317c447d5e7d9c728844327948c",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.sv",
+              "contains": "  test_vpi_udp_defn_entries_catch u2 (hit, arm, trig);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.c",
+              "contains": "    vpi_put_value(u2, &v, NULL, vpiNoDelay);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.expected",
+              "contains": "u1: definition is and2 1, terminals: 0 output 1, 1 input 1, 2 input 1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.expected",
+              "contains": "hit after vpi_put_value: 1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch38/test_vpi_gate_delays.sv",
+          "observation": "プリミティブ and #(3, 5) g1 に vpi_get_delays を掛けて rise/fall を 3 5 と読み、vpi_put_delays で 7 9 に書き換え、そのあと a と b が 1 になってから y が 7 後に立ち上がる時刻 17、b が 0 になってから 9 後に立ち下がる時刻 39 を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "aee6c4cd246090f7af373ff6e6baa1f5fe69ed62ec26c11615da1420db72669d",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.sv",
+              "contains": "  and #(3, 5) g1 (y, a, b);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.c",
+              "contains": "    vpi_put_delays(g, &d);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.expected",
+              "contains": "8: old delays 3 5"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.expected",
+              "contains": "17: y = 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.35",
@@ -342444,6 +343418,18 @@
             "B004",
             "B005"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "primitive-value-delay",
+          "tests": [
+            "tests/ch37/test_vpi_udp_defn_entries.sv",
+            "tests/ch38/test_vpi_gate_delays.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "2 つのテストが原始要素の値と遅延の別々の条件を観測する。test_vpi_udp_defn_entries は UDP インスタンス u1 の各 prim term を vpi_get_value(vpiBinStrVal) で読み（\"terminals: 0 output 1, 1 input 1, 2 input 1\"）、順序 UDP の u2 に vpi_put_value(vpiScalarVal, vpi1, NULL, vpiNoDelay) を掛けて次の観測で hit が 1 になることを示す。test_vpi_gate_delays はプリミティブ and #(3,5) の遅延を vpi_get_delays で 3 5 と読み、vpi_put_delays で 7 9 に変え、出力 y が新しい遅延で立ち上がる時刻 17 と立ち下がる時刻 39 を観測する。 区別: prim term の値を返さない実装では u1 の terminals 行の値が変わり、順序 UDP への put_value を無視する実装では \"hit after vpi_put_value: 1\" が 0 のままになる。プリミティブの遅延の取得・設定を壊す実装では \"old delays 3 5\" / \"new delays 7 9\" が変わり、y の変化時刻 17 と 39 も変わる。vpi_put_value を逐次 UDP 以外に使わないという制限はアプリ側の義務で出力には現れないため、観測対象は値の取得・設定と遅延の取得・設定に限っている。"
         }
       ]
     },
@@ -358104,7 +359090,33 @@
       "acceptance": "Sequence-instance argument iteration follows formal declaration order, inserting default values for omitted actuals.",
       "source_note": "IEEE 1800-2023 37.54; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_property_sequence_exprs.sv",
+          "observation": "シーケンス宣言 `sequence s_arg(x, n = 2);` を property p_inst の中で `s_arg(a)` とだけ実体化し、そのシーケンス実体に vpi_iterate(vpiArgument, ...) を掛けて、定数は値、それ以外は名前として並べる。既定値を持つ形式引数 n を省いた実体化で、引数は形式引数の宣言順に \"a 2\" と出力される。 区別: 実引数の対応付けを形式引数の宣言順に行わない実装では \"2 a\" になり、省略した実引数に既定値を挿入しない実装では \"a\" だけになる。既定値 2 が実引数の位置に現れることで、宣言順と既定値挿入の両方が出力で区別できる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "057a786c7dabecdf50f121e2261d23ba02e58836801b0e0803f5453d09d2b8d2",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_exprs.sv",
+              "contains": "sequence s_arg(x, n = 2);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_exprs.sv",
+              "contains": "    @(posedge clk) s_arg(a);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_exprs.c",
+              "contains": "it = pe ? vpi_iterate(vpiArgument, pe) : NULL;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_exprs.expected",
+              "contains": "p_inst: instance of s_arg, arguments: a 2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.54",
@@ -377228,7 +378240,29 @@
       "acceptance": "vpi_flush takes no arguments and returns PLI_INT32 0 for success, nonzero for failure.",
       "source_note": "IEEE 1800-2023 38.5; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_routines_print_and_flush.sv",
+          "observation": "cbStartOfSimulation で vpi_printf と vpi_vprintf を呼んだあと、引数なしで vpi_flush() を呼び、その戻り値を \"returned 25 and 26, vpi_flush returned 0\" として出力する。成功時の戻り値が 0 であることと、引数を取らない呼び出しがそのままコンパイル・実行できることが同時に観測される。 区別: vpi_flush が成功時に 0 以外（書き込んだ文字数など）を返す実装では行末が \"vpi_flush returned 25\" のようになり、引数を要求する宣言なら呼び出しがコンパイルできない。どちらも期待出力に到達しないので、戻り値 0 と引数なしの呼び出し形が出力で区別できる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e0fe0f25a7d5886f1ceeeaf303800be8b0ea5fa709cde6796d8e9318e4416671",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_routines_print_and_flush.sv",
+              "contains": "  initial #1 $display(\"design: done\");"
+            },
+            {
+              "file": "tests/ch36/test_vpi_routines_print_and_flush.c",
+              "contains": "flushed = vpi_flush();"
+            },
+            {
+              "file": "tests/ch36/test_vpi_routines_print_and_flush.expected",
+              "contains": "returned 25 and 26, vpi_flush returned 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.5",
@@ -377809,7 +378843,29 @@
       "acceptance": "The application allocates s_vpi_delay; its time_type controls format, ignoring individual s_vpi_time.type fields.",
       "source_note": "IEEE 1800-2023 38.10; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_module_paths.sv",
+          "observation": "specify のパス (a *> y) = (3, 5) など 4 本について、s_vpi_delay と s_vpi_time の配列を memset で 0 にし、da を配列に結び、no_of_delays を 2、s_vpi_delay.time_type だけを vpiScaledRealTime にして vpi_get_delays を呼ぶ。da の各要素の s_vpi_time.type は 0（vpiScaledRealTime でも vpiSimTime でも vpiSuppressTime でもない）のまま、各パスの遅延が実数として \"delays 3 5\" のように返る。 区別: 各 s_vpi_time.type を見て形式を決める実装では、0 という不正な種別のため値が入らず \"delays 0 0\" やエラーになる。time_type を無視して別形式（シミュレーション時間の整数など）で返す実装でも数値が変わる。time_type だけが形式を決めることが出力で区別できる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "192fa90146946147a638e1f45176c8db521674a83a076fd995d7642f23c8b872",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_module_paths.sv",
+              "contains": "    (a *> y) = (3, 5);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_module_paths.c",
+              "contains": "    d.time_type = vpiScaledRealTime;\n    vpi_get_delays(path, &d);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_module_paths.expected",
+              "contains": "  a -> y: full, polarity unknown, ifnone 0, condition none, delays 3 5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.10",
@@ -377849,7 +378905,29 @@
       "acceptance": "Intermodule-path no_of_delays must be 2 or 3.",
       "source_note": "IEEE 1800-2023 38.10; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_intermod_path_delays.sv",
+          "observation": "出力ポート s.o と入力ポート d.i を結ぶ intermodule path に、vpi_put_delays で no_of_delays=2 の遅延 4, 6 を書き、vpi_get_delays で読み戻して \"after putting 4 6, two delays: 4 6\"、続いて no_of_delays=3 の 1, 2, 5 を書き、\"after putting 1 2 5, three delays: 1 2 5\" を出力する。2 個と 3 個の両方で値が往復する。 区別: intermodule path の no_of_delays を 2 に固定する実装では 3 個目の 5 が落ちて \"1 2\" や \"1 2 0\" になり、3 に固定する実装では 2 個の往復が変わる。2 と 3 の両方が値ごと往復することで、許される個数の組が出力で区別できる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dfce3948dfb175ba676fbd47f3e1941b74fe2d2bb9a872ff529796569e179c9b",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_intermod_path_delays.sv",
+              "contains": "  test_vpi_intermod_path_delays_src s (.o(w));"
+            },
+            {
+              "file": "tests/ch37/test_vpi_intermod_path_delays.c",
+              "contains": "d.no_of_delays = n;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_intermod_path_delays.expected",
+              "contains": "after putting 1 2 5, three delays: 1 2 5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.10",
@@ -377903,13 +378981,72 @@
       "acceptance": "Primitive no_of_delays must be 2 or 3.",
       "source_note": "IEEE 1800-2023 38.10; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_gate_delays.sv",
+          "observation": "and #(3, 5) g1 に no_of_delays=2、time_type=vpiScaledRealTime で vpi_get_delays を掛けて \"old delays 3 5\" を出し、vpi_put_delays で 7 9 に変えたあと \"new delays 7 9\" と、y が 17 で 1、39 で 0 になることを出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "aee6c4cd246090f7af373ff6e6baa1f5fe69ed62ec26c11615da1420db72669d",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.sv",
+              "contains": "  and #(3, 5) g1 (y, a, b);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.c",
+              "contains": "    d.no_of_delays = 2;\n    d.time_type = vpiScaledRealTime;\n    vpi_get_delays(g, &d);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.expected",
+              "contains": "8: old delays 3 5"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.expected",
+              "contains": "8: new delays 7 9"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch37/test_vpi_cont_assign_bits_delays.sv",
+          "observation": "bufif1 #(1, 2, 3) gb に no_of_delays=3、time_type=vpiSimTime で vpi_get_delays を掛け、3 個ぶんの \"delays of gb: 1 2 3\" を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "30705dfff88c1366b61ed9205fad153cbfe6824fa563abd279dae152e617b8e1",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_cont_assign_bits_delays.sv",
+              "contains": "  bufif1 #(1, 2, 3) gb (t3, din, en);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_cont_assign_bits_delays.c",
+              "contains": "    d.no_of_delays = 3;\n    d.time_type = vpiSimTime;\n    vpi_get_delays(gb, &d);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_cont_assign_bits_delays.expected",
+              "contains": "delays of gb: 1 2 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.10",
           "blocks": [
             "B019"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "primitive-delay-2-and-3",
+          "tests": [
+            "tests/ch38/test_vpi_gate_delays.sv",
+            "tests/ch37/test_vpi_cont_assign_bits_delays.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "2 つのテストがプリミティブの遅延数の両方の許される値を観測する。test_vpi_gate_delays は and #(3, 5) g1 に対し no_of_delays=2 で vpi_get_delays を掛け、2 個ぶんの値 \"3 5\" を出し、これを vpi_put_delays で \"7 9\" に書き換えて出力の立ち上がり・立ち下がり時刻が新しい遅延どおりになることを示す。test_vpi_cont_assign_bits_delays は bufif1 #(1, 2, 3) gb に対し no_of_delays=3 で vpi_get_delays を掛け、rise/fall/turn-off の 3 個 \"1 2 3\" を出す。 区別: プリミティブの遅延数を 2 に固定する実装では gb の 3 個目の turn-off が返らず \"1 2 0\" や \"1 2\" になり、3 に固定する実装では g1 の 2 個の読み出しと put/get の往復、y の変化時刻が変わる。2 個と 3 個の両方で値が返ることで、プリミティブに許される遅延数が 2 か 3 であることが出力で区別できる。"
         }
       ]
     },
@@ -378239,13 +379376,76 @@
       "acceptance": "Ordinary objects use their timescale for current time; NULL uses simulation time unit. A time-queue object returns its future scheduled event time in simulation time units.",
       "source_note": "IEEE 1800-2023 38.13; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_get_time_scaled.sv",
+          "observation": "2500ns で $vt_now を呼び、vpi_get_time(NULL, vpiSimTime) の 2500000 と、トップおよび s に vpiScaledRealTime で問い合わせた 2500.000 と 2.500 を、各モジュールの vpiTimeUnit と vpiTimePrecision とともに出力する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "505103fca6d4e0383305fab2c488dec634931a8db444c60978d98ef84a2008e7",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_get_time_scaled.sv",
+              "contains": "  initial #2500 $vt_now(test_vpi_get_time_scaled, s);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_get_time_scaled.c",
+              "contains": "        vpi_get_time(mod, &t);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_get_time_scaled.expected",
+              "contains": "simulation time: 2500000"
+            },
+            {
+              "file": "tests/ch38/test_vpi_get_time_scaled.expected",
+              "contains": "test_vpi_get_time_scaled.s: unit -6, precision -9, time 2.500"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch37/test_vpi_time_queue_current_and_end.sv",
+          "observation": "時刻 5 の開始時と read-only 同期時、および時刻 25 の read-only 同期時に、vpi_iterate(vpiTimeQueue, NULL) の各 time queue へ vpiSimTime で vpi_get_time を掛け、\"start of time 5: 5 20 25\" と \"read-only synch of time 5: 20 25\" を出し、時刻 25 では iterator が NULL であることを出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "251326ae5fbc205f04b11dac798b501983410405d4380b4cf282fbbecb9602d8",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_time_queue_current_and_end.sv",
+              "contains": "  initial #20 y = 1'b1;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_time_queue_current_and_end.c",
+              "contains": "        vpi_get_time(q, &t);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_time_queue_current_and_end.expected",
+              "contains": "start of time 5: 5 20 25"
+            },
+            {
+              "file": "tests/ch37/test_vpi_time_queue_current_and_end.expected",
+              "contains": "read-only synch of time 5: 20 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.13",
           "blocks": [
             "B005"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "get-time-object-and-queue",
+          "tests": [
+            "tests/ch38/test_vpi_get_time_scaled.sv",
+            "tests/ch37/test_vpi_time_queue_current_and_end.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "2 つのテストが vpi_get_time の別々の条件を観測する。test_vpi_get_time_scaled は 2500ns の時点で、NULL に vpiSimTime を与えると設計の最小精度 1ps 単位の 2500000、`timescale 1ns/1ps のトップに vpiScaledRealTime を与えると 2500.000、`timescale 1us/1ns の子モジュール s に与えると 2.500 を出し、それぞれの vpiTimeUnit/vpiTimePrecision（-9/-12, -6/-9）も併記する。test_vpi_time_queue_current_and_end は vpi_iterate(vpiTimeQueue, NULL) の各 time queue に vpiSimTime で vpi_get_time を掛け、開始時 5 で \"5 20 25\"、read-only 同期時 5 で \"20 25\" を出す。 区別: NULL 参照でオブジェクトの timescale を使ってしまう実装では \"simulation time: 2500000\" が 2500 や 2 などになり、逆に通常のオブジェクトでシミュレーション時間単位を使う実装では各モジュールの行が 2500.000 / 2.500 にならず 2500000 / 2500000 になる。time queue に現在時刻や別単位を返す実装では \"5 20 25\" の並びと値が変わる。参照の種類による単位の切り替えが両方の出力で区別できる。"
         }
       ]
     },
@@ -379354,7 +380554,29 @@
       "acceptance": "After vpi_get_value with format vpiObjTypeVal on a scalar object, value.format is either vpiScalarVal with the value in value.scalar or vpiStrengthVal with the value in value.strength.",
       "source_note": "IEEE 1800-2023 38.15; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue SCALAR-OBJECT-FORMAT-NAMES resolved on 2026-10-24: Complete own-body value retrieval syntax, representations, allocation and semantic restrictions reviewed. The scalar vpiObjTypeVal formats vpiScalar/vpiStrength are read as vpiScalarVal/vpiStrengthVal, the format-field values of Figure 38-7, Table 38-3 and the K.2 value-format list (vpiStrength is undefined and vpiScalar is a net/port property).",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_get_value_obj_type_real_vector.sv",
+          "observation": "スカラーの logic s（値 1'b1）に format=vpiObjTypeVal で vpi_get_value を掛け、返された format が vpiScalarVal か vpiStrengthVal のどちらかであるかを yes/no で出力し、さらに format に応じて value.scalar か value.strength->logic を読んで vpi1 かどうかを出力する。結果は \"s: format vpiScalarVal or vpiStrengthVal yes, logic value is vpi1: yes\"。 区別: スカラーに vpiObjTypeVal を掛けたとき format を vpiIntVal や vpiVectorVal のままにする実装では前半が \"no\" になり、value.scalar / value.strength の正しいメンバに値を入れない実装では後半が \"no\" になる。format の置き換えと値の格納先の両方が出力で区別できる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b4deaf5a285dc9d43568152df11ade6bed90edfab8cc79cb26eca6a1507bcf31",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_get_value_obj_type_real_vector.sv",
+              "contains": "  logic s;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_get_value_obj_type_real_vector.c",
+              "contains": "    v.format = vpiObjTypeVal;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_get_value_obj_type_real_vector.expected",
+              "contains": "s: format vpiScalarVal or vpiStrengthVal yes, logic value is vpi1: yes"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.15",
@@ -379533,7 +380755,33 @@
       "acceptance": "For a UDP table entry read with vpiVectorVal, symbol k (0-based) is in vector element k/4 at aval[31:16], aval[15:0], bval[31:16] or bval[15:0] for k%4 = 0, 1, 2, 3; e.g. symbols 1, 0, 1 give aval = 0x31003000 and bval[31:16] = 0x3100, and an edge symbol (01) occupies one pair as 0x3031.",
       "source_note": "IEEE 1800-2023 38.15; complete own-body source review, blocks B041. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue UDP-SYMBOL-BYTE-ORDER resolved on 2026-10-24: Complete own-body value retrieval syntax, representations, allocation and semantic restrictions reviewed. UDP symbol order is read at two-byte granularity on the aval/bval fields of Figure 38-8: B041's four-symbols-per-element array size and two bytes per symbol make the four listed positions the upper/lower 16 bits of aval then bval, first character in the more significant byte; the B050-B058 example output agrees but is not relied on.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_udp_defn_entries.sv",
+          "observation": "UDP 定義の各 table entry を vpiVectorVal で vpi_get_value し、記号 k を vector[k/4] の aval（k%4 が 0,1）または bval（k%4 が 2,3）の、k%2 が 0 なら上位 16 ビット、1 なら下位 16 ビットから取り、その 16 ビットの上位バイトを先に、NUL バイトを飛ばして並べる。4 記号の行 `1 f : ? : 1` は \"catch entry symbols 1 f ? 1\" になり、aval 上位・aval 下位・bval 上位・bval 下位の 4 位置すべてが使われる。 区別: aval と bval の割り当て（k%4 が 2 以上で bval）や、上位 16 ビット・下位 16 ビットの順、2 バイト内の上位バイト先頭という規則を 1 つでも誤る実装では、\"1 f ? 1\" が別の並び（例 \"f 1 1 ?\"）や空・文字化けになる。単一文字記号の 2 バイト目が ASCII の NUL であることを前提に NUL を読み飛ばしており、記号が 1 バイト格納なら並びが崩れる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fd774037a94e64c3ba2d20a061a155e315323317c447d5e7d9c728844327948c",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.sv",
+              "contains": "    1 f : ? : 1;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.c",
+              "contains": "        p_vpi_vecval w = &v.value.vector[i / 4];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.c",
+              "contains": "        PLI_UINT32 word = (PLI_UINT32)(i % 4 < 2 ? w->aval : w->bval);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.expected",
+              "contains": "catch entry symbols 1 f ? 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.15",
@@ -382091,7 +383339,50 @@
       "acceptance": "vpi_put_delays(vpiHandle obj,p_vpi_delay delay_p) returns void and sets object delays/timing limits.",
       "source_note": "IEEE 1800-2023 38.32; complete own-body source review, blocks B003, B004, B006, B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_value_time_delay_structures.sv",
+          "observation": "vpi_put_delays を SAME_TYPE で void (*)(vpiHandle, p_vpi_delay) と完全一致で比べ、その行を 1 として出力する。戻り値が void で、引数が vpiHandle と p_vpi_delay の 2 つであることをコンパイル時に確かめる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2c0362bbd553e0eaf5ed0b6cca4f6f8b50e3843aed3144a66dd2d3d1c349e7dc",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_value_time_delay_structures.sv",
+              "contains": "// vpi_put_delays, vpi_get_value and vpi_put_value take these structures."
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_time_delay_structures.c",
+              "contains": "SAME_TYPE(&vpi_put_delays, void (*)(vpiHandle, p_vpi_delay)));"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_time_delay_structures.expected",
+              "contains": "vpi_put_delays void (*)(vpiHandle, p_vpi_delay) 1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch38/test_vpi_gate_delays.sv",
+          "observation": "and #(3, 5) の primitive g1 に vpi_put_delays で 7 と 9 を書き、直後の vpi_get_delays が 7 9 を返し、a と b が 1 になる 10 から 7 後に y が 1、b が 0 になる 30 から 9 後に y が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "aee6c4cd246090f7af373ff6e6baa1f5fe69ed62ec26c11615da1420db72669d",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.sv",
+              "contains": "and #(3, 5) g1 (y, a, b);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.c",
+              "contains": "vpi_put_delays(g, &d);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_gate_delays.expected",
+              "contains": "8: new delays 7 9"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.32",
@@ -382102,6 +383393,18 @@
             "B008",
             "B009"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "put_delays_prototype_and_effect",
+          "tests": [
+            "tests/ch38/test_vpi_value_time_delay_structures.sv",
+            "tests/ch38/test_vpi_gate_delays.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "プロトタイプの型（void 返却、vpiHandle と p_vpi_delay の 2 引数）と、呼び出しが対象の遅延を実際に置き換える効果を、独立した 2 本のテストで分担して観測する。 区別: 戻り値や引数の型を誤った実装では SAME_TYPE の行が 0 になるかコンパイルが止まり、遅延を設定しない実装では and ゲートの出力が 17/39 ではなく 13/34 になる。"
         }
       ]
     },
@@ -382563,7 +383866,33 @@
       "acceptance": "vpiForceFlag applies an immediate procedural force; ignore time_p, which may be NULL.",
       "source_note": "IEEE 1800-2023 38.34; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_value_force_release.sv",
+          "observation": "時刻 15 に time_p を NULL のまま vpiForceFlag で変数 v を 30、net n を 40 にし、直後と 21 の設計出力で 30/40 が保たれる。設計は 20 で v に 2、drv に 12 を代入するが、force 中の v と n はその影響を受けない。 区別: force が即時でない実装では 21 の設計出力が 2/12 になり、time_p を参照する実装では NULL で異常になるか15 の直後の読みが 30/40 にならない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "688d35612cb16e9dd860de08595a8f33e1ada387029595cb1f8019d9202dc0a1",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_force_release.sv",
+              "contains": "#20 v = 2;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_force_release.c",
+              "contains": "put_int(v_obj, 30, NULL, vpiForceFlag);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_force_release.expected",
+              "contains": "15: after vpiForceFlag v=30 n=40"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_force_release.expected",
+              "contains": "21: design v=30 n=40"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.34",
@@ -383279,7 +384608,33 @@
       "acceptance": "vpiReleaseFlag immediately releases a force, ignoring optional NULL time_p, and updates value_p with the postrelease value. Returned pointed-to string/time/vector/strength/misc storage belongs to the interface.",
       "source_note": "IEEE 1800-2023 38.34; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_value_force_release.sv",
+          "observation": "時刻 25 に time_p を NULL にして vpiReleaseFlag を呼び、value_p が解放後の値 v=30、n=12 になり、直後の読みで n がドライバの 12、31 で v が設計の 3 になる。解放が即時で、value_p が解放後の値で更新されることを示す。 区別: value_p を更新しない実装では -1 のままになり、解放が遅れる実装では 25 の n が 40、v が 30 のままになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "688d35612cb16e9dd860de08595a8f33e1ada387029595cb1f8019d9202dc0a1",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_force_release.sv",
+              "contains": "#20 v = 2;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_force_release.c",
+              "contains": "vpi_put_value(n_obj, &released_n, NULL, vpiReleaseFlag);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_force_release.expected",
+              "contains": "25: vpiReleaseFlag gives v 30 and n 12 in value_p"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_force_release.expected",
+              "contains": "31: design v=3 n=12"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.34",
@@ -383353,7 +384708,33 @@
       "acceptance": "Set a user system-function return only during that function active calltf and with vpiNoDelay; ignore updates outside the active call. If calltf supplies no value, use default result 0.",
       "source_note": "IEEE 1800-2023 38.34; complete own-body source review, blocks B024, B025. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_value_sysfunc_return.sv",
+          "observation": "calltf の中で vpiNoDelay により戻り値を置くと $vt_value(7) が 7、$vt_value(9) が 9 を返し、値を置かない $vt_nothing は 0 を返す。最初の $vt_nothing が保持した call handle に、calltf が動いていない時刻 2 で 55 を置いても、時刻 5 の $vt_nothing は 0 のままである。 区別: calltf の外からの put を反映する実装では 5 の $vt_nothing が 55 になり、値を置かなかったときの既定値 0 を適用しない実装では 0 の行が別の値になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ab033a0f689bf377c35bfceb164032d3787c98dc4abe350fb4e1e23daf5e76a8",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_sysfunc_return.sv",
+              "contains": "r1 = $vt_value(7);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_sysfunc_return.c",
+              "contains": "vpi_put_value(call, &v, NULL, vpiNoDelay);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_sysfunc_return.expected",
+              "contains": "0: $vt_value(7) returns 7"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_sysfunc_return.expected",
+              "contains": "5: $vt_nothing returns 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.34",
@@ -383848,7 +385229,29 @@
       "acceptance": "vpiRawFourStateVal rawvals stores each element as ngroups A bytes then ngroups B bytes, with ngroups=ceil(element_bits/8), requiring 2*ngroups*num bytes.",
       "source_note": "IEEE 1800-2023 38.35; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_value_array_formats.sv",
+          "observation": "10bit 要素の logic 配列 fv に vpiRawFourStateVal で 8 バイトを渡し、fv[0] が 355、fv[1] が 00f になる。ngroups=ceil(10/8)=2 で各要素が A 2 バイトの後に B 2 バイトを占める並びでなければ、2 要素目の A は 0x0f にならず、全体で ngroups*2*num=8 バイトという大きさも確かめられる。 区別: B のバイト群を詰めたり A と B の順を入れ替えたりする実装では、fv が 00f ではなく 000 や別の値になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3d5c19eb5a99e5ed89c2e7f1acab948b4eb9ffdd4866f9565b660c8c318c7f28",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_array_formats.sv",
+              "contains": "logic [9:0] fv [0:1];"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_array_formats.c",
+              "contains": "static PLI_BYTE8 four_state[8] = {0x55, 0x03, 0x00, 0x00, 0x0f, 0x00, 0x00, 0x00};"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_array_formats.expected",
+              "contains": "fv: 355 00f"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.35",
@@ -383866,7 +385269,29 @@
       "acceptance": "Raw A/B byte layout follows increasing bit significance: bit 0 is first-byte LSB and bit 8 next-byte LSB for each element.",
       "source_note": "IEEE 1800-2023 38.35; complete own-body source review, blocks B020. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_value_array_formats.sv",
+          "observation": "12bit 要素の bit 配列 bv に vpiRawTwoStateVal で 0x34,0x02 / 0xff,0x0f / 0x01,0x08 の 6 バイトを渡し、bv が 234 fff 801 になる。最初のバイトの LSB が bit0、次のバイトの LSB が bit8 という、bit の重みが増える向きのバイト並びを確かめている。 区別: バイト順を逆にする実装では 3402/0fff/0801 になり、bit8 以降を別の位置に置く実装では 801 が 108 などになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3d5c19eb5a99e5ed89c2e7f1acab948b4eb9ffdd4866f9565b660c8c318c7f28",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_array_formats.sv",
+              "contains": "bit [11:0] bv [0:2];"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_array_formats.c",
+              "contains": "static PLI_BYTE8 two_state[6] = {0x34, 0x02, (PLI_BYTE8)0xff, 0x0f, 0x01, 0x08};"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_array_formats.expected",
+              "contains": "bv: 234 fff 801"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.35",
@@ -384463,7 +385888,33 @@
       "acceptance": "Table 38-5 vpiObjTypeVal supplies closest object-type format.",
       "source_note": "IEEE 1800-2023 38.36.1; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_value_change_strength_time_objtype.sv",
+          "observation": "vpiObjTypeVal で登録した cbValueChange が、integer iv では vpiIntVal と -7、real rv では vpiRealVal と 1.25、12bit の logic vec では vpiVectorVal と aval 5a3/bval 000 を返す。対象に最も近い形式が選ばれることを、3 種類の異なる型で確かめる。 区別: 常に同じ形式を返す実装では、iv の行が vpiRealVal や vpiVectorVal になり、vec の行が vpiIntVal になるなど、3 行の形式と値が期待と変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ce3df18971496a04e691d68cb9cdf4162f7c1178a3d3cf01905b5b99972d608d",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_value_change_strength_time_objtype.sv",
+              "contains": "integer iv;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_change_strength_time_objtype.c",
+              "contains": "watch(\"iv\", vpiObjTypeVal, \"iv vpiObjTypeVal\");"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_change_strength_time_objtype.expected",
+              "contains": "16: iv vpiObjTypeVal: format vpiIntVal, -7"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_change_strength_time_objtype.expected",
+              "contains": "18: vec vpiObjTypeVal: format vpiVectorVal, aval 5a3 bval 000"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.36.1",
@@ -384801,7 +386252,29 @@
       "acceptance": "Pass a new s_cb_data structure distinct from registration, with requested time/value format and user_data equal to registered user_data.",
       "source_note": "IEEE 1800-2023 38.36.1; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_value_change_callback_formats.sv",
+          "observation": "同一の static な s_cb_data から 8 つの cbValueChange を登録し、各 callback で cb が登録した構造体と異なること（new structure yes）、value->format が登録した形式と一致すること、user_data が登録した文字列であることを出力する。時刻も要求どおり vpiSimTime の現在時刻になる。 区別: 登録した構造体をそのまま渡す実装では new structure が no になり、形式や user_data を引き継がない実装ではregistered format が no になるか行の識別子が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "db854fafd3efc52e57cc79084afa2fdfe856bad4acd88b0405b64acf484eaafc",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_value_change_callback_formats.sv",
+              "contains": "logic [7:0] b8;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_change_callback_formats.c",
+              "contains": "(int)cb->time->low, label, cb != &request ? \"yes\" : \"no\","
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_change_callback_formats.expected",
+              "contains": "10: vpiBinStrVal, new structure yes, registered format yes: 1xxx0z10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.36.1",
@@ -387068,7 +388541,33 @@
       "acceptance": "cbAfterDelay invokes its callback after the specified delay and before events in that queue, even without another event.",
       "source_note": "IEEE 1800-2023 38.36.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_time_callbacks_without_events.sv",
+          "observation": "時刻 0 から cbAfterDelay を 20 と 25 に登録する。20 では設計が v を 2 にする前に callback が走って v=1 が見え、25 には設計の事象がまったくないのに callback が走って v=2 が見える。遅延の後・その時刻の事象の前に呼ばれ、別の事象がなくても呼ばれることを示す。 区別: callback を事象の後に呼ぶ実装では 20 の行が v=2 になり、事象のある時刻にしか呼ばない実装では 25 の行が出ない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0a64302233c14975d388c5ad284c28082ec7b00914d3c3b34cef61cac8fd5a54",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_time_callbacks_without_events.sv",
+              "contains": "#10 v = 1;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_time_callbacks_without_events.c",
+              "contains": "request(3, cbAfterDelay, 25, \"after delay 25\");"
+            },
+            {
+              "file": "tests/ch38/test_vpi_time_callbacks_without_events.expected",
+              "contains": "20: after delay 20, v=1 w=0, new structure: yes, registered reason: yes"
+            },
+            {
+              "file": "tests/ch38/test_vpi_time_callbacks_without_events.expected",
+              "contains": "25: after delay 25, v=2 w=0, new structure: yes, registered reason: yes"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.36.2",
@@ -388402,7 +389901,33 @@
       "acceptance": "A compliant tool provides the startup-array facility; users add entries and the vendor defines its location and linking procedure.",
       "source_note": "IEEE 1800-2023 38.37.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "implementation_defined",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_systf_startup_routines.sv",
+          "observation": "vlog_startup_routines に 3 つの routine と終端の 0 を並べ、tool が設計を build する間に各 routine を 1 回ずつ呼ぶ。出力の startup routines run: 3 と、各 routine が登録した $vt_one/$vt_two/$vt_three が呼べること、compiletf saw: 3 が、配列の facility と利用者が足した entry が働くことを示す。 区別: 配列の entry を呼ばない実装では startup routines run が 3 未満になり、登録された system task の行が出ないかcompiletf の数が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9a869ee7e60572a372ac4d15db324bc6cc30a21b4005feeddd6b895f8d556a11",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_startup_routines.sv",
+              "contains": "$vt_one;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_startup_routines.c",
+              "contains": "void (*vlog_startup_routines[])(void) = {first_routine, second_routine, third_routine, 0};"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_startup_routines.expected",
+              "contains": "startup routines run: 3"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_startup_routines.expected",
+              "contains": "registered by routine 2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.37.2",
@@ -391625,13 +393150,60 @@
       "acceptance": "vpiAssertionSysDisablePassAction: disable pass actions for vacuous/nonvacuous success; do not affect existing attempts or change anything if already in that state. Pass/fail/vacuous actions are enabled by default.",
       "source_note": "IEEE 1800-2023 39.5.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv",
+          "observation": "10 で SysDisablePassAction、40 で同じ制御を繰り返し、50 と 80 で SysEnablePassAction、90 で再度 disable する。p1 の pass action の記録は 25 75 145 で、10 より前に start した 5 の attempt は 25 に走り（既存の attempt は変わらない）、disable の後に start した 15 と 45 の attempt は 35 と 65 に走らず、50 の enable の後の 55 は 75 に、120 の enable の後の 125 は 145 に走る。40 と 80 の再呼び出しは出力を変えない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d5e2895c9401f06061ef5312ba4c2577c874d53d2bdcec4be6aecebcd99cfb5e",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv",
+              "contains": "p1: assert property (@(posedge clk) a ##2 b) pass_at.push_back($time); else ;"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.expected",
+              "contains": "p1 pass actions at: 25 75 145"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv",
+          "observation": "30 で vacuous の pass action を止め、60 で SysEnablePassAction により両方の種類を戻し、90 で SysDisablePassAction を呼んだ後に nonvacuous だけを有効にする。最後の phase で vacuous が 0 のままなので、SysDisablePassAction が vacuous の pass action にも効くことを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "48ca8a585b68e09ce669c76029c4ef64b9c952c4242c92369484d81c5ee89d14",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv",
+              "contains": "a1: assert property (@(posedge clk) a |-> b)"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_system_vacuous_actions.expected",
+              "contains": "nonvacuous enabled: nonvacuous 1, vacuous 0, fail 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "39.5.1",
           "blocks": [
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "sys_disable_pass_action",
+          "tests": [
+            "tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv",
+            "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "system 全体の vpiAssertionSysDisablePassAction が、既存の attempt を変えず、以後の attempt の vacuous と nonvacuous 両方の pass action を止め、同じ状態での再呼び出しが何も変えず、既定では有効であることを 2 本で分担して観測する。 区別: vacuous 側を止めない実装では vacuous の記録が残り、既存の attempt に遡って作用する実装では 25 の記録が消え、再呼び出しで状態が変わる実装では 40 以降の記録が変わる。"
         }
       ]
     },
@@ -391807,13 +393379,60 @@
       "acceptance": "vpiAssertionSysEnablePassAction: enable pass actions for vacuous/nonvacuous success; do not affect existing attempts or change anything if already in that state. Pass/fail/vacuous actions are enabled by default.",
       "source_note": "IEEE 1800-2023 39.5.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv",
+          "observation": "50 で SysEnablePassAction を呼ぶ。45 に start した attempt は 65 に pass action を走らせず、55 の attempt は 75 に走らせる。80 の再 enable は出力を変えない。既存の attempt を変えず、以後の attempt にだけ効くことを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d5e2895c9401f06061ef5312ba4c2577c874d53d2bdcec4be6aecebcd99cfb5e",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv",
+              "contains": "p1: assert property (@(posedge clk) a ##2 b) pass_at.push_back($time); else ;"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.expected",
+              "contains": "p1 pass actions at: 25 75 145"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv",
+          "observation": "30 で vacuous の pass action を止めた後、60 の SysEnablePassAction で vacuous が再び走り、phase の出力が非vacuous 1・vacuous 1 になる。enable が vacuous の種類にも効くことを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "48ca8a585b68e09ce669c76029c4ef64b9c952c4242c92369484d81c5ee89d14",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv",
+              "contains": "a1: assert property (@(posedge clk) a |-> b)"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_system_vacuous_actions.expected",
+              "contains": "pass enabled: nonvacuous 1, vacuous 1, fail 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "39.5.1",
           "blocks": [
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "sys_enable_pass_action",
+          "tests": [
+            "tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv",
+            "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "system 全体の vpiAssertionSysEnablePassAction が、既存の attempt を変えず、以後の attempt の vacuous と nonvacuous 両方の pass action を有効にし、同じ状態での再呼び出しが何も変えないことを 2 本で分担して観測する。 区別: vacuous 側を有効にしない実装では 85 の vacuous が記録されず、既存の attempt に遡って作用する実装では 65 の記録が出る。"
         }
       ]
     },
@@ -391825,7 +393444,33 @@
       "acceptance": "vpiAssertionSysEnd: discard attempts, prevent new attempts, remove all assertion callbacks and prohibit further assertion-related actions.",
       "source_note": "IEEE 1800-2023 39.5.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch39/test_vpi_assertion_sys_end_discards_and_blocks.sv",
+          "observation": "時刻 30 に vpi_control(vpiAssertionSysEnd, NULL) を呼ぶ。5 の attempt は 25 に pass するが、15 と 25 の attempt は破棄されて 35/45 の pass がなく、35 以降は新しい attempt も始まらない。40 の SysOff/SysOn と 42 の vpiAssertionEnable は効果がなく、assertion callback も end の後に 1 つも来ない。 区別: attempt を破棄しない実装では 35/45 の pass が記録され、新しい attempt を止めない実装では 35 以降の start が増え、callback を残す実装では callbacks after the end が 0 にならない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f62e233761932a9eb896ac853800dd1f310488c495df3c3a626592fb7018a156",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_sys_end_discards_and_blocks.sv",
+              "contains": "#29 $vt_end;               // 30"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_sys_end_discards_and_blocks.c",
+              "contains": "vpi_control(vpiAssertionSysEnd, (vpiHandle)NULL);"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_sys_end_discards_and_blocks.expected",
+              "contains": "a1 pass actions at: 25"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_sys_end_discards_and_blocks.expected",
+              "contains": "callbacks after the end: 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "39.5.1",
@@ -392348,13 +393993,60 @@
       "acceptance": "vpiAssertionDisablePassAction takes a valid assertion handle and must disable pass actions on vacuous/nonvacuous success, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.",
       "source_note": "IEEE 1800-2023 39.5.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv",
+          "observation": "p1 の assertion handle に 10 で vpiAssertionDisablePassAction、40 で繰り返し、50 と 80 で vpiAssertionEnablePassAction を適用する。pass action の記録は 25 75 145 で、10 より前に start した attempt は25 に走り、後の attempt は止まり、40 の再 disable は出力を変えない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5564dde9013a13b5be84ba5b63a57b3c2b78a41e2b0169d07920e86b41909756",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv",
+              "contains": "p1: assert property (@(posedge clk) a ##2 b) pass_at.push_back($time); else ;"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_action_controls_running_attempts.expected",
+              "contains": "p1 pass actions at: 25 75 145"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv",
+          "observation": "a1 の pass action を sampled c で vacuous と nonvacuous に分けて記録する。90 の vpiAssertionDisablePassAction の後に nonvacuous だけを有効にすると、vacuous は 135 でも走らず 0 のままなので、disable が vacuous の pass action にも効くことを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c13c5ebd36f95dc7ddd110b052451e35da5b8625c47cdf865e7266f26a0755b0",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv",
+              "contains": "a1: assert property (@(posedge clk) go ##1 c |-> b) begin"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.expected",
+              "contains": "vacuous pass actions at: 15 35 85"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "39.5.2",
           "blocks": [
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "assertion_disable_pass_action",
+          "tests": [
+            "tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv",
+            "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "1 つの assertion の vpiAssertionDisablePassAction が、既存の attempt を変えず、以後の attempt の vacuous と nonvacuous 両方の pass action を止め、同じ状態での再呼び出しが何も変えず、既定では有効であることを 2 本で分担して観測する。 区別: vacuous 側を止めない実装では 135 の vacuous が記録され、既存の attempt に遡る実装では 25 や 95 の記録が消える。"
         }
       ]
     },
@@ -392570,13 +394262,60 @@
       "acceptance": "vpiAssertionEnablePassAction takes a valid assertion handle and must enable pass actions on vacuous/nonvacuous success, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.",
       "source_note": "IEEE 1800-2023 39.5.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv",
+          "observation": "50 の vpiAssertionEnablePassAction で、45 に start した attempt は 65 に action を走らせず、55 の attempt は 75 に走らせる。80 の再 enable は出力を変えない。既存の attempt を変えず、以後の attempt にだけ効くことを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5564dde9013a13b5be84ba5b63a57b3c2b78a41e2b0169d07920e86b41909756",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv",
+              "contains": "p1: assert property (@(posedge clk) a ##2 b) pass_at.push_back($time); else ;"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_action_controls_running_attempts.expected",
+              "contains": "p1 pass actions at: 25 75 145"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv",
+          "observation": "30 で vacuous の pass action を止めた後、70 の vpiAssertionEnablePassAction で vacuous が再び走り（85）、vacuous の記録に 85 が加わる。enable が vacuous の種類にも効くことを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c13c5ebd36f95dc7ddd110b052451e35da5b8625c47cdf865e7266f26a0755b0",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv",
+              "contains": "a1: assert property (@(posedge clk) go ##1 c |-> b) begin"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.expected",
+              "contains": "vacuous pass actions at: 15 35 85"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "39.5.2",
           "blocks": [
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "assertion_enable_pass_action",
+          "tests": [
+            "tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv",
+            "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "1 つの assertion の vpiAssertionEnablePassAction が、既存の attempt を変えず、以後の attempt の vacuous と nonvacuous 両方の pass action を有効にし、同じ状態での再呼び出しが何も変えないことを 2 本で分担して観測する。 区別: vacuous 側を有効にしない実装では 85 の vacuous が記録されず、既存の attempt に遡る実装では 65 の記録が出る。"
         }
       ]
     },
@@ -394206,7 +395945,29 @@
       "acceptance": "Table 40-1 maps SV_COV_CHECK / SV_COV_NOCOV to no coverage; not-applicable cells do not prescribe that return for the action.",
       "source_note": "IEEE 1800-2023 40.3.2.1; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_uninstantiated_module.sv",
+          "observation": "instance を持たない module cov_unused を SV_COV_MODULE で指定し、$coverage_control(SV_COV_CHECK, SV_COV_TOGGLE, ...) の戻り値が SV_COV_NOCOV であることを 1 として出力する。この scope には coverable item がないので、check はno coverage を返さなければならない。 区別: check に OK や PARTIAL、ERROR を返す実装では 0 になり、NOCOV を返さないことが出力に現れる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "af00830bbc97c4da118a7400292b4efc5dec1cf3c99296c16b616ce67fedb46f",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_uninstantiated_module.sv",
+              "contains": "module cov_unused(input logic d, output logic q);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_uninstantiated_module.sv",
+              "contains": "check = $coverage_control(`SV_COV_CHECK, `SV_COV_TOGGLE, `SV_COV_MODULE,"
+            },
+            {
+              "file": "tests/ch40/test_coverage_uninstantiated_module.expected",
+              "contains": "uninstantiated check is NOCOV: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.1",
@@ -394696,7 +396457,25 @@
       "acceptance": "$coverage_get_max takes coverage_type,scope_def,modules_or_instance and returns the coverage total corresponding to 100%.",
       "source_note": "IEEE 1800-2023 40.3.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_get_values.sv",
+          "observation": "$coverage_get_max(coverage_type, scope_def, modules_or_instance) を、4 種類の coverage_type、SV_COV_HIER、instance の 3 引数で呼び、返った最大値が同じ引数の check の結果と一致する（no coverage なら 0）ことを確かめる。coverage type と scope_def と instance の 3 つを渡す形が働くことを示す。 区別: 引数の順序や個数を誤った実装ではこの呼び出しがコンパイルできないか別の値を返し、最大値と check の対応の行がwrong になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1bb47c92e3a82c339c755e6bbbc5132f6f2deef9ce600808d03cbc91ba03b317",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_get_values.sv",
+              "contains": "max[i] = $coverage_get_max(t, `SV_COV_HIER, test_coverage_get_values); \\"
+            },
+            {
+              "file": "tests/ch40/test_coverage_get_values.expected",
+              "contains": "assertion: maximum agrees with the check"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.2",
@@ -394806,7 +396585,25 @@
       "acceptance": "$coverage_get takes coverage_type,scope_def,modules_or_instance.",
       "source_note": "IEEE 1800-2023 40.3.2.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_get_values.sv",
+          "observation": "$coverage_get(coverage_type, scope_def, modules_or_instance) を、4 種類の coverage_type、SV_COV_HIER、instance の3 引数で呼び、返った current が 0 と max の間で、時刻を進めても減少しないことを確かめる。 区別: 引数の順序や個数を誤った実装ではこの呼び出しがコンパイルできないか別の値を返し、current の範囲と単調性の行がwrong になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1bb47c92e3a82c339c755e6bbbc5132f6f2deef9ce600808d03cbc91ba03b317",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_get_values.sv",
+              "contains": "cur[i] = $coverage_get(t, `SV_COV_HIER, test_coverage_get_values);"
+            },
+            {
+              "file": "tests/ch40/test_coverage_get_values.expected",
+              "contains": "assertion: current value is between zero and the maximum"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.3",
@@ -394843,7 +396640,25 @@
       "acceptance": "$coverage_merge takes coverage type and a saved coverage name string.",
       "source_note": "IEEE 1800-2023 40.3.2.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_save_merge.sv",
+          "observation": "$coverage_merge(coverage_type, \"name\") の 2 引数形で、SV_COV_TOGGLE と保存名の文字列を渡す。保存した名前なら OK、保存していない名前なら ERROR が返るので、coverage type と名前の文字列で database を引く形が働くことを確かめる。 区別: 引数の型や個数を誤った実装ではこの呼び出しがコンパイルできないか、名前で database を引けないため OK/ERROR の行がwrong になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "53d6801232129c5a3f0c5ade6e5cbbb3be3a824c6ae87c82b9a1c570efc5f7ed",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_save_merge.sv",
+              "contains": "merged = $coverage_merge(`SV_COV_TOGGLE, \"test_coverage_save_merge_db\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_save_merge.expected",
+              "contains": "merge after a successful save gives OK"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.4",
@@ -394915,7 +396730,25 @@
       "acceptance": "$coverage_save takes coverage type and saved name string.",
       "source_note": "IEEE 1800-2023 40.3.2.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_coverage_save_merge.sv",
+          "observation": "$coverage_save(coverage_type, \"name\") の 2 引数形で、SV_COV_TOGGLE と保存名の文字列を渡し、返った status をSV_COV_OK/SV_COV_NOCOV/SV_COV_ERROR のいずれかとして受け取り、同じ名前での再保存が同じ結果になることを確かめる。 区別: 引数の型や個数を誤った実装ではこの呼び出しがコンパイルできないか、status が 3 値の外に出て wrong の行になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "53d6801232129c5a3f0c5ade6e5cbbb3be3a824c6ae87c82b9a1c570efc5f7ed",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_save_merge.sv",
+              "contains": "saved = $coverage_save(`SV_COV_TOGGLE, \"test_coverage_save_merge_db\");"
+            },
+            {
+              "file": "tests/ch40/test_coverage_save_merge.expected",
+              "contains": "save gives OK, NOCOV or ERROR"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.3.2.5",
@@ -394969,7 +396802,37 @@
       "acceptance": "Identify current state register/expression, optional next-state register and legal states.",
       "source_note": "IEEE 1800-2023 40.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch40/test_vpi_fsm_from_pragmas.sv",
+          "observation": "pragma で状態ベクトルと列挙を指定した FSM を、instance から vpi_iterate(vpiFsm) で 1 つ見つけ、vpi_handle(vpiFsmStateExpression) が現在状態の signal st を返し、vpi_iterate(vpiFsmStates) が legal state の値0、1、2 を返す。この FSM は next-state signal を持たない（optional な項目がない）設計である。 区別: 現在状態の signal を取り違える実装では state expression が st 以外になり、legal state を誤る実装では states が0 1 2 以外になるか FSM の数が 1 でなくなる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9aa1c30110aa48b5c074a337404894c84f0f645d88e0c18b51a348240d7f3ef5",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_fsm_from_pragmas.sv",
+              "contains": "logic [1:0] st = 0;"
+            },
+            {
+              "file": "tests/ch40/test_vpi_fsm_from_pragmas.c",
+              "contains": "expr = vpi_handle(vpiFsmStateExpression, fsm);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_fsm_from_pragmas.expected",
+              "contains": "state expression: st"
+            },
+            {
+              "file": "tests/ch40/test_vpi_fsm_from_pragmas.expected",
+              "contains": "states: 0 1 2"
+            },
+            {
+              "file": "tests/ch40/test_vpi_fsm_from_pragmas.expected",
+              "contains": "coverable items of the FSM: 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "40.4",

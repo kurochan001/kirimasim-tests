@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 75.04%、実行 42.78%。**
+**全規格の要求台帳ベース（暫定）: 設計 75.53%、実行 42.91%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 9244/12319 (75.04%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5270/12319 (42.78%)。
-- 登録済みだがテスト未対応: 3075 動作。
+- 登録済み動作に対するテスト設計網羅率: 9304/12319 (75.53%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5286/12319 (42.91%)。
+- 登録済みだがテスト未対応: 3015 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -47,7 +47,7 @@
 - `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2764/12319 動作確認、古い入力との対応 256 件。
+- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2776/12319 動作確認、古い入力との対応 256 件。
 - `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 131/12319 動作確認、古い入力との対応 0 件。
 - `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 13/12319 動作確認、古い入力との対応 245 件。
 - `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 245 件。
@@ -74,18 +74,18 @@
 - `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 195/12319 動作確認、古い入力との対応 194 件。
 - `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 329/12319 動作確認、古い入力との対応 194 件。
 - `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 329/12319 動作確認、古い入力との対応 194 件。
-- `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 612/12319 動作確認、古い入力との対応 17 件。
-- `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 348/12319 動作確認、古い入力との対応 17 件。
-- `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 348/12319 動作確認、古い入力との対応 17 件。
+- `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 620/12319 動作確認、古い入力との対応 17 件。
+- `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 349/12319 動作確認、古い入力との対応 17 件。
+- `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 349/12319 動作確認、古い入力との対応 17 件。
 - `gap4-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T14:32:08.355598+00:00 / 191/12319 動作確認、古い入力との対応 7 件。
 - `gap4-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.687753+00:00 / 141/12319 動作確認、古い入力との対応 7 件。
 - `gap4-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.575982+00:00 / 141/12319 動作確認、古い入力との対応 7 件。
 - `gap5-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:06:15.714744+00:00 / 108/12319 動作確認、古い入力との対応 30 件。
 - `gap5-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.553737+00:00 / 71/12319 動作確認、古い入力との対応 30 件。
 - `gap5-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.656775+00:00 / 71/12319 動作確認、古い入力との対応 30 件。
-- `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 119/12319 動作確認、古い入力との対応 3 件。
-- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 208/12319 動作確認、古い入力との対応 3 件。
-- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 208/12319 動作確認、古い入力との対応 3 件。
+- `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 122/12319 動作確認、古い入力との対応 3 件。
+- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 209/12319 動作確認、古い入力との対応 3 件。
+- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 209/12319 動作確認、古い入力との対応 3 件。
 - `gap7-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T17:06:51.310506+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.035626+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.037049+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
@@ -96,9 +96,9 @@
 - `gap9-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866738+00:00 / 170/12319 動作確認、古い入力との対応 13 件。
 - `gap9-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866731+00:00 / 170/12319 動作確認、古い入力との対応 13 件。
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
-- `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
-- `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 989/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 926/12319 動作確認、古い入力との対応 88 件。
+- `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 990/12319 動作確認、古い入力との対応 0 件。
+- `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 990/12319 動作確認、古い入力との対応 0 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 927/12319 動作確認、古い入力との対応 88 件。
 - `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:16.559292+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -115,7 +115,7 @@
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 10/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 917/12319 動作確認、古い入力との対応 88 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 919/12319 動作確認、古い入力との対応 88 件。
 
 ## 章・附属書別の調査状態
 
@@ -153,14 +153,14 @@
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 125。
 - 31 Timing checks: 解釈保留なし 25/26、登録 180、テスト対応 137。
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 114。
-- 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 23。
+- 33 Configuring the contents of a design: 解釈保留なし 34/36、登録 63、テスト対応 24。
 - 34 Protected envelopes: 解釈保留なし 103/104、登録 215、テスト対応 0。
-- 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 71。
-- 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 128。
-- 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1508。
-- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 200。
-- 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 77。
-- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 75。
+- 35 Direct programming interface: 解釈保留なし 31/31、登録 142、テスト対応 74。
+- 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 133。
+- 37 VPI object model diagrams: 解釈保留なし 100/101、登録 1757、テスト対応 1531。
+- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 217。
+- 39 Assertion API: 解釈保留なし 13/14、登録 95、テスト対応 82。
+- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 81。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
 - A Formal syntax: 解釈保留なし 86/87、登録 811、テスト対応 645。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
@@ -79841,7 +79841,7 @@ A same-name module/primitive/config ambiguity may be resolved by the config suff
 
 ### SV2023-33.4.1.6-EXTRACT-USE-DEFAULT-LIBRARY
 
-33.4.1.6 / normal / テスト未対応
+33.4.1.6 / normal / テスト対応あり・実行未確認
 
 Use without a library qualifier inherits the parent cell library; selected instance module spelling need not equal bound cell name.
 
@@ -79849,6 +79849,7 @@ Use without a library qualifier inherits the parent cell library; selected insta
 
 規定の性質: `mandatory`。
 
+- [test_config_use_without_library.sv](../tests/ch33/test_config_use_without_library.sv): config の use 節で library を省いた instance u2 と cell u3 が、親セルのライブラリ work にある別名セル cfgnl_leaf_b / cfgnl_cell_d に束縛され、u1=aa u2=bb u3=dd となる。u1 は束縛されず cfgnl_leaf_a の aa のまま。 区別: ライブラリ省略時に親セルの library を継承せず束縛を無視する実装では u2=aa・u3=cc になり、instance の module 名と束縛先 cell 名が異なる束縛を許さない実装では bb/dd が得られないので、期待出力が変わる。
 
 ### SV2023-33.4.1.6-EXTRACT-USE-NO-LIBLIST-CHANGE
 
@@ -83282,7 +83283,7 @@ Import declarations specify name, function result, formal types/directions, opti
 
 ### SV2023-35.5.4-EXTRACT-FORMAL-NAME-DEFAULT-VARIATION
 
-35.5.4 / normal / テスト未対応
+35.5.4 / normal / 実行確認あり
 
 Equivalent-signature import/export declarations in different scopes may use differing formal names/default values.
 
@@ -83290,6 +83291,7 @@ Equivalent-signature import/export declarations in different scopes may use diff
 
 規定の性質: `permission`。
 
+- [test_dpi_import_formal_names_defaults.sv](../tests/ch35/test_dpi_import_formal_names_defaults.sv): 同じ C 関数 dpi_mix を package では仮引数 a,b・既定 b=2、module では x,y・既定 5,7 と別名・別既定で宣言し、呼び出しがそれぞれの宣言の名前と既定に束縛されて 1003, 402, 501, 507 になる。 区別: 宣言ごとの仮引数名と既定値を使わず最初の宣言を共有する実装では module 側の 501/507 が別の値になり、名前付き束縛 .y(1) も解決できないため期待出力が変わる。
 
 ### SV2023-35.5.4-EXTRACT-IDENTICAL-SIGNATURE
 
@@ -83777,7 +83779,7 @@ Imported functions may use [] open dimensions; exported SV functions cannot. Mat
 
 ### SV2023-35.5.6.1-EXTRACT-OPEN-MATCH
 
-35.5.6.1 / normal / テスト未対応
+35.5.6.1 / normal / テスト対応あり・実行未確認
 
 One open packed dimension matches any collection of actual packed dimensions; unpacked dimensions match individually under 7.7 and each open unpacked dimension accepts any corresponding size.
 
@@ -83785,6 +83787,7 @@ One open packed dimension matches any collection of actual packed dimensions; un
 
 規定の性質: `mandatory`。
 
+- [test_dpi_open_array_unsized_ranges_per_call.sv](../tests/ch35/test_dpi_open_array_unsized_ranges_per_call.sv): 1 個の open packed 次元 bit [] が x1 の 2 次元 packed [3:0][1:0] を 7:0 に、x2 の [0:4] を 4:0 に線形化・正規化して一致し、open unpacked 次元が各実引数の異なる範囲 (2:1,0:2) と (5:5,3:0) をそのまま受ける。 区別: open packed 次元を実引数の packed 次元数や宣言範囲に固定する実装、open unpacked 次元を固定サイズにする実装では dimension 行と要素読み出しの値が変わる。
 
 ### SV2023-35.5.6.1-EXTRACT-SOLE-OPEN-PACKED
 
@@ -84138,7 +84141,7 @@ An import returning due to disable has undefined output/inout values and undefin
 
 ### SV2023-35.9-EXTRACT-EXPORT-DISABLE-STATUS
 
-35.9 / normal / テスト未対応
+35.9 / normal / テスト対応あり・実行未確認
 
 The simulator must make an export task return 1 when its return propagates a disable, otherwise 0, subject to the self-target exception.
 
@@ -84146,6 +84149,7 @@ The simulator must make an export task return 1 when its return propagates a dis
 
 規定の性質: `mandatory`。
 
+- [test_dpi_export_task_disable_status.sv](../tests/ch35/test_dpi_export_task_disable_status.sv): 上位ブロック worker の disable で戻る export task sv_stop_worker の戻り値が厳密に 1 で svIsDisabledState も 1、自分自身を disable する sv_self では戻り値 0・svIsDisabledState 0 になる。 区別: 非零なら何でも返す実装（2 など）や自己 disable でも 1 を返す実装では、期待している 1 と 0 の組が変わるため区別できる。
 
 ### SV2023-35.9-EXTRACT-FUNCTION-DISABLE-ACK
 
@@ -84300,7 +84304,7 @@ PLI may override $signed/$unsigned, but its sizetf defines one common return wid
 
 ### SV2023-36.4-EXTRACT-TFARG-ACCESS
 
-36.4 / normal / テスト未対応
+36.4 / normal / テスト対応あり・実行未確認
 
 SV task/function arguments are not passed as C arguments to the PLI application; read/write them using the VPI argument-access routines.
 
@@ -84308,10 +84312,12 @@ SV task/function arguments are not passed as C arguments to the PLI application;
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_argument_on_demand.sv](../tests/ch36/test_vpi_systf_argument_on_demand.sv): $vt_ignore は引数を読まないので bump() が走らず calls=0、$vt_read は vpi_get_value で 1 回読むので calls=1・値 1。
+- [test_vpi_systf_calltf_writes_arguments.sv](../tests/ch36/test_vpi_systf_calltf_writes_arguments.sv): calltf が vpi_iterate(vpiArgument) で引数を取り、vpi_get_value で読み、vpi_put_value で第 1 実引数へ和を書き戻すので a=6 b=7、$vt_set は c=3c にする。
 
 ### SV2023-36.4-EXTRACT-TFARG-USAGE
 
-36.4 / normal / テスト未対応
+36.4 / normal / テスト対応あり・実行未確認
 
 A user system task/function invocation may supply arguments accessible to its associated PLI application.
 
@@ -84319,6 +84325,7 @@ A user system task/function invocation may supply arguments accessible to its as
 
 規定の性質: `permission`。
 
+- [test_vpi_systf_argument_on_demand.sv](../tests/ch36/test_vpi_systf_argument_on_demand.sv): ユーザー system task $vt_read の呼び出しに渡した実引数 bump() が PLI アプリから vpi_get_value で読め、値 1 として出力される。 区別: ユーザー systf の呼び出し引数が PLI アプリへ渡らず読めない実装では、$vt_read の値行が出ないか値が変わるため期待出力と一致しない。
 
 ### SV2023-36.5-EXTRACT-FUNCTION-TYPE
 
@@ -84357,7 +84364,7 @@ A PLI application is a foreign C function using PLI libraries linked into a tool
 
 ### SV2023-36.7-EXTRACT-INCLUDE-HEADERS
 
-36.7 / normal / テスト未対応
+36.7 / normal / 実行確認あり
 
 A VPI application must include normative vpi_user.h and sv_vpi_user.h, which supply function declarations, constants, structures and interface data.
 
@@ -84365,6 +84372,10 @@ A VPI application must include normative vpi_user.h and sv_vpi_user.h, which sup
 
 規定の性質: `mandatory`。
 
+- [test_vpi_user_h_routine_declarations.sv](../tests/ch36/test_vpi_user_h_routine_declarations.sv): vpi_user.h の 41 routine の宣言を、戻り型・引数型・ポインタ段数・可変引数まで K.2 の型とコンパイル時に比較し、全て 1 と表示する。
+- [test_vpi_user_h_type_declarations.sv](../tests/ch36/test_vpi_user_h_type_declarations.sv): vpi_user.h の PLI_TYPES/SVPI_TYPES、PLI_* 整数型、vpiHandle、6 つの構造体の字段順と s_/p_ typedef、VPI_USER_H ガードを照合し、全て 1 と表示する。
+- [test_vpi_user_h_structure_constants.sv](../tests/ch36/test_vpi_user_h_structure_constants.sv): vpi_user.h の構造体定義の 54 定数を K.2 の順に表示し、各値が規格の数値と一致することを確認する。
+- [test_sv_vpi_user_h_declarations.sv](../tests/ch36/test_sv_vpi_user_h_declarations.sv): sv_vpi_user.h を単独で include すると VPI_USER_H が定義され、SV_VPI_USER_H ガード、assertion step/attempt 構造体、vpi_assertion_callback_func、vpi_register_assertion_cb が M.2 どおりに宣言される。
 
 ### SV2023-36.8-EXTRACT-CALLBACK-PHASES
 
@@ -84487,7 +84498,7 @@ Register system task/function callbacks to associate names, applications and dat
 
 ### SV2023-36.9.1-EXTRACT-REGISTER-SYSTF
 
-36.9.1 / normal / テスト未対応
+36.9.1 / normal / 実行確認あり
 
 Create user system tasks/functions via vpi_register_systf; registration must precede elaboration or reference resolution.
 
@@ -84495,6 +84506,7 @@ Create user system tasks/functions via vpi_register_systf; registration must pre
 
 規定の性質: `mandatory`。
 
+- [test_vpi_systf_registration_fields.sv](../tests/ch36/test_vpi_systf_registration_fields.sv): vpi_register_systf で登録した $vt_mark の compiletf が simulation 開始前に 2 回走り、登録データ付きで calltf が各呼び出しに応答する。登録が elaboration・参照解決より前であることを示す。 区別: 登録が参照解決より後だと $vt_mark の呼び出しが解決されず、compiletf の「2 before the start of simulation」も成立しないため、期待出力が変わる。
 
 ### SV2023-36.9.1-EXTRACT-REGISTRATION-FIELDS
 
@@ -84853,7 +84865,7 @@ Tables 36-1 through 36-9 assign vpi_flush to flush simulator output buffers; exa
 
 ### SV2023-36.11-EXTRACT-ROUTINE-44
 
-36.11 / normal / テスト未対応
+36.11 / normal / 実行確認あり
 
 Tables 36-1 through 36-9 assign vpi_mcd_open and vpi_mcd_close to open a file for writing or close one/more files respectively; exact arguments, return values and restrictions follow Clause 38.
 
@@ -84861,6 +84873,7 @@ Tables 36-1 through 36-9 assign vpi_mcd_open and vpi_mcd_close to open a file fo
 
 規定の性質: `definition`。
 
+- [test_vpi_routines_mcd_files.sv](../tests/ch36/test_vpi_routines_mcd_files.sv): vpi_mcd_open で 2 つのファイルを開くと、それぞれ channel 1 でも MSB でもない 1 ビットの別チャネルが返り、vpi_mcd_close が両方まとめて 0 を返す。その後 design が両ファイルを読める。 区別: mcd_open のチャネル割当や mcd_close の戻り値・対象が規格と違えば「one channel each ...」「...close of both returned 0」の行が変わるか、ファイルが読めなくなる。
 
 ### SV2023-36.11-EXTRACT-ROUTINE-45
 
@@ -87397,7 +87410,7 @@ Access top-level modules with vpi_iterate using a NULL reference object.
 
 ### SV2023-37.6-EXTRACT-DIAGRAM-004
 
-37.6 / normal / テスト未対応
+37.6 / normal / テスト対応あり・実行未確認
 
 37.6 defines a one-to-one relation from interface to expression/distribution, using tag vpiDefaultDisableIff; traverse with vpi_handle and the stated special-case constraints.
 
@@ -87405,6 +87418,7 @@ Access top-level modules with vpi_iterate using a NULL reference object.
 
 規定の性質: `definition`。
 
+- [test_vpi_interface_relations.sv](../tests/ch37/test_vpi_interface_relations.sv): interface の default disable iff (rst) が vpi_handle(vpiDefaultDisableIff, iface) で式 rst として取れ、default disable iff を持たない interface p では NULL になる。 区別: 関係のタグや向きを誤る実装では o1 で rst が取れず、または p で非 NULL が返るため、期待している rst/NULL の組が変わる。
 
 ### SV2023-37.6-EXTRACT-DIAGRAM-005
 
@@ -87778,7 +87792,7 @@ vpi_iterate may return multiple declarations for vpiForkJoinAcc modport subrouti
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-003
 
-37.9 / normal / テスト未対応
+37.9 / normal / テスト対応あり・実行未確認
 
 37.9 defines a one-to-one relation from program to expression/distribution, using tag vpiDefaultDisableIff; traverse with vpi_handle and the stated special-case constraints.
 
@@ -87786,6 +87800,7 @@ vpi_iterate may return multiple declarations for vpiForkJoinAcc modport subrouti
 
 規定の性質: `definition`。
 
+- [test_vpi_program_relations.sv](../tests/ch37/test_vpi_program_relations.sv): program の default disable iff (rst) が vpi_handle(vpiDefaultDisableIff, program) で式 rst として取れ、default disable iff を持たない program q では NULL になる。 区別: program からの vpiDefaultDisableIff 関係を実装しない、または式の無い program で非 NULL を返す実装では、rst/NULL の期待行が変わる。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-004
 
@@ -89563,7 +89578,7 @@ The 37.12 VPI model includes foreach statement in the scope group; group propert
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-028
 
-37.12 / normal / テスト未対応
+37.12 / normal / テスト対応あり・実行未確認
 
 37.12 defines a one-to-many relation from scope to concurrent assertion, using the untagged concurrent assertion access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -89571,6 +89586,7 @@ The 37.12 VPI model includes foreach statement in the scope group; group propert
 
 規定の性質: `definition`。
 
+- [test_vpi_scope_item_back_relations.sv](../tests/ch37/test_vpi_scope_item_back_relations.sv): 生成ブロック g（スコープ）から vpi_iterate(vpiConcurrentAssertions) で並行アサーション ca を取り出し、その名前と、ca から vpiScope で戻った先が g 自身（完全名 test_vpi_scope_item_back_relations.g）であることを表示する。 区別: スコープから並行アサーションへの一対多関係を欠く実装では「g vpiConcurrentAssertions: none」になり、ca の代わりに別の項目を返す実装や vpiScope が g を返さない実装では名前・完全名の行が変わる。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-029
 
@@ -90061,7 +90077,7 @@ vpiVirtualInterfaceVar iteration is supported only in elaborated contexts, not l
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-008
 
-37.13 / normal / テスト未対応
+37.13 / normal / テスト対応あり・実行未確認
 
 37.13 defines a one-to-one relation from IO declaration to module, using the untagged module access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -90069,6 +90085,7 @@ vpiVirtualInterfaceVar iteration is supported only in elaborated contexts, not l
 
 規定の性質: `definition`。
 
+- [test_vpi_module_port_io_decl_relations.sv](../tests/ch37/test_vpi_module_port_io_decl_relations.sv): インスタンス u1 の io 宣言 a/y/z を vpi_iterate(vpiIODecl) で列挙し、各 io 宣言から vpi_handle(vpiModule) で戻った先が同じインスタンス u1 であること（vpi_compare_objects）とその完全名を表示する。ポートの無いトップでは io 宣言も 0 個になる。 区別: io 宣言からモジュールへの関係を欠く実装では「module NULL」または「same instance 0」になり、別インスタンスを返す実装では完全名が u2 などに変わる。io 宣言の列挙自体を欠くと「io decls of u1: 0」になる。
 
 ### SV2023-37.13-EXTRACT-DIAGRAM-009
 
@@ -90732,7 +90749,7 @@ reference object exposes vpiDefName as string, representing referenced definitio
 
 ### SV2023-37.15-EXTRACT-REF-ACQUISITION
 
-37.15 / normal / テスト未対応
+37.15 / normal / テスト対応あり・実行未確認
 
 Reference objects can be obtained through port connections, expressions using them, or instance/subroutine IO declarations.
 
@@ -90740,6 +90757,7 @@ Reference objects can be obtained through port connections, expressions using th
 
 規定の性質: `mandatory`。
 
+- [test_vpi_ref_obj_kinds_relations.sv](../tests/ch37/test_vpi_ref_obj_kinds_relations.sv): ref obj を 3 経路で取得する。ポート接続では m の interface/ref ポートの low conn と interface ポートの high conn、ref obj を使う式では $vt_ref の引数 r, r[1], s.v, t、インスタンスの io 宣言では各 io 宣言の vpiExpr を取り、それぞれ actual・型・親を表示する。 区別: どの取得経路かが欠けると expected の該当行が「not a ref obj」「none」「not found」に変わる。例えば io 宣言の vpiExpr が ref obj でなければ「io decl r: not a ref obj」になり、式経由の取得を欠けば $vt_ref の行が「not a ref obj」になる。
 
 ### SV2023-37.15-EXTRACT-REF-ACTUAL
 
@@ -91912,7 +91930,7 @@ Implicit nets have vpiLineNo=0 and vpiFile equal to the file of first reference.
 
 ### SV2023-37.16-EXTRACT-INTERCONNECT-ARRAY-SIZE
 
-37.16 / normal / テスト未対応
+37.16 / normal / テスト対応あり・実行未確認
 
 Interconnect-array vpiSize is its element count; a nonarray interconnect net uses the connected net size.
 
@@ -91920,6 +91938,7 @@ Interconnect-array vpiSize is its element count; a nonarray interconnect net use
 
 規定の性質: `mandatory`。
 
+- [test_vpi_interconnect_net_type_size.sv](../tests/ch37/test_vpi_interconnect_net_type_size.sv): interconnect 配列 ia [0:2] の vpiSize が要素数 3、非配列 interconnect net iw [3:0] の vpiSize が接続先 wand ポートの 4 になる。 区別: 配列の vpiSize をビット数や接続先 net のサイズにする実装では 3 でなく 1 や 4 になり、非配列 net を常に 1 とする実装では iw の size が変わる。
 
 ### SV2023-37.16-EXTRACT-INTERCONNECT-TYPE
 
@@ -91990,7 +92009,7 @@ vpiConstantSelect is true if there is no parent, or every select index is elabor
 
 ### SV2023-37.16-EXTRACT-NET-ELEMENT-DIMENSION
 
-37.16 / normal / テスト未対応
+37.16 / normal / テスト対応あり・実行未確認
 
 vpiElement traverses packed-array nets one dimension at a time, removing the leftmost range at each level until leaf struct/union/enum nets; it differs from flattened vpiNet iteration.
 
@@ -91998,6 +92017,7 @@ vpiElement traverses packed-array nets one dimension at a time, removing the lef
 
 規定の性質: `mandatory`。
 
+- [test_vpi_net_members_elements_parents.sv](../tests/ch37/test_vpi_net_members_elements_parents.sv): 2 次元 packed array net pa（nmep_ps_t [2:0][1:0]）に対し vpiElement が 1 次元ずつ pa[0..2]、次に pa[1][0..1]、最後に struct net のメンバーを返す。各段階で型・親・packed array member を表示し、平坦化した vpiNet 反復とは別の段階性を示す。 区別: vpiElement を平坦化して一度に全要素や net bit を返す実装では「elements of pa: 3」「elements of pa[1]: 2」の段数・個数が変わり、pa[1][0] が struct net でなくなる。
 
 ### SV2023-37.16-EXTRACT-NET-ELEMENT-INDICES
 
@@ -92014,7 +92034,7 @@ Net array element index iteration returns indices from selected element outward 
 
 ### SV2023-37.16-EXTRACT-NET-NAME-PREFIX
 
-37.16 / normal / テスト未対応
+37.16 / normal / テスト対応あり・実行未確認
 
 Member vpiDecompile/vpiFullName include all struct/union prefixes needed to identify the element; vpiName excludes these. All three include selected indices/slices. Name lookup uses decompiled names with a non-top context and full names at top level.
 
@@ -92022,6 +92042,7 @@ Member vpiDecompile/vpiFullName include all struct/union prefixes needed to iden
 
 規定の性質: `mandatory`。
 
+- [test_vpi_net_members_elements_parents.sv](../tests/ch37/test_vpi_net_members_elements_parents.sv): su.inner.m の vpiName が「m」（接頭辞なし）、vpiFullName が test...su.inner.m、vpiDecompile が su.inner.m になる。pa[1][0] では名前・完全名・decompile のすべてに添字が残る。トップからの完全名とモジュール内の decompile 名の両方で vpi_handle_by_name が同じオブジェクトを返す。 区別: vpiName に接頭辞を含める実装では m でなく su.inner.m になり、full/decompile から接頭辞や添字を落とす実装では各行の名前が短くなる。decompile 形式の検索を欠く実装では「by decompiled name in the module 0」になる。
 
 ### SV2023-37.16-EXTRACT-NET-NO-VALUE
 
@@ -92047,7 +92068,7 @@ vpiParent is available on all nets. Remove rightmost indices/member identifiers 
 
 ### SV2023-37.16-EXTRACT-NET-PORT-GRANULARITY
 
-37.16 / normal / テスト未対応
+37.16 / normal / テスト対応あり・実行未確認
 
 vpiPorts returns port bits for a net-bit reference and entire ports for an entire net/array net.
 
@@ -92055,6 +92076,7 @@ vpiPorts returns port bits for a net-bit reference and entire ports for an entir
 
 規定の性質: `mandatory`。
 
+- [test_vpi_net_ports_portinst_bits.sv](../tests/ch37/test_vpi_net_ports_portinst_bits.sv): 2 ビット net u.v 全体の vpiPorts はポート v 全体を返し、bit u.v[1] の vpiPorts はポート v のポートビットを返す（親をたどってポート名 v を表示）。 区別: net bit でもポート全体を返す実装では「vpiPorts of u.v[1]: port v of u」になり、逆に全体でポートビットを返す実装では「port bit of port v」になる。
 
 ### SV2023-37.16-EXTRACT-NET-PORTINST-CONNECTED
 
@@ -92070,7 +92092,7 @@ Exclude a vpiPortInst candidate if size mismatch means the reference contributes
 
 ### SV2023-37.16-EXTRACT-NET-PORTINST-GRANULARITY
 
-37.16 / normal / テスト未対応
+37.16 / normal / テスト対応あり・実行未確認
 
 vpiPortInst returns corresponding port bits/scalar ports for bit/scalar references, except complex high-connection expressions with indeterminate bit mapping return the whole port; an entire net/array returns whole ports.
 
@@ -92078,10 +92100,11 @@ vpiPortInst returns corresponding port bits/scalar ports for bit/scalar referenc
 
 規定の性質: `mandatory`。
 
+- [test_vpi_net_ports_portinst_bits.sv](../tests/ch37/test_vpi_net_ports_portinst_bits.sv): vpiPortInst が、net 全体 tw ではポート v、bit tw[0] ではポートビット、scalar ts ではスカラーポート s、複雑な high connection（tc + 2 ビット定数）の bit tc[0] ではビット対応が定まらないためポート cx 全体を返す。 区別: 複雑な式でポートビットを返す実装では「vpiPortInst of tc[0]: port bit of port cx」になり、scalar にポートビットを返す実装では ts の行が変わり、bit 参照でポート全体を返す実装では tw[0] の行が変わる。
 
 ### SV2023-37.16-EXTRACT-NET-RANGE-ORDER
 
-37.16 / normal / テスト未対応
+37.16 / normal / テスト対応あり・実行未確認
 
 Unpacked net ranges iterate leftmost to rightmost; bit/logic/packed-array net packed ranges do likewise; left/right bound relations select the leftmost packed dimension.
 
@@ -92089,10 +92112,11 @@ Unpacked net ranges iterate leftmost to rightmost; bit/logic/packed-array net pa
 
 規定の性質: `mandatory`。
 
+- [test_vpi_net_kinds_ranges_sizes.sv](../tests/ch37/test_vpi_net_kinds_ranges_sizes.sv): unpacked 2 次元 an [0:2][5:4] の vpiRange が 0:2, 5:4 の順（左端から右端）、packed 2 次元 lv [3:0][1:0] が 3:0, 1:0 の順になる。lv の vpiLeftRange/vpiRightRange は左端 packed 次元の 3 と 0 を返す。 区別: 範囲の反復順を逆にする実装では an が「5:4 0:2」、lv が「1:0 3:0」になり、left/right を最右次元から取る実装では lv の left/right が 1/0 になる。
 
 ### SV2023-37.16-EXTRACT-NET-SCALAR-VECTOR
 
-37.16 / normal / テスト未対応
+37.16 / normal / テスト対応あり・実行未確認
 
 Bit/logic nets without packed dimensions and net bits are scalar, not vector. Enums inherit their base-type flags; other integral nets are vector, not scalar. Array nets inherit element flags; all other net kinds have both flags false.
 
@@ -92100,6 +92124,7 @@ Bit/logic nets without packed dimensions and net bits are scalar, not vector. En
 
 規定の性質: `mandatory`。
 
+- [test_vpi_net_kinds_ranges_sizes.sv](../tests/ch37/test_vpi_net_kinds_ranges_sizes.sv): packed 次元の無い logic net s1 と net bit は scalar 1/vector 0、packed 次元のある logic lv/w4 と integer/time net は vector 1/scalar 0。enum は基底型を継承し enn(logic[2:0]) は vector、en1(logic) は scalar。array net は要素のフラグを継承し an は vector、sn は scalar。unpacked struct net usn は両方 0。 区別: scalar/vector を次元数でなく型種別だけで決める実装では s1・usn・en1・sn の行が変わり、enum の基底継承を欠くと en1 が vector 1 に、array の要素継承を欠くと sn が vector になる。
 
 ### SV2023-37.16-EXTRACT-NET-SIZE
 
@@ -92126,7 +92151,7 @@ vpiStructUnionMember is true iff the net/array-net parent is a struct or union; 
 
 ### SV2023-37.16-EXTRACT-NET-TERMINAL-ACCESS
 
-37.16 / normal / テスト未対応
+37.16 / normal / テスト対応あり・実行未確認
 
 Continuous assignments and primitive terminals cross hierarchy boundaries but are accessed only from scalar nets or bit-selects.
 
@@ -92134,6 +92159,7 @@ Continuous assignments and primitive terminals cross hierarchy boundaries but ar
 
 規定の性質: `mandatory`。
 
+- [test_vpi_net_terminals_module_typespec.sv](../tests/ch37/test_vpi_net_terminals_module_typespec.sv): スカラー net tn から、子インスタンス l 内のプリミティブ端子（g の terminal 1）と継続代入（l.pout への代入）が階層を越えて得られる。ベクタ lv2 からは端子 0 個、その bit lv2[1] からは gv の terminal 1 が得られる。 区別: 階層を越えない実装では tn の prim terms/cont assigns が none になり、ベクタ全体から端子を返す実装では「prim terms of l.lv2: none」が terminal 付きに変わる。
 
 ### SV2023-37.16-EXTRACT-NET-TYPE-ALIASES
 
@@ -93485,7 +93511,7 @@ If a variable has an initialization expression, obtain it through vpi_handle(vpi
 
 ### SV2023-37.17-EXTRACT-VARIABLE-NAME-PREFIX
 
-37.17 / normal / テスト未対応
+37.17 / normal / テスト対応あり・実行未確認
 
 Struct/union/class member vpiDecompile/vpiFullName contain all necessary parent/member prefixes; vpiName omits those prefixes. All include element/slice indices. Name lookup requires decompiled form in non-top context and full form at top.
 
@@ -93493,6 +93519,7 @@ Struct/union/class member vpiDecompile/vpiFullName contain all necessary parent/
 
 規定の性質: `mandatory`。
 
+- [test_vpi_variable_parent_prefixes.sv](../tests/ch37/test_vpi_variable_parent_prefixes.sv): ra[1].k の vpiName が k、vpiFullName が test...ra[1].k、vpiDecompile が ra[1].k。ra[1].w[0] は名前・完全名・decompile のすべてに添字が残る。クラス変数経由の非静的メンバー obj.m は vpiFullName が NULL、vpiDecompile が obj.m。完全名（トップから）と decompile 名（モジュール内）の両方で検索できる。 区別: 接頭辞や添字を落とす実装では各 name/full/decompile の列が変わり、クラスメンバーの full name を非 NULL にする実装では「argument obj.m: name m, full name NULL」が変わる。decompile 形式の検索を欠く実装では「by decompiled name in the module 0」になる。
 
 ### SV2023-37.17-EXTRACT-VARIABLE-NO-VALUE
 
@@ -93543,7 +93570,7 @@ Unpacked array range iteration goes leftmost to rightmost and returns empty rang
 
 ### SV2023-37.17-EXTRACT-VARIABLE-SCALAR-VECTOR
 
-37.17 / normal / テスト未対応
+37.17 / normal / テスト対応あり・実行未確認
 
 Dimensionless bit/logic variables and variable bits are scalar; dimensioned bit/logic, packed struct/union/array and integer/time/shortint/int/longint/byte variables are vector. Enums inherit base-type flags, arrays inherit element flags, and all other kinds have both flags false.
 
@@ -93551,6 +93578,7 @@ Dimensionless bit/logic variables and variable bits are scalar; dimensioned bit/
 
 規定の性質: `mandatory`。
 
+- [test_vpi_variable_kinds_flags_sizes.sv](../tests/ch37/test_vpi_variable_kinds_flags_sizes.sv): 次元なし logic l1 と bit b1 は scalar、packed 次元付き l5/b6 は vector。enum は基底型を継承し e3(logic[2:0]) vector、e1(bit) scalar、ei(int) vector。integer/time/shortint/int/longint/byte は vector。packed struct/union ps/pu は vector、unpacked struct/union us/uu は両方 0。array var は要素を継承し as1(logic) scalar、av4(logic[3:0]) vector、ar(real) 両方 0。shortreal/string/chandle/class/VI/real は両方 0。 区別: enum の基底継承や array の要素継承を欠く実装では e1/as1/av4/ar の行が変わり、unpacked struct/union を vector にする実装では us/uu が変わる。l1/b1 を vector、l5/b6 を scalar にする実装では各行が入れ替わる。
 
 ### SV2023-37.17-EXTRACT-VARIABLE-SELECT-INDEX
 
@@ -95603,7 +95631,7 @@ vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-003
 
-37.27 / normal / テスト未対応
+37.27 / normal / テスト対応あり・実行未確認
 
 37.27 defines a one-to-many relation from scope to named event, using the untagged named event access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -95611,6 +95639,7 @@ vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
 規定の性質: `definition`。
 
+- [test_vpi_named_event_waiters_lifetime.sv](../tests/ch37/test_vpi_named_event_waiters_lifetime.sv): class defn evc（スコープ）から vpi_iterate(vpiNamedEvent) で ce（automatic）と sce（static）、vpi_iterate(vpiNamedEventArray) で cea と scea を取り出し、名前と lifetime を表示する。モジュール以外のスコープ種別でも scope->named event の一対多が働くことを示す。 区別: class defn からの named event 反復を欠く実装では「named events of evc:」が空になり、static の sce/scea を落とす実装では名前が ce/cea だけになる。
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-004
 
@@ -95637,7 +95666,7 @@ vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-006
 
-37.27 / normal / テスト未対応
+37.27 / normal / 実行確認あり
 
 37.27 defines a one-to-one relation from named event to module, using the untagged module access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -95645,6 +95674,7 @@ vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
 規定の性質: `definition`。
 
+- [test_vpi_untagged_relation_access.sv](../tests/ch37/test_vpi_untagged_relation_access.sv): named event stop から vpi_handle(vpiModule) でトップモジュールの完全名、u2.done から u2 の完全名を得る。event が属するモジュールを一対一で返す。 区別: event からモジュールへの関係を NULL や別スコープにする実装では「vpiModule of u2.done: test...u2」が「(none)」や親モジュール名に変わる。
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-007
 
@@ -95894,7 +95924,7 @@ named event exposes vpiArrayMember as Boolean, representing array membership; ac
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-028
 
-37.27 / normal / テスト未対応
+37.27 / normal / テスト対応あり・実行未確認
 
 Named events support triggering via vpi_put_value; named-event arrays support indexed/multi-indexed element access.
 
@@ -95902,6 +95932,8 @@ Named events support triggering via vpi_put_value; named-event arrays support in
 
 規定の性質: `definition`。
 
+- [test_vpi_named_events.sv](../tests/ch37/test_vpi_named_events.sv): go に 2 プロセスが待機し、vpi_put_value(go) の後に resumed=2、待機数 0 になる。lane[1] は index 1 の named event で parent は lane。
+- [test_vpi_select_objects_event_arrays.sv](../tests/ch37/test_vpi_select_objects_event_arrays.sv): 2 次元 named event 配列 ea の要素 ea[1][3] を vpi_handle_by_multi_index で取得し、named event であり parent が ea、indices が 3 1 であることを表示する。
 
 ### SV2023-37.27-EXTRACT-EVENT-INDICES
 
@@ -97044,7 +97076,7 @@ vpiVirtualInterfaceVar returns specialization virtual-interface declarations and
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-002
 
-37.32 / normal / テスト未対応
+37.32 / normal / テスト対応あり・実行未確認
 
 37.32 defines a one-to-one relation from class typespec to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -97052,6 +97084,7 @@ vpiVirtualInterfaceVar returns specialization virtual-interface declarations and
 
 規定の性質: `definition`。
 
+- [test_vpi_class_object_members.sv](../tests/ch37/test_vpi_class_object_members.sv): クラス変数 p のクラス型指定子から vpi_handle(vpiClassDefn) で宣言型 packet、p のオブジェクトの型指定子からは生成型 linked を得る。型指定子が指す class definition を一対一で返す。 区別: 型指定子からクラス定義への関係を欠く実装では「declared type of (none)」や「object created as (none)」になり、宣言型と生成型を同じ定義にする実装では linked が packet になる。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-003
 
@@ -97090,7 +97123,7 @@ vpiVirtualInterfaceVar returns specialization virtual-interface declarations and
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-006
 
-37.32 / normal / テスト未対応
+37.32 / normal / テスト対応あり・実行未確認
 
 37.32 defines a one-to-one relation from variables to class typespec, using the untagged class typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -97098,6 +97131,7 @@ vpiVirtualInterfaceVar returns specialization virtual-interface declarations and
 
 規定の性質: `definition`。
 
+- [test_vpi_class_object_members.sv](../tests/ch37/test_vpi_class_object_members.sv): クラス変数 q から vpi_handle(vpiClassTypespec) で型指定子を取り、その vpiParameter 反復がオブジェクト側と同じ K=3(local 1), W=6(local 0) を返す。 区別: 変数からクラス型指定子への関係を欠く実装では「parameters of the class typespec of q:」が空になり、別の型を返す実装では W の値が既定の 4 になる。
 
 ### SV2023-37.32-EXTRACT-DIAGRAM-007
 
@@ -97366,7 +97400,7 @@ vpiExtends returns the base class typespec if present; the base of a specializat
 
 ### SV2023-37.32-EXTRACT-SPECIALIZATION-MEMBERS
 
-37.32 / normal / テスト未対応
+37.32 / normal / テスト対応あり・実行未確認
 
 Specialization variables/methods/events/event arrays include static and automatic declarations, excluding implicit built-in methods without explicit declarations.
 
@@ -97374,6 +97408,7 @@ Specialization variables/methods/events/event arrays include static and automati
 
 規定の性質: `mandatory`。
 
+- [test_vpi_class_specialization_members.sv](../tests/ch37/test_vpi_class_specialization_members.sv): パラメータ化クラス base #(8) の変数 b8 の型指定子（特殊化）から、変数 s_cnt(static)/vif/vifs/x とメソッド get/sget(static)/t を列挙し、組み込みメソッド new/randomize を含まない。vifs は vpiVariables では 1 個の vpiArrayVar、vpiVirtualInterfaceVar では vif と 2 要素に分かれる。 区別: static メンバーを落とす実装では s_cnt/sget が消え、組み込みメソッドを含める実装では methods に new/randomize が増える。vpiVariables を要素に分解する実装では「vifs among the variables as one vpiArrayVar: 0」になる。
 
 ### SV2023-37.32-EXTRACT-SPECIALIZATION-NAME
 
@@ -98137,7 +98172,7 @@ primitive terminal exposes vpiTermIndex as integer, representing terminal index;
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-016
 
-37.35 / normal / テスト未対応
+37.35 / normal / テスト対応あり・実行未確認
 
 Primitive terminal values are readable with vpi_get_value; primitive delays support get/put_delays and primitive values support get/put_value only under the stated sequential-UDP restriction.
 
@@ -98145,6 +98180,8 @@ Primitive terminal values are readable with vpi_get_value; primitive delays supp
 
 規定の性質: `definition`。
 
+- [test_vpi_udp_defn_entries.sv](../tests/ch37/test_vpi_udp_defn_entries.sv): UDP インスタンス u1 の prim term を vpi_iterate(vpiPrimTerm) で回し、各 term を vpiBinStrVal で vpi_get_value して "terminals: 0 output 1, 1 input 1, 2 input 1" を出し、順序 UDP の u2 に vpi_put_value(vpiScalarVal, vpi1, NULL, vpiNoDelay) を掛けて "hit after vpi_put_value: 1" を出す。
+- [test_vpi_gate_delays.sv](../tests/ch38/test_vpi_gate_delays.sv): プリミティブ and #(3, 5) g1 に vpi_get_delays を掛けて rise/fall を 3 5 と読み、vpi_put_delays で 7 9 に書き換え、そのあと a と b が 1 になってから y が 7 後に立ち上がる時刻 17、b が 0 になってから 9 後に立ち下がる時刻 39 を出す。
 
 ### SV2023-37.35-EXTRACT-DIAGRAM-017
 
@@ -102445,7 +102482,7 @@ sequence operation exposes vpiOpType as integer, representing sequence operator;
 
 ### SV2023-37.54-EXTRACT-SEQUENCE-ACTUAL-ORDER
 
-37.54 / normal / テスト未対応
+37.54 / normal / テスト対応あり・実行未確認
 
 Sequence-instance argument iteration follows formal declaration order, inserting default values for omitted actuals.
 
@@ -102453,6 +102490,7 @@ Sequence-instance argument iteration follows formal declaration order, inserting
 
 規定の性質: `mandatory`。
 
+- [test_vpi_property_sequence_exprs.sv](../tests/ch37/test_vpi_property_sequence_exprs.sv): シーケンス宣言 `sequence s_arg(x, n = 2);` を property p_inst の中で `s_arg(a)` とだけ実体化し、そのシーケンス実体に vpi_iterate(vpiArgument, ...) を掛けて、定数は値、それ以外は名前として並べる。既定値を持つ形式引数 n を省いた実体化で、引数は形式引数の宣言順に "a 2" と出力される。 区別: 実引数の対応付けを形式引数の宣言順に行わない実装では "2 a" になり、省略した実引数に既定値を挿入しない実装では "a" だけになる。既定値 2 が実引数の位置に現れることで、宣言順と既定値挿入の両方が出力で区別できる。
 
 ### SV2023-37.54-EXTRACT-SEQUENCE-OP-VPICOMPANDOP
 
@@ -107191,7 +107229,7 @@ Flush simulator output-channel and current-log-file buffers.
 
 ### SV2023-38.5-EXTRACT-FLUSH-SIGNATURE
 
-38.5 / normal / テスト未対応
+38.5 / normal / 実行確認あり
 
 vpi_flush takes no arguments and returns PLI_INT32 0 for success, nonzero for failure.
 
@@ -107199,6 +107237,7 @@ vpi_flush takes no arguments and returns PLI_INT32 0 for success, nonzero for fa
 
 規定の性質: `mandatory`。
 
+- [test_vpi_routines_print_and_flush.sv](../tests/ch36/test_vpi_routines_print_and_flush.sv): cbStartOfSimulation で vpi_printf と vpi_vprintf を呼んだあと、引数なしで vpi_flush() を呼び、その戻り値を "returned 25 and 26, vpi_flush returned 0" として出力する。成功時の戻り値が 0 であることと、引数を取らない呼び出しがそのままコンパイル・実行できることが同時に観測される。 区別: vpi_flush が成功時に 0 以外（書き込んだ文字数など）を返す実装では行末が "vpi_flush returned 25" のようになり、引数を要求する宣言なら呼び出しがコンパイルできない。どちらも期待出力に到達しないので、戻り値 0 と引数なしの呼び出し形が出力で区別できる。
 
 ### SV2023-38.6-EXTRACT-GET-PROTECTED-ERROR
 
@@ -107429,7 +107468,7 @@ s_vpi_delay contains t_vpi_time* da followed by PLI_INT32 no_of_delays, time_typ
 
 ### SV2023-38.10-EXTRACT-DELAYS-FORMAT
 
-38.10 / normal / テスト未対応
+38.10 / normal / テスト対応あり・実行未確認
 
 The application allocates s_vpi_delay; its time_type controls format, ignoring individual s_vpi_time.type fields.
 
@@ -107437,6 +107476,7 @@ The application allocates s_vpi_delay; its time_type controls format, ignoring i
 
 規定の性質: `mandatory`。
 
+- [test_vpi_module_paths.sv](../tests/ch37/test_vpi_module_paths.sv): specify のパス (a *> y) = (3, 5) など 4 本について、s_vpi_delay と s_vpi_time の配列を memset で 0 にし、da を配列に結び、no_of_delays を 2、s_vpi_delay.time_type だけを vpiScaledRealTime にして vpi_get_delays を呼ぶ。da の各要素の s_vpi_time.type は 0（vpiScaledRealTime でも vpiSimTime でも vpiSuppressTime でもない）のまま、各パスの遅延が実数として "delays 3 5" のように返る。 区別: 各 s_vpi_time.type を見て形式を決める実装では、0 という不正な種別のため値が入らず "delays 0 0" やエラーになる。time_type を無視して別形式（シミュレーション時間の整数など）で返す実装でも数値が変わる。time_type だけが形式を決めることが出力で区別できる。
 
 ### SV2023-38.10-EXTRACT-DELAYS-SIGNATURE
 
@@ -107451,7 +107491,7 @@ vpi_get_delays(vpiHandle obj,p_vpi_delay delay_p) returns void and retrieves obj
 
 ### SV2023-38.10-EXTRACT-INTERMODULE-DELAY-COUNT
 
-38.10 / normal / テスト未対応
+38.10 / normal / 実行確認あり
 
 Intermodule-path no_of_delays must be 2 or 3.
 
@@ -107459,6 +107499,7 @@ Intermodule-path no_of_delays must be 2 or 3.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_intermod_path_delays.sv](../tests/ch37/test_vpi_intermod_path_delays.sv): 出力ポート s.o と入力ポート d.i を結ぶ intermodule path に、vpi_put_delays で no_of_delays=2 の遅延 4, 6 を書き、vpi_get_delays で読み戻して "after putting 4 6, two delays: 4 6"、続いて no_of_delays=3 の 1, 2, 5 を書き、"after putting 1 2 5, three delays: 1 2 5" を出力する。2 個と 3 個の両方で値が往復する。 区別: intermodule path の no_of_delays を 2 に固定する実装では 3 個目の 5 が落ちて "1 2" や "1 2 0" になり、3 に固定する実装では 2 個の往復が変わる。2 と 3 の両方が値ごと往復することで、許される個数の組が出力で区別できる。
 
 ### SV2023-38.10-EXTRACT-PATH-DELAY-COUNT
 
@@ -107484,7 +107525,7 @@ Allocate the delay structure and its array before passing them to vpi_get_delays
 
 ### SV2023-38.10-EXTRACT-PRIMITIVE-DELAY-COUNT
 
-38.10 / normal / テスト未対応
+38.10 / normal / テスト対応あり・実行未確認
 
 Primitive no_of_delays must be 2 or 3.
 
@@ -107492,6 +107533,8 @@ Primitive no_of_delays must be 2 or 3.
 
 規定の性質: `mandatory`。
 
+- [test_vpi_gate_delays.sv](../tests/ch38/test_vpi_gate_delays.sv): and #(3, 5) g1 に no_of_delays=2、time_type=vpiScaledRealTime で vpi_get_delays を掛けて "old delays 3 5" を出し、vpi_put_delays で 7 9 に変えたあと "new delays 7 9" と、y が 17 で 1、39 で 0 になることを出す。
+- [test_vpi_cont_assign_bits_delays.sv](../tests/ch37/test_vpi_cont_assign_bits_delays.sv): bufif1 #(1, 2, 3) gb に no_of_delays=3、time_type=vpiSimTime で vpi_get_delays を掛け、3 個ぶんの "delays of gb: 1 2 3" を出す。
 
 ### SV2023-38.10-EXTRACT-TIME-STRUCTURE
 
@@ -107600,7 +107643,7 @@ The application allocates time_p and sets its type for scaled-real or simulation
 
 ### SV2023-38.13-EXTRACT-GET-TIME-SCALE
 
-38.13 / normal / テスト未対応
+38.13 / normal / テスト対応あり・実行未確認
 
 Ordinary objects use their timescale for current time; NULL uses simulation time unit. A time-queue object returns its future scheduled event time in simulation time units.
 
@@ -107608,6 +107651,8 @@ Ordinary objects use their timescale for current time; NULL uses simulation time
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_time_scaled.sv](../tests/ch38/test_vpi_get_time_scaled.sv): 2500ns で $vt_now を呼び、vpi_get_time(NULL, vpiSimTime) の 2500000 と、トップおよび s に vpiScaledRealTime で問い合わせた 2500.000 と 2.500 を、各モジュールの vpiTimeUnit と vpiTimePrecision とともに出力する。
+- [test_vpi_time_queue_current_and_end.sv](../tests/ch37/test_vpi_time_queue_current_and_end.sv): 時刻 5 の開始時と read-only 同期時、および時刻 25 の read-only 同期時に、vpi_iterate(vpiTimeQueue, NULL) の各 time queue へ vpiSimTime で vpi_get_time を掛け、"start of time 5: 5 20 25" と "read-only synch of time 5: 20 25" を出し、時刻 25 では iterator が NULL であることを出す。
 
 ### SV2023-38.13-EXTRACT-GET-TIME-SIGNATURE
 
@@ -107908,7 +107953,7 @@ For a real object, formats other than vpiRealVal/vpiStringVal first round to int
 
 ### SV2023-38.15-EXTRACT-SCALAR-OBJECT-FORMAT-TEXT
 
-38.15 / normal / テスト未対応
+38.15 / normal / 実行確認あり
 
 For vpiObjTypeVal on a scalar, fill the value and replace format with either vpiScalarVal or vpiStrengthVal; the text's vpiScalar/vpiStrength denote these value-format constants.
 
@@ -107916,6 +107961,7 @@ For vpiObjTypeVal on a scalar, fill the value and replace format with either vpi
 
 規定の性質: `mandatory`。
 
+- [test_vpi_get_value_obj_type_real_vector.sv](../tests/ch38/test_vpi_get_value_obj_type_real_vector.sv): スカラーの logic s（値 1'b1）に format=vpiObjTypeVal で vpi_get_value を掛け、返された format が vpiScalarVal か vpiStrengthVal のどちらかであるかを yes/no で出力し、さらに format に応じて value.scalar か value.strength->logic を読んで vpi1 かどうかを出力する。結果は "s: format vpiScalarVal or vpiStrengthVal yes, logic value is vpi1: yes"。 区別: スカラーに vpiObjTypeVal を掛けたとき format を vpiIntVal や vpiVectorVal のままにする実装では前半が "no" になり、value.scalar / value.strength の正しいメンバに値を入れない実装では後半が "no" になる。format の置き換えと値の格納先の両方が出力で区別できる。
 
 ### SV2023-38.15-EXTRACT-STRENGTH-ARRAY
 
@@ -107956,7 +108002,7 @@ A vpiStringConst constant must be read using vpiStringVal or vpiVectorVal.
 
 ### SV2023-38.15-EXTRACT-UDP-SYMBOL-ORDER-TEXT
 
-38.15 / normal / テスト未対応
+38.15 / normal / テスト対応あり・実行未確認
 
 UDP table-entry symbols fill each s_vpi_vecval element in the order aval bits 31:16, aval bits 15:0, bval bits 31:16, then bval bits 15:0 (the text's abit/bbit are the aval/bval fields); within each two-byte symbol the first character is the more significant byte, and a single-character symbol has ASCII "\0" as its less significant second byte.
 
@@ -107964,6 +108010,7 @@ UDP table-entry symbols fill each s_vpi_vecval element in the order aval bits 31
 
 規定の性質: `mandatory`。
 
+- [test_vpi_udp_defn_entries.sv](../tests/ch37/test_vpi_udp_defn_entries.sv): UDP 定義の各 table entry を vpiVectorVal で vpi_get_value し、記号 k を vector[k/4] の aval（k%4 が 0,1）または bval（k%4 が 2,3）の、k%2 が 0 なら上位 16 ビット、1 なら下位 16 ビットから取り、その 16 ビットの上位バイトを先に、NUL バイトを飛ばして並べる。4 記号の行 `1 f : ? : 1` は "catch entry symbols 1 f ? 1" になり、aval 上位・aval 下位・bval 上位・bval 下位の 4 位置すべてが使われる。 区別: aval と bval の割り当て（k%4 が 2 以上で bval）や、上位 16 ビット・下位 16 ビットの順、2 バイト内の上位バイト先頭という規則を 1 つでも誤る実装では、"1 f ? 1" が別の並び（例 "f 1 1 ?"）や空・文字化けになる。単一文字記号の 2 バイト目が ASCII の NUL であることを前提に NUL を読み飛ばしており、記号が 1 バイト格納なら並びが崩れる。
 
 ### SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE
 
@@ -108853,7 +108900,7 @@ s_vpi_time contains PLI_INT32 type, PLI_UINT32 high/low and double real, using t
 
 ### SV2023-38.32-EXTRACT-PUT-DELAYS-SIGNATURE
 
-38.32 / normal / テスト未対応
+38.32 / normal / テスト対応あり・実行未確認
 
 vpi_put_delays(vpiHandle obj,p_vpi_delay delay_p) returns void and sets object delays/timing limits.
 
@@ -108861,6 +108908,8 @@ vpi_put_delays(vpiHandle obj,p_vpi_delay delay_p) returns void and sets object d
 
 規定の性質: `mandatory`。
 
+- [test_vpi_value_time_delay_structures.sv](../tests/ch38/test_vpi_value_time_delay_structures.sv): vpi_put_delays を SAME_TYPE で void (*)(vpiHandle, p_vpi_delay) と完全一致で比べ、その行を 1 として出力する。戻り値が void で、引数が vpiHandle と p_vpi_delay の 2 つであることをコンパイル時に確かめる。
+- [test_vpi_gate_delays.sv](../tests/ch38/test_vpi_gate_delays.sv): and #(3, 5) の primitive g1 に vpi_put_delays で 7 と 9 を書き、直後の vpi_get_delays が 7 9 を返し、a と b が 1 になる 10 から 7 後に y が 1、b が 0 になる 30 から 9 後に y が 0 になる。
 
 ### SV2023-38.32-EXTRACT-PUT-INTERMODULE-COUNT
 
@@ -109035,7 +109084,7 @@ put_value on vpiNamedEvent toggles/triggers the event; no actual value is requir
 
 ### SV2023-38.34-EXTRACT-FORCE-MODE
 
-38.34 / normal / テスト未対応
+38.34 / normal / 実行確認あり
 
 vpiForceFlag applies an immediate procedural force; ignore time_p, which may be NULL.
 
@@ -109043,6 +109092,7 @@ vpiForceFlag applies an immediate procedural force; ignore time_p, which may be 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_put_value_force_release.sv](../tests/ch38/test_vpi_put_value_force_release.sv): 時刻 15 に time_p を NULL のまま vpiForceFlag で変数 v を 30、net n を 40 にし、直後と 21 の設計出力で 30/40 が保たれる。設計は 20 で v に 2、drv に 12 を代入するが、force 中の v と n はその影響を受けない。 区別: force が即時でない実装では 21 の設計出力が 2/12 になり、time_p を参照する実装では NULL で異常になるか15 の直後の読みが 30/40 にならない。
 
 ### SV2023-38.34-EXTRACT-INERTIAL-MODE
 
@@ -109224,7 +109274,7 @@ Releasing a scheduled-event handle frees only the handle and does not cancel/cha
 
 ### SV2023-38.34-EXTRACT-RELEASE-MODE
 
-38.34 / normal / テスト未対応
+38.34 / normal / 実行確認あり
 
 vpiReleaseFlag immediately releases a force, ignoring optional NULL time_p, and updates value_p with the postrelease value. Returned pointed-to string/time/vector/strength/misc storage belongs to the interface.
 
@@ -109232,6 +109282,7 @@ vpiReleaseFlag immediately releases a force, ignoring optional NULL time_p, and 
 
 規定の性質: `mandatory`。
 
+- [test_vpi_put_value_force_release.sv](../tests/ch38/test_vpi_put_value_force_release.sv): 時刻 25 に time_p を NULL にして vpiReleaseFlag を呼び、value_p が解放後の値 v=30、n=12 になり、直後の読みで n がドライバの 12、31 で v が設計の 3 になる。解放が即時で、value_p が解放後の値で更新されることを示す。 区別: value_p を更新しない実装では -1 のままになり、解放が遅れる実装では 25 の n が 40、v が 30 のままになる。
 
 ### SV2023-38.34-EXTRACT-RETURN-EVENT
 
@@ -109247,7 +109298,7 @@ Return a vpiSchedEvent handle only when vpiReturnEvent is set, a delay mode is u
 
 ### SV2023-38.34-EXTRACT-SYSTEM-FUNCTION-ACTIVE
 
-38.34 / normal / テスト未対応
+38.34 / normal / 実行確認あり
 
 Set a user system-function return only during that function active calltf and with vpiNoDelay; ignore updates outside the active call. If calltf supplies no value, use default result 0.
 
@@ -109255,6 +109306,7 @@ Set a user system-function return only during that function active calltf and wi
 
 規定の性質: `mandatory`。
 
+- [test_vpi_put_value_sysfunc_return.sv](../tests/ch38/test_vpi_put_value_sysfunc_return.sv): calltf の中で vpiNoDelay により戻り値を置くと $vt_value(7) が 7、$vt_value(9) が 9 を返し、値を置かない $vt_nothing は 0 を返す。最初の $vt_nothing が保持した call handle に、calltf が動いていない時刻 2 で 55 を置いても、時刻 5 の $vt_nothing は 0 のままである。 区別: calltf の外からの put を反映する実装では 5 の $vt_nothing が 55 になり、値を置かなかったときの既定値 0 を適用しない実装では 0 の行が別の値になる。
 
 ### SV2023-38.34-EXTRACT-TRANSPORT-MODE
 
@@ -109452,7 +109504,7 @@ Raw four-state applies to four-state net/variable arrays and raw two-state to tw
 
 ### SV2023-38.35-EXTRACT-PUT-RAW-FOUR
 
-38.35 / normal / テスト未対応
+38.35 / normal / 実行確認あり
 
 vpiRawFourStateVal rawvals stores each element as ngroups A bytes then ngroups B bytes, with ngroups=ceil(element_bits/8), requiring 2*ngroups*num bytes.
 
@@ -109460,10 +109512,11 @@ vpiRawFourStateVal rawvals stores each element as ngroups A bytes then ngroups B
 
 規定の性質: `mandatory`。
 
+- [test_vpi_put_value_array_formats.sv](../tests/ch38/test_vpi_put_value_array_formats.sv): 10bit 要素の logic 配列 fv に vpiRawFourStateVal で 8 バイトを渡し、fv[0] が 355、fv[1] が 00f になる。ngroups=ceil(10/8)=2 で各要素が A 2 バイトの後に B 2 バイトを占める並びでなければ、2 要素目の A は 0x0f にならず、全体で ngroups*2*num=8 バイトという大きさも確かめられる。 区別: B のバイト群を詰めたり A と B の順を入れ替えたりする実装では、fv が 00f ではなく 000 や別の値になる。
 
 ### SV2023-38.35-EXTRACT-PUT-RAW-SIGNIFICANCE
 
-38.35 / normal / テスト未対応
+38.35 / normal / 実行確認あり
 
 Raw A/B byte layout follows increasing bit significance: bit 0 is first-byte LSB and bit 8 next-byte LSB for each element.
 
@@ -109471,6 +109524,7 @@ Raw A/B byte layout follows increasing bit significance: bit 0 is first-byte LSB
 
 規定の性質: `mandatory`。
 
+- [test_vpi_put_value_array_formats.sv](../tests/ch38/test_vpi_put_value_array_formats.sv): 12bit 要素の bit 配列 bv に vpiRawTwoStateVal で 0x34,0x02 / 0xff,0x0f / 0x01,0x08 の 6 バイトを渡し、bv が 234 fff 801 になる。最初のバイトの LSB が bit0、次のバイトの LSB が bit8 という、bit の重みが増える向きのバイト並びを確かめている。 区別: バイト順を逆にする実装では 3402/0fff/0801 になり、bit8 以降を別の位置に置く実装では 801 が 108 などになる。
 
 ### SV2023-38.35-EXTRACT-PUT-RAW-TWO
 
@@ -109650,7 +109704,7 @@ Table 38-5 vpiIntVal supplies integer value.
 
 ### SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIOBJTYPEVAL
 
-38.36.1 / normal / テスト未対応
+38.36.1 / normal / テスト対応あり・実行未確認
 
 Table 38-5 vpiObjTypeVal supplies closest object-type format.
 
@@ -109658,6 +109712,7 @@ Table 38-5 vpiObjTypeVal supplies closest object-type format.
 
 規定の性質: `definition`。
 
+- [test_vpi_value_change_strength_time_objtype.sv](../tests/ch38/test_vpi_value_change_strength_time_objtype.sv): vpiObjTypeVal で登録した cbValueChange が、integer iv では vpiIntVal と -7、real rv では vpiRealVal と 1.25、12bit の logic vec では vpiVectorVal と aval 5a3/bval 000 を返す。対象に最も近い形式が選ばれることを、3 種類の異なる型で確かめる。 区別: 常に同じ形式を返す実装では、iv の行が vpiRealVal や vpiVectorVal になり、vec の行が vpiIntVal になるなど、3 行の形式と値が期待と変わる。
 
 ### SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPIOCTSTRVAL
 
@@ -109767,7 +109822,7 @@ cbDisable obj is a system-task/function call, named begin/fork, task or function
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-DELIVERY
 
-38.36.1 / normal / テスト未対応
+38.36.1 / normal / 実行確認あり
 
 Pass a new s_cb_data structure distinct from registration, with requested time/value format and user_data equal to registered user_data.
 
@@ -109775,6 +109830,7 @@ Pass a new s_cb_data structure distinct from registration, with requested time/v
 
 規定の性質: `mandatory`。
 
+- [test_vpi_value_change_callback_formats.sv](../tests/ch38/test_vpi_value_change_callback_formats.sv): 同一の static な s_cb_data から 8 つの cbValueChange を登録し、各 callback で cb が登録した構造体と異なること（new structure yes）、value->format が登録した形式と一致すること、user_data が登録した文字列であることを出力する。時刻も要求どおり vpiSimTime の現在時刻になる。 区別: 登録した構造体をそのまま渡す実装では new structure が no になり、形式や user_data を引き継がない実装ではregistered format が no になるか行の識別子が変わる。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-FORMAT
 
@@ -110491,7 +110547,7 @@ Set a non-NULL time structure with scaled-real or simulation-time type and reque
 
 ### SV2023-38.36.2-EXTRACT-TIME-CBAFTERDELAY
 
-38.36.2 / normal / テスト未対応
+38.36.2 / normal / 実行確認あり
 
 cbAfterDelay invokes its callback after the specified delay and before events in that queue, even without another event.
 
@@ -110499,6 +110555,7 @@ cbAfterDelay invokes its callback after the specified delay and before events in
 
 規定の性質: `mandatory`。
 
+- [test_vpi_time_callbacks_without_events.sv](../tests/ch38/test_vpi_time_callbacks_without_events.sv): 時刻 0 から cbAfterDelay を 20 と 25 に登録する。20 では設計が v を 2 にする前に callback が走って v=1 が見え、25 には設計の事象がまったくないのに callback が走って v=2 が見える。遅延の後・その時刻の事象の前に呼ばれ、別の事象がなくても呼ばれることを示す。 区別: callback を事象の後に呼ぶ実装では 20 の行が v=2 になり、事象のある時刻にしか呼ばない実装では 25 の行が出ない。
 
 ### SV2023-38.36.2-EXTRACT-TIME-CBATENDOFSIMTIME
 
@@ -110858,7 +110915,7 @@ Provide a NULL-terminated static vlog_startup_routines array of void-returning C
 
 ### SV2023-38.37.2-EXTRACT-STARTUP-LINKING
 
-38.37.2 / normal / テスト未対応
+38.37.2 / normal / 実行確認あり
 
 A compliant tool provides the startup-array facility; users add entries and the vendor defines its location and linking procedure.
 
@@ -110866,6 +110923,7 @@ A compliant tool provides the startup-array facility; users add entries and the 
 
 規定の性質: `implementation_defined`。
 
+- [test_vpi_systf_startup_routines.sv](../tests/ch36/test_vpi_systf_startup_routines.sv): vlog_startup_routines に 3 つの routine と終端の 0 を並べ、tool が設計を build する間に各 routine を 1 回ずつ呼ぶ。出力の startup routines run: 3 と、各 routine が登録した $vt_one/$vt_two/$vt_three が呼べること、compiletf saw: 3 が、配列の facility と利用者が足した entry が働くことを示す。 区別: 配列の entry を呼ばない実装では startup routines run が 3 未満になり、登録された system task の行が出ないかcompiletf の数が変わる。
 
 ### SV2023-38.37.2-EXTRACT-STARTUP-REGISTRATION
 
@@ -111794,7 +111852,7 @@ vpiAssertionSysDisableFailAction: disable fail actions; do not affect existing a
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSDISABLEPASSACTION
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysDisablePassAction: disable pass actions for vacuous/nonvacuous success; do not affect existing attempts or change anything if already in that state. Pass/fail/vacuous actions are enabled by default.
 
@@ -111802,6 +111860,8 @@ vpiAssertionSysDisablePassAction: disable pass actions for vacuous/nonvacuous su
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_sys_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv): 10 で SysDisablePassAction、40 で同じ制御を繰り返し、50 と 80 で SysEnablePassAction、90 で再度 disable する。p1 の pass action の記録は 25 75 145 で、10 より前に start した 5 の attempt は 25 に走り（既存の attempt は変わらない）、disable の後に start した 15 と 45 の attempt は 35 と 65 に走らず、50 の enable の後の 55 は 75 に、120 の enable の後の 125 は 145 に走る。40 と 80 の再呼び出しは出力を変えない。
+- [test_vpi_assertion_system_vacuous_actions.sv](../tests/ch39/test_vpi_assertion_system_vacuous_actions.sv): 30 で vacuous の pass action を止め、60 で SysEnablePassAction により両方の種類を戻し、90 で SysDisablePassAction を呼んだ後に nonvacuous だけを有効にする。最後の phase で vacuous が 0 のままなので、SysDisablePassAction が vacuous の pass action にも効くことを示す。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSDISABLEVACUOUSACTION
 
@@ -111841,7 +111901,7 @@ vpiAssertionSysEnableNonvacuousAction: enable pass actions on nonvacuous success
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSENABLEPASSACTION
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysEnablePassAction: enable pass actions for vacuous/nonvacuous success; do not affect existing attempts or change anything if already in that state. Pass/fail/vacuous actions are enabled by default.
 
@@ -111849,10 +111909,12 @@ vpiAssertionSysEnablePassAction: enable pass actions for vacuous/nonvacuous succ
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_sys_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv): 50 で SysEnablePassAction を呼ぶ。45 に start した attempt は 65 に pass action を走らせず、55 の attempt は 75 に走らせる。80 の再 enable は出力を変えない。既存の attempt を変えず、以後の attempt にだけ効くことを示す。
+- [test_vpi_assertion_system_vacuous_actions.sv](../tests/ch39/test_vpi_assertion_system_vacuous_actions.sv): 30 で vacuous の pass action を止めた後、60 の SysEnablePassAction で vacuous が再び走り、phase の出力が非vacuous 1・vacuous 1 になる。enable が vacuous の種類にも効くことを示す。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSEND
 
-39.5.1 / normal / テスト未対応
+39.5.1 / normal / テスト対応あり・実行未確認
 
 vpiAssertionSysEnd: discard attempts, prevent new attempts, remove all assertion callbacks and prohibit further assertion-related actions.
 
@@ -111860,6 +111922,7 @@ vpiAssertionSysEnd: discard attempts, prevent new attempts, remove all assertion
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_sys_end_discards_and_blocks.sv](../tests/ch39/test_vpi_assertion_sys_end_discards_and_blocks.sv): 時刻 30 に vpi_control(vpiAssertionSysEnd, NULL) を呼ぶ。5 の attempt は 25 に pass するが、15 と 25 の attempt は破棄されて 35/45 の pass がなく、35 以降は新しい attempt も始まらない。40 の SysOff/SysOn と 42 の vpiAssertionEnable は効果がなく、assertion callback も end の後に 1 つも来ない。 区別: attempt を破棄しない実装では 35/45 の pass が記録され、新しい attempt を止めない実装では 35 以降の start が増え、callback を残す実装では callbacks after the end が 0 にならない。
 
 ### SV2023-39.5.1-EXTRACT-CONTROL-VPIASSERTIONSYSKILL
 
@@ -111994,7 +112057,7 @@ vpiAssertionDisableFailAction takes a valid assertion handle and must disable fa
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONDISABLEPASSACTION
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionDisablePassAction takes a valid assertion handle and must disable pass actions on vacuous/nonvacuous success, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -112002,6 +112065,8 @@ vpiAssertionDisablePassAction takes a valid assertion handle and must disable pa
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv): p1 の assertion handle に 10 で vpiAssertionDisablePassAction、40 で繰り返し、50 と 80 で vpiAssertionEnablePassAction を適用する。pass action の記録は 25 75 145 で、10 より前に start した attempt は25 に走り、後の attempt は止まり、40 の再 disable は出力を変えない。
+- [test_vpi_assertion_vacuous_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv): a1 の pass action を sampled c で vacuous と nonvacuous に分けて記録する。90 の vpiAssertionDisablePassAction の後に nonvacuous だけを有効にすると、vacuous は 135 でも走らず 0 のままなので、disable が vacuous の pass action にも効くことを示す。
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONDISABLEVACUOUSACTION
 
@@ -112053,7 +112118,7 @@ vpiAssertionEnableNonvacuousAction takes a valid assertion handle and must enabl
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONENABLEPASSACTION
 
-39.5.2 / normal / テスト未対応
+39.5.2 / normal / テスト対応あり・実行未確認
 
 vpiAssertionEnablePassAction takes a valid assertion handle and must enable pass actions on vacuous/nonvacuous success, without affecting existing attempts and with no effect if already in that state. Assertions and pass/fail/vacuous actions are enabled by default.
 
@@ -112061,6 +112126,8 @@ vpiAssertionEnablePassAction takes a valid assertion handle and must enable pass
 
 規定の性質: `mandatory`。
 
+- [test_vpi_assertion_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv): 50 の vpiAssertionEnablePassAction で、45 に start した attempt は 65 に action を走らせず、55 の attempt は 75 に走らせる。80 の再 enable は出力を変えない。既存の attempt を変えず、以後の attempt にだけ効くことを示す。
+- [test_vpi_assertion_vacuous_action_controls_running_attempts.sv](../tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv): 30 で vacuous の pass action を止めた後、70 の vpiAssertionEnablePassAction で vacuous が再び走り（85）、vacuous の記録に 85 が加わる。enable が vacuous の種類にも効くことを示す。
 
 ### SV2023-39.5.2-EXTRACT-CONTROL-VPIASSERTIONLOCK
 
@@ -112593,7 +112660,7 @@ Table 40-1 maps SV_COV_CHECK / SV_COV_ERROR to bad arguments; not-applicable cel
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-NOCOV
 
-40.3.2.1 / normal / テスト未対応
+40.3.2.1 / normal / テスト対応あり・実行未確認
 
 Table 40-1 maps SV_COV_CHECK / SV_COV_NOCOV to no coverage; not-applicable cells do not prescribe that return for the action.
 
@@ -112601,6 +112668,7 @@ Table 40-1 maps SV_COV_CHECK / SV_COV_NOCOV to no coverage; not-applicable cells
 
 規定の性質: `definition`。
 
+- [test_coverage_uninstantiated_module.sv](../tests/ch40/test_coverage_uninstantiated_module.sv): instance を持たない module cov_unused を SV_COV_MODULE で指定し、$coverage_control(SV_COV_CHECK, SV_COV_TOGGLE, ...) の戻り値が SV_COV_NOCOV であることを 1 として出力する。この scope には coverable item がないので、check はno coverage を返さなければならない。 区別: check に OK や PARTIAL、ERROR を返す実装では 0 になり、NOCOV を返さないことが出力に現れる。
 
 ### SV2023-40.3.2.1-EXTRACT-RETURN-SV-COV-CHECK-SV-COV-OK
 
@@ -112790,7 +112858,7 @@ Maximum-coverage scope selection follows $coverage_control.
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-SIGNATURE
 
-40.3.2.2 / normal / テスト未対応
+40.3.2.2 / normal / テスト対応あり・実行未確認
 
 $coverage_get_max takes coverage_type,scope_def,modules_or_instance and returns the coverage total corresponding to 100%.
 
@@ -112798,6 +112866,7 @@ $coverage_get_max takes coverage_type,scope_def,modules_or_instance and returns 
 
 規定の性質: `mandatory`。
 
+- [test_coverage_get_values.sv](../tests/ch40/test_coverage_get_values.sv): $coverage_get_max(coverage_type, scope_def, modules_or_instance) を、4 種類の coverage_type、SV_COV_HIER、instance の 3 引数で呼び、返った最大値が同じ引数の check の結果と一致する（no coverage なら 0）ことを確かめる。coverage type と scope_def と instance の 3 つを渡す形が働くことを示す。 区別: 引数の順序や個数を誤った実装ではこの呼び出しがコンパイルできないか別の値を返し、最大値と check の対応の行がwrong になる。
 
 ### SV2023-40.3.2.2-EXTRACT-GET-MAX-STABILITY
 
@@ -112856,7 +112925,7 @@ Current-coverage scope selection follows $coverage_control.
 
 ### SV2023-40.3.2.3-EXTRACT-GET-COVERAGE-SIGNATURE
 
-40.3.2.3 / normal / テスト未対応
+40.3.2.3 / normal / テスト対応あり・実行未確認
 
 $coverage_get takes coverage_type,scope_def,modules_or_instance.
 
@@ -112864,6 +112933,7 @@ $coverage_get takes coverage_type,scope_def,modules_or_instance.
 
 規定の性質: `mandatory`。
 
+- [test_coverage_get_values.sv](../tests/ch40/test_coverage_get_values.sv): $coverage_get(coverage_type, scope_def, modules_or_instance) を、4 種類の coverage_type、SV_COV_HIER、instance の3 引数で呼び、返った current が 0 と max の間で、時刻を進めても減少しないことを確かめる。 区別: 引数の順序や個数を誤った実装ではこの呼び出しがコンパイルできないか別の値を返し、current の範囲と単調性の行がwrong になる。
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-LOOKUP
 
@@ -112878,7 +112948,7 @@ Load/merge the specified coverage database by arbitrary implementation-mapped na
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-SIGNATURE
 
-40.3.2.4 / normal / テスト未対応
+40.3.2.4 / normal / テスト対応あり・実行未確認
 
 $coverage_merge takes coverage type and a saved coverage name string.
 
@@ -112886,6 +112956,7 @@ $coverage_merge takes coverage type and a saved coverage name string.
 
 規定の性質: `mandatory`。
 
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): $coverage_merge(coverage_type, "name") の 2 引数形で、SV_COV_TOGGLE と保存名の文字列を渡す。保存した名前なら OK、保存していない名前なら ERROR が返るので、coverage type と名前の文字列で database を引く形が働くことを確かめる。 区別: 引数の型や個数を誤った実装ではこの呼び出しがコンパイルできないか、名前で database を引けないため OK/ERROR の行がwrong になる。
 
 ### SV2023-40.3.2.4-EXTRACT-MERGE-STATUS
 
@@ -112922,7 +112993,7 @@ Save current coverage under the name using implementation-specific storage, make
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-SIGNATURE
 
-40.3.2.5 / normal / テスト未対応
+40.3.2.5 / normal / テスト対応あり・実行未確認
 
 $coverage_save takes coverage type and saved name string.
 
@@ -112930,6 +113001,7 @@ $coverage_save takes coverage type and saved name string.
 
 規定の性質: `mandatory`。
 
+- [test_coverage_save_merge.sv](../tests/ch40/test_coverage_save_merge.sv): $coverage_save(coverage_type, "name") の 2 引数形で、SV_COV_TOGGLE と保存名の文字列を渡し、返った status をSV_COV_OK/SV_COV_NOCOV/SV_COV_ERROR のいずれかとして受け取り、同じ名前での再保存が同じ結果になることを確かめる。 区別: 引数の型や個数を誤った実装ではこの呼び出しがコンパイルできないか、status が 3 値の外に出て wrong の行になる。
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-STATUS
 
@@ -112955,7 +113027,7 @@ Standard FSM-description annotations override default extraction; no particular 
 
 ### SV2023-40.4-EXTRACT-FSM-IDENTIFICATION
 
-40.4 / normal / テスト未対応
+40.4 / normal / テスト対応あり・実行未確認
 
 Identify current state register/expression, optional next-state register and legal states.
 
@@ -112963,6 +113035,7 @@ Identify current state register/expression, optional next-state register and leg
 
 規定の性質: `mandatory`。
 
+- [test_vpi_fsm_from_pragmas.sv](../tests/ch40/test_vpi_fsm_from_pragmas.sv): pragma で状態ベクトルと列挙を指定した FSM を、instance から vpi_iterate(vpiFsm) で 1 つ見つけ、vpi_handle(vpiFsmStateExpression) が現在状態の signal st を返し、vpi_iterate(vpiFsmStates) が legal state の値0、1、2 を返す。この FSM は next-state signal を持たない（optional な項目がない）設計である。 区別: 現在状態の signal を取り違える実装では state expression が st 以外になり、legal state を誤る実装では states が0 1 2 以外になるか FSM の数が 1 でなくなる。
 
 ### SV2023-40.4.1-EXTRACT-FSM-ENUM-INLINE
 

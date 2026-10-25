@@ -1060,10 +1060,13 @@ takes the ledger past the 75% target: 9244 of 12319 rows (75.04%).
 
 An execution audit then ran the whole suite and found 277 spec-only
 tests whose output or diagnostic already matches Icarus Verilog 13.0.
-They now list iverilog@13.0, and their requirements count as executed:
-5270 of 12319 rows (42.78%). Verilator matched none of the spec-only
-tests, and 179 requirements with a fixed oracle still lack fresh
-evidence.
+They now list iverilog@13.0, and their requirements count as executed.
+Verilator matched none of the spec-only tests.
+
+A further matching pass over four partitions with candidate tests
+(33.4.1-37.10, 37.12-37.32, 37.33-38.31, 38.32-40.4.5) accepted 60
+links and held 275 observations. The ledger maps 9304 of 12319 rows
+(75.53%), with 5286 executed (42.91%).
 
 ### Current state
 
@@ -1072,7 +1075,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-9244 of 12319 rows (75.04%), with 5270 executed (42.78%).
+9304 of 12319 rows (75.53%), with 5286 executed (42.91%).
 
 ### Tests added in this work
 
