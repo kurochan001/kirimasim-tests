@@ -2,8 +2,8 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 6009,
-  "linked_test_files": 3511,
+  "test_files": 6013,
+  "linked_test_files": 3515,
   "unlinked_test_files": 2498,
   "chapters": [
     {
@@ -20,8 +20,8 @@
     },
     {
       "chapter": "ch5",
-      "test_files": 313,
-      "linked_test_files": 297,
+      "test_files": 316,
+      "linked_test_files": 300,
       "unlinked_test_files": 16
     },
     {
@@ -56,8 +56,8 @@
     },
     {
       "chapter": "ch11",
-      "test_files": 807,
-      "linked_test_files": 336,
+      "test_files": 808,
+      "linked_test_files": 337,
       "unlinked_test_files": 471
     },
     {
@@ -28461,6 +28461,29 @@
         "SV2023-11.4.6-EXTRACT-RIGHT-ONLY-WILDCARD",
         "SV2023-11.4.6-EXTRACT-UNMASKED-UNKNOWN",
         "SV2023-11.4.6-EXTRACT-WILDCARD-HANDLE-EQUALITY",
+        "SV2023-11.4.6-EXTRACT-WILDCARD-ONE-BIT",
+        "SV2023-11.4.6-EXTRACT-WILDCARD-PRECEDENCE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch11/test_wildcard_lhs_unknown.sv",
+      "inputs_sha256": "beca3e9d32da2f17283a3eb1e8f7596c565a6ced750dc76fa6298c1cb2e6b330",
+      "cited_clauses": [
+        "11.4.6"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-11.4.6-EXTRACT-RIGHT-ONLY-WILDCARD"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-11.4.6-EXTRACT-UNMASKED-UNKNOWN",
+        "SV2023-11.4.6-EXTRACT-WILDCARD-EQ",
+        "SV2023-11.4.6-EXTRACT-WILDCARD-HANDLE-EQUALITY",
+        "SV2023-11.4.6-EXTRACT-WILDCARD-NE",
         "SV2023-11.4.6-EXTRACT-WILDCARD-ONE-BIT",
         "SV2023-11.4.6-EXTRACT-WILDCARD-PRECEDENCE"
       ],
@@ -184083,6 +184106,26 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch5/test_escaped_identifier_character_domain.sv",
+      "inputs_sha256": "6832a2333467fcf2c66acda5fc3f0890bf70782df604300d8c379f36dfa6c5db",
+      "cited_clauses": [
+        "5.6.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-5.6.1-EXTRACT-ESCAPE-CHARACTER-DOMAIN"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-5.6.1-EXTRACT-ESCAPE-BOUNDARIES",
+        "SV2023-5.6.1-EXTRACT-ESCAPE-NAME-EQUIVALENCE",
+        "SV2023-5.6.1-EXTRACT-ESCAPED-KEYWORD-NAME"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch5/test_escaped_identifier_comment_chars.sv",
       "inputs_sha256": "372e0e6306147d0167401839796f617daa817a48c744e3aca1ed795645150b30",
       "cited_clauses": [
@@ -186905,6 +186948,24 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch5/test_time_literal_units_and_fraction.sv",
+      "inputs_sha256": "486129d8196ff5824b2b810731e8b1e807862130cec9d6553ae2a9019666ebf6",
+      "cited_clauses": [
+        "5.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-5.8-EXTRACT-TIME-NUMERIC-FORM"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-5.8-EXTRACT-TIME-REALTIME-SCALE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch5/test_triple_quoted_string.sv",
       "inputs_sha256": "26c93a3638476880a51b6ce20006e81b25fa2826435f4dc8e1116659152a00f7",
       "cited_clauses": [
@@ -186990,6 +187051,51 @@
         "SV2023-5.7.1-EXTRACT-LITERAL-TRUNCATION",
         "SV2023-5.7.1-EXTRACT-LITERAL-UNKNOWN-PADDING",
         "SV2023-5.7.1-EXTRACT-LITERAL-ZERO-PADDING",
+        "SV2023-5.7.1-EXTRACT-PLAIN-DECIMAL",
+        "SV2023-5.7.1-EXTRACT-PLAIN-SIGNED",
+        "SV2023-5.7.1-EXTRACT-QUESTION-Z",
+        "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
+        "SV2023-5.7.1-EXTRACT-SIZED-SIGN-EXTENSION",
+        "SV2023-5.7.1-EXTRACT-TWOS-COMPLEMENT",
+        "SV2023-5.7.1-EXTRACT-UNSIZED-LARGE-WIDTH",
+        "SV2023-5.7.1-EXTRACT-UNSIZED-MINIMUM",
+        "SV2023-5.7.1-EXTRACT-UNSIZED-UNKNOWN-CONTEXT",
+        "SV2023-5.7.1-EXTRACT-X-DIGIT-GROUP",
+        "SV2023-5.7.1-EXTRACT-XZ-CASE",
+        "SV2023-5.7.1-EXTRACT-Z-DIGIT-GROUP"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-5.7.1-EXTRACT-APOSTROPHE-BASE-ADJACENCY",
+        "SV2023-5.7.1-EXTRACT-DECIMAL-UNKNOWN-SINGLE",
+        "SV2023-5.7.1-EXTRACT-SIGN-PLACEMENT"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch5/test_unsized_fill_all_values.sv",
+      "inputs_sha256": "a37bdfca9310f5b763ea7fbd210621bf1a9e109bdf00686536cde4d5f2a53d39",
+      "cited_clauses": [
+        "5.7.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-5.7.1-EXTRACT-FILL-CONTEXT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-5.7.1-EXTRACT-BASE-VALUE-DIGITS",
+        "SV2023-5.7.1-EXTRACT-BASED-LETTER",
+        "SV2023-5.7.1-EXTRACT-BASED-SIGNEDNESS",
+        "SV2023-5.7.1-EXTRACT-BASED-THREE-TOKENS",
+        "SV2023-5.7.1-EXTRACT-FILL-SELF-WIDTH",
+        "SV2023-5.7.1-EXTRACT-HEX-CASE",
+        "SV2023-5.7.1-EXTRACT-INTEGER-LITERAL-LOGIC",
+        "SV2023-5.7.1-EXTRACT-INTEGER-RADICES",
+        "SV2023-5.7.1-EXTRACT-LITERAL-TRUNCATION",
+        "SV2023-5.7.1-EXTRACT-LITERAL-UNKNOWN-PADDING",
+        "SV2023-5.7.1-EXTRACT-LITERAL-ZERO-PADDING",
+        "SV2023-5.7.1-EXTRACT-NUMERIC-UNDERSCORE",
         "SV2023-5.7.1-EXTRACT-PLAIN-DECIMAL",
         "SV2023-5.7.1-EXTRACT-PLAIN-SIGNED",
         "SV2023-5.7.1-EXTRACT-QUESTION-Z",
@@ -404643,7 +404749,7 @@
     "oracle_issue": 49,
     "partial_observation": 530
   },
-  "registry_sha256": "bb1c8934af47438d3b334ae02182054249cf56c5c9c7e5ff576b881584acfbaa",
+  "registry_sha256": "2c6fa6bc2e36a086a296d321dc9ab6761e4fad6e16524dcc160dc34753fd0759",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "0b990f94f59f479a27cf458dafca26bc8100764f8482e34c82cd3095610303bd"
 }

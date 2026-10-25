@@ -38,27 +38,27 @@ What sets the suite apart:
 ## Contents
 
 <!-- suite-stats:begin -->
-The suite has **6009 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
+The suite has **6013 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
 | Expected output recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3549 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 3553 |
 | Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 1146 |
 | The standard only, where neither simulator follows it | 1314 |
 
-752 tests depend on x or z values (`:fourstate: yes`). 436 tests come with C code: 65 DPI tests (`:dpi_c:`) and 371 VPI tests (`:vpi_c:`). 1556 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 24 tests check the exit code of the simulation (`:expected_exit:`). 15 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 10 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+754 tests depend on x or z values (`:fourstate: yes`). 436 tests come with C code: 65 DPI tests (`:dpi_c:`) and 371 VPI tests (`:vpi_c:`). 1556 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 24 tests check the exit code of the simulation (`:expected_exit:`). 15 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 3 name include directories (`:incdirs:`), 10 name the top-level module (`:top_module:`), and 8 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 68 | 51 | 11 | 6 |
 | 4 | Scheduling semantics | 387 | 377 | 4 | 6 |
-| 5 | Lexical conventions | 313 | 301 | 7 | 5 |
+| 5 | Lexical conventions | 316 | 304 | 7 | 5 |
 | 6 | Data types | 538 | 314 | 123 | 101 |
 | 7 | Aggregate data types | 456 | 151 | 227 | 78 |
 | 8 | Classes | 264 | 46 | 163 | 55 |
 | 9 | Processes | 141 | 110 | 15 | 16 |
 | 10 | Assignment statements | 165 | 99 | 34 | 32 |
-| 11 | Operators and expressions | 807 | 683 | 84 | 40 |
+| 11 | Operators and expressions | 808 | 684 | 84 | 40 |
 | 12 | Procedural programming statements | 143 | 105 | 18 | 20 |
 | 13 | Tasks and functions (subroutines) | 161 | 86 | 61 | 14 |
 | 14 | Clocking blocks | 63 |  | 51 | 12 |
@@ -157,9 +157,10 @@ illegal designs that use a reserved keyword as a name. The
 for requirements that had none, and their
 [second run](docs/gap-tests-2-20261024.md) adds 933 more. On 2026-10-25 the
 [first pass over the unregistered tests](docs/existing-test-matching-unregistered-20261025.md)
-linked 16 more tests to 26 requirements. Provisional design coverage is
-**59.801932% (7,367/12,319)**; provisional execution coverage is
-**33.566036% (4,135/12,319)**. Clauses 1 to 40 alone are at 62.82% (5,959/9,486).
+linked 20 tests to 30 requirements, including four new tests written for
+stimuli that the existing tests lacked. Provisional design coverage is
+**59.834402% (7,371/12,319)**; provisional execution coverage is
+**33.566036% (4,135/12,319)**. Clauses 1 to 40 alone are at 62.86% (5,963/9,486).
 Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.

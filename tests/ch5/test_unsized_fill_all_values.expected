@@ -1,0 +1,4 @@
+8: 00 ff xx zz
+33: 000000000 1ffffffff xxxxxxxxx zzzzzzzzz
+65: 00000000000000000 1ffffffffffffffff xxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzz
+self=1

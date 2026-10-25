@@ -6,20 +6,20 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 6009 |
+| Tests | 6013 |
 | Clauses in scope | 974 |
 | Clauses out of scope | 185 |
 | Clauses with a direct test | 974/974 |
 | Clauses with at least two direct tests | 974/974 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 229 |
+| Clauses with two tests or fewer | 228 |
 | Clauses with only standard-only tests | 238 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 455 |
-| Icarus Verilog 13.0 only | 3094 |
+| both releases | 457 |
+| Icarus Verilog 13.0 only | 3096 |
 | Verilator 5.052 only | 1146 |
 | standard only | 1314 |
 
@@ -29,13 +29,13 @@
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 68 | 15 | 4.5 | 0 | 6 |
 | 4 | Scheduling semantics | 387 | 27 | 14.3 | 0 | 6 |
-| 5 | Lexical conventions | 313 | 16 | 19.6 | 0 | 5 |
+| 5 | Lexical conventions | 316 | 16 | 19.8 | 0 | 5 |
 | 6 | Data types | 538 | 76 | 7.1 | 0 | 101 |
 | 7 | Aggregate data types | 456 | 49 | 9.3 | 0 | 78 |
 | 8 | Classes | 264 | 43 | 6.1 | 0 | 55 |
 | 9 | Processes | 141 | 25 | 5.6 | 0 | 16 |
 | 10 | Assignment statements | 165 | 18 | 9.2 | 0 | 32 |
-| 11 | Operators and expressions | 807 | 42 | 19.2 | 0 | 40 |
+| 11 | Operators and expressions | 808 | 42 | 19.2 | 0 | 40 |
 | 12 | Procedural programming statements | 143 | 16 | 8.9 | 0 | 20 |
 | 13 | Tasks and functions (subroutines) | 161 | 15 | 10.7 | 0 | 14 |
 | 14 | Clocking blocks | 63 | 15 | 4.2 | 0 | 12 |

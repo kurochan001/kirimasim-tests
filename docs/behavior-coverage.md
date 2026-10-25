@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.80%、実行 33.70%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.83%、実行 33.70%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7367/12319 (59.80%)。
+- 登録済み動作に対するテスト設計網羅率: 7371/12319 (59.83%)。
 - 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4152/12319 (33.70%)。
-- 登録済みだがテスト未対応: 4952 動作。
+- 登録済みだがテスト未対応: 4948 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -85,13 +85,13 @@
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 99。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 29。
-- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 80。
+- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 83。
 - 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 594。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 274。
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 159。
 - 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 76。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 86。
-- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 398。
+- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 399。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 46。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 62。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 29。
@@ -3388,7 +3388,7 @@ An escaped identifier begins with backslash and terminates at whitespace.
 
 ### SV2023-5.6.1-EXTRACT-ESCAPE-CHARACTER-DOMAIN
 
-5.6.1 / normal / テスト未対応
+5.6.1 / normal / テスト対応あり・実行未確認
 
 Escaped identifiers may contain printable ASCII values 33 through 126, excluding whitespace.
 
@@ -3396,6 +3396,7 @@ Escaped identifiers may contain printable ASCII values 33 through 126, excluding
 
 規定の性質: `definition`。
 
+- [test_escaped_identifier_character_domain.sv](../tests/ch5/test_escaped_identifier_character_domain.sv): 印刷可能ASCII 33〜126の各文字を1文字のエスケープ識別子として宣言し、それぞれに文字コードを代入して、10文字ずつの連結を %s で表示する。33〜126のうち # は \a#b の中で、残りは単独名で刺激する。さらに標準の例の複数文字名（busa+index、-clock、***error-condition***、a*(b+c)、{a,b}）とエスケープしたキーワード \net を別の値で表示する。期待出力の各行は、各文字が名前の一部として受理され、宣言した変数に解決されたことを示す。 区別: 33〜126のいずれかの文字をエスケープ識別子の文字として受理しない実装では、その宣言でコンパイルが止まるか、名前が途中で切れて別の識別子になり、対応する行の文字が欠ける・変わる。10文字ずつの連結は、各文字が独立した8ビット変数として解決されたことを1文字ずつ示し、複数文字名と \net の行は、空白までを1つの名前として扱い、エスケープしたキーワードをユーザー定義識別子として扱うことを示す。
 
 ### SV2023-5.6.1-EXTRACT-ESCAPE-NAME-EQUIVALENCE
 
@@ -3758,7 +3759,7 @@ A decimal based literal may contain x/z/? only as its sole value digit, with all
 
 ### SV2023-5.7.1-EXTRACT-FILL-CONTEXT
 
-5.7.1 / normal / テスト未対応
+5.7.1 / normal / テスト対応あり・実行未確認
 
 An unbased-unsized single-bit literal fills all context-required bits with its specified 0/1/x/z value.
 
@@ -3766,6 +3767,7 @@ An unbased-unsized single-bit literal fills all context-required bits with its s
 
 規定の性質: `mandatory`。
 
+- [test_unsized_fill_all_values.sv](../tests/ch5/test_unsized_fill_all_values.sv): '0、'1、'x、'z の4つの unsized fill リテラルを、8ビット、33ビット、65ビットの変数へ代入する。期待出力は 8ビットが 00/ff/xx/zz、33ビットが 000000000/1ffffffff/xxxxxxxxx/zzzzzzzzz、65ビットが 00000000000000000/1ffffffffffffffff/xxxxxxxxxxxxxxxxx/zzzzzzzzzzzzzzzzz となり、各リテラルが文脈幅の全ビットを指定値で埋めたことを示す。最後に $bits('1) が 1 になることを確認する。 区別: fill リテラルを自己決定幅1のまま代入する実装では、33ビットと65ビットの上位ビットが0拡張され、'1 の行が 1ffffffff ではなく 000000001 などになる。'x/'z を0で埋める実装では x/z の行が 00.. になる。$bits('1) が1でない実装は、自己決定文脈の幅1の規則に反する。8/33/65ビットの3つの幅と4つの値の組み合わせが、文脈幅と値の両方を観測する。
 
 ### SV2023-5.7.1-EXTRACT-FILL-SELF-WIDTH
 
@@ -4072,7 +4074,7 @@ A real literal may be explicitly cast to shortreal using the casting rules.
 
 ### SV2023-5.8-EXTRACT-TIME-NUMERIC-FORM
 
-5.8 / normal / テスト未対応
+5.8 / normal / テスト対応あり・実行未確認
 
 A time literal uses an integer or fixed-point numeric part and one of fs/ps/ns/us/ms/s.
 
@@ -4080,6 +4082,7 @@ A time literal uses an integer or fixed-point numeric part and one of fs/ps/ns/u
 
 規定の性質: `definition`。
 
+- [test_time_literal_units_and_fraction.sv](../tests/ch5/test_time_literal_units_and_fraction.sv): `timescale 1fs/1fs の下で、整数部の時間リテラル #1fs、#2ps、#4us、#5ms、#6s と、固定小数点部を持つ #3.5ns を順に実行し、各遅延後の $time を表示する。期待値は 1、2001、3502001、4003502001、5004003502001、6005004003502001 で、6つの単位すべてと固定小数点部が受理され、現在の時間単位（1fs）へ換算されたことを示す。 区別: fs/ps/ns/us/ms/s のいずれかを時間リテラルの単位として受理しない実装では、その行でコンパイルが止まるか、遅延が別の単位として解釈されて累積時刻が変わる。固定小数点部を受理しない実装では #3.5ns が 3ns または 4ns になり、t3 以降のすべての値が変わる。6行の累積値は、各単位の換算と固定小数点の換算を同時に観測する。
 
 ### SV2023-5.8-EXTRACT-TIME-REALTIME-SCALE
 
@@ -27082,7 +27085,7 @@ If either integral equality operand is unsigned, comparison is unsigned with zer
 
 ### SV2023-11.4.6-EXTRACT-RIGHT-ONLY-WILDCARD
 
-11.4.6 / normal / テスト未対応
+11.4.6 / normal / テスト対応あり・実行未確認
 
 An RHS wildcard matches any 0/1/x/z LHS bit; LHS unknowns are not wildcards and other bits follow logical equality.
 
@@ -27090,6 +27093,7 @@ An RHS wildcard matches any 0/1/x/z LHS bit; LHS unknowns are not wildcards and 
 
 規定の性質: `mandatory`。
 
+- [test_wildcard_lhs_unknown.sv](../tests/ch11/test_wildcard_lhs_unknown.sv): ==? と !=? について、LHS が zzzz・z001・0z0x・01xz・z1x0 の各場合を、RHS が既知ビットだけの場合と x/z/? のワイルドカードを含む場合で比較する。RHS のワイルドカードが LHS の既知 0 と 1 の両方に向き合う行（0000 ==? ????、0101 ==? 01x1、1010 ==? 10z0、0000 ==? 0?0?）も含む。期待出力は、LHS の z が既知 RHS ビットと向き合うと x、既知ビットの不一致があれば0、RHS の x/z/? が LHS の x/z/0/1 を覆えば1、!=? では対応する結果が0/x になることを示す。 区別: LHS の x/z をワイルドカードとして扱う実装では、zzzz ==? 0000 と z001 ==? 0001 が 1 になり、期待値 x と変わる。RHS の x/z をワイルドカードとして扱わない実装、または LHS の既知 0 をワイルドカード位置で一致させない実装では、0000 ==? ????、0101 ==? 01x1、1010 ==? 10z0、0000 ==? 0?0? のいずれかが 0 か x になり、期待値 1 と変わる。既知ビットの不一致を未知より優先しない実装では、z001 ==? 0111 が x になり、期待値 0 と変わる。16行が、LHS 未知の非ワイルド性、RHS ワイルドカードの 0/1/x/z への一致、既知不一致の確定を分けて観測する。
 
 ### SV2023-11.4.6-EXTRACT-UNMASKED-UNKNOWN
 

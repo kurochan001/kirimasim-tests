@@ -9433,7 +9433,29 @@
       "acceptance": "Escaped identifiers may contain printable ASCII values 33 through 126, excluding whitespace.",
       "source_note": "IEEE 1800-2023 5.6.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch5/test_escaped_identifier_character_domain.sv",
+          "observation": "印刷可能ASCII 33〜126の各文字を1文字のエスケープ識別子として宣言し、それぞれに文字コードを代入して、10文字ずつの連結を %s で表示する。33〜126のうち # は \\a#b の中で、残りは単独名で刺激する。さらに標準の例の複数文字名（busa+index、-clock、***error-condition***、a*(b+c)、{a,b}）とエスケープしたキーワード \\net を別の値で表示する。期待出力の各行は、各文字が名前の一部として受理され、宣言した変数に解決されたことを示す。 区別: 33〜126のいずれかの文字をエスケープ識別子の文字として受理しない実装では、その宣言でコンパイルが止まるか、名前が途中で切れて別の識別子になり、対応する行の文字が欠ける・変わる。10文字ずつの連結は、各文字が独立した8ビット変数として解決されたことを1文字ずつ示し、複数文字名と \\net の行は、空白までを1つの名前として扱い、エスケープしたキーワードをユーザー定義識別子として扱うことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6832a2333467fcf2c66acda5fc3f0890bf70782df604300d8c379f36dfa6c5db",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_escaped_identifier_character_domain.sv",
+              "contains": "  logic [7:0] \\! ;"
+            },
+            {
+              "file": "tests/ch5/test_escaped_identifier_character_domain.sv",
+              "contains": "  logic [7:0] \\a#b ;"
+            },
+            {
+              "file": "tests/ch5/test_escaped_identifier_character_domain.expected",
+              "contains": "!\"$%&'()*+"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.6.1",
@@ -10416,7 +10438,25 @@
       "acceptance": "An unbased-unsized single-bit literal fills all context-required bits with its specified 0/1/x/z value.",
       "source_note": "IEEE 1800-2023 5.7.1; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch5/test_unsized_fill_all_values.sv",
+          "observation": "'0、'1、'x、'z の4つの unsized fill リテラルを、8ビット、33ビット、65ビットの変数へ代入する。期待出力は 8ビットが 00/ff/xx/zz、33ビットが 000000000/1ffffffff/xxxxxxxxx/zzzzzzzzz、65ビットが 00000000000000000/1ffffffffffffffff/xxxxxxxxxxxxxxxxx/zzzzzzzzzzzzzzzzz となり、各リテラルが文脈幅の全ビットを指定値で埋めたことを示す。最後に $bits('1) が 1 になることを確認する。 区別: fill リテラルを自己決定幅1のまま代入する実装では、33ビットと65ビットの上位ビットが0拡張され、'1 の行が 1ffffffff ではなく 000000001 などになる。'x/'z を0で埋める実装では x/z の行が 00.. になる。$bits('1) が1でない実装は、自己決定文脈の幅1の規則に反する。8/33/65ビットの3つの幅と4つの値の組み合わせが、文脈幅と値の両方を観測する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a37bdfca9310f5b763ea7fbd210621bf1a9e109bdf00686536cde4d5f2a53d39",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_unsized_fill_all_values.sv",
+              "contains": "    a0 = '0; a1 = '1; ax = 'x; az = 'z;"
+            },
+            {
+              "file": "tests/ch5/test_unsized_fill_all_values.expected",
+              "contains": "65: 00000000000000000 1ffffffffffffffff xxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzz"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.7.1",
@@ -11246,7 +11286,25 @@
       "acceptance": "A time literal uses an integer or fixed-point numeric part and one of fs/ps/ns/us/ms/s.",
       "source_note": "IEEE 1800-2023 5.8; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch5/test_time_literal_units_and_fraction.sv",
+          "observation": "`timescale 1fs/1fs の下で、整数部の時間リテラル #1fs、#2ps、#4us、#5ms、#6s と、固定小数点部を持つ #3.5ns を順に実行し、各遅延後の $time を表示する。期待値は 1、2001、3502001、4003502001、5004003502001、6005004003502001 で、6つの単位すべてと固定小数点部が受理され、現在の時間単位（1fs）へ換算されたことを示す。 区別: fs/ps/ns/us/ms/s のいずれかを時間リテラルの単位として受理しない実装では、その行でコンパイルが止まるか、遅延が別の単位として解釈されて累積時刻が変わる。固定小数点部を受理しない実装では #3.5ns が 3ns または 4ns になり、t3 以降のすべての値が変わる。6行の累積値は、各単位の換算と固定小数点の換算を同時に観測する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "486129d8196ff5824b2b810731e8b1e807862130cec9d6553ae2a9019666ebf6",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_time_literal_units_and_fraction.sv",
+              "contains": "    #3.5ns; $display(\"t3=%0d\", $time);"
+            },
+            {
+              "file": "tests/ch5/test_time_literal_units_and_fraction.expected",
+              "contains": "t6=6005004003502001"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.8",
@@ -92736,7 +92794,25 @@
       "acceptance": "An RHS wildcard matches any 0/1/x/z LHS bit; LHS unknowns are not wildcards and other bits follow logical equality.",
       "source_note": "IEEE 1800-2023 11.4.6; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_wildcard_lhs_unknown.sv",
+          "observation": "==? と !=? について、LHS が zzzz・z001・0z0x・01xz・z1x0 の各場合を、RHS が既知ビットだけの場合と x/z/? のワイルドカードを含む場合で比較する。RHS のワイルドカードが LHS の既知 0 と 1 の両方に向き合う行（0000 ==? ????、0101 ==? 01x1、1010 ==? 10z0、0000 ==? 0?0?）も含む。期待出力は、LHS の z が既知 RHS ビットと向き合うと x、既知ビットの不一致があれば0、RHS の x/z/? が LHS の x/z/0/1 を覆えば1、!=? では対応する結果が0/x になることを示す。 区別: LHS の x/z をワイルドカードとして扱う実装では、zzzz ==? 0000 と z001 ==? 0001 が 1 になり、期待値 x と変わる。RHS の x/z をワイルドカードとして扱わない実装、または LHS の既知 0 をワイルドカード位置で一致させない実装では、0000 ==? ????、0101 ==? 01x1、1010 ==? 10z0、0000 ==? 0?0? のいずれかが 0 か x になり、期待値 1 と変わる。既知ビットの不一致を未知より優先しない実装では、z001 ==? 0111 が x になり、期待値 0 と変わる。16行が、LHS 未知の非ワイルド性、RHS ワイルドカードの 0/1/x/z への一致、既知不一致の確定を分けて観測する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "beca3e9d32da2f17283a3eb1e8f7596c565a6ced750dc76fa6298c1cb2e6b330",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_wildcard_lhs_unknown.sv",
+              "contains": "    a = 4'bzzzz; b = 4'b0000; chk(\"zzzz ==? 0000\", a ==? b, 1'bx);"
+            },
+            {
+              "file": "tests/ch11/test_wildcard_lhs_unknown.expected",
+              "contains": "ok   zzzz ==? 0000 = x"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "11.4.6",

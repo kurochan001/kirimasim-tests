@@ -1,6 +1,6 @@
 # Clause 5: Lexical conventions
 
-[All chapters](README.md). 313 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 316 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -15,6 +15,7 @@
 | [`test_illegal_identifier_starts_with_digit`](../../tests/ch5/test_illegal_identifier_starts_with_digit.sv) | A simple identifier that starts with a digit is rejected | 5.6 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_keyword_as_identifier`](../../tests/ch5/test_illegal_keyword_as_identifier.sv) | A reserved keyword used as the name of a variable is rejected | 5.6 5.6.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_lexical_identifiers`](../../tests/ch5/test_lexical_identifiers.sv) | Test for IEEE 1800-2023 Chapter 5.6: Identifiers and keywords | 5.6 | Icarus Verilog 13.0 |  |
+| [`test_escaped_identifier_character_domain`](../../tests/ch5/test_escaped_identifier_character_domain.sv) | Every printable ASCII character from 33 through 126, with number sign inside a longer name, can appear in an escaped identifier, as can the multi-character names of the standard's examples and an escaped keyword | 5.6.1 | Icarus Verilog 13.0 |  |
 | [`test_escaped_identifier_comment_chars`](../../tests/ch5/test_escaped_identifier_comment_chars.sv) | Escaped identifiers that contain the characters of comment delimiters are names, not comments, also next to operators | 5.6.1 11.4.1 11.4.2 | Icarus Verilog 13.0 |  |
 | [`test_escaped_identifier_with_dot`](../../tests/ch5/test_escaped_identifier_with_dot.sv) | An escaped identifier that contains a period is one simple name, distinct from the hierarchical name with the same characters | 5.6.1 23.6 | Icarus Verilog 13.0 |  |
 | [`test_illegal_system_name_space_after_dollar`](../../tests/ch5/test_illegal_system_name_space_after_dollar.sv) | White space between the dollar sign and the name of a system task is rejected | 5.6.3 | Icarus Verilog 13.0 | illegal design |
@@ -43,6 +44,7 @@
 | [`test_literals_macros_specify`](../../tests/ch5/test_literals_macros_specify.sv) | Based literals, underscores, real and string literals, macros and a specparam | 5.7.1 22.5.1 5.12 6.20.5 | Icarus Verilog 13.0 |  |
 | [`test_logic_literal_edge_cases`](../../tests/ch5/test_logic_literal_edge_cases.sv) | Test: Logic literal edge cases | 5.7.1 | Icarus Verilog 13.0 |  |
 | [`test_underscore_literal`](../../tests/ch5/test_underscore_literal.sv) | Underscores in binary, hex and decimal literals do not change their values | 5.7.1 | Icarus Verilog 13.0 |  |
+| [`test_unsized_fill_all_values`](../../tests/ch5/test_unsized_fill_all_values.sv) | The unsized single-bit literals '0, '1, 'x and 'z fill every bit of an 8-bit, 33-bit and 65-bit context and have width one in a self-determined context | 5.7.1 | Icarus Verilog 13.0 | x/z |
 | [`test_unsized_fill_wide_part_select_nba`](../../tests/ch5/test_unsized_fill_wide_part_select_nba.sv) | An unsized fill literal such as '1 fills the whole width of a part-select wider than 32 bits in a nonblocking assignment | 5.7.1 11.6.1 10.4.2 11.5.1 | Icarus Verilog 13.0 |  |
 | [`test_illegal_real_literal_exponent_no_leading_digit`](../../tests/ch5/test_illegal_real_literal_exponent_no_leading_digit.sv) | The real literal .2e-7, which has no digit before its decimal point, is rejected | 5.7.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_real_literal_exponent_no_trailing_digit`](../../tests/ch5/test_illegal_real_literal_exponent_no_trailing_digit.sv) | The real literal 4.E3, which has no digit between its decimal point and its exponent, is rejected | 5.7.2 | Icarus Verilog 13.0 | illegal design |
@@ -51,6 +53,7 @@
 | [`test_real_literal_edge_cases`](../../tests/ch5/test_real_literal_edge_cases.sv) | Test: Real literal edge cases | 5.7.2 6.12 | Icarus Verilog 13.0 |  |
 | [`test_time_literal_scaled_to_unit`](../../tests/ch5/test_time_literal_scaled_to_unit.sv) | A time literal in a delay is scaled to the module's time unit, and $time rounds the time to a whole number of units while $realtime keeps the fraction | 5.8 22.7 20.3.1 20.3.3 | Icarus Verilog 13.0 |  |
 | [`test_time_literal_scaling`](../../tests/ch5/test_time_literal_scaling.sv) | Time literals are real values scaled to the current time unit, in expressions and in delays | 5.8 3.14.2.1 20.3.3 | Icarus Verilog 13.0 |  |
+| [`test_time_literal_units_and_fraction`](../../tests/ch5/test_time_literal_units_and_fraction.sv) | A time literal has an integer or fixed-point numeric part and one of the units fs, ps, ns, us, ms or s, and each is converted to the current time unit | 5.8 | Icarus Verilog 13.0 |  |
 | [`test_illegal_quoted_string_newline`](../../tests/ch5/test_illegal_quoted_string_newline.sv) | A quoted string cannot contain a newline that is not escaped | 5.9 | Icarus Verilog 13.0 | illegal design |
 | [`test_lexical_strings`](../../tests/ch5/test_lexical_strings.sv) | Chapter 5.9: String literals | 5.9 5.9.1 6.16 | Verilator 5.052 |  |
 | [`test_string_literal_to_unpacked_byte_array`](../../tests/ch5/test_string_literal_to_unpacked_byte_array.sv) | A string literal assigned to an unpacked array of bytes fills it from the left element, padding the rest with 0 | 5.9 7.4 | standard only |  |
