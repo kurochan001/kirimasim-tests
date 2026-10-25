@@ -6,9 +6,9 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
-| 3 | [Design and verification building blocks](ch3.md) | 68 |  |
+| 3 | [Design and verification building blocks](ch3.md) | 69 |  |
 | 4 | [Scheduling semantics](ch4.md) | 387 | 325 |
-| 5 | [Lexical conventions](ch5.md) | 316 | 248 |
+| 5 | [Lexical conventions](ch5.md) | 317 | 248 |
 | 6 | [Data types](ch6.md) | 538 | 7 |
 | 7 | [Aggregate data types](ch7.md) | 456 | 14 |
 | 8 | [Classes](ch8.md) | 264 |  |

@@ -15250,6 +15250,150 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch3/test_unit_variables.sv",
+      "inputs_sha256": "c907531ab35696c77fc8c5c2e4c9a8c62254e3c05a343c43218e16f7a74d3b23",
+      "reviewed_on": "2026-10-25",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-3.12.1-EXTRACT-COMPILATION-UNIT",
+            "SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE",
+            "SV2023-3.12.1-EXTRACT-SEPARATE-FILE-MODE",
+            "SV2023-3.12.1-EXTRACT-INCOMPLETE-FILE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "テストは単一の自己完結したファイルで、2つ目のソースファイルもコマンドライン上のファイル群も使わない。1ファイルが1つの compilation unit になること、複数ファイルをまとめる/分ける利用モデル、ファイル境界をまたぐ不完全宣言の継続を観測していない。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_unit_variables.sv",
+              "contains": "int count = 3;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-3.12.1-EXTRACT-DIRECTIVE-FORWARD-SCOPE",
+            "SV2023-3.12.1-EXTRACT-DIRECTIVE-UNIT-ISOLATION",
+            "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "テストに `include もコンパイラ指令もなく、インクルードされたソースが取り込み側の compilation unit に属すること、指令が後続テキストに及びつつ別 unit に漏れないことは刺激していない。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_unit_variables.sv",
+              "contains": "int count = 3;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-3.12.1-EXTRACT-PLI-UNIT-ITERATOR",
+            "SV2023-3.12.1-EXTRACT-UNIT-BIND",
+            "SV2023-3.12.1-EXTRACT-UNIT-PACKAGE-ITEMS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "VPI アプリケーションも bind 構文もなく、compilation-unit scope に置いたのは2つの変数だけ。PLI の compilation unit 反復子、bind の受理、package で許される全 item 種別（型・タスク・関数など）は観測していない。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_unit_variables.sv",
+              "contains": "int count = 3;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-3.12.1-EXTRACT-NAME-SEARCH-ORDER",
+            "SV2023-3.12.1-EXTRACT-UNIT-UPWARD-REFERENCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "参照はすべて先に宣言された unit 変数へ解決しており、後方の unit 宣言、package import、インスタンス階層との優先順位や、unit scope を頂点とした上向き階層参照を刺激していない。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_unit_variables.sv",
+              "contains": "    return 2 * $unit::count;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-26.3-EXTRACT-OUTER-SCOPE-IMPORT"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "テストが 26.3 を引くのは $unit:: の限定名参照のためで、import 宣言を使わない。候補の要求は外側の字句スコープでワイルドカード import の候補名を探す規則であり、$unit:: の解決は 3.12.1-EXTRACT-EXPLICIT-UNIT-RESOLUTION として別テストに既に対応済み。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_unit_variables.sv",
+              "contains": "    return 2 * $unit::count;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch5/test_unsized_wide_literal.sv",
+      "inputs_sha256": "cbf5345123305bdef98a481dd20ddc1cf63d7d2507aba08f4894f439b3d3ee8c",
+      "reviewed_on": "2026-10-25",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-5.7.1-EXTRACT-PLAIN-DECIMAL",
+            "SV2023-5.7.1-EXTRACT-UNSIZED-MINIMUM",
+            "SV2023-5.7.1-EXTRACT-INTEGER-LITERAL-LOGIC"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "刺激は正の10進リテラル3つだけで、単項プラス/マイナス、ちょうど32ビット以下に収まる値、リテラル自体の $bits・range・符号付き範囲を観測していない。10進リテラルの任意の符号、32ビット最小幅、整数リテラルの logic ベクトルとしての範囲と符号は別の刺激が要る。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_unsized_wide_literal.sv",
+              "contains": "    x = 1000000000000;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-5.7.1-EXTRACT-BASE-VALUE-DIGITS",
+            "SV2023-5.7.1-EXTRACT-BASED-LETTER",
+            "SV2023-5.7.1-EXTRACT-BASED-THREE-TOKENS",
+            "SV2023-5.7.1-EXTRACT-QUESTION-Z",
+            "SV2023-5.7.1-EXTRACT-X-DIGIT-GROUP",
+            "SV2023-5.7.1-EXTRACT-Z-DIGIT-GROUP",
+            "SV2023-5.7.1-EXTRACT-XZ-CASE",
+            "SV2023-5.7.1-EXTRACT-LITERAL-UNKNOWN-PADDING",
+            "SV2023-5.7.1-EXTRACT-UNSIZED-UNKNOWN-CONTEXT",
+            "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
+            "SV2023-5.7.1-EXTRACT-SIZED-SIGN-EXTENSION",
+            "SV2023-5.7.1-EXTRACT-FILL-SELF-WIDTH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "テストには based literal、サイズ付きリテラル、x/z/? の値数字、'0/'1 の充填、符号拡張が1つも現れない。基数ごとの数字の扱い、大文字小文字、x/z の左詰め、サイズの厳密なビット数、signed リテラルの符号拡張は観測していない。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_unsized_wide_literal.sv",
+              "contains": "    x = 4294967296;"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

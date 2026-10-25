@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.91%、実行 33.70%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.92%、実行 33.70%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7380/12319 (59.91%)。
+- 登録済み動作に対するテスト設計網羅率: 7382/12319 (59.92%)。
 - 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4152/12319 (33.70%)。
-- 登録済みだがテスト未対応: 4939 動作。
+- 登録済みだがテスト未対応: 4937 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -85,8 +85,8 @@
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 99。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 29。
-- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 83。
-- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 594。
+- 5 Lexical conventions: 解釈保留なし 21/21、登録 154、テスト対応 84。
+- 6 Data types: 解釈保留なし 92/92、登録 726、テスト対応 595。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 349、テスト対応 274。
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 159。
 - 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 76。
@@ -3945,7 +3945,7 @@ Negative integer values use two's-complement representation.
 
 ### SV2023-5.7.1-EXTRACT-UNSIZED-LARGE-WIDTH
 
-5.7.1 / normal / テスト未対応
+5.7.1 / normal / テスト対応あり・実行未確認
 
 An unsized value needing more than 32 bits retains at least all value bits and, when signed, a sign bit.
 
@@ -3953,6 +3953,7 @@ An unsized value needing more than 32 bits retains at least all value bits and, 
 
 規定の性質: `mandatory`。
 
+- [test_unsized_wide_literal.sv](../tests/ch5/test_unsized_wide_literal.sv): unsized の10進リテラル 1000000000000（40ビット必要）と 4294967296（2^32）を longint に代入し、それぞれ「1000000000000」と「4294967296」が表示されること、および自己決定的な比較「2147483648 > 0」が 1 になることを確認する。 区別: リテラルを32ビットに切り詰める実装では、1000000000000 は下位32ビット 0xD4A51000 を符号拡張した -727379968、4294967296 は 0 になり、2147483648 は -2147483648 として「> 0」が 0 になる。3つの期待値は、32ビットを超える値が値ビットを保持し、符号付き10進リテラルが 2^31 を正のまま表せる幅（符号ビットを含む）を持つことを示す。
 
 ### SV2023-5.7.1-EXTRACT-UNSIZED-MINIMUM
 
@@ -12509,7 +12510,7 @@ An explicit static variable in an automatic task/function/block retains static l
 
 ### SV2023-6.21-EXTRACT-UNIT-STATIC
 
-6.21 / normal / テスト未対応
+6.21 / normal / テスト対応あり・実行未確認
 
 Variables outside the listed design/subroutine scopes are compilation-unit-local and static.
 
@@ -12517,6 +12518,7 @@ Variables outside the listed design/subroutine scopes are compilation-unit-local
 
 規定の性質: `definition`。
 
+- [test_unit_variables.sv](../tests/ch3/test_unit_variables.sv): モジュールの外（コンパイル単位スコープ）で int count = 3; と logic [7:0] tag = 8'hA5; を宣言する。時刻0の表示 start 3 3 a5 は初期化が手続き開始前に行われたことを示す。bump の #1 count = count + 10 の後、top が同じ count を 13 として読み、twice() が 26 を返すことを確認する。 区別: コンパイル単位の変数を automatic として扱う、モジュールごとに複製する、または初期化を時刻0以降に遅らせる実装では、start の count が 0 や x になり、bump の更新が top の count に反映されず after が 3 や 13 以外になる。start の 3 と after の 13 が、宣言がコンパイル単位に属し静的で、初期化が時刻0前に行われ、全モジュールで共有されることを示す。
 
 ### SV2023-6.21-EXTRACT-UNNAMED-LOCAL
 

@@ -2,14 +2,14 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 6015,
-  "linked_test_files": 3517,
+  "test_files": 6017,
+  "linked_test_files": 3519,
   "unlinked_test_files": 2498,
   "chapters": [
     {
       "chapter": "ch3",
-      "test_files": 68,
-      "linked_test_files": 50,
+      "test_files": 69,
+      "linked_test_files": 51,
       "unlinked_test_files": 18
     },
     {
@@ -20,8 +20,8 @@
     },
     {
       "chapter": "ch5",
-      "test_files": 316,
-      "linked_test_files": 300,
+      "test_files": 317,
+      "linked_test_files": 301,
       "unlinked_test_files": 16
     },
     {
@@ -113441,6 +113441,171 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch3/test_unit_variables.sv",
+      "inputs_sha256": "c907531ab35696c77fc8c5c2e4c9a8c62254e3c05a343c43218e16f7a74d3b23",
+      "cited_clauses": [
+        "3.12.1",
+        "6.21",
+        "26.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-6.21-EXTRACT-UNIT-STATIC"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-26.3-EXTRACT-CURRENT-SCOPE-LOOKUP",
+        "SV2023-26.3-EXTRACT-EXPLICIT-IMPORT-ONLY",
+        "SV2023-26.3-EXTRACT-LOCAL-VISIBILITY",
+        "SV2023-26.3-EXTRACT-OUTER-SCOPE-IMPORT",
+        "SV2023-26.3-EXTRACT-PACKAGE-REFERENCE-SYNTAX",
+        "SV2023-26.3-EXTRACT-POTENTIAL-VISIBILITY",
+        "SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE",
+        "SV2023-3.12.1-EXTRACT-COMPILATION-UNIT",
+        "SV2023-3.12.1-EXTRACT-DIRECTIVE-FORWARD-SCOPE",
+        "SV2023-3.12.1-EXTRACT-DIRECTIVE-UNIT-ISOLATION",
+        "SV2023-3.12.1-EXTRACT-EXPLICIT-UNIT-RESOLUTION",
+        "SV2023-3.12.1-EXTRACT-GLOBAL-DEFINITIONS",
+        "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE",
+        "SV2023-3.12.1-EXTRACT-INCOMPLETE-FILE",
+        "SV2023-3.12.1-EXTRACT-NAME-SEARCH-ORDER",
+        "SV2023-3.12.1-EXTRACT-PLI-UNIT-ITERATOR",
+        "SV2023-3.12.1-EXTRACT-SEPARATE-FILE-MODE",
+        "SV2023-3.12.1-EXTRACT-UNIT-BIND",
+        "SV2023-3.12.1-EXTRACT-UNIT-NAME",
+        "SV2023-3.12.1-EXTRACT-UNIT-PACKAGE-ITEMS",
+        "SV2023-3.12.1-EXTRACT-UNIT-SCOPE",
+        "SV2023-3.12.1-EXTRACT-UNIT-UPWARD-REFERENCE",
+        "SV2023-6.21-EXTRACT-AUTOMATIC-BLOCK-DEFINITION",
+        "SV2023-6.21-EXTRACT-AUTOMATIC-SUBROUTINES",
+        "SV2023-6.21-EXTRACT-CLASS-LOOP-AUTOMATIC",
+        "SV2023-6.21-EXTRACT-DESIGN-STATIC",
+        "SV2023-6.21-EXTRACT-ENCLOSING-LIFETIME-QUALIFIER",
+        "SV2023-6.21-EXTRACT-EXPLICIT-AUTOMATIC",
+        "SV2023-6.21-EXTRACT-FORK-LIFETIME",
+        "SV2023-6.21-EXTRACT-STATIC-DEFAULT",
+        "SV2023-6.21-EXTRACT-STATIC-HIERARCHICAL-REFERENCE",
+        "SV2023-6.21-EXTRACT-STATIC-OPTIONAL-WHERE-FIXED",
+        "SV2023-6.21-EXTRACT-STATIC-OVERRIDE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-26.3-EXTRACT-EXPLICIT-IMPORT-COLLISION",
+        "SV2023-26.3-EXTRACT-IMPORT-NO-REEXPORT-PATH",
+        "SV2023-26.3-EXTRACT-LATE-DECLARATION-COLLISION",
+        "SV2023-26.3-EXTRACT-LEXICAL-SEARCH-END",
+        "SV2023-26.3-EXTRACT-NO-CLASS-IMPORT",
+        "SV2023-26.3-EXTRACT-PACKAGE-COMPILE-ORDER",
+        "SV2023-26.3-EXTRACT-WILDCARD-AMBIGUITY",
+        "SV2023-3.12.1-EXTRACT-NO-UNIT-HIERARCHICAL-ACCESS",
+        "SV2023-3.12.1-EXTRACT-NO-UNIT-IMPORT",
+        "SV2023-3.12.1-EXTRACT-UNIT-FORWARD-LIMIT",
+        "SV2023-3.12.1-EXTRACT-UNIT-PREFIX-NO-FORWARD",
+        "SV2023-3.12.1-EXTRACT-UNIT-PRIVATE-NAMES",
+        "SV2023-6.21-EXTRACT-DECLARATION-BEFORE-SIMPLE-REFERENCE",
+        "SV2023-6.21-EXTRACT-DECLARATIONS-BEFORE-STATEMENTS",
+        "SV2023-6.21-EXTRACT-DYNAMIC-REFERENCE-CONTEXT",
+        "SV2023-6.21-EXTRACT-INITIALIZED-STATIC-EXPLICIT",
+        "SV2023-6.21-EXTRACT-NO-AUTOMATIC-CONTINUOUS",
+        "SV2023-6.21-EXTRACT-NO-AUTOMATIC-NBA",
+        "SV2023-6.21-EXTRACT-NO-INSTANCE-PROPERTY-CONTINUOUS",
+        "SV2023-6.21-EXTRACT-UNNAMED-LOCAL"
+      ],
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch3/test_unit_variables.sv",
+        "inputs_sha256": "c907531ab35696c77fc8c5c2e4c9a8c62254e3c05a343c43218e16f7a74d3b23",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-3.12.1-EXTRACT-COMPILATION-UNIT",
+              "SV2023-3.12.1-EXTRACT-COMBINED-FILE-MODE",
+              "SV2023-3.12.1-EXTRACT-SEPARATE-FILE-MODE",
+              "SV2023-3.12.1-EXTRACT-INCOMPLETE-FILE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "テストは単一の自己完結したファイルで、2つ目のソースファイルもコマンドライン上のファイル群も使わない。1ファイルが1つの compilation unit になること、複数ファイルをまとめる/分ける利用モデル、ファイル境界をまたぐ不完全宣言の継続を観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_unit_variables.sv",
+                "contains": "int count = 3;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-3.12.1-EXTRACT-DIRECTIVE-FORWARD-SCOPE",
+              "SV2023-3.12.1-EXTRACT-DIRECTIVE-UNIT-ISOLATION",
+              "SV2023-3.12.1-EXTRACT-INCLUDED-SOURCE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "テストに `include もコンパイラ指令もなく、インクルードされたソースが取り込み側の compilation unit に属すること、指令が後続テキストに及びつつ別 unit に漏れないことは刺激していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_unit_variables.sv",
+                "contains": "int count = 3;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-3.12.1-EXTRACT-PLI-UNIT-ITERATOR",
+              "SV2023-3.12.1-EXTRACT-UNIT-BIND",
+              "SV2023-3.12.1-EXTRACT-UNIT-PACKAGE-ITEMS"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "VPI アプリケーションも bind 構文もなく、compilation-unit scope に置いたのは2つの変数だけ。PLI の compilation unit 反復子、bind の受理、package で許される全 item 種別（型・タスク・関数など）は観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_unit_variables.sv",
+                "contains": "int count = 3;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-3.12.1-EXTRACT-NAME-SEARCH-ORDER",
+              "SV2023-3.12.1-EXTRACT-UNIT-UPWARD-REFERENCE"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "参照はすべて先に宣言された unit 変数へ解決しており、後方の unit 宣言、package import、インスタンス階層との優先順位や、unit scope を頂点とした上向き階層参照を刺激していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_unit_variables.sv",
+                "contains": "    return 2 * $unit::count;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-26.3-EXTRACT-OUTER-SCOPE-IMPORT"
+            ],
+            "disposition": "citation_refinement",
+            "explanation": "テストが 26.3 を引くのは $unit:: の限定名参照のためで、import 宣言を使わない。候補の要求は外側の字句スコープでワイルドカード import の候補名を探す規則であり、$unit:: の解決は 3.12.1-EXTRACT-EXPLICIT-UNIT-RESOLUTION として別テストに既に対応済み。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch3/test_unit_variables.sv",
+                "contains": "    return 2 * $unit::count;"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
       "test": "tests/ch30/test_distributed_gate_and_net_delays_add.sv",
       "inputs_sha256": "4a18b01746313e6291976ab2c193a6594ccb24a20a514ed9f49be1daf4e24339",
       "cited_clauses": [
@@ -187301,6 +187466,103 @@
               {
                 "file": "tests/ch5/test_unsized_fill_wide_part_select_nba.sv",
                 "contains": "g[32:0] = g[32:0] ^ '1;"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test": "tests/ch5/test_unsized_wide_literal.sv",
+      "inputs_sha256": "cbf5345123305bdef98a481dd20ddc1cf63d7d2507aba08f4894f439b3d3ee8c",
+      "cited_clauses": [
+        "5.7.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-5.7.1-EXTRACT-UNSIZED-LARGE-WIDTH"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-5.7.1-EXTRACT-BASE-VALUE-DIGITS",
+        "SV2023-5.7.1-EXTRACT-BASED-LETTER",
+        "SV2023-5.7.1-EXTRACT-BASED-SIGNEDNESS",
+        "SV2023-5.7.1-EXTRACT-BASED-THREE-TOKENS",
+        "SV2023-5.7.1-EXTRACT-FILL-CONTEXT",
+        "SV2023-5.7.1-EXTRACT-FILL-SELF-WIDTH",
+        "SV2023-5.7.1-EXTRACT-HEX-CASE",
+        "SV2023-5.7.1-EXTRACT-INTEGER-LITERAL-LOGIC",
+        "SV2023-5.7.1-EXTRACT-INTEGER-RADICES",
+        "SV2023-5.7.1-EXTRACT-LITERAL-TRUNCATION",
+        "SV2023-5.7.1-EXTRACT-LITERAL-UNKNOWN-PADDING",
+        "SV2023-5.7.1-EXTRACT-LITERAL-ZERO-PADDING",
+        "SV2023-5.7.1-EXTRACT-NUMERIC-UNDERSCORE",
+        "SV2023-5.7.1-EXTRACT-PLAIN-DECIMAL",
+        "SV2023-5.7.1-EXTRACT-PLAIN-SIGNED",
+        "SV2023-5.7.1-EXTRACT-QUESTION-Z",
+        "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
+        "SV2023-5.7.1-EXTRACT-SIZED-SIGN-EXTENSION",
+        "SV2023-5.7.1-EXTRACT-TWOS-COMPLEMENT",
+        "SV2023-5.7.1-EXTRACT-UNSIZED-MINIMUM",
+        "SV2023-5.7.1-EXTRACT-UNSIZED-UNKNOWN-CONTEXT",
+        "SV2023-5.7.1-EXTRACT-X-DIGIT-GROUP",
+        "SV2023-5.7.1-EXTRACT-XZ-CASE",
+        "SV2023-5.7.1-EXTRACT-Z-DIGIT-GROUP"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-5.7.1-EXTRACT-APOSTROPHE-BASE-ADJACENCY",
+        "SV2023-5.7.1-EXTRACT-DECIMAL-UNKNOWN-SINGLE",
+        "SV2023-5.7.1-EXTRACT-SIGN-PLACEMENT"
+      ],
+      "broader_citations": [],
+      "scoped_review": {
+        "test": "tests/ch5/test_unsized_wide_literal.sv",
+        "inputs_sha256": "cbf5345123305bdef98a481dd20ddc1cf63d7d2507aba08f4894f439b3d3ee8c",
+        "reviewed_on": "2026-10-25",
+        "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+        "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+        "decisions": [
+          {
+            "requirement_ids": [
+              "SV2023-5.7.1-EXTRACT-PLAIN-DECIMAL",
+              "SV2023-5.7.1-EXTRACT-UNSIZED-MINIMUM",
+              "SV2023-5.7.1-EXTRACT-INTEGER-LITERAL-LOGIC"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "刺激は正の10進リテラル3つだけで、単項プラス/マイナス、ちょうど32ビット以下に収まる値、リテラル自体の $bits・range・符号付き範囲を観測していない。10進リテラルの任意の符号、32ビット最小幅、整数リテラルの logic ベクトルとしての範囲と符号は別の刺激が要る。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_unsized_wide_literal.sv",
+                "contains": "    x = 1000000000000;"
+              }
+            ]
+          },
+          {
+            "requirement_ids": [
+              "SV2023-5.7.1-EXTRACT-BASE-VALUE-DIGITS",
+              "SV2023-5.7.1-EXTRACT-BASED-LETTER",
+              "SV2023-5.7.1-EXTRACT-BASED-THREE-TOKENS",
+              "SV2023-5.7.1-EXTRACT-QUESTION-Z",
+              "SV2023-5.7.1-EXTRACT-X-DIGIT-GROUP",
+              "SV2023-5.7.1-EXTRACT-Z-DIGIT-GROUP",
+              "SV2023-5.7.1-EXTRACT-XZ-CASE",
+              "SV2023-5.7.1-EXTRACT-LITERAL-UNKNOWN-PADDING",
+              "SV2023-5.7.1-EXTRACT-UNSIZED-UNKNOWN-CONTEXT",
+              "SV2023-5.7.1-EXTRACT-SIZE-EXACT-BITS",
+              "SV2023-5.7.1-EXTRACT-SIZED-SIGN-EXTENSION",
+              "SV2023-5.7.1-EXTRACT-FILL-SELF-WIDTH"
+            ],
+            "disposition": "partial_observation",
+            "explanation": "テストには based literal、サイズ付きリテラル、x/z/? の値数字、'0/'1 の充填、符号拡張が1つも現れない。基数ごとの数字の扱い、大文字小文字、x/z の左詰め、サイズの厳密なビット数、signed リテラルの符号拡張は観測していない。",
+            "reviewed_on": "2026-10-25",
+            "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+            "evidence": [
+              {
+                "file": "tests/ch5/test_unsized_wide_literal.sv",
+                "contains": "    x = 4294967296;"
               }
             ]
           }
@@ -404822,14 +405084,14 @@
       "broader_citations": []
     }
   ],
-  "scoped_review_test_files": 490,
+  "scoped_review_test_files": 492,
   "review_disposition_counts": {
-    "citation_refinement": 33,
+    "citation_refinement": 34,
     "compound_requirement": 109,
     "oracle_issue": 49,
-    "partial_observation": 530
+    "partial_observation": 536
   },
-  "registry_sha256": "d8477a1922b12606fa3d0582e25fd4af2bed5a4315b3bbbde80c3ac23529368c",
+  "registry_sha256": "06c83ffb31a82533589ef04e3df825ed68fe64b13dd342eb8bb4b10db87cbade",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
-  "review_ledger_sha256": "0b990f94f59f479a27cf458dafca26bc8100764f8482e34c82cd3095610303bd"
+  "review_ledger_sha256": "0fa18e7c3bf41ec9a251dbfda15fb253e81614aed4009ee6b930a56f5a79495f"
 }

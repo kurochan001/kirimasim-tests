@@ -1,6 +1,6 @@
 # Clause 3: Design and verification building blocks
 
-[All chapters](README.md). 68 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 69 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -43,6 +43,7 @@
 | [`test_unit_scope_import`](../../tests/ch3/test_unit_scope_import.sv) | A package imported in the compilation-unit scope is visible to every module of the compilation unit | 3.12.1 26.3 | Icarus Verilog 13.0 |  |
 | [`test_unit_scope_shadow_minimal`](../../tests/ch3/test_unit_scope_shadow_minimal.sv) | A local name hides $unit and package names, which stay reachable by scope | 3.12.1 26.3 | Icarus Verilog 13.0 |  |
 | [`test_unit_scope_shared_state`](../../tests/ch3/test_unit_scope_shared_state.sv) | A variable and a task declared in the compilation-unit scope are one object and one subroutine for every module | 3.12.1 3.13 | Icarus Verilog 13.0 |  |
+| [`test_unit_variables`](../../tests/ch3/test_unit_variables.sv) | Variables declared in the compilation-unit scope are static, start with their initializers before time 0, and are shared by every module that names them | 3.12.1 6.21 26.3 | Icarus Verilog 13.0 |  |
 | [`test_name_spaces`](../../tests/ch3/test_name_spaces.sv) | the same identifier can name a module, a package, a text macro, a variable of a module and a variable of a block, because they belong to different name spaces | 3.13 26.3 22.5.1 23.6 | standard only |  |
 | [`test_same_class_name_in_two_scopes`](../../tests/ch3/test_same_class_name_in_two_scopes.sv) | Classes with the same name declared in two modules or in two packages are different classes | 3.13 26.3 8.9 | Verilator 5.052 |  |
 | [`test_delay_scaled_by_unit_rounded_by_precision`](../../tests/ch3/test_delay_scaled_by_unit_rounded_by_precision.sv) | The same delay literal waits for different times in modules with different time units, and a delay is rounded to the time precision of its module, so #1.26 is 1 ns, 12.6 ns or 13 ns and #0.0237 and #0.0251 with a 10 ns precision are 20 ns and 30 ns | 3.14 3.14.1 3.14.2.2 | Icarus Verilog 13.0 |  |

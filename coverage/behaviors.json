@@ -10917,7 +10917,29 @@
       "acceptance": "Check very large positive signed values with their required sign bit; no silent 32-bit truncation is conforming.",
       "source_note": "IEEE 1800-2023 5.7.1; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch5/test_unsized_wide_literal.sv",
+          "observation": "unsized の10進リテラル 1000000000000（40ビット必要）と 4294967296（2^32）を longint に代入し、それぞれ「1000000000000」と「4294967296」が表示されること、および自己決定的な比較「2147483648 > 0」が 1 になることを確認する。 区別: リテラルを32ビットに切り詰める実装では、1000000000000 は下位32ビット 0xD4A51000 を符号拡張した -727379968、4294967296 は 0 になり、2147483648 は -2147483648 として「> 0」が 0 になる。3つの期待値は、32ビットを超える値が値ビットを保持し、符号付き10進リテラルが 2^31 を正のまま表せる幅（符号ビットを含む）を持つことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cbf5345123305bdef98a481dd20ddc1cf63d7d2507aba08f4894f439b3d3ee8c",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_unsized_wide_literal.sv",
+              "contains": "    x = 1000000000000;"
+            },
+            {
+              "file": "tests/ch5/test_unsized_wide_literal.sv",
+              "contains": "    $display(\"%0d\", 2147483648 > 0);"
+            },
+            {
+              "file": "tests/ch5/test_unsized_wide_literal.expected",
+              "contains": "1000000000000\n4294967296\n1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "5.7.1",
@@ -40258,7 +40280,33 @@
       "acceptance": "Variables outside the listed design/subroutine scopes are compilation-unit-local and static.",
       "source_note": "IEEE 1800-2023 6.21; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_unit_variables.sv",
+          "observation": "モジュールの外（コンパイル単位スコープ）で int count = 3; と logic [7:0] tag = 8'hA5; を宣言する。時刻0の表示 start 3 3 a5 は初期化が手続き開始前に行われたことを示す。bump の #1 count = count + 10 の後、top が同じ count を 13 として読み、twice() が 26 を返すことを確認する。 区別: コンパイル単位の変数を automatic として扱う、モジュールごとに複製する、または初期化を時刻0以降に遅らせる実装では、start の count が 0 や x になり、bump の更新が top の count に反映されず after が 3 や 13 以外になる。start の 3 と after の 13 が、宣言がコンパイル単位に属し静的で、初期化が時刻0前に行われ、全モジュールで共有されることを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c907531ab35696c77fc8c5c2e4c9a8c62254e3c05a343c43218e16f7a74d3b23",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_unit_variables.sv",
+              "contains": "int count = 3;"
+            },
+            {
+              "file": "tests/ch3/test_unit_variables.sv",
+              "contains": "    $display(\"after %0d twice %0d\", count, twice());"
+            },
+            {
+              "file": "tests/ch3/test_unit_variables.expected",
+              "contains": "start 3 3 a5"
+            },
+            {
+              "file": "tests/ch3/test_unit_variables.expected",
+              "contains": "after 13 twice 26"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.21",

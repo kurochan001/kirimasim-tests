@@ -1,6 +1,6 @@
 # Clause 5: Lexical conventions
 
-[All chapters](README.md). 316 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 317 tests, 248 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -46,6 +46,7 @@
 | [`test_underscore_literal`](../../tests/ch5/test_underscore_literal.sv) | Underscores in binary, hex and decimal literals do not change their values | 5.7.1 | Icarus Verilog 13.0 |  |
 | [`test_unsized_fill_all_values`](../../tests/ch5/test_unsized_fill_all_values.sv) | The unsized single-bit literals '0, '1, 'x and 'z fill every bit of an 8-bit, 33-bit and 65-bit context and have width one in a self-determined context | 5.7.1 | Icarus Verilog 13.0 | x/z |
 | [`test_unsized_fill_wide_part_select_nba`](../../tests/ch5/test_unsized_fill_wide_part_select_nba.sv) | An unsized fill literal such as '1 fills the whole width of a part-select wider than 32 bits in a nonblocking assignment | 5.7.1 11.6.1 10.4.2 11.5.1 | Icarus Verilog 13.0 |  |
+| [`test_unsized_wide_literal`](../../tests/ch5/test_unsized_wide_literal.sv) | An unsized decimal literal that needs more than 32 bits gets the width it needs instead of being truncated to 32 bits | 5.7.1 | Icarus Verilog 13.0 |  |
 | [`test_illegal_real_literal_exponent_no_leading_digit`](../../tests/ch5/test_illegal_real_literal_exponent_no_leading_digit.sv) | The real literal .2e-7, which has no digit before its decimal point, is rejected | 5.7.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_real_literal_exponent_no_trailing_digit`](../../tests/ch5/test_illegal_real_literal_exponent_no_trailing_digit.sv) | The real literal 4.E3, which has no digit between its decimal point and its exponent, is rejected | 5.7.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_real_literal_no_leading_digit`](../../tests/ch5/test_illegal_real_literal_no_leading_digit.sv) | The real literal .12, which has no digit before its decimal point, is rejected | 5.7.2 | Icarus Verilog 13.0 | illegal design |
