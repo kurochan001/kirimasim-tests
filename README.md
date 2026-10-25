@@ -241,35 +241,53 @@ tools change (see "Workflows").
 ## Simulation speed
 
 The suite checks what simulators compute, not how fast. For reference, the
-kirimasim repository keeps a comparison of their speed on four small designs
-of its own ([bench/](https://github.com/kurochan001/kirimasim/tree/main/bench)).
+kirimasim repository keeps a comparison of their speed on small designs of
+its own ([bench/](https://github.com/kurochan001/kirimasim/tree/main/bench)).
 Its latest run, on Linux under WSL2 (AMD Ryzen 9 7950X) on 2026-10-25, used
-each simulator's newest development commit and gave these times: the median
-of five runs at the stated count less the median of five runs with `+n=1`.
+each simulator's newest development commit and eleven designs, and gave these
+times: the median of five runs at the stated count less the median of five
+runs with `+n=1`.
 
 | Design | `+n=` | kirimasim | Icarus Verilog 14.0 devel | Verilator 5.053 devel | Lyra (C++ backend, default) | Lyra (LLVM backend) |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `comb_chain` | 3,000,000 | 8.288 s | 9.838 s | 0.218 s | 31.399 s | 2.821 s |
-| `nba_shift` | 1,000,000 | 22.459 s | 25.899 s | 0.195 s | 139.227 s | 5.706 s |
-| `proc_wait` | 1,000,000 | 6.313 s | 5.571 s | 2.190 s | 72.489 s | 5.990 s |
-| `fork_join` | 4,000,000 | 4.162 s | 4.973 s | 1.177 s | 15.492 s | 4.776 s |
+| `comb_chain` | 3,000,000 | 9.249 s | 9.796 s | 0.223 s | 31.915 s | 2.878 s |
+| `nba_shift` | 1,000,000 | 25.486 s | 26.585 s | 0.196 s | 140.711 s | 5.900 s |
+| `proc_wait` | 1,000,000 | 6.786 s | 5.688 s | 2.283 s | 73.445 s | 6.164 s |
+| `fork_join` | 4,000,000 | 4.837 s | 5.023 s | 1.190 s | 15.826 s | 4.860 s |
+| `wide_arith` | 1,500,000 | 4.944 s | 2.036 s | 0.086 s | 6.236 s | 0.380 s |
+| `mem_rw` | 4,000,000 | 4.937 s | 3.645 s | 0.696 s | 23.079 s | 2.705 s |
+| `func_call` | 1,500,000 | 4.917 s | 7.511 s | 0.005 s | 7.887 s | 0.395 s |
+| `string_fmt` | 500,000 | 5.003 s | 8.080 s | 0.135 s | 18.770 s | 0.279 s |
+| `dyn_queue` | 4,000,000 | 4.112 s | 6.686 s | 0.083 s | 16.275 s | 0.412 s |
+| `gate_udp` | 400,000 | 5.378 s | 3.517 s | 0.046 s | not supported | not supported |
+| `casez_struct` | 5,000,000 | 3.976 s | 4.117 s | 0.018 s | 22.159 s | 0.466 s |
 
-- kirimasim was at commit `8a8607690aa6`, Icarus Verilog at 14.0 devel
+- kirimasim was at commit `b66834254c65`, Icarus Verilog at 14.0 devel
   `2b8d42dc088f`, Verilator at 5.053 devel `1838b6ed035c` and Lyra at
   `63922502ff0a`, built with `bazel build -c opt`, which is not the commit the
   nightly workflow pins; both of Lyra's backends ran at its default `-O 0`.
-  Every measured run gave the expected result. The times do not include
+  Every measured run gave the expected result; Lyra does not support gates or
+  UDPs yet, so it built no program for `gate_udp`. The times do not include
   building a design (Verilator's C++, Lyra's program).
-- kirimasim was about 1.15–1.19 times faster than Icarus Verilog on three of
-  the designs and about 1.13 times slower on `proc_wait`.
-- An earlier run on the same machine on 2026-10-24, with the releases Icarus
-  Verilog 13.0 and Verilator 5.050 and with Lyra `a2313fdc8707`, is kept in
-  kirimasim's raw data. nvc 1.23.0 could not analyse the designs then, and it
-  is no longer compared.
-- Four small designs on one machine do not stand for the speed of real
-  designs. Build times, startup, memory and the commands that reproduce the
-  runs are in kirimasim's
-  [benchmark details](https://github.com/kurochan001/kirimasim/blob/main/docs/BENCHMARKS.md).
+- The first four designs exercise `always_comb` chains, nonblocking
+  assignments, waiting processes and `fork`/`join`. The other seven use
+  256-bit arithmetic (`wide_arith`), a 1024-word memory (`mem_rw`), task and
+  recursive function calls (`func_call`), `$sformatf` (`string_fmt`), a queue
+  and a dynamic array (`dyn_queue`), gates and a UDP (`gate_udp`), and `casez`
+  into a packed struct (`casez_struct`).
+- kirimasim was slower than Icarus Verilog on `proc_wait`, `wide_arith` (2.4
+  times), `mem_rw` and `gate_udp`, clearly faster on `func_call`,
+  `string_fmt` and `dyn_queue`, and within about 6% on the other four. On
+  `dyn_queue` its peak memory grows with the count (547 MiB at 4,000,000).
+- On the first four designs kirimasim took 1.08–1.14 times as long as at
+  `8a8607690aa6` in a run earlier that day; kirimasim traces the change to
+  `b17234e420b6`. An earlier run on 2026-10-24, with the releases Icarus
+  Verilog 13.0 and Verilator 5.050, and nvc 1.23.0, which could not analyse
+  the designs and is no longer compared, is kept in kirimasim's raw data.
+- Small designs on one machine do not stand for the speed of real designs.
+  Build times, startup, memory and the commands that reproduce the runs are
+  in kirimasim's
+  [benchmark details](https://github.com/kurochan001/kirimasim/blob/main/docs/BENCHMARKS.md#development-versions-on-linux-wsl2-2026-10-25).
 
 ## Layout
 
