@@ -163081,7 +163081,25 @@
       "acceptance": "Automatic point-bin names use auto[value] or auto[low:high] and remain unaffected by ignored/illegal values except bin emptying; only identical names overlap.",
       "source_note": "IEEE 1800-2023 19.11.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
+          "observation": "3ビット a の coverpoint au を auto_bin_max=4 とし、m1 は ignore_bins {2,6} と illegal_bins {5,7}、m2 は ignore_bins {3,6} と illegal_bins {4,7} を持つ。m1 が3、m2 が2をサンプルした時点で 33.33、さらに m2 が5をサンプルすると 66.67 になることを比べる。 区別: 自動ビン名 auto[0:1]/auto[2:3]/auto[4:5]/auto[6:7] が ignore/illegal 値で変わる実装では、3回のサンプルで被覆されるビンの数が変わり 33.33/66.67 にならない。auto[6:7] が両インスタンスで空になるため型ビンが3個になり、m1 と m2 が共有する auto[2:3] が1個として数えられることが、この2つの数値に対応する。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
+              "contains": "      ignore_bins skip = {ig, 6};"
+            },
+            {
+              "file": "tests/ch19/test_cg_merge_auto_and_transition_names.expected",
+              "contains": "automatic bins: 33.33"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.11.3",
@@ -163189,7 +163207,25 @@
       "acceptance": "A single named state/transition bin overlaps across all instances by that same name.",
       "source_note": "IEEE 1800-2023 19.11.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
+          "observation": "merge_instances=1 の covergroup cg_tr で、単一の遷移ビン bins one_t = (s => 1, 2) を3インスタンス k1(s=0), k2(s=3), k3(s=0) に持たせる。k1 が 0=>1、k3 が 0=>2 をサンプルし、期待出力 one_t 100.00 は、one_t が全インスタンスで同じ名前の1ビンとして重なり、そのビンが被覆されたことを比べる。 区別: 単一の名前付きビンをインスタンスごとに別ビンとして数える実装では、cg_tr の型ビンが3個（またはそれ以上）になり、1個だけ被覆されて 33.33 などになる。期待値 100.00 は、one_t が全インスタンスで同一名の1ビンとして重なり、k1 と k3 のどちらのサンプルでも同じビンが被覆されたことを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
+              "contains": "    ts: coverpoint a { bins one_t = (s => 1, 2); }"
+            },
+            {
+              "file": "tests/ch19/test_cg_merge_auto_and_transition_names.expected",
+              "contains": "transition bins: t 50.00, one_t 100.00"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.11.3",
@@ -163207,7 +163243,25 @@
       "acceptance": "Open transition bins overlap across instances when their bounded transition names match.",
       "source_note": "IEEE 1800-2023 19.11.3; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
+          "observation": "merge_instances=1 の cg_tr で、遷移ビン配列 bins t[] = (s => 1, 2) を3インスタンスに持たせる。k1(s=0) と k3(s=0) は t[0=>1] と t[0=>2] を共有し、k2(s=3) は t[3=>1] と t[3=>2] を持つ。k1 が 0=>1、k3 が 0=>2 をサンプルし、期待出力 t 50.00 は、型の和集合が4ビンでそのうち2ビンが被覆されたことを比べる。 区別: 遷移配列のビンを遷移名で重ねずインスタンスごとに別ビンとする実装では、型ビンが4個より多くなり 50.00 にならない。遷移名を無視してすべて同じビンにまとめる実装では1ビンになり 100.00 になる。期待値 50.00 は、t[0=>1] と t[0=>2] が k1/k3 で重なり、t[3=>1] と t[3=>2] が k2 で別ビンとして残ることを示す。",
+          "reviewed_on": "2026-10-25",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
+              "contains": "    tr: coverpoint a { bins t[] = (s => 1, 2); }"
+            },
+            {
+              "file": "tests/ch19/test_cg_merge_auto_and_transition_names.expected",
+              "contains": "transition bins: t 50.00, one_t 100.00"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.11.3",

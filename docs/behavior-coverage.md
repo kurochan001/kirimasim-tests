@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 59.75%、実行 33.69%。**
+**全規格の要求台帳ベース（暫定）: 設計 59.77%、実行 33.69%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 7360/12319 (59.75%)。
+- 登録済み動作に対するテスト設計網羅率: 7363/12319 (59.77%)。
 - 登録済み動作のうち、新鮮な実行成功証跡があるもの: 4150/12319 (33.69%)。
-- 登録済みだがテスト未対応: 4959 動作。
+- 登録済みだがテスト未対応: 4956 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -99,7 +99,7 @@
 - 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 292。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 7。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 57。
-- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 152。
+- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 155。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 131。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 144。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 297。
@@ -49898,7 +49898,7 @@ For a zero-denominator cross, coverage queries return 0.0 with nonzero weight an
 
 ### SV2023-19.11.3-EXTRACT-AUTO-BIN-IDENTITY
 
-19.11.3 / normal / テスト未対応
+19.11.3 / normal / テスト対応あり・実行未確認
 
 Automatic point-bin names use auto[value] or auto[low:high] and remain unaffected by ignored/illegal values except bin emptying; only identical names overlap.
 
@@ -49906,6 +49906,7 @@ Automatic point-bin names use auto[value] or auto[low:high] and remain unaffecte
 
 規定の性質: `definition`。
 
+- [test_cg_merge_auto_and_transition_names.sv](../tests/ch19/test_cg_merge_auto_and_transition_names.sv): 3ビット a の coverpoint au を auto_bin_max=4 とし、m1 は ignore_bins {2,6} と illegal_bins {5,7}、m2 は ignore_bins {3,6} と illegal_bins {4,7} を持つ。m1 が3、m2 が2をサンプルした時点で 33.33、さらに m2 が5をサンプルすると 66.67 になることを比べる。 区別: 自動ビン名 auto[0:1]/auto[2:3]/auto[4:5]/auto[6:7] が ignore/illegal 値で変わる実装では、3回のサンプルで被覆されるビンの数が変わり 33.33/66.67 にならない。auto[6:7] が両インスタンスで空になるため型ビンが3個になり、m1 と m2 が共有する auto[2:3] が1個として数えられることが、この2つの数値に対応する。
 
 ### SV2023-19.11.3-EXTRACT-AUTO-CROSS-IDENTITY
 
@@ -49954,7 +49955,7 @@ Open state bins overlap across instances when their name[value] matches; fixed a
 
 ### SV2023-19.11.3-EXTRACT-SCALAR-BIN-IDENTITY
 
-19.11.3 / normal / テスト未対応
+19.11.3 / normal / テスト対応あり・実行未確認
 
 A single named state/transition bin overlaps across all instances by that same name.
 
@@ -49962,10 +49963,11 @@ A single named state/transition bin overlaps across all instances by that same n
 
 規定の性質: `definition`。
 
+- [test_cg_merge_auto_and_transition_names.sv](../tests/ch19/test_cg_merge_auto_and_transition_names.sv): merge_instances=1 の covergroup cg_tr で、単一の遷移ビン bins one_t = (s => 1, 2) を3インスタンス k1(s=0), k2(s=3), k3(s=0) に持たせる。k1 が 0=>1、k3 が 0=>2 をサンプルし、期待出力 one_t 100.00 は、one_t が全インスタンスで同じ名前の1ビンとして重なり、そのビンが被覆されたことを比べる。 区別: 単一の名前付きビンをインスタンスごとに別ビンとして数える実装では、cg_tr の型ビンが3個（またはそれ以上）になり、1個だけ被覆されて 33.33 などになる。期待値 100.00 は、one_t が全インスタンスで同一名の1ビンとして重なり、k1 と k3 のどちらのサンプルでも同じビンが被覆されたことを示す。
 
 ### SV2023-19.11.3-EXTRACT-TRANSITION-IDENTITY
 
-19.11.3 / normal / テスト未対応
+19.11.3 / normal / テスト対応あり・実行未確認
 
 Open transition bins overlap across instances when their bounded transition names match.
 
@@ -49973,6 +49975,7 @@ Open transition bins overlap across instances when their bounded transition name
 
 規定の性質: `definition`。
 
+- [test_cg_merge_auto_and_transition_names.sv](../tests/ch19/test_cg_merge_auto_and_transition_names.sv): merge_instances=1 の cg_tr で、遷移ビン配列 bins t[] = (s => 1, 2) を3インスタンスに持たせる。k1(s=0) と k3(s=0) は t[0=>1] と t[0=>2] を共有し、k2(s=3) は t[3=>1] と t[3=>2] を持つ。k1 が 0=>1、k3 が 0=>2 をサンプルし、期待出力 t 50.00 は、型の和集合が4ビンでそのうち2ビンが被覆されたことを比べる。 区別: 遷移配列のビンを遷移名で重ねずインスタンスごとに別ビンとする実装では、型ビンが4個より多くなり 50.00 にならない。遷移名を無視してすべて同じビンにまとめる実装では1ビンになり 100.00 になる。期待値 50.00 は、t[0=>1] と t[0=>2] が k1/k3 で重なり、t[3=>1] と t[3=>2] が k2 で別ビンとして残ることを示す。
 
 ### SV2023-19.11.3-EXTRACT-TYPE-COUNTS-CONSISTENCY
 
