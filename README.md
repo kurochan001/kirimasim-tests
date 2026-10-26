@@ -2,13 +2,14 @@
 
 The [nightly workflow](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml) of [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) writes this branch. Each night it runs every test of the suite's main branch with each simulator, adds the results to `history.json` and draws the charts below. A test matches when the simulator's normalized standard output is exactly its expected output; see the suite's README for what each status means.
 
-Latest run: 2026-10-25 22:50 UTC, suite commit [`eadc98d`](https://github.com/kurochan001/kirimasim-tests/commit/eadc98d6c452244167e267a46866808291771198), 6799 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/40237581816).
+Latest run: 2026-10-26 14:44 UTC, suite commit [`5fb3c45`](https://github.com/kurochan001/kirimasim-tests/commit/5fb3c45d73e4946d99690389752b82c86eecaa50), 7144 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/40333187203).
 
 | Simulator | Version | Match | Differ | Known differences | Unsupported | Since the previous run |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-695-g49bebc95) | 4356 (64.1%) | 5 | 2438 | 0 | 790 new tests (338 match) |
-| Verilator | Verilator 5.053 devel rev v5.052-601-g7fa05abe | 4387 (64.5%) | 5 | 2407 | 0 | 5 newly match, 790 new tests (358 match) |
-| kirimasim | kirimasim 0.0.0 (commit a4f653c1d0fd), built with GNU 13.3.0 | 4692 (69.0%) | 154 | 0 | 1953 | 30 newly match, 1 no longer match, 790 new tests (428 match) |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-721-g1d601c9e) | 4508 (63.1%) | 14 | 2622 | 0 | 2 newly match, 345 new tests (150 match) |
+| Verilator | Verilator 5.053 devel rev v5.052-605-g5dcc7183 | 4554 (63.7%) | 6 | 2584 | 0 | 345 new tests (167 match) |
+| kirimasim | kirimasim 0.0.0 (commit 5563871fcd96), built with GNU 13.3.0 | 4866 (68.1%) | 174 | 0 | 2104 | 17 newly match, 345 new tests (157 match) |
+| Lyra | Lyra (commit 7e2c604b9ab2) | 5280 (73.9%) | 478 | 0 | 1386 | 1 newly match, 1 no longer match, 1135 new tests (673 match) |
 
 ![Tests that match their expected output](charts/overview.svg)
 
@@ -18,17 +19,21 @@ Latest run: 2026-10-25 22:50 UTC, suite commit [`eadc98d`](https://github.com/ku
 
 Tests that match now but did not in the previous run of the same simulator, and tests that matched then but do not now. Tests added to the suite are counted in the table above.
 
-### Verilator
+### Icarus Verilog
 
-Newly match (5): `ch17/test_checker_covergroup`, `ch19/test_cg_clocking_block_coverpoint`, `ch19/test_cg_constructor_arguments`, `ch19/test_cg_cross_illegal_excluded`, `ch19/test_cg_cross_with_expression`
+Newly match (2): `ch10/test_contassign_select_of_struct_member`, `ch6/test_enum_wider_than_64_bits_name`
 
 ### kirimasim
 
-Newly match (30): `ch16/test_deferred_assertion_default_error`, `ch6/test_lifetime_fork_keeps_automatic_scope`, `ch7/test_array_and`, `ch7/test_array_max`, `ch7/test_array_min`, `ch7/test_array_min_max`, `ch7/test_array_or`, `ch7/test_array_ordering`, `ch7/test_array_product`, `ch7/test_array_reduce`, `ch7/test_array_reduction_and`, `ch7/test_array_reduction_and_or_xor_with`, `ch7/test_array_reduction_methods`, `ch7/test_array_reduction_or`, `ch7/test_array_reduction_product`, `ch7/test_array_reduction_result_type_and_with_width`, `ch7/test_array_reduction_xor`, `ch7/test_array_reverse`, `ch7/test_array_reverse_2`, `ch7/test_array_rsort`, `ch7/test_array_sort`, `ch7/test_array_sum`, `ch7/test_array_xor`, `ch7/test_dyn_resize`, `ch7/test_packed_array_whole_element_part_sign`, `ch7/test_queue_ops_adv_edge_cases`, `ch7/test_real_queue_sort_min_max`, `ch7/test_value_dynamic`, `ch7/test_value_queue_ops`, `ch9/test_fork_automatic_declaration_per_iteration`
+Newly match (17): `ch13/test_ref_event_argument`, `ch28/test_bidirectional_switch_category`, `ch28/test_cmos_edge_cases`, `ch28/test_mos_switch_category`, `ch28/test_nmos_edge_cases`, `ch28/test_pass_switch_control_delay_forms`, `ch28/test_pmos_edge_cases`, `ch28/test_primitive_terminal_lists`, `ch28/test_resistive_switch_supply_reduction`, `ch28/test_syntax_primitive_terminal_expressions`, `ch28/test_tran_edge_cases`, `ch28/test_tranif0_control_turn_on_off_delays`, `ch28/test_tristate_z_values`, `ch3/test_builtin_primitive_categories`, `ch4/test_switch_unknown_control_same_value_resolution`, `ch4/test_switch_x_gate_resolution`, `ch6/test_z_input_acts_as_x_except_mos`
+
+### Lyra
+
+Newly match (1): `ch16/test_deferred_assertion_default_error`
 
 No longer match (1):
 
-- `ch16/test_illegal_sequence_cycle_through_instance_actual`: unsupported — module member 'Sequence' (not implemented yet)
+- `ch7/test_unpacked_array_16777216_elements`: differ — compile failed: error: compiling 'test_unpacked_array_16777216_elements.cpp' failed
 
 ## By chapter
 
@@ -50,6 +55,7 @@ Matching tests of each simulator, with the change since its previous run. The ve
 
 | Run (UTC) | Suite | Tests | Icarus Verilog | Verilator | kirimasim | Lyra |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
+| [2026-10-26 14:44](https://github.com/kurochan001/kirimasim-tests/actions/runs/40333187203) | [`5fb3c45`](https://github.com/kurochan001/kirimasim-tests/commit/5fb3c45d73e4946d99690389752b82c86eecaa50) | 7144 | 4508 (+152 −0) `14.0 devel 1d601c9` | 4554 (+167 −0) `5.053 devel 5dcc718` | 4866 (+174 −0) `5563871fc` | 5280 (+674 −1) |
 | [2026-10-25 22:50](https://github.com/kurochan001/kirimasim-tests/actions/runs/40237581816) | [`eadc98d`](https://github.com/kurochan001/kirimasim-tests/commit/eadc98d6c452244167e267a46866808291771198) | 6799 | 4356 (+338 −0) `14.0 devel 49bebc9` | 4387 (+363 −0) `5.053 devel 7fa05ab` | 4692 (+458 −1) `a4f653c1d` | — |
 | [2026-10-24 22:48](https://github.com/kurochan001/kirimasim-tests/actions/runs/40135271002) | [`c87448b`](https://github.com/kurochan001/kirimasim-tests/commit/c87448ba87b6b6ca136bf526b1ee8710efcb05a3) | 6009 | 4018 | 4024 (+1 −0) `5.053 devel 441c0df` | 4235 `c507631d2` | 4607 |
 | [2026-10-24 12:44](https://github.com/kurochan001/kirimasim-tests/actions/runs/40084390631) | [`0073c69`](https://github.com/kurochan001/kirimasim-tests/commit/0073c6947bc210d7b928d0d651ef34d5095b5999) | 6009 | 4018 (+1298 −0) `14.0 devel 9cfecc9` | 4023 (+1202 −0) | 4235 (+1449 −0) `c0388da8a` | 4607 `7e2c604b9` |
