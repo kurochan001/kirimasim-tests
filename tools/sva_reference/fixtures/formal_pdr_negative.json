@@ -1,0 +1,23 @@
+{
+  "case": "first_match_tie_mutant_prove",
+  "purpose": "Additional ABC PDR backend negative control",
+  "kind": "streaming_sequence",
+  "expression": "first_match((a ##[1:2] b) or (a ##2 c))",
+  "signals": "abc",
+  "clause": "16.9.8",
+  "states": 6,
+  "alphabet_size": 8,
+  "bmc_depth": 8,
+  "mode": "prove",
+  "depth": 8,
+  "status": "FAIL",
+  "expected": "FAIL",
+  "ok": true,
+  "rc": 2,
+  "elapsed_seconds": 0.826,
+  "model_sha256": "c0215128c033d04583a86384992ff04c1433a810fb4f2eecddcbf471c93cb5a1",
+  "sby_sha256": "6e01a3f27d2c7ff12646f7703454115f931341ba78b46f8c647c592fa0ba846c",
+  "traces": [
+    "case/engine_0/trace.vcd"
+  ]
+}

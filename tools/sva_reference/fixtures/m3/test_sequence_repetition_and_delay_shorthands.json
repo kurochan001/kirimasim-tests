@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "ac89d1f33db00823bc21ec0284e1a18617932a5631534395c1a16113596740f5",
+  "signals": [
+    "test_sequence_repetition_and_delay_shorthands.a",
+    "test_sequence_repetition_and_delay_shorthands.b",
+    "test_sequence_repetition_and_delay_shorthands.start"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_repetition_and_delay_shorthands.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_repetition_and_delay_shorthands.a": 1,
+      "test_sequence_repetition_and_delay_shorthands.b": 1,
+      "test_sequence_repetition_and_delay_shorthands.start": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "1",
+          "test_sequence_repetition_and_delay_shorthands.start": "1"
+        },
+        "settled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "1",
+          "test_sequence_repetition_and_delay_shorthands.start": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "1",
+          "test_sequence_repetition_and_delay_shorthands.b": "1",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "1",
+          "test_sequence_repetition_and_delay_shorthands.b": "1",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "1",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "1",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "1",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "1",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_delay_shorthands.a": "0",
+          "test_sequence_repetition_and_delay_shorthands.b": "0",
+          "test_sequence_repetition_and_delay_shorthands.start": "0"
+        }
+      }
+    ],
+    "end_time": 80
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "b1f0f127947331836b0f9c75ba97163cbb60b8a8912c0c4cb8ccf1d6b6da2f14",
+    "projection_sha256": "f8d202b0cb60a3b42c3e1ebbb4bae7e83fca34e51ce55eba8d2073989a68d6a3",
+    "clock": "test_sequence_repetition_and_delay_shorthands.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_repetition_and_delay_shorthands.a",
+      "test_sequence_repetition_and_delay_shorthands.b",
+      "test_sequence_repetition_and_delay_shorthands.start"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "start": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

@@ -139,6 +139,8 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
   [見直しの記録](../docs/lyra-disagreement-review-20261025.md)を参照してください。
 - `results/oracle-refinement-20261025-*.json`: `:oracle:`に誤って`iverilog@13.0`とあった取り込みテスト3本（`tests/imported/`）を`spec`に直した後の再実行。
   Icarus 13.0とVerilator 5.052（seed 1/73）とも3 knownです。
+- `results/sva-m3-corrections-20261026-*.json`: 独立SVA参照評価器で見つかった期待値・説明の誤り2本を、ユーザー承認後に修正した再実行。
+  Icarus 13.0とVerilator 5.052のseed 1/73とも2 knownです。参照評価器との一致は実行確認率に含めません。
 - `behavior-summary.json`: 現在の暫定値・確定値、章別の割合、分母SHA-256、
   シミュレータごとの失敗・既知不一致・未対応・未実行・古い証跡などの内訳。
   `--update`で概要Markdownとともに再生成し、`--check`で両方の鮮度を検査します。

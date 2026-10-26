@@ -1,0 +1,198 @@
+{
+  "tests/ch11/test_let_declared_in_clocking_block.sv": {
+    "source_sha256": "50a511d4f286d8222d87d2c9bb99768a8c411c4dc0e1cd7f28375c260ae3b407",
+    "prepare": "clocking_let"
+  },
+  "tests/ch16/test_assertion_dist_as_inside.sv": {
+    "source_sha256": "21663ccc7d505f6347c4940a7c6456bda9cca05f673844c2797a8265fbe3ee8f",
+    "functions": {
+      "times": "report"
+    }
+  },
+  "tests/ch16/test_cover_disable_iff.sv": {
+    "source_sha256": "936aeb7f84330dd228e6816ae3d60e0a6fcaa14293e08e0fa3c9c6b09384be86",
+    "current": true
+  },
+  "tests/ch16/test_default_disable_iff_nested_module.sv": {
+    "source_sha256": "a143d906494ecad138ba304d6b39e8badff52e5ccc9acecf3e1b4cea30172587",
+    "prepare": "nested_disable",
+    "functions": {
+      "failed": "report"
+    },
+    "current": true,
+    "period": 30,
+    "report_early": 2,
+    "task": "run_phase",
+    "formals": [
+      "k",
+      "what"
+    ]
+  },
+  "tests/ch16/test_disable_iff_attempt_interval.sv": {
+    "source_sha256": "2ba41faba7e3bc8926b36e62cc16d4aa55939d9377190cd6ae5b5f42156fb8f9",
+    "functions": {
+      "times": "report"
+    },
+    "current": true
+  },
+  "tests/ch16/test_first_match_antecedent.sv": {
+    "source_sha256": "238a81ab5a8deb9a44f5b8675feb2d671fa0b77e04d61c79920d9141a43bd42c",
+    "functions": {
+      "times": "report"
+    },
+    "at": true
+  },
+  "tests/ch16/test_followed_by_dual_forms.sv": {
+    "source_sha256": "950a17da63a1bee92df4a138cbfd18148ec2d5b6ab13ef1ac2db15631376169b",
+    "functions": {
+      "fail": "increment",
+      "n": "report"
+    },
+    "period": 50,
+    "formals": [
+      "ps",
+      "qs",
+      "rs"
+    ]
+  },
+  "tests/ch16/test_nonoverlapped_implication_expansion.sv": {
+    "source_sha256": "587ecf4b0cbc6359d28b66f2c1ff568bb480f7ddb0cdddfeaacb02b21293ae95",
+    "functions": {
+      "times": "report"
+    }
+  },
+  "tests/ch16/test_property_expression_operands_bind_first.sv": {
+    "source_sha256": "d202820fee15bef266459c80b1ecbc406fb4bed2091ffcaa0adbe5a3f49ca0f1",
+    "functions": {
+      "r": "append"
+    }
+  },
+  "tests/ch16/test_property_if_case_forms.sv": {
+    "source_sha256": "6a09dc3b058eb4fe4cb7682c976fa34d6f50d49fc9f5a14717c95fca207cc08b",
+    "period": 50,
+    "formals": [
+      "s",
+      "value"
+    ]
+  },
+  "tests/ch16/test_property_implication_operator_forms.sv": {
+    "source_sha256": "eeb5e6490310fbbb51b39197616840254fcacc67f8f81a20edb039af8f3aa456",
+    "period": 50,
+    "formals": [
+      "x_at"
+    ]
+  },
+  "tests/ch16/test_property_implies_iff_followed_by.sv": {
+    "source_sha256": "0808c9b7cfbe6ffbd19791352bbd2cdfe4aa54c7d5bc07e69d9c1fcd30de1add",
+    "period": 50,
+    "formals": [
+      "name",
+      "p1",
+      "q1",
+      "p2",
+      "q2"
+    ]
+  },
+  "tests/ch16/test_property_negation_of_instances.sv": {
+    "source_sha256": "a3110f55788665ae8c3a388304e6ccbdf958e085baeca38b69e1c5588b990651",
+    "period": 30,
+    "formals": [
+      "vr",
+      "vs"
+    ]
+  },
+  "tests/ch16/test_property_not_or_and.sv": {
+    "source_sha256": "4a6501fe3a1ccf8b1003b7c405207f070b6c64815812307dd7b72f1f840306aa",
+    "period": 50,
+    "formals": [
+      "name",
+      "p_1",
+      "q_1",
+      "p_2",
+      "q_2"
+    ]
+  },
+  "tests/ch16/test_property_operator_precedence_temporal.sv": {
+    "source_sha256": "5a620332a0a414f76173ae9724364098083c8ecd6141bb582abd827230ab9918",
+    "functions": {
+      "inc": "increment"
+    }
+  },
+  "tests/ch16/test_property_strong_unbounded_operators.sv": {
+    "source_sha256": "e40304b9246de8fef483ef52f3aeca8cee30cbee489710c7b5eac083eb0cfc06",
+    "functions": {
+      "times": "report"
+    },
+    "at": true
+  },
+  "tests/ch16/test_property_temporal_operator_forms.sv": {
+    "source_sha256": "6af92c527af7dd9c94687685a409128b77aa359c7c7c6ea73da746de28820eda",
+    "period": 80,
+    "formals": [
+      "ps"
+    ]
+  },
+  "tests/ch16/test_sequence_empty_match_fusion.sv": {
+    "source_sha256": "bda2ccf04c7b6033c08bd26beb9fcf04fc83d38ecf97fd00fbdd5535617ab223",
+    "functions": {
+      "hit": "push_time",
+      "ends": "report"
+    }
+  },
+  "tests/ch16/test_sequence_intersect_within_precedence.sv": {
+    "source_sha256": "b220fd42dbd455573d5b20186cc856e49ce6163c67005a5b8563028e8a4b40e8",
+    "functions": {
+      "times": "report"
+    },
+    "at": true
+  },
+  "tests/ch16/test_sequence_operator_precedence.sv": {
+    "source_sha256": "de3468e06993db965542c316eac53fd0586010e1bc936b4d30a0c0ad6b0369f2"
+  },
+  "tests/ch16/test_sequence_operator_precedence_table.sv": {
+    "source_sha256": "be3482b7af654449c3fa5d3caeb99a67a0923475f3a008b37564555267093ebd",
+    "functions": {
+      "hit": "push_time"
+    }
+  },
+  "tests/ch16/test_sequence_precedence_repetition_within.sv": {
+    "source_sha256": "a3c17b8ebdcf6fbf81f0387da154935d5ec3408e63a9bd0173d547b21470eb97",
+    "functions": {
+      "times": "report"
+    },
+    "at": true
+  },
+  "tests/ch16/test_sequence_repetition_and_concat_precedence.sv": {
+    "source_sha256": "489def2e7af9a3d94616f2b9bb7128a82a7aef9ccc21a94110c47f2a00f1276f",
+    "functions": {
+      "times": "report"
+    }
+  },
+  "tests/ch16/test_sequence_repetition_and_delay_shorthands.sv": {
+    "source_sha256": "b1f0f127947331836b0f9c75ba97163cbb60b8a8912c0c4cb8ccf1d6b6da2f14",
+    "functions": {
+      "hit": "push_time",
+      "ends": "report"
+    }
+  },
+  "tests/ch16/test_sequence_throughout_within_expansions.sv": {
+    "source_sha256": "37544a6ce0960241141bb20b6832ad3287d86867d6d6bf6de6e624373f506b53",
+    "functions": {
+      "times": "report"
+    },
+    "at": true
+  },
+  "tests/ch16/test_strong_weak_first_match_same_truth.sv": {
+    "source_sha256": "81973799f15826c9ba6d68d9c814923fb3df676d94d817da1440590ac29c0805",
+    "functions": {
+      "hit": "push_time",
+      "times": "report"
+    }
+  },
+  "tests/ch16/test_untyped_formal_arguments.sv": {
+    "source_sha256": "fba9e1da28973a51eb29483169c89f93678fa13a4d8562e14238ed7aea65fc99"
+  },
+  "tests/ch16/test_zero_repetition_no_sample.sv": {
+    "source_sha256": "9696e501f000d8228ddd9733be971be9a4491b633f7160559510bd951985b600"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "7681bb7cd9879a4c900080e9d84a7ec6e1654b60d52067d30a16070640af0216",
+  "signals": [
+    "test_untyped_formal_arguments.a",
+    "test_untyped_formal_arguments.b"
+  ],
+  "trace": {
+    "timescale": "1s",
+    "clock": "test_untyped_formal_arguments.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_untyped_formal_arguments.a": 1,
+      "test_untyped_formal_arguments.b": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "0"
+        },
+        "settled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_untyped_formal_arguments.a": "1",
+          "test_untyped_formal_arguments.b": "0"
+        },
+        "settled": {
+          "test_untyped_formal_arguments.a": "1",
+          "test_untyped_formal_arguments.b": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "1"
+        },
+        "settled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "0"
+        },
+        "settled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_untyped_formal_arguments.a": "1",
+          "test_untyped_formal_arguments.b": "0"
+        },
+        "settled": {
+          "test_untyped_formal_arguments.a": "1",
+          "test_untyped_formal_arguments.b": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "0"
+        },
+        "settled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "0"
+        },
+        "settled": {
+          "test_untyped_formal_arguments.a": "0",
+          "test_untyped_formal_arguments.b": "0"
+        }
+      }
+    ],
+    "end_time": 70
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "fba9e1da28973a51eb29483169c89f93678fa13a4d8562e14238ed7aea65fc99",
+    "projection_sha256": "51ee66de9d8aaa9ad87aee41d6c0e75ceaf51ef3efab5accf5dff7d6692f2274",
+    "clock": "test_untyped_formal_arguments.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_untyped_formal_arguments.a",
+      "test_untyped_formal_arguments.b"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "6986c34f6963139432ac76f5316c0703ff5f60fedc1101ea2d1bc35c663f03d4",
+  "signals": [
+    "test_property_operator_precedence_temporal.a",
+    "test_property_operator_precedence_temporal.b",
+    "test_property_operator_precedence_temporal.c",
+    "test_property_operator_precedence_temporal.st"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_property_operator_precedence_temporal.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_property_operator_precedence_temporal.a": 1,
+      "test_property_operator_precedence_temporal.b": 1,
+      "test_property_operator_precedence_temporal.c": 1,
+      "test_property_operator_precedence_temporal.st": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "1"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "1"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "0"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "0"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "0"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "1"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "1"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "1"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "1"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "0"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "0"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "1"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "1",
+          "test_property_operator_precedence_temporal.st": "1"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "1"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "1"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "1"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "1",
+          "test_property_operator_precedence_temporal.b": "1",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "1"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "1"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "1"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "0"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "0"
+        },
+        "settled": {
+          "test_property_operator_precedence_temporal.a": "0",
+          "test_property_operator_precedence_temporal.b": "0",
+          "test_property_operator_precedence_temporal.c": "0",
+          "test_property_operator_precedence_temporal.st": "0"
+        }
+      }
+    ],
+    "end_time": 140
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "5a620332a0a414f76173ae9724364098083c8ecd6141bb582abd827230ab9918",
+    "projection_sha256": "c0761af5deaa6ce7c16585f9f11663d6ee054c7fb442742866a8a80a3dae38ee",
+    "clock": "test_property_operator_precedence_temporal.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_property_operator_precedence_temporal.a",
+      "test_property_operator_precedence_temporal.b",
+      "test_property_operator_precedence_temporal.c",
+      "test_property_operator_precedence_temporal.st"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "st": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

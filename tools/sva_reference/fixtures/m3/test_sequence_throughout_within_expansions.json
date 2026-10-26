@@ -1,0 +1,865 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "82ae3a284e1d57ee7f96383a56a168ee1fd4721d0f1e5b5b29c2df4e3e932da7",
+  "signals": [
+    "test_sequence_throughout_within_expansions.b",
+    "test_sequence_throughout_within_expansions.c",
+    "test_sequence_throughout_within_expansions.e",
+    "test_sequence_throughout_within_expansions.s",
+    "test_sequence_throughout_within_expansions.st",
+    "test_sequence_throughout_within_expansions.st2",
+    "test_sequence_throughout_within_expansions.x"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_throughout_within_expansions.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_throughout_within_expansions.b": 1,
+      "test_sequence_throughout_within_expansions.c": 1,
+      "test_sequence_throughout_within_expansions.e": 1,
+      "test_sequence_throughout_within_expansions.s": 1,
+      "test_sequence_throughout_within_expansions.st": 1,
+      "test_sequence_throughout_within_expansions.st2": 1,
+      "test_sequence_throughout_within_expansions.x": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "1",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "1",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "1",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "1",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "1",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "1",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "1",
+          "test_sequence_throughout_within_expansions.e": "1",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "1",
+          "test_sequence_throughout_within_expansions.e": "1",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "1",
+          "test_sequence_throughout_within_expansions.e": "1",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "1",
+          "test_sequence_throughout_within_expansions.e": "1",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "1",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "1",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "1",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "1",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "1",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "1",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "1",
+          "test_sequence_throughout_within_expansions.e": "1",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "1",
+          "test_sequence_throughout_within_expansions.e": "1",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "1",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "1",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 155,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 165,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 175,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 185,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 195,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        }
+      },
+      {
+        "time": 205,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "1",
+          "test_sequence_throughout_within_expansions.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "1",
+          "test_sequence_throughout_within_expansions.x": "1"
+        }
+      },
+      {
+        "time": 215,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 225,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        }
+      },
+      {
+        "time": 235,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        }
+      },
+      {
+        "time": 245,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 255,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 265,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 275,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 285,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 295,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 305,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "1",
+          "test_sequence_throughout_within_expansions.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "1",
+          "test_sequence_throughout_within_expansions.x": "1"
+        }
+      },
+      {
+        "time": 315,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "1"
+        }
+      },
+      {
+        "time": 325,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "1",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 335,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 345,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      },
+      {
+        "time": 355,
+        "sampled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within_expansions.b": "0",
+          "test_sequence_throughout_within_expansions.c": "0",
+          "test_sequence_throughout_within_expansions.e": "0",
+          "test_sequence_throughout_within_expansions.s": "0",
+          "test_sequence_throughout_within_expansions.st": "0",
+          "test_sequence_throughout_within_expansions.st2": "0",
+          "test_sequence_throughout_within_expansions.x": "0"
+        }
+      }
+    ],
+    "end_time": 360
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "37544a6ce0960241141bb20b6832ad3287d86867d6d6bf6de6e624373f506b53",
+    "projection_sha256": "12c4bdfbf68b90cbfb727966ab96e90f93c2c34a3aeab98b7b03d8761244fe4b",
+    "clock": "test_sequence_throughout_within_expansions.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_throughout_within_expansions.b",
+      "test_sequence_throughout_within_expansions.c",
+      "test_sequence_throughout_within_expansions.e",
+      "test_sequence_throughout_within_expansions.s",
+      "test_sequence_throughout_within_expansions.st",
+      "test_sequence_throughout_within_expansions.st2",
+      "test_sequence_throughout_within_expansions.x"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "e": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "s": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "st": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "st2": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "x": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

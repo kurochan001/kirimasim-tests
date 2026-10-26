@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""M2 pilot check: generate all selected outputs first, then compare expectations.
+"""SVA reference checks: generate selected outputs first, then compare expectations.
 
 Offline by default. --emit-only never reads suite expected-output files.
 --pilots is the ten-input M2 population, not an assertion of M3 coverage.
+--all classifies all M3 candidates and evaluates the additional audited cases.
+--sampled evaluates the M4 single-clock sampled-function extension.
 """
 
 import argparse
@@ -58,16 +60,44 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("tests", type=Path, nargs="*")
     parser.add_argument("--pilots", action="store_true", help="all ten audited M2 pilot tests")
+    parser.add_argument("--all", action="store_true", help="M3 inventory and additional audited cases")
+    parser.add_argument("--sampled", action="store_true", help="M4 static single-clock sampled functions")
     parser.add_argument("--refresh-traces", action="store_true")
     parser.add_argument("--iverilog-bin", type=Path)
     parser.add_argument("--emit-only", action="store_true", help="generate without reading any expectation")
     parser.add_argument("--output-dir", type=Path, help="save generated stdout and action evidence")
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
-    if args.pilots == bool(args.tests):
-        parser.error("select either --pilots or specific audited tests")
+    if int(args.pilots) + int(args.all) + int(args.sampled) + int(bool(args.tests)) != 1:
+        parser.error("select --pilots, --all, --sampled, or specific audited M2 tests")
     if args.refresh_traces and args.iverilog_bin is None:
         parser.error("--refresh-traces requires --iverilog-bin (13.0 stable)")
+    if args.all or args.sampled:
+        if __package__ in {None, ""}:
+            from sva_reference import m4, survey
+        else:
+            from . import m4, survey
+        population = m4 if args.sampled else survey
+        milestone = "M4" if args.sampled else "M3"
+        try:
+            result = population.run(refresh=args.refresh_traces, iverilog_bin=args.iverilog_bin,
+                                    emit_only=args.emit_only, output_dir=args.output_dir)
+        except (ValueError, OSError) as exc:
+            parser.exit(2, f"{milestone} survey failed: {exc}\n")
+        if args.json:
+            print(json.dumps(result, indent=2))
+        else:
+            for row in result["tests"]:
+                if row["status"] in {"match", "mismatch", "generated", "in_scope_error", "in_scope_unhandled", "error", "unhandled"}:
+                    print(f"{row['status'].upper()} {row['test']}")
+                    if row.get("diff"):
+                        print(row["diff"], end="")
+            print(milestone + ": " + ", ".join(f"{key}={count}" for key, count in result["counts"].items()))
+            if args.emit_only:
+                print("expectations not read")
+        if any(key in result["counts"] for key in {"in_scope_error", "in_scope_unhandled", "error", "unhandled"}):
+            return 2
+        return 1 if result["counts"].get("mismatch") else 0
     names = list(PILOTS) if args.pilots else []
     for path in args.tests:
         name = path.stem

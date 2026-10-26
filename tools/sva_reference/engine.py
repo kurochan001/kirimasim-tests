@@ -11,6 +11,7 @@ from functools import cache
 from . import automata as rx
 from .parser import Node, Spec, Unsupported, parse_spec, resolve_bounds
 from .values import evaluate
+from .sampled import History
 
 
 @dataclass(frozen=True)
@@ -70,11 +71,25 @@ def negate(result):
                   result.at, not result.neutral, result.vacuous)
 
 
+def distribution(node, assume=False):
+    if node.op == "dist":
+        members = []
+        for item in node.args[1:]:
+            weight = evaluate(item.args[1], {}).integer()
+            if weight < 0:
+                raise Unsupported("negative distribution weight")
+            if not assume or weight:
+                members.append(distribution(item.args[0], assume))
+        return Node("inside", (distribution(node.args[0], assume), *members))
+    return Node(node.op, tuple(distribution(arg, assume) for arg in node.args), node.value)
+
+
 class Engine:
-    def __init__(self, samples, *, times=None, current=None, end_time=None):
+    def __init__(self, samples, *, times=None, current=None, end_time=None, defaults=None, clock=None):
         if not samples:
             raise Unsupported("at least one sampled tick is required")
         self.samples = tuple(dict(row) for row in samples)
+        self.history = History(self.samples, defaults=defaults, clock=clock)
         self.times = tuple(range(len(samples))) if times is None else tuple(times)
         if len(self.samples) != len(self.times) or any(a >= b for a, b in zip(self.times, self.times[1:])):
             raise Unsupported("sample timestamps must be strictly increasing")
@@ -94,10 +109,10 @@ class Engine:
         self._property = cache(self._property)
 
     def _compile(self, node):
-        return rx.compile_sequence(resolve_bounds(node))
+        return rx.compile_sequence(resolve_bounds(distribution(node)))
 
     def _derive(self, state, tick):
-        return rx.derivative(state, lambda atom: evaluate(atom, self.samples[tick]).assertion())
+        return rx.derivative(state, lambda atom: self.history.evaluate(atom, tick).assertion())
 
     def matches(self, expression, start=0):
         node = parse_spec(expression).body if isinstance(expression, str) else expression
@@ -204,14 +219,14 @@ class Engine:
         if op == "if":
             if start >= len(self.samples):
                 raise Unsupported("if property requires an existing start tick")
-            branch = args[1] if evaluate(args[0], self.samples[start]).assertion() else args[2]
+            branch = args[1] if self.history.evaluate(args[0], start).assertion() else args[2]
             return self._property(branch, start, strength)
         if op == "case":
             for item in args[1:-1]:
                 for choice in item.args[:-1]:
                     # Case equality sizes operands together (12.5).
                     comparison = Node("binary", (args[0], choice), "===")
-                    if evaluate(comparison, self.samples[start]).assertion():
+                    if self.history.evaluate(comparison, start).assertion():
                         return self._property(item.args[-1], start, strength)
             return self._property(args[-1], start, strength)
         return self._sequence_property(node, start, strength)
@@ -224,11 +239,11 @@ class Engine:
         spec = parse_spec(expression) if isinstance(expression, str) else expression
         if isinstance(spec, Node):
             spec = Spec(spec)
-        result = self._property(resolve_bounds(spec.body), start, "strong" if kind == "cover property" else "weak")
+        result = self._property(resolve_bounds(distribution(spec.body, kind == "assume property")), start, "strong" if kind == "cover property" else "weak")
         decision_time = self.times[result.at] if result.at is not None else self.end_time
         if spec.disable is not None:
             for event in self._current_between(start, result.at):
-                if evaluate(spec.disable, event.values).assertion():
+                if self._disable_value(spec.disable, event).assertion():
                     tick = self.times.index(event.time) if event.time in self.times else None
                     return Attempt(start, "disabled", tick, event.time, "disabled", None)
         if result.value is None:
@@ -249,7 +264,7 @@ class Engine:
         for start in range(len(self.samples)):
             for match in self.matches(spec.body, start):
                 if spec.disable is None or not any(
-                    evaluate(spec.disable, event.values).assertion()
+                    self._disable_value(spec.disable, event).assertion()
                     for event in self._current_between(start, max(start, match.end))
                 ):
                     result.append(match)
@@ -269,3 +284,20 @@ class Engine:
         begin = observed[self.times[start]]
         final = observed[self.times[end]] + 1 if end is not None else len(self.current)
         return self.current[begin:final]
+
+    def _disable_value(self, node, event):
+        def sampled(part):
+            return part.op == "sampled" or any(sampled(arg) for arg in part.args)
+        if not sampled(node):
+            return evaluate(node, event.values)
+        if event.time not in self.times:
+            raise Unsupported("off-clock sampled disable needs a time-step Preponed snapshot")
+        # 16.9.3 requires an explicit clock for history calls in disable iff;
+        # $sampled has no clock and is allowed here without one.
+        def validate(part):
+            if part.op == "sampled" and part.value != "$sampled" and part.args[-1].op != "clock":
+                raise Unsupported("history function in disable iff needs an explicit clock")
+            for arg in part.args:
+                validate(arg)
+        validate(node)
+        return self.history.evaluate(node, self.times.index(event.time), live=event.values)

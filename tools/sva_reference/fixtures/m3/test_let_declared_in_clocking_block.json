@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "ca91b131b28691635154bcc333475e998d6874d0414755ce30e139978983789c",
+  "signals": [
+    "test_let_declared_in_clocking_block.sig"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_let_declared_in_clocking_block.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_let_declared_in_clocking_block.sig": 8
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_let_declared_in_clocking_block.sig": "00001010"
+        },
+        "settled": {
+          "test_let_declared_in_clocking_block.sig": "00001010"
+        }
+      },
+      {
+        "time": 10,
+        "sampled": {
+          "test_let_declared_in_clocking_block.sig": "00001011"
+        },
+        "settled": {
+          "test_let_declared_in_clocking_block.sig": "00001011"
+        }
+      }
+    ],
+    "end_time": 11
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "50a511d4f286d8222d87d2c9bb99768a8c411c4dc0e1cd7f28375c260ae3b407",
+    "projection_sha256": "81668eddff3ca81dfe5db22258aed755382367ec49f81982726cb3c07604f0e3",
+    "clock": "test_let_declared_in_clocking_block.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_let_declared_in_clocking_block.sig"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "sig": {
+        "width": 8,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

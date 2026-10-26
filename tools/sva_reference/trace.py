@@ -60,7 +60,7 @@ def _bits(value, width):
     return value.rjust(width, fill)
 
 
-def read_vcd(path, clock, signals, edge="posedge"):
+def read_vcd(path, clock, signals, edge="posedge", *, current_callback=None):
     """Sample selected exact hierarchical names before each clock timestamp.
 
     Aliased identifiers share state. Time-zero selected edges, dump gaps,
@@ -134,6 +134,8 @@ def read_vcd(path, clock, signals, edge="posedge"):
         return {name: state[declarations[name].code] for name in selected}
 
     def finish_slot():
+        if current_callback is not None:
+            current_callback(time, snapshot(values))
         if len(clock_changes) > 1:
             raise TraceError(f"multiple clock transitions at VCD time {time}")
         if clock_changes and clock_changes[0] in EDGES[edge]:

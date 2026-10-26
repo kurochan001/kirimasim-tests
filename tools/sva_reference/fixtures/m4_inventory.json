@@ -1,0 +1,317 @@
+{
+  "schema": 1,
+  "scope": "M4 approved single-clock static sampled functions; mixed features explicitly deferred",
+  "counts": {
+    "deferred": 13,
+    "match": 7
+  },
+  "tests": [
+    {
+      "test": "tests/ch16/test_global_clock_future_functions_action_delay.sv",
+      "chapter": "ch16",
+      "source_sha256": "f57add9d53ad412ae11b1fc336fb802c7c351c764f157a54f301b58fa9ea032c",
+      "functions": [
+        "$stable"
+      ],
+      "status": "deferred",
+      "reason": "Global-clock future functions and action scheduling need another history model",
+      "evidence": [
+        "$global_clock",
+        "$future_gclk"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_past_gating_expression.sv",
+      "chapter": "ch16",
+      "source_sha256": "f1a0c5b309861b6d78cbc2ac54d5dd47e3d4f8d7c1fac26034be998cc08f16c4",
+      "functions": [
+        "$past"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 6,
+      "actions": 0,
+      "report_lines": 6,
+      "actual_sha256": "04de04ff1e58750418ece6f0bb703d9930f07bffc22c0664789a0fc425d158c0",
+      "diff": "",
+      "expected_sha256": "04de04ff1e58750418ece6f0bb703d9930f07bffc22c0664789a0fc425d158c0"
+    },
+    {
+      "test": "tests/ch16/test_procedural_assertion_queue_rules.sv",
+      "chapter": "ch16",
+      "source_sha256": "08673d30c94a06feab2a65e4b5b6530f466c8bc1fa3e633f022cda410246ffc9",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Procedural concurrent assertion queues and flush points remain outside this extension",
+      "evidence": [
+        "procedural assertion",
+        "wait",
+        "automatic capture"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_rose_fell_lsb_four_state.sv",
+      "chapter": "ch16",
+      "source_sha256": "631d8fd06650098f18e4c7ab097c53cb9c3fa811df0281583dc860a1a3884803",
+      "functions": [
+        "$fell",
+        "$rose",
+        "$sampled"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 18,
+      "actions": 0,
+      "report_lines": 18,
+      "actual_sha256": "a4ca5cbe02e3ec6654ef155d8c19aec74914db147b61561493e46f19dab1b0b6",
+      "diff": "",
+      "expected_sha256": "a4ca5cbe02e3ec6654ef155d8c19aec74914db147b61561493e46f19dab1b0b6"
+    },
+    {
+      "test": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+      "chapter": "ch16",
+      "source_sha256": "a9c03820dbf766aa8628d76cf9c33ca421a5c00337e495bf1da619975e0ec1fe",
+      "functions": [
+        "$changed",
+        "$past",
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Automatic/const-current operand exceptions need capture/lifetime/current-region modeling",
+      "evidence": [
+        "automatic",
+        "const cast"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_automatic_const_current.sv",
+      "chapter": "ch16",
+      "source_sha256": "ddedd6a0a3d93e037839ca8fb96f9d2462fda4ca4208da5b1ec055e69c03aedd",
+      "functions": [
+        "$past",
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Automatic/const-current operand exceptions need capture/lifetime/current-region modeling",
+      "evidence": [
+        "automatic",
+        "const cast"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_defaults_and_methods.sv",
+      "chapter": "ch16",
+      "source_sha256": "58f128a1646ed150861082de79f06b0752f28fcf35af8f26e173f971f65e5c4f",
+      "functions": [
+        "$past",
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Event and sequence methods require Observed/Postponed histories",
+      "evidence": [
+        "event.triggered",
+        "sequence.triggered"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_function_arguments.sv",
+      "chapter": "ch16",
+      "source_sha256": "402170ac756c0667e15c4bda36334ddd86104a2a2c84cbc6a8d702c4f1448ea1",
+      "functions": [
+        "$changed",
+        "$fell",
+        "$past",
+        "$rose",
+        "$sampled",
+        "$stable"
+      ],
+      "status": "deferred",
+      "reason": "Two clock histories and default/procedural inference across contexts are deferred",
+      "evidence": [
+        "posedge clk",
+        "posedge clk2"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_function_clock_inference.sv",
+      "chapter": "ch16",
+      "source_sha256": "16c67c9015621dc4d38c28884f5c666f87431121bdcfcf4aa97024774ae31825",
+      "functions": [
+        "$past"
+      ],
+      "status": "deferred",
+      "reason": "Two clock histories and default/procedural inference across contexts are deferred",
+      "evidence": [
+        "posedge clk",
+        "posedge clk2"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_in_action_block.sv",
+      "chapter": "ch16",
+      "source_sha256": "f1ec69a752d89a7e43db8add0984869f88306f91f674aa1bec9bfca6cb9506b6",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 1,
+      "actions": 1,
+      "report_lines": 1,
+      "actual_sha256": "729f1756bb7520fba7e7c57f8ab7a0022fb5567793c8ec4788a1a0a5f03e7fd0",
+      "diff": "",
+      "expected_sha256": "729f1756bb7520fba7e7c57f8ab7a0022fb5567793c8ec4788a1a0a5f03e7fd0"
+    },
+    {
+      "test": "tests/ch16/test_sampled_value_functions_with_clocking_event.sv",
+      "chapter": "ch16",
+      "source_sha256": "c291eb28d0d0a8bb97e71ca7a29846599ac0f9a8434ae7bfa28c75c6c6fd7735",
+      "functions": [
+        "$past",
+        "$stable"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 3,
+      "actions": 0,
+      "report_lines": 2,
+      "actual_sha256": "80d1f1279e03dcd2f0fb7869c79b5de66bb693beebbd44eb3c911f8dd44a936e",
+      "diff": "",
+      "expected_sha256": "80d1f1279e03dcd2f0fb7869c79b5de66bb693beebbd44eb3c911f8dd44a936e"
+    },
+    {
+      "test": "tests/ch16/test_sampled_value_time_zero_defaults.sv",
+      "chapter": "ch16",
+      "source_sha256": "a1bcba1c508b1deb89c139991c9c463af85fbd0fcf7f6cdcd2e01a634741b741",
+      "functions": [
+        "$past",
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Time-zero VCD edge discovery and user-function live free-variable evaluation need additional input/expression support",
+      "evidence": [
+        "time-zero selected edge",
+        "scaled(a) reads current k"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_without_clocking_event.sv",
+      "chapter": "ch16",
+      "source_sha256": "3e87b288f547e4b1dd95ac4aa1a6604a1450e980c17feb8636efe279bf0eb2be",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 4,
+      "actions": 4,
+      "report_lines": 5,
+      "actual_sha256": "93f71b7bfc5b2c398d6755ac07e555508df538d44a57bd6ce3ea021227091da7",
+      "diff": "",
+      "expected_sha256": "93f71b7bfc5b2c398d6755ac07e555508df538d44a57bd6ce3ea021227091da7"
+    },
+    {
+      "test": "tests/ch16/test_value_change_first_tick.sv",
+      "chapter": "ch16",
+      "source_sha256": "9b9e654910b816a7247c6b3e8c3432a0cbf16cc10cf7b6f192bd6f945387b988",
+      "functions": [
+        "$changed",
+        "$fell",
+        "$past",
+        "$rose",
+        "$stable"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 2,
+      "actions": 0,
+      "report_lines": 6,
+      "actual_sha256": "421957dc3206e4cdc34131cf55ddbfdf85c0c9c1c8eb1f0ac9705b604f5a07da",
+      "diff": "",
+      "expected_sha256": "421957dc3206e4cdc34131cf55ddbfdf85c0c9c1c8eb1f0ac9705b604f5a07da"
+    },
+    {
+      "test": "tests/ch17/test_checker_in_package.sv",
+      "chapter": "ch17",
+      "source_sha256": "8c2aa2c1750a9577b474bfc8d678949c90ae446370cd32b972865fe13be119ed",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "Checker context/elaboration remains outside this extension",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_kill_keeps_past_sampling.sv",
+      "chapter": "ch39",
+      "source_sha256": "fc697f65a2e3f155d2fc26e1c2b8eb4c66271bd1800451484b1acbd64e36064e",
+      "functions": [
+        "$past"
+      ],
+      "status": "deferred",
+      "reason": "VPI assertion controls and simulator API are outside this extension",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_sys_vacuous_action_controls_running_attempts.sv",
+      "chapter": "ch39",
+      "source_sha256": "e6d8150f7e8a5b464d7bea5d53bdc028d6a84a2b681ee334022dfdaedf693512",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "VPI assertion controls and simulator API are outside this extension",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv",
+      "chapter": "ch39",
+      "source_sha256": "1bbc8707b13a80add70d7f48702abc143b745623f8cb5fe2d2bd596aa53b0db7",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "VPI assertion controls and simulator API are outside this extension",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv",
+      "chapter": "ch39",
+      "source_sha256": "2cee62c63b4bbd52d9ac1efdf148408eecd80156aadcf436e5e9614064e0fc10",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "deferred",
+      "reason": "VPI assertion controls and simulator API are outside this extension",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch4/test_preponed_sample_observed_before_action.sv",
+      "chapter": "ch4",
+      "source_sha256": "d1d56fd2b209e5553bfc0684fe0a70e7ac22006a469307cc55dd84d0cfc4c581",
+      "functions": [
+        "$sampled"
+      ],
+      "status": "match",
+      "reason": "single-clock static integral input/report audit",
+      "ticks": 1,
+      "actions": 1,
+      "report_lines": 1,
+      "actual_sha256": "6478d3c1acb601a827e862e1a5f890030b5aa63dda1d1d66b69242e0f6293038",
+      "diff": "",
+      "expected_sha256": "6478d3c1acb601a827e862e1a5f890030b5aa63dda1d1d66b69242e0f6293038"
+    }
+  ]
+}

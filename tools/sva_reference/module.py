@@ -99,6 +99,25 @@ def parse_module(source):
             except ValueError as exc:
                 raise Unsupported("unterminated subroutine") from exc
             continue
+        if word == "let":
+            name, j = words[i + 1], i + 2
+            parameters, casts, defaults = (), (), ()
+            if words[j] == "(":
+                end = _balanced(ts, j)
+                parameters, casts, defaults = _formals(source[ts[j].end:ts[end - 1].start])
+                j = end
+            if words[j] != "=":
+                raise Unsupported("invalid let declaration")
+            end = words.index(";", j + 1)
+            parser = Parser(source[ts[j].end:ts[end].start])
+            expression = parser.boolean()
+            parser.finish()
+            if name in definitions:
+                raise Unsupported("duplicate let/SVA definition")
+            definitions[name] = Definition("let", parameters, Spec(Node("bool", (expression,))), casts, defaults)
+            spans.append((ts[i].start, ts[end].end))
+            i = end + 1
+            continue
         if word in {"parameter", "localparam"}:
             try:
                 final = words.index(";", i + 1)
@@ -135,8 +154,13 @@ def parse_module(source):
         if word == "default" and words[i + 1:i + 3] == ["disable", "iff"]:
             if default_disable is not None:
                 raise Unsupported("duplicate default disable iff")
-            end = _balanced(ts, i + 3)
-            spec = parse_spec(source[ts[i + 1].start:ts[end - 1].end] + " 1")
+            if words[i + 3] == "(":
+                end = _balanced(ts, i + 3)
+                condition = source[ts[i + 3].end:ts[end - 1].start]
+            else:
+                end = words.index(";", i + 3)
+                condition = source[ts[i + 3].start:ts[end].start]
+            spec = parse_spec("disable iff (" + condition + ") 1")
             if words[end] != ";":
                 raise Unsupported("unterminated default disable iff")
             default_disable = spec.disable

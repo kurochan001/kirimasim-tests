@@ -3,25 +3,26 @@
 :description: The overlapping and nonoverlapping implication and followed-by operators start their consequent at the end of the antecedent match or at the tick after it, as per-phase failure counts show (IEEE 1800-2023 Sections 16.12.7 and 16.12.9)
 :tags: ch16
 :type: simulation
-:lrm: 1800-2023 16.12.7 16.12.9 16.14.1 A.2.10
+:lrm: 1800-2023 16.12.7 16.12.9 16.14.1 16.14.5 A.2.10
 :oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_property_implication_operator_forms.expected
 */
-// IEEE 1800-2023 §16.12.7: with the overlapping implication |->, the
-// consequent starts at the end point of the antecedent match; with the
-// nonoverlapping |=>, at the clock tick after it. §16.12.9: the followed-by
-// operators #-# and #=# are the duals, with the same start points as |-> and
-// |=>. Here the antecedent go ##1 a matches two ticks after go, so the
-// overlapping forms need x at that second tick and the nonoverlapping forms
-// at the third.
+// IEEE 1800-2023 16.12.7: |-> starts its consequent at the antecedent's
+// end tick; |=> starts it at the next tick for this nonempty antecedent.
+// go ##1 a starts at the first tick of a phase and ends at its second tick,
+// so the overlapping forms need x at the second tick and the nonoverlapping
+// forms at the third. Section 16.12.9 gives #-# and #=# those same alignments
+// but also requires an antecedent match for success.
 //
-// A phase is five ticks long; go is high at the first and a at the second.
-// In the first phase x is high at the second tick, in the second at the third,
-// and in the third never. The fail actions count the failures of each phase
-// (§16.14.1).
+// Each five-tick phase has go high only at its first tick. Each module-level
+// assertion starts an attempt at every tick (16.14.5). At the four other
+// starts, go ##1 a cannot match: the implications pass vacuously, while both
+// followed-by forms fail. Their phase failure counts therefore include four
+// failures in addition to any failure of the attempt started with go high.
+// Fail actions increment the phase counters (16.14.1).
 
 `timescale 1ns/1ns
 

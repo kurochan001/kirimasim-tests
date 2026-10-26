@@ -47,10 +47,10 @@
 - `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2849/12319 動作確認、古い入力との対応 301 件。
+- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2849/12319 動作確認、古い入力との対応 305 件。
 - `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 133/12319 動作確認、古い入力との対応 1 件。
-- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 287 件。
-- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 287 件。
+- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 291 件。
+- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 291 件。
 - `ch19-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:12:42.328492+00:00 / 0/12319 動作確認、古い入力との対応 14 件。
 - `ch19-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.443253+00:00 / 0/12319 動作確認、古い入力との対応 14 件。
 - `ch19-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.556516+00:00 / 0/12319 動作確認、古い入力との対応 14 件。
@@ -101,9 +101,9 @@
 - `gap8-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T18:02:58.641182+00:00 / 0/12319 動作確認、古い入力との対応 3 件。
 - `gap8-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318717+00:00 / 3/12319 動作確認、古い入力との対応 3 件。
 - `gap8-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318723+00:00 / 3/12319 動作確認、古い入力との対応 3 件。
-- `gap9-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:11:21.453322+00:00 / 67/12319 動作確認、古い入力との対応 14 件。
-- `gap9-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866738+00:00 / 202/12319 動作確認、古い入力との対応 14 件。
-- `gap9-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866731+00:00 / 202/12319 動作確認、古い入力との対応 14 件。
+- `gap9-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:11:21.453322+00:00 / 67/12319 動作確認、古い入力との対応 18 件。
+- `gap9-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866738+00:00 / 202/12319 動作確認、古い入力との対応 18 件。
+- `gap9-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866731+00:00 / 202/12319 動作確認、古い入力との対応 18 件。
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 995/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 995/12319 動作確認、古い入力との対応 0 件。
@@ -124,6 +124,9 @@
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
+- `sva-m3-corrections-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0) / 2026-10-26T11:49:21.588600+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `sva-m3-corrections-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T11:49:21.845350+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `sva-m3-corrections-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T11:49:27.252106+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 953/12319 動作確認、古い入力との対応 96 件。
 - `wave2-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T07:49:36.623500+00:00 / 17/12319 動作確認、古い入力との対応 17 件。
 - `wave2-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:49:55.030232+00:00 / 8/12319 動作確認、古い入力との対応 17 件。
@@ -41107,7 +41110,7 @@ Zero consecutive repetition takes no sample at any tick and matches only an empt
 
 規定の性質: `definition`。
 
-- [test_zero_repetition_no_sample.sv](../tests/ch16/test_zero_repetition_no_sample.sv): The clock rises at 10 and 20; at 10 start is 1 and a is 0, and b is 1 at 20. Both a[*0] ##1 b and the empty antecedent a[*0] with |=> complete, and the expected line shows pass=1 for both and fail=0. 区別: A tool that took a sample for a[*0] would require a at 10, where a is 0, and the fail counters would be 1 instead of the expected pass counters.
+- [test_zero_repetition_no_sample.sv](../tests/ch16/test_zero_repetition_no_sample.sv): At times 10 and 20, a stays 0. Empty ##1 b and the empty antecedent of |=> both check b at the current tick (16.9.2.1 and 16.12.7): both fail with b=0 at 10 and pass with b=1 at 20, giving pass=1 fail=1. A tool that sampled a for a[*0] would reject the successful empty match at 20 and give two failures. This observes the zero-repetition branch; it does not separately exercise a ranged sequence with both empty and nonempty matches.
 
 ### SV2023-16.13.1-EXTRACT-MAXIMAL-SINGLE-CLOCK
 
@@ -118439,7 +118442,7 @@ A property expression permits sequence expression #-# property expression.
 
 規定の性質: `definition`。
 
-- [test_property_implication_operator_forms.sv](../tests/ch16/test_property_implication_operator_forms.sv): The overlapping followed-by #-# passes where x is high at the end tick of go ##1 a and fails where x comes one tick later, printing 0 then 1 then 1. 区別: The followed-by is the dual of the implication, so its counts must follow the end tick, not the tick after it.
+- [test_property_implication_operator_forms.sv](../tests/ch16/test_property_implication_operator_forms.sv): The overlapping followed-by #-# checks x at the end tick of go ##1 a. Each phase also starts four attempts with go=0, all of which fail because followed-by requires an antecedent match (16.12.9 and 16.14.5). The counts are 4, 5 and 5; shifting the consequent one tick late gives 5, 4 and 5 instead.
 
 ### SV2023-A.2.10-EXTRACT-IMPLICATION-34
 
@@ -118451,7 +118454,7 @@ A property expression permits sequence expression #=# property expression.
 
 規定の性質: `definition`。
 
-- [test_property_implication_operator_forms.sv](../tests/ch16/test_property_implication_operator_forms.sv): The nonoverlapping followed-by #=# passes where x is high one tick after the antecedent ends and fails where x is at the end tick, printing 1 then 0 then 1. 区別: A tool that treated #=# as #-# would print 0 for the first phase instead of 1.
+- [test_property_implication_operator_forms.sv](../tests/ch16/test_property_implication_operator_forms.sv): The nonoverlapping followed-by #=# checks x one tick after the nonempty antecedent ends. Four additional attempts per phase fail because go=0 prevents an antecedent match (16.12.9 and 16.14.5). The counts are 5, 4 and 5; treating #=# as #-# gives 4, 5 and 5 instead.
 
 ### SV2023-A.2.10-EXTRACT-MATCH-METHOD
 

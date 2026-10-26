@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "1571100f82fc5d1cfdb8508bc62be5e445c543d56230687c7d5c4adff25fe7cc",
+  "signals": [
+    "test_assertion_dist_as_inside.v"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_assertion_dist_as_inside.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_assertion_dist_as_inside.v": 3
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_assertion_dist_as_inside.v": "000"
+        },
+        "settled": {
+          "test_assertion_dist_as_inside.v": "000"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_assertion_dist_as_inside.v": "001"
+        },
+        "settled": {
+          "test_assertion_dist_as_inside.v": "001"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_assertion_dist_as_inside.v": "010"
+        },
+        "settled": {
+          "test_assertion_dist_as_inside.v": "010"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_assertion_dist_as_inside.v": "011"
+        },
+        "settled": {
+          "test_assertion_dist_as_inside.v": "011"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_assertion_dist_as_inside.v": "100"
+        },
+        "settled": {
+          "test_assertion_dist_as_inside.v": "100"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_assertion_dist_as_inside.v": "101"
+        },
+        "settled": {
+          "test_assertion_dist_as_inside.v": "101"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_assertion_dist_as_inside.v": "110"
+        },
+        "settled": {
+          "test_assertion_dist_as_inside.v": "110"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_assertion_dist_as_inside.v": "111"
+        },
+        "settled": {
+          "test_assertion_dist_as_inside.v": "111"
+        }
+      }
+    ],
+    "end_time": 80
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "21663ccc7d505f6347c4940a7c6456bda9cca05f673844c2797a8265fbe3ee8f",
+    "projection_sha256": "979c52ce24fdbf2d6a08454cfa73be7ef745ff9144e146e38c7afeaaf25804b2",
+    "clock": "test_assertion_dist_as_inside.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_assertion_dist_as_inside.v"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "v": {
+        "width": 3,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

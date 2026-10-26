@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "a9d26635fdda401167da6070cb2b8ae69da66684e2d53bc662ac75b2bb97ad00",
+  "signals": [
+    "test_sampled_in_action_block.a",
+    "test_sampled_in_action_block.b"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sampled_in_action_block.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sampled_in_action_block.a": 1,
+      "test_sampled_in_action_block.b": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sampled_in_action_block.a": "0",
+          "test_sampled_in_action_block.b": "1"
+        },
+        "settled": {
+          "test_sampled_in_action_block.a": "0",
+          "test_sampled_in_action_block.b": "0"
+        }
+      }
+    ],
+    "end_time": 8
+  },
+  "projection": {
+    "protocol": "m4-static-sampled-v1",
+    "source_sha256": "f1ec69a752d89a7e43db8add0984869f88306f91f674aa1bec9bfca6cb9506b6",
+    "projection_sha256": "82b4a3de3c3a2ca7020277886e8d4f3a9d844a2136a2f2888af2bb7af9828667",
+    "clock": "test_sampled_in_action_block.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sampled_in_action_block.a",
+      "test_sampled_in_action_block.b"
+    ],
+    "types": {
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "defaults": {
+      "a": {
+        "bits": "0",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "bits": "1",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "current_mode": "audited_settled_equals_action_reads"
+  }
+}

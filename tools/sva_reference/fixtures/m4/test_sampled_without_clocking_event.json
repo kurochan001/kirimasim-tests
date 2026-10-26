@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "c702087e935999be43096d0c229991e0f40be66e360d3ecc6289a07565ef3ef0",
+  "signals": [
+    "test_sampled_without_clocking_event.a",
+    "test_sampled_without_clocking_event.b"
+  ],
+  "trace": {
+    "timescale": "1s",
+    "clock": "test_sampled_without_clocking_event.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sampled_without_clocking_event.a": 1,
+      "test_sampled_without_clocking_event.b": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sampled_without_clocking_event.a": "0",
+          "test_sampled_without_clocking_event.b": "1"
+        },
+        "settled": {
+          "test_sampled_without_clocking_event.a": "1",
+          "test_sampled_without_clocking_event.b": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sampled_without_clocking_event.a": "1",
+          "test_sampled_without_clocking_event.b": "0"
+        },
+        "settled": {
+          "test_sampled_without_clocking_event.a": "0",
+          "test_sampled_without_clocking_event.b": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sampled_without_clocking_event.a": "0",
+          "test_sampled_without_clocking_event.b": "1"
+        },
+        "settled": {
+          "test_sampled_without_clocking_event.a": "1",
+          "test_sampled_without_clocking_event.b": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sampled_without_clocking_event.a": "1",
+          "test_sampled_without_clocking_event.b": "0"
+        },
+        "settled": {
+          "test_sampled_without_clocking_event.a": "0",
+          "test_sampled_without_clocking_event.b": "1"
+        }
+      }
+    ],
+    "end_time": 36
+  },
+  "projection": {
+    "protocol": "m4-static-sampled-v1",
+    "source_sha256": "3e87b288f547e4b1dd95ac4aa1a6604a1450e980c17feb8636efe279bf0eb2be",
+    "projection_sha256": "db5adaff78e797513a936ee0cd24647f9461e10deeb9a4c1e3697a0a2f69069f",
+    "clock": "test_sampled_without_clocking_event.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sampled_without_clocking_event.a",
+      "test_sampled_without_clocking_event.b"
+    ],
+    "types": {
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "defaults": {
+      "a": {
+        "bits": "0",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "bits": "1",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "current_mode": "audited_settled_equals_action_reads"
+  }
+}

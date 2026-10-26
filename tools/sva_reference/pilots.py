@@ -100,7 +100,7 @@ def displays(source):
             arguments, _ = _arguments(source, ts, i + 1)
             if not arguments:
                 raise Unsupported("empty display is not part of the pilot adapter")
-            result.append(Display(json.loads(arguments[0]), tuple(re.sub(r"\s+", "", arg) for arg in arguments[1:])))
+            result.append(Display(json.loads(arguments[0]), tuple("".join(token.text for token in tokens(arg)) for arg in arguments[1:])))
     return tuple(result)
 
 

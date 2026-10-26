@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "ceca4071799e3f7586cf98d7cbe941c7fd5ea23656274266e7759133e7af1794",
+  "signals": [
+    "test_preponed_sample_observed_before_action.data"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_preponed_sample_observed_before_action.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_preponed_sample_observed_before_action.data": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_preponed_sample_observed_before_action.data": "0"
+        },
+        "settled": {
+          "test_preponed_sample_observed_before_action.data": "1"
+        }
+      }
+    ],
+    "end_time": 6
+  },
+  "projection": {
+    "protocol": "m4-static-sampled-v1",
+    "source_sha256": "d1d56fd2b209e5553bfc0684fe0a70e7ac22006a469307cc55dd84d0cfc4c581",
+    "projection_sha256": "c86f86ba1b3debe6efb1874aab6c95a5afeb1c5fd56808c23ecd335b7bfc79fa",
+    "clock": "test_preponed_sample_observed_before_action.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_preponed_sample_observed_before_action.data"
+    ],
+    "types": {
+      "data": {
+        "width": 1,
+        "signed": false,
+        "two_state": true,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "defaults": {
+      "data": {
+        "bits": "0",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "current_mode": "audited_settled_equals_action_reads"
+  }
+}

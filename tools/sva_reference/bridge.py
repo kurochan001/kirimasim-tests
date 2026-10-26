@@ -205,7 +205,7 @@ def load_projected(path, source_bytes, projected, module, signals):
     return load_trace(path, cache_input(source_bytes, provenance), provenance["clock"], provenance["signals"], provenance["edge"])
 
 
-def engine_from_trace(module, trace):
+def engine_from_trace(module, trace, *, current=None, defaults=None):
     spec = module.directives[0].spec
     if trace.clock != f"{module.top}.{spec.clock}" or trace.edge != spec.edge:
         raise TraceError("trace clock/edge disagrees with the parsed directives")
@@ -224,4 +224,59 @@ def engine_from_trace(module, trace):
                 raise TraceError("VCD width disagrees with the source declaration")
             row[name] = row[full_name] = metadata.decode(bits)
         samples.append(row)
-    return Engine(samples, times=[tick.time for tick in trace.ticks], end_time=trace.end_time)
+    return Engine(samples, times=[tick.time for tick in trace.ticks], current=current,
+                  end_time=trace.end_time, defaults=defaults, clock=(spec.clock, spec.edge))
+
+
+def signal_defaults(module):
+    """Declaration/type defaults for top-level static integral signals (16.5.1).
+
+    Nets use type defaults even with a continuous declaration assignment.
+    A selected unsupported declaration/initializer fails; no first VCD sample
+    or time-zero settled value is substituted for a declaration default.
+    """
+    declarations = signal_types(module)
+    source = module.stimulus
+    ts = tokens(source)
+    words = [token.text for token in ts]
+    types = {"logic", "reg", "bit", "wire", "tri", "byte", "shortint", "int", "integer", "longint", "time"}
+    result = dict(module.parameters)
+    i = words.index("module") + 3
+    while i < len(ts) and words[i] != "endmodule":
+        if words[i] in {"task", "function"}:
+            i = words.index("end" + words[i], i + 1) + 1
+            continue
+        if words[i] in {"initial", "always", "always_ff", "always_comb", "always_latch", "final"}:
+            i = _statement(ts, i + 1)
+            continue
+        if words[i] not in types:
+            i += 1
+            continue
+        net = words[i] in {"wire", "tri"}
+        j = i + 1
+        while words[j] in types | {"signed", "unsigned"}:
+            j += 1
+        if words[j] == "[":
+            j = _balanced(ts, j)
+        while True:
+            name = words[j]
+            metadata = declarations[name]
+            end = j + 1
+            while words[end] not in {",", ";"}:
+                end = _balanced(ts, end) if words[end] in {"(", "[", "{"} else end + 1
+            if metadata is not None:
+                value = Bits(("0" if metadata.two_state else "x") * metadata.width, metadata.signed,
+                             False, metadata.lsb, metadata.ascending)
+                if not net and words[j + 1] == "=":
+                    parser = Parser(source[ts[j + 1].end:ts[end].start])
+                    expression = parser.boolean()
+                    parser.finish()
+                    raw = evaluate(expression, result, metadata.width).resize(metadata.width, metadata.signed)
+                    value = Bits(raw.bits.translate(str.maketrans("xz", "00")) if metadata.two_state else raw.bits,
+                                 metadata.signed, False, metadata.lsb, metadata.ascending)
+                result[name] = result[module.top + "." + name] = value
+            if words[end] == ";":
+                i = end + 1
+                break
+            j = end + 1
+    return result

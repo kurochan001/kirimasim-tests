@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "2644c5c6867f4bfe5fdfe91386b333409cfdd2e5151adcfda9a19047af8ac41f",
+  "signals": [
+    "test_sequence_repetition_and_concat_precedence.a",
+    "test_sequence_repetition_and_concat_precedence.b",
+    "test_sequence_repetition_and_concat_precedence.c",
+    "test_sequence_repetition_and_concat_precedence.d"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_repetition_and_concat_precedence.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_repetition_and_concat_precedence.a": 1,
+      "test_sequence_repetition_and_concat_precedence.b": 1,
+      "test_sequence_repetition_and_concat_precedence.c": 1,
+      "test_sequence_repetition_and_concat_precedence.d": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_repetition_and_concat_precedence.a": "1",
+          "test_sequence_repetition_and_concat_precedence.b": "1",
+          "test_sequence_repetition_and_concat_precedence.c": "1",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_concat_precedence.a": "1",
+          "test_sequence_repetition_and_concat_precedence.b": "1",
+          "test_sequence_repetition_and_concat_precedence.c": "1",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_repetition_and_concat_precedence.a": "1",
+          "test_sequence_repetition_and_concat_precedence.b": "1",
+          "test_sequence_repetition_and_concat_precedence.c": "1",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_concat_precedence.a": "1",
+          "test_sequence_repetition_and_concat_precedence.b": "1",
+          "test_sequence_repetition_and_concat_precedence.c": "1",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_repetition_and_concat_precedence.a": "1",
+          "test_sequence_repetition_and_concat_precedence.b": "0",
+          "test_sequence_repetition_and_concat_precedence.c": "1",
+          "test_sequence_repetition_and_concat_precedence.d": "1"
+        },
+        "settled": {
+          "test_sequence_repetition_and_concat_precedence.a": "1",
+          "test_sequence_repetition_and_concat_precedence.b": "0",
+          "test_sequence_repetition_and_concat_precedence.c": "1",
+          "test_sequence_repetition_and_concat_precedence.d": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_repetition_and_concat_precedence.a": "0",
+          "test_sequence_repetition_and_concat_precedence.b": "0",
+          "test_sequence_repetition_and_concat_precedence.c": "0",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_concat_precedence.a": "0",
+          "test_sequence_repetition_and_concat_precedence.b": "0",
+          "test_sequence_repetition_and_concat_precedence.c": "0",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_repetition_and_concat_precedence.a": "0",
+          "test_sequence_repetition_and_concat_precedence.b": "0",
+          "test_sequence_repetition_and_concat_precedence.c": "0",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_concat_precedence.a": "0",
+          "test_sequence_repetition_and_concat_precedence.b": "0",
+          "test_sequence_repetition_and_concat_precedence.c": "0",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_repetition_and_concat_precedence.a": "0",
+          "test_sequence_repetition_and_concat_precedence.b": "0",
+          "test_sequence_repetition_and_concat_precedence.c": "0",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        },
+        "settled": {
+          "test_sequence_repetition_and_concat_precedence.a": "0",
+          "test_sequence_repetition_and_concat_precedence.b": "0",
+          "test_sequence_repetition_and_concat_precedence.c": "0",
+          "test_sequence_repetition_and_concat_precedence.d": "0"
+        }
+      }
+    ],
+    "end_time": 55
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "489def2e7af9a3d94616f2b9bb7128a82a7aef9ccc21a94110c47f2a00f1276f",
+    "projection_sha256": "97e91595d6c9af0bf8dccde7b38e2004a2bd1fb66ff21c844b16bea20b333bd7",
+    "clock": "test_sequence_repetition_and_concat_precedence.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_repetition_and_concat_precedence.a",
+      "test_sequence_repetition_and_concat_precedence.b",
+      "test_sequence_repetition_and_concat_precedence.c",
+      "test_sequence_repetition_and_concat_precedence.d"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "d": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

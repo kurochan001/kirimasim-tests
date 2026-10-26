@@ -1,0 +1,3222 @@
+{
+  "schema": 1,
+  "base_revision": "b0e9dda9fb7eb1b74fa54f4a15243412bb440f27",
+  "scope": "spec-only broad assertion candidates; legal tests classified separately",
+  "counts": {
+    "excluded_illegal": 61,
+    "match": 28,
+    "not_concurrent": 7,
+    "out_of_scope": 180,
+    "pilot": 10
+  },
+  "tests": [
+    {
+      "test": "tests/ch11/test_let_declared_in_clocking_block.sv",
+      "chapter": "ch11",
+      "source_sha256": "50a511d4f286d8222d87d2c9bb99768a8c411c4dc0e1cd7f28375c260ae3b407",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 2,
+      "actions": 2,
+      "actual_sha256": "ee306c2ac0f55384cba4bbc8177bb112195d50a27fc67f56e12025c31301ebb9",
+      "diff": "",
+      "expected_sha256": "ee306c2ac0f55384cba4bbc8177bb112195d50a27fc67f56e12025c31301ebb9"
+    },
+    {
+      "test": "tests/ch16/test_abort_condition_sampling.sv",
+      "chapter": "ch16",
+      "source_sha256": "642ef70fe324f3e8fd01a4c23d465a943c53070b76b52eb9d3b277655df39ec6",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "accept/reject abort operators are outside v1",
+      "evidence": [
+        "accept_on",
+        "reject_on",
+        "sync_accept_on",
+        "sync_reject_on"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_abort_nested_sync_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "c0929a8437bcb2c2bcbe3a845ff3cc0612c15cc389c7a1aa128f13363230c132",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "accept/reject abort operators are outside v1",
+      "evidence": [
+        "accept_on",
+        "sync_accept_on",
+        "sync_reject_on"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_assertion_clock_expressions_global_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "08380d8004948f1301e33c9ae9570916336e7d35ff6f67b42b57de204fecb53c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$global_clock"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_assertion_dist_as_inside.sv",
+      "chapter": "ch16",
+      "source_sha256": "21663ccc7d505f6347c4940a7c6456bda9cca05f673844c2797a8265fbe3ee8f",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 8,
+      "actions": 28,
+      "actual_sha256": "c7748148b7544da65fc4754b9a1465f3f780de8f6e03f2b0179626d987c67d86",
+      "diff": "",
+      "expected_sha256": "c7748148b7544da65fc4754b9a1465f3f780de8f6e03f2b0179626d987c67d86"
+    },
+    {
+      "test": "tests/ch16/test_assertion_observed_region_values.sv",
+      "chapter": "ch16",
+      "source_sha256": "f46aca8bb5664eb8d0203bb184146f664ad8aa6a75822ac950b467e8f3421016",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural concurrent assertions are outside v1",
+      "evidence": [
+        "procedural assertion context is outside M0"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_clocking_block_assertions.sv",
+      "chapter": "ch16",
+      "source_sha256": "eb42a67080c4eea4473da188d9089717c6eca8a479633abbc31f70f299740f2f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "clocking skew requires values sampled away from the assertion tick",
+      "evidence": [
+        "clocking input/output skew"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_concurrent_assert_actions.sv",
+      "chapter": "ch16",
+      "source_sha256": "ad38ee1a727a79a5279b5308a7886646e8ba77b1afd5f64307d925a58b35b0c4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertfailoff",
+        "$assertfailon",
+        "$assertpassoff",
+        "$assertpasson"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_concurrent_assertion_names_and_control.sv",
+      "chapter": "ch16",
+      "source_sha256": "d0e8922d39911b610791921cd9790835cf2617e28b4b735fe7ae49a2ffcbabd1",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertoff",
+        "$asserton"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_concurrent_assertion_places_and_kinds.sv",
+      "chapter": "ch16",
+      "source_sha256": "2ea58f793d46519bd75d0a7b3be4b8d9e161b3f6a394c289212faaff980d3bdf",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_concurrent_boolean_truth_array_samples.sv",
+      "chapter": "ch16",
+      "source_sha256": "075e1e92fdb80d3f40506d11a1220e8a11295ef7c38fc0278e86a4d2f69c213e",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "multiple clock signals/alignment contexts are outside v1",
+      "evidence": [
+        "aclk",
+        "clk"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_cover_disable_iff.sv",
+      "chapter": "ch16",
+      "source_sha256": "936aeb7f84330dd228e6816ae3d60e0a6fcaa14293e08e0fa3c9c6b09384be86",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 7,
+      "actions": 2,
+      "actual_sha256": "a8d24875f3d7fbea2df5e6766aedb1dbab3ef65a3d57100c1808bae41bd3b752",
+      "diff": "",
+      "expected_sha256": "a8d24875f3d7fbea2df5e6766aedb1dbab3ef65a3d57100c1808bae41bd3b752"
+    },
+    {
+      "test": "tests/ch16/test_cover_pass_statements.sv",
+      "chapter": "ch16",
+      "source_sha256": "d93cafdf31932ffc194d793001112eb62d010ea73d39e03c104e1e341288303c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertpassoff",
+        "$assertpasson"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_cover_property_restrict.sv",
+      "chapter": "ch16",
+      "source_sha256": "be6c36f0203c95915f4bb6c2b7ae6af83cc02c863d5584c693d8d568dac74c2c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "file also tests restrict property, outside the four v1 directive kinds",
+      "evidence": [
+        "restrict property"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_default_clocking_assertion_clocks.sv",
+      "chapter": "ch16",
+      "source_sha256": "1e951e06a623706043d94a2834c6915798c25e8b6060cdb84aa656fd9a83d4fc",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_default_disable_iff_nested_module.sv",
+      "chapter": "ch16",
+      "source_sha256": "a143d906494ecad138ba304d6b39e8badff52e5ccc9acecf3e1b4cea30172587",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 9,
+      "actions": 6,
+      "actual_sha256": "bce5b70808311fe9510e7ef9c7f8f14e9049814f458ecab3fb175b7228de763e",
+      "diff": "",
+      "expected_sha256": "bce5b70808311fe9510e7ef9c7f8f14e9049814f458ecab3fb175b7228de763e"
+    },
+    {
+      "test": "tests/ch16/test_disable_iff_attempt_interval.sv",
+      "chapter": "ch16",
+      "source_sha256": "2ba41faba7e3bc8926b36e62cc16d4aa55939d9377190cd6ae5b5f42156fb8f9",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 26,
+      "actions": 3,
+      "actual_sha256": "a169bb08f73bc97126ef14bebf83abf12f02d6f072bf2f3f65122e2fcb75eb85",
+      "diff": "",
+      "expected_sha256": "a169bb08f73bc97126ef14bebf83abf12f02d6f072bf2f3f65122e2fcb75eb85"
+    },
+    {
+      "test": "tests/ch16/test_expect_action_control.sv",
+      "chapter": "ch16",
+      "source_sha256": "3a14dd48dff73e849973bd47a3b474f9d1e7d3acb15a226ad736e91a711c6f6f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertfailoff",
+        "$assertfailon",
+        "$assertpassoff",
+        "$assertpasson"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_expect_statement.sv",
+      "chapter": "ch16",
+      "source_sha256": "5478f2b101937b34c3f0d74d334d47ab441400eff785faf7b881605bee9a26a4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural expect statements are outside v1",
+      "evidence": [
+        "expect"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_expect_vacuous_and_nonblocking.sv",
+      "chapter": "ch16",
+      "source_sha256": "f41be77f2fd00f22e57234d3d9e7b11362da1ba5f393c8e052f3976522da6cb3",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural expect statements are outside v1",
+      "evidence": [
+        "expect"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_first_match_antecedent.sv",
+      "chapter": "ch16",
+      "source_sha256": "238a81ab5a8deb9a44f5b8675feb2d671fa0b77e04d61c79920d9141a43bd42c",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 27,
+      "actions": 7,
+      "actual_sha256": "a284dd71c7bcde12c1a9c54fabfa9dc6496b4217887ce10add8fa76fbd0ab622",
+      "diff": "",
+      "expected_sha256": "a284dd71c7bcde12c1a9c54fabfa9dc6496b4217887ce10add8fa76fbd0ab622"
+    },
+    {
+      "test": "tests/ch16/test_first_match_items_and_boolean_or.sv",
+      "chapter": "ch16",
+      "source_sha256": "c9f4875ea6dc6c09d0b886463ebd0514754ff0f2e085d1ffe89c22f3750e426c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_followed_by_dual_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "950a17da63a1bee92df4a138cbfd18148ec2d5b6ab13ef1ac2db15631376169b",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 20,
+      "actions": 24,
+      "actual_sha256": "dac833687227c92b64fcc0f9d84b25494281240660af9474d61497ba748a693c",
+      "diff": "",
+      "expected_sha256": "dac833687227c92b64fcc0f9d84b25494281240660af9474d61497ba748a693c"
+    },
+    {
+      "test": "tests/ch16/test_followed_by_existential.sv",
+      "chapter": "ch16",
+      "source_sha256": "bc29a066685a3768885ef4e819829ca92b8bc7f8fc5a6b66880fdf5f29cb32de",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_global_clock_future_functions_action_delay.sv",
+      "chapter": "ch16",
+      "source_sha256": "f57add9d53ad412ae11b1fc336fb802c7c351c764f157a54f301b58fa9ea032c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$falling_gclk",
+        "$future_gclk",
+        "$global_clock",
+        "$rising_gclk",
+        "$stable",
+        "$steady_gclk"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_global_clocking_sampled_functions.sv",
+      "chapter": "ch16",
+      "source_sha256": "3df109e251afc175bc143b69480e97d2fdb28a69e8934e3db0385e847e6eb790",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$changing_gclk",
+        "$falling_gclk",
+        "$future_gclk",
+        "$global_clock",
+        "$past_gclk",
+        "$rising_gclk",
+        "$steady_gclk"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_illegal_abort_condition_triggered.sv",
+      "chapter": "ch16",
+      "source_sha256": "c719aae17f01ed05499310bcffd4382e9b1904e53ca9fdb53e6c955982f034a0",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_action_modifies_automatic.sv",
+      "chapter": "ch16",
+      "source_sha256": "85ac8a45809dc4fdc5d6e9602cd0c82d415e094fbe625b367be013cd058f29e6",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_always_bounds_reversed.sv",
+      "chapter": "ch16",
+      "source_sha256": "8e49e30bd196fb6baff3cf39111949989f60bd15b998439ec08cdae9e535dcbc",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_chandle_variable.sv",
+      "chapter": "ch16",
+      "source_sha256": "6f3126e9ea5d145d1433728fd591a0a810502790bd0db562b2bf8211f575e97d",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_clocking_input_not_1step.sv",
+      "chapter": "ch16",
+      "source_sha256": "09dac309d02ec83c3d98143835ca428fb452089abf77ddcaf324603fca66588c",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_expression_unpacked_array.sv",
+      "chapter": "ch16",
+      "source_sha256": "33ba55566955875263fedb132e3b2efa5b0ae0fbc537699e4a08ad021b6d3094",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_function_inout_argument.sv",
+      "chapter": "ch16",
+      "source_sha256": "c1aa48195b4f84500e461dcb6d518b175c91a93c8671ea8d370c9f3a7906a8b8",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_function_keeps_state.sv",
+      "chapter": "ch16",
+      "source_sha256": "ef2cf84ea09a0fcd97f9318dda52f551f1650a8fb4d3e3a700395dad82b991db",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_function_output_argument.sv",
+      "chapter": "ch16",
+      "source_sha256": "d6bb5bce54236ef1c483fed3c3b0cdbe13d95c9be04c50a3bdd5313b4f25efba",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_function_ref_argument.sv",
+      "chapter": "ch16",
+      "source_sha256": "8110c4488f71b9a1c4d563c4e45aa68a18268de44f4efc3675ac2765bc07e569",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_function_side_effect.sv",
+      "chapter": "ch16",
+      "source_sha256": "169550f64cb01b6c2f915d924b066529964a96b572f705e4faf537c53a8dfc0f",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_nonstatic_class_method.sv",
+      "chapter": "ch16",
+      "source_sha256": "437cbd644ea16e1725c474744d48c7f5178882754595be1d28043c2eab9ec74d",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_nonstatic_class_property.sv",
+      "chapter": "ch16",
+      "source_sha256": "3c648a7a84f74f1605f0abd54e3b076c8e578a64093e2f875d511d2ade79e77b",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_automatic_clock_variable.sv",
+      "chapter": "ch16",
+      "source_sha256": "55d2f922a1359520f9b05c66a573dbd5a4d3741d862a8bad62a2cf3a7b49631c",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_automatic_ref_argument.sv",
+      "chapter": "ch16",
+      "source_sha256": "7912266e080d8c462492b52b02a1aba25892f8895f69a585d06d61a18b2f9719",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_clocking_block_explicit_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "620cef2a5b87c5d5115b613851345702e8b296ed6ba6f41dec30068ba1a5b87e",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_clocking_block_external_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "fe4a436b4c05c46baf20962931b5544ea401f58358bd8acf0d94c935a7e36be5",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_concurrent_assert_in_action.sv",
+      "chapter": "ch16",
+      "source_sha256": "47789a8b97a02594c48de00f691be1e7baa83a576063e8c7b89c71a016103e9c",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_cover_action_concurrent.sv",
+      "chapter": "ch16",
+      "source_sha256": "c92a0df3339afd31636fd889ba4e66c37ed01af03795871dc76cc8c0d351f58d",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_disable_iff_matched.sv",
+      "chapter": "ch16",
+      "source_sha256": "1963f41cdd6dd1e448fec5478c8f1a484aaca86c2cd16507ae7981eedc7bb299",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_inferred_clock_expression.sv",
+      "chapter": "ch16",
+      "source_sha256": "4ea3fc5c9632b75757d43c33c1166f5d064178788338c4fc5a0952e4ffb0e28f",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_inferred_clock_missing.sv",
+      "chapter": "ch16",
+      "source_sha256": "a18d8e6a881a8cafc9b59b8826946228761787f9027b1d4e00d9d93f0079eeb7",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_local_initializer_uninitialized.sv",
+      "chapter": "ch16",
+      "source_sha256": "255c9bf9eab50f34062126929382157fc9588d802cb52f8b0acab87a910951ba",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_local_variable_hierarchical_reference.sv",
+      "chapter": "ch16",
+      "source_sha256": "3c50f71d01b4ef6f9232d4e81542400ac1aeb93bf02b12b87f56ad9821fe89aa",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_local_variable_implicit_type.sv",
+      "chapter": "ch16",
+      "source_sha256": "970e5c2bdbac031146aa60323f349425fb3017e827eac05d3dde79992e2178cb",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_local_variable_initializer_uses_uninitialized.sv",
+      "chapter": "ch16",
+      "source_sha256": "55c4908985f53ccf374572e446b7adf87a0c0c56eb2beadb26b437b51708235b",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_local_variable_redeclares_formal.sv",
+      "chapter": "ch16",
+      "source_sha256": "41d238f43d921fbbc38c343bf3e31991e9a1dd22af3e0e0e7e0501fbb5324a7b",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_matched_in_disable.sv",
+      "chapter": "ch16",
+      "source_sha256": "502e66e53ede126b5a7891ad06ae3b86a3fddf703eeefcde6f23aedab6ba035e",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_matched_in_sampled_function.sv",
+      "chapter": "ch16",
+      "source_sha256": "e95d4c005dd59579d56dd244d74993e608ffb88e4cd59afcefcba9f3d5fc3369",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_multiclock_empty_subsequence.sv",
+      "chapter": "ch16",
+      "source_sha256": "d659c8d760891806d2fdaab0100396a3b15069238ea7bcb9796c6a5d8bb6a6c2",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_multiclock_operator.sv",
+      "chapter": "ch16",
+      "source_sha256": "2f8704f20aac13af8536493291746d78b4a626de166f3d469cdfdb24af7b0087",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_nexttime_variable_index.sv",
+      "chapter": "ch16",
+      "source_sha256": "f88c11a74f08c1695a5eba0e749d584f3759160af9291c3972a06bd32871056e",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_output_actual_module_variable.sv",
+      "chapter": "ch16",
+      "source_sha256": "47cd717db66255f5f2606bb9848d60042b99369b1a39de5d78d4c4f79920f6d3",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_past_automatic_gating.sv",
+      "chapter": "ch16",
+      "source_sha256": "0d3ee12613d1851ea053ca3db7405fd8baa00ce001333cb961544b0d6181872e",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_past_count_variable.sv",
+      "chapter": "ch16",
+      "source_sha256": "544f1f8f55d6a5ba6a9ba9405b829ea149792fe0e7c6848d4e3496d919273f35",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_past_without_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "4645144ac83ceb9e8c3f45d6fccd212412f109513f2ad46ad320dd297d517102",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_property_formal_class_handle.sv",
+      "chapter": "ch16",
+      "source_sha256": "b27eec3e811a029e4e3c25d80b9820e34020b5a1471f0f734aeeb1c75bd449cb",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_repetition_upper_bound_variable.sv",
+      "chapter": "ch16",
+      "source_sha256": "a250cc5513a8abddb1f4ec5e68657fea342217fa72b5871ff4d6a99002a8b975",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_sampled_changed_without_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "8e691aed34f13a1362da703420b8206e5872957321b9f9901b044d799b3fb2a7",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_sampled_fell_without_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "181cb0a4041441b1bae08a9b69d636be9f85fc15973399ed0e302893970aefab",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_sampled_rose_without_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "2c711ee00c07a3236dca31ab41f282b0a46eebd41e7871c98b5cd0c2bcdc10ae",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_sampled_stable_without_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "7bc5515d027e5b8f7b7ffb808ebf388804faa64fdd4e7c9d47d9955b1b65b86d",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_sequence_cycle_through_instance_actual.sv",
+      "chapter": "ch16",
+      "source_sha256": "b20cc1cd000eae72e5b6c1f38a39d702bdfcbaed8ca638ba0f8f300d81b20547",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_triggered_cycle.sv",
+      "chapter": "ch16",
+      "source_sha256": "5738d85533c76ab259c434be15236707c519d1deb4cff5d4afb3e5e5a0b58d8e",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_triggered_ending_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "b1eafdd117cb6a5984340a43874fb40dfed822e8a7c59163073f4ae78b29e81a",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_triggered_no_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "09d994d625e4110fb3af4ce1ace7bbe245cdeb553119e98a9f27cd770a14ab3d",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_triggered_on_expression.sv",
+      "chapter": "ch16",
+      "source_sha256": "058f2dd4e7ea096e3d11090452d7c4357e1042048b9c542ffb6eb5448893fcd2",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_typed_formal_queue_actual.sv",
+      "chapter": "ch16",
+      "source_sha256": "285f3b9632679c82971ca60fa80b030c4ae8b7b187215f29dbaae7a01e44d4db",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_implicit_always_attempts.sv",
+      "chapter": "ch16",
+      "source_sha256": "a24505fd6bd91e0081a1cdd1af3b8a32b92b15c6fdaaced1652c02a93d047590",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural concurrent assertions are outside v1",
+      "evidence": [
+        "procedural assertion context is outside M0"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_inferred_clock_disable.sv",
+      "chapter": "ch16",
+      "source_sha256": "d8d44cb29ed5baa15c42fc17713887cc872da67a9a1325abd1c41997075b5095",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "context-inferred event/disable arguments are outside the v1 expression-argument subset",
+      "evidence": [
+        "$inferred_clock",
+        "$inferred_disable"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_local_variable_init_two_leading_clocks.sv",
+      "chapter": "ch16",
+      "source_sha256": "ab54931733e1ca70b38ef6bf95b6392de09f217601e92ae83dafed4ad8684a69",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_multiclock_clock_flow_operands.sv",
+      "chapter": "ch16",
+      "source_sha256": "b922fbc52df6cefaa9afdcea00203d942976fa9a86e3abf57489c131ba9bfa1f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "multiple clock signals/alignment contexts are outside v1",
+      "evidence": [
+        "c1",
+        "c2"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_multiclock_implication_if_sync.sv",
+      "chapter": "ch16",
+      "source_sha256": "0f377c79d1eb6bc12badf55f51f381227350360f39a90a0cfab81705b0212bf9",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "multiple clock signals/alignment contexts are outside v1",
+      "evidence": [
+        "c1",
+        "c2",
+        "ca",
+        "cb",
+        "cc",
+        "cd",
+        "cm"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_multiclock_leading_clock.sv",
+      "chapter": "ch16",
+      "source_sha256": "4c6d750ec3c34b265f44cf35253dcf02e1987cbd4a53b4696975c1068ef212cf",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "multiple clock signals/alignment contexts are outside v1",
+      "evidence": [
+        "clk1",
+        "clk2"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_multiclock_sequences.sv",
+      "chapter": "ch16",
+      "source_sha256": "f97e7bd0949e1e3a90a4e3aace5b6d126cfe2fd19e5f5b78171e873c0f57d03e",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "multiple clock signals/alignment contexts are outside v1",
+      "evidence": [
+        "c1",
+        "c2"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_named_property_scopes_formals_instances.sv",
+      "chapter": "ch16",
+      "source_sha256": "2e7cd4f979473ec6649fb67e703ecd5ba3491ffd17af52432db2258777b93f1a",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_named_sequence_scopes_and_instances.sv",
+      "chapter": "ch16",
+      "source_sha256": "55131b580485452d4ffb737b82d62e6467d2db4befed45b98397377cf67a6a36",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
+      "chapter": "ch16",
+      "source_sha256": "845c22d8a5d39e4e8368a47d7bc6a8b3e975d9ad6e169714f2ba69639e019bd1",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "multiple clock signals/alignment contexts are outside v1",
+      "evidence": [
+        "c1",
+        "c2"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonoverlapped_implication_expansion.sv",
+      "chapter": "ch16",
+      "source_sha256": "587ecf4b0cbc6359d28b66f2c1ff568bb480f7ddb0cdddfeaacb02b21293ae95",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 8,
+      "actions": 12,
+      "actual_sha256": "1dc1cabbe96697bad24765c3eec85473516887c7bb425b16ed6f6e19caaf05ca",
+      "diff": "",
+      "expected_sha256": "1dc1cabbe96697bad24765c3eec85473516887c7bb425b16ed6f6e19caaf05ca"
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_always_eventually.sv",
+      "chapter": "ch16",
+      "source_sha256": "20806c0e6f1fd536eac3f11c0bf0158a55c9b35f2e31081fd150e1dfd2a0a879",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_evaluation_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "526472189b7e15fa989b39c48ba46820c07039658549da7d6670fbaef5c3618e",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_followed_by_nexttime.sv",
+      "chapter": "ch16",
+      "source_sha256": "605dee7a7fc9ca69f5c7bcc21de3d32732e1d5559124a2bae2347e141b160034",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_if_nonoverlap_instance_disable.sv",
+      "chapter": "ch16",
+      "source_sha256": "050da273ef4ed7935e536c1a5b3e0fe39e070406a3326ac4153fa9ea5f5e9d06",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_not_and_abort.sv",
+      "chapter": "ch16",
+      "source_sha256": "36083d1064c6eab76e35b3c32f4bb9a0a9094f987db27aa46efe34bb1cfeaa3b",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_property_case.sv",
+      "chapter": "ch16",
+      "source_sha256": "8f2f2a83394601ddbd862b3a995f1e46d65f9f7f41ebd1b4d699b60d01f57223",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_sequence_strong_weak.sv",
+      "chapter": "ch16",
+      "source_sha256": "e368b507900f752970c64060298bbdc0eb49e0fa8b887f7bc4c33dc89091fece",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_until_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "13dcf4d99e5ada822037afb8dedbf4aa59d156466bd8ec76c2892db17fd16fbb",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_past_gating_expression.sv",
+      "chapter": "ch16",
+      "source_sha256": "f1a0c5b309861b6d78cbc2ac54d5dd47e3d4f8d7c1fac26034be998cc08f16c4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$past"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_procedural_assertion_clock_inference.sv",
+      "chapter": "ch16",
+      "source_sha256": "13f76e503fc558d19c1f09711d23cef35b3bbad8803de4ad055228ffe1bf896a",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence triggered/matched methods are outside v1",
+      "evidence": [
+        "triggered"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_procedural_assertion_disable_label.sv",
+      "chapter": "ch16",
+      "source_sha256": "d496cecd88ac1243829f1787d2141a70017b469965e95cabfce5e021900b54ca",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural concurrent assertions are outside v1",
+      "evidence": [
+        "procedural assertion context is outside M0"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_procedural_assertion_flush_points.sv",
+      "chapter": "ch16",
+      "source_sha256": "77984981b18b8ac0c38d1c70a4bcc5a9988480bf2f1a52d5a87983c69edb0927",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "program/Active feedback from assertion actions requires event-region simulation beyond v1",
+      "evidence": [
+        "program",
+        "action-to-process feedback"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_procedural_assertion_in_initial.sv",
+      "chapter": "ch16",
+      "source_sha256": "b128bd8a8f5426f51fc0e62a32a42d90ac2b9ce3c47a9a2b6e426e745a0c9100",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural concurrent assertions are outside v1",
+      "evidence": [
+        "procedural assertion context is outside M0"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_procedural_assertion_no_glitch.sv",
+      "chapter": "ch16",
+      "source_sha256": "9f9f72b5fc9b57bcf9e20696a67b0acebaf94412e90d01dccb58c23e18d13d2b",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural concurrent assertions are outside v1",
+      "evidence": [
+        "procedural assertion context is outside M0"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_procedural_assertion_queue_rules.sv",
+      "chapter": "ch16",
+      "source_sha256": "08673d30c94a06feab2a65e4b5b6530f466c8bc1fa3e633f022cda410246ffc9",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$sampled"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_procedural_concurrent_assertions.sv",
+      "chapter": "ch16",
+      "source_sha256": "e859da9566af3f5941b3ead82bdd33c3a9fbf2268911c53b7c3b5ba1adfeb768",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural concurrent assertions are outside v1",
+      "evidence": [
+        "procedural assertion context is outside M0"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_abort.sv",
+      "chapter": "ch16",
+      "source_sha256": "ac97c4203c485d93d3e66331dd08effe0c781a7ba2b4a17ef163d1a1754f3e9a",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "accept/reject abort operators are outside v1",
+      "evidence": [
+        "accept_on",
+        "reject_on",
+        "sync_accept_on",
+        "sync_reject_on"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_abort_nesting.sv",
+      "chapter": "ch16",
+      "source_sha256": "b13b203dad02463920a8683e6d5aa556817af86de6db1a8b2010b202a6addd57",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "accept/reject abort operators are outside v1",
+      "evidence": [
+        "accept_on",
+        "reject_on"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_binary_operator_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "3a9d69ea637e727e6ca90b1b4141e83358a0bbf4e58bc28600d762da85da2273",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_property_declaration_and_argument_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "bc9986c0cf4dad0d84f160db40590cb04c494853371a1c5b7c4cb3118f13630c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_expression_operands_bind_first.sv",
+      "chapter": "ch16",
+      "source_sha256": "d202820fee15bef266459c80b1ecbc406fb4bed2091ffcaa0adbe5a3f49ca0f1",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 8,
+      "actions": 56,
+      "actual_sha256": "c25e46cf679bd2f53d9642383ca91da59362d9db596919706fff62c94cbbb158",
+      "diff": "",
+      "expected_sha256": "c25e46cf679bd2f53d9642383ca91da59362d9db596919706fff62c94cbbb158"
+    },
+    {
+      "test": "tests/ch16/test_property_if_case_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "6a09dc3b058eb4fe4cb7682c976fa34d6f50d49fc9f5a14717c95fca207cc08b",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 25,
+      "actions": 6,
+      "actual_sha256": "b7b050649d1da370008fd3180effa544b8662db43dc03bf6b1adb5cf0d570124",
+      "diff": "",
+      "expected_sha256": "b7b050649d1da370008fd3180effa544b8662db43dc03bf6b1adb5cf0d570124"
+    },
+    {
+      "test": "tests/ch16/test_property_implication_operator_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "eeb5e6490310fbbb51b39197616840254fcacc67f8f81a20edb039af8f3aa456",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 15,
+      "actions": 32,
+      "actual_sha256": "c93e1816df7bb050e79260329bb8e06b6ed941af8bbcec4c35317c3760a71c16",
+      "diff": "",
+      "expected_sha256": "c93e1816df7bb050e79260329bb8e06b6ed941af8bbcec4c35317c3760a71c16",
+      "judgment": {
+        "source_sha256": "f3c842687060497957f04233b7c770ce49cfeff1084e86b1fa4435242edea5bb",
+        "expected_sha256": "0ce368cd1d12c2ccd6da3ff919df41b8cfe0fb63f9dadfca8ad7ebeccbd532d7",
+        "actual_sha256": "c93e1816df7bb050e79260329bb8e06b6ed941af8bbcec4c35317c3760a71c16",
+        "clauses": [
+          "16.12.7",
+          "16.12.9",
+          "16.14.5"
+        ],
+        "disposition": "corrected_after_user_approval",
+        "reason": "Every module-level directive starts at every clock tick. On four non-go ticks per phase the antecedent has no match: implications pass vacuously, but followed-by requires an antecedent match and fails. Each followed-by failure count is four plus the failure, if any, of the go-started attempt.",
+        "approval_required": false,
+        "original_disposition": "expected_output_and_explanation_need_correction",
+        "approved_on": "2026-10-26",
+        "correction": {
+          "source_sha256": "eeb5e6490310fbbb51b39197616840254fcacc67f8f81a20edb039af8f3aa456",
+          "expected_sha256": "c93e1816df7bb050e79260329bb8e06b6ed941af8bbcec4c35317c3760a71c16",
+          "actual_sha256": "c93e1816df7bb050e79260329bb8e06b6ed941af8bbcec4c35317c3760a71c16",
+          "inputs_sha256": "989d6beab92eddd02495dff44e09c71bb1464aabece66541e90917e7987934ac"
+        }
+      }
+    },
+    {
+      "test": "tests/ch16/test_property_implies_iff_followed_by.sv",
+      "chapter": "ch16",
+      "source_sha256": "0808c9b7cfbe6ffbd19791352bbd2cdfe4aa54c7d5bc07e69d9c1fcd30de1add",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 15,
+      "actions": 6,
+      "actual_sha256": "0bd81c3809019d31a61acdcdda1c9182c2dc7f13b35fd0b61dba458d48067f44",
+      "diff": "",
+      "expected_sha256": "0bd81c3809019d31a61acdcdda1c9182c2dc7f13b35fd0b61dba458d48067f44"
+    },
+    {
+      "test": "tests/ch16/test_property_mutual_recursion.sv",
+      "chapter": "ch16",
+      "source_sha256": "ff5cdb0988e8c9d3391d4551acc0700924555c380ad1b2fc79aa36c29a957d2f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "accept/reject abort operators are outside v1",
+      "evidence": [
+        "accept_on"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_negation_of_instances.sv",
+      "chapter": "ch16",
+      "source_sha256": "a3110f55788665ae8c3a388304e6ccbdf958e085baeca38b69e1c5588b990651",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 12,
+      "actions": 19,
+      "actual_sha256": "db43eaa25503809aeef0d615fec4a7ad9b11ad7c2e78993a740a6188a0f09dbe",
+      "diff": "",
+      "expected_sha256": "db43eaa25503809aeef0d615fec4a7ad9b11ad7c2e78993a740a6188a0f09dbe"
+    },
+    {
+      "test": "tests/ch16/test_property_nexttime_eventually.sv",
+      "chapter": "ch16",
+      "source_sha256": "40c1c30716ac7bc2f8d8e4aa1fe4cc79e396c0af187898b47488617d0941bf26",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_property_not_or_and.sv",
+      "chapter": "ch16",
+      "source_sha256": "4a6501fe3a1ccf8b1003b7c405207f070b6c64815812307dd7b72f1f840306aa",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 20,
+      "actions": 6,
+      "actual_sha256": "1e6ebc7eebfbc8107e340a7e2e2595d58b748a340eea65f1b5c470aa24263572",
+      "diff": "",
+      "expected_sha256": "1e6ebc7eebfbc8107e340a7e2e2595d58b748a340eea65f1b5c470aa24263572"
+    },
+    {
+      "test": "tests/ch16/test_property_operator_precedence_one_tick.sv",
+      "chapter": "ch16",
+      "source_sha256": "43a987c4f98fda9f41e80c816eab18f9ff32850d7b66b0f425cde8928531a046",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "accept/reject abort operators are outside v1",
+      "evidence": [
+        "accept_on",
+        "reject_on",
+        "sync_accept_on",
+        "sync_reject_on"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_operator_precedence_temporal.sv",
+      "chapter": "ch16",
+      "source_sha256": "5a620332a0a414f76173ae9724364098083c8ecd6141bb582abd827230ab9918",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 14,
+      "actions": 52,
+      "actual_sha256": "1469afbec008bd6d6270510e9023e28b380187a9635ca8aa7442f6914107c33b",
+      "diff": "",
+      "expected_sha256": "1469afbec008bd6d6270510e9023e28b380187a9635ca8aa7442f6914107c33b"
+    },
+    {
+      "test": "tests/ch16/test_property_statement_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "9b3aa0b66357171875c7273da610ee6f3ca9de45200703a171c78c048cbf6f02",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural expect statements are outside v1",
+      "evidence": [
+        "expect"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_strong_unbounded_operators.sv",
+      "chapter": "ch16",
+      "source_sha256": "e40304b9246de8fef483ef52f3aeca8cee30cbee489710c7b5eac083eb0cfc06",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 23,
+      "actions": 11,
+      "actual_sha256": "9710ae474b5735cd160753ae1b6ca0f205aa4ea59fef0c8bfce62430d2199b77",
+      "diff": "",
+      "expected_sha256": "9710ae474b5735cd160753ae1b6ca0f205aa4ea59fef0c8bfce62430d2199b77"
+    },
+    {
+      "test": "tests/ch16/test_property_temporal_operator_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "6af92c527af7dd9c94687685a409128b77aa359c7c7c6ea73da746de28820eda",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 32,
+      "actions": 24,
+      "actual_sha256": "141dbce4f4133b6da739c0e37fc9a0727c4cd375c919305abb0b497f6e6f6a10",
+      "diff": "",
+      "expected_sha256": "141dbce4f4133b6da739c0e37fc9a0727c4cd375c919305abb0b497f6e6f6a10"
+    },
+    {
+      "test": "tests/ch16/test_property_until_strong_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "94ff5c4c7beeebfcb543dcc4823e023fbf6c4fc2b966229686f8c3ae3b12a589",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_recursive_properties.sv",
+      "chapter": "ch16",
+      "source_sha256": "cadb5267ae451782c7eaf24c848e0b9ccacce34316979164b2fca8b16a4fb645",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "recursive properties are outside v1",
+      "evidence": [
+        "cyclic named-property references"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_recursive_property_abort_operators.sv",
+      "chapter": "ch16",
+      "source_sha256": "09e8d9831a56f3bde80c7ba447e29e4960721fa0f3e3751b83997dfd44d20372",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "accept/reject abort operators are outside v1",
+      "evidence": [
+        "accept_on",
+        "reject_on",
+        "sync_accept_on",
+        "sync_reject_on"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_recursive_property_time_advance.sv",
+      "chapter": "ch16",
+      "source_sha256": "6b14bbbf61a05700e007fe46a5ffa85499ed95a985a41d2b8a5f66cac182ca9b",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "recursive properties are outside v1",
+      "evidence": [
+        "cyclic named-property references"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_rose_fell_lsb_four_state.sv",
+      "chapter": "ch16",
+      "source_sha256": "631d8fd06650098f18e4c7ab097c53cb9c3fa811df0281583dc860a1a3884803",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$fell",
+        "$rose",
+        "$sampled"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+      "chapter": "ch16",
+      "source_sha256": "a9c03820dbf766aa8628d76cf9c33ca421a5c00337e495bf1da619975e0ec1fe",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$changed",
+        "$past",
+        "$sampled"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_automatic_const_current.sv",
+      "chapter": "ch16",
+      "source_sha256": "ddedd6a0a3d93e037839ca8fb96f9d2462fda4ca4208da5b1ec055e69c03aedd",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$past",
+        "$sampled"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_defaults_and_methods.sv",
+      "chapter": "ch16",
+      "source_sha256": "58f128a1646ed150861082de79f06b0752f28fcf35af8f26e173f971f65e5c4f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$past",
+        "$sampled"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_function_arguments.sv",
+      "chapter": "ch16",
+      "source_sha256": "402170ac756c0667e15c4bda36334ddd86104a2a2c84cbc6a8d702c4f1448ea1",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$changed",
+        "$fell",
+        "$past",
+        "$rose",
+        "$sampled",
+        "$stable"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_function_clock_inference.sv",
+      "chapter": "ch16",
+      "source_sha256": "16c67c9015621dc4d38c28884f5c666f87431121bdcfcf4aa97024774ae31825",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$past"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_in_action_block.sv",
+      "chapter": "ch16",
+      "source_sha256": "f1ec69a752d89a7e43db8add0984869f88306f91f674aa1bec9bfca6cb9506b6",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$sampled"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_value_functions_with_clocking_event.sv",
+      "chapter": "ch16",
+      "source_sha256": "c291eb28d0d0a8bb97e71ca7a29846599ac0f9a8434ae7bfa28c75c6c6fd7735",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$past",
+        "$stable"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_value_time_zero_defaults.sv",
+      "chapter": "ch16",
+      "source_sha256": "a1bcba1c508b1deb89c139991c9c463af85fbd0fcf7f6cdcd2e01a634741b741",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$past",
+        "$sampled"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_without_clocking_event.sv",
+      "chapter": "ch16",
+      "source_sha256": "3e87b288f547e4b1dd95ac4aa1a6604a1450e980c17feb8636efe279bf0eb2be",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$sampled"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_and_or_intersect.sv",
+      "chapter": "ch16",
+      "source_sha256": "78e641cecc3062b9554a5e25175be1278d15129eb15e079ce80e0623d045ccd8",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_sequence_attached_call_kinds_order_region.sv",
+      "chapter": "ch16",
+      "source_sha256": "65a73e51a2743fc3258c6127aa5925e9160f371a4c5f753e43fc87695727f076",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence match items/calls are outside the v1 sequence subset",
+      "evidence": [
+        "expected ')', got ','"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_consecutive_repetition.sv",
+      "chapter": "ch16",
+      "source_sha256": "4963fc3345c14c0e414802dd13b341443a7c0f16070db9fee3d7034f51c9f6d1",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_sequence_default_actuals_and_name_scopes.sv",
+      "chapter": "ch16",
+      "source_sha256": "a0161f494d74b8f54a93243c7038bec5f9d91e233c7f22aaafa0de5a28c259be",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_empty_match_concatenation.sv",
+      "chapter": "ch16",
+      "source_sha256": "4b84038ff5fac483a2b2f2b46499429fa7d4e1fceaabbcc279a0dcd18c8f7d57",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_sequence_empty_match_fusion.sv",
+      "chapter": "ch16",
+      "source_sha256": "bda2ccf04c7b6033c08bd26beb9fcf04fc83d38ecf97fd00fbdd5535617ab223",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 7,
+      "actions": 6,
+      "actual_sha256": "d7e9b5036aae8ff85b9989c20b9a1c02685a65bc7aef8f1396df83a46e2f846a",
+      "diff": "",
+      "expected_sha256": "d7e9b5036aae8ff85b9989c20b9a1c02685a65bc7aef8f1396df83a46e2f846a"
+    },
+    {
+      "test": "tests/ch16/test_sequence_expression_forms_and_match_items.sv",
+      "chapter": "ch16",
+      "source_sha256": "02d120e5a5f7de69e9877b131e0180102dc1a92a1c01d7f529a73eec0f59fe4b",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_first_match.sv",
+      "chapter": "ch16",
+      "source_sha256": "926ff68bf8b5cddaaffd90414a6dda9c97e613e253263514a804674a1c911ee5",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_sequence_formal_arguments.sv",
+      "chapter": "ch16",
+      "source_sha256": "3d3ac5abf84a3cab8fe79d702e86558f1d7c5b4e39f37fc43ee54199c0f1bc3a",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "event formal/actual arguments are outside the v1 expression/signal subset",
+      "evidence": [
+        "event formal"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
+      "chapter": "ch16",
+      "source_sha256": "4f57501fbfd43da4729051ba63a6f3dd6cc6dad57b0bdde185774c0d4045e0b0",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_formal_reference_forms_and_types.sv",
+      "chapter": "ch16",
+      "source_sha256": "faa34f2e9c47e9037b89a7abd366a6643cea74c054a6a347a451c26a512e9691",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_goto_nonconsecutive.sv",
+      "chapter": "ch16",
+      "source_sha256": "7df5ef371aa8c4584b624f94fced8799107fe7f7d6e330724809cd18afbe4fc5",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_sequence_instance_vs_triggered.sv",
+      "chapter": "ch16",
+      "source_sha256": "44ca0e3159d64683e2f5ecaec8e0cafcc880a6769d512afa6d6cedbee57ac1ca",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence triggered/matched methods are outside v1",
+      "evidence": [
+        "triggered"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_intersect_within_precedence.sv",
+      "chapter": "ch16",
+      "source_sha256": "b220fd42dbd455573d5b20186cc856e49ce6163c67005a5b8563028e8a4b40e8",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 32,
+      "actions": 5,
+      "actual_sha256": "0f798b10aa18d57c3391d7ac5c6109db2e386ad6eab2411718e5d211f148d3ba",
+      "diff": "",
+      "expected_sha256": "0f798b10aa18d57c3391d7ac5c6109db2e386ad6eab2411718e5d211f148d3ba"
+    },
+    {
+      "test": "tests/ch16/test_sequence_local_formal_arguments.sv",
+      "chapter": "ch16",
+      "source_sha256": "3bc0016145040cfb157f8577ddac44eead222338cb0144edeff9b9690d85c883",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_local_formal_copies_and_casts.sv",
+      "chapter": "ch16",
+      "source_sha256": "90d525cc086ae34fe009699af2462c66e0b238d029b0920e66f5fe4628ab0fb7",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_local_variable_initialization.sv",
+      "chapter": "ch16",
+      "source_sha256": "58f55c43940a391075d1b433d40ce0f04c74fcf6937c99b658f440c67a216911",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_local_variable_threads_and_merge.sv",
+      "chapter": "ch16",
+      "source_sha256": "5cd7132a256f14a50ef2b5cbeab1522cddac41d743d3cf9bc6cbe94485b2278f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_local_variables.sv",
+      "chapter": "ch16",
+      "source_sha256": "bfd30c42e6890cb6847dc2401d09ddee705ccacdf68cc692a45d696b098649c8",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_match_item_and_triggered_method.sv",
+      "chapter": "ch16",
+      "source_sha256": "63a9f3510fb8fe2b9f991b65562b10c35509d57076385ed8c417e599e066e548",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence triggered/matched methods are outside v1",
+      "evidence": [
+        "triggered"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_matched_across_clocks.sv",
+      "chapter": "ch16",
+      "source_sha256": "3c83b4f7f4c1c324845d195a447a7db0e40bfe7e01babb8a8030eb5975403fc1",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence triggered/matched methods are outside v1",
+      "evidence": [
+        "matched"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
+      "chapter": "ch16",
+      "source_sha256": "4258b1f8fec08a5b78ff010e9e344f329ea259e95a7d597064d51c71e903c93e",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence match items/calls are outside the v1 sequence subset",
+      "evidence": [
+        "expected ')', got ','"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_operator_precedence.sv",
+      "chapter": "ch16",
+      "source_sha256": "de3468e06993db965542c316eac53fd0586010e1bc936b4d30a0c0ad6b0369f2",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 12,
+      "actions": 11,
+      "actual_sha256": "13f903502b0c12f21e7bf729b71806fc9907fa806dfec0d31762468b3a2a0638",
+      "diff": "",
+      "expected_sha256": "13f903502b0c12f21e7bf729b71806fc9907fa806dfec0d31762468b3a2a0638"
+    },
+    {
+      "test": "tests/ch16/test_sequence_operator_precedence_table.sv",
+      "chapter": "ch16",
+      "source_sha256": "be3482b7af654449c3fa5d3caeb99a67a0923475f3a008b37564555267093ebd",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 12,
+      "actions": 6,
+      "actual_sha256": "77e6e0d81d94cae426e7ec6550cd518e19bf04821a8f1fcaa7fa517a7843815a",
+      "diff": "",
+      "expected_sha256": "77e6e0d81d94cae426e7ec6550cd518e19bf04821a8f1fcaa7fa517a7843815a"
+    },
+    {
+      "test": "tests/ch16/test_sequence_or_and_local_flow.sv",
+      "chapter": "ch16",
+      "source_sha256": "e377dd522004f4708db4ed5274b0b99afeafcd2afb46219c443dff573b00e459",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_precedence_repetition_within.sv",
+      "chapter": "ch16",
+      "source_sha256": "a3c17b8ebdcf6fbf81f0387da154935d5ec3408e63a9bd0173d547b21470eb97",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 56,
+      "actions": 5,
+      "actual_sha256": "658a7d6308addc454589d6d0adf8d263185446bbb544b8afb32220be385bd708",
+      "diff": "",
+      "expected_sha256": "658a7d6308addc454589d6d0adf8d263185446bbb544b8afb32220be385bd708"
+    },
+    {
+      "test": "tests/ch16/test_sequence_repetition_and_concat_precedence.sv",
+      "chapter": "ch16",
+      "source_sha256": "489def2e7af9a3d94616f2b9bb7128a82a7aef9ccc21a94110c47f2a00f1276f",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 6,
+      "actions": 5,
+      "actual_sha256": "81b19cd3f3e598cdbefb80aef87e2b0c40703a833033a5935fc6c60448f803a1",
+      "diff": "",
+      "expected_sha256": "81b19cd3f3e598cdbefb80aef87e2b0c40703a833033a5935fc6c60448f803a1"
+    },
+    {
+      "test": "tests/ch16/test_sequence_repetition_and_delay_shorthands.sv",
+      "chapter": "ch16",
+      "source_sha256": "b1f0f127947331836b0f9c75ba97163cbb60b8a8912c0c4cb8ccf1d6b6da2f14",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 8,
+      "actions": 18,
+      "actual_sha256": "4511b608b5e5bc16c4651ab7a6b4584aab8ce7e2439de48cdf05a5ef9722d888",
+      "diff": "",
+      "expected_sha256": "4511b608b5e5bc16c4651ab7a6b4584aab8ce7e2439de48cdf05a5ef9722d888"
+    },
+    {
+      "test": "tests/ch16/test_sequence_subroutine_call_arguments.sv",
+      "chapter": "ch16",
+      "source_sha256": "da82153b740c03e7d2b53afc77b8d08240be976fad095790deab745826adccb8",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence match items/calls are outside the v1 sequence subset",
+      "evidence": [
+        "expected ')', got ','"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_throughout_within.sv",
+      "chapter": "ch16",
+      "source_sha256": "f350025c19f657bf19115dd1d2959e2764bef67aba900493c7957caa201aa76b",
+      "illegal": false,
+      "status": "pilot",
+      "reason": "already covered by M2",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch16/test_sequence_throughout_within_expansions.sv",
+      "chapter": "ch16",
+      "source_sha256": "37544a6ce0960241141bb20b6832ad3287d86867d6d6bf6de6e624373f506b53",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 36,
+      "actions": 12,
+      "actual_sha256": "09f517aea99b8005c0fa2b1ec6a565fa9fde0ebfa55c66afe0391487baf5ace6",
+      "diff": "",
+      "expected_sha256": "09f517aea99b8005c0fa2b1ec6a565fa9fde0ebfa55c66afe0391487baf5ace6"
+    },
+    {
+      "test": "tests/ch16/test_sequence_triggered.sv",
+      "chapter": "ch16",
+      "source_sha256": "2ad5eacae6d201c44ed43e3463badea7af449ea5e4299686eb213ef5cac6a1be",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence triggered/matched methods are outside v1",
+      "evidence": [
+        "triggered"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_strong_weak_first_match_same_truth.sv",
+      "chapter": "ch16",
+      "source_sha256": "81973799f15826c9ba6d68d9c814923fb3df676d94d817da1440590ac29c0805",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 14,
+      "actions": 37,
+      "actual_sha256": "376bf0f8be3307cc3c73224079bd1e91481d2ede8b4b0125d2fa8702b5d9f97c",
+      "diff": "",
+      "expected_sha256": "376bf0f8be3307cc3c73224079bd1e91481d2ede8b4b0125d2fa8702b5d9f97c"
+    },
+    {
+      "test": "tests/ch16/test_syntax_expect_property_statement.sv",
+      "chapter": "ch16",
+      "source_sha256": "add164f528dba767dc3316e3b29aaad068729b3404e5f13f57ce40e16d97da7e",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "procedural expect statements are outside v1",
+      "evidence": [
+        "expect"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_triggered_local_variable_threads.sv",
+      "chapter": "ch16",
+      "source_sha256": "12db61b63661b9ce8e9b06980073a3dd534afb5450f60d8fa70b2fa0edd758bb",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence triggered/matched methods are outside v1",
+      "evidence": [
+        "triggered"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_triggered_matched_multiclock.sv",
+      "chapter": "ch16",
+      "source_sha256": "965af52b7dee3c3e1ba95a05b9cb6c18496447033c30d6fea6defd828e172d3f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence triggered/matched methods are outside v1",
+      "evidence": [
+        "matched",
+        "triggered"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_untyped_formal_arguments.sv",
+      "chapter": "ch16",
+      "source_sha256": "fba9e1da28973a51eb29483169c89f93678fa13a4d8562e14238ed7aea65fc99",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 7,
+      "actions": 2,
+      "actual_sha256": "79e24090bd97fb6f124ccc0b3d4e08e088bd5825710c68b3584eacdda1ea156a",
+      "diff": "",
+      "expected_sha256": "79e24090bd97fb6f124ccc0b3d4e08e088bd5825710c68b3584eacdda1ea156a"
+    },
+    {
+      "test": "tests/ch16/test_value_change_first_tick.sv",
+      "chapter": "ch16",
+      "source_sha256": "9b9e654910b816a7247c6b3e8c3432a0cbf16cc10cf7b6f192bd6f945387b988",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$changed",
+        "$fell",
+        "$past",
+        "$rose",
+        "$stable"
+      ]
+    },
+    {
+      "test": "tests/ch16/test_zero_repetition_no_sample.sv",
+      "chapter": "ch16",
+      "source_sha256": "9696e501f000d8228ddd9733be971be9a4491b633f7160559510bd951985b600",
+      "illegal": false,
+      "status": "match",
+      "reason": "source/dependency/report audit registered",
+      "evidence": [],
+      "ticks": 2,
+      "actions": 4,
+      "actual_sha256": "79bb922a5ed11a1fa403484d07384312169f5ad4144c3177c32c6e8f0769592e",
+      "diff": "",
+      "expected_sha256": "79bb922a5ed11a1fa403484d07384312169f5ad4144c3177c32c6e8f0769592e",
+      "judgment": {
+        "source_sha256": "953476c86c4b7e8fc6cde85dc82c9e3bf031de80317a14cb3a335bcba0820a00",
+        "expected_sha256": "52b641ab155b49762f79779ab9e6a887656257508181b89af63ca9bb8cd8ea10",
+        "actual_sha256": "79bb922a5ed11a1fa403484d07384312169f5ad4144c3177c32c6e8f0769592e",
+        "clauses": [
+          "16.9.2.1",
+          "16.12.7",
+          "16.12.22"
+        ],
+        "disposition": "corrected_after_user_approval",
+        "reason": "An empty sequence followed by ##1 b reduces to b at the current tick. For nonoverlapping implication an empty antecedent also aligns its consequent to the current tick. Both assertions fail at time 10 with b=0 and pass at time 20 with b=1; no attempt waits until time 30.",
+        "approval_required": false,
+        "original_disposition": "expected_output_and_explanation_need_correction",
+        "approved_on": "2026-10-26",
+        "correction": {
+          "source_sha256": "9696e501f000d8228ddd9733be971be9a4491b633f7160559510bd951985b600",
+          "expected_sha256": "79bb922a5ed11a1fa403484d07384312169f5ad4144c3177c32c6e8f0769592e",
+          "actual_sha256": "79bb922a5ed11a1fa403484d07384312169f5ad4144c3177c32c6e8f0769592e",
+          "inputs_sha256": "e11ead08c92cba7d125fe48acb3a6b76b351f55c207d816fc504f7cc6c8be29d"
+        }
+      }
+    },
+    {
+      "test": "tests/ch17/test_checker_assertion_placement.sv",
+      "chapter": "ch17",
+      "source_sha256": "2d0d6a82ac5a45b8590c3f0243606e6648c994493519d2a77e86a13d217829b9",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_assume_stability.sv",
+      "chapter": "ch17",
+      "source_sha256": "e42bd0cf43dc6e59b4aceedcccdc3307d45fe1c8f185205357e6c3ab5497ff96",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_assume_violation.sv",
+      "chapter": "ch17",
+      "source_sha256": "369f7e630759531cb3ee9944a11f96bb17f7712623746ffc41f28e4f543e291d",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_body_items.sv",
+      "chapter": "ch17",
+      "source_sha256": "4826ce054e242e5c4e2a8d64ab6d7fc1ab1524aaaeb1c0e7853621bfa63790a4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_concurrent_assertion.sv",
+      "chapter": "ch17",
+      "source_sha256": "14e5f4ce0b4c618a9e5e63b96af00d1b9ad7d337604e6463d340d54157f17111",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_context_inference.sv",
+      "chapter": "ch17",
+      "source_sha256": "009fc0fdb1f2da48bb54b28e1fcae7b05e54ac8e21acd52c1737bea2902df67c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_free_activity.sv",
+      "chapter": "ch17",
+      "source_sha256": "39a178a9e48199f3dd89cfcd79ebf85625bc8144853c5b2ef2c44b5fb753015f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_in_package.sv",
+      "chapter": "ch17",
+      "source_sha256": "8c2aa2c1750a9577b474bfc8d678949c90ae446370cd32b972865fe13be119ed",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_package_context.sv",
+      "chapter": "ch17",
+      "source_sha256": "c8534e7f9a6b87670f49c1ffb50878e8472955ce792217dec42b2ffa4dd7d9b4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_port_inference.sv",
+      "chapter": "ch17",
+      "source_sha256": "546b7321dcdeade242884c9353ef24c7fe1864172fba5b9dd8ad9e29e031da19",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_procedural_instance.sv",
+      "chapter": "ch17",
+      "source_sha256": "13e0f7eaa40673f3ee8e8d91b8f8e1251aa4883f156f62b04f45b683b049a67a",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_reactive_triggered.sv",
+      "chapter": "ch17",
+      "source_sha256": "8c85505d7a99acd8e9208ac7560057ef68f5c139a41a1b27af0604cb7c28f98f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_static_scope.sv",
+      "chapter": "ch17",
+      "source_sha256": "94907120b2c0863aee7dfe82734ec8c0cda37273adeed2d6d46472e4d896b180",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch17/test_illegal_checker_free_variable_continuous_assign.sv",
+      "chapter": "ch17",
+      "source_sha256": "ba95fa339c5d36568b29a51fdc210efc9210f5df4844004eded93e97243eabe1",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch17/test_illegal_checker_in_checker_procedure.sv",
+      "chapter": "ch17",
+      "source_sha256": "bbb3887f8a8e55ad6b4a3ba6d1fba93713ad976dd2b9af168d4718025e108760",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch17/test_illegal_checker_in_fork.sv",
+      "chapter": "ch17",
+      "source_sha256": "f5e48bd086a448a1a093564fa73e83c5bc696b27980495f097421bdcf4dacd83",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch17/test_illegal_checker_in_fork_join_none.sv",
+      "chapter": "ch17",
+      "source_sha256": "e8c7351c5d158235b80222faebe85a7a89dc03d402e6f7ea2afb0d7cb8180243",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch17/test_illegal_checker_plain_always.sv",
+      "chapter": "ch17",
+      "source_sha256": "c3bc27f866a39e33f060b59e71c411aafc0214904400e6579055bcf85643c45b",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch17/test_illegal_checker_sequence_output.sv",
+      "chapter": "ch17",
+      "source_sha256": "b19b80466e79047017028f4066ce3ce47e761dd517a6b2b29c38c408ee7a6069",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch17/test_illegal_checker_variable_hierarchical_write.sv",
+      "chapter": "ch17",
+      "source_sha256": "06007025c0b6e7b7e8ebc22d598766bb5f7bc05d83f47dde02c9f6238fa0d279",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch17/test_illegal_checker_variable_initial_assignment.sv",
+      "chapter": "ch17",
+      "source_sha256": "b6219f03c7c08a7684c244b7f9143c514881e44652cd5bf2a8ec6fecfee79360",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch18/test_randc_static_shared_cycle.sv",
+      "chapter": "ch18",
+      "source_sha256": "20487567e8a1931acb9b5b91acc4956bcef394907ecf49405c67c0066ee40845",
+      "illegal": false,
+      "status": "not_concurrent",
+      "reason": "text-search candidate has no concurrent directive to evaluate",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch18/test_thread_order_independence.sv",
+      "chapter": "ch18",
+      "source_sha256": "073f6c4cc7130db4115d75e53e3d6d46f61e91502fdb9b9e84e8e2170f803d5a",
+      "illegal": false,
+      "status": "not_concurrent",
+      "reason": "text-search candidate has no concurrent directive to evaluate",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch19/test_cg_bin_hit_counts.sv",
+      "chapter": "ch19",
+      "source_sha256": "7d0b993f1d33e14e0f7764c34762c9a608d471339a4fe889d75707d1415f078c",
+      "illegal": false,
+      "status": "not_concurrent",
+      "reason": "text-search candidate has no concurrent directive to evaluate",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch19/test_cg_excluded_transitions.sv",
+      "chapter": "ch19",
+      "source_sha256": "1ce02f2868425572367e517c2777a4e2b94932b9b0fccc9c529b87dfa3330dc3",
+      "illegal": false,
+      "status": "not_concurrent",
+      "reason": "text-search candidate has no concurrent directive to evaluate",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch19/test_cg_illegal_transition_error.sv",
+      "chapter": "ch19",
+      "source_sha256": "d1407290c0e48dae762aaa063fa952ade3459cb0a31653f0dccc1f6db71a3d7d",
+      "illegal": false,
+      "status": "not_concurrent",
+      "reason": "text-search candidate has no concurrent directive to evaluate",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch19/test_cg_illegal_value_keeps_transition.sv",
+      "chapter": "ch19",
+      "source_sha256": "ffeaece622165e6e3b36db510d2b8074a46065e920cb674bead9a2d1c9b2d1be",
+      "illegal": false,
+      "status": "not_concurrent",
+      "reason": "text-search candidate has no concurrent directive to evaluate",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch19/test_cg_sample_from_contexts.sv",
+      "chapter": "ch19",
+      "source_sha256": "a13e48d20033edf40e09ff9853e259fd70bfcdb1288353977e11b5cf4f1092e3",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "SVA local variables/local formal arguments are outside v1",
+      "evidence": [
+        "local declaration/formal in SVA body"
+      ]
+    },
+    {
+      "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
+      "chapter": "ch19",
+      "source_sha256": "24303b5094afa7eb86475a18541b4e0f0d518a1d1e98ae6003d5517ed4501316",
+      "illegal": false,
+      "status": "not_concurrent",
+      "reason": "text-search candidate has no concurrent directive to evaluate",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_default_sequence_array_new.sv",
+      "chapter": "ch19",
+      "source_sha256": "2cc6d1de93293bd74ee924407cce9f8e0d4ce635982c0863bbb016d4860dde5b",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_ignore_unbounded_transition.sv",
+      "chapter": "ch19",
+      "source_sha256": "9a235d147f9aa6d4b9367b4dc1275284847dc4b48e32b7ecde221ad6fc1bd225",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_illegal_unbounded_transition.sv",
+      "chapter": "ch19",
+      "source_sha256": "1d0678bf0d6485c3faf5293b9819463678e81b08ae64fd6a650a9172faa9b847",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_transition_array_unbounded.sv",
+      "chapter": "ch19",
+      "source_sha256": "eb246c066f9ea42bd32aca2160b43b195d1e3b0857d59c3d99e8db46e92379d0",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch20/test_assert_action_control_tasks.sv",
+      "chapter": "ch20",
+      "source_sha256": "7334b82656a857f9d3d674d5cbf269e4c110567274c73ec67960a2cbdf76f3fb",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertfailoff",
+        "$assertfailon",
+        "$assertkill",
+        "$assertnonvacuouson",
+        "$assertoff",
+        "$asserton",
+        "$assertpassoff",
+        "$assertpasson",
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol.sv",
+      "chapter": "ch20",
+      "source_sha256": "5b44f629a3e2d154a78cdd6de0e32b96b5ed3ac5afefa998b6ae44766b86887e",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertcontrol",
+        "$assertoff",
+        "$asserton"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol_action_codes_assert_expect.sv",
+      "chapter": "ch20",
+      "source_sha256": "dca6a7b918bb5e88c6b0aa0ee63c7a07c766e751ebbe587fbc9db698a11404b4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertcontrol"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol_action_controls_ongoing.sv",
+      "chapter": "ch20",
+      "source_sha256": "1fbcaa92c8f0ba61b712b691289047d41165cdba9219f86ded1969956c88743f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertcontrol",
+        "$assertfailoff",
+        "$assertfailon",
+        "$assertkill",
+        "$assertnonvacuouson",
+        "$assertoff",
+        "$asserton",
+        "$assertpassoff",
+        "$assertpasson",
+        "$assertvacuousoff"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol_callbacks_selected.sv",
+      "chapter": "ch20",
+      "source_sha256": "696ec02ba830cf31376adc0b15a90258580e4aa25c1a2d3c9d91735ccade58fe",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol_callbacks_system.sv",
+      "chapter": "ch20",
+      "source_sha256": "ced053d9ed5b0f0481a9fc2a25a3596af8af3ba67cebc5f5d4cfbf37e6a30d5e",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol_directive_type_ignored_for_expect_and_violations.sv",
+      "chapter": "ch20",
+      "source_sha256": "d17626152396a8c9e51ea2c242cd1ea020d7a48d0f1f46b63512435b4c5ace74",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertcontrol"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol_lock_expect_and_violation_reports.sv",
+      "chapter": "ch20",
+      "source_sha256": "904fafa788ce13a37219a5ddab99803f2e04c111ef15d4c54f4ca317f21bc1c4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertcontrol"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol_off_kill_on_pending.sv",
+      "chapter": "ch20",
+      "source_sha256": "09e1d6ab2b471d93ea53e5fb93ca182fb02dbd29d05d870f97836af5dd1100c9",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertcontrol"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertcontrol_violation_and_expect_types.sv",
+      "chapter": "ch20",
+      "source_sha256": "508ed725d1f8c64c6a15ef928687b926c38939047299c201ff4481108d4f5d90",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertcontrol",
+        "$assertfailoff",
+        "$assertfailon",
+        "$assertoff",
+        "$asserton"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_assertion_control_levels_and_scopes.sv",
+      "chapter": "ch20",
+      "source_sha256": "6a9c6cc3450a5803dbf0395b66244676e958d7a537dbbb5226485a6531bf044c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertoff"
+      ]
+    },
+    {
+      "test": "tests/ch20/test_expect_wait_order_default_error_failoff.sv",
+      "chapter": "ch20",
+      "source_sha256": "02d0c2b16687940984a088c6b50b4bee39ec3464498a908b7b358c1ab03ece20",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "assertion action/control and nonvacuity tasks are outside v1",
+      "evidence": [
+        "$assertcontrol"
+      ]
+    },
+    {
+      "test": "tests/ch22/test_begin_keywords_1800_2009_additions.sv",
+      "chapter": "ch22",
+      "source_sha256": "32d63129fce0bc907ee087e9d2f0c2e52e4fea29e257ed211c2135c612cab3c2",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch23/test_illegal_hierarchical_read_into_checker.sv",
+      "chapter": "ch23",
+      "source_sha256": "5abf4bd9c7cf9b9f1ed8296b52f9c5ea2fea5a766f40d3baab905cc24e876b36",
+      "illegal": true,
+      "status": "excluded_illegal",
+      "reason": "illegal design; expected rejection is outside the evaluator",
+      "evidence": []
+    },
+    {
+      "test": "tests/ch23/test_module_items_nonport_kinds.sv",
+      "chapter": "ch23",
+      "source_sha256": "85eb5be62ea03165e46c8d1c27c80f0f0505f6340a122e224e34b05303d1ec5f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "mixed specify/clocking-delay output is not determined solely by assertion-tick samples",
+      "evidence": [
+        "specify",
+        "clocking/procedural cycle delay"
+      ]
+    },
+    {
+      "test": "tests/ch23/test_module_program_and_assertion_items.sv",
+      "chapter": "ch23",
+      "source_sha256": "a81412241002ebe20c19f2a8172185ec1c6e17655f845ef6a0219c447932a91d",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "file includes deferred immediate assertions, outside v1",
+      "evidence": [
+        "assert #/final"
+      ]
+    },
+    {
+      "test": "tests/ch26/test_package_checker_and_covergroup_items.sv",
+      "chapter": "ch26",
+      "source_sha256": "f049190d9f9e0d839bc3e13d36a06a543f3646bb81feecdd246d0d2a9fcb0dd1",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch3/test_program_and_checker_instantiate_checkers.sv",
+      "chapter": "ch3",
+      "source_sha256": "7b5cfc2f7a738cbdc850bc1b64a3bb40481354d2ca3b8574cb66bfc2dd34f00c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "checker contexts are outside v1",
+      "evidence": [
+        "checker"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_assertion_objects.sv",
+      "chapter": "ch37",
+      "source_sha256": "0871e90e170710964febf23ae4659657c50a39ada016eeabf450d9459b47003e",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_atomic_statement_labels.sv",
+      "chapter": "ch37",
+      "source_sha256": "1a5f1222599a699769b865256bda4f448720a9fb23bf18dfd2d7c77f33daa1a4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_attribute_parents.sv",
+      "chapter": "ch37",
+      "source_sha256": "98bcd2e53137c62c02f77757246bceb5285ba3f0e76cd0b184fc9f9dcc3ac935",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_clocking_decl_relations.sv",
+      "chapter": "ch37",
+      "source_sha256": "b745b6657f78c30113d5524bf0c318227ab394c8dd5cf2f82156c89b630bcf31",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_concurrent_assertion_actions.sv",
+      "chapter": "ch37",
+      "source_sha256": "1f3b6b7b8da8c182c06aeea032ffa0b72bcc03db2752b8a65908fa3d90b7e555",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_control_statement_child_relations.sv",
+      "chapter": "ch37",
+      "source_sha256": "3d1e73da8ab88994640cb7779d7d6e21a79b8eef216ee3609d28a0b6bdc863c6",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_for_expect_children.sv",
+      "chapter": "ch37",
+      "source_sha256": "6646e5370a39be2fca3bb53c3baddd4cc2b799922577a8f4a33851baba6b7711",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_gen_scope_instance_items.sv",
+      "chapter": "ch37",
+      "source_sha256": "ea0f0dcc8172ab3da07f2e82794c9d701e4704edb410fbd304dc26ae0c2c3eeb",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_instance_assertion_members.sv",
+      "chapter": "ch37",
+      "source_sha256": "57da4505776ac828ddeab17b166dfae1739d7f7f58c0100a54d333da0807e24d",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_instance_item_relations.sv",
+      "chapter": "ch37",
+      "source_sha256": "382ca4be2ab0c39e48cadc8e62b9acdc107295377601c9888c26bdd4c30dd390",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_property_decl_formals_args.sv",
+      "chapter": "ch37",
+      "source_sha256": "d742684bf58d5f7ca5e5365fb3d198af82ec8e8974b31c39ffbca6d6867e8eed",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_property_instance_links.sv",
+      "chapter": "ch37",
+      "source_sha256": "39cd3e9c24453cef1efa4f450eeb0fdb7cee46ebe4b30b9fef47ec24b696c065",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_property_operator_kinds.sv",
+      "chapter": "ch37",
+      "source_sha256": "f78f0d84a9304091506d34cf980140b1997e32aca07f10790ad9d66f8a436782",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_property_sequence_decls.sv",
+      "chapter": "ch37",
+      "source_sha256": "9f653bd2ad302f0e790fac63423a3363db4bc8b100323109f0851256a948a9ef",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_property_sequence_exprs.sv",
+      "chapter": "ch37",
+      "source_sha256": "713dd0cbd1a87afec27efaf6fcb34eb88699ca4284b9c46b8047cbd7f6056761",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_property_sequence_operators.sv",
+      "chapter": "ch37",
+      "source_sha256": "48dd4d9df3bf9cef791c4389376d614a307736e7533abfe1275032df6c333424",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_scope_item_back_relations.sv",
+      "chapter": "ch37",
+      "source_sha256": "f196abb19a92a03297a70a5c88847fc190636049702d696d3d2a25c018613a12",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_sequence_decl_operands.sv",
+      "chapter": "ch37",
+      "source_sha256": "3250c49d0face468625a14b52013bdcc7cb8b58e1a753de4e42741cc2677855d",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_statement_control_kinds.sv",
+      "chapter": "ch37",
+      "source_sha256": "d307a9a5823a08909a50dc642a2759d30f04ae289ca8ce544914b935763e1ec6",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_typespec_kinds_more.sv",
+      "chapter": "ch37",
+      "source_sha256": "6c7f060c32412fefffd43954c03640500accf3604018ecb07237b948c7fb62b9",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_unbounded_const_ranges.sv",
+      "chapter": "ch37",
+      "source_sha256": "0cfdbce2d99a7daa44360083d65475fca9481cdc02581fb3e4e84490bb6a4e2c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_action_controls_running_attempts.sv",
+      "chapter": "ch39",
+      "source_sha256": "7dbbbaeb68ead701f82d71b022129aa0ab506e2fef6327db1fc1e067e76149af",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_callback_handle_placement.sv",
+      "chapter": "ch39",
+      "source_sha256": "befd147401d313cf596fb49e402e43b8cf3510856f42ef145ab2e4a80bfb830b",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_callback_scope_removal.sv",
+      "chapter": "ch39",
+      "source_sha256": "5bedbe57c69db9939e7e12ed3e5b15e985659c5fc910b1d8aa52bdf98d81f9b5",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_callback_targets.sv",
+      "chapter": "ch39",
+      "source_sha256": "fb1047928a9ccbf8dc05f9e150864d86c183553f00272acf133308e3874f3258",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_callback_time_and_attempt_info.sv",
+      "chapter": "ch39",
+      "source_sha256": "3fa08e03b7e3d504c5d6882ebbaf0efd7f89afda39d1b95bbcf79a2bc8a13655",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_callbacks.sv",
+      "chapter": "ch39",
+      "source_sha256": "f11479738b3cc8b5bfdc76537629b6f30def7321f50f9d51bca0ad063c613b5c",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_control.sv",
+      "chapter": "ch39",
+      "source_sha256": "87d9766d597ace277bf849b072bd03c6d552e0d067507a71b4ea6ea6ac230211",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_cover_no_failure.sv",
+      "chapter": "ch39",
+      "source_sha256": "07193a6695fcaf5fa2ed2a8765ecfc32395c30f6f03db6db1a480369b82ffea5",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_cover_start.sv",
+      "chapter": "ch39",
+      "source_sha256": "a2445bee2c4210f11e11af4200f5643c6c3413fa37e06511eb979e9ce10e0850",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_cover_success.sv",
+      "chapter": "ch39",
+      "source_sha256": "dd2dfeda85d83b3606168b0d1610e2d183af8281f3a5a0dd5f03cb80ad4f65f0",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_disable_enable_running_attempts.sv",
+      "chapter": "ch39",
+      "source_sha256": "65e52df90c90a5ad2ddb5169cf6d1ebbf995c5834492ddddfc65e074917453b5",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_disable_step_without_effect.sv",
+      "chapter": "ch39",
+      "source_sha256": "0b4d41711a7b09980e224029df70f59f47797772746b4c93024691f0a12cb9a3",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_gclk_future_callback.sv",
+      "chapter": "ch39",
+      "source_sha256": "e5e6ca292cc6618aacc71d37f175bb65365bf4a39057bb8c1a86e780f24b1423",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_handles.sv",
+      "chapter": "ch39",
+      "source_sha256": "359d2d6434d265f91c4d320843021fd77eadb5c9f7ccaf3b4a2f1c01b837de51",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_kill_keeps_past_sampling.sv",
+      "chapter": "ch39",
+      "source_sha256": "fc697f65a2e3f155d2fc26e1c2b8eb4c66271bd1800451484b1acbd64e36064e",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_kill_reset.sv",
+      "chapter": "ch39",
+      "source_sha256": "0fc89a3378ae4c9fb4a59d59c5f5abc3704087470d5d509b146888581c2e89e8",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_per_instance_control.sv",
+      "chapter": "ch39",
+      "source_sha256": "738e8289fddd03b5fe0ebce82a10b67d29e2ef5a725ee10d4b19cd2d25132be4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_procedural_callbacks.sv",
+      "chapter": "ch39",
+      "source_sha256": "b8dc8bf9a983044421b0842fdcde62d2aa6cad845a15748952d967345c82ce15",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_procedural_queue.sv",
+      "chapter": "ch39",
+      "source_sha256": "b3cc1eb738384466c7007578413c927151c433de4c08bdd4807b9cd01cfc3713",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_reset_restores_initial_state.sv",
+      "chapter": "ch39",
+      "source_sha256": "506d180b6cd7600899deb716ba2019be53062316deeaddbb461380da42492446",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_step_callbacks.sv",
+      "chapter": "ch39",
+      "source_sha256": "31de9cf31cb564e9f80f23b79449a539d3a54e16eed9c143447036a67d849c35",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_step_states_and_failing_expression.sv",
+      "chapter": "ch39",
+      "source_sha256": "a2c0b7fc0529f8cef37fad7aff6c893e5a411f75706d0b5f47226c67d2022c61",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_sys_action_controls_running_attempts.sv",
+      "chapter": "ch39",
+      "source_sha256": "951abd88b22c8ee22cd32e4f52f8ce4aab3988b69d99761ee72a2aa993798bea",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_sys_end_discards_and_blocks.sv",
+      "chapter": "ch39",
+      "source_sha256": "81cef987b837f4bb26818bf3565244fe42e9f7a111b26d5ce75744a86fd0cbf7",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_sys_reset_drops_step_callbacks.sv",
+      "chapter": "ch39",
+      "source_sha256": "97ea0e6759920d34b88583b84d7d9c6b934ab12b35e8ed4a2c55f135885bd063",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_sys_reset_restores_actions.sv",
+      "chapter": "ch39",
+      "source_sha256": "97f612d6520a62f29c5934a8a23bce93b19f6db525a1571a4a6d5b85b285d462",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_sys_vacuous_action_controls_running_attempts.sv",
+      "chapter": "ch39",
+      "source_sha256": "e6d8150f7e8a5b464d7bea5d53bdc028d6a84a2b681ee334022dfdaedf693512",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_system_control.sv",
+      "chapter": "ch39",
+      "source_sha256": "dd04a32a14d8fb9e9d87a94c4e845585746e681bb1847b8e9eefb9b22b55dc87",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_system_lock_reset.sv",
+      "chapter": "ch39",
+      "source_sha256": "964aaf8c8f2e0b8185ffd71493f8f1538996850b766e6e4bad4b682a0ececcb7",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_system_off_kill_on.sv",
+      "chapter": "ch39",
+      "source_sha256": "ca4d94a4ac83fc329e381b2fd8cce2cbec27083401f0d47228f926bcbdbaa33f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_system_task_control.sv",
+      "chapter": "ch39",
+      "source_sha256": "7073ebed3ce7b22da64a478bb29bf0564152581692ccfe586fa76ea04b7a9901",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv",
+      "chapter": "ch39",
+      "source_sha256": "1bbc8707b13a80add70d7f48702abc143b745623f8cb5fe2d2bd596aa53b0db7",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv",
+      "chapter": "ch39",
+      "source_sha256": "2cee62c63b4bbd52d9ac1efdf148408eecd80156aadcf436e5e9614064e0fc10",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_future_success_callback_time.sv",
+      "chapter": "ch39",
+      "source_sha256": "f9ac85d46eafcab0e46fcf4727e91b1224c52f9b38ecafe7cbc322f0acef2e79",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch4/test_assertion_action_block_in_reactive.sv",
+      "chapter": "ch4",
+      "source_sha256": "b8f9b571b51e9abcdcc1095faa0d084fb191562a7b109afbc2f4d5d942d0410f",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "program/Active feedback from assertion actions requires event-region simulation beyond v1",
+      "evidence": [
+        "program",
+        "action-to-process feedback"
+      ]
+    },
+    {
+      "test": "tests/ch4/test_preponed_sample_observed_before_action.sv",
+      "chapter": "ch4",
+      "source_sha256": "d1d56fd2b209e5553bfc0684fe0a70e7ac22006a469307cc55dd84d0cfc4c581",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sampled/global-clock functions are outside v1",
+      "evidence": [
+        "$sampled"
+      ]
+    },
+    {
+      "test": "tests/ch40/test_coverage_get_values.sv",
+      "chapter": "ch40",
+      "source_sha256": "211b53750bf718d81f43f7b6f0d6329677bd95bcaf3e9b13a89bc9accefafed6",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "tool coverage database/API behavior is outside v1",
+      "evidence": [
+        "$coverage_control",
+        "$coverage_get",
+        "$coverage_get_max"
+      ]
+    },
+    {
+      "test": "tests/ch40/test_vpi_coverage_assertion.sv",
+      "chapter": "ch40",
+      "source_sha256": "ad8563e0706fb95bb4d1705f11fcead94db20e02cef54103ddbfa14631bfa14a",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+      "chapter": "ch40",
+      "source_sha256": "3baa7c7798d4bab95834afb09e8ca22e650f7108960da1cee2d2591cf705e7ee",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch40/test_vpi_coverage_cover_sequence.sv",
+      "chapter": "ch40",
+      "source_sha256": "5e7265f9b85301d07542f36781cfb5abeab9bea0975e2c1ae5b7c154f1b92827",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch40/test_vpi_coverage_max_entities.sv",
+      "chapter": "ch40",
+      "source_sha256": "1a213509eb0f0af7056d99ec857ac27124169950cea91953fa14ebee990eb693",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "VPI coverage/assertion API is outside v1",
+      "evidence": [
+        ":vpi_c:"
+      ]
+    },
+    {
+      "test": "tests/ch9/test_wait_sequence_same_slot_twice.sv",
+      "chapter": "ch9",
+      "source_sha256": "f61a154df6346a7fa0a5622c3806c00f84ac5d7a77f2671cbf76ea4515ff65d4",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence triggered/matched methods are outside v1",
+      "evidence": [
+        "triggered"
+      ]
+    },
+    {
+      "test": "tests/ch9/test_wait_sequence_triggered.sv",
+      "chapter": "ch9",
+      "source_sha256": "8cbc281e9cfda29a49fddfd119c1ec770e4fd03f6bc11e225a1825e051115bc1",
+      "illegal": false,
+      "status": "out_of_scope",
+      "reason": "sequence triggered/matched methods are outside v1",
+      "evidence": [
+        "triggered"
+      ]
+    }
+  ]
+}

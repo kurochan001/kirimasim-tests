@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "purpose": "Input-only cross-check; all assertions/actions/sampled functions stripped, not test execution verification",
+  "icarus": "iverilog@13.0 stable",
+  "verilator": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+  "comparison": "Same sampled and settled values at every selected clock tick; proportional timestamps allow VCD precision differences",
+  "tests": [
+    {
+      "test": "tests/ch16/test_sampled_in_action_block.sv",
+      "ticks": 1,
+      "input_sample_and_settled_values": "identical",
+      "icarus_timescale": "1ns",
+      "verilator_timescale": "1ns",
+      "source_sha256": "f1ec69a752d89a7e43db8add0984869f88306f91f674aa1bec9bfca6cb9506b6",
+      "input_cache_sha256": "003abe5795eb317ccc92ebc95394bf8531696e0fb6ef3e14215eec80ba944020"
+    },
+    {
+      "test": "tests/ch16/test_sampled_without_clocking_event.sv",
+      "ticks": 4,
+      "input_sample_and_settled_values": "identical",
+      "icarus_timescale": "1s",
+      "verilator_timescale": "1ps",
+      "source_sha256": "3e87b288f547e4b1dd95ac4aa1a6604a1450e980c17feb8636efe279bf0eb2be",
+      "input_cache_sha256": "67b0ed13cf4ae14a30940aa48de061e99ca3ee3766207d337b2af4ecb816eaab"
+    },
+    {
+      "test": "tests/ch4/test_preponed_sample_observed_before_action.sv",
+      "ticks": 1,
+      "input_sample_and_settled_values": "identical",
+      "icarus_timescale": "1ns",
+      "verilator_timescale": "1ns",
+      "source_sha256": "d1d56fd2b209e5553bfc0684fe0a70e7ac22006a469307cc55dd84d0cfc4c581",
+      "input_cache_sha256": "74cd714cd50b76216f4b24a666ab431de06d329e390cb1bc01d4853a65d9a10d"
+    }
+  ]
+}

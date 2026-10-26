@@ -1,0 +1,536 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "f86582aec3b465ecb92f5f150d9f4278c44d129c74dedfba1650c58f893b8566",
+  "signals": [
+    "test_property_strong_unbounded_operators.e",
+    "test_property_strong_unbounded_operators.go",
+    "test_property_strong_unbounded_operators.h",
+    "test_property_strong_unbounded_operators.start",
+    "test_property_strong_unbounded_operators.x",
+    "test_property_strong_unbounded_operators.y"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_property_strong_unbounded_operators.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_property_strong_unbounded_operators.e": 1,
+      "test_property_strong_unbounded_operators.go": 1,
+      "test_property_strong_unbounded_operators.h": 1,
+      "test_property_strong_unbounded_operators.start": 1,
+      "test_property_strong_unbounded_operators.x": 1,
+      "test_property_strong_unbounded_operators.y": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "1",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "1",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "1",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "1",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "1",
+          "test_property_strong_unbounded_operators.y": "1"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "1",
+          "test_property_strong_unbounded_operators.y": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "1",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "1",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "1",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "1",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "1"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "1"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "1",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "1",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "1",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "1",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "1",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "1",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "1",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "1",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "1",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "1",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "1",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "1",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 155,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "1",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "1",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "1",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "1",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 165,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 175,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 185,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 195,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 205,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "1",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "1",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 215,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      },
+      {
+        "time": 225,
+        "sampled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        },
+        "settled": {
+          "test_property_strong_unbounded_operators.e": "0",
+          "test_property_strong_unbounded_operators.go": "0",
+          "test_property_strong_unbounded_operators.h": "0",
+          "test_property_strong_unbounded_operators.start": "0",
+          "test_property_strong_unbounded_operators.x": "0",
+          "test_property_strong_unbounded_operators.y": "0"
+        }
+      }
+    ],
+    "end_time": 230
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "e40304b9246de8fef483ef52f3aeca8cee30cbee489710c7b5eac083eb0cfc06",
+    "projection_sha256": "b6206ebb7d37b347a83b79fef7024bbde7991d32d4ddd65bd37af049d0cdc2be",
+    "clock": "test_property_strong_unbounded_operators.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_property_strong_unbounded_operators.e",
+      "test_property_strong_unbounded_operators.go",
+      "test_property_strong_unbounded_operators.h",
+      "test_property_strong_unbounded_operators.start",
+      "test_property_strong_unbounded_operators.x",
+      "test_property_strong_unbounded_operators.y"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "e": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "go": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "h": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "start": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "x": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "y": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

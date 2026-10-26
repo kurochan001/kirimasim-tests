@@ -156923,10 +156923,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_zero_repetition_no_sample.sv",
-          "observation": "The clock rises at 10 and 20; at 10 start is 1 and a is 0, and b is 1 at 20. Both a[*0] ##1 b and the empty antecedent a[*0] with |=> complete, and the expected line shows pass=1 for both and fail=0. 区別: A tool that took a sample for a[*0] would require a at 10, where a is 0, and the fail counters would be 1 instead of the expected pass counters.",
+          "observation": "At times 10 and 20, a stays 0. Empty ##1 b and the empty antecedent of |=> both check b at the current tick (16.9.2.1 and 16.12.7): both fail with b=0 at 10 and pass with b=1 at 20, giving pass=1 fail=1. A tool that sampled a for a[*0] would reject the successful empty match at 20 and give two failures. This observes the zero-repetition branch; it does not separately exercise a ranged sequence with both empty and nonempty matches.",
           "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "7511075d091c053f4de753c832cb3b02d381299c450c2629c237ee191eb71b52",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "e11ead08c92cba7d125fe48acb3a6b76b351f55c207d816fc504f7cc6c8be29d",
           "evidence": [
             {
               "file": "tests/ch16/test_zero_repetition_no_sample.sv",
@@ -156938,7 +156938,7 @@
             },
             {
               "file": "tests/ch16/test_zero_repetition_no_sample.expected",
-              "contains": "zero: pass=1 fail=0; antecedent: pass=1 fail=0"
+              "contains": "zero: pass=1 fail=1; antecedent: pass=1 fail=1"
             }
           ]
         }
@@ -433086,8 +433086,8 @@
           "test": "tests/ch16/test_property_implication_operator_forms.sv",
           "observation": "With x high at tick 1, the end of the antecedent go ##1 a, the overlapping |-> passes (0) while |=> needs x one tick later and fails (1), as the first printed line shows. 区別: A tool that started the consequent one tick late, like |=>, would print 1 for |-> in the first phase.",
           "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "61b03262db12a6bc8387e31a8c88ed7ea662105b038a9f472ac087d45dd3f096",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "989d6beab92eddd02495dff44e09c71bb1464aabece66541e90917e7987934ac",
           "evidence": [
             {
               "file": "tests/ch16/test_property_implication_operator_forms.sv",
@@ -433095,7 +433095,7 @@
             },
             {
               "file": "tests/ch16/test_property_implication_operator_forms.expected",
-              "contains": "x at tick 1: |-> 0, |=> 1, #-# 0, #=# 1"
+              "contains": "x at tick 1: |-> 0, |=> 1, #-# 4, #=# 5"
             }
           ]
         }
@@ -433122,8 +433122,8 @@
           "test": "tests/ch16/test_property_implication_operator_forms.sv",
           "observation": "With x high at tick 2, one tick after the antecedent ends, the nonoverlapping |=> passes (0) while |-> fails (1), as the second printed line shows. 区別: A tool that used the end tick for |=> would print 1 instead of 0 for the second phase.",
           "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "61b03262db12a6bc8387e31a8c88ed7ea662105b038a9f472ac087d45dd3f096",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "989d6beab92eddd02495dff44e09c71bb1464aabece66541e90917e7987934ac",
           "evidence": [
             {
               "file": "tests/ch16/test_property_implication_operator_forms.sv",
@@ -433131,7 +433131,7 @@
             },
             {
               "file": "tests/ch16/test_property_implication_operator_forms.expected",
-              "contains": "x at tick 2: |-> 1, |=> 0, #-# 1, #=# 0"
+              "contains": "x at tick 2: |-> 1, |=> 0, #-# 5, #=# 4"
             }
           ]
         }
@@ -433156,10 +433156,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_property_implication_operator_forms.sv",
-          "observation": "The overlapping followed-by #-# passes where x is high at the end tick of go ##1 a and fails where x comes one tick later, printing 0 then 1 then 1. 区別: The followed-by is the dual of the implication, so its counts must follow the end tick, not the tick after it.",
+          "observation": "The overlapping followed-by #-# checks x at the end tick of go ##1 a. Each phase also starts four attempts with go=0, all of which fail because followed-by requires an antecedent match (16.12.9 and 16.14.5). The counts are 4, 5 and 5; shifting the consequent one tick late gives 5, 4 and 5 instead.",
           "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "61b03262db12a6bc8387e31a8c88ed7ea662105b038a9f472ac087d45dd3f096",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "989d6beab92eddd02495dff44e09c71bb1464aabece66541e90917e7987934ac",
           "evidence": [
             {
               "file": "tests/ch16/test_property_implication_operator_forms.sv",
@@ -433167,7 +433167,7 @@
             },
             {
               "file": "tests/ch16/test_property_implication_operator_forms.expected",
-              "contains": "x at tick 1: |-> 0, |=> 1, #-# 0, #=# 1"
+              "contains": "x at tick 1: |-> 0, |=> 1, #-# 4, #=# 5"
             }
           ]
         }
@@ -433192,10 +433192,10 @@
       "checks": [
         {
           "test": "tests/ch16/test_property_implication_operator_forms.sv",
-          "observation": "The nonoverlapping followed-by #=# passes where x is high one tick after the antecedent ends and fails where x is at the end tick, printing 1 then 0 then 1. 区別: A tool that treated #=# as #-# would print 0 for the first phase instead of 1.",
+          "observation": "The nonoverlapping followed-by #=# checks x one tick after the nonempty antecedent ends. Four additional attempts per phase fail because go=0 prevents an antecedent match (16.12.9 and 16.14.5). The counts are 5, 4 and 5; treating #=# as #-# gives 4, 5 and 5 instead.",
           "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "61b03262db12a6bc8387e31a8c88ed7ea662105b038a9f472ac087d45dd3f096",
+          "reviewer": "Codex (AI); not an independent human review",
+          "inputs_sha256": "989d6beab92eddd02495dff44e09c71bb1464aabece66541e90917e7987934ac",
           "evidence": [
             {
               "file": "tests/ch16/test_property_implication_operator_forms.sv",
@@ -433203,7 +433203,7 @@
             },
             {
               "file": "tests/ch16/test_property_implication_operator_forms.expected",
-              "contains": "x at tick 2: |-> 1, |=> 0, #-# 1, #=# 0"
+              "contains": "x at tick 2: |-> 1, |=> 0, #-# 5, #=# 4"
             }
           ]
         }

@@ -1,0 +1,44 @@
+{
+  "empty_left_mutant_bmc": {
+    "trace": "empty_left_mutant_bmc.vcd",
+    "trace_sha256": "e70a0b09569f36307f3f57f6eba29a81c9db75720db9f7b94e93d3d2d170e71a",
+    "model_sha256": "0d9e39361a8399df5dd04f71910d3930b28e385ec17556174099dae41301fb95",
+    "clause": "16.9.2.1",
+    "expected_status": "FAIL"
+  },
+  "first_match_tie_mutant_bmc": {
+    "trace": "first_match_tie_mutant_bmc.vcd",
+    "trace_sha256": "038140307b10a692d660804b7be973447ddf196325319c899079ebb7b1a3248a",
+    "model_sha256": "c0215128c033d04583a86384992ff04c1433a810fb4f2eecddcbf471c93cb5a1",
+    "clause": "16.9.8",
+    "expected_status": "FAIL"
+  },
+  "within_endpoints_mutant_bmc": {
+    "trace": "within_endpoints_mutant_bmc.vcd",
+    "trace_sha256": "7b5c41705628f6617b63dfa4a44fac0c5702a9ed329d85306fcb3c5498300e84",
+    "model_sha256": "0ee99642350418ba839275b0bcd608f1f0c67d7382ded6e411429b8209fc5525",
+    "clause": "16.9.10",
+    "expected_status": "FAIL"
+  },
+  "followed_overlap_mutant_bmc": {
+    "trace": "followed_overlap_mutant_bmc.vcd",
+    "trace_sha256": "70bb3286394b98b579b33b74809582a36b2ed9092dc27c5dc7f00bd4e3bb9f58",
+    "model_sha256": "4a5c563fe40ff1e24cc223b93998d6acba51a768462f7ce18e760e109915ac2e",
+    "clause": "16.12.7/16.12.9/16.14.5",
+    "expected_status": "FAIL"
+  },
+  "gated_past_mutant_bmc": {
+    "trace": "gated_past_mutant_bmc.vcd",
+    "trace_sha256": "a2fd1abb3edc433246a3c05c7d10d2952067e6a212114c68c3c0e9a88b245960",
+    "model_sha256": "1259fd535c560ac1ad9f74128abbe73c6d2538802cd019837d65341b74d66c38",
+    "clause": "16.5.1/16.9.3",
+    "expected_status": "FAIL"
+  },
+  "first_match_tie_mutant_prove": {
+    "trace": "first_match_tie_mutant_prove.vcd",
+    "trace_sha256": "8d03807413918a8ff9dc417c327ab3925e7b5a94bfca99bd6aea57c5ae744f09",
+    "model_sha256": "c0215128c033d04583a86384992ff04c1433a810fb4f2eecddcbf471c93cb5a1",
+    "clause": "16.9.8",
+    "expected_status": "FAIL"
+  }
+}

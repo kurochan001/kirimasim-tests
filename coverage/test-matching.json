@@ -70499,11 +70499,12 @@
     },
     {
       "test": "tests/ch16/test_property_implication_operator_forms.sv",
-      "inputs_sha256": "61b03262db12a6bc8387e31a8c88ed7ea662105b038a9f472ac087d45dd3f096",
+      "inputs_sha256": "989d6beab92eddd02495dff44e09c71bb1464aabece66541e90917e7987934ac",
       "cited_clauses": [
         "16.12.7",
         "16.12.9",
         "16.14.1",
+        "16.14.5",
         "A.2.10"
       ],
       "negative_test": false,
@@ -70533,6 +70534,9 @@
         "SV2023-16.14.1-EXTRACT-ASSERT-DEFAULT",
         "SV2023-16.14.1-EXTRACT-ASSERT-REACTIVE",
         "SV2023-16.14.1-EXTRACT-ASSERT-SEVERITY",
+        "SV2023-16.14.5-EXTRACT-STATIC-ALWAYS",
+        "SV2023-16.14.5-EXTRACT-STATIC-ASSERT-EQUIVALENCE",
+        "SV2023-16.14.5-EXTRACT-STATIC-COVER-EQUIVALENCE",
         "SV2023-A.2.10-EXTRACT-ABORT-ACCEPT-ON",
         "SV2023-A.2.10-EXTRACT-ABORT-REJECT-ON",
         "SV2023-A.2.10-EXTRACT-ABORT-SYNC-ACCEPT-ON",
@@ -76014,9 +76018,11 @@
     },
     {
       "test": "tests/ch16/test_zero_repetition_no_sample.sv",
-      "inputs_sha256": "7511075d091c053f4de753c832cb3b02d381299c450c2629c237ee191eb71b52",
+      "inputs_sha256": "e11ead08c92cba7d125fe48acb3a6b76b351f55c207d816fc504f7cc6c8be29d",
       "cited_clauses": [
-        "16.12.22"
+        "16.12.22",
+        "16.9.2.1",
+        "16.12.7"
       ],
       "negative_test": false,
       "registered_requirement_ids": [
@@ -76024,7 +76030,20 @@
       ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-16.12.22-EXTRACT-DEGENERATE"
+        "SV2023-16.12.22-EXTRACT-DEGENERATE",
+        "SV2023-16.12.7-EXTRACT-EVERY-MATCH",
+        "SV2023-16.12.7-EXTRACT-IMPLICATION-FORMS",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EMPTY",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-EXPANSION",
+        "SV2023-16.12.7-EXTRACT-NONOVERLAPPED-NONEMPTY",
+        "SV2023-16.12.7-EXTRACT-OVERLAPPED-START",
+        "SV2023-16.12.7-EXTRACT-VACUOUS-TRUE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-LEFT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-POSITIVE",
+        "SV2023-16.9.2.1-EXTRACT-EMPTY-RIGHT-ZERO",
+        "SV2023-16.9.2.1-EXTRACT-MIXED-EMPTY",
+        "SV2023-16.9.2.1-EXTRACT-ZERO-EMPTY"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -505863,7 +505882,7 @@
     "oracle_issue": 117,
     "partial_observation": 1880
   },
-  "registry_sha256": "c75d3b2cadbe05acaf1c82a8fb9f1574ef6668f38a1055e02ab4456ad6d52211",
+  "registry_sha256": "833019b17c60218115ee3c5731af7e1f0e42b238d59c8d30c095a05c005255bd",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "bc7b673c9913acb30a489e04a9a01ab5dca9483e453fc8bf56b832baab021b90"
 }

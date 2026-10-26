@@ -1,24 +1,24 @@
 /*
 :name: test_zero_repetition_no_sample
-:description: Zero consecutive repetition takes no sample at any clock tick, so a[*0] matches only the empty trace and a ##1 b needs b one tick later, whether a[*0] is the consequent of an overlapping implication or the antecedent of a nonoverlapping one (IEEE 1800-2023 Section 16.12.22)
+:description: Zero repetition takes no sample, so empty ##1 b and an empty antecedent of |=> check b at the current tick; both assertions fail at time 10 and pass at time 20 (IEEE 1800-2023 Sections 16.9.2.1, 16.12.7 and 16.12.22)
 :tags: ch16
 :type: simulation
-:lrm: 1800-2023 16.12.22
+:lrm: 1800-2023 16.12.22 16.9.2.1 16.12.7
 :oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
 :expected_stdout: @test_zero_repetition_no_sample.expected
 */
-// IEEE 1800-2023 §16.12.22: a zero consecutive repetition takes no sample at
-// any clock tick and can match only on an empty trace. a is 0 at every tick.
-// The clock has a positive edge at 10 and at 20. At 10 start is 1, so the
-// consequent a[*0] ##1 b of p_zero starts: it consumes no tick at 10 and needs
-// b at 20. The antecedent of p_ant is a[*0]; it matches empty at 10, so |=> 
-// needs b one tick later, at 20. b is 1 when the clock rises at 20, so both
-// attempts pass. If a[*0] sampled a at 10, both would fail because a is 0.
-// The second attempts, which start at 20, need b at 30 and are still pending
-// when the counters are printed at 25.
+// IEEE 1800-2023 16.12.22: a[*0] is empty and takes no sample of a.
+// Section 16.9.2.1 reduces a[*0] ##1 b to b at the current tick.
+// Section 16.12.7 also aligns the consequent of an empty antecedent of |=>
+// to the current tick in this singly clocked property.
+// At time 10 start is 1 and b is 0, so both assertions fail immediately.
+// At time 20 start and b are 1, so both new attempts pass immediately.
+// The counters printed at time 25 are one pass and one failure per assertion;
+// no attempt remains pending for a clock tick at time 30. The value of a,
+// which stays 0, does not affect either empty match.
 
 `timescale 1ns/1ns
 
@@ -37,10 +37,10 @@ module test_zero_repetition_no_sample;
 
   initial begin
     #5 start = 1;          // 5: start is 1 at the edge at 10
-    #5 clk = 1;            // 10: both attempts start
+    #5 clk = 1;            // 10: first attempts check b=0 and fail
     #5 clk = 0;            // 15
     #4 b = 1;              // 19: b is 1 at the edge at 20
-    #1 clk = 1;            // 20: both attempts complete
+    #1 clk = 1;            // 20: new attempts check b=1 and pass
     #5 $display("zero: pass=%0d fail=%0d; antecedent: pass=%0d fail=%0d",
                 pass_zero, fail_zero, pass_ant, fail_ant);
     $finish;

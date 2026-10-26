@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "82006b57b3682ff24cbf89d9b0e3bdcfbf6237e4309b2c3af692811a5d69819d",
+  "signals": [
+    "test_value_change_first_tick.u",
+    "test_value_change_first_tick.b",
+    "test_value_change_first_tick.one",
+    "test_value_change_first_tick.zero_now",
+    "test_value_change_first_tick.one_then_0"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_value_change_first_tick.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_value_change_first_tick.u": 1,
+      "test_value_change_first_tick.b": 1,
+      "test_value_change_first_tick.one": 1,
+      "test_value_change_first_tick.zero_now": 1,
+      "test_value_change_first_tick.one_then_0": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_value_change_first_tick.u": "1",
+          "test_value_change_first_tick.b": "1",
+          "test_value_change_first_tick.one": "1",
+          "test_value_change_first_tick.zero_now": "1",
+          "test_value_change_first_tick.one_then_0": "0"
+        },
+        "settled": {
+          "test_value_change_first_tick.u": "1",
+          "test_value_change_first_tick.b": "1",
+          "test_value_change_first_tick.one": "1",
+          "test_value_change_first_tick.zero_now": "1",
+          "test_value_change_first_tick.one_then_0": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_value_change_first_tick.u": "1",
+          "test_value_change_first_tick.b": "1",
+          "test_value_change_first_tick.one": "1",
+          "test_value_change_first_tick.zero_now": "1",
+          "test_value_change_first_tick.one_then_0": "0"
+        },
+        "settled": {
+          "test_value_change_first_tick.u": "1",
+          "test_value_change_first_tick.b": "1",
+          "test_value_change_first_tick.one": "1",
+          "test_value_change_first_tick.zero_now": "1",
+          "test_value_change_first_tick.one_then_0": "0"
+        }
+      }
+    ],
+    "end_time": 20
+  },
+  "projection": {
+    "protocol": "m4-static-sampled-v1",
+    "source_sha256": "9b9e654910b816a7247c6b3e8c3432a0cbf16cc10cf7b6f192bd6f945387b988",
+    "projection_sha256": "6feea08fb0ad2f584aba3f8b26eebd30f42acdec5e69b308d633f666a1525368",
+    "clock": "test_value_change_first_tick.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_value_change_first_tick.u",
+      "test_value_change_first_tick.b",
+      "test_value_change_first_tick.one",
+      "test_value_change_first_tick.zero_now",
+      "test_value_change_first_tick.one_then_0"
+    ],
+    "types": {
+      "u": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": true,
+        "lsb": 0,
+        "ascending": false
+      },
+      "one": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "zero_now": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "one_then_0": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "defaults": {
+      "u": {
+        "bits": "x",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "bits": "0",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "one": {
+        "bits": "1",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "zero_now": {
+        "bits": "0",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "one_then_0": {
+        "bits": "1",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "current_mode": null
+  }
+}

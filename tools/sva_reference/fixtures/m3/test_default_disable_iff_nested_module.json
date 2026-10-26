@@ -1,0 +1,386 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "a9e5fc1447218a94d1d8a96e902a58d810d83c013559840af63065a981dac00e",
+  "signals": [
+    "test_default_disable_iff_nested_module.a",
+    "test_default_disable_iff_nested_module.b",
+    "test_default_disable_iff_nested_module.r_nm",
+    "test_default_disable_iff_nested_module.rst"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_default_disable_iff_nested_module.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_default_disable_iff_nested_module.a": 1,
+      "test_default_disable_iff_nested_module.b": 1,
+      "test_default_disable_iff_nested_module.r_nm": 1,
+      "test_default_disable_iff_nested_module.rst": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_default_disable_iff_nested_module.a": "1",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "1"
+        },
+        "settled": {
+          "test_default_disable_iff_nested_module.a": "1",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "1"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "1"
+        },
+        "settled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        },
+        "settled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_default_disable_iff_nested_module.a": "1",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "1",
+          "test_default_disable_iff_nested_module.rst": "0"
+        },
+        "settled": {
+          "test_default_disable_iff_nested_module.a": "1",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "1",
+          "test_default_disable_iff_nested_module.rst": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "1",
+          "test_default_disable_iff_nested_module.rst": "0"
+        },
+        "settled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "1",
+          "test_default_disable_iff_nested_module.rst": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        },
+        "settled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_default_disable_iff_nested_module.a": "1",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        },
+        "settled": {
+          "test_default_disable_iff_nested_module.a": "1",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        },
+        "settled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        },
+        "settled": {
+          "test_default_disable_iff_nested_module.a": "0",
+          "test_default_disable_iff_nested_module.b": "0",
+          "test_default_disable_iff_nested_module.r_nm": "0",
+          "test_default_disable_iff_nested_module.rst": "0"
+        }
+      }
+    ],
+    "end_time": 90
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "a143d906494ecad138ba304d6b39e8badff52e5ccc9acecf3e1b4cea30172587",
+    "projection_sha256": "af0dbd65261cee74c83c66e221864e94d3e98c48b9e67d9403ffc8f0fdf384f6",
+    "clock": "test_default_disable_iff_nested_module.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_default_disable_iff_nested_module.a",
+      "test_default_disable_iff_nested_module.b",
+      "test_default_disable_iff_nested_module.r_nm",
+      "test_default_disable_iff_nested_module.rst"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "r_nm": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "rst": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": "audited_settled_equals_observed"
+  },
+  "current": [
+    {
+      "time": 0,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "1",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "1"
+      }
+    },
+    {
+      "time": 5,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "1",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "1"
+      }
+    },
+    {
+      "time": 10,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "1"
+      }
+    },
+    {
+      "time": 15,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "1"
+      }
+    },
+    {
+      "time": 20,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 25,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 30,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "1",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "1",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 35,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "1",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "1",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 40,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "1",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 45,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "1",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 50,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 55,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 60,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "1",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 65,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "1",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 70,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 75,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 80,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 85,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    },
+    {
+      "time": 90,
+      "values": {
+        "test_default_disable_iff_nested_module.a": "0",
+        "test_default_disable_iff_nested_module.b": "0",
+        "test_default_disable_iff_nested_module.r_nm": "0",
+        "test_default_disable_iff_nested_module.rst": "0"
+      }
+    }
+  ]
+}

@@ -8,7 +8,7 @@ not an implementation of real, string, cast, class or user-function semantics.
 from dataclasses import dataclass
 import re
 
-from .parser import Unsupported
+from .parser import Node, Unsupported
 
 
 @dataclass(frozen=True)
@@ -155,8 +155,10 @@ def shape(node, values):
         return sum(shape(arg, values)[0] for arg in node.args), False
     if op == "unary":
         return (1, False) if node.value in {"!", "&", "|", "^", "~&", "~|", "~^", "^~"} else shape(node.args[0], values)
+    if op == "inside":
+        return 1, False
     if op == "binary":
-        if node.value in {"&&", "||", "==", "!=", "===", "!==", "==?", "!=?", "<", "<=", ">", ">="}:
+        if node.value in {"&&", "||", "->", "<->", "==", "!=", "===", "!==", "==?", "!=?", "<", "<=", ">", ">="}:
             return 1, False
         a, b = (shape(arg, values) for arg in node.args)
         return a if node.value in {"<<", ">>", "<<<", ">>>", "**"} else (max(a[0], b[0]), a[1] and b[1])
@@ -196,6 +198,22 @@ def _evaluate(node, values, context_width, context_signed):
         result = evaluate(node.args[0], values, width).resize(width, signed)
         return Bits(result.bits.translate(str.maketrans("xz", "00")) if two_state else result.bits,
                     signed, False, lsb, ascending)
+    if op == "inside":
+        results = []
+        for member in node.args[1:]:
+            if member.op == "setrange":
+                value = evaluate(node.args[0], values)
+                low = -(1 << (value.width - 1)) if value.signed else 0
+                high = (1 << (value.width - int(value.signed))) - 1
+                lo, hi = member.args
+                lo = Node("literal", value=str(low)) if lo.op == "unbounded" else lo
+                hi = Node("literal", value=str(high)) if hi.op == "unbounded" else hi
+                a = evaluate(Node("binary", (node.args[0], lo), ">="), values).truth()
+                b = evaluate(Node("binary", (node.args[0], hi), "<="), values).truth()
+                results.append(False if a is False or b is False else None if None in (a, b) else True)
+            else:
+                results.append(evaluate(Node("binary", (node.args[0], member), "==?"), values).truth())
+        return logical(True if True in results else None if None in results else False)
     if op == "concat":
         return Bits("".join(evaluate(arg, values).bits for arg in node.args))
     if op == "select":
@@ -236,7 +254,7 @@ def _evaluate(node, values, context_width, context_signed):
     if op != "binary":
         raise Unsupported(f"not an integral expression: {op}")
     operator = node.value
-    if operator in {"&&", "||"}:
+    if operator in {"&&", "||", "->", "<->"}:
         a, b = (evaluate(arg, values) for arg in node.args)
     elif operator in {"<<", ">>", "<<<", ">>>", "**"}:
         a = evaluate(node.args[0], values, context_width, context_signed)
@@ -247,8 +265,13 @@ def _evaluate(node, values, context_width, context_signed):
         a, b = (evaluate(arg, values, common_width, common_signed) for arg in node.args)
     else:
         a, b = (evaluate(arg, values, context_width, context_signed) for arg in node.args)
-    if operator in {"&&", "||"}:
+    if operator in {"&&", "||", "->", "<->"}:
         x, y = a.truth(), b.truth()
+        if operator == "->":
+            x = None if x is None else not x
+            return logical(True if x is True or y is True else None if None in (x, y) else False)
+        if operator == "<->":
+            return logical(None if None in (x, y) else x == y)
         if operator == "&&":
             return logical(False if x is False or y is False else None if None in (x, y) else True)
         return logical(True if x is True or y is True else None if None in (x, y) else False)

@@ -1,0 +1,225 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "bbfc3b5232aedeb4e82309b756c367503f7b4221edf4b7fdf19df7b2b854f8d3",
+  "signals": [
+    "test_property_negation_of_instances.go",
+    "test_property_negation_of_instances.r",
+    "test_property_negation_of_instances.s"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_property_negation_of_instances.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_property_negation_of_instances.go": 1,
+      "test_property_negation_of_instances.r": 1,
+      "test_property_negation_of_instances.s": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_property_negation_of_instances.go": "1",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "1",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "1",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "1",
+          "test_property_negation_of_instances.s": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_property_negation_of_instances.go": "1",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "1",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "1"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "1"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_property_negation_of_instances.go": "1",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "1",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_property_negation_of_instances.go": "1",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "1",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "1",
+          "test_property_negation_of_instances.s": "1"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "1",
+          "test_property_negation_of_instances.s": "1"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        },
+        "settled": {
+          "test_property_negation_of_instances.go": "0",
+          "test_property_negation_of_instances.r": "0",
+          "test_property_negation_of_instances.s": "0"
+        }
+      }
+    ],
+    "end_time": 120
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "a3110f55788665ae8c3a388304e6ccbdf958e085baeca38b69e1c5588b990651",
+    "projection_sha256": "b2322d85642d35688bf0b021b6a3874075384ff39c7b9e3b94c55b8717ba097a",
+    "clock": "test_property_negation_of_instances.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_property_negation_of_instances.go",
+      "test_property_negation_of_instances.r",
+      "test_property_negation_of_instances.s"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "go": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "r": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "s": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

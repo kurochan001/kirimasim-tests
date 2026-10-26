@@ -39,7 +39,7 @@ class Definition:
 LEX = re.compile(r"\s+|//[^\n]*|/\*.*?\*/|"
                  r"(?:\d+)?'[sS]?[bBoOdDhH][0-9a-fA-F_xXzZ?]+|'[01xXzZ]|\d[\d_]*|"
                  r"[a-zA-Z_$][\w$]*(?:\.[a-zA-Z_$][\w$]*)*|"
-                 r"===|!==|==\?|!=\?|\|->|\|=>|#-#|#=#|>>>|<<<|"
+                 r"===|!==|==\?|!=\?|\|->|\|=>|#-#|#=#|>>>|<<<|<->|"
                  r"##|->|&&|\|\||==|!=|<=|>=|<<|>>|\*\*|~&|~\||~\^|\^~|[^\s]", re.S)
 
 # Binding powers are deliberately different for sequence and property 'and/or'.
@@ -51,8 +51,10 @@ SVA = {"##": (90, False), "throughout": (80, True), "within": (70, False),
 BOOL = {"||": 1, "&&": 2, "|": 3, "^": 4, "~^": 4, "^~": 4, "&": 5,
         "==": 6, "!=": 6, "===": 6, "!==": 6, "==?": 6, "!=?": 6,
         "<": 7, "<=": 7, ">": 7, ">=": 7, "<<": 8, ">>": 8, ">>>": 8, "<<<": 8,
-        "+": 9, "-": 9, "*": 10, "/": 10, "%": 10, "**": 11}
-EXCLUDED = {"$past", "$rose", "$fell", "$stable", "$changed", "$sampled", "$isunknown",
+        "+": 9, "-": 9, "*": 10, "/": 10, "%": 10, "**": 11,
+        "->": -2, "<->": -2, "inside": 7, "dist": 7}
+SAMPLED = {"$past", "$rose", "$fell", "$stable", "$changed", "$sampled"}
+EXCLUDED = {"$isunknown",
             "$global_clock", "accept_on", "reject_on", "sync_accept_on", "sync_reject_on"}
 
 
@@ -246,11 +248,37 @@ class Parser:
             left = Node(operator, (left, operand), bounds)
         return left
 
-    def boolean(self, minimum=0):
+    def boolean(self, minimum=-2):
         word = self.pop()
-        if word in EXCLUDED or word.startswith("$") or word.endswith((".triggered", ".matched")):
+        if word in EXCLUDED or (word.startswith("$") and word not in SAMPLED) or word.endswith((".triggered", ".matched")):
             raise Unsupported(f"unsupported expression: {word}")
-        if word in {"!", "~", "+", "-", "&", "|", "^", "~&", "~|", "~^", "^~"}:
+        if word in SAMPLED:
+            self.need("(")
+            arguments = []
+            while True:
+                if self.peek() in {",", ")"}:
+                    arguments.append(Node("omitted"))
+                elif self.take("@"):
+                    self.need("(")
+                    edge, clock = self.pop(), self.pop()
+                    if edge not in {"posedge", "negedge"} or not re.fullmatch(r"[a-zA-Z_]\w*(?:\.\w+)*", clock):
+                        raise Unsupported("sampled function clock must be a scalar signal edge")
+                    self.need(")")
+                    arguments.append(Node("clock", value=(clock, edge)))
+                else:
+                    arguments.append(self.boolean())
+                if not self.take(","):
+                    break
+            self.need(")")
+            maximum = 1 if word == "$sampled" else 4 if word == "$past" else 2
+            if len(arguments) > maximum or arguments[0].op in {"omitted", "clock"}:
+                raise Unsupported("invalid sampled function arguments")
+            for i, argument in enumerate(arguments[1:], 1):
+                if ((argument.op == "clock" and i != maximum - 1)
+                        or (i == maximum - 1 and argument.op not in {"clock", "omitted"})):
+                    raise Unsupported("invalid sampled function clock argument")
+            left = Node("sampled", tuple(arguments), word)
+        elif word in {"!", "~", "+", "-", "&", "|", "^", "~&", "~|", "~^", "^~"}:
             left = Node("unary", (self.boolean(12),), word)
         elif word == "(":
             left = self.boolean()
@@ -291,16 +319,41 @@ class Parser:
                 self.need("]")
                 left = Node("select", (left, index) if end is None else (left, index, end))
                 continue
+            if self.peek() == "?" and minimum <= -1:
+                self.pop()
+                yes = self.boolean()
+                self.need(":")
+                left = Node("ternary", (left, yes, self.boolean(-1)))
+                continue
             operator = self.peek()
             if operator not in BOOL or BOOL[operator] < minimum:
                 break
             self.pop()
             bp = BOOL[operator]
-            left = Node("binary", (left, self.boolean(bp + 1)), operator)
-        if minimum == 0 and self.take("?"):
-            yes = self.boolean()
-            self.need(":")
-            left = Node("ternary", (left, yes, self.boolean()))
+            if operator in {"inside", "dist"}:
+                self.need("{")
+                members = []
+                while True:
+                    if self.take("["):
+                        lo = Node("unbounded", value="low") if self.take("$") else self.boolean()
+                        self.need(":")
+                        hi = Node("unbounded", value="high") if self.take("$") else self.boolean()
+                        self.need("]")
+                        member = Node("setrange", (lo, hi))
+                    else:
+                        member = self.boolean(8)
+                    weight = Node("literal", value="1")
+                    if operator == "dist" and self.take(":"):
+                        if self.pop() not in {"=", "/"}:
+                            raise Unsupported("invalid distribution weight operator")
+                        weight = self.boolean()
+                    members.append(Node("weighted", (member, weight)) if operator == "dist" else member)
+                    if not self.take(","):
+                        break
+                self.need("}")
+                left = Node(operator, (left, *members))
+            else:
+                left = Node("binary", (left, self.boolean(bp if operator in {"->", "<->"} else bp + 1)), operator)
         return left
 
 
@@ -355,6 +408,8 @@ def expand(spec, definitions, active=()):
         disables.append(spec.disable)
 
     def visit(node, stack):
+        if node.op in {"name", "call"} and node.value in definitions and definitions[node.value].kind == "let":
+            return visit(Node("bool", (node,)), stack).args[0]
         if node.op == "bool" and node.args[0].op in {"name", "call"}:
             call = node.args[0]
             if call.value in definitions:

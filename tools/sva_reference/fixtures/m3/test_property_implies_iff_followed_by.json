@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "89669f1be5aca757f306c1c47d6bdb7421956b7fd65dd7074cfcba716177ba41",
+  "signals": [
+    "test_property_implies_iff_followed_by.go",
+    "test_property_implies_iff_followed_by.p",
+    "test_property_implies_iff_followed_by.q"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_property_implies_iff_followed_by.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_property_implies_iff_followed_by.go": 1,
+      "test_property_implies_iff_followed_by.p": 1,
+      "test_property_implies_iff_followed_by.q": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "1",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "1",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "1",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "1",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "1"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "1",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "1",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "1",
+          "test_property_implies_iff_followed_by.q": "1"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "1",
+          "test_property_implies_iff_followed_by.q": "1"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "1",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "1",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        },
+        "settled": {
+          "test_property_implies_iff_followed_by.go": "0",
+          "test_property_implies_iff_followed_by.p": "0",
+          "test_property_implies_iff_followed_by.q": "0"
+        }
+      }
+    ],
+    "end_time": 150
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "0808c9b7cfbe6ffbd19791352bbd2cdfe4aa54c7d5bc07e69d9c1fcd30de1add",
+    "projection_sha256": "432553fdc7e07fd000788c624ef59d351871561691b4357346cb74479315c524",
+    "clock": "test_property_implies_iff_followed_by.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_property_implies_iff_followed_by.go",
+      "test_property_implies_iff_followed_by.p",
+      "test_property_implies_iff_followed_by.q"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "go": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "p": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "q": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

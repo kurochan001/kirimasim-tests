@@ -1,0 +1,102 @@
+{
+  "tests/ch16/test_global_clock_future_functions_action_delay.sv": {
+    "source_sha256": "f57add9d53ad412ae11b1fc336fb802c7c351c764f157a54f301b58fa9ea032c",
+    "reason": "Global-clock future functions and action scheduling need another history model",
+    "evidence": [
+      "$global_clock",
+      "$future_gclk"
+    ]
+  },
+  "tests/ch16/test_procedural_assertion_queue_rules.sv": {
+    "source_sha256": "08673d30c94a06feab2a65e4b5b6530f466c8bc1fa3e633f022cda410246ffc9",
+    "reason": "Procedural concurrent assertion queues and flush points remain outside this extension",
+    "evidence": [
+      "procedural assertion",
+      "wait",
+      "automatic capture"
+    ]
+  },
+  "tests/ch16/test_sampled_automatic_and_const_current.sv": {
+    "source_sha256": "a9c03820dbf766aa8628d76cf9c33ca421a5c00337e495bf1da619975e0ec1fe",
+    "reason": "Automatic/const-current operand exceptions need capture/lifetime/current-region modeling",
+    "evidence": [
+      "automatic",
+      "const cast"
+    ]
+  },
+  "tests/ch16/test_sampled_automatic_const_current.sv": {
+    "source_sha256": "ddedd6a0a3d93e037839ca8fb96f9d2462fda4ca4208da5b1ec055e69c03aedd",
+    "reason": "Automatic/const-current operand exceptions need capture/lifetime/current-region modeling",
+    "evidence": [
+      "automatic",
+      "const cast"
+    ]
+  },
+  "tests/ch16/test_sampled_defaults_and_methods.sv": {
+    "source_sha256": "58f128a1646ed150861082de79f06b0752f28fcf35af8f26e173f971f65e5c4f",
+    "reason": "Event and sequence methods require Observed/Postponed histories",
+    "evidence": [
+      "event.triggered",
+      "sequence.triggered"
+    ]
+  },
+  "tests/ch16/test_sampled_function_arguments.sv": {
+    "source_sha256": "402170ac756c0667e15c4bda36334ddd86104a2a2c84cbc6a8d702c4f1448ea1",
+    "reason": "Two clock histories and default/procedural inference across contexts are deferred",
+    "evidence": [
+      "posedge clk",
+      "posedge clk2"
+    ]
+  },
+  "tests/ch16/test_sampled_function_clock_inference.sv": {
+    "source_sha256": "16c67c9015621dc4d38c28884f5c666f87431121bdcfcf4aa97024774ae31825",
+    "reason": "Two clock histories and default/procedural inference across contexts are deferred",
+    "evidence": [
+      "posedge clk",
+      "posedge clk2"
+    ]
+  },
+  "tests/ch16/test_sampled_value_time_zero_defaults.sv": {
+    "source_sha256": "a1bcba1c508b1deb89c139991c9c463af85fbd0fcf7f6cdcd2e01a634741b741",
+    "reason": "Time-zero VCD edge discovery and user-function live free-variable evaluation need additional input/expression support",
+    "evidence": [
+      "time-zero selected edge",
+      "scaled(a) reads current k"
+    ]
+  },
+  "tests/ch17/test_checker_in_package.sv": {
+    "source_sha256": "8c2aa2c1750a9577b474bfc8d678949c90ae446370cd32b972865fe13be119ed",
+    "reason": "Checker context/elaboration remains outside this extension",
+    "evidence": [
+      "checker"
+    ]
+  },
+  "tests/ch39/test_vpi_assertion_kill_keeps_past_sampling.sv": {
+    "source_sha256": "fc697f65a2e3f155d2fc26e1c2b8eb4c66271bd1800451484b1acbd64e36064e",
+    "reason": "VPI assertion controls and simulator API are outside this extension",
+    "evidence": [
+      ":vpi_c:"
+    ]
+  },
+  "tests/ch39/test_vpi_assertion_sys_vacuous_action_controls_running_attempts.sv": {
+    "source_sha256": "e6d8150f7e8a5b464d7bea5d53bdc028d6a84a2b681ee334022dfdaedf693512",
+    "reason": "VPI assertion controls and simulator API are outside this extension",
+    "evidence": [
+      ":vpi_c:"
+    ]
+  },
+  "tests/ch39/test_vpi_assertion_system_vacuous_actions.sv": {
+    "source_sha256": "1bbc8707b13a80add70d7f48702abc143b745623f8cb5fe2d2bd596aa53b0db7",
+    "reason": "VPI assertion controls and simulator API are outside this extension",
+    "evidence": [
+      ":vpi_c:"
+    ]
+  },
+  "tests/ch39/test_vpi_assertion_vacuous_action_controls_running_attempts.sv": {
+    "source_sha256": "2cee62c63b4bbd52d9ac1efdf148408eecd80156aadcf436e5e9614064e0fc10",
+    "reason": "VPI assertion controls and simulator API are outside this extension",
+    "evidence": [
+      ":vpi_c:"
+    ]
+  }
+}

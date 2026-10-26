@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "e237db4957f2847ce71f589106be0cd190d1eb51965ede971a40b88fcd0dc04e",
+  "signals": [
+    "test_property_implication_operator_forms.a",
+    "test_property_implication_operator_forms.go",
+    "test_property_implication_operator_forms.x"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_property_implication_operator_forms.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_property_implication_operator_forms.a": 1,
+      "test_property_implication_operator_forms.go": 1,
+      "test_property_implication_operator_forms.x": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "1",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "1",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "1",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "1"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "1",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "1",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "1",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "1",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "1",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "1"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "1"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "1",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "1",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "1",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "1",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        },
+        "settled": {
+          "test_property_implication_operator_forms.a": "0",
+          "test_property_implication_operator_forms.go": "0",
+          "test_property_implication_operator_forms.x": "0"
+        }
+      }
+    ],
+    "end_time": 150
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "eeb5e6490310fbbb51b39197616840254fcacc67f8f81a20edb039af8f3aa456",
+    "projection_sha256": "033989eedcdb486aefb2678195bc268a174cf6db677c5ea6bd1761094307285e",
+    "clock": "test_property_implication_operator_forms.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_property_implication_operator_forms.a",
+      "test_property_implication_operator_forms.go",
+      "test_property_implication_operator_forms.x"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "go": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "x": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

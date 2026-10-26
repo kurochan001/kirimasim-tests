@@ -1,0 +1,80 @@
+{
+  "tests/ch16/test_past_gating_expression.sv": {
+    "source_sha256": "f1a0c5b309861b6d78cbc2ac54d5dd47e3d4f8d7c1fac26034be998cc08f16c4",
+    "clock": "clk",
+    "edge": "posedge",
+    "signals": [
+      "a",
+      "gate"
+    ],
+    "mode": "procedure",
+    "tick_counter": "tick"
+  },
+  "tests/ch16/test_rose_fell_lsb_four_state.sv": {
+    "source_sha256": "631d8fd06650098f18e4c7ab097c53cb9c3fa811df0281583dc860a1a3884803",
+    "clock": "clk",
+    "edge": "posedge",
+    "signals": [
+      "v"
+    ],
+    "mode": "procedure",
+    "tick_counter": "tick"
+  },
+  "tests/ch16/test_sampled_in_action_block.sv": {
+    "source_sha256": "f1ec69a752d89a7e43db8add0984869f88306f91f674aa1bec9bfca6cb9506b6",
+    "clock": "clk",
+    "edge": "posedge",
+    "signals": [
+      "a",
+      "b"
+    ],
+    "mode": "actions"
+  },
+  "tests/ch16/test_sampled_value_functions_with_clocking_event.sv": {
+    "source_sha256": "c291eb28d0d0a8bb97e71ca7a29846599ac0f9a8434ae7bfa28c75c6c6fd7735",
+    "clock": "clk",
+    "edge": "posedge",
+    "signals": [
+      "a"
+    ],
+    "mode": "procedure",
+    "display_times": [
+      15,
+      25
+    ]
+  },
+  "tests/ch16/test_sampled_without_clocking_event.sv": {
+    "source_sha256": "3e87b288f547e4b1dd95ac4aa1a6604a1450e980c17feb8636efe279bf0eb2be",
+    "clock": "clk",
+    "edge": "posedge",
+    "signals": [
+      "a",
+      "b"
+    ],
+    "mode": "actions",
+    "counter": "fails"
+  },
+  "tests/ch16/test_value_change_first_tick.sv": {
+    "source_sha256": "9b9e654910b816a7247c6b3e8c3432a0cbf16cc10cf7b6f192bd6f945387b988",
+    "clock": "clk",
+    "edge": "posedge",
+    "signals": [
+      "u",
+      "b",
+      "one",
+      "zero_now",
+      "one_then_0"
+    ],
+    "mode": "procedure",
+    "tick_counter": "tick"
+  },
+  "tests/ch4/test_preponed_sample_observed_before_action.sv": {
+    "source_sha256": "d1d56fd2b209e5553bfc0684fe0a70e7ac22006a469307cc55dd84d0cfc4c581",
+    "clock": "clk",
+    "edge": "posedge",
+    "signals": [
+      "data"
+    ],
+    "mode": "actions"
+  }
+}

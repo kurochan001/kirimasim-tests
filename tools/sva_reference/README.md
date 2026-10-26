@@ -1,11 +1,20 @@
-# SVA reference evaluator: M0, M1 and M2
+# SVA reference evaluator: M0 through M4
 
 M0 was completed on 2026-10-26, starting at repository revision `b2de3bc5`.
 M1 adds the expression/declaration parser and a single-clock semantic engine.
-M2 reproduces all ten pilot outputs with that general engine. M3 (the wider
-test population) has not been run yet. Source/trace integration limits are
+M2 reproduces all ten pilot outputs with that general engine. M3 classifies
+the wider spec-only population and evaluates 28 additional in-scope tests:
+all 28 match after two clause-reviewed, user-approved corrections to expected
+outputs and explanation comments. Source/trace integration limits are
 documented below.
+M4 adds the six static integral sampled functions for a single clock, with
+seven additional matching tests and 13 explicitly deferred mixed-feature cases.
 Only Python 3.10+ and its standard library are required for offline use.
+An optional symbolic formal suite now checks the evaluator against independent
+RTL models with Yosys/SymbiYosys. See [`FORMAL_REVIEW.md`](FORMAL_REVIEW.md)
+for the 40 bounded checks, 22 streaming PDR proofs, covers and counterexamples.
+The [Japanese guide](../../docs/sva-reference-formal-verification.md) explains
+the relationship to suite expectations, proof boundaries and reproduction.
 
 ## Result and decision
 
@@ -315,10 +324,136 @@ produced ten matches.
 No dedicated workflow or simulator dependency was added to CI; these tests
 use the repository's existing unittest discovery.
 
-M3 is next: classify and evaluate the remaining in-scope population, reporting
-every unsupported case and any difference with its clause-based judgment.
+## M3: wider population and two approved corrections
+
+The survey is based on `b0e9dda9` (2026-10-26). It preserves the handoff's broad
+candidate-search population: 286 files, of which 61 are illegal designs and
+225 are normal tests. All normal candidates are accounted for:
+
+- 10 M2 pilots, independently rerunnable with `--pilots`.
+- 28 additional v1 tests evaluated from 463 sampled ticks and 407 actions:
+  28 matches after two user-approved expectation/explanation corrections.
+- 180 files outside v1, each with a primary reason and source evidence.
+- Seven text-search false positives without a concurrent directive to evaluate.
+- No unhandled in-scope test or generation error in this source snapshot.
+
+The full per-file list, source hashes, decisions and diffs are in
+[`fixtures/m3_inventory.json`](fixtures/m3_inventory.json). The two discrepancy
+judgments include clauses and input/output hashes in
+[`fixtures/m3_judgments.json`](fixtures/m3_judgments.json). Read
+[`M3_REVIEW.md`](M3_REVIEW.md) for the original discrepancies and the approved corrections.
+Only the two expectations, their explanation comments and relevant citations
+changed; the assertion expressions and stimulus stayed the same. The judgment
+file preserves original and corrected hashes.
+
+```sh
+# Generation without consulting any expected output (exit 0).
+python3 tools/sva_reference/check.py --all --emit-only --output-dir "$M3_OUTPUT_DIR"
+
+# Full inventory and comparison (exit 0 for all 28 additional tests).
+python3 tools/sva_reference/check.py --all --output-dir "$M3_OUTPUT_DIR"
+
+# Optional input refresh, still without executing any SVA in Icarus.
+python3 tools/sva_reference/check.py --all --refresh-traces \
+  --iverilog-bin "$IVERILOG13_BIN" --output-dir "$M3_OUTPUT_DIR"
+```
+
+`--all --json` returns the full inventory. The output directory also receives
+every generated `.actual` file and per-attempt `.events.json` evidence. The
+comparator opens expectations only after all additional outputs have been
+generated. New or changed in-scope inputs without an audit/adapter remain
+explicit `in_scope_unhandled` or `in_scope_error` rows (exit 2); a parse error
+alone is never reclassified as outside v1. Reviewed discrepancies still exit
+1 and are not converted to matches by the judgment file.
+
+M3 adds Boolean implication/equivalence, integral set membership/distribution
+and let-template support from 11.4.7, 11.4.13, Table 11-2, 11.12 and 16.14.2.
+Independent clause tests cover precedence, four-state comparisons and weights.
+The existing M0-M2 tests remain unchanged and pass. Quoted report keys retain
+their spaces when tokenized.
+
+`m3.py` contains the additional source-audited output adapters. Whole-source
+hashes in `fixtures/m3_cases.json` bind each dependency/report audit. All
+assertion decisions and matches come from the same `Engine`. The adaptations
+are limited and visible:
+
+- Queue/time reporters, associative count/time/character reporters, phase
+  counters, direct action displays and last-action-time fields are formatted
+  in Python. Reporting variables never drive the selected stimulus signals.
+- Read-only literal stimulus tables are translated into indexed literal
+  selections, preserving index order. The reviewed pure `at(n, '{...})`
+  membership helper becomes a disjunction over its literal integer members.
+  Input assignments/delays remain in SV; reporting-only routines and storage
+  are removed from the disposable stimulus source.
+- Two fixed source views resolve the clocking-let scope and inherited versus
+  overridden default-disable scopes in nested modules. These views are
+  source-hash guarded and are not a claim of general SV elaboration support.
+- For the three reset tests, the audits establish that all reset/stimulus
+  changes settle before Observed evaluation and that actions only report.
+  No action writes back to stimulus; there are no same-timestamp reset glitches
+  or Reactive writers. Under these exact source conditions, settled VCD values
+  equal the required current values. Every timestamp, including off-clock
+  reset pulses, is retained. The input cache records this limited current-value
+  mode; generic VCD end-of-slot values remain insufficient for `disable iff`.
+
+The input fixtures retain source/projection/type/current-mode provenance.
+All 160 repository unittests passed, including 80 SVA reference tests (15
+added for M3). Fresh Icarus generation reproduced the offline classification
+and outputs. The two discrepancy regressions check clause-derived decisions
+and verify the approved corrections, preserving the original hashes in the
+judgment history.
+Outside cases include sampled functions, multiple clocks, SVA locals/match
+items, assertion control/nonvacuity, checker/VPI/coverage APIs, deferred and
+procedural assertions, aborts, off-tick clocking skew and program-region
+feedback. Mixed files containing those features are excluded as whole files;
+no successful claim is made about their supported-looking fragments.
+
+Both test corrections were approved on 2026-10-26 and followed the handoff's
+simulator-rerun and coverage/input-hash procedure. All pinned runs classified
+the two tests as known unsupported cases, so execution coverage did not grow.
+M4 begins below with the approved sampled-function extension. M5 verification
+metadata/CI decisions remain separate work.
 
 Recording evaluator verification in metadata/coverage and enabling evaluator
 jobs in CI remain user decisions. M2 changes neither oracle metadata nor
 coverage ledgers and does not count these comparisons as simulator execution
 verification.
+
+
+## M4: six sampled functions on a single clock
+
+The user selected `$sampled`, `$past`, `$rose`, `$fell`, `$stable` and `$changed`
+for the first extension. All seven audited additional tests match, from 35
+sampled ticks, six assertion action events and 39 output lines. M2 and M3 also
+still match, for 45 evaluated files in total. M4 changed no suite expectations.
+
+```sh
+python3 tools/sva_reference/check.py --sampled
+python3 tools/sva_reference/check.py --sampled --emit-only --json
+python3 tools/sva_reference/check.py --sampled --output-dir "$M4_OUTPUT_DIR"
+```
+
+[`M4_REVIEW.md`](M4_REVIEW.md) describes the normative rules, each input/report
+and scheduling audit, the 13 deferred mixed-feature cases and their boundaries.
+[`fixtures/m4_inventory.json`](fixtures/m4_inventory.json) gives every result;
+[`fixtures/m4_cases.json`](fixtures/m4_cases.json) and cached inputs bind source,
+projection, types, defaults and scheduling assumptions. Fresh Icarus 13.0 input
+extraction reproduces all seven caches byte-for-byte. Assertion actions and
+sampled functions never execute in the simulator used for input extraction.
+
+`sampled.History` supplies strict-prior, gated history and declaration/type
+defaults independently of assertion attempts. It preserves four-state values,
+LSB change rules, whole-vector stability, operand width/sign and the distinction
+between current action reads and sampled values. The general `Engine` uses
+it in sequence/property operands. Unsupported clocks, missing defaults,
+automatic/const/method contexts and off-clock sampled disable snapshots are
+explicit boundaries, with no substitute first-sample or settled-value guesses.
+
+M4 adds 23 offline regressions (16 clause-based and seven integration checks).
+The six functions have parser/semantic support; full SystemVerilog procedural
+execution, multiple clocks and the mixed contexts remain future work.
+
+All 183 repository unittests passed, including 103 SVA reference tests, and the
+existing CI-equivalent consistency checks passed. Input-only Verilator 5.052
+runs also agreed with Icarus on sampled/settled values in the three NBA cases;
+this is recorded separately from any assertion-output verification.

@@ -1,0 +1,780 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "5e500b2670cb4f815474799a0798a4910b596488419fc3641b41034b8e505b90",
+  "signals": [
+    "test_disable_iff_attempt_interval.rst",
+    "test_disable_iff_attempt_interval.start"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_disable_iff_attempt_interval.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_disable_iff_attempt_interval.rst": 1,
+      "test_disable_iff_attempt_interval.start": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "1",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "1",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "1",
+          "test_disable_iff_attempt_interval.start": "1"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "1",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "1",
+          "test_disable_iff_attempt_interval.start": "1"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 155,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 165,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 175,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        }
+      },
+      {
+        "time": 185,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 195,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 205,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 215,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        }
+      },
+      {
+        "time": 225,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "1"
+        }
+      },
+      {
+        "time": 235,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 245,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      },
+      {
+        "time": 255,
+        "sampled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        },
+        "settled": {
+          "test_disable_iff_attempt_interval.rst": "0",
+          "test_disable_iff_attempt_interval.start": "0"
+        }
+      }
+    ],
+    "end_time": 260
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "2ba41faba7e3bc8926b36e62cc16d4aa55939d9377190cd6ae5b5f42156fb8f9",
+    "projection_sha256": "486193fb6955f6e2ab202567bc4247fb7d8abe0af9bdfb065db1576e643415c5",
+    "clock": "test_disable_iff_attempt_interval.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_disable_iff_attempt_interval.rst",
+      "test_disable_iff_attempt_interval.start"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "rst": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "start": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": "audited_settled_equals_observed"
+  },
+  "current": [
+    {
+      "time": 0,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 5,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 10,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 15,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 20,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 24,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "1",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 25,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "1",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 26,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 30,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 35,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 40,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 45,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 50,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 55,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "1",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 57,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 60,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 65,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 70,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 75,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 80,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 85,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 90,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 95,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 100,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 105,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 110,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 115,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "1",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 117,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 120,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 125,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 130,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 131,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "1",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 135,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 140,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 145,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 150,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 155,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 160,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 165,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 170,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 175,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 180,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 185,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 190,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 195,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 196,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "1",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 198,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 200,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 205,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 210,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 215,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 220,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 225,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "1"
+      }
+    },
+    {
+      "time": 230,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 235,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 238,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "1",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 239,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 240,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 245,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 250,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 255,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    },
+    {
+      "time": 260,
+      "values": {
+        "test_disable_iff_attempt_interval.rst": "0",
+        "test_disable_iff_attempt_interval.start": "0"
+      }
+    }
+  ]
+}

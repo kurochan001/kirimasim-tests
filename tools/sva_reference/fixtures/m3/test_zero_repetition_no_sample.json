@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "288c7c5e425f5144f27e981883a50b6673dca8ff4c67e68d2566173de5b41ee4",
+  "signals": [
+    "test_zero_repetition_no_sample.a",
+    "test_zero_repetition_no_sample.b",
+    "test_zero_repetition_no_sample.start"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_zero_repetition_no_sample.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_zero_repetition_no_sample.a": 1,
+      "test_zero_repetition_no_sample.b": 1,
+      "test_zero_repetition_no_sample.start": 1
+    },
+    "ticks": [
+      {
+        "time": 10,
+        "sampled": {
+          "test_zero_repetition_no_sample.a": "0",
+          "test_zero_repetition_no_sample.b": "0",
+          "test_zero_repetition_no_sample.start": "1"
+        },
+        "settled": {
+          "test_zero_repetition_no_sample.a": "0",
+          "test_zero_repetition_no_sample.b": "0",
+          "test_zero_repetition_no_sample.start": "1"
+        }
+      },
+      {
+        "time": 20,
+        "sampled": {
+          "test_zero_repetition_no_sample.a": "0",
+          "test_zero_repetition_no_sample.b": "1",
+          "test_zero_repetition_no_sample.start": "1"
+        },
+        "settled": {
+          "test_zero_repetition_no_sample.a": "0",
+          "test_zero_repetition_no_sample.b": "1",
+          "test_zero_repetition_no_sample.start": "1"
+        }
+      }
+    ],
+    "end_time": 25
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "9696e501f000d8228ddd9733be971be9a4491b633f7160559510bd951985b600",
+    "projection_sha256": "516188acd86104f52ddfb82693d12fec4efc1cc014c17ecca531ac7950a170f3",
+    "clock": "test_zero_repetition_no_sample.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_zero_repetition_no_sample.a",
+      "test_zero_repetition_no_sample.b",
+      "test_zero_repetition_no_sample.start"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "start": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

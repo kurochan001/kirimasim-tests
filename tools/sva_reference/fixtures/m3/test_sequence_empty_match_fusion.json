@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "4f2947f17d3cd710fad9ac77b17fde17758f5aa262e1f5e5ec488b073f7f74c2",
+  "signals": [
+    "test_sequence_empty_match_fusion.a",
+    "test_sequence_empty_match_fusion.b",
+    "test_sequence_empty_match_fusion.start"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_empty_match_fusion.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_empty_match_fusion.a": 1,
+      "test_sequence_empty_match_fusion.b": 1,
+      "test_sequence_empty_match_fusion.start": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "1"
+        },
+        "settled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "1",
+          "test_sequence_empty_match_fusion.start": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "1",
+          "test_sequence_empty_match_fusion.start": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "1",
+          "test_sequence_empty_match_fusion.start": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "1",
+          "test_sequence_empty_match_fusion.start": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_fusion.a": "0",
+          "test_sequence_empty_match_fusion.b": "0",
+          "test_sequence_empty_match_fusion.start": "0"
+        }
+      }
+    ],
+    "end_time": 70
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "bda2ccf04c7b6033c08bd26beb9fcf04fc83d38ecf97fd00fbdd5535617ab223",
+    "projection_sha256": "402e3b50f0acecba6c75888dadc0a5174126de2077e19ef56da026185c792ac7",
+    "clock": "test_sequence_empty_match_fusion.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_empty_match_fusion.a",
+      "test_sequence_empty_match_fusion.b",
+      "test_sequence_empty_match_fusion.start"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "start": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

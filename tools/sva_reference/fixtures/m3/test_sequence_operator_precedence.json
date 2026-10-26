@@ -1,0 +1,225 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "5f9a74601ceb35d11936bf2f9430a8b400fa40e50feae3f0bddee81ea13d1089",
+  "signals": [
+    "test_sequence_operator_precedence.x",
+    "test_sequence_operator_precedence.y",
+    "test_sequence_operator_precedence.z"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_operator_precedence.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_operator_precedence.x": 1,
+      "test_sequence_operator_precedence.y": 1,
+      "test_sequence_operator_precedence.z": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "1"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "1"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "1",
+          "test_sequence_operator_precedence.z": "0"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "1",
+          "test_sequence_operator_precedence.z": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "1",
+          "test_sequence_operator_precedence.z": "0"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "1",
+          "test_sequence_operator_precedence.z": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "1",
+          "test_sequence_operator_precedence.z": "0"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "1",
+          "test_sequence_operator_precedence.z": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "1"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "1"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "1",
+          "test_sequence_operator_precedence.z": "0"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "1",
+          "test_sequence_operator_precedence.z": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "1"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "1",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "1"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        },
+        "settled": {
+          "test_sequence_operator_precedence.x": "0",
+          "test_sequence_operator_precedence.y": "0",
+          "test_sequence_operator_precedence.z": "0"
+        }
+      }
+    ],
+    "end_time": 120
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "de3468e06993db965542c316eac53fd0586010e1bc936b4d30a0c0ad6b0369f2",
+    "projection_sha256": "82253e0981b1491ce20ae8a8408a1fd403868eb5f3007a0ec2dc7bacf88d976f",
+    "clock": "test_sequence_operator_precedence.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_operator_precedence.x",
+      "test_sequence_operator_precedence.y",
+      "test_sequence_operator_precedence.z"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "x": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "y": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "z": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

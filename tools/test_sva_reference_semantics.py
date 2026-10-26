@@ -344,7 +344,7 @@ class ParserAndDeclarationTests(unittest.TestCase):
                 self.assertEqual(sorted(actions), sorted(pilot))
 
     def test_fail_closed_outside_scope_illegal_ranges_and_recursion(self):
-        for expression in ["$past(a)", "$rose(a)", "accept_on(rst) a", "a.matched",
+        for expression in ["$past()", "$rose(a, a)", "accept_on(rst) a", "a.matched",
                            "eventually [1:$] a", "s_always [1:$] a", "a ##[-1:2] b",
                            "a[*3:2]", "(a, x=1)", "@(posedge clk) @(posedge other) a"]:
             with self.subTest(expression=expression), self.assertRaises(Unsupported):

@@ -1,0 +1,44 @@
+{
+  "tests/ch16/test_property_implication_operator_forms.sv": {
+    "source_sha256": "f3c842687060497957f04233b7c770ce49cfeff1084e86b1fa4435242edea5bb",
+    "expected_sha256": "0ce368cd1d12c2ccd6da3ff919df41b8cfe0fb63f9dadfca8ad7ebeccbd532d7",
+    "actual_sha256": "c93e1816df7bb050e79260329bb8e06b6ed941af8bbcec4c35317c3760a71c16",
+    "clauses": [
+      "16.12.7",
+      "16.12.9",
+      "16.14.5"
+    ],
+    "disposition": "corrected_after_user_approval",
+    "reason": "Every module-level directive starts at every clock tick. On four non-go ticks per phase the antecedent has no match: implications pass vacuously, but followed-by requires an antecedent match and fails. Each followed-by failure count is four plus the failure, if any, of the go-started attempt.",
+    "approval_required": false,
+    "original_disposition": "expected_output_and_explanation_need_correction",
+    "approved_on": "2026-10-26",
+    "correction": {
+      "source_sha256": "eeb5e6490310fbbb51b39197616840254fcacc67f8f81a20edb039af8f3aa456",
+      "expected_sha256": "c93e1816df7bb050e79260329bb8e06b6ed941af8bbcec4c35317c3760a71c16",
+      "actual_sha256": "c93e1816df7bb050e79260329bb8e06b6ed941af8bbcec4c35317c3760a71c16",
+      "inputs_sha256": "989d6beab92eddd02495dff44e09c71bb1464aabece66541e90917e7987934ac"
+    }
+  },
+  "tests/ch16/test_zero_repetition_no_sample.sv": {
+    "source_sha256": "953476c86c4b7e8fc6cde85dc82c9e3bf031de80317a14cb3a335bcba0820a00",
+    "expected_sha256": "52b641ab155b49762f79779ab9e6a887656257508181b89af63ca9bb8cd8ea10",
+    "actual_sha256": "79bb922a5ed11a1fa403484d07384312169f5ad4144c3177c32c6e8f0769592e",
+    "clauses": [
+      "16.9.2.1",
+      "16.12.7",
+      "16.12.22"
+    ],
+    "disposition": "corrected_after_user_approval",
+    "reason": "An empty sequence followed by ##1 b reduces to b at the current tick. For nonoverlapping implication an empty antecedent also aligns its consequent to the current tick. Both assertions fail at time 10 with b=0 and pass at time 20 with b=1; no attempt waits until time 30.",
+    "approval_required": false,
+    "original_disposition": "expected_output_and_explanation_need_correction",
+    "approved_on": "2026-10-26",
+    "correction": {
+      "source_sha256": "9696e501f000d8228ddd9733be971be9a4491b633f7160559510bd951985b600",
+      "expected_sha256": "79bb922a5ed11a1fa403484d07384312169f5ad4144c3177c32c6e8f0769592e",
+      "actual_sha256": "79bb922a5ed11a1fa403484d07384312169f5ad4144c3177c32c6e8f0769592e",
+      "inputs_sha256": "e11ead08c92cba7d125fe48acb3a6b76b351f55c207d816fc504f7cc6c8be29d"
+    }
+  }
+}

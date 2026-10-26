@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "c75d3b2cadbe05acaf1c82a8fb9f1574ef6668f38a1055e02ab4456ad6d52211",
+  "registry_sha256": "833019b17c60218115ee3c5731af7e1f0e42b238d59c8d30c095a05c005255bd",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -3782,14 +3782,14 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 301,
+        "stale_links": 305,
         "status_counts": {
           "pass": 2849,
           "fail": 0,
-          "known": 6558,
+          "known": 6554,
           "unsupported": 0,
           "unreviewed_oracle": 75,
-          "stale": 171,
+          "stale": 175,
           "not_run": 408,
           "unmapped": 2237,
           "interpretation_pending": 21
@@ -3971,14 +3971,14 @@
           "SV2023-8.13-EXTRACT-OVERRIDE-METHOD",
           "SV2023-8.22-EXTRACT-RUNTIME-DISPATCH"
         ],
-        "stale_links": 287,
+        "stale_links": 291,
         "status_counts": {
           "pass": 16,
           "fail": 0,
-          "known": 4110,
+          "known": 4106,
           "unsupported": 0,
           "unreviewed_oracle": 21,
-          "stale": 187,
+          "stale": 191,
           "not_run": 5727,
           "unmapped": 2237,
           "interpretation_pending": 21
@@ -4002,14 +4002,14 @@
           "SV2023-8.13-EXTRACT-OVERRIDE-METHOD",
           "SV2023-8.22-EXTRACT-RUNTIME-DISPATCH"
         ],
-        "stale_links": 287,
+        "stale_links": 291,
         "status_counts": {
           "pass": 11,
           "fail": 0,
-          "known": 4115,
+          "known": 4111,
           "unsupported": 0,
           "unreviewed_oracle": 21,
-          "stale": 187,
+          "stale": 191,
           "not_run": 5727,
           "unmapped": 2237,
           "interpretation_pending": 21
@@ -8982,14 +8982,14 @@
           "SV2023-A.9.3-EXTRACT-ALIAS-UDP-IDENTIFIER",
           "SV2023-A.9.3-EXTRACT-PARAMETER-SCOPE"
         ],
-        "stale_links": 14,
+        "stale_links": 18,
         "status_counts": {
           "pass": 67,
           "fail": 0,
-          "known": 324,
+          "known": 320,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 14,
+          "stale": 18,
           "not_run": 9656,
           "unmapped": 2237,
           "interpretation_pending": 21
@@ -9204,14 +9204,14 @@
           "SV2023-A.9.3-EXTRACT-PACKAGE-SCOPE",
           "SV2023-A.9.3-EXTRACT-TYPE-SCOPE"
         ],
-        "stale_links": 14,
+        "stale_links": 18,
         "status_counts": {
           "pass": 202,
           "fail": 0,
-          "known": 188,
+          "known": 184,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 14,
+          "stale": 18,
           "not_run": 9657,
           "unmapped": 2237,
           "interpretation_pending": 21
@@ -9426,14 +9426,14 @@
           "SV2023-A.9.3-EXTRACT-PACKAGE-SCOPE",
           "SV2023-A.9.3-EXTRACT-TYPE-SCOPE"
         ],
-        "stale_links": 14,
+        "stale_links": 18,
         "status_counts": {
           "pass": 202,
           "fail": 0,
-          "known": 188,
+          "known": 184,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 14,
+          "stale": 18,
           "not_run": 9657,
           "unmapped": 2237,
           "interpretation_pending": 21
@@ -13270,6 +13270,63 @@
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 10057,
+          "unmapped": 2237,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "sva-m3-corrections-20261026-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-10-26T11:49:21.588600+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 5,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10056,
+          "unmapped": 2237,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "sva-m3-corrections-20261026-verilator-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-26T11:49:21.845350+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 5,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10056,
+          "unmapped": 2237,
+          "interpretation_pending": 21
+        }
+      },
+      {
+        "file": "sva-m3-corrections-20261026-verilator-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+        "generated_at": "2026-10-26T11:49:27.252106+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 5,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 10056,
           "unmapped": 2237,
           "interpretation_pending": 21
         }

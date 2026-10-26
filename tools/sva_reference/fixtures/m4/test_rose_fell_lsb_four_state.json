@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "f469673a10fb12b4adec40f312b80b9077e21777a957d4f1dd343884bd04d1f0",
+  "signals": [
+    "test_rose_fell_lsb_four_state.v"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_rose_fell_lsb_four_state.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_rose_fell_lsb_four_state.v": 2
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "00"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "00"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "00"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "00"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "0x"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "0x"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "0x"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "0x"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "00"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "00"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "0z"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "0z"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "0z"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "0z"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "00"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "00"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "0x"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "0x"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "0z"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "0z"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "0x"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "0x"
+        }
+      },
+      {
+        "time": 155,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "10"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "10"
+        }
+      },
+      {
+        "time": 165,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "01"
+        }
+      },
+      {
+        "time": 175,
+        "sampled": {
+          "test_rose_fell_lsb_four_state.v": "11"
+        },
+        "settled": {
+          "test_rose_fell_lsb_four_state.v": "11"
+        }
+      }
+    ],
+    "end_time": 181
+  },
+  "projection": {
+    "protocol": "m4-static-sampled-v1",
+    "source_sha256": "631d8fd06650098f18e4c7ab097c53cb9c3fa811df0281583dc860a1a3884803",
+    "projection_sha256": "abf8dff42d7e11500285cc90dbab9cba0b77373531281fb50c04d1fecc45ea02",
+    "clock": "test_rose_fell_lsb_four_state.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_rose_fell_lsb_four_state.v"
+    ],
+    "types": {
+      "v": {
+        "width": 2,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "defaults": {
+      "v": {
+        "bits": "00",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "current_mode": null
+  }
+}

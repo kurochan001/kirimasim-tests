@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "f3e190e5e90507b8688b1c5defe89c9ba7b6cf190b201b4b9244d8e7f2b2ce95",
+  "signals": [
+    "test_past_gating_expression.a",
+    "test_past_gating_expression.gate"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_past_gating_expression.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_past_gating_expression.a": 32,
+      "test_past_gating_expression.gate": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000001",
+          "test_past_gating_expression.gate": "1"
+        },
+        "settled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000001",
+          "test_past_gating_expression.gate": "1"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000010",
+          "test_past_gating_expression.gate": "0"
+        },
+        "settled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000010",
+          "test_past_gating_expression.gate": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000011",
+          "test_past_gating_expression.gate": "1"
+        },
+        "settled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000011",
+          "test_past_gating_expression.gate": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000100",
+          "test_past_gating_expression.gate": "0"
+        },
+        "settled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000100",
+          "test_past_gating_expression.gate": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000101",
+          "test_past_gating_expression.gate": "0"
+        },
+        "settled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000101",
+          "test_past_gating_expression.gate": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000110",
+          "test_past_gating_expression.gate": "1"
+        },
+        "settled": {
+          "test_past_gating_expression.a": "00000000000000000000000000000110",
+          "test_past_gating_expression.gate": "1"
+        }
+      }
+    ],
+    "end_time": 60
+  },
+  "projection": {
+    "protocol": "m4-static-sampled-v1",
+    "source_sha256": "f1a0c5b309861b6d78cbc2ac54d5dd47e3d4f8d7c1fac26034be998cc08f16c4",
+    "projection_sha256": "11c04762c686d3febb5741b309b7a9977d517d00be189584b0199b4c9513a1f4",
+    "clock": "test_past_gating_expression.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_past_gating_expression.a",
+      "test_past_gating_expression.gate"
+    ],
+    "types": {
+      "a": {
+        "width": 32,
+        "signed": true,
+        "two_state": true,
+        "lsb": 0,
+        "ascending": false
+      },
+      "gate": {
+        "width": 1,
+        "signed": false,
+        "two_state": true,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "defaults": {
+      "a": {
+        "bits": "00000000000000000000000000000000",
+        "signed": true,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "gate": {
+        "bits": "0",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "current_mode": null
+  }
+}

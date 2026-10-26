@@ -760,6 +760,16 @@ an evaluation result for the concurrent assertions. No test or expected
 output was changed. The experiment and its scope are described in
 [`tools/sva_reference/README.md`](../tools/sva_reference/README.md).
 
+After the user approved two M3 expectation/explanation corrections, both
+`ch16/test_property_implication_operator_forms` and
+`ch16/test_zero_repetition_no_sample` were rerun with Icarus Verilog 13.0
+stable and Verilator 5.052 (seeds 1 and 73). Icarus rejected the assertion
+syntax. Verilator rejected the sequence antecedent of followed-by and `[*0]`,
+respectively. All six results are `known`, not output verification; the
+separate runs are saved as `coverage/results/sva-m3-corrections-20261026-*.json`.
+The clause-based corrections and their evidence are described in
+[`tools/sva_reference/M3_REVIEW.md`](../tools/sva_reference/M3_REVIEW.md).
+
 ## Cases added by the 2026-10-25 imported tests
 
 ### Icarus Verilog 13.0: results (imported tests)

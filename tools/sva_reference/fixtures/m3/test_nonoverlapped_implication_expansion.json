@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "4b3a448d1cc749aa10d11d4bd15a51fe7c95ebee900ad2a432008c49c552dc5c",
+  "signals": [
+    "test_nonoverlapped_implication_expansion.a",
+    "test_nonoverlapped_implication_expansion.b",
+    "test_nonoverlapped_implication_expansion.c"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_nonoverlapped_implication_expansion.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_nonoverlapped_implication_expansion.a": 1,
+      "test_nonoverlapped_implication_expansion.b": 1,
+      "test_nonoverlapped_implication_expansion.c": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        },
+        "settled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_nonoverlapped_implication_expansion.a": "1",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        },
+        "settled": {
+          "test_nonoverlapped_implication_expansion.a": "1",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "0",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        },
+        "settled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "0",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_nonoverlapped_implication_expansion.a": "1",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        },
+        "settled": {
+          "test_nonoverlapped_implication_expansion.a": "1",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "1"
+        },
+        "settled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "1"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "0",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        },
+        "settled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "0",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        },
+        "settled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        },
+        "settled": {
+          "test_nonoverlapped_implication_expansion.a": "0",
+          "test_nonoverlapped_implication_expansion.b": "1",
+          "test_nonoverlapped_implication_expansion.c": "0"
+        }
+      }
+    ],
+    "end_time": 80
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "587ecf4b0cbc6359d28b66f2c1ff568bb480f7ddb0cdddfeaacb02b21293ae95",
+    "projection_sha256": "eebc61ea466cc8b7fe9a0939a04cbf6a77c518050e121a9de329ce9020c5dc57",
+    "clock": "test_nonoverlapped_implication_expansion.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_nonoverlapped_implication_expansion.a",
+      "test_nonoverlapped_implication_expansion.b",
+      "test_nonoverlapped_implication_expansion.c"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

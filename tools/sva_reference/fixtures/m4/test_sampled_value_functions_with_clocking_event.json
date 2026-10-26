@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "36d0f04b74f266f3de60b1f32a5c96b6a058ae0fa8c054dfe955de0b8f4d9ba3",
+  "signals": [
+    "test_sampled_value_functions_with_clocking_event.a"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sampled_value_functions_with_clocking_event.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sampled_value_functions_with_clocking_event.a": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sampled_value_functions_with_clocking_event.a": "0"
+        },
+        "settled": {
+          "test_sampled_value_functions_with_clocking_event.a": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sampled_value_functions_with_clocking_event.a": "1"
+        },
+        "settled": {
+          "test_sampled_value_functions_with_clocking_event.a": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sampled_value_functions_with_clocking_event.a": "1"
+        },
+        "settled": {
+          "test_sampled_value_functions_with_clocking_event.a": "1"
+        }
+      }
+    ],
+    "end_time": 30
+  },
+  "projection": {
+    "protocol": "m4-static-sampled-v1",
+    "source_sha256": "c291eb28d0d0a8bb97e71ca7a29846599ac0f9a8434ae7bfa28c75c6c6fd7735",
+    "projection_sha256": "629b76ee99971419bcf8a0eede51333a8156fc3c5f08b1283c7b72682c5a0bac",
+    "clock": "test_sampled_value_functions_with_clocking_event.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sampled_value_functions_with_clocking_event.a"
+    ],
+    "types": {
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": true,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "defaults": {
+      "a": {
+        "bits": "0",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "current_mode": null
+  }
+}

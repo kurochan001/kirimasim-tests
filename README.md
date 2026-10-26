@@ -90,6 +90,14 @@ The suite has **7051 tests** in 37 chapters. 1308 of them are generated (`tests/
 | 40 | Code coverage control and API | 30 | 1 | 2 | 27 |
 <!-- suite-stats:end -->
 
+Additional SVA validation is tracked separately from these oracle counts:
+the reference evaluator reproduces **45 test outputs**, and **40 semantic
+models** passed symbolic bounded checks, with **22 of those models** also
+passing unbounded PDR equivalence proofs. Formal models are not additional
+suite tests, and these results do not reclassify tests in the tables above.
+See the [SVA reference and formal verification guide](docs/sva-reference-formal-verification.md)
+for the scope, evidence and reproduction commands.
+
 The [catalog](docs/tests/README.md) lists every test, chapter by chapter,
 with what it checks and the clauses it cites, and
 [docs/tests/clauses.md](docs/tests/clauses.md) shows, chapter by chapter,
@@ -505,6 +513,19 @@ seeds for the initial values. Every expected output that lists a release was
 reproduced by that release, and none was found to record a deviation of a
 release from the standard; the deviations that the runs showed are in that
 file.
+
+### Independent SVA checks and formal models
+
+The [SVA reference evaluator](tools/sva_reference/README.md) independently
+reproduces 45 selected test outputs from sampled input traces. An optional
+Yosys/SymbiYosys suite additionally compares its semantics with separately
+written RTL models under unconstrained inputs: 40 bounded checks and 22
+unbounded streaming equivalence proofs passed, with reachability witnesses
+and deliberate-error counterexamples. These are checks of the selected
+semantic models; they do not change oracle metadata or simulator execution
+coverage. The [Japanese guide](docs/sva-reference-formal-verification.md)
+explains the scope, results and reproduction commands; the
+[technical report](tools/sva_reference/FORMAL_REVIEW.md) links the saved evidence.
 
 ### Generated tests
 

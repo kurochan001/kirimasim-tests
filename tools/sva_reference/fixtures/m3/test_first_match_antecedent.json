@@ -1,0 +1,420 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "6823cb09df331059ba1cf9b5c5d2e554092c9e1718ccc0f07c97081f9e9c5938",
+  "signals": [
+    "test_first_match_antecedent.a",
+    "test_first_match_antecedent.b",
+    "test_first_match_antecedent.c"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_first_match_antecedent.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_first_match_antecedent.a": 1,
+      "test_first_match_antecedent.b": 1,
+      "test_first_match_antecedent.c": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "1"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "1"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "1"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "1"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "1"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 155,
+        "sampled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 165,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 175,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 185,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 195,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 205,
+        "sampled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "1",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 215,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 225,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 235,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "1",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 245,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "1"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "1"
+        }
+      },
+      {
+        "time": 255,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      },
+      {
+        "time": 265,
+        "sampled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        },
+        "settled": {
+          "test_first_match_antecedent.a": "0",
+          "test_first_match_antecedent.b": "0",
+          "test_first_match_antecedent.c": "0"
+        }
+      }
+    ],
+    "end_time": 270
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "238a81ab5a8deb9a44f5b8675feb2d671fa0b77e04d61c79920d9141a43bd42c",
+    "projection_sha256": "c318e1568d8de63e00aae98d7ebe47f468c749e75d53009e476873dc3742fe9e",
+    "clock": "test_first_match_antecedent.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_first_match_antecedent.a",
+      "test_first_match_antecedent.b",
+      "test_first_match_antecedent.c"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}

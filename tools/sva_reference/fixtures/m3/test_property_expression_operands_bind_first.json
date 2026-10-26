@@ -1,0 +1,199 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "288f9d14abc48b661efd0dc5db55e273d767495654f8db93e667b13788cb490a",
+  "signals": [
+    "test_property_expression_operands_bind_first.a",
+    "test_property_expression_operands_bind_first.b",
+    "test_property_expression_operands_bind_first.c",
+    "test_property_expression_operands_bind_first.e"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_property_expression_operands_bind_first.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_property_expression_operands_bind_first.a": 1,
+      "test_property_expression_operands_bind_first.b": 1,
+      "test_property_expression_operands_bind_first.c": 1,
+      "test_property_expression_operands_bind_first.e": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_property_expression_operands_bind_first.a": "0",
+          "test_property_expression_operands_bind_first.b": "0",
+          "test_property_expression_operands_bind_first.c": "0",
+          "test_property_expression_operands_bind_first.e": "0"
+        },
+        "settled": {
+          "test_property_expression_operands_bind_first.a": "0",
+          "test_property_expression_operands_bind_first.b": "0",
+          "test_property_expression_operands_bind_first.c": "0",
+          "test_property_expression_operands_bind_first.e": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_property_expression_operands_bind_first.a": "0",
+          "test_property_expression_operands_bind_first.b": "0",
+          "test_property_expression_operands_bind_first.c": "1",
+          "test_property_expression_operands_bind_first.e": "1"
+        },
+        "settled": {
+          "test_property_expression_operands_bind_first.a": "0",
+          "test_property_expression_operands_bind_first.b": "0",
+          "test_property_expression_operands_bind_first.c": "1",
+          "test_property_expression_operands_bind_first.e": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_property_expression_operands_bind_first.a": "0",
+          "test_property_expression_operands_bind_first.b": "1",
+          "test_property_expression_operands_bind_first.c": "0",
+          "test_property_expression_operands_bind_first.e": "1"
+        },
+        "settled": {
+          "test_property_expression_operands_bind_first.a": "0",
+          "test_property_expression_operands_bind_first.b": "1",
+          "test_property_expression_operands_bind_first.c": "0",
+          "test_property_expression_operands_bind_first.e": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_property_expression_operands_bind_first.a": "0",
+          "test_property_expression_operands_bind_first.b": "1",
+          "test_property_expression_operands_bind_first.c": "1",
+          "test_property_expression_operands_bind_first.e": "0"
+        },
+        "settled": {
+          "test_property_expression_operands_bind_first.a": "0",
+          "test_property_expression_operands_bind_first.b": "1",
+          "test_property_expression_operands_bind_first.c": "1",
+          "test_property_expression_operands_bind_first.e": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_property_expression_operands_bind_first.a": "1",
+          "test_property_expression_operands_bind_first.b": "0",
+          "test_property_expression_operands_bind_first.c": "0",
+          "test_property_expression_operands_bind_first.e": "0"
+        },
+        "settled": {
+          "test_property_expression_operands_bind_first.a": "1",
+          "test_property_expression_operands_bind_first.b": "0",
+          "test_property_expression_operands_bind_first.c": "0",
+          "test_property_expression_operands_bind_first.e": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_property_expression_operands_bind_first.a": "1",
+          "test_property_expression_operands_bind_first.b": "0",
+          "test_property_expression_operands_bind_first.c": "1",
+          "test_property_expression_operands_bind_first.e": "1"
+        },
+        "settled": {
+          "test_property_expression_operands_bind_first.a": "1",
+          "test_property_expression_operands_bind_first.b": "0",
+          "test_property_expression_operands_bind_first.c": "1",
+          "test_property_expression_operands_bind_first.e": "1"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_property_expression_operands_bind_first.a": "1",
+          "test_property_expression_operands_bind_first.b": "1",
+          "test_property_expression_operands_bind_first.c": "0",
+          "test_property_expression_operands_bind_first.e": "1"
+        },
+        "settled": {
+          "test_property_expression_operands_bind_first.a": "1",
+          "test_property_expression_operands_bind_first.b": "1",
+          "test_property_expression_operands_bind_first.c": "0",
+          "test_property_expression_operands_bind_first.e": "1"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_property_expression_operands_bind_first.a": "1",
+          "test_property_expression_operands_bind_first.b": "1",
+          "test_property_expression_operands_bind_first.c": "1",
+          "test_property_expression_operands_bind_first.e": "0"
+        },
+        "settled": {
+          "test_property_expression_operands_bind_first.a": "1",
+          "test_property_expression_operands_bind_first.b": "1",
+          "test_property_expression_operands_bind_first.c": "1",
+          "test_property_expression_operands_bind_first.e": "0"
+        }
+      }
+    ],
+    "end_time": 80
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "d202820fee15bef266459c80b1ecbc406fb4bed2091ffcaa0adbe5a3f49ca0f1",
+    "projection_sha256": "091e3dc20851dd679ce4d7221792e943ae9b766bbede012cda7eff5c88c7b525",
+    "clock": "test_property_expression_operands_bind_first.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_property_expression_operands_bind_first.a",
+      "test_property_expression_operands_bind_first.b",
+      "test_property_expression_operands_bind_first.c",
+      "test_property_expression_operands_bind_first.e"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "e": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "m3_protocol": "m3-source-projection-v1",
+    "current_mode": null
+  },
+  "current": []
+}
