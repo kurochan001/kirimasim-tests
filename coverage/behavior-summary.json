@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "07953e1458038f34139c13c483db1b33fc2655722e728a24627a8f14a2fffc0a",
+  "registry_sha256": "1e62e076acaa0c1a0beee410fde9d9dfe61f70a020cfb7bab86f068050493ae6",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -42,18 +42,18 @@
   "normative_sections": 1703,
   "audited_sections": 1683,
   "registered": 12319,
-  "mapped": 9492,
+  "mapped": 9585,
   "denominator_reviewed": false,
   "extraction_progress_percent": 98.825601879037,
-  "unmapped": 2827,
-  "executed": 5394,
+  "unmapped": 2734,
+  "executed": 5424,
   "whole_standard_percent": null,
   "whole_standard_executed_percent": null,
-  "registered_percent": 77.05170874259274,
+  "registered_percent": 77.80664014936278,
   "metric_policy_version": 3,
   "whole_standard_status": "provisional",
-  "provisional_design_percent": 77.05170874259274,
-  "provisional_execution_percent": 43.78602159266174,
+  "provisional_design_percent": 77.80664014936278,
+  "provisional_execution_percent": 44.02954785291014,
   "denominator": {
     "count": 12319,
     "unit": "registered_requirement_condition_or_observation",
@@ -64,14 +64,14 @@
   },
   "test_mapping": {
     "suite_test_files": 6799,
-    "linked_test_files": 4408,
-    "unlinked_test_files": 2391
+    "linked_test_files": 4430,
+    "unlinked_test_files": 2369
   },
-  "collective_requirement_count": 604,
+  "collective_requirement_count": 625,
   "requirement_status_counts": {
-    "pass": 5394,
-    "mapped_without_pass": 4098,
-    "unmapped": 2806,
+    "pass": 5424,
+    "mapped_without_pass": 4161,
+    "unmapped": 2713,
     "interpretation_pending": 21
   },
   "chapters": [
@@ -259,9 +259,9 @@
       "clause": "19",
       "title": "Functional coverage",
       "registered": 272,
-      "mapped": 164,
+      "mapped": 172,
       "executed": 10,
-      "design_percent": 60.294117647058826,
+      "design_percent": 63.23529411764706,
       "execution_percent": 3.676470588235294,
       "interpretation_pending": 2
     },
@@ -269,49 +269,49 @@
       "clause": "20",
       "title": "Utility system tasks and system functions",
       "registered": 317,
-      "mapped": 237,
-      "executed": 114,
-      "design_percent": 74.76340694006309,
-      "execution_percent": 35.96214511041009,
+      "mapped": 260,
+      "executed": 120,
+      "design_percent": 82.01892744479495,
+      "execution_percent": 37.85488958990536,
       "interpretation_pending": 1
     },
     {
       "clause": "21",
       "title": "Input/output system tasks and system functions",
       "registered": 384,
-      "mapped": 271,
-      "executed": 163,
-      "design_percent": 70.57291666666667,
-      "execution_percent": 42.447916666666664,
+      "mapped": 282,
+      "executed": 167,
+      "design_percent": 73.4375,
+      "execution_percent": 43.489583333333336,
       "interpretation_pending": 1
     },
     {
       "clause": "22",
       "title": "Compiler directives",
       "registered": 362,
-      "mapped": 327,
-      "executed": 314,
-      "design_percent": 90.33149171270718,
-      "execution_percent": 86.74033149171271,
+      "mapped": 328,
+      "executed": 315,
+      "design_percent": 90.60773480662984,
+      "execution_percent": 87.01657458563535,
       "interpretation_pending": 0
     },
     {
       "clause": "23",
       "title": "Modules and hierarchy",
       "registered": 260,
-      "mapped": 152,
-      "executed": 78,
-      "design_percent": 58.46153846153846,
-      "execution_percent": 30.0,
+      "mapped": 166,
+      "executed": 82,
+      "design_percent": 63.84615384615385,
+      "execution_percent": 31.53846153846154,
       "interpretation_pending": 0
     },
     {
       "clause": "24",
       "title": "Programs",
       "registered": 29,
-      "mapped": 9,
+      "mapped": 16,
       "executed": 3,
-      "design_percent": 31.03448275862069,
+      "design_percent": 55.172413793103445,
       "execution_percent": 10.344827586206897,
       "interpretation_pending": 0
     },
@@ -319,19 +319,19 @@
       "clause": "25",
       "title": "Interfaces",
       "registered": 63,
-      "mapped": 41,
-      "executed": 26,
-      "design_percent": 65.07936507936508,
-      "execution_percent": 41.26984126984127,
+      "mapped": 43,
+      "executed": 27,
+      "design_percent": 68.25396825396825,
+      "execution_percent": 42.857142857142854,
       "interpretation_pending": 2
     },
     {
       "clause": "26",
       "title": "Packages",
       "registered": 44,
-      "mapped": 37,
+      "mapped": 39,
       "executed": 30,
-      "design_percent": 84.0909090909091,
+      "design_percent": 88.63636363636364,
       "execution_percent": 68.18181818181819,
       "interpretation_pending": 0
     },
@@ -339,49 +339,49 @@
       "clause": "27",
       "title": "Generate constructs",
       "registered": 32,
-      "mapped": 24,
-      "executed": 18,
-      "design_percent": 75.0,
-      "execution_percent": 56.25,
+      "mapped": 27,
+      "executed": 20,
+      "design_percent": 84.375,
+      "execution_percent": 62.5,
       "interpretation_pending": 0
     },
     {
       "clause": "28",
       "title": "Gate-level and switch-level modeling",
       "registered": 384,
-      "mapped": 353,
-      "executed": 269,
-      "design_percent": 91.92708333333333,
-      "execution_percent": 70.05208333333333,
+      "mapped": 363,
+      "executed": 278,
+      "design_percent": 94.53125,
+      "execution_percent": 72.39583333333333,
       "interpretation_pending": 1
     },
     {
       "clause": "29",
       "title": "User-defined primitives",
       "registered": 52,
-      "mapped": 47,
-      "executed": 37,
-      "design_percent": 90.38461538461539,
-      "execution_percent": 71.15384615384616,
+      "mapped": 49,
+      "executed": 38,
+      "design_percent": 94.23076923076923,
+      "execution_percent": 73.07692307692308,
       "interpretation_pending": 0
     },
     {
       "clause": "30",
       "title": "Specify blocks",
       "registered": 157,
-      "mapped": 125,
-      "executed": 99,
-      "design_percent": 79.61783439490446,
-      "execution_percent": 63.05732484076433,
+      "mapped": 130,
+      "executed": 101,
+      "design_percent": 82.80254777070064,
+      "execution_percent": 64.3312101910828,
       "interpretation_pending": 0
     },
     {
       "clause": "31",
       "title": "Timing checks",
       "registered": 180,
-      "mapped": 137,
+      "mapped": 140,
       "executed": 7,
-      "design_percent": 76.11111111111111,
+      "design_percent": 77.77777777777777,
       "execution_percent": 3.888888888888889,
       "interpretation_pending": 1
     },
@@ -389,9 +389,9 @@
       "clause": "32",
       "title": "Backannotation using the standard delay format",
       "registered": 131,
-      "mapped": 114,
+      "mapped": 115,
       "executed": 64,
-      "design_percent": 87.02290076335878,
+      "design_percent": 87.78625954198473,
       "execution_percent": 48.85496183206107,
       "interpretation_pending": 0
     },
@@ -399,9 +399,9 @@
       "clause": "33",
       "title": "Configuring the contents of a design",
       "registered": 63,
-      "mapped": 24,
+      "mapped": 25,
       "executed": 7,
-      "design_percent": 38.095238095238095,
+      "design_percent": 39.682539682539684,
       "execution_percent": 11.11111111111111,
       "interpretation_pending": 2
     },
@@ -672,8 +672,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9490,
-          "unmapped": 2806,
+          "not_run": 9583,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -694,8 +694,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9490,
-          "unmapped": 2806,
+          "not_run": 9583,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -716,8 +716,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9490,
-          "unmapped": 2806,
+          "not_run": 9583,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -735,8 +735,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 4,
-          "not_run": 9465,
-          "unmapped": 2806,
+          "not_run": 9558,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -763,8 +763,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 4,
-          "not_run": 9465,
-          "unmapped": 2806,
+          "not_run": 9558,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -791,8 +791,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 4,
-          "not_run": 9465,
-          "unmapped": 2806,
+          "not_run": 9558,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -810,8 +810,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9456,
-          "unmapped": 2806,
+          "not_run": 9549,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -858,8 +858,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9456,
-          "unmapped": 2806,
+          "not_run": 9549,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -877,8 +877,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9490,
-          "unmapped": 2806,
+          "not_run": 9583,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -899,8 +899,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9490,
-          "unmapped": 2806,
+          "not_run": 9583,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -921,8 +921,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9490,
-          "unmapped": 2806,
+          "not_run": 9583,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -1351,20 +1351,25 @@
           "SV2023-18.13.2-EXTRACT-URANDOM-RANGE-DEFAULT",
           "SV2023-18.13.2-EXTRACT-URANDOM-RANGE-REVERSE",
           "SV2023-20.10-EXTRACT-ERROR",
+          "SV2023-20.10-EXTRACT-FATAL",
           "SV2023-20.10-EXTRACT-INFO",
           "SV2023-20.10-EXTRACT-SEVERITY-LOCATION",
           "SV2023-20.10-EXTRACT-SEVERITY-USER-MESSAGE",
           "SV2023-20.10-EXTRACT-WARNING",
+          "SV2023-20.14.1-EXTRACT-RANDOM-SIGNED",
           "SV2023-20.14.2-DIST-SEED-REPLAY",
+          "SV2023-20.14.2-EXTRACT-DEGREES-SPREAD",
           "SV2023-20.14.2-EXTRACT-DIST-CHI-SQUARE",
           "SV2023-20.14.2-EXTRACT-DIST-ERLANG",
           "SV2023-20.14.2-EXTRACT-DIST-EXPONENTIAL",
+          "SV2023-20.14.2-EXTRACT-DIST-MEAN",
           "SV2023-20.14.2-EXTRACT-DIST-NORMAL",
           "SV2023-20.14.2-EXTRACT-DIST-POISSON",
           "SV2023-20.14.2-EXTRACT-DIST-SEED-INOUT",
           "SV2023-20.14.2-EXTRACT-DIST-SEED-PRACTICE",
           "SV2023-20.14.2-EXTRACT-DIST-T",
           "SV2023-20.14.2-EXTRACT-DIST-UNIFORM",
+          "SV2023-20.14.2-EXTRACT-NORMAL-SPREAD",
           "SV2023-20.14.2-EXTRACT-UNIFORM-BOUNDS",
           "SV2023-20.14.2-UNIFORM-SINGLETON",
           "SV2023-20.15-EXTRACT-QUEUE-API",
@@ -1453,6 +1458,7 @@
           "SV2023-21.2.1.1-EXTRACT-FORMAT-TIME",
           "SV2023-21.2.1.1-EXTRACT-FORMAT-TWO-STATE",
           "SV2023-21.2.1.1-EXTRACT-FOUR-STATE-WORD-ORDER",
+          "SV2023-21.2.1.1-EXTRACT-REAL-C-FORMATTING",
           "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-EXPONENTIAL",
           "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-GENERAL",
           "SV2023-21.2.1.1-EXTRACT-TWO-STATE-WORD-ORDER",
@@ -1548,6 +1554,7 @@
           "SV2023-21.3.6-EXTRACT-FFLUSH",
           "SV2023-21.3.7-EXTRACT-FERROR",
           "SV2023-21.3.7-EXTRACT-FERROR-CLEAR",
+          "SV2023-21.3.7-EXTRACT-FERROR-TARGET-SIZE",
           "SV2023-21.3.7-FERROR-NO-ERROR",
           "SV2023-21.3.8-EXTRACT-FEOF",
           "SV2023-21.4-EXTRACT-DEFAULT-UPWARD-LOAD",
@@ -1579,6 +1586,8 @@
           "SV2023-21.6-EXTRACT-VALUE-FORMAT-S",
           "SV2023-21.6-EXTRACT-VALUE-NOT-FOUND",
           "SV2023-21.6-EXTRACT-VALUE-WIDTH",
+          "SV2023-21.7.1-EXTRACT-ASCII-CONTENTS",
+          "SV2023-21.7.1-EXTRACT-DUMP-TASKS",
           "SV2023-21.7.2.3-EXTRACT-TIMESCALE-COMMAND",
           "SV2023-22.10-EXTRACT-CELL-PAIRING",
           "SV2023-22.10-EXTRACT-CELL-RESET",
@@ -1719,6 +1728,7 @@
           "SV2023-22.14.4-EXTRACT-EXCLUDE-CELL",
           "SV2023-22.14.4-EXTRACT-EXCLUDE-CONFIG",
           "SV2023-22.14.4-EXTRACT-EXCLUDE-DESIGN",
+          "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
           "SV2023-22.14.5-EXTRACT-RESERVED-UWIRE",
           "SV2023-22.14.6-EXTRACT-RESERVED-ALIAS",
           "SV2023-22.14.6-EXTRACT-RESERVED-ALWAYS-COMB",
@@ -1890,6 +1900,7 @@
           "SV2023-23.10.2.1-EXTRACT-ORDERED-PARAMETERS",
           "SV2023-23.10.2.2-EXTRACT-DIFFERENT-INSTANCE-PARAMETER-STYLES",
           "SV2023-23.10.2.2-EXTRACT-NAMED-PARAMETERS",
+          "SV2023-23.10.2.2-EXTRACT-NO-MIXED-PARAMETER-INSTANCE",
           "SV2023-23.10.3-EXTRACT-OVERRIDDEN-TYPE-ONLY",
           "SV2023-23.10.3-EXTRACT-PARAMETER-DEPENDENCE",
           "SV2023-23.2-EXTRACT-MODULE-DELIMITERS",
@@ -1914,6 +1925,7 @@
           "SV2023-23.3.2.3-EXTRACT-IMPLICIT-NAME-EQUIVALENCE",
           "SV2023-23.3.2.3-EXTRACT-IMPLICIT-NO-NET",
           "SV2023-23.3.2.4-EXTRACT-PER-INSTANCE-STYLES",
+          "SV2023-23.3.3-EXTRACT-PORT-SOURCE-SINK",
           "SV2023-23.3.3.2-EXTRACT-NO-VARIABLE-INOUT",
           "SV2023-23.3.3.2-EXTRACT-VARIABLE-OUTPUT-NET",
           "SV2023-23.3.3.2-EXTRACT-VARIABLE-OUTPUT-VARIABLE",
@@ -1976,11 +1988,13 @@
           "SV2023-26.6-EXTRACT-EXPORT-WILDCARD",
           "SV2023-27.3-EXTRACT-GENERATE-CONSTANT-ELABORATION",
           "SV2023-27.3-EXTRACT-GENERATE-FORMS",
+          "SV2023-27.3-EXTRACT-GENERATE-GRAMMAR",
           "SV2023-27.3-EXTRACT-GENERATE-OPTIONAL-REGION",
           "SV2023-27.4-EXTRACT-GENERATE-ARRAY-COLLISION",
           "SV2023-27.4-EXTRACT-GENERATE-REPEATED-INDEX",
           "SV2023-27.4-EXTRACT-GENERATE-UNKNOWN-INDEX",
           "SV2023-27.4-EXTRACT-GENVAR-ASSIGNMENT",
+          "SV2023-27.4-EXTRACT-GENVAR-DECLARED",
           "SV2023-27.4-EXTRACT-GENVAR-ELABORATION-ONLY",
           "SV2023-27.4-EXTRACT-GENVAR-SHADOW",
           "SV2023-27.4-EXTRACT-LOOP-SINGLE-ITEM-SCOPE",
@@ -1992,7 +2006,9 @@
           "SV2023-27.5-EXTRACT-GENERATE-DANGLING-ELSE",
           "SV2023-27.5-EXTRACT-RECURSIVE-MODULE",
           "SV2023-27.6-EXTRACT-GENBLK-COLLISION",
+          "SV2023-28.10-EXTRACT-PULL-DEFAULT-STRENGTH",
           "SV2023-28.10-EXTRACT-PULL-NO-DELAY",
+          "SV2023-28.10-EXTRACT-PULL-VALUES",
           "SV2023-28.11-EXTRACT-DRIVING-STRENGTHS",
           "SV2023-28.11-EXTRACT-LEVEL-MEDIUM0",
           "SV2023-28.11-EXTRACT-LEVEL-MEDIUM1",
@@ -2017,6 +2033,7 @@
           "SV2023-28.12.2-EXTRACT-HIGHZ-GATE-UNKNOWN",
           "SV2023-28.12.2-EXTRACT-KNOWN-RANGES-COMBINATION",
           "SV2023-28.12.2-EXTRACT-UNKNOWN-RANGE-NOTATION",
+          "SV2023-28.12.3-EXTRACT-AMBIGUOUS-GAP-FILL",
           "SV2023-28.12.3-EXTRACT-AMBIGUOUS-STRONG-REMAINS",
           "SV2023-28.12.3-EXTRACT-AMBIGUOUS-WEAK-ELIMINATION",
           "SV2023-28.13-EXTRACT-NONRESISTIVE-MOS-STRENGTH",
@@ -2057,9 +2074,11 @@
           "SV2023-28.16-EXTRACT-DELAY-Z-X-2",
           "SV2023-28.16-EXTRACT-DELAY-Z-X-3",
           "SV2023-28.16-EXTRACT-GATE-DELAY-MEANING",
+          "SV2023-28.16-EXTRACT-NET-DELAY-MEANING",
           "SV2023-28.16-EXTRACT-THREE-DELAYS",
           "SV2023-28.16.1-EXTRACT-PROCEDURAL-MINTYPMAX",
           "SV2023-28.3-EXTRACT-PRIMITIVE-TERMINALS",
+          "SV2023-28.3-EXTRACT-SHARED-STRENGTH-DELAY",
           "SV2023-28.3.1-EXTRACT-PRIMITIVE-AND",
           "SV2023-28.3.1-EXTRACT-PRIMITIVE-BUF",
           "SV2023-28.3.1-EXTRACT-PRIMITIVE-BUFIF0",
@@ -2088,14 +2107,18 @@
           "SV2023-28.3.1-MULTIPLE-INSTANCES",
           "SV2023-28.3.2-EXTRACT-DRIVE-STRENGTH-KEYWORDS",
           "SV2023-28.3.2-EXTRACT-PULL-STRENGTH-SYNTAX",
+          "SV2023-28.3.2-EXTRACT-STRENGTH-AND",
           "SV2023-28.3.2-EXTRACT-STRENGTH-BUF",
           "SV2023-28.3.2-EXTRACT-STRENGTH-BUFIF0",
           "SV2023-28.3.2-EXTRACT-STRENGTH-BUFIF1",
           "SV2023-28.3.2-EXTRACT-STRENGTH-ELIGIBILITY",
+          "SV2023-28.3.2-EXTRACT-STRENGTH-NOR",
           "SV2023-28.3.2-EXTRACT-STRENGTH-NOT",
           "SV2023-28.3.2-EXTRACT-STRENGTH-NOTIF0",
           "SV2023-28.3.2-EXTRACT-STRENGTH-NOTIF1",
           "SV2023-28.3.2-EXTRACT-STRENGTH-PAIR-SYNTAX",
+          "SV2023-28.3.2-EXTRACT-STRENGTH-PULLDOWN",
+          "SV2023-28.3.2-EXTRACT-STRENGTH-PULLUP",
           "SV2023-28.3.2-SCALAR-BROADCAST",
           "SV2023-28.3.5-EXTRACT-INSTANCE-RANGE-CONTIGUOUS",
           "SV2023-28.3.6-EXTRACT-ARRAY-TERMINAL-BROADCAST",
@@ -2259,6 +2282,7 @@
           "SV2023-29.3-EXTRACT-UDP-INITIAL-LITERALS",
           "SV2023-29.3.1-EXTRACT-UDP-SCALAR-PORTS",
           "SV2023-29.3.2-EXTRACT-UDP-INPUT-CAPACITY",
+          "SV2023-29.3.2-EXTRACT-UDP-TERMINALS",
           "SV2023-29.3.3-EXTRACT-UDP-INITIAL-ASSIGNMENT",
           "SV2023-29.3.4-EXTRACT-COMBINATIONAL-FIELDS",
           "SV2023-29.3.4-EXTRACT-UDP-TABLE-DELIMITERS",
@@ -2364,6 +2388,7 @@
           "SV2023-3.9-EXTRACT-PACKAGE-SHARING",
           "SV2023-30.4.1-EXTRACT-PATH-DESTINATION-TYPE",
           "SV2023-30.4.2-EXTRACT-PATH-OPERATORS",
+          "SV2023-30.4.3-EXTRACT-DATA-SOURCE-DESCRIPTIVE",
           "SV2023-30.4.4.1-EXTRACT-STATE-OP-BITWISE-AND",
           "SV2023-30.4.4.1-EXTRACT-STATE-OP-BITWISE-NOT",
           "SV2023-30.4.4.1-EXTRACT-STATE-OP-BITWISE-OR",
@@ -2388,6 +2413,7 @@
           "SV2023-30.4.7-EXTRACT-PATH-POLARITY-METADATA",
           "SV2023-30.4.7.1-EXTRACT-POLARITY-MEANING",
           "SV2023-30.4.7.1-EXTRACT-POLARITY-SYNTAX",
+          "SV2023-30.4.7.2-EXTRACT-POLARITY-MEANING",
           "SV2023-30.5-EXTRACT-PATH-DELAY-ORDER",
           "SV2023-30.5.1-EXTRACT-TRANSITION-01-1",
           "SV2023-30.5.1-EXTRACT-TRANSITION-01-12",
@@ -3748,16 +3774,16 @@
           "SV2023-N.2-EXTRACT-UNIFORM-STORAGE",
           "SV2023-N.2-EXTRACT-ZERO-SEED"
         ],
-        "stale_links": 267,
+        "stale_links": 269,
         "status_counts": {
-          "pass": 2815,
+          "pass": 2841,
           "fail": 0,
-          "known": 6464,
+          "known": 6529,
           "unsupported": 0,
-          "unreviewed_oracle": 73,
-          "stale": 140,
+          "unreviewed_oracle": 74,
+          "stale": 141,
           "not_run": 0,
-          "unmapped": 2806,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -3850,6 +3876,7 @@
           "SV2023-21.2.1-EXTRACT-EMPTY-ARGUMENTS",
           "SV2023-21.3.2-EXTRACT-FILE-DISPLAY-FORMS",
           "SV2023-22.8-EXTRACT-NETTYPE-VALUES",
+          "SV2023-23.11-EXTRACT-INTERFACE-BIND-KINDS",
           "SV2023-23.11-EXTRACT-NO-NESTED-BIND",
           "SV2023-23.3.2.3-EXTRACT-IMPLICIT-PRIOR-DECLARATION",
           "SV2023-23.3.3.3-EXTRACT-NET-INPUT",
@@ -3903,14 +3930,14 @@
         ],
         "stale_links": 0,
         "status_counts": {
-          "pass": 133,
+          "pass": 134,
           "fail": 0,
           "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9359,
-          "unmapped": 2806,
+          "not_run": 9451,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -3937,16 +3964,16 @@
           "SV2023-8.13-EXTRACT-OVERRIDE-METHOD",
           "SV2023-8.22-EXTRACT-RUNTIME-DISPATCH"
         ],
-        "stale_links": 256,
+        "stale_links": 258,
         "status_counts": {
           "pass": 16,
           "fail": 0,
-          "known": 4058,
+          "known": 4115,
           "unsupported": 0,
-          "unreviewed_oracle": 20,
-          "stale": 157,
-          "not_run": 5241,
-          "unmapped": 2806,
+          "unreviewed_oracle": 21,
+          "stale": 159,
+          "not_run": 5274,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -3968,16 +3995,16 @@
           "SV2023-8.13-EXTRACT-OVERRIDE-METHOD",
           "SV2023-8.22-EXTRACT-RUNTIME-DISPATCH"
         ],
-        "stale_links": 256,
+        "stale_links": 258,
         "status_counts": {
           "pass": 11,
           "fail": 0,
-          "known": 4063,
+          "known": 4120,
           "unsupported": 0,
-          "unreviewed_oracle": 20,
-          "stale": 157,
-          "not_run": 5241,
-          "unmapped": 2806,
+          "unreviewed_oracle": 21,
+          "stale": 159,
+          "not_run": 5274,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -3995,8 +4022,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9478,
-          "unmapped": 2806,
+          "not_run": 9571,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4014,8 +4041,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9478,
-          "unmapped": 2806,
+          "not_run": 9571,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4033,8 +4060,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9478,
-          "unmapped": 2806,
+          "not_run": 9571,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4052,8 +4079,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 8,
-          "not_run": 9484,
-          "unmapped": 2806,
+          "not_run": 9577,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4071,8 +4098,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 8,
-          "not_run": 9484,
-          "unmapped": 2806,
+          "not_run": 9577,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4090,8 +4117,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 8,
-          "not_run": 9484,
-          "unmapped": 2806,
+          "not_run": 9577,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4109,8 +4136,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9481,
-          "unmapped": 2806,
+          "not_run": 9574,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4128,8 +4155,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9481,
-          "unmapped": 2806,
+          "not_run": 9574,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4147,8 +4174,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9481,
-          "unmapped": 2806,
+          "not_run": 9574,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4168,8 +4195,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9491,
-          "unmapped": 2806,
+          "not_run": 9584,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4187,8 +4214,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9491,
-          "unmapped": 2806,
+          "not_run": 9584,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4206,8 +4233,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9491,
-          "unmapped": 2806,
+          "not_run": 9584,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4237,8 +4264,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9469,
-          "unmapped": 2806,
+          "not_run": 9562,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4275,8 +4302,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9469,
-          "unmapped": 2806,
+          "not_run": 9562,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4320,8 +4347,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9457,
-          "unmapped": 2806,
+          "not_run": 9550,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4374,8 +4401,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9457,
-          "unmapped": 2806,
+          "not_run": 9550,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4428,8 +4455,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9457,
-          "unmapped": 2806,
+          "not_run": 9550,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4447,8 +4474,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9486,
-          "unmapped": 2806,
+          "not_run": 9579,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4466,8 +4493,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9486,
-          "unmapped": 2806,
+          "not_run": 9579,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4485,8 +4512,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9486,
-          "unmapped": 2806,
+          "not_run": 9579,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -4533,6 +4560,8 @@
           "SV2023-16.3-EXTRACT-MULTIPLE-SEVERITY-CALLS",
           "SV2023-16.3-EXTRACT-PASS-FAIL-ACTIONS",
           "SV2023-16.3-EXTRACT-SIMPLE-ACTIONS",
+          "SV2023-21.7.1-EXTRACT-ASCII-CONTENTS",
+          "SV2023-21.7.1-EXTRACT-DUMP-TASKS",
           "SV2023-22.14-EXTRACT-KEYWORDS-ONLY",
           "SV2023-22.3-EXTRACT-RESET-PLACEMENT",
           "SV2023-22.5.1-EXTRACT-MACRO-ARITY",
@@ -4541,6 +4570,7 @@
           "SV2023-22.7-EXTRACT-TIMESCALE-VALUES",
           "SV2023-22.8-EXTRACT-NETTYPE-SCOPE",
           "SV2023-23.10.2-EXTRACT-INNER-PARAMETER-OVERRIDE",
+          "SV2023-23.10.2.2-EXTRACT-NO-MIXED-PARAMETER-INSTANCE",
           "SV2023-23.2-EXTRACT-MODULE-DELIMITERS",
           "SV2023-23.2.2.1-EXTRACT-NONANSI-BODY-DECLARATION",
           "SV2023-23.2.2.1-EXTRACT-NONANSI-COMPLETE-DECLARATION",
@@ -4565,6 +4595,7 @@
           "SV2023-27.5-EXTRACT-CONDITIONAL-NAME-REUSE",
           "SV2023-28.11-EXTRACT-NO-BOTH-HIGHZ",
           "SV2023-28.3.2-EXTRACT-PULL-STRENGTH-SYNTAX",
+          "SV2023-28.3.2-EXTRACT-STRENGTH-AND",
           "SV2023-28.3.2-EXTRACT-STRENGTH-ELIGIBILITY",
           "SV2023-28.3.2-EXTRACT-STRENGTH-PAIR-SYNTAX",
           "SV2023-28.8-EXTRACT-PASS-NO-PROPAGATION",
@@ -4697,16 +4728,16 @@
           "SV2023-9.6-EXTRACT-PROCESS-CONTROL-RELATIONS",
           "SV2023-9.6.2-EXTRACT-SELF-DISABLE"
         ],
-        "stale_links": 205,
+        "stale_links": 206,
         "status_counts": {
-          "pass": 200,
+          "pass": 204,
           "fail": 0,
-          "known": 573,
+          "known": 579,
           "unsupported": 0,
           "unreviewed_oracle": 47,
-          "stale": 102,
-          "not_run": 8570,
-          "unmapped": 2806,
+          "stale": 103,
+          "not_run": 8652,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -5057,16 +5088,16 @@
           "SV2023-H.9.3-EXTRACT-SET-SCOPE",
           "SV2023-H.9.3-EXTRACT-USER-DATA"
         ],
-        "stale_links": 205,
+        "stale_links": 206,
         "status_counts": {
           "pass": 340,
           "fail": 0,
-          "known": 440,
+          "known": 449,
           "unsupported": 0,
-          "unreviewed_oracle": 25,
-          "stale": 116,
-          "not_run": 8571,
-          "unmapped": 2806,
+          "unreviewed_oracle": 26,
+          "stale": 117,
+          "not_run": 8653,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -5417,16 +5448,16 @@
           "SV2023-H.9.3-EXTRACT-SET-SCOPE",
           "SV2023-H.9.3-EXTRACT-USER-DATA"
         ],
-        "stale_links": 205,
+        "stale_links": 206,
         "status_counts": {
           "pass": 340,
           "fail": 0,
-          "known": 440,
+          "known": 449,
           "unsupported": 0,
-          "unreviewed_oracle": 25,
-          "stale": 116,
-          "not_run": 8571,
-          "unmapped": 2806,
+          "unreviewed_oracle": 26,
+          "stale": 117,
+          "not_run": 8653,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -5517,10 +5548,12 @@
           "SV2023-26.6-EXTRACT-EXPORT-TRANSITIVITY",
           "SV2023-26.6-EXTRACT-EXPORT-WILDCARD",
           "SV2023-27.3-EXTRACT-GENERATE-FORMS",
+          "SV2023-27.3-EXTRACT-GENERATE-GRAMMAR",
           "SV2023-27.4-EXTRACT-GENERATE-ARRAY-COLLISION",
           "SV2023-27.4-EXTRACT-GENERATE-REPEATED-INDEX",
           "SV2023-27.4-EXTRACT-GENERATE-UNKNOWN-INDEX",
           "SV2023-27.4-EXTRACT-GENVAR-ASSIGNMENT",
+          "SV2023-27.4-EXTRACT-GENVAR-DECLARED",
           "SV2023-27.4-EXTRACT-GENVAR-SHADOW",
           "SV2023-27.4-EXTRACT-LOOP-SINGLE-ITEM-SCOPE",
           "SV2023-27.5-EXTRACT-CONDITIONAL-SINGLE-ITEM",
@@ -5567,6 +5600,7 @@
           "SV2023-28.16-EXTRACT-DELAY-Z-X-2",
           "SV2023-28.16-EXTRACT-DELAY-Z-X-3",
           "SV2023-28.16-EXTRACT-GATE-DELAY-MEANING",
+          "SV2023-28.16-EXTRACT-NET-DELAY-MEANING",
           "SV2023-28.16-EXTRACT-THREE-DELAYS",
           "SV2023-28.16.1-EXTRACT-PROCEDURAL-MINTYPMAX",
           "SV2023-28.3-EXTRACT-PRIMITIVE-TERMINALS",
@@ -5702,6 +5736,7 @@
           "SV2023-28.9-EXTRACT-CMOS-TERMINALS",
           "SV2023-29.3-EXTRACT-UDP-DEFINITION-CAPACITY",
           "SV2023-29.3-EXTRACT-UDP-INITIAL-LITERALS",
+          "SV2023-29.3.2-EXTRACT-UDP-TERMINALS",
           "SV2023-29.3.3-EXTRACT-UDP-INITIAL-ASSIGNMENT",
           "SV2023-29.3.4-EXTRACT-UDP-TABLE-DELIMITERS",
           "SV2023-29.3.6-EXTRACT-SYMBOL-0",
@@ -6067,16 +6102,16 @@
           "SV2023-8.15-EXTRACT-NO-SUPER-SUPER",
           "SV2023-8.7-EXTRACT-PROPERTY-INITIALIZATION"
         ],
-        "stale_links": 17,
+        "stale_links": 18,
         "status_counts": {
-          "pass": 630,
+          "pass": 634,
           "fail": 0,
-          "known": 1385,
+          "known": 1401,
           "unsupported": 0,
-          "unreviewed_oracle": 6,
+          "unreviewed_oracle": 7,
           "stale": 15,
-          "not_run": 7456,
-          "unmapped": 2806,
+          "not_run": 7528,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -6182,6 +6217,7 @@
           "SV2023-20.4.1-EXTRACT-EXPONENT-NEG4",
           "SV2023-20.4.1-EXTRACT-EXPONENT-NEG5",
           "SV2023-20.4.1-EXTRACT-EXPONENT-NEG7",
+          "SV2023-20.4.1-EXTRACT-EXPONENT-RANGE",
           "SV2023-25.5-EXTRACT-MODPORT-OPTIONAL",
           "SV2023-25.5-EXTRACT-MODPORT-PORT-REFERENCE",
           "SV2023-25.9-EXTRACT-VIRTUAL-INTERFACE-GRAMMAR",
@@ -6199,6 +6235,7 @@
           "SV2023-27.3-EXTRACT-GENERATE-FORMS",
           "SV2023-27.4-EXTRACT-GENERATE-REPEATED-INDEX",
           "SV2023-27.4-EXTRACT-GENVAR-ASSIGNMENT",
+          "SV2023-27.4-EXTRACT-GENVAR-DECLARED",
           "SV2023-27.4-EXTRACT-LOOP-SINGLE-ITEM-SCOPE",
           "SV2023-27.5-EXTRACT-CONDITIONAL-SINGLE-ITEM",
           "SV2023-27.5-EXTRACT-GENERATE-DANGLING-ELSE",
@@ -6457,16 +6494,16 @@
           "SV2023-8.8-EXTRACT-CLASS-NEW-FORMS",
           "SV2023-8.8-EXTRACT-TYPED-NEW-SPECIALIZATION"
         ],
-        "stale_links": 17,
+        "stale_links": 18,
         "status_counts": {
-          "pass": 370,
+          "pass": 372,
           "fail": 0,
-          "known": 1642,
+          "known": 1661,
           "unsupported": 0,
           "unreviewed_oracle": 5,
-          "stale": 16,
-          "not_run": 7459,
-          "unmapped": 2806,
+          "stale": 17,
+          "not_run": 7530,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -6572,6 +6609,7 @@
           "SV2023-20.4.1-EXTRACT-EXPONENT-NEG4",
           "SV2023-20.4.1-EXTRACT-EXPONENT-NEG5",
           "SV2023-20.4.1-EXTRACT-EXPONENT-NEG7",
+          "SV2023-20.4.1-EXTRACT-EXPONENT-RANGE",
           "SV2023-25.5-EXTRACT-MODPORT-OPTIONAL",
           "SV2023-25.5-EXTRACT-MODPORT-PORT-REFERENCE",
           "SV2023-25.9-EXTRACT-VIRTUAL-INTERFACE-GRAMMAR",
@@ -6589,6 +6627,7 @@
           "SV2023-27.3-EXTRACT-GENERATE-FORMS",
           "SV2023-27.4-EXTRACT-GENERATE-REPEATED-INDEX",
           "SV2023-27.4-EXTRACT-GENVAR-ASSIGNMENT",
+          "SV2023-27.4-EXTRACT-GENVAR-DECLARED",
           "SV2023-27.4-EXTRACT-LOOP-SINGLE-ITEM-SCOPE",
           "SV2023-27.5-EXTRACT-CONDITIONAL-SINGLE-ITEM",
           "SV2023-27.5-EXTRACT-GENERATE-DANGLING-ELSE",
@@ -6847,16 +6886,16 @@
           "SV2023-8.8-EXTRACT-CLASS-NEW-FORMS",
           "SV2023-8.8-EXTRACT-TYPED-NEW-SPECIALIZATION"
         ],
-        "stale_links": 17,
+        "stale_links": 18,
         "status_counts": {
-          "pass": 370,
+          "pass": 372,
           "fail": 0,
-          "known": 1642,
+          "known": 1661,
           "unsupported": 0,
           "unreviewed_oracle": 5,
-          "stale": 16,
-          "not_run": 7459,
-          "unmapped": 2806,
+          "stale": 17,
+          "not_run": 7530,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -6905,6 +6944,7 @@
           "SV2023-13.5.2-EXTRACT-REF-DIRECTION-EXCLUSIVE",
           "SV2023-13.5.3-EXTRACT-UNUSED-DEFAULT-NOT-EVALUATED",
           "SV2023-20.10-EXTRACT-ERROR",
+          "SV2023-20.10-EXTRACT-FATAL",
           "SV2023-20.10-EXTRACT-INFO",
           "SV2023-20.10-EXTRACT-SEVERITY-LOCATION",
           "SV2023-20.10-EXTRACT-SEVERITY-USER-MESSAGE",
@@ -7068,16 +7108,16 @@
           "SV2023-A.9.3-EXTRACT-SYSTEM",
           "SV2023-A.9.4-EXTRACT-WHITESPACE"
         ],
-        "stale_links": 7,
+        "stale_links": 8,
         "status_counts": {
-          "pass": 201,
+          "pass": 202,
           "fail": 0,
-          "known": 180,
+          "known": 182,
           "unsupported": 0,
           "unreviewed_oracle": 2,
-          "stale": 6,
-          "not_run": 9103,
-          "unmapped": 2806,
+          "stale": 7,
+          "not_run": 9192,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -7235,16 +7275,16 @@
           "SV2023-A.9.3-EXTRACT-SYSTEM",
           "SV2023-A.9.4-EXTRACT-WHITESPACE"
         ],
-        "stale_links": 7,
+        "stale_links": 8,
         "status_counts": {
           "pass": 147,
           "fail": 0,
-          "known": 235,
+          "known": 239,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 7,
-          "not_run": 9103,
-          "unmapped": 2806,
+          "stale": 8,
+          "not_run": 9191,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -7402,16 +7442,16 @@
           "SV2023-A.9.3-EXTRACT-SYSTEM",
           "SV2023-A.9.4-EXTRACT-WHITESPACE"
         ],
-        "stale_links": 7,
+        "stale_links": 8,
         "status_counts": {
           "pass": 147,
           "fail": 0,
-          "known": 235,
+          "known": 239,
           "unsupported": 0,
           "unreviewed_oracle": 0,
-          "stale": 7,
-          "not_run": 9103,
-          "unmapped": 2806,
+          "stale": 8,
+          "not_run": 9191,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -7449,6 +7489,7 @@
           "SV2023-21.3.5-EXTRACT-FTELL-ERROR",
           "SV2023-21.3.6-EXTRACT-FFLUSH",
           "SV2023-21.3.7-EXTRACT-FERROR",
+          "SV2023-21.3.7-EXTRACT-FERROR-TARGET-SIZE",
           "SV2023-21.3.8-EXTRACT-FEOF",
           "SV2023-21.4-EXTRACT-DEFAULT-UPWARD-LOAD",
           "SV2023-21.4-EXTRACT-ENDPOINT-LOAD",
@@ -7469,6 +7510,7 @@
           "SV2023-22.13-EXTRACT-INCLUDE-LOCATION-MACROS",
           "SV2023-22.14-EXTRACT-KEYWORD-STACK",
           "SV2023-22.14-EXTRACT-KEYWORD-VERSIONS",
+          "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
           "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
           "SV2023-22.5.1-EXTRACT-MACRO-CALL-SPACING",
           "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
@@ -7532,14 +7574,14 @@
         ],
         "stale_links": 30,
         "status_counts": {
-          "pass": 108,
+          "pass": 110,
           "fail": 0,
-          "known": 224,
+          "known": 226,
           "unsupported": 0,
           "unreviewed_oracle": 5,
           "stale": 20,
-          "not_run": 9135,
-          "unmapped": 2806,
+          "not_run": 9224,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -7585,6 +7627,7 @@
           "SV2023-22.13-EXTRACT-INCLUDE-LOCATION-MACROS",
           "SV2023-22.14-EXTRACT-KEYWORD-STACK",
           "SV2023-22.14-EXTRACT-KEYWORD-VERSIONS",
+          "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
           "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
           "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
           "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
@@ -7626,14 +7669,14 @@
         ],
         "stale_links": 30,
         "status_counts": {
-          "pass": 74,
+          "pass": 75,
           "fail": 0,
-          "known": 257,
+          "known": 260,
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 21,
-          "not_run": 9139,
-          "unmapped": 2806,
+          "not_run": 9228,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -7679,6 +7722,7 @@
           "SV2023-22.13-EXTRACT-INCLUDE-LOCATION-MACROS",
           "SV2023-22.14-EXTRACT-KEYWORD-STACK",
           "SV2023-22.14-EXTRACT-KEYWORD-VERSIONS",
+          "SV2023-22.14.4-EXTRACT-EXCLUDE-LIBRARY",
           "SV2023-22.4-EXTRACT-INCLUDE-NESTING",
           "SV2023-22.5.1-EXTRACT-MACRO-COMMENTS",
           "SV2023-22.5.1-EXTRACT-MACRO-DEFER-DIRECTIVES",
@@ -7720,14 +7764,14 @@
         ],
         "stale_links": 30,
         "status_counts": {
-          "pass": 74,
+          "pass": 75,
           "fail": 0,
-          "known": 257,
+          "known": 260,
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 21,
-          "not_run": 9139,
-          "unmapped": 2806,
+          "not_run": 9228,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -7738,6 +7782,14 @@
         "generated_at": "2026-10-25T15:38:02.072405+00:00",
         "executed": [
           "SV2023-10.3-EXTRACT-CONTINUOUS-GRAMMAR",
+          "SV2023-20.14.1-EXTRACT-RANDOM-SIGNED",
+          "SV2023-20.14.2-EXTRACT-NORMAL-SPREAD",
+          "SV2023-28.10-EXTRACT-PULL-DEFAULT-STRENGTH",
+          "SV2023-28.10-EXTRACT-PULL-VALUES",
+          "SV2023-28.3-EXTRACT-SHARED-STRENGTH-DELAY",
+          "SV2023-28.3.2-EXTRACT-STRENGTH-NOR",
+          "SV2023-28.3.2-EXTRACT-STRENGTH-PULLDOWN",
+          "SV2023-28.3.2-EXTRACT-STRENGTH-PULLUP",
           "SV2023-36.11-EXTRACT-ROUTINE-11",
           "SV2023-36.11-EXTRACT-ROUTINE-12",
           "SV2023-36.11-EXTRACT-ROUTINE-15",
@@ -7865,14 +7917,14 @@
         ],
         "stale_links": 3,
         "status_counts": {
-          "pass": 125,
+          "pass": 133,
           "fail": 0,
-          "known": 375,
+          "known": 385,
           "unsupported": 0,
           "unreviewed_oracle": 7,
           "stale": 0,
-          "not_run": 8985,
-          "unmapped": 2806,
+          "not_run": 9060,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -7900,6 +7952,7 @@
           "SV2023-18.7-EXTRACT-WITH-SYNTAX",
           "SV2023-18.9-EXTRACT-INVALID-CONSTRAINT-MODE",
           "SV2023-18.9-EXTRACT-NO-CONSTRAINT-MODE-OVERRIDE",
+          "SV2023-20.14.2-EXTRACT-NORMAL-SPREAD",
           "SV2023-21.2.1-EXTRACT-FORMAT-ARGUMENT",
           "SV2023-36.11-EXTRACT-ROUTINE-25",
           "SV2023-36.11-EXTRACT-ROUTINE-26",
@@ -8105,14 +8158,14 @@
         ],
         "stale_links": 3,
         "status_counts": {
-          "pass": 220,
+          "pass": 221,
           "fail": 0,
-          "known": 282,
+          "known": 299,
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 3,
-          "not_run": 8986,
-          "unmapped": 2806,
+          "not_run": 9061,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8140,6 +8193,7 @@
           "SV2023-18.7-EXTRACT-WITH-SYNTAX",
           "SV2023-18.9-EXTRACT-INVALID-CONSTRAINT-MODE",
           "SV2023-18.9-EXTRACT-NO-CONSTRAINT-MODE-OVERRIDE",
+          "SV2023-20.14.2-EXTRACT-NORMAL-SPREAD",
           "SV2023-21.2.1-EXTRACT-FORMAT-ARGUMENT",
           "SV2023-36.11-EXTRACT-ROUTINE-25",
           "SV2023-36.11-EXTRACT-ROUTINE-26",
@@ -8345,14 +8399,14 @@
         ],
         "stale_links": 3,
         "status_counts": {
-          "pass": 220,
+          "pass": 221,
           "fail": 0,
-          "known": 282,
+          "known": 299,
           "unsupported": 0,
           "unreviewed_oracle": 1,
           "stale": 3,
-          "not_run": 8986,
-          "unmapped": 2806,
+          "not_run": 9061,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8362,6 +8416,7 @@
         "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
         "generated_at": "2026-10-25T17:06:51.310506+00:00",
         "executed": [
+          "SV2023-20.14.2-EXTRACT-DEGREES-SPREAD",
           "SV2023-N.2-EXTRACT-CHI-SQUARE",
           "SV2023-N.2-EXTRACT-ERLANG",
           "SV2023-N.2-EXTRACT-ROUND-CHI-SQUARE",
@@ -8371,14 +8426,14 @@
         ],
         "stale_links": 0,
         "status_counts": {
-          "pass": 6,
+          "pass": 7,
           "fail": 0,
           "known": 86,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9400,
-          "unmapped": 2806,
+          "not_run": 9492,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8388,6 +8443,7 @@
         "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
         "generated_at": "2026-10-25T17:07:11.035626+00:00",
         "executed": [
+          "SV2023-20.14.2-EXTRACT-DEGREES-SPREAD",
           "SV2023-I.3-EXTRACT-ARRAY-QUERIES",
           "SV2023-I.3-EXTRACT-C-LINKAGE",
           "SV2023-I.3-EXTRACT-CALLER-INFO",
@@ -8462,14 +8518,14 @@
         ],
         "stale_links": 0,
         "status_counts": {
-          "pass": 71,
+          "pass": 72,
           "fail": 0,
           "known": 21,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9400,
-          "unmapped": 2806,
+          "not_run": 9492,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8479,6 +8535,7 @@
         "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
         "generated_at": "2026-10-25T17:07:11.037049+00:00",
         "executed": [
+          "SV2023-20.14.2-EXTRACT-DEGREES-SPREAD",
           "SV2023-I.3-EXTRACT-ARRAY-QUERIES",
           "SV2023-I.3-EXTRACT-C-LINKAGE",
           "SV2023-I.3-EXTRACT-CALLER-INFO",
@@ -8553,14 +8610,14 @@
         ],
         "stale_links": 0,
         "status_counts": {
-          "pass": 71,
+          "pass": 72,
           "fail": 0,
           "known": 21,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9400,
-          "unmapped": 2806,
+          "not_run": 9492,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8574,12 +8631,12 @@
         "status_counts": {
           "pass": 0,
           "fail": 0,
-          "known": 88,
+          "known": 101,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9404,
-          "unmapped": 2806,
+          "not_run": 9484,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8597,12 +8654,12 @@
         "status_counts": {
           "pass": 3,
           "fail": 0,
-          "known": 84,
+          "known": 97,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9405,
-          "unmapped": 2806,
+          "not_run": 9485,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8620,12 +8677,12 @@
         "status_counts": {
           "pass": 3,
           "fail": 0,
-          "known": 84,
+          "known": 97,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9405,
-          "unmapped": 2806,
+          "not_run": 9485,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8703,12 +8760,12 @@
         "status_counts": {
           "pass": 63,
           "fail": 0,
-          "known": 280,
+          "known": 287,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 14,
-          "not_run": 9135,
-          "unmapped": 2806,
+          "not_run": 9221,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8720,6 +8777,7 @@
         "executed": [
           "SV2023-10.6-EXTRACT-PROCEDURAL-CONTINUOUS-GRAMMAR",
           "SV2023-12.7-EXTRACT-LOOP-GRAMMAR",
+          "SV2023-23.2.3-EXTRACT-PARAMETERIZED-PORTS",
           "SV2023-5.12-EXTRACT-ATTRIBUTE-INSTANCE-SYNTAX",
           "SV2023-5.12-EXTRACT-ATTRIBUTE-SUFFIX-PLACEMENT",
           "SV2023-6.20.1-EXTRACT-OPTIONAL-PARAMETER-KEYWORD",
@@ -8897,14 +8955,14 @@
         ],
         "stale_links": 14,
         "status_counts": {
-          "pass": 176,
+          "pass": 177,
           "fail": 0,
-          "known": 167,
+          "known": 172,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 14,
-          "not_run": 9135,
-          "unmapped": 2806,
+          "not_run": 9222,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -8916,6 +8974,7 @@
         "executed": [
           "SV2023-10.6-EXTRACT-PROCEDURAL-CONTINUOUS-GRAMMAR",
           "SV2023-12.7-EXTRACT-LOOP-GRAMMAR",
+          "SV2023-23.2.3-EXTRACT-PARAMETERIZED-PORTS",
           "SV2023-5.12-EXTRACT-ATTRIBUTE-INSTANCE-SYNTAX",
           "SV2023-5.12-EXTRACT-ATTRIBUTE-SUFFIX-PLACEMENT",
           "SV2023-6.20.1-EXTRACT-OPTIONAL-PARAMETER-KEYWORD",
@@ -9093,14 +9152,14 @@
         ],
         "stale_links": 14,
         "status_counts": {
-          "pass": 176,
+          "pass": 177,
           "fail": 0,
-          "known": 167,
+          "known": 172,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 14,
-          "not_run": 9135,
-          "unmapped": 2806,
+          "not_run": 9222,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -9120,8 +9179,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 8203,
-          "unmapped": 2806,
+          "not_run": 8296,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -10130,8 +10189,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 8203,
-          "unmapped": 2806,
+          "not_run": 8296,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -11140,8 +11199,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 8203,
-          "unmapped": 2806,
+          "not_run": 8296,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -11476,6 +11535,7 @@
           "SV2023-21.2.1-EXTRACT-DISPLAY-NEWLINE",
           "SV2023-21.2.1.1-EXTRACT-FORMAT-CHAR",
           "SV2023-21.2.1.1-EXTRACT-FORMAT-HEX",
+          "SV2023-21.2.1.1-EXTRACT-REAL-C-FORMATTING",
           "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-EXPONENTIAL",
           "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-GENERAL",
           "SV2023-21.2.1.2-EXTRACT-LEADING-ZEROS",
@@ -11594,6 +11654,7 @@
           "SV2023-28.12.2-EXTRACT-AMBIGUOUS-CLASSES",
           "SV2023-28.12.2-EXTRACT-EQUAL-OPPOSITE-UNKNOWN",
           "SV2023-28.12.2-EXTRACT-UNKNOWN-RANGE-NOTATION",
+          "SV2023-28.12.3-EXTRACT-AMBIGUOUS-GAP-FILL",
           "SV2023-28.14-EXTRACT-REDUCE-PULL",
           "SV2023-28.14-EXTRACT-REDUCE-STRONG",
           "SV2023-28.14-EXTRACT-REDUCE-SUPPLY",
@@ -11689,11 +11750,13 @@
           "SV2023-3.14.2.2-EXTRACT-LOCAL-TIME-INDEPENDENCE",
           "SV2023-30.4.1-EXTRACT-PATH-DESTINATION-TYPE",
           "SV2023-30.4.2-EXTRACT-PATH-OPERATORS",
+          "SV2023-30.4.3-EXTRACT-DATA-SOURCE-DESCRIPTIVE",
           "SV2023-30.4.4.2-EXTRACT-SIMPLE-STATE-PATH",
           "SV2023-30.4.4.4-EXTRACT-IFNONE-DEFAULT",
           "SV2023-30.4.7-EXTRACT-PATH-POLARITY-METADATA",
           "SV2023-30.4.7.1-EXTRACT-POLARITY-MEANING",
           "SV2023-30.4.7.1-EXTRACT-POLARITY-SYNTAX",
+          "SV2023-30.4.7.2-EXTRACT-POLARITY-MEANING",
           "SV2023-30.5.1-EXTRACT-TRANSITION-01-1",
           "SV2023-30.5.1-EXTRACT-TRANSITION-01-2",
           "SV2023-30.5.1-EXTRACT-TRANSITION-01-3",
@@ -12089,14 +12152,14 @@
         ],
         "stale_links": 89,
         "status_counts": {
-          "pass": 935,
+          "pass": 939,
           "fail": 0,
-          "known": 1880,
+          "known": 1894,
           "unsupported": 0,
           "unreviewed_oracle": 10,
           "stale": 48,
-          "not_run": 6619,
-          "unmapped": 2806,
+          "not_run": 6694,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12612,8 +12675,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 8995,
-          "unmapped": 2806,
+          "not_run": 9088,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12631,8 +12694,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 493,
           "stale": 0,
-          "not_run": 8995,
-          "unmapped": 2806,
+          "not_run": 9088,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12650,8 +12713,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 493,
           "stale": 0,
-          "not_run": 8995,
-          "unmapped": 2806,
+          "not_run": 9088,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12669,8 +12732,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9477,
-          "unmapped": 2806,
+          "not_run": 9570,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12688,8 +12751,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9477,
-          "unmapped": 2806,
+          "not_run": 9570,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12707,8 +12770,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9477,
-          "unmapped": 2806,
+          "not_run": 9570,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12726,8 +12789,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9491,
-          "unmapped": 2806,
+          "not_run": 9584,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12745,8 +12808,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9491,
-          "unmapped": 2806,
+          "not_run": 9584,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12764,8 +12827,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9491,
-          "unmapped": 2806,
+          "not_run": 9584,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12783,8 +12846,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9490,
-          "unmapped": 2806,
+          "not_run": 9583,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12802,8 +12865,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9490,
-          "unmapped": 2806,
+          "not_run": 9583,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12821,8 +12884,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9490,
-          "unmapped": 2806,
+          "not_run": 9583,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12844,8 +12907,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9480,
-          "unmapped": 2806,
+          "not_run": 9573,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12867,8 +12930,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9480,
-          "unmapped": 2806,
+          "not_run": 9573,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12898,8 +12961,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9479,
-          "unmapped": 2806,
+          "not_run": 9572,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -12922,8 +12985,8 @@
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,
-          "not_run": 9488,
-          "unmapped": 2806,
+          "not_run": 9581,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       },
@@ -13346,6 +13409,7 @@
           "SV2023-25.10-EXTRACT-INTERFACE-HIERARCHICAL-ACCESS",
           "SV2023-25.3-EXTRACT-INTERFACE-INSTANTIATION",
           "SV2023-25.3.3-EXTRACT-GENERIC-INTERFACE",
+          "SV2023-25.5-EXTRACT-MODPORT-IN-ACTUAL",
           "SV2023-25.8-EXTRACT-INTERFACE-PARAMETER-SEMANTICS",
           "SV2023-25.9-EXTRACT-VIRTUAL-CLASS-PROPERTY",
           "SV2023-25.9-EXTRACT-VIRTUAL-INTERFACE-PASSING",
@@ -13888,14 +13952,14 @@
         ],
         "stale_links": 89,
         "status_counts": {
-          "pass": 952,
+          "pass": 953,
           "fail": 0,
-          "known": 1845,
+          "known": 1859,
           "unsupported": 0,
           "unreviewed_oracle": 16,
           "stale": 55,
-          "not_run": 6624,
-          "unmapped": 2806,
+          "not_run": 6702,
+          "unmapped": 2713,
           "interpretation_pending": 21
         }
       }
