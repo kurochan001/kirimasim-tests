@@ -90513,13 +90513,14 @@
     },
     {
       "test": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
-      "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+      "inputs_sha256": "2031c023dba68e157747ddb41deabf4c08a7fbda64ffbb53f8cccf6a85bff2b4",
       "cited_clauses": [
         "19.11.3",
         "19.5.3",
         "19.5.2",
         "19.6",
-        "19.11.1"
+        "19.11.1",
+        "19.6.1.1"
       ],
       "negative_test": false,
       "registered_requirement_ids": [
@@ -90562,7 +90563,8 @@
         "SV2023-19.6-EXTRACT-CROSS-EXPRESSIONS",
         "SV2023-19.6-EXTRACT-CROSS-GRAMMAR",
         "SV2023-19.6-EXTRACT-CROSS-IFF",
-        "SV2023-19.6-EXTRACT-CROSS-LABEL-SCOPE"
+        "SV2023-19.6-EXTRACT-CROSS-LABEL-SCOPE",
+        "SV2023-19.6.1.1-EXTRACT-TRANSITION-LAST-VALUE"
       ],
       "interpretation_pending_ids": [
         "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
@@ -90584,7 +90586,7 @@
       ],
       "scoped_review": {
         "test": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
-        "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+        "inputs_sha256": "2031c023dba68e157747ddb41deabf4c08a7fbda64ffbb53f8cccf6a85bff2b4",
         "reviewed_on": "2026-10-26",
         "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
         "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -502302,7 +502304,7 @@
     "oracle_issue": 113,
     "partial_observation": 1880
   },
-  "registry_sha256": "2efef9104f192de48044cab857f73539c9b2b664d6b900f71e4132c7e05bc198",
+  "registry_sha256": "05fa8b8a993ac17570921d07af03608d84f0ad709486f4cd3834c06fd011044d",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
-  "review_ledger_sha256": "ef1d5f183e6ae47eec9689db0af100310d752bf0317040f0e6644b79261188dd"
+  "review_ledger_sha256": "503c653c7e4d077d294187a9c89064b7770af25481eb4fd2f039d6967a6da121"
 }

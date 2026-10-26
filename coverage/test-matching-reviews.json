@@ -38104,7 +38104,7 @@
     },
     {
       "test": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
-      "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+      "inputs_sha256": "2031c023dba68e157747ddb41deabf4c08a7fbda64ffbb53f8cccf6a85bff2b4",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
