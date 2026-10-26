@@ -20,13 +20,13 @@
 10%到達分と20%到達分はその後コミット・push済みです（本資料も `a30cddb` で追加）。
 作業ツリーを保持する必要はありません。
 
-- 作業場所：`/Users/mitsuyuki/Projects/kirimasim-tests`
+- 作業場所：このリポジトリのルート
 - ブランチ：`main`
 - 資料作成時のHEAD：`f9436fadc025540e5aedf113d5bee96a2b9b23e5`（`Match compiler directive tests to IEEE requirements`）
 - origin：`https://github.com/kurochan001/kirimasim-tests.git`
 - 日時の基準：Asia/Tokyo。以下の数値は資料作成時のローカル作業ツリーの値です。
 - ユーザー指定の指示は`AGENTS.md`相当の`@RTK.md`です。現在のworkspaceには実ファイルがなく、
-  `/Users/mitsuyuki/.claude/CLAUDE.md`の`@RTK.md`と、同ディレクトリの`RTK.md`を確認しました。
+  `~/.claude/CLAUDE.md`の`@RTK.md`と、同ディレクトリの`RTK.md`を確認しました。
   RTKの通常コマンド書換えはClaude Codeのhookが担当する設定です。
 
 ## ユーザーの目的と完了範囲
@@ -96,7 +96,7 @@ SystemVerilog/Cテストの新規追加・入力変更・再実行は行わず�
 
 ユーザー提供資料はリポジトリの外にあります。
 
-- ディレクトリ：`/Users/mitsuyuki/Projects/sukimasim/IEEE_1800-2023_SystemVerilog`
+- ディレクトリ：リポジトリの隣の`IEEE_1800-2023_SystemVerilog`（`tools/requirement_source.py`は環境変数`IEEE1800_SOURCE`でも指定できます）
 - PDF：`IEEE_Std_1800-2023_SystemVerilog.pdf`
 - 抽出テキスト：`out/lrm_pdftotext_layout.txt`
 
@@ -239,7 +239,7 @@ python3 tools/requirement_matching.py --update
 ```sh
 python3 -m unittest discover -s tools -p 'test_*.py'
 python3 tools/behavior_coverage.py --check --require-source-reviewed \
-  --verify-source ../sukimasim/IEEE_1800-2023_SystemVerilog
+  --verify-source ../IEEE_1800-2023_SystemVerilog
 python3 tools/requirement_matching.py --check
 python3 tools/suite_stats.py --check
 python3 tools/suite_catalog.py --check
@@ -275,7 +275,7 @@ mainの保存済み結果と、resultsブランチへNightlyが出すその回�
 ## Claude Codeへ渡す開始メッセージ
 
 ```text
-/Users/mitsuyuki/Projects/kirimasim-tests で、
+このリポジトリのルートで、
 docs/claude-code-handoff-20261023.md と
 docs/claude-code-handoff-20261023-50percent.md を読み、状況を把握してください。
 現在は要求対応9,585/12,319（77.81%）、実行成功5,424（44.03%）です。

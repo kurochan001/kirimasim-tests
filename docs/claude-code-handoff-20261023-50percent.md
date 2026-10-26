@@ -79,12 +79,12 @@
 取り込み分はコミット`ba54eb3`として`main`へpush済みです（2026-10-24）。
 検証前の新規テスト約1,711本はリポジトリの外へ退避しています。再開時は作業ディレクトリから戻してから始めてください。
 
-- リポジトリ：`/Users/mitsuyuki/Projects/kirimasim-tests`（`main`、HEAD `af50ecf`＝10%・20%到達分。push済み）
+- リポジトリ：kirimasim-tests（`main`、HEAD `af50ecf`＝10%・20%到達分。push済み）
 - 正本の値：`ba54eb3`で3,889要求（31.57%）。その後の台帳見直し（`721db37`）と予約語の生成テスト（`1f9efc5`、2026-10-24）で **4,386 / 12,319 要求、35.60%**
 - 目標：50%超過 ＝ 6,160 要求（`1f9efc5`時点であと1,774）
 - 取り込みの記録：[header-vpi-tests-and-matching-20261023.md](header-vpi-tests-and-matching-20261023.md)
 - 作業ディレクトリ（リポジトリ外、再開に必須）：
-  `/Users/mitsuyuki/Projects/kirimasim-tests-work/50percent-20261023/`
+  リポジトリの隣の`kirimasim-tests-work/50percent-20261023/`
 - 前回の引き継ぎ（照合の判断基準など）は [claude-code-handoff-20261023.md](claude-code-handoff-20261023.md) を参照。基準はそのまま有効です。
 
 ## 中断時点の数値
