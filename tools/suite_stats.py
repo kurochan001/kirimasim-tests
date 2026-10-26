@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Counts the tests of the suite by chapter and by where their expected
-output comes from, and keeps the tables in README.md up to date.
+output comes from, and keeps the tables in both README languages up to date.
 
 Usage:
     python3 tools/suite_stats.py            print the tables as Markdown
-    python3 tools/suite_stats.py --update   rewrite them in README.md
-    python3 tools/suite_stats.py --check    exit with 1 if README.md is out of date
+    python3 tools/suite_stats.py --update   rewrite both README language versions
+    python3 tools/suite_stats.py --check    exit with 1 if either README is out of date
 
-The tables in README.md are the lines between the markers
+The tables in README.md and README.ja.md are the lines between the markers
 "<!-- suite-stats:begin -->" and "<!-- suite-stats:end -->".
 """
 
@@ -20,6 +20,7 @@ import suite_results
 
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "README.md"
+READMES = ((README, "en"), (ROOT / "README.ja.md", "ja"))
 BEGIN = "<!-- suite-stats:begin -->"
 END = "<!-- suite-stats:end -->"
 
@@ -64,6 +65,23 @@ CHAPTERS = {
     38: "VPI routine definitions",
     39: "Assertion API",
     40: "Code coverage control and API",
+}
+
+CHAPTERS_JA = {
+    3: "設計と検証の構成要素", 4: "スケジューリングの意味論", 5: "字句規則",
+    6: "データ型", 7: "集合データ型", 8: "クラス", 9: "プロセス",
+    10: "代入文", 11: "演算子と式", 12: "手続き型プログラミング文",
+    13: "タスクと関数（サブルーチン）", 14: "クロッキングブロック",
+    15: "プロセス間の同期と通信", 16: "アサーション", 17: "チェッカー",
+    18: "制約付き乱数値の生成", 19: "機能カバレッジ",
+    20: "ユーティリティ用システムタスク・関数", 21: "入出力用システムタスク・関数",
+    22: "コンパイラ指令", 23: "モジュールと階層", 24: "プログラム",
+    25: "インターフェース", 26: "パッケージ", 27: "generate構文",
+    28: "ゲートレベル・スイッチレベルのモデリング", 29: "ユーザー定義プリミティブ",
+    30: "specifyブロック", 31: "タイミング検査", 32: "標準遅延形式によるバックアノテーション",
+    33: "設計内容の構成指定", 34: "保護エンベロープ", 35: "直接プログラミングインターフェース（DPI）",
+    36: "プログラミング言語インターフェース（PLI/VPI）の概要", 37: "VPIオブジェクトモデル図",
+    38: "VPIルーチンの定義", 39: "アサーションAPI", 40: "コードカバレッジの制御とAPI",
 }
 
 
@@ -141,7 +159,11 @@ def run_setup(t: dict) -> str:
     return ", ".join(parts) + ". "
 
 
-def markdown(stats: dict) -> str:
+def markdown(stats: dict, language: str = "en") -> str:
+    if language == "ja":
+        return markdown_ja(stats)
+    if language != "en":
+        raise ValueError(f"unsupported README language: {language}")
     t = stats["totals"]
     lines = [
         f"The suite has **{t['tests']} tests** in {len(stats['chapters'])} chapters."
@@ -183,6 +205,48 @@ def markdown(stats: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+def markdown_ja(stats: dict) -> str:
+    t = stats["totals"]
+    setup = "、".join(f"{label}{t[field]}本（`:{field}:`）" for field, label in (
+        ("files", "複数ソースファイル"), ("defines", "マクロ定義"),
+        ("incdirs", "インクルードディレクトリ指定"),
+        ("top_module", "トップレベルのモジュールまたは構成指定"),
+        ("args", "実行時引数")) if t[field])
+    lines = [
+        f"スイートには{len(stats['chapters'])}章にわたり**{t['tests']}本のテスト**があります。",
+    ]
+    if t["generated"]:
+        lines[0] += (f" うち{sum(t['generated'].values())}本は自動生成です"
+                     "（`tests/gen/`。「自動生成テスト」を参照）："
+                     + "、".join(f"`{g}`が{n}本" for g, n in sorted(t["generated"].items())) + "。")
+    lines += ["", "| 期待結果の確認元 | テスト数 |", "| --- | ---: |",
+              f"| Icarus Verilog 13.0（`:oracle:`に`iverilog@13.0`） | {t['icarus']} |",
+              f"| Verilator 5.052（Icarus Verilog 13.0のoracle登録なし） | {t['verilator']} |",
+              f"| 規格のみ（固定リリースのシミュレータのoracle登録なし） | {t['spec']} |", "",
+              f"{t['fourstate']}本はx/z値に依存します（`:fourstate: yes`）。"
+              f"{t['dpi_c'] + t['vpi_c']}本にはCコードがあり、内訳はDPIが{t['dpi_c']}本（`:dpi_c:`）、"
+              f"VPIが{t['vpi_c']}本（`:vpi_c:`）です。"
+              + (f"{t['illegal']}本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。"
+                 if t["illegal"] else "")
+              + (f"{t['exit']}本はシミュレーションの終了コードを確認します（`:expected_exit:`）。"
+                 if t["exit"] else "")
+              + (f"実行条件の指定は、{setup}です。" if setup else "")
+              + (f"{t['human']}本は人が規格と照合済みです（`:spec_check: human`）。残りはAIモデルが照合しました。"
+                 if t["human"] else
+                 "すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。"),
+              "", "| 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |",
+              "| ---: | --- | ---: | ---: | ---: | ---: |"]
+    for chapter in CHAPTERS:
+        title = CHAPTERS_JA[chapter]
+        row = stats["chapters"].get(chapter)
+        if row is None:
+            lines.append(f"| {chapter} | {title} | — | | | |")
+        else:
+            lines.append(f"| {chapter} | {title} | {row['tests']} | {row['icarus'] or ''} | "
+                         f"{row['verilator'] or ''} | {row['spec'] or ''} |")
+    return "\n".join(lines) + "\n"
+
+
 def replace_section(text: str, section: str) -> str:
     start, end = text.index(BEGIN) + len(BEGIN), text.index(END)
     return text[:start] + "\n" + section + text[end:]
@@ -191,24 +255,26 @@ def replace_section(text: str, section: str) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     group = ap.add_mutually_exclusive_group()
-    group.add_argument("--update", action="store_true", help="rewrite the tables in README.md")
+    group.add_argument("--update", action="store_true", help="rewrite the tables in both READMEs")
     group.add_argument("--check", action="store_true",
-                       help="exit with 1 if the tables in README.md are out of date")
+                       help="exit with 1 if either README's tables are out of date")
     args = ap.parse_args()
 
-    section = markdown(collect())
+    stats = collect()
     if not (args.update or args.check):
-        sys.stdout.write(section)
+        sys.stdout.write(markdown(stats))
         return 0
-    text = README.read_text(encoding="utf-8")
-    new = replace_section(text, section)
-    if args.check:
-        if new != text:
-            print("README.md is out of date: run python3 tools/suite_stats.py --update")
-            return 1
-        return 0
-    README.write_text(new, encoding="utf-8")
-    return 0
+    stale = False
+    for path, language in READMES:
+        text = path.read_text(encoding="utf-8")
+        new = replace_section(text, markdown(stats, language))
+        if args.check:
+            if new != text:
+                print(f"{path.name} is out of date: run python3 tools/suite_stats.py --update")
+                stale = True
+        else:
+            path.write_text(new, encoding="utf-8")
+    return int(stale)
 
 
 if __name__ == "__main__":

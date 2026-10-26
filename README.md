@@ -1,5 +1,7 @@
 # kirimasim-tests
 
+[日本語](README.ja.md)
+
 [![Check](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/check.yml)
 [![Nightly](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml/badge.svg)](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml)
 
@@ -369,7 +371,7 @@ tools/normalize_output.py       normalizes a simulator's output before it is com
 tools/suite_results.py          the JSON form of a runner's results (--json)
 tools/results_history.py        keeps the nightly history and draws its charts
 tools/results_ratchet.py        lists the tests that matched in the previous run and differ now
-tools/suite_stats.py            counts the tests and keeps the tables of this README
+tools/suite_stats.py            counts the tests and keeps both README language versions' tables
 tools/suite_catalog.py          writes the catalog of the tests, docs/tests/
 tools/coverage_depth.py         writes docs/coverage-depth.md, the depth report
 tools/clauses.txt               the clause numbers of the standard, for docs/tests/clauses.md
@@ -761,7 +763,8 @@ for stays in the history but is not drawn. `python3 tools/results_history.py ren
 
 `.github/workflows/check.yml` runs on every push to `main` and every pull
 request that changes `tests/`, `tools/`, `generators/`, `docs/tests/`, this
-README, `coverage/`, `docs/behavior-coverage.md`, `docs/coverage-depth.md`
+README or its Japanese version, `coverage/`, `docs/behavior-coverage.md`,
+`docs/coverage-depth.md`
 or the workflow itself, and can be started by hand from the Actions
 tab (`workflow_dispatch`). Its jobs fail when the
 suite has a problem:
@@ -773,7 +776,8 @@ suite has a problem:
   cache), installs `z3` for `randomize()` and ccache, whose cache it keeps for
   the next run, and runs the tests whose `:oracle:` lists `verilator@5.052`,
   which must all match.
-- **readme** checks that the tables of this README are up to date
+- **readme** checks that the tables of both README language versions are up
+  to date
   (`tools/suite_stats.py --check`), that the generated tests are what the
   generators write (`generators/generate.py --check`), that the catalog
   in `docs/tests/` is up to date (`tools/suite_catalog.py --check`), that
@@ -880,9 +884,9 @@ For each newly reviewed behavior, record its requirement and observation in
 cases. Keep unreviewed requirements visible rather than inferring behavioral
 coverage from the clause citation.
 
-After adding tests, update the tables of this README, the catalog of the
-tests and the page of the clauses they cite, and check the metadata, as the
-check workflow does:
+After adding tests, update the tables of both README language versions, the
+catalog of the tests and the page of the clauses they cite, and check the
+metadata, as the check workflow does:
 
 ```sh
 python3 tools/suite_stats.py --update
