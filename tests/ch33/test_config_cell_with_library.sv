@@ -3,7 +3,7 @@
 :description: A cell clause with a library name applies to every instance bound to that library and cell, wherever it is in the hierarchy, and leaves instances of other cells alone (IEEE 1800-2023 Section 33.4.1.4)
 :tags: ch33
 :type: simulation
-:lrm: 1800-2023 33.4.1.4 33.4.1.6 33.3.1
+:lrm: 1800-2023 33.4.1.4 33.4.1.6 33.3.1 33.3.3
 :oracle: spec verilator@5.052
 :spec_check: ai
 :fourstate: no

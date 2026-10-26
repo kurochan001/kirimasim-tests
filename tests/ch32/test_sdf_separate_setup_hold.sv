@@ -3,7 +3,7 @@
 :description: SETUP and HOLD entries of an SDF file set the limits of the matching $setup and $hold checks separately (IEEE 1800-2023 Section 32.4.2)
 :tags: ch32
 :type: simulation
-:lrm: 1800-2023 32.4.2 31.3.1 31.3.2 31.6
+:lrm: 1800-2023 32.4.2 31.3.1 31.3.2 31.6 32.2
 :oracle: spec
 :spec_check: ai
 :fourstate: no

@@ -1,0 +1,69 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch12/test_illegal_statement_outside_procedural": {
+   "status": "pass",
+   "inputs_sha256": "ff6ba22dbe67ab1f65f1610493362d8ae1b5de449e3699228e0c274641d8009c"
+  },
+  "ch12/test_statement_null_labels_attributes": {
+   "status": "known",
+   "reason": "compile failed: tests/ch12/test_statement_null_labels_attributes.sv:35: syntax error",
+   "inputs_sha256": "b98efc23d9f9eb0f5e548c6a6697d3784580a1700dc5b4b23c42ff9f9f6abc82"
+  },
+  "ch17/test_checker_body_items": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_body_items.sv:29: syntax error",
+   "inputs_sha256": "9f5e193f08b281af42f9961d1e1b86259befcde3e6c230a25a6e7c5c50e8ef33"
+  },
+  "ch19/test_covergroup_cross_and_select_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_covergroup_cross_and_select_forms.sv:35: syntax error",
+   "inputs_sha256": "21a4a194ab07a2e8290565217379dfb25dfd133740e3efc1eea7c622065b6126"
+  },
+  "ch30/test_path_polarity_no_effect": {
+   "status": "pass",
+   "inputs_sha256": "8221e0cb8a62f4689143e2bfcb4d660485c555180369e974f70201c748cc71ef"
+  },
+  "ch33/test_config_cell_with_library": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'u1=aa m.inner=aa u3=cc', expected 'u1=bb m.inner=bb u3=cc'",
+   "inputs_sha256": "7912e933d515c6b48f09a5cb84dd9b2f4a1f3356b6c7842456c50bdf8ca93f2f"
+  },
+  "ch33/test_config_design_top": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'cfg_stray elaborated', expected 'top: test_config_design_top'",
+   "inputs_sha256": "402e67a02466448fef3c12c115a69b5245e911a02b0b4e01a90632e501e4203d"
+  },
+  "ch33/test_config_hierarchical": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'm1 leaf: aa, m2 leaf: aa', expected 'm1 leaf: aa, m2 leaf: bb'",
+   "inputs_sha256": "7fcc9e324693a7a4e82c643eabfefa85e336dc735e43e555221dfbe8fecc9f92"
+  },
+  "ch35/test_dpi_fourstate_packed_semantics": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_fourstate_packed_semantics.sv:41: syntax error",
+   "inputs_sha256": "b42de3d8617e5aa440fa95f046e054fd81a4a510154983ed0f6efebf8c574ffe"
+  },
+  "ch35/test_dpi_open_packed_dimension": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_open_packed_dimension.sv:29: syntax error",
+   "inputs_sha256": "2766188be2fc5ea093533d9230600c7e86127549d95ae65a12e9400d695752a5"
+  },
+  "ch36/test_vpi_chk_error_callbacks": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'cbReadWriteSynch without a time: not registered, error: n...', expected 'cbReadWriteSynch without a time: not registered, error: y...'",
+   "inputs_sha256": "47e8e88716461a0c252e8fb280fa7c0195032dff007daa7f19a41e9ec62b941a"
+  },
+  "ch36/test_vpi_chk_error_status": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiSuppressTime: error no, a level of Table 38-1: no, the...', expected 'vpiSuppressTime: error yes, a level of Table 38-1: yes, t...'",
+   "inputs_sha256": "2fad9c6363e0df98cd4147329207187ca9cf695e8f4ce104f362d00697053a9b"
+  }
+ },
+ "generated_at": "2026-10-26T05:54:55.670342+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

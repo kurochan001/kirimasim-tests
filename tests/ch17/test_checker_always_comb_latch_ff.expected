@@ -1,0 +1,4 @@
+t12 comb 03 lat 0f ff 0f
+t22 comb 30 lat f0 ff 0f
+t32 comb 11 lat f0 ff f0
+t42 comb 03 lat f0 ff 55

@@ -1,0 +1,10 @@
+cbNextSimTime with a NULL time was refused: yes
+cbNextSimTime with suppressed time was refused: yes
+cbAfterDelay with a NULL time was refused: yes
+cbNextSimTime callbacks with different requested times ran at the next event queue: yes
+cbForce on a variable bit-select was refused: yes
+cbForce on the whole variable was delivered: yes
+cbAtStartOfSimTime for a later time was registered and ran: yes
+a zero-delay cbAtStartOfSimTime after entering a time slice was refused: yes
+a zero-delay cbReadOnlySynch at read-write time ran: yes
+a zero-delay cbReadWriteSynch at read-only time was refused: yes

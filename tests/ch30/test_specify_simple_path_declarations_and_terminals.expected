@@ -1,0 +1,22 @@
+t=11 par y=00
+t=13 par y=10
+t=21 par y=10
+t=23 par y=11
+t=31 par y=11
+t=35 par y=01
+t=41 full y1=0 y2=0
+t=44 full y1=0 y2=1
+t=51 full y1=0 y2=1
+t=54 full y1=1 y2=1
+t=61 full y1=1 y2=1
+t=66 full y1=0 y2=1
+t=72 full y1=0 y2=1
+t=77 full y1=0 y2=0
+t=83 sel q=1000 o=0
+t=92 sel q=1000 o=0
+t=94 sel q=1000 o=1
+t=103 sel q=1100 o=1
+t=113 sel q=0000 o=1
+t=123 io io=0 y=0
+t=125 io io=1 y=0
+t=129 io io=1 y=1

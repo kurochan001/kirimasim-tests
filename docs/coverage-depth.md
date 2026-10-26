@@ -6,22 +6,22 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 6799 |
-| Clauses in scope | 980 |
-| Clauses out of scope | 179 |
-| Clauses with a direct test | 980/980 |
-| Clauses with at least two direct tests | 980/980 |
+| Tests | 6936 |
+| Clauses in scope | 994 |
+| Clauses out of scope | 165 |
+| Clauses with a direct test | 994/994 |
+| Clauses with at least two direct tests | 994/994 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 147 |
-| Clauses with only standard-only tests | 212 |
+| Clauses with two tests or fewer | 154 |
+| Clauses with only standard-only tests | 216 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 582 |
-| Icarus Verilog 13.0 only | 3510 |
-| Verilator 5.052 only | 1339 |
-| standard only | 1368 |
+| both releases | 590 |
+| Icarus Verilog 13.0 only | 3520 |
+| Verilator 5.052 only | 1361 |
+| standard only | 1465 |
 
 ## By chapter
 
@@ -30,38 +30,38 @@
 | 3 | Design and verification building blocks | 86 | 15 | 5.7 | 0 | 10 |
 | 4 | Scheduling semantics | 410 | 27 | 15.2 | 0 | 16 |
 | 5 | Lexical conventions | 343 | 16 | 21.4 | 0 | 7 |
-| 6 | Data types | 560 | 76 | 7.4 | 0 | 87 |
-| 7 | Aggregate data types | 462 | 49 | 9.4 | 0 | 57 |
-| 8 | Classes | 287 | 43 | 6.7 | 0 | 47 |
-| 9 | Processes | 182 | 25 | 7.3 | 0 | 25 |
-| 10 | Assignment statements | 201 | 18 | 11.2 | 0 | 28 |
+| 6 | Data types | 561 | 76 | 7.4 | 0 | 87 |
+| 7 | Aggregate data types | 463 | 49 | 9.4 | 0 | 57 |
+| 8 | Classes | 288 | 43 | 6.7 | 0 | 48 |
+| 9 | Processes | 185 | 25 | 7.4 | 0 | 25 |
+| 10 | Assignment statements | 203 | 18 | 11.3 | 0 | 28 |
 | 11 | Operators and expressions | 821 | 42 | 19.5 | 0 | 33 |
-| 12 | Procedural programming statements | 175 | 17 | 10.3 | 0 | 15 |
+| 12 | Procedural programming statements | 177 | 19 | 9.3 | 0 | 15 |
 | 13 | Tasks and functions (subroutines) | 192 | 15 | 12.8 | 0 | 11 |
 | 14 | Clocking blocks | 77 | 15 | 5.1 | 0 | 13 |
 | 15 | Interprocess synchronization and communication | 56 | 21 | 2.7 | 0 | 18 |
-| 16 | Assertions | 320 | 67 | 4.8 | 0 | 152 |
-| 17 | Checkers | 57 | 9 | 6.3 | 0 | 40 |
-| 18 | Constrained random value generation | 131 | 44 | 3.0 | 0 | 35 |
-| 19 | Functional coverage | 89 | 22 | 4.0 | 0 | 73 |
-| 20 | Utility system tasks and system functions | 255 | 31 | 8.2 | 0 | 35 |
-| 21 | Input/output system tasks and system functions | 178 | 47 | 3.8 | 0 | 35 |
-| 22 | Compiler directives | 347 | 21 | 16.5 | 0 | 10 |
-| 23 | Modules and hierarchy | 206 | 32 | 6.4 | 0 | 54 |
+| 16 | Assertions | 336 | 67 | 5.0 | 0 | 167 |
+| 17 | Checkers | 60 | 10 | 6.0 | 0 | 41 |
+| 18 | Constrained random value generation | 142 | 44 | 3.2 | 0 | 44 |
+| 19 | Functional coverage | 118 | 23 | 5.1 | 0 | 100 |
+| 20 | Utility system tasks and system functions | 266 | 31 | 8.6 | 0 | 44 |
+| 21 | Input/output system tasks and system functions | 188 | 47 | 4.0 | 0 | 44 |
+| 22 | Compiler directives | 348 | 21 | 16.6 | 0 | 10 |
+| 23 | Modules and hierarchy | 211 | 32 | 6.6 | 0 | 56 |
 | 24 | Programs | 43 | 7 | 6.1 | 0 | 17 |
-| 25 | Interfaces | 116 | 12 | 9.7 | 0 | 27 |
-| 26 | Packages | 81 | 6 | 13.5 | 0 | 12 |
+| 25 | Interfaces | 119 | 12 | 9.9 | 0 | 29 |
+| 26 | Packages | 83 | 6 | 13.8 | 0 | 14 |
 | 27 | Generate constructs | 102 | 5 | 20.4 | 0 | 2 |
 | 28 | Gate-level and switch-level modeling | 244 | 26 | 9.4 | 0 | 48 |
-| 29 | User-defined primitives | 80 | 14 | 5.7 | 0 | 12 |
-| 30 | Specify blocks | 51 | 21 | 2.4 | 0 | 21 |
-| 31 | Timing checks | 51 | 19 | 2.7 | 0 | 41 |
-| 32 | Backannotation using the standard delay format | 47 | 10 | 4.7 | 0 | 32 |
-| 33 | Configuring the contents of a design | 36 | 9 | 4.0 | 0 | 18 |
-| 35 | Direct programming interface | 100 | 18 | 5.6 | 0 | 38 |
-| 36 | Programming language interface (PLI/VPI) overview | 83 | 17 | 4.9 | 0 | 36 |
-| 37 | VPI object model diagrams | 179 | 94 | 1.9 | 0 | 164 |
-| 38 | VPI routine definitions | 82 | 45 | 1.8 | 0 | 34 |
+| 29 | User-defined primitives | 81 | 14 | 5.8 | 0 | 12 |
+| 30 | Specify blocks | 59 | 22 | 2.7 | 0 | 24 |
+| 31 | Timing checks | 57 | 19 | 3.0 | 0 | 47 |
+| 32 | Backannotation using the standard delay format | 48 | 11 | 4.4 | 0 | 33 |
+| 33 | Configuring the contents of a design | 41 | 13 | 3.2 | 0 | 22 |
+| 35 | Direct programming interface | 109 | 20 | 5.5 | 0 | 40 |
+| 36 | Programming language interface (PLI/VPI) overview | 84 | 19 | 4.4 | 0 | 36 |
+| 37 | VPI object model diagrams | 181 | 94 | 1.9 | 0 | 165 |
+| 38 | VPI routine definitions | 85 | 45 | 1.9 | 0 | 37 |
 | 39 | Assertion API | 39 | 7 | 5.6 | 0 | 38 |
 | 40 | Code coverage control and API | 30 | 18 | 1.7 | 0 | 27 |
 
@@ -80,7 +80,7 @@ None.
 
 These clauses are cited, but no release produces the expected output of any of their tests.
 
-4.4.2.5, 4.9.2, 6.6.4.1, 6.6.4.2, 6.7.2, 6.7.3, 6.22.6, 8.29, 8.30.2, 8.30.3, 8.30.4, 8.30.5, 9.4.4, 12.4.2.1, 12.4.2.2, 12.5.3.2, 12.6.3, 15.5.4, 15.5.5.1, 15.5.5.2, 15.5.5.3, 16.4.1, 16.4.2, 16.4.3, 16.4.4, 16.4.5, 16.9.1, 16.9.2.1, 16.9.5, 16.9.7, 16.9.8, 16.9.9, 16.9.10, 16.12.4, 16.12.5, 16.12.8, 16.12.9, 16.12.14, 16.12.18, 16.13.1, 16.13.2, 16.13.3, 16.13.5, 16.13.6, 16.13.7, 16.14.6.1, 16.14.6.2, 16.14.6.3, 16.14.6.4, 16.14.8, 16.17, 17.4, 17.6, 17.7.2, 17.8, 19.4.1, 19.5.1.1, 19.5.1.2, 19.5.5, 19.5.6, 19.5.7, 19.6.1.2, 19.6.1.3, 19.6.1.4, 19.6.2, 19.6.3, 19.7.1, 19.9, 19.10, 19.11.2, 19.11.3, 20.7.1, 20.16.1, 20.16.2, 20.16.3, 20.16.4, 21.7.1.2, 21.7.3.1, 21.7.3.2, 21.7.3.3, 21.7.3.4, 21.7.3.5, 21.7.3.7, 21.7.4.1, 21.7.4.2, 21.7.4.3.1, 21.7.4.3.2, 23.3.3.7.2, 23.4, 24.3.2, 24.6, 25.3.2, 28.15.2, 28.16.2.1, 28.16.2.2, 30.7.4.1, 30.7.4.2, 31.3.1, 31.3.2, 31.3.5, 31.4.1, 31.4.2, 31.4.3, 31.4.5, 31.4.6, 31.7, 31.8, 31.9.2, 32.4.2, 32.4.3, 33.4.1.5, 33.4.2, 35.5.1.5, 36.8.1, 36.10.1, 36.10.3, 36.12.1, 36.12.2.1, 37.3.2, 37.3.4, 37.3.5, 37.3.6, 37.3.8, 37.6, 37.7, 37.8, 37.9, 37.11, 37.13, 37.15, 37.18, 37.19, 37.20, 37.21, 37.22, 37.23, 37.24, 37.25, 37.26, 37.29, 37.30, 37.31, 37.32, 37.33, 37.34, 37.35, 37.36, 37.38, 37.40, 37.41, 37.43, 37.44, 37.46, 37.47, 37.48, 37.49, 37.50, 37.51, 37.52, 37.53, 37.54, 37.55, 37.56, 37.57, 37.58, 37.59, 37.60, 37.61, 37.62, 37.63, 37.64, 37.65, 37.66, 37.67, 37.68, 37.69, 37.70, 37.71, 37.72, 37.73, 37.74, 37.75, 37.76, 37.77, 37.78, 37.79, 37.80, 37.81, 37.82, 37.83, 37.84, 38.7, 38.16, 38.36.1.1, 38.36.1.2, 38.36.1.3, 39.3.1, 39.3.2, 39.4.1, 39.4.2.1, 39.5.1, 39.5.2, 39.5.3, 40.2.1, 40.2.2, 40.3.2.1, 40.3.2.2, 40.3.2.3, 40.3.2.4, 40.3.2.5, 40.5.2, 40.5.3
+4.4.2.5, 4.9.2, 6.6.4.1, 6.6.4.2, 6.7.2, 6.7.3, 6.22.6, 8.29, 8.30.2, 8.30.3, 8.30.4, 8.30.5, 9.4.4, 12.4.2.1, 12.4.2.2, 12.5.3.2, 12.6.3, 15.5.4, 15.5.5.1, 15.5.5.2, 15.5.5.3, 16.4.1, 16.4.2, 16.4.3, 16.4.4, 16.4.5, 16.9.1, 16.9.2.1, 16.9.5, 16.9.7, 16.9.8, 16.9.9, 16.9.10, 16.12.4, 16.12.5, 16.12.8, 16.12.9, 16.12.14, 16.12.18, 16.13.1, 16.13.2, 16.13.3, 16.13.5, 16.13.6, 16.13.7, 16.14.6.1, 16.14.6.2, 16.14.6.3, 16.14.6.4, 16.14.8, 16.17, 17.4, 17.6, 17.7.2, 17.8, 19.4.1, 19.5.1.1, 19.5.1.2, 19.5.5, 19.5.6, 19.5.7, 19.6.1.2, 19.6.1.3, 19.6.1.4, 19.6.2, 19.6.3, 19.7.1, 19.9, 19.10, 19.11.2, 19.11.3, 20.7.1, 20.16.1, 20.16.2, 20.16.3, 20.16.4, 21.7.1.2, 21.7.3.1, 21.7.3.2, 21.7.3.3, 21.7.3.4, 21.7.3.5, 21.7.3.7, 21.7.4.1, 21.7.4.2, 21.7.4.3.1, 21.7.4.3.2, 23.3.3.7.2, 23.4, 24.3.2, 24.6, 25.3.2, 28.15.2, 28.16.2.1, 28.16.2.2, 30.7.4.1, 30.7.4.2, 31.3.1, 31.3.2, 31.3.5, 31.4.1, 31.4.2, 31.4.3, 31.4.5, 31.4.6, 31.7, 31.8, 31.9.2, 32.2, 32.4.2, 32.4.3, 33.3.1.1, 33.4.1.5, 33.4.2, 33.5.4, 35.2.2.1, 35.5.1.5, 36.8.1, 36.10.1, 36.10.3, 36.12.1, 36.12.2.1, 37.3.2, 37.3.4, 37.3.5, 37.3.6, 37.3.8, 37.6, 37.7, 37.8, 37.9, 37.11, 37.13, 37.15, 37.18, 37.19, 37.20, 37.21, 37.22, 37.23, 37.24, 37.25, 37.26, 37.29, 37.30, 37.31, 37.32, 37.33, 37.34, 37.35, 37.36, 37.38, 37.40, 37.41, 37.43, 37.44, 37.46, 37.47, 37.48, 37.49, 37.50, 37.51, 37.52, 37.53, 37.54, 37.55, 37.56, 37.57, 37.58, 37.59, 37.60, 37.61, 37.62, 37.63, 37.64, 37.65, 37.66, 37.67, 37.68, 37.69, 37.70, 37.71, 37.72, 37.73, 37.74, 37.75, 37.76, 37.77, 37.78, 37.79, 37.80, 37.81, 37.82, 37.83, 37.84, 38.7, 38.16, 38.36.1.1, 38.36.1.2, 38.36.1.3, 39.3.1, 39.3.2, 39.4.1, 39.4.2.1, 39.5.1, 39.5.2, 39.5.3, 40.2.1, 40.2.2, 40.3.2.1, 40.3.2.2, 40.3.2.3, 40.3.2.4, 40.3.2.5, 40.5.2, 40.5.3
 
 ## Cited clauses with an out-of-scope tag
 
@@ -100,6 +100,8 @@ These clauses are cited by tests but carry a tag in `tools/clauses.txt` that say
 - `8.3`: tag `none`
 - `10.2`: tag `none`
 - `11.6.2`: tag `none`
+- `12.2`: tag `none`
+- `12.3`: tag `none`
 - `12.4.2.1`: tag `tool`
 - `12.4.2.2`: tag `tool`
 - `12.5.3.2`: tag `tool`
@@ -107,6 +109,8 @@ These clauses are cited by tests but carry a tag in `tools/clauses.txt` that say
 - `14.2`: tag `none`
 - `15.2`: tag `none`
 - `16.2`: tag `none`
+- `17.1`: tag `none`
+- `19.2`: tag `none`
 - `21.7.1.5`: tag `dump`
 - `21.7.3.1`: tag `dump`
 - `21.7.3.2`: tag `dump`
@@ -126,9 +130,19 @@ These clauses are cited by tests but carry a tag in `tools/clauses.txt` that say
 - `27.2`: tag `none`
 - `29.2`: tag `none`
 - `30.2`: tag `none`
+- `30.7.2`: tag `tool`
 - `31.2`: tag `none`
 - `31.9.2`: tag `tool`
+- `32.2`: tag `none`
+- `33.2.1`: tag `tool`
+- `33.3.1.1`: tag `tool`
+- `33.3.3`: tag `tool`
+- `33.5.4`: tag `tool`
+- `35.2.2.1`: tag `none`
+- `35.3.1`: tag `none`
 - `35.3.2`: tag `none`
+- `36.2`: tag `none`
+- `36.6`: tag `none`
 - `36.7`: tag `none`
 - `36.11`: tag `none`
 - `36.12.1`: tag `tool`

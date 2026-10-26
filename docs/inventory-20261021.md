@@ -1074,8 +1074,11 @@ A pass over p05-p08 (11.5.2-14.16, 14.16.1-16.13.5, 16.13.6-18.5.6,
 18.5.7.1-19.7) accepted 89 links and held 388 observations.
 
 A pass over p09-p12 (19.7.1-21.7.1.1, 21.7.1.2-23.3.2, 23.3.3-26.5,
-27.3-33.3.1) accepted 93 links and held 395 observations. The ledger
-maps 9585 of 12319 rows (77.81%), with 5424 executed (44.03%).
+27.3-33.3.1) accepted 93 links and held 395 observations.
+
+The 90% round started with p17-p18 matching and new tests for the g and
+h partitions. It accepted 320 links and added 137 tests; the ledger maps
+9789 of 12319 rows (79.46%), with 5470 executed (44.40%).
 
 ### Current state
 
@@ -1084,7 +1087,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-9585 of 12319 rows (77.81%), with 5424 executed (44.03%).
+9789 of 12319 rows (79.46%), with 5470 executed (44.40%).
 
 ### Tests added in this work
 

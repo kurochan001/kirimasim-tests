@@ -9580,7 +9580,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
+      "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
       "reviewed_on": "2026-10-23",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9628,7 +9628,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
+      "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
       "reviewed_on": "2026-10-23",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -12962,6 +12962,25 @@
               "contains": "with FSM coverage started, the maximum is the 10 states named: yes"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-40.4.6-EXTRACT-FSM-ENUM-POSITION"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "enum pragma の位置は FSM coverage が開始できた場合だけ max=10 で判定され、出力は started != SV_COV_OK || ... で常に yes を許す。FSM coverage 非対応の実装でも期待出力を満たすため、pragma 位置の誤りを期待出力で識別できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_fsm_pragma_states.sv",
+              "contains": "  parameter [1:0] /* tool enum c_states */ C0 = 2'b00, C1 = 2'b01, C2 = 2'b11;"
+            },
+            {
+              "file": "tests/ch40/test_coverage_fsm_pragma_states.sv",
+              "contains": "             yes_no(started != `SV_COV_OK || (max_mid == 10 && max_end == 10)));"
+            }
+          ]
         }
       ]
     },
@@ -13041,6 +13060,44 @@
             {
               "file": "tests/ch40/test_vpi_coverage_control.c",
               "contains": "vpi_control(vpiCoverageStop, vpiToggleCoverage, top);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-MERGE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補 2 本は vpi_control に vpiCoverageReset と vpiCoverageStop だけを渡し、vpiCoverageMerge を一度も使わない。merge の semantics と $coverage_merge との一致を出力で観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_control.sv",
+              "contains": "    $vt_cov(\"reset\");"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_control.sv",
+              "contains": "    $vt_cov(\"stop\");"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-40.5.3-EXTRACT-VPI-COVERAGE-SAVE-NAME-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補 2 本は vpiCoverageReset/Stop のみで、vpiCoverageSave と名前 text を渡す呼び出しが無い。save の名前と coverage-control 定数の対応を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_control.sv",
+              "contains": "    $vt_cov(\"reset\");"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_control.sv",
+              "contains": "    $vt_cov(\"stop\");"
             }
           ]
         }
@@ -13482,7 +13539,7 @@
     },
     {
       "test": "tests/ch36/test_vpi_chk_error_callbacks.sv",
-      "inputs_sha256": "b63841442e77d82e957304644c176e2ffa33584e55fe61cb791195ac3815524b",
+      "inputs_sha256": "47e8e88716461a0c252e8fb280fa7c0195032dff007daa7f19a41e9ec62b941a",
       "reviewed_on": "2026-10-23",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -19642,6 +19699,21 @@
               "contains": "  bind bk_cpu bk_mod_probe u_mp (.x(a));"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-4"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "interface に interface instance を bind する正常例（bind bk_bus bk_if_probe u_ip）はあるが、この test は A.10 を引用せず、module instance を bind して拒否されることを見る負の test も候補に無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_bind_instantiation_kinds.sv",
+              "contains": "  bind bk_bus bk_if_probe u_ip (.x(level));"
+            }
+          ]
         }
       ]
     },
@@ -19841,6 +19913,55 @@
             {
               "file": "tests/ch35/test_dpi_import_export_forms.sv",
               "contains": "import \"DPI-C\" function int di_add(input int a, input int b);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.6-EXTRACT-BODY-OLD"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の function はすべて ANSI body（名前付き port list）で、non-ANSI の return specification・scope・identifier・tf-item declaration を持つ body が無い。BODY-OLD の条件を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_export_forms.sv",
+              "contains": "  function int sv_triple(input int v);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-H.2-EXTRACT-DEPRECATED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補は \"DPI-C\" だけを使い、deprecated な \"DPI\" specification string と H.14 の packed-data 機能を有効にする形が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_export_forms.sv",
+              "contains": "  import \"DPI-C\" function int di_add(input int a, input int b);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-H.2-EXTRACT-DIRECTIONS"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "import した C 関数・export した SV 関数/task・import した C task から export した SV task への呼び出しを add/pure/ctx と tri/sq/bump で観測する test は tests/ch35/test_dpi_import_export_forms.sv だが、:lrm: が 35.5.4/35.7/35.8/A.2.6 で H.2 を引用しない。H.2 を引用する候補 3 本は import だけで export を持たない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_export_forms.sv",
+              "contains": "  export \"DPI-C\" function sv_triple;"
+            },
+            {
+              "file": "tests/ch35/test_dpi_import_export_forms.sv",
+              "contains": "  import \"DPI-C\" context task di_task(input int a);"
             }
           ]
         }
@@ -24565,6 +24686,25 @@
             {
               "file": "tests/ch40/test_coverage_fsm_pragmas.expected",
               "contains": "10: st 1, mode 1, pair 01"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-40.4.7-EXTRACT-FSM-COMMENT-STYLES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "comment 中の FSM pragma は simulation を変えないため、この test の期待出力は pragma を全て無視した実装でも同じになる。block/one-line の両 style を置いているが、その受理を出力から判定できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_fsm_pragmas.sv",
+              "contains": "  parameter [1:0] // tool enum shift_states"
+            },
+            {
+              "file": "tests/ch40/test_coverage_fsm_pragmas.sv",
+              "contains": "  /* tool state_vector st */"
             }
           ]
         }
@@ -29680,6 +29820,66 @@
               "contains": "package ev_pkg;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.6.5-EXTRACT-CONTROL-STATEMENT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "delay control（#1, #(2:2:2)）と event control は置くが、cycle delay control（##n）で始まる procedural timing-control statement が無い。3 つの alternative のうち 2 つだけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_syntax_timing_control_and_event_expressions.sv",
+              "contains": "    #(2:2:2) $display(\"%0t: mintypmax delay\", $time);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.6.5-EXTRACT-EVENT-EXPRESSIONS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "edge・iff・or・comma・parentheses・package/hierarchical identifier の event expression は置くが、sequence instance を event expression にする形が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_syntax_timing_control_and_event_expressions.sv",
+              "contains": "    @(posedge clk iff en);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.6.5-EXTRACT-TRIGGER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "event trigger は -> の blocking 形だけを置き、->> と delay/event control を伴う nonblocking 形、および hierarchical event identifier の選択を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_syntax_timing_control_and_event_expressions.sv",
+              "contains": "    #36 -> he;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-36"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の event expression の comma は @(e_c, e_d) の clocking event の中だけで、comma を含む event expression を positionally bound actual argument として渡す形が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_syntax_timing_control_and_event_expressions.sv",
+              "contains": "    @(e_c, e_d);"
+            }
+          ]
         }
       ]
     },
@@ -30317,6 +30517,25 @@
               "contains": "module test_syntax_assignment_pattern_forms;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.6.7.1-EXTRACT-KEYS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "assignment pattern の key は member identifier（hi:, lo:）、constant expression（0:, 3:）、default を置くが、simple type を key にする形が無い。assignment-pattern key の alternative の一部だけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
+              "contains": "  pair_t named = '{hi: 4'h3, lo: 4'h4};"
+            },
+            {
+              "file": "tests/ch10/test_syntax_assignment_pattern_forms.sv",
+              "contains": "  int arr[4] = '{0: 1, 3: 2, default: 0};"
+            }
+          ]
         }
       ]
     },
@@ -30738,6 +30957,66 @@
             {
               "file": "tests/ch11/test_expression_alternatives_with_operator_attributes.sv",
               "contains": "module test_expression_alternatives_with_operator_attributes;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.3-EXTRACT-CONSTANT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "A.8.3 を引用する候補の演算子属性付き式は initial 内の run-time 式で、constant expression の文脈（parameter 等）ではない。constant mintypmax の 1 個/3 個の colon 形も無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_expression_alternatives_with_operator_attributes.sv",
+              "contains": "    r1 = - (* neg, w = 3 *) x;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.3-EXTRACT-MINTYPMAX"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補に colon 区切りの 3 式（a:b:c）の mintypmax expression が無く、module-path mintypmax も無い。単一式の mintypmax として読める式だけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_expression_alternatives_with_operator_attributes.sv",
+              "contains": "    r1 = c ? (* pick *) 10 : 20;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.3-EXTRACT-MODULE-PATH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補に module-path expression（specify の path 式）が無く、module-path primary/unary/binary/conditional のいずれも観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_expression_alternatives_with_operator_attributes.sv",
+              "contains": "    r1 = x + (* mark *) 2;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.4-EXTRACT-MODULE-PRIMARY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "module-path primary（number/identifier/module-path concatenation/function call/parenthesized module-path mintypmax）は specify の path 式でのみ使われ、候補に specify path の式が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_expression_alternatives_with_operator_attributes.sv",
+              "contains": "    r1 = x + (* mark *) 2;"
             }
           ]
         }
@@ -32523,6 +32802,51 @@
             {
               "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
               "contains": "    output d;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.6.11-EXTRACT-CLOCKING"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "clocking 宣言は default clocking cb @(posedge clk); の 1 形だけで、default 無しの clocking、identifier 無し、endclocking の identifier label、global clocking を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
+              "contains": "  default clocking cb @(posedge clk);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.6.11-EXTRACT-CLOCKING-ITEMS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "clocking item は output d; の 1 つだけで、default skew declaration、comma 区切りの複数 clocking assignment、属性付き assertion-item declaration を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
+              "contains": "    output d;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.6.11-EXTRACT-SKEW"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "clocking block に skew が 1 つも無い（input/output の skew、input-then-output の順序、inout、edge 付き/無しの skew を観測していない）。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_syntax_clocking_drive_forms.sv",
+              "contains": "  default clocking cb @(posedge clk);"
             }
           ]
         }
@@ -34882,6 +35206,29 @@
               "contains": "    #1 $assertkill(0, a_kill);"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-40.5.2-EXTRACT-ASSERTION-COVERED-CRITERION"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "assertion coverage を収集しなかった実装では !collected の分岐が全ての count 照会を飛ばして 1 を出力するため、attempted/succeeded/never-failed の判定が期待出力に現れない。未収集実装でも通る。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+              "contains": "  a_pass: assert property (@(posedge clk) on);"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.c",
+              "contains": "        if (!collected) {"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_assertion_counts.sv",
+              "contains": "  initial begin"
+            }
+          ]
         }
       ]
     },
@@ -35553,7 +35900,7 @@
     },
     {
       "test": "tests/ch17/test_checker_body_items.sv",
-      "inputs_sha256": "f517da0243da25a664be638832a73eeae0d504280d0061d9e6a2269546326c05",
+      "inputs_sha256": "9f5e193f08b281af42f9961d1e1b86259befcde3e6c230a25a6e7c5c50e8ef33",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -36133,6 +36480,25 @@
               "contains": "  constraint cb { q.size() == 0; }"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-7"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "class の parameter class item が localparam であることは、その名前を定数式（次元・別の parameter の初期化など）で使って初めて観測できる。候補の BODY と P はメソッドの return 式の中だけで、値 12 や 9 は通常の変数初期化でも同じになるため、localparam との区別が期待出力に現れない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_class_item_qualifiers_and_constraints.sv",
+              "contains": "  parameter int BODY = W + 1;"
+            },
+            {
+              "file": "tests/ch8/test_class_item_qualifiers_and_constraints.sv",
+              "contains": "    return BODY * 2;"
+            }
+          ]
         }
       ]
     },
@@ -36593,6 +36959,21 @@
           ],
           "disposition": "partial_observation",
           "explanation": "明示順序のない変数を最後の順序グループで解くことを、順序を付けた変数との値の依存として観測する入力を欠く。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_constraint_grammar_forms.sv",
+              "contains": "  constraint c_solve { solve this.p, q before f, g; q == 9; f == 10; g == 11; }"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.10-EXTRACT-CONSTRAINT-PRIMARY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "c_solve の constraint primary は暗黙クラスハンドル付きの this.p と素の q/f/g のみで、class scope 形（C::x）を使っていない。constraint primary の 2 つの開始形のうち片方だけの観測になる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
@@ -37477,6 +37858,40 @@
               "contains": "    option.per_instance = 1;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.11-EXTRACT-SPEC-OPTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "coverpoint の typed label と option.member（option.per_instance/comment/weight）、type_option.member は置くが、coverage specification の前の repeated attributes も cross も無い。また option の expression/type_option の constant の区別は期待出力に現れない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_covergroup_declaration_and_option_forms.sv",
+              "contains": "    option.per_instance = 1;"
+            },
+            {
+              "file": "tests/ch19/test_covergroup_declaration_and_option_forms.sv",
+              "contains": "    type_option.weight = 2;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-29"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "covergroup extends を class の外に置く負の test tests/ch19/test_illegal_covergroup_extends_outside_class.sv があるが :lrm: が 19.4.1 で A.10 を引用しない。A.10 候補の extends は class 内の正常例だけで、制約を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_covergroup_declaration_and_option_forms.sv",
+              "contains": "    covergroup extends cg;"
+            }
+          ]
         }
       ]
     },
@@ -37863,7 +38278,7 @@
     },
     {
       "test": "tests/ch19/test_covergroup_cross_and_select_forms.sv",
-      "inputs_sha256": "c8c5200e9e8f3bb1b1b6e4cefaa4e1341ea2c2189d56ed41eb5d6b21fbc2b89e",
+      "inputs_sha256": "21a4a194ab07a2e8290565217379dfb25dfd133740e3efc1eea7c622065b6126",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -40944,7 +41359,7 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "eb7eba91db79e4547202cdfce957aac35f8a0616e9d2ec51e35bc030dacb814b",
+      "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -41234,6 +41649,21 @@
             {
               "file": "tests/ch23/test_module_declaration_all_header_elements.sv",
               "contains": "  timeunit 100ps;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.2-EXTRACT-DESCRIPTION-14"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "configuration declaration を source description として置く test は tests/ch33/test_config_*.sv に多数あるが、いずれも A.1.2 を :lrm: に引用しないため候補にならない。候補 13 本に configuration declaration は無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_module_declaration_all_header_elements.sv",
+              "contains": "endmodule"
             }
           ]
         }
@@ -42347,6 +42777,36 @@
             {
               "file": "tests/ch23/test_hierarchical_identifier_forms_through_instances.sv",
               "contains": "  leaf u (.din(d), .dout());"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-30"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "package-scoped parameter は hp::PP、hierarchical parameter は u.P、generate block の localparam は blk[0].LP を置くが、parameter identifier に constant select を付けた形（例 hp::PP[0]）が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_hierarchical_identifier_forms_through_instances.sv",
+              "contains": "    sum = u.P + blk[0].LP + hp::PP;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-31"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補に specparam identifier が 1 つも無く、optional な bracketed constant range expression も観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_hierarchical_identifier_forms_through_instances.sv",
+              "contains": "    sum = u.P + blk[0].LP + hp::PP;"
             }
           ]
         }
@@ -43908,7 +44368,7 @@
     },
     {
       "test": "tests/ch30/test_path_polarity_no_effect.sv",
-      "inputs_sha256": "29f179b42dd706998b141deef62b2c803dece323dbf67d5e65418d27dccd9f8a",
+      "inputs_sha256": "8221e0cb8a62f4689143e2bfcb4d660485c555180369e974f70201c748cc71ef",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -44847,7 +45307,7 @@
     },
     {
       "test": "tests/ch33/test_config_cell_with_library.sv",
-      "inputs_sha256": "614dc9da1cf74bc4efde99a55d1be7c3df30b4345560ef7e35b880dcac920f55",
+      "inputs_sha256": "7912e933d515c6b48f09a5cb84dd9b2f4a1f3356b6c7842456c50bdf8ca93f2f",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -44961,7 +45421,7 @@
     },
     {
       "test": "tests/ch33/test_config_design_top.sv",
-      "inputs_sha256": "825369c4417d5f2f1feb1f95e65736c9a09f88b8564c016b92fb22c2a2a34851",
+      "inputs_sha256": "402e67a02466448fef3c12c115a69b5245e911a02b0b4e01a90632e501e4203d",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -44978,6 +45438,2145 @@
             {
               "file": "tests/ch33/test_config_design_top.sv",
               "contains": ":lrm: 1800-2023 33.4.1.1 33.3.1 23.3.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch33/test_config_declaration_grammar_forms.sv",
+      "inputs_sha256": "2d4f000b9dc431a2b98914bdcca8e7118aec56f420d1463aa241001632ee1238",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.1.1-EXTRACT-LIBRARY-DECLARATION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "library 宣言は library_text（ライブラリマップファイル）の開始記号から導かれるが、テスト形式は .sv と :files: のソースをコンパイラに渡すだけで、ライブラリマップを渡すオプションがない。マップファイルを :files: に置くと SystemVerilog としてコンパイルされてしまうため、library 宣言の効果を観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch33/test_config_declaration_grammar_forms.sv",
+              "contains": "config cf_cfg;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.1-EXTRACT-LIBRARY-INCLUDE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "include 文は library_text の中の include file_path_spec ; であり、ライブラリマップを読む手段がテスト形式にないため、include の解決を観測できない。config の design/規則は .sv の中の config_declaration として観測できるが、library 側の include は別である。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch33/test_config_declaration_grammar_forms.sv",
+              "contains": "design work.test_config_declaration_grammar_forms;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.1.1-EXTRACT-LIBRARY-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "library_text は library_description の 0 回以上の繰り返しで、library_declaration、include_statement、config_declaration、空の ; を並べる。このうち config_declaration だけは .sv の中で観測できるが、library_text 全体を読ませる方法がないため、繰り返しと空の ; を含む形は観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch33/test_config_declaration_grammar_forms.sv",
+              "contains": "config cf_cfg;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch36/test_vpi_systf_phases_and_object_identity.sv",
+      "inputs_sha256": "a060f765a739fd51e7c1d821c2f1c896bad73b32bca40ee7c50ec024bc759363",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-36.8-EXTRACT-CALLBACK-PHASES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test observes compiletf while the design is built and calltf on each call, but it cannot observe sizetf: Icarus Verilog 13.0 never calls sizetf for a user-defined system function used in a procedural assignment, and Verilator 5.052 cannot call a registered system function. The existing test test_vpi_compiletf_sizetf has the same limitation, so sizetf remains for a tool that calls it.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_systf_phases_and_object_identity.sv",
+              "contains": "    $display(\"value=%0d\", $vt_value());"
+            },
+            {
+              "file": "tests/ch36/test_vpi_systf_phases_and_object_identity.sv",
+              "contains": "// its calltf prints a line and puts 31 as the call's return value (38.34)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
+      "inputs_sha256": "7eda438938d45a49193c6ed87c88b5ea4b31ba9b9dc7a1d5e8b9a3f68957dc3c",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-PUT-FORMAT-ERROR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "この要求は kind=error で登録されているため、照合プロトコルは :should_fail_because: を持つ不正設計テストしか受け付けない。しかし 38.34 の「エラー」は VPI アプリケーションが実行時に起こす API 誤用へのエラーであり、設計の非法性ではないので、どのテストも :type: elaboration にできない。書いたテストは誤用がエラーとして報告されること（と、その前後の合法な呼び出しが値を設定すること）を観測しており、要求の内容は検証しているが、この分類のままでは対応付けを登録できない。要求の kind を実行時エラー用に分ける抽出の見直しが必要。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
+              "contains": "    $vt_illegal;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.c",
+              "contains": "    vpi_put_value(r, &val, NULL, vpiNoDelay);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.c",
+              "contains": "    vpi_put_value(v, &val, NULL, vpiNoDelay);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.expected",
+              "contains": "string value to a real variable reports an error: 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
+      "inputs_sha256": "e0bd8cd0dd3a0b250ac3cb3c4e0915a146f519aeddd2e2add3787c543f963a42",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-UDP-NO-DELAY"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "この要求は kind=error で登録されているため、照合プロトコルは :should_fail_because: を持つ不正設計テストしか受け付けない。しかし 38.34 の「エラー」は VPI アプリケーションが実行時に起こす API 誤用へのエラーであり、設計の非法性ではないので、どのテストも :type: elaboration にできない。書いたテストは誤用がエラーとして報告されること（と、その前後の合法な呼び出しが値を設定すること）を観測しており、要求の内容は検証しているが、この分類のままでは対応付けを登録できない。要求の kind を実行時エラー用に分ける抽出の見直しが必要。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
+              "contains": "    #1 $vt_udp_put;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.c",
+              "contains": "    vpi_put_value(udp, &val, NULL, vpiNoDelay);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.c",
+              "contains": "    vpi_put_value(udp, &val, &at, vpiTransportDelay);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.expected",
+              "contains": "6: q after the vpiNoDelay put: 0"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.35-EXTRACT-PUT-ARRAY-NO-DELAY"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "この要求は kind=error で登録されているため、照合プロトコルは :should_fail_because: を持つ不正設計テストしか受け付けない。しかし 38.35 の「エラー」は VPI アプリケーションが実行時に起こす API 誤用へのエラーであり、設計の非法性ではないので、どのテストも :type: elaboration にできない。書いたテストは誤用がエラーとして報告されること（と、その前後の合法な呼び出しが値を設定すること）を観測しており、要求の内容は検証しているが、この分類のままでは対応付けを登録できない。要求の kind を実行時エラー用に分ける抽出の見直しが必要。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
+              "contains": "    $vt_array_ok(1);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.c",
+              "contains": "    v.flags = vpiInertialDelay;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.c",
+              "contains": "    v.flags = vpiTransportDelay;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.expected",
+              "contains": "a scheduling flag on the bulk put reports an error: 1"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.35-EXTRACT-PUT-ARRAY-UNSUPPORTED-FORMAT"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "この要求は kind=error で登録されているため、照合プロトコルは :should_fail_because: を持つ不正設計テストしか受け付けない。しかし 38.35 の「エラー」は VPI アプリケーションが実行時に起こす API 誤用へのエラーであり、設計の非法性ではないので、どのテストも :type: elaboration にできない。書いたテストは誤用がエラーとして報告されること（と、その前後の合法な呼び出しが値を設定すること）を観測しており、要求の内容は検証しているが、この分類のままでは対応付けを登録できない。要求の kind を実行時エラー用に分ける抽出の見直しが必要。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
+              "contains": "    $vt_array_errors;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.c",
+              "contains": "    v.format = vpiStringVal;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_udp_array_errors.expected",
+              "contains": "an unsupported format on the bulk put reports an error: 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_callback_registration_errors.sv",
+      "inputs_sha256": "5261c06f41818891c1f196f3f8ae80e68462e524c2b9c5124142120a6901376c",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.1-EXTRACT-BITSELECT-CALLBACK-ERROR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "この要求は kind=error で登録されているため、照合プロトコルは :should_fail_because: を持つ不正設計テストしか受け付けない。しかし 38.36.1 の「エラー」は VPI アプリケーションが実行時に起こす API 誤用へのエラーであり、設計の非法性ではないので、どのテストも :type: elaboration にできない。書いたテストは誤用がエラーとして報告されること（と、その前後の合法な呼び出しが値を設定すること）を観測しており、要求の内容は検証しているが、この分類のままでは対応付けを登録できない。要求の kind を実行時エラー用に分ける抽出の見直しが必要。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.sv",
+              "contains": "    #2 force q = 4'd9;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.c",
+              "contains": "    bitsel_refused = register_cb(cbForce, bit, vpiSimTime, 0, &bitsel, count_cb) == NULL;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.expected",
+              "contains": "cbForce on a variable bit-select was refused: yes"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.2-EXTRACT-READWRITE-READONLY-ERROR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "この要求は kind=error で登録されているため、照合プロトコルは :should_fail_because: を持つ不正設計テストしか受け付けない。しかし 38.36.2 の「エラー」は VPI アプリケーションが実行時に起こす API 誤用へのエラーであり、設計の非法性ではないので、どのテストも :type: elaboration にできない。書いたテストは誤用がエラーとして報告されること（と、その前後の合法な呼び出しが値を設定すること）を観測しており、要求の内容は検証しているが、この分類のままでは対応付けを登録できない。要求の kind を実行時エラー用に分ける抽出の見直しが必要。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.sv",
+              "contains": "    #2 force q = 4'd9;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.c",
+              "contains": "    zero_rw_refused = register_cb(cbReadWriteSynch, NULL, vpiSimTime, 0, &zero_rw,"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.expected",
+              "contains": "a zero-delay cbReadWriteSynch at read-only time was refused: yes"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.2-EXTRACT-START-ZERO-DELAY-ERROR"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "この要求は kind=error で登録されているため、照合プロトコルは :should_fail_because: を持つ不正設計テストしか受け付けない。しかし 38.36.2 の「エラー」は VPI アプリケーションが実行時に起こす API 誤用へのエラーであり、設計の非法性ではないので、どのテストも :type: elaboration にできない。書いたテストは誤用がエラーとして報告されること（と、その前後の合法な呼び出しが値を設定すること）を観測しており、要求の内容は検証しているが、この分類のままでは対応付けを登録できない。要求の kind を実行時エラー用に分ける抽出の見直しが必要。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.sv",
+              "contains": "    #2 force q = 4'd9;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.c",
+              "contains": "    zero_start_refused = register_cb(cbAtStartOfSimTime, NULL, vpiSimTime, 0,"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.expected",
+              "contains": "a zero-delay cbAtStartOfSimTime after entering a time slice was refused: yes"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.2-EXTRACT-TIME-CALLBACK-STRUCTURE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "この要求は kind=error で登録されているため、照合プロトコルは :should_fail_because: を持つ不正設計テストしか受け付けない。しかし 38.36.2 の「エラー」は VPI アプリケーションが実行時に起こす API 誤用へのエラーであり、設計の非法性ではないので、どのテストも :type: elaboration にできない。書いたテストは誤用がエラーとして報告されること（と、その前後の合法な呼び出しが値を設定すること）を観測しており、要求の内容は検証しているが、この分類のままでは対応付けを登録できない。要求の kind を実行時エラー用に分ける抽出の見直しが必要。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.sv",
+              "contains": "    #2 force q = 4'd9;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.c",
+              "contains": "    null_next_refused = register_cb(cbNextSimTime, NULL, -1, 0, &null_next,"
+            },
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.expected",
+              "contains": "cbNextSimTime with a NULL time was refused: yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_concatenation_forms_selects_zero_and_empty.sv",
+      "inputs_sha256": "18765a88804f73689b5e9a8daefc7f3cb8c020268603624307bf8ab49c114dbb",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.8.4-EXTRACT-PRIMARY-53"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "A.8.4 を引用する候補 17 本のうち、parenthesized mintypmax expression を primary として置くものがない。concatenation/part-select/let/cast の括弧は呼び出し・cast・select の一部で、A.8.4 の primary の括弧形を単独では刺激していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_concatenation_forms_selects_zero_and_empty.sv",
+              "contains": "  localparam [3:0] R = {4'hA, 4'h5}[6:3];"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.1-EXTRACT-CONCAT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "concatenation は constant/non-constant の expression list と select 付きを置くが、module-path concatenation（specify の path 式）が無い。constant と module-path の両 form のうち片方だけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_concatenation_forms_selects_zero_and_empty.sv",
+              "contains": "  localparam [7:0] P = {4'hA, 4'h5};"
+            },
+            {
+              "file": "tests/ch11/test_concatenation_forms_selects_zero_and_empty.sv",
+              "contains": "    $display(\"concat %h %h %b %h %h\", {a, b, 4'h5}, {a, b}[5:2], {a, b}[7], {2{a, b}},"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.1-EXTRACT-REPLICATION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "multiple concatenation は constant multiplier の {3{4'h7}}、非定数の {n{\"ab\"}}、{0{b}} を置くが、module-path multiple concatenation が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_concatenation_forms_selects_zero_and_empty.sv",
+              "contains": "  localparam [11:0] Q = {3{4'h7}};"
+            },
+            {
+              "file": "tests/ch11/test_concatenation_forms_selects_zero_and_empty.sv",
+              "contains": "    s1 = {n{\"ab\"}};"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-35"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "empty unpacked-array concatenation {} は queue/dynamic array への run-time 代入にだけ現れ、constant primary として parameter の値を決める形では使っていない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_concatenation_forms_selects_zero_and_empty.sv",
+              "contains": "    q = {};"
+            },
+            {
+              "file": "tests/ch11/test_concatenation_forms_selects_zero_and_empty.sv",
+              "contains": "    d = {};"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch40/test_vpi_coverage_max_entities.sv",
+      "inputs_sha256": "c296d44e807bed93ebda2add18a2b856f6d4e6f05e354e36f3f2833f03e1390c",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-40.5.2-EXTRACT-COVERED-COUNT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "covered count の照会は coverage type ごとの available[] が 1 のときだけ行われ、0 のときは !available[...] || ... で真になる。収集しない実装でも期待出力を満たし、sum の誤りを識別できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.sv",
+              "contains": "  logic [7:0] sig = 8'h00;"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.c",
+              "contains": "               !available[1] || (prop(stmt, vpiCoveredCount, 0) == statement_max"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-40.5.2-EXTRACT-COVERED-ENTITIES"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "signal/statement/FSM/assertion の covered 値は available[] が 1 の type だけ照会され、収集しない type は !available[...] || ... で飛ばされる。entity 種別ごとの covered を未収集実装でも満たすため、entity の取り違えを識別できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.sv",
+              "contains": "  logic [7:0] sig = 8'h00;"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.c",
+              "contains": "               !available[1] || covered == 3);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-40.5.2-EXTRACT-INSTANCE-COVERAGE-QUERY"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "instance handle の coverage count は vpiToggleCoverage を 1 回だけ読み、しかも sig の covered 以上という不等式で、!available[0] なら飛ばす。count の一致も未収集時の挙動も規格の「その type の covered item 数」を判定していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.sv",
+              "contains": "  logic [7:0] sig = 8'h00;"
+            },
+            {
+              "file": "tests/ch40/test_vpi_coverage_max_entities.c",
+              "contains": "               !available[0] || prop(top, vpiToggleCoverage, 0)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_syntax_class_method_kinds.sv",
+      "inputs_sha256": "5c9d5b9c21d7b50ffe3367073ffe5f1da7580207ddef57d1c0d09dea02787e3f",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.1.9-EXTRACT-CONSTRUCTOR-ARGUMENTS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の constructor は function new(int a) や new() の 1 個の tf_port_item だけで、comma 区切りの複数引数も default を持つ引数も無い。clarification 9 の条件を出力で観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_syntax_class_method_kinds.sv",
+              "contains": "  function new(int a);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_interconnect_and_net_port_types.sv",
+      "inputs_sha256": "558e99da2f09729c25d91a9630a403aded5f29071a495e8a42fb2022fe75aaea",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.1.3-EXTRACT-INTERCONNECT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "interconnect 宣言は bus、#0 付き b2、unpacked dimension 付き arr をそれぞれ 1 identifier で宣言するが、comma で 2 個目の identifier を続ける形が無い。要求の「optionally one further comma-separated identifier」を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_interconnect_and_net_port_types.sv",
+              "contains": "  interconnect [3:0] arr [2];"
+            },
+            {
+              "file": "tests/ch6/test_interconnect_and_net_port_types.sv",
+              "contains": "  interconnect [3:0] #0 b2;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_import_result_types_all_small.sv",
+      "inputs_sha256": "ba6158f80ad1db6ebfb9a3350ec6877893e9a5888ae56bc5ad2fdb95f9ec0fc4",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.6-EXTRACT-RETURN"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の function return specification は明示 data type と void だけで、implicit data type の function 宣言が無い。3 つの alternative のうち 2 つだけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_result_types_all_small.sv",
+              "contains": "  import \"DPI-C\" function void dpi_r_set(input int v);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+      "inputs_sha256": "bb35d6396fdfc1321d913327c5ff2571ec54d2e19c6685aeb7b89e1c6d516bdf",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.7-EXTRACT-BODY-ANSI"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補は DPI の task prototype だけで、parentheses の後の semicolon から block-item declarations と statement を持つ ANSI task body を置いていない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" task dpi_n_task(input int, output int, inout int);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.7-EXTRACT-BODY-OLD"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補に non-ANSI task body（return specification 無しの task identifier・tf-item declarations・endtask）が無く、optional な interface-dot/class scope と end label も観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" task dpi_n_task(input int, output int, inout int);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.7-EXTRACT-DECL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補は task prototype のみで、optional lifetime と task body を持つ task declaration が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" task dpi_n_task(input int, output int, inout int);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.7-EXTRACT-OVERRIDES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の task prototype に override specifier（:initial/:extends/:final）が 1 つも無く、順序の条件を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" function int dpi_n_mix(int, byte, shortint);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.7-EXTRACT-TF-DECL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の仮引数は prototype の tf_port_item で、required direction・optional var・data type・tf_variable_identifier_list・semicolon を持つ tf_port_declaration ではない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" function void dpi_n_split(input int, output int, output int);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.7-EXTRACT-TF-DIRECTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の direction は input/output/inout の port direction のみで、const ref や ref static の形が無い。2 つの alternative のうち片方だけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" function void dpi_n_step(inout int, input int);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.7-EXTRACT-TF-ITEM-LIST"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補は prototype の tf_port_list で、tf-item declaration（block-item または tf_port_declaration）を置いていない。2 条件のうち nonempty/comma 区切りの list だけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" task dpi_n_task(input int, output int, inout int);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.7-EXTRACT-TF-PORT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の tf_port_item は direction と data type だけで identifier を持たず、repeated attributes・var・variable dimensions・expression default が無い。要求の条件の大半を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" function int dpi_n_mix(int, byte, shortint);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-24"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "unsized packed dimension を DPI import の唯一の packed dimension として置く test は tests/ch35/test_dpi_open_array*.sv 等にあるが A.10 を引用しない。A.10 を引用する候補に [] 付きの DPI import が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" function void dpi_n_split(input int, output int, output int);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-27"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の DPI formal は input/output/inout の int 等だけで、ref 仮引数も class 型仮引数も無い。この制約は負の test（tests/ch35/test_illegal_dpi_import_ref_formal.sv）でしか観測できず、正常系の候補では確かめられない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_unnamed_formal_arguments.sv",
+              "contains": "  import \"DPI-C\" task dpi_n_task(input int, output int, inout int);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_binary_operator_forms.sv",
+      "inputs_sha256": "3ffa97ec95bf9de39cbcaafc01d63f146195078c65ccdc55c3b38ed65568524e",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-ABORT-ACCEPT-ON"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "4 つの abort operator を位相ごとの失敗回数で観測する test は tests/ch16/test_property_abort.sv だが、:lrm: が 16.12.14 等で A.2.10 を引用しないため候補にならない。A.2.10 を引用する候補 8 本に accept_on/reject_on は無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_binary_operator_forms.sv",
+              "contains": "  a_unt: assert property (@(posedge clk) start |-> (p until q)) else f_unt++;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-ABORT-REJECT-ON"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "4 つの abort operator を位相ごとの失敗回数で観測する test は tests/ch16/test_property_abort.sv だが、:lrm: が 16.12.14 等で A.2.10 を引用しないため候補にならない。A.2.10 を引用する候補 8 本に accept_on/reject_on は無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_binary_operator_forms.sv",
+              "contains": "  a_unt: assert property (@(posedge clk) start |-> (p until q)) else f_unt++;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-ABORT-SYNC-ACCEPT-ON"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "4 つの abort operator を位相ごとの失敗回数で観測する test は tests/ch16/test_property_abort.sv だが、:lrm: が 16.12.14 等で A.2.10 を引用しないため候補にならない。A.2.10 を引用する候補 8 本に accept_on/reject_on は無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_binary_operator_forms.sv",
+              "contains": "  a_unt: assert property (@(posedge clk) start |-> (p until q)) else f_unt++;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-ABORT-SYNC-REJECT-ON"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "4 つの abort operator を位相ごとの失敗回数で観測する test は tests/ch16/test_property_abort.sv だが、:lrm: が 16.12.14 等で A.2.10 を引用しないため候補にならない。A.2.10 を引用する候補 8 本に accept_on/reject_on は無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_binary_operator_forms.sv",
+              "contains": "  a_unt: assert property (@(posedge clk) start |-> (p until q)) else f_unt++;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_declaration_and_argument_forms.sv",
+      "inputs_sha256": "444a729787a348fb3cab5fc5a6e70dd263516546a79b28011b1bf7bd79a5f211",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-ASSERTION-VARIABLE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "p_args の本体に int cnt; を置くが、この変数は代入も参照もされず、期待出力に現れない。宣言形の受理だけの観測で、semicolon と assignment list の条件を出力で判定できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_declaration_and_argument_forms.sv",
+              "contains": "    int cnt;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-PROPERTY-PORTS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "p_args(logic x, logic y = 1'b1, local input int n = 1) と p_prop(property inner, logic v) は local input・property 型・default を持つが、repeated attributes と variable dimensions が無い。要求の条件の一部だけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_declaration_and_argument_forms.sv",
+              "contains": "  property p_args(logic x, logic y = 1'b1, local input int n = 1);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-SEQUENCE-INSTANCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "sequence instance は p_prop(s_ab, 1'b1) の引数として bare 識別子 s_ab を使うだけで、parentheses 内の omitted positional/named actual や event expression/$ の actual を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_declaration_and_argument_forms.sv",
+              "contains": "  a6: assert property (@(posedge clk) p_prop(s_ab, 1'b1)) else f_prop++;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-SEQUENCE-PORT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の sequence s_ab; は port list を持たず、sequence port の attributes・local・direction・formal type・default を 1 つも観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_declaration_and_argument_forms.sv",
+              "contains": "  sequence s_ab;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
+      "inputs_sha256": "089187d6bfb6f04aca156f2899706f320649415e67dbc0ddac4450186c187213",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-MATCH-METHOD"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "match item として first_match 内の fm = fm + 1 を置くが、sequence instance の dot method identifier（triggered/matched）を使っていない。2 つの条件のうち match item だけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
+              "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, fm = fm + 1))"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.2.10-EXTRACT-SEQUENCE-ATOM"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "first_match (a ##[1:2] b, fm = fm + 1) は parenthesized sequence と match item を持つが、sequence abbreviation（[*n] 等）をその sequence atom に付けた形は無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_operator_and_delay_forms.sv",
+              "contains": "  a_fm: assert property (@(posedge clk) start |-> first_match (a ##[1:2] b, fm = fm + 1))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch27/test_generate_block_and_item_forms.sv",
+      "inputs_sha256": "3764923c237ac8ed3950ff3fc0119efd7f42a727e003451bb259695e0489b81d",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.4.2-EXTRACT-ITERATION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "genvar iteration は a = a + 1、b += 1、e = e + 1、d-- を置くが、prefix increment/decrement（++d/--d）が無い。3 つの alternative のうち assignment と postfix だけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_generate_block_and_item_forms.sv",
+              "contains": "  for (genvar d = 1; d >= 0; d--) begin : g_post"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_syntax_function_and_subroutine_call_forms.sv",
+      "inputs_sha256": "d4fea488c9511d41664ae40560625c89e33d011c0e05ada547e8db1ae2c9cf61",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.6.4-EXTRACT-STATEMENT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "function body に block label 付き begin と属性付き null statement (* keep *) ; を置くが、statement の prefix block label（lbl: statement）と非 null statement item への repeated attributes を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_syntax_function_and_subroutine_call_forms.sv",
+              "contains": "      (* keep *) ;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch12/test_syntax_loop_statement_forms.sv",
+      "inputs_sha256": "015f734455eac66e4fd2d7fd9d64b7674227e8ccd9df39a9b75b32185760ab16",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.6.8-EXTRACT-FOR-STEP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "for の step は i++/j--、k++/q++、bump(s) の increment/decrement と function call だけを置き、operator assignment（i += 1 等）の step が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_syntax_loop_statement_forms.sv",
+              "contains": "    for (var int s = 0; s < 4; bump(s)) for_d++;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_syntax_action_block_and_simple_assertions.sv",
+      "inputs_sha256": "4f148263c38632599a21ebdc29196b6c6a2741e7bf8216d4e2cf94e3bfa827b8",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.6.10-EXTRACT-ASSERTION-ITEMS"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "要求は (1) concurrent または optionally labeled deferred-immediate assertion、(2) procedural assertion の concurrent/immediate/checker instantiation、(3) immediate の simple/deferred の 3 文からなる。simple immediate は action_block の test、deferred は deferred の test が見るが、checker instantiation を procedural assertion として置く候補が無く、1 本でも group でも全条件を満たせない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_syntax_action_block_and_simple_assertions.sv",
+              "contains": "    assert (a == 0) $display(\"assert pass action\");"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_type_reference_declare_cast_compare.sv",
+      "inputs_sha256": "7a5b4b6abef781b9ef579e32d5356a7a94ecadcf2021314330b130ccc206a7c4",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.8.4-EXTRACT-CAST"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "static cast の形と結果（-1, bcd, 44）は置くが、constant cast（constant expression を要求する形）を定数文脈で使っていない。casting type の alternative の一部だけの観測。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_type_reference_declare_cast_compare.sv",
+              "contains": "    $display(\"cast: %0d %h %0d\", type(s6)'(8'hFF), type(w12)'(16'hABCD), type(bb)'(300));"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-41"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "localparam は type reference の比較（constant expression）だが、constant cast を constant primary として parameter の値にする形が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_type_reference_declare_cast_compare.sv",
+              "contains": "  localparam bit EQ = type(w12) == type(logic [11:0]);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_data_type_scoped_and_reference_forms.sv",
+      "inputs_sha256": "f3faf171149e0e4806add54bed8615238cb08865f409793b97511bfbf8b861fa",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-34"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補に enum identifier が無く、package/class scope 付き enum identifier を constant primary とする形を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_data_type_scoped_and_reference_forms.sv",
+              "contains": "  typedef logic [3:0] nib_t;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch10/test_constant_assignment_pattern_members_in_constant_contexts.sv",
+      "inputs_sha256": "b8a80106f2b83f9cf6d610557e9eb2ab2bfecbec3b1e63e0aeed39b69de036f3",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.8.4-EXTRACT-CONSTANT-PRIMARY-40"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補の constant primary は literal・parameter・function call・assignment pattern・replication で、parenthesized constant mintypmax expression を置いていない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_constant_assignment_pattern_members_in_constant_contexts.sv",
+              "contains": "  localparam pair_t PP = pair_t'{hi: K, lo: K + 2};"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch29/test_udp_identifier_and_combinational_table.sv",
+      "inputs_sha256": "a577402d706ca3ee34d8862e95753e8b4c52d7dfb02aaac2556899fcc6ccef0f",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.9.3-EXTRACT-ALIAS-SPECPARAM-IDENTIFIER"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "specparam を宣言・参照する test は tests/ch6/test_specparam_declaration_forms.sv や tests/ch30/test_pathpulse_specparam_forms.sv にあるが、A.9.3 を引用しないため候補にならない。A.9.3 を引用する候補 17 本に specparam は無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch29/test_udp_identifier_and_combinational_table.sv",
+              "contains": "primitive udp_and (out, a, b);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch5/test_white_space_kinds_separate_tokens.sv",
+      "inputs_sha256": "5dfafaaee23b30ffe4d5a5480e5baf13a565ca643e059ecd3cdb55e4523d55f8",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-38"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "この test は white space がトークンを分けることを見るが、footnote 38 が印を付ける文法位置で embedded spaces を違法として拒否することを観測していない（違法側の test が候補に無い）。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_white_space_kinds_separate_tokens.sv",
+              "contains": "    $display(\"none:     %b\", a&&b);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_passing_modes_value_reference_handle.sv",
+      "inputs_sha256": "c20920b4d5a089ac0ad4731a6bcc5f35fa113589267ec7611df880e793443262",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-H.2-EXTRACT-BINARY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "DPI object code の再コンパイル不要性は同一 binary を複数の compliant implementation で動かして初めて観測できる。候補は 1 回の :oracle: 実行の期待出力だけで、cross-implementation の証拠を持たない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_passing_modes_value_reference_handle.sv",
+              "contains": "  import \"DPI-C\" function int c_in(input byte b, input shortint s, input int i, input longint l,"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-H.8.7-EXTRACT-CONST"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "テストの C 側は入力仮引数を const で宣言しているが、これはアプリ作者の宣言であり、シミュレータが入力引数に const を付ける規則を検査していない。const を欠く C 宣言でも同じ値が出力されるため、期待出力は変わらない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_passing_modes_value_reference_handle.sv",
+              "contains": "input bit [7:0] pb, input logic [3:0] pl, input integer ig,"
+            },
+            {
+              "file": "tests/ch35/test_dpi_passing_modes_value_reference_handle.c",
+              "contains": "const svBitVecVal *pb, const svLogicVecVal *pl,"
+            },
+            {
+              "file": "tests/ch35/test_dpi_passing_modes_value_reference_handle.expected",
+              "contains": "by reference: integer aval fffffffe bval 00000000, time 00000002 80000001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_sized_formal_normalized_ranges.sv",
+      "inputs_sha256": "990fcb51be14d4f77552af17b07d180b20c202e25285f193105d0cd85b1ccb8f",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-H.2-EXTRACT-OPEN-ARRAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "c_open の open array 仮引数 yo [] は import にあり unpacked dimension の一致は観測できるが、sole unsized packed dimension（例 input logic [] x）に actual の packed dimensions が集約して一致する条件を観測していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_sized_formal_normalized_ranges.sv",
+              "contains": "  import \"DPI-C\" function void c_open(input bit [3:0][1:0] yo []);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
+      "inputs_sha256": "2ca5faae44a5e1dcba6d31a71a1bad9789e3560e3794c50298ac9e81a41f3825",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-32"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "bins fromset = set_vals; は 19.5.1.2 の set expression の正常例 1 つで、要素型の制約など footnote 32 が指す restrictions を破る/満たす対照が無い。set_covergroup_expression の条件を出力で判定していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_covergroup_bins_and_range_forms.sv",
+              "contains": "bins fromset = set_vals;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_open_array_unsized_ranges_per_call.sv",
+      "inputs_sha256": "4b470d5e45a48fd4486e9c78210c2961763386f273fcff3043dabf7911fe972d",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-H.6.1-EXTRACT-FORMAL-TYPES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "候補テストは open array 仮引数 bit[] x[][] の範囲だけを観測し、非 open 仮引数（input string name）の型・範囲が import 宣言だけで決まることや実引数からの型強制を比較していない。非 open 仮引数の型を実引数から推論する誤実装でも同じ x1/x2 行になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_open_array_unsized_ranges_per_call.sv",
+              "contains": "import \"DPI-C\" function void c_show(input string name, input bit [] x [][]);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_unsized_ranges_per_call.expected",
+              "contains": "x1: dimension 0 7:0, dimension 1 2:1, dimension 2 0:2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_reference_arguments_forwarded.sv",
+      "inputs_sha256": "c6e99b48e6e2ee31b840f021b4eddc95807ad5df29e298b9c599085c896881ba",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-H.8.4-EXTRACT-LIFETIME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "テストは 1 回の呼び出し内で参照渡しのポインタを export に転送するだけで、C がポインタを呼び出し間で保持する状況を作らない。H.8.4 の『呼び出し間で寿命を仮定してはならない／保持には C 所有領域へのコピーが必要』は、保持する誤実装が未定義動作になるため期待出力で区別できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_reference_arguments_forwarded.sv",
+              "contains": "context function void c_forward(output int n, output bit [39:0] w,"
+            },
+            {
+              "file": "tests/ch35/test_dpi_reference_arguments_forwarded.expected",
+              "contains": "c_forward: n 42 w 123456789a l 10 arr 10 20 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_context_scope_of_declaration.sv",
+      "inputs_sha256": "91330f180506287b41e688503ae0ffb47d36e9acf083e550ef7b3966300a79b4",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-H.9.2-EXTRACT-UNWIND"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "context import の宣言スコープと export への継承は観測するが、呼び出し連鎖の境界で context を set/reset してよいという許可と、setjmp/longjmp で export の巻き戻しを飛ばした場合の未定義動作は刺激していない。どちらの分岐も期待出力に現れない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_context_scope_of_declaration.sv",
+              "contains": "import \"DPI-C\" context function string c_where();"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_scope_of_declaration.expected",
+              "contains": "u2.c_where from the top module: test_dpi_context_scope_of_declaration.u2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_scope_user_data_and_lookup.sv",
+      "inputs_sha256": "a1cdf7756ed641c1d093c1ddc355ca9ada5ed1236d21fa36749bc54fba953891",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-H.9.3-EXTRACT-KEY-ADVICE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "テストは静的変数のアドレスを key に使う推奨に従っているが、任意の整数 key を受け付ける誤実装でも同じ key/値の行になり、『静的シンボルのアドレスを推奨／任意整数は安全でない』という助言の違反を出力で区別できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_scope_user_data_and_lookup.sv",
+              "contains": "The keys are addresses of static C variables, as H.9.3 advises."
+            },
+            {
+              "file": "tests/ch35/test_dpi_scope_user_data_and_lookup.c",
+              "contains": "static int shared_key, own_key, common_key;"
+            },
+            {
+              "file": "tests/ch35/test_dpi_scope_user_data_and_lookup.expected",
+              "contains": "u1: shared key 100, own key 107"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-H.9.3-EXTRACT-UNIQUE-KEY"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "テストは自分専用の静的 key を使っており、他の C ライブラリと key が衝突する状況を作らない。key の一意性はユーザーの義務で、衝突を許す実装でも同じ 100/107 行になるため、期待出力で観測できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_scope_user_data_and_lookup.sv",
+              "contains": "The keys are addresses of static C variables, as H.9.3 advises."
+            },
+            {
+              "file": "tests/ch35/test_dpi_scope_user_data_and_lookup.c",
+              "contains": "int c_put_own(int v) { return put_key(&own_key, v); }"
+            },
+            {
+              "file": "tests/ch35/test_dpi_scope_user_data_and_lookup.expected",
+              "contains": "u2: shared key 200, own key 207"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_svdpi_h_deprecated_portion_types.sv",
+      "inputs_sha256": "af4cf9a133c97e2cade6a0c31a9811fbce18ba8de5da4de316135f01799ea459",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-DEPRECATED"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "非推奨部分は『提供しなくてよい』許可なので、テストが SV_CANONICAL_SIZE や svBitVec32 を使えることは提供側の分岐しか示さず、省略を許す規則そのものを出力で確かめない。省略する実装ではコンパイルできないだけで、期待値の違いにはならない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_portion_types.sv",
+              "contains": "import \"DPI-C\" function void dpi_check_deprecated_types();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_portion_types.expected",
+              "contains": "SV_CANONICAL_SIZE of 1 32 33 64 65 is 1 1 2 2 3 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+      "inputs_sha256": "845298ccc119f40b3977e1cee4165a2d85de8d36474340cff2e76719486a0b21",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-EXTERN"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "DPI_EXTERN がヘッダ処理後に未定義になることと XXTERN 宣言が呼べることは観測するが、取り込み前にアプリが DPI_EXTERN を定義した場合に上書きしない規則は刺激していない。既定の空と extern は宣言上区別できず、同じ出力になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+              "contains": "import \"DPI-C\" function void dpi_check_macros();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.c",
+              "contains": "printf(\"DPI_PROTOTYPES XXTERN EETERN DPI_EXTERN gone after the header %d\\n\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.expected",
+              "contains": "DPI_PROTOTYPES XXTERN EETERN DPI_EXTERN gone after the header 1"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-PROTOTYPES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "DPI_PROTOTYPES/XXTERN/EETERN/DPI_EXTERN がヘッダ後に未定義になることと svDpiVersion が非 NULL であることだけで、XXTERN=DPI_EXTERN DPI_DLLISPEC / EETERN=DPI_EXTERN DPI_DLLESPEC の組合せを観測していない。XXTERN を空にしても出力は同じで、誤実装を区別できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.sv",
+              "contains": "import \"DPI-C\" function void dpi_check_macros();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.c",
+              "contains": "printf(\"DPI_PROTOTYPES XXTERN EETERN DPI_EXTERN gone after the header %d\\n\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.expected",
+              "contains": "DPI_PROTOTYPES XXTERN EETERN DPI_EXTERN gone after the header 1"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_macros_and_c_linkage.expected",
+              "contains": "the routines decorated with XXTERN are callable prototypes 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_svdpi_h_declarations.sv",
+      "inputs_sha256": "a08ba105258a7ff9c90b97634248ba03e5ed30ac63e36300c31df366eed31e2f",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-ELEMENT-POINTER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "svGetArrElemPtr/1/2/3 の宣言型は検査するが、範囲外添字や NULL ハンドルで NULL を返す動作は呼び出していない。その動作を観測する test_dpi_open_array_elem_ptr_bounds は :lrm: に I.3 を引用せず H.12.4 だけなので、I.3 の候補として登録できない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_declarations.sv",
+              "contains": "import \"DPI-C\" function void dpi_check_svdpi();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_declarations.c",
+              "contains": "CHECK(\"svGetArrElemPtr2: void * (const svOpenArrayHandle, int indx1, int indx2)\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_declarations.expected",
+              "contains": "svGetArrElemPtr2: void * (const svOpenArrayHandle, int indx1, int indx2) 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+      "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-LEGACY-ALLOC"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "テストは svPutBitVec32 の宣言型を比較するだけで、呼び手が用意した正準表現の配列に whole-vector をコピーする動作を呼ばない。呼び手の領域を使わず内部領域に書く誤実装でも宣言行は 1 のままになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.sv",
+              "contains": "import \"DPI-C\" function void dpi_check_deprecated_put();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.c",
+              "contains": "printf(\"svPutBitVec32: void (bitref, const svBitVec32*, int) %d\\n\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_put_declarations.expected",
+              "contains": "svPutBitVec32: void (bitref, const svBitVec32*, int) 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+      "inputs_sha256": "a2efd5d9326a32497e89398a673805a0b3a7013ad0627ad1675f6a0babbd4f17",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-LEGACY-INDICES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "svGetSelectBit の宣言型だけを比較し、実際に n-1:0 の正規化添字でビットを読む呼び出しがない。添字を宣言の左端起点にする誤実装でも宣言行は 1 のままである。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\" function void dpi_check_deprecated_get();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "printf(\"svGetSelectBit: svBit (bitref, int) %d\\n\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetSelectBit: svBit (bitref, int) 1"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-LEGACY-PART"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "svGetPartSelectBit/Logic の宣言型だけを比較し、幅 32 以下の part-select を実データでコピーしていない。正規化添字やチャンク分割を誤る実装でも宣言行は 1 のままである。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\" function void dpi_check_deprecated_get();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "printf(\"svGetPartSelectBit: void (svBitVec32*, bitref, int, int) %d\\n\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svGetPartSelectBit: void (svBitVec32*, bitref, int, int) 1"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-LEGACY-SIZE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "svSizeOfBitPackedArr/svSizeOfLogicPackedArr の宣言型だけを比較し、幅に対するベンダ表現のバイト数を返す動作を呼んでいない。要素数やビット数を返す誤実装でも宣言行は 1 のままである。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.sv",
+              "contains": "import \"DPI-C\" function void dpi_check_deprecated_get();"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.c",
+              "contains": "printf(\"svSizeOfBitPackedArr: int (int) %d\\n\","
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_deprecated_get_declarations.expected",
+              "contains": "svSizeOfBitPackedArr: int (int) 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch36/test_vpi_user_h_object_type_constants.sv",
+      "inputs_sha256": "0aab646ef522a8ba6197625ebfa1507d6f9a4292c758b91202bcd170e8ec75a3",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-K.2-EXTRACT-RESERVED"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "1〜299 は vpi_user.h 内で使うために予約という番号付けの規則で、テストはヘッダが定義した定数の値を表示するだけである。予約外の番号をユーザーが使わないことや、未使用番号の予約を守ることは出力に現れない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_object_type_constants.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_object_type_constants.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_object_type_constants.c",
+              "contains": "SHOW(vpiModule);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_object_type_constants.expected",
+              "contains": "vpiModule 32"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch36/test_vpi_compatibility_h_1800v2012.sv",
+      "inputs_sha256": "3ef15b9df99e61610d5b55c34158b188766b9429783c0288cb0ca0985c47a9a0",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-L.2-EXTRACT-GUARD"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "VPI_COMPATIBILITY_H=1 は観測するが、vpi_compatibility.h を直接取り込んだ場合や二重取り込み時の #error 診断を刺激するテストがない。直接取り込みを許す実装でも通常の 1 行は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_compatibility_h_1800v2012.sv",
+              "contains": ":vpi_c: @test_vpi_compatibility_h_1800v2012.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compatibility_h_1800v2012.c",
+              "contains": "#ifdef VPI_COMPATIBILITY_H"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compatibility_h_1800v2012.expected",
+              "contains": "VPI_COMPATIBILITY_H 1"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-L.1-EXTRACT-INCLUSION"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "vpi_user.h が vpi_compatibility.h を自動 include すること（VPI_COMPATIBILITY_H 1）は区別するが、要求後段の『利用者コードから直接 include しない』は利用者への使用上の規則でテストでは観測できない。直接 include を許す実装でも通常の 1 行は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_compatibility_h_1800v2012.sv",
+              "contains": ":vpi_c: @test_vpi_compatibility_h_1800v2012.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compatibility_h_1800v2012.c",
+              "contains": "#include \"vpi_user.h\""
+            },
+            {
+              "file": "tests/ch36/test_vpi_compatibility_h_1800v2012.expected",
+              "contains": "VPI_COMPATIBILITY_H 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch36/test_vpi_compatibility_1800v2017_mode.sv",
+      "inputs_sha256": "a7d5300c8ef8119d44984ff6b78d5c6155883defe585c8ecf1228e6088af8097",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-L.2-EXTRACT-ONE-VERSION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "各テストは互換版マクロを 1 つだけ定義しており、2 つ以上を同時に定義したときに #error で 1 つに絞る規則を刺激しない。複数定義を許す実装でも単一選択の出力は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_compatibility_1800v2017_mode.sv",
+              "contains": ":vpi_c: @test_vpi_compatibility_1800v2017_mode.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compatibility_1800v2017_mode.c",
+              "contains": "#define VPI_COMPATIBILITY_VERSION_1800v2017 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compatibility_1800v2017_mode.expected",
+              "contains": "VPI_COMPATIBILITY_H 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch36/test_vpi_user_h_property_constants.sv",
+      "inputs_sha256": "14f844620913918d565f4755134137b100d00dfdca3aec81bcf7df056fcba16d",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-M.2-EXTRACT-CLOCK-EDGES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "テストは vpiNoEdge=0/vpiPosedge=13/vpiNegedge=50 という定数値を表示するだけで、入力/出力ポートの vpiInputEdge/vpiOutputEdge を vpi_get で問い合わせていない。プロパティが別の値を返す実装でも定数表の行は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_property_constants.sv",
+              "contains": ":vpi_c: @test_vpi_user_h_property_constants.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_property_constants.c",
+              "contains": "SHOW(vpiPosedge);"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_property_constants.expected",
+              "contains": "vpiPosedge 13"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_property_constants.expected",
+              "contains": "vpiNoEdge 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch36/test_vpi_compatibility_1800v2023_mode.sv",
+      "inputs_sha256": "8e008e3de77f681781b655aa9cbaec18ff726fc88ddb7ee0ba0671673ee25def",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-M.2-EXTRACT-COMPAT-QUERY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "互換モードのテストは実オブジェクトに対して vpi_get を呼ぶが、object 引数 NULL で vpiCompatibilityMode を問い合わせる刺激がない。NULL 以外のオブジェクトを要求する誤実装でも互換モードの型・関係の行は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_compatibility_1800v2023_mode.sv",
+              "contains": ":vpi_c: @test_vpi_compatibility_1800v2023_mode.c"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compatibility_1800v2023_mode.c",
+              "contains": "return h == NULL ? \"not found\" : type_name(vpi_get(vpiType, h));"
+            },
+            {
+              "file": "tests/ch36/test_vpi_compatibility_1800v2023_mode.expected",
+              "contains": "types: mem vpiRegArray, ia vpiRegArray, ta vpiRegArray, ra vpiRegArray, lv vpiReg, iv vpiIntegerVar, tv vpiTimeVar, rv vpiRealVar"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch36/test_sv_vpi_user_h_object_type_constants.sv",
+      "inputs_sha256": "505e26c16509df7cec6bc7818d3610fb7579be8853229bf18d15de7f6f5fa44a",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-M.2-EXTRACT-DEPRECATED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "vpiVirtualInterfaceVar=728 は表示するが、vpiInterfaceDecl との別名比較はこのテスト内で行わず、vpiValid/vpiValidUnknown の非推奨という注記とハンドル保持に関する注意は出力に現れない。別名でない実装でも 728 の 1 行は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_object_type_constants.sv",
+              "contains": ":vpi_c: @test_sv_vpi_user_h_object_type_constants.c"
+            },
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_object_type_constants.c",
+              "contains": "SHOW(vpiVirtualInterfaceVar);"
+            },
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_object_type_constants.expected",
+              "contains": "vpiVirtualInterfaceVar 728"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-M.2-EXTRACT-RESERVED"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "600〜999 の予約と 600-749/750-779/800-899 の区分は番号付けの規則で、テストはヘッダが定義した拡張定数の値を表示するだけである。未使用番号の予約やカテゴリ間の重複許可を出力で確かめていない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_object_type_constants.sv",
+              "contains": ":vpi_c: @test_sv_vpi_user_h_object_type_constants.c"
+            },
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_object_type_constants.c",
+              "contains": "SHOW(vpiPackage);"
+            },
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_object_type_constants.expected",
+              "contains": "vpiPackage 600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.sv",
+      "inputs_sha256": "118f237b097e75454989aabbe141b883f621f5a2e631b7fb22fde6a2d3e904bd",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-N.2-EXTRACT-UNIFORM-RANGE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "start>=end のとき外側の rtl_dist_uniform が seed を進めず start を返すことは観測するが、内側 uniform の start>=end フォールバック（0..2147483647）は通常の $dist_uniform から到達しない。外側の早期 return があるため分岐を刺激できず、同じ出力になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.sv",
+              "contains": "v = $dist_uniform(seed, 7, 8);"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.expected",
+              "contains": "uniform(7, 7) = 7, seed 12345"
+            },
+            {
+              "file": "tests/ch20/test_dist_uniform_start_not_below_end_keeps_seed.expected",
+              "contains": "uniform(7, 8) = 7, seed 852656806"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+      "inputs_sha256": "f9961be835bcaf351c48bdb17ba08949edfa06359c2db73cf5e0286d3258ff64",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-N.2-EXTRACT-VALIDATE-CHI-SQUARE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "13 回の呼び出しはすべて df>0 で、df<=0 のとき警告を出して 0 を返し、ヘルパーを呼ばず seed も進めない分岐を一度も刺激しない。df=0 を許して別値を返す実装でも期待出力は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.sv",
+              "contains": "v = $dist_chi_square(seed, df);"
+            },
+            {
+              "file": "tests/ch20/test_dist_chi_square_odd_even_df_and_rounding.expected",
+              "contains": "chi_square(1) from 4 = 3, seed 1849721360, draws 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+      "inputs_sha256": "3b8627c2ceeef5e3d3434b138bce56e9849fac86ee34053a8edf886bb35be823",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-N.2-EXTRACT-VALIDATE-ERLANG"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "14 回の呼び出しはすべて k>0 で、k<=0 のとき警告を出して 0 を返し、ヘルパーを呼ばず seed も進めない分岐を刺激しない。k=0 を許す実装でも期待出力は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.sv",
+              "contains": "v = $dist_erlang(seed, k, mean);"
+            },
+            {
+              "file": "tests/ch20/test_dist_erlang_stage_count_and_product_rounding.expected",
+              "contains": "erlang(1, 100) from 1 = 1104, seed 69070, draws 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_dist_exponential_one_draw_log_rounding.sv",
+      "inputs_sha256": "2ba9535578f037e108489893ec73d7e62efa0c064c5d7c56ec288862b902d877",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-N.2-EXTRACT-VALIDATE-EXPONENTIAL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "13 回の呼び出しはすべて mean>0 で、mean<=0 のとき警告を出して 0 を返し、ヘルパーを呼ばず seed も進めない分岐を刺激しない。mean=0 や負で別値を返す実装でも期待出力は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_exponential_one_draw_log_rounding.sv",
+              "contains": "v = $dist_exponential(seed, mean);"
+            },
+            {
+              "file": "tests/ch20/test_dist_exponential_one_draw_log_rounding.expected",
+              "contains": "exponential(10) from 1 = 110, seed 69070, draws 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_dist_poisson_counts_products_above_exp.sv",
+      "inputs_sha256": "3352b3f4eb17ea5759840e68e8531da5cf2262be8c50d2cd3f26edf75a3dc13f",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-N.2-EXTRACT-VALIDATE-POISSON"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "18 回の呼び出しはすべて mean が 1/4/20 で、mean<=0 のとき警告を出して 0 を返し、ヘルパーを呼ばず seed も進めない分岐を刺激しない。mean=0 を許す実装でも期待出力は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_poisson_counts_products_above_exp.sv",
+              "contains": "v = $dist_poisson(seed, means[j]);"
+            },
+            {
+              "file": "tests/ch20/test_dist_poisson_counts_products_above_exp.expected",
+              "contains": "poisson(1) from 1 = 0, seed 69070, draws 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+      "inputs_sha256": "0af73b613b34da7f54f64d8c3782c68865ed835469493f63a812a71862574b00",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-N.2-EXTRACT-VALIDATE-T"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "16 回の呼び出しはすべて df>0 で、df<=0 のとき警告を出して 0 を返し、ヘルパーを呼ばず seed も進めない分岐を刺激しない。df=0 を許す実装でも期待出力は同じになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.sv",
+              "contains": "v = $dist_t(seed, df);"
+            },
+            {
+              "file": "tests/ch20/test_dist_t_chi_square_then_normal_order.expected",
+              "contains": "t(1) from 14 = -1, seed -1201087848, draws 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_svdpi_h_scope_selection.sv",
+      "inputs_sha256": "cff96c6052e760b827b33257d3d5e65935d8e1a138f908a496231364466dfaec",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-ACTIVE-SCOPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "c_here は u7/u9 自身の initial から呼ばれ、呼び出し側スコープと import 宣言スコープが一致するため、svGetScope が宣言側を返すことを呼び出し側と区別できない。非 import の C コードから呼んだとき NULL という条件も未観測である。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.sv",
+              "contains": "initial #(DELAY) c_here(\"in the unit\");"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.expected",
+              "contains": "in the unit: svGetScope names test_svdpi_h_scope_selection.u7, its export answers 7"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_scope_selection.expected",
+              "contains": "in the unit: svGetScope names test_svdpi_h_scope_selection.u9, its export answers 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.sv",
+      "inputs_sha256": "d600ee7fbe9228a8506fc01f081ced69a83f70a467c130f6320ac5609ab2d1f2",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-ARRAY-POINTER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "logic[7:0] p[0:3] は H.7.3 で canonical（C レイアウトでない）なので svGetArrayPtr は NULL でなければならないが、期待は『address と size が両方または両方 0』の関係 1 だけで、非 NULL+非 0 を返す誤実装も通る。int 配列の非 NULL は見るが、非 C レイアウト型の NULL を比較していない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.sv",
+              "contains": "import \"DPI-C\" function void c_whole(input int a [], input int m [] [],"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.c",
+              "contains": "printf(\"%s: address and size both given or both 0 %d\\n\", what,"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.expected",
+              "contains": "logic [7:0] p[0:3]: address and size both given or both 0 1"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.expected",
+              "contains": "string s[0:3]: address and size both given or both 0 1"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-ARRAY-SIZE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "int 16/24 は観測するが、C レイアウトでない logic [7:0] p に対する 0 を比較しておらず、p/s は関係 1 のみ。svSizeOfArray が非 0 を返す誤実装も通る。zero 分岐が未観測である。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.sv",
+              "contains": "import \"DPI-C\" function void c_whole(input int a [], input int m [] [],"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.c",
+              "contains": "printf(\"int a[0:3]: address %d, size %d\\n\", ap != NULL, svSizeOfArray(a));"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.expected",
+              "contains": "int a[0:3]: address 1, size 16"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_open_array_queries_and_whole_pointer.expected",
+              "contains": "logic [7:0] p[0:3]: address and size both given or both 0 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
+      "inputs_sha256": "69ccaee9d5f58c4bed5538b4e30ba2bd29d0ec80f07f8fa3e74f9650733cef34",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-I.3-EXTRACT-PART-LIMIT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "svGetPartselBit/Logic と svPutPartselBit は呼ぶが svPutPartselLogic を呼んでおらず、part-select 4 本のうち 3 本だけ。幅 32 の境界も未使用で、svPutPartselLogic の添字正規化を誤る実装が通るため一部観測である。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.sv",
+              "contains": "import \"DPI-C\" function void dpi_part_select(input logic [7:0] c,"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.c",
+              "contains": "svGetPartselBit(&piece, w, 28, 8);"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.expected",
+              "contains": "part of the 64-bit value at 28 width 8: 78"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_packed_bit_and_part_select.expected",
+              "contains": "the 16 bits abcd put at index 28: 00000abcd0000000"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch36/test_sv_vpi_user_h_declarations.sv",
+      "inputs_sha256": "7a75ccece3b372f18c47794779e0553aa8abafd4a82bb018a9946bb0a1678f47",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-M.2-EXTRACT-STEP-STRUCT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "matched_expression_count PLI_INT32、matched_exprs vpiHandle *、stateFrom/stateTo PLI_INT32 の型・順序と s_/p_ の typedef は区別するが、要求後段の『式の配列と遷移の端点が step の詳細を与える』という値の意味づけはヘッダ検査で観測できない。assertion step callback で値を確かめる機能テストが必要である。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_declarations.sv",
+              "contains": ":vpi_c: @test_sv_vpi_user_h_declarations.c"
+            },
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_declarations.c",
+              "contains": "CHECK(\"t_vpi_assertion_step_info.matched_expression_count PLI_INT32\","
+            },
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_declarations.expected",
+              "contains": "t_vpi_assertion_step_info order matched_expression_count matched_exprs stateFrom stateTo 1"
+            },
+            {
+              "file": "tests/ch36/test_sv_vpi_user_h_declarations.expected",
+              "contains": "t_vpi_assertion_step_info.matched_exprs vpiHandle * 1"
             }
           ]
         }

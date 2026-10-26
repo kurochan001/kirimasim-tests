@@ -1,0 +1,7 @@
+u1 default scope 1
+u2 default scope 2
+u1 with the scope of u2 2
+u1 default scope after the switch 1
+u1 default scope 1
+u2 default scope 2
+import scopes name the two instances 1

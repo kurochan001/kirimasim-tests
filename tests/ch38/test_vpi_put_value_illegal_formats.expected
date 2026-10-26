@@ -1,0 +1,7 @@
+real variable after a real value: 2.50
+vector after a vector value: 10100101
+real function with a legal real value: 3.25
+real function with an illegal string value: 0.00
+string value to a real variable reports an error: 1
+strength value to a vector reports an error: 1
+string value to a real system function reports an error: 1

@@ -3,7 +3,7 @@
 :description: A cross of two coverpoints keeps its automatic bins, and a cross with a label, an iff guard and a body of a function and select expressions of every form defines its own bins: binsof of a bin and of a coverpoint, intersect, negation, && and ||, parentheses, with and matches, a cross identifier and a cross set expression (IEEE 1800-2023 Sections 19.6 and 19.6.1)
 :tags: ch19
 :type: simulation
-:lrm: 1800-2023 19.6 19.6.1 19.6.1.2 19.6.1.3 19.6.1.4 19.11.2 A.2.11
+:lrm: 1800-2023 19.6 19.6.1 19.6.1.2 19.6.1.3 19.6.1.4 19.11.2 A.2.11 19.2
 :oracle: spec
 :spec_check: ai
 :fourstate: no

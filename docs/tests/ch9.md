@@ -1,6 +1,6 @@
 # Clause 9: Processes
 
-[All chapters](README.md). 182 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 185 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -81,6 +81,7 @@
 | [`test_begin_end`](../../tests/ch9/test_begin_end.sv) | Sequential blocks | 9.3.1 | Icarus Verilog 13.0 |  |
 | [`test_begin_end_2`](../../tests/ch9/test_begin_end_2.sv) | Test begin-end block | 9.3.1 9.3.5 | Icarus Verilog 13.0 |  |
 | [`test_block_begin`](../../tests/ch9/test_block_begin.sv) | Begin Block Tests | 9.3.1 12.4 | Icarus Verilog 13.0 |  |
+| [`test_block_item_declaration_kinds`](../../tests/ch9/test_block_item_declaration_kinds.sv) | A sequential block and a parallel block accept block item declarations: a data declaration, a localparam, a parameter and a let declaration, each with any number of attribute instances before it | 9.3.1 9.3.2 11.12 A.2.8 | Verilator 5.052 |  |
 | [`test_block_scope_shadowing`](../../tests/ch9/test_block_scope_shadowing.sv) | Variables with the same name in different and nested begin-end blocks | 9.3.1 6.21 23.9 | Icarus Verilog 13.0 |  |
 | [`test_scope_nba`](../../tests/ch9/test_scope_nba.sv) | Block-scoped variables with NBA (non-blocking) assignments | 9.3.1 10.4.2 23.9 6.21 | Icarus Verilog 13.0 |  |
 | [`test_stmt_begin_end`](../../tests/ch9/test_stmt_begin_end.sv) | Test for begin-end blocks | 9.3.1 | Icarus Verilog 13.0 |  |
@@ -183,6 +184,8 @@
 | [`test_process_class_control`](../../tests/ch9/test_process_class_control.sv) | The process class: self, status and kill | 9.7 | Verilator 5.052 |  |
 | [`test_process_kill_self`](../../tests/ch9/test_process_kill_self.sv) | A process that calls kill() on itself ends at once with the status KILLED, as one killed by another process does | 9.7 | standard only |  |
 | [`test_process_kill_terminates_descendants`](../../tests/ch9/test_process_kill_terminates_descendants.sv) | kill() ends its target together with the children and grandchildren it forked before it returns, and kill() on a process that has already finished still ends its running children | 9.7 | standard only |  |
+| [`test_process_random_state`](../../tests/ch9/test_process_random_state.sv) | std::process srandom(seed) seeds the random state of the process, so the same seed gives the same sequence again, get_randstate() returns that state as a string, and set_randstate() with that string makes the following values repeat | 9.7 18.13.3 18.13.4 18.13.5 G.6 | Verilator 5.052 |  |
 | [`test_process_resume_waiting_resensitizes`](../../tests/ch9/test_process_resume_waiting_resensitizes.sv) | suspend() on processes blocked on an event, a wait condition and delays makes them SUSPENDED before it returns; resume() makes each one sensitive again, continuing at once when the condition is already true or the delay has passed, and otherwise at the next event or at the original end of the delay | 9.7 | standard only |  |
+| [`test_process_self_status_kill`](../../tests/ch9/test_process_self_status_kill.sv) | std::process::self() returns the running process, status() reports RUNNING, WAITING, FINISHED and KILLED over a process's life, the state enumeration has the five names in the order G.6 gives with the values 0 to 4, and kill() ends a process and its descendants before it returns | 9.7 G.6 | Verilator 5.052 |  |
 | [`test_process_self_suspend_and_noop_controls`](../../tests/ch9/test_process_self_suspend_and_noop_controls.sv) | a running process reports RUNNING and can suspend itself; resume() lets it continue in the same time step; suspend() of a suspended, finished or killed process and resume() of a process that is not suspended change nothing | 9.7 | standard only |  |
 | [`test_process_suspend_resume_await`](../../tests/ch9/test_process_suspend_resume_await.sv) | The process class: await waits for another process to end, and a process suspended during a delay continues only after resume | 9.7 | standard only |  |

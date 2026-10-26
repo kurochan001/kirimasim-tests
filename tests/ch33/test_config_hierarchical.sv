@@ -3,7 +3,7 @@
 :description: an instance clause can bind an instance to another configuration with use lib.cell:config; the design statement of that configuration gives the cell of the instance, and its own rules configure the instances below it, while the rest of the design follows the outer configuration (IEEE 1800-2023 Section 33.4.2)
 :tags: ch33
 :type: simulation
-:lrm: 1800-2023 33.4.2 33.4.1.3 33.4.1.6 33.4.1.1 33.4.1.5
+:lrm: 1800-2023 33.4.2 33.4.1.3 33.4.1.6 33.4.1.1 33.4.1.5 33.3.1.1
 :oracle: spec
 :spec_check: ai
 :fourstate: no

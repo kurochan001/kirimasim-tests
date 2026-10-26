@@ -1,0 +1,55 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {
+   "status": "pass",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  },
+  "ch22/test_directive_scope_across_include_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  },
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {
+   "status": "pass",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  },
+  "ch22/test_illegal_include_absolute_path_not_searched": {
+   "status": "pass",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  },
+  "ch22/test_illegal_include_line_trailing_code": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  },
+  "ch22/test_include_file_declarations": {
+   "status": "pass",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  },
+  "ch22/test_include_guard_twice": {
+   "status": "pass",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  },
+  "ch22/test_include_guard_two_files": {
+   "status": "pass",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  },
+  "ch22/test_include_nested": {
+   "status": "pass",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  },
+  "ch22/test_resetall_restores_defaults_keeps_macros": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch22/test_resetall_restores_defaults_keeps_macros.sv:37:1: Unsupported: `default_nettype of other than none or wire: '`default_nettype tri0'",
+   "inputs_sha256": "bf26dcc2c96216a69e48c632810a452e4cfc1c92f07520b1375b13e812ebcb63"
+  }
+ },
+ "generated_at": "2026-10-26T05:52:23.007677+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

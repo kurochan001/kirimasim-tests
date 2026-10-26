@@ -1,0 +1,6 @@
+mem is an array var 1 and not a memory object 1
+mem[2] is a variable object 1 and not a memory word 1
+vpiArrayMember is 1 for mem[2] and 0 for mem 1 0
+ia is an array var 1, ia[1] is an integer var 1 and a member 1
+the vpiMemory relationship gives 2 arrays: ia mem
+mem[2] 12 ia[1] 8

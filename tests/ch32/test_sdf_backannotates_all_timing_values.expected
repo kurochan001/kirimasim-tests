@@ -1,0 +1,5 @@
+1: u.t=9 v.t=3
+15: u.y=0 v.y=1
+30: u.y=1 v.y=1 u.notif=1 v.notif=0
+42: n1=1 dst.i=0
+47: n1=1 dst.i=1 o2=1

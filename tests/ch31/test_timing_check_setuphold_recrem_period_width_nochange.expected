@@ -1,0 +1,10 @@
+13: setuphold=0 recrem=0 period=0 width=1 nochange=0
+15: setuphold=0 recrem=0 period=0 width=1 nochange=1
+18: setuphold=0 recrem=0 period=1 width=1 nochange=1
+20: setuphold=1 recrem=0 period=1 width=1 nochange=1
+31: setuphold=0 recrem=0 period=1 width=1 nochange=1
+35: setuphold=0 recrem=0 period=1 width=1 nochange=0
+36: setuphold=0 recrem=0 period=0 width=1 nochange=0
+41: setuphold=0 recrem=1 period=0 width=1 nochange=0
+42: setuphold=0 recrem=1 period=0 width=0 nochange=0
+52: setuphold=0 recrem=0 period=0 width=0 nochange=0

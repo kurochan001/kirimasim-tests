@@ -1,0 +1,7 @@
+value calltf
+value=31
+value calltf count: 1
+compiletf before end of compile: 1, after: 0
+u1.w and u2.w distinct: 1
+values read through VPI: 1 0
+intermodule path is a simulation object: 1

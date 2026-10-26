@@ -3,7 +3,7 @@
 :description: A checker body holds let, sequence, property and function declarations, deferred and concurrent assertions with checker action blocks, a nested checker declaration and instance, a covergroup, checker variable assignments, default clocking and default disable iff, initial, always_comb, always_latch, always_ff and final procedures, and a generate block (IEEE 1800-2023 Section 17.2)
 :tags: ch17
 :type: simulation
-:lrm: 1800-2023 17.2 17.5 17.3 17.7
+:lrm: 1800-2023 17.2 17.5 17.3 17.7 17.1
 :oracle: spec
 :spec_check: ai
 :fourstate: no

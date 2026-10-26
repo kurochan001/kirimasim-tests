@@ -1,0 +1,5 @@
+get returns the referent 1
+get_id of null is 0 1
+get_id of an object is nonzero and stable 1
+get_id returns 64 bits 1
+get after clear is null 1

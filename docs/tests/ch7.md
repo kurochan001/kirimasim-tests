@@ -1,6 +1,6 @@
 # Clause 7: Aggregate data types
 
-[All chapters](README.md). 462 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 463 tests, 14 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -122,6 +122,7 @@
 | [`test_packed_arrays`](../../tests/ch7/test_packed_arrays.sv) | Chapter 7: Aggregate data types | 7.4.1 7.4.2 | Icarus Verilog 13.0 |  |
 | [`test_packed_assign`](../../tests/ch7/test_packed_assign.sv) | Test: Packed array/struct assignment | 7.4.1 7.2.1 | Verilator 5.052 |  |
 | [`test_packed_basic`](../../tests/ch7/test_packed_basic.sv) | Packed Array Basic Tests | 7.4.1 | Icarus Verilog 13.0 |  |
+| [`test_packed_dimension_constant_ranges`](../../tests/ch7/test_packed_dimension_constant_ranges.sv) | A packed dimension is a bracketed constant range whose bounds may be literals, localparams or constant expressions, may ascend or descend and may be negative, and each dimension is its own index space | 7.4.1 A.2.5 | Icarus Verilog 13.0 |  |
 | [`test_packed_vector_65536_bits`](../../tests/ch7/test_packed_vector_65536_bits.sv) | a packed array of 65536 bits, the least maximum size a tool has to allow, can be declared, selected at both ends and used in arithmetic over its full width | 7.4.1 | Icarus Verilog 13.0 |  |
 | [`test_value_packed`](../../tests/ch7/test_value_packed.sv) | Test for packed value operations | 7.4.1 | Icarus Verilog 13.0 |  |
 | [`test_widths_edge_cases`](../../tests/ch7/test_widths_edge_cases.sv) | Test: Bit widths edge cases | 7.4.1 10.7 | Icarus Verilog 13.0 |  |

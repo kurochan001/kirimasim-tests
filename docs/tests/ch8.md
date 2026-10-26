@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 287 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 288 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -286,6 +286,7 @@
 | [`test_class_vs_struct_assignment`](../../tests/ch8/test_class_vs_struct_assignment.sv) | Assigning a class handle shares one object, while assigning a structure copies its value | 8.28 8.12 7.2 | Verilator 5.052 |  |
 | [`test_illegal_cast_class_handle_to_integral`](../../tests/ch8/test_illegal_cast_class_handle_to_integral.sv) | a class handle cannot be cast to an integral type | 8.28 6.24.1 | standard only | illegal design |
 | [`test_object_strongly_reachable`](../../tests/ch8/test_object_strongly_reachable.sv) | An object stays strongly reachable, so its weak references are not cleared, while a handle in an active scope refers to it or a nonblocking assignment to one of its members is pending | 8.29 8.30.3 | standard only |  |
+| [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) | std::weak_reference has a class type parameter T, a constructor taking a T referent, get() returning T with the referent until clear() sets it to null, clear() returning nothing, and a static get_id(T) whose longint result is 0 for null, nonzero for an object and the same at every call for one object | 8.30 G.7 | standard only |  |
 | [`test_illegal_weak_reference_non_class`](../../tests/ch8/test_illegal_weak_reference_non_class.sv) | The parameter of weak_reference has to be a class type | 8.30.1 | Icarus Verilog 13.0 | illegal design |
 | [`test_weak_reference_id_alias_after_clear`](../../tests/ch8/test_weak_reference_id_alias_after_clear.sv) | Clearing one weak wrapper leaves another wrapper and the ownerly held object identity unchanged | 8.30.1 8.30.2 8.30.5 8.29 | standard only |  |
 | [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) | A weak_reference returns its referent from get() until clear() is called on it, after which get() returns null; two weak references to one object are different objects with the same referent | 8.30.3 8.30.2 8.30.4 26.7 | standard only |  |

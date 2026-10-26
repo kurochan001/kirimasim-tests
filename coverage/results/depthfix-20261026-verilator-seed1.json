@@ -1,0 +1,70 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch12/test_illegal_statement_outside_procedural": {
+   "status": "pass",
+   "inputs_sha256": "ff6ba22dbe67ab1f65f1610493362d8ae1b5de449e3699228e0c274641d8009c"
+  },
+  "ch12/test_statement_null_labels_attributes": {
+   "status": "pass",
+   "inputs_sha256": "b98efc23d9f9eb0f5e548c6a6697d3784580a1700dc5b4b23c42ff9f9f6abc82"
+  },
+  "ch17/test_checker_body_items": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_body_items.sv:47:11: Unsupported: recursive 'checker'",
+   "inputs_sha256": "9f5e193f08b281af42f9961d1e1b86259befcde3e6c230a25a6e7c5c50e8ef33"
+  },
+  "ch19/test_covergroup_cross_and_select_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_covergroup_cross_and_select_forms.sv:49:31: syntax error, unexpected '[', expecting ')'",
+   "inputs_sha256": "21a4a194ab07a2e8290565217379dfb25dfd133740e3efc1eea7c622065b6126"
+  },
+  "ch30/test_path_polarity_no_effect": {
+   "status": "known",
+   "reason": "output differs: line 1 is 't=14: 0 0 0', expected 't=14: 1 1 1'",
+   "inputs_sha256": "8221e0cb8a62f4689143e2bfcb4d660485c555180369e974f70201c748cc71ef"
+  },
+  "ch33/test_config_cell_with_library": {
+   "status": "pass",
+   "inputs_sha256": "7912e933d515c6b48f09a5cb84dd9b2f4a1f3356b6c7842456c50bdf8ca93f2f"
+  },
+  "ch33/test_config_design_top": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'cfg_stray elaborated', expected 'top: test_config_design_top'",
+   "inputs_sha256": "402e67a02466448fef3c12c115a69b5245e911a02b0b4e01a90632e501e4203d"
+  },
+  "ch33/test_config_hierarchical": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch33/test_config_hierarchical.sv:52:40: Unsupported: hierarchical config rule",
+   "inputs_sha256": "7fcc9e324693a7a4e82c643eabfefa85e336dc735e43e555221dfbe8fecc9f92"
+  },
+  "ch35/test_dpi_fourstate_packed_semantics": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'p: 0011 0101 1001 1100', expected 'p: 001x 0101 10z1 1100'",
+   "inputs_sha256": "b42de3d8617e5aa440fa95f046e054fd81a4a510154983ed0f6efebf8c574ffe"
+  },
+  "ch35/test_dpi_open_packed_dimension": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch35/test_dpi_open_packed_dimension.sv:29:53: syntax error, unexpected ']', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "2766188be2fc5ea093533d9230600c7e86127549d95ae65a12e9400d695752a5"
+  },
+  "ch36/test_vpi_chk_error_callbacks": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch36/test_vpi_chk_error_callbacks.sv:26:14: Unsupported or unknown PLI call: '$vt_try'",
+   "inputs_sha256": "47e8e88716461a0c252e8fb280fa7c0195032dff007daa7f19a41e9ec62b941a"
+  },
+  "ch36/test_vpi_chk_error_status": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch36/test_vpi_chk_error_status.sv:31:14: Unsupported or unknown PLI call: '$vt_try'",
+   "inputs_sha256": "2fad9c6363e0df98cd4147329207187ca9cf695e8f4ce104f362d00697053a9b"
+  }
+ },
+ "generated_at": "2026-10-26T05:55:00.754706+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

@@ -1,6 +1,6 @@
 # Clause 6: Data types
 
-[All chapters](README.md). 560 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 561 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -491,6 +491,7 @@
 | [`test_static_var_edge_cases_2`](../../tests/ch6/test_static_var_edge_cases_2.sv) | Static variables edge cases | 6.21 13.4.2 | Verilator 5.052 |  |
 | [`test_static_variable_of_block_not_yet_run`](../../tests/ch6/test_static_variable_of_block_not_yet_run.sv) | A static variable of a named block exists before the block first runs and can be written through its hierarchical name | 6.21 23.6 9.3.4 | Icarus Verilog 13.0 |  |
 | [`test_variables_and_subroutine_calls`](../../tests/ch6/test_variables_and_subroutine_calls.sv) | Module variables, block variables, and function and task calls | 6.21 13.3 13.4 | Icarus Verilog 13.0 |  |
+| [`test_typedef_package_type_shared`](../../tests/ch6/test_typedef_package_type_shared.sv) | An unpacked structure, a packed structure and an enum declared in a package match across instances, so values can be assigned between members of two instances of a module | 6.22 | Verilator 5.052 |  |
 | [`test_type_matching_rules_by_type_compare`](../../tests/ch6/test_type_matching_rules_by_type_compare.sv) | type reference comparisons follow the matching type rules: renaming typedefs and type parameters, anonymous types within one declaration, typedefs of structures, enums and classes, redundant signing, array kinds, bounds and elements, and package typedefs wherever imported; other pairs do not match | 6.22.1 6.23 26.3 7.4.2 | standard only |  |
 | [`test_illegal_anonymous_struct_not_equivalent`](../../tests/ch6/test_illegal_anonymous_struct_not_equivalent.sv) | Anonymous unpacked structures from different declarations are not equivalent, so one cannot be assigned to the other | 6.22.2 6.22.3 | standard only | illegal design |
 | [`test_type_equivalent_arrays`](../../tests/ch6/test_type_equivalent_arrays.sv) | Unpacked arrays whose element types are equivalent, such as packed types of the same size, state and signedness, can be assigned to each other whatever their ranges, element by element from the left | 6.22.2 7.6 7.4.2 | Verilator 5.052 |  |

@@ -1,0 +1,8 @@
+semaphore takes one key 1
+semaphore takes the key back 1
+mailbox carries an int 1
+process is running 1
+randomize returns 1 1
+weak reference finds the object 1
+cleared weak reference is null 1
+unqualified names work 1 1

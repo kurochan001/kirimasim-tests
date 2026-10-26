@@ -3,7 +3,7 @@
 :description: A formal argument whose packed and unpacked dimensions are both unsized matches actuals with any packed dimensions and any unpacked range; C sees the packed part as the normalized, linearized range of the actual and the unpacked part with the actual's own range (IEEE 1800-2023 Sections 35.5.6.1 and 35.6.1.1)
 :tags: ch35
 :type: simulation
-:lrm: 1800-2023 35.5.6.1 35.6.1.1 H.7.6 H.12.1 H.12.2 H.12.5
+:lrm: 1800-2023 35.5.6.1 35.6.1.1 H.7.6 H.12.1 H.12.2 H.12.5 35.2.2.1
 :oracle: spec
 :spec_check: ai
 :fourstate: no

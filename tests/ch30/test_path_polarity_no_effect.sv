@@ -3,7 +3,7 @@
 :description: A module path without a polarity operator has unknown polarity, and the polarity, unknown, positive or negative, does not change how the output of an inverting cell changes: the delay follows the transition of the output (IEEE 1800-2023 Section 30.4.7.1)
 :tags: ch30
 :type: simulation
-:lrm: 1800-2023 30.4.7.1 30.4.7 30.4.7.2 30.4.7.3 30.5
+:lrm: 1800-2023 30.4.7.1 30.4.7 30.4.7.2 30.4.7.3 30.5 30.7.2
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

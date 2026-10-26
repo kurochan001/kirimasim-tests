@@ -1,0 +1,14 @@
+10: none=1 pos=0 neg=0 edge=0 list=0 out=0
+15: none=1 pos=1 neg=0 edge=0 list=0 out=0
+20: none=0 pos=1 neg=0 edge=0 list=0 out=0
+23: none=0 pos=1 neg=1 edge=0 list=0 out=0
+26: none=0 pos=1 neg=1 edge=1 list=0 out=0
+30: none=0 pos=1 neg=1 edge=1 list=1 out=0
+35: none=0 pos=0 neg=1 edge=1 list=1 out=0
+36: none=0 pos=0 neg=1 edge=0 list=1 out=0
+40: none=0 pos=0 neg=1 edge=0 list=0 out=0
+43: none=0 pos=0 neg=0 edge=0 list=0 out=0
+45: none=0 pos=0 neg=0 edge=0 list=0 out=1
+55: none=0 pos=0 neg=0 edge=0 list=0 out=0
+60: none=0 pos=0 neg=0 edge=0 list=1 out=0
+70: none=0 pos=0 neg=0 edge=0 list=0 out=0

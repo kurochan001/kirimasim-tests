@@ -1,0 +1,11 @@
+scalar types: svBit and svLogic are unsigned 8-bit 1 1
+vector types: svBitVecVal uint32_t, svLogicVecVal two of it 1 1
+reference types: svScope and svOpenArrayHandle are void* 1 1
+canonical constants sv_0 sv_1 sv_z sv_x are 0 1 2 3 1
+chunks of 1 32 33 64 65 bits 1 1 2 2 3
+masks and bit extraction 255 120 127 4294967168
+version 1800-2005 1 1
+scope routines 1 1 1
+open array routines 1 1 1
+element value routines 1 1 1
+canonical bit and part select routines 1 1 1

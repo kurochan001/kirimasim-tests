@@ -3,7 +3,7 @@
 :description: vpi_chk_error reports an error after a simulation time callback that the standard forbids, such as one with no time or a zero-delay cbReadWriteSynch at read-only synch time, and 0 after a call that succeeds (IEEE 1800-2023 Section 36.10.1)
 :tags: ch36
 :type: simulation
-:lrm: 1800-2023 36.10.1 38.2 38.36.2
+:lrm: 1800-2023 36.10.1 38.2 38.36.2 36.6
 :oracle: spec
 :spec_check: ai
 :fourstate: no

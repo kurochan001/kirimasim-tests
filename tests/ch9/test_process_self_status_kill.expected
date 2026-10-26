@@ -1,0 +1,7 @@
+self is the running process 1
+state values 0 1 2 3 4
+paced waits 1
+paced marked 1, finished 1
+victim waits 1
+victim killed 1
+marks after the victim's delay 0

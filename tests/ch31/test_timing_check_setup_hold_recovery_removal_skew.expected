@@ -1,0 +1,10 @@
+11: setup=0 hold=1 recovery=0 removal=0 skew=0
+12: setup=0 hold=1 recovery=0 removal=1 skew=0
+15: setup=0 hold=1 recovery=1 removal=1 skew=0
+20: setup=1 hold=1 recovery=1 removal=1 skew=0
+24: setup=1 hold=1 recovery=1 removal=1 skew=1
+31: setup=1 hold=1 recovery=1 removal=0 skew=1
+40: setup=0 hold=1 recovery=1 removal=0 skew=1
+45: setup=0 hold=1 recovery=1 removal=0 skew=0
+60: setup=0 hold=0 recovery=1 removal=0 skew=0
+65: setup=0 hold=0 recovery=0 removal=0 skew=0

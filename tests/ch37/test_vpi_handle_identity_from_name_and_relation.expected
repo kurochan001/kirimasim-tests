@@ -1,0 +1,7 @@
+lookups compare equal: 1
+w and v distinct: 1
+w type is variable: 1
+v type is variable: 1
+w name is w: 1
+iteration and name give the same object: 1
+w size is 1: 1

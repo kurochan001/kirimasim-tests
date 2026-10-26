@@ -3,7 +3,7 @@
 :description: After a VPI call that fails, vpi_chk_error returns a severity level of Table 38-1 that its error structure repeats, and the next VPI call that succeeds clears the error status, while vpi_chk_error itself does not (IEEE 1800-2023 Section 36.10.1)
 :tags: ch36
 :type: simulation
-:lrm: 1800-2023 36.10.1 38.2 38.36.2
+:lrm: 1800-2023 36.10.1 38.2 38.36.2 36.2
 :oracle: spec
 :spec_check: ai
 :fourstate: no

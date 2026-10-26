@@ -1,0 +1,10 @@
+6: q after the vpiNoDelay put: 0
+a delay mode other than vpiNoDelay reports an error: 1
+array after a bulk put: 11 22 33 44
+array with vpiPropagateOff: 1 2 3 4
+array with vpiOneValue: 7 7 7 7
+a scheduling flag on the bulk put reports an error: 1
+another scheduling flag on the bulk put reports an error: 1
+an unsupported format on the bulk put reports an error: 1
+array after the errors: 8 9 10 11
+20: q after the primitive delay: 1
