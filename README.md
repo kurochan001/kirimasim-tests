@@ -296,7 +296,7 @@ times: the median of five runs at the stated count less the median of five
 runs with `+n=1`.
 
 | Design | `+n=` | kirimasim | Icarus Verilog 14.0 devel | Verilator 5.053 devel | Lyra (LLVM backend) |
-| --- | --- | --- | --- | --- | --- |
+| --- | :---: | :---: | :---: | :---: | :---: |
 | `comb_chain` | 3,000,000 | 9.249 s | 9.796 s | 0.223 s | 2.878 s |
 | `nba_shift` | 1,000,000 | 25.486 s | 26.585 s | 0.196 s | 5.900 s |
 | `proc_wait` | 1,000,000 | 6.786 s | 5.688 s | 2.283 s | 6.164 s |
