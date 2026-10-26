@@ -1,0 +1,248 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "dfde609cb992ffddd10c9be7c422ea250dd737c7dd4d32d0783b4ad9bf5f42b3",
+  "signals": [
+    "test_sequence_and_or_intersect.a",
+    "test_sequence_and_or_intersect.b",
+    "test_sequence_and_or_intersect.c"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_and_or_intersect.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_and_or_intersect.a": 1,
+      "test_sequence_and_or_intersect.b": 1,
+      "test_sequence_and_or_intersect.c": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "1",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "1",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "1"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "1",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "1",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "1",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "1",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "1"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "1"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "1",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        },
+        "settled": {
+          "test_sequence_and_or_intersect.a": "0",
+          "test_sequence_and_or_intersect.b": "0",
+          "test_sequence_and_or_intersect.c": "0"
+        }
+      }
+    ],
+    "end_time": 140
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "78e641cecc3062b9554a5e25175be1278d15129eb15e079ce80e0623d045ccd8",
+    "projection_sha256": "21ca87714d41a1d514be1b77108cf7c6cea2fdba2d38487f499ab614f55798d4",
+    "clock": "test_sequence_and_or_intersect.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_and_or_intersect.a",
+      "test_sequence_and_or_intersect.b",
+      "test_sequence_and_or_intersect.c"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    }
+  }
+}

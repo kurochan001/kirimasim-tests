@@ -1,0 +1,286 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "76830f830bbbad844275f906b002cc30c0cca5640c752965a365818106d29153",
+  "signals": [
+    "test_property_nexttime_eventually.start",
+    "test_property_nexttime_eventually.x"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_property_nexttime_eventually.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_property_nexttime_eventually.start": 1,
+      "test_property_nexttime_eventually.x": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "1",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "1",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "1"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "1",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "1",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "1"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "1"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "1",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "1",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 155,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "1"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "1"
+        }
+      },
+      {
+        "time": 165,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 175,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 185,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "1",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "1",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 195,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 205,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 215,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      },
+      {
+        "time": 225,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "1"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "1"
+        }
+      },
+      {
+        "time": 235,
+        "sampled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        },
+        "settled": {
+          "test_property_nexttime_eventually.start": "0",
+          "test_property_nexttime_eventually.x": "0"
+        }
+      }
+    ],
+    "end_time": 240
+  }
+}

@@ -748,6 +748,18 @@ match (2026-10-25) found no further expected output to be wrong, but two
 tests whose diagnostic regular expression required the format of Icarus
 Verilog and Verilator, since fixed; see the [review](lyra-disagreement-review-20261025.md).
 
+## Icarus stimulus extraction observation (2026-10-26)
+
+During the SVA reference M0 experiment, Icarus Verilog 13.0 stable aborted
+while compiling `ch16/test_sequence_first_match` after all concurrent
+directives and their actions had been removed. The remaining queue argument
+of `function automatic string times(int q[$])` reached an internal assertion
+in `draw_eval_function_argument` (`draw_ufunc.c`). This prevents using the
+otherwise unchanged reporting code in a stimulus-only Icarus run; it is not
+an evaluation result for the concurrent assertions. No test or expected
+output was changed. The experiment and its scope are described in
+[`tools/sva_reference/README.md`](../tools/sva_reference/README.md).
+
 ## Cases added by the 2026-10-25 imported tests
 
 ### Icarus Verilog 13.0: results (imported tests)

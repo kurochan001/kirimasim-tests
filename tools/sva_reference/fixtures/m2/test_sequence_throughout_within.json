@@ -1,0 +1,647 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "26e19aad033dc73677917fffdf3ef6a75deac4ef2b163190f72ba9d994f6dd81",
+  "signals": [
+    "test_sequence_throughout_within.req",
+    "test_sequence_throughout_within.en",
+    "test_sequence_throughout_within.ack",
+    "test_sequence_throughout_within.s",
+    "test_sequence_throughout_within.x"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_throughout_within.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_throughout_within.req": 1,
+      "test_sequence_throughout_within.en": 1,
+      "test_sequence_throughout_within.ack": 1,
+      "test_sequence_throughout_within.s": 1,
+      "test_sequence_throughout_within.x": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_throughout_within.req": "1",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "1",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_throughout_within.req": "1",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "1",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_sequence_throughout_within.req": "1",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "1",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_sequence_throughout_within.req": "1",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "1",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "1",
+          "test_sequence_throughout_within.ack": "1",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 155,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 165,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        }
+      },
+      {
+        "time": 175,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        }
+      },
+      {
+        "time": 185,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 195,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 205,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 215,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 225,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        }
+      },
+      {
+        "time": 235,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "1"
+        }
+      },
+      {
+        "time": 245,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 255,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 265,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        }
+      },
+      {
+        "time": 275,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "1"
+        }
+      },
+      {
+        "time": 285,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 295,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      },
+      {
+        "time": 305,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "1",
+          "test_sequence_throughout_within.x": "1"
+        }
+      },
+      {
+        "time": 315,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "1"
+        }
+      },
+      {
+        "time": 325,
+        "sampled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        },
+        "settled": {
+          "test_sequence_throughout_within.req": "0",
+          "test_sequence_throughout_within.en": "0",
+          "test_sequence_throughout_within.ack": "0",
+          "test_sequence_throughout_within.s": "0",
+          "test_sequence_throughout_within.x": "0"
+        }
+      }
+    ],
+    "end_time": 330
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "f350025c19f657bf19115dd1d2959e2764bef67aba900493c7957caa201aa76b",
+    "projection_sha256": "44988564dc9ef245047f0878511da5456072b962daaa07292e9e75610a3e08a3",
+    "clock": "test_sequence_throughout_within.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_throughout_within.req",
+      "test_sequence_throughout_within.en",
+      "test_sequence_throughout_within.ack",
+      "test_sequence_throughout_within.s",
+      "test_sequence_throughout_within.x"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "req": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "en": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "ack": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "s": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "x": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    }
+  }
+}

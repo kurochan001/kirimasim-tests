@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "0b915ce4f0006218328d9dd9cd5a317e793c998f94b49f9caa106862b2e46265",
+  "signals": [
+    "test_sequence_consecutive_repetition.a",
+    "test_sequence_consecutive_repetition.b",
+    "test_sequence_consecutive_repetition.c"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_consecutive_repetition.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_consecutive_repetition.a": 1,
+      "test_sequence_consecutive_repetition.b": 1,
+      "test_sequence_consecutive_repetition.c": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "1",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "1",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "1",
+          "test_sequence_consecutive_repetition.c": "0"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "1",
+          "test_sequence_consecutive_repetition.c": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "1",
+          "test_sequence_consecutive_repetition.c": "1"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "1",
+          "test_sequence_consecutive_repetition.c": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "1",
+          "test_sequence_consecutive_repetition.c": "1"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "1",
+          "test_sequence_consecutive_repetition.c": "1"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "1"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "1"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "1",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "1",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "1"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "1"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        },
+        "settled": {
+          "test_sequence_consecutive_repetition.a": "0",
+          "test_sequence_consecutive_repetition.b": "0",
+          "test_sequence_consecutive_repetition.c": "0"
+        }
+      }
+    ],
+    "end_time": 110
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "4963fc3345c14c0e414802dd13b341443a7c0f16070db9fee3d7034f51c9f6d1",
+    "projection_sha256": "2dc42042bc56232f689707b442424217cbf7207e1b8599c5db997cdb3481e53e",
+    "clock": "test_sequence_consecutive_repetition.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_consecutive_repetition.a",
+      "test_sequence_consecutive_repetition.b",
+      "test_sequence_consecutive_repetition.c"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    }
+  }
+}

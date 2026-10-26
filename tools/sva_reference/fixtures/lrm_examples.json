@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "tick_numbering": "one-based",
+  "examples": [
+    {
+      "clause": "16.9.5",
+      "figure": "16-5",
+      "ticks": 14,
+      "ones": {"a": [8], "b": [10], "c": [8], "d": [10], "e": [12]},
+      "start": 8,
+      "expression": "(a ##2 b) and (c ##2 d ##2 e)",
+      "ends": [12]
+    },
+    {
+      "clause": "16.9.5",
+      "figure": "16-6",
+      "ticks": 14,
+      "ones": {"a": [8], "b": [9, 10, 11, 12, 13], "c": [8], "d": [10], "e": [12]},
+      "start": 8,
+      "expression": "(a ##[1:5] b) and (c ##2 d ##2 e)",
+      "ends": [12, 12, 12, 12, 13]
+    },
+    {
+      "clause": "16.9.7",
+      "figure": "16-10",
+      "ticks": 14,
+      "ones": {"a": [8], "b": [10], "c": [8], "d": [10], "e": [12]},
+      "start": 8,
+      "expression": "(a ##2 b) or (c ##2 d ##2 e)",
+      "ends": [10, 12]
+    },
+    {
+      "clause": "16.9.7",
+      "figure": "16-11",
+      "ticks": 14,
+      "ones": {"a": [8], "b": [9, 10, 11, 12, 13], "c": [8], "d": [10], "e": [12]},
+      "start": 8,
+      "expression": "(a ##[1:5] b) or (c ##2 d ##2 e)",
+      "ends": [9, 10, 11, 12, 12, 13]
+    },
+    {
+      "clause": "16.9.9",
+      "figure": "16-12",
+      "ticks": 14,
+      "ones": {"active": [2, 3, 4, 5, 6, 7, 8], "ready": [4, 5, 6, 7, 8, 9, 10]},
+      "start": 2,
+      "expression": "active throughout (##2 ready[*7])",
+      "ends": []
+    },
+    {
+      "clause": "16.9.9",
+      "figure": "16-13",
+      "ticks": 14,
+      "ones": {"active": [2, 3, 4, 5, 6, 7, 8, 9, 10], "ready": [4, 5, 6, 7, 8, 9, 10]},
+      "start": 2,
+      "expression": "active throughout (##2 ready[*7])",
+      "ends": [10]
+    },
+    {
+      "clause": "16.9.10",
+      "figure": "16-13",
+      "ticks": 14,
+      "ones": {"start": [3], "low_trdy": [4, 5, 6, 7, 8, 9, 10], "low_irdy": [3, 4, 5, 6, 7, 8, 9, 10, 11]},
+      "start": 3,
+      "expression": "low_trdy[*7] within (start ##1 low_irdy[*8])",
+      "ends": [11]
+    }
+  ]
+}

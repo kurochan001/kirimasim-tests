@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "f90d1f011ff1082fd10d2dc393e04df72ddfd0b3f5a763c6dcf02c73a170cb24",
+  "signals": [
+    "test_sequence_empty_match_concatenation.a",
+    "test_sequence_empty_match_concatenation.b",
+    "test_sequence_empty_match_concatenation.c"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_empty_match_concatenation.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_empty_match_concatenation.a": 1,
+      "test_sequence_empty_match_concatenation.b": 1,
+      "test_sequence_empty_match_concatenation.c": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "1",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "1"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "1",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "1"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "1",
+          "test_sequence_empty_match_concatenation.c": "1"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "1",
+          "test_sequence_empty_match_concatenation.c": "1"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "1"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "1"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "1",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "1",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "1",
+          "test_sequence_empty_match_concatenation.c": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "1",
+          "test_sequence_empty_match_concatenation.c": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "1",
+          "test_sequence_empty_match_concatenation.c": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "1",
+          "test_sequence_empty_match_concatenation.c": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "1"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "1"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "0"
+        },
+        "settled": {
+          "test_sequence_empty_match_concatenation.a": "0",
+          "test_sequence_empty_match_concatenation.b": "0",
+          "test_sequence_empty_match_concatenation.c": "0"
+        }
+      }
+    ],
+    "end_time": 100
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "4b84038ff5fac483a2b2f2b46499429fa7d4e1fceaabbcc279a0dcd18c8f7d57",
+    "projection_sha256": "fa5846ee57e4e5d786bf3503012c740160e474d843e08744e2ca685389de8df0",
+    "clock": "test_sequence_empty_match_concatenation.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_empty_match_concatenation.a",
+      "test_sequence_empty_match_concatenation.b",
+      "test_sequence_empty_match_concatenation.c"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "a": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    }
+  }
+}

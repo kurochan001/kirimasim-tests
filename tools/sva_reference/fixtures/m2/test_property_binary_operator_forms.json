@@ -1,0 +1,391 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "6a64ebdda55613bcf1f33b006d51c1587927567a2b0ee06225b66be50cf70af6",
+  "signals": [
+    "test_property_binary_operator_forms.start",
+    "test_property_binary_operator_forms.p",
+    "test_property_binary_operator_forms.q"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_property_binary_operator_forms.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_property_binary_operator_forms.start": 1,
+      "test_property_binary_operator_forms.p": 1,
+      "test_property_binary_operator_forms.q": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "1"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "1"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "1"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "1"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 155,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 165,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "1"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "1"
+        }
+      },
+      {
+        "time": 175,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 185,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 195,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 205,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "1",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 215,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "1"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "1",
+          "test_property_binary_operator_forms.q": "1"
+        }
+      },
+      {
+        "time": 225,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 235,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      },
+      {
+        "time": 245,
+        "sampled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        },
+        "settled": {
+          "test_property_binary_operator_forms.start": "0",
+          "test_property_binary_operator_forms.p": "0",
+          "test_property_binary_operator_forms.q": "0"
+        }
+      }
+    ],
+    "end_time": 250
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "3a9d69ea637e727e6ca90b1b4141e83358a0bbf4e58bc28600d762da85da2273",
+    "projection_sha256": "a31deddbec93526cf1508f3c8605d812e3eadb664df1449e6abf50f83f3e4f95",
+    "clock": "test_property_binary_operator_forms.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_property_binary_operator_forms.start",
+      "test_property_binary_operator_forms.p",
+      "test_property_binary_operator_forms.q"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "start": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "p": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "q": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    }
+  }
+}

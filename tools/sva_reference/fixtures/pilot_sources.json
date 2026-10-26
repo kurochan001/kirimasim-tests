@@ -1,0 +1,12 @@
+{
+  "test_sequence_goto_nonconsecutive": "7df5ef371aa8c4584b624f94fced8799107fe7f7d6e330724809cd18afbe4fc5",
+  "test_sequence_throughout_within": "f350025c19f657bf19115dd1d2959e2764bef67aba900493c7957caa201aa76b",
+  "test_property_until_strong_forms": "94ff5c4c7beeebfcb543dcc4823e023fbf6c4fc2b966229686f8c3ae3b12a589",
+  "test_sequence_first_match": "926ff68bf8b5cddaaffd90414a6dda9c97e613e253263514a804674a1c911ee5",
+  "test_sequence_and_or_intersect": "78e641cecc3062b9554a5e25175be1278d15129eb15e079ce80e0623d045ccd8",
+  "test_sequence_consecutive_repetition": "4963fc3345c14c0e414802dd13b341443a7c0f16070db9fee3d7034f51c9f6d1",
+  "test_property_nexttime_eventually": "40c1c30716ac7bc2f8d8e4aa1fe4cc79e396c0af187898b47488617d0941bf26",
+  "test_followed_by_existential": "bc29a066685a3768885ef4e819829ca92b8bc7f8fc5a6b66880fdf5f29cb32de",
+  "test_property_binary_operator_forms": "3a9d69ea637e727e6ca90b1b4141e83358a0bbf4e58bc28600d762da85da2273",
+  "test_sequence_empty_match_concatenation": "4b84038ff5fac483a2b2f2b46499429fa7d4e1fceaabbcc279a0dcd18c8f7d57"
+}

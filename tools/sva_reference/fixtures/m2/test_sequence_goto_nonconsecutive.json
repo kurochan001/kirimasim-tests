@@ -1,0 +1,339 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "fa35e0a66286daf7763854e28b0fd3687c66a1e9c9d26a6ad1f861770b29e511",
+  "signals": [
+    "test_sequence_goto_nonconsecutive.s",
+    "test_sequence_goto_nonconsecutive.b",
+    "test_sequence_goto_nonconsecutive.c"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sequence_goto_nonconsecutive.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sequence_goto_nonconsecutive.s": 1,
+      "test_sequence_goto_nonconsecutive.b": 1,
+      "test_sequence_goto_nonconsecutive.c": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "1",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "1",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "1"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "1"
+        }
+      },
+      {
+        "time": 55,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 65,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 75,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "1",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "1",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 85,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 95,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 105,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 115,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "1"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "1"
+        }
+      },
+      {
+        "time": 125,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 135,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 145,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "1",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "1",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 155,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 165,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 175,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "1",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 185,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "1"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "1"
+        }
+      },
+      {
+        "time": 195,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      },
+      {
+        "time": 205,
+        "sampled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        },
+        "settled": {
+          "test_sequence_goto_nonconsecutive.s": "0",
+          "test_sequence_goto_nonconsecutive.b": "0",
+          "test_sequence_goto_nonconsecutive.c": "0"
+        }
+      }
+    ],
+    "end_time": 210
+  },
+  "projection": {
+    "protocol": "sva-reference-projection-v1",
+    "source_sha256": "7df5ef371aa8c4584b624f94fced8799107fe7f7d6e330724809cd18afbe4fc5",
+    "projection_sha256": "2784f08d3dde43a788576a152b2b74746d7886b81c07fb1eb5773ab75501f3af",
+    "clock": "test_sequence_goto_nonconsecutive.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sequence_goto_nonconsecutive.s",
+      "test_sequence_goto_nonconsecutive.b",
+      "test_sequence_goto_nonconsecutive.c"
+    ],
+    "types": {
+      "clk": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "s": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "b": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "c": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    }
+  }
+}
