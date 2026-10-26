@@ -1,0 +1,4 @@
+consecutive [*3]: 25
+goto [->2] then ##1 d: 25
+nonconsecutive [=2] then ##1 d: 25
+or matches: 15 25

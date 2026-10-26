@@ -1,0 +1,5 @@
+cover property a: 5 15 25
+cover property a[*1:2]: 5 15 25
+cover sequence a[*1:2]: 5 15 15 25 25
+cover property with disable iff: 25
+restrict accepted

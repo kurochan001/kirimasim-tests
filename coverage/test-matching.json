@@ -2,9 +2,9 @@
   "schema": 1,
   "standard": "IEEE 1800-2023",
   "note": "Candidate enumeration is complete for the current suite, not semantic review. Only explicitly reviewed behaviors.json checks count as registered links. A linked file is not a completed review of every observation in that file.",
-  "test_files": 6936,
-  "linked_test_files": 4512,
-  "unlinked_test_files": 2424,
+  "test_files": 6986,
+  "linked_test_files": 4577,
+  "unlinked_test_files": 2409,
   "chapters": [
     {
       "chapter": "ch3",
@@ -86,9 +86,9 @@
     },
     {
       "chapter": "ch16",
-      "test_files": 336,
-      "linked_test_files": 281,
-      "unlinked_test_files": 55
+      "test_files": 359,
+      "linked_test_files": 305,
+      "unlinked_test_files": 54
     },
     {
       "chapter": "ch17",
@@ -104,9 +104,9 @@
     },
     {
       "chapter": "ch19",
-      "test_files": 118,
-      "linked_test_files": 83,
-      "unlinked_test_files": 35
+      "test_files": 139,
+      "linked_test_files": 108,
+      "unlinked_test_files": 31
     },
     {
       "chapter": "ch20",
@@ -116,9 +116,9 @@
     },
     {
       "chapter": "ch21",
-      "test_files": 188,
-      "linked_test_files": 119,
-      "unlinked_test_files": 69
+      "test_files": 194,
+      "linked_test_files": 135,
+      "unlinked_test_files": 59
     },
     {
       "chapter": "ch22",
@@ -57937,6 +57937,41 @@
       }
     },
     {
+      "test": "tests/ch16/test_cover_property_sequence_counters.sv",
+      "inputs_sha256": "273b73a3ed455935832439b249a6c27d9e24c04a06bac53c8ed41902cd39c606",
+      "cited_clauses": [
+        "16.14.3",
+        "16.14.4",
+        "16.14.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.14.3-EXTRACT-COVER-REPORTING",
+        "SV2023-16.14.3-EXTRACT-PROPERTY-COUNTERS",
+        "SV2023-16.14.3-EXTRACT-PROPERTY-DISABLED",
+        "SV2023-16.14.3-EXTRACT-SEQUENCE-COUNTERS",
+        "SV2023-16.14.4-EXTRACT-RESTRICT-NO-ACTION"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.14.1-EXTRACT-ASSERT-ACTIONS",
+        "SV2023-16.14.1-EXTRACT-ASSERT-DEFAULT",
+        "SV2023-16.14.1-EXTRACT-ASSERT-REACTIVE",
+        "SV2023-16.14.1-EXTRACT-ASSERT-SEVERITY",
+        "SV2023-16.14.3-EXTRACT-COVER-MULTIPLICITY",
+        "SV2023-16.14.3-EXTRACT-PROPERTY-PASS",
+        "SV2023-16.14.3-EXTRACT-SEQUENCE-COUNT-EQUIVALENCE",
+        "SV2023-16.14.3-EXTRACT-SEQUENCE-PASS",
+        "SV2023-16.14.4-EXTRACT-RESTRICT-SEMANTICS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.14.1-EXTRACT-ASSERT-ACTION-CONTENT",
+        "SV2023-16.14.3-EXTRACT-COVER-ACTION-CONTENT"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch16/test_default_clocking_assertion_clocks.sv",
       "inputs_sha256": "6147b03a1064d849cf4586f705e09c5d42f889d613b9a73ea724cd89accc5240",
       "cited_clauses": [
@@ -58696,6 +58731,77 @@
       ]
     },
     {
+      "test": "tests/ch16/test_deferred_flush_points.sv",
+      "inputs_sha256": "40ed732b6a43729732047f19f9ff5518aa08848221596129a2663159813005fb",
+      "cited_clauses": [
+        "16.4.2",
+        "16.4.4",
+        "16.4.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.4.2-EXTRACT-COMB-LATCH-FLUSH",
+        "SV2023-16.4.2-EXTRACT-EVENT-WAIT-FLUSH",
+        "SV2023-16.4.4-EXTRACT-DISABLE-OUTERMOST"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.4.1-EXTRACT-FINAL-MATURE",
+        "SV2023-16.4.1-EXTRACT-FLUSH",
+        "SV2023-16.4.1-EXTRACT-OBSERVED-MATURE",
+        "SV2023-16.4.1-EXTRACT-PENDING-QUEUE",
+        "SV2023-16.4.1-EXTRACT-REACTIVE-ITERATION",
+        "SV2023-16.4.2-EXTRACT-OUTERMOST-DISABLE-FLUSH",
+        "SV2023-16.4.4-EXTRACT-DISABLE-ASSERTION",
+        "SV2023-16.4.4-EXTRACT-INNER-NO-FLUSH"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+      "inputs_sha256": "08a0ea4c3de62eddc041849206a1beb4b36bd11f6e3e7c79376651ed3858dde3",
+      "cited_clauses": [
+        "16.4",
+        "16.4.1",
+        "16.4.3"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.4-EXTRACT-ASSUME-COVER",
+        "SV2023-16.4-EXTRACT-DEFERRED-DIFFERENCES",
+        "SV2023-16.4-EXTRACT-STATIC-PLACEMENT",
+        "SV2023-16.4-EXTRACT-SYNTAX",
+        "SV2023-16.4.1-EXTRACT-OBSERVED-MATURE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.4-EXTRACT-CAPTURE-INPUTS",
+        "SV2023-16.4-EXTRACT-EVALUATE-NOW",
+        "SV2023-16.4-EXTRACT-FINAL-REF",
+        "SV2023-16.4-EXTRACT-OBSERVED-REF",
+        "SV2023-16.4.1-EXTRACT-FINAL-MATURE",
+        "SV2023-16.4.1-EXTRACT-FLUSH",
+        "SV2023-16.4.1-EXTRACT-PENDING-QUEUE",
+        "SV2023-16.4.1-EXTRACT-REACTIVE-ITERATION",
+        "SV2023-16.4.3-EXTRACT-IMPLICIT-COMB"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.4-EXTRACT-ARGUMENT-DIRECTIONS",
+        "SV2023-16.4-EXTRACT-FINAL-LEGALITY",
+        "SV2023-16.4-EXTRACT-NO-AUTOMATIC-REF",
+        "SV2023-16.4-EXTRACT-SINGLE-CALL"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.4",
+          "descendant_requirement_count": 13
+        }
+      ]
+    },
+    {
       "test": "tests/ch16/test_diag_assert.sv",
       "inputs_sha256": "6a8c0c151fae1b1265ef48eb9be127a6518436badbd2ec5f2f3fc57820ac52ba",
       "cited_clauses": [
@@ -59431,6 +59537,48 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch16/test_illegal_action_modifies_automatic.sv",
+      "inputs_sha256": "711bc08a04574e22aa82e0566097e2c86bdb2fd059b6b550378cba2f8aa06a70",
+      "cited_clauses": [
+        "16.14.6.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.14.6.1-EXTRACT-ACTION-CAPTURE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.14.6.1-EXTRACT-CAPTURE-QUEUE-TIME",
+        "SV2023-16.14.6.1-EXTRACT-MATURED-INDEPENDENCE",
+        "SV2023-16.14.6.1-EXTRACT-PROCEDURAL-CONDITION"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_always_bounds_reversed.sv",
+      "inputs_sha256": "46d848ca7006acbbb7ea211d2a584c26c79e83d6493146616630d2174d0b04ef",
+      "cited_clauses": [
+        "16.12.11"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.12.11-EXTRACT-ALWAYS-BOUNDS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12.11-EXTRACT-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-ALWAYS-ALIGN",
+        "SV2023-16.12.11-EXTRACT-IMPLICIT-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-RANGED-ALWAYS",
+        "SV2023-16.12.11-EXTRACT-STRONG-ALWAYS"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch16/test_illegal_assertion_chandle_variable.sv",
       "inputs_sha256": "ca16630c416ed3b5a49e3e84c9c1849ebfa93375cf3bf08d018d1e71ae63a144",
       "cited_clauses": [
@@ -59995,6 +60143,30 @@
       ]
     },
     {
+      "test": "tests/ch16/test_illegal_automatic_ref_argument.sv",
+      "inputs_sha256": "179329e6043b6aa02d0e3a0c8fc2fc8f4e3bdbd6e96230a5202a147139f3604b",
+      "cited_clauses": [
+        "16.11"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.11-EXTRACT-AUTOMATIC-ARGUMENT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.11-EXTRACT-CALL-ARGUMENTS",
+        "SV2023-16.11-EXTRACT-LOCAL-CALL-ARGUMENT",
+        "SV2023-16.11-EXTRACT-NO-EMPTY-CALL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.11-EXTRACT-ATTACHED-CALL",
+        "SV2023-16.11-EXTRACT-EVERY-ENDPOINT",
+        "SV2023-16.11-EXTRACT-REACTIVE-CALL"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch16/test_illegal_call_attached_to_empty_match.sv",
       "inputs_sha256": "1386f8c27c2d5b5b6404724d4828b92face5ab8c2d118a71c4478eb9681cd5f6",
       "cited_clauses": [
@@ -60034,6 +60206,38 @@
       "unapproved_candidate_ids": [
         "SV2023-16.16-EXTRACT-CLOCKING-SINGLE",
         "SV2023-16.16-EXTRACT-EXTERNAL-INSTANCE-CLOCK",
+        "SV2023-16.16-EXTRACT-MULTICLOCK-LEADING",
+        "SV2023-16.16-EXTRACT-NO-CLOCK-FALLBACK"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.16-EXTRACT-CONTEXT-OVERRIDES",
+        "SV2023-16.16-EXTRACT-DEFAULT-ASSERTION",
+        "SV2023-16.16-EXTRACT-EXPLICIT-OVERRIDES",
+        "SV2023-16.16-EXTRACT-MAXIMAL-PROPERTY",
+        "SV2023-16.16-EXTRACT-NO-DECLARATION-DEFAULT"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.16",
+          "descendant_requirement_count": 23
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_illegal_clocking_block_external_clock.sv",
+      "inputs_sha256": "ee245024bd7576bc3344021a83d4e26ee614d7b8374685e1ef186a21298817f1",
+      "cited_clauses": [
+        "16.16"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.16-EXTRACT-EXTERNAL-INSTANCE-CLOCK"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.16-EXTRACT-CLOCKING-NO-EXPLICIT",
+        "SV2023-16.16-EXTRACT-CLOCKING-SINGLE",
         "SV2023-16.16-EXTRACT-MULTICLOCK-LEADING",
         "SV2023-16.16-EXTRACT-NO-CLOCK-FALLBACK"
       ],
@@ -60671,8 +60875,9 @@
     },
     {
       "test": "tests/ch16/test_illegal_disable_iff_matched.sv",
-      "inputs_sha256": "73ac47ee16db9f6544f8157859399db7ac313a71fb9fa8c287d7366122530aa0",
+      "inputs_sha256": "790ab308617058ccc6281a77d2706b057223546de6166e2b5975ba6fac0561ed",
       "cited_clauses": [
+        "16.6",
         "16.12"
       ],
       "negative_test": true,
@@ -60685,7 +60890,15 @@
       "unapproved_candidate_ids": [
         "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
         "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
-        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE"
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE",
+        "SV2023-16.6-EXTRACT-AUTOMATIC-RESTRICTION",
+        "SV2023-16.6-EXTRACT-DISABLE-CURRENT",
+        "SV2023-16.6-EXTRACT-FUNCTION-ARGS",
+        "SV2023-16.6-EXTRACT-FUNCTION-STATE",
+        "SV2023-16.6-EXTRACT-NO-CHANDLE",
+        "SV2023-16.6-EXTRACT-NO-NONSTATIC-CLASS",
+        "SV2023-16.6-EXTRACT-RESULT-TYPE",
+        "SV2023-16.6-EXTRACT-SIDE-EFFECTS"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -60712,7 +60925,11 @@
         "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
         "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
         "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY",
-        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES"
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-16.6-EXTRACT-ARRAY-SAMPLE-LIFETIME",
+        "SV2023-16.6-EXTRACT-BOOLEAN-TRUTH",
+        "SV2023-16.6-EXTRACT-CAPTURE-TIME-CONTEXT",
+        "SV2023-16.6-EXTRACT-SAMPLED-BOOLEAN"
       ],
       "broader_citations": [
         {
@@ -60904,6 +61121,40 @@
         "SV2023-16.6-EXTRACT-SAMPLED-BOOLEAN"
       ],
       "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_final_deferred_postponed_call.sv",
+      "inputs_sha256": "7cc8a86be932b5151d508a5d2eb00d34db154b9d7e09fe872d3d0464dd032913",
+      "cited_clauses": [
+        "16.4"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.4-EXTRACT-FINAL-LEGALITY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.4-EXTRACT-ARGUMENT-DIRECTIONS",
+        "SV2023-16.4-EXTRACT-NO-AUTOMATIC-REF",
+        "SV2023-16.4-EXTRACT-SINGLE-CALL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.4-EXTRACT-ASSUME-COVER",
+        "SV2023-16.4-EXTRACT-CAPTURE-INPUTS",
+        "SV2023-16.4-EXTRACT-DEFERRED-DIFFERENCES",
+        "SV2023-16.4-EXTRACT-EVALUATE-NOW",
+        "SV2023-16.4-EXTRACT-FINAL-REF",
+        "SV2023-16.4-EXTRACT-OBSERVED-REF",
+        "SV2023-16.4-EXTRACT-STATIC-PLACEMENT",
+        "SV2023-16.4-EXTRACT-SYNTAX"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.4",
+          "descendant_requirement_count": 13
+        }
+      ]
     },
     {
       "test": "tests/ch16/test_illegal_global_clock_future_function_in_action_block.sv",
@@ -61209,6 +61460,72 @@
       "different_case_kind_ids": [
         "SV2023-16.14.7-EXTRACT-INFERRED-DISABLE",
         "SV2023-16.14.7-EXTRACT-INFERRED-SUBSTITUTION"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_inferred_clock_missing.sv",
+      "inputs_sha256": "77b9c8f54041529e74a17cd7c2c36cd29263adb7263d131b4b7edf7a26d59814",
+      "cited_clauses": [
+        "16.14.7"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.14.7-EXTRACT-INFERRED-CLOCK"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.14.7-EXTRACT-INFERRED-PLACEMENT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.14.7-EXTRACT-INFERRED-DISABLE",
+        "SV2023-16.14.7-EXTRACT-INFERRED-SUBSTITUTION"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_local_initializer_uninitialized.sv",
+      "inputs_sha256": "ee475a9819a1259bd4bf1551d96cdd5e129ae36f76080c97d311d6bc7c37a79d",
+      "cited_clauses": [
+        "16.10"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.10-EXTRACT-INIT-DEPENDENCY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.10-EXTRACT-ASSIGN-BEFORE-REFERENCE",
+        "SV2023-16.10-EXTRACT-EXPLICIT-TYPE",
+        "SV2023-16.10-EXTRACT-LOCAL-EXPRESSIONS",
+        "SV2023-16.10-EXTRACT-LOCAL-VISIBILITY",
+        "SV2023-16.10-EXTRACT-NO-EMPTY-ASSIGNMENT",
+        "SV2023-16.10-EXTRACT-NO-HIERARCHICAL-LOCAL",
+        "SV2023-16.10-EXTRACT-NO-REDECLARED-FORMAL",
+        "SV2023-16.10-EXTRACT-SIBLING-ISOLATION",
+        "SV2023-16.10-EXTRACT-TRIGGERED-LOCAL-ACTUAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.10-EXTRACT-AND-INTERSECT-FLOW",
+        "SV2023-16.10-EXTRACT-AND-INTERSECT-MERGE",
+        "SV2023-16.10-EXTRACT-BRANCH-FLOW-IN",
+        "SV2023-16.10-EXTRACT-CURRENT-SAMPLE",
+        "SV2023-16.10-EXTRACT-FLOW-OUT-STATIC",
+        "SV2023-16.10-EXTRACT-INIT-ORDER",
+        "SV2023-16.10-EXTRACT-LOCAL-DECLARATION",
+        "SV2023-16.10-EXTRACT-LOST-FLOW",
+        "SV2023-16.10-EXTRACT-MATCH-ASSIGNMENTS",
+        "SV2023-16.10-EXTRACT-NO-DEFAULT",
+        "SV2023-16.10-EXTRACT-NO-PREASSIGNED-TRIGGERED",
+        "SV2023-16.10-EXTRACT-OR-CONTINUATIONS",
+        "SV2023-16.10-EXTRACT-OR-FLOW",
+        "SV2023-16.10-EXTRACT-PER-ATTEMPT",
+        "SV2023-16.10-EXTRACT-REPETITION-ACCUMULATION",
+        "SV2023-16.10-EXTRACT-TRIGGERED-FLOW",
+        "SV2023-16.10-EXTRACT-TRIGGERED-THREADS",
+        "SV2023-16.10-EXTRACT-UNTYPED-SHARED-LOCAL"
       ],
       "broader_citations": []
     },
@@ -62106,6 +62423,28 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch16/test_illegal_nexttime_variable_index.sv",
+      "inputs_sha256": "890cfd0348e1afdee6774e1090691d08cbe1388b91719b8b830e849fe3496975",
+      "cited_clauses": [
+        "16.12.10"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.12.10-EXTRACT-NEXTTIME-COUNT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12.10-EXTRACT-INDEXED-NEXTTIME",
+        "SV2023-16.12.10-EXTRACT-INDEXED-STRONG-NEXTTIME",
+        "SV2023-16.12.10-EXTRACT-NEXTTIME",
+        "SV2023-16.12.10-EXTRACT-NEXTTIME-ALIGN",
+        "SV2023-16.12.10-EXTRACT-STRONG-NEXTTIME"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch16/test_illegal_no_clock_fallback.sv",
       "inputs_sha256": "f31cadd117734f578af0c9f0da2193fe32f71d32dc3d4ff6a64d29a537c0d42f",
       "cited_clauses": [
@@ -62167,6 +62506,40 @@
         "SV2023-16.12.7-EXTRACT-VACUOUS-TRUE",
         "SV2023-16.9.6-EXTRACT-INTERSECT",
         "SV2023-16.9.6-EXTRACT-PAIR-MATCHES"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_output_actual_module_variable.sv",
+      "inputs_sha256": "426c26d052a42f4c45a1eabc285ddb9aa8d2940af1bde1d7a4a5ae9c6b45f64c",
+      "cited_clauses": [
+        "16.8.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.8.2-EXTRACT-OUTPUT-ACTUAL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.8.2-EXTRACT-ACTUAL-ASSIGNED",
+        "SV2023-16.8.2-EXTRACT-DIRECTION-LOCAL",
+        "SV2023-16.8.2-EXTRACT-LOCAL-DECLARATION",
+        "SV2023-16.8.2-EXTRACT-LOCAL-DEFAULT",
+        "SV2023-16.8.2-EXTRACT-METHOD-INPUT-RESTRICTION",
+        "SV2023-16.8.2-EXTRACT-NO-EMPTY-OUTPUT",
+        "SV2023-16.8.2-EXTRACT-NO-OUTPUT-ALIAS",
+        "SV2023-16.8.2-EXTRACT-OUTPUT-DEFINITE-ASSIGNMENT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.8.2-EXTRACT-COPY-OUT",
+        "SV2023-16.8.2-EXTRACT-COPY-PER-ATTEMPT",
+        "SV2023-16.8.2-EXTRACT-INITIALIZATION-ORDER",
+        "SV2023-16.8.2-EXTRACT-INPUT-INITIALIZATION",
+        "SV2023-16.8.2-EXTRACT-LOCAL-FLOW",
+        "SV2023-16.8.2-EXTRACT-LOCAL-INHERITANCE",
+        "SV2023-16.8.2-EXTRACT-OUTPUT-UNASSIGNED",
+        "SV2023-16.8.2-EXTRACT-UNTYPED-LOCAL-PASSING"
       ],
       "broader_citations": []
     },
@@ -62299,6 +62672,47 @@
         "SV2023-16.9.3-EXTRACT-NO-LOCAL-MATCHED",
         "SV2023-16.9.3-EXTRACT-PAST-CLOCK",
         "SV2023-16.9.3-EXTRACT-PAST-COUNT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.9.3-EXTRACT-ACTION-CLOCK",
+        "SV2023-16.9.3-EXTRACT-CHANGED",
+        "SV2023-16.9.3-EXTRACT-CLOCK-FLOW",
+        "SV2023-16.9.3-EXTRACT-DIFFERENT-CLOCK",
+        "SV2023-16.9.3-EXTRACT-FELL",
+        "SV2023-16.9.3-EXTRACT-FIRST-CLOCK-DEFAULT",
+        "SV2023-16.9.3-EXTRACT-GATED-SAMPLING",
+        "SV2023-16.9.3-EXTRACT-OMITTED-ARGS",
+        "SV2023-16.9.3-EXTRACT-PAST-GATE",
+        "SV2023-16.9.3-EXTRACT-PAST-HISTORY",
+        "SV2023-16.9.3-EXTRACT-PAST-PROCEDURAL-AUTOMATIC",
+        "SV2023-16.9.3-EXTRACT-PROCEDURAL-CLOCK",
+        "SV2023-16.9.3-EXTRACT-PROCEDURAL-USE",
+        "SV2023-16.9.3-EXTRACT-ROSE",
+        "SV2023-16.9.3-EXTRACT-SAMPLED",
+        "SV2023-16.9.3-EXTRACT-SIGNATURES",
+        "SV2023-16.9.3-EXTRACT-STABLE",
+        "SV2023-16.9.3-EXTRACT-STRICT-PRIOR"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_past_count_variable.sv",
+      "inputs_sha256": "68e069353d521f03858fa477b6f28db0c86ce32c3d547fa6048f995b378a6af4",
+      "cited_clauses": [
+        "16.9.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.9.3-EXTRACT-PAST-COUNT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.3-EXTRACT-CLOCK-REQUIRED",
+        "SV2023-16.9.3-EXTRACT-DISABLE-CLOCK-EXPLICIT",
+        "SV2023-16.9.3-EXTRACT-NO-AUTOMATIC-GATE",
+        "SV2023-16.9.3-EXTRACT-NO-LOCAL-MATCHED",
+        "SV2023-16.9.3-EXTRACT-PAST-CLOCK"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -63454,15 +63868,16 @@
     },
     {
       "test": "tests/ch16/test_illegal_repetition_upper_bound_variable.sv",
-      "inputs_sha256": "e2576e2cc4f50351441e0f47e99b3168978a1ffe06d4fb393c0ab6e95366d077",
+      "inputs_sha256": "5f3d221cde15247ede2c6a9b8bb4bfd2ecd8b5879e99475b0468c8d78ea03fdf",
       "cited_clauses": [
         "16.9.2"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
         "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
         "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS"
       ],
@@ -65007,6 +65422,37 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch16/test_illegal_triggered_cycle.sv",
+      "inputs_sha256": "2dbc913dda181ff44f460fb61923e54fdab659e897950e7a11a7a7f0fd4343d6",
+      "cited_clauses": [
+        "16.13.6"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.13.6-EXTRACT-NO-TRIGGERED-CYCLES"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.13.6-EXTRACT-MATCHED-CONTEXT",
+        "SV2023-16.13.6-EXTRACT-METHOD-CLOCK",
+        "SV2023-16.13.6-EXTRACT-METHOD-OPERANDS",
+        "SV2023-16.13.6-EXTRACT-NO-MATCHED-SAMPLED-FUNCTION",
+        "SV2023-16.13.6-EXTRACT-OUTSIDE-SEQUENCE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.13.6-EXTRACT-CHECKER-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-EMPTY-NO-METHOD",
+        "SV2023-16.13.6-EXTRACT-EVENT-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-INFERRED-CLOCK-DEFAULT",
+        "SV2023-16.13.6-EXTRACT-MATCHED-STATUS",
+        "SV2023-16.13.6-EXTRACT-METHOD-RESULT",
+        "SV2023-16.13.6-EXTRACT-PORT-CALL-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-TRIGGERED-STATUS"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch16/test_illegal_triggered_ending_clock.sv",
       "inputs_sha256": "d8587aec81823ffa48afe60ac095384c763889a41920a90b49670137a2d0152f",
       "cited_clauses": [
@@ -65141,6 +65587,37 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch16/test_illegal_triggered_no_clock.sv",
+      "inputs_sha256": "fcc76ed911160e9743613e20022e284a634aa518ca75bf37c843a143f5212f3d",
+      "cited_clauses": [
+        "16.13.6"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.13.6-EXTRACT-METHOD-CLOCK"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.13.6-EXTRACT-MATCHED-CONTEXT",
+        "SV2023-16.13.6-EXTRACT-METHOD-OPERANDS",
+        "SV2023-16.13.6-EXTRACT-NO-MATCHED-SAMPLED-FUNCTION",
+        "SV2023-16.13.6-EXTRACT-NO-TRIGGERED-CYCLES",
+        "SV2023-16.13.6-EXTRACT-OUTSIDE-SEQUENCE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.13.6-EXTRACT-CHECKER-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-EMPTY-NO-METHOD",
+        "SV2023-16.13.6-EXTRACT-EVENT-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-INFERRED-CLOCK-DEFAULT",
+        "SV2023-16.13.6-EXTRACT-MATCHED-STATUS",
+        "SV2023-16.13.6-EXTRACT-METHOD-RESULT",
+        "SV2023-16.13.6-EXTRACT-PORT-CALL-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-TRIGGERED-STATUS"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch16/test_illegal_triggered_on_expression.sv",
       "inputs_sha256": "f1f8706e82749cea4eb22c2fee68ff8ba8dd552fa886a7d746f23b5d811b662f",
       "cited_clauses": [
@@ -65204,6 +65681,33 @@
         "SV2023-16.8.2-EXTRACT-LOCAL-INHERITANCE",
         "SV2023-16.8.2-EXTRACT-OUTPUT-UNASSIGNED",
         "SV2023-16.8.2-EXTRACT-UNTYPED-LOCAL-PASSING"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_illegal_typed_formal_queue_actual.sv",
+      "inputs_sha256": "ee247c710ce1e774275cca32716f621de3ede9be64cdcaa7362c54843b7d4c42",
+      "cited_clauses": [
+        "16.8.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-16.8.1-EXTRACT-DATA-CAST"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.8.1-EXTRACT-EDGE-OPERAND",
+        "SV2023-16.8.1-EXTRACT-EVENT-FORMAL",
+        "SV2023-16.8.1-EXTRACT-SEQUENCE-FORMAL",
+        "SV2023-16.8.1-EXTRACT-TYPED-DELAY-BOUND",
+        "SV2023-16.8.1-EXTRACT-TYPED-DOMAIN",
+        "SV2023-16.8.1-EXTRACT-TYPED-MATCH-LVALUE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.8.1-EXTRACT-EXPLICIT-UNTYPED",
+        "SV2023-16.8.1-EXTRACT-LVALUE-FORMAL-TYPE",
+        "SV2023-16.8.1-EXTRACT-NO-VALUE-MODE"
       ],
       "broader_citations": []
     },
@@ -65385,6 +65889,52 @@
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
       "broader_citations": []
+    },
+    {
+      "test": "tests/ch16/test_immediate_assert_syntax_actions.sv",
+      "inputs_sha256": "e3151ce5d5163b7a3c0cecb28fdfff157688ea41573f2ba0b887e25602c59752",
+      "cited_clauses": [
+        "16.3",
+        "20.10"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.3-EXTRACT-SEVERITY-CALLS",
+        "SV2023-16.3-EXTRACT-SYNTAX"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.3-EXTRACT-ARBITRARY-ACTION",
+        "SV2023-16.3-EXTRACT-ASSERT-CONDITION",
+        "SV2023-16.3-EXTRACT-ASSUME-SIMULATION",
+        "SV2023-16.3-EXTRACT-CAPTURE-FAILURE-TIME",
+        "SV2023-16.3-EXTRACT-COVER-ACTION",
+        "SV2023-16.3-EXTRACT-COVER-COUNTERS",
+        "SV2023-16.3-EXTRACT-DEFAULT-ERROR",
+        "SV2023-16.3-EXTRACT-EVALUATE",
+        "SV2023-16.3-EXTRACT-LABEL-SCOPE",
+        "SV2023-16.3-EXTRACT-MULTIPLE-SEVERITY-CALLS",
+        "SV2023-16.3-EXTRACT-PASS-FAIL-ACTIONS",
+        "SV2023-16.3-EXTRACT-PROCEDURAL-PLACEMENT",
+        "SV2023-16.3-EXTRACT-SIMPLE-ACTIONS",
+        "SV2023-16.3-EXTRACT-TRUTH",
+        "SV2023-20.10-EXTRACT-DEFAULT-FAIL-ERROR",
+        "SV2023-20.10-EXTRACT-ERROR",
+        "SV2023-20.10-EXTRACT-FATAL",
+        "SV2023-20.10-EXTRACT-INFO",
+        "SV2023-20.10-EXTRACT-SEVERITY-LOCATION",
+        "SV2023-20.10-EXTRACT-SEVERITY-SYNTAX",
+        "SV2023-20.10-EXTRACT-SEVERITY-USER-MESSAGE",
+        "SV2023-20.10-EXTRACT-WARNING"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "20.10",
+          "descendant_requirement_count": 7
+        }
+      ]
     },
     {
       "test": "tests/ch16/test_immediate_assert_value_checks.sv",
@@ -71117,6 +71667,64 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch16/test_recursive_property_time_advance.sv",
+      "inputs_sha256": "82e5e405a4a5a2e7d91af45e482c50b9ed128d92043c4dec8fe5eb21ffa9133e",
+      "cited_clauses": [
+        "16.12",
+        "16.12.17"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.12-EXTRACT-DECLARATION-INERT",
+        "SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT",
+        "SV2023-16.12-EXTRACT-DISABLE-INTERVAL",
+        "SV2023-16.12-EXTRACT-DISABLE-SYNTAX",
+        "SV2023-16.12-EXTRACT-EXPRESSION-PRECEDENCE",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IFF",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-IMPLICATION-FOLLOWED",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-NOT-NEXT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES",
+        "SV2023-16.12-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.12-EXTRACT-PROPERTY-FORMAL-USE",
+        "SV2023-16.12-EXTRACT-PROPERTY-GRAMMAR",
+        "SV2023-16.12-EXTRACT-PROPERTY-INSTANCES",
+        "SV2023-16.12-EXTRACT-PROPERTY-RESULT",
+        "SV2023-16.12-EXTRACT-PROPERTY-SCOPES",
+        "SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES",
+        "SV2023-16.12.17-EXTRACT-RECURSION",
+        "SV2023-16.12.17-EXTRACT-RECURSIVE-ABORT"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS",
+        "SV2023-16.12-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.12-EXTRACT-FLATTEN-NONRECURSIVE",
+        "SV2023-16.12-EXTRACT-NO-NESTED-DISABLE",
+        "SV2023-16.12.17-EXTRACT-NO-DEPENDENT-NEGATION",
+        "SV2023-16.12.17-EXTRACT-NO-NEGATION-STRONG",
+        "SV2023-16.12.17-EXTRACT-NO-RECURSIVE-DISABLE",
+        "SV2023-16.12.17-EXTRACT-POSITIVE-TIME",
+        "SV2023-16.12.17-EXTRACT-RECURSIVE-ACTUALS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.12",
+          "descendant_requirement_count": 88
+        }
+      ]
+    },
+    {
       "test": "tests/ch16/test_rose_fell_lsb_four_state.sv",
       "inputs_sha256": "cc18cd9d4ce0dc0d276eca97d6a3b2ad0b8828a8c3d61e132565f73f4eed3372",
       "cited_clauses": [
@@ -71184,6 +71792,50 @@
           "descendant_requirement_count": 12
         }
       ]
+    },
+    {
+      "test": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+      "inputs_sha256": "f43d73d5272d26959d391d61710f148420079b8bf3a9e73fee2643ea5cfce8a0",
+      "cited_clauses": [
+        "16.5.1",
+        "16.5.2",
+        "16.14.6.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.5.1-EXTRACT-AUTOMATIC-HISTORY",
+        "SV2023-16.5.1-EXTRACT-CONST-CURRENT",
+        "SV2023-16.5.1-EXTRACT-CURRENT-EXCEPTIONS",
+        "SV2023-16.5.2-EXTRACT-CLOCK-ASSOCIATION"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.14.6.1-EXTRACT-CAPTURE-QUEUE-TIME",
+        "SV2023-16.14.6.1-EXTRACT-MATURED-INDEPENDENCE",
+        "SV2023-16.14.6.1-EXTRACT-PROCEDURAL-CONDITION",
+        "SV2023-16.5.1-EXTRACT-CHECKER-HISTORY",
+        "SV2023-16.5.1-EXTRACT-COMPOSE-AND-CALL",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-EXPRESSION",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-METHOD",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-OTHER",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-STATIC",
+        "SV2023-16.5.1-EXTRACT-METHOD-CURRENT",
+        "SV2023-16.5.1-EXTRACT-PREPONED",
+        "SV2023-16.5.1-EXTRACT-SINGLE-VARIABLE",
+        "SV2023-16.5.2-EXTRACT-ACTIVE-EVENT",
+        "SV2023-16.5.2-EXTRACT-CLOCK-CURRENT",
+        "SV2023-16.5.2-EXTRACT-COMPLEX-CLOCK",
+        "SV2023-16.5.2-EXTRACT-GLOBAL-CLOCK",
+        "SV2023-16.5.2-EXTRACT-PROPERTY-KEYWORD",
+        "SV2023-16.5.2-EXTRACT-SEQUENCE-CLOCK",
+        "SV2023-16.5.2-EXTRACT-TICK-SAMPLED"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.14.6.1-EXTRACT-ACTION-CAPTURE",
+        "SV2023-16.5.1-EXTRACT-CLOCKING-INPUT"
+      ],
+      "broader_citations": []
     },
     {
       "test": "tests/ch16/test_sampled_automatic_const_current.sv",
@@ -71283,6 +71935,81 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch16/test_sampled_defaults_and_methods.sv",
+      "inputs_sha256": "0888dbc87ca0e4ccabca5fcb2e3c6695d9197eb1251d9e2bd478a21e9face8e1",
+      "cited_clauses": [
+        "16.5.1",
+        "16.13.6",
+        "16.9.3",
+        "16.9.11"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.5.1-EXTRACT-DEFAULT-METHOD",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-OTHER",
+        "SV2023-16.5.1-EXTRACT-METHOD-CURRENT",
+        "SV2023-16.9.11-EXTRACT-TRIGGERED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.13.6-EXTRACT-CHECKER-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-EMPTY-NO-METHOD",
+        "SV2023-16.13.6-EXTRACT-EVENT-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-INFERRED-CLOCK-DEFAULT",
+        "SV2023-16.13.6-EXTRACT-MATCHED-STATUS",
+        "SV2023-16.13.6-EXTRACT-METHOD-RESULT",
+        "SV2023-16.13.6-EXTRACT-PORT-CALL-INFERENCE",
+        "SV2023-16.13.6-EXTRACT-TRIGGERED-STATUS",
+        "SV2023-16.5.1-EXTRACT-AUTOMATIC-HISTORY",
+        "SV2023-16.5.1-EXTRACT-CHECKER-HISTORY",
+        "SV2023-16.5.1-EXTRACT-COMPOSE-AND-CALL",
+        "SV2023-16.5.1-EXTRACT-CONST-CURRENT",
+        "SV2023-16.5.1-EXTRACT-CURRENT-EXCEPTIONS",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-EXPRESSION",
+        "SV2023-16.5.1-EXTRACT-DEFAULT-STATIC",
+        "SV2023-16.5.1-EXTRACT-PREPONED",
+        "SV2023-16.5.1-EXTRACT-SINGLE-VARIABLE",
+        "SV2023-16.9.11-EXTRACT-INSTANCE-START",
+        "SV2023-16.9.11-EXTRACT-NO-EMPTY-TRIGGER",
+        "SV2023-16.9.3-EXTRACT-ACTION-CLOCK",
+        "SV2023-16.9.3-EXTRACT-CHANGED",
+        "SV2023-16.9.3-EXTRACT-CLOCK-FLOW",
+        "SV2023-16.9.3-EXTRACT-DIFFERENT-CLOCK",
+        "SV2023-16.9.3-EXTRACT-FELL",
+        "SV2023-16.9.3-EXTRACT-FIRST-CLOCK-DEFAULT",
+        "SV2023-16.9.3-EXTRACT-GATED-SAMPLING",
+        "SV2023-16.9.3-EXTRACT-OMITTED-ARGS",
+        "SV2023-16.9.3-EXTRACT-PAST-GATE",
+        "SV2023-16.9.3-EXTRACT-PAST-HISTORY",
+        "SV2023-16.9.3-EXTRACT-PAST-PROCEDURAL-AUTOMATIC",
+        "SV2023-16.9.3-EXTRACT-PROCEDURAL-CLOCK",
+        "SV2023-16.9.3-EXTRACT-PROCEDURAL-USE",
+        "SV2023-16.9.3-EXTRACT-ROSE",
+        "SV2023-16.9.3-EXTRACT-SAMPLED",
+        "SV2023-16.9.3-EXTRACT-SIGNATURES",
+        "SV2023-16.9.3-EXTRACT-STABLE",
+        "SV2023-16.9.3-EXTRACT-STRICT-PRIOR"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.13.6-EXTRACT-MATCHED-CONTEXT",
+        "SV2023-16.13.6-EXTRACT-METHOD-CLOCK",
+        "SV2023-16.13.6-EXTRACT-METHOD-OPERANDS",
+        "SV2023-16.13.6-EXTRACT-NO-MATCHED-SAMPLED-FUNCTION",
+        "SV2023-16.13.6-EXTRACT-NO-TRIGGERED-CYCLES",
+        "SV2023-16.13.6-EXTRACT-OUTSIDE-SEQUENCE",
+        "SV2023-16.5.1-EXTRACT-CLOCKING-INPUT",
+        "SV2023-16.9.11-EXTRACT-TRIGGERED-CLOCK",
+        "SV2023-16.9.3-EXTRACT-CLOCK-REQUIRED",
+        "SV2023-16.9.3-EXTRACT-DISABLE-CLOCK-EXPLICIT",
+        "SV2023-16.9.3-EXTRACT-NO-AUTOMATIC-GATE",
+        "SV2023-16.9.3-EXTRACT-NO-LOCAL-MATCHED",
+        "SV2023-16.9.3-EXTRACT-PAST-CLOCK",
+        "SV2023-16.9.3-EXTRACT-PAST-COUNT"
+      ],
+      "broader_citations": []
     },
     {
       "test": "tests/ch16/test_sampled_function.sv",
@@ -72199,6 +72926,61 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
+      "inputs_sha256": "910cf8b63b2facb923d01e6a17fe6ae9e6423d1d4c0aa86bf20a0312b97a9c45",
+      "cited_clauses": [
+        "16.8",
+        "16.8.1",
+        "16.12.18",
+        "16.12.19"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.12.18-EXTRACT-TYPED-SEQUENCE-RULES",
+        "SV2023-16.12.19-EXTRACT-LOCAL-SEQUENCE-RULES",
+        "SV2023-16.8-EXTRACT-UNTYPED-SUBSTITUTION"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.8-EXTRACT-ACTUAL-BINDING",
+        "SV2023-16.8-EXTRACT-DECLARATION-SCOPES",
+        "SV2023-16.8-EXTRACT-DECLARATION-SYNTAX",
+        "SV2023-16.8-EXTRACT-DEFAULT-ACTUAL",
+        "SV2023-16.8-EXTRACT-FORMAL-REFERENCES",
+        "SV2023-16.8-EXTRACT-INSTANTIATION-PLACES",
+        "SV2023-16.8-EXTRACT-LEXICAL-NAMES",
+        "SV2023-16.8-EXTRACT-LOCAL-ACTUAL",
+        "SV2023-16.8-EXTRACT-NO-DEFAULT-TYPE",
+        "SV2023-16.8-EXTRACT-TYPE-INHERITANCE",
+        "SV2023-16.8.1-EXTRACT-EXPLICIT-UNTYPED",
+        "SV2023-16.8.1-EXTRACT-LVALUE-FORMAL-TYPE",
+        "SV2023-16.8.1-EXTRACT-NO-VALUE-MODE"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.12.18-EXTRACT-PROPERTY-TYPE",
+        "SV2023-16.12.19-EXTRACT-INPUT-ONLY",
+        "SV2023-16.8-EXTRACT-CONSTANT-DELAY-ACTUAL",
+        "SV2023-16.8-EXTRACT-DOLLAR-ACTUAL",
+        "SV2023-16.8-EXTRACT-FLATTENED-SEMANTICS",
+        "SV2023-16.8-EXTRACT-FORMAL-TYPES",
+        "SV2023-16.8-EXTRACT-NO-CYCLIC-DEPENDENCY",
+        "SV2023-16.8.1-EXTRACT-DATA-CAST",
+        "SV2023-16.8.1-EXTRACT-EDGE-OPERAND",
+        "SV2023-16.8.1-EXTRACT-EVENT-FORMAL",
+        "SV2023-16.8.1-EXTRACT-SEQUENCE-FORMAL",
+        "SV2023-16.8.1-EXTRACT-TYPED-DELAY-BOUND",
+        "SV2023-16.8.1-EXTRACT-TYPED-DOMAIN",
+        "SV2023-16.8.1-EXTRACT-TYPED-MATCH-LVALUE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.8",
+          "descendant_requirement_count": 27
+        }
+      ]
     },
     {
       "test": "tests/ch16/test_sequence_formal_reference_forms_and_types.sv",
@@ -73695,6 +74477,59 @@
       }
     },
     {
+      "test": "tests/ch16/test_sequence_or_and_local_flow.sv",
+      "inputs_sha256": "55e0f646d5d6e3847eb1f308213cf8c53c603f121792814b54e6ea16045358f0",
+      "cited_clauses": [
+        "16.10",
+        "16.11"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.10-EXTRACT-AND-INTERSECT-FLOW",
+        "SV2023-16.10-EXTRACT-OR-FLOW"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.10-EXTRACT-AND-INTERSECT-MERGE",
+        "SV2023-16.10-EXTRACT-BRANCH-FLOW-IN",
+        "SV2023-16.10-EXTRACT-CURRENT-SAMPLE",
+        "SV2023-16.10-EXTRACT-FLOW-OUT-STATIC",
+        "SV2023-16.10-EXTRACT-INIT-ORDER",
+        "SV2023-16.10-EXTRACT-LOCAL-DECLARATION",
+        "SV2023-16.10-EXTRACT-LOST-FLOW",
+        "SV2023-16.10-EXTRACT-MATCH-ASSIGNMENTS",
+        "SV2023-16.10-EXTRACT-NO-DEFAULT",
+        "SV2023-16.10-EXTRACT-NO-PREASSIGNED-TRIGGERED",
+        "SV2023-16.10-EXTRACT-OR-CONTINUATIONS",
+        "SV2023-16.10-EXTRACT-PER-ATTEMPT",
+        "SV2023-16.10-EXTRACT-REPETITION-ACCUMULATION",
+        "SV2023-16.10-EXTRACT-TRIGGERED-FLOW",
+        "SV2023-16.10-EXTRACT-TRIGGERED-THREADS",
+        "SV2023-16.10-EXTRACT-UNTYPED-SHARED-LOCAL",
+        "SV2023-16.11-EXTRACT-ATTACHED-CALL",
+        "SV2023-16.11-EXTRACT-EVERY-ENDPOINT",
+        "SV2023-16.11-EXTRACT-REACTIVE-CALL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-16.10-EXTRACT-ASSIGN-BEFORE-REFERENCE",
+        "SV2023-16.10-EXTRACT-EXPLICIT-TYPE",
+        "SV2023-16.10-EXTRACT-INIT-DEPENDENCY",
+        "SV2023-16.10-EXTRACT-LOCAL-EXPRESSIONS",
+        "SV2023-16.10-EXTRACT-LOCAL-VISIBILITY",
+        "SV2023-16.10-EXTRACT-NO-EMPTY-ASSIGNMENT",
+        "SV2023-16.10-EXTRACT-NO-HIERARCHICAL-LOCAL",
+        "SV2023-16.10-EXTRACT-NO-REDECLARED-FORMAL",
+        "SV2023-16.10-EXTRACT-SIBLING-ISOLATION",
+        "SV2023-16.10-EXTRACT-TRIGGERED-LOCAL-ACTUAL",
+        "SV2023-16.11-EXTRACT-AUTOMATIC-ARGUMENT",
+        "SV2023-16.11-EXTRACT-CALL-ARGUMENTS",
+        "SV2023-16.11-EXTRACT-LOCAL-CALL-ARGUMENT",
+        "SV2023-16.11-EXTRACT-NO-EMPTY-CALL"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch16/test_sequence_precedence_repetition_within.sv",
       "inputs_sha256": "489b6520a41003fa7379b359ded7773656a0cc8b9cabe97eed81d3628de6e0ad",
       "cited_clauses": [
@@ -73748,6 +74583,47 @@
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-16.14.3-EXTRACT-COVER-ACTION-CONTENT",
+        "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
+        "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
+        "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS"
+      ],
+      "broader_citations": [
+        {
+          "clause": "16.9.2",
+          "descendant_requirement_count": 6
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_repetition_and_concat_precedence.sv",
+      "inputs_sha256": "d6b7741d44c063d6a7831c01552dc8994c8f2eb055751570c6c78748d07c8196",
+      "cited_clauses": [
+        "16.9.1",
+        "16.9.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-CONCAT",
+        "SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-AND",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-INTERSECT",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-OR",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-REPETITION",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-THROUGHOUT",
+        "SV2023-16.9.1-EXTRACT-PRECEDENCE-WITHIN",
+        "SV2023-16.9.2-EXTRACT-COMBINE-DELAY",
+        "SV2023-16.9.2-EXTRACT-CONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-EXACT-EQUIVALENCE",
+        "SV2023-16.9.2-EXTRACT-GOTO",
+        "SV2023-16.9.2-EXTRACT-NONCONSECUTIVE",
+        "SV2023-16.9.2-EXTRACT-RANGED-REPETITION",
+        "SV2023-16.9.2-EXTRACT-STAR-PLUS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
         "SV2023-16.9.2-EXTRACT-COUNT-BOUNDS",
         "SV2023-16.9.2-EXTRACT-COUNT-ORDER",
         "SV2023-16.9.2-EXTRACT-OPERAND-RESTRICTIONS"
@@ -86580,6 +87456,53 @@
       }
     },
     {
+      "test": "tests/ch19/test_cg_auto_bins_only_ignored_and_real.sv",
+      "inputs_sha256": "c91839a332fc55c2e6f88a9e8c6fccccd42b6985625f0789caeae67bc3c3ab88",
+      "cited_clauses": [
+        "19.5.3",
+        "19.11.1",
+        "19.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.5.3-EXTRACT-AUTO-WHEN-NO-NORMAL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.11.1-EXTRACT-EMPTY-BIN-EXCLUSION",
+        "SV2023-19.11.1-EXTRACT-EXPLICIT-FRACTION",
+        "SV2023-19.11.1-EXTRACT-MERGED-AT-LEAST",
+        "SV2023-19.11.1-EXTRACT-ZERO-POINT-EXCLUSION",
+        "SV2023-19.11.1-EXTRACT-ZERO-POINT-RESULT",
+        "SV2023-19.5.3-EXTRACT-AUTO-ENUM-COUNT",
+        "SV2023-19.5.3-EXTRACT-AUTO-IMPLEMENTATION-LIMIT",
+        "SV2023-19.5.3-EXTRACT-AUTO-INTEGRAL-COUNT",
+        "SV2023-19.5.3-EXTRACT-AUTO-NAMES",
+        "SV2023-19.5.3-EXTRACT-AUTO-PARTITION",
+        "SV2023-19.5.3-EXTRACT-AUTO-TWO-STATE",
+        "SV2023-19.8-EXTRACT-COUNT-OUTPUTS",
+        "SV2023-19.8-EXTRACT-COVERAGE-METHODS",
+        "SV2023-19.8-EXTRACT-GROUP-INSTANCE-COUNTS",
+        "SV2023-19.8-EXTRACT-INSTANCE-NAME",
+        "SV2023-19.8-EXTRACT-ITEM-TYPE-COUNTS",
+        "SV2023-19.8-EXTRACT-METHOD-TIMING",
+        "SV2023-19.8-EXTRACT-SAMPLE-METHOD",
+        "SV2023-19.8-EXTRACT-START",
+        "SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY",
+        "SV2023-19.8-EXTRACT-STOP"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
+      ],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "19.8",
+          "descendant_requirement_count": 4
+        }
+      ]
+    },
+    {
       "test": "tests/ch19/test_cg_auto_bins_two_state.sv",
       "inputs_sha256": "07682e94a76d8be61076bab3dd0fa1688206c3fa324b41e8dd0d5f74045b30f5",
       "cited_clauses": [
@@ -88224,6 +89147,7 @@
       ],
       "negative_test": false,
       "registered_requirement_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.6.1-EXTRACT-BINSOF-INTERSECT",
         "SV2023-19.6.1-EXTRACT-BINSOF-NEGATION",
         "SV2023-19.6.1-EXTRACT-SELECT-EXPRESSIONS",
@@ -88233,7 +89157,6 @@
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
-        "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
         "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
         "SV2023-19.6.1-EXTRACT-CROSS-BIN-COUNT",
@@ -88928,6 +89851,36 @@
       ]
     },
     {
+      "test": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+      "inputs_sha256": "b383e74922c45616d209a5a2322f37bfc68b5f0594805220d06a29a41a27abd6",
+      "cited_clauses": [
+        "19.5.4",
+        "19.5.7"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.5.4-EXTRACT-EXPLICIT-FOUR-STATE",
+        "SV2023-19.5.7-EXTRACT-ENUM-BASE-CONTEXT"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5.7-EXTRACT-EFFECTIVE-TYPE",
+        "SV2023-19.5.7-EXTRACT-WARN-NEGATIVE-UNSIGNED",
+        "SV2023-19.5.7-EXTRACT-WARN-NONREPRESENTABLE",
+        "SV2023-19.5.7-EXTRACT-WARNED-RANGE-INTERSECTION",
+        "SV2023-19.5.7-EXTRACT-WARNED-RANGE-REMOVE",
+        "SV2023-19.5.7-EXTRACT-WARNED-SINGLETON",
+        "SV2023-19.5.7-EXTRACT-WILDCARD-FIRST"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-19.5.7-EXTRACT-WARN-UNKNOWN-TEXT"
+      ],
+      "different_case_kind_ids": [
+        "SV2023-19.5.4-EXTRACT-WILDCARD-SAMPLES"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch19/test_cg_iff_guard.sv",
       "inputs_sha256": "b0655416bd2d214ff5f722ea513f90cf386f6817b44c49782eba1f92f699f3e5",
       "cited_clauses": [
@@ -89058,6 +90011,151 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch19/test_cg_illegal_cross_error.sv",
+      "inputs_sha256": "5ff93189e15ae7f286e94716f40365c9b11b9a903ee7e45c1b2b38ce1149d5bd",
+      "cited_clauses": [
+        "19.6.3",
+        "19.6.1",
+        "19.11.2",
+        "19.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.6.3-EXTRACT-ILLEGAL-CROSS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
+        "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
+        "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
+        "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
+        "SV2023-19.6.1-EXTRACT-BINSOF-INTERSECT",
+        "SV2023-19.6.1-EXTRACT-BINSOF-NEGATION",
+        "SV2023-19.6.1-EXTRACT-CROSS-BIN-COUNT",
+        "SV2023-19.6.1-EXTRACT-RETAIN-AUTO",
+        "SV2023-19.6.1-EXTRACT-SELECT-EXPRESSIONS",
+        "SV2023-19.6.1-EXTRACT-SELECT-LOGICAL",
+        "SV2023-19.8-EXTRACT-COUNT-OUTPUTS",
+        "SV2023-19.8-EXTRACT-COVERAGE-METHODS",
+        "SV2023-19.8-EXTRACT-GROUP-INSTANCE-COUNTS",
+        "SV2023-19.8-EXTRACT-INSTANCE-NAME",
+        "SV2023-19.8-EXTRACT-ITEM-TYPE-COUNTS",
+        "SV2023-19.8-EXTRACT-METHOD-TIMING",
+        "SV2023-19.8-EXTRACT-SAMPLE-METHOD",
+        "SV2023-19.8-EXTRACT-START",
+        "SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY",
+        "SV2023-19.8-EXTRACT-STOP"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "19.6.1",
+          "descendant_requirement_count": 13
+        },
+        {
+          "clause": "19.8",
+          "descendant_requirement_count": 4
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_cg_illegal_transition_error.sv",
+      "inputs_sha256": "b8df9ae171f1b1f1021838912a846004acc8a6122fe88bc365fc840f0e881cff",
+      "cited_clauses": [
+        "19.5.6",
+        "19.11.1",
+        "19.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-ERROR"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-ERROR"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-19.11.1-EXTRACT-EMPTY-BIN-EXCLUSION",
+        "SV2023-19.11.1-EXTRACT-EXPLICIT-FRACTION",
+        "SV2023-19.11.1-EXTRACT-MERGED-AT-LEAST",
+        "SV2023-19.11.1-EXTRACT-ZERO-POINT-EXCLUSION",
+        "SV2023-19.11.1-EXTRACT-ZERO-POINT-RESULT",
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-EMPTY",
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-SEQUENCES",
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-VALUES",
+        "SV2023-19.8-EXTRACT-COUNT-OUTPUTS",
+        "SV2023-19.8-EXTRACT-COVERAGE-METHODS",
+        "SV2023-19.8-EXTRACT-GROUP-INSTANCE-COUNTS",
+        "SV2023-19.8-EXTRACT-INSTANCE-NAME",
+        "SV2023-19.8-EXTRACT-ITEM-TYPE-COUNTS",
+        "SV2023-19.8-EXTRACT-METHOD-TIMING",
+        "SV2023-19.8-EXTRACT-SAMPLE-METHOD",
+        "SV2023-19.8-EXTRACT-START",
+        "SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY",
+        "SV2023-19.8-EXTRACT-STOP"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
+      ],
+      "different_case_kind_ids": [
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-BOUNDED"
+      ],
+      "broader_citations": [
+        {
+          "clause": "19.8",
+          "descendant_requirement_count": 4
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_cg_illegal_value_error.sv",
+      "inputs_sha256": "fb68681383252b838d5252d2eb9e925e49b8a5983174b080cc7226d730c4ee2f",
+      "cited_clauses": [
+        "19.5.6",
+        "19.11.1",
+        "19.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-ERROR"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-ERROR"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-19.11.1-EXTRACT-EMPTY-BIN-EXCLUSION",
+        "SV2023-19.11.1-EXTRACT-EXPLICIT-FRACTION",
+        "SV2023-19.11.1-EXTRACT-MERGED-AT-LEAST",
+        "SV2023-19.11.1-EXTRACT-ZERO-POINT-EXCLUSION",
+        "SV2023-19.11.1-EXTRACT-ZERO-POINT-RESULT",
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-EMPTY",
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-SEQUENCES",
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-VALUES",
+        "SV2023-19.8-EXTRACT-COUNT-OUTPUTS",
+        "SV2023-19.8-EXTRACT-COVERAGE-METHODS",
+        "SV2023-19.8-EXTRACT-GROUP-INSTANCE-COUNTS",
+        "SV2023-19.8-EXTRACT-INSTANCE-NAME",
+        "SV2023-19.8-EXTRACT-ITEM-TYPE-COUNTS",
+        "SV2023-19.8-EXTRACT-METHOD-TIMING",
+        "SV2023-19.8-EXTRACT-SAMPLE-METHOD",
+        "SV2023-19.8-EXTRACT-START",
+        "SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY",
+        "SV2023-19.8-EXTRACT-STOP"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
+      ],
+      "different_case_kind_ids": [
+        "SV2023-19.5.6-EXTRACT-ILLEGAL-BOUNDED"
+      ],
+      "broader_citations": [
+        {
+          "clause": "19.8",
+          "descendant_requirement_count": 4
+        }
+      ]
     },
     {
       "test": "tests/ch19/test_cg_illegal_value_keeps_transition.sv",
@@ -90251,6 +91349,98 @@
       }
     },
     {
+      "test": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
+      "inputs_sha256": "42eb3648b18cb17bbc0d87279b22e2b936edc4f03d0da9301dd8725c4f2f4705",
+      "cited_clauses": [
+        "19.7",
+        "19.11.2",
+        "19.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT",
+        "SV2023-19.7-EXTRACT-OPTION-NAME"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.11.2-EXTRACT-CROSS-FRACTION",
+        "SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION",
+        "SV2023-19.11.2-EXTRACT-ZERO-CROSS-RESULT",
+        "SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT",
+        "SV2023-19.7-EXTRACT-INSTANCE-DEFAULTS",
+        "SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE",
+        "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-AUTO-BIN-MAX-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-COMMENT-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-COMMENT-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-COMMENT-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-CROSS-NUM-PRINT-MISSING-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-CROSS-RETAIN-AUTO-BINS-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-DETECT-OVERLAP-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-GET-INST-COVERAGE-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-GOAL-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-GOAL-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-GOAL-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-NAME-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-NAME-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-NAME-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-PER-INSTANCE-CROSS",
+        "SV2023-19.7-EXTRACT-LEVEL-WEIGHT-COVERGROUP",
+        "SV2023-19.7-EXTRACT-LEVEL-WEIGHT-COVERPOINT",
+        "SV2023-19.7-EXTRACT-LEVEL-WEIGHT-CROSS",
+        "SV2023-19.7-EXTRACT-OPTION-AT-LEAST",
+        "SV2023-19.7-EXTRACT-OPTION-AUTO-BIN-MAX",
+        "SV2023-19.7-EXTRACT-OPTION-COMMENT",
+        "SV2023-19.7-EXTRACT-OPTION-CROSS-NUM-PRINT-MISSING",
+        "SV2023-19.7-EXTRACT-OPTION-CROSS-RETAIN-AUTO-BINS",
+        "SV2023-19.7-EXTRACT-OPTION-DETECT-OVERLAP",
+        "SV2023-19.7-EXTRACT-OPTION-GET-INST-COVERAGE",
+        "SV2023-19.7-EXTRACT-OPTION-GOAL",
+        "SV2023-19.7-EXTRACT-OPTION-MEMBER",
+        "SV2023-19.7-EXTRACT-OPTION-PER-INSTANCE",
+        "SV2023-19.7-EXTRACT-OPTION-WEIGHT",
+        "SV2023-19.8-EXTRACT-COUNT-OUTPUTS",
+        "SV2023-19.8-EXTRACT-COVERAGE-METHODS",
+        "SV2023-19.8-EXTRACT-GROUP-INSTANCE-COUNTS",
+        "SV2023-19.8-EXTRACT-INSTANCE-NAME",
+        "SV2023-19.8-EXTRACT-ITEM-TYPE-COUNTS",
+        "SV2023-19.8-EXTRACT-METHOD-TIMING",
+        "SV2023-19.8-EXTRACT-SAMPLE-METHOD",
+        "SV2023-19.8-EXTRACT-START",
+        "SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY",
+        "SV2023-19.8-EXTRACT-STOP"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS",
+        "SV2023-19.7-EXTRACT-NO-DUPLICATE-OPTION"
+      ],
+      "broader_citations": [
+        {
+          "clause": "19.7",
+          "descendant_requirement_count": 32
+        },
+        {
+          "clause": "19.8",
+          "descendant_requirement_count": 4
+        }
+      ]
+    },
+    {
       "test": "tests/ch19/test_cg_real_bin_intervals.sv",
       "inputs_sha256": "360f374f672811249078e6adc887175c137a1056de192cea093ffc1cde13d8da",
       "cited_clauses": [
@@ -91043,6 +92233,50 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch19/test_cg_transition_binsof_last_value.sv",
+      "inputs_sha256": "12876949a3b695081c401bea4032b99fd08ab9c2318f37f94b902ae74661be21",
+      "cited_clauses": [
+        "19.6.1.1",
+        "19.6.1",
+        "19.8"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.6.1.1-EXTRACT-TRANSITION-LAST-VALUE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.6.1-EXTRACT-BINSOF-INTERSECT",
+        "SV2023-19.6.1-EXTRACT-BINSOF-NEGATION",
+        "SV2023-19.6.1-EXTRACT-CROSS-BIN-COUNT",
+        "SV2023-19.6.1-EXTRACT-RETAIN-AUTO",
+        "SV2023-19.6.1-EXTRACT-SELECT-EXPRESSIONS",
+        "SV2023-19.6.1-EXTRACT-SELECT-LOGICAL",
+        "SV2023-19.8-EXTRACT-COUNT-OUTPUTS",
+        "SV2023-19.8-EXTRACT-COVERAGE-METHODS",
+        "SV2023-19.8-EXTRACT-GROUP-INSTANCE-COUNTS",
+        "SV2023-19.8-EXTRACT-INSTANCE-NAME",
+        "SV2023-19.8-EXTRACT-ITEM-TYPE-COUNTS",
+        "SV2023-19.8-EXTRACT-METHOD-TIMING",
+        "SV2023-19.8-EXTRACT-SAMPLE-METHOD",
+        "SV2023-19.8-EXTRACT-START",
+        "SV2023-19.8-EXTRACT-STATIC-TYPE-QUERY",
+        "SV2023-19.8-EXTRACT-STOP"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": [
+        {
+          "clause": "19.6.1",
+          "descendant_requirement_count": 13
+        },
+        {
+          "clause": "19.8",
+          "descendant_requirement_count": 4
+        }
+      ]
+    },
+    {
       "test": "tests/ch19/test_cg_transition_range_product.sv",
       "inputs_sha256": "46f5d77a55a8255f12d9ed09b31f15709330847b02431f9ac47a99e315319d29",
       "cited_clauses": [
@@ -91567,6 +92801,58 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch19/test_cg_warn_negative_unsigned.sv",
+      "inputs_sha256": "ee8461c2e962e078293dd054f2a89b8447f6d05d8e9ca0372bdcce0d077c8563",
+      "cited_clauses": [
+        "19.5.7"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.5.7-EXTRACT-WARN-NEGATIVE-UNSIGNED"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5.7-EXTRACT-EFFECTIVE-TYPE",
+        "SV2023-19.5.7-EXTRACT-ENUM-BASE-CONTEXT",
+        "SV2023-19.5.7-EXTRACT-WARN-NONREPRESENTABLE",
+        "SV2023-19.5.7-EXTRACT-WARNED-RANGE-INTERSECTION",
+        "SV2023-19.5.7-EXTRACT-WARNED-RANGE-REMOVE",
+        "SV2023-19.5.7-EXTRACT-WARNED-SINGLETON",
+        "SV2023-19.5.7-EXTRACT-WILDCARD-FIRST"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-19.5.7-EXTRACT-WARN-UNKNOWN-TEXT"
+      ],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch19/test_cg_warn_nonrepresentable.sv",
+      "inputs_sha256": "6e07d503fb151763ff938f6563749d5952920451403ffc5e44168db81d40d4c6",
+      "cited_clauses": [
+        "19.5.7"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-19.5.7-EXTRACT-WARN-NONREPRESENTABLE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5.7-EXTRACT-EFFECTIVE-TYPE",
+        "SV2023-19.5.7-EXTRACT-ENUM-BASE-CONTEXT",
+        "SV2023-19.5.7-EXTRACT-WARN-NEGATIVE-UNSIGNED",
+        "SV2023-19.5.7-EXTRACT-WARNED-RANGE-INTERSECTION",
+        "SV2023-19.5.7-EXTRACT-WARNED-RANGE-REMOVE",
+        "SV2023-19.5.7-EXTRACT-WARNED-SINGLETON",
+        "SV2023-19.5.7-EXTRACT-WILDCARD-FIRST"
+      ],
+      "interpretation_pending_ids": [
+        "SV2023-19.5.7-EXTRACT-WARN-UNKNOWN-TEXT"
+      ],
+      "different_case_kind_ids": [],
+      "broader_citations": []
     },
     {
       "test": "tests/ch19/test_cg_warned_bin_elements_removed.sv",
@@ -93105,6 +94391,37 @@
       }
     },
     {
+      "test": "tests/ch19/test_illegal_cg_default_sequence_array_new.sv",
+      "inputs_sha256": "9d8b39aaf93caaf6881dbc28d8ec47a15ef542817f6cc4228f487ca5ea9bb203",
+      "cited_clauses": [
+        "19.5.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-INTEGRAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.5.2-EXTRACT-CONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-GOTO-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-NONCONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-ONCE-PER-SAMPLE",
+        "SV2023-19.5.2-EXTRACT-OVERLAPPING-MATCHES",
+        "SV2023-19.5.2-EXTRACT-RANGE-CROSS-PRODUCT",
+        "SV2023-19.5.2-EXTRACT-SUCCESSIVE-SAMPLES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-COUNT-NAMES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-GRAMMAR"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch19/test_illegal_cg_duplicate_option.sv",
       "inputs_sha256": "9875e38b4eaa306416755dd5dd50e46d59dbc0f719ab8ec93b3f4aab31a798fa",
       "cited_clauses": [
@@ -93197,6 +94514,59 @@
         "SV2023-19.4.1-EXTRACT-OVERRIDE-COVERPOINT",
         "SV2023-19.4.1-EXTRACT-OVERRIDE-OPTIONS",
         "SV2023-19.4.1-EXTRACT-REPLACE-INSTANCE"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_extends_not_base.sv",
+      "inputs_sha256": "674084f25df16f89a7d2e223a0775b2ebf7a730ffc9782ce5a2d148ac90dca23",
+      "cited_clauses": [
+        "19.4.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.4.1-EXTRACT-EMBEDDED-EXTENDS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.4.1-EXTRACT-ADD-COVERPOINT",
+        "SV2023-19.4.1-EXTRACT-DISTINCT-COVERAGE-TYPES",
+        "SV2023-19.4.1-EXTRACT-INHERIT-ARGS-EVENT",
+        "SV2023-19.4.1-EXTRACT-INHERIT-COMPONENTS",
+        "SV2023-19.4.1-EXTRACT-OVERRIDE-COVERPOINT",
+        "SV2023-19.4.1-EXTRACT-OVERRIDE-OPTIONS",
+        "SV2023-19.4.1-EXTRACT-REPLACE-INSTANCE"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_extends_outside_class.sv",
+      "inputs_sha256": "a608807525a7d5296267e93513654e5ce227f0b96882ecdfc77d441a0b4d1ae3",
+      "cited_clauses": [
+        "19.3"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.3-EXTRACT-EXTENDS-CLASS-ONLY"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.3-EXTRACT-READONLY-ARGS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.3-EXTRACT-BLOCK-BEGIN",
+        "SV2023-19.3-EXTRACT-BLOCK-END",
+        "SV2023-19.3-EXTRACT-CLOCK-INSTANT",
+        "SV2023-19.3-EXTRACT-CONSTRUCTOR-ARGS",
+        "SV2023-19.3-EXTRACT-COVERAGE-EVENT",
+        "SV2023-19.3-EXTRACT-COVERGROUP-TYPE",
+        "SV2023-19.3-EXTRACT-COVERPOINT-BINS",
+        "SV2023-19.3-EXTRACT-CROSS-ITEMS",
+        "SV2023-19.3-EXTRACT-OPTION-INHERITANCE",
+        "SV2023-19.3-EXTRACT-STROBE-ONCE"
       ],
       "broader_citations": []
     },
@@ -93294,11 +94664,11 @@
         "19.5.5"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
+      "registered_requirement_ids": [
         "SV2023-19.5.5-EXTRACT-IGNORE-BOUNDED"
       ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.5.5-EXTRACT-IGNORE-EMPTY",
@@ -93314,11 +94684,11 @@
         "19.5.6"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
+      "registered_requirement_ids": [
         "SV2023-19.5.6-EXTRACT-ILLEGAL-BOUNDED"
       ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.5.6-EXTRACT-ILLEGAL-EMPTY",
@@ -93571,11 +94941,52 @@
         "19.5.1"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
+      "registered_requirement_ids": [
         "SV2023-19.5.1-EXTRACT-REAL-DEFAULT-NO-ARRAY"
       ],
+      "collective_requirement_ids": [
+        "SV2023-19.5.1-EXTRACT-REAL-DEFAULT-NO-ARRAY"
+      ],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.5.1-EXTRACT-BIN-IFF",
+        "SV2023-19.5.1-EXTRACT-EXCESS-INTEGRAL-BINS",
+        "SV2023-19.5.1-EXTRACT-EXCESS-REAL-BINS",
+        "SV2023-19.5.1-EXTRACT-FIXED-INTEGRAL-DISTRIBUTION",
+        "SV2023-19.5.1-EXTRACT-FIXED-REAL-DISTRIBUTION",
+        "SV2023-19.5.1-EXTRACT-INTEGRAL-BIN-FORMS",
+        "SV2023-19.5.1-EXTRACT-INTEGRAL-BIN-NAMES",
+        "SV2023-19.5.1-EXTRACT-MERGE-IDENTICAL-INTERVALS",
+        "SV2023-19.5.1-EXTRACT-REAL-BIN-FORMS",
+        "SV2023-19.5.1-EXTRACT-REAL-BIN-NAMES",
+        "SV2023-19.5.1-EXTRACT-REAL-DOLLAR-RANGE",
+        "SV2023-19.5.1-EXTRACT-REAL-INTERVAL-ENDS",
+        "SV2023-19.5.1-EXTRACT-REAL-OPEN-PARTITION",
+        "SV2023-19.5.1-EXTRACT-REAL-RANGE",
+        "SV2023-19.5.1-EXTRACT-REAL-TOLERANCE"
+      ],
+      "broader_citations": [
+        {
+          "clause": "19.5.1",
+          "descendant_requirement_count": 7
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_real_default_bin_n.sv",
+      "inputs_sha256": "af63febf856d9dce3340ba4f0688d96b8cafb3d05296655bb2f194c4566f57f7",
+      "cited_clauses": [
+        "19.5.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.5.1-EXTRACT-REAL-DEFAULT-NO-ARRAY"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-19.5.1-EXTRACT-REAL-DEFAULT-NO-ARRAY"
+      ],
+      "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-19.5.1-EXTRACT-BIN-IFF",
@@ -93685,6 +95096,61 @@
       ]
     },
     {
+      "test": "tests/ch19/test_illegal_cg_real_transition_domain.sv",
+      "inputs_sha256": "b9954d2b2006490b65b23199235d56d356e3980c1a80cd2eb589aca89f62cfe9",
+      "cited_clauses": [
+        "19.5",
+        "19.5.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.5-EXTRACT-COVERPOINT-DOMAIN",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-INTEGRAL"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5-EXTRACT-CONSTANT-INITIALIZATION",
+        "SV2023-19.5-EXTRACT-DEFAULT-EXCLUDED",
+        "SV2023-19.5-EXTRACT-GROUP-EXPRESSION-VARIABLES",
+        "SV2023-19.5-EXTRACT-GROUP-FUNCTION-ARGS",
+        "SV2023-19.5-EXTRACT-GROUP-FUNCTION-PURITY",
+        "SV2023-19.5-EXTRACT-GROUP-SYSTEM-FUNCTIONS",
+        "SV2023-19.5-EXTRACT-POINT-TYPE-NAME",
+        "SV2023-19.5-EXTRACT-POINT-VISIBILITY",
+        "SV2023-19.5-EXTRACT-REAL-EXPLICIT-BINS",
+        "SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY",
+        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.5-EXTRACT-BIN-COUNT",
+        "SV2023-19.5-EXTRACT-CLOCKING-SAMPLE-REGION",
+        "SV2023-19.5-EXTRACT-DEFAULT-VALUES",
+        "SV2023-19.5-EXTRACT-INTEGRAL-AUTO-BINS",
+        "SV2023-19.5-EXTRACT-POINT-ASSIGNMENT",
+        "SV2023-19.5-EXTRACT-POINT-GRAMMAR",
+        "SV2023-19.5-EXTRACT-POINT-IFF",
+        "SV2023-19.5-EXTRACT-POINT-INFER-TYPE",
+        "SV2023-19.5-EXTRACT-POINT-NAME",
+        "SV2023-19.5-EXTRACT-SAMPLE-EVALUATION",
+        "SV2023-19.5.2-EXTRACT-CONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-GOTO-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-NONCONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-ONCE-PER-SAMPLE",
+        "SV2023-19.5.2-EXTRACT-OVERLAPPING-MATCHES",
+        "SV2023-19.5.2-EXTRACT-RANGE-CROSS-PRODUCT",
+        "SV2023-19.5.2-EXTRACT-SUCCESSIVE-SAMPLES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-COUNT-NAMES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-GRAMMAR"
+      ],
+      "broader_citations": [
+        {
+          "clause": "19.5",
+          "descendant_requirement_count": 62
+        }
+      ]
+    },
+    {
       "test": "tests/ch19/test_illegal_cg_real_wildcard.sv",
       "inputs_sha256": "f65d0cd0ef05cd3f1fb08edefd657b6cce3ed8f195fab51aeb00ce382812ae22",
       "cited_clauses": [
@@ -93701,6 +95167,48 @@
         "SV2023-19.5.4-EXTRACT-EXPLICIT-FOUR-STATE"
       ],
       "broader_citations": []
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_ref_formal_expression.sv",
+      "inputs_sha256": "2b64e89cfd54facc9362eb563a16de4b324e8c465b5fc27d1d26a366f52ec73c",
+      "cited_clauses": [
+        "19.5"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.5-EXTRACT-GROUP-EXPRESSION-VARIABLES"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5-EXTRACT-CONSTANT-INITIALIZATION",
+        "SV2023-19.5-EXTRACT-COVERPOINT-DOMAIN",
+        "SV2023-19.5-EXTRACT-DEFAULT-EXCLUDED",
+        "SV2023-19.5-EXTRACT-GROUP-FUNCTION-ARGS",
+        "SV2023-19.5-EXTRACT-GROUP-FUNCTION-PURITY",
+        "SV2023-19.5-EXTRACT-GROUP-SYSTEM-FUNCTIONS",
+        "SV2023-19.5-EXTRACT-POINT-TYPE-NAME",
+        "SV2023-19.5-EXTRACT-POINT-VISIBILITY",
+        "SV2023-19.5-EXTRACT-REAL-EXPLICIT-BINS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.5-EXTRACT-BIN-COUNT",
+        "SV2023-19.5-EXTRACT-CLOCKING-SAMPLE-REGION",
+        "SV2023-19.5-EXTRACT-DEFAULT-VALUES",
+        "SV2023-19.5-EXTRACT-INTEGRAL-AUTO-BINS",
+        "SV2023-19.5-EXTRACT-POINT-ASSIGNMENT",
+        "SV2023-19.5-EXTRACT-POINT-GRAMMAR",
+        "SV2023-19.5-EXTRACT-POINT-IFF",
+        "SV2023-19.5-EXTRACT-POINT-INFER-TYPE",
+        "SV2023-19.5-EXTRACT-POINT-NAME",
+        "SV2023-19.5-EXTRACT-SAMPLE-EVALUATION"
+      ],
+      "broader_citations": [
+        {
+          "clause": "19.5",
+          "descendant_requirement_count": 62
+        }
+      ]
     },
     {
       "test": "tests/ch19/test_illegal_cg_ref_formal_variable.sv",
@@ -93811,6 +95319,50 @@
       "broader_citations": []
     },
     {
+      "test": "tests/ch19/test_illegal_cg_self_cross_other.sv",
+      "inputs_sha256": "38082f64450f998e8025db8fee7cd89a603dce1aa3766cc5703f4817e138e050",
+      "cited_clauses": [
+        "19.6.1.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.6.1.2-EXTRACT-SELF-CROSS"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.6.1.2-EXTRACT-CROSS-WITH",
+        "SV2023-19.6.1.2-EXTRACT-CROSS-WITH-CONSTRUCTION",
+        "SV2023-19.6.1.2-EXTRACT-CROSS-WITH-SIDE-EFFECTS"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_self_point_range.sv",
+      "inputs_sha256": "4e9c12eb0f9ab2e2e664c7e07554e29bd5102444e68beacd29564caad731a5b7",
+      "cited_clauses": [
+        "19.5.1.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.5.1.1-EXTRACT-SELF-POINT-RANGE"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5.1.1-EXTRACT-WITH-FILTER"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.5.1.1-EXTRACT-WITH-CONSTRUCTION",
+        "SV2023-19.5.1.1-EXTRACT-WITH-PRESERVE",
+        "SV2023-19.5.1.1-EXTRACT-WITH-SIDE-EFFECTS"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch19/test_illegal_cg_system_function.sv",
       "inputs_sha256": "275b49bb61f300137f711c235c1e9a59c8912819843c35363410da424d2f7850",
       "cited_clauses": [
@@ -93853,17 +95405,51 @@
       ]
     },
     {
+      "test": "tests/ch19/test_illegal_cg_transition_array_unbounded.sv",
+      "inputs_sha256": "5b7ef555969ff01deb7fa02f3fd862586a26edbd926450963f8bab880e261162",
+      "cited_clauses": [
+        "19.5.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-INTEGRAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.5.2-EXTRACT-CONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-GOTO-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-NONCONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-ONCE-PER-SAMPLE",
+        "SV2023-19.5.2-EXTRACT-OVERLAPPING-MATCHES",
+        "SV2023-19.5.2-EXTRACT-RANGE-CROSS-PRODUCT",
+        "SV2023-19.5.2-EXTRACT-SUCCESSIVE-SAMPLES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-COUNT-NAMES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-GRAMMAR"
+      ],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch19/test_illegal_cg_transition_length_zero.sv",
       "inputs_sha256": "ac02289b78b13f359c35caf516269440fc0b3e641f3c52660bdc6a0350a8eaf7",
       "cited_clauses": [
         "19.5.2"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION"
+      ],
       "unapproved_candidate_ids": [
         "SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY",
-        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION",
         "SV2023-19.5.2-EXTRACT-TRANSITION-INTEGRAL"
       ],
       "interpretation_pending_ids": [],
@@ -93903,6 +95489,37 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_transition_repeat_one.sv",
+      "inputs_sha256": "720bea4fb131f3eb2c6da479be71536a014296879f1e640414e704805e566223",
+      "cited_clauses": [
+        "19.5.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-INTEGRAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.5.2-EXTRACT-CONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-GOTO-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-NONCONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-ONCE-PER-SAMPLE",
+        "SV2023-19.5.2-EXTRACT-OVERLAPPING-MATCHES",
+        "SV2023-19.5.2-EXTRACT-RANGE-CROSS-PRODUCT",
+        "SV2023-19.5.2-EXTRACT-SUCCESSIVE-SAMPLES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-COUNT-NAMES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-GRAMMAR"
+      ],
+      "broader_citations": []
     },
     {
       "test": "tests/ch19/test_illegal_cg_transition_sole_range.sv",
@@ -93955,6 +95572,85 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_transition_sole_range_new.sv",
+      "inputs_sha256": "8c4993a74c520ce254572d65dd677c9b2c68b75e0edd43182d8fa08badf97512",
+      "cited_clauses": [
+        "19.5.2"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION"
+      ],
+      "collective_requirement_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION"
+      ],
+      "unapproved_candidate_ids": [
+        "SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-INTEGRAL"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.5.2-EXTRACT-CONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-GOTO-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-NONCONSECUTIVE-TRANSITION",
+        "SV2023-19.5.2-EXTRACT-ONCE-PER-SAMPLE",
+        "SV2023-19.5.2-EXTRACT-OVERLAPPING-MATCHES",
+        "SV2023-19.5.2-EXTRACT-RANGE-CROSS-PRODUCT",
+        "SV2023-19.5.2-EXTRACT-SUCCESSIVE-SAMPLES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-COUNT-NAMES",
+        "SV2023-19.5.2-EXTRACT-TRANSITION-GRAMMAR"
+      ],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_type_option_formal.sv",
+      "inputs_sha256": "8b3025d2bf1ef006cb1f5aba1acf00437d5fe59818fee215b3c1046cd75f93a0",
+      "cited_clauses": [
+        "19.7.1"
+      ],
+      "negative_test": true,
+      "registered_requirement_ids": [
+        "SV2023-19.7.1-EXTRACT-NO-PER-INSTANCE-TYPE-VALUES"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-19.7.1-EXTRACT-TYPE-DEFAULTS",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-COMMENT-COVERGROUP",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-COMMENT-COVERPOINT",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-COMMENT-CROSS",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-COVERGROUP",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-COVERPOINT",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-DISTRIBUTE-FIRST-CROSS",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-GOAL-COVERGROUP",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-GOAL-COVERPOINT",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-GOAL-CROSS",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERGROUP",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-COVERPOINT",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-MERGE-INSTANCES-CROSS",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERGROUP",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-COVERPOINT",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-REAL-INTERVAL-CROSS",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERGROUP",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-COVERPOINT",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-STROBE-CROSS",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-COVERGROUP",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-COVERPOINT",
+        "SV2023-19.7.1-EXTRACT-TYPE-LEVEL-WEIGHT-CROSS",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-COMMENT",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-DISTRIBUTE-FIRST",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-GOAL",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-MERGE-INSTANCES",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-MUTATION",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-REAL-INTERVAL",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-STROBE",
+        "SV2023-19.7.1-EXTRACT-TYPE-OPTION-WEIGHT",
+        "SV2023-19.7.1-EXTRACT-TYPE-STATIC"
+      ],
+      "broader_citations": []
     },
     {
       "test": "tests/ch19/test_illegal_cg_type_option_nonconstant.sv",
@@ -109110,6 +110806,40 @@
       }
     },
     {
+      "test": "tests/ch21/test_fd_no_broadcast.sv",
+      "inputs_sha256": "6367aac0935a4b45d0de9a1cb351b3c260d624fce88c7775d6868a9af5bcd455",
+      "cited_clauses": [
+        "21.3.1"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.3.1-EXTRACT-FD-NO-BROADCAST"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.3.1-EXTRACT-BINARY-MODE",
+        "SV2023-21.3.1-EXTRACT-CLOSE-FILES",
+        "SV2023-21.3.1-EXTRACT-CLOSE-MONITORS",
+        "SV2023-21.3.1-EXTRACT-FD-RESERVED",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-APPEND",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-APPEND-UPDATE",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-READ",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-READ-UPDATE",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-WRITE",
+        "SV2023-21.3.1-EXTRACT-FILE-MODE-WRITE-UPDATE",
+        "SV2023-21.3.1-EXTRACT-FOPEN-DESCRIPTOR",
+        "SV2023-21.3.1-EXTRACT-FOPEN-STRINGS",
+        "SV2023-21.3.1-EXTRACT-MCD-MASK",
+        "SV2023-21.3.1-EXTRACT-MCD-RESERVED",
+        "SV2023-21.3.1-EXTRACT-OPEN-FAILURE",
+        "SV2023-21.3.1-EXTRACT-PREOPENED-FILES",
+        "SV2023-21.3.1-EXTRACT-REUSE-CHANNELS"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch21/test_ferror_after_failed_open.sv",
       "inputs_sha256": "c70f338f562c453cd048d5d1cfdaf84dbeeff2151c04f3b694d279994ef9ce16",
       "cited_clauses": [
@@ -112020,12 +113750,13 @@
         "21.7.3.1"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.7.3.1-EXTRACT-PORT-SCOPE-UNIQUENESS"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-21.7.3.1-EXTRACT-PORT-CALL-RESTRICTIONS",
         "SV2023-21.7.3.1-EXTRACT-PORT-FILE-CHECKS",
-        "SV2023-21.7.3.1-EXTRACT-PORT-SCOPE-UNIQUENESS",
         "SV2023-21.7.3.1-EXTRACT-PORT-SCOPES"
       ],
       "interpretation_pending_ids": [],
@@ -112046,10 +113777,11 @@
         "21.7.3.1"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.7.3.1-EXTRACT-PORT-CALL-RESTRICTIONS"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-21.7.3.1-EXTRACT-PORT-CALL-RESTRICTIONS",
         "SV2023-21.7.3.1-EXTRACT-PORT-FILE-CHECKS",
         "SV2023-21.7.3.1-EXTRACT-PORT-SCOPE-UNIQUENESS",
         "SV2023-21.7.3.1-EXTRACT-PORT-SCOPES"
@@ -112072,13 +113804,14 @@
         "21.7.3.1"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.7.3.1-EXTRACT-PORT-SCOPES"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-21.7.3.1-EXTRACT-PORT-CALL-RESTRICTIONS",
         "SV2023-21.7.3.1-EXTRACT-PORT-FILE-CHECKS",
-        "SV2023-21.7.3.1-EXTRACT-PORT-SCOPE-UNIQUENESS",
-        "SV2023-21.7.3.1-EXTRACT-PORT-SCOPES"
+        "SV2023-21.7.3.1-EXTRACT-PORT-SCOPE-UNIQUENESS"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -112098,12 +113831,13 @@
         "21.4"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.4-EXTRACT-MEMORY-RANGE"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-21.4-EXTRACT-FILE-ADDRESS-RANGE-ERROR",
         "SV2023-21.4-EXTRACT-MEMORY-ARRAY-ARGUMENT",
-        "SV2023-21.4-EXTRACT-MEMORY-RANGE",
         "SV2023-21.4-EXTRACT-MEMORY-TEXT-LEXICAL"
       ],
       "interpretation_pending_ids": [],
@@ -112132,11 +113866,11 @@
         "21.4.1"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
+      "registered_requirement_ids": [
         "SV2023-21.4.1-EXTRACT-ASSOCIATIVE-LOAD"
       ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-21.4.1-EXTRACT-NO-RESIZE-LOAD",
@@ -112151,11 +113885,12 @@
         "21.4"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.4-EXTRACT-MEMORY-ARRAY-ARGUMENT"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-21.4-EXTRACT-FILE-ADDRESS-RANGE-ERROR",
-        "SV2023-21.4-EXTRACT-MEMORY-ARRAY-ARGUMENT",
         "SV2023-21.4-EXTRACT-MEMORY-RANGE",
         "SV2023-21.4-EXTRACT-MEMORY-TEXT-LEXICAL"
       ],
@@ -112307,10 +114042,11 @@
         "21.6"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.6-EXTRACT-TEST-ARGUMENT"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
-        "SV2023-21.6-EXTRACT-TEST-ARGUMENT",
         "SV2023-21.6-EXTRACT-VALUE-ARGUMENT",
         "SV2023-21.6-EXTRACT-VALUE-FORMAT-SYNTAX"
       ],
@@ -112341,12 +114077,13 @@
         "21.6"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.6-EXTRACT-VALUE-FORMAT-SYNTAX"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-21.6-EXTRACT-TEST-ARGUMENT",
-        "SV2023-21.6-EXTRACT-VALUE-ARGUMENT",
-        "SV2023-21.6-EXTRACT-VALUE-FORMAT-SYNTAX"
+        "SV2023-21.6-EXTRACT-VALUE-ARGUMENT"
       ],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
@@ -112375,11 +114112,12 @@
         "21.6"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
+      "registered_requirement_ids": [
+        "SV2023-21.6-EXTRACT-VALUE-ARGUMENT"
+      ],
       "collective_requirement_ids": [],
       "unapproved_candidate_ids": [
         "SV2023-21.6-EXTRACT-TEST-ARGUMENT",
-        "SV2023-21.6-EXTRACT-VALUE-ARGUMENT",
         "SV2023-21.6-EXTRACT-VALUE-FORMAT-SYNTAX"
       ],
       "interpretation_pending_ids": [],
@@ -112409,11 +114147,11 @@
         "21.5.3"
       ],
       "negative_test": true,
-      "registered_requirement_ids": [],
-      "collective_requirement_ids": [],
-      "unapproved_candidate_ids": [
+      "registered_requirement_ids": [
         "SV2023-21.5.3-EXTRACT-ASSOCIATIVE-ADDRESSES"
       ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [
         "SV2023-21.5.3-EXTRACT-DENSE-NO-ADDRESSES"
@@ -112669,6 +114407,63 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch21/test_pattern_format_enum_value.sv",
+      "inputs_sha256": "ac4e176c219512a895218c205c6151fbc10b1cce49a93fa8e4905b0a624953e5",
+      "cited_clauses": [
+        "21.2.1.1",
+        "21.2.1.6"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-PATTERN",
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-ENUM"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.2.1.1-EXTRACT-DEFAULT-RADIX",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-BINARY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-CHAR",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-DECIMAL",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-FOUR-STATE",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-HEX",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-HIERARCHY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-LIBRARY",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-OCTAL",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-STRENGTH",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-STRING",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-TIME",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-TWO-STATE",
+        "SV2023-21.2.1.1-EXTRACT-FOUR-STATE-WORD-ORDER",
+        "SV2023-21.2.1.1-EXTRACT-LIBRARY-FORMAT",
+        "SV2023-21.2.1.1-EXTRACT-PREFER-FWRITE",
+        "SV2023-21.2.1.1-EXTRACT-REAL-C-FORMATTING",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-EXPONENTIAL",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-FIXED",
+        "SV2023-21.2.1.1-EXTRACT-REAL-FORMAT-GENERAL",
+        "SV2023-21.2.1.1-EXTRACT-TIMEFORMAT-GLOBAL",
+        "SV2023-21.2.1.1-EXTRACT-TWO-STATE-WORD-ORDER",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-AGGREGATES",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-COUNT",
+        "SV2023-21.2.1.1-EXTRACT-UNFORMATTED-TWO-STATE",
+        "SV2023-21.2.1.6-EXTRACT-COMPACT-PATTERN",
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-ARRAY",
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-HANDLES",
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-LIMIT",
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-OTHER",
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-PACKED-STRUCT",
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-STRING",
+        "SV2023-21.2.1.6-EXTRACT-PATTERN-STRUCT",
+        "SV2023-21.2.1.6-EXTRACT-SINGULAR-PATTERN"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-21.2.1.1-EXTRACT-DEFAULT-STRING",
+        "SV2023-21.2.1.1-EXTRACT-FORMAT-VALIDITY",
+        "SV2023-21.2.1.1-EXTRACT-INTEGRAL-FORMAT-DOMAIN"
+      ],
+      "broader_citations": []
     },
     {
       "test": "tests/ch21/test_plusargs.sv",
@@ -116523,6 +118318,22 @@
       }
     },
     {
+      "test": "tests/ch21/test_vcd_dumpflush_resume.sv",
+      "inputs_sha256": "37147eaca46e3261d285ffa2d69a656b231d204fdbb79e9bbaf33e2dd8dcca67",
+      "cited_clauses": [
+        "21.7.1.6"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.7.1.6-EXTRACT-DUMP-FLUSH"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
       "test": "tests/ch21/test_vcd_dumplimit_not_reached_keeps_dumping.sv",
       "inputs_sha256": "5ea6180b852e6d30de358747089a839506ae8b7dee9174196a2add8554bc109a",
       "cited_clauses": [
@@ -116556,6 +118367,31 @@
       "unapproved_candidate_ids": [],
       "interpretation_pending_ids": [],
       "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch21/test_vcd_filename_string_and_depth_zero.sv",
+      "inputs_sha256": "6a81cde44e9e6315ccb2db2988f65e29938ba866cd3e1fb7384b7d15558ffe22",
+      "cited_clauses": [
+        "21.7.1.1",
+        "21.7.1.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.7.1.2-EXTRACT-DUMPVARS-ZERO"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.7.1.1-EXTRACT-DUMP-FILENAME",
+        "SV2023-21.7.1.1-EXTRACT-FILENAME-TYPE-DEFAULT",
+        "SV2023-21.7.1.2-EXTRACT-DUMPVARS-ALL",
+        "SV2023-21.7.1.2-EXTRACT-DUMPVARS-DEPTH",
+        "SV2023-21.7.1.2-EXTRACT-DUMPVARS-SYNTAX"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [
+        "SV2023-21.7.1.2-EXTRACT-DUMPVARS-TIMING"
+      ],
       "broader_citations": []
     },
     {
@@ -116676,6 +118512,93 @@
           }
         ]
       }
+    },
+    {
+      "test": "tests/ch21/test_vcd_type_mappings.sv",
+      "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+      "cited_clauses": [
+        "21.7.2.3",
+        "21.7.5"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.7.2.3-EXTRACT-UWIRE-MAPPING",
+        "SV2023-21.7.5-EXTRACT-NO-VCD-EXTENSION",
+        "SV2023-21.7.5-EXTRACT-PACKED-MAPPING",
+        "SV2023-21.7.5-EXTRACT-TYPE-BIT",
+        "SV2023-21.7.5-EXTRACT-TYPE-BYTE",
+        "SV2023-21.7.5-EXTRACT-TYPE-DEFAULT-ENUM",
+        "SV2023-21.7.5-EXTRACT-TYPE-LONGINT",
+        "SV2023-21.7.5-EXTRACT-TYPE-SHORTINT",
+        "SV2023-21.7.5-EXTRACT-TYPE-SHORTREAL",
+        "SV2023-21.7.5-EXTRACT-TYPED-ENUM-MAPPING"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.7.2.3-EXTRACT-COMMENT-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-DATE-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-DUMPALL-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-DUMPOFF-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-DUMPON-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-DUMPVARS-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-ENDDEFINITIONS-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-INDIVIDUAL-NET-BITS",
+        "SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-6",
+        "SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-7",
+        "SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-8",
+        "SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-9",
+        "SV2023-21.7.2.3-EXTRACT-SCOPE-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-SHARED-IDENTIFIER",
+        "SV2023-21.7.2.3-EXTRACT-TIMESCALE-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-UPSCOPE-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-VAR-COMMAND",
+        "SV2023-21.7.2.3-EXTRACT-VCD-KEYWORD-INSERTION",
+        "SV2023-21.7.2.3-EXTRACT-VERSION-COMMAND",
+        "SV2023-21.7.5-EXTRACT-TYPE-INT",
+        "SV2023-21.7.5-EXTRACT-TYPE-LOGIC",
+        "SV2023-21.7.5-EXTRACT-UNDUMPED-TYPES",
+        "SV2023-21.7.5-EXTRACT-UNPACKED-STRUCT-MAPPING"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
+    },
+    {
+      "test": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+      "inputs_sha256": "90ada96e001c958592f902bedb5e7d054a6b1f3897cb4e904ca53f76ea27089a",
+      "cited_clauses": [
+        "21.7.2.1",
+        "21.7.2.2"
+      ],
+      "negative_test": false,
+      "registered_requirement_ids": [
+        "SV2023-21.7.2.2-EXTRACT-EVENT-MARKER",
+        "SV2023-21.7.2.2-EXTRACT-VECTOR-EXTEND-0",
+        "SV2023-21.7.2.2-EXTRACT-VECTOR-EXTEND-Z",
+        "SV2023-21.7.2.2-EXTRACT-VECTOR-SPACING"
+      ],
+      "collective_requirement_ids": [],
+      "unapproved_candidate_ids": [
+        "SV2023-21.7.2.1-EXTRACT-VCD-ABSOLUTE-TIME",
+        "SV2023-21.7.2.1-EXTRACT-VCD-CASE",
+        "SV2023-21.7.2.1-EXTRACT-VCD-COMMAND-GRAMMAR",
+        "SV2023-21.7.2.1-EXTRACT-VCD-DECLARATIONS",
+        "SV2023-21.7.2.1-EXTRACT-VCD-IDENTIFIER",
+        "SV2023-21.7.2.1-EXTRACT-VCD-REAL-PRECISION",
+        "SV2023-21.7.2.1-EXTRACT-VCD-REPRESENTATION",
+        "SV2023-21.7.2.1-EXTRACT-VCD-SECTIONS",
+        "SV2023-21.7.2.1-EXTRACT-VCD-TIME-GRAMMAR",
+        "SV2023-21.7.2.1-EXTRACT-VCD-TYPE-GRAMMAR",
+        "SV2023-21.7.2.1-EXTRACT-VCD-VALUE-GRAMMAR",
+        "SV2023-21.7.2.1-EXTRACT-VCD-VECTOR-PART",
+        "SV2023-21.7.2.2-EXTRACT-SCALAR-ADJACENCY",
+        "SV2023-21.7.2.2-EXTRACT-VECTOR-EXTEND-1",
+        "SV2023-21.7.2.2-EXTRACT-VECTOR-EXTEND-X",
+        "SV2023-21.7.2.2-EXTRACT-VECTOR-SHORTEST"
+      ],
+      "interpretation_pending_ids": [],
+      "different_case_kind_ids": [],
+      "broader_citations": []
     },
     {
       "test": "tests/ch21/test_write_fmt.sv",
@@ -500379,7 +502302,7 @@
     "oracle_issue": 113,
     "partial_observation": 1880
   },
-  "registry_sha256": "bd88f292d67e5decab3a9f554b632c094755fe8ddd52cc99f0cf2459880161db",
+  "registry_sha256": "2efef9104f192de48044cab857f73539c9b2b664d6b900f71e4132c7e05bc198",
   "inventory_sha256": "de1ef954a64c6efd7a83a4e3e2f40f8016792f8b94c363c7e6b9a88a87398f4f",
   "review_ledger_sha256": "ef1d5f183e6ae47eec9689db0af100310d752bf0317040f0e6644b79261188dd"
 }

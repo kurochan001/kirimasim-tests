@@ -1,0 +1,5 @@
+v=1x0z w=0000: lit 1/1 wild 0/1 tr 0/1 en 0/2
+v=1x00 w=0x: lit 1/1 wild 0/1 tr 0/1 en 0/2
+v=1z0z w=1z: lit 1/1 wild 0/1 tr 1/1 en 0/2
+v=1100 w=0x: lit 1/1 wild 1/1 tr 1/1 en 1/2
+v=1100 w=1x: lit 1/1 wild 1/1 tr 1/1 en 2/2

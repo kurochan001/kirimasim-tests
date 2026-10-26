@@ -140320,7 +140320,25 @@
       "acceptance": "Severity system tasks are permitted in pass or fail actions and produce the same tool-specific message for the same task regardless of the action context.",
       "source_note": "IEEE 1800-2023 16.3; complete own-body source review, blocks B014, B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_immediate_assert_syntax_actions.sv",
+          "observation": "pass 側に $info、fail 側に $error を置いた assert を 2 本（sev_p は成功、sev_f は失敗）実行し、それぞれの直後の $display で両方の action が動いたことを見る。メッセージ本文は規格が決めないので比較しない。 区別: severity task を pass 側で実行しない実装は sev pass ran を落とし、fail 側で実行しない実装は sev fail ran を落とす。両方の action が同じように動くことを要求する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e3151ce5d5163b7a3c0cecb28fdfff157688ea41573f2ba0b887e25602c59752",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_immediate_assert_syntax_actions.sv",
+              "contains": "    sev_f: assert (!v) begin"
+            },
+            {
+              "file": "tests/ch16/test_immediate_assert_syntax_actions.expected",
+              "contains": "sev fail ran"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.3",
@@ -140375,7 +140393,25 @@
       "acceptance": "Simple immediate assert and assume use a parenthesized expression and an action block; cover uses a parenthesized expression and statement_or_null. Deferred forms use #0 or final; optional labels and optional pass/fail actions follow Syntax 16-1.",
       "source_note": "IEEE 1800-2023 16.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_immediate_assert_syntax_actions.sv",
+          "observation": "assert (v)/assume (v) の pass、else 付きの fail、else の無い assert (!v)、cover (v) の pass、ラベル lbl の %m、x 式の assert を同じ initial で実行する。v=1、x=1'bx。assert(!v) と assert(x) が fail し、cover(v) の文が一度だけ実行され、ラベルの %m が ...lbl を出す。 区別: 式を x で真とする実装は a6 fail を a6 pass に変え、cover の pass 文を実行しない実装は c1 covered を落とし、ラベルを named block にしない実装は %m の lbl を落とす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e3151ce5d5163b7a3c0cecb28fdfff157688ea41573f2ba0b887e25602c59752",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_immediate_assert_syntax_actions.sv",
+              "contains": "    a3: assert (!v) $display(\"a3 pass\"); else $display(\"a3 fail\");"
+            },
+            {
+              "file": "tests/ch16/test_immediate_assert_syntax_actions.expected",
+              "contains": "a3 fail"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.3",
@@ -140547,7 +140583,25 @@
       "acceptance": "Deferred assume and cover retain immediate assume/cover semantics except for deferral; coverage is not credited for a report flushed before maturation.",
       "source_note": "IEEE 1800-2023 16.4; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+          "observation": "assume #0 (d) を d=1 で pass、d=0 で fail させ、cover #0 (c) を c=1 で covered にする。どちらも deferred の action として t=20/t=25/t=15 に出る。 区別: assume を assert と同じに扱わない実装は t=20 s4 assume pass か t=25 s4 assume fail を落とし、cover の deferred な pass 文を実行しない実装は t=15 s3 cover covered を落とす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "08a0ea4c3de62eddc041849206a1beb4b36bd11f6e3e7c79376651ed3858dde3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+              "contains": "  s4: assume #0 (d)"
+            },
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.expected",
+              "contains": "t=20 s4 assume pass"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.4",
@@ -140619,7 +140673,25 @@
       "acceptance": "Deferred immediate assertions delay reporting/actions, restrict each action to one subroutine call, and may appear as module_common_item declarations.",
       "source_note": "IEEE 1800-2023 16.4; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+          "observation": "a=1 の代入の直後に initial が t=5 active a=1 を出し、その後 Reactive に s1 observed pass が出る。action が代入と同じ Active で直ちに走らないことを時刻の順で見る。 区別: action を式の評価時に直ちに実行する実装は s1 observed pass を t=5 active a=1 より前に出し、遅延を実装しない実装は行の順序が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "08a0ea4c3de62eddc041849206a1beb4b36bd11f6e3e7c79376651ed3858dde3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+              "contains": "    $display(\"t=%0t active a=1\", $time);"
+            },
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.expected",
+              "contains": "t=5 active a=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.4",
@@ -140681,7 +140753,25 @@
       "acceptance": "A final deferred action call shall be legal in the Postponed region under 4.4.2.9.",
       "source_note": "IEEE 1800-2023 16.4; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_final_deferred_postponed_call.sv",
+          "observation": "final deferred assertion の action が Postponed region で書けない set_flag を呼ぶ。 区別: final の action を Postponed で subroutine ごと実行する実装はこの設計を受理し、変数書き込みを Postponed で行う。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7cc8a86be932b5151d508a5d2eb00d34db154b9d7e09fe872d3d0464dd032913",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_final_deferred_postponed_call.sv",
+              "contains": "a1: assert final (a == 0) else set_flag();   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_final_deferred_postponed_call.sv",
+              "contains": ":expected_stderr_regex: test_illegal_final_deferred_postponed_call\\.sv:29:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.4",
@@ -140900,7 +140990,25 @@
       "acceptance": "A deferred immediate assertion may occur outside procedural code as a module_common_item, with 16.4.3 semantics.",
       "source_note": "IEEE 1800-2023 16.4; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+          "observation": "s1 は手続きの外の module_common_item として assert #0 (a) を置き、a を t=5 に 1 にする。always_comb 相当として t=5 の Reactive に s1 observed pass が出る。 区別: module_common_item の deferred assertion を受け付けない実装はコンパイルに失敗し、常に実行しない実装は t=5 s1 observed pass を落とす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "08a0ea4c3de62eddc041849206a1beb4b36bd11f6e3e7c79376651ed3858dde3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+              "contains": "  s1: assert #0 (a)"
+            },
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.expected",
+              "contains": "t=5 s1 observed pass"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.4",
@@ -140918,7 +141026,25 @@
       "acceptance": "Deferred immediate assert, assume and cover use #0 for observed deferral or final for final deferral and may be labeled.",
       "source_note": "IEEE 1800-2023 16.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+          "observation": "module_common_item の assert #0、assert final、cover #0、assume #0 を宣言し、a/b/c/d を別々の時刻に変えて #0 と final の action の時刻と文字列を見る。final の s2 は t=10 に Postponed で pass する。 区別: final を #0 と同じ region で実行する実装は s2 final pass の時刻を 10 より前にし、final を構文として受け付けない実装はこの行を出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "08a0ea4c3de62eddc041849206a1beb4b36bd11f6e3e7c79376651ed3858dde3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+              "contains": "  s2: assert final (b)"
+            },
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.expected",
+              "contains": "t=10 s2 final pass"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.4",
@@ -141024,7 +141150,25 @@
       "acceptance": "Unflushed observed reports mature in Observed, cannot then be flushed, execute in Reactive and are removed from the queue.",
       "source_note": "IEEE 1800-2023 16.4.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+          "observation": "b が t=10 に変わり、同じ time step で #0 の s5 が Reactive、final の s2 が Postponed に報告する。expected では s5 observed pass が s2 final pass より先に出る。 区別: observed の報告を Postponed まで遅らせる実装は 2 行の順序を逆にし、報告を queue から消さない実装は同じ報告を 2 回出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "08a0ea4c3de62eddc041849206a1beb4b36bd11f6e3e7c79376651ed3858dde3",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.sv",
+              "contains": "  s5: assert #0 (b)"
+            },
+            {
+              "file": "tests/ch16/test_deferred_immediate_syntax_placement.expected",
+              "contains": "t=10 s5 observed pass"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.4.1",
@@ -141164,7 +141308,25 @@
       "acceptance": "Resumption of always_comb or always_latch due to a sensitivity change is a deferred assertion flush point.",
       "source_note": "IEEE 1800-2023 16.4.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_deferred_flush_points.sv",
+          "observation": "always_comb の a0 は ca の変化で未確定の nca を読み、最初の評価で失敗を queue する。nca の変化で再開して queue を flush するので、settle 後の pass だけが t=5 に出る。always_latch の a1 も ld の変化で lq の更新前に失敗を queue し、lq の更新で flush されて t=15 の pass だけが出る。 区別: flush を実装しないと t=5 comb fail と t=15 latch fail が pass の前に増え、再開を flush 点としない実装はこれらの行を残す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "40ed732b6a43729732047f19f9ff5518aa08848221596129a2663159813005fb",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_deferred_flush_points.sv",
+              "contains": "    a0: assert #0 (!(ca && nca))"
+            },
+            {
+              "file": "tests/ch16/test_deferred_flush_points.expected",
+              "contains": "t=5 comb pass"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.4.2",
@@ -141182,7 +141344,25 @@
       "acceptance": "A process resuming from an event control or wait is a deferred assertion flush point.",
       "source_note": "IEEE 1800-2023 16.4.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_deferred_flush_points.sv",
+          "observation": "ea=0 で always @(ea or eb) が失敗を queue し、同じ time step の #0 で eb=0 にして process を再開させる。event control からの再開が flush 点なので、t=25 event fail は出ず pass だけが出る。 区別: event control からの再開を flush 点としない実装は t=25 event fail を出し、pass の前に 2 行になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "40ed732b6a43729732047f19f9ff5518aa08848221596129a2663159813005fb",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_deferred_flush_points.sv",
+              "contains": "    a2: assert #0 (ea == eb)"
+            },
+            {
+              "file": "tests/ch16/test_deferred_flush_points.expected",
+              "contains": "t=25 event pass"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.4.2",
@@ -141328,7 +141508,25 @@
       "acceptance": "Disabling the outermost scope of a procedure flushes the entire process pending-report queue in addition to ordinary disable behavior.",
       "source_note": "IEEE 1800-2023 16.4.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_deferred_flush_points.sv",
+          "observation": "da=1 で process outer_a が失敗を queue した直後、同じ time step の #0 で outer_a を disable する。outermost の disable が queue を flush するので t=35 の報告は出ない。無効化しない outer_b は t=45 に fail し、outermost でない inner_c の disable は outer_c の pending を消さないので t=55 に fail が出る。 区別: outermost の disable で queue を flush しない実装は t=35 outer_a fail を追加し、inner の disable で flush する実装は t=55 outer_c fail を落とす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "40ed732b6a43729732047f19f9ff5518aa08848221596129a2663159813005fb",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_deferred_flush_points.sv",
+              "contains": "    #0 disable outer_a;"
+            },
+            {
+              "file": "tests/ch16/test_deferred_flush_points.expected",
+              "contains": "t=45 outer_b fail"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.4.4",
@@ -141558,7 +141756,25 @@
       "acceptance": "Past/future sampled-value references to an automatic variable use its current value instead.",
       "source_note": "IEEE 1800-2023 16.5.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+          "observation": "automatic task watch の automatic 変数 av を tick 15 と 25 の time step の Active で 1、2 に変える。t=15 の assertion は $sampled(av) も $past(av) も現在値 1 を印字する。 区別: automatic 変数の過去値を前の tick から取る実装は t=15 の sampled_av と past_av を 0 にし、現在値の規則を満たさない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f43d73d5272d26959d391d61710f148420079b8bf3a9e73fee2643ea5cfce8a0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+              "contains": "    #15 av = 1;   // in the time step of the tick at 15"
+            },
+            {
+              "file": "tests/ch16/test_sampled_automatic_and_const_current.expected",
+              "contains": "t=15 av=1 sampled_av=1 past_av=1 changed_a=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5.1",
@@ -141652,7 +141868,25 @@
       "acceptance": "A const cast samples the current value of its argument; a past/future sampled-value reference to a const cast likewise uses its current value.",
       "source_note": "IEEE 1800-2023 16.5.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+          "observation": "静的変数 a を tick 15 の Active で 1 にする。同じ tick で $sampled(a) は Preponed の 0、const'(a) と $past(const'(a)) は現在値の 1 を印字する。 区別: const cast を通常の式として Preponed から取る実装は t=15 の const_a と past_const_a を 0 にし、a=1 sampled_a=0 const_a=1 past_const_a=1 の行が変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f43d73d5272d26959d391d61710f148420079b8bf3a9e73fee2643ea5cfce8a0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+              "contains": "        #15 a = 1;   // in the time step of the tick at 15"
+            },
+            {
+              "file": "tests/ch16/test_sampled_automatic_and_const_current.expected",
+              "contains": "     a=1 sampled_a=0 const_a=1 past_const_a=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5.1",
@@ -141670,7 +141904,25 @@
       "acceptance": "Automatic variables, assertion local variables and active free checker variables are sampled at their current values.",
       "source_note": "IEEE 1800-2023 16.5.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+          "observation": "procedural concurrent assertion a_cur を automatic task の中で宣言し、automatic の av を式と action で読む。t=15 と 25 の sampled_av と past_av が現在値になり、静的変数 a の sampled_a は Preponed のままである。 区別: automatic 変数を他の変数と同じ Preponed サンプリングにする実装は t=15 の sampled_av を 0 にし、現在値の例外を実装していないことを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f43d73d5272d26959d391d61710f148420079b8bf3a9e73fee2643ea5cfce8a0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+              "contains": "      $display(\"     a=%0d sampled_a=%0d const_a=%0d past_const_a=%0d\","
+            },
+            {
+              "file": "tests/ch16/test_sampled_automatic_and_const_current.expected",
+              "contains": "     a=1 sampled_a=0 const_a=1 past_const_a=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5.1",
@@ -141728,7 +141980,25 @@
       "acceptance": "Default sampled values of event.triggered and sequence.triggered/matched are false.",
       "source_note": "IEEE 1800-2023 16.5.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sampled_defaults_and_methods.sv",
+          "observation": "最初の clock tick で $past(e.triggered) と $past(s.triggered) を印字する。どちらも既定値の 0 になる。e は t=15 に trigger し、s は tick 15 で終わる。 区別: method の既定値を現在値とする実装は event=0 か triggered=0 を 1 に変え、過去値を Preponed から取る実装は t=25 の過去値を 0 にする。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0888dbc87ca0e4ccabca5fcb2e3c6695d9197eb1251d9e2bd478a21e9face8e1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sampled_defaults_and_methods.sv",
+              "contains": "  event e;"
+            },
+            {
+              "file": "tests/ch16/test_sampled_defaults_and_methods.expected",
+              "contains": "defaults: lv=xxxx iv=0 sv=7 nv=xxxx event=0 triggered=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5.1",
@@ -141746,7 +142016,25 @@
       "acceptance": "The default sampled value of any other variable or net is its type default.",
       "source_note": "IEEE 1800-2023 16.5.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sampled_defaults_and_methods.sv",
+          "observation": "初期値の無い logic lv、初期値 7 の int sv、初期値の無い int iv、連続代入 4'h5 の net nv について、最初の clock tick の $past を印字する。lv と nv は x、iv は 0、sv は 7 になる。 区別: net の現在値を既定値とする実装は nv=xxxx を nv=0101 に変え、宣言代入を無視する実装は sv=7 を sv=0 に変える。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0888dbc87ca0e4ccabca5fcb2e3c6695d9197eb1251d9e2bd478a21e9face8e1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sampled_defaults_and_methods.sv",
+              "contains": "  wire [3:0] nv = 4'h5;"
+            },
+            {
+              "file": "tests/ch16/test_sampled_defaults_and_methods.expected",
+              "contains": "defaults: lv=xxxx iv=0 sv=7 nv=xxxx event=0 triggered=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5.1",
@@ -141808,7 +142096,25 @@
       "acceptance": "The sampled value of event.triggered and sequence.triggered/matched is the current result of that method; past/future references use its Postponed value at the corresponding tick.",
       "source_note": "IEEE 1800-2023 16.5.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sampled_defaults_and_methods.sv",
+          "observation": "s は a ##1 b で tick 15 に終わる。同じ tick で s.triggered と $sampled(s.triggered) を cover し、どちらも 15 で成功する。triggered は Observed で立ち、time step の残りに持続する現在値である。 区別: triggered を Preponed の値として扱う実装はどちらの cover も 15 で成功せず、1 tick 遅らせる実装は 25 を記録する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0888dbc87ca0e4ccabca5fcb2e3c6695d9197eb1251d9e2bd478a21e9face8e1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sampled_defaults_and_methods.sv",
+              "contains": "  c_trig: cover property (@(posedge clk) s.triggered)"
+            },
+            {
+              "file": "tests/ch16/test_sampled_defaults_and_methods.expected",
+              "contains": "triggered covered at: 15"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5.1",
@@ -141958,7 +142264,25 @@
       "acceptance": "Assertion expressions are tied to a clock definition except constant or automatic values from procedural code; sampled values determine value-change and Boolean sequence matches.",
       "source_note": "IEEE 1800-2023 16.5.2; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+          "observation": "a を tick 15 の Active で 1 にする。tick 15 の $changed(a) は 0（Preponed の 15 と 5 がともに 0）、tick 25 は 1（15 の Preponed 0 と 25 の 1）になる。値変化をサンプル値の差で判定することを見る。 区別: 現在値の変化で $changed を計算する実装は t=15 の changed_a を 1 にし、t=25 の行と合わせて誤りを示す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f43d73d5272d26959d391d61710f148420079b8bf3a9e73fee2643ea5cfce8a0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sampled_automatic_and_const_current.sv",
+              "contains": "        #15 a = 1;   // in the time step of the tick at 15"
+            },
+            {
+              "file": "tests/ch16/test_sampled_automatic_and_const_current.expected",
+              "contains": "t=25 av=2 sampled_av=2 past_av=2 changed_a=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.5.2",
@@ -144576,7 +144900,25 @@
       "acceptance": "Untyped actual substitution preserves an expression term by parentheses and a cast to its self-determined type, except for $ or a variable_lvalue; invalid rewritten sequences are errors.",
       "source_note": "IEEE 1800-2023 16.8; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
+          "observation": "untyped formal x に a | b を渡し、本体内の x + k を評価する。actual が括弧付きの式項として代入されるので (a | b) + 1 = 16 になる。a + b を x に渡し x == 0 を評価する s_self は、self-determined の 4 bit の和 0 を cast するので真になる。 区別: 括弧を保存しない実装は prec を 15（a | (b + 1)）にし、self-determined 型への cast をしない実装は self を 0 にする。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "910cf8b63b2facb923d01e6a17fe6ae9e6423d1d4c0aa86bf20a0312b97a9c45",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
+              "contains": "  c_prec: cover sequence (@(posedge clk) s_prec(a | b, 1));"
+            },
+            {
+              "file": "tests/ch16/test_sequence_formal_arguments_substitution.expected",
+              "contains": "prec: 16"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.8",
@@ -144594,7 +144936,25 @@
       "acceptance": "Other typed formals require a cast-compatible self-determined actual type; non-lvalue actuals are cast to the formal type before substitution.",
       "source_note": "IEEE 1800-2023 16.8.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_typed_formal_queue_actual.sv",
+          "observation": "int の typed formal に int の queue を actual として渡す。 区別: typed formal の actual の cast compatibility を検査しない実装はこの設計を受理する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ee247c710ce1e774275cca32716f621de3ede9be64cdcaa7362c54843b7d4c42",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_typed_formal_queue_actual.sv",
+              "contains": "a_bad: assert property (@(posedge clk) s(q));   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_typed_formal_queue_actual.sv",
+              "contains": ":expected_stderr_regex: test_illegal_typed_formal_queue_actual\\.sv:27:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.8.1",
@@ -145913,7 +146273,25 @@
       "acceptance": "An inout/output actual shall be exactly a reference to an in-scope local variable, and the formal type shall be cast-compatible with that actual variable type.",
       "source_note": "IEEE 1800-2023 16.8.2; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_output_actual_module_variable.sv",
+          "observation": "local output formal の actual に module 変数 glob を渡す。 区別: inout/output local formal の actual が local 変数であることを検査しない実装はこの設計を受理する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "426c26d052a42f4c45a1eabc285ddb9aa8d2940af1bde1d7a4a5ae9c6b45f64c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_output_actual_module_variable.sv",
+              "contains": "a_bad: assert property (@(posedge clk) s(glob));   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_output_actual_module_variable.sv",
+              "contains": ":expected_stderr_regex: test_illegal_output_actual_module_variable\\.sv:28:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.8.2",
@@ -146099,7 +146477,25 @@
       "acceptance": "Table 16-1 precedence level 2 (highest first) contains ##; associativity is left.",
       "source_note": "IEEE 1800-2023 16.9.1; complete own-body source review, blocks B002, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_repetition_and_concat_precedence.sv",
+          "observation": "a ##1 b or c ##1 d を括弧なしで cover する。## が or より高いので (a ##1 b) or (c ##1 d) となり、tick 15 と 25 の 2 つの match が記録される。 区別: or を ## より高く parse する実装は a ##1 (b or c) ##1 d となり、d が tick 25 だけなので match が 25 の 1 つだけになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d6b7741d44c063d6a7831c01552dc8994c8f2eb055751570c6c78748d07c8196",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_repetition_and_concat_precedence.sv",
+              "contains": "  c_or: cover sequence (@(posedge clk) a ##1 b or c ##1 d) or_t.push_back($time);"
+            },
+            {
+              "file": "tests/ch16/test_sequence_repetition_and_concat_precedence.expected",
+              "contains": "or matches: 15 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.9.1",
@@ -146497,7 +146893,25 @@
       "acceptance": "Repetition exact counts and lower bounds shall be nonnegative integer constant expressions; upper bounds shall be such constants or $ for finite but unbounded repetition.",
       "source_note": "IEEE 1800-2023 16.9.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_repetition_upper_bound_variable.sv",
+          "observation": "a[*1:n] の upper bound に変数 n を使う。 区別: repetition の bound が定数であることを検査しない実装はこの設計を受理し、elaboration 時の値を固定しない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5f3d221cde15247ede2c6a9b8bb4bfd2ecd8b5879e99475b0468c8d78ea03fdf",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_repetition_upper_bound_variable.sv",
+              "contains": "a_bad: assert property (@(posedge clk) a[*1:n]);   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_repetition_upper_bound_variable.sv",
+              "contains": ":expected_stderr_regex: test_illegal_repetition_upper_bound_variable\\.sv:23:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.9.2",
@@ -146825,7 +147239,25 @@
       "acceptance": "Boolean abbreviation supports consecutive [*], nonconsecutive [=] and goto [->] repetition; sequence abbreviation supports consecutive repetition only, under Syntax 16-6.",
       "source_note": "IEEE 1800-2023 16.9.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_repetition_and_concat_precedence.sv",
+          "observation": "a[*3] は tick 5,15,25 の連続 3 回で 25 に終わり、b[->2] ##1 d は 2 回目の b の次の tick の d で 25、c[=2] ##1 d は 2 回目の c の後、次の c より前の d で 25 に終わる。3 種の repetition を同じ列で比較する。 区別: goto を非連続と同じに扱う実装や [=] の終了点を次の c の後にする実装は、goto か nonconsecutive の時刻を 25 以外にし、[*] を 1 回だけ数える実装は consecutive を 5 か 15 にする。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d6b7741d44c063d6a7831c01552dc8994c8f2eb055751570c6c78748d07c8196",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_repetition_and_concat_precedence.sv",
+              "contains": "  c_goto: cover sequence (@(posedge clk) b[->2] ##1 d) goto_t.push_back($time);"
+            },
+            {
+              "file": "tests/ch16/test_sequence_repetition_and_concat_precedence.expected",
+              "contains": "goto [->2] then ##1 d: 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.9.2",
@@ -147890,7 +148322,25 @@
       "acceptance": "The $past tick count shall be an elaboration-time constant at least 1 and defaults to 1.",
       "source_note": "IEEE 1800-2023 16.9.3; complete own-body source review, blocks B028. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_past_count_variable.sv",
+          "observation": "$past(a, n) の tick 数に変数 n を使う。 区別: $past の tick 数が elaboration-time 定数であることを検査しない実装はこの設計を受理する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "68e069353d521f03858fa477b6f28db0c86ce32c3d547fa6048f995b378a6af4",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_past_count_variable.sv",
+              "contains": "a_bad: assert property (@(posedge clk) a |-> $past(a, n));   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_past_count_variable.sv",
+              "contains": ":expected_stderr_regex: test_illegal_past_count_variable\\.sv:22:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.9.3",
@@ -149917,7 +150367,25 @@
       "acceptance": "triggered applies to a named sequence instance with optional arguments, an untyped formal or a sequence-typed formal where allowed, returning one-bit true exactly when a nonempty operand end point is reached, independently of its starting tick.",
       "source_note": "IEEE 1800-2023 16.9.11; complete own-body source review, blocks B006, B007, B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sampled_defaults_and_methods.sv",
+          "observation": "s は tick 5 の a と tick 15 の b で終わる named sequence で、s.triggered を assertion の終了点で読む。開始 tick 5 ではなく終了点の tick 15 に 1 bit の真を返し、cover が 15 で成功する。 区別: triggered を開始 tick に依存させる実装は 15 を記録せず、1 tick 遅らせる実装は 25 を記録する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0888dbc87ca0e4ccabca5fcb2e3c6695d9197eb1251d9e2bd478a21e9face8e1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sampled_defaults_and_methods.sv",
+              "contains": "  c_trig: cover property (@(posedge clk) s.triggered)"
+            },
+            {
+              "file": "tests/ch16/test_sampled_defaults_and_methods.expected",
+              "contains": "triggered covered at: 15"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.9.11",
@@ -149978,7 +150446,25 @@
       "acceptance": "For and/intersect, a local flowing out of at least one operand flows out unless blocked: it is blocked if assigned in and flowing out of both operands, or blocked in either operand.",
       "source_note": "IEEE 1800-2023 16.10; complete own-body source review, blocks B063. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_or_and_local_flow.sv",
+          "observation": "and の左 operand だけが z を 7 に代入し、右 operand は代入しない。z は少なくとも片方から流れ出るので、合成の後に 7 が記録される。intersect でも同様に w=9 が記録される。 区別: and/intersect で片側だけの代入を block する実装は and one を 5 にし、intersect の値を落とす実装は intersect one を 0 にする。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "55e0f646d5d6e3847eb1f308213cf8c53c603f121792814b54e6ea16045358f0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_or_and_local_flow.sv",
+              "contains": "  sequence s_and_one;"
+            },
+            {
+              "file": "tests/ch16/test_sequence_or_and_local_flow.expected",
+              "contains": "and one: 7"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.10",
@@ -150322,7 +150808,25 @@
       "acceptance": "A local initializer may reference a previously declared local only if that local itself has an initialization assignment, and uses its initialized value.",
       "source_note": "IEEE 1800-2023 16.10; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_local_initializer_uninitialized.sv",
+          "observation": "local y の初期化式が、初期化の無い先の local x を参照する。 区別: local initializer の依存を検査しない実装はこの設計を受理し、x の未割り当て値を読む。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ee475a9819a1259bd4bf1551d96cdd5e129ae36f76080c97d311d6bc7c37a79d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_local_initializer_uninitialized.sv",
+              "contains": "int y = x + 1;   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_local_initializer_uninitialized.sv",
+              "contains": ":expected_stderr_regex: test_illegal_local_initializer_uninitialized\\.sv:24:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.10",
@@ -150791,7 +151295,25 @@
       "acceptance": "A local flows out of or if and only if it flows out of each operand.",
       "source_note": "IEEE 1800-2023 16.10; complete own-body source review, blocks B062. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_or_and_local_flow.sv",
+          "observation": "or の両 operand が別々に x を 1 と 2 に代入する s_or_both では、両 thread が x を持って続き、和が 3 になる。片側だけ y を 7 にし、もう片側は初期値 5 のままの s_or_one では、y が両方から流れ出て和が 12 になる。 区別: or で片方の値だけを残す実装は or both を 1 か 2 にし、flow out を各 operand で要求しない実装は or one を 7 だけにする。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "55e0f646d5d6e3847eb1f308213cf8c53c603f121792814b54e6ea16045358f0",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_or_and_local_flow.sv",
+              "contains": "  sequence s_or_one;"
+            },
+            {
+              "file": "tests/ch16/test_sequence_or_and_local_flow.expected",
+              "contains": "or both: 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.10",
@@ -151177,7 +151699,25 @@
       "acceptance": "An automatic variable in a procedural assertion call may be a constant input actual, but shall not be a ref actual or nonconstant input actual.",
       "source_note": "IEEE 1800-2023 16.11; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_automatic_ref_argument.sv",
+          "observation": "automatic task の procedural concurrent assertion の attached call が automatic 変数 a を ref formal に渡す。 区別: automatic 変数の ref 渡しを検査しない実装はこの設計を受理する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "179329e6043b6aa02d0e3a0c8fc2fc8f4e3bdbd6e96230a5202a147139f3604b",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_automatic_ref_argument.sv",
+              "contains": "a_bad: assert property (@(posedge clk) (1'b1, bump(a)));   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_automatic_ref_argument.sv",
+              "contains": ":expected_stderr_regex: test_illegal_automatic_ref_argument\\.sv:28:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.11",
@@ -151505,18 +152045,18 @@
         },
         {
           "test": "tests/ch16/test_illegal_disable_iff_matched.sv",
-          "observation": "disable iff (s_m.matched) の行 29 でのエラーを求める。",
+          "observation": "disable iff (s.matched) の行 26 でのエラーを求める。",
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "73ac47ee16db9f6544f8157859399db7ac313a71fb9fa8c287d7366122530aa0",
+          "inputs_sha256": "790ab308617058ccc6281a77d2706b057223546de6166e2b5975ba6fac0561ed",
           "evidence": [
             {
               "file": "tests/ch16/test_illegal_disable_iff_matched.sv",
-              "contains": "  a_m: assert property (@(posedge clk) disable iff (s_m.matched) a |=> b);   // illegal"
+              "contains": "  a_bad: assert property (@(posedge clk) disable iff (s.matched) a);   // illegal"
             },
             {
               "file": "tests/ch16/test_illegal_disable_iff_matched.sv",
-              "contains": ":expected_stderr_regex: test_illegal_disable_iff_matched\\.sv:29:"
+              "contains": ":expected_stderr_regex: test_illegal_disable_iff_matched\\.sv:26:"
             }
           ]
         },
@@ -151556,7 +152096,7 @@
           ],
           "reviewed_on": "2026-10-24",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "observation": "disable 条件の3つの制限を、それぞれ唯一の違反とする設計で確かめる。(1) プロパティの局所変数 v(初期値 0 で代入済み)を参照する、(2) 別クロックのシーケンスの s_m.matched を使う、(3) クロック引数のない $rose(r1) を使う。各テストはその disable iff の行でのエラーを求める。triggered や普通の変数は合法な使い方として別のテストで使われる。 区別: 局所変数の参照、matched の使用、クロックのない標本値関数のいずれかを disable 条件で検査しない誤実装は、そのテストの設計を受け付けてエラーを出さず不合格になる。"
+          "observation": "disable 条件の3つの制限を、それぞれ唯一の違反とする設計で確かめる。(1) プロパティの局所変数 v(初期値 0 で代入済み)を参照する、(2) シーケンスの s.matched を使う、(3) クロック引数のない $rose(r1) を使う。各テストはその disable iff の行でのエラーを求める。triggered や普通の変数は合法な使い方として別のテストで使われる。 区別: 局所変数の参照、matched の使用、クロックのない標本値関数のいずれかを disable 条件で検査しない誤実装は、そのテストの設計を受け付けてエラーを出さず不合格になる。"
         }
       ]
     },
@@ -152748,7 +153288,25 @@
       "acceptance": "Property dependency cycles are permitted under 16.12.17; dependency edges include declaration/default instances and instances appearing in actual arguments.",
       "source_note": "IEEE 1800-2023 16.12; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_recursive_property_time_advance.sv",
+          "observation": "p_rec は a ##1 (b or p_rec) で自分自身を ##1 の後に参照する。tick 5 の attempt は tick 15 で p_rec を再帰し、tick 25 の b=1 で成功する。tick 15 の attempt は直接 tick 25 で成功し、tick 25 は a=0 で失敗する。 区別: 時間の進まない再帰や循環を許す実装はこの設計を受理しないか無限に評価し、再帰を 1 段で打ち切る実装は pass 25 の一方を落とす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "82e5e405a4a5a2e7d91af45e482c50b9ed128d92043c4dec8fe5eb21ffa9133e",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_recursive_property_time_advance.sv",
+              "contains": "    a ##1 (b or p_rec);"
+            },
+            {
+              "file": "tests/ch16/test_recursive_property_time_advance.expected",
+              "contains": "recursive property passes: 25 25; failures: 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12",
@@ -154148,7 +154706,25 @@
       "acceptance": "A nexttime index shall be a nonnegative integer constant expression.",
       "source_note": "IEEE 1800-2023 16.12.10; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_nexttime_variable_index.sv",
+          "observation": "nexttime[n] の index に変数 n を使う。 区別: nexttime の index が定数であることを検査しない実装はこの設計を受理する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "890cfd0348e1afdee6774e1090691d08cbe1388b91719b8b830e849fe3496975",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_nexttime_variable_index.sv",
+              "contains": "a_bad: assert property (@(posedge clk) nexttime[n] a);   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_nexttime_variable_index.sv",
+              "contains": ":expected_stderr_regex: test_illegal_nexttime_variable_index\\.sv:22:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.10",
@@ -154282,7 +154858,25 @@
       "acceptance": "Always range bounds shall be nonnegative integer constant expressions, with upper >= lower when finite; $ means a finite but unbounded maximum where allowed.",
       "source_note": "IEEE 1800-2023 16.12.11; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_always_bounds_reversed.sv",
+          "observation": "always[3:1] の上限 1 が下限 3 より小さい。 区別: range の下限と上限の関係を検査しない実装はこの設計を受理する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "46d848ca7006acbbb7ea211d2a584c26c79e83d6493146616630d2174d0b04ef",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_always_bounds_reversed.sv",
+              "contains": "a_bad: assert property (@(posedge clk) always[3:1] a);   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_always_bounds_reversed.sv",
+              "contains": ":expected_stderr_regex: test_illegal_always_bounds_reversed\\.sv:22:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.11",
@@ -155896,7 +156490,25 @@
       "acceptance": "Typed property formals obey the sequence typed-formal rules except the following property-type extension.",
       "source_note": "IEEE 1800-2023 16.12.18; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
+          "observation": "property p_typed は bit [3:0] の typed formal と sequence 型の formal を持ち、actual の byte 8'ha5 を 4'h5 に cast して sq |-> (v == 4'h5) を評価する。go=1 の tick 5 で非空虚に 1 回成功する。 区別: typed formal の cast をしない実装は右辺を 4'h5 と比較して失敗し、typed_pass が 0・typed_fail が 1 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "910cf8b63b2facb923d01e6a17fe6ae9e6423d1d4c0aa86bf20a0312b97a9c45",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
+              "contains": "  property p_typed(bit [3:0] v, sequence sq);"
+            },
+            {
+              "file": "tests/ch16/test_sequence_formal_arguments_substitution.expected",
+              "contains": "typed passes=1 fails=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.18",
@@ -155979,7 +156591,25 @@
       "acceptance": "Property local formals obey sequence local-formal rules except for the direction restriction below.",
       "source_note": "IEEE 1800-2023 16.12.19; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
+          "observation": "property p_loc は local input int の w に既定 actual 4 を持ち、z=2 を渡す。既定のままの instance は 6、w=10 を渡す instance は 12 を記録し、和が 18 になる。 区別: local formal の既定 actual を使わない実装は local sum を 12 にし、instance ごとに新しい copy を作らない実装は値を混ぜる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "910cf8b63b2facb923d01e6a17fe6ae9e6423d1d4c0aa86bf20a0312b97a9c45",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_formal_arguments_substitution.sv",
+              "contains": "  property p_loc(local input int w = 4, input int z);"
+            },
+            {
+              "file": "tests/ch16/test_sequence_formal_arguments_substitution.expected",
+              "contains": "local sum: 18"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.19",
@@ -157158,7 +157788,25 @@
       "acceptance": "A method operand sequence shall have an explicit or context-inferred clock, using the inference rules of 16.9.3.",
       "source_note": "IEEE 1800-2023 16.13.6; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_triggered_no_clock.sv",
+          "observation": "clock-free な s に s.triggered を適用し、周囲にも clock が無い。 区別: method operand の clock 推論を検査しない実装はこの設計を受理する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fcc76ed911160e9743613e20022e284a634aa518ca75bf37c843a143f5212f3d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_triggered_no_clock.sv",
+              "contains": "initial wait (s.triggered);   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_triggered_no_clock.sv",
+              "contains": ":expected_stderr_regex: test_illegal_triggered_no_clock\\.sv:26:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.6",
@@ -157267,7 +157915,25 @@
       "acceptance": "Sequence dependencies induced by triggered shall not be circular.",
       "source_note": "IEEE 1800-2023 16.13.6; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_triggered_cycle.sv",
+          "observation": "s1 は a ##1 s2.triggered、s2 は b ##1 s1.triggered で、triggered による sequence の依存が s1 と s2 の間で循環する。 区別: triggered による循環依存を検査しない実装はこの設計を受理し、循環を許すと evaluation が終了しない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2dbc913dda181ff44f460fb61923e54fdab659e897950e7a11a7a7f0fd4343d6",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_triggered_cycle.sv",
+              "contains": "  a_bad: assert property (@(posedge clk) s1);   // illegal: circular triggered dependency"
+            },
+            {
+              "file": "tests/ch16/test_illegal_triggered_cycle.sv",
+              "contains": ":expected_stderr_regex: test_illegal_triggered_cycle\\.sv:(23|27|30):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.6",
@@ -158225,7 +158891,25 @@
       "acceptance": "Tools shall collect concurrent cover information and report it at simulation end or on demand via the assertion API.",
       "source_note": "IEEE 1800-2023 16.14.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_cover_property_sequence_counters.sv",
+          "observation": "cover property a を tick 5,15,25 で実行し、成功のたびに action が時刻を記録する。3 回の attempt が 3 回の success を生む。 区別: cover の情報を集めない実装は cover property a の行を空にし、action を実行しない実装も同じ行を落とす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "273b73a3ed455935832439b249a6c27d9e24c04a06bac53c8ed41902cd39c606",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.sv",
+              "contains": "  c_prop: cover property (@(posedge clk) a) prop_at.push_back($time);"
+            },
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.expected",
+              "contains": "cover property a: 5 15 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.3",
@@ -158243,7 +158927,25 @@
       "acceptance": "cover property uses a property_spec and reports attempt count, success count with at most one per attempt, and vacuous success count.",
       "source_note": "IEEE 1800-2023 16.14.3; complete own-body source review, blocks B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_cover_property_sequence_counters.sv",
+          "observation": "a[*1:2] を cover property にすると attempt ごとに success は最大 1 回である。attempt 5 は match が 5 と 15 にあるが success は 1 回だけで、時刻は 5 に記録される。 区別: property でも match ごとに success を数える実装は cover property a[*1:2] を 5 15 15 25 25 にし、sequence と同じ結果になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "273b73a3ed455935832439b249a6c27d9e24c04a06bac53c8ed41902cd39c606",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.sv",
+              "contains": "  c_multi: cover property (@(posedge clk) a[*1:2]) multi_at.push_back($time);"
+            },
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.expected",
+              "contains": "cover property a[*1:2]: 5 15 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.3",
@@ -158262,7 +158964,25 @@
       "acceptance": "Disabled evaluations contribute to cover property attempts but not success or vacuous-success counts.",
       "source_note": "IEEE 1800-2023 16.14.3; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_cover_property_sequence_counters.sv",
+          "observation": "disable iff (dis) を付けた cover property で、dis は tick 5,15 で 1、tick 25 で 0。disabled の attempt は success にならないので action は 25 だけで走る。 区別: disabled の attempt を success に数える実装は 5 15 25 を記録し、disable を無視する実装も同じ行を変える。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "273b73a3ed455935832439b249a6c27d9e24c04a06bac53c8ed41902cd39c606",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.sv",
+              "contains": "  c_dis: cover property (@(posedge clk) disable iff (dis) a)"
+            },
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.expected",
+              "contains": "cover property with disable iff: 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.3",
@@ -158362,7 +159082,25 @@
       "acceptance": "cover sequence permits optional clocking/disable prefixes and reports attempt count and match count, allowing multiple matches per attempt.",
       "source_note": "IEEE 1800-2023 16.14.3; complete own-body source review, blocks B009, B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_cover_property_sequence_counters.sv",
+          "observation": "同じ a[*1:2] を cover sequence にすると match ごとに action が走る。attempt 5 の 2 match と attempt 15 の 2 match、attempt 25 の 1 match で 5 15 15 25 25。 区別: cover sequence を cover property と同じ 1 回に制限する実装は 5 15 25 にし、attempt を数えない実装は時刻を落とす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "273b73a3ed455935832439b249a6c27d9e24c04a06bac53c8ed41902cd39c606",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.sv",
+              "contains": "  c_seq: cover sequence (@(posedge clk) a[*1:2]) seq_at.push_back($time);"
+            },
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.expected",
+              "contains": "cover sequence a[*1:2]: 5 15 15 25 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.3",
@@ -158422,7 +159160,25 @@
       "acceptance": "restrict property(property_spec); has no action block.",
       "source_note": "IEEE 1800-2023 16.14.4; complete own-body source review, blocks B003, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_cover_property_sequence_counters.sv",
+          "observation": "restrict property (@(posedge clk) 1'b1); を module item として置く。restrict には action block が無く、設計は合法で、出力に action の行を加えない。 区別: restrict に action block を要求する実装はコンパイルに失敗し、restrict を cover と同じに扱って action を実行する実装は余分な行を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "273b73a3ed455935832439b249a6c27d9e24c04a06bac53c8ed41902cd39c606",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.sv",
+              "contains": "  r_never: restrict property (@(posedge clk) 1'b1);"
+            },
+            {
+              "file": "tests/ch16/test_cover_property_sequence_counters.expected",
+              "contains": "restrict accepted"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.4",
@@ -158989,7 +159745,25 @@
       "acceptance": "The same capture rules apply to procedural concurrent assertion action blocks; captured constant/automatic values are inputs and shall not be modified.",
       "source_note": "IEEE 1800-2023 16.14.6.1; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_action_modifies_automatic.sv",
+          "observation": "procedural concurrent assertion の fail action が、capture した automatic input a を書き換える。 区別: capture した automatic 値の変更を検査しない実装はこの設計を受理する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "711bc08a04574e22aa82e0566097e2c86bdb2fd059b6b550378cba2f8aa06a70",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_action_modifies_automatic.sv",
+              "contains": "a_bad: assert property (@(posedge clk) a == 1) else a = 0;   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_action_modifies_automatic.sv",
+              "contains": ":expected_stderr_regex: test_illegal_action_modifies_automatic\\.sv:23:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.6.1",
@@ -159512,7 +160286,25 @@
       "acceptance": "$inferred_clock is an elaboration-time query returning the clock event resolved by clock flow at the applicable instance location; absence of a resolved event is an error.",
       "source_note": "IEEE 1800-2023 16.14.7; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_inferred_clock_missing.sv",
+          "observation": "p_bad は formal clk の既定 actual に $inferred_clock を持ち、initial の中の assert property (p_bad) には外側の clocking event が無い。clock flow が解決する event が無いので、$inferred_clock の展開が error になる。 区別: 解決できる clock が無い $inferred_clock を検査しない実装はこの設計を受理し、event の無い clocking event を実行時に使う。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "77b9c8f54041529e74a17cd7c2c36cd29263adb7263d131b4b7edf7a26d59814",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_inferred_clock_missing.sv",
+              "contains": "  initial a_bad: assert property (p_bad);   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_inferred_clock_missing.sv",
+              "contains": ":expected_stderr_regex: test_illegal_inferred_clock_missing\\.sv:(25|29):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.14.7",
@@ -161713,7 +162505,25 @@
       "acceptance": "An outside-declared sequence/property instantiated within a clocking block shall be singly clocked with a clock identical to that block clock.",
       "source_note": "IEEE 1800-2023 16.16; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_clocking_block_external_clock.sv",
+          "observation": "clocking block cb の中の property p_inner が、clk2 で clock された外部 property p_ext を instantiate する。 区別: 外部 instance の clock と block clock の同一性を検査しない実装はこの設計を受理する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ee245024bd7576bc3344021a83d4e26ee614d7b8374685e1ef186a21298817f1",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_clocking_block_external_clock.sv",
+              "contains": "p_ext;   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_clocking_block_external_clock.sv",
+              "contains": ":expected_stderr_regex: test_illegal_clocking_block_external_clock\\.sv:28:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.16",
@@ -177091,7 +177901,25 @@
       "acceptance": "The extends variation of covergroup declaration is allowed only within a class.",
       "source_note": "IEEE 1800-2023 19.3; complete own-body source review, blocks B005, B027. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_extends_outside_class.sv",
+          "observation": "モジュール階層で base_cg を定義した後に covergroup extends base_cg を置く。extends はクラス内でだけ許されるため、48 行目がエラーになる。同じ設計の derived クラスは基底クラスの g1 を extends しており、クラス内の合法例になっている。 区別: extends をモジュール階層でも許す実装は設計を受け入れ、48 行目の診断を出さない。逆に extends をすべて拒否する実装は 40 行目の合法な extends で先にエラーになり、48 行目を指さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a608807525a7d5296267e93513654e5ce227f0b96882ecdfc77d441a0b4d1ae3",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_extends_outside_class.sv",
+              "contains": "covergroup extends base_cg;   // illegal: extends outside a class"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_extends_outside_class.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_extends_outside_class\\.sv:48:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.3",
@@ -177482,7 +178310,25 @@
       "acceptance": "covergroup extends name defines a derived embedded covergroup only when that same name exists in a base class; missing base is an error, and further derivation is permitted.",
       "source_note": "IEEE 1800-2023 19.4.1; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_extends_not_base.sv",
+          "observation": "class bad は自分の本体で gx を定義した直後に covergroup extends gx を置く。gx は基底クラスで定義されていないため 58 行目がエラーになる。class good と good2 は基底クラスの g1 を extends し、派生 covergroup をさらに基底にする合法例になっている。 区別: 基底クラスにない名前の extends を受け付ける実装は設計を受け入れ、58 行目の診断を出さない。extends をすべて拒否する実装は 35/45 行目の合法例で先にエラーになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "674084f25df16f89a7d2e223a0775b2ebf7a730ffc9782ce5a2d148ac90dca23",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_extends_not_base.sv",
+              "contains": "covergroup extends gx;   // illegal: gx is not in a base class"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_extends_not_base.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_extends_not_base\\.sv:58:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.4.1",
@@ -177811,7 +178657,25 @@
       "acceptance": "Coverpoints cover integral or real expressions; real-expression coverage permits only sampled value bins and their crosses, not transition bins.",
       "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_real_transition_domain.sv",
+          "observation": "real coverpoint rv は 2 つの value bin を持ち、integral coverpoint iv の transition bin と cross rx も存在する。real coverpoint bad だけが (1.0 => 2.0) の transition bin を持ち、real 式の被覆は sampled value bin と cross に限られるため 36/37 行目がエラーになる。 区別: real coverpoint の transition bin を受け付ける実装は設計を受け入れ、36/37 行目の診断を出さない。real 被覆をすべて拒否する実装は rv の value bin や rx の cross で先にエラーになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b9954d2b2006490b65b23199235d56d356e3980c1a80cd2eb589aca89f62cfe9",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_real_transition_domain.sv",
+              "contains": "bins t = (1.0 => 2.0);   // illegal: transition of a real value"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_real_transition_domain.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_real_transition_domain\\.sv:(36|37):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5",
@@ -177865,7 +178729,25 @@
       "acceptance": "A covergroup_expression may use only constant expressions, permitted enclosing-class global/instance constants, or non-ref covergroup formals.",
       "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_ref_formal_expression.sv",
+          "observation": "covergroup g の coverpoint ck は class の定数 K、ci は non-ref の input 引数 iv、ce は定数式 2+3 を使い、いずれも許される。coverpoint bad だけが ref 引数 rv を使うため 32 行目がエラーになる。 区別: ref 引数を covergroup_expression の変数として受け付ける実装は設計を受け入れ、32 行目の診断を出さない。non-ref 引数や class 定数も拒否する実装は ck/ci/ce で先にエラーになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2b64e89cfd54facc9362eb563a16de4b324e8c465b5fc27d1d26a366f52ec73c",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_ref_formal_expression.sv",
+              "contains": "bad: coverpoint rv;   // illegal: ref argument as a variable"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_ref_formal_expression.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_ref_formal_expression\\.sv:32:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5",
@@ -178731,13 +179613,60 @@
       "acceptance": "A real-expression default bin shall not use [] or [N] bin-array notation.",
       "source_note": "IEEE 1800-2023 19.5.1; complete own-body source review, blocks B032. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_real_default_bin_n.sv",
+          "observation": "real coverpoint の default bin を [N] 記法の rest[2] で宣言し、30 行目がエラーになる。単一の default bin は合法例。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "af63febf856d9dce3340ba4f0688d96b8cafb3d05296655bb2f194c4566f57f7",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_real_default_bin_n.sv",
+              "contains": "bins rest[2] = default;   // illegal: [N] default bin of a real point"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_real_default_bin_n.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_real_default_bin_n\\.sv:30:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_illegal_cg_real_default_bin_array.sv",
+          "observation": "real coverpoint の default bin を [] 記法で宣言し、25 行目がエラーになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7d302a1ddc1d93760d0b522be53cc893499c0013bd808dad1938762c85e83148",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_real_default_bin_array.sv",
+              "contains": "bins d[] = default;   // illegal: array of real default bins"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_real_default_bin_array.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_real_default_bin_array\\.sv:25:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.1",
           "blocks": [
             "B032"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "real-default-array-forms",
+          "tests": [
+            "tests/ch19/test_illegal_cg_real_default_bin_n.sv",
+            "tests/ch19/test_illegal_cg_real_default_bin_array.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "real 式の default bin に [] も [N] も使えないことを、2 つの負入力で示す。 区別: [] だけを拒否して [N] を受け付ける実装、またはその逆の実装は、片方の負入力で診断を出さない。"
         }
       ]
     },
@@ -179009,7 +179938,25 @@
       "acceptance": "The containing coverpoint name may replace a range list to denote all its values; another coverpoint name is prohibited.",
       "source_note": "IEEE 1800-2023 19.5.1.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_self_point_range.sv",
+          "observation": "coverpoint pa の bin all と odd は pa 自身を range list の代わりに使い、許される。coverpoint pb の bin bad は別の coverpoint pa を with 付きで使うため 30 行目がエラーになる。 区別: 別の coverpoint 名を bin の値リストとして受け付ける実装は設計を受け入れ、30 行目の診断を出さない。自分の coverpoint 名も拒否する実装は all/odd で先にエラーになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4e9c12eb0f9ab2e2e664c7e07554e29bd5102444e68beacd29564caad731a5b7",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_self_point_range.sv",
+              "contains": "bins bad[] = pa with (item >= 0);   // illegal: another coverpoint"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_self_point_range.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_self_point_range\\.sv:30:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.1.1",
@@ -179228,13 +180175,60 @@
       "acceptance": "Transition [] bin arrays shall not use sequences of unbounded or undetermined varying length; default sequence shall not use [].",
       "source_note": "IEEE 1800-2023 19.5.2; complete own-body source review, blocks B054. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_transition_array_unbounded.sv",
+          "observation": "transition の [ ] bin 配列 many[] に非連続繰り返し 1[=2] を使い、28 行目がエラーになる。bounded な ok[] と single は合法例。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5b7ef555969ff01deb7fa02f3fd862586a26edbd926450963f8bab880e261162",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_transition_array_unbounded.sv",
+              "contains": "bins many[] = (1 [= 2]);   // illegal: unbounded sequence in a [] bin"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_transition_array_unbounded.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_transition_array_unbounded\\.sv:28:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_illegal_cg_default_sequence_array_new.sv",
+          "observation": "default sequence の bin allother に [ ] 記法を使い、27 行目がエラーになる。brackets なしの default sequence other は合法例。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9d8b39aaf93caaf6881dbc28d8ec47a15ef542817f6cc4228f487ca5ea9bb203",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_default_sequence_array_new.sv",
+              "contains": "bins allother[] = default sequence;   // illegal: [] on default sequence"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_default_sequence_array_new.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_default_sequence_array_new\\.sv:27:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.2",
           "blocks": [
             "B054"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "unbounded-forms",
+          "tests": [
+            "tests/ch19/test_illegal_cg_transition_array_unbounded.sv",
+            "tests/ch19/test_illegal_cg_default_sequence_array_new.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "transition の [ ] bin 配列が無限長・不定長の列を使ってはならず、default sequence も [ ] 記法を使ってはならないことを、2 つの負入力で示す。 区別: transition [] の無限長列を受け付ける実装は 28 行目で、default sequence の [] を受け付ける実装は 27 行目で、それぞれ診断を出さない。"
         }
       ]
     },
@@ -179246,13 +180240,78 @@
       "acceptance": "Length-zero transition-bin specifications are illegal, including a sole range/value item or one repeated exactly once.",
       "source_note": "IEEE 1800-2023 19.5.2; complete own-body source review, blocks B061. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_transition_length_zero.sv",
+          "observation": "単一値 (4) だけの trans_set を bin once に置き、25 行目がエラーになる。4=>5 の pair は合法例。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ac02289b78b13f359c35caf516269440fc0b3e641f3c52660bdc6a0350a8eaf7",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_transition_length_zero.sv",
+              "contains": "bins once = (4);   // illegal: a transition of length 0"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_transition_length_zero.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_transition_length_zero\\.sv:25:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_illegal_cg_transition_repeat_one.sv",
+          "observation": "単一値 0 を [*1] で 1 回だけ繰り返す bin once を置き、28 行目がエラーになる。0[*2] と 0=>1 は合法例。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "720bea4fb131f3eb2c6da479be71536a014296879f1e640414e704805e566223",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_transition_repeat_one.sv",
+              "contains": "bins once = (0 [* 1]);   // illegal: length zero"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_transition_repeat_one.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_transition_repeat_one\\.sv:28:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_illegal_cg_transition_sole_range_new.sv",
+          "observation": "単一 range ([0:1]) だけの trans_set を bin span に置き、27 行目がエラーになる。([0:1]=>2) と 0[*2] は合法例。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8c4993a74c520ce254572d65dd677c9b2c68b75e0edd43182d8fa08badf97512",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_transition_sole_range_new.sv",
+              "contains": "bins span = ([0:1]);   // illegal: a single range with no transition"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_transition_sole_range_new.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_transition_sole_range_new\\.sv:27:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.2",
           "blocks": [
             "B061"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "zero-length-forms",
+          "tests": [
+            "tests/ch19/test_illegal_cg_transition_length_zero.sv",
+            "tests/ch19/test_illegal_cg_transition_repeat_one.sv",
+            "tests/ch19/test_illegal_cg_transition_sole_range_new.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "長さ 0 の遷移仕様が、単一値 (0)、1 回だけの繰り返し (0[*1])、単一 range ([0:1]) の 3 形式でそれぞれ違法であることを示す。 区別: 単一値だけを拒否する実装は 0[*1] や [0:1] を受け入れ、3 つの負入力のうち 2 つで診断を出さない。"
         }
       ]
     },
@@ -179485,7 +180544,7 @@
           "observation": "merge_instances で遷移配列 t[]=(s=>1,2) を s=0 の k1,k3 と s=3 の k2 に置く。完全な遷移の一致で数が進み、名前を遷移で共有した統合は t が 4 bin 中 2 bin で 50%、単一 bin の one_t は 100% になる。 区別: 遷移配列の bin を遷移ではなく配列位置で命名する誤実装では k1 と k3 の t[0=>1]/t[0=>2] が共有されず統合が 2 bin になって t が 100% になり、遷移が揃ったときに数えない実装では 50% に達しない。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+          "inputs_sha256": "2031c023dba68e157747ddb41deabf4c08a7fbda64ffbb53f8cccf6a85bff2b4",
           "evidence": [
             {
               "file": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
@@ -179538,7 +180597,25 @@
       "acceptance": "Transition bins shall use integral values; real transitions are prohibited.",
       "source_note": "IEEE 1800-2023 19.5.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_real_transition_domain.sv",
+          "observation": "integral coverpoint iv の transition bin (1=>2) は整数遷移として合法で、real coverpoint bad の (1.0=>2.0) は実数遷移なので 36/37 行目がエラーになる。 区別: 実数の遷移値を受け付ける実装は設計を受け入れ、36/37 行目の診断を出さない。整数の transition bin も拒否する実装は iv の 33 行目で先にエラーになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b9954d2b2006490b65b23199235d56d356e3980c1a80cd2eb589aca89f62cfe9",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_real_transition_domain.sv",
+              "contains": "bins t = (1.0 => 2.0);   // illegal: transition of a real value"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_real_transition_domain.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_real_transition_domain\\.sv:(36|37):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.2",
@@ -179756,7 +180833,33 @@
       "acceptance": "An integral coverpoint with no bins other than ignored/illegal bins receives automatic state bins; real coverpoints never receive automatic bins.",
       "source_note": "IEEE 1800-2023 19.5.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_auto_bins_only_ignored_and_real.sv",
+          "observation": "整数 coverpoint only は ignore_bins と illegal_bins だけを持ち、16 個の自動 bin から値 1 と 2 を除いた 14 bin を分母にし、a=0 で 1/14 になる。real coverpoint rp は明示 bin 1 つだけで、r=0.5 で 1/1 のまま。 区別: ignore/illegal だけの整数点に自動 bin を作らない実装は 1/14 にならず、real 点にも自動 bin を作る実装は rp の total が 1 より大きくなる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c91839a332fc55c2e6f88a9e8c6fccccd42b6985625f0789caeae67bc3c3ab88",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_auto_bins_only_ignored_and_real.sv",
+              "contains": "      ignore_bins skip = {1};"
+            },
+            {
+              "file": "tests/ch19/test_cg_auto_bins_only_ignored_and_real.sv",
+              "contains": "      illegal_bins bad = {2};"
+            },
+            {
+              "file": "tests/ch19/test_cg_auto_bins_only_ignored_and_real.sv",
+              "contains": "    rp: coverpoint r {"
+            },
+            {
+              "file": "tests/ch19/test_cg_auto_bins_only_ignored_and_real.expected",
+              "contains": "only 1/14, rp 1/1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.3",
@@ -179774,7 +180877,33 @@
       "acceptance": "The default explicit integral value/transition-bin matching described in 19.5.4 compares x/z literally using case equality; wildcard definitions instead expand x/z/? to 0/1 possibilities.",
       "source_note": "IEEE 1800-2023 19.5.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+          "observation": "literal bin {4'b1x0z} は sample 1x0z だけを被覆し、1x00 と 1z0z は被覆しない（lit 1/1）。transition bin (4'b0x => 4'b1z) は 0x の次の 1z だけを被覆し、1x は被覆しない（tr 1/1）。x/z を === で文字通り比較することを具体値で示す。 区別: x/z をdon't-care として扱う実装は lit が 1x00 や 1z0z でも被覆し、transition が 1x でも被覆するため、lit/tr の 1/1 が早い行で現れる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b383e74922c45616d209a5a2322f37bfc68b5f0594805220d06a29a41a27abd6",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+              "contains": "    lit: coverpoint v { bins xz = {4'b1x0z}; }"
+            },
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+              "contains": "    tr: coverpoint w { bins xz = (4'b0x => 4'b1z); }"
+            },
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.expected",
+              "contains": "v=1x0z w=0000: lit 1/1 wild 0/1 tr 0/1 en 0/2"
+            },
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.expected",
+              "contains": "v=1z0z w=1z: lit 1/1 wild 0/1 tr 1/1 en 0/2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.4",
@@ -179810,7 +180939,25 @@
       "acceptance": "Ignored transitions shall not have unbounded or undetermined varying lengths.",
       "source_note": "IEEE 1800-2023 19.5.5; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_ignore_unbounded_transition.sv",
+          "observation": "ignore_bins の遷移に非連続繰り返し 1[=2] を使う。この列は長さが無限で変化するため、ignore_bins に許されない。期待する診断行がこの bin の行を指す。 区別: ignore_bins の無限長・不定長の列を受け付ける実装は設計を受け入れ、期待する診断を出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ab8a812c122037441745b583aba4ed6c36cf32404690a6543855aa7faff3366",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_ignore_unbounded_transition.sv",
+              "contains": "ignore_bins ig = (1[=2]);   // illegal: unbounded length"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_ignore_unbounded_transition.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_ignore_unbounded_transition\\.sv:26:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.5",
@@ -179949,7 +181096,25 @@
       "acceptance": "Illegal transition bins shall not specify unbounded or undetermined varying lengths.",
       "source_note": "IEEE 1800-2023 19.5.6; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_illegal_unbounded_transition.sv",
+          "observation": "illegal_bins の遷移に非連続繰り返し 1[=2] を使う。この列は長さが無限で変化するため、illegal_bins に許されない。期待する診断行がこの bin の行を指す。 区別: illegal_bins の無限長・不定長の列を受け付ける実装は設計を受け入れ、期待する診断を出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f19c35b8d75aff84de5e4795a8291a0f05ab8b6f852b9da600b476d585fe55a1",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_illegal_unbounded_transition.sv",
+              "contains": "illegal_bins ib = (1[=2]);   // illegal: unbounded length"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_illegal_unbounded_transition.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_illegal_unbounded_transition\\.sv:26:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.6",
@@ -180003,13 +181168,72 @@
       "acceptance": "An observed illegal value/transition issues a runtime error, taking precedence even when also included in other bins.",
       "source_note": "IEEE 1800-2023 19.5.6; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_illegal_value_error.sv",
+          "observation": "coverpoint bad の bin v={2,3} と illegal_bins b={3} で、3 を v から除いた後の bad が 1/1 になることを出力し、3 をサンプルして 44 行目の実行時エラーを起こす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fb68681383252b838d5252d2eb9e925e49b8a5983174b080cc7226d730c4ee2f",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_illegal_value_error.sv",
+              "contains": "      bins v = {2, 3};"
+            },
+            {
+              "file": "tests/ch19/test_cg_illegal_value_error.sv",
+              "contains": "      illegal_bins b = {3};"
+            },
+            {
+              "file": "tests/ch19/test_cg_illegal_value_error.expected",
+              "contains": "bad 1/1"
+            },
+            {
+              "file": "tests/ch19/test_cg_illegal_value_error.sv",
+              "contains": ":expected_stderr_regex: test_cg_illegal_value_error\\.sv:44:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_cg_illegal_transition_error.sv",
+          "observation": "coverpoint cp の t=(1=>2) と illegal_bins b=(1=>2) で、t を除いた cp が other だけの 1/1 になることを出力し、1 の次に 2 をサンプルして 46/47 行目の実行時エラーを起こす。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b8df9ae171f1b1f1021838912a846004acc8a6122fe88bc365fc840f0e881cff",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_illegal_transition_error.sv",
+              "contains": "      illegal_bins b = (1 => 2);"
+            },
+            {
+              "file": "tests/ch19/test_cg_illegal_transition_error.expected",
+              "contains": "cp 1/1"
+            },
+            {
+              "file": "tests/ch19/test_cg_illegal_transition_error.sv",
+              "contains": ":expected_stderr_regex: test_cg_illegal_transition_error\\.sv:(46|47):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.6",
           "blocks": [
             "B004"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "illegal-value-and-transition",
+          "tests": [
+            "tests/ch19/test_cg_illegal_value_error.sv",
+            "tests/ch19/test_cg_illegal_transition_error.sv"
+          ],
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "19.5.6 の illegal value と illegal transition の両方について、他の bin に含まれる値/遷移を観測したときの実行時エラーと優先を、2 本の負入力で示す。 区別: 違法値の優先を実装しない tool は 44 行目で、違法遷移の優先を実装しない tool は 46/47 行目で診断を出さない。片方だけでは要求全体の証拠にならない。"
         }
       ]
     },
@@ -180158,7 +181382,29 @@
       "acceptance": "Enum bin/point values use their base types in expression context during value resolution.",
       "source_note": "IEEE 1800-2023 19.5.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+          "observation": "enum e_t の E1 と E2 を式文脈で足した E1+E2 を bin add が 3 として受け、E3 のサンプルで 1/2 になる。range [E4:E6] は基底型の 4..6 として E5 を受け、2/2 になる。 区別: enum 値を enum 型のまま式文脈で扱う実装は E1+E2 が 3 にならず add が E3 を被覆せず、range の基底型解釈を誤ると E5 で rng が被覆されない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b383e74922c45616d209a5a2322f37bfc68b5f0594805220d06a29a41a27abd6",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+              "contains": "    en: coverpoint e { bins add = {E1 + E2}; bins rng = {[E4:E6]}; }"
+            },
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.expected",
+              "contains": "v=1100 w=0x: lit 1/1 wild 1/1 tr 1/1 en 1/2"
+            },
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.expected",
+              "contains": "v=1100 w=1x: lit 1/1 wild 1/1 tr 1/1 en 2/2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.7",
@@ -180176,7 +181422,37 @@
       "acceptance": "A signed negative bin value compared against an unsigned point type shall cause a warning.",
       "source_note": "IEEE 1800-2023 19.5.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_warn_negative_unsigned.sv",
+          "observation": "unsigned 3-bit の coverpoint u に signed の負値 -1 を単独 bin bad に、2 を bin good に入れる。期待する診断は warning で、-1 は bin から除かれるため bad は空で分母から除かれ、u=2 で 1/1、u=7 でも 1/1 のままになる。 区別: -1 を bin に残して unsigned 3-bit に cast する実装は bad が 7 を含み total が 2 になり、u=2 は 1/2、u=7 は 2/2 になる。警告を出さない実装は (?i)warn に一致しない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ee8461c2e962e078293dd054f2a89b8447f6d05d8e9ca0372bdcce0d077c8563",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_warn_negative_unsigned.sv",
+              "contains": "      bins bad = {-1};"
+            },
+            {
+              "file": "tests/ch19/test_cg_warn_negative_unsigned.sv",
+              "contains": "      bins good = {2};"
+            },
+            {
+              "file": "tests/ch19/test_cg_warn_negative_unsigned.expected",
+              "contains": "u=2: 1/1"
+            },
+            {
+              "file": "tests/ch19/test_cg_warn_negative_unsigned.expected",
+              "contains": "u=7: 1/1"
+            },
+            {
+              "file": "tests/ch19/test_cg_warn_negative_unsigned.sv",
+              "contains": ":expected_stderr_regex: (?i)warn"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.7",
@@ -180194,7 +181470,37 @@
       "acceptance": "A bin value changed under normal == comparison by assignment conversion to the point effective type shall cause a warning.",
       "source_note": "IEEE 1800-2023 19.5.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_warn_nonrepresentable.sv",
+          "observation": "unsigned 3-bit の coverpoint u に 8 を単独 bin bad に、7 を bin good に入れる。8 は 3-bit に代入すると 0 になり 8 と等しくないため warning とともに bin から除かれ、bad は空で分母から除かれる。u=7 は 1/1、u=0（cast 値）も 1/1 のまま。 区別: 8 を bin に残す実装は bad が 0 を含み total が 2 になり、u=7 は 1/2、u=0 は 2/2 になる。警告を出さない実装は (?i)warn に一致しない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6e07d503fb151763ff938f6563749d5952920451403ffc5e44168db81d40d4c6",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_warn_nonrepresentable.sv",
+              "contains": "      bins bad = {8};"
+            },
+            {
+              "file": "tests/ch19/test_cg_warn_nonrepresentable.sv",
+              "contains": "      bins good = {7};"
+            },
+            {
+              "file": "tests/ch19/test_cg_warn_nonrepresentable.expected",
+              "contains": "u=7: 1/1"
+            },
+            {
+              "file": "tests/ch19/test_cg_warn_nonrepresentable.expected",
+              "contains": "u=0: 1/1"
+            },
+            {
+              "file": "tests/ch19/test_cg_warn_nonrepresentable.sv",
+              "contains": ":expected_stderr_regex: (?i)warn"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.7",
@@ -180927,7 +182233,37 @@
       "acceptance": "A binsof select expression on a transition bin uses the transition last value.",
       "source_note": "IEEE 1800-2023 19.6.1.1; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_transition_binsof_last_value.sv",
+          "observation": "cross X は transition bin t12=(1=>2) と t32=(3=>2) を cb と交叉し、bin sel = binsof(tp) intersect {2} を持つ。サンプル 1,2 で t12 が完了し、sel が 1/1 になる。最後の値 2 を使うため、最初の値 1 や 3 では選ばれない。3,2 でも t32 が sel に入り 1/1 のまま。 区別: binsof が遷移の最初の値を使う実装では {2} と交差する bin がなく sel が空になり、(2,0) で 1/1 にならない。最後の値を使う実装だけが 1/1 を出す。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "12876949a3b695081c401bea4032b99fd08ab9c2318f37f94b902ae74661be21",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_transition_binsof_last_value.sv",
+              "contains": "      bins sel = binsof(tp) intersect {2};"
+            },
+            {
+              "file": "tests/ch19/test_cg_transition_binsof_last_value.sv",
+              "contains": "      bins t12 = (1 => 2);"
+            },
+            {
+              "file": "tests/ch19/test_cg_transition_binsof_last_value.sv",
+              "contains": "      bins t32 = (3 => 2);"
+            },
+            {
+              "file": "tests/ch19/test_cg_transition_binsof_last_value.expected",
+              "contains": "(2,0): x 1/1"
+            },
+            {
+              "file": "tests/ch19/test_cg_transition_binsof_last_value.expected",
+              "contains": "(2,1): x 1/1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.6.1.1",
@@ -181074,7 +182410,25 @@
       "acceptance": "The enclosing cross identifier denotes all possible bin tuples; another cross identifier is prohibited in this selection.",
       "source_note": "IEEE 1800-2023 19.6.1.2; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_self_cross_other.sv",
+          "observation": "cross X1 の bin all は自分自身の cross 識別子 X1 を with 付きで使い、全 bin tuple を選ぶ合法例。cross X2 の bin bad は別の cross X1 を使うため 30 行目がエラーになる。 区別: 別の cross 識別子を select 式で受け付ける実装は設計を受け入れ、30 行目の診断を出さない。自分の cross 識別子も拒否する実装は X1 の all で先にエラーになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "38082f64450f998e8025db8fee7cd89a603dce1aa3766cc5703f4817e138e050",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_self_cross_other.sv",
+              "contains": "bins bad = X1 with (1);   // illegal: another cross identifier"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_self_cross_other.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_self_cross_other\\.sv:30:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.6.1.2",
@@ -181363,7 +182717,37 @@
       "acceptance": "illegal_bins excludes selected products from coverage and issues runtime errors on matches, even when the product is explicitly ignored or included in another bin.",
       "source_note": "IEEE 1800-2023 19.6.3; complete own-body source review, blocks B002, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_illegal_cross_error.sv",
+          "observation": "covergroup ex では ignore_bins が積 <0,0>、illegal_bins が積 <0,1> を選び、残る <1,0> と <1,1> だけをサンプルして 2/2 100.00 になる。covergroup cg では <0,1>（ignored）と <1,0>（自動）をエラーなくサンプルした後、<1,1>（both と ig と bad のすべてに含まれる）をサンプルして実行時エラーを起こす。 区別: 違法積を分母から除かない実装は ex が 2/2 100.00 にならず、違法積が他の bin や ignore に含まれる場合にエラーを出さない実装は 68 行目の診断を出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5ff93189e15ae7f286e94716f40365c9b11b9a903ee7e45c1b2b38ce1149d5bd",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_illegal_cross_error.sv",
+              "contains": "      ignore_bins ig = binsof(ca) intersect {0} && binsof(cb) intersect {0};"
+            },
+            {
+              "file": "tests/ch19/test_cg_illegal_cross_error.sv",
+              "contains": "      illegal_bins bad = binsof(ca) intersect {0} && binsof(cb) intersect {1};"
+            },
+            {
+              "file": "tests/ch19/test_cg_illegal_cross_error.sv",
+              "contains": "      illegal_bins bad = binsof(ca) intersect {1} && binsof(cb) intersect {1};"
+            },
+            {
+              "file": "tests/ch19/test_cg_illegal_cross_error.expected",
+              "contains": "ex 2/2 100.00"
+            },
+            {
+              "file": "tests/ch19/test_cg_illegal_cross_error.sv",
+              "contains": ":expected_stderr_regex: test_cg_illegal_cross_error\\.sv:68:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.6.3",
@@ -182939,7 +184323,29 @@
       "acceptance": "Instance option name is a string defaulting to a unique tool-generated instance name.",
       "source_note": "IEEE 1800-2023 19.7; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
+          "observation": "同じ covergroup cg の 2 インスタンス g1/g2 の既定 option.name が空でなく互いに異なること（names nonempty 1 1 different 1）を出力し、cg3 では option.name を \"named\" に設定して読み戻す（set \"named\"）。 区別: 既定名を空にする、または全インスタンスで同じにする実装は different の欄が 0 または nonempty が 0 になり、option.name の設定を無視する実装は set \"named\" にならない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "42eb3648b18cb17bbc0d87279b22e2b936edc4f03d0da9301dd8725c4f2f4705",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
+              "contains": "    option.name = \"named\";"
+            },
+            {
+              "file": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
+              "contains": "$display(\"names nonempty %0d %0d different %0d, set \\\"%s\\\"\", g1.option.name != \"\","
+            },
+            {
+              "file": "tests/ch19/test_cg_option_name_unique_and_retain_scope.expected",
+              "contains": "names nonempty 1 1 different 1, set \"named\""
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7",
@@ -182993,7 +184399,25 @@
       "acceptance": "Different group instances shall not initialize different type option values; declaration initializers must be constant expressions.",
       "source_note": "IEEE 1800-2023 19.7.1; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_type_option_formal.sv",
+          "observation": "covergroup cg は type_option.weight をコンストラクタ引数 w から初期化し、g1 = new(1) と g2 = new(2) が異なる値を与える。type option の初期化子は定数式でなければならないため 26 行目がエラーになる。cg2 は定数 3 を使い 2 インスタンスで同じ値になる合法例。 区別: 非定数の type option 初期化子を受け付ける実装は設計を受け入れ、26 行目の診断を出さない。定数の type option も拒否する実装は cg2 で先にエラーになる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8b3025d2bf1ef006cb1f5aba1acf00437d5fe59818fee215b3c1046cd75f93a0",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_type_option_formal.sv",
+              "contains": "type_option.weight = w;   // illegal: not a constant expression"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_type_option_formal.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_type_option_formal\\.sv:26:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.7.1",
@@ -185456,7 +186880,29 @@
       "acceptance": "With coverpoints i and j of two explicit bins each, option.cross_retain_auto_bins = 0 set at the covergroup level, and cross x2 of i, j declaring only bins i_zero = binsof(i) intersect {0}, x2.get_inst_coverage(covered, total) reports total = 1 and returns 100.0 once i_zero has been hit; with the option at its default the same cross reports total = 3 (i_zero plus two retained automatic bins).",
       "source_note": "IEEE 1800-2023 19.11.2; complete own-body source review, blocks B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable. Interpretation issue CROSS-AUTO-COVERAGE-DENOMINATOR resolved on 2026-10-24: Entire source reviewed; Bc is the number of auto-cross bins actually present (B005), equal to product minus user products while automatic bins are retained and zero when cross_retain_auto_bins is false with an explicit cross bin (Table 19-1 B014).",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
+          "observation": "2 つの coverpoint が各 2 bin、user bin が 2 積を選ぶ cross で、cross_retain_auto_bins=1 の w と y は total 3（積 4 - user 積 2 + user bin 1）、0 の x と v は total 1 になる。期待出力の (0,0): x 1/1 w 1/3 y 1/3 v 1/1 が Bc = product - Bb と Bc=0 の両分岐を数で示す。 区別: Bc を常に product のままにすると retain=0 の total が 1 にならず、Bc を常に 0 にすると retain=1 の total が 3 にならない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "42eb3648b18cb17bbc0d87279b22e2b936edc4f03d0da9301dd8725c4f2f4705",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
+              "contains": "option.cross_retain_auto_bins = 0;"
+            },
+            {
+              "file": "tests/ch19/test_cg_option_name_unique_and_retain_scope.sv",
+              "contains": "bins sel = binsof(ca) intersect {0};"
+            },
+            {
+              "file": "tests/ch19/test_cg_option_name_unique_and_retain_scope.expected",
+              "contains": "(0,0): x 1/1 w 1/3 y 1/3 v 1/1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.11.2",
@@ -185475,7 +186921,29 @@
       "acceptance": "Cross coverage equals covered contributing bins / (actual automatic cross bins + significant user cross bins), excluding ignore/illegal user bins.",
       "source_note": "IEEE 1800-2023 19.11.2; complete own-body source review, blocks B002, B003, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_cross_select_bins.sv",
+          "observation": "cross x は binsof/intersect/!/&&/|| で 3 つの user bin を作り、ignore_bins が user bin からも積を除き、分母を自動積と有効な user bin の和にする。期待出力の (3,2): x 0/3 0.00 から (2,1): x 3/3 100.00 までが、被覆積/(Bc+Bu) を具体値で示す。 区別: ignore_bins を分母から除かない、または user bin の積を二重に数える実装では x の total が 3 にならず、5 行の被覆率が変わらない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "471e5823a04fcd4dff13f08701929abc970164c0e4d01323e7dfaf8b2b0938f0",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_cross_select_bins.sv",
+              "contains": "ignore_bins"
+            },
+            {
+              "file": "tests/ch19/test_cg_cross_select_bins.expected",
+              "contains": "(3,2): x 0/3 0.00, y 1/3 33.33"
+            },
+            {
+              "file": "tests/ch19/test_cg_cross_select_bins.expected",
+              "contains": "(2,1): x 3/3 100.00, y 3/3 100.00"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.11.2",
@@ -185582,7 +187050,7 @@
           "observation": "3ビット a の coverpoint au を auto_bin_max=4 とし、m1 は ignore_bins {2,6} と illegal_bins {5,7}、m2 は ignore_bins {3,6} と illegal_bins {4,7} を持つ。m1 が3、m2 が2をサンプルした時点で 33.33、さらに m2 が5をサンプルすると 66.67 になることを比べる。 区別: 自動ビン名 auto[0:1]/auto[2:3]/auto[4:5]/auto[6:7] が ignore/illegal 値で変わる実装では、3回のサンプルで被覆されるビンの数が変わり 33.33/66.67 にならない。auto[6:7] が両インスタンスで空になるため型ビンが3個になり、m1 と m2 が共有する auto[2:3] が1個として数えられることが、この2つの数値に対応する。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+          "inputs_sha256": "2031c023dba68e157747ddb41deabf4c08a7fbda64ffbb53f8cccf6a85bff2b4",
           "evidence": [
             {
               "file": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
@@ -185618,7 +187086,7 @@
           "observation": "merge_instances=1 の cg_x で、n1/n2 (auto_bin_max 8) と n3 (auto_bin_max 4) が各 1 回 (0,0) をサンプルする。自動 cross ビンは名前 <auto[..],auto[..]> が一致する n1/n2 の 16 個だけが重なり、n3 の 8 個は別名なので型は 24 ビン中 2 個で 8.33%、ca は 12 ビン中 2 個で 16.67%。 区別: 値の組で自動 cross ビンを同一視する誤実装では n3 の <auto[0:1],auto[0]> が n1/n2 の <auto[0],auto[0]> と重なり、分母 16・2/16=12.50 となって 8.33/16.67 の行が変わる。",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+          "inputs_sha256": "2031c023dba68e157747ddb41deabf4c08a7fbda64ffbb53f8cccf6a85bff2b4",
           "evidence": [
             {
               "file": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
@@ -185786,7 +187254,7 @@
           "observation": "merge_instances=1 の covergroup cg_tr で、単一の遷移ビン bins one_t = (s => 1, 2) を3インスタンス k1(s=0), k2(s=3), k3(s=0) に持たせる。k1 が 0=>1、k3 が 0=>2 をサンプルし、期待出力 one_t 100.00 は、one_t が全インスタンスで同じ名前の1ビンとして重なり、そのビンが被覆されたことを比べる。 区別: 単一の名前付きビンをインスタンスごとに別ビンとして数える実装では、cg_tr の型ビンが3個（またはそれ以上）になり、1個だけ被覆されて 33.33 などになる。期待値 100.00 は、one_t が全インスタンスで同一名の1ビンとして重なり、k1 と k3 のどちらのサンプルでも同じビンが被覆されたことを示す。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+          "inputs_sha256": "2031c023dba68e157747ddb41deabf4c08a7fbda64ffbb53f8cccf6a85bff2b4",
           "evidence": [
             {
               "file": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
@@ -185822,7 +187290,7 @@
           "observation": "merge_instances=1 の cg_tr で、遷移ビン配列 bins t[] = (s => 1, 2) を3インスタンスに持たせる。k1(s=0) と k3(s=0) は t[0=>1] と t[0=>2] を共有し、k2(s=3) は t[3=>1] と t[3=>2] を持つ。k1 が 0=>1、k3 が 0=>2 をサンプルし、期待出力 t 50.00 は、型の和集合が4ビンでそのうち2ビンが被覆されたことを比べる。 区別: 遷移配列のビンを遷移名で重ねずインスタンスごとに別ビンとする実装では、型ビンが4個より多くなり 50.00 にならない。遷移名を無視してすべて同じビンにまとめる実装では1ビンになり 100.00 になる。期待値 50.00 は、t[0=>1] と t[0=>2] が k1/k3 で重なり、t[3=>1] と t[3=>2] が k2 で別ビンとして残ることを示す。",
           "reviewed_on": "2026-10-25",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "d0f0ae59caf398bbb3dddcc0cfb90b4dce9f21b8b693fd95f84fe9d0748e8b8c",
+          "inputs_sha256": "2031c023dba68e157747ddb41deabf4c08a7fbda64ffbb53f8cccf6a85bff2b4",
           "evidence": [
             {
               "file": "tests/ch19/test_cg_merge_auto_and_transition_names.sv",
@@ -199557,7 +201025,33 @@
       "acceptance": "%p/%P selects assignment pattern output.",
       "source_note": "IEEE 1800-2023 21.2.1.1; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_pattern_format_enum_value.sv",
+          "observation": "有効な enum 値を %p と %P で表示し、%d の数値ではなくパターン要素の書式である列挙名 ON が 出ることを確認する。 区別: %p や %P を基数変換として扱う実装では valid=1 や upper=1 になり、「valid=ON」「upper=ON」と一致しない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ac4e176c219512a895218c205c6151fbc10b1cce49a93fa8e4905b0a624953e5",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_pattern_format_enum_value.sv",
+              "contains": "    $display(\"valid=%p\", valid);"
+            },
+            {
+              "file": "tests/ch21/test_pattern_format_enum_value.sv",
+              "contains": "    $display(\"upper=%P\", valid);"
+            },
+            {
+              "file": "tests/ch21/test_pattern_format_enum_value.expected",
+              "contains": "valid=ON"
+            },
+            {
+              "file": "tests/ch21/test_pattern_format_enum_value.expected",
+              "contains": "upper=ON"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.1",
@@ -201823,7 +203317,29 @@
       "acceptance": "Pattern output uses a valid enum value name, otherwise its base-type representation.",
       "source_note": "IEEE 1800-2023 21.2.1.6; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_pattern_format_enum_value.sv",
+          "observation": "有効な enum 値 ON を名前で、範囲外の mode_t'(9) を基底型 int の未書式表示である 9 で 表示することを確認する。 区別: 範囲外の値も列挙名で出そうとする実装、または有効値も数値で出す実装ではinvalid 行か valid 行が期待と変わる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ac4e176c219512a895218c205c6151fbc10b1cce49a93fa8e4905b0a624953e5",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_pattern_format_enum_value.sv",
+              "contains": "  mode_t invalid = mode_t'(9);"
+            },
+            {
+              "file": "tests/ch21/test_pattern_format_enum_value.expected",
+              "contains": "invalid=9"
+            },
+            {
+              "file": "tests/ch21/test_pattern_format_enum_value.expected",
+              "contains": "valid=ON"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.6",
@@ -202713,7 +204229,33 @@
       "acceptance": "File descriptors cannot be OR-combined to broadcast to multiple files.",
       "source_note": "IEEE 1800-2023 21.3.1; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_fd_no_broadcast.sv",
+          "observation": "2 つのファイル記述子をビットごとの OR にして 1 語を書き、その後に各記述子へ 1 語ずつ 書いて両ファイルを読み、OR の語が両方には現れず、各記述子の語は各自のファイルに現れることを 確認する。 区別: ファイル記述子の OR をマルチチャネルのように扱う実装では combined が両ファイルに現れ、「the OR does not write to both files」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6367aac0935a4b45d0de9a1cb351b3c260d624fce88c7775d6868a9af5bcd455",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fd_no_broadcast.sv",
+              "contains": "    both = fd1 | fd2;"
+            },
+            {
+              "file": "tests/ch21/test_fd_no_broadcast.sv",
+              "contains": "    $fwrite(both, \"combined\\n\");"
+            },
+            {
+              "file": "tests/ch21/test_fd_no_broadcast.expected",
+              "contains": "the OR does not write to both files: 1"
+            },
+            {
+              "file": "tests/ch21/test_fd_no_broadcast.expected",
+              "contains": "each descriptor writes its own file: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.3.1",
@@ -206954,7 +208496,25 @@
       "acceptance": "The load target may be an unpacked array or partially indexed multidimensional unpacked array; higher selected dimensions require indices rather than ranges, and only the lowest selected dimension may use a slice.",
       "source_note": "IEEE 1800-2023 21.4; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_readmem_higher_range.sv",
+          "observation": "2 次元配列 m[0:1][0:2] の最高次元を範囲 m[0:1] で選ぶ $readmemh を書く。21.4 はより高い次元を索引で指定し、スライスを最下位次元だけに許す。 区別: 最高次元の範囲指定を受け入れる実装は設計を受け付け、21 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7a28d61b3fc19f9517587b933400d9c117f083a8e9a4528a9e82bf76c0130713",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_readmem_higher_range.sv",
+              "contains": ":should_fail_because: the load target m[0:1] applies a range to the highest dimension"
+            },
+            {
+              "file": "tests/ch21/test_illegal_readmem_higher_range.sv",
+              "contains": ":expected_stderr_regex: test_illegal_readmem_higher_range\\.sv:21:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.4",
@@ -207064,7 +208624,25 @@
       "acceptance": "Start/finish select addresses of the target highest unpacked dimension and shall fall within an explicitly selected slice.",
       "source_note": "IEEE 1800-2023 21.4; complete own-body source review, blocks B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_readmem_address_outside_slice.sv",
+          "observation": "スライス m[0][0:2]（範囲 0〜2）に開始 3・終了 5 を渡す $readmemh を書く。21.4 はスライス使用時の開始・終了をスライスの範囲内に限る。 区別: スライス外のアドレスを受け入れる実装は設計を受け付け、21 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "bb59b2227194345d749d590b7cfba70500695c2031fb1f4a1778749b9516d81d",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_readmem_address_outside_slice.sv",
+              "contains": ":should_fail_because: the start and finish addresses 3 and 5 lie outside the slice m[0][0:2]"
+            },
+            {
+              "file": "tests/ch21/test_illegal_readmem_address_outside_slice.sv",
+              "contains": ":expected_stderr_regex: test_illegal_readmem_address_outside_slice\\.sv:21:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.4",
@@ -207243,7 +208821,25 @@
       "acceptance": "Associative memory indices shall be integral; a loaded new address creates its element, and enum index addresses use their associated numeric values.",
       "source_note": "IEEE 1800-2023 21.4.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_readmem_assoc_string_index.sv",
+          "observation": "string を索引とする連想配列 int m[string] を $readmemh に渡す。21.4.1 は連想配列の索引を整数型に限る。 区別: string 索引の連想配列へのロードを受け入れる実装は設計を受け付け、20 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2422cc60b290e269e6bf504aa8435cffb0cc30f1ebd3d253fe256b2ec7f20ea1",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_readmem_assoc_string_index.sv",
+              "contains": ":should_fail_because: the associative array m passed to $readmemh has string indices"
+            },
+            {
+              "file": "tests/ch21/test_illegal_readmem_assoc_string_index.sv",
+              "contains": ":expected_stderr_regex: test_illegal_readmem_assoc_string_index\\.sv:20:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.4.1",
@@ -207833,7 +209429,25 @@
       "acceptance": "Associative memory writes shall emit @ address words and require integral index types.",
       "source_note": "IEEE 1800-2023 21.5.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_writemem_assoc_string_index.sv",
+          "observation": "string を索引とする連想配列 int m[string] を $writememh に渡す。21.5.3 は連想配列の索引を整数型に限る。 区別: string 索引の連想配列の書き出しを受け入れる実装は設計を受け付け、22 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4bf67f6f5dcce4c7a6284a3cecbce8960ce7ec815348564b0ea24038fb37e4b6",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_writemem_assoc_string_index.sv",
+              "contains": ":should_fail_because: the associative array m passed to $writememh has string indices"
+            },
+            {
+              "file": "tests/ch21/test_illegal_writemem_assoc_string_index.sv",
+              "contains": ":expected_stderr_regex: test_illegal_writemem_assoc_string_index\\.sv:22:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.5.3",
@@ -207965,7 +209579,25 @@
       "acceptance": "test-plusargs accepts a string or integral character-string variable, ignores leading nulls in a variable, and requires the query to omit the command-line plus sign.",
       "source_note": "IEEE 1800-2023 21.6; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_test_plusargs_real_argument.sv",
+          "observation": "real 変数 r を $test$plusargs の引数にする。21.6 は引数を string か文字列を表す整数型に限る。 区別: real を文字列として受け入れる実装は設計を受け付け、19 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "df6075db41d8247f4536de6748c71e3f3d9f082e12b8eb82bfd52bdab6db1576",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_test_plusargs_real_argument.sv",
+              "contains": ":should_fail_because: the argument of $test$plusargs is the real variable r"
+            },
+            {
+              "file": "tests/ch21/test_illegal_test_plusargs_real_argument.sv",
+              "contains": ":expected_stderr_regex: test_illegal_test_plusargs_real_argument\\.sv:19:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.6",
@@ -208035,7 +209667,25 @@
       "acceptance": "value-plusargs accepts a string or integral character-string first argument, ignores leading nulls in a variable, and requires omission of the command-line plus sign.",
       "source_note": "IEEE 1800-2023 21.6; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_value_plusargs_real_argument.sv",
+          "observation": "real 変数 r を $value$plusargs の第 1 引数にする。21.6 は第 1 引数を string か文字列を 表す整数型に限る。 区別: real を文字列として受け入れる実装は設計を受け付け、20 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "019e73a31307c76cf5003de2f798296ab2e85b9717f779d024c7aa123e8a99ae",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_value_plusargs_real_argument.sv",
+              "contains": ":should_fail_because: the first argument of $value$plusargs is the real variable r"
+            },
+            {
+              "file": "tests/ch21/test_illegal_value_plusargs_real_argument.sv",
+              "contains": ":expected_stderr_regex: test_illegal_value_plusargs_real_argument\\.sv:20:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.6",
@@ -208442,7 +210092,25 @@
       "acceptance": "The value-plusargs user string consists of the plusarg prefix and conversion format; only the specified conversion formats are valid, with uppercase/lowercase and leading-zero variants accepted.",
       "source_note": "IEEE 1800-2023 21.6; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_value_plusargs_bad_format.sv",
+          "observation": "ユーザー文字列 \"COUNT%q\" を使う。21.6 が許す変換は %d %o %h %x %b %e %f %g %s だけで、%q は含まれない。 区別: 任意の変換を受け入れる実装は設計を受け付け、21 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a4d9041b29683711b4f1fe8569cdabfa47bf6a1e93f2df8b0fdf72d273d9d57a",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_value_plusargs_bad_format.sv",
+              "contains": ":should_fail_because: the user string \"COUNT%q\" uses the conversion %q"
+            },
+            {
+              "file": "tests/ch21/test_illegal_value_plusargs_bad_format.sv",
+              "contains": ":expected_stderr_regex: test_illegal_value_plusargs_bad_format\\.sv:21:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.6",
@@ -208939,7 +210607,33 @@
       "acceptance": "A depth of zero includes each selected module and all its descendants; depth selection does not apply to individual variable arguments.",
       "source_note": "IEEE 1800-2023 21.7.1.2; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_filename_string_and_depth_zero.sv",
+          "observation": "$dumpvars(0, mid) が mid とその子 lf の変数を出し、別の呼び出しの $dumpvars(0, other.of.lv) が lv だけを出して深さ 0 を変数引数に適用しないことを、階層名を組み立てて確認する。 区別: 深さ 0 を子孫に広げない実装では mid.lf.lv が無く、深さを変数引数にも適用する実装では other.ov が現れ、2 行目か 3 行目が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6a81cde44e9e6315ccb2db2988f65e29938ba866cd3e1fb7384b7d15558ffe22",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_filename_string_and_depth_zero.sv",
+              "contains": "    $dumpvars(0, mid);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_filename_string_and_depth_zero.sv",
+              "contains": "    $dumpvars(0, other.of.lv);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_filename_string_and_depth_zero.expected",
+              "contains": "the depth-zero instance is dumped: 1"
+            },
+            {
+              "file": "tests/ch21/test_vcd_filename_string_and_depth_zero.expected",
+              "contains": "the variable below it is dumped alone: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.1.2",
@@ -209237,7 +210931,33 @@
       "acceptance": "Argumentless dumpflush empties the operating-system VCD buffer into the file and resumes dumping as before without losing value changes.",
       "source_note": "IEEE 1800-2023 21.7.1.6; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_dumpflush_resume.sv",
+          "observation": "時刻 10 の変更の後に $dumpflush してファイルを読み、さらに時刻 30 の変更の後に再度 $dumpflush して全体を読み直し、前の変更が残り新しい変更が加わることを確認する。 区別: $dumpflush の後にダンプを再開しない実装では時刻 30 の値が無く、バッファを書き出さない実装では 1 回目の読み出しで時刻 10 の値が無い。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "37147eaca46e3261d285ffa2d69a656b231d204fdbb79e9bbaf33e2dd8dcca67",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_dumpflush_resume.sv",
+              "contains": "    #10 $dumpflush;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpflush_resume.sv",
+              "contains": "    scan(2);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpflush_resume.expected",
+              "contains": "dumping continues and the new change is in the file: 1"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpflush_resume.expected",
+              "contains": "the change before the first flush is in the file: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.1.6",
@@ -209511,7 +211231,25 @@
       "acceptance": "Events use scalar VCD syntax; their value character is irrelevant and the identifier marks a trigger in that time step.",
       "source_note": "IEEE 1800-2023 21.7.2.2; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+          "observation": "event ev を時刻 10 でトリガし、ev の識別子が時刻 10 のスカラー値変化として現れ、ベクトル形ではないことを確認する。 区別: イベントをベクトルとして書く、またはトリガ時刻に識別子を出さない実装では「the event id marks a scalar at its trigger time」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "90ada96e001c958592f902bedb5e7d054a6b1f3897cb4e904ca53f76ea27089a",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+              "contains": "    #10 -> ev;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.expected",
+              "contains": "the event id marks a scalar at its trigger time: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.2",
@@ -209565,7 +211303,25 @@
       "acceptance": "VCD vector reconstruction extends a leading 0 with 0.",
       "source_note": "IEEE 1800-2023 21.7.2.2; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+          "observation": "8'b0000_0101 をダンプし、先頭の 0 を落とした最短形 b101 になることを確認する。 区別: 先頭 0 を 1 で伸ばす、または常に全 8 桁を書く実装では zero_digits が 101 にならず、「no redundant left-extension digits」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "90ada96e001c958592f902bedb5e7d054a6b1f3897cb4e904ca53f76ea27089a",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+              "contains": "  logic [7:0] zero_pad = 8'b0000_0101;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.expected",
+              "contains": "no redundant left-extension digits: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.2",
@@ -209655,7 +211411,25 @@
       "acceptance": "VCD vector reconstruction extends a leading z with z.",
       "source_note": "IEEE 1800-2023 21.7.2.2; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+          "observation": "8'bzzzz_0101 をダンプし、先頭の z を z で伸ばした最短形 bz0101 になることを確認する。 区別: 先頭 z を 0 や x で伸ばす実装では z_digits が z0101 にならず、「no redundant left-extension digits」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "90ada96e001c958592f902bedb5e7d054a6b1f3897cb4e904ca53f76ea27089a",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+              "contains": "  logic [7:0] z_pad = 8'bzzzz_0101;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.expected",
+              "contains": "no redundant left-extension digits: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.2",
@@ -209713,7 +211487,29 @@
       "acceptance": "A vector VCD base letter immediately precedes digits without whitespace, and exactly one whitespace separates digits from the identifier.",
       "source_note": "IEEE 1800-2023 21.7.2.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+          "observation": "ベクトル値の直後の 2 文字を読み、数字と識別子の間に空白がちょうど 1 個あり、スカラー値では 値と識別子の間に空白がないことを確認する。 区別: 基数文字と数字の間に空白を入れる、数字と識別子の間に 2 個以上の空白を入れる、またはスカラーに空白を入れる実装では、対応する行が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "90ada96e001c958592f902bedb5e7d054a6b1f3897cb4e904ca53f76ea27089a",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+              "contains": "        if (!is_space(c1) || c2 < 0 || is_space(c2)) spacing_ok = 0;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.expected",
+              "contains": "vector values have one space before the identifier: 1"
+            },
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.expected",
+              "contains": "scalar values have no space before the identifier: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.2",
@@ -210110,7 +211906,25 @@
       "acceptance": "A uwire net uses the VCD var_type wire.",
       "source_note": "IEEE 1800-2023 21.7.2.3; complete own-body source review, blocks B023. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "uwire ネット uw をダンプし、その $var の型が wire になることを確認する。 区別: uwire という独自の型名を書く実装では「uwire maps to wire」が 0 になり、1364 型集合の検査にも反する。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  uwire uw;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "uwire maps to wire: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.3",
@@ -210304,7 +212118,25 @@
       "acceptance": "Multiple dumpports calls shall execute at the same simulation time and shall not repeat a filename.",
       "source_note": "IEEE 1800-2023 21.7.3.1; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_dumpports_repeated_filename.sv",
+          "observation": "同じシミュレーション時刻 0 の 2 回の $dumpports 呼び出しで同じファイル名 ports.evcd を 指定する。21.7.3.1 は同一ファイル名の反復を禁じる。 区別: 同じファイル名の反復を受け入れる実装は設計を受け付け、29 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "165fe371427770c4d923c17211298e4a1dc41a84926c9f66997d4892db6ef18f",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_dumpports_repeated_filename.sv",
+              "contains": ":should_fail_because: both $dumpports calls name the file ports.evcd"
+            },
+            {
+              "file": "tests/ch21/test_illegal_dumpports_repeated_filename.sv",
+              "contains": ":expected_stderr_regex: test_illegal_dumpports_repeated_filename\\.sv:29:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.3.1",
@@ -210472,7 +212304,25 @@
       "acceptance": "Every dumpports scope shall be unique within a call and across multiple calls.",
       "source_note": "IEEE 1800-2023 21.7.3.1; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_dumpports_duplicate_scope.sv",
+          "observation": "同一の $dumpports 呼び出しでモジュール m をスコープとして 2 回指定する。21.7.3.1 は 各スコープと複数呼び出し間のスコープを一意にする。 区別: 重複スコープを受け入れる実装は設計を受け付け、25 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b22e59e5755bb1441f3109d99953479e9a791d5eeab91f321e5297ad7fb1a3e4",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_dumpports_duplicate_scope.sv",
+              "contains": ":should_fail_because: the scope list of $dumpports names the module m twice"
+            },
+            {
+              "file": "tests/ch21/test_illegal_dumpports_duplicate_scope.sv",
+              "contains": ":expected_stderr_regex: test_illegal_dumpports_duplicate_scope\\.sv:25:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.3.1",
@@ -210490,7 +212340,25 @@
       "acceptance": "dumpports accepts comma-separated module identifiers and hierarchical module paths, not variable arguments or string literals; an omitted scope selects its calling module.",
       "source_note": "IEEE 1800-2023 21.7.3.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_dumpports_string_scope.sv",
+          "observation": "$dumpports のスコープに文字列リテラル \"m\" を渡す。21.7.3.1 はモジュール識別子と 階層パスだけを許し、文字列リテラルを許さない。 区別: 文字列リテラルをスコープとして受け入れる実装は設計を受け付け、23 行目のエラーを出さない。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "22341e76d3a5c2943e1639ecbbaf1c06e42add72be4bdb7dd6dc6e61af8fb16a",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_dumpports_string_scope.sv",
+              "contains": ":should_fail_because: the scope argument of $dumpports is the string literal \"m\""
+            },
+            {
+              "file": "tests/ch21/test_illegal_dumpports_string_scope.sv",
+              "contains": ":expected_stderr_regex: test_illegal_dumpports_string_scope\\.sv:23:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.3.1",
@@ -213606,7 +215474,25 @@
       "acceptance": "SystemVerilog types are represented by existing IEEE 1364-2005 VCD types rather than extending that format.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "bit/logic/byte/shortint/longint/int/enum/shortreal/uwire/packed 配列・構造体をダンプし、現れたすべての var 型が IEEE 1364-2005 の型集合に属することを確認する。 区別: SystemVerilog の型名や新しい var 型を VCD に書く実装では「every var type is an IEEE 1364-2005 type」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  function automatic bit is_1364_type(string text);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "every var type is an IEEE 1364-2005 type: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -213624,7 +215510,29 @@
       "acceptance": "Packed arrays and structures dump as a single reg vector, collapsing multiple packed dimensions.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "logic [1:0][3:0] pa と packed struct ps をダンプし、どちらも 8 ビットの単一 reg として 宣言されることを確認する。 区別: パック次元ごとに別の var を出す、または構造体のメンバーを分ける実装では「packed arrays and structures are one reg vector」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  logic [1:0][3:0] pa = 8'h3c;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  packed_struct_t ps = 8'ha5;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "packed arrays and structures are one reg vector: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -213642,7 +215550,25 @@
       "acceptance": "VCD maps bit to reg using total packed-dimension size.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "bit b1 と bit [3:0] b4 をダンプし、reg 1 と reg 4 になることを確認する。 区別: bit を integer にする、またはパック次元の合計をサイズにしない実装では「bit is reg with its packed width」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  bit [3:0] b4 = 4'h9;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "bit is reg with its packed width: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -213660,7 +215586,25 @@
       "acceptance": "VCD maps byte to reg using 8 bits.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "byte by をダンプし、reg 8 になることを確認する。 区別: byte を integer 32 にする、または幅を 8 にしない実装では「byte shortint longint and int map to their sizes」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  byte by = 8'ha5;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "byte shortint longint and int map to their sizes: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -213678,7 +215622,25 @@
       "acceptance": "VCD maps default enum to integer using 32 bits.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "基底型を書かない enum の変数 de をダンプし、integer 32 になることを確認する。 区別: 既定 enum を reg や列挙名で書く実装では「an untyped enum is integer 32」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  typedef enum {AA, BB} de_t;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "an untyped enum is integer 32: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -213768,7 +215730,25 @@
       "acceptance": "VCD maps longint to reg using 64 bits.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "longint li をダンプし、reg 64 になることを確認する。 区別: longint を integer 32 や reg 32 にする実装では「byte shortint longint and int map to their sizes」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  longint li = 64'h1234_5678_9abc_def0;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "byte shortint longint and int map to their sizes: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -213786,7 +215766,25 @@
       "acceptance": "VCD maps shortint to reg using 16 bits.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "shortint si をダンプし、reg 16 になることを確認する。 区別: shortint を integer 32 や reg 8 にする実装では「byte shortint longint and int map to their sizes」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  shortint si = 16'h1234;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "byte shortint longint and int map to their sizes: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -213804,7 +215802,25 @@
       "acceptance": "VCD maps shortreal to real using the real format.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "shortreal sr をダンプし、var 型が real になることを確認する。 区別: shortreal を reg 32 や独自の型で書く実装では「shortreal maps to real」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  shortreal sr = 0.25;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "shortreal maps to real: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -213822,7 +215838,29 @@
       "acceptance": "An explicitly typed enum dumps using its declared type rather than the default enum mapping.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_type_mappings.sv",
+          "observation": "基底型 byte と logic [7:0] を明示した enum の変数 se と le をダンプし、どちらも reg 8 に なり、既定の integer 32 にならないことを確認する。 区別: 基底型を無視して常に integer 32 にする実装では「a typed enum uses its declared type」が 0 になる。",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  typedef enum byte {X1 = 1, X2 = 2} se_t;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.sv",
+              "contains": "  typedef enum logic [7:0] {Y1 = 3, Y2 = 4} le_t;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_type_mappings.expected",
+              "contains": "a typed enum uses its declared type: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",

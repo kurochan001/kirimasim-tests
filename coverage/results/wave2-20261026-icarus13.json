@@ -1,0 +1,266 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch16/test_cover_property_sequence_counters": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_cover_property_sequence_counters.sv:34: sorry: concurrent_assertion_item not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+   "inputs_sha256": "273b73a3ed455935832439b249a6c27d9e24c04a06bac53c8ed41902cd39c606"
+  },
+  "ch16/test_deferred_flush_points": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_deferred_flush_points.sv:48: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+   "inputs_sha256": "40ed732b6a43729732047f19f9ff5518aa08848221596129a2663159813005fb"
+  },
+  "ch16/test_deferred_immediate_syntax_placement": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_deferred_immediate_syntax_placement.sv:37: sorry: Deferred assertions are not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+   "inputs_sha256": "08a0ea4c3de62eddc041849206a1beb4b36bd11f6e3e7c79376651ed3858dde3"
+  },
+  "ch16/test_illegal_action_modifies_automatic": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_action_modifies_automatic\\\\.sv:23:'",
+   "inputs_sha256": "711bc08a04574e22aa82e0566097e2c86bdb2fd059b6b550378cba2f8aa06a70"
+  },
+  "ch16/test_illegal_always_bounds_reversed": {
+   "status": "pass",
+   "inputs_sha256": "46d848ca7006acbbb7ea211d2a584c26c79e83d6493146616630d2174d0b04ef"
+  },
+  "ch16/test_illegal_attached_call_output_argument": {
+   "status": "pass",
+   "inputs_sha256": "5bd379769005680300be33362ec4d6d95e3d3e9bff6b62a837c11ca425020623"
+  },
+  "ch16/test_illegal_automatic_ref_argument": {
+   "status": "pass",
+   "inputs_sha256": "179329e6043b6aa02d0e3a0c8fc2fc8f4e3bdbd6e96230a5202a147139f3604b"
+  },
+  "ch16/test_illegal_clocking_block_external_clock": {
+   "status": "pass",
+   "inputs_sha256": "ee245024bd7576bc3344021a83d4e26ee614d7b8374685e1ef186a21298817f1"
+  },
+  "ch16/test_illegal_disable_iff_matched": {
+   "status": "pass",
+   "inputs_sha256": "6b3786681b981aa0177dcec616c41041920d6074b9dfcaae0bcadefd932c1c3c"
+  },
+  "ch16/test_illegal_final_deferred_postponed_call": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_final_deferred_postponed_call\\\\.sv:29:'",
+   "inputs_sha256": "7cc8a86be932b5151d508a5d2eb00d34db154b9d7e09fe872d3d0464dd032913"
+  },
+  "ch16/test_illegal_inferred_clock_missing": {
+   "status": "pass",
+   "inputs_sha256": "77b9c8f54041529e74a17cd7c2c36cd29263adb7263d131b4b7edf7a26d59814"
+  },
+  "ch16/test_illegal_local_initializer_uninitialized": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_local_initializer_uninitialized\\\\.sv:24:'; the first is: tests/ch16/test_illegal_local_initializer_uninitialized.sv:22: syntax error",
+   "inputs_sha256": "ee475a9819a1259bd4bf1551d96cdd5e129ae36f76080c97d311d6bc7c37a79d"
+  },
+  "ch16/test_illegal_nexttime_variable_index": {
+   "status": "pass",
+   "inputs_sha256": "890cfd0348e1afdee6774e1090691d08cbe1388b91719b8b830e849fe3496975"
+  },
+  "ch16/test_illegal_output_actual_module_variable": {
+   "status": "pass",
+   "inputs_sha256": "426c26d052a42f4c45a1eabc285ddb9aa8d2940af1bde1d7a4a5ae9c6b45f64c"
+  },
+  "ch16/test_illegal_past_count_variable": {
+   "status": "pass",
+   "inputs_sha256": "68e069353d521f03858fa477b6f28db0c86ce32c3d547fa6048f995b378a6af4"
+  },
+  "ch16/test_illegal_repetition_upper_bound_variable": {
+   "status": "pass",
+   "inputs_sha256": "5f3d221cde15247ede2c6a9b8bb4bfd2ecd8b5879e99475b0468c8d78ea03fdf"
+  },
+  "ch16/test_illegal_triggered_cycle": {
+   "status": "pass",
+   "inputs_sha256": "2dbc913dda181ff44f460fb61923e54fdab659e897950e7a11a7a7f0fd4343d6"
+  },
+  "ch16/test_illegal_triggered_no_clock": {
+   "status": "pass",
+   "inputs_sha256": "fcc76ed911160e9743613e20022e284a634aa518ca75bf37c843a143f5212f3d"
+  },
+  "ch16/test_illegal_typed_formal_queue_actual": {
+   "status": "pass",
+   "inputs_sha256": "ee247c710ce1e774275cca32716f621de3ede9be64cdcaa7362c54843b7d4c42"
+  },
+  "ch16/test_immediate_assert_syntax_actions": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'a6 fail', expected 'c1 covered'",
+   "inputs_sha256": "e3151ce5d5163b7a3c0cecb28fdfff157688ea41573f2ba0b887e25602c59752"
+  },
+  "ch16/test_recursive_property_time_advance": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_recursive_property_time_advance.sv:30: syntax error",
+   "inputs_sha256": "82e5e405a4a5a2e7d91af45e482c50b9ed128d92043c4dec8fe5eb21ffa9133e"
+  },
+  "ch16/test_sampled_automatic_and_const_current": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_sampled_automatic_and_const_current.sv:40: syntax error",
+   "inputs_sha256": "f43d73d5272d26959d391d61710f148420079b8bf3a9e73fee2643ea5cfce8a0"
+  },
+  "ch16/test_sampled_defaults_and_methods": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_sampled_defaults_and_methods.sv:41: syntax error",
+   "inputs_sha256": "0888dbc87ca0e4ccabca5fcb2e3c6695d9197eb1251d9e2bd478a21e9face8e1"
+  },
+  "ch16/test_sequence_formal_arguments_substitution": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_sequence_formal_arguments_substitution.sv:53: syntax error",
+   "inputs_sha256": "910cf8b63b2facb923d01e6a17fe6ae9e6423d1d4c0aa86bf20a0312b97a9c45"
+  },
+  "ch16/test_sequence_or_and_local_flow": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_sequence_or_and_local_flow.sv:51: syntax error",
+   "inputs_sha256": "55e0f646d5d6e3847eb1f308213cf8c53c603f121792814b54e6ea16045358f0"
+  },
+  "ch16/test_sequence_repetition_and_concat_precedence": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_sequence_repetition_and_concat_precedence.sv:32: syntax error",
+   "inputs_sha256": "d6b7741d44c063d6a7831c01552dc8994c8f2eb055751570c6c78748d07c8196"
+  },
+  "ch18/test_constraint_grammar_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_constraint_grammar_forms.sv:27: syntax error",
+   "inputs_sha256": "7d0c2d0c5ea1f88778add493692a65693b849c1c9d50cda9801053ba30d36cac"
+  },
+  "ch18/test_disable_soft_direct_reference": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_disable_soft_direct_reference.sv:24: syntax error",
+   "inputs_sha256": "13d4e2d5126036f7a057869536584bab5f7e77cb1328f5affcaea54870aea0da"
+  },
+  "ch18/test_illegal_randc_unpacked_struct": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_randc_unpacked_struct\\\\.sv:(19|23):'",
+   "inputs_sha256": "07598c5c8067fab0038c6133185c9e88a1bd00c36636914db3ad39ec6ab3e46a"
+  },
+  "ch18/test_rand_mode_array_element": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_rand_mode_array_element.sv:22: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "8677706d284a82d22c9fa57cb8cfee1c3a92306c30f595425f0781a58f5bea3c"
+  },
+  "ch19/test_cg_auto_bins_only_ignored_and_real": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_auto_bins_only_ignored_and_real.sv:25: syntax error",
+   "inputs_sha256": "c91839a332fc55c2e6f88a9e8c6fccccd42b6985625f0789caeae67bc3c3ab88"
+  },
+  "ch19/test_cg_four_state_literal_wildcard_enum": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_four_state_literal_wildcard_enum.sv:33: syntax error",
+   "inputs_sha256": "b383e74922c45616d209a5a2322f37bfc68b5f0594805220d06a29a41a27abd6"
+  },
+  "ch19/test_cg_illegal_cross_error": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_illegal_cross_error.sv:27: syntax error",
+   "inputs_sha256": "5ff93189e15ae7f286e94716f40365c9b11b9a903ee7e45c1b2b38ce1149d5bd"
+  },
+  "ch19/test_cg_illegal_transition_error": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_illegal_transition_error.sv:25: syntax error",
+   "inputs_sha256": "b8df9ae171f1b1f1021838912a846004acc8a6122fe88bc365fc840f0e881cff"
+  },
+  "ch19/test_cg_illegal_value_error": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_illegal_value_error.sv:26: syntax error",
+   "inputs_sha256": "fb68681383252b838d5252d2eb9e925e49b8a5983174b080cc7226d730c4ee2f"
+  },
+  "ch19/test_cg_option_name_unique_and_retain_scope": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_option_name_unique_and_retain_scope.sv:28: syntax error",
+   "inputs_sha256": "42eb3648b18cb17bbc0d87279b22e2b936edc4f03d0da9301dd8725c4f2f4705"
+  },
+  "ch19/test_cg_transition_binsof_last_value": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_transition_binsof_last_value.sv:26: syntax error",
+   "inputs_sha256": "12876949a3b695081c401bea4032b99fd08ab9c2318f37f94b902ae74661be21"
+  },
+  "ch19/test_cg_warn_negative_unsigned": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_warn_negative_unsigned.sv:25: syntax error",
+   "inputs_sha256": "ee8461c2e962e078293dd054f2a89b8447f6d05d8e9ca0372bdcce0d077c8563"
+  },
+  "ch19/test_cg_warn_nonrepresentable": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_cg_warn_nonrepresentable.sv:25: syntax error",
+   "inputs_sha256": "6e07d503fb151763ff938f6563749d5952920451403ffc5e44168db81d40d4c6"
+  },
+  "ch19/test_illegal_cg_default_sequence_array_new": {
+   "status": "pass",
+   "inputs_sha256": "9d8b39aaf93caaf6881dbc28d8ec47a15ef542817f6cc4228f487ca5ea9bb203"
+  },
+  "ch19/test_illegal_cg_extends_not_base": {
+   "status": "pass",
+   "inputs_sha256": "674084f25df16f89a7d2e223a0775b2ebf7a730ffc9782ce5a2d148ac90dca23"
+  },
+  "ch19/test_illegal_cg_extends_outside_class": {
+   "status": "pass",
+   "inputs_sha256": "a608807525a7d5296267e93513654e5ce227f0b96882ecdfc77d441a0b4d1ae3"
+  },
+  "ch19/test_illegal_cg_real_default_bin_n": {
+   "status": "pass",
+   "inputs_sha256": "af63febf856d9dce3340ba4f0688d96b8cafb3d05296655bb2f194c4566f57f7"
+  },
+  "ch19/test_illegal_cg_real_transition_domain": {
+   "status": "pass",
+   "inputs_sha256": "b9954d2b2006490b65b23199235d56d356e3980c1a80cd2eb589aca89f62cfe9"
+  },
+  "ch19/test_illegal_cg_ref_formal_expression": {
+   "status": "pass",
+   "inputs_sha256": "2b64e89cfd54facc9362eb563a16de4b324e8c465b5fc27d1d26a366f52ec73c"
+  },
+  "ch19/test_illegal_cg_self_cross_other": {
+   "status": "pass",
+   "inputs_sha256": "38082f64450f998e8025db8fee7cd89a603dce1aa3766cc5703f4817e138e050"
+  },
+  "ch19/test_illegal_cg_self_point_range": {
+   "status": "pass",
+   "inputs_sha256": "4e9c12eb0f9ab2e2e664c7e07554e29bd5102444e68beacd29564caad731a5b7"
+  },
+  "ch19/test_illegal_cg_transition_array_unbounded": {
+   "status": "pass",
+   "inputs_sha256": "5b7ef555969ff01deb7fa02f3fd862586a26edbd926450963f8bab880e261162"
+  },
+  "ch19/test_illegal_cg_transition_repeat_one": {
+   "status": "pass",
+   "inputs_sha256": "720bea4fb131f3eb2c6da479be71536a014296879f1e640414e704805e566223"
+  },
+  "ch19/test_illegal_cg_transition_sole_range_new": {
+   "status": "pass",
+   "inputs_sha256": "8c4993a74c520ce254572d65dd677c9b2c68b75e0edd43182d8fa08badf97512"
+  },
+  "ch19/test_illegal_cg_type_option_formal": {
+   "status": "pass",
+   "inputs_sha256": "8b3025d2bf1ef006cb1f5aba1acf00437d5fe59818fee215b3c1046cd75f93a0"
+  },
+  "ch21/test_fd_no_broadcast": {
+   "status": "pass",
+   "inputs_sha256": "6367aac0935a4b45d0de9a1cb351b3c260d624fce88c7775d6868a9af5bcd455"
+  },
+  "ch21/test_pattern_format_enum_value": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'valid=<%p>          1', expected 'valid=ON'",
+   "inputs_sha256": "ac4e176c219512a895218c205c6151fbc10b1cce49a93fa8e4905b0a624953e5"
+  },
+  "ch21/test_vcd_dumpflush_resume": {
+   "status": "pass",
+   "inputs_sha256": "37147eaca46e3261d285ffa2d69a656b231d204fdbb79e9bbaf33e2dd8dcca67"
+  },
+  "ch21/test_vcd_filename_string_and_depth_zero": {
+   "status": "pass",
+   "inputs_sha256": "6a81cde44e9e6315ccb2db2988f65e29938ba866cd3e1fb7384b7d15558ffe22"
+  },
+  "ch21/test_vcd_type_mappings": {
+   "status": "pass",
+   "inputs_sha256": "d56c2fd9616f463591b0848d67686fe927a55f526b857daa6dd77a8c438553d0"
+  },
+  "ch21/test_vcd_vector_extension_and_event": {
+   "status": "pass",
+   "inputs_sha256": "90ada96e001c958592f902bedb5e7d054a6b1f3897cb4e904ca53f76ea27089a"
+  }
+ },
+ "generated_at": "2026-10-26T07:49:36.623500+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,4 @@
+the change before the first flush is in the file: 1
+the later change is not yet in the file: 1
+the earlier change survives the second flush: 1
+dumping continues and the new change is in the file: 1

@@ -3,7 +3,7 @@
 :description: With merge_instances, a single transition bin is one bin for all instances, transition array bins are shared by the instances with the same transition, automatic bins keep their auto[low:high] names whatever values are ignored or illegal, a bin they empty in every instance does not count, and automatic cross bins are shared only by instances with the same names of the crossed bins (IEEE 1800-2023 Section 19.11.3)
 :tags: ch19
 :type: simulation
-:lrm: 1800-2023 19.11.3 19.5.3 19.5.2 19.6 19.11.1
+:lrm: 1800-2023 19.11.3 19.5.3 19.5.2 19.6 19.11.1 19.6.1.1
 :oracle: spec
 :spec_check: ai
 :fourstate: no

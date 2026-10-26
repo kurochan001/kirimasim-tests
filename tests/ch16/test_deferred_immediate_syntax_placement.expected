@@ -1,0 +1,12 @@
+t=5 active a=1
+t=5 s1 observed pass
+t=10 active b=1
+t=10 s5 observed pass
+t=10 s2 final pass
+t=15 active c=1
+t=15 s3 cover covered
+t=20 active d=1
+t=20 s4 assume pass
+t=25 active d=0
+t=25 s4 assume fail
+t=30 active c=0

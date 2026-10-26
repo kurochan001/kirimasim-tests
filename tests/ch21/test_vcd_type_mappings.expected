@@ -1,0 +1,9 @@
+bit is reg with its packed width: 1
+byte shortint longint and int map to their sizes: 1
+an untyped enum is integer 32: 1
+a typed enum uses its declared type: 1
+shortreal maps to real: 1
+packed arrays and structures are one reg vector: 1
+uwire maps to wire: 1
+the unpacked array is not dumped: 1
+every var type is an IEEE 1364-2005 type: 1

@@ -1,30 +1,27 @@
 /*
 :name: test_illegal_disable_iff_matched
-:description: A disable condition cannot use the sequence method matched (IEEE 1800-2023 Section 16.12)
+:description: a disable iff condition uses the sequence method matched, which it shall not contain
 :tags: ch16
 :type: elaboration
-:lrm: 1800-2023 16.12
-:oracle: spec iverilog@13.0
+:lrm: 1800-2023 16.6 16.12
+:oracle: spec
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:should_fail_because: the disable condition uses s_m.matched
-:expected_stderr_regex: test_illegal_disable_iff_matched\.sv:29:
+:should_fail_because: the disable condition of a_bad uses s.matched
+:expected_stderr_regex: test_illegal_disable_iff_matched\.sv:26:
 */
-// IEEE 1800-2023 §16.12: the disable condition may use the method triggered
-// of a sequence but shall not contain the sequence method matched. The
-// assertion, clocked by clk, uses s_m.matched of a sequence clocked by clk2
-// as its disable condition.
-// Icarus Verilog 13.0 does not support concurrent assertions, so the errors
-// it reports here do not count.
+// IEEE 1800-2023 §16.6: the expression of a disable condition is evaluated
+// with the current values of variables, may contain sequence.triggered, and
+// shall not reference local variables or the sequence method matched. The
+// disable condition of a_bad is s.matched, so a_bad is illegal.
 
 module test_illegal_disable_iff_matched;
-  logic clk, clk2, a, b, r1, r2;
-  int d, k;
+  logic clk = 0, a = 0, b = 1;
 
-  sequence s_m;
-    @(posedge clk2) a ##1 b;
+  sequence s;
+    a ##1 b;
   endsequence
 
-  a_m: assert property (@(posedge clk) disable iff (s_m.matched) a |=> b);   // illegal
+  a_bad: assert property (@(posedge clk) disable iff (s.matched) a);   // illegal
 endmodule

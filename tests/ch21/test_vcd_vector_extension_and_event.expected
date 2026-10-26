@@ -1,0 +1,6 @@
+no redundant left-extension digits: 1
+vector values have one space before the identifier: 1
+scalar values have no space before the identifier: 1
+vector digits use only 0 1 x and z: 1
+the event id marks a scalar at its trigger time: 1
+the whole vector is dumped: 1

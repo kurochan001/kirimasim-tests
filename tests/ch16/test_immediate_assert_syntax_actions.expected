@@ -1,0 +1,12 @@
+a1 pass
+a2 pass
+a3 fail
+a4 pass
+a5 fail
+c1 covered
+a6 fail
+after the bare failure
+sev pass ran
+sev fail ran
+label scope test_immediate_assert_syntax_actions.lbl
+passed=1

@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch19/test_cg_merge_auto_and_transition_names": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_merge_auto_and_transition_names.sv:75:60: Package/class for ':: reference' not found: 'tr'",
+   "inputs_sha256": "2031c023dba68e157747ddb41deabf4c08a7fbda64ffbb53f8cccf6a85bff2b4"
+  }
+ },
+ "generated_at": "2026-10-26T07:53:58.933818+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

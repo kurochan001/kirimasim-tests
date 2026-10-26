@@ -1,0 +1,6 @@
+t=5 comb pass
+t=10 latch pass
+t=15 latch pass
+t=25 event pass
+t=45 outer_b fail
+t=55 outer_c fail

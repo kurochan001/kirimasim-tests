@@ -1,0 +1,8 @@
+t=5 av=0 sampled_av=0 past_av=0 changed_a=0
+     a=0 sampled_a=0 const_a=0 past_const_a=0
+t=15 av=1 sampled_av=1 past_av=1 changed_a=0
+     a=1 sampled_a=0 const_a=1 past_const_a=1
+t=25 av=2 sampled_av=2 past_av=2 changed_a=1
+     a=1 sampled_a=1 const_a=1 past_const_a=1
+t=35 av=2 sampled_av=2 past_av=2 changed_a=0
+     a=1 sampled_a=1 const_a=1 past_const_a=1

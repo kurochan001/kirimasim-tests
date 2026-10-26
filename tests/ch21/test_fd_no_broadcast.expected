@@ -1,0 +1,3 @@
+the two descriptors are distinct and nonzero: 1
+the OR does not write to both files: 1
+each descriptor writes its own file: 1

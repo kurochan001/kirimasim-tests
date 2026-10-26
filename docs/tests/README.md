@@ -19,12 +19,12 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 192 | 14 |
 | 14 | [Clocking blocks](ch14.md) | 77 |  |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 56 |  |
-| 16 | [Assertions](ch16.md) | 336 |  |
+| 16 | [Assertions](ch16.md) | 359 |  |
 | 17 | [Checkers](ch17.md) | 60 |  |
 | 18 | [Constrained random value generation](ch18.md) | 142 |  |
-| 19 | [Functional coverage](ch19.md) | 118 |  |
+| 19 | [Functional coverage](ch19.md) | 139 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 266 |  |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 188 |  |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 194 |  |
 | 22 | [Compiler directives](ch22.md) | 348 | 248 |
 | 23 | [Modules and hierarchy](ch23.md) | 211 |  |
 | 24 | [Programs](ch24.md) | 43 |  |

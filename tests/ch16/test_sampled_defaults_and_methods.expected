@@ -1,0 +1,6 @@
+defaults: lv=xxxx iv=0 sv=7 nv=xxxx event=0 triggered=0
+t=15 past triggered=0 event=0
+t=25 past triggered=1 event=1
+t=35 past triggered=0 event=0
+triggered covered at: 15
+sampled triggered covered at: 15

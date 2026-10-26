@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 79.46%、実行 44.40%。**
+**全規格の要求台帳ベース（暫定）: 設計 80.26%、実行 44.61%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 9789/12319 (79.46%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5470/12319 (44.40%)。
-- 登録済みだがテスト未対応: 2530 動作。
+- 登録済み動作に対するテスト設計網羅率: 9887/12319 (80.26%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5495/12319 (44.61%)。
+- 登録済みだがテスト未対応: 2432 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -47,10 +47,10 @@
 - `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2849/12319 動作確認、古い入力との対応 295 件。
-- `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 134/12319 動作確認、古い入力との対応 0 件。
-- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 282 件。
-- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 282 件。
+- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2849/12319 動作確認、古い入力との対応 301 件。
+- `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 133/12319 動作確認、古い入力との対応 1 件。
+- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 287 件。
+- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 287 件。
 - `ch19-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:12:42.328492+00:00 / 0/12319 動作確認、古い入力との対応 14 件。
 - `ch19-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.443253+00:00 / 0/12319 動作確認、古い入力との対応 14 件。
 - `ch19-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.556516+00:00 / 0/12319 動作確認、古い入力との対応 14 件。
@@ -71,18 +71,21 @@
 - `depthfix-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T05:54:55.670342+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `depthfix-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T05:55:00.754706+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `depthfix-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T05:55:00.754811+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
+- `depthfix2-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T07:53:58.809856+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `depthfix2-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:53:58.933818+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
+- `depthfix2-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:53:59.056625+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:53:43.771888+00:00 / 25/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.690416+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `expression-gaps-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:53:54.696860+00:00 / 34/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 204/12319 動作確認、古い入力との対応 206 件。
-- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 340/12319 動作確認、古い入力との対応 206 件。
-- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 340/12319 動作確認、古い入力との対応 206 件。
-- `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 634/12319 動作確認、古い入力との対応 20 件。
-- `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 372/12319 動作確認、古い入力との対応 20 件。
-- `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 372/12319 動作確認、古い入力との対応 20 件。
+- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 204/12319 動作確認、古い入力との対応 207 件。
+- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 340/12319 動作確認、古い入力との対応 207 件。
+- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 340/12319 動作確認、古い入力との対応 207 件。
+- `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 634/12319 動作確認、古い入力との対応 25 件。
+- `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 372/12319 動作確認、古い入力との対応 25 件。
+- `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 372/12319 動作確認、古い入力との対応 25 件。
 - `gap4-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T14:32:08.355598+00:00 / 202/12319 動作確認、古い入力との対応 8 件。
 - `gap4-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.687753+00:00 / 147/12319 動作確認、古い入力との対応 8 件。
 - `gap4-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.575982+00:00 / 147/12319 動作確認、古い入力との対応 8 件。
@@ -122,6 +125,12 @@
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
 - `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 953/12319 動作確認、古い入力との対応 96 件。
+- `wave2-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T07:49:36.623500+00:00 / 17/12319 動作確認、古い入力との対応 16 件。
+- `wave2-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:49:55.030232+00:00 / 8/12319 動作確認、古い入力との対応 16 件。
+- `wave2-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:49:55.025139+00:00 / 10/12319 動作確認、古い入力との対応 16 件。
+- `wave2fix-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-26T07:50:25.250116+00:00 / 0/12319 動作確認、古い入力との対応 12 件。
+- `wave2fix-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:50:33.523423+00:00 / 0/12319 動作確認、古い入力との対応 12 件。
+- `wave2fix-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-26T07:50:41.827921+00:00 / 0/12319 動作確認、古い入力との対応 12 件。
 
 ## 章・附属書別の調査状態
 
@@ -142,12 +151,12 @@
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 90。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 59。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 68。
-- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 421。
+- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 466。
 - 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 39。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 222。
-- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 181。
+- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 205。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 262。
-- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 282。
+- 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 311。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 328。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 167。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 16。
@@ -36697,7 +36706,7 @@ Immediate assertions are permitted wherever a procedural statement is permitted 
 
 ### SV2023-16.3-EXTRACT-SEVERITY-CALLS
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 Severity system tasks are permitted in pass or fail actions and produce the same tool-specific message for the same task regardless of the action context.
 
@@ -36705,6 +36714,7 @@ Severity system tasks are permitted in pass or fail actions and produce the same
 
 規定の性質: `permission`。
 
+- [test_immediate_assert_syntax_actions.sv](../tests/ch16/test_immediate_assert_syntax_actions.sv): pass 側に $info、fail 側に $error を置いた assert を 2 本（sev_p は成功、sev_f は失敗）実行し、それぞれの直後の $display で両方の action が動いたことを見る。メッセージ本文は規格が決めないので比較しない。 区別: severity task を pass 側で実行しない実装は sev pass ran を落とし、fail 側で実行しない実装は sev fail ran を落とす。両方の action が同じように動くことを要求する。
 
 ### SV2023-16.3-EXTRACT-SIMPLE-ACTIONS
 
@@ -36720,7 +36730,7 @@ A simple immediate assertion executes enabled actions immediately after evaluati
 
 ### SV2023-16.3-EXTRACT-SYNTAX
 
-16.3 / normal / テスト未対応
+16.3 / normal / 実行確認あり
 
 Simple immediate assert and assume use a parenthesized expression and an action block; cover uses a parenthesized expression and statement_or_null. Deferred forms use #0 or final; optional labels and optional pass/fail actions follow Syntax 16-1.
 
@@ -36728,6 +36738,7 @@ Simple immediate assert and assume use a parenthesized expression and an action 
 
 規定の性質: `definition`。
 
+- [test_immediate_assert_syntax_actions.sv](../tests/ch16/test_immediate_assert_syntax_actions.sv): assert (v)/assume (v) の pass、else 付きの fail、else の無い assert (!v)、cover (v) の pass、ラベル lbl の %m、x 式の assert を同じ initial で実行する。v=1、x=1'bx。assert(!v) と assert(x) が fail し、cover(v) の文が一度だけ実行され、ラベルの %m が ...lbl を出す。 区別: 式を x で真とする実装は a6 fail を a6 pass に変え、cover の pass 文を実行しない実装は c1 covered を落とし、ラベルを named block にしない実装は %m の lbl を落とす。
 
 ### SV2023-16.3-EXTRACT-TRUTH
 
@@ -36757,7 +36768,7 @@ Deferred action subroutine arguments shall be input by value, ref or const ref.
 
 ### SV2023-16.4-EXTRACT-ASSUME-COVER
 
-16.4 / normal / テスト未対応
+16.4 / normal / テスト対応あり・実行未確認
 
 Deferred assume and cover retain immediate assume/cover semantics except for deferral; coverage is not credited for a report flushed before maturation.
 
@@ -36765,6 +36776,7 @@ Deferred assume and cover retain immediate assume/cover semantics except for def
 
 規定の性質: `mandatory`。
 
+- [test_deferred_immediate_syntax_placement.sv](../tests/ch16/test_deferred_immediate_syntax_placement.sv): assume #0 (d) を d=1 で pass、d=0 で fail させ、cover #0 (c) を c=1 で covered にする。どちらも deferred の action として t=20/t=25/t=15 に出る。 区別: assume を assert と同じに扱わない実装は t=20 s4 assume pass か t=25 s4 assume fail を落とし、cover の deferred な pass 文を実行しない実装は t=15 s3 cover covered を落とす。
 
 ### SV2023-16.4-EXTRACT-CAPTURE-INPUTS
 
@@ -36780,7 +36792,7 @@ By-value action argument expressions, including called functions and their side 
 
 ### SV2023-16.4-EXTRACT-DEFERRED-DIFFERENCES
 
-16.4 / normal / テスト未対応
+16.4 / normal / テスト対応あり・実行未確認
 
 Deferred immediate assertions delay reporting/actions, restrict each action to one subroutine call, and may appear as module_common_item declarations.
 
@@ -36788,6 +36800,7 @@ Deferred immediate assertions delay reporting/actions, restrict each action to o
 
 規定の性質: `definition`。
 
+- [test_deferred_immediate_syntax_placement.sv](../tests/ch16/test_deferred_immediate_syntax_placement.sv): a=1 の代入の直後に initial が t=5 active a=1 を出し、その後 Reactive に s1 observed pass が出る。action が代入と同じ Active で直ちに走らないことを時刻の順で見る。 区別: action を式の評価時に直ちに実行する実装は s1 observed pass を t=5 active a=1 より前に出し、遅延を実装しない実装は行の順序が変わる。
 
 ### SV2023-16.4-EXTRACT-EVALUATE-NOW
 
@@ -36803,7 +36816,7 @@ The deferred assertion expression is evaluated when the statement executes; only
 
 ### SV2023-16.4-EXTRACT-FINAL-LEGALITY
 
-16.4 / error / テスト未対応
+16.4 / error / テスト対応あり・実行未確認
 
 A final deferred action call shall be legal in the Postponed region under 4.4.2.9.
 
@@ -36811,6 +36824,7 @@ A final deferred action call shall be legal in the Postponed region under 4.4.2.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_final_deferred_postponed_call.sv](../tests/ch16/test_illegal_final_deferred_postponed_call.sv): final deferred assertion の action が Postponed region で書けない set_flag を呼ぶ。 区別: final の action を Postponed で subroutine ごと実行する実装はこの設計を受理し、変数書き込みを Postponed で行う。
 
 ### SV2023-16.4-EXTRACT-FINAL-REF
 
@@ -36863,7 +36877,7 @@ Each provided deferred pass or fail action shall be a single task, task-method, 
 
 ### SV2023-16.4-EXTRACT-STATIC-PLACEMENT
 
-16.4 / normal / テスト未対応
+16.4 / normal / テスト対応あり・実行未確認
 
 A deferred immediate assertion may occur outside procedural code as a module_common_item, with 16.4.3 semantics.
 
@@ -36871,10 +36885,11 @@ A deferred immediate assertion may occur outside procedural code as a module_com
 
 規定の性質: `permission`。
 
+- [test_deferred_immediate_syntax_placement.sv](../tests/ch16/test_deferred_immediate_syntax_placement.sv): s1 は手続きの外の module_common_item として assert #0 (a) を置き、a を t=5 に 1 にする。always_comb 相当として t=5 の Reactive に s1 observed pass が出る。 区別: module_common_item の deferred assertion を受け付けない実装はコンパイルに失敗し、常に実行しない実装は t=5 s1 observed pass を落とす。
 
 ### SV2023-16.4-EXTRACT-SYNTAX
 
-16.4 / normal / テスト未対応
+16.4 / normal / テスト対応あり・実行未確認
 
 Deferred immediate assert, assume and cover use #0 for observed deferral or final for final deferral and may be labeled.
 
@@ -36882,6 +36897,7 @@ Deferred immediate assert, assume and cover use #0 for observed deferral or fina
 
 規定の性質: `definition`。
 
+- [test_deferred_immediate_syntax_placement.sv](../tests/ch16/test_deferred_immediate_syntax_placement.sv): module_common_item の assert #0、assert final、cover #0、assume #0 を宣言し、a/b/c/d を別々の時刻に変えて #0 と final の action の時刻と文字列を見る。final の s2 は t=10 に Postponed で pass する。 区別: final を #0 と同じ region で実行する実装は s2 final pass の時刻を 10 より前にし、final を構文として受け付けない実装はこの行を出さない。
 
 ### SV2023-16.4.1-EXTRACT-FINAL-MATURE
 
@@ -36909,7 +36925,7 @@ At a deferred assertion flush point all pending reports in that process queue ar
 
 ### SV2023-16.4.1-EXTRACT-OBSERVED-MATURE
 
-16.4.1 / normal / テスト未対応
+16.4.1 / normal / テスト対応あり・実行未確認
 
 Unflushed observed reports mature in Observed, cannot then be flushed, execute in Reactive and are removed from the queue.
 
@@ -36917,6 +36933,7 @@ Unflushed observed reports mature in Observed, cannot then be flushed, execute i
 
 規定の性質: `mandatory`。
 
+- [test_deferred_immediate_syntax_placement.sv](../tests/ch16/test_deferred_immediate_syntax_placement.sv): b が t=10 に変わり、同じ time step で #0 の s5 が Reactive、final の s2 が Postponed に報告する。expected では s5 observed pass が s2 final pass より先に出る。 区別: observed の報告を Postponed まで遅らせる実装は 2 行の順序を逆にし、報告を queue から消さない実装は同じ報告を 2 回出す。
 
 ### SV2023-16.4.1-EXTRACT-PENDING-QUEUE
 
@@ -36945,7 +36962,7 @@ A Reactive-to-Active iteration can produce an additional observed deferred repor
 
 ### SV2023-16.4.2-EXTRACT-COMB-LATCH-FLUSH
 
-16.4.2 / normal / テスト未対応
+16.4.2 / normal / テスト対応あり・実行未確認
 
 Resumption of always_comb or always_latch due to a sensitivity change is a deferred assertion flush point.
 
@@ -36953,10 +36970,11 @@ Resumption of always_comb or always_latch due to a sensitivity change is a defer
 
 規定の性質: `mandatory`。
 
+- [test_deferred_flush_points.sv](../tests/ch16/test_deferred_flush_points.sv): always_comb の a0 は ca の変化で未確定の nca を読み、最初の評価で失敗を queue する。nca の変化で再開して queue を flush するので、settle 後の pass だけが t=5 に出る。always_latch の a1 も ld の変化で lq の更新前に失敗を queue し、lq の更新で flush されて t=15 の pass だけが出る。 区別: flush を実装しないと t=5 comb fail と t=15 latch fail が pass の前に増え、再開を flush 点としない実装はこれらの行を残す。
 
 ### SV2023-16.4.2-EXTRACT-EVENT-WAIT-FLUSH
 
-16.4.2 / normal / テスト未対応
+16.4.2 / normal / テスト対応あり・実行未確認
 
 A process resuming from an event control or wait is a deferred assertion flush point.
 
@@ -36964,6 +36982,7 @@ A process resuming from an event control or wait is a deferred assertion flush p
 
 規定の性質: `mandatory`。
 
+- [test_deferred_flush_points.sv](../tests/ch16/test_deferred_flush_points.sv): ea=0 で always @(ea or eb) が失敗を queue し、同じ time step の #0 で eb=0 にして process を再開させる。event control からの再開が flush 点なので、t=25 event fail は出ず pass だけが出る。 区別: event control からの再開を flush 点としない実装は t=25 event fail を出し、pass の前に 2 行になる。
 
 ### SV2023-16.4.2-EXTRACT-OUTERMOST-DISABLE-FLUSH
 
@@ -37003,7 +37022,7 @@ Disabling a specific deferred immediate assertion cancels its pending reports.
 
 ### SV2023-16.4.4-EXTRACT-DISABLE-OUTERMOST
 
-16.4.4 / normal / テスト未対応
+16.4.4 / normal / テスト対応あり・実行未確認
 
 Disabling the outermost scope of a procedure flushes the entire process pending-report queue in addition to ordinary disable behavior.
 
@@ -37011,6 +37030,7 @@ Disabling the outermost scope of a procedure flushes the entire process pending-
 
 規定の性質: `mandatory`。
 
+- [test_deferred_flush_points.sv](../tests/ch16/test_deferred_flush_points.sv): da=1 で process outer_a が失敗を queue した直後、同じ time step の #0 で outer_a を disable する。outermost の disable が queue を flush するので t=35 の報告は出ない。無効化しない outer_b は t=45 に fail し、outermost でない inner_c の disable は outer_c の pending を消さないので t=55 に fail が出る。 区別: outermost の disable で queue を flush しない実装は t=35 outer_a fail を追加し、inner の disable で flush する実装は t=55 outer_c fail を落とす。
 
 ### SV2023-16.4.4-EXTRACT-INNER-NO-FLUSH
 
@@ -37084,7 +37104,7 @@ Concurrent assertions evaluate in Observed using sampled expression values, exce
 
 ### SV2023-16.5.1-EXTRACT-AUTOMATIC-HISTORY
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 Past/future sampled-value references to an automatic variable use its current value instead.
 
@@ -37092,6 +37112,7 @@ Past/future sampled-value references to an automatic variable use its current va
 
 規定の性質: `mandatory`。
 
+- [test_sampled_automatic_and_const_current.sv](../tests/ch16/test_sampled_automatic_and_const_current.sv): automatic task watch の automatic 変数 av を tick 15 と 25 の time step の Active で 1、2 に変える。t=15 の assertion は $sampled(av) も $past(av) も現在値 1 を印字する。 区別: automatic 変数の過去値を前の tick から取る実装は t=15 の sampled_av と past_av を 0 にし、現在値の規則を満たさない。
 
 ### SV2023-16.5.1-EXTRACT-CHECKER-HISTORY
 
@@ -37129,7 +37150,7 @@ Other expression sampled values are computed recursively from sampled arguments;
 
 ### SV2023-16.5.1-EXTRACT-CONST-CURRENT
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 A const cast samples the current value of its argument; a past/future sampled-value reference to a const cast likewise uses its current value.
 
@@ -37137,10 +37158,11 @@ A const cast samples the current value of its argument; a past/future sampled-va
 
 規定の性質: `mandatory`。
 
+- [test_sampled_automatic_and_const_current.sv](../tests/ch16/test_sampled_automatic_and_const_current.sv): 静的変数 a を tick 15 の Active で 1 にする。同じ tick で $sampled(a) は Preponed の 0、const'(a) と $past(const'(a)) は現在値の 1 を印字する。 区別: const cast を通常の式として Preponed から取る実装は t=15 の const_a と past_const_a を 0 にし、a=1 sampled_a=0 const_a=1 past_const_a=1 の行が変わる。
 
 ### SV2023-16.5.1-EXTRACT-CURRENT-EXCEPTIONS
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 Automatic variables, assertion local variables and active free checker variables are sampled at their current values.
 
@@ -37148,6 +37170,7 @@ Automatic variables, assertion local variables and active free checker variables
 
 規定の性質: `mandatory`。
 
+- [test_sampled_automatic_and_const_current.sv](../tests/ch16/test_sampled_automatic_and_const_current.sv): procedural concurrent assertion a_cur を automatic task の中で宣言し、automatic の av を式と action で読む。t=15 と 25 の sampled_av と past_av が現在値になり、静的変数 a の sampled_a は Preponed のままである。 区別: automatic 変数を他の変数と同じ Preponed サンプリングにする実装は t=15 の sampled_av を 0 にし、現在値の例外を実装していないことを示す。
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-EXPRESSION
 
@@ -37163,7 +37186,7 @@ Default sampled values of compound expressions are recursively evaluated from de
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-METHOD
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 Default sampled values of event.triggered and sequence.triggered/matched are false.
 
@@ -37171,10 +37194,11 @@ Default sampled values of event.triggered and sequence.triggered/matched are fal
 
 規定の性質: `definition`。
 
+- [test_sampled_defaults_and_methods.sv](../tests/ch16/test_sampled_defaults_and_methods.sv): 最初の clock tick で $past(e.triggered) と $past(s.triggered) を印字する。どちらも既定値の 0 になる。e は t=15 に trigger し、s は tick 15 で終わる。 区別: method の既定値を現在値とする実装は event=0 か triggered=0 を 1 に変え、過去値を Preponed から取る実装は t=25 の過去値を 0 にする。
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-OTHER
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 The default sampled value of any other variable or net is its type default.
 
@@ -37182,6 +37206,7 @@ The default sampled value of any other variable or net is its type default.
 
 規定の性質: `definition`。
 
+- [test_sampled_defaults_and_methods.sv](../tests/ch16/test_sampled_defaults_and_methods.sv): 初期値の無い logic lv、初期値 7 の int sv、初期値の無い int iv、連続代入 4'h5 の net nv について、最初の clock tick の $past を印字する。lv と nv は x、iv は 0、sv は 7 になる。 区別: net の現在値を既定値とする実装は nv=xxxx を nv=0101 に変え、宣言代入を無視する実装は sv=7 を sv=0 に変える。
 
 ### SV2023-16.5.1-EXTRACT-DEFAULT-STATIC
 
@@ -37197,7 +37222,7 @@ The default sampled value of a static variable is its declaration initializer, o
 
 ### SV2023-16.5.1-EXTRACT-METHOD-CURRENT
 
-16.5.1 / normal / テスト未対応
+16.5.1 / normal / テスト対応あり・実行未確認
 
 The sampled value of event.triggered and sequence.triggered/matched is the current result of that method; past/future references use its Postponed value at the corresponding tick.
 
@@ -37205,6 +37230,7 @@ The sampled value of event.triggered and sequence.triggered/matched is the curre
 
 規定の性質: `mandatory`。
 
+- [test_sampled_defaults_and_methods.sv](../tests/ch16/test_sampled_defaults_and_methods.sv): s は a ##1 b で tick 15 に終わる。同じ tick で s.triggered と $sampled(s.triggered) を cover し、どちらも 15 で成功する。triggered は Observed で立ち、time step の残りに持続する現在値である。 区別: triggered を Preponed の値として扱う実装はどちらの cover も 15 で成功せず、1 tick 遅らせる実装は 25 を記録する。
 
 ### SV2023-16.5.1-EXTRACT-PREPONED
 
@@ -37244,7 +37270,7 @@ An ordinary clock transition in Active triggers the concurrent assertion evaluat
 
 ### SV2023-16.5.2-EXTRACT-CLOCK-ASSOCIATION
 
-16.5.2 / normal / テスト未対応
+16.5.2 / normal / テスト対応あり・実行未確認
 
 Assertion expressions are tied to a clock definition except constant or automatic values from procedural code; sampled values determine value-change and Boolean sequence matches.
 
@@ -37252,6 +37278,7 @@ Assertion expressions are tied to a clock definition except constant or automati
 
 規定の性質: `mandatory`。
 
+- [test_sampled_automatic_and_const_current.sv](../tests/ch16/test_sampled_automatic_and_const_current.sv): a を tick 15 の Active で 1 にする。tick 15 の $changed(a) は 0（Preponed の 15 と 5 がともに 0）、tick 25 は 1（15 の Preponed 0 と 25 の 1）になる。値変化をサンプル値の差で判定することを見る。 区別: 現在値の変化で $changed を計算する実装は t=15 の changed_a を 1 にし、t=25 の行と合わせて誤りを示す。
 
 ### SV2023-16.5.2-EXTRACT-CLOCK-CURRENT
 
@@ -37854,7 +37881,7 @@ A formal argument type applies to following formal identifiers until another typ
 
 ### SV2023-16.8-EXTRACT-UNTYPED-SUBSTITUTION
 
-16.8 / normal / テスト未対応
+16.8 / normal / テスト対応あり・実行未確認
 
 Untyped actual substitution preserves an expression term by parentheses and a cast to its self-determined type, except for $ or a variable_lvalue; invalid rewritten sequences are errors.
 
@@ -37862,10 +37889,11 @@ Untyped actual substitution preserves an expression term by parentheses and a ca
 
 規定の性質: `mandatory`。
 
+- [test_sequence_formal_arguments_substitution.sv](../tests/ch16/test_sequence_formal_arguments_substitution.sv): untyped formal x に a | b を渡し、本体内の x + k を評価する。actual が括弧付きの式項として代入されるので (a | b) + 1 = 16 になる。a + b を x に渡し x == 0 を評価する s_self は、self-determined の 4 bit の和 0 を cast するので真になる。 区別: 括弧を保存しない実装は prec を 15（a | (b + 1)）にし、self-determined 型への cast をしない実装は self を 0 にする。
 
 ### SV2023-16.8.1-EXTRACT-DATA-CAST
 
-16.8.1 / error / テスト未対応
+16.8.1 / error / テスト対応あり・実行未確認
 
 Other typed formals require a cast-compatible self-determined actual type; non-lvalue actuals are cast to the formal type before substitution.
 
@@ -37873,6 +37901,7 @@ Other typed formals require a cast-compatible self-determined actual type; non-l
 
 規定の性質: `mandatory`。
 
+- [test_illegal_typed_formal_queue_actual.sv](../tests/ch16/test_illegal_typed_formal_queue_actual.sv): int の typed formal に int の queue を actual として渡す。 区別: typed formal の actual の cast compatibility を検査しない実装はこの設計を受理する。
 
 ### SV2023-16.8.1-EXTRACT-EDGE-OPERAND
 
@@ -38153,7 +38182,7 @@ Two or more inout/output local formals in one instance shall not bind the same a
 
 ### SV2023-16.8.2-EXTRACT-OUTPUT-ACTUAL
 
-16.8.2 / error / テスト未対応
+16.8.2 / error / テスト対応あり・実行未確認
 
 An inout/output actual shall be exactly a reference to an in-scope local variable, and the formal type shall be cast-compatible with that actual variable type.
 
@@ -38161,6 +38190,7 @@ An inout/output actual shall be exactly a reference to an in-scope local variabl
 
 規定の性質: `mandatory`。
 
+- [test_illegal_output_actual_module_variable.sv](../tests/ch16/test_illegal_output_actual_module_variable.sv): local output formal の actual に module 変数 glob を渡す。 区別: inout/output local formal の actual が local 変数であることを検査しない実装はこの設計を受理する。
 
 ### SV2023-16.8.2-EXTRACT-OUTPUT-DEFINITE-ASSIGNMENT
 
@@ -38212,7 +38242,7 @@ Table 16-1 precedence level 6 (highest first) contains and; associativity is lef
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-CONCAT
 
-16.9.1 / normal / テスト未対応
+16.9.1 / normal / テスト対応あり・実行未確認
 
 Table 16-1 precedence level 2 (highest first) contains ##; associativity is left.
 
@@ -38220,6 +38250,7 @@ Table 16-1 precedence level 2 (highest first) contains ##; associativity is left
 
 規定の性質: `definition`。
 
+- [test_sequence_repetition_and_concat_precedence.sv](../tests/ch16/test_sequence_repetition_and_concat_precedence.sv): a ##1 b or c ##1 d を括弧なしで cover する。## が or より高いので (a ##1 b) or (c ##1 d) となり、tick 15 と 25 の 2 つの match が記録される。 区別: or を ## より高く parse する実装は a ##1 (b or c) ##1 d となり、d が tick 25 だけなので match が 25 の 1 つだけになる。
 
 ### SV2023-16.9.1-EXTRACT-PRECEDENCE-INTERSECT
 
@@ -38311,7 +38342,7 @@ Consecutive repetition iterates matching operand sequences with one clock tick f
 
 ### SV2023-16.9.2-EXTRACT-COUNT-BOUNDS
 
-16.9.2 / error / テスト未対応
+16.9.2 / error / テスト対応あり・実行未確認
 
 Repetition exact counts and lower bounds shall be nonnegative integer constant expressions; upper bounds shall be such constants or $ for finite but unbounded repetition.
 
@@ -38319,6 +38350,7 @@ Repetition exact counts and lower bounds shall be nonnegative integer constant e
 
 規定の性質: `mandatory`。
 
+- [test_illegal_repetition_upper_bound_variable.sv](../tests/ch16/test_illegal_repetition_upper_bound_variable.sv): a[*1:n] の upper bound に変数 n を使う。 区別: repetition の bound が定数であることを検査しない実装はこの設計を受理し、elaboration 時の値を固定しない。
 
 ### SV2023-16.9.2-EXTRACT-COUNT-ORDER
 
@@ -38397,7 +38429,7 @@ Consecutive repetition permits general sequences; goto and nonconsecutive repeti
 
 ### SV2023-16.9.2-EXTRACT-REPETITION-SYNTAX
 
-16.9.2 / normal / テスト未対応
+16.9.2 / normal / テスト対応あり・実行未確認
 
 Boolean abbreviation supports consecutive [*], nonconsecutive [=] and goto [->] repetition; sequence abbreviation supports consecutive repetition only, under Syntax 16-6.
 
@@ -38405,6 +38437,7 @@ Boolean abbreviation supports consecutive [*], nonconsecutive [=] and goto [->] 
 
 規定の性質: `definition`。
 
+- [test_sequence_repetition_and_concat_precedence.sv](../tests/ch16/test_sequence_repetition_and_concat_precedence.sv): a[*3] は tick 5,15,25 の連続 3 回で 25 に終わり、b[->2] ##1 d は 2 回目の b の次の tick の d で 25、c[=2] ##1 d は 2 回目の c の後、次の c より前の d で 25 に終わる。3 種の repetition を同じ列で比較する。 区別: goto を非連続と同じに扱う実装や [=] の終了点を次の c の後にする実装は、goto か nonconsecutive の時刻を 25 以外にし、[*] を 1 回だけ数える実装は consecutive を 5 か 15 にする。
 
 ### SV2023-16.9.2-EXTRACT-STAR-PLUS
 
@@ -38656,7 +38689,7 @@ The $past clock shall be explicit or inferred by the preceding sampled-value fun
 
 ### SV2023-16.9.3-EXTRACT-PAST-COUNT
 
-16.9.3 / error / テスト未対応
+16.9.3 / error / テスト対応あり・実行未確認
 
 The $past tick count shall be an elaboration-time constant at least 1 and defaults to 1.
 
@@ -38664,6 +38697,7 @@ The $past tick count shall be an elaboration-time constant at least 1 and defaul
 
 規定の性質: `mandatory`。
 
+- [test_illegal_past_count_variable.sv](../tests/ch16/test_illegal_past_count_variable.sv): $past(a, n) の tick 数に変数 n を使う。 区別: $past の tick 数が elaboration-time 定数であることを検査しない実装はこの設計を受理する。
 
 ### SV2023-16.9.3-EXTRACT-PAST-GATE
 
@@ -39234,7 +39268,7 @@ Empty matches shall not activate sequence.triggered.
 
 ### SV2023-16.9.11-EXTRACT-TRIGGERED
 
-16.9.11 / normal / テスト未対応
+16.9.11 / normal / テスト対応あり・実行未確認
 
 triggered applies to a named sequence instance with optional arguments, an untyped formal or a sequence-typed formal where allowed, returning one-bit true exactly when a nonempty operand end point is reached, independently of its starting tick.
 
@@ -39242,6 +39276,7 @@ triggered applies to a named sequence instance with optional arguments, an untyp
 
 規定の性質: `definition`。
 
+- [test_sampled_defaults_and_methods.sv](../tests/ch16/test_sampled_defaults_and_methods.sv): s は tick 5 の a と tick 15 の b で終わる named sequence で、s.triggered を assertion の終了点で読む。開始 tick 5 ではなく終了点の tick 15 に 1 bit の真を返し、cover が 15 で成功する。 区別: triggered を開始 tick に依存させる実装は 15 を記録せず、1 tick 遅らせる実装は 25 を記録する。
 
 ### SV2023-16.9.11-EXTRACT-TRIGGERED-CLOCK
 
@@ -39257,7 +39292,7 @@ In multiclock use, the ending clock of the triggered operand sequence instance s
 
 ### SV2023-16.10-EXTRACT-AND-INTERSECT-FLOW
 
-16.10 / normal / テスト未対応
+16.10 / normal / テスト対応あり・実行未確認
 
 For and/intersect, a local flowing out of at least one operand flows out unless blocked: it is blocked if assigned in and flowing out of both operands, or blocked in either operand.
 
@@ -39265,6 +39300,7 @@ For and/intersect, a local flowing out of at least one operand flows out unless 
 
 規定の性質: `mandatory`。
 
+- [test_sequence_or_and_local_flow.sv](../tests/ch16/test_sequence_or_and_local_flow.sv): and の左 operand だけが z を 7 に代入し、右 operand は代入しない。z は少なくとも片方から流れ出るので、合成の後に 7 が記録される。intersect でも同様に w=9 が記録される。 区別: and/intersect で片側だけの代入を block する実装は and one を 5 にし、intersect の値を落とす実装は intersect one を 0 にする。
 
 ### SV2023-16.10-EXTRACT-AND-INTERSECT-MERGE
 
@@ -39342,7 +39378,7 @@ Local-variable flow is determined statically by F.5.4; a local lacking flow out 
 
 ### SV2023-16.10-EXTRACT-INIT-DEPENDENCY
 
-16.10 / error / テスト未対応
+16.10 / error / テスト対応あり・実行未確認
 
 A local initializer may reference a previously declared local only if that local itself has an initialization assignment, and uses its initialized value.
 
@@ -39350,6 +39386,7 @@ A local initializer may reference a previously declared local only if that local
 
 規定の性質: `mandatory`。
 
+- [test_illegal_local_initializer_uninitialized.sv](../tests/ch16/test_illegal_local_initializer_uninitialized.sv): local y の初期化式が、初期化の無い先の local x を参照する。 区別: local initializer の依存を検査しない実装はこの設計を受理し、x の未割り当て値を読む。
 
 ### SV2023-16.10-EXTRACT-INIT-ORDER
 
@@ -39495,7 +39532,7 @@ Each matching or operand continues in a separate thread with its own latest valu
 
 ### SV2023-16.10-EXTRACT-OR-FLOW
 
-16.10 / normal / テスト未対応
+16.10 / normal / テスト対応あり・実行未確認
 
 A local flows out of or if and only if it flows out of each operand.
 
@@ -39503,6 +39540,7 @@ A local flows out of or if and only if it flows out of each operand.
 
 規定の性質: `mandatory`。
 
+- [test_sequence_or_and_local_flow.sv](../tests/ch16/test_sequence_or_and_local_flow.sv): or の両 operand が別々に x を 1 と 2 に代入する s_or_both では、両 thread が x を持って続き、和が 3 になる。片側だけ y を 7 にし、もう片側は初期値 5 のままの s_or_one では、y が両方から流れ出て和が 12 になる。 区別: or で片方の値だけを残す実装は or both を 1 か 2 にし、flow out を各 operand で要求しない実装は or one を 7 だけにする。
 
 ### SV2023-16.10-EXTRACT-PER-ATTEMPT
 
@@ -39603,7 +39641,7 @@ A task, task method, void function, void-function method or system task may be a
 
 ### SV2023-16.11-EXTRACT-AUTOMATIC-ARGUMENT
 
-16.11 / error / テスト未対応
+16.11 / error / テスト対応あり・実行未確認
 
 An automatic variable in a procedural assertion call may be a constant input actual, but shall not be a ref actual or nonconstant input actual.
 
@@ -39611,6 +39649,7 @@ An automatic variable in a procedural assertion call may be a constant input act
 
 規定の性質: `mandatory`。
 
+- [test_illegal_automatic_ref_argument.sv](../tests/ch16/test_illegal_automatic_ref_argument.sv): automatic task の procedural concurrent assertion の attached call が automatic 変数 a を ref formal に渡す。 区別: automatic 変数の ref 渡しを検査しない実装はこの設計を受理する。
 
 ### SV2023-16.11-EXTRACT-CALL-ARGUMENTS
 
@@ -39686,7 +39725,7 @@ A property declaration defines behavior but produces no verification result by i
 
 ### SV2023-16.12-EXTRACT-DISABLE-EXPRESSIONS
 
-16.12 / error / 実行確認あり
+16.12 / error / テスト対応あり・実行未確認
 
 Disable expressions may use sequence.triggered but shall not reference assertion locals or sequence.matched; sampled-value functions other than $sampled require explicit clocks there.
 
@@ -39695,7 +39734,7 @@ Disable expressions may use sequence.triggered but shall not reference assertion
 規定の性質: `mandatory`。
 
 - [test_illegal_property_disable_iff_local_variable.sv](../tests/ch16/test_illegal_property_disable_iff_local_variable.sv): disable iff (v != 0) の行 27 でのエラーを求める。
-- [test_illegal_disable_iff_matched.sv](../tests/ch16/test_illegal_disable_iff_matched.sv): disable iff (s_m.matched) の行 29 でのエラーを求める。
+- [test_illegal_disable_iff_matched.sv](../tests/ch16/test_illegal_disable_iff_matched.sv): disable iff (s.matched) の行 26 でのエラーを求める。
 - [test_illegal_disable_iff_sampled_function_no_clock.sv](../tests/ch16/test_illegal_disable_iff_sampled_function_no_clock.sv): disable iff ($rose(r1)) の行 25 でのエラーを求める。
 
 ### SV2023-16.12-EXTRACT-DISABLE-INDEPENDENT
@@ -39991,7 +40030,7 @@ Named properties may be declared in modules, interfaces, programs, clocking bloc
 
 ### SV2023-16.12-EXTRACT-RECURSIVE-DEPENDENCY
 
-16.12 / normal / テスト未対応
+16.12 / normal / テスト対応あり・実行未確認
 
 Property dependency cycles are permitted under 16.12.17; dependency edges include declaration/default instances and instances appearing in actual arguments.
 
@@ -39999,6 +40038,7 @@ Property dependency cycles are permitted under 16.12.17; dependency edges includ
 
 規定の性質: `definition`。
 
+- [test_recursive_property_time_advance.sv](../tests/ch16/test_recursive_property_time_advance.sv): p_rec は a ##1 (b or p_rec) で自分自身を ##1 の後に参照する。tick 5 の attempt は tick 15 で p_rec を再帰し、tick 25 の b=1 で成功する。tick 15 の attempt は直接 tick 25 で成功し、tick 25 は a=0 で失敗する。 区別: 時間の進まない再帰や循環を許す実装はこの設計を受理しないか無限に評価し、再帰を 1 段で打ち切る実装は pass 25 の一方を落とす。
 
 ### SV2023-16.12-EXTRACT-SEQUENCE-FORMAL-RULES
 
@@ -40409,7 +40449,7 @@ Nexttime first aligns to its clock at or after the evaluation time; index n coun
 
 ### SV2023-16.12.10-EXTRACT-NEXTTIME-COUNT
 
-16.12.10 / error / テスト未対応
+16.12.10 / error / テスト対応あり・実行未確認
 
 A nexttime index shall be a nonnegative integer constant expression.
 
@@ -40417,6 +40457,7 @@ A nexttime index shall be a nonnegative integer constant expression.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_nexttime_variable_index.sv](../tests/ch16/test_illegal_nexttime_variable_index.sv): nexttime[n] の index に変数 n を使う。 区別: nexttime の index が定数であることを検査しない実装はこの設計を受理する。
 
 ### SV2023-16.12.10-EXTRACT-STRONG-NEXTTIME
 
@@ -40456,7 +40497,7 @@ Always first aligns to its clock at or after evaluation time; s_always[n:m] requ
 
 ### SV2023-16.12.11-EXTRACT-ALWAYS-BOUNDS
 
-16.12.11 / error / テスト未対応
+16.12.11 / error / テスト対応あり・実行未確認
 
 Always range bounds shall be nonnegative integer constant expressions, with upper >= lower when finite; $ means a finite but unbounded maximum where allowed.
 
@@ -40464,6 +40505,7 @@ Always range bounds shall be nonnegative integer constant expressions, with uppe
 
 規定の性質: `mandatory`。
 
+- [test_illegal_always_bounds_reversed.sv](../tests/ch16/test_illegal_always_bounds_reversed.sv): always[3:1] の上限 1 が下限 3 より小さい。 区別: range の下限と上限の関係を検査しない実装はこの設計を受理する。
 
 ### SV2023-16.12.11-EXTRACT-IMPLICIT-ALWAYS
 
@@ -40902,7 +40944,7 @@ A property formal type shall be property, sequence, event or a 16.6-permitted ty
 
 ### SV2023-16.12.18-EXTRACT-TYPED-SEQUENCE-RULES
 
-16.12.18 / normal / テスト未対応
+16.12.18 / normal / テスト対応あり・実行未確認
 
 Typed property formals obey the sequence typed-formal rules except the following property-type extension.
 
@@ -40910,6 +40952,7 @@ Typed property formals obey the sequence typed-formal rules except the following
 
 規定の性質: `mandatory`。
 
+- [test_sequence_formal_arguments_substitution.sv](../tests/ch16/test_sequence_formal_arguments_substitution.sv): property p_typed は bit [3:0] の typed formal と sequence 型の formal を持ち、actual の byte 8'ha5 を 4'h5 に cast して sq |-> (v == 4'h5) を評価する。go=1 の tick 5 で非空虚に 1 回成功する。 区別: typed formal の cast をしない実装は右辺を 4'h5 と比較して失敗し、typed_pass が 0・typed_fail が 1 になる。
 
 ### SV2023-16.12.19-EXTRACT-INPUT-ONLY
 
@@ -40926,7 +40969,7 @@ Property local formals shall have explicit or inferred direction input; inout/ou
 
 ### SV2023-16.12.19-EXTRACT-LOCAL-SEQUENCE-RULES
 
-16.12.19 / normal / テスト未対応
+16.12.19 / normal / テスト対応あり・実行未確認
 
 Property local formals obey sequence local-formal rules except for the direction restriction below.
 
@@ -40934,6 +40977,7 @@ Property local formals obey sequence local-formal rules except for the direction
 
 規定の性質: `mandatory`。
 
+- [test_sequence_formal_arguments_substitution.sv](../tests/ch16/test_sequence_formal_arguments_substitution.sv): property p_loc は local input int の w に既定 actual 4 を持ち、z=2 を渡す。既定のままの instance は 6、w=10 を渡す instance は 12 を記録し、和が 18 になる。 区別: local formal の既定 actual を使わない実装は local sum を 12 にし、instance ごとに新しい copy を作らない実装は値を混ぜる。
 
 ### SV2023-16.12.20-EXTRACT-OPTIONAL-CLOCK
 
@@ -41367,7 +41411,7 @@ matched is set in Observed on a source match and persists until Observed followi
 
 ### SV2023-16.13.6-EXTRACT-METHOD-CLOCK
 
-16.13.6 / error / テスト未対応
+16.13.6 / error / テスト対応あり・実行未確認
 
 A method operand sequence shall have an explicit or context-inferred clock, using the inference rules of 16.9.3.
 
@@ -41375,6 +41419,7 @@ A method operand sequence shall have an explicit or context-inferred clock, usin
 
 規定の性質: `mandatory`。
 
+- [test_illegal_triggered_no_clock.sv](../tests/ch16/test_illegal_triggered_no_clock.sv): clock-free な s に s.triggered を適用し、周囲にも clock が無い。 区別: method operand の clock 推論を検査しない実装はこの設計を受理する。
 
 ### SV2023-16.13.6-EXTRACT-METHOD-OPERANDS
 
@@ -41413,7 +41458,7 @@ matched is illegal in sampled-value functions.
 
 ### SV2023-16.13.6-EXTRACT-NO-TRIGGERED-CYCLES
 
-16.13.6 / error / テスト未対応
+16.13.6 / error / テスト対応あり・実行未確認
 
 Sequence dependencies induced by triggered shall not be circular.
 
@@ -41421,6 +41466,7 @@ Sequence dependencies induced by triggered shall not be circular.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_triggered_cycle.sv](../tests/ch16/test_illegal_triggered_cycle.sv): s1 は a ##1 s2.triggered、s2 は b ##1 s1.triggered で、triggered による sequence の依存が s1 と s2 の間で循環する。 区別: triggered による循環依存を検査しない実装はこの設計を受理し、循環を許すと evaluation が終了しない。
 
 ### SV2023-16.13.6-EXTRACT-OUTSIDE-SEQUENCE
 
@@ -41719,7 +41765,7 @@ cover sequence reports all matches per attempt; cover property increments succes
 
 ### SV2023-16.14.3-EXTRACT-COVER-REPORTING
 
-16.14.3 / normal / テスト未対応
+16.14.3 / normal / 実行確認あり
 
 Tools shall collect concurrent cover information and report it at simulation end or on demand via the assertion API.
 
@@ -41727,10 +41773,11 @@ Tools shall collect concurrent cover information and report it at simulation end
 
 規定の性質: `mandatory`。
 
+- [test_cover_property_sequence_counters.sv](../tests/ch16/test_cover_property_sequence_counters.sv): cover property a を tick 5,15,25 で実行し、成功のたびに action が時刻を記録する。3 回の attempt が 3 回の success を生む。 区別: cover の情報を集めない実装は cover property a の行を空にし、action を実行しない実装も同じ行を落とす。
 
 ### SV2023-16.14.3-EXTRACT-PROPERTY-COUNTERS
 
-16.14.3 / normal / テスト未対応
+16.14.3 / normal / 実行確認あり
 
 cover property uses a property_spec and reports attempt count, success count with at most one per attempt, and vacuous success count.
 
@@ -41738,10 +41785,11 @@ cover property uses a property_spec and reports attempt count, success count wit
 
 規定の性質: `mandatory`。
 
+- [test_cover_property_sequence_counters.sv](../tests/ch16/test_cover_property_sequence_counters.sv): a[*1:2] を cover property にすると attempt ごとに success は最大 1 回である。attempt 5 は match が 5 と 15 にあるが success は 1 回だけで、時刻は 5 に記録される。 区別: property でも match ごとに success を数える実装は cover property a[*1:2] を 5 15 15 25 25 にし、sequence と同じ結果になる。
 
 ### SV2023-16.14.3-EXTRACT-PROPERTY-DISABLED
 
-16.14.3 / normal / テスト未対応
+16.14.3 / normal / 実行確認あり
 
 Disabled evaluations contribute to cover property attempts but not success or vacuous-success counts.
 
@@ -41749,6 +41797,7 @@ Disabled evaluations contribute to cover property attempts but not success or va
 
 規定の性質: `mandatory`。
 
+- [test_cover_property_sequence_counters.sv](../tests/ch16/test_cover_property_sequence_counters.sv): disable iff (dis) を付けた cover property で、dis は tick 5,15 で 1、tick 25 で 0。disabled の attempt は success にならないので action は 25 だけで走る。 区別: disabled の attempt を success に数える実装は 5 15 25 を記録し、disable を無視する実装も同じ行を変える。
 
 ### SV2023-16.14.3-EXTRACT-PROPERTY-PASS
 
@@ -41776,7 +41825,7 @@ cover sequence match counts and action multiplicity equal those obtained by atta
 
 ### SV2023-16.14.3-EXTRACT-SEQUENCE-COUNTERS
 
-16.14.3 / normal / テスト未対応
+16.14.3 / normal / 実行確認あり
 
 cover sequence permits optional clocking/disable prefixes and reports attempt count and match count, allowing multiple matches per attempt.
 
@@ -41784,6 +41833,7 @@ cover sequence permits optional clocking/disable prefixes and reports attempt co
 
 規定の性質: `mandatory`。
 
+- [test_cover_property_sequence_counters.sv](../tests/ch16/test_cover_property_sequence_counters.sv): 同じ a[*1:2] を cover sequence にすると match ごとに action が走る。attempt 5 の 2 match と attempt 15 の 2 match、attempt 25 の 1 match で 5 15 15 25 25。 区別: cover sequence を cover property と同じ 1 回に制限する実装は 5 15 25 にし、attempt を数えない実装は時刻を落とす。
 
 ### SV2023-16.14.3-EXTRACT-SEQUENCE-PASS
 
@@ -41799,7 +41849,7 @@ Each match completed without its disable condition is counted with multiplicity 
 
 ### SV2023-16.14.4-EXTRACT-RESTRICT-NO-ACTION
 
-16.14.4 / normal / テスト未対応
+16.14.4 / normal / 実行確認あり
 
 restrict property(property_spec); has no action block.
 
@@ -41807,6 +41857,7 @@ restrict property(property_spec); has no action block.
 
 規定の性質: `definition`。
 
+- [test_cover_property_sequence_counters.sv](../tests/ch16/test_cover_property_sequence_counters.sv): restrict property (@(posedge clk) 1'b1); を module item として置く。restrict には action block が無く、設計は合法で、出力に action の行を加えない。 区別: restrict に action block を要求する実装はコンパイルに失敗し、restrict を cover と同じに扱って action を実行する実装は余分な行を出す。
 
 ### SV2023-16.14.4-EXTRACT-RESTRICT-SEMANTICS
 
@@ -41954,7 +42005,7 @@ Reaching a procedural concurrent assertion queues a pending instance with curren
 
 ### SV2023-16.14.6.1-EXTRACT-ACTION-CAPTURE
 
-16.14.6.1 / error / テスト未対応
+16.14.6.1 / error / テスト対応あり・実行未確認
 
 The same capture rules apply to procedural concurrent assertion action blocks; captured constant/automatic values are inputs and shall not be modified.
 
@@ -41962,6 +42013,7 @@ The same capture rules apply to procedural concurrent assertion action blocks; c
 
 規定の性質: `mandatory`。
 
+- [test_illegal_action_modifies_automatic.sv](../tests/ch16/test_illegal_action_modifies_automatic.sv): procedural concurrent assertion の fail action が、capture した automatic input a を書き換える。 区別: capture した automatic 値の変更を検査しない実装はこの設計を受理する。
 
 ### SV2023-16.14.6.1-EXTRACT-CAPTURE-QUEUE-TIME
 
@@ -42099,7 +42151,7 @@ A matured procedural concurrent assertion attempt is unaffected by a disable sta
 
 ### SV2023-16.14.7-EXTRACT-INFERRED-CLOCK
 
-16.14.7 / error / テスト未対応
+16.14.7 / error / テスト対応あり・実行未確認
 
 $inferred_clock is an elaboration-time query returning the clock event resolved by clock flow at the applicable instance location; absence of a resolved event is an error.
 
@@ -42107,6 +42159,7 @@ $inferred_clock is an elaboration-time query returning the clock event resolved 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_inferred_clock_missing.sv](../tests/ch16/test_illegal_inferred_clock_missing.sv): p_bad は formal clk の既定 actual に $inferred_clock を持ち、initial の中の assert property (p_bad) には外側の clocking event が無い。clock flow が解決する event が無いので、$inferred_clock の展開が error になる。 区別: 解決できる clock が無い $inferred_clock を検査しない実装はこの設計を受理し、event の無い clocking event を実行時に使う。
 
 ### SV2023-16.14.7-EXTRACT-INFERRED-DISABLE
 
@@ -42724,7 +42777,7 @@ An explicit assertion leading clock supersedes default clocking.
 
 ### SV2023-16.16-EXTRACT-EXTERNAL-INSTANCE-CLOCK
 
-16.16 / error / テスト未対応
+16.16 / error / テスト対応あり・実行未確認
 
 An outside-declared sequence/property instantiated within a clocking block shall be singly clocked with a clock identical to that block clock.
 
@@ -42732,6 +42785,7 @@ An outside-declared sequence/property instantiated within a clocking block shall
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_block_external_clock.sv](../tests/ch16/test_illegal_clocking_block_external_clock.sv): clocking block cb の中の property p_inner が、clk2 で clock された外部 property p_ext を instantiate する。 区別: 外部 instance の clock と block clock の同一性を検査しない実装はこの設計を受理する。
 
 ### SV2023-16.16-EXTRACT-MAXIMAL-PROPERTY
 
@@ -47901,7 +47955,7 @@ A covergroup may cross two or more variables or previously declared coverpoints.
 
 ### SV2023-19.3-EXTRACT-EXTENDS-CLASS-ONLY
 
-19.3 / error / テスト未対応
+19.3 / error / テスト対応あり・実行未確認
 
 The extends variation of covergroup declaration is allowed only within a class.
 
@@ -47909,6 +47963,7 @@ The extends variation of covergroup declaration is allowed only within a class.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_extends_outside_class.sv](../tests/ch19/test_illegal_cg_extends_outside_class.sv): モジュール階層で base_cg を定義した後に covergroup extends base_cg を置く。extends はクラス内でだけ許されるため、48 行目がエラーになる。同じ設計の derived クラスは基底クラスの g1 を extends しており、クラス内の合法例になっている。 区別: extends をモジュール階層でも許す実装は設計を受け入れ、48 行目の診断を出さない。逆に extends をすべて拒否する実装は 40 行目の合法な extends で先にエラーになり、48 行目を指さない。
 
 ### SV2023-19.3-EXTRACT-OPTION-INHERITANCE
 
@@ -48020,7 +48075,7 @@ get_coverage treats base and derived covergroups as separate types, with no aggr
 
 ### SV2023-19.4.1-EXTRACT-EMBEDDED-EXTENDS
 
-19.4.1 / error / テスト未対応
+19.4.1 / error / テスト対応あり・実行未確認
 
 covergroup extends name defines a derived embedded covergroup only when that same name exists in a base class; missing base is an error, and further derivation is permitted.
 
@@ -48028,6 +48083,7 @@ covergroup extends name defines a derived embedded covergroup only when that sam
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_extends_not_base.sv](../tests/ch19/test_illegal_cg_extends_not_base.sv): class bad は自分の本体で gx を定義した直後に covergroup extends gx を置く。gx は基底クラスで定義されていないため 58 行目がエラーになる。class good と good2 は基底クラスの g1 を extends し、派生 covergroup をさらに基底にする合法例になっている。 区別: 基底クラスにない名前の extends を受け付ける実装は設計を受け入れ、58 行目の診断を出さない。extends をすべて拒否する実装は 35/45 行目の合法例で先にエラーになる。
 
 ### SV2023-19.4.1-EXTRACT-INHERIT-ARGS-EVENT
 
@@ -48126,7 +48182,7 @@ Referenced global/instance constants shall be enclosing-class members; instance 
 
 ### SV2023-19.5-EXTRACT-COVERPOINT-DOMAIN
 
-19.5 / error / テスト未対応
+19.5 / error / テスト対応あり・実行未確認
 
 Coverpoints cover integral or real expressions; real-expression coverage permits only sampled value bins and their crosses, not transition bins.
 
@@ -48134,6 +48190,7 @@ Coverpoints cover integral or real expressions; real-expression coverage permits
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_real_transition_domain.sv](../tests/ch19/test_illegal_cg_real_transition_domain.sv): real coverpoint rv は 2 つの value bin を持ち、integral coverpoint iv の transition bin と cross rx も存在する。real coverpoint bad だけが (1.0 => 2.0) の transition bin を持ち、real 式の被覆は sampled value bin と cross に限られるため 36/37 行目がエラーになる。 区別: real coverpoint の transition bin を受け付ける実装は設計を受け入れ、36/37 行目の診断を出さない。real 被覆をすべて拒否する実装は rv の value bin や rx の cross で先にエラーになる。
 
 ### SV2023-19.5-EXTRACT-DEFAULT-EXCLUDED
 
@@ -48159,7 +48216,7 @@ A default bin catches values outside defined bins; default sequence catches tran
 
 ### SV2023-19.5-EXTRACT-GROUP-EXPRESSION-VARIABLES
 
-19.5 / error / テスト未対応
+19.5 / error / テスト対応あり・実行未確認
 
 A covergroup_expression may use only constant expressions, permitted enclosing-class global/instance constants, or non-ref covergroup formals.
 
@@ -48167,6 +48224,7 @@ A covergroup_expression may use only constant expressions, permitted enclosing-c
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_ref_formal_expression.sv](../tests/ch19/test_illegal_cg_ref_formal_expression.sv): covergroup g の coverpoint ck は class の定数 K、ci は non-ref の input 引数 iv、ce は定数式 2+3 を使い、いずれも許される。coverpoint bad だけが ref 引数 rv を使うため 32 行目がエラーになる。 区別: ref 引数を covergroup_expression の変数として受け付ける実装は設計を受け入れ、32 行目の診断を出さない。non-ref 引数や class 定数も拒否する実装は ck/ci/ce で先にエラーになる。
 
 ### SV2023-19.5-EXTRACT-GROUP-FUNCTION-ARGS
 
@@ -48440,7 +48498,7 @@ Open real intervals use name[low:high) or name[low:high] according to endpoint i
 
 ### SV2023-19.5.1-EXTRACT-REAL-DEFAULT-NO-ARRAY
 
-19.5.1 / error / テスト未対応
+19.5.1 / error / テスト対応あり・実行未確認
 
 A real-expression default bin shall not use [] or [N] bin-array notation.
 
@@ -48448,6 +48506,8 @@ A real-expression default bin shall not use [] or [N] bin-array notation.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_real_default_bin_n.sv](../tests/ch19/test_illegal_cg_real_default_bin_n.sv): real coverpoint の default bin を [N] 記法の rest[2] で宣言し、30 行目がエラーになる。単一の default bin は合法例。
+- [test_illegal_cg_real_default_bin_array.sv](../tests/ch19/test_illegal_cg_real_default_bin_array.sv): real coverpoint の default bin を [] 記法で宣言し、25 行目がエラーになる。
 
 ### SV2023-19.5.1-EXTRACT-REAL-DOLLAR-RANGE
 
@@ -48511,7 +48571,7 @@ Integral ranges denote discrete inclusive values; real ranges contain all values
 
 ### SV2023-19.5.1.1-EXTRACT-SELF-POINT-RANGE
 
-19.5.1.1 / error / テスト未対応
+19.5.1.1 / error / テスト対応あり・実行未確認
 
 The containing coverpoint name may replace a range list to denote all its values; another coverpoint name is prohibited.
 
@@ -48519,6 +48579,7 @@ The containing coverpoint name may replace a range list to denote all its values
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_self_point_range.sv](../tests/ch19/test_illegal_cg_self_point_range.sv): coverpoint pa の bin all と odd は pa 自身を range list の代わりに使い、許される。coverpoint pb の bin bad は別の coverpoint pa を with 付きで使うため 30 行目がエラーになる。 区別: 別の coverpoint 名を bin の値リストとして受け付ける実装は設計を受け入れ、30 行目の診断を出さない。自分の coverpoint 名も拒否する実装は all/odd で先にエラーになる。
 
 ### SV2023-19.5.1.1-EXTRACT-WITH-CONSTRUCTION
 
@@ -48613,7 +48674,7 @@ Goto transition repetition counts the specified value occurrences with any numbe
 
 ### SV2023-19.5.2-EXTRACT-NO-UNBOUNDED-ARRAY
 
-19.5.2 / error / テスト未対応
+19.5.2 / error / テスト対応あり・実行未確認
 
 Transition [] bin arrays shall not use sequences of unbounded or undetermined varying length; default sequence shall not use [].
 
@@ -48621,10 +48682,12 @@ Transition [] bin arrays shall not use sequences of unbounded or undetermined va
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_transition_array_unbounded.sv](../tests/ch19/test_illegal_cg_transition_array_unbounded.sv): transition の [ ] bin 配列 many[] に非連続繰り返し 1[=2] を使い、28 行目がエラーになる。bounded な ok[] と single は合法例。
+- [test_illegal_cg_default_sequence_array_new.sv](../tests/ch19/test_illegal_cg_default_sequence_array_new.sv): default sequence の bin allother に [ ] 記法を使い、27 行目がエラーになる。brackets なしの default sequence other は合法例。
 
 ### SV2023-19.5.2-EXTRACT-NO-ZERO-TRANSITION
 
-19.5.2 / error / テスト未対応
+19.5.2 / error / テスト対応あり・実行未確認
 
 Length-zero transition-bin specifications are illegal, including a sole range/value item or one repeated exactly once.
 
@@ -48632,6 +48695,9 @@ Length-zero transition-bin specifications are illegal, including a sole range/va
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_transition_length_zero.sv](../tests/ch19/test_illegal_cg_transition_length_zero.sv): 単一値 (4) だけの trans_set を bin once に置き、25 行目がエラーになる。4=>5 の pair は合法例。
+- [test_illegal_cg_transition_repeat_one.sv](../tests/ch19/test_illegal_cg_transition_repeat_one.sv): 単一値 0 を [*1] で 1 回だけ繰り返す bin once を置き、28 行目がエラーになる。0[*2] と 0=>1 は合法例。
+- [test_illegal_cg_transition_sole_range_new.sv](../tests/ch19/test_illegal_cg_transition_sole_range_new.sv): 単一 range ([0:1]) だけの trans_set を bin span に置き、27 行目がエラーになる。([0:1]=>2) と 0[*2] は合法例。
 
 ### SV2023-19.5.2-EXTRACT-NONCONSECUTIVE-TRANSITION
 
@@ -48718,7 +48784,7 @@ Transition bins accept ordered trans_list alternatives, range-list items and con
 
 ### SV2023-19.5.2-EXTRACT-TRANSITION-INTEGRAL
 
-19.5.2 / error / テスト未対応
+19.5.2 / error / テスト対応あり・実行未確認
 
 Transition bins shall use integral values; real transitions are prohibited.
 
@@ -48726,6 +48792,7 @@ Transition bins shall use integral values; real transitions are prohibited.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_real_transition_domain.sv](../tests/ch19/test_illegal_cg_real_transition_domain.sv): integral coverpoint iv の transition bin (1=>2) は整数遷移として合法で、real coverpoint bad の (1.0=>2.0) は実数遷移なので 36/37 行目がエラーになる。 区別: 実数の遷移値を受け付ける実装は設計を受け入れ、36/37 行目の診断を出さない。整数の transition bin も拒否する実装は iv の 33 行目で先にエラーになる。
 
 ### SV2023-19.5.3-EXTRACT-AUTO-ENUM-COUNT
 
@@ -48799,7 +48866,7 @@ Automatic bins consider only two-state values and exclude samples containing x/z
 
 ### SV2023-19.5.3-EXTRACT-AUTO-WHEN-NO-NORMAL
 
-19.5.3 / normal / テスト未対応
+19.5.3 / normal / テスト対応あり・実行未確認
 
 An integral coverpoint with no bins other than ignored/illegal bins receives automatic state bins; real coverpoints never receive automatic bins.
 
@@ -48807,10 +48874,11 @@ An integral coverpoint with no bins other than ignored/illegal bins receives aut
 
 規定の性質: `mandatory`。
 
+- [test_cg_auto_bins_only_ignored_and_real.sv](../tests/ch19/test_cg_auto_bins_only_ignored_and_real.sv): 整数 coverpoint only は ignore_bins と illegal_bins だけを持ち、16 個の自動 bin から値 1 と 2 を除いた 14 bin を分母にし、a=0 で 1/14 になる。real coverpoint rp は明示 bin 1 つだけで、r=0.5 で 1/1 のまま。 区別: ignore/illegal だけの整数点に自動 bin を作らない実装は 1/14 にならず、real 点にも自動 bin を作る実装は rp の total が 1 より大きくなる。
 
 ### SV2023-19.5.4-EXTRACT-EXPLICIT-FOUR-STATE
 
-19.5.4 / normal / テスト未対応
+19.5.4 / normal / テスト対応あり・実行未確認
 
 The default explicit integral value/transition-bin matching described in 19.5.4 compares x/z literally using case equality; wildcard definitions instead expand x/z/? to 0/1 possibilities.
 
@@ -48818,6 +48886,7 @@ The default explicit integral value/transition-bin matching described in 19.5.4 
 
 規定の性質: `definition`。
 
+- [test_cg_four_state_literal_wildcard_enum.sv](../tests/ch19/test_cg_four_state_literal_wildcard_enum.sv): literal bin {4'b1x0z} は sample 1x0z だけを被覆し、1x00 と 1z0z は被覆しない（lit 1/1）。transition bin (4'b0x => 4'b1z) は 0x の次の 1z だけを被覆し、1x は被覆しない（tr 1/1）。x/z を === で文字通り比較することを具体値で示す。 区別: x/z をdon't-care として扱う実装は lit が 1x00 や 1z0z でも被覆し、transition が 1x でも被覆するため、lit/tr の 1/1 が早い行で現れる。
 
 ### SV2023-19.5.4-EXTRACT-WILDCARD-SAMPLES
 
@@ -48832,7 +48901,7 @@ Wildcard bins exclude sampled values containing x/z; real coverpoint bins shall 
 
 ### SV2023-19.5.5-EXTRACT-IGNORE-BOUNDED
 
-19.5.5 / error / テスト未対応
+19.5.5 / error / テスト対応あり・実行未確認
 
 Ignored transitions shall not have unbounded or undetermined varying lengths.
 
@@ -48840,6 +48909,7 @@ Ignored transitions shall not have unbounded or undetermined varying lengths.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_ignore_unbounded_transition.sv](../tests/ch19/test_illegal_cg_ignore_unbounded_transition.sv): ignore_bins の遷移に非連続繰り返し 1[=2] を使う。この列は長さが無限で変化するため、ignore_bins に許されない。期待する診断行がこの bin の行を指す。 区別: ignore_bins の無限長・不定長の列を受け付ける実装は設計を受け入れ、期待する診断を出さない。
 
 ### SV2023-19.5.5-EXTRACT-IGNORE-EMPTY
 
@@ -48879,7 +48949,7 @@ ignore_bins removes listed state values from ordinary bins after distributing va
 
 ### SV2023-19.5.6-EXTRACT-ILLEGAL-BOUNDED
 
-19.5.6 / error / テスト未対応
+19.5.6 / error / テスト対応あり・実行未確認
 
 Illegal transition bins shall not specify unbounded or undetermined varying lengths.
 
@@ -48887,6 +48957,7 @@ Illegal transition bins shall not specify unbounded or undetermined varying leng
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_illegal_unbounded_transition.sv](../tests/ch19/test_illegal_cg_illegal_unbounded_transition.sv): illegal_bins の遷移に非連続繰り返し 1[=2] を使う。この列は長さが無限で変化するため、illegal_bins に許されない。期待する診断行がこの bin の行を指す。 区別: illegal_bins の無限長・不定長の列を受け付ける実装は設計を受け入れ、期待する診断を出さない。
 
 ### SV2023-19.5.6-EXTRACT-ILLEGAL-EMPTY
 
@@ -48902,7 +48973,7 @@ Bins emptied by illegal exclusion are excluded from coverage computation.
 
 ### SV2023-19.5.6-EXTRACT-ILLEGAL-ERROR
 
-19.5.6 / normal / テスト未対応
+19.5.6 / normal / テスト対応あり・実行未確認
 
 An observed illegal value/transition issues a runtime error, taking precedence even when also included in other bins.
 
@@ -48910,6 +48981,8 @@ An observed illegal value/transition issues a runtime error, taking precedence e
 
 規定の性質: `mandatory`。
 
+- [test_cg_illegal_value_error.sv](../tests/ch19/test_cg_illegal_value_error.sv): coverpoint bad の bin v={2,3} と illegal_bins b={3} で、3 を v から除いた後の bad が 1/1 になることを出力し、3 をサンプルして 44 行目の実行時エラーを起こす。
+- [test_cg_illegal_transition_error.sv](../tests/ch19/test_cg_illegal_transition_error.sv): coverpoint cp の t=(1=>2) と illegal_bins b=(1=>2) で、t を除いた cp が other だけの 1/1 になることを出力し、1 の次に 2 をサンプルして 46/47 行目の実行時エラーを起こす。
 
 ### SV2023-19.5.6-EXTRACT-ILLEGAL-SEQUENCES
 
@@ -48949,7 +49022,7 @@ The point comparison effective type is its specified type or otherwise its expre
 
 ### SV2023-19.5.7-EXTRACT-ENUM-BASE-CONTEXT
 
-19.5.7 / normal / テスト未対応
+19.5.7 / normal / テスト対応あり・実行未確認
 
 Enum bin/point values use their base types in expression context during value resolution.
 
@@ -48957,10 +49030,11 @@ Enum bin/point values use their base types in expression context during value re
 
 規定の性質: `mandatory`。
 
+- [test_cg_four_state_literal_wildcard_enum.sv](../tests/ch19/test_cg_four_state_literal_wildcard_enum.sv): enum e_t の E1 と E2 を式文脈で足した E1+E2 を bin add が 3 として受け、E3 のサンプルで 1/2 になる。range [E4:E6] は基底型の 4..6 として E5 を受け、2/2 になる。 区別: enum 値を enum 型のまま式文脈で扱う実装は E1+E2 が 3 にならず add が E3 を被覆せず、range の基底型解釈を誤ると E5 で rng が被覆されない。
 
 ### SV2023-19.5.7-EXTRACT-WARN-NEGATIVE-UNSIGNED
 
-19.5.7 / normal / テスト未対応
+19.5.7 / normal / テスト対応あり・実行未確認
 
 A signed negative bin value compared against an unsigned point type shall cause a warning.
 
@@ -48968,10 +49042,11 @@ A signed negative bin value compared against an unsigned point type shall cause 
 
 規定の性質: `mandatory`。
 
+- [test_cg_warn_negative_unsigned.sv](../tests/ch19/test_cg_warn_negative_unsigned.sv): unsigned 3-bit の coverpoint u に signed の負値 -1 を単独 bin bad に、2 を bin good に入れる。期待する診断は warning で、-1 は bin から除かれるため bad は空で分母から除かれ、u=2 で 1/1、u=7 でも 1/1 のままになる。 区別: -1 を bin に残して unsigned 3-bit に cast する実装は bad が 7 を含み total が 2 になり、u=2 は 1/2、u=7 は 2/2 になる。警告を出さない実装は (?i)warn に一致しない。
 
 ### SV2023-19.5.7-EXTRACT-WARN-NONREPRESENTABLE
 
-19.5.7 / normal / テスト未対応
+19.5.7 / normal / テスト対応あり・実行未確認
 
 A bin value changed under normal == comparison by assignment conversion to the point effective type shall cause a warning.
 
@@ -48979,6 +49054,7 @@ A bin value changed under normal == comparison by assignment conversion to the p
 
 規定の性質: `mandatory`。
 
+- [test_cg_warn_nonrepresentable.sv](../tests/ch19/test_cg_warn_nonrepresentable.sv): unsigned 3-bit の coverpoint u に 8 を単独 bin bad に、7 を bin good に入れる。8 は 3-bit に代入すると 0 になり 8 と等しくないため warning とともに bin から除かれ、bad は空で分母から除かれる。u=7 は 1/1、u=0（cast 値）も 1/1 のまま。 区別: 8 を bin に残す実装は bad が 0 を含み total が 2 になり、u=7 は 1/2、u=0 は 2/2 になる。警告を出さない実装は (?i)warn に一致しない。
 
 ### SV2023-19.5.7-EXTRACT-WARN-UNKNOWN-TEXT
 
@@ -49229,7 +49305,7 @@ Selected bin sets may combine with && and ||.
 
 ### SV2023-19.6.1.1-EXTRACT-TRANSITION-LAST-VALUE
 
-19.6.1.1 / normal / テスト未対応
+19.6.1.1 / normal / テスト対応あり・実行未確認
 
 A binsof select expression on a transition bin uses the transition last value.
 
@@ -49237,6 +49313,7 @@ A binsof select expression on a transition bin uses the transition last value.
 
 規定の性質: `mandatory`。
 
+- [test_cg_transition_binsof_last_value.sv](../tests/ch19/test_cg_transition_binsof_last_value.sv): cross X は transition bin t12=(1=>2) と t32=(3=>2) を cb と交叉し、bin sel = binsof(tp) intersect {2} を持つ。サンプル 1,2 で t12 が完了し、sel が 1/1 になる。最後の値 2 を使うため、最初の値 1 や 3 では選ばれない。3,2 でも t32 が sel に入り 1/1 のまま。 区別: binsof が遷移の最初の値を使う実装では {2} と交差する bin がなく sel が空になり、(2,0) で 1/1 にならない。最後の値を使う実装だけが 1/1 を出す。
 
 ### SV2023-19.6.1.2-EXTRACT-CROSS-WITH
 
@@ -49286,7 +49363,7 @@ matches requires a positive integer minimum satisfying value-tuple count, or $ r
 
 ### SV2023-19.6.1.2-EXTRACT-SELF-CROSS
 
-19.6.1.2 / error / テスト未対応
+19.6.1.2 / error / テスト対応あり・実行未確認
 
 The enclosing cross identifier denotes all possible bin tuples; another cross identifier is prohibited in this selection.
 
@@ -49294,6 +49371,7 @@ The enclosing cross identifier denotes all possible bin tuples; another cross id
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_self_cross_other.sv](../tests/ch19/test_illegal_cg_self_cross_other.sv): cross X1 の bin all は自分自身の cross 識別子 X1 を with 付きで使い、全 bin tuple を選ぶ合法例。cross X2 の bin bad は別の cross X1 を使うため 30 行目がエラーになる。 区別: 別の cross 識別子を select 式で受け付ける実装は設計を受け入れ、30 行目の診断を出さない。自分の cross 識別子も拒否する実装は X1 の all で先にエラーになる。
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-QUEUE-TYPE
 
@@ -49390,7 +49468,7 @@ ignore_bins excludes every selected cross product from coverage even if included
 
 ### SV2023-19.6.3-EXTRACT-ILLEGAL-CROSS
 
-19.6.3 / normal / テスト未対応
+19.6.3 / normal / テスト対応あり・実行未確認
 
 illegal_bins excludes selected products from coverage and issues runtime errors on matches, even when the product is explicitly ignored or included in another bin.
 
@@ -49398,6 +49476,7 @@ illegal_bins excludes selected products from coverage and issues runtime errors 
 
 規定の性質: `mandatory`。
 
+- [test_cg_illegal_cross_error.sv](../tests/ch19/test_cg_illegal_cross_error.sv): covergroup ex では ignore_bins が積 <0,0>、illegal_bins が積 <0,1> を選び、残る <1,0> と <1,1> だけをサンプルして 2/2 100.00 になる。covergroup cg では <0,1>（ignored）と <1,0>（自動）をエラーなくサンプルした後、<1,1>（both と ig と bad のすべてに含まれる）をサンプルして実行時エラーを起こす。 区別: 違法積を分母から除かない実装は ex が 2/2 100.00 にならず、違法積が他の bin や ignore に含まれる場合にエラーを出さない実装は 68 行目の診断を出さない。
 
 ### SV2023-19.7-EXTRACT-CROSS-RETAIN-SCOPE-TEXT
 
@@ -49950,7 +50029,7 @@ option is a built-in member of every group/point/cross, assigned in declarations
 
 ### SV2023-19.7-EXTRACT-OPTION-NAME
 
-19.7 / normal / テスト未対応
+19.7 / normal / テスト対応あり・実行未確認
 
 Instance option name is a string defaulting to a unique tool-generated instance name.
 
@@ -49958,6 +50037,7 @@ Instance option name is a string defaulting to a unique tool-generated instance 
 
 規定の性質: `definition`。
 
+- [test_cg_option_name_unique_and_retain_scope.sv](../tests/ch19/test_cg_option_name_unique_and_retain_scope.sv): 同じ covergroup cg の 2 インスタンス g1/g2 の既定 option.name が空でなく互いに異なること（names nonempty 1 1 different 1）を出力し、cg3 では option.name を "named" に設定して読み戻す（set "named"）。 区別: 既定名を空にする、または全インスタンスで同じにする実装は different の欄が 0 または nonempty が 0 になり、option.name の設定を無視する実装は set "named" にならない。
 
 ### SV2023-19.7-EXTRACT-OPTION-PER-INSTANCE
 
@@ -49983,7 +50063,7 @@ Instance option weight defaults to 1 and shall be a nonnegative integral value, 
 
 ### SV2023-19.7.1-EXTRACT-NO-PER-INSTANCE-TYPE-VALUES
 
-19.7.1 / error / テスト未対応
+19.7.1 / error / テスト対応あり・実行未確認
 
 Different group instances shall not initialize different type option values; declaration initializers must be constant expressions.
 
@@ -49991,6 +50071,7 @@ Different group instances shall not initialize different type option values; dec
 
 規定の性質: `mandatory`。
 
+- [test_illegal_cg_type_option_formal.sv](../tests/ch19/test_illegal_cg_type_option_formal.sv): covergroup cg は type_option.weight をコンストラクタ引数 w から初期化し、g1 = new(1) と g2 = new(2) が異なる値を与える。type option の初期化子は定数式でなければならないため 26 行目がエラーになる。cg2 は定数 3 を使い 2 インスタンスで同じ値になる合法例。 区別: 非定数の type option 初期化子を受け付ける実装は設計を受け入れ、26 行目の診断を出さない。定数の type option も拒否する実装は cg2 で先にエラーになる。
 
 ### SV2023-19.7.1-EXTRACT-TYPE-DEFAULTS
 
@@ -50808,7 +50889,7 @@ For a point with zero denominator, coverage queries return 0.0 when its weight i
 
 ### SV2023-19.11.2-EXTRACT-CROSS-AUTO-FORMULA-TEXT
 
-19.11.2 / normal / テスト未対応
+19.11.2 / normal / テスト対応あり・実行未確認
 
 In the 19.11.2 cross coverage equation, Bc is the number of automatic cross bins actually present: product(Bj) minus Bb while automatic bins are retained (cross_retain_auto_bins true, the default), and zero when cross_retain_auto_bins is false and an explicit cross bin is present, so the denominator is then Bu alone.
 
@@ -50816,10 +50897,11 @@ In the 19.11.2 cross coverage equation, Bc is the number of automatic cross bins
 
 規定の性質: `definition`。
 
+- [test_cg_option_name_unique_and_retain_scope.sv](../tests/ch19/test_cg_option_name_unique_and_retain_scope.sv): 2 つの coverpoint が各 2 bin、user bin が 2 積を選ぶ cross で、cross_retain_auto_bins=1 の w と y は total 3（積 4 - user 積 2 + user bin 1）、0 の x と v は total 1 になる。期待出力の (0,0): x 1/1 w 1/3 y 1/3 v 1/1 が Bc = product - Bb と Bc=0 の両分岐を数で示す。 区別: Bc を常に product のままにすると retain=0 の total が 1 にならず、Bc を常に 0 にすると retain=1 の total が 3 にならない。
 
 ### SV2023-19.11.2-EXTRACT-CROSS-FRACTION
 
-19.11.2 / normal / テスト未対応
+19.11.2 / normal / テスト対応あり・実行未確認
 
 Cross coverage equals covered contributing bins / (actual automatic cross bins + significant user cross bins), excluding ignore/illegal user bins.
 
@@ -50827,6 +50909,7 @@ Cross coverage equals covered contributing bins / (actual automatic cross bins +
 
 規定の性質: `definition`。
 
+- [test_cg_cross_select_bins.sv](../tests/ch19/test_cg_cross_select_bins.sv): cross x は binsof/intersect/!/&&/|| で 3 つの user bin を作り、ignore_bins が user bin からも積を除き、分母を自動積と有効な user bin の和にする。期待出力の (3,2): x 0/3 0.00 から (2,1): x 3/3 100.00 までが、被覆積/(Bc+Bu) を具体値で示す。 区別: ignore_bins を分母から除かない、または user bin の積を二重に数える実装では x の total が 3 にならず、5 行の被覆率が変わらない。
 
 ### SV2023-19.11.2-EXTRACT-ZERO-CROSS-EXCLUSION
 
@@ -54951,7 +55034,7 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-PATTERN
 
-21.2.1.1 / normal / テスト未対応
+21.2.1.1 / normal / 実行確認あり
 
 %p/%P selects assignment pattern output.
 
@@ -54959,6 +55042,7 @@ Unformatted string and unpacked byte-array expressions print as character string
 
 規定の性質: `definition`。
 
+- [test_pattern_format_enum_value.sv](../tests/ch21/test_pattern_format_enum_value.sv): 有効な enum 値を %p と %P で表示し、%d の数値ではなくパターン要素の書式である列挙名 ON が 出ることを確認する。 区別: %p や %P を基数変換として扱う実装では valid=1 や upper=1 になり、「valid=ON」「upper=ON」と一致しない。
 
 ### SV2023-21.2.1.1-EXTRACT-FORMAT-STRENGTH
 
@@ -55643,7 +55727,7 @@ For unknown logic use the mnemonic if zero/one strengths agree, otherwise decima
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-ENUM
 
-21.2.1.6 / normal / テスト未対応
+21.2.1.6 / normal / 実行確認あり
 
 Pattern output uses a valid enum value name, otherwise its base-type representation.
 
@@ -55651,6 +55735,7 @@ Pattern output uses a valid enum value name, otherwise its base-type representat
 
 規定の性質: `mandatory`。
 
+- [test_pattern_format_enum_value.sv](../tests/ch21/test_pattern_format_enum_value.sv): 有効な enum 値 ON を名前で、範囲外の mode_t'(9) を基底型 int の未書式表示である 9 で 表示することを確認する。 区別: 範囲外の値も列挙名で出そうとする実装、または有効値も数値で出す実装ではinvalid 行か valid 行が期待と変わる。
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-HANDLES
 
@@ -55901,7 +55986,7 @@ fclose implicitly cancels active fmonitor/fstrobe operations on the closed descr
 
 ### SV2023-21.3.1-EXTRACT-FD-NO-BROADCAST
 
-21.3.1 / normal / テスト未対応
+21.3.1 / normal / 実行確認あり
 
 File descriptors cannot be OR-combined to broadcast to multiple files.
 
@@ -55909,6 +55994,7 @@ File descriptors cannot be OR-combined to broadcast to multiple files.
 
 規定の性質: `mandatory`。
 
+- [test_fd_no_broadcast.sv](../tests/ch21/test_fd_no_broadcast.sv): 2 つのファイル記述子をビットごとの OR にして 1 語を書き、その後に各記述子へ 1 語ずつ 書いて両ファイルを読み、OR の語が両方には現れず、各記述子の語は各自のファイルに現れることを 確認する。 区別: ファイル記述子の OR をマルチチャネルのように扱う実装では combined が両ファイルに現れ、「the OR does not write to both files」が 0 になる。
 
 ### SV2023-21.3.1-EXTRACT-FD-RESERVED
 
@@ -56984,7 +57070,7 @@ A file address is @ immediately followed by hexadecimal digits of either case wi
 
 ### SV2023-21.4-EXTRACT-MEMORY-ARRAY-ARGUMENT
 
-21.4 / error / テスト未対応
+21.4 / error / テスト対応あり・実行未確認
 
 The load target may be an unpacked array or partially indexed multidimensional unpacked array; higher selected dimensions require indices rather than ranges, and only the lowest selected dimension may use a slice.
 
@@ -56992,6 +57078,7 @@ The load target may be an unpacked array or partially indexed multidimensional u
 
 規定の性質: `mandatory`。
 
+- [test_illegal_readmem_higher_range.sv](../tests/ch21/test_illegal_readmem_higher_range.sv): 2 次元配列 m[0:1][0:2] の最高次元を範囲 m[0:1] で選ぶ $readmemh を書く。21.4 はより高い次元を索引で指定し、スライスを最下位次元だけに許す。 区別: 最高次元の範囲指定を受け入れる実装は設計を受け付け、21 行目のエラーを出さない。
 
 ### SV2023-21.4-EXTRACT-MEMORY-DIRECTION
 
@@ -57019,7 +57106,7 @@ The load filename may be a literal, string value or integral character string.
 
 ### SV2023-21.4-EXTRACT-MEMORY-RANGE
 
-21.4 / error / テスト未対応
+21.4 / error / テスト対応あり・実行未確認
 
 Start/finish select addresses of the target highest unpacked dimension and shall fall within an explicitly selected slice.
 
@@ -57027,6 +57114,7 @@ Start/finish select addresses of the target highest unpacked dimension and shall
 
 規定の性質: `mandatory`。
 
+- [test_illegal_readmem_address_outside_slice.sv](../tests/ch21/test_illegal_readmem_address_outside_slice.sv): スライス m[0][0:2]（範囲 0〜2）に開始 3・終了 5 を渡す $readmemh を書く。21.4 はスライス使用時の開始・終了をスライスの範囲内に限る。 区別: スライス外のアドレスを受け入れる実装は設計を受け付け、21 行目のエラーを出さない。
 
 ### SV2023-21.4-EXTRACT-MEMORY-SUCCESSIVE
 
@@ -57077,7 +57165,7 @@ readmemb/readmemh load text binary/hex data into a named memory, with optional s
 
 ### SV2023-21.4.1-EXTRACT-ASSOCIATIVE-LOAD
 
-21.4.1 / error / テスト未対応
+21.4.1 / error / テスト対応あり・実行未確認
 
 Associative memory indices shall be integral; a loaded new address creates its element, and enum index addresses use their associated numeric values.
 
@@ -57085,6 +57173,7 @@ Associative memory indices shall be integral; a loaded new address creates its e
 
 規定の性質: `mandatory`。
 
+- [test_illegal_readmem_assoc_string_index.sv](../tests/ch21/test_illegal_readmem_assoc_string_index.sv): string を索引とする連想配列 int m[string] を $readmemh に渡す。21.4.1 は連想配列の索引を整数型に限る。 区別: string 索引の連想配列へのロードを受け入れる実装は設計を受け付け、20 行目のエラーを出さない。
 
 ### SV2023-21.4.1-EXTRACT-NO-RESIZE-LOAD
 
@@ -57255,7 +57344,7 @@ Memory text writes support unpacked arrays of two-state elements; enum elements 
 
 ### SV2023-21.5.3-EXTRACT-ASSOCIATIVE-ADDRESSES
 
-21.5.3 / error / テスト未対応
+21.5.3 / error / テスト対応あり・実行未確認
 
 Associative memory writes shall emit @ address words and require integral index types.
 
@@ -57263,6 +57352,7 @@ Associative memory writes shall emit @ address words and require integral index 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_writemem_assoc_string_index.sv](../tests/ch21/test_illegal_writemem_assoc_string_index.sv): string を索引とする連想配列 int m[string] を $writememh に渡す。21.5.3 は連想配列の索引を整数型に限る。 区別: string 索引の連想配列の書き出しを受け入れる実装は設計を受け付け、22 行目のエラーを出さない。
 
 ### SV2023-21.5.3-EXTRACT-DENSE-NO-ADDRESSES
 
@@ -57291,7 +57381,7 @@ Command-line plus-prefixed simulator arguments are accessible through test-plusa
 
 ### SV2023-21.6-EXTRACT-TEST-ARGUMENT
 
-21.6 / error / テスト未対応
+21.6 / error / テスト対応あり・実行未確認
 
 test-plusargs accepts a string or integral character-string variable, ignores leading nulls in a variable, and requires the query to omit the command-line plus sign.
 
@@ -57299,6 +57389,7 @@ test-plusargs accepts a string or integral character-string variable, ignores le
 
 規定の性質: `mandatory`。
 
+- [test_illegal_test_plusargs_real_argument.sv](../tests/ch21/test_illegal_test_plusargs_real_argument.sv): real 変数 r を $test$plusargs の引数にする。21.6 は引数を string か文字列を表す整数型に限る。 区別: real を文字列として受け入れる実装は設計を受け付け、19 行目のエラーを出さない。
 
 ### SV2023-21.6-EXTRACT-TEST-PREFIX
 
@@ -57314,7 +57405,7 @@ test-plusargs searches in command-line order for a prefix matching every query c
 
 ### SV2023-21.6-EXTRACT-VALUE-ARGUMENT
 
-21.6 / error / テスト未対応
+21.6 / error / テスト対応あり・実行未確認
 
 value-plusargs accepts a string or integral character-string first argument, ignores leading nulls in a variable, and requires omission of the command-line plus sign.
 
@@ -57322,6 +57413,7 @@ value-plusargs accepts a string or integral character-string first argument, ign
 
 規定の性質: `mandatory`。
 
+- [test_illegal_value_plusargs_real_argument.sv](../tests/ch21/test_illegal_value_plusargs_real_argument.sv): real 変数 r を $value$plusargs の第 1 引数にする。21.6 は第 1 引数を string か文字列を 表す整数型に限る。 区別: real を文字列として受け入れる実装は設計を受け付け、20 行目のエラーを出さない。
 
 ### SV2023-21.6-EXTRACT-VALUE-EMPTY
 
@@ -57445,7 +57537,7 @@ The value-plusargs s conversion interprets its remainder as string without conve
 
 ### SV2023-21.6-EXTRACT-VALUE-FORMAT-SYNTAX
 
-21.6 / error / テスト未対応
+21.6 / error / テスト対応あり・実行未確認
 
 The value-plusargs user string consists of the plusarg prefix and conversion format; only the specified conversion formats are valid, with uppercase/lowercase and leading-zero variants accepted.
 
@@ -57453,6 +57545,7 @@ The value-plusargs user string consists of the plusarg prefix and conversion for
 
 規定の性質: `mandatory`。
 
+- [test_illegal_value_plusargs_bad_format.sv](../tests/ch21/test_illegal_value_plusargs_bad_format.sv): ユーザー文字列 "COUNT%q" を使う。21.6 が許す変換は %d %o %h %x %b %e %f %g %s だけで、%q は含まれない。 区別: 任意の変換を受け入れる実装は設計を受け付け、21 行目のエラーを出さない。
 
 ### SV2023-21.6-EXTRACT-VALUE-ILLEGAL-CHARACTER
 
@@ -57597,7 +57690,7 @@ dumpvars selects the variables for the dumpfile; multiple calls throughout the m
 
 ### SV2023-21.7.1.2-EXTRACT-DUMPVARS-ZERO
 
-21.7.1.2 / boundary / テスト未対応
+21.7.1.2 / boundary / 実行確認あり
 
 A depth of zero includes each selected module and all its descendants; depth selection does not apply to individual variable arguments.
 
@@ -57605,6 +57698,7 @@ A depth of zero includes each selected module and all its descendants; depth sel
 
 規定の性質: `mandatory`。
 
+- [test_vcd_filename_string_and_depth_zero.sv](../tests/ch21/test_vcd_filename_string_and_depth_zero.sv): $dumpvars(0, mid) が mid とその子 lf の変数を出し、別の呼び出しの $dumpvars(0, other.of.lv) が lv だけを出して深さ 0 を変数引数に適用しないことを、階層名を組み立てて確認する。 区別: 深さ 0 を子孫に広げない実装では mid.lf.lv が無く、深さを変数引数にも適用する実装では other.ov が現れ、2 行目か 3 行目が 0 になる。
 
 ### SV2023-21.7.1.3-EXTRACT-DUMP-ENABLE
 
@@ -57680,7 +57774,7 @@ dumplimit specifies the maximum VCD byte size; reaching it stops dumping and ins
 
 ### SV2023-21.7.1.6-EXTRACT-DUMP-FLUSH
 
-21.7.1.6 / normal / テスト未対応
+21.7.1.6 / normal / 実行確認あり
 
 Argumentless dumpflush empties the operating-system VCD buffer into the file and resumes dumping as before without losing value changes.
 
@@ -57688,6 +57782,7 @@ Argumentless dumpflush empties the operating-system VCD buffer into the file and
 
 規定の性質: `mandatory`。
 
+- [test_vcd_dumpflush_resume.sv](../tests/ch21/test_vcd_dumpflush_resume.sv): 時刻 10 の変更の後に $dumpflush してファイルを読み、さらに時刻 30 の変更の後に再度 $dumpflush して全体を読み直し、前の変更が残り新しい変更が加わることを確認する。 区別: $dumpflush の後にダンプを再開しない実装では時刻 30 の値が無く、バッファを書き出さない実装では 1 回目の読み出しで時刻 10 の値が無い。
 
 ### SV2023-21.7.2-EXTRACT-VCD-WHITESPACE
 
@@ -57835,7 +57930,7 @@ The vector-dump rule requires the entire vector rather than a partial range; arb
 
 ### SV2023-21.7.2.2-EXTRACT-EVENT-MARKER
 
-21.7.2.2 / normal / テスト未対応
+21.7.2.2 / normal / 実行確認あり
 
 Events use scalar VCD syntax; their value character is irrelevant and the identifier marks a trigger in that time step.
 
@@ -57843,6 +57938,7 @@ Events use scalar VCD syntax; their value character is irrelevant and the identi
 
 規定の性質: `mandatory`。
 
+- [test_vcd_vector_extension_and_event.sv](../tests/ch21/test_vcd_vector_extension_and_event.sv): event ev を時刻 10 でトリガし、ev の識別子が時刻 10 のスカラー値変化として現れ、ベクトル形ではないことを確認する。 区別: イベントをベクトルとして書く、またはトリガ時刻に識別子を出さない実装では「the event id marks a scalar at its trigger time」が 0 になる。
 
 ### SV2023-21.7.2.2-EXTRACT-SCALAR-ADJACENCY
 
@@ -57858,7 +57954,7 @@ A scalar VCD value is immediately followed by its identifier without whitespace.
 
 ### SV2023-21.7.2.2-EXTRACT-VECTOR-EXTEND-0
 
-21.7.2.2 / normal / テスト未対応
+21.7.2.2 / normal / 実行確認あり
 
 VCD vector reconstruction extends a leading 0 with 0.
 
@@ -57866,6 +57962,7 @@ VCD vector reconstruction extends a leading 0 with 0.
 
 規定の性質: `definition`。
 
+- [test_vcd_vector_extension_and_event.sv](../tests/ch21/test_vcd_vector_extension_and_event.sv): 8'b0000_0101 をダンプし、先頭の 0 を落とした最短形 b101 になることを確認する。 区別: 先頭 0 を 1 で伸ばす、または常に全 8 桁を書く実装では zero_digits が 101 にならず、「no redundant left-extension digits」が 0 になる。
 
 ### SV2023-21.7.2.2-EXTRACT-VECTOR-EXTEND-1
 
@@ -57893,7 +57990,7 @@ VCD vector reconstruction extends a leading x with x.
 
 ### SV2023-21.7.2.2-EXTRACT-VECTOR-EXTEND-Z
 
-21.7.2.2 / normal / テスト未対応
+21.7.2.2 / normal / 実行確認あり
 
 VCD vector reconstruction extends a leading z with z.
 
@@ -57901,6 +57998,7 @@ VCD vector reconstruction extends a leading z with z.
 
 規定の性質: `definition`。
 
+- [test_vcd_vector_extension_and_event.sv](../tests/ch21/test_vcd_vector_extension_and_event.sv): 8'bzzzz_0101 をダンプし、先頭の z を z で伸ばした最短形 bz0101 になることを確認する。 区別: 先頭 z を 0 や x で伸ばす実装では z_digits が z0101 にならず、「no redundant left-extension digits」が 0 になる。
 
 ### SV2023-21.7.2.2-EXTRACT-VECTOR-SHORTEST
 
@@ -57916,7 +58014,7 @@ VCD values are right-justified and vector values omit redundant leading extensio
 
 ### SV2023-21.7.2.2-EXTRACT-VECTOR-SPACING
 
-21.7.2.2 / normal / テスト未対応
+21.7.2.2 / normal / 実行確認あり
 
 A vector VCD base letter immediately precedes digits without whitespace, and exactly one whitespace separates digits from the identifier.
 
@@ -57924,6 +58022,7 @@ A vector VCD base letter immediately precedes digits without whitespace, and exa
 
 規定の性質: `mandatory`。
 
+- [test_vcd_vector_extension_and_event.sv](../tests/ch21/test_vcd_vector_extension_and_event.sv): ベクトル値の直後の 2 文字を読み、数字と識別子の間に空白がちょうど 1 個あり、スカラー値では 値と識別子の間に空白がないことを確認する。 区別: 基数文字と数字の間に空白を入れる、数字と識別子の間に 2 個以上の空白を入れる、またはスカラーに空白を入れる実装では、対応する行が 0 になる。
 
 ### SV2023-21.7.2.3-EXTRACT-COMMENT-COMMAND
 
@@ -58108,7 +58207,7 @@ upscope moves to the next higher design hierarchy level.
 
 ### SV2023-21.7.2.3-EXTRACT-UWIRE-MAPPING
 
-21.7.2.3 / normal / テスト未対応
+21.7.2.3 / normal / 実行確認あり
 
 A uwire net uses the VCD var_type wire.
 
@@ -58116,6 +58215,7 @@ A uwire net uses the VCD var_type wire.
 
 規定の性質: `mandatory`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): uwire ネット uw をダンプし、その $var の型が wire になることを確認する。 区別: uwire という独自の型名を書く実装では「uwire maps to wire」が 0 になり、1364 型集合の検査にも反する。
 
 ### SV2023-21.7.2.3-EXTRACT-VAR-COMMAND
 
@@ -58198,7 +58298,7 @@ Both dumpports; and dumpports() use defaults; a null first argument requires a c
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-CALL-RESTRICTIONS
 
-21.7.3.1 / error / テスト未対応
+21.7.3.1 / error / テスト対応あり・実行未確認
 
 Multiple dumpports calls shall execute at the same simulation time and shall not repeat a filename.
 
@@ -58206,6 +58306,7 @@ Multiple dumpports calls shall execute at the same simulation time and shall not
 
 規定の性質: `mandatory`。
 
+- [test_illegal_dumpports_repeated_filename.sv](../tests/ch21/test_illegal_dumpports_repeated_filename.sv): 同じシミュレーション時刻 0 の 2 回の $dumpports 呼び出しで同じファイル名 ports.evcd を 指定する。21.7.3.1 は同一ファイル名の反復を禁じる。 区別: 同じファイル名の反復を受け入れる実装は設計を受け付け、29 行目のエラーを出さない。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-DUMP-START
 
@@ -58256,7 +58357,7 @@ Selected module ports are treated as primary I/O and included; ports of lower in
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-SCOPE-UNIQUENESS
 
-21.7.3.1 / error / テスト未対応
+21.7.3.1 / error / テスト対応あり・実行未確認
 
 Every dumpports scope shall be unique within a call and across multiple calls.
 
@@ -58264,10 +58365,11 @@ Every dumpports scope shall be unique within a call and across multiple calls.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_dumpports_duplicate_scope.sv](../tests/ch21/test_illegal_dumpports_duplicate_scope.sv): 同一の $dumpports 呼び出しでモジュール m をスコープとして 2 回指定する。21.7.3.1 は 各スコープと複数呼び出し間のスコープを一意にする。 区別: 重複スコープを受け入れる実装は設計を受け付け、25 行目のエラーを出さない。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-SCOPES
 
-21.7.3.1 / error / テスト未対応
+21.7.3.1 / error / テスト対応あり・実行未確認
 
 dumpports accepts comma-separated module identifiers and hierarchical module paths, not variable arguments or string literals; an omitted scope selects its calling module.
 
@@ -58275,6 +58377,7 @@ dumpports accepts comma-separated module identifiers and hierarchical module pat
 
 規定の性質: `mandatory`。
 
+- [test_illegal_dumpports_string_scope.sv](../tests/ch21/test_illegal_dumpports_string_scope.sv): $dumpports のスコープに文字列リテラル "m" を渡す。21.7.3.1 はモジュール識別子と 階層パスだけを許し、文字列リテラルを許さない。 区別: 文字列リテラルをスコープとして受け入れる実装は設計を受け付け、23 行目のエラーを出さない。
 
 ### SV2023-21.7.3.2-EXTRACT-PORT-ENABLE-FILENAME
 
@@ -59117,7 +59220,7 @@ Input/output driving the same value in the same strength range are a conflict, r
 
 ### SV2023-21.7.5-EXTRACT-NO-VCD-EXTENSION
 
-21.7.5 / normal / テスト未対応
+21.7.5 / normal / 実行確認あり
 
 SystemVerilog types are represented by existing IEEE 1364-2005 VCD types rather than extending that format.
 
@@ -59125,10 +59228,11 @@ SystemVerilog types are represented by existing IEEE 1364-2005 VCD types rather 
 
 規定の性質: `definition`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): bit/logic/byte/shortint/longint/int/enum/shortreal/uwire/packed 配列・構造体をダンプし、現れたすべての var 型が IEEE 1364-2005 の型集合に属することを確認する。 区別: SystemVerilog の型名や新しい var 型を VCD に書く実装では「every var type is an IEEE 1364-2005 type」が 0 になる。
 
 ### SV2023-21.7.5-EXTRACT-PACKED-MAPPING
 
-21.7.5 / normal / テスト未対応
+21.7.5 / normal / 実行確認あり
 
 Packed arrays and structures dump as a single reg vector, collapsing multiple packed dimensions.
 
@@ -59136,10 +59240,11 @@ Packed arrays and structures dump as a single reg vector, collapsing multiple pa
 
 規定の性質: `mandatory`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): logic [1:0][3:0] pa と packed struct ps をダンプし、どちらも 8 ビットの単一 reg として 宣言されることを確認する。 区別: パック次元ごとに別の var を出す、または構造体のメンバーを分ける実装では「packed arrays and structures are one reg vector」が 0 になる。
 
 ### SV2023-21.7.5-EXTRACT-TYPE-BIT
 
-21.7.5 / normal / テスト未対応
+21.7.5 / normal / 実行確認あり
 
 VCD maps bit to reg using total packed-dimension size.
 
@@ -59147,10 +59252,11 @@ VCD maps bit to reg using total packed-dimension size.
 
 規定の性質: `definition`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): bit b1 と bit [3:0] b4 をダンプし、reg 1 と reg 4 になることを確認する。 区別: bit を integer にする、またはパック次元の合計をサイズにしない実装では「bit is reg with its packed width」が 0 になる。
 
 ### SV2023-21.7.5-EXTRACT-TYPE-BYTE
 
-21.7.5 / normal / テスト未対応
+21.7.5 / normal / 実行確認あり
 
 VCD maps byte to reg using 8 bits.
 
@@ -59158,10 +59264,11 @@ VCD maps byte to reg using 8 bits.
 
 規定の性質: `definition`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): byte by をダンプし、reg 8 になることを確認する。 区別: byte を integer 32 にする、または幅を 8 にしない実装では「byte shortint longint and int map to their sizes」が 0 になる。
 
 ### SV2023-21.7.5-EXTRACT-TYPE-DEFAULT-ENUM
 
-21.7.5 / normal / テスト未対応
+21.7.5 / normal / 実行確認あり
 
 VCD maps default enum to integer using 32 bits.
 
@@ -59169,6 +59276,7 @@ VCD maps default enum to integer using 32 bits.
 
 規定の性質: `definition`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): 基底型を書かない enum の変数 de をダンプし、integer 32 になることを確認する。 区別: 既定 enum を reg や列挙名で書く実装では「an untyped enum is integer 32」が 0 になる。
 
 ### SV2023-21.7.5-EXTRACT-TYPE-INT
 
@@ -59196,7 +59304,7 @@ VCD maps logic to reg using total packed-dimension size.
 
 ### SV2023-21.7.5-EXTRACT-TYPE-LONGINT
 
-21.7.5 / normal / テスト未対応
+21.7.5 / normal / 実行確認あり
 
 VCD maps longint to reg using 64 bits.
 
@@ -59204,10 +59312,11 @@ VCD maps longint to reg using 64 bits.
 
 規定の性質: `definition`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): longint li をダンプし、reg 64 になることを確認する。 区別: longint を integer 32 や reg 32 にする実装では「byte shortint longint and int map to their sizes」が 0 になる。
 
 ### SV2023-21.7.5-EXTRACT-TYPE-SHORTINT
 
-21.7.5 / normal / テスト未対応
+21.7.5 / normal / 実行確認あり
 
 VCD maps shortint to reg using 16 bits.
 
@@ -59215,10 +59324,11 @@ VCD maps shortint to reg using 16 bits.
 
 規定の性質: `definition`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): shortint si をダンプし、reg 16 になることを確認する。 区別: shortint を integer 32 や reg 8 にする実装では「byte shortint longint and int map to their sizes」が 0 になる。
 
 ### SV2023-21.7.5-EXTRACT-TYPE-SHORTREAL
 
-21.7.5 / normal / テスト未対応
+21.7.5 / normal / 実行確認あり
 
 VCD maps shortreal to real using the real format.
 
@@ -59226,10 +59336,11 @@ VCD maps shortreal to real using the real format.
 
 規定の性質: `definition`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): shortreal sr をダンプし、var 型が real になることを確認する。 区別: shortreal を reg 32 や独自の型で書く実装では「shortreal maps to real」が 0 になる。
 
 ### SV2023-21.7.5-EXTRACT-TYPED-ENUM-MAPPING
 
-21.7.5 / normal / テスト未対応
+21.7.5 / normal / 実行確認あり
 
 An explicitly typed enum dumps using its declared type rather than the default enum mapping.
 
@@ -59237,6 +59348,7 @@ An explicitly typed enum dumps using its declared type rather than the default e
 
 規定の性質: `mandatory`。
 
+- [test_vcd_type_mappings.sv](../tests/ch21/test_vcd_type_mappings.sv): 基底型 byte と logic [7:0] を明示した enum の変数 se と le をダンプし、どちらも reg 8 に なり、既定の integer 32 にならないことを確認する。 区別: 基底型を無視して常に integer 32 にする実装では「a typed enum uses its declared type」が 0 になる。
 
 ### SV2023-21.7.5-EXTRACT-UNDUMPED-TYPES
 
