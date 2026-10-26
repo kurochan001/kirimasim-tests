@@ -1,0 +1,10 @@
+class definition cs_c: scope is top 1
+class definition cs_c: internal scopes f (vpiFunction), t (vpiTask)
+    f (vpiFunction): back to class 1
+    t (vpiTask): back to class 1
+d typespec: internal scopes f (vpiFunction), t (vpiTask)
+    f (vpiFunction): back to class 1
+    t (vpiTask): back to class 1
+class object: internal scopes f (vpiFunction), t (vpiTask)
+    f (vpiFunction): type vpiFunction
+    t (vpiTask): type vpiTask

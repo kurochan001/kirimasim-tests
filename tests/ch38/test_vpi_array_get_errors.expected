@@ -1,0 +1,13 @@
+shortreals is a float pointer 1
+sr shortreals: 1.50 -2.25 3.75
+user ints: 10 11
+reals: 1.25 -2.50
+times: 3 4
+vectors: 00000001/00000000 00000001/00000000 00000002/00000000 00000002/00000000
+an unlisted format on an int array: null 1
+a real format on an int array: null 1
+a shortreal format on an int array: null 1
+an array with string elements: null 1
+a dynamic array: null 1
+the error sets the pointer to NULL 1, the kept buffer has 77
+design done

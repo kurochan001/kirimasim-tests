@@ -1,0 +1,7 @@
+explicit clock property without outer clock: 5 15 25 35
+explicit clock over an outer cb2: 5 15 25 35
+clock-free property under default clocking: 5 15 25 35
+formal property passes: 5 15 25 35
+hierarchical property passes: 10 20 30 40
+local variable property passes: 15 25 35
+unused property declared

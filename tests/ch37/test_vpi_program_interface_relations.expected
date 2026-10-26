@@ -1,0 +1,6 @@
+one: type vpiProgram, interfaces b
+  b: instance is one 1
+two: type vpiProgram, interface arrays ba
+  ba: type vpiInterfaceArray, instance is two 1
+  element 0: type vpiInterface, instance is two 1
+  element 1: type vpiInterface, instance is two 1

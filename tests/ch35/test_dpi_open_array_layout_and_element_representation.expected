@@ -1,0 +1,4 @@
+int ptr 1 size 16 sum 100 ends 10 40
+layout 4
+logic packed size 8 unpacked 3 values 11 22 33 bval 0
+packed 0

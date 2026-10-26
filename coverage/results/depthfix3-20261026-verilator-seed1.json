@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch16/test_concurrent_assertion_names_and_control": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'calls through the asserted property 0, through the unused...', expected 'calls through the asserted property 2, through the unused...'",
+   "inputs_sha256": "061d38ce9c9eebb0d191eb1f78371589762fe6893874e8dd4cfa78719d53143c"
+  }
+ },
+ "generated_at": "2026-10-26T15:00:04.953240+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

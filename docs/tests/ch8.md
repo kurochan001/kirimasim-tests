@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 315 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 319 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -29,6 +29,7 @@
 | [`test_class_component_tree`](../../tests/ch8/test_class_component_tree.sv) | A tree of class objects that build hierarchical names from their parents | 8.4 8.5 7.10 | Verilator 5.052 |  |
 | [`test_class_edge`](../../tests/ch8/test_class_edge.sv) | Classes: construction, methods, local members, inheritance | 8.4 8.6 8.13 8.18 | Icarus Verilog 13.0 |  |
 | [`test_class_enum_property_accessors`](../../tests/ch8/test_class_enum_property_accessors.sv) | Methods of an object read and write its properties of enumerated types, a 64-bit vector and fixed-size arrays of bytes, and an enumeration with explicit values in any order keeps their signs through a cast to int | 8.4 8.5 8.6 6.19 7.4 | Verilator 5.052 |  |
+| [`test_class_handle_alias_and_polymorphism`](../../tests/ch8/test_class_handle_alias_and_polymorphism.sv) | class handles refer to one shared object, compare by identity, dispatch virtually through an abstract base, and support a down cast | 8.4 8.28 | Verilator 5.052 |  |
 | [`test_class_handle_arrays_lookup`](../../tests/ch8/test_class_handle_arrays_lookup.sv) | Objects kept in fixed-size arrays of class handles by two containers are shared, not copied, can be found by comparing a string property, and a method of one container changes them for the other | 8.4 8.7 7.4 6.16 | Verilator 5.052 |  |
 | [`test_class_handle_default_null_and_case_equality`](../../tests/ch8/test_class_handle_default_null_and_case_equality.sv) | class handles and chandles start as null, and === and !== on class handles give the same results as == and != for the same object, a different object with equal contents and null | 8.4 6.14 | Verilator 5.052 |  |
 | [`test_class_null_comparison`](../../tests/ch8/test_class_null_comparison.sv) | Class handles: null by default, compared with null, copied by assignment | 8.4 8.12 | Icarus Verilog 13.0 |  |
@@ -220,6 +221,7 @@
 | [`test_illegal_type_parameter_scope_prefix_in_variable_declaration`](../../tests/ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration.sv) | a type selected through a type parameter prefix with the scope resolution operator can only be used in a typedef, the type operator or a type parameter assignment | 8.23 6.20.3 | standard only | illegal design |
 | [`test_nested_class_access`](../../tests/ch8/test_nested_class_access.sv) | A class declared inside another class is used from outside through the scope resolution operator, can use the static and local members of its outer class (non-static ones through a handle), and two outer classes may each have a nested class of the same name | 8.23 8.18 | Verilator 5.052 |  |
 | [`test_class_extern`](../../tests/ch8/test_class_extern.sv) | Test: Extern method declaration | 8.24 8.20 | Verilator 5.052 |  |
+| [`test_extern_method_prototype_qualifiers`](../../tests/ch8/test_extern_method_prototype_qualifiers.sv) | an extern prototype carries the full arguments and the virtual, protected, local and final qualifiers, while the out-of-block body names the class and omits them | 8.24 | Verilator 5.052 |  |
 | [`test_extern_method_scoped_return_type`](../../tests/ch8/test_extern_method_scoped_return_type.sv) | An out of block method can use a class typedef as its return type and omit a prototype default | 8.24 | standard only |  |
 | [`test_illegal_extern_argument_type_mismatch`](../../tests/ch8/test_illegal_extern_argument_type_mismatch.sv) | the argument types of an out-of-block method declaration have to match its prototype | 8.24 | Verilator 5.052 | illegal design |
 | [`test_illegal_extern_body_before_class`](../../tests/ch8/test_illegal_extern_body_before_class.sv) | an out-of-block method declaration has to follow the declaration of its class | 8.24 8.27 | Verilator 5.052 | illegal design |
@@ -292,7 +294,9 @@
 | [`test_interface_class_diamond`](../../tests/ch8/test_interface_class_diamond.sv) | One method implements the methods of the same name that a class gets from several interface classes, also through a diamond of extends | 8.26.6.1 8.26.6.3 8.26.2 | Verilator 5.052 |  |
 | [`test_illegal_interface_class_parameter_conflict`](../../tests/ch8/test_illegal_interface_class_parameter_conflict.sv) | An interface class that inherits a parameter of the same name from two interface classes must declare it itself | 8.26.6.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_interface_class_typedef_conflict`](../../tests/ch8/test_illegal_interface_class_typedef_conflict.sv) | An interface class that inherits the same typedef name from two interface classes without declaring the name itself is an error | 8.26.6.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_interface_param_conflict`](../../tests/ch8/test_illegal_interface_param_conflict.sv) | a parameter inherited from two different interface classes conflicts even when the two parameters match and are never used | 8.26.6.2 | standard only | illegal design |
 | [`test_interface_class_typedef_conflict_resolved`](../../tests/ch8/test_interface_class_typedef_conflict_resolved.sv) | An interface class that inherits the same typedef name from two interface classes resolves the collision by declaring the name itself | 8.26.6.2 8.26.3 8.26.6 | standard only |  |
+| [`test_illegal_interface_specialization_conflict`](../../tests/ch8/test_illegal_interface_specialization_conflict.sv) | two specializations of one parameterized interface class are distinct types, so their method names conflict when inherited together | 8.26.6.3 | standard only | illegal design |
 | [`test_interface_diamond_inherited_parameter`](../../tests/ch8/test_interface_diamond_inherited_parameter.sv) | The same interface parameter inherited along a diamond is a single declaration | 8.26.6.3 | Verilator 5.052 |  |
 | [`test_illegal_virtual_class_leaves_interface_method_undeclared`](../../tests/ch8/test_illegal_virtual_class_leaves_interface_method_undeclared.sv) | a virtual class that implements an interface class has to implement or redeclare as pure each of its methods | 8.26.7 8.26 | standard only | illegal design |
 | [`test_interface_class_partial_virtual`](../../tests/ch8/test_interface_class_partial_virtual.sv) | A virtual class can implement an interface class partly, declaring the rest pure, and a derived class completes it | 8.26.7 8.21 8.26.8 | Verilator 5.052 |  |

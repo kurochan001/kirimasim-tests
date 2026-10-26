@@ -1,0 +1,2 @@
+read=0 fixed_size=2 a0=10
+dyn=3 dyn_bits=32 dyn_oob=0

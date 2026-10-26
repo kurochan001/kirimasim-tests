@@ -1,6 +1,6 @@
 # Clause 9: Processes
 
-[All chapters](README.md). 191 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 199 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -47,6 +47,7 @@
 | [`test_mux4_edge_cases`](../../tests/ch9/test_mux4_edge_cases.sv) | 4-to-1 Multiplexer edge cases | 9.2.2.2 12.5 | Icarus Verilog 13.0 |  |
 | [`test_sensitivity_edge_cases`](../../tests/ch9/test_sensitivity_edge_cases.sv) | Test: Sensitivity list edge cases | 9.2.2.2 9.2.2.4 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_always_comb_class_object_args_only`](../../tests/ch9/test_always_comb_class_object_args_only.sv) | an always_comb that calls a method of a class object and reads a member of it is not sensitive to the members or to the handle, only to the argument passed to the method | 9.2.2.2.1 | standard only |  |
+| [`test_always_comb_excluded_function_write`](../../tests/ch9/test_always_comb_excluded_function_write.sv) | an expression that a function called by always_comb writes is excluded from the implicit sensitivity, so the block runs once per input change | 9.2.2.2.1 | Icarus Verilog 13.0 |  |
 | [`test_always_comb_longest_static_prefix_and_locals`](../../tests/ch9/test_always_comb_longest_static_prefix_and_locals.sv) | always_comb is sensitive to the longest static prefix of what it and its functions read (a whole array for a variable index, one bit or element for a constant one) and not to variables declared in the block or in the function | 9.2.2.2.1 9.2.2.2 11.5.3 | standard only |  |
 | [`test_always_comb_qualified_function_calls`](../../tests/ch9/test_always_comb_qualified_function_calls.sv) | an always_comb is sensitive to what a package function, a static class method called with :: and a function called by a hierarchical name read, as for any other called function | 9.2.2.2.1 | Verilator 5.052 |  |
 | [`test_always_comb_reads_generate_scope_names`](../../tests/ch9/test_always_comb_reads_generate_scope_names.sv) | always_comb procedures in generate blocks rerun when variables they read through hierarchical names in other generate blocks change | 9.2.2.2.1 23.6 27.4 | Icarus Verilog 13.0 |  |
@@ -56,6 +57,8 @@
 | [`test_illegal_always_comb_delay`](../../tests/ch9/test_illegal_always_comb_delay.sv) | An always_comb procedure cannot contain a delay | 9.2.2.2.2 9.2.2.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_always_comb_event_control`](../../tests/ch9/test_illegal_always_comb_event_control.sv) | An always_comb procedure cannot contain an event control | 9.2.2.2.2 9.2.2.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_always_comb_fork_join`](../../tests/ch9/test_illegal_always_comb_fork_join.sv) | An always_comb procedure cannot contain fork-join | 9.2.2.2.2 9.3.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_always_comb_fork_statement`](../../tests/ch9/test_illegal_always_comb_fork_statement.sv) | an always_comb procedure cannot contain a fork-join_none statement | 9.2.2.2.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_always_comb_wait`](../../tests/ch9/test_illegal_always_comb_wait.sv) | an always_comb procedure cannot contain a wait statement, which blocks | 9.2.2.2.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_always_latch`](../../tests/ch9/test_always_latch.sv) | Always_latch Tests | 9.2.2.3 | Icarus Verilog 13.0 |  |
 | [`test_always_latch_2`](../../tests/ch9/test_always_latch_2.sv) | always_latch holds its outputs while the condition is false | 9.2.2.3 | Icarus Verilog 13.0 |  |
 | [`test_always_latch_comb_in_interface`](../../tests/ch9/test_always_latch_comb_in_interface.sv) | always_latch and always_comb procedures in an interface run as they do in a module | 9.2.2.3 9.2.2.2 25.3 | Icarus Verilog 13.0 |  |
@@ -124,6 +127,7 @@
 | [`test_delay_x_z_value_is_zero_delay`](../../tests/ch9/test_delay_x_z_value_is_zero_delay.sv) | a delay control whose expression is all x or all z waits as #0 does, without advancing time | 9.4.1 4.4.2.2 | Icarus Verilog 13.0 | x/z |
 | [`test_timing_edge_cases`](../../tests/ch9/test_timing_edge_cases.sv) | Timing edge cases test | 9.4.1 9.4.5 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_clocked_value_timing`](../../tests/ch9/test_clocked_value_timing.sv) | A variable updated by a clocked always procedure, read one time unit after each edge | 9.4.2 10.4.2 | Icarus Verilog 13.0 |  |
+| [`test_clocking_sampled_event`](../../tests/ch9/test_clocking_sampled_event.sv) | an event control on a clocking block input or inout uses the value sampled by the clocking event, not the unsampled signal | 9.4.2 | Verilator 5.052 |  |
 | [`test_edge_detection`](../../tests/ch9/test_edge_detection.sv) | Edge Detection Tests | 9.4.2 10.4.2 | Icarus Verilog 13.0 |  |
 | [`test_edge_event_never_changes`](../../tests/ch9/test_edge_event_never_changes.sv) | @(edge v) resumes only on the transitions of Table 9-2, never for a variable that keeps its initial x | 9.4.2 | Icarus Verilog 13.0 | x/z |
 | [`test_edge_event_vector_lsb_only`](../../tests/ch9/test_edge_event_vector_lsb_only.sv) | posedge, negedge and edge on a 4-bit vector follow only its least significant bit, while a plain event control wakes on any change | 9.4.2 | Icarus Verilog 13.0 |  |
@@ -133,8 +137,10 @@
 | [`test_event_control_on_expression`](../../tests/ch9/test_event_control_on_expression.sv) | An event control on an operator expression waits for a change of the expression's value, not for any change of its operands | 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_event_control_posedge`](../../tests/ch9/test_event_control_posedge.sv) | Waiting for @(posedge clk) in an initial block | 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_event_ctrl`](../../tests/ch9/test_event_ctrl.sv) | Event control | 9.4.2 | Icarus Verilog 13.0 |  |
+| [`test_event_method_dependency`](../../tests/ch9/test_event_method_dependency.sv) | a change to an object member, an aggregate element or a dynamic size used by a function or built-in method wakes the event control that reads it | 9.4.2 | Verilator 5.052 |  |
 | [`test_event_nested_struct_member`](../../tests/ch9/test_event_nested_struct_member.sv) | Event controls on members of nested packed structures wake only on a change of that member | 9.4.2 7.2.1 6.8 | Icarus Verilog 13.0 |  |
 | [`test_illegal_event_control_on_unpacked_array`](../../tests/ch9/test_illegal_event_control_on_unpacked_array.sv) | An event control on a whole unpacked array is illegal, since an event expression has to give a singular value | 9.4.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_event_non_singular_method`](../../tests/ch9/test_illegal_event_non_singular_method.sv) | a nonvirtual object method whose return type is not singular cannot be used in an event control | 9.4.2 | standard only | illegal design |
 | [`test_multi_sensitivity_list`](../../tests/ch9/test_multi_sensitivity_list.sv) | Multi-signal sensitivity list test | 9.4.2 | Icarus Verilog 13.0 |  |
 | [`test_sens_level`](../../tests/ch9/test_sens_level.sv) | Level sensitivity | 9.4.2 4.7 | Icarus Verilog 13.0 | x/z |
 | [`test_sens_multi`](../../tests/ch9/test_sens_multi.sv) | Multiple sensitivity | 9.4.2 | Icarus Verilog 13.0 |  |
@@ -148,6 +154,7 @@
 | [`test_star_timing_control_identifiers_excluded`](../../tests/ch9/test_star_timing_control_identifiers_excluded.sv) | identifiers that appear in an @* statement only inside a wait condition, a delay or an event control are not in the @* event expression, while the variables the statement reads elsewhere are | 9.4.2.2 | standard only |  |
 | [`test_illegal_automatic_variable_as_sequence_event_argument`](../../tests/ch9/test_illegal_automatic_variable_as_sequence_event_argument.sv) | the arguments of a sequence used in an event control have to be static, not automatic variables | 9.4.2.4 16.8 | Verilator 5.052 | illegal design |
 | [`test_sequence_as_event_control`](../../tests/ch9/test_sequence_as_event_control.sv) | A named sequence used as an event control resumes the process at the end of a match | 9.4.2.4 16.8 | Verilator 5.052 |  |
+| [`test_sequence_event_nba_visibility`](../../tests/ch9/test_sequence_event_nba_visibility.sv) | a process waiting on a sequence event resumes after the Observed region, so it sees a nonblocking update made at the same clock edge | 9.4.2.4 | Verilator 5.052 |  |
 | [`test_wait_on_array_size`](../../tests/ch9/test_wait_on_array_size.sv) | wait on the size() of a queue and of a dynamic array resumes when push_back or new[] changes it | 9.4.3 7.10.2.7 7.5.1 | Icarus Verilog 13.0 |  |
 | [`test_wait_sequence_same_slot_twice`](../../tests/ch9/test_wait_sequence_same_slot_twice.sv) | A second wait on an already triggered sequence completes in the same time step | 9.4.4 16.13.5 | standard only |  |
 | [`test_wait_sequence_triggered`](../../tests/ch9/test_wait_sequence_triggered.sv) | A wait statement on the triggered method of a named sequence unblocks in the time step in which the sequence reaches its end point, and triggered is false again once time advances | 9.4.4 16.9.11 16.13.6 9.4.3 | standard only |  |
@@ -191,6 +198,7 @@
 | [`test_process_kill_self`](../../tests/ch9/test_process_kill_self.sv) | A process that calls kill() on itself ends at once with the status KILLED, as one killed by another process does | 9.7 | standard only |  |
 | [`test_process_kill_terminates_descendants`](../../tests/ch9/test_process_kill_terminates_descendants.sv) | kill() ends its target together with the children and grandchildren it forked before it returns, and kill() on a process that has already finished still ends its running children | 9.7 | standard only |  |
 | [`test_process_random_state`](../../tests/ch9/test_process_random_state.sv) | std::process srandom(seed) seeds the random state of the process, so the same seed gives the same sequence again, get_randstate() returns that state as a string, and set_randstate() with that string makes the following values repeat | 9.7 18.13.3 18.13.4 18.13.5 G.6 | Verilator 5.052 |  |
+| [`test_process_randstate_signatures`](../../tests/ch9/test_process_randstate_signatures.sv) | process srandom takes an int seed, get_randstate returns a nonempty string, and set_randstate with that string reproduces the next random value | 9.7 | Verilator 5.052 |  |
 | [`test_process_resume_waiting_resensitizes`](../../tests/ch9/test_process_resume_waiting_resensitizes.sv) | suspend() on processes blocked on an event, a wait condition and delays makes them SUSPENDED before it returns; resume() makes each one sensitive again, continuing at once when the condition is already true or the delay has passed, and otherwise at the next event or at the original end of the delay | 9.7 | standard only |  |
 | [`test_process_self_status_kill`](../../tests/ch9/test_process_self_status_kill.sv) | std::process::self() returns the running process, status() reports RUNNING, WAITING, FINISHED and KILLED over a process's life, the state enumeration has the five names in the order G.6 gives with the values 0 to 4, and kill() ends a process and its descendants before it returns | 9.7 G.6 | Verilator 5.052 |  |
 | [`test_process_self_suspend_and_noop_controls`](../../tests/ch9/test_process_self_suspend_and_noop_controls.sv) | a running process reports RUNNING and can suspend itself; resume() lets it continue in the same time step; suspend() of a suspended, finished or killed process and resume() of a process that is not suspended change nothing | 9.7 | standard only |  |

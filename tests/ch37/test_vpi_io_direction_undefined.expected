@@ -1,0 +1,4 @@
+u1 s: direction -1, expr vpiRefObj
+u2 m: direction -1, expr vpiRefObj
+u3 r: direction 6, expr vpiRefObj
+task vt v: direction -1, expr vpiVirtualInterfaceVar

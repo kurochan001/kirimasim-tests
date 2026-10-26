@@ -1,0 +1,7 @@
+ws: parent NULL 1, constant select 1
+ws: bits 0,1,2,3, each size 1 1, expanded Boolean 1, same as net 1
+wv: parent NULL 1, constant select 1
+wv: bits 0,1,2,3, each size 1 1, expanded Boolean 1, same as net 1
+y1: constant select 1
+y2: constant select 1
+y3: constant select 0

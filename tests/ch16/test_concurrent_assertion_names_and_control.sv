@@ -3,7 +3,7 @@
 :description: a named concurrent assertion can be turned off and on through its hierarchical name with the assertion control tasks while its neighbor keeps running, an unnamed assertion creates no scope and its failure is still reported, and a property that no assertion statement uses is never evaluated (IEEE 1800-2023 Section 16.14)
 :tags: ch16
 :type: simulation
-:lrm: 1800-2023 16.14 20.11 20.10 16.11 16.14.1
+:lrm: 1800-2023 16.14 20.11 20.10 16.11 16.14.1 16.12.20
 :oracle: spec
 :spec_check: ai
 :fourstate: no

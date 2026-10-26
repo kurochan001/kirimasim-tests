@@ -1,0 +1,5 @@
+constraints of class ci_base: c_base c_base2
+constraints of class ci_der: c_mid c_late
+constraints of d typespec: c_mid c_late
+constraints of its base typespec: c_base c_base2
+constraints from NULL root: 4 (c_base,c_base2,c_late,c_mid)

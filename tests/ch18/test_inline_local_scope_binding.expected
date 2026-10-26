@@ -1,0 +1,3 @@
+member lim 1 a=8, package local::lim 1 a=4
+local:: type a=7, local:: class scope a=9
+local:: receiver name a=11

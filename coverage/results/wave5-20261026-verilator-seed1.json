@@ -1,0 +1,457 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch13/test_function_body_and_return_forms": {
+   "status": "pass",
+   "inputs_sha256": "52ded7fede29f88c9e4b771df9ece69cc5060f19fadd9519ca84cbb9d3111e18"
+  },
+  "ch14/test_clocking_declaration_items_and_skews": {
+   "status": "pass",
+   "inputs_sha256": "b3f6eeb531687f379d999127dde596cc1f64bc2a234925ec66726d22965056b0"
+  },
+  "ch16/test_abort_operators_accept_and_reject": {
+   "status": "pass",
+   "inputs_sha256": "568629f1e524678db44b1270308c679ed94aef149d077e59cf5a8e3b399cf22c"
+  },
+  "ch16/test_global_clock_future_action_delay": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'future sig passes: 25 45; failures: 5 15 35', expected 'future sig passes: 20 40; failures: 10 30'",
+   "inputs_sha256": "0692e1a4f824acd535326d56a1e04b5a554c8ee68e4e24590af1b45e4fe9a173"
+  },
+  "ch16/test_illegal_triggered_outside_local_formal": {
+   "status": "pass",
+   "inputs_sha256": "ac427559a7421043f21c4bcb73ac196918a4c85405d557e81a17147161af5a5a"
+  },
+  "ch16/test_inferred_disable_default_and_none": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_inferred_disable_default_and_none.sv:34:26: Unsupported: property variable default value",
+   "inputs_sha256": "c057361253eff99d0279277f34add5df09f949e28ddf6dc0cef7ac5bccc209dd"
+  },
+  "ch16/test_property_argument_lists_named_only_and_property_actual": {
+   "status": "pass",
+   "inputs_sha256": "c4935176cbb64d40a2d3804530f21da0d4f2bf324989be3e5d84a0813198f14c"
+  },
+  "ch16/test_property_declaration_names_and_clock": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_property_declaration_names_and_clock.sv:94:28: Unsupported: Clock event before property call and in its body",
+   "inputs_sha256": "282d81f33f7e9f89c86852deaac1cb9c68c01f3337374b48be42c82d3f4bce6d"
+  },
+  "ch16/test_sequence_local_formal_assignment": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_sequence_local_formal_assignment.sv:35:18: Unsupported: property port 'local'",
+   "inputs_sha256": "64c58c2e6a89edf2c2d421d46e361afb19186436ae0060226e2950bcd1217791"
+  },
+  "ch16/test_sequence_ports_and_instances": {
+   "status": "pass",
+   "inputs_sha256": "89b5c63dd48f29d2d99d74c324ad03562ad65d243290f8862934c766fd15bac3"
+  },
+  "ch17/test_checker_always_statement_kinds": {
+   "status": "pass",
+   "inputs_sha256": "886aeb4bad60175470287bd6a2c957e7c887d641fb7e2df790f91403beec543b"
+  },
+  "ch17/test_checker_covergroup_sample": {
+   "status": "pass",
+   "inputs_sha256": "6fed0af0eb665a8c70acd4f300ce9d7e972083474537f3c8571280d8c69190af"
+  },
+  "ch17/test_checker_final_once": {
+   "status": "pass",
+   "inputs_sha256": "da29282b57dc59822fc3436ef391fd2f0379536edffd3e18efcdefa0660cd75b"
+  },
+  "ch17/test_illegal_checker_hierarchical_read": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "b4b1bf4a946db3603eb03441adb60876cc2d64003c86970331c71c4a8574ea0a"
+  },
+  "ch18/test_constraint_block_all_forms": {
+   "status": "pass",
+   "inputs_sha256": "c49cf0881a61cda47d4c02bcf0d45ca2a5afed2b66b55a725d14a6fa8f574db5"
+  },
+  "ch18/test_constraint_if_else_equivalence": {
+   "status": "pass",
+   "inputs_sha256": "294851cf1d68193bf4d5311e9d06fb726fc666ce6e783c6562e0237f6124b31c"
+  },
+  "ch18/test_dist_default_complement": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch18/test_dist_default_complement.sv:28:38: Unsupported: 'default :/' constraint",
+   "inputs_sha256": "bc9d721fe1e6aa24f36e5252655869fc7695139a9b7716e0c73eab657409c24a"
+  },
+  "ch18/test_illegal_constraint_function_inout": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "0c2e227a3f9e7d4b026af26a4755826e0c8018e7cbad9797dfbc66e169d4b8aa"
+  },
+  "ch18/test_illegal_constraint_function_mode": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "fc8d1b64606af5086b7c6dd4417785ed6bdf5956a58478c4b9f15c1ec3869484"
+  },
+  "ch18/test_illegal_constraint_function_output": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a0640b0c63d8a991124815a1f36a402abe70974de63251ac61f418c285d3bbe6"
+  },
+  "ch18/test_illegal_constraint_function_ref": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8baba5f3cfd6bae5820e4ec5745477cee6bb3af681eb8ed7a507b33339cf33f5"
+  },
+  "ch18/test_illegal_constraint_function_state": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "894ca154afdb765b9d92a77eb968f5fd6a21ef8684aa2af8757e81754c5a7b0f"
+  },
+  "ch18/test_illegal_constraint_initial_extends": {
+   "status": "pass",
+   "inputs_sha256": "4c38190507c746d2baecea838510e7c383588b34f2289458f91647f0f8a5795f"
+  },
+  "ch18/test_illegal_constraint_struct_operand": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a6f85a41e4d8853c12d0ef4ab97b0a0dcf68af03af6a8deeeedfdefaf2d6d605"
+  },
+  "ch18/test_illegal_pure_constraint_final": {
+   "status": "pass",
+   "inputs_sha256": "64ae2837a6366c0c590dee2d0bb4cac1a69e14850809e6ab04157de7ad4caf9c"
+  },
+  "ch18/test_illegal_qualifier_local_protected": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "0ab518fecb784edd808faaf32fcdb32b44f13c3063fe2d91bf90c3abc33a75f9"
+  },
+  "ch18/test_illegal_qualifier_rand_randc": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "dc0518db71da3be8e67d48176568e0fd7fe0a30bce5ddfdc27b8822ebc5610c8"
+  },
+  "ch18/test_illegal_qualifier_static_static": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "35d11504d3e647f9f2aefc2a286b7e7ecc86bfcffc39aacf9197c1fc27d5ac86"
+  },
+  "ch18/test_illegal_randc_handle": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3bdb9bf41e383400deb59c8b691d20d3277440a5fb3f532aa52a938a016f4958"
+  },
+  "ch18/test_illegal_static_constraint_override": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "58c6144ae4a04b3e06da4e1a86d1e6579aa246d242b9b375d48f784d3fbb6c18"
+  },
+  "ch18/test_illegal_static_prototype_external": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a30d19683f38726b9a82e009d627d4dd02e89138c55ce2f3a505ecc51701c8b5"
+  },
+  "ch18/test_illegal_static_pure_override": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "db098a57b2bbac5059382af9a78dbb24bedc71519340b70d41e53b57b96de7cd"
+  },
+  "ch18/test_inline_local_scope_binding": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch18/test_inline_local_scope_binding.sv:71:49: syntax error, unexpected IDENTIFIER-::, expecting IDENTIFIER-for-type",
+   "inputs_sha256": "5aa27116cf08e39dc923ebaedfc6722da2dd6ced3e64cab57d55f7fd050291eb"
+  },
+  "ch18/test_scope_randomize_all_constraints": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'true 1, false 1, later false 1', expected 'true 1, false 0, later false 0'",
+   "inputs_sha256": "1320152ebac8f2407a081ea12e8f290e8daa043b6a1bc9eadbc96bb51488d713"
+  },
+  "ch18/test_solve_before_changes_distribution": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a == 1 in 44..56% 0, failures 0', expected 'a == 1 in 44..56% 1, failures 0'",
+   "inputs_sha256": "95e17d81bce149a524dfe8d2839d6996bd45dc5a5804907794a5d7fd66b1ca75"
+  },
+  "ch18/test_urandom_unsigned_result": {
+   "status": "pass",
+   "inputs_sha256": "ea5f4c67063e1d2e558f37dd99157a396fc2d47ec76219ea155288c2aecf89b8"
+  },
+  "ch23/test_bind_scope_and_interface_target": {
+   "status": "pass",
+   "inputs_sha256": "c84fa8b711b0aa6c735e84465948ffda77246d478475f9993b28ca2083041621"
+  },
+  "ch28/test_drive_strength_sets_resolution": {
+   "status": "pass",
+   "inputs_sha256": "9346f3856badd4ebf396ae0204b95dab6ba2bde6044c3b24dc7e8689a3818709"
+  },
+  "ch35/test_dpi_call_directions_and_context_chain": {
+   "status": "pass",
+   "inputs_sha256": "9cfd0da0b6fa9c6da0a73518ed4f7cd380eb814d3881d1835d7f68440aeb3f09"
+  },
+  "ch35/test_dpi_coercion_dual_types_and_qualifiers": {
+   "status": "pass",
+   "inputs_sha256": "2e9b290d1c00d33db38b66da8abdcce4d7aaaaf4757781d859186bb8c9569ce9"
+  },
+  "ch35/test_dpi_input_copy_const_and_lifetime": {
+   "status": "pass",
+   "inputs_sha256": "939158b478c8607a3d1dc2774ad98b563032a46444a6c29b47f6951b1f696520"
+  },
+  "ch35/test_dpi_open_array_layout_and_element_representation": {
+   "status": "pass",
+   "inputs_sha256": "114c69f8e4940ff913ef57ebcc501a2815c4aafdc5e8f9521e58caa67d17e4b1"
+  },
+  "ch35/test_svdpi_names_and_signed_bits_macro": {
+   "status": "pass",
+   "inputs_sha256": "aaede1af4bddb92f10545dae3bbbea44e768e9ed111dd1fba17b7309c5f4392c"
+  },
+  "ch37/test_vpi_class_internal_scopes": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_class_internal_scopes.sv:41:8: Unsupported or unknown PLI call: '$vt_classscope'",
+   "inputs_sha256": "4bca8d1ae0a5624508e809dad1d5446dd5b660c8da8a2dc731d12ea05f94c70e"
+  },
+  "ch37/test_vpi_clocking_scope_group": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_clocking_scope_group.sv:31:14: Unsupported or unknown PLI call: '$vt_clock'",
+   "inputs_sha256": "90223f14d837d78f38dd9fd87c767ed45fe30a8e19738b62823f3dcf95e65a36"
+  },
+  "ch37/test_vpi_constraint_iteration": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_constraint_iteration.sv:48:8: Unsupported or unknown PLI call: '$vt_con'",
+   "inputs_sha256": "9b0d58aa697998bc65aaf9d3439203dddf0367d0b3a7d601c994d03aa4041ecb"
+  },
+  "ch37/test_vpi_frame_automatics_thread": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_frame_automatics_thread.sv:35:5: Unsupported or unknown PLI call: '$vt_frame'",
+   "inputs_sha256": "e55d0fdabf21c17222b1311d8e866522ebaa2f042a9dfca713a76c9ba19f6015"
+  },
+  "ch37/test_vpi_gen_scope_protected": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_gen_scope_protected.sv:29:14: Unsupported or unknown PLI call: '$vt_gen'",
+   "inputs_sha256": "5e24d7c095983d616e9eaf71b8d5605560d94aad8632e11d288564c507a5395e"
+  },
+  "ch37/test_vpi_handle_release_independence": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_handle_release_independence.sv:38:8: Unsupported or unknown PLI call: '$vt_release'",
+   "inputs_sha256": "55557f4ce697c9ffcf7b2bdfbddf774af577ebebcab5ba4e8a99703cd0c0e67a"
+  },
+  "ch37/test_vpi_interconnect_array_ranges": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_interconnect_array_ranges.sv:24:3: Unsupported: interconnect",
+   "inputs_sha256": "5a45943108ff6d76358f03413c700d476bf766fea6b3ff6a13652ae4a8ca3efb"
+  },
+  "ch37/test_vpi_io_direction_undefined": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_io_direction_undefined.sv:48:8: Unsupported or unknown PLI call: '$vt_dir'",
+   "inputs_sha256": "465af806e73fc07373f380e83093d7eb3fab11b97ff0961e3609003ea927d6bd"
+  },
+  "ch37/test_vpi_local_connectivity_ports": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_local_connectivity_ports.sv:37:14: Unsupported or unknown PLI call: '$vt_local'",
+   "inputs_sha256": "71b9f76521c3715504ffffdd17f27cda22758e154101b25a9ed7c5e7d2e89d04"
+  },
+  "ch37/test_vpi_net_bits_constant_select": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_net_bits_constant_select.sv:48:14: Unsupported or unknown PLI call: '$vt_cs'",
+   "inputs_sha256": "879144b26af74c64d39a6f396ab4c1e9fac2dad5a56247f583be0598afad0efa"
+  },
+  "ch37/test_vpi_net_driver_objects": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_net_driver_objects.sv:34:14: Unsupported or unknown PLI call: '$vt_netdrv'",
+   "inputs_sha256": "c602150f9874e9356f7af6cb54862953458236d6313f066595dd2c71e384e406"
+  },
+  "ch37/test_vpi_nettype_net_parts": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_nettype_net_parts.sv:27:3: Unsupported: nettype",
+   "inputs_sha256": "71d792f181ddd895f57a5e2414ca4555bd9160ab443b0393c5e3582294c3ee66"
+  },
+  "ch37/test_vpi_program_interface_relations": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_program_interface_relations.sv:47:14: Unsupported or unknown PLI call: '$vt_program'",
+   "inputs_sha256": "196f78f06ff61939f4bfe9d056dcdd199856bbe8438e3a08fafee4474dc19235"
+  },
+  "ch37/test_vpi_system_call_decompile": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_system_call_decompile.sv:31:5: Unsupported or unknown PLI call: '$vt_marked'",
+   "inputs_sha256": "81c2ab06202fe1fc1a795cc0d6d7d828901fe3a9acf2987be5a125a599d06dc8"
+  },
+  "ch37/test_vpi_variable_array_index_access": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_variable_array_index_access.sv:33:5: Unsupported or unknown PLI call: '$vt_idx'",
+   "inputs_sha256": "c298a278f7465558bdf75dda0248427cd50ee526e71a843d3f2cb9b639331d31"
+  },
+  "ch38/test_vpi_array_get_errors": {
+   "status": "known",
+   "reason": "output differs: line 2 is '%Error: /opt/homebrew/Cellar/verilator/5.052/share/verila...', expected 'sr shortreals: 1.50 -2.25 3.75'",
+   "inputs_sha256": "f357bf5c2fda53dd942558d61dc7e60a5cef86923b4686fe0bfa7e52d10c13fc"
+  },
+  "ch38/test_vpi_array_get_formats": {
+   "status": "pass",
+   "inputs_sha256": "2ea4fc65109ecd7c86257e9516813fda867b69de538697e5be875afa8c1ac137"
+  },
+  "ch38/test_vpi_array_put_formats": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: /opt/homebrew/Cellar/verilator/5.052/share/verila...', expected 'sr=1.50,2.50,3.50 r=-4.50,6.25 t=10,20 m=10,99,21,22 w=30...'",
+   "inputs_sha256": "bdd80eec1473007f13afe63e7aa67c99cb9b1d18b87a7979df9dd5ae888c7538"
+  },
+  "ch38/test_vpi_net_array_deposit": {
+   "status": "known",
+   "reason": "output differs: line 1 is '2: wa=10,20', expected '2: wa=aa,20'",
+   "inputs_sha256": "f3deb9ce3db0949002e479fffdd775af7138c18004f8a746a83b0dcab5152c2b"
+  },
+  "ch6/test_bitstream_cast_destination_layout": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/ch6/test_bitstream_cast_destination_layout.sv:46:16: ../V3Width.cpp:2925: Unimplemented: Casting non-simple data type 'struct{}$unit::dst_t'",
+   "inputs_sha256": "e37cb689a0098d85f67267f707bf203b662218f5822d06f188ab474c2c8d39c6"
+  },
+  "ch6/test_bitstream_cast_source_domain": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_bitstream_cast_source_domain.sv:55:15: Unsupported: Size-changing cast on non-basic data type",
+   "inputs_sha256": "aaa31726dba39ed953e66e01768a064f837ced5b2635a35fdd845e086e2c3831"
+  },
+  "ch6/test_bitstream_cast_source_orders": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_bitstream_cast_source_orders.sv:43:15: Unsupported: static cast to 'bit[95:0]' from 'int$[int]'",
+   "inputs_sha256": "c2da66c6dac91459f0ee50720901bf75248b1ce1490c1201ee1ef1a7dc2db7c3"
+  },
+  "ch6/test_cast_dispatch_enum_and_bitstream": {
+   "status": "pass",
+   "inputs_sha256": "0cd61000cd850370fbe8e2ed4461d77bd41d52c404ea3a9dcec959cb4d7470ee"
+  },
+  "ch6/test_dollar_covergroup_range": {
+   "status": "pass",
+   "inputs_sha256": "759e425e3bfca090cbca369872d7325ad4e817ceaf8ba37d946b29dde356bd53"
+  },
+  "ch6/test_dollar_value_range_membership": {
+   "status": "pass",
+   "inputs_sha256": "05660c30bfe3cd198dd2a5bd281c8f9db5f24a75c957e8d649c63d7496ea6f64"
+  },
+  "ch6/test_enum_named_constants": {
+   "status": "pass",
+   "inputs_sha256": "efbbfb07bb3f7484e082ddb6d85acd8b029f5f2af69633d56c904c11b0ec1139"
+  },
+  "ch6/test_illegal_specparam_in_declaration_range": {
+   "status": "pass",
+   "inputs_sha256": "39298dee23e3f94bd2140c275e3ac7464cd44c2ecc7039d14d05ea262659c5a9"
+  },
+  "ch6/test_illegal_specparam_in_package": {
+   "status": "pass",
+   "inputs_sha256": "038ce33809f10dd56107854fbd9c4f8781c52a9c0c142ffca7b8a1fa122d2cbd"
+  },
+  "ch6/test_net_declaration_legal_strength_pairs": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_net_declaration_legal_strength_pairs.sv:26:9: Unsupported: highz strength",
+   "inputs_sha256": "e3a4c92698b82df71fcab17c9dd5f95122cbb460fd18d1581bab2c33ba94400e"
+  },
+  "ch6/test_overflow_results_no_diagnostic": {
+   "status": "pass",
+   "inputs_sha256": "50adc3f84a000a5428622e0102cd819e486b2217b7409b97fc24cebb6c5a0861"
+  },
+  "ch6/test_parameter_and_const_lifetime": {
+   "status": "pass",
+   "inputs_sha256": "ec7af8120d0158e1defe9f092b69ff5eadd1ebec2b91179edfc26a0297958516"
+  },
+  "ch6/test_parameter_width_latitude": {
+   "status": "pass",
+   "inputs_sha256": "a2b277a36bdca3e69202294bd322664d66fa6319417af850a048ae8a48a3bc1b"
+  },
+  "ch6/test_specparam_declaration_with_pulse_control": {
+   "status": "pass",
+   "inputs_sha256": "3cbac5f08a9d97522708ed3f7c15dc42cda499ad95fd15b3fd87236075be9f85"
+  },
+  "ch6/test_static_const_initializer_sources": {
+   "status": "pass",
+   "inputs_sha256": "b270e5f8180ef4106991da34b0e55b3d702a28ecca0395d35c4a5091006f4beb"
+  },
+  "ch7/test_array_index_and_size_signatures": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'read=20 fixed_size=2 a0=10', expected 'read=0 fixed_size=2 a0=10'",
+   "inputs_sha256": "f9dfe91124b0a0c91fba919e599490204eb973c3fc1ab61b730845bada42a64d"
+  },
+  "ch7/test_assoc_missing_read_warning_and_index": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\bwarn(?:ing)?\\\\b|%Warning-)'",
+   "inputs_sha256": "a543d40972791d9ae93c7b6cd30e6334c012dac966fb8f3a4aed17412c890275"
+  },
+  "ch7/test_dpi_open_and_unsized_packed": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch7/test_dpi_open_and_unsized_packed.sv:24:67: syntax error, unexpected ']', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "377878fa777a178e7bab91a00be995a9071e2709254c022b05c2b4a9e9b2fb21"
+  },
+  "ch7/test_illegal_assoc_shortreal_index": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "af9c2fdded26807afc625603ae66dadd683b65fddfce2afddcb0e5fd79710940"
+  },
+  "ch7/test_illegal_assoc_union_real_key": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "f08d8cd6309d401acc7c07434bc4bf01bee19ec866d251d7100463a5c202d6fd"
+  },
+  "ch7/test_queue_all_methods": {
+   "status": "pass",
+   "inputs_sha256": "1eb8407eab603e4366c2f87e493e9056c1ed376caef7e16dc3496f7b972901da"
+  },
+  "ch7/test_reverse_order": {
+   "status": "pass",
+   "inputs_sha256": "ef2a57c69f8db5c279af2fa0378e91bf914de8b56ed35f9f86f879dbc1857928"
+  },
+  "ch7/test_union_grammar_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_union_grammar_forms.sv:58:9: Unsupported: tagged union",
+   "inputs_sha256": "b200850981286869b9b7cfb1ee6532acae2e0cefaa087e6bcc6686897ee85de2"
+  },
+  "ch8/test_class_handle_alias_and_polymorphism": {
+   "status": "pass",
+   "inputs_sha256": "6a2b9b8a7ac85ad7c759b322a29d0fadd2deca125e2c3b691e53db563ea7cd2b"
+  },
+  "ch8/test_extern_method_prototype_qualifiers": {
+   "status": "pass",
+   "inputs_sha256": "1a107b395fa4c47a320e4b93b03d4f20b5f3d9df25cae1247b0cddae3326ae8e"
+  },
+  "ch8/test_illegal_interface_param_conflict": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "943fbefdccb8a42d2d9c26e68569c4c004396f820caca0ba2192f927dea99484"
+  },
+  "ch8/test_illegal_interface_specialization_conflict": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "14bc479099d4fb266e528a91b40eab7258463d16ffe6f2331cdbfd29467248c7"
+  },
+  "ch9/test_always_comb_excluded_function_write": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error-DIDNOTCONVERGE: Settle region did not converge aft...', expected 'runs=3 y=0'",
+   "inputs_sha256": "f75809d496b53ecd4373c3ffe6e9c35b0ebaa9eb8cb7c90ffea85c07595c045a"
+  },
+  "ch9/test_clocking_sampled_event": {
+   "status": "pass",
+   "inputs_sha256": "3ace87186e8d7e2f24fe111de542f31351159d503deef81065c1517ed1e6a7c0"
+  },
+  "ch9/test_event_method_dependency": {
+   "status": "pass",
+   "inputs_sha256": "a665d27e749537b0e8ccaeb8b68b6b0a39a83781b9a7a22145e078cb26168b84"
+  },
+  "ch9/test_illegal_always_comb_fork_statement": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3b187dfc8aa3e1c7c2ce708d9e6c2c527a8f31ce2010f5d1b9e35aba99f36682"
+  },
+  "ch9/test_illegal_always_comb_wait": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a712e6969c5a2ab0a3b95174a18a23a9ec7bc29b828bc3fb87b7567afc88f4bb"
+  },
+  "ch9/test_illegal_event_non_singular_method": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "fa152c8ba07d566ed6734de9b76b1eaf7b8119b0fd7bc498f7d72a2ae367dc1a"
+  },
+  "ch9/test_process_randstate_signatures": {
+   "status": "pass",
+   "inputs_sha256": "a288f0cfe17d07959db9954fbf4eb09c8964d19ddaf110d27a6651495e082677"
+  },
+  "ch9/test_sequence_event_nba_visibility": {
+   "status": "pass",
+   "inputs_sha256": "2d0672442a96a8575210a376b5bc7388cc9b23d54222b6ebf924a978ffafb278"
+  }
+ },
+ "generated_at": "2026-10-26T14:57:52.950035+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

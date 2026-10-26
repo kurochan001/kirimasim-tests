@@ -1,0 +1,6 @@
+two handles to the class object compare equal 1
+object id: same at both lookups 1, nonzero 1
+after releasing one handle, the other still gives the object 1
+vpi_remove_cb returned 1
+changes seen by removed callback 0, by remaining callback 1
+object at time 1 and at time 3 the same 1

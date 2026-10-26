@@ -1,0 +1,4 @@
+ia: type vpiInterconnectArray, ranges 2:0
+ia: left 2, right 0
+ib: type vpiInterconnectArray, ranges 1:4
+ib: left 1, right 4

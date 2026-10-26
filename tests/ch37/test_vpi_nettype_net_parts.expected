@@ -1,0 +1,6 @@
+b: netType vpiNettypeNet 14, size 1
+w: netType vpiNettypeNet 14, size 4, drivers 1
+w[0]: netType vpiNettypeNetSelect 15, size 1, drivers NULL 1, local drivers NULL 1
+wa: netType vpiNettypeNet 14, size 2, ranges 0:1
+wa[0]: netType vpiNettypeNet 14, size 4, array member 1
+wa[1]: netType vpiNettypeNet 14, size 4, array member 1

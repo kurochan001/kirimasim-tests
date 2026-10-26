@@ -1,0 +1,6 @@
+shortreals is a float pointer 1
+m {1,4} x3: 10 11 12
+m {1,4} x4: 10 11 12 13
+copy kept: 10 11
+wa vectors: 00000001/00000000 00000001/00000000 00000002/00000000 00000002/00000000
+design done

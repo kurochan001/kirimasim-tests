@@ -1,0 +1,3 @@
+$clog2(16): name $clog2, user 0, decompile '$clog2(16)'
+$display("hi"): name $display, user 0, decompile '$display("hi")'
+$vt_marked(3,x): name $vt_marked, user 1, decompile '$vt_marked(3,x)'

@@ -1,0 +1,4 @@
+local drivers of i: i (vpiPort)
+local loads of o: o (vpiPort)
+local drivers of io: io (vpiPort)
+local loads of io: io (vpiPort)

@@ -1,0 +1,8 @@
+frame: active 1
+  automatics: count (vpiIntVar), done (vpiNamedEvent), flags (vpiNamedEventArray)
+    count (vpiIntVar): back to frame 1
+    done (vpiNamedEvent): back to frame 1
+    flags (vpiNamedEventArray): back to frame 1
+frame origin: vpiTaskCall at line 39, is parent statement 1
+thread: active 1
+thread origin: vpiSysTaskCall at line 35, is current call 1

@@ -1,0 +1,2 @@
+mode 1 in 340..460 1, failures 0, illegal 0
+len 1 forces mode 1 1, len 8 forces mode 0 1

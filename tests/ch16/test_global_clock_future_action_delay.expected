@@ -1,0 +1,2 @@
+future sig passes: 20 40; failures: 10 30
+future !sig passes: 10 30; failures: 20 40
