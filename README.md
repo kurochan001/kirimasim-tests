@@ -159,9 +159,16 @@ for requirements that had none, and their
 [first pass over the unregistered tests](docs/existing-test-matching-unregistered-20261025.md)
 linked 45 tests to 99 requirements: six new tests written for stimuli that the
 existing tests lacked, and 23 imported from the CTest suite of the simulator
-repository. Provisional design coverage is **60.394513% (7,440/12,319)**;
-provisional execution coverage is **33.566036% (4,135/12,319)**. Clauses 1 to 40
-alone are at 63.59% (6,032/9,486).
+repository. On 2026-10-25 and 2026-10-26 the remaining ranges of that work
+were verified and merged (p01, p05, p07, p09, p10, p12, p13 and p15, the
+annex and gap ranges, and the grammar tests of Annex A), tests were added for
+the K.2, I.3 and N.2 headers and algorithms, assertion control, coverage,
+checkers and 1364 VPI compatibility, Icarus Verilog 13.0 was recorded as the
+oracle of 277 standard-only tests that it reproduces, and a further pass over
+the existing tests in twelve ranges linked 341 more requirements.
+Provisional design coverage is **77.80664% (9,585/12,319)**, past the 75%
+goal; provisional execution coverage is **44.029548% (5,424/12,319)**.
+Clauses 1 to 40 alone are at 77.46% (7,348/9,486).
 Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.
