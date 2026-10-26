@@ -213,6 +213,13 @@ jobs:
             kirimasim-fetchcontent-ubuntu-24.04-release-${{
             hashFiles('kirimasim/cmake/Dependencies.cmake') }}
 
+      # kirimasim builds libfst for its FST support, which needs the zlib and
+      # bzip2 development files (the FST build preparation of its README).
+      - name: Install the libraries of the FST build
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends zlib1g-dev libbz2-dev
+
       - name: Build kirimasim
         working-directory: kirimasim
         run: |
