@@ -1,0 +1,4 @@
+uniform: failures 0, outside 0..1 0, halves 720..880 1
+dist: failures 0, outside items 0, 0 more than twice others 1
+dist: 1.5 seen 1, range seen 1
+tolerance: failures 0, outside 0, 0 in 130..270 1, tolerance in 130..270 1

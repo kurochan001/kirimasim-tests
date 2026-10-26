@@ -1,0 +1,8 @@
+$urandom: eight calls distinct 1, bit 31 seen 1
+$urandom seed: same int seed gives the same value 1
+range 0..7: outside 0, both bounds seen 1
+range default: outside 0, both bounds seen 1
+range reversed: outside 0, both bounds seen 1
+range 3,3: outside 0
+range 5,2: outside 0, both bounds seen 1
+range full 32 bits: bit 31 seen 1

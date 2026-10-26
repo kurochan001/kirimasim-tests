@@ -1,0 +1,3 @@
+loop variable scope: failures 0, property i 100
+dimensions: failures 0, empty middle 1, trailing omitted 1
+state index: failures 0, arr[2] stays 7 1

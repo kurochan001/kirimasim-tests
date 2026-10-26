@@ -1,0 +1,4 @@
+range :=: failed 0, 3 in 440..520 1, 4 in 80..160 1
+range :/: failed 0, 2,3 in 250..350 1, 4 in 250..350 1
+solution space: failed 0, values seen 3, value 3 seen 0
+hard constraint: failed 0, value not 0 0

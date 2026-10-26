@@ -1,0 +1,28 @@
+b: instance is u 1, expr ref obj 1
+d: instance is u 1, expr ref obj 1
+din: instance is u 1, direction input, size 8, scalar 0, signed 1, vector 1, ranges 1 7:0, typespec exists 1, typespec ranges 1 7:0, same bounds 1, left/right io 7:0 typespec 7:0 same 1
+dout: instance is u 1, direction output, size 4, scalar 0, signed 0, vector 1, ranges 1 3:0, typespec exists 1, typespec ranges 1 3:0, same bounds 1, left/right io 3:0 typespec 3:0 same 1
+rp: instance is u 1, ref 1, expr ref obj 1
+scalar: instance is u 1, direction input, size 1, scalar 1, signed 0, vector 0, ranges 0, typespec exists 1, typespec ranges 0, same bounds 1
+vec: instance is u 1, direction output, size 8, scalar 0, signed 0, vector 1, ranges 1 7:0, typespec exists 1, typespec ranges 1 7:0, same bounds 1, left/right io 7:0 typespec 7:0 same 1
+vif: instance is u 1, expr virtual interface var 1
+task t io declarations:
+  ti: back with vpiTaskFunc 1
+  to: back with vpiTaskFunc 1
+  tr: back with vpiTaskFunc 1
+  tr: direction ref 1, expr ref obj 1
+function f io declarations:
+  fi: back with vpiTaskFunc 1
+udp io declarations:
+  a: back with vpiUdpDefn 1
+  b: back with vpiUdpDefn 1
+  o: back with vpiUdpDefn 1
+ports of u:
+  din: port 1, interface port 0, modport port 0, index 0
+  dout: port 1, interface port 0, modport port 0, index 1
+  b: port 0, interface port 1, modport port 0, index 2
+  d: port 0, interface port 0, modport port 1, index 3
+  vif: index 4
+  scalar: port 1, interface port 0, modport port 0, index 5
+  vec: port 1, interface port 0, modport port 0, index 6
+  rp: port 1, interface port 0, modport port 0, index 7

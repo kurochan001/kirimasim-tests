@@ -1,0 +1,7 @@
+top instances from NULL root: 2
+  module test_vpi_root_lookup_restrictions
+  package rlr_pkg
+imported item by name NULL 1
+compilation unit item by full name NULL 1
+compilation unit item by simple name NULL 1
+local item by name found 1

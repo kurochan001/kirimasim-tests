@@ -1,0 +1,7 @@
+vpi_get is PLI_INT32 1
+vpi_get64 is PLI_INT64 1
+vpi_get_str is PLI_BYTE8 pointer 1
+Boolean properties: vector 1, scalar 0
+vpi_iterate gives vpiIterator 1
+nets: 2 w1,w2
+object id nonzero 1

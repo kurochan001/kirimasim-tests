@@ -1,0 +1,4 @@
+bidirectional: failures 0, v>1 in 350..450 1, legal pairs 6
+if/else grouped set: failures 0, both branches 1
+implications: failures 0, both branches 1
+nearest else: wrong results 0, mode 2 takes several values 1

@@ -1,0 +1,10 @@
+a: 1<2<5 ordered 1, 300 at least 3 times 100 1
+b: 1<2<5 ordered 1, 300 at least 3 times 100 1
+values outside the named items 0
+c: range 0..2 three times value 3 1
+e: 1 more than 1.7 times 0 and 2 1
+f: four values each in 90..220 1, only 0..3 seen 600
+g: value 1 of weight 1 seen 0
+i: 4 and 5 each in 240..360 1, other values 0
+z: 0,1,2 each in 130..270 1, values seen 3, other 0
+failed calls 0

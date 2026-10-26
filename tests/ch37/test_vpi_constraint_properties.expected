@@ -1,0 +1,7 @@
+classes: cp_c,cp_v
+cp_c:
+  c_norm: alloc other 1, automatic 1
+  c_static: alloc other 1, automatic 0
+  c_ext: alloc other 1, automatic 1
+cp_v:
+  c_pure: alloc other 1, automatic 1

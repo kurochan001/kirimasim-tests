@@ -21,12 +21,12 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 15 | [Interprocess synchronization and communication](ch15.md) | 56 |  |
 | 16 | [Assertions](ch16.md) | 359 |  |
 | 17 | [Checkers](ch17.md) | 60 |  |
-| 18 | [Constrained random value generation](ch18.md) | 142 |  |
+| 18 | [Constrained random value generation](ch18.md) | 177 |  |
 | 19 | [Functional coverage](ch19.md) | 139 |  |
 | 20 | [Utility system tasks and system functions](ch20.md) | 266 |  |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 194 |  |
 | 22 | [Compiler directives](ch22.md) | 348 | 248 |
-| 23 | [Modules and hierarchy](ch23.md) | 211 |  |
+| 23 | [Modules and hierarchy](ch23.md) | 226 |  |
 | 24 | [Programs](ch24.md) | 43 |  |
 | 25 | [Interfaces](ch25.md) | 119 |  |
 | 26 | [Packages](ch26.md) | 83 |  |
@@ -40,7 +40,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 34 | Protected envelopes | — | |
 | 35 | [Direct programming interface](ch35.md) | 109 |  |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 84 |  |
-| 37 | [VPI object model diagrams](ch37.md) | 181 |  |
+| 37 | [VPI object model diagrams](ch37.md) | 196 |  |
 | 38 | [VPI routine definitions](ch38.md) | 85 |  |
 | 39 | [Assertion API](ch39.md) | 39 |  |
 | 40 | [Code coverage control and API](ch40.md) | 30 |  |

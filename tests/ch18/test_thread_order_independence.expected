@@ -1,0 +1,3 @@
+same order: worker 11 1, worker 22 1
+other order: worker 11 1, worker 22 1
+seeded process repeats every mechanism 1

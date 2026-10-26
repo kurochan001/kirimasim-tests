@@ -47581,6 +47581,156 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_constraint_properties.sv",
+      "inputs_sha256": "e4df1c01c79e183d0037ae3272467363caef8dad63c1afbf2c6d1b346316b0a0",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.34-EXTRACT-DIAGRAM-007"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The standard gives no value rule for vpiVirtual on a pure constraint: 37.34 detail 1 defines only vpiAutomatic, and sukimasim 0.9.9.2 returns 0 for the pure constraint. The draft's expectation of 1 is not established, so vpiVirtual is not read.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_constraint_properties.sv",
+              "contains": "  virtual class cp_v;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_size_change_callback.sv",
+      "inputs_sha256": "cad81c2e52acc2f29bc59af2f32e38dce1d3e6625dffe8d85ebea2cc0d003382",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.17-EXTRACT-SIZE-CALLBACK"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "38.36.1 excludes dynamic arrays, strings, queues and associative arrays from cbValueChange, so the requirement's 'precedes a simultaneous value-change callback' cannot be observed for the objects to which cbSizeChange applies. The test observes the reported new size and reads the string inside the size callback instead.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_size_change_callback.sv",
+              "contains": "    s = \"ab\";"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_class_specialization_types.sv",
+      "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.32-EXTRACT-DIAGRAM-014"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The 37.32 diagram has one arrow from class typespec to virtual interface var and no reverse relation; a virtual interface var's vpiTypespec is its interface typespec (37.29), so a class-typespec back relation is not defined.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_specialization_types.sv",
+              "contains": "    virtual sps_bus vifs [0:1];"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_net_array_members_parents.sv",
+      "inputs_sha256": "46fd5b8f17590019cbdec214433ea6392b42b480ce50f949548b8cece391c436",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.16-EXTRACT-DIAGRAM-068"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Annex C.4.3 item 3 says vpiArray is deprecated and only keeps a 1364 compatibility meaning for integer/time/real arrays; no value is fixed for nets, so only that the property is Boolean can be observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_array_members_parents.sv",
+              "contains": "  wire logic [1:0][3:2] vv4 [7:5][9:8];"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.16-EXTRACT-DIAGRAM-071"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Whether a vector is expanded is implementation-dependent, so vpiExpanded fixes only the Boolean type and, through detail 21, that a net bit returns its parent's value; the actual expansion cannot be asserted.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_array_members_parents.sv",
+              "contains": "  wire vectored [3:0] vv;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.16-EXTRACT-NET-BITS-EXPANSION"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Whether a logic vector is expanded is tool-dependent (37.16 detail 21); the test shows four bit handles for a vectored and a scalared net and checks that each bit has its net's vpiExpanded value, but it cannot force a net with vpiExpanded=0, so the 'regardless of expansion' case is not observed.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_array_members_parents.sv",
+              "contains": "  wire vectored [3:0] vv;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
+      "inputs_sha256": "f0ad6225ce2caf4fdfe77ec97a4d4e2d668beb20bfefad18c6d86ccf731fc60c",
+      "reviewed_on": "2026-10-26",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.14-EXTRACT-PORT-BIT-PROPERTIES"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The requirement says vpiName and vpiPortIndex do not apply to port bits, but an inapplicable property has no fixed return value; the test cannot assert a concrete name or index for a port bit.",
+          "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv",
+              "contains": "  input logic signed [7:0] din,"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

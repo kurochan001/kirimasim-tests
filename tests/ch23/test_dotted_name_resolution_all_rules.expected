@@ -1,0 +1,2 @@
+scope s1.x=1 object s2.x=2 imported t.x=3
+upward sib.x=8

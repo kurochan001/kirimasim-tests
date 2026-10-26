@@ -1,0 +1,311 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch18/test_array_reduction_with_size": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'dynamic array: failures 200', expected 'dynamic array: failures 0'",
+   "inputs_sha256": "c888360e266fd0538f34212f7411a590d7a2ec8ef7a11a559d754b7e2c9cdab4"
+  },
+  "ch18/test_constraint_foreach_scope_dimensions": {
+   "status": "pass",
+   "inputs_sha256": "2c13ce51a402bf3a086f8957d0335fd3e26d12c6787bcc3948bd90e12bc52af3"
+  },
+  "ch18/test_constraint_if_else_bidirectional": {
+   "status": "pass",
+   "inputs_sha256": "fe5dacb615c5addce3096392a10071ceaac4b6ba4faa2d341dc657497228869e"
+  },
+  "ch18/test_discarded_soft_distribution": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'discarded dist: failed 0, outside 3,4 400, 3 and 4 each 1...', expected 'discarded dist: failed 0, outside 3,4 0, 3 and 4 each 130...'",
+   "inputs_sha256": "53ba3a6137cab19c2ae14c19406b2b30be72725edb7b4398d0ae2d678cacc25e"
+  },
+  "ch18/test_dist_weight_ratios": {
+   "status": "pass",
+   "inputs_sha256": "11b04bdddf490aea55fd6526f6c2e04561d7940981319ac6849057ad44050833"
+  },
+  "ch18/test_dist_whole_range_and_nonzero": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'range :=: failed 356, 3 in 440..520 0, 4 in 80..160 1', expected 'range :=: failed 0, 3 in 440..520 1, 4 in 80..160 1'",
+   "inputs_sha256": "09fc5c202f1347a671a44727bf98a6d45629675d90ac21000cadfb403a6a9605"
+  },
+  "ch18/test_illegal_constraint_function_cycle": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e62e0a9672fda6cc13981548bf9ab129535b08b4d50ea6e02f9ac18e02b4d24e"
+  },
+  "ch18/test_illegal_constraint_increment": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8d4245a4bc17186a9cad9621ce169b0632004eb259968f69ef773ad8497e790f"
+  },
+  "ch18/test_illegal_foreach_function_call": {
+   "status": "pass",
+   "inputs_sha256": "94dcb472d0f95dc541e07f5eb6b269dfd99d2016d859f3b6e22ea8d5684b28f0"
+  },
+  "ch18/test_illegal_nested_dist": {
+   "status": "pass",
+   "inputs_sha256": "b674bf3d1dbe0b6ec17a00633a1172ae7a67b789e34361c149187cfb95613f8e"
+  },
+  "ch18/test_illegal_packed_struct_member_rand": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "891b4b7298f466cc832bb74376114188a0244bf77da43eef9440fcaae3cafb86"
+  },
+  "ch18/test_illegal_packed_union_member_rand": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8268743474df1986bb7b62605ee53c96d9880290f5522af56fbd499324e28368"
+  },
+  "ch18/test_illegal_rand_tagged_union": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_rand_tagged_union\\\\.sv:26:'; the first is: %Error-UNSUPPORTED: tests/ch18/test_illegal_rand_tagged_union.sv:23:5: Unsupported: void (for tagged unions)",
+   "inputs_sha256": "53738f857073eeac169ed338d79992c77c9c1a8edf41faf6aa97085642e7c98a"
+  },
+  "ch18/test_illegal_randc_real": {
+   "status": "pass",
+   "inputs_sha256": "08dd81c0a617982ace133d15f4ae9503c3f3dabacdadc109f598eff9a36fa9d6"
+  },
+  "ch18/test_illegal_solve_parentheses": {
+   "status": "pass",
+   "inputs_sha256": "1afa0bd3de498ec7935273aeb7891b3ff4137c4dd981ad49e66d151f745426f1"
+  },
+  "ch18/test_inline_constraint_resolution": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch18/test_inline_constraint_resolution.sv:100:75: syntax error, unexpected IDENTIFIER-::, expecting IDENTIFIER-for-type",
+   "inputs_sha256": "68abb2e1bb10c068484a26a616eea4ec40d0b460006769c887b69d6b162a5925"
+  },
+  "ch18/test_inline_constraint_this_super": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch18/test_inline_constraint_this_super.sv:42:14: syntax error, unexpected this, expecting IDENTIFIER-for-type",
+   "inputs_sha256": "326f3884547ad55b5adc61451479831ed22d8851aca02d5c2e07794bc6a9e6ef"
+  },
+  "ch18/test_rand_join_length_bias": {
+   "status": "known",
+   "reason": "output differs: line 2 is '0.0 favors finished sequences over 1.0 0', expected '0.0 favors finished sequences over 1.0 1'",
+   "inputs_sha256": "e027b71297899c5d8b57bea2970be9270d34a5a38439074c69f17d02dee4e0e0"
+  },
+  "ch18/test_rand_real_uniform_and_dist": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch18/test_rand_real_uniform_and_dist.sv:41:21: Unsupported: +%- range",
+   "inputs_sha256": "ffe16e02e46276e884f9ab79bc12c0e8cdd83c9fcc9f7102db59def23812b4eb"
+  },
+  "ch18/test_rand_uniform_full_range": {
+   "status": "pass",
+   "inputs_sha256": "29abd44673e9b62ddb8bc90832c1ec46224834c7781791e36c45807c8ff3223f"
+  },
+  "ch18/test_randc_solved_first_distribution": {
+   "status": "pass",
+   "inputs_sha256": "bef05e6550c70d277e3dc93311a51d4fd2efa2145a1cabe4a1df396a63ecd5d4"
+  },
+  "ch18/test_randcase_selection": {
+   "status": "pass",
+   "inputs_sha256": "25cc660c06e0338331988b790ad99ebd7ff2ff3db64b7c18ac73732cc75f3fca"
+  },
+  "ch18/test_random_stability_seeding": {
+   "status": "pass",
+   "inputs_sha256": "e385de4f640e17197d077ab2ce7d1bb96996c9df0c93ab893866e83c0bcaa343"
+  },
+  "ch18/test_randomize_randc_argument": {
+   "status": "pass",
+   "inputs_sha256": "376433a48b938a299bd69613861fae8781d6c5cefd39322f328b099d0e286105"
+  },
+  "ch18/test_randomize_return_and_modes": {
+   "status": "pass",
+   "inputs_sha256": "87a85bb18cd57b2ba20122ce20a4e392e04a19f100e2465fadd05141849a5631"
+  },
+  "ch18/test_randsequence_production_weights": {
+   "status": "pass",
+   "inputs_sha256": "8219878e6a1b1ff44902968b7cde7f61953f2c1825e90d0964fb475036599e4f"
+  },
+  "ch18/test_randsequence_recursive_code": {
+   "status": "known",
+   "reason": "build failed: %Error: Verilator internal fault, sorry. Suggest trying --debug --gdbbt",
+   "inputs_sha256": "969b4673bf49c341374fc1313210b8ad2d09c8df9e422e30b8f87b9d069fc6e5"
+  },
+  "ch18/test_randsequence_repeat_break": {
+   "status": "pass",
+   "inputs_sha256": "789885ab3cd814d416a4a54dc741bcf3d3106f7444eec8f16b8c4dc01a078699"
+  },
+  "ch18/test_soft_handle_priority": {
+   "status": "pass",
+   "inputs_sha256": "e7b0388832a792a91b679dec3b29da7c80679ff62eaa48eb99e180dd2c608075"
+  },
+  "ch18/test_soft_search_stages": {
+   "status": "pass",
+   "inputs_sha256": "72cde2e2f86ddda3817a9949b09a1ff1d2509a13354f61fcab69e8ee88cb2f3a"
+  },
+  "ch18/test_solve_before_partial_order": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'partial order: failures 0, s==1 in 45..55% 0, d==1 in 42....', expected 'partial order: failures 0, s==1 in 45..55% 1, d==1 in 42....'",
+   "inputs_sha256": "e9fffa98a96f04d198efe042cc8953f956d1c5755a7c9624f0961cbec550ae94"
+  },
+  "ch18/test_solve_before_probability": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'ordered: failures 0, illegal 0, s==1 in 340..460 0', expected 'ordered: failures 0, illegal 0, s==1 in 340..460 1'",
+   "inputs_sha256": "9c2fb3b5017fac989ad3a09e1d283bb44bc47ba33a438d3889fea1c897a5dd34"
+  },
+  "ch18/test_static_initializer_seeding": {
+   "status": "pass",
+   "inputs_sha256": "a16c11097fbd8e7b820fbada59e5144c7e86361a9224e0c1f9d97c9ea2014bb3"
+  },
+  "ch18/test_thread_order_independence": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'same order: worker 11 0, worker 22 0', expected 'same order: worker 11 1, worker 22 1'",
+   "inputs_sha256": "b0a5f2c5dc240153a35553b8e29fd3a5a3e54d26716b8a28f34c59f81774088e"
+  },
+  "ch18/test_urandom_and_range": {
+   "status": "pass",
+   "inputs_sha256": "464dcda4b9a61aa073561d907c6fc17e3c3743fba85fe54a03642fe948a34b61"
+  },
+  "ch23/test_bind_order_freedom": {
+   "status": "pass",
+   "inputs_sha256": "835f614181ef806629bc57ab1fb6c0a8a01e051b356d49d9783945806da57ece"
+  },
+  "ch23/test_dotted_name_resolution_all_rules": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch23/test_dotted_name_resolution_all_rules.sv:66:83: Can't find definition of variable/method: 'x'",
+   "inputs_sha256": "8175586475b6df6b05cee779a4e4e88da3b718a3d639ca89ff0bae9f394493f0"
+  },
+  "ch23/test_elaboration_order_roots_and_deferral": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch23/test_elaboration_order_roots_and_deferral.sv:39:13: Unsupported: defparam with arrayed instance",
+   "inputs_sha256": "f4ed2ef6ebc0e6f04d38ae814324a96eab6476a891ad02fd21fe5ddbb078c363"
+  },
+  "ch23/test_hierarchy_branches_syntax_and_uses": {
+   "status": "pass",
+   "inputs_sha256": "93a5410cbab5657c872b94bb64814def0c7633b843012614363012b21fad9c55"
+  },
+  "ch23/test_illegal_mixed_positional_named_connections": {
+   "status": "pass",
+   "inputs_sha256": "531ab782ea95925790889ef4267f21d921632abfe9b6c62a94c9d35a52be220d"
+  },
+  "ch23/test_illegal_nonansi_second_port_declaration": {
+   "status": "pass",
+   "inputs_sha256": "c00fccd7d49ecbec45ea28f1116a8ef20d9f1a492b7718e89e36504079e6e4c7"
+  },
+  "ch23/test_instance_forms_and_top_level_identification": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch23/test_instance_forms_and_top_level_identification.sv:53:3: Unsupported: module decls within module decls",
+   "inputs_sha256": "e83f3190dbdb70ece68d7ffecf24c8804fdbe0d57f17f419245792b9c25fb2b3"
+  },
+  "ch23/test_module_header_parameter_port_and_timeunit_forms": {
+   "status": "pass",
+   "inputs_sha256": "44ef4f524cc96a9a5b8dc4f28d9277e2074a42c5d76f5a95be2023b8edb85165"
+  },
+  "ch23/test_nonansi_port_references_and_implicit_unsigned": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch23/test_nonansi_port_references_and_implicit_unsigned.sv:29:39: Unsupported: complex ports (IEEE 1800-2023 23.2.2.1/2)",
+   "inputs_sha256": "fb02dedcbc536320609e75dcf65bcffc3101d3c3fef9ad930dc3ba383c09d4e3"
+  },
+  "ch23/test_port_collapse_supply_cells": {
+   "status": "known",
+   "reason": "no message matches '(?i)warning'",
+   "inputs_sha256": "c878a93571817ca37d7514d7354d8f8be94cbf7f0ef9bc085b7b10d0bb0f0a06"
+  },
+  "ch23/test_port_collapse_trireg_and_uwire_cells": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch23/test_port_collapse_trireg_and_uwire_cells.sv:39:28: Unsupported: trireg",
+   "inputs_sha256": "ff7d8d72d36a955c9eeb8d404d2f4dc8cf80724d94e5c31a2ba456c7c4acf94e"
+  },
+  "ch23/test_port_collapse_value_external_cells": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch23/test_port_collapse_value_external_cells.sv:90:8: Unsupported: Conflicting pull directions.",
+   "inputs_sha256": "bcb67f48e35579ae818bf9162bd3943c94dc15d8a441f63af71e709fa05cf4b8"
+  },
+  "ch23/test_port_limit_and_port_type_kinds": {
+   "status": "pass",
+   "inputs_sha256": "e21526b5814edab2aa49cf9f4e4fb481a5c7247a879ac8e8cb8c3a175d7a44b0"
+  },
+  "ch23/test_scope_creators_all_kinds": {
+   "status": "pass",
+   "inputs_sha256": "33aaf35a33c869a7e18f336b0395cc89644f56c99f93ee9bddcf903828929f99"
+  },
+  "ch23/test_scope_resolution_prefix_downward": {
+   "status": "pass",
+   "inputs_sha256": "78b595f5a035784b7c160cf3307c35aef8ac2ad19bc82ee40668635876377b70"
+  },
+  "ch37/test_vpi_active_time_format_null": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_active_time_format_null.sv:25:5: Unsupported or unknown PLI call: '$vt_show'",
+   "inputs_sha256": "b0ec9eba720d3d8bf39e9b283dff1b9133585a9ad86d388fa025cdbaa752e309"
+  },
+  "ch37/test_vpi_class_relations_scope_typespec": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_class_relations_scope_typespec.sv:70:14: Unsupported or unknown PLI call: '$vt_classes'",
+   "inputs_sha256": "193d74ab043cfe01b07cb5ebfbbadb0f816f07ec9349d9acd51985771bd9e4a4"
+  },
+  "ch37/test_vpi_class_specialization_types": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_class_specialization_types.sv:63:14: Unsupported or unknown PLI call: '$vt_spec'",
+   "inputs_sha256": "629fb2e40471d53fd118d774ccc520682a8302d4c970a1460f251e2c8cf92217"
+  },
+  "ch37/test_vpi_constraint_properties": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_constraint_properties.sv:40:14: Unsupported or unknown PLI call: '$vt_cons'",
+   "inputs_sha256": "e4df1c01c79e183d0037ae3272467363caef8dad63c1afbf2c6d1b346316b0a0"
+  },
+  "ch37/test_vpi_expression_typespec": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_expression_typespec.sv:44:14: Unsupported or unknown PLI call: '$vt_types'",
+   "inputs_sha256": "0dc7e14f05896dbb9fe649b5384d3eab98d0566fd51bde9d6b4ffa40d2d42c11"
+  },
+  "ch37/test_vpi_io_decl_scope_typespec_ports": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_io_decl_scope_typespec_ports.sv:74:14: Unsupported or unknown PLI call: '$vt_io'",
+   "inputs_sha256": "f0ad6225ce2caf4fdfe77ec97a4d4e2d668beb20bfefad18c6d86ccf731fc60c"
+  },
+  "ch37/test_vpi_named_event_relations": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_named_event_relations.sv:33:14: Unsupported or unknown PLI call: '$vt_events'",
+   "inputs_sha256": "7e6f95c93a63a9c84e4165f84c231ff61c86eb460d101293ef457a1bd3b904b4"
+  },
+  "ch37/test_vpi_net_array_members_parents": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_net_array_members_parents.sv:45:14: Unsupported or unknown PLI call: '$vt_nets'",
+   "inputs_sha256": "46fd5b8f17590019cbdec214433ea6392b42b480ce50f949548b8cece391c436"
+  },
+  "ch37/test_vpi_property_instance_links": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_property_instance_links.sv:27:27: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "74de19787e4249e469778dab774d508b3750ec53b0dcfaf043296408d0c1c9f1"
+  },
+  "ch37/test_vpi_property_types_iterator": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_property_types_iterator.sv:35:8: Unsupported or unknown PLI call: '$vt_api'",
+   "inputs_sha256": "66ffc3e073e01b38113a078036934ab2b5bf6729df4fac5c6f12780e6daf614b"
+  },
+  "ch37/test_vpi_ref_obj_actual_port_insts": {
+   "status": "known",
+   "reason": "build failed: %Error: Verilator internal fault, sorry. Suggest trying --debug --gdbbt",
+   "inputs_sha256": "737d65184e1fd010affcf8c3b26893d0c55ca8425361cc8df2e03d8f25a86078"
+  },
+  "ch37/test_vpi_root_lookup_restrictions": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_root_lookup_restrictions.sv:42:8: Unsupported or unknown PLI call: '$vt_lookup'",
+   "inputs_sha256": "f65e127ef7e3a9ebd043e3c763fe2b3536a57791048daf61d6812cf38ea3b99e"
+  },
+  "ch37/test_vpi_size_change_callback": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_size_change_callback.sv:39:8: Unsupported or unknown PLI call: '$vt_done'",
+   "inputs_sha256": "cad81c2e52acc2f29bc59af2f32e38dce1d3e6625dffe8d85ebea2cc0d003382"
+  },
+  "ch37/test_vpi_typespec_instance_ranges": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_typespec_instance_ranges.sv:41:14: Unsupported or unknown PLI call: '$vt_ts'",
+   "inputs_sha256": "1afdac581b7ad3576016adf104fdfdc745d361bb45381e7b98681673cffbdff6"
+  },
+  "ch37/test_vpi_udp_table_primitive": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_udp_table_primitive.sv:42:14: Unsupported or unknown PLI call: '$vt_udp'",
+   "inputs_sha256": "48599a2f0f299638062e01ea5765444512ad5996af251af7693b6e3e0742e50d"
+  }
+ },
+ "generated_at": "2026-10-26T09:49:42.864761+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

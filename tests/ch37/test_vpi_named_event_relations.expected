@@ -1,0 +1,8 @@
+ev: full name test_vpi_named_event_relations.ev, instance owner 1, scope owner 1, scope name test_vpi_named_event_relations, module owner 1, vpiArray bool 1
+u.e1: full name test_vpi_named_event_relations.u.e1, instance owner 1, scope owner 1, scope name test_vpi_named_event_relations.u, module owner 1, vpiArray bool 1
+u.e2: full name test_vpi_named_event_relations.u.e2, instance owner 1, scope owner 1, scope name test_vpi_named_event_relations.u, module owner 1, vpiArray bool 1
+u.ea: full name test_vpi_named_event_relations.u.ea, instance is u 1, module is u 1, elements 4, all vpiNamedEvent 1
+  element test_vpi_named_event_relations.u.ea[0][4]
+  element test_vpi_named_event_relations.u.ea[0][5]
+  element test_vpi_named_event_relations.u.ea[1][4]
+  element test_vpi_named_event_relations.u.ea[1][5]

@@ -1,0 +1,5 @@
+a1: cast operation, typespec int 1
+a2: variable, typespec int 1
+n1: cast operation, typespec name nib_t
+p1: assignment pattern operation, typespec name pair_t
+p2: multiple assignment pattern operation, typespec name pair_t

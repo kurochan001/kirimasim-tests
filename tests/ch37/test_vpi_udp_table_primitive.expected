@@ -1,0 +1,9 @@
+udp defn: protected 0, combinational 1
+entries: 3
+  0?:0
+  10:0
+  11:1
+prim: size 2, delay 3
+term 0: expr o, primitive same 1
+term 1: expr a, primitive same 1
+term 2: expr b, primitive same 1

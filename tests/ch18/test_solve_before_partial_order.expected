@@ -1,0 +1,3 @@
+comma lists: failures 0, illegal 0, 00 and 11 differ under 80 1, 01 seen 1
+partial order: failures 0, s==1 in 45..55% 1, d==1 in 42..58% of s==0 1
+unordered last: failures 0, illegal 0, s==1 in 40..60% 1

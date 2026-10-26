@@ -1,0 +1,2 @@
+cell 7-8 supply0->supply1 outside 111 inside 111
+cell 8-7 supply1->supply0 outside 000 inside 000

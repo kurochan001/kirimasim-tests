@@ -1,0 +1,14 @@
+b8 typespec: classDefn sp_base 1, classType user 1, automatic 1, name non-empty 1, W 8
+a2 typespec: classDefn sp_base 1, classType user 1, automatic 1, name non-empty 1, W 2
+d3 typespec: classDefn sp_der 1, classType user 1, automatic 1, name non-empty 1, W 3
+d3 constraints: cd
+d3 base: classDefn sp_base 1, W 3
+d3 base constraints: cb
+d3 base virtual interface elements: 2 (indices 0,1)
+d3 base variables: 2, one vifs array var 1
+sp_der class typespecs: some 2, all back 1, all user 1, all named 1
+sp_der extends lexical: RHS name W, unsupported relations 7
+sp_der typedef lexical: W 5, unsupported relations 7
+sp_der item m lexical: W default 4, unsupported relations 7
+sp_der item m virtual interfaces NULL 1
+process typespec: classType process 1, classDefn NULL 1

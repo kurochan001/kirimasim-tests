@@ -1,0 +1,8 @@
+empty instantiated
+decls D=2 L=3 bitsT=8
+params W=4 D=2 L=3 M=9 C=5a bitsT=8
+port bits=8 value=7
+time 100ps unit at 100
+time slash form at 1000
+time separate form at 2000
+time reversed form at 3000

@@ -1,0 +1,32 @@
+vv4: array net size 6, array member 0, packed member 0, struct member 0, vpiArray bool 1
+vv4[7][9]: logic net size 4, array member 1, packed member 0, struct member 0, vpiArray bool 1
+vv4[7][8][1][3]: net bit size 1
+vv4[7][8]: logic net size 4, array member 1, packed member 0, struct member 0, vpiArray bool 1
+vv4[7][8][1][3]: parent is vv4[7][8] 1
+vv4[7][8]: parent vv4, is vv4 1
+vv4: parent NULL
+sa[4][1]: struct net size 2, array member 1, packed member 0, struct member 0, vpiArray bool 1
+members: bv,id
+sa[4][1].id: int net size 32, array member 0, packed member 0, struct member 1, vpiArray bool 1
+sa[4][1].bv: array net size 2, array member 0, packed member 0, struct member 1, vpiArray bool 1
+sa[4][1].bv: parent sa[4][1], is sa[4][1] 1
+sa[4][1].bv[6]: logic net size 4, array member 1, packed member 0, struct member 0, vpiArray bool 1
+sa[4][1].bv[6]: parent sa[4][1].bv, is sa[4][1].bv 1
+sa[4][1]: parent sa, is sa 1
+sa: parent NULL
+un: union net size 2, array member 0, packed member 0, struct member 0, vpiArray bool 1
+un: tagged 0
+psa: packed array net size 4, array member 0, packed member 0, struct member 0, vpiArray bool 1
+psa[1]: struct net size 2, array member 0, packed member 1, struct member 0, vpiArray bool 1
+pea: packed array net size 4, array member 0, packed member 0, struct member 0, vpiArray bool 1
+pea[4]: enum net size 2, array member 0, packed member 1, struct member 0, vpiArray bool 1
+pua: packed array net size 4, array member 0, packed member 0, struct member 0, vpiArray bool 1
+pua[3]: union net size 2, array member 0, packed member 1, struct member 0, vpiArray bool 1
+ppa: packed array net size 16, array member 0, packed member 0, struct member 0, vpiArray bool 1
+ppa[1]: packed array net size 8, array member 0, packed member 1, struct member 0, vpiArray bool 1
+psa: ranges 1:0
+pea: ranges 4:3
+pua: ranges 3:2
+ppa: ranges 1:0 3:0
+vv: net bits 4, each size 1 1, expanded is Boolean 1, each with the expanded value of the net 1
+ss: net bits 4, each size 1 1, expanded is Boolean 1, each with the expanded value of the net 1

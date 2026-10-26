@@ -1,0 +1,37 @@
+classes from NULL root: cr_base,cr_der,cr_plain
+cr_base: instance is top 1, automatic 1
+  variables: a,s
+    a: back to class definition 1
+    s: back to class definition 1
+  methods: af,new,sf
+    af: back to class definition 1
+    new: back to class definition 1
+    sf: back to class definition 1
+  named events: ev
+    ev: back to class definition 1
+  named event arrays: eva
+    eva: back to class definition 1
+  constraints in order: c_base
+    c_base: back to class definition 1
+  parameters: P(local 1),W(local 0)
+    P(local 1): back to class definition 1
+    W(local 0): back to class definition 1
+cr_der: instance is top 1, automatic 1
+  variables: b
+    b: back to class definition 1
+  methods: new
+    new: back to class definition 1
+  named events: none
+  named event arrays: none
+  constraints in order: c_mid,c_late
+    c_mid: back to class definition 1
+    c_late: back to class definition 1
+  parameters: none
+cr_der typedefs:
+  byte_t: back to cr_der 1
+  nib_t: back to cr_der 1
+cr_der extends cr_base
+  constructor chaining arguments: v
+cr_der base class definition 1
+cr_plain: methods 0
+built-in process: classDefn NULL 1

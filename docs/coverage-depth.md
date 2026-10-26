@@ -6,22 +6,22 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 6986 |
+| Tests | 7051 |
 | Clauses in scope | 995 |
 | Clauses out of scope | 164 |
 | Clauses with a direct test | 995/995 |
 | Clauses with at least two direct tests | 995/995 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 146 |
+| Clauses with two tests or fewer | 135 |
 | Clauses with only standard-only tests | 216 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 591 |
-| Icarus Verilog 13.0 only | 3523 |
-| Verilator 5.052 only | 1362 |
-| standard only | 1510 |
+| both releases | 594 |
+| Icarus Verilog 13.0 only | 3530 |
+| Verilator 5.052 only | 1382 |
+| standard only | 1545 |
 
 ## By chapter
 
@@ -42,12 +42,12 @@
 | 15 | Interprocess synchronization and communication | 56 | 21 | 2.7 | 0 | 18 |
 | 16 | Assertions | 359 | 67 | 5.4 | 0 | 191 |
 | 17 | Checkers | 60 | 10 | 6.0 | 0 | 41 |
-| 18 | Constrained random value generation | 142 | 44 | 3.2 | 0 | 44 |
+| 18 | Constrained random value generation | 177 | 44 | 4.0 | 0 | 61 |
 | 19 | Functional coverage | 139 | 24 | 5.8 | 0 | 121 |
 | 20 | Utility system tasks and system functions | 266 | 31 | 8.6 | 0 | 44 |
 | 21 | Input/output system tasks and system functions | 194 | 47 | 4.1 | 0 | 44 |
 | 22 | Compiler directives | 348 | 21 | 16.6 | 0 | 10 |
-| 23 | Modules and hierarchy | 211 | 32 | 6.6 | 0 | 56 |
+| 23 | Modules and hierarchy | 226 | 32 | 7.1 | 0 | 59 |
 | 24 | Programs | 43 | 7 | 6.1 | 0 | 17 |
 | 25 | Interfaces | 119 | 12 | 9.9 | 0 | 29 |
 | 26 | Packages | 83 | 6 | 13.8 | 0 | 14 |
@@ -60,7 +60,7 @@
 | 33 | Configuring the contents of a design | 41 | 13 | 3.2 | 0 | 22 |
 | 35 | Direct programming interface | 109 | 20 | 5.5 | 0 | 40 |
 | 36 | Programming language interface (PLI/VPI) overview | 84 | 19 | 4.4 | 0 | 36 |
-| 37 | VPI object model diagrams | 181 | 94 | 1.9 | 0 | 165 |
+| 37 | VPI object model diagrams | 196 | 94 | 2.1 | 0 | 180 |
 | 38 | VPI routine definitions | 85 | 45 | 1.9 | 0 | 37 |
 | 39 | Assertion API | 39 | 7 | 5.6 | 0 | 38 |
 | 40 | Code coverage control and API | 30 | 18 | 1.7 | 0 | 27 |

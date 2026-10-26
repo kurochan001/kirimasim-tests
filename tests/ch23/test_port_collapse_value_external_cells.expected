@@ -1,0 +1,13 @@
+cell 1-0 wand->wire outside 00z1z inside 00z1z
+cell 1-2 wand->wor outside 10z1z inside 10z1z
+cell 1-4 wand->tri0 outside x0010 inside x0010
+cell 1-5 wand->tri1 outside x0111 inside x0111
+cell 2-1 wor->wand outside 00z1z inside 00z1z
+cell 2-4 wor->tri0 outside x0010 inside x0010
+cell 2-5 wor->tri1 outside x0111 inside x0111
+cell 4-1 tri0->wand outside 00z1z inside 00z1z
+cell 4-2 tri0->wor outside 10z1z inside 10z1z
+cell 4-5 tri0->tri1 outside x0111 inside x0111
+cell 5-1 tri1->wand outside 00z1z inside 00z1z
+cell 5-2 tri1->wor outside 10z1z inside 10z1z
+cell 5-4 tri1->tri0 outside x0010 inside x0010

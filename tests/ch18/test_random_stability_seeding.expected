@@ -1,0 +1,7 @@
+object stability: same creation order repeats 1, two objects differ 1
+object seed from the thread: one draw before new changes it 1
+thread seeding: same order repeats 1, children differ 1
+parent draw before the fork changes the child 1
+a subtree seeded at its root repeats 1
+creation order: earlier stream kept 1, inserted creation changes later 1
+self-seeded objects: same seed repeats 1

@@ -1,0 +1,5 @@
+return: success 1, failure 0
+constraint_mode: base getter 1, all off 0 0, base only 1 0
+all off: constraints violated 1, base only: a<=0 or b tied 0
+rand_mode: a getter 1 0, a kept 1
+temporary: q in range 1, q kept 1

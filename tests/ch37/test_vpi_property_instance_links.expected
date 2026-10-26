@@ -1,0 +1,3 @@
+a2 property: disable condition rst, is the rst variable 1
+p_multi: property expr multiclock 1
+a4: clocking block cb 1

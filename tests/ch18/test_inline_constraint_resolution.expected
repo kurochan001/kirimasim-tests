@@ -1,0 +1,6 @@
+dotted name: receiver first 1, local kept 1
+fallback to the call scope: true 1, false 0
+expression and forms: argument 1, ternary 1, forms 1
+local import: local 4 1, unqualified 4 1
+local type name: 7 1
+local class scope: 9 1
