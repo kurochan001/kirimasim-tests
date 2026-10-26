@@ -6,6 +6,10 @@
 A conformance test suite for the simulation semantics of IEEE 1800-2023
 SystemVerilog.
 
+For terminology and common questions, see the [glossary](docs/glossary.md)
+and [FAQ](docs/faq.md) (Japanese). They explain test expectations, result
+statuses, Nightly, coverage and the SVA/formal checks used by this suite.
+
 Each test is a small, self-contained design that prints what it observes. A
 simulator passes a test when its standard output, normalized, is exactly the
 test's expected output and any specified exit-code and diagnostic checks
@@ -340,6 +344,8 @@ docs/simulator-differences.md   where Icarus Verilog 13.0 and Verilator 5.052 di
 docs/inventory-20261021.md      what the suite had before the extension work of 2026-10-21, its plan, and the tests added after its report
 docs/tests/                     the catalog: every test with what it checks, by chapter
 docs/tests/clauses.md           which clauses of the standard the tests cite
+docs/glossary.md               terminology and abbreviations used by this suite (Japanese)
+docs/faq.md                    questions about expectations, results, coverage and verification (Japanese)
 docs/coverage-depth.md          how many tests each clause has, and the priority gaps
 docs/behavior-coverage-summary.md provisional and confirmed behavior coverage, by chapter and simulator
 docs/requirements-to-tests-method.md the method from the standard's PDF to requirements, tests and coverage
@@ -435,7 +441,7 @@ it does not know.
 | `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 40) |
 | `:should_fail_because:` | The design is illegal, for the reason given, and a simulator has to reject it. Such a test has `:type: elaboration`, no `:expected_stdout:`, and an `:expected_stderr_regex:` that names the place of the error |
 | `:expected_exit:` | The exit code that the simulation has to end with: `0`, `nonzero` (above 0) or a number. The standard fixes only that `$fatal` ends the run with an error code (20.10), so the tests use `nonzero` for it |
-| `:expected_stderr_regex:` | A Python regular expression for the simulator's messages (standard error, and the lines on standard output that the simulator prints itself). For an illegal design, a line of the messages that says "error" has to match it; the tests give the file and line of the error, such as `test_x\.sv:12:`, which every simulator prints, or each line where a tool can rightly report it, such as `test_x\.sv:(12|13):`. For other tests, the messages of the run have to match it. The wording of a message is never compared |
+| `:expected_stderr_regex:` | A Python regular expression for the simulator's messages (standard error, and the lines on standard output that the simulator prints itself). For an illegal design, an error line must match the reviewed source locations, such as `test_x\.sv:12:`, and any required diagnostic concepts. Appropriate alternative locations can be accepted; unsupported syntax is not evidence of the intended violation. For other tests, the run's messages must match the pattern. The full diagnostic text is not fixed |
 | `:args:` | Arguments for the simulation, separated by spaces: plusargs such as `+count=3` |
 | `:generator:` | `<generator>@<version>`: the test was written by `generators/<generator>.py` (see "Generated tests") |
 | `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it |
@@ -599,7 +605,7 @@ form the simulator takes:
 | `:files:` (sources) | before the test | before the test | before the test | before the test |
 | `:files:` (include files) and `:incdirs:` | `-I` | `-I` | `+incdir+` | `-I` |
 | `:defines:` | `-D` | `-D` | `+define+` | `-D` |
-| `:top_module:` | The top-level module or configuration to elaborate. Without it, every module that nothing instantiates is a top-level module (23.3.1). A module selects it and its hierarchy; a configuration selects the design and binding rules it declares (33.4, 33.5.3) |
+| `:top_module:` | `-s` | `--top-module` | `--top=` | `--top` |
 | `:args:` | to `vvp` | to the model | after the test | after `--` |
 
 A runner prints one line for each test that does not match (`FAIL`, or
