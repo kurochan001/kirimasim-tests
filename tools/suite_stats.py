@@ -150,12 +150,11 @@ def markdown(stats: dict) -> str:
            + ", ".join(f"{n} by `{g}`" for g, n in sorted(t["generated"].items())) + "."
            if t["generated"] else ""),
         "",
-        "| Expected output recorded with | Tests |",
+        "| Expected result recorded with | Tests |",
         "| --- | ---: |",
         f"| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | {t['icarus']} |",
-        f"| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot "
-        f"compile the test | {t['verilator']} |",
-        f"| The standard only, where neither simulator follows it | {t['spec']} |",
+        f"| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | {t['verilator']} |",
+        f"| The standard only, with no fixed-release simulator oracle recorded | {t['spec']} |",
         "",
         f"{t['fourstate']} tests depend on x or z values (`:fourstate: yes`). "
         f"{t['dpi_c'] + t['vpi_c']} tests come with C code: {t['dpi_c']} DPI tests (`:dpi_c:`) "

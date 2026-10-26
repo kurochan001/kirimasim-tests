@@ -451,7 +451,7 @@ def heatmap(run: dict) -> str:
     height = head + row * len(chapters) + 20
     body = [text(20, 28, "Matching tests by chapter", "title"),
             text(20, 48, f"Run of {parse_time(run['time']):%Y-%m-%d}: the share of each "
-                         "chapter's tests whose output matches", "muted")]
+                         "chapter's tests that match their expected results", "muted")]
     for i, sim in enumerate(sims):
         info = run["simulators"][sim]
         cx = left + col * i + col / 2
@@ -500,7 +500,7 @@ def render(directory: Path, runs: list[dict]) -> None:
               for sim in sims]
     counts.append(("total", "tests in the suite", True, "dot", [r["tests"] for r in runs]))
     (charts / "overview.svg").write_text(line_chart(
-        "Tests that match their expected output",
+        "Tests that match their expected results",
         "Each night, every test of the suite's main branch, with each simulator",
         runs, counts, colors, shown=lambda v: f"{v:.0f}"), encoding="utf-8")
 
@@ -606,8 +606,9 @@ def report(runs: list[dict], sims: list[str]) -> str:
         f"The [nightly workflow]({workflow}) of [kirimasim-tests]({SERVER}/{REPOSITORY}) "
         "writes this branch. Each night it runs every test of the suite's main branch with "
         "each simulator, adds the results to `history.json` and draws the charts below. "
-        "A test matches when the simulator's normalized standard output is exactly its "
-        "expected output; see the suite's README for what each status means.",
+        "A test matches when its output and specified checks agree with the expected result, "
+        "or an illegal design is rejected with the required diagnostic; see the suite's "
+        "README for what each status means.",
         "",
         f"Latest run: {when:%Y-%m-%d %H:%M} UTC, suite commit {commit_link(run['suite_commit'])}, "
         f"{run['tests']} tests{run_link}.",
@@ -615,7 +616,7 @@ def report(runs: list[dict], sims: list[str]) -> str:
         latest_table(run),
         "",
         *[f"{NOTES[sim]}\n" for sim in sims if sim in NOTES and sim in run["simulators"]],
-        "![Tests that match their expected output](charts/overview.svg)",
+        "![Tests that match their expected results](charts/overview.svg)",
         "",
         "![Share of the tests that match](charts/rate.svg)",
         "",

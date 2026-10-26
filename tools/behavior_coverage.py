@@ -447,6 +447,17 @@ def summary_data(snapshot: dict, keep_timestamp: bool = False) -> dict:
     return result
 
 
+def markdown_prose(value: str) -> str:
+    """Keep array/index brackets literal without altering inline code spans."""
+    pieces, end = [], 0
+    for match in re.finditer(r"(`+)(.*?)\1", value, re.DOTALL):
+        pieces.append(re.sub(r"(?<!\\)([\[\]])", r"\\\1", value[end:match.start()]))
+        pieces.append(match[0])
+        end = match.end()
+    pieces.append(re.sub(r"(?<!\\)([\[\]])", r"\\\1", value[end:]))
+    return "".join(pieces)
+
+
 def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: list,
            source_url: str | None = None, source_audit: dict | None = None,
            denominator_reviewed: bool = False, measured: dict | None = None) -> str:
@@ -530,13 +541,15 @@ def report(inventory: dict, sections: dict, rows: list, runs: dict, ignored: lis
     for r in sorted(rows, key=lambda r: (section_key(r["clause"]), r["id"])):
         state = "実行確認あり" if r["id"] in executed else "テスト対応あり・実行未確認" if r["mapped"] else "テスト未対応"
         lines += [f"### {r['id']}", "", f"{r['clause']} / {r['kind']} / {state}", "",
-                  r["behavior"], "", f"合格基準: {r['acceptance']}", ""]
+                  markdown_prose(r["behavior"]), "",
+                  f"合格基準: {markdown_prose(r['acceptance'])}", ""]
         if r.get("modality"):
             lines += [f"規定の性質: `{r['modality']}`。", ""]
         if r.get("interpretation_issue"):
             lines += [f"未解決の解釈: `{r['interpretation_issue']}`（対応承認・節完了を保留）。", ""]
         for c in r["checks"]:
-            lines.append(f"- [{Path(c['test']).name}]({link(c['test'])}): {c['observation']}")
+            lines.append(f"- [{Path(c['test']).name}]({link(c['test'])}): "
+                         f"{markdown_prose(c['observation'])}")
         lines.append("")
     return "\n".join(lines).rstrip() + "\n"
 

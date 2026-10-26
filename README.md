@@ -10,10 +10,11 @@ For terminology and common questions, see the [glossary](docs/glossary.md)
 and [FAQ](docs/faq.md) (Japanese). They explain test expectations, result
 statuses, Nightly, coverage and the SVA/formal checks used by this suite.
 
-Each test is a small, self-contained design that prints what it observes. A
-simulator passes a test when its standard output, normalized, is exactly the
-test's expected output and any specified exit-code and diagnostic checks
-succeed. The tests are written for the
+Each test is a small, self-contained design with an expected result. A legal
+design passes when its normalized standard output matches and any specified
+exit-code and diagnostic checks succeed. An illegal design passes when it is
+rejected with the required diagnostic (see [how a test is judged](#how-a-test-is-judged)).
+The tests are written for the
 [kirimasim](https://github.com/kurochan001/kirimasim) simulator, but nothing in
 them is specific to it: runners for Icarus Verilog, Verilator, kirimasim and
 [Lyra](https://github.com/hankhsu1996/lyra) are included, and the metadata
@@ -44,11 +45,11 @@ What sets the suite apart:
 <!-- suite-stats:begin -->
 The suite has **7327 tests** in 37 chapters. 1308 of them are generated (`tests/gen/`, see "Generated tests"): 496 by `keywords`, 325 by `scheduling`, 136 by `strength`, 49 by `wide_paths`, 144 by `width_sign`, 158 by `xz_propagation`.
 
-| Expected output recorded with | Tests |
+| Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 4167 |
-| Verilator 5.052, where Icarus Verilog 13.0 differs from the standard or cannot compile the test | 1448 |
-| The standard only, where neither simulator follows it | 1712 |
+| Verilator 5.052, with no Icarus Verilog 13.0 oracle recorded | 1448 |
+| The standard only, with no fixed-release simulator oracle recorded | 1712 |
 
 891 tests depend on x or z values (`:fourstate: yes`). 601 tests come with C code: 118 DPI tests (`:dpi_c:`) and 483 VPI tests (`:vpi_c:`). 1890 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 33 tests check the exit code of the simulation (`:expected_exit:`). 21 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 5 name include directories (`:incdirs:`), 21 name the top-level module or configuration (`:top_module:`), and 13 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -96,7 +97,7 @@ The suite has **7327 tests** in 37 chapters. 1308 of them are generated (`tests/
 
 Additional SVA validation is tracked separately from these oracle counts:
 the reference evaluator reproduces **45 test outputs**. The basic formal set
-has **40 BMC checks**, including **22 unbounded PDR proofs**. A separate
+has **40 BMC checks**, with **22 models also passing unbounded PDR proofs**. A separate
 parameter-boundary sweep has **111 cases**, all passing both BMC and PDR;
 its suite bindings identify **127 sequence fragments in 91 directives across
 28 tests**. The two formal sets overlap and are not added as distinct models.
@@ -120,9 +121,11 @@ files, except the parts that `test_vcd_dump_readback` reads back (21.7.2.1
 to 21.7.2.3 and 21.7.5).
 
 This is clause citation coverage, not proof that every requirement or
-combination in IEEE 1800-2023 is exercised. The scope remains the 932 leaf
-clauses in the existing catalog; annexes and the explicitly excluded clauses
-are not silently included in a claim about the entire standard. The
+combination in IEEE 1800-2023 is exercised. The citation-depth scope is the
+leaf clauses of chapters 3 to 40 selected by `tools/clauses.txt`, with the
+current count and exclusions in the [depth report](docs/coverage-depth.md).
+Annexes and explicitly excluded clauses are not silently included in a
+claim about the entire standard. The
 [2026-10-22 extension](docs/coverage-strengthening-20261022.md) adds distinct
 cases for all 187 clauses that previously had one test. CI enforces the
 two-test floor with `tools/coverage_depth.py --check --minimum-tests 2`;
@@ -182,10 +185,13 @@ the K.2, I.3 and N.2 headers and algorithms, assertion control, coverage,
 checkers and 1364 VPI compatibility, Icarus Verilog 13.0 was recorded as the
 oracle of 277 standard-only tests that it reproduces, and a further pass over
 the existing tests in twelve ranges linked 341 more requirements.
-Provisional design coverage is **84.698433% (10,434/12,319)**;
-provisional execution coverage is **46.448575% (5,722/12,319)** after the
-[Nightly test corrections and oracle review](docs/nightly-suite-corrections-20261027.md).
-Clauses 1 to 40 alone are at 84.52% (8,018/9,486) design coverage.
+Provisional design coverage is **85.023135% (10,474/12,319)**;
+provisional execution coverage is **46.545986% (5,734/12,319)**.
+See the [generated behavior summary](docs/behavior-coverage-summary.md) for the
+measurement inputs and denominator, and the
+[Nightly test corrections and oracle review](docs/nightly-suite-corrections-20261027.md)
+for the earlier corrections.
+Clauses 1 to 40 alone are at 84.95% (8,058/9,486) design coverage.
 Confirmed values remain undefined. The full existing-test semantic review is still incomplete.
 The addition reports record the observations, standard-derived expectations,
 simulator differences, mutation checks and execution evidence.
@@ -231,7 +237,7 @@ results appear after a subsequent workflow runs that commit and publishes
 its results. Check `suite commit` and the test count before comparing a chart
 with the current suite.
 
-![Tests that match their expected output](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
+![Tests that match their expected results](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/overview.svg)
 
 Each simulator has its own marker: a circle for Icarus Verilog, a square for
 Verilator, a diamond for kirimasim and a downward triangle for Lyra. The
@@ -242,8 +248,10 @@ in the latest run.
 
 ### By chapter
 
-Each cell shows **matching tests / tests run**, followed by the match rate
-for that chapter and simulator. This table updates with the Nightly charts;
+Each cell shows **matching tests / tests with recorded results**, followed
+by the match rate for that chapter and simulator. Known differences and
+unsupported tests, including those skipped before execution, remain in the
+denominator. This table updates with the Nightly charts;
 its date and simulator versions are shown at the top. Click it to view the
 full-size image.
 
@@ -255,14 +263,16 @@ Each test of a run gets one of these statuses:
 
 | Status | Meaning |
 | --- | --- |
-| match | The normalized standard output is exactly the expected output. |
-| differ | It is not, or the test could not be built or run. |
-| known difference | It is not, and the expected output was not recorded with this simulator, because its release that the suite was checked with (Icarus Verilog 13.0 or Verilator 5.052) does not produce it (see `:oracle:`). |
+| match | The output and any specified exit-code and runtime-diagnostic checks match, or an illegal design is rejected with the required diagnostic. |
+| differ | A result does not match, a required diagnostic is missing, an illegal design is accepted, or a build or run fails without being classified otherwise. |
+| known difference | An Icarus or Verilator test does not match and has no oracle token for that fixed release (see `:oracle:`). |
 | unsupported | The simulator reported a construct it does not support yet, or it cannot run this kind of test (kirimasim cannot load the C code of DPI and VPI tests yet, and Lyra that of VPI tests). |
 
-So for Icarus Verilog and Verilator, a test that differs is one that the
-release matches but the development version does not, and a known
-difference that matches is one that the development version has fixed.
+For Icarus Verilog and Verilator, a Nightly differ is a test tagged for the
+fixed release that does not match with the selected development version.
+An untagged test that now matches is a candidate for review, including the
+reason for any rejection; the result alone does not certify a fix or add an
+oracle token.
 
 The nightly results are reported, and with one exception a test that does not
 match does not make the workflow fail: the kirimasim job fails when a test
@@ -441,7 +451,7 @@ it does not know.
 | `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 40) |
 | `:should_fail_because:` | The design is illegal, for the reason given, and a simulator has to reject it. Such a test has `:type: elaboration`, no `:expected_stdout:`, and an `:expected_stderr_regex:` that names the place of the error |
 | `:expected_exit:` | The exit code that the simulation has to end with: `0`, `nonzero` (above 0) or a number. The standard fixes only that `$fatal` ends the run with an error code (20.10), so the tests use `nonzero` for it |
-| `:expected_stderr_regex:` | A Python regular expression for the simulator's messages (standard error, and the lines on standard output that the simulator prints itself). For an illegal design, an error line must match the reviewed source locations, such as `test_x\.sv:12:`, and any required diagnostic concepts. Appropriate alternative locations can be accepted; unsupported syntax is not evidence of the intended violation. For other tests, the run's messages must match the pattern. The full diagnostic text is not fixed |
+| `:expected_stderr_regex:` | A Python regular expression for the diagnostic text passed by the runner (see "How a test is judged" below). For an illegal design, an error line must match the reviewed source locations, such as `test_x\.sv:12:`, and any required diagnostic concepts. Appropriate alternative locations can be accepted; unsupported syntax is not evidence of the intended violation. For other tests, the run's messages must match the pattern. The full diagnostic text is not fixed |
 | `:args:` | Arguments for the simulation, separated by spaces: plusargs such as `+count=3` |
 | `:generator:` | `<generator>@<version>`: the test was written by `generators/<generator>.py` (see "Generated tests") |
 | `:files:` | Other files next to the test, separated by spaces: sources (`.sv`, `.v`), compiled before the test in the order written, and files that the design includes with `` `include ``, whose directory becomes an include directory. Their names do not start with `test_`. Whether the files form one compilation unit or several is left to the tool (3.12.1), and the tests do not depend on it |
@@ -453,13 +463,15 @@ it does not know.
 
 A test passes when the simulator's standard output, after removing empty
 lines and the simulator's own banners (see `tools/normalize_output.py` and the
-runners), is exactly the expected output. The messages of the severity tasks
+runners), is exactly the expected output. Spaces on nonempty lines are
+preserved. The messages of the severity tasks
 (`$info`, `$warning`, `$error` and `$fatal`), whose form the standard leaves to
 the tool (20.10), are removed as well, since Icarus Verilog and Verilator
 print them on standard output. The exit code and runtime messages are checked
 only when the test asks for it with `:expected_exit:` or
-`:expected_stderr_regex:`. For runtime checks, the regular expression sees
-the raw standard output plus standard error before those messages are removed.
+`:expected_stderr_regex:`. For runtime checks, Icarus, Verilator and Lyra
+match the raw standard output plus standard error before those messages are
+removed; the kirimasim runner matches standard error only.
 The new associative-array diagnostic tests therefore detect a missing warning,
 or an unwanted warning, even when the normalized standard output matches.
 They recognize warning severity markers without fixing the complete message
@@ -593,7 +605,7 @@ Every runner needs Python 3.10 or later, and has these options in common:
 
 | Option | Meaning |
 | --- | --- |
-| `TEST ...` | Run only these test files (default: every `tests/**/test_*.sv`) |
+| `TEST ...` | Run only these test files. By default, Verilator selects its oracle-tagged tests; the other runners select every `tests/**/test_*.sv`. Verilator's `--all` selects every test |
 | `-j N`, `--jobs N` | Run N tests at once (default: 1) |
 | `--json FILE` | Also write the result of every test to FILE (see `tools/suite_results.py`) |
 
@@ -613,6 +625,12 @@ A runner prints one line for each test that does not match (`FAIL`, or
 `tools/run_icarus.py` one for each known difference that matches (`NOW
 MATCHES`), then a summary line, and exits with 1 if a test it counts does not
 match.
+
+The Icarus and Verilator terminal summaries count only tests tagged with that
+fixed release's oracle. Their JSON output also records an untagged test as
+`pass` when it matches. Nightly reads all recorded results, so its denominator
+and matching count can differ from the terminal summary. Oracle metadata is
+not changed automatically.
 
 ### Icarus Verilog
 
@@ -639,7 +657,8 @@ follows the standard and `:oracle:` does not list `iverilog@13.0`.
 `tools/run_icarus.py` reports such a test as a known difference and does not
 count it as a failure (or as `NOW MATCHES` if it matches). The same applies to
 tests that Icarus Verilog 13.0 cannot compile; their `:oracle:` lists
-`verilator@5.052` instead.
+`verilator@5.052` when that release was confirmed, or remains `spec` alone
+when neither fixed-release oracle is recorded.
 
 ### Verilator
 

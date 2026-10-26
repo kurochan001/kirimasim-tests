@@ -46,9 +46,10 @@ def clause_key(clause: str) -> tuple:
 
 def cell(text: str) -> str:
     """text in a table cell, where | ends the cell, a backquote would start a code
-    span (descriptions write compiler directives such as `define) and < could
-    start an HTML tag."""
-    return text.replace("|", "\\|").replace("`", "\\`").replace("<", "&lt;").strip()
+    span (descriptions write compiler directives such as `define), < could
+    start an HTML tag, and array brackets could create a Markdown link."""
+    return (text.replace("|", "\\|").replace("`", "\\`").replace("<", "&lt;")
+            .replace("[", "\\[").replace("]", "\\]").strip())
 
 
 def description(fields: dict[str, str]) -> str:

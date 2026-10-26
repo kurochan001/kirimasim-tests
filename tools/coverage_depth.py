@@ -105,7 +105,7 @@ def report(data: dict) -> str:
     lines = [
         "# Coverage depth",
         "",
-        "[All chapters](README.md). This page is written by "
+        "[All chapters](tests/README.md). This page is written by "
         "`tools/coverage_depth.py` from the metadata of the tests; edit the "
         "tests, not this page. It counts how many tests cite each clause in "
         "`:lrm:` and which releases produce their expected outputs. A citation "
