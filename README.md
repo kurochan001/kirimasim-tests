@@ -236,6 +236,17 @@ are drawn as outlines that fit inside each other, so simulators with the same
 or close counts stay visible together, and the legend gives each one's count
 in the latest run.
 
+### By chapter
+
+Each cell shows **matching tests / tests run**, followed by the match rate
+for that chapter and simulator. This table updates with the Nightly charts;
+its date and simulator versions are shown at the top. Click it to view the
+full-size image.
+
+[![Matching tests by chapter](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/results/charts/chapters.svg)
+
+### Result statuses
+
 Each test of a run gets one of these statuses:
 
 | Status | Meaning |
