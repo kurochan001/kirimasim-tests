@@ -1,0 +1,178 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch11/test_aggregate_copy_through_port_and_argument": {
+   "status": "pass",
+   "inputs_sha256": "4af8414884885e1bd4de8007c9a9b92c235135f22125d6047d16061146dedce2"
+  },
+  "ch11/test_conditional_predicate_and_integral_branch": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_conditional_predicate_and_integral_branch.sv:37:30: Unsupported: &&& expression",
+   "inputs_sha256": "c58653d9380dde5b7f0167516c213686e3ccd6b135865ce6845183dc364e491b"
+  },
+  "ch11/test_operator_grammar_and_operand_types": {
+   "status": "known",
+   "reason": "output differs: line 12 is 'case_int=0', expected 'case_int=1'",
+   "inputs_sha256": "9ff0a60d3f8b64948a010496b237c617f8d89eb8161c2dcf195c3b1b4f996235"
+  },
+  "ch13/test_subroutine_input_expressions_and_call_forms": {
+   "status": "pass",
+   "inputs_sha256": "a034341b3ac231a06255ce7b24a627658a556d9061579c944911889c89625068"
+  },
+  "ch13/test_task_declaration_grammar_and_nesting": {
+   "status": "pass",
+   "inputs_sha256": "a703b8e1702165e62140fcc59c00d6a3dea958dbc4fd7f570040b11df489b362"
+  },
+  "ch13/test_task_direction_and_port_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch13/test_task_direction_and_port_forms.sv:45:21: Unsupported: 'ref static' ports",
+   "inputs_sha256": "ba774b70227c7e1fda6514f9264d959bba0f2cc06a6ab8be314241308684d087"
+  },
+  "ch16/test_sva_property_grammar_forms": {
+   "status": "pass",
+   "inputs_sha256": "464ac8e5826b3fd10e8777f7bcf9684fcacf8f9c4bccfab4c1f52bceebc6597f"
+  },
+  "ch16/test_sva_satisfaction_fail_strong": {
+   "status": "pass",
+   "inputs_sha256": "6ceefc0fef42d3c2ea2e535600178cb19447b73dfdb8427113c1748ac2dc9565"
+  },
+  "ch16/test_sva_typed_formal_assignment": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_sva_typed_formal_assignment.sv:41:18: Unsupported: property port 'local'",
+   "inputs_sha256": "0aff464914e6a2e37a10a46a83adba8ec62f260cd93937c985604800cef0fc7d"
+  },
+  "ch17/test_checker_declaration_body_forms": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_declaration_body_forms.sv:78:11: Unsupported: recursive 'checker'",
+   "inputs_sha256": "bd6c36ec4dedfed3fc5208639211fcb8e7763c02b8f49e6482d6044d0e299065"
+  },
+  "ch17/test_checker_free_const_stability": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_free_const_stability.sv:30:3: Unsupported: checker rand",
+   "inputs_sha256": "bfd14d334212647acaf66ac8aebff26b7379f481a52df274990b8ed929972bee"
+  },
+  "ch17/test_illegal_checker_always_ff_blocking_forms": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_always_ff_blocking_forms\\\\.sv:(51|59|72):'; the first is: %Error-UNSUPPORTED: tests/ch17/test_illegal_checker_always_ff_blocking_forms.sv:58:9: Unsupported: Procedural concurrent assertion with clocking event inside always (IEEE 1800-2023 16.14.6)",
+   "inputs_sha256": "cce3e683d662320c1d2f12a83645d4193fc7a057ae01cc66c05ca5eb9c56313c"
+  },
+  "ch17/test_illegal_checker_covergroup_in_procedure": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "5cd5428783ab45bfd3f78c33ace5ebc00baaba0a8d1a7781417138d93006f7cc"
+  },
+  "ch17/test_illegal_checker_covergroup_reference": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "3095aa82911d7fb3f5323252168a92c166bd881e58e94ed8b57e35e4129fdc17"
+  },
+  "ch17/test_illegal_checker_free_blocking_assign": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_free_blocking_assign\\\\.sv:(26|34):'; the first is: %Error-UNSUPPORTED: tests/ch17/test_illegal_checker_free_blocking_assign.sv:25:3: Unsupported: checker rand",
+   "inputs_sha256": "fc596bfe771f874e8dcb115b57563a68c0fdeec37b3cd5875b9e5fbeaed97743"
+  },
+  "ch17/test_illegal_checker_free_continuous_assign": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_free_continuous_assign\\\\.sv:(26|34):'; the first is: %Error-UNSUPPORTED: tests/ch17/test_illegal_checker_free_continuous_assign.sv:25:3: Unsupported: checker rand",
+   "inputs_sha256": "448e7cad0c69baf5a07ddd98edd5c5006d0eb67482c1a3f44bf79abb81e5d408"
+  },
+  "ch17/test_illegal_checker_hierarchical_read_write": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "230ce6843e1c6219686fad677194a508456d6fedb595180f072bb1e5b8b7a71e"
+  },
+  "ch17/test_illegal_checker_initial_delay_forms": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_initial_delay_forms\\\\.sv:(29|35|46):'; the first is: %Error-UNSUPPORTED: tests/ch17/test_illegal_checker_initial_delay_forms.sv:34:9: Unsupported: Procedural concurrent assertion with clocking event inside always (IEEE 1800-2023 16.14.6)",
+   "inputs_sha256": "d051d5ad659c8733c863d5ca050cc81e6ecce9a28f01ecff871cbfadc687ce47"
+  },
+  "ch19/test_cg_bin_syntax_all_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_bin_syntax_all_forms.sv:42:17: syntax error, unexpected wildcard",
+   "inputs_sha256": "cc2d66fd70420f547be4bc9c284d9852428a50a908723e97deb21521f4059dc4"
+  },
+  "ch19/test_cg_transition_syntax_all_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_cg_transition_syntax_all_forms.sv:32:12: Transition requires at least two values",
+   "inputs_sha256": "547ce2a6e74ecf4b4b01a0e18c655e17cf508ca2270b4915bfcc37514fc6f3d5"
+  },
+  "ch19/test_cg_type_and_instance_coverage": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'average: type 0.00, counts agree: 0', expected 'average: type 37.50, counts agree: 1'",
+   "inputs_sha256": "f939827cfb799dd08d35c1cd17d3ec3a883816e0ede1e1833c68611ae43effd3"
+  },
+  "ch19/test_illegal_cg_bin_set_associative_array": {
+   "status": "pass",
+   "inputs_sha256": "d2bae7b85d9c201e7ca2eb04930c632d5dec7f50cd40fffe2dc94e6b9ac28860"
+  },
+  "ch19/test_illegal_cg_bin_set_incompatible_element": {
+   "status": "pass",
+   "inputs_sha256": "93085fe47bdb96056b3b5e90fb6f0cdcf5df575bfa830abf1f11899d5ea73059"
+  },
+  "ch19/test_illegal_cg_point_type_without_identifier": {
+   "status": "pass",
+   "inputs_sha256": "5f356dfe19251e0de0ea97ef6877d647f67fc850ee5e5de4553665c3250b49d0"
+  },
+  "ch21/test_fwrite_unformatted_aggregates": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'unpacked-struct-u: 27 7b 78 3a 27 68 31 31', expected 'unpacked-struct-u: 11 11 11 11 22 22 22 22'",
+   "inputs_sha256": "4e8120e0f16897937fa826b607f01e464a55a89a94dbad1efb606c6344408ea4"
+  },
+  "ch21/test_illegal_display_unpacked_shortint_array_no_format": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "383a8cd7e6a8b65a3403e2266d5f0baa519c92878f500bbdb6579cbf7d7ad8a9"
+  },
+  "ch21/test_illegal_display_unpacked_struct_no_format": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "11038072763731f3242ca153a0c385b50ec9228670ce61a7cfcf81a7285c2abd"
+  },
+  "ch21/test_sformat_format_expression_forms": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C /var/folders/jj/0q4x6fb57jz_g1mdw2v_0rjr0000gn/T/tmpghqxtyuz/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "4c0d4cd4e954151aa76aac0f9f7b80e306f6655137978216175f4a35ec8f8138"
+  },
+  "ch21/test_vcd_dumpvars_no_arguments": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_vcd_dumpvars_no_arguments.sv:84: $...', expected 'vars: 4'",
+   "inputs_sha256": "e7ba3489081b77a5c35f1e5857ed9f146685729c68431d322cd48667140dc47f"
+  },
+  "ch21/test_vcd_dumpvars_selection_forms": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_vcd_dumpvars_selection_forms.sv:10...', expected 'vars: 3'",
+   "inputs_sha256": "d9d69029bfe3e3aef026ff861ec94d82e32205dc26f8c18d8a99a1ef036ac320"
+  },
+  "ch6/test_aggregate_dynamic_cast_incompatible": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/ch6/test_aggregate_dynamic_cast_incompatible.sv:44:10: ../V3Width.cpp:2925: Unimplemented: Casting non-simple data type 'struct{}$unit::dst_t'",
+   "inputs_sha256": "32799bace45a7274e32efcd8f25c804bc53011e70a40ffccf6882121cefc3cf7"
+  },
+  "ch6/test_design_element_static_lifetime": {
+   "status": "pass",
+   "inputs_sha256": "d1a5985f87710f2d6cf4a17ee45585d46ee8f4372ac4623b0a8aaf866e042513"
+  },
+  "ch6/test_dollar_cycle_delay_and_actual": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch6/test_dollar_cycle_delay_and_actual.sv:34:26: Range delay maximum is not a non-negative elaboration-time constant (IEEE 1800-2023 16.7)",
+   "inputs_sha256": "65533e3c3150a8f458322e32c08dc2213a31b88a2d53454c584e17c317903f12"
+  },
+  "ch6/test_specparam_declared_and_inferred_range": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'inferred=10 bits=64', expected 'inferred=10 bits=4'",
+   "inputs_sha256": "2794589ba48c64a102ab112924c00693c80b179e1f6d1735f84772060c32a99d"
+  },
+  "ch8/test_extern_method_class_type_visibility": {
+   "status": "pass",
+   "inputs_sha256": "25979b37149e76c3e88be112334e3b2e54196d893052f8caf541d14a3465b52b"
+  }
+ },
+ "generated_at": "2026-10-26T23:02:01.308709+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

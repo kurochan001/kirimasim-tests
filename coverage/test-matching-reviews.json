@@ -40,6 +40,21 @@
               "contains": ":expected_stderr_regex: test_illegal_ref_in_static_function\\.sv:23:"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-13.5.2-EXTRACT-NO-STATIC-SUBROUTINE-REF"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M06: Icarusはref引数自体の未対応/非input引数の拒否でpassになり、静的寿命を判定した根拠にはならない。Verilatorは受理。固定版承認oracleなし。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_illegal_ref_in_static_function.sv",
+              "contains": "function int twice(ref int v);"
+            }
+          ]
         }
       ]
     },
@@ -6396,6 +6411,21 @@
               "contains": ":initial"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-8.20-EXTRACT-INITIAL-EXTENDS-EXCLUSIVE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "M34: 期待stderr正規表現がファイル名と行番号だけ。:initial/:extends/:final構文自体が未対応という構文エラーでも通る可能性があり、規格が要求する該当意味制約の拒否を特定しない。意味を識別できる診断oracleと対応済み構文環境での実行が必要。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_method_initial_and_extends.sv",
+              "contains": "function :initial :extends int id();"
+            }
+          ]
         }
       ]
     },
@@ -6456,6 +6486,36 @@
           "disposition": "partial_observation",
           "explanation": "final does not itself imply virtual, and a virtual prototype fixes the encapsulation, arguments and return type that an override must satisfy. The existing test calls a final method that also has an explicit virtual, so the non-implied virtualness is not shown; showing it needs a subclass attempt or an interface implementation without virtual, both of which are rejected. The prototype mismatch cases are also rejected designs.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_final_class_and_method.sv",
+              "contains": "final"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-8.20-EXTRACT-FINAL-NO-IMPLIED-VIRTUAL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "final methodはoverrideせず呼ぶだけで、しかも明示virtualを付けている。finalによるoverride拒否とfinal単独ではvirtualを含意しない規則の根拠にはならない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_final_class_and_method.sv",
+              "contains": "virtual function :final string name();"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-8.20-EXTRACT-VIRTUAL-PROTOTYPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "final does not itself imply virtual, and a virtual prototype fixes the encapsulation, arguments and return type that an override must satisfy. The existing test calls a final method that also has an explicit virtual, so the non-implied virtualness is not shown; showing it needs a subclass attempt or an interface implementation without virtual, both of which are rejected. The prototype mismatch cases are also rejected designs.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -6586,6 +6646,21 @@
             {
               "file": "tests/ch8/test_class_null_comparison.sv",
               "contains": "null"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-8.4-EXTRACT-OBJECT-GARBAGE-COLLECTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "obj2=obj1後にobj1=nullとしてobj2.value42を読むが、alias経由のproperty変更はしない。同内容の独立copyでも同じ出力となるため、alias更新共有はclass_basicsとの集合で補う。到達可能objectを読むだけでは、到達不能objectのGCやchandleの例外は観測しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_class_null_comparison.sv",
+              "contains": "obj1 = null;"
             }
           ]
         }
@@ -14626,6 +14701,21 @@
           "explanation": "M106: inc_double(5)=12 と chain(3)=12 は、展開結果を括弧で囲まない文字どおりの置換（5 + 1 * 2 = 7）と区別でき、実引数の置換と括弧付けは観測している。しかし要求の『展開後の本体を合法性検査する』条件は正常系の値比較では観測できず、展開後に違法となる let を診断する負テストとの分担が必要（同じ要求の正常系 group には負テストを入れられない）。",
           "reviewed_on": "2026-10-23",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_let_nested.sv",
+              "contains": "        val = inc_double(5); // (5+1)*2 = 12"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-11.12-EXTRACT-LET-SUBSTITUTION"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "M106: inc_double(5)=12 と chain(3)=12 は、展開結果を括弧で囲まない文字どおりの置換（5 + 1 * 2 = 7）と区別でき、実引数の置換と括弧付けは観測している。しかし要求の『展開後の本体を合法性検査する』条件は正常系の値比較では観測できず、展開後に違法となる let を診断する負テストとの分担が必要（同じ要求の正常系 group には負テストを入れられない）。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
               "file": "tests/ch11/test_let_nested.sv",
@@ -27174,6 +27264,36 @@
               "contains": "  /* tool state_vector st */"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-40.4.3-EXTRACT-FSM-CONCAT-NO-SELECTS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row forbids bit and part selects in the state concatenation of a tool state_vector pragma. The pragma is a comment, so a design that writes one is legal and only a tool's FSM extraction can reject it, which no release reports at the pragma's line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_fsm_pragmas.sv",
+              "contains": "/* tool state_vector st */"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-40.4.4-EXTRACT-FSM-NEXT-STATE-OMISSION"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row says that the next-state pragma is omitted exactly when the FSM has no next-state signal. That is a condition on a set of pragmas, and the pragmas are comments that no release reports on, so no expected output tells an FSM with a next state from one without it.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch40/test_coverage_fsm_pragmas.sv",
+              "contains": "logic [1:0] /* tool enum shift_states */ st = 0, st_next;"
+            }
+          ]
         }
       ]
     },
@@ -28437,6 +28557,44 @@
               "contains": "nettype"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.6.7-EXTRACT-RESOLVER-LIFETIME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "sum_res/max_res/count_res を nettype の解決関数として使い、各ドライバ変更時に全ドライバ値から値が決まること（3.75, 7, 3 など）を観測する。これらは状態を持たない関数で、静的変数などに状態を残す解決関数を刺激して『評価間で状態を保持しない』ことを示す観測はない。また1つの scheduling region で複数のドライバ更新が起きたときに解決関数が複数回呼ばれうるという緯度は、呼び出し回数を数える刺激も期待値もないため観測しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_nettype_resolution.sv",
+              "contains": "package nettypes_pkg;"
+            },
+            {
+              "file": "tests/ch6/test_nettype_resolution.expected",
+              "contains": "start: r_sum=3.75 r_alias=5.50 m_max=7 n_count=3"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.6.7-EXTRACT-RESOLVER-NONDETERMINISTIC-COUNT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "sum_res/max_res/count_res を nettype の解決関数として使い、各ドライバ変更時に全ドライバ値から値が決まること（3.75, 7, 3 など）を観測する。これらは状態を持たない関数で、静的変数などに状態を残す解決関数を刺激して『評価間で状態を保持しない』ことを示す観測はない。また1つの scheduling region で複数のドライバ更新が起きたときに解決関数が複数回呼ばれうるという緯度は、呼び出し回数を数える刺激も期待値もないため観測しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_nettype_resolution.sv",
+              "contains": "package nettypes_pkg;"
+            },
+            {
+              "file": "tests/ch6/test_nettype_resolution.expected",
+              "contains": "start: r_sum=3.75 r_alias=5.50 m_max=7 n_count=3"
+            }
+          ]
         }
       ]
     },
@@ -28663,6 +28821,44 @@
               "contains": "nettype"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.7.3-EXTRACT-TIMEZERO-RESOLVER-NONDETERMINISM"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "ドライバのない nettype ネットが型の既定値（struct メンバ初期化子 level=7、logic は x、wire は z）を持ち、解決関数付きの r が時刻0に空のドライバ配列で呼ばれて 0.25 になることを #1 の表示で観測する。保証された時刻0の解決関数呼び出しが driver 変化の前か後かという非決定性は、時刻0で driver を変化させる刺激がないため区別できず、初期値が initial/always 開始前かつ解決関数呼び出し前に入るという順序も、時刻0の最初に読む刺激がないため観測しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_nettype_initial_value_resolution.sv",
+              "contains": "  nettype real bias_net with with_bias;"
+            },
+            {
+              "file": "tests/ch6/test_nettype_initial_value_resolution.expected",
+              "contains": "s.level=7 s.volt=0.0 n=xxxx w=zzzz r=0.25"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.7.3-EXTRACT-USER-NET-INITIALIZATION-ORDER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "ドライバのない nettype ネットが型の既定値（struct メンバ初期化子 level=7、logic は x、wire は z）を持ち、解決関数付きの r が時刻0に空のドライバ配列で呼ばれて 0.25 になることを #1 の表示で観測する。保証された時刻0の解決関数呼び出しが driver 変化の前か後かという非決定性は、時刻0で driver を変化させる刺激がないため区別できず、初期値が initial/always 開始前かつ解決関数呼び出し前に入るという順序も、時刻0の最初に読む刺激がないため観測しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_nettype_initial_value_resolution.sv",
+              "contains": "  nettype real bias_net with with_bias;"
+            },
+            {
+              "file": "tests/ch6/test_nettype_initial_value_resolution.expected",
+              "contains": "s.level=7 s.volt=0.0 n=xxxx w=zzzz r=0.25"
+            }
+          ]
         }
       ]
     },
@@ -28752,6 +28948,21 @@
           "disposition": "partial_observation",
           "explanation": "the scalared advisory says that a PLI application sees the net expanded, and the vectored advisory lets a tool restrict bit and part selects or present an unexpanded net. Both are PLI-facing and tool-permitted behaviors; the suite's simulation tests print no PLI view, and a restriction that a tool is allowed to make cannot be required, so neither part has a fixed standard output.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_scalared_vectored_net_selects.sv",
+              "contains": "scalared"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.9.2-EXTRACT-SCALARED-PLI-EXPANSION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "the scalared advisory says that a PLI application sees the net expanded, and the vectored advisory lets a tool restrict bit and part selects or present an unexpanded net. Both are PLI-facing and tool-permitted behaviors; the suite's simulation tests print no PLI view, and a restriction that a tool is allowed to make cannot be required, so neither part has a fixed standard output.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -29078,6 +29289,21 @@
           "disposition": "partial_observation",
           "explanation": "the string methods putc, itoa, hextoa, octtoa, bintoa and realtoa are called as statements and their effects are visible, but the requirement is the whole signature including the void return type. Using such a call as a value is illegal, and a normal-kind test cannot contain that error, so the void part cannot be observed; a value-returning implementation produces the same output.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_string_conversion.sv",
+              "contains": "s.itoa("
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.16.15-EXTRACT-SIGNATURE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "the string methods putc, itoa, hextoa, octtoa, bintoa and realtoa are called as statements and their effects are visible, but the requirement is the whole signature including the void return type. Using such a call as a value is illegal, and a normal-kind test cannot contain that error, so the void part cannot be observed; a value-returning implementation produces the same output.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -29481,6 +29707,66 @@
               "contains": "specparam"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.20.5-EXTRACT-DISTINCT-DECLARATION-KEYWORDS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "the test declares parameters and specparams together and shows that a specparam takes values from parameters and earlier specparams, but the distinct declaration rules are about what may override them: a fixed specparam range must survive a value override, an inferred range follows the final value, and only SDF may change a specparam while defparam or instance values may change a parameter. Applying those overrides needs an SDF annotation or a rejected language override, neither of which is available as a normal simulation in this environment.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_specparam_declaration_forms.sv",
+              "contains": "specparam"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.20.5-EXTRACT-FIXED-SPECPARAM-RANGE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "the test declares parameters and specparams together and shows that a specparam takes values from parameters and earlier specparams, but the distinct declaration rules are about what may override them: a fixed specparam range must survive a value override, an inferred range follows the final value, and only SDF may change a specparam while defparam or instance values may change a parameter. Applying those overrides needs an SDF annotation or a rejected language override, neither of which is available as a normal simulation in this environment.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_specparam_declaration_forms.sv",
+              "contains": "specparam"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.20.5-EXTRACT-PARAMETER-OVERRIDE-MECHANISMS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "the test declares parameters and specparams together and shows that a specparam takes values from parameters and earlier specparams, but the distinct declaration rules are about what may override them: a fixed specparam range must survive a value override, an inferred range follows the final value, and only SDF may change a specparam while defparam or instance values may change a parameter. Applying those overrides needs an SDF annotation or a rejected language override, neither of which is available as a normal simulation in this environment.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_specparam_declaration_forms.sv",
+              "contains": "specparam"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.20.5-EXTRACT-SDF-ONLY-OVERRIDE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "the test declares parameters and specparams together and shows that a specparam takes values from parameters and earlier specparams, but the distinct declaration rules are about what may override them: a fixed specparam range must survive a value override, an inferred range follows the final value, and only SDF may change a specparam while defparam or instance values may change a parameter. Applying those overrides needs an SDF annotation or a rejected language override, neither of which is available as a normal simulation in this environment.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_specparam_declaration_forms.sv",
+              "contains": "specparam"
+            }
+          ]
         }
       ]
     },
@@ -29774,6 +30060,36 @@
           "disposition": "partial_observation",
           "explanation": "instance type identity requires each instance that declares a user type to create a distinct identity, but no legal assignment or operator exposes that identity: a difference is only visible when a value is passed between instances and the assignment is rejected. Closed equivalence, the one-way assignment compatibility of enum and integral types, and incompatibility with class, interface-class and chandle categories have the same shape: the positive cases are legal and the negative ones need rejected designs. A normal-kind test can show only the positive half.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_type_assignment_cast_compatible.sv",
+              "contains": "typedef"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.22-EXTRACT-INSTANCE-TYPE-IDENTITY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "instance type identity requires each instance that declares a user type to create a distinct identity, but no legal assignment or operator exposes that identity: a difference is only visible when a value is passed between instances and the assignment is rejected. Closed equivalence, the one-way assignment compatibility of enum and integral types, and incompatibility with class, interface-class and chandle categories have the same shape: the positive cases are legal and the negative ones need rejected designs. A normal-kind test can show only the positive half.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_type_assignment_cast_compatible.sv",
+              "contains": "typedef"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-6.22.5-EXTRACT-INCOMPATIBLE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "instance type identity requires each instance that declares a user type to create a distinct identity, but no legal assignment or operator exposes that identity: a difference is only visible when a value is passed between instances and the assignment is rejected. Closed equivalence, the one-way assignment compatibility of enum and integral types, and incompatibility with class, interface-class and chandle categories have the same shape: the positive cases are legal and the negative ones need rejected designs. A normal-kind test can show only the positive half.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -32307,6 +32623,36 @@
           "disposition": "partial_observation",
           "explanation": "the runtime manages storage for objects, strings and dynamic arrays and reclaims objects no longer used, with no guaranteed reclamation instant; an object reachable by neither strong nor weak references is unreachable, and a weak reference does not prevent reclamation. The one observable direction is that a strongly reachable object is not collected; the transitions and the actual reclamation depend on a garbage-collection instant the standard does not fix, so a test cannot require them.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_object_strongly_reachable.sv",
+              "contains": "reachable"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-8.29-EXTRACT-WEAK-RECLAMATION-REFERENCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "the runtime manages storage for objects, strings and dynamic arrays and reclaims objects no longer used, with no guaranteed reclamation instant; an object reachable by neither strong nor weak references is unreachable, and a weak reference does not prevent reclamation. The one observable direction is that a strongly reachable object is not collected; the transitions and the actual reclamation depend on a garbage-collection instant the standard does not fix, so a test cannot require them.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_object_strongly_reachable.sv",
+              "contains": "reachable"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-8.29-EXTRACT-WEAKLY-REACHABLE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "the runtime manages storage for objects, strings and dynamic arrays and reclaims objects no longer used, with no guaranteed reclamation instant; an object reachable by neither strong nor weak references is unreachable, and a weak reference does not prevent reclamation. The one observable direction is that a strongly reachable object is not collected; the transitions and the actual reclamation depend on a garbage-collection instant the standard does not fix, so a test cannot require them.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -38370,6 +38716,21 @@
             {
               "file": "tests/ch16/test_multiclock_clock_flow_operands.sv",
               "contains": "a_if: assert property (@(posedge c1) go |-> if (sel) (@(posedge c2) b) else (d ##1 d))"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.13.3-EXTRACT-INSTANCE-FLOW"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The kept test observes a clock flowing into the instance s_c2 and not out of it, and a clock declared inside s_dd staying there. The requirement also covers instances to which triggered or matched is applied: Icarus Verilog 13.0 has no concurrent assertions and Verilator 5.052 rejects a sequence method on an instance, so the flow through those operands has no observable result in either simulator.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_multiclock_clock_flow_operands.sv",
+              "contains": "  c_inst: cover sequence (@(posedge c1) x ##1 s_c2 ##1 z) m_inst.push_back($time);"
             }
           ]
         }
@@ -55566,6 +55927,21 @@
               "contains": "$display(\"[%3h]"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.2.1.2-EXTRACT-FIELD-WIDTH"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row is registered as an error requirement, but its content is the format of a field width: a nonnegative decimal constant may override the automatic size and a width of 0 gives the minimum width without leading spaces or zeros. A field width is written as digits, so no design can violate the rule and no illegal design can be rejected at its line; the existing test exercises the widths 3, 1, 4 and 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_format_explicit_field_width.sv",
+              "contains": "\"[%3h] [%3h] [%1h] [%4h] [%3b] [%3d] [%0h]\""
+            }
+          ]
         }
       ]
     },
@@ -55651,6 +56027,21 @@
             {
               "file": "tests/ch21/test_readmemh_addresses_comments.sv",
               "contains": "comments"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.4.2-EXTRACT-ENUM-LOAD"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row requires that a number outside the range of the enum type is an error that stops the reading and that the numbers are the enum values. The error happens at run time, where the elaboration form of an illegal design cannot be rejected, and no release reports the diagnostic in a form the suite can fix, so no expected output can be recorded.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_readmemh_addresses_comments.sv",
+              "contains": "$readmemh(\"test_readmemh_addresses_comments_a.mem\", mem);"
             }
           ]
         }
@@ -55777,6 +56168,204 @@
             {
               "file": "tests/ch21/test_evcd_port_states_strengths_and_controls.sv",
               "contains": "The inputs of evcd_dut are driven by continuous assignments of strong,"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.7.3.6.1-EXTRACT-VCDCLOSE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row requires $vcdclose with the final simulation time when the extended VCD file is closed. No release implements $dumpports, so the file is never written and the close record cannot be read back, and the wording of the record cannot be fixed from any reproduced output.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_port_states_strengths_and_controls.sv",
+              "contains": "$dumpports(test_evcd_port_states_strengths_and_controls.dut, FILE);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sva_satisfaction_fail_strong.sv",
+      "inputs_sha256": "6ceefc0fef42d3c2ea2e535600178cb19447b73dfdb8427113c1748ac2dc9565",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12.21-EXTRACT-HOLDS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "A property holds but not strongly when every obligation is met so far and an extension may still violate it, as with always a that is true at every tick of the trace. Its verdict is only fixed after the trace ends, so printing the pass count after it would depend on the tool's order between the end-of-trace assessment and a final block, which the standard leaves open; the test therefore observes only the completed match (strongly holds) and the bad state (fails).",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sva_satisfaction_fail_strong.sv",
+              "contains": "  a_holds: assert property (@(posedge clk) go |-> (a ##1 b))"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.12.21-EXTRACT-PENDING"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Pending is an intermediate state: no bad state has been seen and future obligations are unmet. It is not an end verdict and no assertion API of the suite reports it, so a test that printed a pending attempt would depend on the tool's probe or on the moment a print races the future ticks; only the end verdicts fail and hold are observable.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sva_satisfaction_fail_strong.sv",
+              "contains": "  a_fails: assert property (@(posedge clk) go2 |-> (a2 ##1 b2))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_outer_constant.sv",
+      "inputs_sha256": "e4d7b129e4fdeca538ddb7334f2ff462a8eb007a57552704b40d4b5c914153f8",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-19.5-EXTRACT-CONSTANT-INITIALIZATION"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "The row has two rules: a referenced constant shall be a member of the enclosing class, and its initializer shall precede the covergroup construction and shall not share a loop or fork-join_none with it. The test rejects only the package constant, and no test places an instance constant initializer after or beside the construction, so the second rule has no stimulus.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_outer_constant.sv",
+              "contains": "coverpoint p::OUTER;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_matches_zero.sv",
+      "inputs_sha256": "818948a8f7a4a9ce4914c25af56173d7e0bd55a9bb544a0d61c03eae8b785aa9",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test shows that a matches minimum of 0 is rejected. The other forms of the row, a positive minimum that counts the satisfying value tuples, the $ that requires all of them, and the omission that defaults to one, are not stimulated, so the policy itself is not observed.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_matches_zero.sv",
+              "contains": "bins s = cr with (1) matches 0;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_illegal_cg_per_instance_procedural.sv",
+      "inputs_sha256": "70f58d7d3a8c0dfc6a1bbe7103154aa7a7b91d022fd0fa9140fef375e2f95780",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-19.7-EXTRACT-DEFINITION-ONLY-OPTIONS"
+          ],
+          "disposition": "compound_requirement",
+          "explanation": "The test rejects a procedural assignment of option.per_instance after construction. The row also covers get_inst_coverage, auto_bin_max, detect_overlap and cross_retain_auto_bins at the levels of Table 19-2, and no test writes each of those options at a level that forbids it.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_per_instance_procedural.sv",
+              "contains": "obj.cg.option.per_instance = 1;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_vcd_dumpvars_selection_forms.sv",
+      "inputs_sha256": "d9d69029bfe3e3aef026ff861ec94d82e32205dc26f8c18d8a99a1ef036ac320",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.1.2-EXTRACT-DUMPVARS-TIMING"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row allows many $dumpvars calls but requires them all to execute at the same simulation time. A design that calls one at another time is an error only at run time, and a test that showed when dumping starts would fix a time base that the clause does not give, so no portable expected output exists.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_selection_forms.sv",
+              "contains": "$dumpvars(0, test_vcd_dumpvars_selection_forms.i2);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_illegal_dumpports_repeated_filename.sv",
+      "inputs_sha256": "165fe371427770c4d923c17211298e4a1dc41a84926c9f66997d4892db6ef18f",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.3.1-EXTRACT-PORT-FILE-CHECKS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The candidate tests reject a repeated filename and a duplicate or string scope, which are rules about the arguments. The row asks the simulator to check that the file can be written, with write rights and a valid path, and to issue an error or a warning, which no test stimulates.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_dumpports_repeated_filename.sv",
+              "contains": "$dumpports(m2, \"ports.evcd\");"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_typedef_package_type_shared.sv",
+      "inputs_sha256": "30129b3393b98e68daad9133cf98f5e5fd25279f06faf074e1222013fdf2a655",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.22-EXTRACT-COMPATIBILITY-CATEGORIES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "No single test observes all five compatibility levels of 6.22: matching, equivalence, assignment compatibility, cast compatibility and incompatibility are decided by different constructs, and this candidate only shows a package typedef shared across instances.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_typedef_package_type_shared.sv",
+              "contains": "package shared_types;"
             }
           ]
         }

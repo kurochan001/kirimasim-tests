@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 320 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 321 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -222,6 +222,7 @@
 | [`test_illegal_type_parameter_scope_prefix_in_variable_declaration`](../../tests/ch8/test_illegal_type_parameter_scope_prefix_in_variable_declaration.sv) | a type selected through a type parameter prefix with the scope resolution operator can only be used in a typedef, the type operator or a type parameter assignment | 8.23 6.20.3 | standard only | illegal design |
 | [`test_nested_class_access`](../../tests/ch8/test_nested_class_access.sv) | A class declared inside another class is used from outside through the scope resolution operator, can use the static and local members of its outer class (non-static ones through a handle), and two outer classes may each have a nested class of the same name | 8.23 8.18 | Verilator 5.052 |  |
 | [`test_class_extern`](../../tests/ch8/test_class_extern.sv) | Test: Extern method declaration | 8.24 8.20 | Verilator 5.052 |  |
+| [`test_extern_method_class_type_visibility`](../../tests/ch8/test_extern_method_class_type_visibility.sv) | An out-of-block method sees every declaration of its class, and a prototype declared after a class type uses that class type rather than a same-named outer type | 8.24 | Verilator 5.052 |  |
 | [`test_extern_method_prototype_qualifiers`](../../tests/ch8/test_extern_method_prototype_qualifiers.sv) | an extern prototype carries the full arguments and the virtual, protected, local and final qualifiers, while the out-of-block body names the class and omits them | 8.24 | Verilator 5.052 |  |
 | [`test_extern_method_scoped_return_type`](../../tests/ch8/test_extern_method_scoped_return_type.sv) | An out of block method can use a class typedef as its return type and omit a prototype default | 8.24 | standard only |  |
 | [`test_illegal_extern_argument_type_mismatch`](../../tests/ch8/test_illegal_extern_argument_type_mismatch.sv) | the argument types of an out-of-block method declaration have to match its prototype | 8.24 | Verilator 5.052 | illegal design |

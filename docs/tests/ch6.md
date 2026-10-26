@@ -1,6 +1,6 @@
 # Clause 6: Data types
 
-[All chapters](README.md). 590 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 594 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -462,6 +462,7 @@
 | [`test_illegal_specparam_used_before_declaration`](../../tests/ch6/test_illegal_specparam_used_before_declaration.sv) | A specparam declared in the module body cannot be used before its declaration | 6.20.5 | standard only | illegal design |
 | [`test_specify_specparam_delays`](../../tests/ch6/test_specify_specparam_delays.sv) | Path delays can be given by specify parameters, declared in the specify block or in the module before use, also as expressions of other specify parameters | 6.20.5 30.3 30.5.1 | Icarus Verilog 13.0 |  |
 | [`test_specparam_declaration_forms`](../../tests/ch6/test_specparam_declaration_forms.sv) | specparam declarations with and without a packed range, with lists of assignments and a min:typ:max value, in a module body and in a specify block where one gives a path delay | 6.20.5 A.2.1.1 A.2.3 A.2.4 30.4.1 11.11 | Icarus Verilog 13.0 |  |
+| [`test_specparam_declared_and_inferred_range`](../../tests/ch6/test_specparam_declared_and_inferred_range.sv) | A specparam with a declared range has that range while one without a range takes the width of its final assigned value | 6.20.5 | Icarus Verilog 13.0 |  |
 | [`test_specparam_edge_cases`](../../tests/ch6/test_specparam_edge_cases.sv) | specparam values used in expressions in the module body | 6.20.5 | Icarus Verilog 13.0 |  |
 | [`test_specparam_from_parameters_and_specparams`](../../tests/ch6/test_specparam_from_parameters_and_specparams.sv) | a specparam takes a constant expression of parameters and of earlier specparams, in the module body and in a specify block, and the values follow a parameter override | 6.20.5 6.20.2 30.3 30.5.1 | Icarus Verilog 13.0 |  |
 | [`test_const_edge_cases`](../../tests/ch6/test_const_edge_cases.sv) | Const variables edge cases | 6.20.6 6.21 | Icarus Verilog 13.0 | x/z |
@@ -470,6 +471,7 @@
 | [`test_illegal_const_assigned`](../../tests/ch6/test_illegal_const_assigned.sv) | A const variable cannot be assigned after its declaration | 6.20.6 | Icarus Verilog 13.0 | illegal design |
 | [`test_static_const_initializer_sources`](../../tests/ch6/test_static_const_initializer_sources.sv) | a static const initializer may use literals, parameters, localparams, genvars, enum names, constant functions, other constants and hierarchical names | 6.20.6 | Icarus Verilog 13.0 |  |
 | [`test_dollar_covergroup_range`](../../tests/ch6/test_dollar_covergroup_range.sv) | a covergroup value range [$:expression] includes every value at or below it and [expression:$] every value at or above it, down to zero and up to the type maximum | 6.20.7 | Verilator 5.052 |  |
+| [`test_dollar_cycle_delay_and_actual`](../../tests/ch6/test_dollar_cycle_delay_and_actual.sv) | A dollar actual argument forwarded to a property and used as the upper bound of a cycle-delay range is accepted and the range waits for an event several cycles later | 6.20.7 | standard only |  |
 | [`test_dollar_parameter_unbounded`](../../tests/ch6/test_dollar_parameter_unbounded.sv) | $ can be the value of a parameter, which $isunbounded then reports, also through another parameter, and $ stands for the open end of a value range and the last element of a queue | 6.20.7 20.6.3 11.4.13 7.10.1 | Verilator 5.052 |  |
 | [`test_dollar_value_range_membership`](../../tests/ch6/test_dollar_value_range_membership.sv) | a lower dollar bound includes every value at or below the other bound and an upper dollar bound includes every value at or above it | 6.20.7 | Verilator 5.052 |  |
 | [`test_illegal_dollar_assigned_to_real_parameter`](../../tests/ch6/test_illegal_dollar_assigned_to_real_parameter.sv) | $ can be assigned only to a value parameter of a simple bit vector type; a real parameter cannot have the value $ | 6.20.7 | Icarus Verilog 13.0 | illegal design |
@@ -482,6 +484,7 @@
 | [`test_automatic_data_declarations_in_static_procedural_scopes`](../../tests/ch6/test_automatic_data_declarations_in_static_procedural_scopes.sv) | Data declarations with the automatic keyword inside a static task, a static function, a loop body block and a block that forks processes give variables initialized on every entry, against explicitly static ones that keep their values | 6.21 9.3.2 A.2.1.3 A.10 | Verilator 5.052 |  |
 | [`test_automatic_var`](../../tests/ch6/test_automatic_var.sv) | Test automatic variables | 6.21 13.4.2 | Icarus Verilog 13.0 |  |
 | [`test_automatic_variable_in_static_subroutine`](../../tests/ch6/test_automatic_variable_in_static_subroutine.sv) | An automatic variable in a static function or task is initialized again on every call, while a static one keeps its value | 6.21 13.3.1 13.4.2 | Verilator 5.052 |  |
+| [`test_design_element_static_lifetime`](../../tests/ch6/test_design_element_static_lifetime.sv) | Variables outside tasks, processes and functions in a module, interface, program and checker have static lifetime even when the design element is automatic, and the same name in another design element is a different variable | 6.21 | Verilator 5.052 |  |
 | [`test_illegal_automatic_variable_nonblocking`](../../tests/ch6/test_illegal_automatic_variable_nonblocking.sv) | An automatic variable cannot be written with a nonblocking assignment | 6.21 10.4.2 | Verilator 5.052 | illegal design |
 | [`test_illegal_continuous_assign_reads_class_member`](../../tests/ch6/test_illegal_continuous_assign_reads_class_member.sv) | A continuous assignment cannot reference a member of a class object, a dynamic variable | 6.21 8.4 10.3 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_continuous_assign_reads_dynamic_element`](../../tests/ch6/test_illegal_continuous_assign_reads_dynamic_element.sv) | A continuous assignment cannot reference an element of a dynamic array, since such references are limited to procedural blocks | 6.21 7.5 10.3 | standard only | illegal design |
@@ -571,6 +574,7 @@
 | [`test_signed_cast`](../../tests/ch6/test_signed_cast.sv) | Test signed cast | 6.24.1 | Icarus Verilog 13.0 |  |
 | [`test_size_cast_intermediate_context`](../../tests/ch6/test_size_cast_intermediate_context.sv) | Use real size casts to resize arithmetic intermediates and preserve operand signing | 6.24.1 11.6 11.6.1 20.6.2 20.7 | Verilator 5.052 |  |
 | [`test_type_casting`](../../tests/ch6/test_type_casting.sv) | Corner Case: Type Casting | 6.24.1 6.12.1 10.7 11.7 | Icarus Verilog 13.0 |  |
+| [`test_aggregate_dynamic_cast_incompatible`](../../tests/ch6/test_aggregate_dynamic_cast_incompatible.sv) | A dynamic cast of a non-singular source to a non-singular destination that is not assignment compatible fails and leaves the destination unchanged, although a static bit-stream cast of the same bits succeeds | 6.24.2 | standard only |  |
 | [`test_cast_dynamic_array`](../../tests/ch6/test_cast_dynamic_array.sv) | $cast to array elements | 6.24.2 7.5 7.10 | Verilator 5.052 |  |
 | [`test_cast_function`](../../tests/ch6/test_cast_function.sv) | Test for IEEE 1800-2023 §6.24.2: $cast system function | 6.24.2 8.16 | Verilator 5.052 |  |
 | [`test_cast_function_and_static_enum_coercion`](../../tests/ch6/test_cast_function_and_static_enum_coercion.sv) | $cast as a function returns int and leaves the destination unchanged on failure, while a static enum cast coerces without checking | 6.24.2 6.24.1 | standard only |  |

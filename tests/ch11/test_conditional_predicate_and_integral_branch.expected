@@ -1,0 +1,4 @@
+match=7
+nomatch=8
+andand=10
+conv=00000x01

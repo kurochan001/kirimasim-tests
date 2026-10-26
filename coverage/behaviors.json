@@ -42893,7 +42893,25 @@
       "acceptance": "A specparam without a declared range takes its range from its final assigned value after permitted overrides.",
       "source_note": "IEEE 1800-2023 6.20.5; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_specparam_declared_and_inferred_range.sv",
+          "observation": "The specparam inferred has no declared range and is assigned 4'hA; $bits(inferred) prints 4, the width of its final assigned value, while the explicitly ranged specparam prints 8. 区別: An implementation that gave every specparam a default 32-bit or 64-bit range would print 32 or 64 instead of 4.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2794589ba48c64a102ab112924c00693c80b179e1f6d1735f84772060c32a99d",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_specparam_declared_and_inferred_range.sv",
+              "contains": "  specparam inferred = 4'hA;"
+            },
+            {
+              "file": "tests/ch6/test_specparam_declared_and_inferred_range.expected",
+              "contains": "inferred=10 bits=4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.20.5",
@@ -43434,7 +43452,25 @@
       "acceptance": "A dollar actual argument to a sequence/property/checker is permitted when forwarded to such an instance or used as a cycle-delay range upper bound.",
       "source_note": "IEEE 1800-2023 6.20.7; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_dollar_cycle_delay_and_actual.sv",
+          "observation": "The actual $ is passed to property bounded and forwarded to its cycle-delay upper bound; start rises once and stop only 25 time units later, and both assertions leave fails at 0. 区別: A tool that refused a dollar actual, or replaced it by a bound shorter than the three posedges to stop, would fail an assertion and count a failure.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "65533e3c3150a8f458322e32c08dc2213a31b88a2d53454c584e17c317903f12",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_dollar_cycle_delay_and_actual.sv",
+              "contains": "  a1: assert property (bounded(start, stop, $)) else fails++;"
+            },
+            {
+              "file": "tests/ch6/test_dollar_cycle_delay_and_actual.expected",
+              "contains": "fails=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.20.7",
@@ -43551,7 +43587,25 @@
       "acceptance": "A dollar cycle-delay upper bound denotes a finite but unbounded maximum.",
       "source_note": "IEEE 1800-2023 6.20.7; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_dollar_cycle_delay_and_actual.sv",
+          "observation": "The range ##[1:$] and the same range with $ received through a property formal wait three posedges for stop, and the failure counter prints 0. 区別: Treating the dollar upper bound as a small finite number, or as zero, would end the range before stop and count a failure.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "65533e3c3150a8f458322e32c08dc2213a31b88a2d53454c584e17c317903f12",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_dollar_cycle_delay_and_actual.sv",
+              "contains": "    @(posedge clk) s |-> ##[1:$] e;"
+            },
+            {
+              "file": "tests/ch6/test_dollar_cycle_delay_and_actual.expected",
+              "contains": "fails=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.20.7",
@@ -44196,7 +44250,25 @@
       "acceptance": "Variables in a module/interface/program/checker outside tasks/processes/functions are locally scoped and static.",
       "source_note": "IEEE 1800-2023 6.21; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_design_element_static_lifetime.sv",
+          "observation": "A variable outside processes in a module, interface, program and checker is written at time zero and read by another process later as 3, 4, 5 and 6; the modules m_auto and other both use the name mv and print 3 and 9. 区別: A per-process automatic variable would read its default value, and a shared name would make the two module values interfere.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d1a5985f87710f2d6cf4a17ee45585d46ee8f4372ac4623b0a8aaf866e042513",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_design_element_static_lifetime.sv",
+              "contains": "  initial mv = 3;"
+            },
+            {
+              "file": "tests/ch6/test_design_element_static_lifetime.expected",
+              "contains": "checker=6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.21",
@@ -47610,7 +47682,25 @@
       "acceptance": "For nonsingular arguments, a dynamic cast assignment is invalid if the argument types are not assignment compatible; general static bit-stream cast permissions do not extend this test.",
       "source_note": "IEEE 1800-2023 6.24.2; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_aggregate_dynamic_cast_incompatible.sv",
+          "observation": "$cast(d, s) of two different unpacked structures with the same 8 bits returns 0 and leaves d at 12, while the static bit-stream cast dst_t'(s) of the same source gives a5. 区別: An implementation that let the bit-stream cast permission make the dynamic cast valid would return 1 and overwrite d with a5.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "32799bace45a7274e32efcd8f25c804bc53011e70a40ffccf6882121cefc3cf7",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_aggregate_dynamic_cast_incompatible.sv",
+              "contains": "    ok = $cast(d, s);"
+            },
+            {
+              "file": "tests/ch6/test_aggregate_dynamic_cast_incompatible.expected",
+              "contains": "castfn=0 d=12"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.24.2",
@@ -76010,7 +76100,25 @@
       "acceptance": "An out-of-block method can access all declarations of its class; the earlier prototype sees class types only when declared before that prototype.",
       "source_note": "IEEE 1800-2023 8.24; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_extern_method_class_type_visibility.sv",
+          "observation": "The prototype extern function T f() uses the class typedef int although an outer typedef real has the same name, and the out-of-block body reads v declared after the prototype; f returns 5. 区別: A prototype that resolved the outer real type would make the out-of-block definition with C::T a mismatch, and a body without access to later declarations would not compile.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "25979b37149e76c3e88be112334e3b2e54196d893052f8caf541d14a3465b52b",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_extern_method_class_type_visibility.sv",
+              "contains": "  extern function T f();"
+            },
+            {
+              "file": "tests/ch8/test_extern_method_class_type_visibility.expected",
+              "contains": "extern=5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "8.24",
@@ -97097,7 +97205,25 @@
       "acceptance": "Aggregate expressions can be copied through assignments/ports/subroutine arguments and compared with equality/inequality under their compatibility rules.",
       "source_note": "IEEE 1800-2023 11.2.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_aggregate_copy_through_port_and_argument.sv",
+          "observation": "A pair_t structure is copied through a module port (1,2), returned from a function (2,3), an int[3] array is passed to a function (12), and the structures compare equal and unequal as 1 and 1. 区別: An implementation that copied only packed values through ports or arguments, or compared aggregates by identity, would print other values.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4af8414884885e1bd4de8007c9a9b92c235135f22125d6047d16061146dedce2",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_aggregate_copy_through_port_and_argument.sv",
+              "contains": "  passthru u(.i(p_in), .o(p_out));"
+            },
+            {
+              "file": "tests/ch11/test_aggregate_copy_through_port_and_argument.expected",
+              "contains": "port=1,2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "11.2.2",
@@ -97489,7 +97615,25 @@
       "acceptance": "Table 11-1 permits ?: with all types allowed by conditional rules operands, subject to more specific type/context rules.",
       "source_note": "IEEE 1800-2023 11.3; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_operator_grammar_and_operand_types.sv",
+          "observation": "?: returns a string (yes), a packed structure whose member is 1, a class handle whose member is 1, and a real (1.5), each with a known predicate. 区別: An implementation that restricted ?: to integral branches would reject the string, aggregate, class or real branches or return another value.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ff0a60d3f8b64948a010496b237c617f8d89eb8161c2dcf195c3b1b4f996235",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_operator_grammar_and_operand_types.sv",
+              "contains": "    $display(\"cond_real=%0.1f\", (a != 0) ? 1.5 : 2.5);"
+            },
+            {
+              "file": "tests/ch11/test_operator_grammar_and_operand_types.expected",
+              "contains": "cond_real=1.5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "11.3",
@@ -97525,7 +97669,25 @@
       "acceptance": "Table 11-1 permits == != with all types allowed by their equality rules operands, subject to more specific type/context rules.",
       "source_note": "IEEE 1800-2023 11.3; complete own-body source review, blocks B027. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_operator_grammar_and_operand_types.sv",
+          "observation": "== and != compare strings (1,1), packed structures (1,0) and class handles (1,0), besides the integral operands used in the assignment lines. 区別: An implementation that allowed == only on integral types, or compared aggregates or handles incorrectly, would print other values or reject the expression.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ff0a60d3f8b64948a010496b237c617f8d89eb8161c2dcf195c3b1b4f996235",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_operator_grammar_and_operand_types.sv",
+              "contains": "    $display(\"eq_agg=%0d,%0d\", (p == q), (p != q));"
+            },
+            {
+              "file": "tests/ch11/test_operator_grammar_and_operand_types.expected",
+              "contains": "eq_agg=1,0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "11.3",
@@ -97899,7 +98061,25 @@
       "acceptance": "Operator grammar includes the listed simple/compound assignments, conditional expression, unary/binary arithmetic/logical/bitwise/comparison/shift/implication/equivalence, increment/decrement and streaming directions under their context-specific syntax.",
       "source_note": "IEEE 1800-2023 11.3; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_operator_grammar_and_operand_types.sv",
+          "observation": "Every compound assignment is applied to a ending at 208 and b at 1, and the arithmetic, logical, implication, equivalence, bitwise, reduction, comparison, shift, unary, wildcard and streaming results match Table 11-1. 区別: A missing or mis-grouped assignment operator would leave another value in a or b, and a missing binary or streaming operator would not compile.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ff0a60d3f8b64948a010496b237c617f8d89eb8161c2dcf195c3b1b4f996235",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_operator_grammar_and_operand_types.sv",
+              "contains": "    a <<<= 1;"
+            },
+            {
+              "file": "tests/ch11/test_operator_grammar_and_operand_types.expected",
+              "contains": "assign=208,1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "11.3",
@@ -115163,7 +115343,25 @@
       "acceptance": "Outside prior numeric cases, an integral branch paired with a type implicitly convertible to integral causes that conversion and integral conditional semantics.",
       "source_note": "IEEE 1800-2023 11.4.11; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_conditional_predicate_and_integral_branch.sv",
+          "observation": "Under an x predicate, the integral branch 8'd5 and the enum branch green are converted to integral and combined bit by bit into 00000x01. 区別: Without the implicit conversion to integral, the branch pair would not be legal or would use the enum default instead of the combined 00000x01.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c58653d9380dde5b7f0167516c213686e3ccd6b135865ce6845183dc364e491b",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_conditional_predicate_and_integral_branch.sv",
+              "contains": "    r8 = c ? 8'd5 : green;"
+            },
+            {
+              "file": "tests/ch11/test_conditional_predicate_and_integral_branch.expected",
+              "contains": "conv=00000x01"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "11.4.11",
@@ -131149,7 +131347,25 @@
       "acceptance": "Task declarations permit lifetime/method override specifiers, interface/class scope, ANSI or body formal declarations, body declarations/statements and an optional matching closing name.",
       "source_note": "IEEE 1800-2023 13.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_task_declaration_grammar_and_nesting.sv",
+          "observation": "The tasks use automatic lifetime, ANSI and body formals, body declarations and statements, closing names, the :initial method specifier, class scope and interface scope; nest, body_form, CB::bump, IF::set and CB::plain all run. 区別: A declaration form the grammar rejected would stop the design, and a missing lifetime or scope form would change the printed values.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a703b8e1702165e62140fcc59c00d6a3dea958dbc4fd7f570040b11df489b362",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_task_declaration_grammar_and_nesting.sv",
+              "contains": "    task :initial plain(output int x);"
+            },
+            {
+              "file": "tests/ch13/test_task_declaration_grammar_and_nesting.expected",
+              "contains": "plain=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.3",
@@ -131167,7 +131383,25 @@
       "acceptance": "The language imposes no limit on the number of nested enabled tasks.",
       "source_note": "IEEE 1800-2023 13.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_task_declaration_grammar_and_nesting.sv",
+          "observation": "The task nest enables itself 100 times and each activation adds one on the way back, printing 100; the class task bump and the interface task set are enabled after it. 区別: A tool that limited nested task enables would reject the recursion or return before all activations complete, printing another value.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a703b8e1702165e62140fcc59c00d6a3dea958dbc4fd7f570040b11df489b362",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_task_declaration_grammar_and_nesting.sv",
+              "contains": "    nest(100, r);"
+            },
+            {
+              "file": "tests/ch13/test_task_declaration_grammar_and_nesting.expected",
+              "contains": "nest=100"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.3",
@@ -131185,7 +131419,25 @@
       "acceptance": "Task ports support attributes, direction, var/type/implicit signing/dimensions, defaults and const ref static forms under the argument rules.",
       "source_note": "IEEE 1800-2023 13.3; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_task_direction_and_port_forms.sv",
+          "observation": "Task tp declares an attributed input with var, an explicit signed packed dimension, a default and an output, and tp(4'sd3, , q) uses the default 5 and prints 8; cr and sr declare const ref and ref static formals. 区別: A task port form the grammar rejected would stop the design, and a default that was not applied would print another value.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ba774b70227c7e1fda6514f9264d959bba0f2cc06a6ab8be314241308684d087",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_task_direction_and_port_forms.sv",
+              "contains": "  task automatic tp((* keep = \"true\" *) input var logic signed [3:0] s,"
+            },
+            {
+              "file": "tests/ch13/test_task_direction_and_port_forms.expected",
+              "contains": "tp=8"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.3",
@@ -134155,7 +134407,25 @@
       "acceptance": "An input actual may be any compatible expression; actual argument evaluation order is undefined.",
       "source_note": "IEEE 1800-2023 13.5; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_subroutine_input_expressions_and_call_forms.sv",
+          "observation": "Input actuals are an arithmetic expression and an array element (13), a nested call (7), a system function (4), a method (5), a void-cast call, named actuals in another order (7) and an empty position that uses the default (426). 区別: A tool that accepted only variables as input actuals, or bound named or empty actuals differently, would print other values or reject the call.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a034341b3ac231a06255ce7b24a627658a556d9061579c944911889c89625068",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_subroutine_input_expressions_and_call_forms.sv",
+              "contains": "    $display(\"expr=%0d\", add(2 + 3, arr[1] * 4));"
+            },
+            {
+              "file": "tests/ch13/test_subroutine_input_expressions_and_call_forms.expected",
+              "contains": "expr=13"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.5",
@@ -148028,7 +148298,33 @@
       "acceptance": "A variable_lvalue actual is viewed through the formal type, and assignment to the formal acts as though followed by assignment from formal to actual.",
       "source_note": "IEEE 1800-2023 16.8.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sva_typed_formal_assignment.sv",
+          "observation": "s_set has the local output byte formal o and assigns 300 to it in (a, o = 300); the formal keeps the byte 44, and at the match the byte is assigned to the int actual v of p, so v == 44 at the next tick and the attempts at 5 and 15 pass at 25 and 35. 区別: A tool that assigned 300 directly to the int actual, or that did not copy the formal to the actual at the match, would fail the comparison and print no pass times.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0aff464914e6a2e37a10a46a83adba8ec62f260cd93937c985604800cef0fc7d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sva_typed_formal_assignment.sv",
+              "contains": "  sequence s_set(local output byte o);"
+            },
+            {
+              "file": "tests/ch16/test_sva_typed_formal_assignment.sv",
+              "contains": "    (a, o = 300) ##1 (1'b1);"
+            },
+            {
+              "file": "tests/ch16/test_sva_typed_formal_assignment.sv",
+              "contains": "    int v = 0;"
+            },
+            {
+              "file": "tests/ch16/test_sva_typed_formal_assignment.expected",
+              "contains": "pass: 25 35"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.8.1",
@@ -154640,7 +154936,25 @@
       "acceptance": "Attached-call arguments shall be by-value input, ref or const ref; by-value inputs use assertion sampled values and assertion-permitted types.",
       "source_note": "IEEE 1800-2023 16.11; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_attached_call_output_argument.sv",
+          "observation": "a_in attaches f_in(d) with an input formal, a_ref attaches t_ref(d) with a ref formal and a_cref attaches f_cref(d) with a const ref formal; a_bad attaches t_out, whose o is an output, so the design is rejected at line 41. 区別: A tool that accepted an output argument on a call attached to a sequence would accept the design and report no error at line 41, while the input, ref and const ref calls in the same design show the directions the rule allows.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dba82eee02e44dc538b225f29ede3492d414890760831da908b189ed6860b91c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_attached_call_output_argument.sv",
+              "contains": "  a_bad: assert property (@(posedge clk) (a, t_out(d)) |-> b);   // illegal"
+            },
+            {
+              "file": "tests/ch16/test_illegal_attached_call_output_argument.sv",
+              "contains": ":expected_stderr_regex: test_illegal_attached_call_output_argument\\.sv:41:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.11",
@@ -156013,7 +156327,49 @@
       "acceptance": "Named properties use property/endproperty, optional formals, assertion local declarations, a property_spec and optional closing label. Syntax 16-16 defines sequence strength, Boolean, implication, temporal, abort, case and instance forms.",
       "source_note": "IEEE 1800-2023 16.12; complete own-body source review, blocks B005, B006, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sva_property_grammar_forms.sv",
+          "observation": "The design writes p_chk with the formals en and lim, the local cnt, @(posedge clk) with disable iff rst and the closing label, and declares p_strength, p_strong, p_bool, p_impl, p_impl_next, p_temporal, p_abort, p_case, p_if and p_instance for the Syntax 16-16 forms, with sq_formal closed by its name. p_chk(1, 3) passes at 5, 15 and 25, sq_formal(a, b) succeeds at 25 and p_bool at 15. 区別: A tool that rejects or misreads a form cannot run the design, and the three printed times change if the formals, disable condition or local of p_chk, or the instance sq_formal, are not read as written.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "780e4e139306920429f1ccfc7b7595b77a2af2bd7ba195a70317867f0065294a",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sva_property_grammar_forms.sv",
+              "contains": "property p_chk(bit en, int lim);"
+            },
+            {
+              "file": "tests/ch16/test_sva_property_grammar_forms.sv",
+              "contains": "    @(posedge clk) disable iff (rst) (en, cnt = lim) |-> (cnt == lim);"
+            },
+            {
+              "file": "tests/ch16/test_sva_property_grammar_forms.sv",
+              "contains": "  property p_strength;"
+            },
+            {
+              "file": "tests/ch16/test_sva_property_grammar_forms.sv",
+              "contains": "  property p_strong;"
+            },
+            {
+              "file": "tests/ch16/test_sva_property_grammar_forms.sv",
+              "contains": "  property p_abort;"
+            },
+            {
+              "file": "tests/ch16/test_sva_property_grammar_forms.sv",
+              "contains": "  property p_case;"
+            },
+            {
+              "file": "tests/ch16/test_sva_property_grammar_forms.sv",
+              "contains": "  sequence sq_formal(bit x, bit y);"
+            },
+            {
+              "file": "tests/ch16/test_sva_property_grammar_forms.expected",
+              "contains": "formal: 5 15 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12",
@@ -159622,7 +159978,25 @@
       "acceptance": "Fails means a bad state has occurred and no extension satisfies the property, irrespective of whether future obligations were met.",
       "source_note": "IEEE 1800-2023 16.12.21; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sva_satisfaction_fail_strong.sv",
+          "observation": "a_fails asserts go2 |-> (a2 ##1 b2); go2 is high at the c1 tick 25 and a2 is 0 there, so the attempt has seen a bad state at 25 and no extension can satisfy it; the fail action records 25 in the fail list. 区別: A tool that did not treat the false first element as a bad state, or that waited for later ticks, would record the failure at another time or not at all.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ceefc0fef42d3c2ea2e535600178cb19447b73dfdb8427113c1748ac2dc9565",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sva_satisfaction_fail_strong.sv",
+              "contains": "  a_fails: assert property (@(posedge clk) go2 |-> (a2 ##1 b2))"
+            },
+            {
+              "file": "tests/ch16/test_sva_satisfaction_fail_strong.expected",
+              "contains": "fail: 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.21",
@@ -159677,7 +160051,25 @@
       "acceptance": "On finite dynamic-verification behavior, holds strongly means no bad states, all future obligations met, and satisfaction on every path extension.",
       "source_note": "IEEE 1800-2023 16.12.21; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sva_satisfaction_fail_strong.sv",
+          "observation": "a_holds asserts go |-> (a ##1 b); go and a are high at the tick 5 and b at 15, so the nonempty match completes at 15 with every obligation met and no extension can undo it; the pass action records 15 in the pass list. 区別: A tool that completed the match at another tick, or that left the attempt pending, would not record the nonvacuous pass at 15.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6ceefc0fef42d3c2ea2e535600178cb19447b73dfdb8427113c1748ac2dc9565",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sva_satisfaction_fail_strong.sv",
+              "contains": "  a_holds: assert property (@(posedge clk) go |-> (a ##1 b))"
+            },
+            {
+              "file": "tests/ch16/test_sva_satisfaction_fail_strong.expected",
+              "contains": "pass: 15"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.21",
@@ -160153,7 +160545,25 @@
       "acceptance": "A property is multiclocked when a subproperty has a different clock or is a multiclocked sequence; an explicit clock may be specified with any property.",
       "source_note": "IEEE 1800-2023 16.13.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_multiclock_sequences.sv",
+          "observation": "c_next covers @(posedge c1) a ##1 @(posedge c2) b: a is high at the c1 tick 5 and b at the c2 tick 12, and the cover succeeds at 12, the nearest c2 tick strictly after 5. The sequence has subexpressions on different clocks, and the explicit clocks may be written where they are, so the property is multiclocked and returns true at the tick where a match beginning at the start ends. 区別: A tool that treated the whole sequence as singly clocked would sample b at a c1 tick such as 15 or 25 and record a different match time.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9be4dc9f8b80bfa0d6f4cb66af0031d3693cdb0d12a0aaa53f8baf130a4e4536",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_multiclock_sequences.sv",
+              "contains": "  c_next: cover sequence (@(posedge c1) a ##1 @(posedge c2) b) m_next.push_back($time);"
+            },
+            {
+              "file": "tests/ch16/test_multiclock_sequences.expected",
+              "contains": "a ##1 b matches: 12"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.2",
@@ -166777,7 +167187,29 @@
       "acceptance": "checker/endchecker encloses an optional port list and permitted declarations, procedures, assertions, continuous assignments and generate items, with optional closing label under Syntax 17-1.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B002, B003, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_declaration_body_forms.sv",
+          "observation": "The test declares an unlabeled checker with a port list and a labeled nested checker without ports, and the body holds let, sequence, property, function, covergroup with instance, clocking, default clocking, default disable, genvar, assign, always_comb, always_latch, always_ff, initial, final, immediate, deferred and concurrent assertions, generate loop and if, a severity task and a nested checker instance; it prints the driven values. 区別: A parser or elaborator that rejects any permitted item form reports an error at that item instead of running to the printed values; the driven y=1 and n=3 also show that the continuous and sequential items were elaborated.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "bd6c36ec4dedfed3fc5208639211fcb8e7763c02b8f49e6482d6044d0e299065",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_declaration_body_forms.sv",
+              "contains": "checker forms (input logic a, input logic b, input logic clk,"
+            },
+            {
+              "file": "tests/ch17/test_checker_declaration_body_forms.sv",
+              "contains": "endchecker : nested"
+            },
+            {
+              "file": "tests/ch17/test_checker_declaration_body_forms.expected",
+              "contains": "forms a=1 y=1 n=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -167865,7 +168297,25 @@
       "acceptance": "Checker always procedures permit selection, loops, subroutine calls, assertions and let declarations; blocking assignments only in always_comb/latch, event controls only in always_ff, and nonblocking assignments are permitted.",
       "source_note": "IEEE 1800-2023 17.5; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_always_ff_blocking_forms.sv",
+          "observation": "The checker always_comb and always_latch use blocking assignments, and always_ff uses a let, a selection, a loop, a call of the automatic function inc, an immediate, a deferred and a concurrent assertion and nonblocking assignments, then the blocking acc = 0; the design must be rejected at that assignment. 区別: A checker that rejects any permitted selection, loop, call or assertion reports another line or fails to elaborate; a checker that accepts the blocking assignment in always_ff is not rejected. The blocking assignments in always_comb and always_latch are legal controls.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cce3e683d662320c1d2f12a83645d4193fc7a057ae01cc66c05ca5eb9c56313c",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_always_ff_blocking_forms.sv",
+              "contains": "acc = 0;   // illegal: blocking assignment in always_ff"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_always_ff_blocking_forms.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_always_ff_blocking_forms\\.sv:(51|59|72):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.5",
@@ -168009,7 +168459,25 @@
       "acceptance": "A checker initial procedure may contain let declarations, immediate/deferred/concurrent assertions and event-control procedural timing statements only.",
       "source_note": "IEEE 1800-2023 17.5; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_initial_delay_forms.sv",
+          "observation": "The checker initial declares a let, waits on posedge clk and contains an immediate assertion, a deferred assertion and a concurrent assertion, all legal forms, and then the delay control #1; the design must be rejected at the delay control. 区別: A tool that treats the legal let and the three assertion forms as errors reports another line or accepts the design; only the delay control is the violation of the initial-procedure contents rule.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d051d5ad659c8733c863d5ca050cc81e6ecce9a28f01ecff871cbfadc687ce47",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_initial_delay_forms.sv",
+              "contains": "#1;   // illegal: a delay control in a checker initial procedure"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_initial_delay_forms.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_initial_delay_forms\\.sv:(29|35|46):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.5",
@@ -168079,7 +168547,25 @@
       "acceptance": "Checker bodies permit covergroup declarations/instances but not inside any checker procedural block.",
       "source_note": "IEEE 1800-2023 17.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_covergroup_in_procedure.sv",
+          "observation": "The checker declares a covergroup and creates the instance good outside its procedures, which must be accepted, and creates the instance bad inside always_ff, which must be rejected at that line. 区別: An implementation that forbids every covergroup instance rejects the legal good instance or reports a different line, and one that permits the bad instance accepts the design; the expected rejection is only the instance in the procedure.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5cd5428783ab45bfd3f78c33ace5ebc00baaba0a8d1a7781417138d93006f7cc",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_covergroup_in_procedure.sv",
+              "contains": "cg bad = new();  // illegal: an instance in a checker procedure"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_covergroup_in_procedure.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_covergroup_in_procedure\\.sv:(31|32|43):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.6",
@@ -168097,7 +168583,25 @@
       "acceptance": "A checker covergroup may reference visible checker formals/variables, but referencing a formal with a const actual argument is an error.",
       "source_note": "IEEE 1800-2023 17.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_covergroup_reference.sv",
+          "observation": "The covergroup references the formal a and the checker variable seen; the instance ok with a normal actual must be accepted, and the instance bad with const'(v) for a must be rejected at the covergroup reference or at that instance. 区別: An implementation that rejects every covergroup reference reports the legal ok instance or a different line; one that ignores the const actual accepts bad. Only the const actual on a referenced formal makes the bad instance illegal.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3095aa82911d7fb3f5323252168a92c166bd881e58e94ed8b57e35e4129fdc17",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_covergroup_reference.sv",
+              "contains": "cb_cgref bad (.clk(clk), .a(const'(v)), .b(v), .o(o_bad));"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_covergroup_reference.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_covergroup_reference\\.sv:(31|32|46):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.6",
@@ -168245,7 +168749,29 @@
       "acceptance": "A const free variable retains its explicit initializer forever, or an arbitrary initial value forever when uninitialized.",
       "source_note": "IEEE 1800-2023 17.7; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_free_const_stability.sv",
+          "observation": "The checker declares rand const k = 9 and an uninitialized rand const u, compares k with 9 at each of the four rising edges and compares u with the value stored at the first edge, then prints k and the two comparison results. 区別: A constant free variable that is randomized again after initialization clears k_ok or u_ok, and one that ignores the initializer prints k other than 9. The printed u value is not used, so no random choice is expected.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "bfd14d334212647acaf66ac8aebff26b7379f481a52df274990b8ed929972bee",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_free_const_stability.sv",
+              "contains": "rand const bit [31:0] u;"
+            },
+            {
+              "file": "tests/ch17/test_checker_free_const_stability.sv",
+              "contains": "if (k != 4'd9) kk <= 1'b0;"
+            },
+            {
+              "file": "tests/ch17/test_checker_free_const_stability.expected",
+              "contains": "k=9 k_ok=1 u_ok=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7",
@@ -168447,13 +168973,60 @@
       "acceptance": "Continuous and blocking procedural assignments to free checker variables are illegal.",
       "source_note": "IEEE 1800-2023 17.7.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_free_continuous_assign.sv",
+          "observation": "The checker drives rand bit x with assign x = ~a; and must be rejected at that continuous assignment or the instance.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "448e7cad0c69baf5a07ddd98edd5c5006d0eb67482c1a3f44bf79abb81e5d408",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_free_continuous_assign.sv",
+              "contains": "assign x = ~a;   // illegal: continuous assignment to a free variable"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_free_continuous_assign.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_free_continuous_assign\\.sv:(26|34):"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch17/test_illegal_checker_free_blocking_assign.sv",
+          "observation": "The checker writes rand bit x with the blocking assignment always_comb x = a; and must be rejected there or at the instance.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fc596bfe771f874e8dcb115b57563a68c0fdeec37b3cd5875b9e5fbeaed97743",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_free_blocking_assign.sv",
+              "contains": "always_comb x = a;   // illegal: blocking assignment to a free variable"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_free_blocking_assign.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_free_blocking_assign\\.sv:(26|34):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.1",
           "blocks": [
             "B006"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "free-assignment-kinds",
+          "tests": [
+            "tests/ch17/test_illegal_checker_free_continuous_assign.sv",
+            "tests/ch17/test_illegal_checker_free_blocking_assign.sv"
+          ],
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "One test makes a continuous assignment to the free variable x and the other makes a blocking assignment to it in always_comb; together they cover both assignment forms that the clause forbids, while the continuous assignment to a non-free output is legal in both. 区別: An implementation that rejects only continuous assignments accepts the blocking test, and one that rejects only blocking assignments accepts the continuous test; either acceptance leaves the group unmapped."
         }
       ]
     },
@@ -168465,7 +169038,25 @@
       "acceptance": "A checker variable shall not be referenced by hierarchical name in assignments, including reading it as an assignment operand.",
       "source_note": "IEEE 1800-2023 17.7.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_illegal_checker_hierarchical_read_write.sv",
+          "observation": "The module assigns c.armed = c.armed + 1, so the same statement reads the checker variable armed through the instance c and writes it through the same hierarchical name; the design must be rejected. 区別: The statement is illegal whether the tool notices the read, the write or both; removing either direction still leaves a hierarchical reference in an assignment, and an implementation that permits hierarchical access accepts the design.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "230ce6843e1c6219686fad677194a508456d6fedb595180f072bb1e5b8b7a71e",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_hierarchical_read_write.sv",
+              "contains": "#1 c.armed = c.armed + 1;   // illegal: read and write by hierarchy"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_hierarchical_read_write.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_hierarchical_read_write\\.sv:(35):"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.1",
@@ -184133,7 +184724,25 @@
       "acceptance": "Syntax 19-2 defines optional point type/name/iff, value/set/transition/default bins and options, with bins/ignore_bins/illegal_bins and optional wildcard forms and expression restrictions.",
       "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_bin_syntax_all_forms.sv",
+          "observation": "One covergroup uses a typed and labeled coverpoint with an iff, value bins of a range list with $ and of a wildcard, bins[], bins[N], a transition bin, a default bin, ignore_bins, illegal_bins and a coverage option, a bin of a set expression and a default sequence. Before any sample the bins are 1 for the typed point, 8 for the point that has all the forms, 1 for the set-expression point, 1 for the transition point and 8 for the cross of the first two. 区別: A form that the tool did not accept would make the design illegal, and a form that created another number of bins would change one of these counts; counting the default bin, ignore_bins or illegal_bins would make the second count larger than 8.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "cc2d66fd70420f547be4bc9c284d9852428a50a908723e97deb21521f4059dc4",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_bin_syntax_all_forms.sv",
+              "contains": "bins wc = wildcard {4'b0?1?};"
+            },
+            {
+              "file": "tests/ch19/test_cg_bin_syntax_all_forms.expected",
+              "contains": "bins: typed 1 lab 8 fromset 1 seq 1 cross 8"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5",
@@ -184276,13 +184885,60 @@
       "acceptance": "An explicitly or implicitly specified coverpoint type shall be integral/real and requires a coverpoint identifier.",
       "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_point_type_string.sv",
+          "observation": "The coverpoint declares the data type string for the expression and is rejected at that line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9a21c7873d0d25ad2a2aef936aa867827867bb47bcaf3462fcff4741ed6beef7",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_point_type_string.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_point_type_string\\.sv:24:"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_point_type_string.sv",
+              "contains": "string"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_illegal_cg_point_type_without_identifier.sv",
+          "observation": "The covergroup writes int : coverpoint v, a data type without a coverpoint identifier, and is rejected at that line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5f356dfe19251e0de0ea97ef6877d647f67fc850ee5e5de4553665c3250b49d0",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_point_type_without_identifier.sv",
+              "contains": "int : coverpoint v;"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_point_type_without_identifier.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_point_type_without_identifier\\.sv:27:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5",
           "blocks": [
             "B007"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "point-type-two-rules",
+          "tests": [
+            "tests/ch19/test_illegal_cg_point_type_string.sv",
+            "tests/ch19/test_illegal_cg_point_type_without_identifier.sv"
+          ],
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "One design gives the coverpoint the data type string, which is neither integral nor real, and another gives a data type with a colon but no coverpoint identifier. Each is rejected at its coverpoint line, so both requirements on the data type of a coverpoint are witnessed. 区別: A tool that accepted a string coverpoint would accept the first design, and a tool that let a type stand without an identifier would accept the second; either would be counted as accepted."
         }
       ]
     },
@@ -185282,13 +185938,60 @@
       "acceptance": "A bin set expression shall yield a non-associative array whose element type is assignment-compatible with the coverpoint.",
       "source_note": "IEEE 1800-2023 19.5.1.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_bin_set_associative_array.sv",
+          "observation": "The bin set expression is the associative array aa and the design is rejected at that bins line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d2bae7b85d9c201e7ca2eb04930c632d5dec7f50cd40fffe2dc94e6b9ac28860",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_bin_set_associative_array.sv",
+              "contains": "bins b = aa;"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_bin_set_associative_array.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_bin_set_associative_array\\.sv:29:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_illegal_cg_bin_set_incompatible_element.sv",
+          "observation": "The bin set expression is the array of string svals for the 4-bit coverpoint and the design is rejected at that line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "93085fe47bdb96056b3b5e90fb6f0cdcf5df575bfa830abf1f11899d5ea73059",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_bin_set_incompatible_element.sv",
+              "contains": "bins b = svals;"
+            },
+            {
+              "file": "tests/ch19/test_illegal_cg_bin_set_incompatible_element.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_bin_set_incompatible_element\\.sv:28:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.1.2",
           "blocks": [
             "B002"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "set-array-two-rules",
+          "tests": [
+            "tests/ch19/test_illegal_cg_bin_set_associative_array.sv",
+            "tests/ch19/test_illegal_cg_bin_set_incompatible_element.sv"
+          ],
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "One bin set expression is an associative array, which is not a non-associative array, and another is an array of string, whose element type is not assignment compatible with its integral coverpoint. Each design is rejected at its bins line, so both requirements on the array of a set expression are witnessed. 区別: A tool that accepted an associative array would accept the first design, and a tool that ignored the element type would accept the second, so one of the two designs would be counted as accepted."
         }
       ]
     },
@@ -185796,7 +186499,29 @@
       "acceptance": "Transition bins accept ordered trans_list alternatives, range-list items and consecutive/goto/nonconsecutive repeat ranges under Syntax 19-3, optionally with [] bins and iff.",
       "source_note": "IEEE 1800-2023 19.5.2; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_transition_syntax_all_forms.sv",
+          "observation": "The point declares bins alt[] = (1 => 2, 3 => 4), rep = (1 [* 2] => 3), go = (1 => 2 [-> 1]), noncon = (1 => 2 [= 1]), rng = (1, 2 => 3, 4) and guard = (5 => 6) iff (en), seven bins in all. The coverage rises 42.86 for the ordered alternatives, the goto and the nonconsecutive transition, 57.14 for the range-list item, 71.43 for the second alternative, 85.71 for the consecutive repetition, and stays 85.71 for 5,6 while en is 0 and reaches 100.00 when it is 1. 区別: A tool that ignored a repetition, split the comma alternative of rng into four bins, or ignored the iff would print a different percentage at one of the seven steps.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "547ce2a6e74ecf4b4b01a0e18c655e17cf508ca2270b4915bfcc37514fc6f3d5",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_transition_syntax_all_forms.sv",
+              "contains": "bins rep = (1 [* 2] => 3);"
+            },
+            {
+              "file": "tests/ch19/test_cg_transition_syntax_all_forms.expected",
+              "contains": "then 1,1,3 (rep): 85.71"
+            },
+            {
+              "file": "tests/ch19/test_cg_transition_syntax_all_forms.expected",
+              "contains": "then 5,6 with en=0: 85.71"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.2",
@@ -191699,7 +192424,25 @@
       "acceptance": "get_coverage computes cumulative type contribution with static ::/. access; get_inst_coverage computes the selected instance, with type merge mode selected by merge_instances.",
       "source_note": "IEEE 1800-2023 19.11; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_type_and_instance_coverage.sv",
+          "observation": "Two instances of a covergroup sample 0 and 1 and 2 of four bins: with the default merge_instances the static cgavg::get_coverage() and the instance access v1.get_coverage() both return the weighted average 37.50, and with merge_instances = 1 the type coverage is the union 75.00 while get_inst_coverage() returns 25.00 and 50.00. 区別: A tool that returned the instance coverage for the type, the type coverage for an instance, or ignored merge_instances would print 25.00 or 37.50 where 75.00 is expected, or the other way around.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f939827cfb799dd08d35c1cd17d3ec3a883816e0ede1e1833c68611ae43effd3",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_type_and_instance_coverage.sv",
+              "contains": "cov = cgavg::get_coverage();"
+            },
+            {
+              "file": "tests/ch19/test_cg_type_and_instance_coverage.expected",
+              "contains": "merge: type 75.00, instances 25.00 50.00"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.11",
@@ -192588,7 +193331,25 @@
       "acceptance": "get_coverage ref counts are consistent with the specified weighted sum when merging is disabled.",
       "source_note": "IEEE 1800-2023 19.11.3; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_type_and_instance_coverage.sv",
+          "observation": "For the covergroup whose merge_instances is false the test reads the two arguments of get_coverage and compares c * 100 / t with the percentage of the same call, which is 37.50: the counts are consistent with the weighted sum of the two instances, and the test prints that they agree. 区別: A tool whose two arguments were the counts of one instance, or zero, would not give 37.50 from them and would print that the counts do not agree.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f939827cfb799dd08d35c1cd17d3ec3a883816e0ede1e1833c68611ae43effd3",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_type_and_instance_coverage.sv",
+              "contains": "void'(cgavg::get_coverage(c, t));"
+            },
+            {
+              "file": "tests/ch19/test_cg_type_and_instance_coverage.expected",
+              "contains": "average: type 37.50, counts agree: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.11.3",
@@ -206209,13 +206970,60 @@
       "acceptance": "Unformatted string and unpacked byte-array expressions print as character strings; other unformatted unpacked types are illegal.",
       "source_note": "IEEE 1800-2023 21.2.1.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_illegal_display_unpacked_struct_no_format.sv",
+          "observation": "The unpacked structure st is given to $display without a format and the design is rejected at that line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "11038072763731f3242ca153a0c385b50ec9228670ce61a7cfcf81a7285c2abd",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_display_unpacked_struct_no_format.sv",
+              "contains": "$display(st);"
+            },
+            {
+              "file": "tests/ch21/test_illegal_display_unpacked_struct_no_format.sv",
+              "contains": ":expected_stderr_regex: test_illegal_display_unpacked_struct_no_format\\.sv:35:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch21/test_illegal_display_unpacked_shortint_array_no_format.sv",
+          "observation": "The unpacked array of shortint arr is given to $display without a format and the design is rejected at that line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "383a8cd7e6a8b65a3403e2266d5f0baa519c92878f500bbdb6579cbf7d7ad8a9",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_illegal_display_unpacked_shortint_array_no_format.sv",
+              "contains": "$display(arr);"
+            },
+            {
+              "file": "tests/ch21/test_illegal_display_unpacked_shortint_array_no_format.sv",
+              "contains": ":expected_stderr_regex: test_illegal_display_unpacked_shortint_array_no_format\\.sv:29:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.1",
           "blocks": [
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "unformatted-unpacked-illegal",
+          "tests": [
+            "tests/ch21/test_illegal_display_unpacked_struct_no_format.sv",
+            "tests/ch21/test_illegal_display_unpacked_shortint_array_no_format.sv"
+          ],
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "Two designs give an argument without a format specification to $display: an unpacked structure and an unpacked array of shortint. Each is rejected at its $display line, so the rule that any unpacked type other than string or an array of byte is an illegal unformatted argument is witnessed for two different types. 区別: A tool that accepted an unformatted unpacked argument and printed it as an assignment pattern would accept both designs, and the tests would be counted as accepted instead of rejected at the named lines."
         }
       ]
     },
@@ -207202,7 +208010,25 @@
       "acceptance": "%u/%z treat packed data as its equivalent vector, unpacked structs by member declaration order and unpacked unions by their first member; unpacked arrays are unsupported.",
       "source_note": "IEEE 1800-2023 21.2.1.1; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_fwrite_unformatted_aggregates.sv",
+          "observation": "The test writes the packed structure {66666666,77777777}, the unpacked structure {11111111,22222222} and a union whose first member is the int 44444444 with %u, and the packed structure with %z, and reads the bytes back: the packed structure gives 77 77 77 77 66 66 66 66 as its equivalent vector with the LSB word first, the unpacked structure 11 11 11 11 22 22 22 22 in declaration order, the union only 44 44 44 44 as its first member, and %z gives an aval and a bval word for each 32 bits. 区別: A tool that wrote a packed structure member by member, an unpacked structure as one vector, the union through another member, or %z as %u would put different bytes in the file, and the printed segments would differ.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4e8120e0f16897937fa826b607f01e464a55a89a94dbad1efb606c6344408ea4",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fwrite_unformatted_aggregates.sv",
+              "contains": "$fwrite(fd, \"%u:\", us);"
+            },
+            {
+              "file": "tests/ch21/test_fwrite_unformatted_aggregates.expected",
+              "contains": "unpacked-struct-u: 11 11 11 11 22 22 22 22"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.1",
@@ -210841,7 +211667,29 @@
       "acceptance": "sformat interprets only its second argument as format, accepting literal/integral/byte-array/string expressions and all display specifiers; later arguments are values rather than format strings.",
       "source_note": "IEEE 1800-2023 21.3.3; complete own-body source review, blocks B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_sformat_format_expression_forms.sv",
+          "observation": "$sformat takes its format from the second argument as a string literal, a string value, a packed vector that holds 'n=%0d' and an unpacked byte array that holds '%0d!', and formats 12-34, a5/1010, n=7 and 9!; a fifth call formats <%0d><ok> from the string values %0d and ok, so the later arguments were values and not formats. 区別: A tool that took the format from another argument, rejected an integral or unpacked byte array format, or read a later string argument as a format would print a different string between the brackets.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4c0d4cd4e954151aa76aac0f9f7b80e306f6655137978216175f4a35ec8f8138",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_sformat_format_expression_forms.sv",
+              "contains": "$sformat(s, bfmt, 9);"
+            },
+            {
+              "file": "tests/ch21/test_sformat_format_expression_forms.expected",
+              "contains": "[9!]"
+            },
+            {
+              "file": "tests/ch21/test_sformat_format_expression_forms.expected",
+              "contains": "[<%0d><ok>]"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.3.3",
@@ -216054,7 +216902,25 @@
       "acceptance": "An argumentless dumpvars includes every variable in the model.",
       "source_note": "IEEE 1800-2023 21.7.1.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_dumpvars_no_arguments.sv",
+          "observation": "$dumpvars with no arguments dumps the 4-bit tv and the int ti of the top module and the 8-bit cv and the bit cs of its instance, and no other variable: the reader counts 4 $var sections and prints tv 4 3:0, ti 32 31:0, cv 8 7:0 and cs 1 -. 区別: A tool that dumped only the calling module, missed the instance below it, or also dumped the automatic variables of the reader would print a different count, or a missing size and index range.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e7ba3489081b77a5c35f1e5857ed9f146685729c68431d322cd48667140dc47f",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_no_arguments.sv",
+              "contains": "    $dumpvars;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_no_arguments.expected",
+              "contains": "vars: 4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.1.2",
@@ -216108,7 +216974,59 @@
       "acceptance": "dumpvars accepts no arguments or a hierarchy depth followed optionally by module/variable selections.",
       "source_note": "IEEE 1800-2023 21.7.1.2; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_dumpvars_no_arguments.sv",
+          "observation": "$dumpvars has no arguments and the file holds the four variables of the top module and of its instance.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "e7ba3489081b77a5c35f1e5857ed9f146685729c68431d322cd48667140dc47f",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_no_arguments.sv",
+              "contains": "    $dumpvars;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_no_arguments.expected",
+              "contains": "vars: 4"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch21/test_vcd_dumpvars_selection_forms.sv",
+          "observation": "$dumpvars(1, ...i1) dumps the variable of i1 and not the one below it, and $dumpvars(0, ...i2) dumps the variable of i2 and the one below it, in one file with 3 variables.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d9d69029bfe3e3aef026ff861ec94d82e32205dc26f8c18d8a99a1ef036ac320",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_selection_forms.sv",
+              "contains": "$dumpvars(1, test_vcd_dumpvars_selection_forms.i1);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_selection_forms.expected",
+              "contains": "i1.gg.gv missing"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch21/test_vcd_filename_string_and_depth_zero.sv",
+          "observation": "A depth of 0 with the instance mid dumps mid and its instance lf, while the named variable other.of.lv stays alone and the variables of the other module stay out.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6a81cde44e9e6315ccb2db2988f65e29938ba866cd3e1fb7384b7d15558ffe22",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_filename_string_and_depth_zero.sv",
+              "contains": "$dumpvars("
+            },
+            {
+              "file": "tests/ch21/test_vcd_filename_string_and_depth_zero.expected",
+              "contains": "the variable below it is dumped alone: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.1.2",
@@ -216116,6 +217034,19 @@
             "B003",
             "B004"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "dumpvars-argument-forms",
+          "tests": [
+            "tests/ch21/test_vcd_dumpvars_no_arguments.sv",
+            "tests/ch21/test_vcd_dumpvars_selection_forms.sv",
+            "tests/ch21/test_vcd_filename_string_and_depth_zero.sv"
+          ],
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "One test calls $dumpvars with no arguments and dumps every variable of the model; one names a level and a module instance twice, level 1 for one sibling and level 0 for the other; and one names a level with a module instance and a single variable of another instance. All four alternatives of the syntax, no arguments, a level with modules, a level with a variable and a depth that does not apply to a variable, are witnessed by the variables each file holds. 区別: A tool that required arguments would fail the first test, and a tool that applied the level only to modules, or also to a named variable, would dump a different set of variables in the other two."
         }
       ]
     },

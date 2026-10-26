@@ -1,0 +1,4 @@
+port=1,2
+arg=2,3
+arrayarg=12
+eq=1 ne=1

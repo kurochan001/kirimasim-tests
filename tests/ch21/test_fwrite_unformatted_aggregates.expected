@@ -1,0 +1,9 @@
+packed-u: 77 77 77 77 66 66 66 66
+mark: 3a 35 3a
+unpacked-struct-u: 11 11 11 11 22 22 22 22
+mark: 3a 36 3a
+packed-z: 77 77 77 77 00 00 00 00 66 66 66 66 00 00 00 00
+mark: 3a 37 3a
+union-u: 44 44 44 44
+mark: 3a 38
+extra bytes: 0
