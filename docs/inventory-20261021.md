@@ -1065,8 +1065,11 @@ Verilator matched none of the spec-only tests.
 
 A further matching pass over four partitions with candidate tests
 (33.4.1-37.10, 37.12-37.32, 37.33-38.31, 38.32-40.4.5) accepted 60
-links and held 275 observations. The ledger maps 9304 of 12319 rows
-(75.53%), with 5286 executed (42.91%).
+links and held 275 observations.
+
+Another pass over p01-p04 (3.4-6.11.1, 6.12-7.7, 7.8-9.2.2.2,
+9.2.2.2.1-11.5.1) accepted 99 links and held 334 observations. The
+ledger maps 9403 of 12319 rows (76.33%), with 5354 executed (43.46%).
 
 ### Current state
 
@@ -1075,7 +1078,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-9304 of 12319 rows (75.53%), with 5286 executed (42.91%).
+9403 of 12319 rows (76.33%), with 5354 executed (43.46%).
 
 ### Tests added in this work
 
