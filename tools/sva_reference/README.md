@@ -1,4 +1,12 @@
-# SVA reference evaluator: M0 through M4
+# SVA reference evaluator and formal checks
+
+As of 2026-10-26, 45 concrete test outputs match. The optional formal checks
+have two overlapping sets: 40 basic semantic models (all BMC, 22 also PDR)
+and a 111-case parameter-boundary sweep (all BMC and PDR). The sweep binds
+127 Boolean sequence fragments in 91 directives across 28 suite tests;
+these bindings do not prove whole assertions or simulator behavior.
+All 205 repository unittests and existing consistency checks passed after
+the extension. The milestone sections below retain their historical counts.
 
 M0 was completed on 2026-10-26, starting at repository revision `b2de3bc5`.
 M1 adds the expression/declaration parser and a single-clock semantic engine.
@@ -12,7 +20,7 @@ seven additional matching tests and 13 explicitly deferred mixed-feature cases.
 Only Python 3.10+ and its standard library are required for offline use.
 An optional symbolic formal suite now checks the evaluator against independent
 RTL models with Yosys/SymbiYosys. See [`FORMAL_REVIEW.md`](FORMAL_REVIEW.md)
-for the 40 bounded checks, 22 streaming PDR proofs, covers and counterexamples.
+for the basic set, the 111-case extension, covers and counterexamples.
 The [Japanese guide](../../docs/sva-reference-formal-verification.md) explains
 the relationship to suite expectations, proof boundaries and reproduction.
 
@@ -453,7 +461,49 @@ M4 adds 23 offline regressions (16 clause-based and seven integration checks).
 The six functions have parser/semantic support; full SystemVerilog procedural
 execution, multiple clocks and the mixed contexts remain future work.
 
-All 183 repository unittests passed, including 103 SVA reference tests, and the
+At the M4 milestone, all 183 repository unittests passed, including 103 SVA
+reference tests, and the
 existing CI-equivalent consistency checks passed. Input-only Verilator 5.052
 runs also agreed with Icarus on sampled/settled values in the three NBA cases;
 this is recorded separately from any assertion-output verification.
+
+## Symbolic formal checks and parameter-boundary sweep
+
+The basic set checks sequences, finite-word properties and sampled functions
+against independently written RTL. It has 40 BMC jobs, 22 PDR jobs, four
+reachability jobs and five deliberate-error jobs: 71 jobs with 66 expected
+PASS and five expected FAIL results. A separate PDR negative control is also
+recorded. See [`FORMAL_REVIEW.md`](FORMAL_REVIEW.md) for domains and limits.
+
+The later sweep varies delays, repetitions and related operator boundaries
+over 111 fixed-parameter sequence cases. All 111 passed BMC and unbounded
+streaming PDR equivalence checks; three covers and three expected failures
+bring the sweep to 228 jobs. Its source bindings inspect 38 M2/M3 tests and
+188 directives: 127 fragments in 91 directives match, and 97 directives are
+explicitly unmatched. Of the 111 cases, 24 occur in those fragments and 87
+are additional boundary variations. The
+[Japanese expansion report](../../docs/sva-formal-expansion-20261026.md)
+explains the parameter matrix, Boolean predicate mapping and evidence.
+
+Run from the repository root. `SBY_BIN` points to OSS CAD Suite's `sby`, and
+each output directory must be new or empty:
+
+```sh
+# Execute the basic set or the boundary sweep.
+python3 tools/sva_reference/formal.py --sby "$SBY_BIN" --output-dir "$FORMAL_RUN_DIR"
+python3 tools/sva_formal_sweep.py --sby "$SBY_BIN" --output-dir "$SWEEP_RUN_DIR"
+
+# Check saved results against current sources without running solvers.
+python3 tools/sva_reference/formal.py \
+  --check-results tools/sva_reference/fixtures/formal_symbolic_results.json
+python3 tools/sva_formal_sweep.py \
+  --check-results tools/sva_reference/fixtures/formal_expanded_results.json
+```
+
+The sets overlap, so their model counts are not a count of distinct expressions.
+PDR removes the input-length limit for each selected sequence model; it does
+not quantify over arbitrary numeric parameters, expressions or SV programs.
+The sweep checks Boolean sequence kernels, leaving predicate evaluation,
+four-state operations, scheduling, outer properties and actions outside its
+proof. Neither set changes `:oracle:` or simulator execution coverage, and
+no dedicated formal CI job is enabled.

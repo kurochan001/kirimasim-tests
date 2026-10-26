@@ -1,0 +1,29 @@
+{
+  "repeat_0_0_mutant_bmc": {
+    "trace": "repeat_0_0_mutant_bmc.vcd",
+    "trace_sha256": "a74c1c069929e6bedc14ecf69c97b098e5da8fbda35d27c028e5c2f2124168dd",
+    "model_sha256": "1aace9d6691a1fd33d169e2f19658bade324e2f868046a1b6e90bf7e14bb36c4",
+    "expected_status": "FAIL",
+    "clause": "16.9.2.1",
+    "compared_reference": "0",
+    "note": "The reference_count waveform retains the correct count; the mutant intentionally compares against the expression in compared_reference."
+  },
+  "within_1_1_mutant_bmc": {
+    "trace": "within_1_1_mutant_bmc.vcd",
+    "trace_sha256": "d7da9350c28ac8b6e7b5c1b0a4d93ecb6e45664164e34311d9144186ee0a2453",
+    "model_sha256": "57f7eeed01dd43b5522a5086dc3fafc8bc74f6c73b01436c22c2e8eed5c72556",
+    "expected_status": "FAIL",
+    "clause": "16.9.10",
+    "compared_reference": "0",
+    "note": "The reference_count waveform retains the correct count; the mutant intentionally compares against the expression in compared_reference."
+  },
+  "tie_1_mutant_bmc": {
+    "trace": "tie_1_mutant_bmc.vcd",
+    "trace_sha256": "6e3b8b647cd6a2de0199dada265ecdf10825eaf631b92c191545fd0388814569",
+    "model_sha256": "2b8d687272cc247af237db11a2b2c1c2c3c5bd2a9f8202462513298665a55a6c",
+    "expected_status": "FAIL",
+    "clause": "16.9.7/16.9.8",
+    "compared_reference": "reference_count != 0",
+    "note": "The reference_count waveform retains the correct count; the mutant intentionally compares against the expression in compared_reference."
+  }
+}

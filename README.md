@@ -91,12 +91,16 @@ The suite has **7144 tests** in 37 chapters. 1308 of them are generated (`tests/
 <!-- suite-stats:end -->
 
 Additional SVA validation is tracked separately from these oracle counts:
-the reference evaluator reproduces **45 test outputs**, and **40 semantic
-models** passed symbolic bounded checks, with **22 of those models** also
-passing unbounded PDR equivalence proofs. Formal models are not additional
-suite tests, and these results do not reclassify tests in the tables above.
+the reference evaluator reproduces **45 test outputs**. The basic formal set
+has **40 BMC checks**, including **22 unbounded PDR proofs**. A separate
+parameter-boundary sweep has **111 cases**, all passing both BMC and PDR;
+its suite bindings identify **127 sequence fragments in 91 directives across
+28 tests**. The two formal sets overlap and are not added as distinct models.
+Formal models are not additional suite tests, and these results do not
+reclassify tests in the tables above.
 See the [SVA reference and formal verification guide](docs/sva-reference-formal-verification.md)
-for the scope, evidence and reproduction commands.
+and [boundary-sweep results](docs/sva-formal-expansion-20261026.md) for the
+scope, evidence and reproduction commands.
 
 The [catalog](docs/tests/README.md) lists every test, chapter by chapter,
 with what it checks and the clauses it cites, and
@@ -519,11 +523,15 @@ file.
 The [SVA reference evaluator](tools/sva_reference/README.md) independently
 reproduces 45 selected test outputs from sampled input traces. An optional
 Yosys/SymbiYosys suite additionally compares its semantics with separately
-written RTL models under unconstrained inputs: 40 bounded checks and 22
-unbounded streaming equivalence proofs passed, with reachability witnesses
-and deliberate-error counterexamples. These are checks of the selected
-semantic models; they do not change oracle metadata or simulator execution
-coverage. The [Japanese guide](docs/sva-reference-formal-verification.md)
+written RTL models under unconstrained inputs. The basic set passed 40 BMC
+checks and 22 unbounded streaming PDR proofs. The later
+[boundary sweep](docs/sva-formal-expansion-20261026.md) passed BMC and PDR for
+all 111 cases, with bindings to 127 sequence fragments in 28 suite tests.
+These sets overlap; the bindings cover Boolean sequence calculations, not
+whole assertions or simulator behavior. Both sets include reachability
+witnesses and deliberate-error counterexamples. They do not change oracle
+metadata or simulator execution coverage. The
+[Japanese guide](docs/sva-reference-formal-verification.md)
 explains the scope, results and reproduction commands; the
 [technical report](tools/sva_reference/FORMAL_REVIEW.md) links the saved evidence.
 
