@@ -4,7 +4,7 @@
 [集計概要](../docs/behavior-coverage-summary.md) / [全要求の抽出結果](../docs/requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](../docs/coverage-depth.md)
 
 **規格全動作のテスト設計網羅率: 未確定（資料確認済み。解釈保留と要求の重複整理が残る）。**
-**全規格の要求台帳ベース（暫定）: 設計 76.33%、実行 43.46%。**
+**全規格の要求台帳ベース（暫定）: 設計 77.05%、実行 43.79%。**
 解釈保留・未対応を分母に含めます。意味の重複整理前の値で、以下の確定値とは区別します。
 
 規格全動作の実行確認率: 未確定。
@@ -15,9 +15,9 @@
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 19 論点、20 節、21 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1683/1703 見出し (98.83%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対するテスト設計網羅率: 9403/12319 (76.33%)。
-- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5354/12319 (43.46%)。
-- 登録済みだがテスト未対応: 2916 動作。
+- 登録済み動作に対するテスト設計網羅率: 9492/12319 (77.05%)。
+- 登録済み動作のうち、新鮮な実行成功証跡があるもの: 5394/12319 (43.79%)。
+- 登録済みだがテスト未対応: 2827 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した
 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて
@@ -47,10 +47,10 @@
 - `associative-wildcard-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T22:00:52.942221+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.310380+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
 - `associative-wildcard-refinement-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T22:00:56.305806+00:00 / 2/12319 動作確認、古い入力との対応 0 件。
-- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2810/12319 動作確認、古い入力との対応 261 件。
-- `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 132/12319 動作確認、古い入力との対応 0 件。
-- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 13/12319 動作確認、古い入力との対応 250 件。
-- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 250 件。
+- `audit-full-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T21:26:48.847900+00:00 / 2815/12319 動作確認、古い入力との対応 267 件。
+- `audit-oracle-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T22:23:59.392020+00:00 / 133/12319 動作確認、古い入力との対応 0 件。
+- `audit-spec-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475301+00:00 / 16/12319 動作確認、古い入力との対応 256 件。
+- `audit-spec-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T22:23:28.475309+00:00 / 11/12319 動作確認、古い入力との対応 256 件。
 - `ch19-depth-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:12:42.328492+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch19-depth-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.443253+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `ch19-depth-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:42.556516+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -71,34 +71,34 @@
 - `gap-refinement-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:44:29.848332+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:31.172684+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap-refinement-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:44:32.207355+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
-- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 199/12319 動作確認、古い入力との対応 199 件。
-- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 337/12319 動作確認、古い入力との対応 199 件。
-- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 337/12319 動作確認、古い入力との対応 199 件。
-- `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 629/12319 動作確認、古い入力との対応 17 件。
-- `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 369/12319 動作確認、古い入力との対応 17 件。
-- `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 369/12319 動作確認、古い入力との対応 17 件。
-- `gap4-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T14:32:08.355598+00:00 / 199/12319 動作確認、古い入力との対応 7 件。
-- `gap4-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.687753+00:00 / 145/12319 動作確認、古い入力との対応 7 件。
-- `gap4-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.575982+00:00 / 145/12319 動作確認、古い入力との対応 7 件。
+- `gap-tests-2-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T05:56:08.457193+00:00 / 200/12319 動作確認、古い入力との対応 205 件。
+- `gap-tests-2-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:23.114677+00:00 / 340/12319 動作確認、古い入力との対応 205 件。
+- `gap-tests-2-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T05:56:36.426222+00:00 / 340/12319 動作確認、古い入力との対応 205 件。
+- `gap-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-24T01:26:42.087730+00:00 / 630/12319 動作確認、古い入力との対応 17 件。
+- `gap-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.178296+00:00 / 370/12319 動作確認、古い入力との対応 17 件。
+- `gap-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-24T01:27:09.117749+00:00 / 370/12319 動作確認、古い入力との対応 17 件。
+- `gap4-20261025-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T14:32:08.355598+00:00 / 201/12319 動作確認、古い入力との対応 7 件。
+- `gap4-20261025-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.687753+00:00 / 147/12319 動作確認、古い入力との対応 7 件。
+- `gap4-20261025-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T14:37:21.575982+00:00 / 147/12319 動作確認、古い入力との対応 7 件。
 - `gap5-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:06:15.714744+00:00 / 108/12319 動作確認、古い入力との対応 30 件。
-- `gap5-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.553737+00:00 / 71/12319 動作確認、古い入力との対応 30 件。
-- `gap5-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.656775+00:00 / 71/12319 動作確認、古い入力との対応 30 件。
+- `gap5-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.553737+00:00 / 74/12319 動作確認、古い入力との対応 30 件。
+- `gap5-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:09:17.656775+00:00 / 74/12319 動作確認、古い入力との対応 30 件。
 - `gap6-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T15:38:02.072405+00:00 / 125/12319 動作確認、古い入力との対応 3 件。
-- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 212/12319 動作確認、古い入力との対応 3 件。
-- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 212/12319 動作確認、古い入力との対応 3 件。
+- `gap6-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.634097+00:00 / 220/12319 動作確認、古い入力との対応 3 件。
+- `gap6-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T15:41:56.644312+00:00 / 220/12319 動作確認、古い入力との対応 3 件。
 - `gap7-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T17:06:51.310506+00:00 / 6/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.035626+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
 - `gap7-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T17:07:11.037049+00:00 / 71/12319 動作確認、古い入力との対応 0 件。
 - `gap8-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T18:02:58.641182+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `gap8-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318717+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `gap8-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T18:03:04.318723+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
-- `gap9-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:11:21.453322+00:00 / 63/12319 動作確認、古い入力との対応 13 件。
-- `gap9-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866738+00:00 / 175/12319 動作確認、古い入力との対応 13 件。
-- `gap9-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866731+00:00 / 175/12319 動作確認、古い入力との対応 13 件。
+- `gap9-20261026-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-25T19:11:21.453322+00:00 / 63/12319 動作確認、古い入力との対応 14 件。
+- `gap9-20261026-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866738+00:00 / 176/12319 動作確認、古い入力との対応 14 件。
+- `gap9-20261026-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-25T19:12:03.866731+00:00 / 176/12319 動作確認、古い入力との対応 14 件。
 - `header-vpi-tests-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T14:32:27.916089+00:00 / 1/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:29.367284+00:00 / 990/12319 動作確認、古い入力との対応 0 件。
 - `header-vpi-tests-20261023-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T14:32:30.845293+00:00 / 990/12319 動作確認、古い入力との対応 0 件。
-- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 934/12319 動作確認、古い入力との対応 89 件。
+- `icarus.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T13:20:44.297997+00:00 / 935/12319 動作確認、古い入力との対応 89 件。
 - `keyword-tests-20261024-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-23T20:48:05.640625+00:00 / 497/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed1.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:11.194190+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
 - `keyword-tests-20261024-verilator-seed73.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-23T20:48:16.559292+00:00 / 0/12319 動作確認、古い入力との対応 0 件。
@@ -115,7 +115,7 @@
 - `subroutine-citation-refinement-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:20:14.156213+00:00 / 3/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-citation-refinement-20261023-verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T16:11:54.837539+00:00 / 11/12319 動作確認、古い入力との対応 0 件。
 - `subroutine-initialization-group-20261023-icarus13.json`: Icarus Verilog version 13.0 (stable) (v13_0-dirty) / 2026-10-22T16:23:03.322408+00:00 / 4/12319 動作確認、古い入力との対応 0 件。
-- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 934/12319 動作確認、古い入力との対応 89 件。
+- `verilator.json`: Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905 / 2026-10-22T14:02:31.540002+00:00 / 952/12319 動作確認、古い入力との対応 89 件。
 
 ## 章・附属書別の調査状態
 
@@ -131,15 +131,15 @@
 - 8 Classes: 解釈保留なし 49/49、登録 253、テスト対応 187。
 - 9 Processes: 解釈保留なし 32/34、登録 189、テスト対応 137。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 129。
-- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 412。
-- 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 74。
-- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 87。
-- 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 49。
-- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 55。
-- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 393。
-- 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 32。
-- 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 188。
-- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 156。
+- 11 Operators and expressions: 解釈保留なし 55/55、登録 461、テスト対応 418。
+- 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 81。
+- 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 121、テスト対応 90。
+- 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 59。
+- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 68。
+- 16 Assertions: 解釈保留なし 81/82、登録 555、テスト対応 406。
+- 17 Checkers: 解釈保留なし 13/13、登録 79、テスト対応 37。
+- 18 Constrained random value generation: 解釈保留なし 58/58、登録 320、テスト対応 212。
+- 19 Functional coverage: 解釈保留なし 32/34、登録 272、テスト対応 164。
 - 20 Utility system tasks and system functions: 解釈保留なし 44/45、登録 317、テスト対応 237。
 - 21 Input/output system tasks and system functions: 解釈保留なし 64/65、登録 384、テスト対応 271。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 362、テスト対応 327。
@@ -30494,7 +30494,7 @@ Memory addressing uses a bracketed integer expression after the memory name; nes
 
 ### SV2023-11.5.2-EXTRACT-MEMORY-INVALID-READ
 
-11.5.2 / normal / テスト未対応
+11.5.2 / normal / 実行確認あり
 
 Memory address bounds come from the declaration; an out-of-range or x/z address returns its 7.4.5 nonexistent value.
 
@@ -30502,6 +30502,7 @@ Memory address bounds come from the declaration; an out-of-range or x/z address 
 
 規定の性質: `mandatory`。
 
+- [test_memory_invalid_address.sv](../tests/ch11/test_memory_invalid_address.sv): 4 要素の 4 状態メモリ mem[0:3] に addr=3'b1x0 で書き込んでも要素は 1 2 3 4 のままで、同じ x アドレスで読むと xxxxxxxx になる。addr=3'd5/3'd6 の宣言範囲外の書き込みも無視され、範囲外読みは xxxxxxxx になる。mem[mem[0]]=mem[1] が 2 を返すので、範囲判定が宣言の 0:3 に基づくことも分かる。 区別: x アドレスを 0 として扱う実装では mem[0] が AA に変わり先頭行が 170 2 3 4 になる。範囲外アドレスを剰余や下位ビットで丸める実装では 5→mem[1]、6→mem[2] を読み書きして 1 2 3 4 以外や x 以外の値が出る。
 
 ### SV2023-11.5.2-EXTRACT-MULTIDIMENSIONAL-ADDRESS
 
@@ -30517,7 +30518,7 @@ Array addressing supplies one integer expression per selected dimension; the ref
 
 ### SV2023-11.5.3-EXTRACT-FIELD-PREFIX
 
-11.5.3 / normal / テスト未対応
+11.5.3 / normal / 実行確認あり
 
 A field select ends in a struct/union field after its last dot; its field-select prefix is everything before that last dot.
 
@@ -30525,6 +30526,7 @@ A field select ends in a struct/union field after its last dot; its field-select
 
 規定の性質: `definition`。
 
+- [test_static_prefix_disjoint_field_drivers.sv](../tests/ch11/test_static_prefix_disjoint_field_drivers.sv): packed struct value の value.high を assign で連続駆動し、同じ value の value.low を initial の手続き代入で書く。両フィールドの最長静的プレフィックスが value.high と value.low で、最後のドットより前までであるため互いに素になり、first=a3（high=a, low=3）、second=5c（high=5, low=c）と両方の書き手の値が同時に見える。 区別: フィールド選択のプレフィックスを構造体全体 value とみなす実装では、value.high の連続代入と value.low の手続き代入が同じ変数への混在書き込みになり設計が拒否されるか、後勝ちで a3/5c にならない。
 
 ### SV2023-11.5.3-EXTRACT-INDEX-PREFIX
 
@@ -30573,7 +30575,7 @@ A field select is static exactly when its prefix is static.
 
 ### SV2023-11.5.3-EXTRACT-STATIC-INDEX-PREFIX
 
-11.5.3 / normal / テスト未対応
+11.5.3 / normal / テスト対応あり・実行未確認
 
 An indexing select is static when its prefix is static and its selection expression is constant.
 
@@ -30581,6 +30583,7 @@ An indexing select is static when its prefix is static and its selection express
 
 規定の性質: `definition`。
 
+- [test_always_comb_longest_static_prefix_and_locals.sv](../tests/ch9/test_always_comb_longest_static_prefix_and_locals.sv): always_comb が mem[idx]（idx は変数）、vec[2]（定数）、arr2[1]（定数）を読む。mem[3] の変更で runs が 2 に増え、vec[0] の変更では増えないが vec[2] の変更では 3 に増え、arr2[0] では増えず arr2[1] では 4 に増える。選択式が定数の添字はそのビット/要素だけが静的プレフィックスになり、変数添字は配列全体が静的プレフィックスになることを値で観測する。 区別: 変数添字 mem[idx] を mem[3] だけの静的プレフィックスとする実装では mem[3] の変更で再実行されず runs が 1 のままになる。定数添字 vec[2] を vec 全体とする実装では vec[0] の変更でも runs が増えて 3 より大きくなる。
 
 ### SV2023-11.6-EXTRACT-ADDITION-MAX-WIDTH
 
@@ -30829,7 +30832,7 @@ $signed/$unsigned return a one-dimensional packed array retaining the evaluated 
 
 ### SV2023-11.8.1-EXTRACT-BASED-SIGN
 
-11.8.1 / normal / テスト未対応
+11.8.1 / normal / 実行確認あり
 
 Based numbers are unsigned unless their base specifier contains s.
 
@@ -30837,6 +30840,7 @@ Based numbers are unsigned unless their base specifier contains s.
 
 規定の性質: `mandatory`。
 
+- [test_expression_type_bitwise_sign_self_determined_real.sv](../tests/ch11/test_expression_type_bitwise_sign_self_determined_real.sv): 同じ 4'sb1010 を 8'hff と 8'shff のそれぞれと & する。8'hff は s を含まないので符号なしで 0 拡張され 0a、8'shff は s を含むので符号付きで両オペランドが符号拡張され fa になる。基数指定子の s の有無だけで式の符号性と拡張が変わることを直接表示する。 区別: s のない 8'hff を符号付きと扱う実装では 4'sb1010 と 8'hff の & が符号拡張されて fa になり、先頭の値が 0a でなくなる。s を含む 8'shff を符号なしと扱う実装では 2 番目の値が 0a になる。
 
 ### SV2023-11.8.1-EXTRACT-BIT-SELECT-UNSIGNED
 
@@ -31220,7 +31224,7 @@ A tagged expression uses tagged and a valid member name followed by a primary va
 
 ### SV2023-11.9-EXTRACT-TAGGED-INITIALIZER
 
-11.9 / normal / テスト未対応
+11.9 / normal / テスト対応あり・実行未確認
 
 A tagged union may be initialized by a tagged expression with an initializer legal for its selected member type.
 
@@ -31228,6 +31232,7 @@ A tagged union may be initialized by a tagged expression with an initializer leg
 
 規定の性質: `permission`。
 
+- [test_tagged_union_expression_and_matches_precedence.sv](../tests/ch11/test_tagged_union_expression_and_matches_precedence.sv): tagged union 変数 b を tagged Valid(42) で初期化し、c を tagged Valid(7)、a を値なしの tagged Invalid で初期化する。case (b) matches の tagged Valid(v) が v=42 を取り出して payload 42 を表示し、void メンバの a は void none になる。選択した int メンバに合法な初期化子 42 が入ることを観測する。 区別: tagged 式の初期化子を無視する実装では b の Valid 値が 0 や x になり payload 42 が変わらない。void メンバに値があるものとして扱う実装では tagged Invalid の照合が失敗して void none が出ない。
 
 ### SV2023-11.10-EXTRACT-LITERAL-INTEGRAL-OPERAND
 
@@ -31439,7 +31444,7 @@ Typed let formals must be event or a type permitted by 16.6; optional formal def
 
 ### SV2023-11.12-EXTRACT-LET-GRAMMAR
 
-11.12 / normal / テスト未対応
+11.12 / normal / テスト対応あり・実行未確認
 
 let declares an expression template with optional typed/untyped/dimensioned/defaulted formals; instances permit ordered/named optional actuals and optional package scope.
 
@@ -31447,6 +31452,8 @@ let declares an expression template with optional typed/untyped/dimensioned/defa
 
 規定の性質: `definition`。
 
+- [test_syntax_let_declaration_and_argument_forms.sv](../tests/ch11/test_syntax_let_declaration_and_argument_forms.sv): let sum_ab（括弧なし）、let diff_ab()、デフォルト y=3,z=2 の let pick、let twice、untyped 仮引数の let inc を宣言し、pick を全実引数・y 省略・x のみ・.z 名前付き・.z と .x 名前付きで呼ぶ。sum_ab=8 diff_ab=2、all=9 skip_y=14 only_x=11、pos_named=17 skip_named=20、named_zx=10 named_yx=21、lp::sq=25 twice=16 inc=5 を表示する。
+- [test_syntax_let_typed_formal_ports.sv](../tests/ch11/test_syntax_let_typed_formal_ports.sv): 属性 (* role = "base" *) 付き int x、untyped y=b、int z=2 の let pick、logic [7:0] の lo_byte、byte の sx、unpacked 次元 int v[3] の mid、デフォルト logic [3:0] n=4'd9 の plus を宣言する。lo_byte=44 sx=-16 mid=20、plus=309 plus_n=5、pick=9 skip_y=14、only_x=13 named=11 を表示し、型付き/次元付き/デフォルト付き仮引数と名前付き実引数が機能することを示す。
 
 ### SV2023-11.12-EXTRACT-LET-LOCAL-PACKAGE-SCOPE
 
@@ -31603,7 +31610,7 @@ If the predicate is not true and else exists, execute the else statement; otherw
 
 ### SV2023-12.4-EXTRACT-IF-GRAMMAR
 
-12.4 / normal / テスト未対応
+12.4 / normal / テスト対応あり・実行未確認
 
 if has a conditional predicate and statement-or-null, optional else-if chain and final else, with optional unique/unique0/priority and expression/matches terms joined by &&&.
 
@@ -31611,6 +31618,8 @@ if has a conditional predicate and statement-or-null, optional else-if chain and
 
 規定の性質: `definition`。
 
+- [test_syntax_conditional_statement_forms.sv](../tests/ch12/test_syntax_conditional_statement_forms.sv): function chain が 3 個の else-if と最終 else で 0/1/2/3 に zero/one/two/many を返し、then と else に null 文を置いた if が何も表示しない。unique if (a==1)、unique0 if (a==9)、priority if (a==1) がそれぞれ unique first、unique0 no match、priority first を表示し、最初の真の腕だけが実行される。
+- [test_syntax_cond_predicate_forms.sv](../tests/ch12/test_syntax_cond_predicate_forms.sv): if (a == 1 &&& b == 2) と 3 項の &&&、if (a == 1 &&& st matches .v)、if (st matches RUN/.(RUN)/.v/.*) を実行し、two terms true、three terms true、expression and pattern、matches の各定数・変数・ワイルドカード行を表示する。cond_predicate の expression 項と matches 項が &&& で連結されることを観測する。
 
 ### SV2023-12.4-EXTRACT-IF-TRUE
 
@@ -31930,7 +31939,7 @@ Ordinary case requires corresponding bits to match exactly including x/z.
 
 ### SV2023-12.5-EXTRACT-CASE-GRAMMAR
 
-12.5 / normal / テスト未対応
+12.5 / normal / テスト対応あり・実行未確認
 
 case/casez/casex support ordinary or matches items; case inside uses range-list items. Each may have unique/unique0/priority and an optional-colon default, under its semantic restrictions.
 
@@ -31938,6 +31947,8 @@ case/casez/casex support ordinary or matches items; case inside uses range-list 
 
 規定の性質: `definition`。
 
+- [test_syntax_case_statement_forms.sv](../tests/ch12/test_syntax_case_statement_forms.sv): case の項目に 1, 2 の複数式とコロンなし default、default なし case、casez の 1???/01??、casex の 1xxx、unique/unique0/priority case を置き、plain: 10 20 30、no default: 1 2、casez: 1 2 3、casex: 1 1、qualifiers: 1 2 1、null 文項目の r=9 を表示する。
+- [test_syntax_case_matches_and_inside_forms.sv](../tests/ch12/test_syntax_case_matches_and_inside_forms.sv): case (c) matches で RED、GREEN &&& v>0、GREEN、default を順に試し matches: 1 2 3 4 を出し、case (x) inside で [2:4]、[10 +/- 2]、20、[30 +%- 10]、[250:$]、[$:240]、default の各 range_list を試して ranges: 1 2 3 4 5 6 0 を出す。
 
 ### SV2023-12.5-EXTRACT-CASE-LINEAR-FIRST
 
@@ -32357,7 +32368,7 @@ case matches items contain a pattern with optional &&& Boolean filter; bound ide
 
 ### SV2023-12.6.1-EXTRACT-MATCHES-CASE-SEARCH
 
-12.6.1 / normal / テスト未対応
+12.6.1 / normal / テスト対応あり・実行未確認
 
 The controller evaluates once, patterns are tested in exact source order ignoring default, and the first selected item executes; otherwise default or no statement executes.
 
@@ -32365,6 +32376,7 @@ The controller evaluates once, patterns are tested in exact source order ignorin
 
 規定の性質: `mandatory`。
 
+- [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): case (counted(items[3])) matches はコントローラ式 counted() を 1 回だけ評価し（calls=1）、tagged None, tagged Num 0, tagged Num .n &&& n<0, tagged Num .n の順に試して最初に一致した tagged Num .n を選び case: number 7 を表示する。items[2] の -5 は前のガード付き項目で negative -5 になり、items[7] は Cmd の入れ子パターンで go 9 になり、一致しない型は default の something else になる。 区別: コントローラ式を項目ごとに再評価する実装では calls が 1 でなくなる。パターンをソース順でなく別順に試す実装では items[2] が number -5 になったり、items[1] の tagged Num 0 が tagged Num .n に先取りされて zero でなく number 0 になる。
 
 ### SV2023-12.6.1-EXTRACT-MATCHES-CASE-TYPE
 
@@ -32507,7 +32519,7 @@ A conditional predicate may contain &&& expression/matches terms evaluated left-
 
 ### SV2023-12.7-EXTRACT-LOOP-GRAMMAR
 
-12.7 / normal / テスト未対応
+12.7 / normal / 実行確認あり
 
 Loop grammar supports forever/repeat/while/for/do-while/foreach with their statement forms, optional for init/test/step, all-declared or assigned initializers, operator/inc-dec/function steps and omitted foreach indices.
 
@@ -32515,6 +32527,7 @@ Loop grammar supports forever/repeat/while/for/do-while/foreach with their state
 
 規定の性質: `definition`。
 
+- [test_syntax_loop_statement_forms.sv](../tests/ch12/test_syntax_loop_statement_forms.sv): forever を break で 3 回、repeat(3) と repeat(0)、while を 4 回、do-while を 2 回実行し、for は 2 代入・1 宣言 2 識別子・2 宣言・var 宣言の各初期化形と i++/j--/関数呼び出し/代入の各ステップを使う。for(;;) は break まで 2 回、foreach は 2 次元の両添字・行省略・列省略・両方省略・パッケージスコープ・階層名をそれぞれ実行し、counts/for/foreach/columns/rows/scoped の値で回数と反復を観測する。 区別: do-while を前判定にする実装では do=1 になり、repeat(0) を 1 回実行する実装では repeat=103 になる。foreach の省略添字を全次元反復と扱う実装では both=6 や columns が 3 3 3 になり、パッケージ/階層配列を解決できない実装では pkg=0 hier=0 になる。
 
 ### SV2023-12.7-EXTRACT-TYPE-REFERENCE-PREFIX
 
@@ -32870,7 +32883,7 @@ Jump syntax is semicolon-terminated return with optional expression, break or co
 
 ### SV2023-12.8-EXTRACT-LOOP-ONLY-BREAK-CONTINUE
 
-12.8 / error / テスト未対応
+12.8 / error / 実行確認あり
 
 break/continue may occur only inside a loop.
 
@@ -32878,10 +32891,12 @@ break/continue may occur only inside a loop.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_break_outside_loop.sv](../tests/ch12/test_illegal_break_outside_loop.sv): initial の if (n == 1) の中で、どのループにも囲まれていない break を 26 行目に置き、26 行目を指す診断を要求する。
+- [test_illegal_continue_outside_loop.sv](../tests/ch12/test_illegal_continue_outside_loop.sv): initial の if (n == 1) の中で、どのループにも囲まれていない continue を 26 行目に置き、26 行目を指す診断を要求する。
 
 ### SV2023-12.8-EXTRACT-NO-CROSS-FORK-JUMP
 
-12.8 / error / テスト未対応
+12.8 / error / テスト対応あり・実行未確認
 
 A fork child cannot use break/continue to control a loop outside that fork block.
 
@@ -32889,6 +32904,7 @@ A fork child cannot use break/continue to control a loop outside that fork block
 
 規定の性質: `mandatory`。
 
+- [test_illegal_break_in_fork_to_outer_loop.sv](../tests/ch12/test_illegal_break_in_fork_to_outer_loop.sv): for ループの本体にある fork-join の子プロセスが if (n == 2) break; で fork の外側の for ループを終わらせようとする。25 行目を指す診断を要求し、fork の外のループ制御を fork 子から行えないことを負テストで観測する。 区別: fork 子の break を外側ループへのジャンプとして受理する実装では診断が出ず、テストがコンパイルできて n=2 でループを抜けた出力になる。25 行目以外を指す診断や別の構文エラーでは期待正規表現に一致しない。
 
 ### SV2023-12.8-EXTRACT-RETURN-FORMS
 
@@ -32905,7 +32921,7 @@ A value-returning function uses return expression, while a task/void function re
 
 ### SV2023-12.8-EXTRACT-RETURN-SUBROUTINE-ONLY
 
-12.8 / error / テスト未対応
+12.8 / error / 実行確認あり
 
 return is permitted only in a subroutine, and a value-returning function return must carry a correctly typed expression.
 
@@ -32913,6 +32929,9 @@ return is permitted only in a subroutine, and a value-returning function return 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_return_outside_subroutine.sv](../tests/ch12/test_illegal_return_outside_subroutine.sv): initial の if (n == 1) の中で、タスクでも関数でもない位置の return を 24 行目に置き、24 行目を指す診断を要求する。
+- [test_illegal_return_without_value_in_int_function.sv](../tests/ch12/test_illegal_return_without_value_in_int_function.sv): int を返す half() の if (a < 0) return; に式がないことを 20 行目で診断し、次の return a / 2; は合法のまま残す。
+- [test_illegal_return_wrong_type_in_int_function.sv](../tests/ch12/test_illegal_return_wrong_type_in_int_function.sv): int を返す pick() の return text; が string 変数を返すことを 24 行目で診断し、return 5; は合法のまま残す。
 
 ### SV2023-13.2-EXTRACT-CALL-TASK-RESTRICTION
 
@@ -33520,7 +33539,7 @@ Unless specifically restricted, all nonvoid user/built-in/system/DPI function ca
 
 ### SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-PARENTHESES
 
-13.4.1 / error / テスト未対応
+13.4.1 / error / テスト対応あり・実行未確認
 
 Using a call as an implicit variable always requires parentheses, even with no actual arguments, to distinguish a function scope reference.
 
@@ -33528,6 +33547,7 @@ Using a call as an implicit variable always requires parentheses, even with no a
 
 規定の性質: `mandatory`。
 
+- [test_illegal_method_implicit_variable_without_parentheses.sv](../tests/ch5/test_illegal_method_implicit_variable_without_parentheses.sv): string の組込みメソッド toupper の結果を暗黙変数として添字する。s.toupper()[0] は括弧付きで合法、s.toupper[0] は引数なしの呼び出しを暗黙変数として使うため 29 行目を指す診断になる。引数がなくても暗黙変数には括弧が必要であることを負テストで観測する。 区別: 引数なしのメソッド呼び出しで括弧を省略できる実装では 29 行目が受理され、診断が出ない。逆に toupper()[0] の合法行まで拒否する実装では期待する 29 行目以外の診断になり一致しない。
 
 ### SV2023-13.4.1-EXTRACT-IMPLICIT-CALL-RESULT
 
@@ -33566,7 +33586,7 @@ Selections of a function result use its declared return type range, not an assum
 
 ### SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-VARIABLE
 
-13.4.1 / normal / テスト未対応
+13.4.1 / normal / 実行確認あり
 
 A nonvoid function has an internal result variable named like the function with the return type; assignment to it or return expression supplies the function value.
 
@@ -33574,6 +33594,7 @@ A nonvoid function has an internal result variable named like the function with 
 
 規定の性質: `mandatory`。
 
+- [test_function_implicit_return_types.sv](../tests/ch13/test_function_implicit_return_types.sv): 戻り型 signed [3:0] の関数 s4、[7:0] の u8、型なしの one の本体で、return ではなく関数名と同じ暗黙の結果変数 s4/u8/one に実引数を代入する。s4(8'hFF) が -1、u8(16'hFFFF) が 255、one(2'b10) が 0、one(2'b0x) が x となり、代入値が宣言戻り型の幅と符号で関数値になることを観測する。 区別: 関数名への代入を結果変数でなく局所変数や別名として扱う実装では s4(8'hFF) が 255 や 0 になり、戻り型 signed [3:0] の符号が反映されない。戻り型を無視して 32 ビットにする実装では $bits(s4(...)) が 4 でなくなり one の x/z 保持も変わる。
 
 ### SV2023-13.4.1-EXTRACT-NO-DUPLICATE-FUNCTION-NAME
 
@@ -34259,7 +34280,7 @@ A used default expression evaluates in the subroutine declaration containing sco
 
 ### SV2023-13.5.3-EXTRACT-OMITTED-DEFAULT-INSERTED
 
-13.5.3 / error / テスト未対応
+13.5.3 / error / 実行確認あり
 
 Omitted or empty actuals use their declared defaults; a missing required actual without a default is a compilation error.
 
@@ -34267,6 +34288,8 @@ Omitted or empty actuals use their declared defaults; a missing required actual 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_call_empty_argument_without_default.sv](../tests/ch13/test_illegal_call_empty_argument_without_default.sv): sum3(, 5, 9) はデフォルトのある a を空にして合法、sum3(7, , 9) はデフォルトのない b を空にして 25 行目の診断になる。
+- [test_illegal_call_omits_trailing_argument_without_default.sv](../tests/ch13/test_illegal_call_omits_trailing_argument_without_default.sv): sum3(, 5) と sum3(4, 5, ) はデフォルトのある a/c だけを省略または空にして合法、sum3(7) はデフォルトのない b を省略して 27 行目の診断になる。
 
 ### SV2023-13.5.3-EXTRACT-UNUSED-DEFAULT-NOT-EVALUATED
 
@@ -34537,7 +34560,7 @@ A clocking signal cannot designate a variable restricted to procedural-block use
 
 ### SV2023-14.3-EXTRACT-SIGNAL-CLOCKVAR
 
-14.3 / normal / テスト未対応
+14.3 / normal / 実行確認あり
 
 A clocking declaration binds an enclosing net/variable clocking signal to a local clockvar, sharing its name unless an explicit hierarchical expression remaps it.
 
@@ -34545,6 +34568,7 @@ A clocking declaration binds an enclosing net/variable clocking signal to a loca
 
 規定の性質: `definition`。
 
+- [test_clocking_signal_hierarchical_slice_concat_inout_var.sv](../tests/ch14/test_clocking_signal_hierarchical_slice_concat_inout_var.sv): clocking cb の st を別モジュールの u.state、low をローカルの regb[2:0]、mix を {u.state[1:0], rega} に明示式で対応付け、inout q は同名の信号をそのまま使う。t=5 で cb.st=9、cb.low=110、cb.mix=011010、cb.q=11 となり、同名共有と階層名・スライス・連結による再対応付けの両方を観測する。 区別: clockvar を常に同名信号に束縛する実装では cb.st が st という未宣言名や 0 になり、cb.low/cb.mix も regb や連結でなく別値をサンプルする。階層式の対応付けを無視する実装では cb.st=0、cb.mix=001010 になる。
 
 ### SV2023-14.3-EXTRACT-SKEW-DIRECTIONS
 
@@ -34584,7 +34608,7 @@ A clocking delay control must be a time literal or constant expression with nonn
 
 ### SV2023-14.4-EXTRACT-SAMPLE-BEFORE-DRIVE-AFTER
 
-14.4 / normal / テスト未対応
+14.4 / normal / 実行確認あり
 
 Clocking input/inout samples at input-skew time before the event; output/inout drives at output-skew time after it. Figure 14-1 places the sampling marker before and driving marker after the same rising clock edge.
 
@@ -34592,6 +34616,7 @@ Clocking input/inout samples at input-skew time before the event; output/inout d
 
 規定の性質: `mandatory`。
 
+- [test_clocking_block_default_and_signal_skews.sv](../tests/ch14/test_clocking_block_default_and_signal_skews.sv): clocking cb は default input #4 output #3 で u/w に、v/y には個別の #2/#6 を付ける。最初の posedge は 20 で、u は 16 のサンプル点で 2、v は 18 で 11 になり、イベント時の 3/12 ではない。出力 w は 20+3=23、y は 20+6=26 に更新され、22 では両方 0、24 では w=102、27 では y=111 になる。入力がイベント前のスキュー時刻、出力がイベント後のスキュー時刻に処理されることを観測する。 区別: 入力をイベント時にサンプルする実装では 20 行目が u=3 v=12 になり、出力をイベント時に更新する実装では 22 行目が w=102 になる。個別スキューを無視して default を使う実装では v が 3 や 12、y が 23 や 26 に変わる。
 
 ### SV2023-14.4-EXTRACT-SKEW-CONSTANT-TIMESCALE
 
@@ -34606,7 +34631,7 @@ A skew is constant and may use a parameter; without explicit time units it uses 
 
 ### SV2023-14.4-EXTRACT-SKEW-NOT-PROCEDURAL-DELAY
 
-14.4 / normal / テスト未対応
+14.4 / normal / 実行確認あり
 
 A declarative zero skew neither suspends a process nor samples/executes in Inactive, unlike procedural #0.
 
@@ -34614,6 +34639,7 @@ A declarative zero skew neither suspends a process nor samples/executes in Inact
 
 規定の性質: `mandatory`。
 
+- [test_clocking_input_zero_skew_observed.sv](../tests/ch14/test_clocking_input_zero_skew_observed.sv): 同じ信号 d を input #0 at_edge と input #1 prev でサンプルする。d は各 posedge の NBA で +1 されるため、最初の posedge 5 で at_edge=1、prev=0、d=1 になる。#0 の宣言的スキューは Procedural #0 のように Inactive で実行されるのではなく、その時刻の NBA 更新後の Observed でサンプルすることを観測する。 区別: #0 スキューを手続き的 #0 として Inactive で評価する実装では at_edge が NBA 前の 0 になり、期待する 1 と区別できる。スキューを無視して #1 と同じにする実装でも at_edge=0 になる。
 
 ### SV2023-14.4-EXTRACT-ZERO-INPUT-OBSERVED
 
@@ -34749,7 +34775,7 @@ A clocking block has static lifetime and a scope local to its enclosing design e
 
 ### SV2023-14.9-EXTRACT-TESTBENCH-DIRECTION
 
-14.9 / normal / テスト未対応
+14.9 / normal / テスト対応あり・実行未確認
 
 Clocking directions are relative to the testbench; suitable interface modports describe testbench/DUT views and program interface ports may carry those signals.
 
@@ -34757,6 +34783,7 @@ Clocking directions are relative to the testbench; suitable interface modports d
 
 規定の性質: `definition`。
 
+- [test_clocking_interface_modport.sv](../tests/ch14/test_clocking_interface_modport.sv): interface bus_if が clocking cb を宣言し、modport tb (clocking cb) をテストベンチ bus_tb に、modport dut (input clk/data/valid) を設計 bus_dut に渡す。テストベンチは b.cb.data/valid を drive し、設計は同じ interface 信号を dut 側から読む。t=15 に dut が 11、t=25 に 22 を読むことで、clocking の output 方向がテストベンチ基準で、tb/dut の modport がそれぞれの視点を表すことを観測する。 区別: clocking の方向を DUT 基準で解釈する実装では tb からの b.cb.data への drive が入力扱いになって設計に届かず、t=15/t=25 の dut got 行が出ないか別値になる。modport tb から clocking cb を見せない実装では b.cb の参照が解決できない。
 
 ### SV2023-14.10-EXTRACT-CLOCKING-BLOCK-EVENT-OBSERVED
 
@@ -34878,7 +34905,7 @@ A ##0 on a synchronous drive RHS has no effect as if absent.
 
 ### SV2023-14.12-EXTRACT-DEFAULT-CLOCKING-FORMS
 
-14.12 / normal / テスト未対応
+14.12 / normal / 実行確認あり
 
 Default clocking can be specified by a default clocking declaration or default clocking identifier statement in its allowed module/checker/generate-item grammar.
 
@@ -34886,6 +34913,8 @@ Default clocking can be specified by a default clocking declaration or default c
 
 規定の性質: `definition`。
 
+- [test_cycle_delay.sv](../tests/ch14/test_cycle_delay.sv): default clocking cb @(posedge clk); endclocking の宣言形式だけを置き、##1 の後の $time が 5、##3 の後が 35、##0 が 35 のままであることを検査して Test 1/2/3 PASS と 5/5 passed を表示する。
+- [test_cycle_delay_clocking.sv](../tests/ch14/test_cycle_delay_clocking.sv): clocking cb @(posedge clk) を宣言した後に default clocking cb; の識別子文を置き、##1、##1、##2、##1、##1 を順に実行する。Total cycles: 7 と PASS: Clocking block cycle delays executed を表示し、識別子文が default clocking として ## の待ちに使われることを観測する。
 
 ### SV2023-14.12-EXTRACT-DEFAULT-IDENTIFIER-TYPE
 
@@ -34911,7 +34940,7 @@ Default clocking applies to its containing scope and nested module/interface/che
 
 ### SV2023-14.12-EXTRACT-NO-DUPLICATE-DEFAULT
 
-14.12 / error / テスト未対応
+14.12 / error / 実行確認あり
 
 More than one default clocking specification in the same module/interface/program/checker is a compilation error.
 
@@ -34919,6 +34948,7 @@ More than one default clocking specification in the same module/interface/progra
 
 規定の性質: `mandatory`。
 
+- [test_illegal_clocking_two_default.sv](../tests/ch14/test_illegal_clocking_two_default.sv): 同じ module で default clocking cb1 @(posedge clk1) の後に default clocking cb2 @(posedge clk2) を宣言し、23 行目を指す診断を要求する。1 つの module に 2 つ目の default clocking を置けないことを負テストで観測する。 区別: 複数の default clocking を後勝ちで受理する実装では 23 行目の診断が出ず、設計がコンパイルされて done が表示される。1 つ目の 21 行目を誤って指す診断では期待正規表現の 23 行目に一致しない。
 
 ### SV2023-14.12-EXTRACT-ONE-DEFAULT-CLOCKING
 
@@ -35072,7 +35102,7 @@ Global clocking may omit its name because $global_clock can identify it.
 
 ### SV2023-14.14-EXTRACT-GLOBAL-NEAREST-INSTANCE
 
-14.14 / normal / テスト未対応
+14.14 / normal / テスト対応あり・実行未確認
 
 Global lookup first checks its enclosing design instance, then ancestor design instance scopes until the closest declaration is found; at most one is effective at a reference.
 
@@ -35080,6 +35110,7 @@ Global lookup first checks its enclosing design instance, then ancestor design i
 
 規定の性質: `mandatory`。
 
+- [test_global_clocking.sv](../tests/ch14/test_global_clocking.sv): gc_count は自分のインスタンス内に global clocking を持たず、@($global_clock) で上位をたどる。s1.c は s1 の gck @(posedge clk1) を、s2.c は s2 の gck @(posedge clk2) を選び、最上位 test_global_clocking 自身の top_clk @(clk1 or clk2) も別に数える。clk1 が 3 回、clk2 が 2 回、top が両方の 8 変化を数え、最も近いインスタンスの宣言が有効になることを観測する。 区別: 常に最上位の global clocking を選ぶ実装では s1 と s2 が同じ top_clk を数えて s1=5/s2=3 などになり、常に最初の宣言を選ぶ実装では s2 が clk1 を数えて s2=3 になる。
 
 ### SV2023-14.14-EXTRACT-HIERARCHICAL-GLOBAL-CLOCKING
 
@@ -35095,7 +35126,7 @@ Different portions of a design hierarchy may declare their own global clocking e
 
 ### SV2023-14.15-EXTRACT-CLOCKVAR-EVENT-SLICE
 
-14.15 / normal / テスト未対応
+14.15 / normal / テスト対応あり・実行未確認
 
 A clocking input/inout or slice may be an event expression; dynamic slice indices are evaluated once when entering the @ control.
 
@@ -35103,6 +35134,7 @@ A clocking input/inout or slice may be an event expression; dynamic slice indice
 
 規定の性質: `mandatory`。
 
+- [test_clocking_synchronous_events.sv](../tests/ch14/test_clocking_synchronous_events.sv): @(cb) の後、@(cb.ack) が 15 で、@(posedge cb.en) が 25 で、@(negedge cb.v[idx]) が 35 で再開する。idx はイベント制御開始時の 2 で一度だけ評価され、30 に idx=0 へ変わっても対象は v[2] のままで、32 の v[2] 変化を次のエッジ 35 で観測する。ack が 41-43 のエッジ間にパルスしても再開せず 55 で再開する。clocking input とそのスライスがイベント式になり、動的添字が開始時に一度評価されることを観測する。 区別: 動的添字を各エッジで再評価する実装では 30 以降 idx=0 となり v[0] を見るため 35 の @(negedge cb.v[idx]) が再開しないか別時刻になる。clocking input のイベントを実信号の非同期変化で起こす実装では 41-43 のパルスで再開して 55 より前に表示が出る。
 
 ### SV2023-14.15-EXTRACT-EVENT-SAMPLED-VALUES
 
@@ -35130,7 +35162,7 @@ Clocking event expressions use synchronous sampled values rather than instantane
 
 ### SV2023-14.16-EXTRACT-CLOCKING-DRIVE-GRAMMAR
 
-14.16 / normal / テスト未対応
+14.16 / normal / テスト対応あり・実行未確認
 
 A synchronous drive uses clockvar-with-select <= optional ## cycle delay expression as a procedural statement.
 
@@ -35138,6 +35170,7 @@ A synchronous drive uses clockvar-with-select <= optional ## cycle delay express
 
 規定の性質: `definition`。
 
+- [test_syntax_clocking_drive_forms.sv](../tests/ch14/test_syntax_clocking_drive_forms.sv): default clocking cb の output d に対し、cb.d <= ##1 2、cb.d <= ##(2) 3、cb.d <= ##N 4、cb.d <= ##(N + 1) 5、最後に cb.d <= 1'b1 と、サイクル遅延なしと ## の整数・識別子・括弧式の各形を手続き文として実行する。d は 21 で 0 のまま、61/101/141/181 に 2/3/4/5、421 に 1 となり、各駆動が指定サイクル後の clocking イベントで成熟することを観測する。 区別: ## の識別子や括弧式を定数として扱わない実装では 141 や 181 の値がずれる。駆動を即時代入として扱う実装では 21 で d=0 にならず、421 の遅延駆動も即時に見える。
 
 ### SV2023-14.16-EXTRACT-CURRENT-RE-NBA
 
@@ -35164,7 +35197,7 @@ No ordinary delay/event intra-assignment timing syntax is allowed on a synchrono
 
 ### SV2023-14.16-EXTRACT-DRIVE-EVENT-PLUS-SKEW
 
-14.16 / normal / テスト未対応
+14.16 / normal / 実行確認あり
 
 A synchronous output/inout drive updates its associated signal at its clock event plus output skew.
 
@@ -35172,6 +35205,7 @@ A synchronous output/inout drive updates its associated signal at its clock even
 
 規定の性質: `mandatory`。
 
+- [test_clocking_output_skew_zero.sv](../tests/ch14/test_clocking_output_skew_zero.sv): clocking cb の output #0 a と output #2 b を同じ posedge 5 で cb.a <= 1、cb.b <= 1 と駆動する。t=5 では両方 0、t=6 で a=1 b=0、t=8 で b=1 になり、#0 はイベントの時刻ステップで（Re-NBA で）更新され、#2 はイベントの 2 単位後まで更新されない。出力スキューがイベント後の更新時刻を決めることを観測する。 区別: 出力スキューを無視して両方をイベント時刻に更新する実装では 6 行目が a=1 b=1 になる。b のスキューを 0 や 1 と扱う実装では 8 行目より前に b=1 になる。
 
 ### SV2023-14.16-EXTRACT-DRIVE-RHS-COMPATIBILITY
 
@@ -35435,7 +35469,7 @@ A semaphore models available keys; a blocking requester waits until enough keys 
 
 ### SV2023-15.3.1-EXTRACT-INITIAL-KEY-COUNT
 
-15.3.1 / normal / テスト未対応
+15.3.1 / normal / 実行確認あり
 
 The constructor keyCount sets initial available keys; it may be negative, but positive key procurement requires a positive available balance.
 
@@ -35443,6 +35477,7 @@ The constructor keyCount sets initial available keys; it may be negative, but po
 
 規定の性質: `mandatory`。
 
+- [test_semaphore_try_get_shortfall_takes_nothing.sv](../tests/ch15/test_semaphore_try_get_shortfall_takes_nothing.sv): new(3) の semaphore から try_get(5)/try_get(4) が 0 を返して 3 個の key が残ること、new(-1) では try_get(1) が 0 で put(1) 後も 0、さらに put(1) 後に 1 個になることを、keys() の数と結果値で観測する。 区別: keyCount を初期残数として設定しない実装では new(3) の keys が 3 にならず、負の残数を許さず 0 に丸める実装では new(-1) の put(1) 直後の try_get(1) が成功して result=1 になり、期待行「put(1), try_get(1): result=0」が変わる。
 
 ### SV2023-15.3.1-EXTRACT-NOT-MAXIMUM-COUNT
 
@@ -35668,7 +35703,7 @@ new returns a mailbox handle; zero bound is unbounded and never blocks put for c
 
 ### SV2023-15.4.1-EXTRACT-SIGNATURE
 
-15.4.1 / normal / テスト未対応
+15.4.1 / normal / 実行確認あり
 
 Mailbox new is a constructor accepting int bound default zero.
 
@@ -35676,6 +35711,7 @@ Mailbox new is a constructor accepting int bound default zero.
 
 規定の性質: `definition`。
 
+- [test_std_mailbox_prototype_methods.sv](../tests/ch15/test_std_mailbox_prototype_methods.sv): 引数なしの new で作った std::mailbox に try_put が 100 回すべて成功して num が 100 になること（bound の既定 0 が無制限を意味する）と、new(2) では 3 回目の try_put だけが失敗することを観測する。 区別: bound の既定を 0 容量（または 1 など有限）として扱う実装では「new(): 100 of 100 try_put stored」が 100 未満になり、bound を無視する実装では new(2) の 3 回目が成功して「try_put>0 1 1 0」が 1 1 1 に変わる。
 
 ### SV2023-15.4.2-EXTRACT-MESSAGE-COUNT
 
@@ -35691,7 +35727,7 @@ num() returns the current queued message count.
 
 ### SV2023-15.4.2-EXTRACT-SIGNATURE
 
-15.4.2 / normal / テスト未対応
+15.4.2 / normal / 実行確認あり
 
 Mailbox num is a no-argument int function.
 
@@ -35699,6 +35735,7 @@ Mailbox num is a no-argument int function.
 
 規定の性質: `definition`。
 
+- [test_std_mailbox_prototype_methods.sv](../tests/ch15/test_std_mailbox_prototype_methods.sv): 引数なしの num() 呼出しの型を $typename で int と確認し、100 個格納後・get 後・peek 後・FIFO 取出し後の各時点の個数を num() の戻り値として観測する。 区別: num が引数を要求する実装では呼出しが成立せず、戻り値型を longint などにする実装では「result types: num int」行が変わる。個数を更新しない実装では num 100 / num 2 / num 0 の各行が変わる。
 
 ### SV2023-15.4.3-EXTRACT-PUT-FIFO
 
@@ -35738,7 +35775,7 @@ An ordinary mailbox message may be any singular expression including an object h
 
 ### SV2023-15.4.4-EXTRACT-SIGNATURE
 
-15.4.4 / normal / テスト未対応
+15.4.4 / normal / 実行確認あり
 
 Mailbox try_put returns int and accepts one applicable typed message.
 
@@ -35746,6 +35783,7 @@ Mailbox try_put returns int and accepts one applicable typed message.
 
 規定の性質: `definition`。
 
+- [test_std_mailbox_prototype_methods.sv](../tests/ch15/test_std_mailbox_prototype_methods.sv): try_put に 1 個の byte メッセージを渡して格納の成否を戻り値で受け（new(2) で 2 個目まで成功、3 個目は失敗）、$typename で戻り値型を int と確認する。 区別: try_put の戻り値を bit や void にする実装では「result types: try_put int」が変わり、容量判定を誤る実装では new(2) の 3 回目の成否（1 1 0）が変わる。
 
 ### SV2023-15.4.4-EXTRACT-SINGULAR-MESSAGE
 
@@ -35785,7 +35823,7 @@ With room, try_put appends in FIFO order and returns a positive integer without 
 
 ### SV2023-15.4.5-EXTRACT-DYNAMIC-MESSAGE-TYPE
 
-15.4.5 / normal / テスト未対応
+15.4.5 / normal / テスト対応あり・実行未確認
 
 An unparameterized mailbox tracks each queued message type, permitting mixed singular types and runtime equivalence checking.
 
@@ -35793,6 +35831,7 @@ An unparameterized mailbox tracks each queued message type, permitting mixed sin
 
 規定の性質: `mandatory`。
 
+- [test_std_mailbox_default_type_parameter.sv](../tests/ch15/test_std_mailbox_default_type_parameter.sv): 型パラメータを書かない std::mailbox に int, string, real, byte のメッセージを順に put し、先頭メッセージと等価でない型の変数での try_get/try_peek が負を返してメッセージを残し（num 不変）、等価な型では取り出せることを観測する。 区別: 各メッセージの型を記録せず単一の型として扱う実装では int メッセージに対する try_get(string) が成功して「<0 1」が 0 になり、型検査をしない実装では byte メッセージを int で取れて「byte message: try_get(int)<0 1」が 0 に変わる。
 
 ### SV2023-15.4.5-EXTRACT-GET-TYPE-ERROR
 
@@ -35902,7 +35941,7 @@ Mailbox try_get attempts retrieval without blocking.
 
 ### SV2023-15.4.6-EXTRACT-SIGNATURE
 
-15.4.6 / normal / テスト未対応
+15.4.6 / normal / 実行確認あり
 
 Mailbox try_get returns int and takes a message destination by ref.
 
@@ -35910,10 +35949,11 @@ Mailbox try_get returns int and takes a message destination by ref.
 
 規定の性質: `definition`。
 
+- [test_std_mailbox_prototype_methods.sv](../tests/ch15/test_std_mailbox_prototype_methods.sv): try_get にメッセージ変数を渡して成否を int で受け、空の mailbox への try_get が 0 を返して宛先変数を 55 のまま残すこと（ref 渡し）と、$typename で戻り値型 int を確認する。 区別: 宛先を output 引数として扱う実装では空 mailbox の try_get 後に variable が 55 でなく未定義値へコピーバックされ「variable 55」が変わり、戻り値型を bit にする実装では「result types: try_get int」が変わる。
 
 ### SV2023-15.4.6-EXTRACT-SINGULAR-LVALUE
 
-15.4.6 / error / テスト未対応
+15.4.6 / error / テスト対応あり・実行未確認
 
 try_get requires a singular valid lvalue destination.
 
@@ -35921,6 +35961,7 @@ try_get requires a singular valid lvalue destination.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_mailbox_try_get_unpacked_array.sv](../tests/ch15/test_illegal_mailbox_try_get_unpacked_array.sv): 型なし mailbox への try_get で、要素 arr[1] は合法、unpacked 配列 arr 全体を宛先にした行だけを不正として、その行番号の診断を要求する。 区別: unpacked 配列全体を singular lvalue として受理する実装では 30 行目のエラーが出ず、逆に要素選択 arr[1] を拒否する実装では 29 行目でエラーになり、期待する 30 行目の診断に一致しない。
 
 ### SV2023-15.4.7-EXTRACT-PEEK-BLOCKS
 
@@ -35983,7 +36024,7 @@ Mailbox peek is a task taking a ref destination.
 
 ### SV2023-15.4.7-EXTRACT-SINGULAR-LVALUE
 
-15.4.7 / error / テスト未対応
+15.4.7 / error / テスト対応あり・実行未確認
 
 peek requires a singular valid lvalue destination.
 
@@ -35991,10 +36032,11 @@ peek requires a singular valid lvalue destination.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_mailbox_peek_unpacked_array.sv](../tests/ch15/test_illegal_mailbox_peek_unpacked_array.sv): 型なし mailbox への peek で、要素 arr[1] は合法、unpacked 配列 arr 全体を宛先にした行だけを不正として、その行番号の診断を要求する。 区別: unpacked 配列全体を singular lvalue として受理する実装では 30 行目のエラーが出ず、要素選択を拒否する実装では 29 行目でエラーになって期待行に一致しない。
 
 ### SV2023-15.4.8-EXTRACT-SIGNATURE
 
-15.4.8 / normal / テスト未対応
+15.4.8 / normal / 実行確認あり
 
 Mailbox try_peek returns int and takes a ref destination.
 
@@ -36002,10 +36044,11 @@ Mailbox try_peek returns int and takes a ref destination.
 
 規定の性質: `definition`。
 
+- [test_std_mailbox_prototype_methods.sv](../tests/ch15/test_std_mailbox_prototype_methods.sv): try_peek にメッセージ変数を渡して成否を int で受け、メッセージをコピーして残し（num 1 のまま）、$typename で戻り値型 int を確認する。 区別: try_peek をメッセージ取り出し（get 相当）にする実装では「try_peek>0 1 copied 70, num 1」の num が 0 になり、戻り値型を bit にする実装では「result types: try_peek int」が変わる。
 
 ### SV2023-15.4.8-EXTRACT-SINGULAR-LVALUE
 
-15.4.8 / error / テスト未対応
+15.4.8 / error / テスト対応あり・実行未確認
 
 try_peek requires a singular valid lvalue destination.
 
@@ -36013,6 +36056,7 @@ try_peek requires a singular valid lvalue destination.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_mailbox_try_peek_unpacked_array.sv](../tests/ch15/test_illegal_mailbox_try_peek_unpacked_array.sv): 型なし mailbox への try_peek で、要素 arr[1] は合法、unpacked 配列 arr 全体を宛先にした行だけを不正として、その行番号の診断を要求する。 区別: unpacked 配列全体を singular lvalue として受理する実装では 30 行目のエラーが出ず、要素選択を拒否する実装では 29 行目でエラーになって期待行に一致しない。
 
 ### SV2023-15.4.8-EXTRACT-TRY-PEEK-EMPTY
 
@@ -36076,7 +36120,7 @@ An unspecialized mailbox is dynamically typed and checks message/destination typ
 
 ### SV2023-15.4.9-EXTRACT-MAILBOX-PARAMETERIZATION
 
-15.4.9 / normal / テスト未対応
+15.4.9 / normal / テスト対応あり・実行未確認
 
 A mailbox can specialize its message type using ordinary class parameterization; its default dynamic type requests runtime checking.
 
@@ -36084,6 +36128,8 @@ A mailbox can specialize its message type using ordinary class parameterization;
 
 規定の性質: `definition`。
 
+- [test_mailbox_class_handle_messages.sv](../tests/ch15/test_mailbox_class_handle_messages.sv): typedef で mailbox #(mailbox_item) を作り、new(3) に a, b, null を put して peek/get/try_get が同じハンドルを返すことを観測する。
+- [test_std_mailbox_default_type_parameter.sv](../tests/ch15/test_std_mailbox_default_type_parameter.sv): 型パラメータを書かない std::mailbox に 4 種の型のメッセージを入れ、型の等価でない try_get/try_peek が負を返すことを観測する。
 
 ### SV2023-15.4.9-EXTRACT-TYPED-MAILBOX-APIS
 
@@ -36143,7 +36189,7 @@ Changing an event-array index in a waiting expression does not itself trigger a 
 
 ### SV2023-15.5.1-EXTRACT-EVENT-TRIGGER-GRAMMAR
 
-15.5.1 / normal / テスト未対応
+15.5.1 / normal / テスト対応あり・実行未確認
 
 Event triggering uses -> followed by an event reference/nonrange select, or ->> with optional delay/event control and event reference/nonrange select.
 
@@ -36151,6 +36197,8 @@ Event triggering uses -> followed by an event reference/nonrange select, or ->> 
 
 規定の性質: `definition`。
 
+- [test_event_named.sv](../tests/ch15/test_event_named.sv): -> evt1 と -> evt_array[0] / -> evt_array[1] で待ちプロセスを起こし、各 PASS 行で確認する。
+- [test_event_nonblocking_trigger.sv](../tests/ch15/test_event_nonblocking_trigger.sv): ->> e1、->> #10 e2、->> @(posedge clk) e3 の 3 形を使い、e1 が NBA 後、e2 が 11、e3 が 5 で発火することを観測する。
 
 ### SV2023-15.5.1-EXTRACT-IMMEDIATE-TRIGGER-ALL-WAITERS
 
@@ -36317,7 +36365,7 @@ An out-of-order failure executes its explicit else action, or calls $error by de
 
 ### SV2023-15.5.4-EXTRACT-WAIT-ORDER-GRAMMAR
 
-15.5.4 / normal / テスト未対応
+15.5.4 / normal / テスト対応あり・実行未確認
 
 wait_order takes a nonempty comma-separated event identifier list and an action block with optional success statement and else failure statement.
 
@@ -36325,6 +36373,7 @@ wait_order takes a nonempty comma-separated event identifier list and an action 
 
 規定の性質: `definition`。
 
+- [test_syntax_wait_order_forms.sv](../tests/ch15/test_syntax_wait_order_forms.sv): wait_order を 2 個のイベントの並びに成功文を付けた形、out-of-order 用の else を付けた形、3 個の並びに null 文を成功文として付けた形で使い、それぞれ 3/4/7 の出力になることを観測する。 区別: イベント並びを 2 個に限る実装では 3 個の wait_order が成立せず「7: null action returned」が出ず、else 節を受け付けない実装では「4: out of order」が出ない。
 
 ### SV2023-15.5.5-EXTRACT-EVENT-ASSIGNMENT-QUEUE
 
@@ -36826,7 +36875,7 @@ Deferred immediate assert, assume and cover use #0 for observed deferral or fina
 
 ### SV2023-16.4.1-EXTRACT-FINAL-MATURE
 
-16.4.1 / normal / テスト未対応
+16.4.1 / normal / テスト対応あり・実行未確認
 
 Unflushed final deferred reports mature and execute in Postponed and are removed from the queue; this non-iterative region avoids the described inter-region glitch.
 
@@ -36834,10 +36883,11 @@ Unflushed final deferred reports mature and execute in Postponed and are removed
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_flush.sv](../tests/ch16/test_deferred_assertion_flush.sv): 時刻20で w を Active 領域で 1 にし、program が Reactive 領域で z を 1 にする状況で、final 遅延の a_fin が Reactive 後の最終領域で z=1 を見て成功し（final pass 1）、#0 の a_obs は Reactive 前に z=0 で失敗することを観測する。 区別: final 報告を Observed 領域や Reactive 領域で成熟させる実装では a_fin が z=0 を見て失敗し「final fail」が 1 になる。成熟後に queue から取り除かない実装では最終領域で繰り返し実行され「final pass」が 1 を超える。
 
 ### SV2023-16.4.1-EXTRACT-FLUSH
 
-16.4.1 / normal / テスト未対応
+16.4.1 / normal / テスト対応あり・実行未確認
 
 At a deferred assertion flush point all pending reports in that process queue are cleared.
 
@@ -36845,6 +36895,7 @@ At a deferred assertion flush point all pending reports in that process queue ar
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_flush.sv](../tests/ch16/test_deferred_assertion_flush.sv): always_comb が x の変化で x!=y の失敗報告を queue し、同じタイムステップの y の NBA による再実行で待ち行列を flush するため、失敗報告が 1 つも実行されず deferred pass だけが 1 回残ることを観測する。 区別: flush で保留報告を消さない実装では「deferred fail: 1」が加わり、queue を共有して他プロセスの報告まで消す実装では a_dis の「disable fail: 1」や a_fin の「final pass: 1」が失われる。
 
 ### SV2023-16.4.1-EXTRACT-OBSERVED-MATURE
 
@@ -36872,7 +36923,7 @@ Evaluation queues the applicable pass/fail call or default $error, together with
 
 ### SV2023-16.4.1-EXTRACT-REACTIVE-ITERATION
 
-16.4.1 / normal / テスト未対応
+16.4.1 / normal / テスト対応あり・実行未確認
 
 A Reactive-to-Active iteration can produce an additional observed deferred report in the same time step; observed deferral does not suppress every inter-region feedback glitch.
 
@@ -36880,6 +36931,7 @@ A Reactive-to-Active iteration can produce an additional observed deferred repor
 
 規定の性質: `definition`。
 
+- [test_deferred_assertion_flush.sv](../tests/ch16/test_deferred_assertion_flush.sv): 時刻20で w が Active 領域で 1 になり a_obs が失敗を queue した後、program が Reactive 領域で z を 1 にすると、その変化で a_obs が Reactive から Active へ戻る反復で再評価されて成功を queue し、同じタイムステップで observed fail と observed pass の両方が実行されることを観測する。 区別: Reactive から Active への反復を起こさない実装では a_obs が再評価されず「observed pass: 1」が出ず、反復のたびに無制限に再評価する実装では観測報告が 1 回を超えて増える。
 
 ### SV2023-16.4.2-EXTRACT-COMB-LATCH-FLUSH
 
@@ -36905,7 +36957,7 @@ A process resuming from an event control or wait is a deferred assertion flush p
 
 ### SV2023-16.4.2-EXTRACT-OUTERMOST-DISABLE-FLUSH
 
-16.4.2 / normal / テスト未対応
+16.4.2 / normal / テスト対応あり・実行未確認
 
 Disabling the outermost scope of a process is a deferred assertion flush point.
 
@@ -36913,6 +36965,7 @@ Disabling the outermost scope of a process is a deferred assertion flush point.
 
 規定の性質: `mandatory`。
 
+- [test_deferred_assertion_flush.sv](../tests/ch16/test_deferred_assertion_flush.sv): always @(go) の名前付きブロック b_dis で、10 の失敗報告が成熟した後、12 に cancel=1 で disable b_dis を実行して最外スコープを無効化し、その時点の新しい失敗報告が flush されて disable fail が 1 回だけになることを観測する。 区別: 最外スコープの disable を flush 点として扱わない実装では 12 の報告も実行されて「disable fail: 2」になり、disable を無視してブロックを継続する実装では同じく 2 になる。
 
 ### SV2023-16.4.3-EXTRACT-IMPLICIT-COMB
 
@@ -37446,7 +37499,7 @@ Sequence concatenation supports end-to-start coincidence through ##0; no other f
 
 ### SV2023-16.7-EXTRACT-CONCAT-SYNTAX
 
-16.7 / normal / テスト未対応
+16.7 / normal / テスト対応あり・実行未確認
 
 Sequence concatenation uses ## followed by a constant delay, a constant range, [*] or [+], with the Syntax 16-4 forms.
 
@@ -37454,6 +37507,8 @@ Sequence concatenation uses ## followed by a constant delay, a constant range, [
 
 規定の性質: `definition`。
 
+- [test_sequence_linear_and_ranges.sv](../tests/ch16/test_sequence_linear_and_ranges.sv): ##1, ##0, ##[1:3], ##[1:$] を使い、それぞれの終端点 35 / 35 / 15 35 / 35 を観測する。
+- [test_sequence_repetition_and_delay_shorthands.sv](../tests/ch16/test_sequence_repetition_and_delay_shorthands.sv): a[*], a[+], a[*2] と ##[*], ##[+] を展開形の隣に並べ、同じ終端点になることを観測する。
 
 ### SV2023-16.7-EXTRACT-DELAY-CONSTANT
 
@@ -37997,7 +38052,7 @@ Input/inout local formals initialize from associated actual values cast to their
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-DECLARATION
 
-16.8.2 / error / テスト未対応
+16.8.2 / error / 実行確認あり
 
 local designates a sequence local-variable formal; its optional direction defaults to input, and its type shall be explicit in that port item and allowed by 16.6.
 
@@ -38005,6 +38060,12 @@ local designates a sequence local-variable formal; its optional direction defaul
 
 規定の性質: `mandatory`。
 
+- [test_illegal_sequence_input_formal_without_local.sv](../tests/ch16/test_illegal_sequence_input_formal_without_local.sv): 方向 input を local なしで宣言した行だけを不正として要求する。
+- [test_illegal_sequence_inout_formal_without_local.sv](../tests/ch16/test_illegal_sequence_inout_formal_without_local.sv): 方向 inout を local なしで宣言した行だけを不正として要求する。
+- [test_illegal_sequence_output_formal_without_local.sv](../tests/ch16/test_illegal_sequence_output_formal_without_local.sv): 方向 output を local なしで宣言した行だけを不正として要求する。
+- [test_illegal_sequence_local_formal_without_type.sv](../tests/ch16/test_illegal_sequence_local_formal_without_type.sv): local だけを与えて型を省いた項目を不正として要求する。
+- [test_illegal_sequence_local_formal_event_type.sv](../tests/ch16/test_illegal_sequence_local_formal_event_type.sv): local formal の型を event にした宣言を不正として要求する。
+- [test_illegal_sequence_local_input_actual_unassigned.sv](../tests/ch16/test_illegal_sequence_local_input_actual_unassigned.sv): 方向を省いた local formal（既定 input）に unassigned な local 変数を実引数として渡す行を不正として要求する。
 
 ### SV2023-16.8.2-EXTRACT-LOCAL-DEFAULT
 
@@ -41141,7 +41202,7 @@ Two juxtaposed clocking events discard the first: @(d) @(c) x equals @(c) x.
 
 ### SV2023-16.13.3-EXTRACT-LINEAR-BRANCH-FLOW
 
-16.13.3 / normal / テスト未対応
+16.13.3 / normal / テスト対応あり・実行未確認
 
 Clock scope flows left-to-right through linear operators and distributes into branching operands until replaced by a new clocking event.
 
@@ -41149,6 +41210,7 @@ Clock scope flows left-to-right through linear operators and distributes into br
 
 規定の性質: `mandatory`。
 
+- [test_multiclock_clock_flow_operands.sv](../tests/ch16/test_multiclock_clock_flow_operands.sv): c1 の下で st ##0 @(c2) md ##1 fin を書くと md 以降の fin が c2 に置き換わり 85 で一致し、括弧で囲んだ (st ##0 @(c2) md) ##1 fin では外側の c1 が残って 25 で一致することを対比する。また go |=> ((@(c2) b) and d) で c2 クロックが and の d 側へ分配されず c1 のままであることを失敗時刻で観測する。 区別: クロックを左から右へ置き換えない実装では noparen が 85 でなく 25 になり、分岐の and へ外側クロックを分配しない実装では d の評価ティックが変わって failures 142 175 が一致しない。
 
 ### SV2023-16.13.3-EXTRACT-NO-DISABLE-FLOW
 
@@ -41186,7 +41248,7 @@ Local variables passed into a matched operand obey the same argument restriction
 
 ### SV2023-16.13.5-EXTRACT-MATCHED-SYNCHRONIZATION
 
-16.13.5 / normal / テスト未対応
+16.13.5 / normal / テスト対応あり・実行未確認
 
 matched on a named sequence instance or untyped/sequence formal returns a Boolean end-point indication, independent of start, stored until the first destination-clock tick after a source match.
 
@@ -41194,6 +41256,8 @@ matched on a named sequence instance or untyped/sequence formal returns a Boolea
 
 規定の性質: `definition`。
 
+- [test_sequence_matched_across_clocks.sv](../tests/ch16/test_sequence_matched_across_clocks.sv): clk1 上の s_src の終点 25 に対し、clk2 上の matched が 60 の 1 回だけ真になることを観測する。
+- [test_triggered_matched_multiclock.sv](../tests/ch16/test_triggered_matched_multiclock.sv): 実引数付き instance s_pair(u,v).matched が c1 の終点 35/55 の後の最初の c2 ティック 38/68 で真になることを観測する。
 
 ### SV2023-16.13.5-EXTRACT-MATCHED-THREADS
 
@@ -41274,7 +41338,7 @@ matched may be used only in sequence expressions.
 
 ### SV2023-16.13.6-EXTRACT-MATCHED-STATUS
 
-16.13.6 / normal / テスト未対応
+16.13.6 / normal / テスト対応あり・実行未確認
 
 matched is set in Observed on a source match and persists until Observed following the first destination clock tick after that match, synchronizing the source result.
 
@@ -41282,6 +41346,7 @@ matched is set in Observed on a source match and persists until Observed followi
 
 規定の性質: `mandatory`。
 
+- [test_sequence_matched_across_clocks.sv](../tests/ch16/test_sequence_matched_across_clocks.sv): clk1 の立上りで a ##1 b が 25 で終点に達し、別クロック clk2（立上り 20/60/100）の cover property で s_src.matched を評価すると、成功は 60 の1回だけで、後の clk2 ティックでは成立しない。 区別: matched をソースの一致時刻から保持し続ける実装では 60 と 100 の2回成功し、最初の宛先ティックの Observed 後にクリアしない実装でもヒット数が1にならない。ソースのクロックでしか立てない実装では60で成功しない。期待出力 'at 60' がこれらを区別する。
 
 ### SV2023-16.13.6-EXTRACT-METHOD-CLOCK
 
@@ -41445,7 +41510,7 @@ Syntax 16-18 supports optionally labeled assert property, assume property, cover
 
 ### SV2023-16.14-EXTRACT-NAMING
 
-16.14 / normal / テスト未対応
+16.14 / normal / テスト対応あり・実行未確認
 
 Concurrent statements may be referenced by optional ordinary/hierarchical names; tools shall assign reporting names to unnamed statements, which create no scope.
 
@@ -41453,6 +41518,7 @@ Concurrent statements may be referenced by optional ordinary/hierarchical names;
 
 規定の性質: `mandatory`。
 
+- [test_concurrent_assertion_names_and_control.sv](../tests/ch16/test_concurrent_assertion_names_and_control.sv): 名前付き a_deep を階層名 ...g_n.a_deep で $assertoff/$asserton して15と45だけ失敗させ、無名の assert property の失敗アクションの %m が g_u を指して無名文がスコープを作らないことを示す。無名文の違反は55にエラーとして報告される。 区別: 無名の同時文が独自スコープを作る実装では %m が g_u より深い名前を出し、階層名で制御できない実装では a_deep が25でも失敗する。報告名が割り当てられない実装では55のエラー行が出ない。
 
 ### SV2023-16.14-EXTRACT-NO-BARE-EVALUATION
 
@@ -41747,7 +41813,7 @@ A concurrent assertion outside procedural code in a module/interface/program sta
 
 ### SV2023-16.14.5-EXTRACT-STATIC-ASSERT-EQUIVALENCE
 
-16.14.5 / normal / テスト未対応
+16.14.5 / normal / 実行確認あり
 
 A static assert property statement is equivalent to always assert property with the same property_spec and action block.
 
@@ -41755,10 +41821,11 @@ A static assert property statement is equivalent to always assert property with 
 
 規定の性質: `definition`。
 
+- [test_static_assertions_start_every_tick.sv](../tests/ch16/test_static_assertions_start_every_tick.sv): モジュール直下の a_mod: assert property (@(posedge clk) 1'b1) が5〜55の6ティックで6回試行され、a |=> ##1 b の5と15の試行が別々に25と35で失敗する。interface と program の静的 assert も同じく6回試行される。 区別: 静的 assert を一度だけ、または property 宣言として評価する実装では n_mod が6にならず、重なった試行を別々に評価しない実装では失敗が25/35の2件にならない。always assert property と同じ毎ティック試行であることが出力に現れる。
 
 ### SV2023-16.14.5-EXTRACT-STATIC-COVER-EQUIVALENCE
 
-16.14.5 / normal / テスト未対応
+16.14.5 / normal / 実行確認あり
 
 A static cover property statement is equivalent to always cover property with the same property_spec and pass statement.
 
@@ -41766,6 +41833,7 @@ A static cover property statement is equivalent to always cover property with th
 
 規定の性質: `definition`。
 
+- [test_static_assertions_start_every_tick.sv](../tests/ch16/test_static_assertions_start_every_tick.sv): モジュール直下の c_mod: cover property (@(posedge clk) 1'b1) の成功アクションが6ティックで6回呼ばれ、静的 cover が毎ティック新しい評価試行を開始することを示す。 区別: 静的 cover を1回だけ評価する実装では cover の回数が1になり、毎ティック試行する always cover property と等価でないことが分かる。期待出力 'cover 6' が変わる。
 
 ### SV2023-16.14.6-EXTRACT-CLOCK-FALLBACK
 
@@ -43007,7 +43075,7 @@ expect(property_spec) action_block is a procedural blocking statement accepting 
 
 ### SV2023-16.18-EXTRACT-CLOCKING-ONLY-SAMPLE
 
-16.18 / normal / テスト未対応
+16.18 / normal / 実行確認あり
 
 A clocking-block variable referenced in a concurrent assertion is sampled only in its clocking block.
 
@@ -43015,6 +43083,7 @@ A clocking-block variable referenced in a concurrent assertion is sampled only i
 
 規定の性質: `mandatory`。
 
+- [test_clocking_block_other_clock_assertion.sv](../tests/ch16/test_clocking_block_other_clock_assertion.sv): clocking block cb_neg は negedge clk で a を入力し、posedge clk の assertion で cb_neg.a を参照すると、その値は cb_neg が最後にサンプルした値のままで posedge で再サンプルされない。a の直接参照の失敗は10/40/50、cb_neg.a は10/20/50になる。 区別: clocking block 変数を assertion のクロックで再サンプルする実装では cb_neg.a の失敗時刻が直接参照と同じ10/40/50になり、cb_neg の negedge サンプルだけを使う実装では10/20/50になる。期待出力の差がサンプル点の違いを区別する。
 
 ### SV2023-17.1-EXTRACT-MODELING-KINDS
 
@@ -43403,7 +43472,7 @@ Checker formals may use context-value functions as defaults under 16.14.7 to obt
 
 ### SV2023-17.5-EXTRACT-ALWAYS-KINDS
 
-17.5 / error / テスト未対応
+17.5 / error / テスト対応あり・実行未確認
 
 Allowed checker always forms are always_comb, always_latch and always_ff; ordinary always is not an allowed form.
 
@@ -43411,6 +43480,7 @@ Allowed checker always forms are always_comb, always_latch and always_ff; ordina
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_plain_always.sv](../tests/ch17/test_illegal_checker_plain_always.sv): checker 本体に通常の always @(posedge clk) を置いた設計を不正として、その行20を指す診断を要求する。checker が許すのは always_comb/always_latch/always_ff だけである。 区別: 通常の always を checker で許す実装ではこの設計が受理され、期待するエラー行20が出ない。always_ff などへの読み替え実装でも診断位置が変わる。
 
 ### SV2023-17.5-EXTRACT-ALWAYS-STATEMENTS
 
@@ -43481,7 +43551,7 @@ A checker initial procedure may contain let declarations, immediate/deferred/con
 
 ### SV2023-17.5-EXTRACT-PROCEDURE-KINDS
 
-17.5 / normal / テスト未対応
+17.5 / normal / テスト対応あり・実行未確認
 
 Checker bodies permit initial, allowed always and final procedures.
 
@@ -43489,6 +43559,7 @@ Checker bodies permit initial, allowed always and final procedures.
 
 規定の性質: `permission`。
 
+- [test_checker_body_items.sv](../tests/ch17/test_checker_body_items.sv): checker body_items が initial（@(posedge clk) 後の即時 assert）、always_comb、always_latch、always_ff、final の各手続きを持ち、final が comb=14 latch=15 ff=46 gen=5 nested=2 を表示する。 区別: checker 本体で initial/always_comb/always_latch/always_ff/final のいずれかが許されない実装ではコンパイルできず、値も出ない。各手続きが実行されることが最終行の各値に現れる。
 
 ### SV2023-17.6-EXTRACT-COVERGROUP-PLACEMENT
 
@@ -43536,7 +43607,7 @@ A checker covergroup may be sampled by a sample() call, including a sequence mat
 
 ### SV2023-17.7-EXTRACT-CHECKER-STATIC-NO-NETS
 
-17.7 / error / テスト未対応
+17.7 / error / 実行確認あり
 
 Checker-body variables have static lifetime; defining nets in checker bodies is illegal.
 
@@ -43544,6 +43615,7 @@ Checker-body variables have static lifetime; defining nets in checker bodies is 
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_net_declaration.sv](../tests/ch17/test_illegal_checker_net_declaration.sv): checker 本体で wire w を宣言した設計を不正とし、行18の診断を要求する。checker 本体の変数は静的寿命の変数で、ネット定義は許されない。 区別: checker 本体でネット宣言を許す実装では設計が受理され、期待するエラー行18が出ない。wire を variable として黙って扱う実装でも診断が出ない。
 
 ### SV2023-17.7-EXTRACT-CONST-FORMAL-SIM
 
@@ -43614,7 +43686,7 @@ Checker variables may use blocking/nonblocking procedural or continuous assignme
 
 ### SV2023-17.7.1-EXTRACT-FF-NBA-ONLY
 
-17.7.1 / error / テスト未対応
+17.7.1 / error / テスト対応あり・実行未確認
 
 Checker always_ff procedures permit only nonblocking assignments.
 
@@ -43622,6 +43694,7 @@ Checker always_ff procedures permit only nonblocking assignments.
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_always_ff_blocking.sv](../tests/ch17/test_illegal_checker_always_ff_blocking.sv): checker の always_ff @(posedge clk) でブロッキング代入 last = a をした設計を不正とし、行21の診断を要求する。 区別: always_ff 内のブロッキング代入を許す実装では設計が受理され、期待するエラー行21が出ない。非ブロッキングへの暗黙変換でも診断が失われる。
 
 ### SV2023-17.7.1-EXTRACT-FREE-NBA-LHS
 
@@ -43659,7 +43732,7 @@ A checker variable shall not be referenced by hierarchical name in assignments, 
 
 ### SV2023-17.7.1-EXTRACT-NO-INITIAL-ASSIGNMENT
 
-17.7.1 / error / テスト未対応
+17.7.1 / error / テスト対応あり・実行未確認
 
 Checker variables shall not be assigned by an initial procedure, but may have declaration initializers.
 
@@ -43667,6 +43740,7 @@ Checker variables shall not be assigned by an initial procedure, but may have de
 
 規定の性質: `mandatory`。
 
+- [test_illegal_checker_variable_initial_assignment.sv](../tests/ch17/test_illegal_checker_variable_initial_assignment.sv): checker 変数 seen を initial seen = 1; で代入した設計を不正とし、行23の診断を要求する。同じ checker の armed は宣言初期化子 bit armed = 1 を持ち、こちらは合法である。 区別: initial 内の代入を許す実装では設計が受理されてエラー行23が出ず、宣言初期化子まで禁止する実装では armed の宣言で余分な診断が出る。期待する行23だけが両者を区別する。
 
 ### SV2023-17.7.1-EXTRACT-TRIGGERED-RHS
 
@@ -44563,7 +44637,7 @@ A final constraint shall not be replaced by a subclass; final may combine with i
 
 ### SV2023-18.5.2-EXTRACT-IMPLEMENT-PURE
 
-18.5.2 / normal / テスト未対応
+18.5.2 / normal / 実行確認あり
 
 An abstract or concrete subclass may override an inherited pure constraint with a non-pure block or prototype/external definition, which remains non-pure for descendants.
 
@@ -44571,6 +44645,7 @@ An abstract or concrete subclass may override an inherited pure constraint with 
 
 規定の性質: `permission`。
 
+- [test_constraint_inherit_add_and_pure_chain.sv](../tests/ch18/test_constraint_inherit_add_and_pure_chain.sv): pure constraint c_p を持つ抽象クラスに対し、抽象/具象の派生クラスがブロックまたは extern+外部ブロックで実装し、さらに派生した具象クラスは c_p を再定義せずに randomize できる。p は31/32/33/34になる。 区別: pure constraint の実装を許さない、または実装が子孫に引き継がれない実装では leaf の randomize が失敗するか p の値が変わる。抽象・具象とブロック・外部ブロックの4通りが期待値に現れる。
 
 ### SV2023-18.5.2-EXTRACT-INHERIT-REPLACE-ADD
 
@@ -44880,7 +44955,7 @@ An unpacked array leaf element is reached by descending until the element is not
 
 ### SV2023-18.5.4-EXTRACT-SMALL-UNIQUE
 
-18.5.4 / normal / テスト未対応
+18.5.4 / normal / テスト対応あり・実行未確認
 
 A group with fewer than two members has no effect and does not cause a constraint contradiction.
 
@@ -44888,6 +44963,7 @@ A group with fewer than two members has no effect and does not cause a constrain
 
 規定の性質: `mandatory`。
 
+- [test_unique_array_slice_single.sv](../tests/ch18/test_unique_array_slice_single.sv): unique {solo} という1メンバーのグループと solo == 3 を同じ制約ブロックに置き、20回の randomize が全て成功し solo は常に3、failed=0、solo 違反=0になる。 区別: 1メンバーの unique を自分自身との不等式として矛盾させる実装では randomize が失敗するか solo が3にならず、failed または bad_solo が増える。期待出力の0が無効果を区別する。
 
 ### SV2023-18.5.4-EXTRACT-UNIQUE-GROUP
 
@@ -44937,7 +45013,7 @@ a -> b equals !a || b: true antecedents require all consequent constraints, fals
 
 ### SV2023-18.5.5-EXTRACT-IMPLICATION-FORM
 
-18.5.5 / normal / テスト未対応
+18.5.5 / normal / 実行確認あり
 
 A constraint implication uses an integral/real expression -> a valid constraint or unnamed constraint set.
 
@@ -44945,6 +45021,8 @@ A constraint implication uses an integral/real expression -> a valid constraint 
 
 規定の性質: `definition`。
 
+- [test_constraint_implication_ifelse.sv](../tests/ch18/test_constraint_implication_ifelse.sv): mode -> v == 9 の含意を置き、mode==1 を inline 制約で固定すると v は常に9になる。200回の自由試行でも mode が1なら v=9で、violations=0。
+- [test_implication_constrains_condition.sv](../tests/ch18/test_implication_constrains_condition.sv): (kind == 1) -> { len > 100; len < 103; len != 101; } の波括弧付き集合を置き、kind==1 を課すと集合の唯一の解 len=102 になり、len==5 を課すと kind が1以外になる。
 
 ### SV2023-18.5.6-EXTRACT-IF-BIDIRECTIONAL
 
@@ -44959,7 +45037,7 @@ The condition and selected constraint-set variables constrain each other bidirec
 
 ### SV2023-18.5.6-EXTRACT-IF-FORM
 
-18.5.6 / normal / テスト未対応
+18.5.6 / normal / テスト対応あり・実行未確認
 
 An if constraint has an integral/real condition and constraint_set, with an optional else constraint_set.
 
@@ -44967,6 +45045,8 @@ An if constraint has an integral/real condition and constraint_set, with an opti
 
 規定の性質: `definition`。
 
+- [test_constraint_implication_ifelse.sv](../tests/ch18/test_constraint_implication_ifelse.sv): if (v > 8) w < 3; else w > 12; を持ち、200回の試行で v>8 なら w<3、v<=8 なら w>12 が成り立ち violations=0。inline で mode==1 を課すと v=9, w<3 が50回とも成立する。
+- [test_constraint_guard_null.sv](../tests/ch18/test_constraint_guard_null.sv): if (next != null) v < next.v; という else のない if 制約を持ち、3つのノードで n0.v < n1.v < n2.v が成立して ordered=1 になる。
 
 ### SV2023-18.5.6-EXTRACT-IF-SEMANTICS
 
@@ -45004,7 +45084,7 @@ Foreach loop variables map to array dimensions according to the dimension cardin
 
 ### SV2023-18.5.7.1-EXTRACT-FOREACH-ARRAY
 
-18.5.7.1 / normal / テスト未対応
+18.5.7.1 / normal / 実行確認あり
 
 foreach constraint identifies a packed/unpacked array and optional dimension loop variables; a string is treated as a zero-based byte array of its character length.
 
@@ -45012,10 +45092,11 @@ foreach constraint identifies a packed/unpacked array and optional dimension loo
 
 規定の性質: `definition`。
 
+- [test_foreach_dynamic_multidim_constraint.sv](../tests/ch18/test_foreach_dynamic_multidim_constraint.sv): 2次元配列 m[3:1][2] と文字列 word="abc" に対する foreach 制約を置く。m は次元ごとのループ変数 i,j で全6要素が i*10+j になり、word は 0 起点のバイト配列として r[n]=word[n]+1 を課し、r は bcd になる。 区別: foreach が文字列をバイト配列として反復しない、または添字を 0 起点にしない誤実装では r が bcd にならず、2次元のループ変数を取り違える誤実装では m の各要素の値と並びが期待出力から変わる。
 
 ### SV2023-18.5.7.1-EXTRACT-FOREACH-GUARDS
 
-18.5.7.1 / normal / テスト未対応
+18.5.7.1 / normal / 実行確認あり
 
 Predicates using only constants, state variables, object-handle comparisons, loop variables or the iterated array size guard constraint creation rather than acting as random-variable logical relations.
 
@@ -45023,6 +45104,7 @@ Predicates using only constants, state variables, object-handle comparisons, loo
 
 規定の性質: `mandatory`。
 
+- [test_foreach_dynamic_multidim_constraint.sv](../tests/ch18/test_foreach_dynamic_multidim_constraint.sv): foreach(q[k]) の中で、ループ変数だけを使う述語 k==0 を if の条件にし、else 側で q[k-1] を参照する。size を 3 に固定すると q は 3 5 7 になり、30 回の randomize で違反は 0。 区別: k==0 を通常の論理関係として扱い else 側の制約も生成する誤実装では、k=0 で q[-1] を参照して解けなくなり、'size 3: q = 3 5 7' と 'violations=0' の行が変わる。ループ変数のみの述語がガードになり else が作られないことを示す。
 
 ### SV2023-18.5.7.1-EXTRACT-FOREACH-PREDICATES
 
@@ -45093,7 +45175,7 @@ An empty loop variable suppresses iteration in its dimension; trailing omitted v
 
 ### SV2023-18.5.7.1-EXTRACT-SIZE-FIRST
 
-18.5.7.1 / normal / テスト未対応
+18.5.7.1 / normal / 実行確認あり
 
 When size and foreach constraints coexist, solve size first, then iteration; that array size is a state variable inside its foreach, and this implicit order can cause solving failure.
 
@@ -45101,10 +45183,11 @@ When size and foreach constraints coexist, solve size first, then iteration; tha
 
 規定の性質: `mandatory`。
 
+- [test_foreach_dynamic_multidim_constraint.sv](../tests/ch18/test_foreach_dynamic_multidim_constraint.sv): 動的配列 q のサイズを [2:6] に制約し、その foreach の中で q[0]==q.size() と q[k]==q[k-1]+2 を課す。randomize() with { q.size()==3; } の結果は q が 3 5 7、30 回の呼び出しで q[0]==size の違反は 0。 区別: サイズを先に解かず foreach を古いサイズで展開する誤実装では q[0]==q.size() が満たされず violations が 0 でなくなるか、size 3 の行の値が 3 5 7 にならない。サイズが先に解かれ foreach 内で状態変数として見えることを示す。
 
 ### SV2023-18.5.7.2-EXTRACT-REDUCTION-EXPANSION
 
-18.5.7.2 / normal / テスト未対応
+18.5.7.2 / normal / 実行確認あり
 
 A constrained array reduction is an iteration joined by the method operator over unpacked integral elements and returns the element type or with-expression type.
 
@@ -45112,6 +45195,7 @@ A constrained array reduction is an iteration joined by the method operator over
 
 規定の性質: `definition`。
 
+- [test_array_reduction_element_type.sv](../tests/ch18/test_array_reduction_element_type.sv): 4bit 要素の a.sum() を要素型で計算して 9+8 を 1 に wrap させ、e.sum() with (int'(item==7)) を int の個数 4 にし、product/xor/and/or も各演算子の結果を単一解に固定する。出力は a[1]=8、e=7 7 7 7、c=2 3 5、xor の b[2]=0。 区別: reduction を常に int で計算する誤実装では a[1]=8 が得られず、with の型を要素型として扱う誤実装では e の個数制約が成立しない。結果型が要素型または with 式の型になることを、wrap と個数の実値で示す。
 
 ### SV2023-18.5.7.2-EXTRACT-REDUCTION-SIZE-FIRST
 
@@ -45186,7 +45270,7 @@ Parentheses in ordering constraint primaries are permitted only for array built-
 
 ### SV2023-18.5.9-EXTRACT-EQUIVALENT-IMPLEMENTATION
 
-18.5.9 / normal / テスト未対応
+18.5.9 / normal / 実行確認あり
 
 Implementations may internally solve in a different order only when the outcome is the same.
 
@@ -45194,6 +45278,7 @@ Implementations may internally solve in a different order only when the outcome 
 
 規定の性質: `permission`。
 
+- [test_solve_before_same_solutions.sv](../tests/ch18/test_solve_before_same_solutions.sv): x は 0 にしかなり得ないのに solve y before x を置き、y>0 と併せて 50 回 randomize する。すべての結果が制約を満たし、失敗は 0。指定と矛盾する順序でも同じ解集合が得られる。 区別: 内部の求解順序を変えたときに解集合まで変える誤実装では (x==0 && y>0) を満たす回数が 50 未満になり、'50 results met the constraints, 0 calls failed' が変わる。順序を変えてよいのは結果が同じ場合だけであることを示す。
 
 ### SV2023-18.5.9-EXTRACT-MIXED-BLOCK
 
@@ -45993,7 +46078,7 @@ A soft constraint conflicting with the active hard constraints is discarded, and
 
 ### SV2023-18.5.13-EXTRACT-SOFT-FORM
 
-18.5.13 / normal / テスト未対応
+18.5.13 / normal / 実行確認あり
 
 soft prefixes an expression_or_dist constraint; hard constraints must hold or solving fails.
 
@@ -46001,6 +46086,7 @@ soft prefixes an expression_or_dist constraint; hard constraints must hold or so
 
 規定の性質: `definition`。
 
+- [test_soft_constraint_priority.sv](../tests/ch18/test_soft_constraint_priority.sv): soft を前置した a==1 と a==2、および b==5 と、硬い b>10,b<20 を同時に置く。後から宣言した soft a==2 が勝って a=2、b は 20 回とも (10,20) に入り、矛盾しない soft c==3 は保持される。 区別: soft を無視して硬い制約として扱う誤実装では a==1 と a==2 が衝突して a=2 が得られず、硬い b 制約を soft に負けさせる誤実装では b が範囲外になる。soft 前置の式制約と硬い制約の優先関係を示す。
 
 ### SV2023-18.5.13.1-EXTRACT-CONTAINER-HIGHER
 
@@ -46170,7 +46256,7 @@ disable soft on a random variable, including array.size, discards all lower-prio
 
 ### SV2023-18.5.13.2-EXTRACT-DISABLE-NO-CONTRADICTION
 
-18.5.13.2 / normal / テスト未対応
+18.5.13.2 / normal / テスト対応あり・実行未確認
 
 disable soft discards applicable lower-priority constraints even when no contradiction exists.
 
@@ -46178,6 +46264,7 @@ disable soft discards applicable lower-priority constraints even when no contrad
 
 規定の性質: `mandatory`。
 
+- [test_random_array_size_handles.sv](../tests/ch18/test_random_array_size_handles.sv): 2要素で初期化した s に soft s.size()==6 を置き、後の制約ブロックで disable soft s.size を指定する。size を 6 と矛盾させる制約は他に無いが soft は破棄され、s はサイズ 2 のまま 30 31 になる。 区別: 矛盾がある場合だけ disable soft を効かせる誤実装では soft の size 6 が残って s が 6 要素に伸び、's: size 2, 30 31' の行が変わる。矛盾の有無に関係なく低優先の soft 制約を破棄することを示す。
 
 ### SV2023-18.5.13.2-EXTRACT-SOFT-WEIGHT-CAUTION
 
@@ -46203,7 +46290,7 @@ randomize() returns 1 when all random variables/objects receive valid values and
 
 ### SV2023-18.6.1-EXTRACT-VIRTUAL-RANDOMIZE
 
-18.6.1 / normal / テスト未対応
+18.6.1 / normal / テスト対応あり・実行未確認
 
 Every class has built-in virtual function int randomize(), which randomizes active random variables under active constraints.
 
@@ -46211,6 +46298,7 @@ Every class has built-in virtual function int randomize(), which randomizes acti
 
 規定の性質: `definition`。
 
+- [test_interface_class_randomize.sv](../tests/ch8/test_interface_class_randomize.sv): dice クラスは randomize を宣言せず、rand int face と constraint fixed { face==4 } だけを持つ。interface class ハンドル r 経由の r.randomize() が組み込み関数として呼べ、戻り値 1、face は制約どおり 4 になる。 区別: 全クラスに組み込みの virtual int randomize が無い誤実装では r.randomize() が呼べず、有効な rand 変数を制約の下で乱数化しない誤実装では 'randomize()=1 value=4' の行が変わる。
 
 ### SV2023-18.6.2-EXTRACT-CALLBACK-NONVIRTUAL
 
@@ -46358,7 +46446,7 @@ randomize implements object random stability, and srandom seeds the object RNG.
 
 ### SV2023-18.6.3-EXTRACT-STATIC-RANDOM-SHARED
 
-18.6.3 / normal / テスト未対応
+18.6.3 / normal / テスト対応あり・実行未確認
 
 Static random variables are shared by class instances and each randomization changes that shared variable for all instances.
 
@@ -46366,6 +46454,7 @@ Static random variables are shared by class instances and each randomization cha
 
 規定の性質: `mandatory`。
 
+- [test_randc_static_shared_cycle.sv](../tests/ch18/test_randc_static_shared_cycle.sv): 基底クラスの static randc 変数 s を、基底インスタンス a と派生インスタンス b から交互に randomize し、各呼び出しの直後に他方のハンドルから s を読む。6 群 8 回で not shared=0、値の重複なし、欠けなし。 区別: static 変数をインスタンスごとに持つ誤実装では a.randomize() の後も b.s が古い値のままで not shared が 0 でなくなり、6 群の集計行が変わる。static 変数が全インスタンスで共有され、各 randomize がその共有値を変えることを示す。
 
 ### SV2023-18.7-EXTRACT-ADDITIONAL-CONSTRAINTS
 
@@ -46442,7 +46531,7 @@ this/super-qualified inline names bind to the receiver handle class; failure to 
 
 ### SV2023-18.7-EXTRACT-UNRESTRICTED-LOOKUP
 
-18.7 / normal / テスト未対応
+18.7 / normal / テスト対応あり・実行未確認
 
 An unrestricted inline block searches the receiver handle class first, then the enclosing call scope; it may reference local variables and subroutine arguments.
 
@@ -46450,6 +46539,8 @@ An unrestricted inline block searches the receiver handle class first, then the 
 
 規定の性質: `mandatory`。
 
+- [test_randomize_with_local_scope.sv](../tests/ch18/test_randomize_with_local_scope.sv): 関数 run のローカル変数 x=5,lim=3 と受信クラスの lim=100 を用意し、制限なしの with で x==lim は 100、x==local::lim は 3 を選ぶ。
+- [test_inline_constraint_local_qualifier_binding.sv](../tests/ch18/test_inline_constraint_local_qualifier_binding.sv): 関数 set_from の引数 x=5 を local::x で参照し、受信クラスの x を 6、y を 12 にする。クラス D のメソッドからは local::x=40 を受信クラスの x=39 と区別する。
 
 ### SV2023-18.7-EXTRACT-WITH-EXPRESSION
 
@@ -46464,7 +46555,7 @@ randomize with may occur wherever an expression is allowed and supports the same
 
 ### SV2023-18.7-EXTRACT-WITH-SYNTAX
 
-18.7 / normal / テスト未対応
+18.7 / normal / 実行確認あり
 
 Object randomize optionally takes a variable list/null, followed by with, an optional parenthesized lookup identifier list and a constraint block; its receiver names an instantiated object.
 
@@ -46472,6 +46563,7 @@ Object randomize optionally takes a variable list/null, followed by with, an opt
 
 規定の性質: `definition`。
 
+- [test_randomize_call_argument_lists_and_with_forms.sv](../tests/ch18/test_randomize_call_argument_lists_and_with_forms.sv): 同じ生成済みオブジェクト o に対し、変数リスト (x)/(x,y)、null、空括弧と属性、with、親括弧付き lookup リスト (x)/(x,y) を組み合わせて呼ぶ。restricted2 は x=15、null は状態変数のみで 1/0、attr は x=3,y=4 を返す。 区別: 変数リスト・null・lookup リスト・with を構文として受け付けない誤実装はコンパイルできず、リストを無視する実装では restricted2 が 15 にならず、null を通常の randomize として扱う実装では 200 が保持されない。呼び出し形の全体を示す。
 
 ### SV2023-18.7.1-EXTRACT-LOCAL-IMPORT
 
@@ -46782,7 +46874,7 @@ Distribution weights may change dynamically to change selection probabilities.
 
 ### SV2023-18.10-EXTRACT-PREDICATED-DYNAMIC
 
-18.10 / normal / テスト未対応
+18.10 / normal / テスト対応あり・実行未確認
 
 Implication and if/else may predicate constraints for dynamic control.
 
@@ -46790,6 +46882,8 @@ Implication and if/else may predicate constraints for dynamic control.
 
 規定の性質: `permission`。
 
+- [test_dist_weights_changed.sv](../tests/ch18/test_dist_weights_changed.sv): strict=0 の 3 回の後 strict=1 にすると含意 strict -> big==7 が働き、後半 3 回の big はすべて 7 になる。
+- [test_randomize_checker_state_only.sv](../tests/ch18/test_randomize_checker_state_only.sv): if (mode) x>10 else x<5 の制約で mode を 1,0 と切り替え、x=12 のとき 1 と 0、x=3 のとき 1 を返す。分岐が現在の状態変数で選ばれる。
 
 ### SV2023-18.11-EXTRACT-INLINE-VARIABLE-SET
 
@@ -47187,7 +47281,7 @@ After object creation there is no guarantee of external reseeding before another
 
 ### SV2023-18.15-EXTRACT-CONSTRUCTOR-SEED-BEFORE-RANDOMIZE
 
-18.15 / normal / テスト未対応
+18.15 / normal / 実行確認あり
 
 Calling srandom in new sets the object seed before any class member values are randomized.
 
@@ -47195,6 +47289,7 @@ Calling srandom in new sets the object seed before any class member values are r
 
 規定の性質: `mandatory`。
 
+- [test_srandom_object_repeatable.sv](../tests/ch18/test_srandom_object_repeatable.sv): Packet の new が this.srandom(seed) を呼び、seed 200 で作った p1 と p2 の randomize 3 回の値を比較する。2 つのオブジェクトの列は一致し、以後の randomize の種が new 内の srandom で決まる。 区別: new 内の srandom を無視する、または後から別の種で上書きする誤実装では p1 と p2 の値列が一致せず 'seeded with 200 agree' が 0 になる。srandom が new の時点でオブジェクトの種を設定することを示す。
 
 ### SV2023-18.15-EXTRACT-HIERARCHICAL-OBJECT-SEED
 
@@ -47209,7 +47304,7 @@ An object owns an RNG used by its randomize method, independent of other streams
 
 ### SV2023-18.15-EXTRACT-SEED-INTERNAL-EXTERNAL
 
-18.15 / normal / テスト未対応
+18.15 / normal / 実行確認あり
 
 An object may be manually seeded by srandom within a method or externally.
 
@@ -47217,6 +47312,7 @@ An object may be manually seeded by srandom within a method or externally.
 
 規定の性質: `permission`。
 
+- [test_srandom_object_repeatable.sv](../tests/ch18/test_srandom_object_repeatable.sv): new の中の this.srandom(seed) と、モジュール側で行う p1.srandom(300) の両方で種を設定する。同じ種 200 の 2 オブジェクトは一致し、外部から 300 を再設定した p1 も直前と同じ 3 値を再現する。 区別: メソッド内の srandom と外部からの srandom の片方を無視する誤実装では、p1/p2 の一致または 300 再設定後の一致が 0 になる。オブジェクトをメソッド内からも外部からも手動で seed できることを示す。
 
 ### SV2023-18.16-EXTRACT-DYNAMIC-WEIGHTS
 
@@ -47277,7 +47373,7 @@ Each randcase weight expression is evaluated at most once in unspecified order; 
 
 ### SV2023-18.16-EXTRACT-WEIGHT-PRECISION
 
-18.16 / normal / テスト未対応
+18.16 / normal / テスト対応あり・実行未確認
 
 Each randcase weight has self-determined precision; unsigned summands are added using the maximum weight width, and selection comparisons use that unsigned width.
 
@@ -47285,6 +47381,7 @@ Each randcase weight has self-determined precision; unsigned summands are added 
 
 規定の性質: `mandatory`。
 
+- [test_randcase_weight_precision.sv](../tests/ch18/test_randcase_weight_precision.sv): 8bit の a=200 と b=56 の和 a+b を randcase の重みにし、8bit で 256 が 0 に wrap するためその枝は 100 回中 0 回、重み 1 の枝が 100 回選ばれる。重みはそれぞれの式の幅で評価される。 区別: 重みを int 幅で計算する誤実装では a+b=256 が非零となって wrapped が 0 でなくなり、'8-bit weight a + b: taken 0 times' が変わる。符号なしの重みを最大幅で加算し、その幅で比較することを示す。
 
 ### SV2023-18.16-EXTRACT-ZERO-WEIGHT
 
@@ -47322,7 +47419,7 @@ Producing the grammar stream executes the selected code-block side effects; rand
 
 ### SV2023-18.17-EXTRACT-PRODUCTION-SEMANTICS
 
-18.17 / normal / テスト未対応
+18.17 / normal / 実行確認あり
 
 Production items stream in listed order; | separates randomly chosen alternatives; nonterminals expand until code-block terminals are reached.
 
@@ -47330,10 +47427,11 @@ Production items stream in listed order; | separates randomly chosen alternative
 
 規定の性質: `definition`。
 
+- [test_randsequence_weights.sv](../tests/ch18/test_randsequence_weights.sv): main が pick_a 5 回、sep、pick_b 5 回、sep、pick_c 5 回をこの順に並べ、各 production の | 代替のうち重みの非零の枝だけを選ぶ。出力は bbbbb/ccccc/effff で、項目の列挙順、代替選択、コードブロック端末への展開が現れる。 区別: production の項目を列挙順に生成しない誤実装では / の位置が変わり、| の代替を無視する実装では a や d が混ざり、非終端をコードブロック端末まで展開しない実装では文字が出ない。生成列の意味を出力全体で示す。
 
 ### SV2023-18.17-EXTRACT-RANDSEQUENCE-GRAMMAR
 
-18.17 / normal / テスト未対応
+18.17 / normal / テスト対応あり・実行未確認
 
 randsequence contains one or more optionally typed/argument-bearing productions with sequential items, alternatives, optional weights/code blocks, interleaving, if/repeat/case forms under Syntax 18-13.
 
@@ -47341,10 +47439,12 @@ randsequence contains one or more optionally typed/argument-bearing productions 
 
 規定の性質: `definition`。
 
+- [test_randsequence_production_heads_rules_and_weights.sv](../tests/ch18/test_randsequence_production_heads_rules_and_weights.sv): int sum(int a,int b=10)、void tag(string) などの型付き引数付き production と、:= の数値・パラメータ・式の重み、| の代替、重み後のコードブロックを実行し、heads and rules の行を出す。
+- [test_randsequence_statement_and_production_list_elements.sv](../tests/ch18/test_randsequence_statement_and_production_list_elements.sv): 空括弧と名前付きトップ、if/else、repeat(3)/repeat(0)/repeat(n+1)、case の複数式と default、rand join 2 個と 3 個（式付き）を実行し、固定ログと長さ 4/5 を出す。
 
 ### SV2023-18.17-EXTRACT-TOP-PRODUCTION
 
-18.17 / normal / テスト未対応
+18.17 / normal / 実行確認あり
 
 An optional parenthesized production name selects the top production; omission selects the first production.
 
@@ -47352,10 +47452,11 @@ An optional parenthesized production name selects the top production; omission s
 
 規定の性質: `mandatory`。
 
+- [test_randsequence_statement_and_production_list_elements.sv](../tests/ch18/test_randsequence_statement_and_production_list_elements.sv): 空括弧の randsequence は最初の production first から始まり FS、名前 top を指定したものは先に m があっても top のコードブロックから始まり c4 で始まる列を出し、単一 production の randsequence も動く。 区別: 空括弧で最初の production を選ばない誤実装では unnamed が FS にならず、名前付き top を無視して先頭の m から始める実装では elements の行が m で始まる。トップ production の選択規則を 2 つの対照で示す。
 
 ### SV2023-18.17.1-EXTRACT-PRODUCTION-DEFAULT-WEIGHT
 
-18.17.1 / normal / テスト未対応
+18.17.1 / normal / 実行確認あり
 
 Every production alternative without an explicit weight has weight 1, including when other alternatives have weights.
 
@@ -47363,6 +47464,7 @@ Every production alternative without an explicit weight has weight 1, including 
 
 規定の性質: `mandatory`。
 
+- [test_randsequence_weights.sv](../tests/ch18/test_randsequence_weights.sv): pick_a は重み 0 の a と重み 3 の b、pick_b は重み指定の無い c と重み 0 の d を持つ。出力は b のみ 5 回、c のみ 5 回で、無指定の c が重み 1 として d:=0 に勝つ。 区別: 重み無指定の代替を 0 や不定として扱う誤実装では c が選ばれず ccccc が変わり、他の代替に重みがあると無指定の重みを失う実装でも同じ行が変わる。無指定の重みが 1 であることを示す。
 
 ### SV2023-18.17.1-EXTRACT-PRODUCTION-PROBABILITY
 
@@ -47400,7 +47502,7 @@ A production weight shall be a nonnegative integral value and is meaningful for 
 
 ### SV2023-18.17.2-EXTRACT-IF-PRODUCTION
 
-18.17.2 / normal / テスト未対応
+18.17.2 / normal / 実行確認あり
 
 A Boolean if condition generates its following production when true and the optional else production when false, with no false-branch production if else is absent.
 
@@ -47408,6 +47510,7 @@ A Boolean if condition generates its following production when true and the opti
 
 規定の性質: `definition`。
 
+- [test_randsequence_statement_and_production_list_elements.sv](../tests/ch18/test_randsequence_statement_and_production_list_elements.sv): n=1 で if (n==1) i else e は i、if (n==0) j else f は偽なので f、else の無い if (n==0) k は何も生成せず、ログは mif の順になる。 区別: if の真偽や else の有無を取り違える誤実装では mif が mei や mik などに変わり、else の無い if が偽のとき余分な production を生成する実装では k が現れる。真・偽・else 無しの 3 場合を同時に示す。
 
 ### SV2023-18.17.3-EXTRACT-CASE-MULTIPLE-ITEMS
 
@@ -47664,7 +47767,7 @@ Coverage measures the percentage of verification objectives met; functional cove
 
 ### SV2023-19.3-EXTRACT-BLOCK-BEGIN
 
-19.3 / normal / テスト未対応
+19.3 / normal / テスト対応あり・実行未確認
 
 A begin block event samples immediately before the named block/task/function/method first statement executes.
 
@@ -47672,10 +47775,11 @@ A begin block event samples immediately before the named block/task/function/met
 
 規定の性質: `mandatory`。
 
+- [test_cg_block_event_begin_end.sv](../tests/ch19/test_cg_block_event_begin_end.sv): begin set_two は v=1 の状態でタスク最初の文の直前に標本化して bin1 を 100%、begin slow は v=3 の状態で標本化して bin3 を 100% にする。end 側はそれぞれ 2 と 5 を標本化する。 区別: begin イベントを最初の文の後で取る誤実装では set_two で 2、slow で 4 を標本化し、begin 側の 1 と 3 の被覆が 0 になって 'set_two: begin 1 100' と 'begin 3 100' が変わる。最初の文の直前であることを示す。
 
 ### SV2023-19.3-EXTRACT-BLOCK-END
 
-19.3 / normal / テスト未対応
+19.3 / normal / テスト対応あり・実行未確認
 
 An end block event samples immediately after the named block/task/function/method last statement, but shall not trigger on disabling it.
 
@@ -47683,6 +47787,7 @@ An end block event samples immediately after the named block/task/function/metho
 
 規定の性質: `mandatory`。
 
+- [test_cg_block_event_begin_end.sv](../tests/ch19/test_cg_block_event_begin_end.sv): end set_two は最終文の後 v=2 で標本化して bin2 を 100% にする。slow は disable されたときは end が発火せず bin5 が 0 のまま、完走したときだけ v=5 で bin5 が 100% になる。 区別: end を最終文の前に取る誤実装では 1 や 4 を標本化して 'end 2 100' と 'end 5 100' が変わり、disable でも end を発火する実装では disabled 行の bin5 が 100 になる。最終文の後と disable 非発火を同時に示す。
 
 ### SV2023-19.3-EXTRACT-CLOCK-INSTANT
 
@@ -48245,7 +48350,7 @@ For integral values, bins name without brackets makes one bin for the set; name[
 
 ### SV2023-19.5.1-EXTRACT-INTEGRAL-BIN-NAMES
 
-19.5.1 / normal / テスト未対応
+19.5.1 / normal / テスト対応あり・実行未確認
 
 Integral open-bin names are name[value]; fixed-bin names are name[0] through name[N-1].
 
@@ -48253,6 +48358,7 @@ Integral open-bin names are name[value]; fixed-bin names are name[0] through nam
 
 規定の性質: `definition`。
 
+- [test_cg_merge_state_bin_names.sv](../tests/ch19/test_cg_merge_state_bin_names.sv): merge_instances の 2 インスタンスで、開いた bin 配列 v[] の値域を i1 は 0..3、i2 は 2..5 にし、固定配列 f[2] は i1 が {0,1}/{2,3}、i2 が {2,3}/{4,5} にする。名前で統合した結果は op が 6 bin で 1/6、fx が 2 bin で 1/2 になる。 区別: 開いた bin を値ではなくインスタンス内の位置で命名する誤実装では op の統合が 4 bin になって 25.00 になり、固定 bin を値で命名する誤実装では fx の統合が 4 bin になって 25.00 になる。name[value] と name[0..N-1] の命名を統合結果で示す。
 
 ### SV2023-19.5.1-EXTRACT-MERGE-IDENTICAL-INTERVALS
 
@@ -48546,7 +48652,7 @@ value1 => value2 requires those values at two successive sample points.
 
 ### SV2023-19.5.2-EXTRACT-TRANSITION-COUNT-NAMES
 
-19.5.2 / normal / テスト未対応
+19.5.2 / normal / テスト対応あり・実行未確認
 
 A bin count increments when any complete trans_list sequence matches; bounded [] transition bins have names binname[transition].
 
@@ -48554,6 +48660,7 @@ A bin count increments when any complete trans_list sequence matches; bounded []
 
 規定の性質: `mandatory`。
 
+- [test_cg_merge_auto_and_transition_names.sv](../tests/ch19/test_cg_merge_auto_and_transition_names.sv): merge_instances で遷移配列 t[]=(s=>1,2) を s=0 の k1,k3 と s=3 の k2 に置く。完全な遷移の一致で数が進み、名前を遷移で共有した統合は t が 4 bin 中 2 bin で 50%、単一 bin の one_t は 100% になる。 区別: 遷移配列の bin を遷移ではなく配列位置で命名する誤実装では k1 と k3 の t[0=>1]/t[0=>2] が共有されず統合が 2 bin になって t が 100% になり、遷移が揃ったときに数えない実装では 50% に達しない。
 
 ### SV2023-19.5.2-EXTRACT-TRANSITION-GRAMMAR
 
@@ -48927,7 +49034,7 @@ Cross identifiers/functions obey coverpoint expression restrictions; functions d
 
 ### SV2023-19.6-EXTRACT-CROSS-GRAMMAR
 
-19.6 / normal / テスト未対応
+19.6 / normal / テスト対応あり・実行未確認
 
 Syntax 19-4 defines optional cross label/iff, bin selection/options/functions and binsof/intersect/logical/with/matches/set selections.
 
@@ -48935,6 +49042,7 @@ Syntax 19-4 defines optional cross label/iff, bin selection/options/functions an
 
 規定の性質: `definition`。
 
+- [test_covergroup_cross_and_select_forms.sv](../tests/ch19/test_covergroup_cross_and_select_forms.sv): cross x2 にラベル、iff、関数宣言、option、binsof(ca.v[0])、intersect、&&/||/!、with と matches、cross 識別子 x1、配列リテラルの cross set、関数呼び出しの set をすべて置き、11 個の選択が 5 回の標本で全て被覆されて cross 82.8125 になる。 区別: cross 本体の関数・option・binsof/intersect/論理/with/matches/set のいずれかを構文として受け付けない誤実装はコンパイルできず、選択式の意味を誤る実装では 11 選択の被覆と 82.8125 が変わる。Syntax 19-4 の各形を 1 つの cross で示す。
 
 ### SV2023-19.6-EXTRACT-CROSS-IFF
 
@@ -49100,7 +49208,7 @@ Cross with selects candidate bin tuples when sufficiently many constituent value
 
 ### SV2023-19.6.1.2-EXTRACT-CROSS-WITH-CONSTRUCTION
 
-19.6.1.2 / normal / テスト未対応
+19.6.1.2 / normal / テスト対応あり・実行未確認
 
 Cross with behaves as evaluating every candidate value tuple at construction, while allowing equivalent symbolic/cached computation with all, some or no evaluation events scheduled.
 
@@ -49108,6 +49216,7 @@ Cross with behaves as evaluating every candidate value tuple at construction, wh
 
 規定の性質: `mandatory`。
 
+- [test_cg_cross_with_policy.sv](../tests/ch19/test_cg_cross_with_policy.sv): ca/cb を各 2 bin（各 bin は 2 値）にし、cross bin の with を matches $ と matches 2 で使い分ける。全値の組で真になる y2 は 1/2、2 組以上で真になる y3 は 1/4 から 3/4 へ進み、候補の値の組を全て評価して選択する。 区別: with を標本化された 1 組だけに適用する誤実装では matches $/matches 2 の bin 選択が変わり、y2 の分母や y3 の被覆の進み方が期待出力と変わる。各 bin の候補値の組をすべて評価することを示す。
 
 ### SV2023-19.6.1.2-EXTRACT-CROSS-WITH-SIDE-EFFECTS
 
@@ -49144,7 +49253,7 @@ The enclosing cross identifier denotes all possible bin tuples; another cross id
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-QUEUE-TYPE
 
-19.6.1.3 / normal / テスト未対応
+19.6.1.3 / normal / テスト対応あり・実行未確認
 
 CrossQueueType is an unbounded queue of CrossValType.
 
@@ -49152,6 +49261,7 @@ CrossQueueType is an unbounded queue of CrossValType.
 
 規定の性質: `definition`。
 
+- [test_cg_cross_set_function_matches.sv](../tests/ch19/test_cg_cross_set_function_matches.sv): cross 本体で CrossQueueType の q を宣言し、CrossValType の t に ca/cb を入れて q.push_back(t) を 3 回行い、その queue を返す関数を cross set に使う。要素数 3 の queue から matches 2 と既定 1 の bin が選ばれる。 区別: CrossQueueType を queue でなく固定長の配列や単一の struct にする誤実装では push_back が使えず、要素型が CrossValType でない実装では t.ca/t.cb の代入や matches の数え方が変わる。queue として可変個の値の組を保持することを示す。
 
 ### SV2023-19.6.1.3-EXTRACT-CROSS-TYPE-SCOPE
 
@@ -49280,7 +49390,7 @@ Group options generally provide overridable item defaults except weight/goal/com
 
 ### SV2023-19.7-EXTRACT-INSTANCE-VERSUS-TYPE
 
-19.7 / normal / テスト未対応
+19.7 / normal / テスト対応あり・実行未確認
 
 Instance options affect only their initialized covergroup instance, while type options apply to the type.
 
@@ -49288,6 +49398,8 @@ Instance options affect only their initialized covergroup instance, while type o
 
 規定の性質: `definition`。
 
+- [test_cg_option_evaluated_at_new.sv](../tests/ch19/test_cg_option_evaluated_at_new.sv): g1 を new(1,2)（base_goal=90）、base_goal を 80 にして g2 を new(2,3) とし、g1 は at_least 1/goal 90/cp weight 2/x goal 10、g2 は 2/80/3/20 になる。1 回の標本で g1 は 1/4、g2 は 0/4。
+- [test_cg_option_levels_readback.sv](../tests/ch19/test_cg_option_levels_readback.sv): cg::type_option.comment/goal と cg::cp::type_option.weight などをインスタンス生成前に読み、cg_m では cp の type_option.weight=3 により型被覆が (3*50+100)/4=62.50 になる。
 
 ### SV2023-19.7-EXTRACT-LEVEL-AT-LEAST-COVERGROUP
 
