@@ -1,0 +1,7 @@
+drivers of av (2): av[0] av[1]
+loads of av (2): av[0] av[1]
+drivers of svw (1): svw
+drivers of svm (1): svm.x
+drivers of svb (1): svb.y[0]
+driver of v[2]: vpiContAssignBit, offset 2
+load of v[2]: vpiContAssignBit, offset 0

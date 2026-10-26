@@ -1,0 +1,2 @@
+nt_plain: name nt_plain, instance top 1, typespec nib_t (vpiLogicTypespec), net typespec nib_t, with NULL
+nt_res: name nt_res, instance top 1, typespec nib_t (vpiLogicTypespec), net typespec nib_t, with nt_resolve (vpiFunction)

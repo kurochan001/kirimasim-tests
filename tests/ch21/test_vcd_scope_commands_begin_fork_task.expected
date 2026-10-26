@@ -1,0 +1,8 @@
+the module scope is named: 1
+the named begin block is a begin scope: 1
+the named fork block is a fork scope: 1
+the task is a task scope: 1
+the vector var gives its range: 1
+one upscope for every scope: 1
+the scopes nest and balance: 1
+enddefinitions ends the declarations: 1

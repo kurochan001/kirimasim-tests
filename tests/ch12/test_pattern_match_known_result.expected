@@ -1,0 +1,5 @@
+same: 1 unknown=0
+diff: 0 unknown=0
+q is z: 0
+wildcard: 1
+bound n=10x1 v=0000

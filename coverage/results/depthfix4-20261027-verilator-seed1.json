@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905",
+ "tests": {
+  "ch33/test_config_design_top": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'cfg_stray elaborated', expected 'top: test_config_design_top'",
+   "inputs_sha256": "a98c0d8e228c8fdcd40b46ef86c8d8f9bac60da5307a70d6a52802c856ada9d1"
+  },
+  "ch38/test_vpi_systf_info_fields": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: /opt/homebrew/Cellar/verilator/5.052/share/verila...', expected 'type PLI_INT32 1'",
+   "inputs_sha256": "fe96e77bd0aa63e71345621ba67483791e4a887cffd5724df4a53ad69a16f1fd"
+  }
+ },
+ "generated_at": "2026-10-26T16:30:05.243400+00:00",
+ "runner_sha256": "01768938d8903642ffffe6f4b8e22d354ebf1d48a86d22440b4ef9bf42dea82d",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

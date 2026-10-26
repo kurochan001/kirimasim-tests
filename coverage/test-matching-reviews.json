@@ -4371,6 +4371,22 @@
               "contains": "sum = sum + md[i][j];"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-12.7.3-EXTRACT-FOREACH-READONLY-INDICES",
+            "SV2023-12.7.3-EXTRACT-FOREACH-RESIZE-UNDEFINED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Writing a foreach loop variable is an error whose rejection is a different, negative kind of test, and changing a dynamic array's size during iteration has undefined results that no expected output may fix; the test only reads the indices of an unchanged array.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_foreach.sv",
+              "contains": ":name: test_foreach"
+            }
+          ]
         }
       ]
     },
@@ -4496,6 +4512,22 @@
               "contains": "unique case (sel)"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-12.5.3-EXTRACT-UNIQUE0-CASE-MISS",
+            "SV2023-12.5.3.1-EXTRACT-CASE-GLITCH-IMMUNITY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "unique0 does not report a no-match, and a false report from a zero-delay glitch would be a tool-specific message; the test's values are set between time steps, so neither the absence of the first report nor the absence of the second can appear in the output.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_case_edge_cases.sv",
+              "contains": ":name: test_unique_case_edge_cases"
+            }
+          ]
         }
       ]
     },
@@ -4518,6 +4550,21 @@
             {
               "file": "tests/ch12/test_unique_priority_unique0_basic.sv",
               "contains": "check(\"unique0 zero-match allowed\", h==0);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-12.4.2-EXTRACT-UNIQUE0-MISS-ALLOWED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "unique0 does not report a no-match, and the absence of a tool-specific report is not visible in the standard output; the test only shows that no branch runs, which every implementation prints alike whether it reports or not.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_priority_unique0_basic.sv",
+              "contains": ":name: test_unique_priority_unique0_basic"
             }
           ]
         }
@@ -4556,6 +4603,21 @@
               "contains": "else if (val >= 50)"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-12.4.2-EXTRACT-UNIQUE-OVERLAP-REPORT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "More than one true condition is never made true at once in this test, and the required violation report is a tool-specific message with no output form the suite can compare; only the textually first branch, which the test does check, is observable.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_priority_edge_cases.sv",
+              "contains": ":name: test_unique_priority_edge_cases"
+            }
+          ]
         }
       ]
     },
@@ -4578,6 +4640,26 @@
             {
               "file": "tests/ch12/test_unique_if.sv",
               "contains": "unique if (sel == 2'b00)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-12.4.2-EXTRACT-IF-QUALIFIERS",
+            "SV2023-12.4.2-EXTRACT-UNIQUENESS-CONTRACT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test uses unique/unique0/priority if chains and shows which branch runs, but the violation reports that the qualifiers request are tool-specific messages whose presence, time and wording the suite does not compare, and parallel evaluation of the conditions leaves no trace in the output.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if.sv",
+              "contains": ":name: test_unique_if"
+            },
+            {
+              "file": "tests/ch12/test_unique_if.sv",
+              "contains": "unique if"
             }
           ]
         }
@@ -5170,6 +5252,22 @@
             {
               "file": "tests/ch12/test_pattern_matching.sv",
               "contains": "      if (items[i] matches tagged Cmd .c &&& c matches tagged Go .g &&& g > 5)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-12.6.1-EXTRACT-PATTERN-QUALIFIERS",
+            "SV2023-12.6.2-EXTRACT-PATTERN-IF-QUALIFIERS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The patterns are used without priority or unique qualifiers, and the checks those qualifiers request are reports by the tool-specific mechanism; the permission to write them is shown by other tests, not by an output difference here.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_pattern_matching.sv",
+              "contains": ":name: test_pattern_matching"
             }
           ]
         }
@@ -10915,6 +11013,21 @@
               "contains": "module test_vpi_constraint_items;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.34-EXTRACT-DIAGRAM-007"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The constraint diagram has vpiVirtual, but the language has no virtual constraint declaration; the keyword does not exist in 18.5 or in Annex A, so no legal constraint can make the property TRUE and no detail defines FALSE.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_constraint_items.sv",
+              "contains": "module test_vpi_constraint_items;"
+            }
+          ]
         }
       ]
     },
@@ -11225,6 +11338,34 @@
               "contains": "module test_vpi_frames_threads_alloc;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.1-EXTRACT-CLASS-VARIABLE-CALLBACK",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBCREATEOBJ",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBENDOFFRAME",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBENDOFOBJECT",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBENDOFTHREAD",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBENTERTHREAD",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBRECLAIMOBJ",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBSIZECHANGE",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBSTARTOFFRAME",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBSTARTOFTHREAD",
+            "SV2023-38.36.1-EXTRACT-EVENT-CBVALUECHANGE",
+            "SV2023-38.36.1-EXTRACT-RECLAIM-ACCESS",
+            "SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-OBJECT",
+            "SV2023-38.36.1.2-EXTRACT-ALL-STATEMENT-KINDS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "class オブジェクト・frame・thread・文のコールバックは、Icarus Verilog 13.0 の vpi_user.h に class のオブジェクト型・cbCreateObj/cbEndOfObject/cbStartOfThread などの理由番号・文オブジェクトが無く、cbStmt の登録自体を拒否する。Verilator もこれらの VPI コールバックを持たないため、オブジェクトの適格性と発火時点を観測できない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_frames_threads_alloc.sv",
+              "contains": "module test_vpi_frames_threads_alloc;"
+            }
+          ]
         }
       ]
     },
@@ -11392,6 +11533,23 @@
           "disposition": "partial_observation",
           "explanation": "The requirement says source objects exist from analysis to tool termination. A simulation test can observe that a never-called task or an unelaborated class still has source properties, but it cannot observe the persistence until the tool terminates.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_lifetime_properties.sv",
+              "contains": "module automatic test_vpi_lifetime_properties_am;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.3.7-EXTRACT-DYNAMIC-LIFETIME",
+            "SV2023-37.3.7-EXTRACT-OTHER-TRANSIENT",
+            "SV2023-37.3.7-EXTRACT-SOURCE-STATIC-LIFETIME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Reclamation of a class object and the death of threads, iterators, scheduled events and callbacks happen at a time the standard does not fix, and using a handle afterwards is the undefined behavior the clauses forbid. A simulation test also cannot run before analysis or after the tool terminates, so source-object lifetime cannot be observed.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -11611,6 +11769,21 @@
               "contains": "int)vpi_get(vpiArrayMember, go)"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.27-EXTRACT-DIAGRAM-026"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "37.27 deprecates vpiArray and defines vpiArrayMember instead; the detail text does not restate the value of vpiArray, so a conforming tool is not required to return 1 for a named event array element.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_named_events.sv",
+              "contains": "module test_vpi_named_events;"
+            }
+          ]
         }
       ]
     },
@@ -11725,6 +11898,37 @@
           "disposition": "oracle_issue",
           "explanation": "The requirement says vpiNetTypedef returns the explicitly declared user nettypes, but vpiNetTypedef is not defined in Annex M's sv_vpi_user.h, so the named relation cannot be used portably.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_nettype_declarations.sv",
+              "contains": "module test_vpi_nettype_declarations;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.10-EXTRACT-DIAGRAM-038",
+            "SV2023-37.10-EXTRACT-NETTYPEDEFS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Both rows name the tag vpiNetTypedef for the instance-to-nettype iteration and for vpiNetTypedef, but Annex M's sv_vpi_user.h defines no vpiNetTypedef (only vpiNettypeDecl and vpiNetTypedefAlias), so the relation cannot be written portably.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_nettype_declarations.sv",
+              "contains": "module test_vpi_nettype_declarations;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.10-EXTRACT-DIAGRAM-055"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The instance item group lists the nettype declaration as a member but gives the group no property of its own; 37.23 defines vpiName and no full name, so the rule that group properties apply to every member has no distinct observable for a nettype declaration.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -11959,6 +12163,37 @@
               "contains": "module test_vpi_relationships_and_tags_child (input logic [7:0] w8, output logic [3:0] y);"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.3.1-EXTRACT-TAGGED-EXPRESSION"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row makes vpiExpr on a part-select an error. The reaction to that illegal request (a NULL handle and the text of vpi_chk_error) is not fixed, so no output can distinguish a conforming rejection; the legal vpiLeftRange and vpiRightRange access is already mapped.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_relationships_and_tags.sv",
+              "contains": "module test_vpi_relationships_and_tags_child (input logic [7:0] w8, output logic [3:0] y);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.4.1-EXTRACT-CLASS-REFERENCE-KEY",
+            "SV2023-37.4.1-EXTRACT-OBJECT-CLASS-KEY"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "These rows describe the notation of the data model diagrams (bold, italic and dotted enclosures) rather than an object, relationship or property of a design, so they have no VPI observable.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_relationships_and_tags.sv",
+              "contains": "module test_vpi_relationships_and_tags_child (input logic [7:0] w8, output logic [3:0] y);"
+            }
+          ]
         }
       ]
     },
@@ -12065,6 +12300,21 @@
           "disposition": "partial_observation",
           "explanation": "The requirement allows an inline typedef field typespec to have an empty-string name. The test prints named struct and enum typespecs and never a typedef field whose name is empty, so the allowed empty name is not observed.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_struct_typespecs.sv",
+              "contains": "module test_vpi_struct_typespecs;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.25-EXTRACT-INLINE-TYPE-NAME"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "Detail 5 says the name of an inline typedef field may be the empty string, while detail 1 says a typespec without a user typedef has a NULL name. Both are allowed, so an expected value cannot be fixed.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -12197,6 +12447,36 @@
             {
               "file": "tests/ch37/test_vpi_task_function_properties.c",
               "contains": "    vpi_printf((PLI_BYTE8 *)\"imported function twice: %s\\n\", str(vpiFullName, f));"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.41-EXTRACT-DIAGRAM-008"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row reads the 37.41 diagram as a relation from task/function to ref obj with vpiParent, but vpiParent is the child-to-parent relation and 37.15 detail 4 makes the parent of a ref obj the containing ref obj; the direction is not settled.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_task_function_properties.sv",
+              "contains": "package test_vpi_task_function_properties_pkg;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.41-EXTRACT-DPI-VERSION-NAME"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "35.5.4 permits a tool to reject the deprecated DPI spelling at compile time, so a design that must elaborate cannot observe vpiDPI; only DPI-C with vpiDPIC is portable, and the row's distinction cannot be fixed.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_task_function_properties.sv",
+              "contains": "package test_vpi_task_function_properties_pkg;"
             }
           ]
         }
@@ -12466,6 +12746,21 @@
             {
               "file": "tests/ch37/test_vpi_virtual_interface_vars.expected",
               "contains": "v_init: expr b1, actual b1, modport 0"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.29-EXTRACT-DIAGRAM-002"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The interface expression group lists a modport as a member but declares no property or relationship of the group itself; the modport is reached only as vpiActual of a virtual interface, which is already observed.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_virtual_interface_vars.sv",
+              "contains": "interface test_vpi_virtual_interface_vars_bus;"
             }
           ]
         }
@@ -14396,6 +14691,22 @@
             {
               "file": "tests/ch20/test_assertcontrol.expected",
               "contains": "100: all on again: assert failures 2, assume failures 2, immediate failures 2"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.14.2-EXTRACT-BIAS-NO-RELAXATION",
+            "SV2023-16.14.2-EXTRACT-FORMAL-ASSUME"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The test uses no distribution and no free variable, so the selection of values by random simulation weights cannot be observed; and the use of an assumed property as an environmental hypothesis without a proof obligation belongs to formal analysis and has no simulation output.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol.sv",
+              "contains": ":name: test_assertcontrol"
             }
           ]
         }
@@ -19906,6 +20217,34 @@
               "contains": "  always #6 clk_b = ~clk_b;    // rising edges at 6, 18, 30"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-17.1-EXTRACT-MODELING-KINDS",
+            "SV2023-17.7-EXTRACT-FREE-VARIABLE",
+            "SV2023-17.7-EXTRACT-CONST-FORMAL-SIM",
+            "SV2023-17.7-EXTRACT-FORMAL-FREE",
+            "SV2023-17.7.2-EXTRACT-ACTIVE-INACTIVE",
+            "SV2023-17.7.2-EXTRACT-ACTIVITY-GRANULARITY",
+            "SV2023-17.7.2-EXTRACT-ASSUME-SET-MEMBERSHIP",
+            "SV2023-17.7.2-EXTRACT-EMPTY-SET-CLOCK",
+            "SV2023-17.7.2-EXTRACT-ONE-ASSUME-SET",
+            "SV2023-17.7.2-EXTRACT-RANDOM-INITIALIZATION",
+            "SV2023-17.7.2-EXTRACT-SOLVE-CURRENT-STEP",
+            "SV2023-17.7.2-EXTRACT-SOLVE-FAILURE-FREEDOM",
+            "SV2023-17.7.3-EXTRACT-REPEATED-REGION-CLOCKS",
+            "SV2023-17.9-EXTRACT-TRIGGERED-COMB-CAUTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "これらの行は自由変数にどの値を選んでよいか、いつ乱数化してよいか、解の探索をどこまで行うかを定めるが、適合する実装はどの値も選べる。したがって固定した期待出力で正しい実装と誤った実装を区別できず、値を表示するテストは乱数に依存する。17.7.3 の重複実行と 17.9 の注意は推奨であり義務を生まない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_assume_violation.sv",
+              "contains": "checker assume_unsat(input logic clk_a, input logic clk_b,"
+            }
+          ]
         }
       ]
     },
@@ -20459,6 +20798,21 @@
               "contains": "module test_vpi_handle_creating_routines;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.2.2-EXTRACT-RESTART-RELEASE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "A simulation restart is a tool action that no suite runner provides, so the release of every handle at restart, and the survival of cbStartOfRestart and cbEndOfRestart callback handles, cannot be stimulated.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_handle_creating_routines.sv",
+              "contains": "module test_vpi_handle_creating_routines_src(output wire o, input wire d);"
+            }
+          ]
         }
       ]
     },
@@ -20545,6 +20899,21 @@
               "contains": "module test_vpi_object_access_basics;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.3.1-EXTRACT-API-NAMING"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row defines the spelling of routine, macro and callback names. A test uses those names but cannot make a conforming tool produce a different observable for a wrongly named declaration; Annex K and Annex M fix the names.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_object_access_basics.sv",
+              "contains": "module test_vpi_object_access_basics_leaf(input wire a, output wire y);"
+            }
+          ]
         }
       ]
     },
@@ -20577,6 +20946,21 @@
           "disposition": "partial_observation",
           "explanation": "The requirement covers vpiDelayType, vpiNetType, vpiOpType, vpiPrimType, vpiResolvedNetType and vpiTchkType. vpiDelayType needs a delay device, which no portable stimulus can reach (see the delay terminal holds), so the additional-type rule cannot be observed for all six properties at once.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_type_constants_more.sv",
+              "contains": "module test_vpi_type_constants_more_ff(input wire clk, input wire d, output reg q);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.3.2-EXTRACT-ADDITIONAL-TYPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "vpiNetType, vpiResolvedNetType, vpiOpType, vpiPrimType and vpiTchkType are readable on nets, expressions, primitives and timing checks, but vpiDelayType exists only on delay devices and delay terminals. The standard reaches those only through a net's local driver or load set, whose delay-term membership depends on the tool's path-delay model.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -20637,6 +21021,22 @@
             {
               "file": "tests/ch37/test_vpi_interface_relations.sv",
               "contains": "module test_vpi_interface_relations;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.6-EXTRACT-DIAGRAM-011",
+            "SV2023-37.6-EXTRACT-DIAGRAM-012"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "Both rows need a module path declared in an interface. Annex A allows specify_block only as a non_port_module_item, so two independent parsers reject the construct although 37.39 detail 1 says specify blocks can occur in interfaces; no legal stimulus exists.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interface_relations.sv",
+              "contains": "interface test_vpi_interface_relations_inner;"
             }
           ]
         }
@@ -21152,6 +21552,21 @@
               "contains": "module pt_sub(a, , y, z, nc, .p(q));"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.14-EXTRACT-DIAGRAM-021"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "38.10 lists legal no_of_delays only for primitives, path delay objects, timing checks and intermodule paths; it gives none for a module input port, so the size and contents of the delay array that 37.14 asks for a port are not defined.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_ports.sv",
+              "contains": "module pt_sub(a, , y, z, nc, .p(q));"
+            }
+          ]
         }
       ]
     },
@@ -21197,6 +21612,22 @@
             {
               "file": "tests/ch37/test_vpi_port_kinds_connections.sv",
               "contains": "module pkc_ansi (input logic [3:0] a, output logic y, pkc_if ip, pkc_if.mp mpp);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.14-EXTRACT-INTERFACE-NO-DELAY",
+            "SV2023-37.14-EXTRACT-PORT-BIT-PROPERTIES"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "One row says get_delays and put_delays do not apply to an interface port and the other says vpiName and vpiPortIndex do not apply to port bits. Neither defines the return of the call, and the VPI error reaction is implementation-defined.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_port_kinds_connections.sv",
+              "contains": "interface pkc_if;"
             }
           ]
         }
@@ -21314,6 +21745,21 @@
               "contains": "module rok_leaf (rok_if c);"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.29-EXTRACT-INTERFACE-EXPRESSION-RESTRICTIONS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Detail 2 restricts which ref obj and constant may be an interface expression. An illegal interface expression is outside the legal designs of the suite, and the reaction of a tool to it is not defined.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_ref_obj_kinds_relations.sv",
+              "contains": "interface rok_if;"
+            }
+          ]
         }
       ]
     },
@@ -21366,6 +21812,22 @@
           "disposition": "oracle_issue",
           "explanation": "The requirements put a delay terminal in the net drivers and net loads groups. Reaching a delay terminal needs the path-delay element of a module path, and which net's local set contains it depends on the tool's delay model, so no portable expected set exists.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_local_active_connectivity.sv",
+              "contains": "module nlac_mod (input wire a, output wire y, inout wire z);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.16-EXTRACT-COLLAPSE-VARIATION",
+            "SV2023-37.16-EXTRACT-SIMULATED-NET"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Whether nets are collapsed across hierarchy is a tool choice. The global load and driver sets therefore differ between legal implementations, and vpiSimNet is defined only when collapsing occurs; one run cannot compare the local sets under two collapsing choices.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -21592,6 +22054,21 @@
               "contains": "module icts_wand (inout wand [3:0] w);"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.16-EXTRACT-DIAGRAM-043"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "vpiSimNet is defined only if the implementation collapses nets across hierarchy; with no collapse the clause fixes no handle, so a test cannot choose an expected net.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interconnect_net_type_size.sv",
+              "contains": "module icts_wand (inout wand [3:0] w);"
+            }
+          ]
         }
       ]
     },
@@ -21647,6 +22124,36 @@
           "disposition": "partial_observation",
           "explanation": "The requirement covers indexed and multi-indexed net access, vpi_get_delays and vpi_get_value/vpi_put_value on nets. The test exercises the index access only; it does not read a net delay nor read or write a net value, so the value and delay parts are not observed.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_array_elements_indices.sv",
+              "contains": "module test_vpi_net_array_elements_indices;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.16-EXTRACT-DIAGRAM-068"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "37.16 deprecates vpiArray and defines vpiArrayMember instead; the detail text does not restate the value of vpiArray, so a conforming tool is not required to return 1 for a net array member.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_array_elements_indices.sv",
+              "contains": "module test_vpi_net_array_elements_indices;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.16-EXTRACT-DIAGRAM-089"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row requires vpi_get_delays on a net, but 38.10 gives legal delay counts only for primitives, path delay objects, timing checks and intermodule paths and defines no net delay; the indexed access and value parts are observed elsewhere.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -21781,6 +22288,21 @@
               "contains": "module test_vpi_net_decl_flags_select;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.16-EXTRACT-DIAGRAM-071"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "vpiExpanded reports whether the tool expanded a vector; the value is a property of the implementation, not of the source, so no fixed value can be expected.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_decl_flags_select.sv",
+              "contains": "module test_vpi_net_decl_flags_select;"
+            }
+          ]
         }
       ]
     },
@@ -21864,6 +22386,21 @@
           "disposition": "oracle_issue",
           "explanation": "The requirement says that array nets, unpacked struct/union nets and interconnect arrays do not have a value property. The standard does not define an observable result for calling vpi_get_value on such an object, so the absence cannot be asserted by an expected output.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_net_kinds_ranges_sizes.sv",
+              "contains": "module test_vpi_net_kinds_ranges_sizes;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.16-EXTRACT-NET-NO-VALUE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row says that array nets, unpacked struct and union nets and interconnect arrays do not expose a value property. Observing an absent property means making an illegal vpi_get_value call whose return and error text are not defined.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -22084,6 +22621,21 @@
               "contains": "module test_vpi_array_var;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.17-EXTRACT-DIAGRAM-073"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "37.17 deprecates vpiArray and defines vpiArrayMember instead; the detail text does not restate the value of vpiArray, so a conforming tool is not required to return 1 for an array variable element.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_array_var.sv",
+              "contains": "module test_vpi_array_var;"
+            }
+          ]
         }
       ]
     },
@@ -22172,6 +22724,21 @@
             {
               "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.sv",
               "contains": "module test_vpi_variable_kinds_flags_sizes;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.17-EXTRACT-VARIABLE-NO-VALUE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row says that array, class and virtual-interface variables and nonvector struct and union variables have no value property. Observing the absence means making an illegal vpi_get_value call whose return and error text are not defined.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_variable_kinds_flags_sizes.sv",
+              "contains": "interface test_vpi_variable_kinds_flags_sizes_if;"
             }
           ]
         }
@@ -22948,6 +23515,21 @@
               "contains": "module test_vpi_udp_defn_entries;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.36-EXTRACT-TABLE-VALUE-FORMATS"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row restricts table-entry get_value to decompilation and vector ASCII formats. The string form has no fixed text, and asking for another format is an error with no defined reaction; the vector form is already observed.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_udp_defn_entries.sv",
+              "contains": "module test_vpi_udp_defn_entries;"
+            }
+          ]
         }
       ]
     },
@@ -23095,6 +23677,21 @@
               "contains": "module test_vpi_expression_decompile_calls;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.59-EXTRACT-PROTECTED-EXPRESSION-SIZE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row requires a protected expression whose vpiSize can still be queried. A protected expression exists only inside a protected envelope, which clause 34 leaves to the encryption a tool uses.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_expression_decompile_calls.sv",
+              "contains": "module test_vpi_expression_decompile_calls;"
+            }
+          ]
         }
       ]
     },
@@ -23161,6 +23758,37 @@
           "disposition": "oracle_issue",
           "explanation": "The requirement is that protected system task and function calls still allow vpiArgument iteration. Protected source cannot be produced (clause 34 is out of scope), so the stimulus is unavailable.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_is_protected_property.sv",
+              "contains": "module test_vpi_is_protected_property;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.3.6-EXTRACT-PROTECTED-ACCESS",
+            "SV2023-37.3.6-EXTRACT-PROTECTED-FLAG"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Clause 34 protected envelopes are outside the suite's scope because their content is defined by the encryption a tool uses. Without an envelope only vpiIsProtected FALSE is observable, and neither the TRUE value nor the access restrictions can be produced.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_is_protected_property.sv",
+              "contains": "module test_vpi_is_protected_property;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.42-EXTRACT-PROTECTED-SYSTEM-ARGUMENTS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row requires a protected system task or function call whose arguments can still be iterated. A protected call exists only inside a protected envelope, which clause 34 leaves to the encryption a tool uses, so the suite has no such stimulus.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -23317,6 +23945,37 @@
               "contains": "module test_vpi_frames_and_threads;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.43-EXTRACT-AUTOMATIC-NO-CALLBACK",
+            "SV2023-37.43-EXTRACT-AUTOMATIC-NO-DELAY"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Both rows make an application's callback registration or delayed put on an automatic variable an error. The reaction to the illegal call is not defined, so no output can distinguish a conforming rejection.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_frames_and_threads.sv",
+              "contains": "module test_vpi_frames_and_threads;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.43-EXTRACT-FRAME-VERSION"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row says the frame model is incompatible with earlier editions; it states a documentation difference, not an object, relationship or value of a design.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_frames_and_threads.sv",
+              "contains": "module test_vpi_frames_and_threads;"
+            }
+          ]
         }
       ]
     },
@@ -23395,6 +24054,22 @@
               "contains": "        if (t == vpiContAssignBit || t == vpiPortBit)"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.46-EXTRACT-DIAGRAM-005",
+            "SV2023-37.46-EXTRACT-DIAGRAM-009"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The delay term in the net drivers and loads groups is the same delay device object, reached only through the tool-dependent path-delay membership; no portable stimulus puts a delay term in a net's driver or load set.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_drivers_loads_ports_force.sv",
+              "contains": "module test_vpi_drivers_loads_ports_force_sink (input wire i, output wire o);"
+            }
+          ]
         }
       ]
     },
@@ -23446,6 +24121,22 @@
           "disposition": "citation_refinement",
           "explanation": "The requirement is the vpiEndColumn property of an assertion. The standard does not define the column numbering, so no exact ending column can be derived.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_assertion_objects.sv",
+              "contains": "module test_vpi_assertion_objects;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.49-EXTRACT-DIAGRAM-015",
+            "SV2023-37.49-EXTRACT-DIAGRAM-017"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "vpiColumn and vpiEndColumn are the starting and ending columns, but the standard does not define the column origin, tab expansion, or whether the count is in characters or bytes, so no exact column value is fixed.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -23515,6 +24206,21 @@
               "contains": "module test_vpi_property_sequence_exprs;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.56-EXTRACT-DIAGRAM-003"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row's untagged sequence expression access type would be vpiSequenceExpr, but Annex M's sv_vpi_user.h defines no vpiSequenceExpr (only vpiSequenceDecl and vpiSequenceInst), so the relation cannot be written portably.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_property_sequence_exprs.sv",
+              "contains": "module test_vpi_property_sequence_exprs;"
+            }
+          ]
         }
       ]
     },
@@ -23558,6 +24264,21 @@
               "contains": "module test_vpi_property_decl_formals_args;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.52-EXTRACT-PROPERTY-VARIABLE-NO-VALUE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row says that the values of property variables cannot be accessed; reading one is an error whose reaction is not defined, so no output can distinguish a conforming rejection.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_property_decl_formals_args.sv",
+              "contains": "module test_vpi_property_decl_formals_args;"
+            }
+          ]
         }
       ]
     },
@@ -23594,6 +24315,21 @@
           "disposition": "partial_observation",
           "explanation": "The requirement puts the reference object in the simple expression group, so the group properties apply to a reference object used as an expression. The test reads simple expressions and uses but does not exercise a reference object as a simple expression.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_simple_expr_uses.sv",
+              "contains": "module test_vpi_simple_expr_uses;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.58-EXTRACT-DIAGRAM-003"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The simple expression group gives only vpiName, vpiFullName and vpiConstantSelect. For a ref obj the name and full name are already defined by 37.15 and constant select is not defined, so group membership adds no distinct observable.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -23785,6 +24521,24 @@
               "contains": "module test_vpi_case_items_patterns;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.72-EXTRACT-DIAGRAM-009",
+            "SV2023-37.72-EXTRACT-DIAGRAM-013",
+            "SV2023-37.72-EXTRACT-DIAGRAM-015",
+            "SV2023-37.72-EXTRACT-DIAGRAM-016"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The existing test observes tagged, any and constant patterns but has no struct pattern. The rows give a struct pattern a vpiName and a vpiPattern iteration, yet the standard does not say whether the name belongs to the struct pattern itself or to a named member pattern, and it gives no detail for the tagged pattern typespec.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_case_items_patterns.sv",
+              "contains": "module test_vpi_case_items_patterns;"
+            }
+          ]
         }
       ]
     },
@@ -23854,6 +24608,30 @@
           "disposition": "partial_observation",
           "explanation": "The 37.83 requirements for primitive terminals, path terminals, module paths, timing checks and table entries need an attribute on each of those five object kinds. Annex A allows attribute instances only on declarations and statements (not on gate terminals, path terminals or UDP table entries), so the parent side of those five relations cannot be produced by legal source; the test observes the other attribute owners.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_attribute_parents.sv",
+              "contains": "module atr_leaf (input logic p);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.83-EXTRACT-DIAGRAM-013",
+            "SV2023-37.83-EXTRACT-DIAGRAM-014",
+            "SV2023-37.83-EXTRACT-DIAGRAM-015",
+            "SV2023-37.83-EXTRACT-DIAGRAM-016",
+            "SV2023-37.83-EXTRACT-DIAGRAM-017",
+            "SV2023-37.83-EXTRACT-DIAGRAM-018",
+            "SV2023-37.83-EXTRACT-DIAGRAM-019",
+            "SV2023-37.83-EXTRACT-DIAGRAM-020",
+            "SV2023-37.83-EXTRACT-DIAGRAM-029",
+            "SV2023-37.83-EXTRACT-DIAGRAM-030"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "Attributes cannot be written on primitive terminals, path terminals, module paths, timing checks or UDP table entries: Annex A has no attribute_instance before those items. The diagram's attribute-parent rows therefore have no legal stimulus.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -23951,6 +24729,21 @@
           "disposition": "oracle_issue",
           "explanation": "The requirement says vpiTypedef returns the typedef typespecs and vpiNetTypedef the user nettypes declared in a generate scope. vpiNetTypedef is absent from Annex M's sv_vpi_user.h, so the nettype half cannot be traversed portably; the typedef half alone is only a partial observation.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_gen_scope_data_items.sv",
+              "contains": "module test_vpi_gen_scope_data_items;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.85-EXTRACT-DIAGRAM-074"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row names vpiNetTypedef for the generate-scope-to-nettype iteration, but Annex M's sv_vpi_user.h defines no vpiNetTypedef (only vpiNettypeDecl and vpiNetTypedefAlias), so the relation cannot be written portably.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -24058,6 +24851,22 @@
           "disposition": "partial_observation",
           "explanation": "The test observes vpi_printf's output-channel text and its character count, but the runner opens no tool log file, so the second destination (the current log) cannot be read, and no output error can be induced to make vpi_printf return EOF. The log-file half of the requirement and the error return are therefore unobserved.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_printf_return_counts.sv",
+              "contains": "module test_vpi_printf_return_counts;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.5-EXTRACT-FLUSH-BUFFERS",
+            "SV2023-38.30-EXTRACT-PRINTF-OUTPUT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "vpi_flush はツールの出力チャネルと現在のログファイルのバッファを掃き出し、vpi_printf は両方に書く。ランナーは vvp に -l を渡さず（:args: は入力ファイルの後に置かれるためオプションにならない）、ログファイルを開く VPI ルーチンも無いので、現在のログファイルへの書き込みとバッファの掃き出しをテストから観測できない。出力チャネル側と文字数だけでは、常に即時書きする実装と区別できない。",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -24462,6 +25271,22 @@
               "contains": "vpi_get_vlog_info returns 1, all argc entries are strings: yes"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.17-EXTRACT-VLOG-ARGUMENTS",
+            "SV2023-38.17-EXTRACT-VLOG-OPTION-FILES"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "argv[0] はツール自身の名前であり、ランナーが vvp を起動する経路（PATH か絶対パスか）に依存するため、移植可能な期待文字列を決められない。ファイル・オブ・オプション引数はベンダが対応する場合にだけ argv に入る条件付きの規則で、対応しないツールでも適合する。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_get_vlog_info_plusargs.sv",
+              "contains": "module test_vpi_get_vlog_info_plusargs;"
+            }
+          ]
         }
       ]
     },
@@ -24845,6 +25670,24 @@
               "contains": "$width: module test_vpi_tchk_relations_path_delays.u2, reference clk, its check 1, data none, limit 5, now 8"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.10-EXTRACT-TIMING-DELAY-COUNT",
+            "SV2023-38.32-EXTRACT-PUT-INTERMODULE-COUNT",
+            "SV2023-38.32-EXTRACT-PUT-PRIMITIVE-DELAY-COUNT",
+            "SV2023-38.32-EXTRACT-PUT-TIMING-DELAY-COUNT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "no_of_delays が実際の制限数・2か3・2か3と一致しなければならないという条件は、呼び出し側が渡す数の制約で、違反は呼び出しの失敗としてしか現れない。既存テストは制限1個の $setup/$hold/$width と、ゲート・intermodule path の2遅延だけを使い、2制限の timing check や不正な個数を刺激していない。Icarus Verilog 13.0 は primitive と intermodule path の遅延数をモデル化しない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_tchk_relations_path_delays.sv",
+              "contains": "module test_vpi_tchk_relations_path_delays;"
+            }
+          ]
         }
       ]
     },
@@ -24901,6 +25744,34 @@
           "disposition": "oracle_issue",
           "explanation": "The test observes vpi_put_userdata and vpi_get_userdata for each call, but it never resets or restarts the simulation. Icarus Verilog 13.0 supports neither $reset nor save/restart through VPI, so the required NULL result of vpi_get_userdata after a reset or restart, the clearing of the stored association, and setting it up again during or after cbEndOfReset or cbEndOfRestart cannot be observed.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_userdata_per_call.sv",
+              "contains": "module test_vpi_userdata_per_call;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.9-EXTRACT-GET-DATA-CALLBACK-SCOPE",
+            "SV2023-38.9-EXTRACT-GET-DATA-FAILURE",
+            "SV2023-38.9-EXTRACT-GET-DATA-ID-TRANSPORT",
+            "SV2023-38.9-EXTRACT-GET-DATA-SEQUENTIAL",
+            "SV2023-38.9-EXTRACT-GET-DATA-SIGNATURE",
+            "SV2023-38.14-EXTRACT-USERDATA-RESTART",
+            "SV2023-38.31-EXTRACT-PUT-DATA-COUNT",
+            "SV2023-38.31-EXTRACT-PUT-DATA-ORDER",
+            "SV2023-38.31-EXTRACT-PUT-DATA-PHASE",
+            "SV2023-38.31-EXTRACT-PUT-DATA-SIGNATURE",
+            "SV2023-38.31-EXTRACT-PUT-DATA-STREAM",
+            "SV2023-38.33-EXTRACT-PUT-USERDATA-RESET",
+            "SV2023-38.36.3-EXTRACT-RESET-CALLBACK-ORDER",
+            "SV2023-38.36.3-EXTRACT-RESTART-CALLBACK-SURVIVAL"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "save/restart のデータは cbStartOfSave/cbEndOfSave/cbStartOfRestart/cbEndOfRestart の中でしか put_data/get_data できず、$reset と $save/$restart がその契機になる。Icarus Verilog 13.0 は $reset・$save・$restart を実行せず、vpi_user.h に vpi_put_data と vpi_get_data の宣言も無いため、これらのコールバックとバイト列をテストから起こせない。",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -25437,6 +26308,21 @@
               "contains": "module test_vpi_callback_objects;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.80-EXTRACT-CALLBACK-ARROW-TEXT"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row records a single-arrow drawing from primitive terminal, expression, time queue and statement to a callback object, but vpi_register_cb and vpi_iterate create and return callback handles without a relation from those objects; the arrow is a notation question.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_callback_objects.sv",
+              "contains": "module test_vpi_callback_objects;"
+            }
+          ]
         }
       ]
     },
@@ -25722,6 +26608,23 @@
               "contains": "cb->reason == cbTchkViolation, kind(cb->obj));"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.3-EXTRACT-ACTION-CALLBACK-FIELDS",
+            "SV2023-38.36.3-EXTRACT-ACTIONS-VERSUS-FEATURES",
+            "SV2023-38.37.2-EXTRACT-VENDOR-STARTUP-FILE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "アクション・コールバックの obj の意味のうち、cbInteractiveScopeChange の obj は vpiSetInteractiveScope でしか起こせず Icarus はこれを拒否する。アクション・コールバックが全 VPI ツールに必須で feature コールバックはそうとは限らないという区別は 1 つのツールの 1 回の実行では観測できない。vlog_startup_routines を含むファイルをベンダが供給し利用者が名前を足す手順は、テストが自分の配列を定義する形式では観測できない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_tchk_violation_callback.sv",
+              "contains": "module test_vpi_tchk_violation_callback;"
+            }
+          ]
         }
       ]
     },
@@ -25874,6 +26777,25 @@
             {
               "file": "tests/ch38/test_vpi_release_handle_keeps_object.c",
               "contains": "vpi_printf(\"vpi_release_handle of the callback handle: %d\\n\", (int)vpi_release_handle(cb));"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.38-EXTRACT-ITERATOR-COMPLETION-RELEASE",
+            "SV2023-38.38-EXTRACT-RELEASE-HANDLE-RESULT",
+            "SV2023-38.38-EXTRACT-VALID-HANDLE-ONLY",
+            "SV2023-38.39-EXTRACT-REMOVED-CB-HANDLE",
+            "SV2023-38.40-EXTRACT-SCAN-NULL-INVALID"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "解放の失敗（0）は無効なハンドルでしか起こせず、38.38 自身が無効なハンドルでの解放を禁じている。vpi_remove_cb の後のハンドルと vpi_scan が NULL を返した後の iterator の使用も未定義であり、規格は観測可能な義務を定めない。iterator が NULL で自動解放されるかはメモリの状態でしか分からない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_release_handle_keeps_object.sv",
+              "contains": "module test_vpi_release_handle_keeps_object;"
             }
           ]
         }
@@ -34069,6 +34991,21 @@
               "contains": "    p = 1; q = 1;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-12.4.2.1-EXTRACT-DEFERRED-OBSERVED-REPORT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The report is deferred to the Observed region of the same time step, and the test observes only on/off control over later time steps; no standard-defined output shows whether the report was produced at statement execution or in Observed, and its text is tool-specific.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_assertcontrol_violation_and_expect_types.sv",
+              "contains": ":name: test_assertcontrol_violation_and_expect_types"
+            }
+          ]
         }
       ]
     },
@@ -34244,6 +35181,22 @@
               "contains": "        unique0 case (a)"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-12.5.3-EXTRACT-CASE-OVERLAP-STOP",
+            "SV2023-12.5.3.1-EXTRACT-CASE-REPORT-MECHANICS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Each case has at most one matching item, so no overlap is found and stopping or continuing the evaluation cannot differ; the deferred queue, flush points and maturation of a case violation are visible only through the tool-specific report.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_case.sv",
+              "contains": ":name: test_unique_case"
+            }
+          ]
         }
       ]
     },
@@ -34270,6 +35223,21 @@
             {
               "file": "tests/ch12/test_unique_case_evaluates_every_item.sv",
               "contains": "    unique0 case (ctl())"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-12.5.3-EXTRACT-CASE-MISSING-REPORT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Every case in the test has a matching item or a default, so no missing-match report is requested; the report itself is tool-specific and cannot be observed in the output.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_case_evaluates_every_item.sv",
+              "contains": ":name: test_unique_case_evaluates_every_item"
             }
           ]
         }
@@ -36555,6 +37523,21 @@
               "contains": "sequence capture(local output int v);"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.10-EXTRACT-NO-DEFAULT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "A local without an initialization assignment is unassigned, and reading it before an assignment is an error; the test initializes or assigns every local before any reference, so a tool that defaulted the local to zero prints the same values.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_local_formal_arguments.sv",
+              "contains": ":name: test_sequence_local_formal_arguments"
+            }
+          ]
         }
       ]
     },
@@ -36700,6 +37683,21 @@
               "contains": "an empty match does not set triggered"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.13.6-EXTRACT-CHECKER-INFERENCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test has no checker and passes no method-bearing sequence to one, so substitution in place of a checker formal and clockwise instantiation inside the checker are not stimulated.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_instance_vs_triggered.sv",
+              "contains": ":name: test_sequence_instance_vs_triggered"
+            }
+          ]
         }
       ]
     },
@@ -36766,6 +37764,21 @@
               "contains": "sequence s_or_eq;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.10-EXTRACT-FLOW-OUT-STATIC"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The static flow rules of F.5.4 and the unassignment of a local at the completion of a composite are shown only by the rejection of a later unassigned reference, which is an illegal design; the test uses locals that flow out and read them, so a wrong static analysis that still assigned a value leaves the printed value unchanged.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_local_variable_threads_and_merge.sv",
+              "contains": ":name: test_sequence_local_variable_threads_and_merge"
+            }
+          ]
         }
       ]
     },
@@ -36807,6 +37820,21 @@
             {
               "file": "tests/ch16/test_sequence_local_variables.sv",
               "contains": "int acc = base;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.10-EXTRACT-TRIGGERED-FLOW"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test shows locals flowing out of an ordinary sequence instance; the additional condition for triggered, that the application be a maximal Boolean expression, can only be falsified by reading a variable that is unassigned after a negated triggered, which is an illegal reference.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_local_variables.sv",
+              "contains": ":name: test_sequence_local_variables"
             }
           ]
         }
@@ -37164,6 +38192,21 @@
               "contains": "a_useq: assert property (@(posedge clk) start |-> a until (b ##1 c)) else f_useq++;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.12.15-EXTRACT-STRONG-OPERATORS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test uses only some strong operators with enough ticks; the requirement covers six strong forms and the failure when the clock ticks or the terminating condition are missing, which is decided at the end of the trace and has no fixed action time.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_until_strong_forms.sv",
+              "contains": ":name: test_property_until_strong_forms"
+            }
+          ]
         }
       ]
     },
@@ -37455,6 +38498,21 @@
               "contains": ":name: test_checker_reactive_triggered"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.5.1-EXTRACT-CHECKER-HISTORY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "An active free checker variable is by definition a free checker variable that does not appear on the left-hand side of a checker variable assignment; in simulation its value is chosen by assume-based solving and is constrained only by the assume set, so the standard does not fix a value that an expected output could compare. A checker variable updated by always_ff, like the counters of this test, is inactive, so the Postponed rule for past values does not apply to it.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_reactive_triggered.sv",
+              "contains": ":name: test_checker_reactive_triggered"
+            }
+          ]
         }
       ]
     },
@@ -37522,6 +38580,21 @@
             {
               "file": "tests/ch16/test_sequence_triggered.sv",
               "contains": "int m_wait[$], m_event[$]"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-16.13.6-EXTRACT-INFERRED-CLOCK-DEFAULT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "No formal defaults to $inferred_clock and no actual argument is omitted in the test, so the binding of the clock inferred by 16.9.3 to an omitted actual of a method operand is not stimulated.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_triggered.sv",
+              "contains": ":name: test_sequence_triggered"
             }
           ]
         }
@@ -38267,6 +39340,29 @@
             {
               "file": "tests/ch17/test_illegal_checker_dynamic_reference.sv",
               "contains": "  always_ff @(posedge clk) n <= n + q[0];   // illegal"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-17.2-EXTRACT-ENCLOSING-REFERENCES",
+            "SV2023-17.2-EXTRACT-NO-DESIGN-UNITS",
+            "SV2023-17.2-EXTRACT-PORT-TYPES",
+            "SV2023-17.3-EXTRACT-INPUT-REWRITING",
+            "SV2023-17.3-EXTRACT-INSTANCE-PLACEMENT",
+            "SV2023-17.5-EXTRACT-ALWAYS-STATEMENTS",
+            "SV2023-17.6-EXTRACT-COVERGROUP-REFERENCE",
+            "SV2023-17.8-EXTRACT-FUNCTION-PURITY",
+            "SV2023-17.8-EXTRACT-NO-FREE-FUNCTION-LOCALS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "各要求は複数の独立した禁止条件または許可条件を含む。動的変数の要素・自動変数・fork 要素、package/interface/program の宣言と実体化、untyped/sequence/property の output、always_ff の代入と許可される文、可視変数と const 実引数の coverpoint、関数の output 引数と状態・rand 仮引数を、1つの不正設計は1つの誤りしか持てないため同時に刺激できない。既存テストは各要求の一部だけを観測しており、行全体には対応付けない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_dynamic_reference.sv",
+              "contains": "int q[$];"
             }
           ]
         }
@@ -40756,6 +41852,21 @@
               "contains": "    coverpoint a { option.auto_bin_max = 3; }"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-19.11.1-EXTRACT-AUTO-DENOMINATOR-TEXT"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The registry marks this row as an interpretation issue and forbids a mapping: the generic formula min(auto_bin_max, 2**M) has to be reconciled with the enum cardinality rule of 19.5.3 before an enum percentage oracle can be approved. The existing test observes MIN(64, 2**2) = 4 automatic bins for a 2-bit point, but the row as written cannot be registered until the denominator question is resolved.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_auto_bins_max.sv",
+              "contains": "coverpoint p;"
+            }
+          ]
         }
       ]
     },
@@ -41386,6 +42497,51 @@
               "contains": "cg_plain::type_option.strobe, cg_plain::type_option.merge_instances,"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-19.7.1-EXTRACT-TYPE-OPTION-COMMENT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test observes the empty default and the values set at the covergroup, coverpoint and cross levels, but the clause that the comment is saved with the type in the database and report has no standard accessor, so the row is only partly observed.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_option_member_defaults.sv",
+              "contains": "type_option.comment = \"type\";"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-19.7.1-EXTRACT-TYPE-OPTION-GOAL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test observes the default 100 and the value set at the covergroup and point levels, but a goal only affects a report target and has no effect on any value the simulation can print, so the row is only partly observed.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_option_member_defaults.sv",
+              "contains": "type_option.goal = 80;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-19.7.1-EXTRACT-TYPE-OPTION-MUTATION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The definition sets strobe and real_interval in the covergroup body, as the row requires, but no test assigns the other type options procedurally after construction and observes the change, so both halves of the rule are not witnessed together.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_option_member_defaults.sv",
+              "contains": "type_option.real_interval = 0.25;"
+            }
+          ]
         }
       ]
     },
@@ -41588,6 +42744,36 @@
             {
               "file": "tests/ch19/test_get_coverage_weights.sv",
               "contains": "    type_option.weight = 0;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-19.9-EXTRACT-LOAD-DATABASE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The coverage database is a tool-specific file; the standard fixes that $load_coverage_db loads cumulative data from it but not its format, so a test cannot write a file that every conforming tool must load and then print a fixed coverage. The existing test observes $get_coverage, not the database task.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_get_coverage_weights.sv",
+              "contains": "$get_coverage"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-19.9-EXTRACT-SET-DATABASE-NAME"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row fixes only which file name receives the end-of-run database; the content and even the creation of that file are tool-specific, so no portable expected output can show that the name took effect. The existing test does not call the task.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_get_coverage_weights.sv",
+              "contains": "$get_coverage"
             }
           ]
         }
@@ -43651,6 +44837,36 @@
               "contains": "    $dumpports(ua, fname_a);"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.7.3-EXTRACT-EXTENDED-INHERITANCE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row says that the four-state VCD rules apply to extended VCD unless the subclause changes them, which is a cross-reference rather than a separate condition. The existing test exercises the inherited date, version, timescale, scope and var syntax in an extended file, but no test cites clause 21.7.3 itself, so the row cannot be carried by it.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_dumpports_files_defaults_and_control_scope.sv",
+              "contains": "$dumpports"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.7.3.6.1-EXTRACT-VCDCLOSE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The vcdclose keyword records the final time when the file is closed. A test cannot read a file after its own simulation has closed it, and no runner option lets the test resume after closure, so the suite has no way to observe the keyword. The standard also leaves the closing point to the tool.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_dumpports_files_defaults_and_control_scope.sv",
+              "contains": "$dumpports"
+            }
+          ]
         }
       ]
     },
@@ -43772,6 +44988,36 @@
             {
               "file": "tests/ch21/test_evcd_port_node_declarations.sv",
               "contains": "    $dumpports(test_evcd_port_node_declarations.dut, FILE);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.7.3.6-EXTRACT-PORT-KEYWORDS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The extended file in this test has the keyword-delimited date, version and timescale sections, which is the general-information structure the row points at, but the row also requires that one command beyond four-state VCD be available and no test inserts or reads that extra command.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_port_node_declarations.sv",
+              "contains": "$date"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.7.4.1-EXTRACT-EXTENDED-REAL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The extended-format real rule repeats the printf %.16g representation, but no extended VCD test in the suite has a real port, so no expected line exercises a real value in an extended file. The four-state equivalent is observed by the header test.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_port_node_declarations.sv",
+              "contains": "var port"
             }
           ]
         }
@@ -48228,7 +49474,7 @@
     },
     {
       "test": "tests/ch33/test_config_design_top.sv",
-      "inputs_sha256": "402e67a02466448fef3c12c115a69b5245e911a02b0b4e01a90632e501e4203d",
+      "inputs_sha256": "a98c0d8e228c8fdcd40b46ef86c8d8f9bac60da5307a70d6a52802c856ada9d1",
       "reviewed_on": "2026-10-26",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -48676,6 +49922,28 @@
             {
               "file": "tests/ch38/test_vpi_callback_registration_errors.sv",
               "contains": ":description: vpi_register_cb refuses a cbForce callback on a variable bit-select, a zero-delay cbAtStartOfSimTime after entering a time slice, a zero-delay cbReadWriteSynch at read-only time, and a cbNextSimTime or cbAfterDelay whose time is NULL or of the suppressed type, and creates no callback for them (IEEE 1800-2023 Sections 38.36.1 and 38.36.2)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.16-EXTRACT-ARRAY-FORMAT-ERROR",
+            "SV2023-38.34-EXTRACT-PUT-FORMAT-ERROR",
+            "SV2023-38.35-EXTRACT-PUT-ARRAY-NO-DELAY",
+            "SV2023-38.35-EXTRACT-PUT-ARRAY-UNSUPPORTED-FORMAT",
+            "SV2023-38.36.1-EXTRACT-BITSELECT-CALLBACK-ERROR",
+            "SV2023-38.36.2-EXTRACT-READWRITE-READONLY-ERROR",
+            "SV2023-38.36.2-EXTRACT-START-ZERO-DELAY-ERROR",
+            "SV2023-38.36.2-EXTRACT-TIME-CALLBACK-STRUCTURE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "これらの行は VPI ルーチンの呼び出しを実行時のエラーにすると定める。このスイートの照合規則は error 種別の要求に should_fail_because を持つ不正設計だけを許すが、不正な VPI 呼び出しは設計の誤りではなく実行時のアプリケーションの誤りなので、不正設計として書けない。既存の test_vpi_callback_registration_errors は拒否を実行時に観測しているが simulation テストであり、error 種別には対応付けられない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_callback_registration_errors.sv",
+              "contains": "it is illegal to place a cbForce, cbRelease or"
             }
           ]
         }
@@ -50644,6 +51912,52 @@
               "contains": "module test_vpi_class_specialization_types;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.12-EXTRACT-DIAGRAM-008"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The scope group gives a class typespec only the group properties vpiName and vpiFullName; the full name of a class typespec is not defined (37.10 detail 5 gives the :: form for a class defn), so the group membership has no distinct value to compare.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_specialization_types.sv",
+              "contains": "interface sps_bus;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.31-EXTRACT-LEXICAL-NO-VALUES",
+            "SV2023-37.32-EXTRACT-NONSTATIC-TYPE-NO-VALUE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Both rows forbid vpi_get_value and vpi_put_value on variable and event handles obtained from a class defn or from a non-static member of a class typespec. The reaction to the illegal call is not defined, so no output can distinguish a conforming rejection.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_specialization_types.sv",
+              "contains": "interface sps_bus;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.32-EXTRACT-DIAGRAM-014"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The 37.32 diagram draws the relation from a class typespec to its virtual interface var with vpiVirtualInterfaceVar, not the reverse one-to-one relation from the virtual interface variable to the class typespec that the row states.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_specialization_types.sv",
+              "contains": "interface sps_bus;"
+            }
+          ]
         }
       ]
     },
@@ -51053,6 +52367,30 @@
               "contains": "module test_vpi_get_property_values;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.6-EXTRACT-GET-PROTECTED-ERROR",
+            "SV2023-38.7-EXTRACT-GET64-PROTECTED-ERROR",
+            "SV2023-38.11-EXTRACT-STRING-PROTECTED",
+            "SV2023-38.18-EXTRACT-HANDLE-PROTECTED",
+            "SV2023-38.19-EXTRACT-INDEX-PROTECTED",
+            "SV2023-38.20-EXTRACT-MULTI-INDEX-PROTECTED",
+            "SV2023-38.21-EXTRACT-NAME-PROTECTION",
+            "SV2023-38.23-EXTRACT-ITERATOR-PROTECTED",
+            "SV2023-38.36.1.1-EXTRACT-PROTECTED-STATEMENT-CALLBACK",
+            "SV2023-38.36.1.3-EXTRACT-MODULE-PROTECTED-EXCLUSION"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "いずれも保護されたオブジェクトへのアクセスがエラーになることを求める。保護されたオブジェクトは暗号化された envelope（34章）の中にしか存在せず、テスト形式は envelope を復号する鍵もツール固有の保護機構も渡せないため、両リリースで保護オブジェクトを作れず、エラー状態を観測できない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_get_property_values.sv",
+              "contains": "module test_vpi_get_property_values;"
+            }
+          ]
         }
       ]
     },
@@ -51096,6 +52434,23 @@
               "contains": "module test_vpi_control_finish;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.4-EXTRACT-CONTROL-RESET",
+            "SV2023-38.4-EXTRACT-CONTROL-SCOPE",
+            "SV2023-38.4-EXTRACT-CONTROL-STOP"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "vpiReset は $reset を、vpiStop は $stop を実行し、vpiSetInteractiveScope は対話的スコープを変える。Icarus Verilog 13.0 は vpi_control の vpiReset・vpiStop・vpiSetInteractiveScope を未対応操作として 0 で拒否し、$reset も実行しない。さらに stop と対話スコープはバッチ実行の出力に現れない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_control_finish.sv",
+              "contains": "module test_vpi_control_finish;"
+            }
+          ]
         }
       ]
     },
@@ -51113,6 +52468,25 @@
           "disposition": "citation_refinement",
           "explanation": "The misc member and its format identifiers are implementation-defined: the clause requires a tool that uses the member to provide corresponding format constants, but it defines no such value or identifier that a portable test could request and compare. No standard-derived expected output exists for an implementation-defined misc type, so the requirement cannot be tested without naming one tool's private extension.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_get_value_obj_type_real_vector.sv",
+              "contains": "module test_vpi_get_value_obj_type_real_vector;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.15-EXTRACT-FORMAT-VPISCALARVAL",
+            "SV2023-38.36.1-EXTRACT-CALLBACK-FORMAT-VPISCALARVAL",
+            "SV2023-38.15-EXTRACT-MISC-FORMAT-EXTENSIONS",
+            "SV2023-38.15-EXTRACT-UDP-SYMBOL-STORAGE",
+            "SV2023-38.15-EXTRACT-VALUE-STORAGE-LIFETIME"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "vpiScalarVal が返しうる vpiH と vpiL については、38.15 が値を列挙するだけでどの強度・値をどちらに写すかを定めないため期待値を導けない。misc メンバの形式は実装定義で、対応する format 定数も実装が供給する。UDP の 5 記号以上の表項目は vpiUdpDefn が必要だが Icarus はこれを返さない。get_value の記憶域が次の呼び出しまで有効という規則は、上書きを強制しないため出力で区別できない。",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -51239,6 +52613,23 @@
           "disposition": "partial_observation",
           "explanation": "The test covers a variable, a memory word, a named event, a net, a net bit and a system function call. A sequential UDP instance is not reachable by name in Icarus Verilog 13.0 and Verilator has no UDP VPI, and the exclusion of subelements of a user-defined-nettype net is not stimulated, so the full target list is not observed.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_targets.sv",
+              "contains": "module test_vpi_put_value_targets;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-PROCEDURAL-FORCE-RELEASE",
+            "SV2023-38.34-EXTRACT-PUT-VALUE-TARGETS",
+            "SV2023-38.34-EXTRACT-UDP-NO-DELAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "手続き的 force/release が許す対象は net・変数・net の定数ビット選択/部分選択で、put_value の対象はさらに memory word・named event・system function call・sequential UDP・scheduled event を含む。Icarus Verilog 13.0 は net のビット選択への force を \"does not currently support\" として拒否し、UDP と scheduled event のオブジェクトを持たないため、対象の全種別を刺激できない。既存テストは変数と net 全体だけを force/release する。",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -52036,6 +53427,24 @@
               "contains": "module test_vpi_handle_release_independence;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.2.2-EXTRACT-CLASS-RELEASE",
+            "SV2023-37.2.2-EXTRACT-FRAME-THREAD-RELEASE",
+            "SV2023-37.2.2-EXTRACT-ITERATOR-RELEASE",
+            "SV2023-37.3.8-EXTRACT-LIFETIME-CALLBACKS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Using or releasing a handle after its class object, frame, thread or iterator has been released is the undefined behavior these clauses forbid, and the time at which memory is reclaimed is not fixed, so a conforming application cannot observe the release. cbReclaimObj and cbEndOfObject fire only at that unspecified time.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_handle_release_independence.sv",
+              "contains": "module test_vpi_handle_release_independence;"
+            }
+          ]
         }
       ]
     },
@@ -52114,6 +53523,23 @@
               "contains": "module test_vpi_get_value_side_effects;"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.3.5-EXTRACT-AVOID-EFFECT-INDICES",
+            "SV2023-37.3.5-EXTRACT-PROPERTY-EFFECT-ERROR",
+            "SV2023-37.3.5-EXTRACT-SIDE-EFFECT-KINDS"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "One row is a recommendation to applications, one says an implementation may or may not detect a side effect, and one defines which expressions have side effects. None fixes an output that a conforming tool must produce, so the existing test shows only the well-defined vpi_get_value evaluation.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_get_value_side_effects.sv",
+              "contains": "module test_vpi_get_value_side_effects;"
+            }
+          ]
         }
       ]
     },
@@ -52131,6 +53557,21 @@
           "disposition": "oracle_issue",
           "explanation": "The requirement is that vpi_put_value on an object with a side-effecting index expression is an error. A suite error test must be an illegal design, which a runtime VPI usage error is not.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_put_value_side_effect.sv",
+              "contains": "module test_vpi_put_value_side_effect;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.3.5-EXTRACT-PUT-INDEX-EFFECT-ERROR"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row makes vpi_put_value on an object with a side-effecting index an error, but the reaction to that illegal request (NULL, the text of vpi_chk_error, or a message) is not fixed, so no output can distinguish a conforming rejection.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -52201,6 +53642,45 @@
               "contains": "module test_vpi_mod_path_relations_delays_cell (input a, b, output y, z);"
             }
           ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.39-EXTRACT-INTERFACE-SPECIFY-MODULE"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row needs a specify path in an interface. Annex A allows specify_block only as a non_port_module_item, so the construct is rejected by two independent parsers although 37.39 detail 1 mentions it.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_mod_path_relations_delays.sv",
+              "contains": "module test_vpi_mod_path_relations_delays_cell (input a, b, output y, z);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.45-EXTRACT-DIAGRAM-001",
+            "SV2023-37.45-EXTRACT-DIAGRAM-002",
+            "SV2023-37.45-EXTRACT-DIAGRAM-003",
+            "SV2023-37.45-EXTRACT-DIAGRAM-004",
+            "SV2023-37.45-EXTRACT-DIAGRAM-005",
+            "SV2023-37.45-EXTRACT-DIAGRAM-006",
+            "SV2023-37.45-EXTRACT-DIAGRAM-007",
+            "SV2023-37.45-EXTRACT-DIAGRAM-008",
+            "SV2023-37.45-EXTRACT-DIAGRAM-009",
+            "SV2023-37.45-EXTRACT-INPUT-BEFORE-DELAY"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "A delay device is reached only through a delay term in a net's local driver or load set, and whether a module path contributes such a term depends on the tool's path-delay model. No relation from a module to its delay devices is drawn, so the device and its terminals cannot be obtained portably.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_mod_path_relations_delays.sv",
+              "contains": "module test_vpi_mod_path_relations_delays_cell (input a, b, output y, z);"
+            }
+          ]
         }
       ]
     },
@@ -52223,6 +53703,21 @@
             {
               "file": "tests/ch37/test_vpi_instance_array_kinds.sv",
               "contains": "module test_vpi_instance_array_kinds_leaf #(parameter int W = 1) (input wire a, input wire b);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.10-EXTRACT-DIAGRAM-057"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "37.10 deprecates vpiArray and defines vpiArrayMember instead; the detail text does not restate the value of vpiArray, so a conforming tool is not required to return 1 for an instance array member.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_instance_array_kinds.sv",
+              "contains": "interface test_vpi_instance_array_kinds_bus;"
             }
           ]
         }
@@ -52290,6 +53785,21 @@
           "disposition": "citation_refinement",
           "explanation": "The requirement is the one-to-one relation from a scope to a class definition. 37.31 draws class definition to scope (vpiScope) and class definition to internal scope (vpiInternalScope); the opposite direction and its access type are not stated, so an exact expected handle cannot be derived.",
           "reviewed_on": "2026-10-26",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_internal_scopes.sv",
+              "contains": "module test_vpi_class_internal_scopes;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.31-EXTRACT-DIAGRAM-025"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The class defn diagram draws an untagged scope arrow, but that scope is the enclosing scope, whose reverse relation is the one-to-many scope-to-class-defn relation of 37.12, not the one-to-one relation the row states; the class body is reached with vpiInternalScope.",
+          "reviewed_on": "2026-10-27",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
           "evidence": [
             {
@@ -53444,6 +54954,829 @@
             {
               "file": "tests/ch35/test_svdpi_h_deprecated_size_and_types.c",
               "contains": "SV_CANONICAL_SIZE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_untagged_relation_access.sv",
+      "inputs_sha256": "e5e4c873bc54a36a330c30405377a18fef0694fc34d5f96e04840f02f31b9112",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.3-EXTRACT-MODEL-ACCESS"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row states the general meaning of the diagrams, that group relationships and properties apply to every member. It names no object, relationship or value of its own, so it can only be verified through the individual diagram rows and has no separate observable.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_untagged_relation_access.sv",
+              "contains": "module test_vpi_untagged_relation_access_leaf(input wire a, output wire y);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_instance_directive_properties.sv",
+      "inputs_sha256": "02ffff230b995e1ffa42f979264ee3efec939035dde1fa09cffda610da0f01ba",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.10-EXTRACT-DIAGRAM-071",
+            "SV2023-37.10-EXTRACT-DIAGRAM-072",
+            "SV2023-37.10-EXTRACT-DIAGRAM-073"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "vpiLibrary, vpiCell and vpiConfig depend on a configuration declaration and on the tool's library-to-cell binding. The suite has no runner option that selects a configuration or fixes a library name, so no portable expected string exists.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_instance_directive_properties.sv",
+              "contains": "module idp_pull1 (input a);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_struct_union_flags_members.sv",
+      "inputs_sha256": "c962d5b04e18f80cd0ec0d0353d250a6f76cd340ea72c66322110494ae2e42e3",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.26-EXTRACT-NO-UNPACKED-VALUE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row makes vpi_get_value and vpi_put_value on an entire unpacked structure or union an error. The reaction to the illegal call is not defined, so no output can distinguish a conforming rejection.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_struct_union_flags_members.sv",
+              "contains": "module test_vpi_struct_union_flags_members;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_primitive_kinds_properties.sv",
+      "inputs_sha256": "8362e15ae5eade41eb8bb2fade4722764903ff66944bf9f30da2104a75e0d731",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.35-EXTRACT-PRIMITIVE-WRITE"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The row allows vpi_put_value only on a sequential UDP; a put on another primitive is an error whose reaction (return and message) is not defined.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_primitive_kinds_properties.sv",
+              "contains": "module test_vpi_primitive_kinds_properties_cell (input wire i1, i2, output wire o);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_generate_nettype_typedef.sv",
+      "inputs_sha256": "0dc5971551a18cfe420d2a11279f51e774b4b74d970af92ac64e02f4c7cc0322",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.85-EXTRACT-GENERATE-TYPEDEFS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The new test observes the vpiTypedef half (gen_word_t in g and top_byte_t in the top instance), but the row also requires vpiNetTypedef, whose constant the Annex M headers do not define, so the row is only partly observed.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_generate_nettype_typedef.sv",
+              "contains": "    nettype gen_word_t gnt;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch12/test_unique_priority.sv",
+      "inputs_sha256": "8c0c83b8e85365d589a28bd1a8852b165300e9c6b46a3bee562e8605ea2da384",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-12.4.2-EXTRACT-UNIQUE-PRIORITY-MISS",
+            "SV2023-12.5.3-EXTRACT-UNIQUE-CASE-OVERLAP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The no-match and overlap cases would be reported only through the tool-specific violation report mechanism, which the suite cannot compare; the test keeps a default or a match, so neither a missing report nor an unwanted one changes its output.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_priority.sv",
+              "contains": ":name: test_unique_priority"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch12/test_unique_priority_2.sv",
+      "inputs_sha256": "e77c4834c0ad76203145efb3ee91908fcb50324d63f1284d07c874238840fa31",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-12.5.3-EXTRACT-QUALIFIED-CASE-FORMS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test exercises priority and unique case forms and their first match, but the part of the rule that makes unique assert that the items do not overlap is checked only by the tool-specific violation report, which the output does not contain.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_priority_2.sv",
+              "contains": ":name: test_unique_priority_2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch12/test_case_edge.sv",
+      "inputs_sha256": "5b83253ca4fc945f6a95a0cc0c8400b13118eda8027e68c88c746b4d80138370",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-12.5.3-EXTRACT-SAME-ITEM-NOT-OVERLAP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The rule is about whether several expressions in one item count as an overlap, which is reported only by the tool-specific violation mechanism; the permission not to evaluate the remaining expressions of an item is not made observable because the expressions are constant or free of side effects.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_case_edge.sv",
+              "contains": ":name: test_case_edge"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch12/test_forever_stmt.sv",
+      "inputs_sha256": "28638694905157b0767393b6fc8720a121be6718197bedc6cbcca7004bbe8ecc",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-12.7.6-EXTRACT-FOREVER-AVOID-DEADLOCK"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The rule is a recommendation to suspend, advance time or keep an exit in a forever loop; a tool that let a zero-delay forever loop hang the scheduler produces no output at all, so the test can only show a loop that exits and not the absence of implicit time advancement.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_forever_stmt.sv",
+              "contains": ":name: test_forever_stmt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_cover_pass_statements.sv",
+      "inputs_sha256": "7eedffa81cbc6befbaaabdda101ebc6a84e0e2418786bcfcb8f1edc787b06718",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.3-EXTRACT-COVER-COUNTERS"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The counters that a tool collects for immediate cover and reports at the end of simulation or through the assertion API are not part of the design's standard output; the test counts the cover actions itself, which does not show the tool's own counters.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_cover_pass_statements.sv",
+              "contains": ":name: test_cover_pass_statements"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_illegal_assertion_function_side_effect.sv",
+      "inputs_sha256": "672ce715f94016958d3787a38d984cf9ab508d2dfdac0a59b2f1e50248a4075c",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.6-EXTRACT-AUTOMATIC-RESTRICTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "A non-procedural concurrent assertion cannot name an automatic variable, because automatic variables are not visible in module scope, and a concurrent assertion inside an automatic task or function is a procedural one where 16.14.6.1 permits them; the candidate tests here reject other 16.6 violations, not this one.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_assertion_function_side_effect.sv",
+              "contains": ":name: test_illegal_assertion_function_side_effect"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sva_array_bitselect.sv",
+      "inputs_sha256": "dcfba7b1d88bf3caf16d1cdc6fb9b1454983948904edd0bbe5d59acc6b9b7225",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.6-EXTRACT-CAPTURE-TIME-CONTEXT"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "Capturing a time value in the same assertion context instead of outside it is a recommendation, and both captures give the same sampled values and the same output; the test cannot distinguish a tool that follows it.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sva_array_bitselect.sv",
+              "contains": ":name: test_sva_array_bitselect"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_local_formal_copies_and_casts.sv",
+      "inputs_sha256": "e715106aba45e61da98632fa517abc1ca8167c68a972fbb416b491eba2607939",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.8.2-EXTRACT-OUTPUT-UNASSIGNED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "An output formal that is unassigned at the completion of a match is an error, so a legal test must assign it on every matching thread before completion; the unassigned start can therefore only be shown by the rejected design of a different kind, not by this normal one.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_local_formal_copies_and_casts.sv",
+              "contains": ":name: test_sequence_local_formal_copies_and_casts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_global_clock_past_functions_procedural_action.sv",
+      "inputs_sha256": "6ea660cdb7df0b2f7cde74f686418634127729b8d0936df3ff8ab91c0bfff838",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.9.4-EXTRACT-REPORTED-INTERVAL"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "The interval that a tool's own message reports for an attempt start or end is tool-specific wording and time text, which the suite never compares; the action times in this test do not show what a message would print.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_global_clock_past_functions_procedural_action.sv",
+              "contains": ":name: test_global_clock_past_functions_procedural_action"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_sequence_local_variable_initialization.sv",
+      "inputs_sha256": "c3d1d30262735392d25e17486299355a752d7fa5f8208b44686b23201d606a7c",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.10-EXTRACT-LOST-FLOW"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "A local that does not flow out of a subsequence becomes unassigned and may not be referenced, so the observation would be the rejection of a later reference, an illegal design of a different kind; the test keeps every local assigned before its references.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_local_variable_initialization.sv",
+              "contains": ":name: test_sequence_local_variable_initialization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_operator_precedence_one_tick.sv",
+      "inputs_sha256": "9b95e82c555da82b80e59a62af3d3d3bce888d0affff5dc5f645d96fa7a20b4b",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12-EXTRACT-PRECEDENCE-ALWAYS-ABORT",
+            "SV2023-16.12-EXTRACT-PRECEDENCE-DELAY",
+            "SV2023-16.12-EXTRACT-PRECEDENCE-UNTIL-IMPLIES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Table 16-3 assigns no associativity to level 12, so an unparenthesized mix of always, eventually, if and the abort operators has no unique reading; ## is associative for matching, so left and right association give the same matches; and the test that exercises the precedence levels uses if-else and the abort operators only against and, or, iff and implies, not two operators at level 12 or two ## in a way that would show their associativity.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_operator_precedence_one_tick.sv",
+              "contains": ":name: test_property_operator_precedence_one_tick"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_strong_weak_first_match_same_truth.sv",
+      "inputs_sha256": "06cab3377be8d2193232ab63411d18138ed6f51e0026178da9fe24058b053758",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12.2-EXTRACT-IMPLICIT-STRENGTH",
+            "SV2023-16.12.2-EXTRACT-WEAK"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Whether an unqualified sequence property is weak in assert and strong in cover, and whether weak holds when no finite prefix forbids a match, is decided at the end of the trace; a weak success at the trace end has no action time that the standard fixes, and this test's last tick has matches, so the difference does not appear.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_strong_weak_first_match_same_truth.sv",
+              "contains": ":name: test_strong_weak_first_match_same_truth"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_not_and_abort.sv",
+      "inputs_sha256": "5bf2f3779d2ded6531c8292c79c19f03e47c3cbffacd7d8b4edbc1b2887e7ecd",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12.3-EXTRACT-NEGATION-STRENGTH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Negation switches weak and strong, which is distinguishable only for an attempt whose trace ends before the match can be decided; the test's attempts all have enough ticks, so a tool that kept the strength through not prints the same result.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_nonvacuous_not_and_abort.sv",
+              "contains": ":name: test_nonvacuous_not_and_abort"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
+      "inputs_sha256": "2a03bf60c82442e8e57b7388c5ff05b792a6ff68127863349a7dea45b914fda2",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12.10-EXTRACT-INDEXED-NEXTTIME",
+            "SV2023-16.12.10-EXTRACT-NEXTTIME",
+            "SV2023-16.12.13-EXTRACT-WEAK-EVENTUALLY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The weak nexttime and eventually forms hold when fewer ticks than the index or the range require remain, which is decided only at the end of the trace and has no action time; every phase in this test provides all the ticks, so only the in-range part is visible.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_nexttime_always_eventually_alignment.sv",
+              "contains": ":name: test_nexttime_always_eventually_alignment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_always_eventually.sv",
+      "inputs_sha256": "a7ffb56763877a414ad4045c61dd8db0980f6c2770f3bc8fd435e4ed509841a7",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12.11-EXTRACT-RANGED-ALWAYS",
+            "SV2023-16.12.11-EXTRACT-STRONG-ALWAYS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "A weak always is not required to have all the ticks of its range, and a strong always fails when they are missing; both differences are decided at the end of the trace, and this test keeps every phase long enough, so weak and strong produce the same results.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_nonvacuous_always_eventually.sv",
+              "contains": ":name: test_nonvacuous_always_eventually"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_nonvacuous_until_forms.sv",
+      "inputs_sha256": "4bcedff43e39bd0c547428e4ecd914aea2bb8237279f812dd8655b025858803a",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12.12-EXTRACT-UNTIL-STRONG"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The right operand holds in every phase, so s_until and s_until_with do not need their extra requirement of a current or future tick; the case in which the right operand never holds is decided only at the end of the trace, where the standard fixes no action time.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_nonvacuous_until_forms.sv",
+              "contains": ":name: test_nonvacuous_until_forms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_property_until.sv",
+      "inputs_sha256": "4a5e3e4281765a1058eca502349536b277041dc04ec02801abfbaf42bd2d1e86",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12.12-EXTRACT-UNTIL-WEAK",
+            "SV2023-16.12.15-EXTRACT-WEAK-OPERATORS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "A weak until with a true left operand and a right operand that never holds is true only at the end of the trace, and weak operators impose no extra requirement that could fail earlier; the test's phases end with the right operand true, so the weak and strong forms agree.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_property_until.sv",
+              "contains": ":name: test_property_until"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_past_deep_history.sv",
+      "inputs_sha256": "1253226da4d34298166945524fb78e2ab412f4c017ed5619b834d8ca682dadc8",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.14.7-EXTRACT-INFERRED-SUBSTITUTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test resolves the clock of $past at a top-level assertion in a procedural context only; it has no nested property or sequence instance resolved by clock flow and no checker default resolved at the checker's instance location.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_past_deep_history.sv",
+              "contains": ":name: test_past_deep_history"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+      "inputs_sha256": "b383e74922c45616d209a5a2322f37bfc68b5f0594805220d06a29a41a27abd6",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-19.5.7-EXTRACT-WARN-UNKNOWN-TEXT"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row itself asks for the 19.5.7 warning rule to be reconciled with the following removal rule and with 19.5.4 before an oracle is approved. The wording and the point at which a tool warns are not fixed, so the four-state matching that is fixed is observed by this test while the warning sentence is not registered as a separate oracle.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+              "contains": "wild: coverpoint v { wildcard bins wxz = {4'b1x0z}; }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_format_explicit_field_width.sv",
+      "inputs_sha256": "fb7541c9f5b5735861376227ad94f1b8d603a9b69be4c1661fbf265576238a5c",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.2.1.2-EXTRACT-FIELD-WIDTH"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The existing test observes the field widths that the clause defines, including width 0, but the registry row is the error kind for a width that is not a non-negative decimal integer constant. Such a width is an undefined format specification, whose rejection is already covered by the FORMAT-VALIDITY row; a separate positive witness for this row does not exist.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_format_explicit_field_width.sv",
+              "contains": "$display(\"[%3h]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_fopen_update_modes.sv",
+      "inputs_sha256": "eeea9f8c23afe76ffaf789cf9a473da203ee0720665ffbe1abb743fc64708633",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.3.4-EXTRACT-READ-OPEN-MODES-TEXT"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row records a tension inside the standard: 21.3.4 says reading needs r or r+, while Table 21-6 also defines w+ and a+ as update modes. Approving a rejection test for those modes would need a resolution first, so the row is held rather than witnessed by the existing update-mode test.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fopen_update_modes.sv",
+              "contains": "r+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_fscanf_leaves_conflict_unread.sv",
+      "inputs_sha256": "4298946681f579ab4777d1e1933ba82a5bc2fbcb6ccd05eb0c690bfec9851126",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.3.4.3-EXTRACT-INVALID-SCAN-CONVERSION"
+          ],
+          "disposition": "oracle_issue",
+          "explanation": "An invalid percent conversion code has implementation-dependent results, so the standard fixes no output to compare. The existing test uses only defined conversions.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fscanf_leaves_conflict_unread.sv",
+              "contains": "next="
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.3.4.3-EXTRACT-SCAN-SUPPRESSION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test observes the defined half of the row: %*d consumes its field, returns no count for it, and the next conversion assigns. The row is error kind because a * conversion shall not receive a destination argument, and the suite has no design that a simulator rejects for that reason.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fscanf_leaves_conflict_unread.sv",
+              "contains": "\"%*d %d\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_readmemh_addresses_comments.sv",
+      "inputs_sha256": "ac1477e3dffb9ca0e3a5aae59ddadbe027b039728a85b2ec74dd17421eb89e7a",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.4-EXTRACT-MEMORY-TEXT-LEXICAL"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row is worded as a constraint on the file (it shall contain only whitespace, comments and binary or hexadecimal numbers without length or base). The existing test observes the allowed forms (comments, x and z, underscores, @ addresses), but the standard fixes no diagnostic for a file that violates the constraint, and the registry kind is error with no design that elaboration can reject.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_readmemh_addresses_comments.sv",
+              "contains": "comments"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_writemem_struct_enum_without_addresses.sv",
+      "inputs_sha256": "f110da41f82695a3e33da354484a7f29a618e7b26c1904fd9cb09e2c332046c9",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.4.2-EXTRACT-ENUM-LOAD"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row has two halves: enum file data uses the numeric values of the type, and an out-of-range numeric value requires an error that stops reading. The suite has no readmem test with an enumerated target; the existing enum memory test covers writing only, so the row stays open.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_writemem_struct_enum_without_addresses.sv",
+              "contains": "enum"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+      "inputs_sha256": "90ada96e001c958592f902bedb5e7d054a6b1f3897cb4e904ca53f76ea27089a",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.2.3-EXTRACT-INDIVIDUAL-NET-BITS"
+          ],
+          "disposition": "citation_refinement",
+          "explanation": "The row is a permission to dump individual bits of a vector net. A permission cannot be required of an implementation, and the suite's vector test exercises the whole-vector rule instead.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_vector_extension_and_event.sv",
+              "contains": "the whole vector is dumped"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+      "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.2.3-EXTRACT-VERSION-COMMAND"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The test observes that a nonempty version section precedes the scopes, which is the part the clause fixes for the writer. The clause also says a variable or expression file name is recorded as its unevaluated literal expression, but no test in the suite reads the version text of a $dumpfile call with such a name.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "token == \"$version\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_evcd_port_states_strengths_and_controls.sv",
+      "inputs_sha256": "b24a0972bd614d511fb5f004d1d58b5d6f939ac810e9fd87413839b0253c9ba1",
+      "reviewed_on": "2026-10-27",
+      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-1"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The row defines the strength component value 1 as small. SystemVerilog continuous assignments can express only the supply, strong, pull, weak and highz strengths, so no test design can drive a port with the small component; the existing extended VCD test observes the components 0, 3, 5, 6 and 7 but not 1.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_port_states_strengths_and_controls.sv",
+              "contains": "The inputs of evcd_dut are driven by continuous assignments of strong,"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-2"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The row defines the strength component value 2 as medium. No SystemVerilog drive strength produces the medium component, so no test design can observe it; the existing test observes the expressible components 0, 3, 5, 6 and 7.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_port_states_strengths_and_controls.sv",
+              "contains": "The inputs of evcd_dut are driven by continuous assignments of strong,"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-21.7.4.3-EXTRACT-PORT-STRENGTH-4"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "The row defines the strength component value 4 as large. No SystemVerilog drive strength produces the large component, so no test design can observe it; the existing test observes the expressible components 0, 3, 5, 6 and 7.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_port_states_strengths_and_controls.sv",
+              "contains": "The inputs of evcd_dut are driven by continuous assignments of strong,"
             }
           ]
         }

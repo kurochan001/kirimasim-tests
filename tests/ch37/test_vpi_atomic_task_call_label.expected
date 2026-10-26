@@ -1,0 +1,5 @@
+func call, name NULL
+func call, name func_label
+task call, name NULL
+task call, name call_label
+task/function calls: 4

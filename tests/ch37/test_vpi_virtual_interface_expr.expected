@@ -1,0 +1,4 @@
+assign v0: rhs constant null 1
+assign v2: rhs virtual interface var v1
+v0: expr NULL
+v1: expr interface b

@@ -6,62 +6,62 @@
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 7241 |
-| Clauses in scope | 996 |
-| Clauses out of scope | 163 |
-| Clauses with a direct test | 996/996 |
-| Clauses with at least two direct tests | 996/996 |
+| Tests | 7292 |
+| Clauses in scope | 998 |
+| Clauses out of scope | 161 |
+| Clauses with a direct test | 998/998 |
+| Clauses with at least two direct tests | 998/998 |
 | Clauses with one test | 0 |
-| Clauses with two tests or fewer | 120 |
-| Clauses with only standard-only tests | 213 |
+| Clauses with two tests or fewer | 116 |
+| Clauses with only standard-only tests | 211 |
 | Clauses with one test and only a standard-only test | 0 |
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 620 |
-| Icarus Verilog 13.0 only | 3548 |
-| Verilator 5.052 only | 1429 |
-| standard only | 1644 |
+| both releases | 622 |
+| Icarus Verilog 13.0 only | 3552 |
+| Verilator 5.052 only | 1442 |
+| standard only | 1676 |
 
 ## By chapter
 
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 86 | 15 | 5.7 | 0 | 10 |
+| 3 | Design and verification building blocks | 86 | 16 | 5.4 | 0 | 10 |
 | 4 | Scheduling semantics | 412 | 27 | 15.3 | 0 | 16 |
 | 5 | Lexical conventions | 343 | 16 | 21.4 | 0 | 7 |
-| 6 | Data types | 588 | 76 | 7.7 | 0 | 99 |
+| 6 | Data types | 590 | 76 | 7.8 | 0 | 101 |
 | 7 | Aggregate data types | 482 | 49 | 9.8 | 0 | 69 |
-| 8 | Classes | 319 | 43 | 7.4 | 0 | 72 |
-| 9 | Processes | 199 | 25 | 8.0 | 0 | 26 |
-| 10 | Assignment statements | 203 | 18 | 11.3 | 0 | 28 |
-| 11 | Operators and expressions | 830 | 42 | 19.8 | 0 | 37 |
-| 12 | Procedural programming statements | 177 | 19 | 9.3 | 0 | 15 |
-| 13 | Tasks and functions (subroutines) | 193 | 15 | 12.9 | 0 | 11 |
+| 8 | Classes | 320 | 43 | 7.4 | 0 | 72 |
+| 9 | Processes | 202 | 25 | 8.1 | 0 | 27 |
+| 10 | Assignment statements | 204 | 18 | 11.3 | 0 | 28 |
+| 11 | Operators and expressions | 832 | 42 | 19.8 | 0 | 37 |
+| 12 | Procedural programming statements | 181 | 19 | 9.5 | 0 | 19 |
+| 13 | Tasks and functions (subroutines) | 194 | 15 | 12.9 | 0 | 11 |
 | 14 | Clocking blocks | 78 | 15 | 5.2 | 0 | 13 |
 | 15 | Interprocess synchronization and communication | 56 | 21 | 2.7 | 0 | 18 |
-| 16 | Assertions | 367 | 68 | 5.4 | 0 | 196 |
-| 17 | Checkers | 64 | 10 | 6.4 | 0 | 42 |
-| 18 | Constrained random value generation | 199 | 44 | 4.5 | 0 | 79 |
+| 16 | Assertions | 371 | 68 | 5.5 | 0 | 198 |
+| 17 | Checkers | 68 | 10 | 6.8 | 0 | 46 |
+| 18 | Constrained random value generation | 200 | 44 | 4.5 | 0 | 79 |
 | 19 | Functional coverage | 139 | 24 | 5.8 | 0 | 121 |
 | 20 | Utility system tasks and system functions | 269 | 31 | 8.7 | 0 | 45 |
-| 21 | Input/output system tasks and system functions | 194 | 47 | 4.1 | 0 | 44 |
+| 21 | Input/output system tasks and system functions | 199 | 47 | 4.2 | 0 | 47 |
 | 22 | Compiler directives | 348 | 21 | 16.6 | 0 | 10 |
-| 23 | Modules and hierarchy | 227 | 32 | 7.1 | 0 | 59 |
+| 23 | Modules and hierarchy | 230 | 32 | 7.2 | 0 | 59 |
 | 24 | Programs | 43 | 7 | 6.1 | 0 | 17 |
 | 25 | Interfaces | 119 | 12 | 9.9 | 0 | 29 |
 | 26 | Packages | 83 | 6 | 13.8 | 0 | 14 |
-| 27 | Generate constructs | 102 | 5 | 20.4 | 0 | 2 |
+| 27 | Generate constructs | 103 | 5 | 20.6 | 0 | 2 |
 | 28 | Gate-level and switch-level modeling | 245 | 26 | 9.4 | 0 | 48 |
 | 29 | User-defined primitives | 81 | 14 | 5.8 | 0 | 12 |
 | 30 | Specify blocks | 59 | 22 | 2.7 | 0 | 24 |
 | 31 | Timing checks | 58 | 19 | 3.1 | 0 | 48 |
 | 32 | Backannotation using the standard delay format | 50 | 11 | 4.5 | 0 | 34 |
-| 33 | Configuring the contents of a design | 41 | 13 | 3.2 | 0 | 22 |
-| 35 | Direct programming interface | 120 | 20 | 6.0 | 0 | 40 |
+| 33 | Configuring the contents of a design | 42 | 13 | 3.2 | 0 | 22 |
+| 35 | Direct programming interface | 123 | 20 | 6.2 | 0 | 42 |
 | 36 | Programming language interface (PLI/VPI) overview | 84 | 19 | 4.4 | 0 | 36 |
-| 37 | VPI object model diagrams | 211 | 94 | 2.2 | 0 | 195 |
-| 38 | VPI routine definitions | 102 | 45 | 2.3 | 0 | 40 |
+| 37 | VPI object model diagrams | 222 | 94 | 2.4 | 0 | 206 |
+| 38 | VPI routine definitions | 106 | 46 | 2.3 | 0 | 43 |
 | 39 | Assertion API | 39 | 7 | 5.6 | 0 | 38 |
 | 40 | Code coverage control and API | 31 | 18 | 1.7 | 0 | 28 |
 
@@ -80,12 +80,13 @@ None.
 
 These clauses are cited, but no release produces the expected output of any of their tests.
 
-4.4.2.5, 4.9.2, 6.6.4.1, 6.6.4.2, 6.7.2, 6.7.3, 6.22.6, 8.29, 8.30.2, 8.30.3, 8.30.4, 8.30.5, 9.4.4, 12.4.2.1, 12.4.2.2, 12.5.3.2, 12.6.3, 15.5.4, 15.5.5.1, 15.5.5.2, 15.5.5.3, 16.4.1, 16.4.2, 16.4.3, 16.4.4, 16.4.5, 16.9.1, 16.9.2.1, 16.9.5, 16.9.7, 16.9.8, 16.9.10, 16.12.4, 16.12.5, 16.12.8, 16.12.9, 16.12.18, 16.12.20, 16.13.1, 16.13.2, 16.13.3, 16.13.5, 16.13.6, 16.13.7, 16.14.6.1, 16.14.6.2, 16.14.6.3, 16.14.6.4, 16.14.8, 16.17, 17.4, 17.7.2, 17.8, 19.4.1, 19.5.1.1, 19.5.1.2, 19.5.5, 19.5.6, 19.5.7, 19.6.1.1, 19.6.1.2, 19.6.1.3, 19.6.1.4, 19.6.2, 19.6.3, 19.7.1, 19.9, 19.10, 19.11.2, 19.11.3, 20.7.1, 20.16.1, 20.16.2, 20.16.3, 20.16.4, 21.7.3.1, 21.7.3.2, 21.7.3.3, 21.7.3.4, 21.7.3.5, 21.7.3.7, 21.7.4.1, 21.7.4.2, 21.7.4.3.1, 21.7.4.3.2, 23.3.3.7.2, 23.4, 24.3.2, 24.6, 25.3.2, 28.15.2, 28.16.2.1, 28.16.2.2, 30.7.4.1, 30.7.4.2, 31.3.1, 31.3.2, 31.3.5, 31.4.1, 31.4.2, 31.4.3, 31.4.5, 31.4.6, 31.7, 31.8, 31.9.2, 32.2, 32.4.2, 32.4.3, 33.3.1.1, 33.4.1.5, 33.4.2, 33.5.4, 35.2.2.1, 35.5.1.5, 36.8.1, 36.10.1, 36.10.3, 36.12.1, 36.12.2.1, 37.3.2, 37.3.4, 37.3.5, 37.3.6, 37.3.8, 37.6, 37.7, 37.8, 37.9, 37.11, 37.13, 37.15, 37.18, 37.19, 37.20, 37.21, 37.22, 37.23, 37.24, 37.25, 37.26, 37.29, 37.30, 37.31, 37.32, 37.33, 37.34, 37.35, 37.36, 37.38, 37.40, 37.41, 37.43, 37.44, 37.46, 37.47, 37.48, 37.49, 37.50, 37.51, 37.52, 37.53, 37.54, 37.55, 37.56, 37.57, 37.58, 37.59, 37.60, 37.61, 37.62, 37.63, 37.64, 37.65, 37.66, 37.67, 37.68, 37.69, 37.70, 37.71, 37.72, 37.73, 37.74, 37.75, 37.76, 37.77, 37.78, 37.79, 37.80, 37.81, 37.82, 37.83, 37.84, 38.7, 38.36.1.1, 38.36.1.2, 38.36.1.3, 39.3.1, 39.3.2, 39.4.1, 39.4.2.1, 39.5.1, 39.5.2, 39.5.3, 40.2.1, 40.2.2, 40.3.2.1, 40.3.2.2, 40.3.2.3, 40.3.2.4, 40.3.2.5, 40.5.2, 40.5.3
+4.4.2.5, 4.9.2, 6.6.4.1, 6.6.4.2, 6.7.2, 6.7.3, 6.22.6, 8.29, 8.30.2, 8.30.3, 8.30.4, 8.30.5, 9.4.4, 12.4.2.1, 12.4.2.2, 12.5.3.2, 12.6.3, 15.5.4, 15.5.5.1, 15.5.5.2, 15.5.5.3, 16.4.1, 16.4.2, 16.4.3, 16.4.4, 16.4.5, 16.9.1, 16.9.2.1, 16.9.5, 16.9.7, 16.9.8, 16.9.10, 16.12.4, 16.12.5, 16.12.8, 16.12.9, 16.12.18, 16.12.20, 16.13.1, 16.13.2, 16.13.3, 16.13.5, 16.13.7, 16.14.6.1, 16.14.6.2, 16.14.6.3, 16.14.6.4, 16.14.8, 16.17, 17.4, 17.7.2, 17.8, 19.4.1, 19.5.1.1, 19.5.1.2, 19.5.5, 19.5.6, 19.5.7, 19.6.1.1, 19.6.1.2, 19.6.1.3, 19.6.1.4, 19.6.2, 19.6.3, 19.7.1, 19.9, 19.10, 19.11.2, 19.11.3, 20.7.1, 20.16.1, 20.16.2, 20.16.3, 20.16.4, 21.7.3.1, 21.7.3.2, 21.7.3.3, 21.7.3.4, 21.7.3.5, 21.7.3.7, 21.7.4.1, 21.7.4.2, 21.7.4.3.1, 21.7.4.3.2, 23.3.3.7.2, 24.3.2, 24.6, 25.3.2, 28.15.2, 28.16.2.1, 28.16.2.2, 30.7.4.1, 30.7.4.2, 31.3.1, 31.3.2, 31.3.5, 31.4.1, 31.4.2, 31.4.3, 31.4.5, 31.4.6, 31.7, 31.8, 31.9.2, 32.2, 32.4.2, 32.4.3, 33.3.1.1, 33.4.1.5, 33.4.2, 33.5.4, 35.2.2.1, 35.5.1.5, 36.8.1, 36.10.1, 36.10.3, 36.12.1, 36.12.2.1, 37.3.2, 37.3.4, 37.3.5, 37.3.6, 37.3.8, 37.6, 37.7, 37.8, 37.9, 37.11, 37.13, 37.15, 37.18, 37.19, 37.20, 37.21, 37.22, 37.23, 37.24, 37.25, 37.26, 37.29, 37.30, 37.31, 37.32, 37.33, 37.34, 37.35, 37.36, 37.38, 37.40, 37.41, 37.43, 37.44, 37.46, 37.47, 37.48, 37.49, 37.50, 37.51, 37.52, 37.53, 37.54, 37.55, 37.56, 37.57, 37.58, 37.59, 37.60, 37.61, 37.62, 37.63, 37.64, 37.65, 37.66, 37.67, 37.68, 37.69, 37.70, 37.71, 37.72, 37.73, 37.74, 37.75, 37.76, 37.77, 37.78, 37.79, 37.80, 37.81, 37.82, 37.83, 37.84, 38.7, 38.36.1.1, 38.36.1.2, 38.36.1.3, 39.3.1, 39.3.2, 39.4.1, 39.4.2.1, 39.5.1, 39.5.2, 39.5.3, 40.2.1, 40.2.2, 40.3.2.1, 40.3.2.2, 40.3.2.3, 40.3.2.4, 40.3.2.5, 40.5.2, 40.5.3
 
 ## Cited clauses with an out-of-scope tag
 
 These clauses are cited by tests but carry a tag in `tools/clauses.txt` that says they are out of scope. Either the tag or the citation needs a review.
 
+- `3.2`: tag `none`
 - `3.3`: tag `none`
 - `3.4`: tag `none`
 - `3.5`: tag `none`
@@ -151,6 +152,7 @@ These clauses are cited by tests but carry a tag in `tools/clauses.txt` that say
 - `36.12.2.1`: tag `tool`
 - `37.4.2`: tag `none`
 - `37.4.3`: tag `none`
+- `38.1`: tag `none`
 - `38.7`: tag `none`
 
 ## Cited clauses missing from tools/clauses.txt

@@ -1,0 +1,2 @@
+c.e: named event array, prefix class var c, has actual 1
+typespec e: named event array, prefix NULL, has actual 0

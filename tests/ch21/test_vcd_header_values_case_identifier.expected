@@ -1,0 +1,14 @@
+the date, version and timescale come before the scopes: 1
+the date identifies when the file was made: 1
+enddefinitions after every declaration: 1
+every scope is a module: 1
+one upscope for every scope: 1
+names keep their case: 1
+identifier codes are printable: 1
+the real has 16 significant digits: 1
+the vector uses 0, 1, x and z: 1
+the x net is x and the z net is z: 1
+the memory is not dumped: 1
+timestamps are decimal: 1
+every var type is a VCD type: 1
+no token outside the VCD syntax: 1

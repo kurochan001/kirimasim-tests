@@ -1,0 +1,5 @@
+the structure is a named fork scope: 1
+the members are reg 4: 1
+the unpacked array is not dumped: 1
+the automatic variable is not dumped: 1
+the instance below the module is dumped: 1

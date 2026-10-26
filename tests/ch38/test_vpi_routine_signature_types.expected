@@ -1,0 +1,14 @@
+vpi_get: 1
+vpi_get64: 1
+vpi_get_str: 1
+vpi_iterate: 1
+vpi_scan: 1
+vpi_free_object: 1
+vpi_release_handle: 1
+vpi_get_value: 1
+vpi_put_value: 1
+vpi_register_cb: 1
+vpi_remove_cb: 1
+vpi_control: 1
+vpi_printf: 1
+vpi_put_delays: 1

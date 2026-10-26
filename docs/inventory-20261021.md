@@ -1089,8 +1089,11 @@ A fourth wave covered the 38, 6/7/8, 11/9/4 and 20/31/32/33/35/40
 chapters: 157 links accepted, 51 observations held and 93 tests kept.
 
 A fifth wave covered the remaining 37, 38/17, 16/18, A/H and 6/7/8/9
-requirements: 144 links accepted and 97 tests kept. The ledger maps
-10343 of 12319 rows (83.96%), with 5695 executed (46.23%).
+requirements: 144 links accepted and 97 tests kept.
+
+A sixth wave covered the remaining 37, 38/17, 16/12, A/H, 21/19 and
+6/35/23 requirements: 91 links accepted and 51 tests kept. The ledger
+maps 10434 of 12319 rows (84.70%), with 5727 executed (46.49%).
 
 ### Current state
 
@@ -1099,7 +1102,7 @@ generated. By `:oracle:`, 4092 list Icarus Verilog 13.0, 1339 list
 Verilator 5.052, and 1368 follow the standard only. 855 tests depend on
 x or z values, 512 have C code (97 DPI and 415 VPI), 1695 are illegal
 designs, and 33 set an expected exit code. The requirement ledger maps
-10343 of 12319 rows (83.96%), with 5695 executed (46.23%).
+10434 of 12319 rows (84.70%), with 5727 executed (46.49%).
 
 ### Tests added in this work
 

@@ -1,6 +1,6 @@
 # Clause 6: Data types
 
-[All chapters](README.md). 588 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 590 tests, 7 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -90,6 +90,7 @@
 | [`test_nettype_resolution`](../../tests/ch6/test_nettype_resolution.sv) | a net of a user-defined nettype takes the value its resolution function computes from all its drivers, including an output port, again whenever a driver changes; a second nettype name shares the resolution, and force and release override and restore the resolved value | 6.6.7 10.3 10.6.2 23.3.3 | standard only |  |
 | [`test_user_nettype_resolution_forms`](../../tests/ch6/test_user_nettype_resolution_forms.sv) | User-defined nettypes of 4-state, 2-state, real, shortreal and unpacked data types, with resolvers named directly, through a package scope or as static methods of a parameterized class, renamed through a package scope, declared with a delay, as arrays and without a resolver, resolve their nets as a whole | 6.6.7 6.6 6.7 6.7.2 6.7.3 13.8 | standard only | x/z |
 | [`test_x_value_bitwise`](../../tests/ch6/test_x_value_bitwise.sv) | 4-state logic truth tables | 6.6.7 11.4.8 | Icarus Verilog 13.0 | x/z |
+| [`test_a2_1_3_interconnect_declaration_identifiers`](../../tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.sv) | An interconnect declaration with an implicit data type, a zero delay and two identifiers, the second with an unpacked dimension, declares two interconnect nets, each of which carries a value from a driver to a leaf through the ports | 6.6.8 23.3.3.7 A.2.1.3 | standard only |  |
 | [`test_illegal_interconnect_assigned`](../../tests/ch6/test_illegal_interconnect_assigned.sv) | An interconnect net cannot be the target of a continuous assignment | 6.6.8 6.7.1 | standard only | illegal design |
 | [`test_illegal_interconnect_continuous_assign`](../../tests/ch6/test_illegal_interconnect_continuous_assign.sv) | An interconnect net that connects two ports cannot be the target of a continuous assignment | 6.6.8 | standard only | illegal design |
 | [`test_illegal_interconnect_force`](../../tests/ch6/test_illegal_interconnect_force.sv) | An interconnect net that connects two ports cannot be the target of a force statement, a procedural continuous assignment | 6.6.8 10.6.2 | standard only | illegal design |
@@ -103,6 +104,7 @@
 | [`test_net_declaration_delay_forms`](../../tests/ch6/test_net_declaration_delay_forms.sv) | A net declaration can give its assignment one delay value or a parenthesized list of one, two or three delays, each of which can be min:typ:max; one value applies to every transition, two give the rise and fall delays and the smaller for z, three give rise, fall and turn-off | 6.7 10.3.3 28.16 | Icarus Verilog 13.0 | x/z |
 | [`test_net_declaration_drive_strength_pairs`](../../tests/ch6/test_net_declaration_drive_strength_pairs.sv) | Net declaration assignments take a drive strength of a 0 and a 1 strength from supply, strong, pull, weak or highz in either order, and every bit of a vector net carries its own four-state value and strength | 6.7 6.7.1 10.3.4 28.12 21.2.1.4 | Icarus Verilog 13.0 | x/z |
 | [`test_net_declaration_legal_strength_pairs`](../../tests/ch6/test_net_declaration_legal_strength_pairs.sv) | every permitted drive-strength pair form is accepted and supplies the stated strength to its net | 6.7 | Icarus Verilog 13.0 | x/z |
+| [`test_net_delay_value_forms`](../../tests/ch6/test_net_delay_value_forms.sv) | The delay of a net declaration can be an unsigned number, a real number, an identifier, a time literal or 1step, each scaled in the time unit of the module | 6.7 | standard only |  |
 | [`test_wire_init`](../../tests/ch6/test_wire_init.sv) | Test wire with initialization | 6.7 10.3.1 | Icarus Verilog 13.0 |  |
 | [`test_builtin_net_declaration_forms`](../../tests/ch6/test_builtin_net_declaration_forms.sv) | built-in net declarations with a drive strength or a charge strength, scalared or vectored, an implicit or explicit data type, a delay, a list of net declaration assignments and an unpacked dimension, observed through values, strengths and change times | 6.7.1 6.9.2 10.3.1 10.3.3 10.3.4 6.6.4 A.2.1.3 A.2.3 A.2.4 21.2.1.4 | standard only | x/z |
 | [`test_illegal_interconnect_charge_strength`](../../tests/ch6/test_illegal_interconnect_charge_strength.sv) | An interconnect net declaration cannot specify a charge strength | 6.7.1 6.6.8 | Icarus Verilog 13.0 | illegal design |

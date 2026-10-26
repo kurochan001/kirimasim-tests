@@ -1,0 +1,2 @@
+iv: vpiInterconnectNet, typespec vpiLogicTypespec, same as uv.o 1, elements 2, sizes 1 1
+is: vpiInterconnectNet, typespec vpiStructTypespec, same as us.o 1, members 2, sizes 2 2

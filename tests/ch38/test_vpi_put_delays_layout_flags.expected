@@ -1,0 +1,6 @@
+vpi_put_delays is void (*)(vpiHandle, p_vpi_delay): 1
+mtm: 5 6 7 8 9 10
+pulse: 5 2 3 8 2 3
+both: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+delays only: 11 13
+limits kept: 11 2 3 13 2 3

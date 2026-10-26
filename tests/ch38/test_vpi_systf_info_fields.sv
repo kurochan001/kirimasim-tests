@@ -3,7 +3,7 @@
 :description: vpi_get_systf_info returns the type, sysfunctype, $name, calltf, compiletf, sizetf and user data of registered system tasks and functions, sizetf only for sized functions, in the s_vpi_systf_data structure of the listed field types and order (IEEE 1800-2023 Section 38.12)
 :tags: ch38
 :type: simulation
-:lrm: 1800-2023 38.12 38.37.1
+:lrm: 1800-2023 38.12 38.37.1 38.1
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

@@ -1,0 +1,11 @@
+module m_auto: automatic 1
+module m_static: automatic 0
+interface i_auto: automatic 1
+interface i_static: automatic 0
+program p_auto: automatic 1
+program p_static: automatic 0
+package p_auto: automatic 1
+package p_static: automatic 0
+class C defn: automatic 1
+class C typespec: automatic 1
+class C method m: automatic 1

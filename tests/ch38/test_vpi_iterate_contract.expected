@@ -1,0 +1,5 @@
+vpi_iterate(vpiNet) is a vpiIterator handle: 1
+scanned handles are the named objects: 1
+nets: 2 y z
+no UDP definition: 1
+no module path: 1

@@ -1,0 +1,6 @@
+tn: vpiUnionNet, tagged 1, packed 0
+  members (2): a b
+pn: vpiUnionNet, tagged 0, packed 0
+  members (2): a b
+sn: vpiStructNet, tagged 0, packed 1
+  members (2): a b

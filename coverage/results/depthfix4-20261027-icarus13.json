@@ -1,0 +1,20 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0-dirty)",
+ "tests": {
+  "ch33/test_config_design_top": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'cfg_stray elaborated', expected 'top: test_config_design_top'",
+   "inputs_sha256": "a98c0d8e228c8fdcd40b46ef86c8d8f9bac60da5307a70d6a52802c856ada9d1"
+  },
+  "ch38/test_vpi_systf_info_fields": {
+   "status": "pass",
+   "inputs_sha256": "fe96e77bd0aa63e71345621ba67483791e4a887cffd5724df4a53ad69a16f1fd"
+  }
+ },
+ "generated_at": "2026-10-26T16:29:54.414498+00:00",
+ "runner_sha256": "5d038e969b5a30d8fd52c02fdfc029545e089825f94ecfde1600c33c974709c9",
+ "runner_changed": false,
+ "configuration": {}
+}

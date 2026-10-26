@@ -25820,7 +25820,25 @@
       "acceptance": "A delay value uses an unsigned number, real number, permitted identifier, time literal or exact 1step form under the relevant syntax.",
       "source_note": "IEEE 1800-2023 6.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_net_delay_value_forms.sv",
+          "observation": "Five nets declare the delays #5, #2.5, #D with D = 4, #3ns and #1step and follow src, which rises at 1 ns; the variables record the last transition of each net and the test prints 6.000, 3.500, 5.000, 4.000 and 1.001 ns with the value 1 at 10 ns. 区別: A tool that read 2.5 as an integer, that scaled the identifier or the time literal in another unit, or that took 1step as the time unit instead of the 1 ps precision would print another time for that line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7e3f0eb00666d21db566a847e2ca6b94ef479934af16f34528daaf969b828a91",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_net_delay_value_forms.sv",
+              "contains": "wire #1step w_step;"
+            },
+            {
+              "file": "tests/ch6/test_net_delay_value_forms.expected",
+              "contains": "1step 1.001 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.7",
@@ -125441,7 +125459,33 @@
       "acceptance": "Procedural statement items include the specified assignments, case/conditional/subroutine/disable/event/loop/jump, parallel/sequential/timing/wait/assertion/clocking-drive/randsequence/randcase/expect forms with their required semicolons.",
       "source_note": "IEEE 1800-2023 12.3; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_statement_item_forms.sv",
+          "observation": "The initial block runs every listed statement item: blocking, operator, increment, nonblocking and procedural continuous assignments, if, case, a task call, disable, an event trigger, for, repeat, while and do-while with continue and break, fork-join, a delay and an event control, wait, an immediate assertion, a clocking drive, randcase, randsequence and expect; the final values are i=44, p=1 and q_cb=1. 区別: A form with a missing or extra semicolon, or a rejected form, makes the design fail to elaborate; a wrong semantics changes i, p or q_cb in the printed line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "09592b1cc8596e1176b2771962ca5a600966e9e0646102cac3b22de2aebce6b7",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_statement_item_forms.sv",
+              "contains": "clocking cb @(posedge clk);"
+            },
+            {
+              "file": "tests/ch12/test_statement_item_forms.sv",
+              "contains": "randsequence (main)"
+            },
+            {
+              "file": "tests/ch12/test_statement_item_forms.sv",
+              "contains": "expect (@(posedge clk) 1'b1) i += 0;"
+            },
+            {
+              "file": "tests/ch12/test_statement_item_forms.expected",
+              "contains": "i=44 p=1 q_cb=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.3",
@@ -127985,7 +128029,33 @@
       "acceptance": "A pattern match yields a known one-bit zero/one, never x/z, and successful identifier bindings use procedural assignment.",
       "source_note": "IEEE 1800-2023 12.6; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_pattern_match_known_result.sv",
+          "observation": "v = 4'b1x0z matches 4'b1x0z with result 1 and $isunknown 0 and does not match 4'b1x01 or 4'b1?0z, also with a known 0; .* matches; .n binds n to 4'b10x1 and changing v afterwards leaves n=10x1, which prints as bound n=10x1 v=0000. 区別: A tool that returned x for a match over x or z, treated ? as a wildcard, or bound n by reference rather than by an ordinary procedural copy would print a different result or n.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a366c32354c3e67f914af33c0fa4e2b449643d30e627fe1187f5c46d42197cc0",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_pattern_match_known_result.sv",
+              "contains": "r = (v matches 4'b1x0z);"
+            },
+            {
+              "file": "tests/ch12/test_pattern_match_known_result.sv",
+              "contains": "if (v matches .n) begin"
+            },
+            {
+              "file": "tests/ch12/test_pattern_match_known_result.expected",
+              "contains": "same: 1 unknown=0"
+            },
+            {
+              "file": "tests/ch12/test_pattern_match_known_result.expected",
+              "contains": "bound n=10x1 v=0000"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.6",
@@ -128337,7 +128407,33 @@
       "acceptance": "Pattern casez ignores z and pattern casex ignores x/z wherever compared, including tag/member bits.",
       "source_note": "IEEE 1800-2023 12.6.1; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_pattern_casez_casex_ignored_bits.sv",
+          "observation": "For v = 4'b1x0z a plain case item 4'b1z0z does not match, casez matches it but not 4'b100z, and casex matches 4'b100z and not 4'b1010; for the packed structure the casex member pattern '{2'b10, 2'b10} matches the 2'b1x data, casez does not, and a 2'b11 tag does not match. 区別: A tool that ignored the wrong bits (x in casez, or nothing in case/casex) or applied the ignoring only to whole values and not to structure members prints other lines.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b9f41e00cd5afc6f27146ff3de700e3d55a4b5f8781b62c22e9cb6d5fae63d77",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_pattern_casez_casex_ignored_bits.sv",
+              "contains": "casez (v) matches"
+            },
+            {
+              "file": "tests/ch12/test_pattern_casez_casex_ignored_bits.sv",
+              "contains": "casex (s) matches"
+            },
+            {
+              "file": "tests/ch12/test_pattern_casez_casex_ignored_bits.expected",
+              "contains": "casez z: match"
+            },
+            {
+              "file": "tests/ch12/test_pattern_casez_casex_ignored_bits.expected",
+              "contains": "struct casex: match"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.6.1",
@@ -128608,7 +128704,25 @@
       "acceptance": "True/false/ambiguous predicate outcomes follow the conditional branch/combination rules of 11.4.11.",
       "source_note": "IEEE 1800-2023 12.6.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_pattern_conditional_predicate.sv",
+          "observation": "The predicate ((v matches .n) &&& xp) with xp = 1'bx gives the bit-by-bit merge of a=4'b1010 and b=4'b1100, printed as 1xx0; xp = 1 gives 1010 and xp = 0 gives 1100. 区別: A tool that treated an ambiguous predicate as false or true would print 1100 or 1010, and one that combined the branches with a bitwise operator would print 1110.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8d8bfc9ea531d7dbcf522c188e1700dfb59951ae2dd91a0ac99741b7e1a7c7bf",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_pattern_conditional_predicate.sv",
+              "contains": "r = ((v matches .n) &&& xp) ? a : b;"
+            },
+            {
+              "file": "tests/ch12/test_pattern_conditional_predicate.expected",
+              "contains": "ambiguous: 1xx0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.6.3",
@@ -128626,7 +128740,25 @@
       "acceptance": "A conditional pattern binder scope extends over remaining predicate terms and the true consequent, not the false consequent.",
       "source_note": "IEEE 1800-2023 12.6.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_pattern_conditional_predicate.sv",
+          "observation": "The identifier n bound by the first clause is used in the second clause (n == 4'b1010) and in the true branch (n + 1), so the predicate is true and the result is 1011. 区別: If the binding were confined to the first pattern or deferred, n would be unassigned and the printed result would not be 1011.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8d8bfc9ea531d7dbcf522c188e1700dfb59951ae2dd91a0ac99741b7e1a7c7bf",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_pattern_conditional_predicate.sv",
+              "contains": "r = ((v matches .n) &&& (n == 4'b1010)) ? n + 1 : 4'b1111;"
+            },
+            {
+              "file": "tests/ch12/test_pattern_conditional_predicate.expected",
+              "contains": "scope: 1011"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.6.3",
@@ -128644,7 +128776,29 @@
       "acceptance": "A conditional predicate may contain &&& expression/matches terms evaluated left-to-right until failure, all required for true.",
       "source_note": "IEEE 1800-2023 12.6.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch12/test_pattern_conditional_predicate.sv",
+          "observation": "With (v matches 4'b0000) &&& bump() the failing first clause leaves calls=0 and the result 1100, and with (v matches 4'b1010) &&& bump() the second clause runs, so calls=1 and the result is 1010. 区別: A tool that evaluated all clauses before combining them would call bump in the first case and print calls=1.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8d8bfc9ea531d7dbcf522c188e1700dfb59951ae2dd91a0ac99741b7e1a7c7bf",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_pattern_conditional_predicate.sv",
+              "contains": "r = ((v matches 4'b0000) &&& bump()) ? a : b;"
+            },
+            {
+              "file": "tests/ch12/test_pattern_conditional_predicate.expected",
+              "contains": "short: calls=0 r=1100"
+            },
+            {
+              "file": "tests/ch12/test_pattern_conditional_predicate.expected",
+              "contains": "called: calls=1 r=1010"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "12.6.3",
@@ -145383,13 +145537,66 @@
       "acceptance": "Disable conditions use current variable values; sequence.triggered is permitted, but local variable references and sequence.matched are prohibited.",
       "source_note": "IEEE 1800-2023 16.6; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_illegal_disable_iff_local_variable.sv",
+          "observation": "the disable condition references the local variable k",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b369fb4d9f12c9f3af55daef6fbe131fae0671ce690a20b1e92892efa3019c66",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_disable_iff_local_variable.sv",
+              "contains": ":expected_stderr_regex: test_illegal_disable_iff_local_variable\\.sv:32:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch16/test_illegal_disable_iff_matched.sv",
+          "observation": "the disable condition uses s.matched",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "790ab308617058ccc6281a77d2706b057223546de6166e2b5975ba6fac0561ed",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_disable_iff_matched.sv",
+              "contains": ":expected_stderr_regex: test_illegal_disable_iff_matched\\.sv:26:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch16/test_illegal_disable_iff_sequence_matched.sv",
+          "observation": "the disable condition of a_bad uses s.matched",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "51980552c07b71fb9dcdf093fb3d8973e6aa4f7e24c2d030c571addf61e247d5",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_disable_iff_sequence_matched.sv",
+              "contains": ":expected_stderr_regex: test_illegal_disable_iff_sequence_matched\\.sv:29:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.6",
           "blocks": [
             "B010"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "disable-condition-prohibitions",
+          "tests": [
+            "tests/ch16/test_illegal_disable_iff_local_variable.sv",
+            "tests/ch16/test_illegal_disable_iff_matched.sv",
+            "tests/ch16/test_illegal_disable_iff_sequence_matched.sv"
+          ],
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "observation": "The three illegal designs put a local variable in a disable condition, the sequence method matched in a disable condition, and matched in a disable condition of a sequence instance; each is rejected at the named line. 区別: A tool that allowed any of these in a disable condition would accept the design, and the allowed forms (current values, sequence.triggered) need no error."
         }
       ]
     },
@@ -156264,7 +156471,25 @@
       "acceptance": "strong(sequence_expr) is true if and only if a nonempty sequence match exists.",
       "source_note": "IEEE 1800-2023 16.12.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_strong_weak_first_match_same_truth.sv",
+          "observation": "strong(a ##[1:3] b ##1 c) succeeds only at 45 and 115, the ticks at which a nonempty match of the sequence ends, and not at the other attempt ticks. 区別: A tool that let strong hold without a nonempty match would add successes at the other ticks.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "06cab3377be8d2193232ab63411d18138ed6f51e0026178da9fe24058b053758",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_strong_weak_first_match_same_truth.sv",
+              "contains": "c_strong: cover property (@(posedge clk) strong(a ##[1:3] b ##1 c)) hit(\"strong(s)\");"
+            },
+            {
+              "file": "tests/ch16/test_strong_weak_first_match_same_truth.expected",
+              "contains": "strong(s): [ 45 115 ]"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.12.2",
@@ -160252,7 +160477,29 @@
       "acceptance": "Local variables passed into a matched operand obey the same argument restrictions and flow-out conditions as triggered.",
       "source_note": "IEEE 1800-2023 16.13.5; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_matched_local_threads.sv",
+          "observation": "The local lv declared in the property is passed to the output formal of s and read after s(lv).matched by the attached call record(lv); the four matches carry 1, 2, 3 and 4 and the totals are hits=4 and sum=10. 区別: If the value did not flow out of matched, the continuation would read an unassigned or stale lv and sum would differ from 10.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "afbc6e34a14a3b1a80b9e08f3efef79470b8b0400cf3a6db138d579efe6c23e9",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_matched_local_threads.sv",
+              "contains": "sequence s(local output int v);"
+            },
+            {
+              "file": "tests/ch16/test_matched_local_threads.sv",
+              "contains": "s(lv).matched ##1 (1'b1, record(lv));"
+            },
+            {
+              "file": "tests/ch16/test_matched_local_threads.expected",
+              "contains": "hits=4 sum=10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.5",
@@ -160338,7 +160585,25 @@
       "acceptance": "Multiple source matches within one destination-clock cycle fork destination continuation threads for distinct local valuations, as for matching or operands.",
       "source_note": "IEEE 1800-2023 16.13.5; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_matched_local_threads.sv",
+          "observation": "Two source matches fall in the destination cycle before c1's tick 20 and two more before the tick 60; the continuation after matched runs twice for each, so hits=4 and the four local values sum to 10. 区別: A tool that kept only one match per destination cycle would run the continuation twice and print hits=2 with a different sum.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "afbc6e34a14a3b1a80b9e08f3efef79470b8b0400cf3a6db138d579efe6c23e9",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_matched_local_threads.sv",
+              "contains": "s(lv).matched ##1 (1'b1, record(lv));"
+            },
+            {
+              "file": "tests/ch16/test_matched_local_threads.expected",
+              "contains": "hits=4 sum=10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.5",
@@ -160410,7 +160675,33 @@
       "acceptance": "Empty sequence matches shall activate neither triggered nor matched.",
       "source_note": "IEEE 1800-2023 16.13.6; complete own-body source review, blocks B042. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_method_empty_matches.sv",
+          "observation": "b[*0:1] admits an empty match at every tick but se.triggered is true only at 25, where b is 1, and se2.matched only at 25 after the one nonempty source match at cb's tick 20; the empty source matches at 10 and 30 add no destination tick. 区別: A tool that let an empty match activate a method would record triggered at 5, 15 and 35 and matched at 15 and 35 as well.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "fb22110f40c2eb79a9954654f365e0f58e3f09a367c81ca37d284a7c56f95eb6",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_method_empty_matches.sv",
+              "contains": "sequence se;"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_empty_matches.sv",
+              "contains": "b[*0:1];"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_empty_matches.expected",
+              "contains": "triggered: 25"
+            },
+            {
+              "file": "tests/ch16/test_sequence_method_empty_matches.expected",
+              "contains": "matched: 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.6",
@@ -160428,7 +160719,25 @@
       "acceptance": "The same inference rules apply to a sequence instantiated in an event expression.",
       "source_note": "IEEE 1800-2023 16.13.6; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_sequence_event_expression_clock.sv",
+          "observation": "The clock-free sequence sq = a ##1 b in always @(sq) takes the default clocking dc at posedge clk; a is sampled high at 5 and b at 15, so the event resumes only at 15 and not at the changes of a at 5 or b at 10 and 20. 区別: A tool that used the changes of the operands as the event, or that did not infer a clock for the sequence instance, would record 5, 10 or 20 instead of the single 15.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ac8600e5133a3eb7c7ba268ed6c5960ddb29d0cf72ad91b60967a31b15d1505d",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_sequence_event_expression_clock.sv",
+              "contains": "always @(sq) ev.push_back(int'($time));"
+            },
+            {
+              "file": "tests/ch16/test_sequence_event_expression_clock.expected",
+              "contains": "event: 15"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.13.6",
@@ -166488,7 +166797,29 @@
       "acceptance": "Checkers may be declared in modules, interfaces, programs, checkers, packages, generate blocks and compilation-unit scope.",
       "source_note": "IEEE 1800-2023 17.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_declaration_scope_kinds.sv",
+          "observation": "compilation unit、package、interface、program、module、generate block、checker の7つのスコープに checker を宣言し、それぞれを実体化して出力 cu=1 pkg=5 outer=1 grammar=1 gen=1 と ifc=1 prog=1 を固定時刻に読む。 区別: 列挙されたスコープのどれかで宣言できない実装では、そのスコープの出力が現れず、cu=... の行か ifc/prog の行が変わる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6e17341d20aa42e8a22befdfb84398ec66ec7f3c308997b992c76a429f4f0af7",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_declaration_scope_kinds.sv",
+              "contains": "package pkg;"
+            },
+            {
+              "file": "tests/ch17/test_checker_declaration_scope_kinds.sv",
+              "contains": "  checker outer (input logic b, output bit o);"
+            },
+            {
+              "file": "tests/ch17/test_checker_declaration_scope_kinds.expected",
+              "contains": "cu=1 pkg=5 outer=1 grammar=1 gen=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.2",
@@ -167338,7 +167669,29 @@
       "acceptance": "When procedural execution reaches a checker instance, its static concurrent assertions enter that process pending assertion queue and static deferred reports enter its deferred report queue, subject to maturation/flush rules.",
       "source_note": "IEEE 1800-2023 17.3; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_procedural_deferred_assertion.sv",
+          "observation": "手続き中で実体化した checker の静的 concurrent assertion が到達したクロックだけで失敗し (cfails=1)、静的 deferred assertion が到達時に queue に入り Active の fails=0 の後で成熟する (t=15 で fails=1) ことを読む。 区別: 到達していないクロックでも assertion を検査する実装では cfails が増え、deferred assertion を到達時に queue に入れない実装では t=5 の直後に fails が1になる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "eaa5082889813e35f989914a8cc47382ed7871bf44556a9eb5f9c1a9297dfe1f",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_procedural_deferred_assertion.sv",
+              "contains": "  a2: assert property (@(posedge clk) b) else c = c + 1;"
+            },
+            {
+              "file": "tests/ch17/test_checker_procedural_deferred_assertion.expected",
+              "contains": "t=5 active fails=0"
+            },
+            {
+              "file": "tests/ch17/test_checker_procedural_deferred_assertion.expected",
+              "contains": "final fails=1 cfails=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.3",
@@ -167946,7 +168299,25 @@
       "acceptance": "A nonconstant free variable may change in subsequent steps; if explicitly initialized but never assigned, only its first-step value is fixed by its initializer.",
       "source_note": "IEEE 1800-2023 17.7; complete own-body source review, blocks B028. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_free_variable_constants.sv",
+          "observation": "初期化子 k=9 と n=4 を持つ自由変数のうち、非 const の n が最初のクロックより前に初期化子4をとることを n=4 で読む。 区別: 初期化子を最初のステップに適用しない実装では n の行が4にならず、型の既定値0などになる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a30022e6e5bed7c1134bba9a1e6771b91ca1e9765e8f8da50d8f09128d183007",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_free_variable_constants.sv",
+              "contains": "  rand bit [3:0] n = 4'd4;"
+            },
+            {
+              "file": "tests/ch17/test_checker_free_variable_constants.expected",
+              "contains": "k=9 n=4"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7",
@@ -168156,7 +168527,25 @@
       "acceptance": "A checker assignment right side may use sequence.triggered.",
       "source_note": "IEEE 1800-2023 17.7.1; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch17/test_checker_triggered_assignment.sv",
+          "observation": "sequence s = a ##1 b の終了点を always_ff の右辺 s.triggered で数え、end points: 2 を読む。 区別: triggered を右辺で使えない実装はコンパイルできないか、終了点を数えず 0 または 1 を出す。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "30e074b328b515860bcf3851ac3c3e7002e888aa0de4c911fdca0baae4615bb1",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_triggered_assignment.sv",
+              "contains": "  always_ff @(posedge clk) n <= n + s.triggered;"
+            },
+            {
+              "file": "tests/ch17/test_checker_triggered_assignment.expected",
+              "contains": "end points: 2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "17.7.1",
@@ -183905,7 +184294,21 @@
       "acceptance": "A coverpoint identifier may be used only in a cross item list, a hierarchical name prefixed by a covergroup variable, or after :: with a covergroup scope.",
       "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_point_name_in_method.sv",
+          "observation": "A class method uses the coverpoint identifier cp without a covergroup variable prefix, and the expected result is rejection at that line. 区別: A tool that allowed a bare coverpoint name in a method would accept the design instead of reporting the error.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "82bc2770b9222220c96c34e22bd402886c540ff3dea058622b15cfe606dba456",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_point_name_in_method.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_point_name_in_method\\.sv:29:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5",
@@ -186484,7 +186887,25 @@
       "acceptance": "Expand wildcard bin x/z positions to all 0/1 possibilities before applying value-resolution casts/warnings.",
       "source_note": "IEEE 1800-2023 19.5.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+          "observation": "The wildcard bin 4'b1x0z is expanded to the 0/1 possibilities before matching, so the sample 1100 covers it while the literal bin {4'b1x0z} keeps matching only the exact x/z pattern; the printed covered counts separate the two expansions. 区別: A tool that did not expand x and z in a wildcard bin, or that expanded them after casting, would leave wild at 0/1 for the sample 1100.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b383e74922c45616d209a5a2322f37bfc68b5f0594805220d06a29a41a27abd6",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.sv",
+              "contains": "wild: coverpoint v { wildcard bins wxz = {4'b1x0z}; }"
+            },
+            {
+              "file": "tests/ch19/test_cg_four_state_literal_wildcard_enum.expected",
+              "contains": "v=1100 w=0x: lit 1/1 wild 1/1 tr 1/1 en 1/2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5.7",
@@ -186727,7 +187148,25 @@
       "acceptance": "An optional cross label names it and creates a hierarchical scope for its bins.",
       "source_note": "IEEE 1800-2023 19.6; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_covergroup_cross_and_select_forms.sv",
+          "observation": "The labeled cross x2 opens a body whose options, function and bin selections belong to that cross; the bins name x1 and the function only within the cross, and the coverage 82.8125 counts all eleven selections of x2. 区別: A tool that did not give the labeled cross its own scope would reject or misplace the options and bin definitions, so x2 would not reach the printed coverage.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "21a4a194ab07a2e8290565217379dfb25dfd133740e3efc1eea7c622065b6126",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_covergroup_cross_and_select_forms.sv",
+              "contains": "x2: cross ca, cb iff (en) {"
+            },
+            {
+              "file": "tests/ch19/test_covergroup_cross_and_select_forms.expected",
+              "contains": "cross 82.8125"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.6",
@@ -186745,7 +187184,21 @@
       "acceptance": "A cross name is visible only after a covergroup variable hierarchical prefix or after :: with a covergroup scope.",
       "source_note": "IEEE 1800-2023 19.6; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_illegal_cg_cross_name_in_method.sv",
+          "observation": "A class method uses the cross identifier cr without a covergroup variable prefix, and the expected result is rejection at that line. 区別: A tool that made a cross name visible in a method without the prefix would accept the design instead of reporting the error.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "eb36447923e61e055abc546f8c1356b3198bf797a5be25ee75166ebeb7c472bc",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_cg_cross_name_in_method.sv",
+              "contains": ":expected_stderr_regex: test_illegal_cg_cross_name_in_method\\.sv:31:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.6",
@@ -208348,7 +208801,25 @@
       "acceptance": "%p prints unpacked arrays as legal assignment patterns, possibly with index labels and implementation-dependent whitespace.",
       "source_note": "IEEE 1800-2023 21.2.1.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_pattern_print_array_and_packed_struct.sv",
+          "observation": "The unpacked array of three 4-bit elements prints as an assignment pattern whose optional index labels and white space are removed, leaving the three values in order. 区別: A tool that printed the array as a vector, omitted an element or kept a label after normalization would change the expected line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b9740c37875514e7244339e16933a722041890f051db1f3df07b1dfefc4ab7c2",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_pattern_print_array_and_packed_struct.sv",
+              "contains": "$display(\"array %s\", normalize($sformatf(\"%p\", arr)));"
+            },
+            {
+              "file": "tests/ch21/test_pattern_print_array_and_packed_struct.expected",
+              "contains": "array '{1,2,3}"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.6",
@@ -208568,7 +209039,25 @@
       "acceptance": "%p/%0p may format a singular expression using the same element-format rules.",
       "source_note": "IEEE 1800-2023 21.2.1.6; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_format_p_struct.sv",
+          "observation": "%p is applied to the singular expression word, a string, and formats it as the element of an aggregate would be, in double quotes. 区別: A tool that rejected or unquoted a singular expression under %p would print something other than the quoted string.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3bd86243c060238a6da29fc3bc4a924496ab390493aa019e439199d1d2692ed4",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_format_p_struct.sv",
+              "contains": "$display(\"%s\", squeeze($sformatf(\"%p\", word)));"
+            },
+            {
+              "file": "tests/ch21/test_format_p_struct.expected",
+              "contains": "\"hi\""
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.2.1.6",
@@ -215790,7 +216279,25 @@
       "acceptance": "dumpvars starts dumping at the end of its current simulation time unit.",
       "source_note": "IEEE 1800-2023 21.7.1.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_dumpvars_all_filename_start.sv",
+          "observation": "$dumpvars is called in the same time unit in which the nonblocking a <= 1 is scheduled; the file records exactly one value change of a at that time and it is 1, so dumping began after the time unit had settled, not at the call. 区別: A tool that started dumping immediately would record a = 0 before the nonblocking update and then a second change to 1, so the expected single 1 and the absence of 0 would fail.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6fed57e730adc8ef7e2242f8f2b2d102d5eead578232edd0d04b0957e05ed4b3",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_all_filename_start.sv",
+              "contains": "a <= 1'b1;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_all_filename_start.expected",
+              "contains": "a is already 1 in the time unit of the call: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.1.3",
@@ -216025,7 +216532,25 @@
       "acceptance": "Four-state VCD is free format, with whitespace separating commands.",
       "source_note": "IEEE 1800-2023 21.7.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "The reader takes the file as a stream of whitespace-separated commands and values and finds no token that the free format does not allow; the printed 1 shows that the whole file parsed with whitespace alone as the separator. 区別: A tool that wrote data that is not whitespace-separated, or a byte outside the command and value syntax, would leave an unrecognized token and print 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "while ($fscanf(fd, \"%s\", token) == 1)"
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "no token outside the VCD syntax: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2",
@@ -216079,7 +216604,25 @@
       "acceptance": "VCD data is case-sensitive.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "Two nets whose names differ only in case, sig and SIG, are both declared, have different identifier codes, and keep their spelling in the file; the printed 1 shows that the data was not folded to one case. 区別: A tool that lowercased or uppercased the reference names would collapse the two nets and lose one of the names, printing 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "logic sig = 1'b0;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "names keep their case: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -216136,7 +216679,25 @@
       "acceptance": "Generated VCD identifier codes use printable non-whitespace ASCII characters with decimal codes 33 through 126.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "Every identifier code in the file is checked character by character against the printable non-whitespace range 33 to 126; the design makes the dumper generate codes for several variables, and the printed 1 records that all of them lie in the range. 区別: A tool that used a control character or a space in a code would print 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "function automatic bit printable(string code);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "identifier codes are printable: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -216154,7 +216715,25 @@
       "acceptance": "Real values are dumped using printf %.16g; readers may use scanf %g.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "The dumped text for the real 1.0/3.0 is compared with $sformatf(\"%.16g\", third); the printed 1 shows that the dumper used the printf %.16g conversion of the value. 区別: A tool that used fewer significant digits, for example %g, would print a shorter text and the comparison would fail.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "real third = 1.0 / 3.0;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "the real has 16 significant digits: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -216172,7 +216751,25 @@
       "acceptance": "Real variables use real numbers and other variables binary 0/1/x/z; four-state VCD omits strength and memories.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "The file represents the real variable with a real number and the other variables with 0, 1, x and z values, carries no strength information, and does not declare the unpacked memory; the expected booleans record all four properties. 区別: A tool that dumped strength digits, a memory word, or a non-binary value would set one of the four booleans to 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "logic [1:0] mem[0:1];"
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "the memory is not dumped: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -216190,7 +216787,25 @@
       "acceptance": "VCD header date/version/timescale precedes variable scope/type definitions and then changing-variable entries for each simulation time increment.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "The reader records whether $date, $version and $timescale appear before the first $scope, whether all declarations precede enddefinitions, and whether value changes follow it; the expected first line is the header-order boolean. 区別: A tool that wrote the timescale after a scope, or a declaration after enddefinitions, would print 0 on the corresponding line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "bit header_ok = 1"
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "the date, version and timescale come before the scopes: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -216226,7 +216841,25 @@
       "acceptance": "VCD var types are event, integer, parameter, real, realtime, reg, supply0/1, time, tri, triand, trior, trireg, tri0/1, wand, wire and wor.",
       "source_note": "IEEE 1800-2023 21.7.2.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "Every $var type in the file is compared with the list event, integer, parameter, real, realtime, reg, supply0/1, time, tri, triand, trior, trireg, tri0/1, wand, wire and wor; the design produces reg, wire, integer and real declarations and the printed 1 records that all lie in the list. 区別: A tool that invented a SystemVerilog type name such as logic in a $var would print 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "if (kind != \"event\""
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "every var type is a VCD type: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.1",
@@ -216594,7 +217227,25 @@
       "acceptance": "The VCD date section identifies when the file was generated.",
       "source_note": "IEEE 1800-2023 21.7.2.3; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "The $date section is present before the scopes and contains text, which is what the clause requires the section to identify; the printed boolean records it. 区別: A tool that omitted the date section or wrote it empty would print 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "token == \"$date\""
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "the date identifies when the file was made: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.3",
@@ -216756,7 +217407,25 @@
       "acceptance": "enddefinitions terminates the header and definitions.",
       "source_note": "IEEE 1800-2023 21.7.2.3; complete own-body source review, blocks B014. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+          "observation": "enddefinitions appears after all $var declarations and before the first timestamp; the printed boolean records that no declaration follows it and that every declaration preceded it. 区別: A tool that wrote a declaration after enddefinitions would print 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "10a883f4d231869c44d9733b9667e5ebbe97c71a42dd52c33362aa31d8ef8bdb",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.sv",
+              "contains": "token == \"$enddefinitions\""
+            },
+            {
+              "file": "tests/ch21/test_vcd_header_values_case_identifier.expected",
+              "contains": "enddefinitions after every declaration: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.3",
@@ -216864,7 +217533,25 @@
       "acceptance": "scope specifies variable scope using module for top/module instances, task/function for subroutines, begin for named sequential blocks and fork for named parallel blocks.",
       "source_note": "IEEE 1800-2023 21.7.2.3; complete own-body source review, blocks B015, B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
+          "observation": "The file declares a module scope, a begin scope for the named sequential block, a fork scope for the named parallel block and a task scope for the subroutine; each expected boolean records one type with its name. 区別: A tool that used the wrong scope type, or omitted one of the named scopes, would print 0 on that line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5aa94ddeb7002743d4d608221f1a9821611f3d7838eb682db0d3ce9375467d96",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.sv",
+              "contains": "$scope"
+            },
+            {
+              "file": "tests/ch21/test_vcd_scope_commands_begin_fork_task.expected",
+              "contains": "the named begin block is a begin scope: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.3",
@@ -218422,7 +219109,25 @@
       "acceptance": "Matching four-state and extended VCD construct names are equivalent unless marked with an asterisk in this extended syntax.",
       "source_note": "IEEE 1800-2023 21.7.4.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_evcd_port_node_declarations.sv",
+          "observation": "The extended file uses the four-state names date, version, timescale, scope and var with the same meaning and syntax, so the reader finds them in the same positions; the expected line records the three header sections before the first scope. 区別: A tool that renamed or reordered the inherited constructs would lose one of the three header sections.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0dbfa8f189ac4ad9bbfca85ef0c8382efbf27580867896efab5cd1ac10987f62",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_port_node_declarations.sv",
+              "contains": "$timescale"
+            },
+            {
+              "file": "tests/ch21/test_evcd_port_node_declarations.expected",
+              "contains": "before the first scope: $date yes, $version yes, $timescale yes"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.4.1",
@@ -220927,7 +221632,25 @@
       "acceptance": "Unpacked arrays and automatic variables are not dumped.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_unpacked_struct_and_undumped.sv",
+          "observation": "A packed struct is dumped, while the unpacked array arr and the automatic variable auto_var of an active task are absent from the declarations; the expected booleans record both absences and the presence of the child instance. 区別: A tool that dumped an unpacked array or an automatic variable would declare arr or auto_var and print 0 on the corresponding line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c9738c4bd617cdce3d8acd41a76c2c1feca2d8936b4ee6dc29a84b2af51d72d3",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_unpacked_struct_and_undumped.sv",
+              "contains": "logic [1:0] arr[0:2];"
+            },
+            {
+              "file": "tests/ch21/test_vcd_unpacked_struct_and_undumped.expected",
+              "contains": "the unpacked array is not dumped: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -220945,7 +221668,25 @@
       "acceptance": "Unpacked structures appear as named fork-join scopes with members mapped by the corresponding type rules.",
       "source_note": "IEEE 1800-2023 21.7.5; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_unpacked_struct_and_undumped.sv",
+          "observation": "The unpacked structure pair_value appears as a $scope fork with that name, and its members hi and lo appear inside it as reg 4; the expected booleans record the fork scope and the member type. 区別: A tool that flattened the structure or used a begin scope would lose the fork scope and print 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c9738c4bd617cdce3d8acd41a76c2c1feca2d8936b4ee6dc29a84b2af51d72d3",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_unpacked_struct_and_undumped.sv",
+              "contains": "pair_t pair_value;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_unpacked_struct_and_undumped.expected",
+              "contains": "the structure is a named fork scope: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.5",
@@ -241247,7 +241988,25 @@
       "acceptance": "A module may be instantiated multiple times and defined before or after its instantiation; legal connections include nets, variables, interfaces, events and expressions.",
       "source_note": "IEEE 1800-2023 23.3.2; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_instance_before_definition_connection_kinds.sv",
+          "observation": "The two instances c1 and c2 of fwd_child appear before the module definition. c1 connects the net net_in, the variable var_in, the interface itf, the event ev and the expression var_in + 1; c2 connects the same net, variable, interface and event and the expression 15. The children sum their four 4-bit inputs to 23 and 32 and both count the trigger of the event, so the test prints o1=23 o2=32 hits=1,1. 区別: A tool that required the definition before the instantiation would not compile the design; a broadcast or misdirected connection would change the sums; an event connection that reached only one instance would print hits=1,0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a578a26dc5a7c272fcaed87b693146e7dfea90d17a54609c4599de2b3d4760b7",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_instance_before_definition_connection_kinds.sv",
+              "contains": "fwd_child c1(.n(net_in), .v(var_in), .p(itf), .e(ev), .x(var_in + 4'h1),"
+            },
+            {
+              "file": "tests/ch23/test_instance_before_definition_connection_kinds.expected",
+              "contains": "o1=23 o2=32 hits=1,1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.2",
@@ -242173,7 +242932,25 @@
       "acceptance": "Nets/variables of all data types pass through assignment-compatible ports; ref ports share a variable through hierarchical reference semantics.",
       "source_note": "IEEE 1800-2023 23.3.3; complete own-body source review, blocks B002, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_port_data_types_and_ref_share.sv",
+          "observation": "The instance pdt_child receives a 4-bit net, a real, a string, an unpacked structure, an unpacked int array, a 4-bit value converted to its int port and a ref int, and prints r=1.50 s=txt st=1,2 arr=3,4 conv=15 net=9 ref=17. The child adds 10 to the ref variable, so the parent prints shared=17 and res=30 after the call. 区別: A port that did not pass one of the data types would print another value; a port that sign-extended the 4-bit actual 4'hf to int would print conv=-1 instead of 15; a ref port that copied its argument would leave shared at 7 instead of 17.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "352bde539a87826019eb46bef859e760612b1bdf05e5e9636b9c5a214393da7d",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_port_data_types_and_ref_share.sv",
+              "contains": "pdt_child u(.nw(nw), .rd(rv), .s(sv), .st(st), .arr(arr), .conv(narrow),"
+            },
+            {
+              "file": "tests/ch23/test_port_data_types_and_ref_share.expected",
+              "contains": "parent: res=30 shared=17"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.3.3",
@@ -246561,7 +247338,25 @@
       "acceptance": "An uninstantiated nested module without ports gets one implicit instance named after its module; one with ports is ignored.",
       "source_note": "IEEE 1800-2023 23.4; complete own-body source review, blocks B015. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_nested_module_implicit_instance.sv",
+          "observation": "The nested module nmi_leaf has no ports and nothing instantiates it, so its one implicit instance nmi_leaf runs and sets got = 7 and seen = 1, which the parent reads through nmi_leaf.got and prints as leaf got 7 seen 1. The nested module nmi_ported has a port and prints nothing, because a nested module with ports is not instantiated implicitly. 区別: A tool that created no implicit instance would print leaf got 0 seen 0, because the variable declarations run without the initial procedure; one that also instantiated the ported module would print its line, which the expected output does not contain.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9669be2b1b1b97171fb4c800ab1dbcafe235f592072614ff70d9091b19048e02",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_nested_module_implicit_instance.sv",
+              "contains": "module nmi_leaf;"
+            },
+            {
+              "file": "tests/ch23/test_nested_module_implicit_instance.expected",
+              "contains": "leaf got 7 seen 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "23.4",
@@ -306276,7 +307071,25 @@
       "acceptance": "Linkage names start with a letter or underscore followed by alphanumerics/underscores. Escaped SV spelling for a reserved global name loses its leading backslash and terminating whitespace and must then obey C identifier rules.",
       "source_note": "IEEE 1800-2023 35.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_illegal_dpi_linkage_not_c_identifier.sv",
+          "observation": "The import of lnc_f writes the c_identifier as the escaped identifier \\2bad . Stripping the leading backslash and the trailing white space gives the linkage name 2bad, which starts with a digit and is not a C identifier, so the design must be rejected at the import declaration on line 25. 区別: A tool that kept the backslash in the linkage name, or that did not check the stripped name against the C identifier rules, would accept the design; a conforming tool reports the illegal c_identifier.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "57a6123d9dd26223f3c7d76f661939a1efb8c0c57e32a5e7ac9a19516f429b1d",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_illegal_dpi_linkage_not_c_identifier.sv",
+              "contains": "import \"DPI-C\" \\2bad = function int lnc_f(input int a);   // illegal: 2bad"
+            },
+            {
+              "file": "tests/ch35/test_illegal_dpi_linkage_not_c_identifier.sv",
+              "contains": "expected_stderr_regex: test_illegal_dpi_linkage_not_c_identifier\\.sv:25:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.4",
@@ -310090,7 +310903,25 @@
       "acceptance": "Class member functions cannot be exported; other SV functions may be exported subject to the other constraints.",
       "source_note": "IEEE 1800-2023 35.7; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_illegal_dpi_export_class_method.sv",
+          "observation": "The class cm_child contains an export declaration for its member function m. A class member function cannot be exported, so the design must be rejected at that export declaration on line 21. 区別: A tool that exported class member functions would accept the design; a conforming tool rejects the export because only non-member SystemVerilog functions can be exported.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6df93dc4e122bc9d6c3616d0157845f0b831c99ab8d941d578d784c4acb505a2",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_illegal_dpi_export_class_method.sv",
+              "contains": "export \"DPI-C\" function m;   // illegal: m is a class member function"
+            },
+            {
+              "file": "tests/ch35/test_illegal_dpi_export_class_method.sv",
+              "contains": "expected_stderr_regex: test_illegal_dpi_export_class_method\\.sv:21:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.7",
@@ -319482,7 +320313,25 @@
       "acceptance": "vpiAutomatic=false denotes static and true nonstatic/dynamic, subject to diagram exceptions. On module/program/interface/package or class definition/typespec it denotes the default lifetime of declared task/function variables.",
       "source_note": "IEEE 1800-2023 37.3.7; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_scope_lifetimes.sv",
+          "observation": "The automatic module, interface, program and package instances print vpiAutomatic 1 and the static ones 0; the class definition, its typespec and its method print 1. 区別: A tool that ignores the automatic qualifier prints 0 for the automatic instance, and one that treats a class as static prints 0 for the class definition, typespec or method.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "8335333504e7f53c4fc1da7f6af965576d67e4263a0c1f5bf19db472527e2180",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_scope_lifetimes.sv",
+              "contains": "module automatic sl_auto;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_scope_lifetimes.expected",
+              "contains": "package p_auto: automatic 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.3.7",
@@ -326636,7 +327485,25 @@
       "acceptance": "37.10 defines a one-to-one relation from nettype declaration to instance, using the untagged instance access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.10; complete own-body source review, blocks B002, B003, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_nettype_relations.sv",
+          "observation": "Both nettype declarations reach the top module with vpiInstance: the application compares the handle with the top module handle and prints instance top 1 for nt_plain and nt_res. 区別: A tool that returns NULL or another instance prints instance top 0 for that declaration.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3dc360d4b6bd3160db4ed0e3014c0e7cfa0bd2cd9ce161d963b5968df3f31ddb",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_nettype_relations.sv",
+              "contains": "  nettype nib_t nt_plain;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_nettype_relations.expected",
+              "contains": "nt_plain: name nt_plain, instance top 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.10",
@@ -349056,7 +349923,25 @@
       "acceptance": "Array driver/load iteration should include the entire array/vector or any handle-addressable portion.",
       "source_note": "IEEE 1800-2023 37.21; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "recommendation",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
+          "observation": "The array variable av iterates two drivers with left-hand sides av[0] and av[1] and two loads with right-hand sides av[0] and av[1]. 区別: A tool that returns only whole-array drivers prints 0 or one entry instead of the two element drivers and loads.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3c8c713e4eea03bf5061d68be2a997ef5a5fa0cb839df4b9e096d0764977f1da",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
+              "contains": "  assign av[0] = a;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_driver_load_arrays.expected",
+              "contains": "drivers of av (2): av[0] av[1]"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.21",
@@ -349074,7 +349959,25 @@
       "acceptance": "Struct/union/class variable driver/load iteration includes the whole-variable, bit/part-select and nested-member contributions.",
       "source_note": "IEEE 1800-2023 37.21; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
+          "observation": "The struct variables svw, svm and svb each iterate the force that drives the whole variable (svw), the member svm.x and the bit-select svb.y[0], printed as their left-hand sides. 区別: A tool that reports drivers only for the whole struct prints NULL or no line for svm and svb, so the nested member and bit-select contributions are missing.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3c8c713e4eea03bf5061d68be2a997ef5a5fa0cb839df4b9e096d0764977f1da",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
+              "contains": "    force svm.x = 32'sd4;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_driver_load_arrays.expected",
+              "contains": "drivers of svm (1): svm.x"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.21",
@@ -349333,7 +350236,25 @@
       "acceptance": "The 37.21 VPI model includes continuous assignment bit in the variable drivers group; group properties and relationships apply to this member.",
       "source_note": "IEEE 1800-2023 37.21; complete own-body source review, blocks B002, B003, B004, B005, B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
+          "observation": "The driver of the variable bit v[2] is one continuous assignment bit, printed as vpiContAssignBit with vpiOffset 2. 区別: A tool that returns the whole continuous assignment or no driver prints another type or offset, and one that reports the bit without its offset prints a different number.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3c8c713e4eea03bf5061d68be2a997ef5a5fa0cb839df4b9e096d0764977f1da",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
+              "contains": "  assign v = {2'b00, a, b};"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_driver_load_arrays.expected",
+              "contains": "driver of v[2]: vpiContAssignBit, offset 2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.21",
@@ -349548,7 +350469,25 @@
       "acceptance": "The 37.21 VPI model includes continuous assignment bit in the variable loads group; group properties and relationships apply to this member.",
       "source_note": "IEEE 1800-2023 37.21; complete own-body source review, blocks B002, B003, B004, B005, B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
+          "observation": "The load of the variable bit v[2] is one continuous assignment bit of assign ov = v[2], printed as vpiContAssignBit with vpiOffset 0. 区別: A tool that returns the whole continuous assignment or no load prints another type or offset for the load of v[2].",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3c8c713e4eea03bf5061d68be2a997ef5a5fa0cb839df4b9e096d0764977f1da",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_variable_driver_load_arrays.sv",
+              "contains": "  assign ov = v[2];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_variable_driver_load_arrays.expected",
+              "contains": "load of v[2]: vpiContAssignBit, offset 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.21",
@@ -349828,7 +350767,25 @@
       "acceptance": "37.23 defines a one-to-one relation from nettype declaration to typespec, using the untagged typespec access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.23; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_nettype_relations.sv",
+          "observation": "The nettype declaration nt_plain reaches a typespec named nib_t of type vpiLogicTypespec, and the net p declared with the nettype reaches a typespec with the same name. 区別: A tool that returns no typespec prints NULL, and one that returns the built-in logic typespec without the typedef name prints NULL in place of nib_t.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3dc360d4b6bd3160db4ed0e3014c0e7cfa0bd2cd9ce161d963b5968df3f31ddb",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_nettype_relations.sv",
+              "contains": "  nettype nib_t nt_plain;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_nettype_relations.expected",
+              "contains": "nt_plain: name nt_plain, instance top 1, typespec nib_t (vpiLogicTypespec), net typespec nib_t, with NULL"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.23",
@@ -349969,7 +350926,25 @@
       "acceptance": "A nettype declaration with no resolution function returns NULL for vpiWith.",
       "source_note": "IEEE 1800-2023 37.23; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_nettype_relations.sv",
+          "observation": "For the nettype declaration nt_plain without a resolution function the application prints with NULL, and for nt_res declared with nt_resolve it prints with nt_resolve (vpiFunction). 区別: A tool that returns a handle instead of NULL for a nettype without a resolution function prints a name, and one that omits the function relation prints NULL for nt_res.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "3dc360d4b6bd3160db4ed0e3014c0e7cfa0bd2cd9ce161d963b5968df3f31ddb",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_nettype_relations.sv",
+              "contains": "  nettype nib_t nt_plain;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_nettype_relations.expected",
+              "contains": "with NULL"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.23",
@@ -350211,7 +351186,25 @@
       "acceptance": "37.24 defines a one-to-many relation from interconnect net to nets, using tag vpiElement; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.24; complete own-body source review, blocks B002, B003, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_interconnect_net_typespec.sv",
+          "observation": "The interconnect net iv connected to the 2-bit wire output iterates two elements with sizes 1 and 1, printed as elements 2, sizes 1 1. 区別: A tool that returns no elements prints 0, and one that returns the connected net instead of the interconnect elements gives another count or size.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0287572bb1bd15c851dc904e666ca29470d71ae63473159d7103300cf823f6cf",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interconnect_net_typespec.sv",
+              "contains": "  ic_vec_drv uv (iv);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interconnect_net_typespec.expected",
+              "contains": "iv: vpiInterconnectNet, typespec vpiLogicTypespec, same as uv.o 1, elements 2, sizes 1 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.24",
@@ -350315,7 +351308,25 @@
       "acceptance": "An interconnect-net typespec is the connected net(s) typespec. For packed/unpacked array types vpiElement returns corresponding interconnect elements; for packed/unpacked struct types vpiMember returns corresponding members.",
       "source_note": "IEEE 1800-2023 37.24; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_interconnect_net_typespec.sv",
+          "observation": "The interconnect net iv takes the vpiLogicTypespec of the connected output net (same as uv.o 1), and when it is connected to a packed struct it takes the vpiStructTypespec and iterates two members of size 2. 区別: A tool that builds a fresh typespec for the interconnect prints same as uv.o 0, and one that iterates elements instead of members for the struct prints members 0 or other sizes.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0287572bb1bd15c851dc904e666ca29470d71ae63473159d7103300cf823f6cf",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interconnect_net_typespec.sv",
+              "contains": "  ic_pair_drv us (is);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interconnect_net_typespec.expected",
+              "contains": "is: vpiInterconnectNet, typespec vpiStructTypespec, same as us.o 1, members 2, sizes 2 2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.24",
@@ -354283,7 +355294,25 @@
       "acceptance": "union net exposes vpiTagged as Boolean, representing tagged status; access it with the appropriate property routine under 37.3.1.",
       "source_note": "IEEE 1800-2023 37.26; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_union_net_tagged.sv",
+          "observation": "A tagged union net tn prints vpiTagged 1 and vpiPacked 0, the untagged union net pn prints 0 and 0, and the packed struct net sn prints 0 and 1; each net iterates its two member nets a and b. 区別: A tool that ignores the tagged qualifier prints tagged 0 for tn, and one that reports the struct net as tagged prints tagged 1 for sn.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "7f9a7f8783ccc4160cc3ed9a686482275c0dcaa926c2b7c03f32cc46d7db50dc",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_union_net_tagged.sv",
+              "contains": "  wire tagged_u tn;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_union_net_tagged.expected",
+              "contains": "tn: vpiUnionNet, tagged 1, packed 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.26",
@@ -357461,7 +358490,25 @@
       "acceptance": "The 37.29 VPI model includes virtual-interface variable in the interface expression group; group properties and relationships apply to this member.",
       "source_note": "IEEE 1800-2023 37.29; complete own-body source review, blocks B002, B003, B004, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_virtual_interface_expr.sv",
+          "observation": "The right-hand expression of the assignment v2 = v1 is a virtual interface variable named v1, printed as 'assign v2: rhs virtual interface var v1'. 区別: A tool that resolves the right-hand side to the interface instance or to an operation prints another kind or name, so the line changes.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "50fdf074b679572f99256010b1783df5509df6c6c14a004051be50070497eee4",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_virtual_interface_expr.sv",
+              "contains": "    v2 = v1;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_virtual_interface_expr.expected",
+              "contains": "assign v2: rhs virtual interface var v1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.29",
@@ -357505,7 +358552,25 @@
       "acceptance": "The 37.29 VPI model includes constant in the interface expression group; group properties and relationships apply to this member.",
       "source_note": "IEEE 1800-2023 37.29; complete own-body source review, blocks B002, B003, B004, B005, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_virtual_interface_expr.sv",
+          "observation": "The right-hand expression of the assignment v0 = null is a constant whose vpiConstType is vpiNullConst, printed as 'assign v0: rhs constant null 1'. 区別: A tool that represents null as another constant kind prints constant null 0 or another kind, so the line changes.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "50fdf074b679572f99256010b1783df5509df6c6c14a004051be50070497eee4",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_virtual_interface_expr.sv",
+              "contains": "    v0 = null;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_virtual_interface_expr.expected",
+              "contains": "assign v0: rhs constant null 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.29",
@@ -372775,7 +373840,25 @@
       "acceptance": "The 37.46 VPI model includes continuous assignment bit in the net loads group; group properties and relationships apply to this member.",
       "source_note": "IEEE 1800-2023 37.46; complete own-body source review, blocks B001, B002, B003, B004, B005, B006, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_cont_assign_rhs_and_load.sv",
+          "observation": "The load set of the net bit wv[1] has one object, and vpi_compare_objects shows that it is the continuous assignment bit of assign o = wv[1] & a, which prints offset 0 and size 1. 区別: A tool that returns the whole continuous assignment instead of its bit prints the bit as not the load and changes the final 1 to 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f0f23c05bc8a3928ec9b46f95362c26d129039286e801f3de8e8d3f5adaffad4",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_cont_assign_rhs_and_load.sv",
+              "contains": "  assign o = wv[1] & a;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_cont_assign_rhs_and_load.expected",
+              "contains": "loads of wv[1]: 1, the bit of assign o is the load 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.46",
@@ -373300,7 +374383,25 @@
       "acceptance": "37.47 defines a one-to-one relation from continuous assignment/bit to expression, using tag vpiRhs; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.47; complete own-body source review, blocks B002, B003, B004, B005, B006, B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_cont_assign_rhs_and_load.sv",
+          "observation": "The right-hand side of assign o = wv[1] & a prints as the string \"wv[1] & a\", its type is vpiOperation, its vpiOpType is vpiBitAndOp (printed as bit-and 1), and its value at time 1 is 1. 区別: A tool that returns no expression prints none, one that gives another operator prints bit-and 0, and a wrong decompilation changes the quoted text.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f0f23c05bc8a3928ec9b46f95362c26d129039286e801f3de8e8d3f5adaffad4",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_cont_assign_rhs_and_load.sv",
+              "contains": "  assign o = wv[1] & a;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_cont_assign_rhs_and_load.expected",
+              "contains": "assign o: rhs \"wv[1] & a\", vpiOperation, bit-and 1, value 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.47",
@@ -384701,7 +385802,25 @@
       "acceptance": "The 37.60 VPI model includes task/function call in the atomic statement group; group properties and relationships apply to this member.",
       "source_note": "IEEE 1800-2023 37.60; complete own-body source review, blocks B001, B002, B003, B004, B005, B006, B007, B008, B009, B010, B011, B012, B013, B014, B015, B016, B017, B018, B019, B020, B021, B022, B023, B024. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_atomic_task_call_label.sv",
+          "observation": "The task body has two task calls and two function calls used as statements; the application prints task call call_label, task call NULL, func call func_label and func call NULL from vpiName. 区別: A tool that does not treat a call as an atomic statement omits a line, and one that returns the callee name instead of the statement label prints t or f in place of a label or NULL.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "d54642d76ea0990ec06ea05479d99ff60c3fc9ad813ff4dc9815d36dc4007798",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_atomic_task_call_label.sv",
+              "contains": "    call_label: t();"
+            },
+            {
+              "file": "tests/ch37/test_vpi_atomic_task_call_label.expected",
+              "contains": "task call, name call_label"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.60",
@@ -386148,7 +387267,25 @@
       "acceptance": "37.61 defines a one-to-one relation from named event array to class variable/virtual-interface variable/clocking block, using tag vpiPrefix; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.61; complete own-body source review, blocks B002, B003, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_named_event_array_prefix.sv",
+          "observation": "The named event array looked up as c.e prints its prefix as the class var c, and vpiHasActual 1 for the property of the created object. 区別: A tool that gives no prefix prints NULL, and one that reports no actual prints 0 for the object of the live class variable.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "24b1058f8deec9811d13fc9efaaacc9460d4d15cf2bba20b145082af77de188f",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_named_event_array_prefix.sv",
+              "contains": "    event e[2];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_event_array_prefix.expected",
+              "contains": "c.e: named event array, prefix class var c, has actual 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.61",
@@ -386169,7 +387306,25 @@
       "acceptance": "named event array exposes vpiHasActual as Boolean, representing current actual existence; access it with the appropriate property routine under 37.3.1.",
       "source_note": "IEEE 1800-2023 37.61; complete own-body source review, blocks B002, B003, B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_named_event_array_prefix.sv",
+          "observation": "The same array taken from the class typespec has no prefix and prints has actual 0, while the array of the live object prints 1, so vpiHasActual follows the presence of an actual. 区別: A tool that always returns 1 prints 1 for the typespec declaration, and one that always returns 0 prints 0 for the object.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "24b1058f8deec9811d13fc9efaaacc9460d4d15cf2bba20b145082af77de188f",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_named_event_array_prefix.sv",
+              "contains": "    #1 $vt_ev;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_named_event_array_prefix.expected",
+              "contains": "typespec e: named event array, prefix NULL, has actual 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.61",
@@ -386628,7 +387783,25 @@
       "acceptance": "An object with non-NULL class/virtual-interface variable prefix has the same memory allocation scheme as its prefix.",
       "source_note": "IEEE 1800-2023 37.61; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_prefix_allocation.sv",
+          "observation": "The non-static class property c.m has the class variable c as its prefix, and the interface variable vi.d has the virtual interface variable vi as its prefix; in both lines the allocation scheme of the object equals that of the prefix and prints same 1. 区別: A tool that computes the scheme of the object from a different scope prints different schemes and same 0, and a missing prefix prints NULL.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "9ee575b16fced193498b8aa1dc0f98b18e945aed52bd451eaba9833602729b89",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_prefix_allocation.sv",
+              "contains": "    #1 $vt_prefix(c.m, vi.d);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_prefix_allocation.expected",
+              "contains": "int var m: prefix class var c, scheme dynamic vs dynamic, same 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.61",
@@ -398243,7 +399416,25 @@
       "acceptance": "37.85 defines a one-to-one relation from nettype declaration to generate scope, using the untagged generate scope access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.",
       "source_note": "IEEE 1800-2023 37.85; complete own-body source review, blocks B001, B002, B003, B004, B005, B006, B007, B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_generate_nettype_typedef.sv",
+          "observation": "The nettype declaration gnt inside the generate scope g reaches g with vpiGenScope: vpi_compare_objects with the handle of g prints 1, and the typespec is gen_word_t. 区別: A tool that returns NULL or the enclosing module prints gen scope g 0, and one that loses the typespec prints NULL in place of gen_word_t.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0dc5971551a18cfe420d2a11279f51e774b4b74d970af92ac64e02f4c7cc0322",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_generate_nettype_typedef.sv",
+              "contains": "    nettype gen_word_t gnt;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_generate_nettype_typedef.expected",
+              "contains": "g.gnt: name gnt, vpiNettypeDecl, typespec gen_word_t, gen scope g 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.85",
@@ -398407,7 +399598,33 @@
       "acceptance": "Routine syntax specifies exact name and argument order; all arguments are mandatory unless the routine explicitly states otherwise. Related-routine lists are navigation and impose no required usage.",
       "source_note": "IEEE 1800-2023 38.1; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_routine_signature_types.sv",
+          "observation": "14 の VPI ルーチンのアドレスを、各節が定める戻り値型と引数型・順序の関数ポインタ型と比較し、すべて1を読む。 区別: 名前・戻り値型・引数の型か順序が違う実装では、そのルーチンの行が0になる。そのため期待出力の対応する行が変わり、正しい実装と区別できる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dd7d085e39977df1bdbb94907660b46f2142d1bb5918f6d0a1e4a9e4743150b5",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_routine_signature_types.sv",
+              "contains": "    #1 $vt_types;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_routine_signature_types.c",
+              "contains": "               SAME_TYPE(&vpi_get, PLI_INT32 (*)(PLI_INT32, vpiHandle)));"
+            },
+            {
+              "file": "tests/ch38/test_vpi_routine_signature_types.expected",
+              "contains": "vpi_get: 1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_routine_signature_types.expected",
+              "contains": "vpi_put_delays: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.1",
@@ -400168,7 +401385,7 @@
           "observation": "Registers a task with calltf and compiletf and functions of type vpiIntFunc, vpiRealFunc, vpiTimeFunc, vpiSizedFunc and vpiSizedSignedFunc, then reads them back with vpi_get_systf_info; every tfname starts with $, each type and sysfunctype is reported apart, sizetf is non-NULL only for the sized functions, and the task's user data comes back. 区別: A wrong field type or order changes a layout line; a missing or swapped sysfunctype prints another type name; a sizetf on a non-sized function or a missing one changes the sizetf flag.",
           "reviewed_on": "2026-10-26",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "923d6169ed8808a06a68cbbd15f2c4f438a203a71b15c1cb0608f5b4c3b36528",
+          "inputs_sha256": "fe96e77bd0aa63e71345621ba67483791e4a887cffd5724df4a53ad69a16f1fd",
           "evidence": [
             {
               "file": "tests/ch38/test_vpi_systf_info_fields.sv",
@@ -403333,7 +404550,29 @@
       "acceptance": "vpi_iterate(PLI_INT32 type,vpiHandle ref) returns a vpiIterator handle for the one-to-many objects of that type associated with ref.",
       "source_note": "IEEE 1800-2023 38.23; complete own-body source review, blocks B003, B004, B006, B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_iterate_contract.sv",
+          "observation": "vpi_iterate(vpiNet, module) の戻り値が非NULLで vpi_get(vpiType) が vpiIterator であり、vpi_scan が返す各 net が同名で引いたハンドルと vpi_compare_objects で同一であることを 1 として読む。 区別: iterator でないハンドルを返す実装や、one-to-many 関係を辿れない実装では最初の行が0になり、別のオブジェクトを返す実装では同一性の行が0になる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "4e9c5e6537bef85362f08b20ef019feb2e93b8e4a99ac74c99c41ecf09682862",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_iterate_contract.sv",
+              "contains": "  and g1 (y, a, b);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_iterate_contract.c",
+              "contains": "    it = vpi_iterate(vpiNet, mod);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_iterate_contract.expected",
+              "contains": "vpi_iterate(vpiNet) is a vpiIterator handle: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.23",
@@ -403633,7 +404872,33 @@
       "acceptance": "Subsequent calls overwrite returned file-name storage; copy it to preserve the name.",
       "source_note": "IEEE 1800-2023 38.26; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_mcd_name_buffer.sv",
+          "observation": "vpi_mcd_name(a) と vpi_mcd_name(b) が同じポインタを返し (same buffer: 1)、先のポインタの内容が後の名前 b に上書きされ、a を再取得すると a の名前に戻ることを読む。 区別: 呼び出しごとに別のバッファを返す実装では same buffer が0になり、先のポインタは a の名前のままになる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b78d966c595acf846c31e7887ec7359c08a218d6581a176ff71a2755ff652ab5",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_mcd_name_buffer.sv",
+              "contains": "    #1 $vt_name;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_mcd_name_buffer.c",
+              "contains": "    p = vpi_mcd_name(a);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_mcd_name_buffer.expected",
+              "contains": "same buffer: 1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_mcd_name_buffer.expected",
+              "contains": "first name after the second call: test_vpi_mcd_name_buffer_b.txt"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.26",
@@ -404343,7 +405608,29 @@
       "acceptance": "The application allocates da as s_vpi_time elements; size depends on number of delays and mtm/pulsere flags.",
       "source_note": "IEEE 1800-2023 38.32; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+          "observation": "s_vpi_delay->da に 24 要素の s_vpi_time 配列を呼び出し側で用意し、no_of_delays とフラグに応じた要素だけを埋めて put/get する。 区別: 必要な要素数を確保しない実装では put した値の一部が失われ、both の行が18個にならない。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dae62adc0f1c9ad72b0ead7c60a4035b6ec5778a464f1ea7e8758b93b212145b",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+              "contains": "    (a => y) = (4, 6);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.c",
+              "contains": "    s_vpi_time da[24];"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.expected",
+              "contains": "both: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.32",
@@ -404361,7 +405648,29 @@
       "acceptance": "Supply consecutive delays in source-description order with Table 38-4 per-delay element layout.",
       "source_note": "IEEE 1800-2023 38.32; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+          "observation": "2つの遅延 11 と 13 を宣言順に put し、0/0 で 11 13 を読み戻す。 区別: 遅延を逆順に適用する実装では delays only の行が 13 11 になる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dae62adc0f1c9ad72b0ead7c60a4035b6ec5778a464f1ea7e8758b93b212145b",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+              "contains": "    (a => y) = (4, 6);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.c",
+              "contains": "        const double delays[2] = {11, 13};"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.expected",
+              "contains": "delays only: 11 13"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.32",
@@ -404379,7 +405688,29 @@
       "acceptance": "Apply delay values in get_delays order; if only delay changes, preserve the prior pulse-limit values.",
       "source_note": "IEEE 1800-2023 38.32; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+          "observation": "pulsere レイアウトで reject 2 と error 3 を置いた後、0/0 で遅延 11 13 だけを put し、01 で 11 2 3 13 2 3 を読む。 区別: 遅延だけの put で以前の pulse limit を消す実装では limits kept の行の 2 3 が 0 などになる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dae62adc0f1c9ad72b0ead7c60a4035b6ec5778a464f1ea7e8758b93b212145b",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+              "contains": "    (a => y) = (4, 6);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.c",
+              "contains": "        put(path, 2, 0, 1, limits);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.expected",
+              "contains": "limits kept: 11 2 3 13 2 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.32",
@@ -404652,7 +405983,29 @@
       "acceptance": "With mtm_flag=False, pulsere_flag=True, provide 3*no_of_delays elements, each delay ordered delay, reject limit, error limit.",
       "source_note": "IEEE 1800-2023 38.32; complete own-body source review, blocks B026. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+          "observation": "mtm=0, pulsere=1 で各遅延を delay, reject, error として put し、同じ 01 レイアウトで 5 2 3 8 2 3 を読む。 区別: 01 の並びを誤る実装では pulse の行の値の順が変わる。そのため期待出力の対応する行が変わり、正しい実装と区別できる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dae62adc0f1c9ad72b0ead7c60a4035b6ec5778a464f1ea7e8758b93b212145b",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+              "contains": "    (a => y) = (4, 6);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.c",
+              "contains": "        const double pulse[6] = {5, 2, 3, 8, 2, 3};"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.expected",
+              "contains": "pulse: 5 2 3 8 2 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.32",
@@ -404670,7 +406023,29 @@
       "acceptance": "With mtm_flag=True, pulsere_flag=False, provide 3*no_of_delays elements, each delay ordered min delay, typ delay, max delay.",
       "source_note": "IEEE 1800-2023 38.32; complete own-body source review, blocks B023. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+          "observation": "mtm=1, pulsere=0 で各遅延を min, typ, max として put し、同じ 10 レイアウトで 5 6 7 8 9 10 を読む。 区別: 10 の並びを誤る実装では mtm の行の値の順が変わる。そのため期待出力の対応する行が変わり、正しい実装と区別できる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dae62adc0f1c9ad72b0ead7c60a4035b6ec5778a464f1ea7e8758b93b212145b",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+              "contains": "    (a => y) = (4, 6);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.c",
+              "contains": "        const double mtm[6] = {5, 6, 7, 8, 9, 10};"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.expected",
+              "contains": "mtm: 5 6 7 8 9 10"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.32",
@@ -404688,7 +406063,29 @@
       "acceptance": "With mtm_flag=True, pulsere_flag=True, provide 9*no_of_delays elements, each delay ordered min delay, typ delay, max delay, min reject, typ reject, max reject, min error, typ error, max error.",
       "source_note": "IEEE 1800-2023 38.32; complete own-body source review, blocks B027. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+          "observation": "両フラグを1にして 18 要素 1..18 を put し、同じ 11 レイアウトで読み戻す。 区別: 9倍レイアウトの並びを誤る実装では both の行が1..18にならない。そのため期待出力の対応する行が変わり、正しい実装と区別できる。",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "dae62adc0f1c9ad72b0ead7c60a4035b6ec5778a464f1ea7e8758b93b212145b",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.sv",
+              "contains": "    (a => y) = (4, 6);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.c",
+              "contains": "    put(path, 2, 1, 1, both);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_delays_layout_flags.expected",
+              "contains": "both: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.32",
@@ -421193,7 +422590,25 @@
       "acceptance": "A source description may be configuration declaration; these alternatives are constrained by their own productions and normative prose.",
       "source_note": "IEEE 1800-2023 A.1.2; complete own-body source review, blocks B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch33/test_a1_2_config_declaration_source_description.sv",
+          "observation": "The file holds the modules sda, sdb, sdm and the test module and the configuration declaration cfg_desc, which names the test module as its design and binds the cell sda to sdb; the instance inside sdm and the direct instance of sda both print 2, so the configuration declaration takes part in the source text 区別: A tool that did not read a configuration declaration as a source description prints 1 for both instances, as the run with Icarus Verilog 13.0 does.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c59051c34ed6e31ef19f73bba25df2b2b24adf7f10051a20b5dfa66276001597",
+          "evidence": [
+            {
+              "file": "tests/ch33/test_a1_2_config_declaration_source_description.sv",
+              "contains": "config cfg_desc;"
+            },
+            {
+              "file": "tests/ch33/test_a1_2_config_declaration_source_description.expected",
+              "contains": "m=2 u=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.1.2",
@@ -428979,7 +430394,25 @@
       "acceptance": "A constraint primary optionally starts implicit-class-handle dot or class scope,then hierarchical identifier and select,with optional empty call parentheses under clarification 12.",
       "source_note": "IEEE 1800-2023 A.1.10; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch18/test_a1_10_constraint_primary_forms.sv",
+          "observation": "The constraint c_this writes this.a and holder::LIMIT, an implicit class handle and a class scope before the hierarchical identifier, and c_size writes dyn.size(), the only parenthesized form clarification 12 allows; after randomize() the print shows that a is between 0 and LIMIT and that dyn and arr kept their values 区別: A tool that rejected the this or class scope form, or that allowed another parenthesized form only, does not compile the constraints, and one that ignores them may print a outside the range.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "ab9e15eacf6dcad0ca153c5cae30a65c7c5029b0c9d4d95a09bdd659bad824aa",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_a1_10_constraint_primary_forms.sv",
+              "contains": "      this.a <= holder::LIMIT;"
+            },
+            {
+              "file": "tests/ch18/test_a1_10_constraint_primary_forms.expected",
+              "contains": "a in range 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.1.10",
@@ -430985,7 +432418,25 @@
       "acceptance": "An interconnect declaration has implicit data type, optional # delay value, first identifier with repeated unpacked dimensions, optionally one further comma-separated such identifier, and semicolon; this is the supplied grammar cardinality.",
       "source_note": "IEEE 1800-2023 A.2.1.3; complete own-body source review, blocks B001, B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.sv",
+          "observation": "The declaration interconnect [3:0] #0 ia, ib [2]; has the implicit data type, the delay value 0, the first identifier ia and one further identifier ib with the unpacked dimension [2]; ia carries 4'h1 and ib[1] carries 4'h2 to leaves that add 1, so the print is a=2 b=3 区別: A tool that accepted only one identifier per declaration does not compile the design, and one that ignored the second identifier or its dimension prints a different b or no value; the two nets carry different values.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "1565a1ef6828cae6327409319695c161c4c88070adbf5e38aea774c4205abbf4",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.sv",
+              "contains": "  interconnect [3:0] #0 ia, ib [2];"
+            },
+            {
+              "file": "tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.expected",
+              "contains": "a=2 b=3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.2.1.3",
@@ -436298,7 +437749,25 @@
       "acceptance": "A packed dimension is bracketed constant range or unsized dimension subject to clarification 24.",
       "source_note": "IEEE 1800-2023 A.2.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
+          "observation": "The import declares input logic [] v, whose sole packed dimension is the unsized dimension, and the two actuals have the packed dimensions [7:0] and [3:0][1:0]; each call gives an open array of 8 elements, and 8'hA5 arrives as the value a5 and 8'h02 as 02 区別: A tool that did not accept the unsized packed dimension does not compile the design (both releases stop there), and one that made the array another size prints another number of elements.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "83d7dc404fe4cceeb34b7194160090a68e428a351a592dfd65100ab52146f78f",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
+              "contains": "  import \"DPI-C\" function void c_packed(input logic [] v);"
+            },
+            {
+              "file": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.expected",
+              "contains": "size 8 value a5"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.2.5",
@@ -437160,7 +438629,25 @@
       "acceptance": "Override specifiers permit optional :initial or :extends, followed by optional :final in that order.",
       "source_note": "IEEE 1800-2023 A.2.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_a2_7_dynamic_override_specifiers.sv",
+          "observation": "derived declares t_virt with \": extends\", t_final with \": extends : final\", which is the order of A.2.7, and the new task t_new with \": initial\"; calls through a base handle print derived t_virt and derived t_final, and the call of t_new prints derived t_new 区別: A tool that took the specifiers as ordinary names, or that rejected the order extends before final, would not compile the design or would call the base tasks and print base t_virt.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "c5bbb86d669f19bf40dadedf300cb7a2dae069c2c88cb7d8166c6a46bcd9150d",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_a2_7_dynamic_override_specifiers.sv",
+              "contains": "    virtual task :extends :final t_final;"
+            },
+            {
+              "file": "tests/ch13/test_a2_7_dynamic_override_specifiers.expected",
+              "contains": "derived t_final"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.2.7",
@@ -437918,7 +439405,25 @@
       "acceptance": "Assertion-variable declarations are variable data type, variable-declaration-assignment list and semicolon.",
       "source_note": "IEEE 1800-2023 A.2.10; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_a2_10_assertion_variable_and_sequence_atom.sv",
+          "observation": "The body of p_var declares the assertion variable int k, which the match items set to 1 and then add 1 to, and the consequent checks k == 2; the two properties complete six attempts each and the print gives passes 12 fails 0 区別: A tool that did not declare the property variable, or that did not carry out the assignments of the match items, would see k unset and fail the attempts that reach the consequent, so fails would not be 0.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a0fe82e2f3530b282dc1db32ce153dca38be2b34805f41beb5f979e8c417a76c",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_a2_10_assertion_variable_and_sequence_atom.sv",
+              "contains": "    int k;"
+            },
+            {
+              "file": "tests/ch16/test_a2_10_assertion_variable_and_sequence_atom.expected",
+              "contains": "passes 12 fails 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.2.10",
@@ -442672,7 +444177,25 @@
       "acceptance": "Genvar iteration is identifier assignment-operator genvar-expression, prefix increment/decrement identifier or identifier postfix increment/decrement.",
       "source_note": "IEEE 1800-2023 A.4.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch27/test_a4_2_genvar_iteration_and_for_step.sv",
+          "observation": "Three loop generate constructs iterate the same genvar with g = g + 1, with the prefix ++g and with the postfix g++; the initial procedures of their blocks add 1, 2 and 3, 10 twice and 100 twice, and the print gives 226 区別: A tool that took ++g or g++ for something other than an iteration, or that ran the block a different number of times, prints another total; the 226 needs all three forms with the counts 3, 2 and 2.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "be4d1fd086de13293eca6c86c85887226d6a0d9f4d67845eef30471c309ae694",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_a4_2_genvar_iteration_and_for_step.sv",
+              "contains": "    for (g = 0; g < 2; ++g) begin : prefix_step"
+            },
+            {
+              "file": "tests/ch27/test_a4_2_genvar_iteration_and_for_step.expected",
+              "contains": "total 226"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.4.2",
@@ -444794,7 +446317,25 @@
       "acceptance": "A statement is optional prefix block label, repeated attributes and statement item; null statement is repeated attributes plus semicolon.",
       "source_note": "IEEE 1800-2023 A.6.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_a6_4_statement_label_attributes_null.sv",
+          "observation": "The named statement begins with the label named and holds the labeled statement lbl: record(\"a\"), the statement with the attribute instance (* keep = \"true\" *), an attributed null statement and a plain null statement; the trace is ab and the disable of named skips the last call 区別: A tool that rejected the label or the attributes does not compile the design, and one that did not carry out the disable prints trace abc.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "593f7e1635dffe9d98b744da3ba0601f81f4208863fb5a83bc20bb38e6f422ff",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_a6_4_statement_label_attributes_null.sv",
+              "contains": "    lbl: record(\"a\");"
+            },
+            {
+              "file": "tests/ch9/test_a6_4_statement_label_attributes_null.expected",
+              "contains": "trace ab"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.6.4",
@@ -444812,7 +446353,25 @@
       "acceptance": "Procedural timing-control statement prefixes statement/null with delay, event or cycle-delay control.",
       "source_note": "IEEE 1800-2023 A.6.5; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_a6_5_procedural_timing_control_statement.sv",
+          "observation": "The first procedure has three statements that start with a cycle delay: ##1 runs at 5, ##2 runs at 25 and ##1 runs at 35; the second has a statement that starts with the delay control #2, which runs at 2, and one that starts with the event control @(negedge clk), which runs at 10 区別: A tool that counted the cycle delays from the wrong event, or that did not accept the delay or event control form, prints other times or does not compile the design.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "b4ba9a829add7fc484cb7b6ad911c2112c242914aa40e7fbbf433da2b3a2f67e",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_a6_5_procedural_timing_control_statement.sv",
+              "contains": "    ##1 $display(\"first %0t\", $time);"
+            },
+            {
+              "file": "tests/ch9/test_a6_5_procedural_timing_control_statement.expected",
+              "contains": "second 25"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.6.5",
@@ -445041,7 +446600,25 @@
       "acceptance": "An event trigger is -> selected hierarchical event identifier semicolon, or ->> with optional delay/event control before selected hierarchical event identifier semicolon; selection is nonrange.",
       "source_note": "IEEE 1800-2023 A.6.5; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_a6_5_event_trigger_forms.sv",
+          "observation": "The procedure writes ->> #5 ev, the nonblocking trigger with a delay, then the blocking triggers #1 -> ev and #10 -> ev; the process waiting for ev records the time of each trigger and prints 1, 5 and 11 区別: A tool that fired the nonblocking trigger in the current time step, or that never fired it, prints a list without 5; each time in the list comes from one of the two forms.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "5c82167fbf1a1c79bcbe69f889d5e48ecb4e2c5192930755a084910fd8895e61",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_a6_5_event_trigger_forms.sv",
+              "contains": "    ->> #5 ev;"
+            },
+            {
+              "file": "tests/ch9/test_a6_5_event_trigger_forms.expected",
+              "contains": "triggered 1 5 11"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.6.5",
@@ -445435,7 +447012,25 @@
       "acceptance": "Structure keys are member identifier or assignment-pattern key; array keys are constant expression or assignment-pattern key; assignment-pattern key is simple type or default.",
       "source_note": "IEEE 1800-2023 A.6.7.1; complete own-body source review, blocks B001. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_a6_7_1_assignment_pattern_keys.sv",
+          "observation": "s_members uses four member identifier keys, s_types uses the simple type key int, s_over uses default and then the member key c, and arr uses the constant expression keys 0 and 3 and default; the prints give 1 2 3 4.0, 5 9 5 9.0, 1 1 6 1.0 and 10 7 7 40 区別: A tool that did not match the type key int to the two int members prints 9 for them, and one that did not let the member key c override default prints 1 instead of 6; both the simple type and default keys are needed.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "0f54813df4bf10e8f61b96dd6426d9d084b4393a7e46bcd32269da15ae68b6b2",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_a6_7_1_assignment_pattern_keys.sv",
+              "contains": "  rec_t s_types = '{int: 5, default: 9};"
+            },
+            {
+              "file": "tests/ch10/test_a6_7_1_assignment_pattern_keys.expected",
+              "contains": "types 5 9 5 9.0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.6.7.1",
@@ -445813,7 +447408,25 @@
       "acceptance": "For step has nonempty comma-separated operator assignments, increment/decrement expressions or function subroutine calls.",
       "source_note": "IEEE 1800-2023 A.6.8; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch27/test_a4_2_genvar_iteration_and_for_step.sv",
+          "observation": "The for loops step with the operator assignment i += 1, with the increment expression i++ and with the call add100() in the step position, which runs the void function at every iteration; the print gives k 223 and i 2 区別: A tool that accepted only one of the three step forms does not compile the design, and one that skipped the call step prints 23 less than 223.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "be4d1fd086de13293eca6c86c85887226d6a0d9f4d67845eef30471c309ae694",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_a4_2_genvar_iteration_and_for_step.sv",
+              "contains": "    for (i = 0; i < 3; i += 1) k += 1;"
+            },
+            {
+              "file": "tests/ch27/test_a4_2_genvar_iteration_and_for_step.expected",
+              "contains": "k 223 i 2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.6.8",
@@ -450019,7 +451632,25 @@
       "acceptance": "A constant primary may be package-scoped parameter identifier with constant select.",
       "source_note": "IEEE 1800-2023 A.8.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_a8_3_a8_4_constant_primaries.sv",
+          "observation": "cxp::NIB is a package-scoped parameter of four bits, and the constant primaries cxp::NIB[1] and cxp::NIB[3:2] select a bit and a part of it; the localparams take 1 and 2 and the print gives them in the second and third columns 区別: A tool that did not accept a constant select after a package-scoped parameter, or that selected the bits in the other order, prints another value or does not compile the design.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a0a60612b55939a14e264908a98dcecc2949ec2a1913c9a5ae3532e2f781332f",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_constant_primaries.sv",
+              "contains": "  localparam int SELECTED = cxp::NIB[1];"
+            },
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_constant_primaries.expected",
+              "contains": "4 1 2 1 3 -4 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.8.4",
@@ -450131,7 +451762,25 @@
       "acceptance": "A constant primary may be optionally package/class-scoped enum identifier.",
       "source_note": "IEEE 1800-2023 A.8.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_a8_3_a8_4_constant_primaries.sv",
+          "observation": "cxp::RED is the enum identifier RED of the enumeration declared in package cxp, written with the package scope; the localparam ENUMED takes its value 1 and the print gives 1 in the fourth column 区別: A tool that did not accept the package scope before an enum identifier does not compile the design, and one that took another enumerator prints 2 or another value.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a0a60612b55939a14e264908a98dcecc2949ec2a1913c9a5ae3532e2f781332f",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_constant_primaries.sv",
+              "contains": "  localparam int ENUMED = cxp::RED;"
+            },
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_constant_primaries.expected",
+              "contains": "4 1 2 1 3 -4 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.8.4",
@@ -450323,7 +451972,25 @@
       "acceptance": "A constant primary may be parenthesized constant mintypmax expression.",
       "source_note": "IEEE 1800-2023 A.8.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_a8_3_a8_4_mintypmax_expressions.sv",
+          "observation": "The constant primary (2:2:2) is a parenthesized constant mintypmax expression inside the constant expression (2:2:2) + 1, which initializes the localparam PAREN_ADD to 3 区別: A tool that did not admit a parenthesized constant mintypmax expression as a constant primary does not compile the localparam, and one that used another of the three values prints another sum.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6d9f64d4a14af4e135de11aa3d3fa488b00dcbead01f3b02404b9dfa409619a0",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_mintypmax_expressions.sv",
+              "contains": "  localparam int PAREN_ADD = (2:2:2) + 1;"
+            },
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_mintypmax_expressions.expected",
+              "contains": "mintypmax 3 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.8.4",
@@ -450341,7 +452008,25 @@
       "acceptance": "A constant primary may be constant cast.",
       "source_note": "IEEE 1800-2023 A.8.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_a8_3_a8_4_constant_primaries.sv",
+          "observation": "The constant cast int'(3.9) is a constant primary of the constant expression that initializes the localparam CASTED; the value it gives, 4, is printed in the first column and is also the value the conditional of COND compares 区別: A tool that did not admit a cast as a constant primary does not compile the localparam, and one that gave the cast another value prints another first column.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "a0a60612b55939a14e264908a98dcecc2949ec2a1913c9a5ae3532e2f781332f",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_constant_primaries.sv",
+              "contains": "  localparam int CASTED = int'(3.9);"
+            },
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_constant_primaries.expected",
+              "contains": "4 1 2 1 3 -4 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.8.4",
@@ -450849,7 +452534,25 @@
       "acceptance": "A primary may be parenthesized mintypmax expression.",
       "source_note": "IEEE 1800-2023 A.8.4; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch11/test_a8_3_a8_4_mintypmax_expressions.sv",
+          "observation": "The primary (3:3:3) is a parenthesized mintypmax expression, and the variable x that it initializes holds 3, which the print gives in the second column 区別: A tool that did not admit a parenthesized mintypmax expression as a primary does not compile the declaration of x, and one that read the triplet otherwise prints another value.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "6d9f64d4a14af4e135de11aa3d3fa488b00dcbead01f3b02404b9dfa409619a0",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_mintypmax_expressions.sv",
+              "contains": "  int x = (3:3:3);"
+            },
+            {
+              "file": "tests/ch11/test_a8_3_a8_4_mintypmax_expressions.expected",
+              "contains": "mintypmax 3 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.8.4",
@@ -455942,7 +457645,25 @@
       "acceptance": "An unsized packed dimension is allowed only as the sole packed dimension in a DPI import declaration.",
       "source_note": "IEEE 1800-2023 A.10; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
+          "observation": "The unsized dimension [] of input logic [] v is the only packed dimension of the DPI import declaration, and the actuals logic [7:0] and logic [3:0][1:0] bring the packed dimensions of the argument; both calls see 8 elements and the printed values a5 and 02 区別: A tool that allowed the unsized dimension elsewhere, or that did not let the packed dimensions of the actual match it, would print another size or reject the design.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "83d7dc404fe4cceeb34b7194160090a68e428a351a592dfd65100ab52146f78f",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.sv",
+              "contains": "  logic [3:0][1:0] split_value = 8'h02;"
+            },
+            {
+              "file": "tests/ch35/test_a2_5_dpi_open_array_packed_dimension.expected",
+              "contains": "size 8 value 02"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.10",
@@ -457541,7 +459262,25 @@
       "acceptance": "A parameter class item means localparam.",
       "source_note": "IEEE 1800-2023 A.10; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_a1_9_constructor_arguments_and_parameter_class_item.sv",
+          "observation": "item declares parameter int WIDTH = 3 and parameter int DEPTH = WIDTH * 2; the array slots has WIDTH elements, tag is initialized from DEPTH, and both names are constants of the class; the print gives 3, 6, 3 and 6 区別: A tool that made these parameters non-constant cannot size slots or initialize tag from them, or prints another size; the value 6 shows DEPTH was computed from WIDTH as a constant.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "f65d2d670895c836010536a10de2b71d15b3df32856bc1a3d4e88556612dcef1",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_a1_9_constructor_arguments_and_parameter_class_item.sv",
+              "contains": "    parameter int DEPTH = WIDTH * 2;"
+            },
+            {
+              "file": "tests/ch8/test_a1_9_constructor_arguments_and_parameter_class_item.expected",
+              "contains": "size 3 6 3 6"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.10",
@@ -474630,7 +476369,25 @@
       "acceptance": "Caller actuals must match declared formal types after caller-side coercion; both languages must declare matching cross-boundary formals; compilers cannot infer/coerce across mismatched foreign formal declarations.",
       "source_note": "IEEE 1800-2023 H.6; complete own-body source review, blocks B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_coercion_dual_types_and_qualifiers.sv",
+          "observation": "The import c_types declares a byte, a shortint, an int, a longint, a real, a packed logic and a packed bit formal, and the actuals are coerced on the SystemVerilog side before the call: 32'h1FF to byte gives -1 and 32'h12345 to shortint gives 9029, and the print gives -1 9029 -5 9000000000 1.50 a5 3 hi 区別: A tool that passed the actual without the caller-side coercion prints 511 or 74565 for the first two, and one whose C types did not match the declared formals prints other values or corrupts the rest of the line.",
+          "reviewed_on": "2026-10-27",
+          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
+          "inputs_sha256": "2e9b290d1c00d33db38b66da8abdcce4d7aaaaf4757781d859186bb8c9569ce9",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_coercion_dual_types_and_qualifiers.sv",
+              "contains": "  import \"DPI-C\" function int c_types(input byte b, input shortint s,"
+            },
+            {
+              "file": "tests/ch35/test_dpi_coercion_dual_types_and_qualifiers.expected",
+              "contains": "types -1 9029 -5 9000000000 1.50 a5 3 hi"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "H.6",

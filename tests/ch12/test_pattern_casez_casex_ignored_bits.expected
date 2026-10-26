@@ -1,0 +1,7 @@
+case z: no
+casez z: match
+casex 0: match
+casex 1: no
+struct casex: match
+struct casez: no
+struct tag: no

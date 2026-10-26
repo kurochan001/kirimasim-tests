@@ -1,0 +1,5 @@
+same buffer: 1
+second name: test_vpi_mcd_name_buffer_b.txt
+first name after the second call: test_vpi_mcd_name_buffer_b.txt
+name of a: test_vpi_mcd_name_buffer_a.txt
+closed name is NULL: 1

@@ -1,6 +1,6 @@
 # Clause 8: Classes
 
-[All chapters](README.md). 319 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 320 tests. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
@@ -84,6 +84,7 @@
 | [`test_illegal_virtual_constructor`](../../tests/ch8/test_illegal_virtual_constructor.sv) | a constructor cannot be declared virtual | 8.7 8.20 | Verilator 5.052 | illegal design |
 | [`test_property_initializer_after_super_new`](../../tests/ch8/test_property_initializer_after_super_new.sv) | The initializers of a derived class's properties run after the base class constructor and before the rest of the derived constructor | 8.7 8.17 | Icarus Verilog 13.0 |  |
 | [`test_syntax_class_new_assignment_targets`](../../tests/ch8/test_syntax_class_new_assignment_targets.sv) | blocking assignments of class new to a plain handle, a this. member, a class-scoped static member, a package-scoped variable and selected array elements, with new(args), a typed D::new(args) and a shallow copy new h | 8.7 8.8 8.9 8.11 8.12 A.6.2 | Verilator 5.052 |  |
+| [`test_a1_9_constructor_arguments_and_parameter_class_item`](../../tests/ch8/test_a1_9_constructor_arguments_and_parameter_class_item.sv) | A class constructor takes comma-separated tf-port items with a default value, and a parameter declaration in a class is a localparam, so its value sizes and initializes other class items | 8.8 8.25 A.1.9 A.10 | Verilator 5.052 |  |
 | [`test_class_typed_constructor_forms_and_specializations`](../../tests/ch8/test_class_typed_constructor_forms_and_specializations.sv) | a constructor call is new with optional arguments, preceded by a class scope to construct an object of that class, also of a specialization of a parameterized class, or new followed by an expression for a shallow copy | 8.8 8.12 8.25.1 | Verilator 5.052 |  |
 | [`test_illegal_shallow_copy_of_non_handle`](../../tests/ch8/test_illegal_shallow_copy_of_non_handle.sv) | the expression after new in a shallow copy has to be an object handle | 8.8 8.12 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_typed_new_not_assignment_compatible`](../../tests/ch8/test_illegal_typed_new_not_assignment_compatible.sv) | the class of a typed constructor call has to be assignment compatible with the target | 8.8 8.16 | Icarus Verilog 13.0 | illegal design |
